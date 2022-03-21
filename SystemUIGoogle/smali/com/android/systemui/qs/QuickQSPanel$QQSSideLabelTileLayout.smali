@@ -220,7 +220,7 @@
 .end method
 
 .method public updateResources()Z
-    .locals 2
+    .locals 3
 
     sget v0, Lcom/android/systemui/R$dimen;->qs_quick_tile_size:I
 

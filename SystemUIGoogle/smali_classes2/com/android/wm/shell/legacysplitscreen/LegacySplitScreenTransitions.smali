@@ -138,7 +138,7 @@
 
     iget-object p1, p0, Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreenTransitions;->mTransitions:Lcom/android/wm/shell/transition/Transitions;
 
-    const/16 v0, 0x14
+    const/16 v0, 0x16
 
     invoke-virtual {p1, v0, p2, p0}, Lcom/android/wm/shell/transition/Transitions;->startTransition(ILandroid/window/WindowContainerTransaction;Lcom/android/wm/shell/transition/Transitions$TransitionHandler;)Landroid/os/IBinder;
 
@@ -736,7 +736,7 @@
     return-object v1
 .end method
 
-.method public startAnimation(Landroid/os/IBinder;Landroid/window/TransitionInfo;Landroid/view/SurfaceControl$Transaction;Lcom/android/wm/shell/transition/Transitions$TransitionFinishCallback;)Z
+.method public startAnimation(Landroid/os/IBinder;Landroid/window/TransitionInfo;Landroid/view/SurfaceControl$Transaction;Landroid/view/SurfaceControl$Transaction;Lcom/android/wm/shell/transition/Transitions$TransitionFinishCallback;)Z
     .locals 16
 
     move-object/from16 v0, p0
@@ -866,7 +866,7 @@
     return v7
 
     :cond_7
-    move-object/from16 v3, p4
+    move-object/from16 v3, p5
 
     iput-object v3, v0, Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreenTransitions;->mFinishCallback:Lcom/android/wm/shell/transition/Transitions$TransitionFinishCallback;
 

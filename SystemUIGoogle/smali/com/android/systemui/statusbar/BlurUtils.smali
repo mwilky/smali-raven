@@ -76,19 +76,13 @@
 .method public final applyBlur(Landroid/view/ViewRootImpl;IZ)V
     .locals 3
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_4
 
     invoke-virtual {p1}, Landroid/view/ViewRootImpl;->getSurfaceControl()Landroid/view/SurfaceControl;
 
     move-result-object v0
 
     invoke-virtual {v0}, Landroid/view/SurfaceControl;->isValid()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_3
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/BlurUtils;->supportsBlursOnWindows()Z
 
     move-result v0
 
@@ -104,45 +98,52 @@
     const/4 v1, 0x0
 
     :try_start_0
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/BlurUtils;->supportsBlursOnWindows()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_3
+
     invoke-virtual {p1}, Landroid/view/ViewRootImpl;->getSurfaceControl()Landroid/view/SurfaceControl;
 
     move-result-object v2
 
     invoke-virtual {v0, v2, p2}, Landroid/view/SurfaceControl$Transaction;->setBackgroundBlurRadius(Landroid/view/SurfaceControl;I)Landroid/view/SurfaceControl$Transaction;
 
-    invoke-virtual {p1}, Landroid/view/ViewRootImpl;->getSurfaceControl()Landroid/view/SurfaceControl;
+    iget v2, p0, Lcom/android/systemui/statusbar/BlurUtils;->lastAppliedBlur:I
 
-    move-result-object p1
-
-    invoke-virtual {v0, p1, p3}, Landroid/view/SurfaceControl$Transaction;->setOpaque(Landroid/view/SurfaceControl;Z)Landroid/view/SurfaceControl$Transaction;
-
-    iget p1, p0, Lcom/android/systemui/statusbar/BlurUtils;->lastAppliedBlur:I
-
-    if-nez p1, :cond_1
+    if-nez v2, :cond_1
 
     if-eqz p2, :cond_1
 
     invoke-virtual {v0}, Landroid/view/SurfaceControl$Transaction;->setEarlyWakeupStart()Landroid/view/SurfaceControl$Transaction;
 
     :cond_1
-    iget p1, p0, Lcom/android/systemui/statusbar/BlurUtils;->lastAppliedBlur:I
+    iget v2, p0, Lcom/android/systemui/statusbar/BlurUtils;->lastAppliedBlur:I
 
-    if-eqz p1, :cond_2
+    if-eqz v2, :cond_2
 
     if-nez p2, :cond_2
 
     invoke-virtual {v0}, Landroid/view/SurfaceControl$Transaction;->setEarlyWakeupEnd()Landroid/view/SurfaceControl$Transaction;
 
     :cond_2
+    iput p2, p0, Lcom/android/systemui/statusbar/BlurUtils;->lastAppliedBlur:I
+
+    :cond_3
+    invoke-virtual {p1}, Landroid/view/ViewRootImpl;->getSurfaceControl()Landroid/view/SurfaceControl;
+
+    move-result-object p0
+
+    invoke-virtual {v0, p0, p3}, Landroid/view/SurfaceControl$Transaction;->setOpaque(Landroid/view/SurfaceControl;Z)Landroid/view/SurfaceControl$Transaction;
+
     invoke-virtual {v0}, Landroid/view/SurfaceControl$Transaction;->apply()V
 
-    sget-object p1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
+    sget-object p0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     invoke-static {v0, v1}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
-
-    iput p2, p0, Lcom/android/systemui/statusbar/BlurUtils;->lastAppliedBlur:I
 
     return-void
 
@@ -161,7 +162,7 @@
 
     throw p1
 
-    :cond_3
+    :cond_4
     :goto_0
     return-void
 .end method

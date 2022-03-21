@@ -45,7 +45,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/screenshot/ScreenshotController$ScreenshotExitTransitionCallbacksSupplier;->this$0:Lcom/android/systemui/screenshot/ScreenshotController;
 
-    invoke-static {p0}, Lcom/android/systemui/screenshot/ScreenshotController;->access$300(Lcom/android/systemui/screenshot/ScreenshotController;)V
+    invoke-static {p0}, Lcom/android/systemui/screenshot/ScreenshotController;->access$400(Lcom/android/systemui/screenshot/ScreenshotController;)V
 
     :cond_0
     return-void

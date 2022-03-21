@@ -12,25 +12,19 @@
 .end annotation
 
 
+# static fields
+.field private static final TAG:Ljava/lang/String; = "DisplayChangeController"
+
+
 # instance fields
 .field private final mControllerImpl:Landroid/view/IDisplayWindowRotationController;
 
 .field private final mMainExecutor:Lcom/android/wm/shell/common/ShellExecutor;
 
-.field private final mRotationListener:Ljava/util/ArrayList;
+.field private final mRotationListener:Ljava/util/concurrent/CopyOnWriteArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/ArrayList<",
-            "Lcom/android/wm/shell/common/DisplayChangeController$OnDisplayChangingListener;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field private final mTmpListeners:Ljava/util/ArrayList;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/ArrayList<",
+            "Ljava/util/concurrent/CopyOnWriteArrayList<",
             "Lcom/android/wm/shell/common/DisplayChangeController$OnDisplayChangingListener;",
             ">;"
         }
@@ -41,22 +35,22 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 0
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/view/IWindowManager;Lcom/android/wm/shell/common/ShellExecutor;)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    new-instance v0, Ljava/util/ArrayList;
+    new-instance v0, Ljava/util/concurrent/CopyOnWriteArrayList;
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v0}, Ljava/util/concurrent/CopyOnWriteArrayList;-><init>()V
 
-    iput-object v0, p0, Lcom/android/wm/shell/common/DisplayChangeController;->mRotationListener:Ljava/util/ArrayList;
-
-    new-instance v0, Ljava/util/ArrayList;
-
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
-
-    iput-object v0, p0, Lcom/android/wm/shell/common/DisplayChangeController;->mTmpListeners:Ljava/util/ArrayList;
+    iput-object v0, p0, Lcom/android/wm/shell/common/DisplayChangeController;->mRotationListener:Ljava/util/concurrent/CopyOnWriteArrayList;
 
     iput-object p2, p0, Lcom/android/wm/shell/common/DisplayChangeController;->mMainExecutor:Lcom/android/wm/shell/common/ShellExecutor;
 
@@ -104,34 +98,15 @@
 .end method
 
 .method private onRotateDisplay(IIILandroid/view/IDisplayWindowRotationCallback;)V
-    .locals 4
+    .locals 2
 
     new-instance v0, Landroid/window/WindowContainerTransaction;
 
     invoke-direct {v0}, Landroid/window/WindowContainerTransaction;-><init>()V
 
-    iget-object v1, p0, Lcom/android/wm/shell/common/DisplayChangeController;->mRotationListener:Ljava/util/ArrayList;
+    iget-object p0, p0, Lcom/android/wm/shell/common/DisplayChangeController;->mRotationListener:Ljava/util/concurrent/CopyOnWriteArrayList;
 
-    monitor-enter v1
-
-    :try_start_0
-    iget-object v2, p0, Lcom/android/wm/shell/common/DisplayChangeController;->mTmpListeners:Ljava/util/ArrayList;
-
-    invoke-virtual {v2}, Ljava/util/ArrayList;->clear()V
-
-    iget-object v2, p0, Lcom/android/wm/shell/common/DisplayChangeController;->mTmpListeners:Ljava/util/ArrayList;
-
-    iget-object v3, p0, Lcom/android/wm/shell/common/DisplayChangeController;->mRotationListener:Ljava/util/ArrayList;
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
-
-    monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    iget-object p0, p0, Lcom/android/wm/shell/common/DisplayChangeController;->mTmpListeners:Ljava/util/ArrayList;
-
-    invoke-virtual {p0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {p0}, Ljava/util/concurrent/CopyOnWriteArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object p0
 
@@ -153,49 +128,34 @@
     goto :goto_0
 
     :cond_0
-    :try_start_1
+    :try_start_0
     invoke-interface {p4, p3, v0}, Landroid/view/IDisplayWindowRotationCallback;->continueRotateDisplay(ILandroid/window/WindowContainerTransaction;)V
-    :try_end_1
-    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_1
 
     :catch_0
-    return-void
-
-    :catchall_0
     move-exception p0
 
-    :try_start_2
-    monitor-exit v1
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    sget-object p1, Lcom/android/wm/shell/common/DisplayChangeController;->TAG:Ljava/lang/String;
 
-    throw p0
+    const-string p2, "Failed to continue rotation"
+
+    invoke-static {p1, p2, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    :goto_1
+    return-void
 .end method
 
 
 # virtual methods
 .method public addRotationListener(Lcom/android/wm/shell/common/DisplayChangeController$OnDisplayChangingListener;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/wm/shell/common/DisplayChangeController;->mRotationListener:Ljava/util/ArrayList;
+    iget-object p0, p0, Lcom/android/wm/shell/common/DisplayChangeController;->mRotationListener:Ljava/util/concurrent/CopyOnWriteArrayList;
 
-    monitor-enter v0
-
-    :try_start_0
-    iget-object p0, p0, Lcom/android/wm/shell/common/DisplayChangeController;->mRotationListener:Ljava/util/ArrayList;
-
-    invoke-virtual {p0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    monitor-exit v0
+    invoke-virtual {p0, p1}, Ljava/util/concurrent/CopyOnWriteArrayList;->add(Ljava/lang/Object;)Z
 
     return-void
-
-    :catchall_0
-    move-exception p0
-
-    monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw p0
 .end method

@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/settings/brightness/BrightnessController;-><init>(Landroid/content/Context;Lcom/android/systemui/settings/brightness/ToggleSlider;Lcom/android/systemui/broadcast/BroadcastDispatcher;)V
+    value = Lcom/android/systemui/settings/brightness/BrightnessController;-><init>(Landroid/content/Context;Lcom/android/systemui/settings/brightness/ToggleSlider;Lcom/android/systemui/broadcast/BroadcastDispatcher;Landroid/os/Handler;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -42,7 +42,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/settings/brightness/BrightnessController$8;->this$0:Lcom/android/systemui/settings/brightness/BrightnessController;
 
-    invoke-static {v0}, Lcom/android/systemui/settings/brightness/BrightnessController;->access$400(Lcom/android/systemui/settings/brightness/BrightnessController;)Ljava/lang/Runnable;
+    invoke-static {v0}, Lcom/android/systemui/settings/brightness/BrightnessController;->access$300(Lcom/android/systemui/settings/brightness/BrightnessController;)Ljava/lang/Runnable;
 
     move-result-object v0
 

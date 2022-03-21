@@ -1,14 +1,11 @@
 .class Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView$1;
-.super Ljava/lang/Object;
+.super Landroid/animation/AnimatorListenerAdapter;
 .source "ActivatableNotificationView.java"
-
-# interfaces
-.implements Landroid/animation/ValueAnimator$AnimatorUpdateListener;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;->updateBackgroundTint(Z)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -27,25 +24,21 @@
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView$1;->this$0:Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
+.method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView$1;->this$0:Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;
 
-    iget-object p1, p0, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;->mBackgroundNormal:Lcom/android/systemui/statusbar/notification/row/NotificationBackgroundView;
+    const/4 p1, 0x0
 
-    invoke-virtual {p1}, Landroid/view/View;->getAlpha()F
-
-    move-result p1
-
-    invoke-static {p0, p1}, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;->access$000(Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;F)V
+    invoke-static {p0, p1}, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;->access$002(Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;Landroid/animation/ValueAnimator;)Landroid/animation/ValueAnimator;
 
     return-void
 .end method

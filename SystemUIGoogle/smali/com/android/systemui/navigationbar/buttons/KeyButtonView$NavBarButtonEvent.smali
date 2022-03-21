@@ -40,6 +40,8 @@
 
 .field public static final enum NAVBAR_HOME_BUTTON_TAP:Lcom/android/systemui/navigationbar/buttons/KeyButtonView$NavBarButtonEvent;
 
+.field public static final enum NAVBAR_IME_SWITCHER_BUTTON_TAP:Lcom/android/systemui/navigationbar/buttons/KeyButtonView$NavBarButtonEvent;
+
 .field public static final enum NAVBAR_OVERVIEW_BUTTON_LONGPRESS:Lcom/android/systemui/navigationbar/buttons/KeyButtonView$NavBarButtonEvent;
 
 .field public static final enum NAVBAR_OVERVIEW_BUTTON_TAP:Lcom/android/systemui/navigationbar/buttons/KeyButtonView$NavBarButtonEvent;
@@ -53,7 +55,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 15
+    .locals 16
 
     new-instance v0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView$NavBarButtonEvent;
 
@@ -93,69 +95,85 @@
 
     new-instance v5, Lcom/android/systemui/navigationbar/buttons/KeyButtonView$NavBarButtonEvent;
 
-    const-string v7, "NAVBAR_HOME_BUTTON_LONGPRESS"
+    const-string v7, "NAVBAR_IME_SWITCHER_BUTTON_TAP"
 
     const/4 v8, 0x3
 
-    const/16 v9, 0x218
+    const/16 v9, 0x39b
 
     invoke-direct {v5, v7, v8, v9}, Lcom/android/systemui/navigationbar/buttons/KeyButtonView$NavBarButtonEvent;-><init>(Ljava/lang/String;II)V
 
-    sput-object v5, Lcom/android/systemui/navigationbar/buttons/KeyButtonView$NavBarButtonEvent;->NAVBAR_HOME_BUTTON_LONGPRESS:Lcom/android/systemui/navigationbar/buttons/KeyButtonView$NavBarButtonEvent;
+    sput-object v5, Lcom/android/systemui/navigationbar/buttons/KeyButtonView$NavBarButtonEvent;->NAVBAR_IME_SWITCHER_BUTTON_TAP:Lcom/android/systemui/navigationbar/buttons/KeyButtonView$NavBarButtonEvent;
 
     new-instance v7, Lcom/android/systemui/navigationbar/buttons/KeyButtonView$NavBarButtonEvent;
 
-    const-string v9, "NAVBAR_BACK_BUTTON_LONGPRESS"
+    const-string v9, "NAVBAR_HOME_BUTTON_LONGPRESS"
 
     const/4 v10, 0x4
 
-    const/16 v11, 0x219
+    const/16 v11, 0x218
 
     invoke-direct {v7, v9, v10, v11}, Lcom/android/systemui/navigationbar/buttons/KeyButtonView$NavBarButtonEvent;-><init>(Ljava/lang/String;II)V
 
-    sput-object v7, Lcom/android/systemui/navigationbar/buttons/KeyButtonView$NavBarButtonEvent;->NAVBAR_BACK_BUTTON_LONGPRESS:Lcom/android/systemui/navigationbar/buttons/KeyButtonView$NavBarButtonEvent;
+    sput-object v7, Lcom/android/systemui/navigationbar/buttons/KeyButtonView$NavBarButtonEvent;->NAVBAR_HOME_BUTTON_LONGPRESS:Lcom/android/systemui/navigationbar/buttons/KeyButtonView$NavBarButtonEvent;
 
     new-instance v9, Lcom/android/systemui/navigationbar/buttons/KeyButtonView$NavBarButtonEvent;
 
-    const-string v11, "NAVBAR_OVERVIEW_BUTTON_LONGPRESS"
+    const-string v11, "NAVBAR_BACK_BUTTON_LONGPRESS"
 
     const/4 v12, 0x5
 
-    const/16 v13, 0x21a
+    const/16 v13, 0x219
 
     invoke-direct {v9, v11, v12, v13}, Lcom/android/systemui/navigationbar/buttons/KeyButtonView$NavBarButtonEvent;-><init>(Ljava/lang/String;II)V
 
-    sput-object v9, Lcom/android/systemui/navigationbar/buttons/KeyButtonView$NavBarButtonEvent;->NAVBAR_OVERVIEW_BUTTON_LONGPRESS:Lcom/android/systemui/navigationbar/buttons/KeyButtonView$NavBarButtonEvent;
+    sput-object v9, Lcom/android/systemui/navigationbar/buttons/KeyButtonView$NavBarButtonEvent;->NAVBAR_BACK_BUTTON_LONGPRESS:Lcom/android/systemui/navigationbar/buttons/KeyButtonView$NavBarButtonEvent;
 
     new-instance v11, Lcom/android/systemui/navigationbar/buttons/KeyButtonView$NavBarButtonEvent;
 
-    const-string v13, "NONE"
+    const-string v13, "NAVBAR_OVERVIEW_BUTTON_LONGPRESS"
 
     const/4 v14, 0x6
 
-    invoke-direct {v11, v13, v14, v2}, Lcom/android/systemui/navigationbar/buttons/KeyButtonView$NavBarButtonEvent;-><init>(Ljava/lang/String;II)V
+    const/16 v15, 0x21a
 
-    sput-object v11, Lcom/android/systemui/navigationbar/buttons/KeyButtonView$NavBarButtonEvent;->NONE:Lcom/android/systemui/navigationbar/buttons/KeyButtonView$NavBarButtonEvent;
+    invoke-direct {v11, v13, v14, v15}, Lcom/android/systemui/navigationbar/buttons/KeyButtonView$NavBarButtonEvent;-><init>(Ljava/lang/String;II)V
 
-    const/4 v13, 0x7
+    sput-object v11, Lcom/android/systemui/navigationbar/buttons/KeyButtonView$NavBarButtonEvent;->NAVBAR_OVERVIEW_BUTTON_LONGPRESS:Lcom/android/systemui/navigationbar/buttons/KeyButtonView$NavBarButtonEvent;
 
-    new-array v13, v13, [Lcom/android/systemui/navigationbar/buttons/KeyButtonView$NavBarButtonEvent;
+    new-instance v13, Lcom/android/systemui/navigationbar/buttons/KeyButtonView$NavBarButtonEvent;
 
-    aput-object v0, v13, v2
+    const-string v15, "NONE"
 
-    aput-object v1, v13, v4
+    const/4 v14, 0x7
 
-    aput-object v3, v13, v6
+    invoke-direct {v13, v15, v14, v2}, Lcom/android/systemui/navigationbar/buttons/KeyButtonView$NavBarButtonEvent;-><init>(Ljava/lang/String;II)V
 
-    aput-object v5, v13, v8
+    sput-object v13, Lcom/android/systemui/navigationbar/buttons/KeyButtonView$NavBarButtonEvent;->NONE:Lcom/android/systemui/navigationbar/buttons/KeyButtonView$NavBarButtonEvent;
 
-    aput-object v7, v13, v10
+    const/16 v15, 0x8
 
-    aput-object v9, v13, v12
+    new-array v15, v15, [Lcom/android/systemui/navigationbar/buttons/KeyButtonView$NavBarButtonEvent;
 
-    aput-object v11, v13, v14
+    aput-object v0, v15, v2
 
-    sput-object v13, Lcom/android/systemui/navigationbar/buttons/KeyButtonView$NavBarButtonEvent;->$VALUES:[Lcom/android/systemui/navigationbar/buttons/KeyButtonView$NavBarButtonEvent;
+    aput-object v1, v15, v4
+
+    aput-object v3, v15, v6
+
+    aput-object v5, v15, v8
+
+    aput-object v7, v15, v10
+
+    aput-object v9, v15, v12
+
+    const/4 v0, 0x6
+
+    aput-object v11, v15, v0
+
+    aput-object v13, v15, v14
+
+    sput-object v15, Lcom/android/systemui/navigationbar/buttons/KeyButtonView$NavBarButtonEvent;->$VALUES:[Lcom/android/systemui/navigationbar/buttons/KeyButtonView$NavBarButtonEvent;
 
     return-void
 .end method

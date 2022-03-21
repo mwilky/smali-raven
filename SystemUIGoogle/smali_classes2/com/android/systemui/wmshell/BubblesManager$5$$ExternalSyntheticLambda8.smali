@@ -33,7 +33,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/wmshell/BubblesManager$5$$ExternalSyntheticLambda8;->f$1:Ljava/lang/String;
 
-    invoke-static {v0, p0}, Lcom/android/systemui/wmshell/BubblesManager$5;->$r8$lambda$wMac5Zrf4z5dNjlDYtt_QXjvPTo(Lcom/android/systemui/wmshell/BubblesManager$5;Ljava/lang/String;)V
+    invoke-static {v0, p0}, Lcom/android/systemui/wmshell/BubblesManager$5;->$r8$lambda$vgfvjofkPXfx3UbXk6SWUG0JTCA(Lcom/android/systemui/wmshell/BubblesManager$5;Ljava/lang/String;)V
 
     return-void
 .end method

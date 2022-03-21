@@ -27,7 +27,7 @@
 
     iget-object p0, p0, Lcom/android/wm/shell/onehanded/OneHandedController$$ExternalSyntheticLambda5;->f$0:Lcom/android/wm/shell/onehanded/OneHandedController;
 
-    invoke-virtual {p0}, Lcom/android/wm/shell/onehanded/OneHandedController;->onShortcutEnabledChanged()V
+    invoke-virtual {p0}, Lcom/android/wm/shell/onehanded/OneHandedController;->onSwipeToNotificationEnabledChanged()V
 
     return-void
 .end method

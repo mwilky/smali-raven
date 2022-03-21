@@ -27,7 +27,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/ImageWallpaper$GLEngine$$ExternalSyntheticLambda1;->f$0:Lcom/android/systemui/ImageWallpaper$GLEngine;
 
-    invoke-static {p0}, Lcom/android/systemui/ImageWallpaper$GLEngine;->$r8$lambda$FWMjchjczJbKWvRftgd1gCAXYPc(Lcom/android/systemui/ImageWallpaper$GLEngine;)V
+    invoke-static {p0}, Lcom/android/systemui/ImageWallpaper$GLEngine;->$r8$lambda$lkx81Bng04Iod-4bvPK_-35b81g(Lcom/android/systemui/ImageWallpaper$GLEngine;)V
 
     return-void
 .end method

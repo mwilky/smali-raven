@@ -68,6 +68,17 @@
     .end annotation
 .end field
 
+.field private final legacySplitScreenOptionalProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Ljava/util/Optional<",
+            "Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreen;",
+            ">;>;"
+        }
+    .end annotation
+.end field
+
 .field private final mainHandlerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -151,7 +162,7 @@
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -177,6 +188,10 @@
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/navigationbar/NavigationModeController;",
             ">;",
+            "Ljavax/inject/Provider<",
+            "Ljava/util/Optional<",
+            "Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreen;",
+            ">;>;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/recents/OverviewProxyService;",
             ">;",
@@ -215,23 +230,25 @@
 
     iput-object p7, p0, Lcom/google/android/systemui/gamedashboard/EntryPointController_Factory;->navigationModeControllerProvider:Ljavax/inject/Provider;
 
-    iput-object p8, p0, Lcom/google/android/systemui/gamedashboard/EntryPointController_Factory;->overviewProxyServiceProvider:Ljavax/inject/Provider;
+    iput-object p8, p0, Lcom/google/android/systemui/gamedashboard/EntryPointController_Factory;->legacySplitScreenOptionalProvider:Ljavax/inject/Provider;
 
-    iput-object p9, p0, Lcom/google/android/systemui/gamedashboard/EntryPointController_Factory;->packageManagerProvider:Ljavax/inject/Provider;
+    iput-object p9, p0, Lcom/google/android/systemui/gamedashboard/EntryPointController_Factory;->overviewProxyServiceProvider:Ljavax/inject/Provider;
 
-    iput-object p10, p0, Lcom/google/android/systemui/gamedashboard/EntryPointController_Factory;->shortcutBarControllerProvider:Ljavax/inject/Provider;
+    iput-object p10, p0, Lcom/google/android/systemui/gamedashboard/EntryPointController_Factory;->packageManagerProvider:Ljavax/inject/Provider;
 
-    iput-object p11, p0, Lcom/google/android/systemui/gamedashboard/EntryPointController_Factory;->toastProvider:Ljavax/inject/Provider;
+    iput-object p11, p0, Lcom/google/android/systemui/gamedashboard/EntryPointController_Factory;->shortcutBarControllerProvider:Ljavax/inject/Provider;
 
-    iput-object p12, p0, Lcom/google/android/systemui/gamedashboard/EntryPointController_Factory;->uiEventLoggerProvider:Ljavax/inject/Provider;
+    iput-object p12, p0, Lcom/google/android/systemui/gamedashboard/EntryPointController_Factory;->toastProvider:Ljavax/inject/Provider;
 
-    iput-object p13, p0, Lcom/google/android/systemui/gamedashboard/EntryPointController_Factory;->taskSurfaceHelperProvider:Ljavax/inject/Provider;
+    iput-object p13, p0, Lcom/google/android/systemui/gamedashboard/EntryPointController_Factory;->uiEventLoggerProvider:Ljavax/inject/Provider;
+
+    iput-object p14, p0, Lcom/google/android/systemui/gamedashboard/EntryPointController_Factory;->taskSurfaceHelperProvider:Ljavax/inject/Provider;
 
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/google/android/systemui/gamedashboard/EntryPointController_Factory;
-    .locals 15
+.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/google/android/systemui/gamedashboard/EntryPointController_Factory;
+    .locals 16
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -256,6 +273,10 @@
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/navigationbar/NavigationModeController;",
             ">;",
+            "Ljavax/inject/Provider<",
+            "Ljava/util/Optional<",
+            "Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreen;",
+            ">;>;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/recents/OverviewProxyService;",
             ">;",
@@ -279,11 +300,11 @@
         }
     .end annotation
 
-    new-instance v14, Lcom/google/android/systemui/gamedashboard/EntryPointController_Factory;
+    new-instance v15, Lcom/google/android/systemui/gamedashboard/EntryPointController_Factory;
 
-    move-object v0, v14
+    move-object v0, v15
 
-    move-object v1, p0
+    move-object/from16 v1, p0
 
     move-object/from16 v2, p1
 
@@ -309,13 +330,15 @@
 
     move-object/from16 v13, p12
 
-    invoke-direct/range {v0 .. v13}, Lcom/google/android/systemui/gamedashboard/EntryPointController_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+    move-object/from16 v14, p13
 
-    return-object v14
+    invoke-direct/range {v0 .. v14}, Lcom/google/android/systemui/gamedashboard/EntryPointController_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+
+    return-object v15
 .end method
 
-.method public static newInstance(Landroid/content/Context;Landroid/view/accessibility/AccessibilityManager;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/statusbar/CommandQueue;Lcom/google/android/systemui/gamedashboard/GameModeDndController;Landroid/os/Handler;Lcom/android/systemui/navigationbar/NavigationModeController;Lcom/android/systemui/recents/OverviewProxyService;Landroid/content/pm/PackageManager;Lcom/google/android/systemui/gamedashboard/ShortcutBarController;Lcom/google/android/systemui/gamedashboard/ToastController;Lcom/google/android/systemui/gamedashboard/GameDashboardUiEventLogger;Ljava/util/Optional;)Lcom/google/android/systemui/gamedashboard/EntryPointController;
-    .locals 15
+.method public static newInstance(Landroid/content/Context;Landroid/view/accessibility/AccessibilityManager;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/statusbar/CommandQueue;Lcom/google/android/systemui/gamedashboard/GameModeDndController;Landroid/os/Handler;Lcom/android/systemui/navigationbar/NavigationModeController;Ljava/util/Optional;Lcom/android/systemui/recents/OverviewProxyService;Landroid/content/pm/PackageManager;Lcom/google/android/systemui/gamedashboard/ShortcutBarController;Lcom/google/android/systemui/gamedashboard/ToastController;Lcom/google/android/systemui/gamedashboard/GameDashboardUiEventLogger;Ljava/util/Optional;)Lcom/google/android/systemui/gamedashboard/EntryPointController;
+    .locals 16
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -326,6 +349,9 @@
             "Lcom/google/android/systemui/gamedashboard/GameModeDndController;",
             "Landroid/os/Handler;",
             "Lcom/android/systemui/navigationbar/NavigationModeController;",
+            "Ljava/util/Optional<",
+            "Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreen;",
+            ">;",
             "Lcom/android/systemui/recents/OverviewProxyService;",
             "Landroid/content/pm/PackageManager;",
             "Lcom/google/android/systemui/gamedashboard/ShortcutBarController;",
@@ -338,11 +364,11 @@
         }
     .end annotation
 
-    new-instance v14, Lcom/google/android/systemui/gamedashboard/EntryPointController;
+    new-instance v15, Lcom/google/android/systemui/gamedashboard/EntryPointController;
 
-    move-object v0, v14
+    move-object v0, v15
 
-    move-object v1, p0
+    move-object/from16 v1, p0
 
     move-object/from16 v2, p1
 
@@ -368,15 +394,17 @@
 
     move-object/from16 v13, p12
 
-    invoke-direct/range {v0 .. v13}, Lcom/google/android/systemui/gamedashboard/EntryPointController;-><init>(Landroid/content/Context;Landroid/view/accessibility/AccessibilityManager;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/statusbar/CommandQueue;Lcom/google/android/systemui/gamedashboard/GameModeDndController;Landroid/os/Handler;Lcom/android/systemui/navigationbar/NavigationModeController;Lcom/android/systemui/recents/OverviewProxyService;Landroid/content/pm/PackageManager;Lcom/google/android/systemui/gamedashboard/ShortcutBarController;Lcom/google/android/systemui/gamedashboard/ToastController;Lcom/google/android/systemui/gamedashboard/GameDashboardUiEventLogger;Ljava/util/Optional;)V
+    move-object/from16 v14, p13
 
-    return-object v14
+    invoke-direct/range {v0 .. v14}, Lcom/google/android/systemui/gamedashboard/EntryPointController;-><init>(Landroid/content/Context;Landroid/view/accessibility/AccessibilityManager;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/statusbar/CommandQueue;Lcom/google/android/systemui/gamedashboard/GameModeDndController;Landroid/os/Handler;Lcom/android/systemui/navigationbar/NavigationModeController;Ljava/util/Optional;Lcom/android/systemui/recents/OverviewProxyService;Landroid/content/pm/PackageManager;Lcom/google/android/systemui/gamedashboard/ShortcutBarController;Lcom/google/android/systemui/gamedashboard/ToastController;Lcom/google/android/systemui/gamedashboard/GameDashboardUiEventLogger;Ljava/util/Optional;)V
+
+    return-object v15
 .end method
 
 
 # virtual methods
 .method public get()Lcom/google/android/systemui/gamedashboard/EntryPointController;
-    .locals 14
+    .locals 15
 
     iget-object v0, p0, Lcom/google/android/systemui/gamedashboard/EntryPointController_Factory;->contextProvider:Ljavax/inject/Provider;
 
@@ -448,7 +476,7 @@
 
     check-cast v7, Lcom/android/systemui/navigationbar/NavigationModeController;
 
-    iget-object v0, p0, Lcom/google/android/systemui/gamedashboard/EntryPointController_Factory;->overviewProxyServiceProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/google/android/systemui/gamedashboard/EntryPointController_Factory;->legacySplitScreenOptionalProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -456,9 +484,9 @@
 
     move-object v8, v0
 
-    check-cast v8, Lcom/android/systemui/recents/OverviewProxyService;
+    check-cast v8, Ljava/util/Optional;
 
-    iget-object v0, p0, Lcom/google/android/systemui/gamedashboard/EntryPointController_Factory;->packageManagerProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/google/android/systemui/gamedashboard/EntryPointController_Factory;->overviewProxyServiceProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -466,9 +494,9 @@
 
     move-object v9, v0
 
-    check-cast v9, Landroid/content/pm/PackageManager;
+    check-cast v9, Lcom/android/systemui/recents/OverviewProxyService;
 
-    iget-object v0, p0, Lcom/google/android/systemui/gamedashboard/EntryPointController_Factory;->shortcutBarControllerProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/google/android/systemui/gamedashboard/EntryPointController_Factory;->packageManagerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -476,9 +504,9 @@
 
     move-object v10, v0
 
-    check-cast v10, Lcom/google/android/systemui/gamedashboard/ShortcutBarController;
+    check-cast v10, Landroid/content/pm/PackageManager;
 
-    iget-object v0, p0, Lcom/google/android/systemui/gamedashboard/EntryPointController_Factory;->toastProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/google/android/systemui/gamedashboard/EntryPointController_Factory;->shortcutBarControllerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -486,9 +514,9 @@
 
     move-object v11, v0
 
-    check-cast v11, Lcom/google/android/systemui/gamedashboard/ToastController;
+    check-cast v11, Lcom/google/android/systemui/gamedashboard/ShortcutBarController;
 
-    iget-object v0, p0, Lcom/google/android/systemui/gamedashboard/EntryPointController_Factory;->uiEventLoggerProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/google/android/systemui/gamedashboard/EntryPointController_Factory;->toastProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -496,7 +524,17 @@
 
     move-object v12, v0
 
-    check-cast v12, Lcom/google/android/systemui/gamedashboard/GameDashboardUiEventLogger;
+    check-cast v12, Lcom/google/android/systemui/gamedashboard/ToastController;
+
+    iget-object v0, p0, Lcom/google/android/systemui/gamedashboard/EntryPointController_Factory;->uiEventLoggerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v13, v0
+
+    check-cast v13, Lcom/google/android/systemui/gamedashboard/GameDashboardUiEventLogger;
 
     iget-object p0, p0, Lcom/google/android/systemui/gamedashboard/EntryPointController_Factory;->taskSurfaceHelperProvider:Ljavax/inject/Provider;
 
@@ -504,11 +542,11 @@
 
     move-result-object p0
 
-    move-object v13, p0
+    move-object v14, p0
 
-    check-cast v13, Ljava/util/Optional;
+    check-cast v14, Ljava/util/Optional;
 
-    invoke-static/range {v1 .. v13}, Lcom/google/android/systemui/gamedashboard/EntryPointController_Factory;->newInstance(Landroid/content/Context;Landroid/view/accessibility/AccessibilityManager;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/statusbar/CommandQueue;Lcom/google/android/systemui/gamedashboard/GameModeDndController;Landroid/os/Handler;Lcom/android/systemui/navigationbar/NavigationModeController;Lcom/android/systemui/recents/OverviewProxyService;Landroid/content/pm/PackageManager;Lcom/google/android/systemui/gamedashboard/ShortcutBarController;Lcom/google/android/systemui/gamedashboard/ToastController;Lcom/google/android/systemui/gamedashboard/GameDashboardUiEventLogger;Ljava/util/Optional;)Lcom/google/android/systemui/gamedashboard/EntryPointController;
+    invoke-static/range {v1 .. v14}, Lcom/google/android/systemui/gamedashboard/EntryPointController_Factory;->newInstance(Landroid/content/Context;Landroid/view/accessibility/AccessibilityManager;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/statusbar/CommandQueue;Lcom/google/android/systemui/gamedashboard/GameModeDndController;Landroid/os/Handler;Lcom/android/systemui/navigationbar/NavigationModeController;Ljava/util/Optional;Lcom/android/systemui/recents/OverviewProxyService;Landroid/content/pm/PackageManager;Lcom/google/android/systemui/gamedashboard/ShortcutBarController;Lcom/google/android/systemui/gamedashboard/ToastController;Lcom/google/android/systemui/gamedashboard/GameDashboardUiEventLogger;Ljava/util/Optional;)Lcom/google/android/systemui/gamedashboard/EntryPointController;
 
     move-result-object p0
 

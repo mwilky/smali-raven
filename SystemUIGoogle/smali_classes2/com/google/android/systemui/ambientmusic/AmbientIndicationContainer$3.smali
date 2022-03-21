@@ -38,7 +38,7 @@
 
     const/4 p1, 0x0
 
-    invoke-static {p0, p1}, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->access$202(Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;Landroid/animation/ValueAnimator;)Landroid/animation/ValueAnimator;
+    invoke-static {p0, p1}, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->access$302(Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;Landroid/animation/ValueAnimator;)Landroid/animation/ValueAnimator;
 
     return-void
 .end method

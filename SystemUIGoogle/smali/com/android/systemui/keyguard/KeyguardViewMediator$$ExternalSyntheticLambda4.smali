@@ -33,7 +33,7 @@
 
     iget p0, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda4;->f$1:I
 
-    invoke-static {v0, p0}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->$r8$lambda$C_N2pvBHAIgJo3TaffLVl12notg(Lcom/android/systemui/keyguard/KeyguardViewMediator;I)V
+    invoke-static {v0, p0}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->$r8$lambda$FOHUYJ_nKYDHoZwVrL6AgKZn8XE(Lcom/android/systemui/keyguard/KeyguardViewMediator;I)V
 
     return-void
 .end method

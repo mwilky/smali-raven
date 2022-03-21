@@ -17,6 +17,8 @@
     .end annotation
 .end field
 
+.field private final mOnAttachStateChangeListener:Landroid/view/View$OnAttachStateChangeListener;
+
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
@@ -34,6 +36,12 @@
 
     invoke-direct {p0, p1, p2}, Lcom/android/systemui/biometrics/AuthBiometricView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
+    new-instance p1, Lcom/android/systemui/biometrics/AuthBiometricFaceView$1;
+
+    invoke-direct {p1, p0}, Lcom/android/systemui/biometrics/AuthBiometricFaceView$1;-><init>(Lcom/android/systemui/biometrics/AuthBiometricFaceView;)V
+
+    iput-object p1, p0, Lcom/android/systemui/biometrics/AuthBiometricFaceView;->mOnAttachStateChangeListener:Landroid/view/View$OnAttachStateChangeListener;
+
     return-void
 .end method
 
@@ -43,6 +51,12 @@
     .end annotation
 
     invoke-direct {p0, p1, p2, p3}, Lcom/android/systemui/biometrics/AuthBiometricView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;Lcom/android/systemui/biometrics/AuthBiometricView$Injector;)V
+
+    new-instance p1, Lcom/android/systemui/biometrics/AuthBiometricFaceView$1;
+
+    invoke-direct {p1, p0}, Lcom/android/systemui/biometrics/AuthBiometricFaceView$1;-><init>(Lcom/android/systemui/biometrics/AuthBiometricFaceView;)V
+
+    iput-object p1, p0, Lcom/android/systemui/biometrics/AuthBiometricFaceView;->mOnAttachStateChangeListener:Landroid/view/View$OnAttachStateChangeListener;
 
     return-void
 .end method
@@ -150,6 +164,10 @@
     invoke-direct {v0, v1, v2, v3}, Lcom/android/systemui/biometrics/AuthBiometricFaceView$IconController;-><init>(Landroid/content/Context;Landroid/widget/ImageView;Landroid/widget/TextView;)V
 
     iput-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricFaceView;->mFaceIconController:Lcom/android/systemui/biometrics/AuthBiometricFaceView$IconController;
+
+    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricFaceView;->mOnAttachStateChangeListener:Landroid/view/View$OnAttachStateChangeListener;
+
+    invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->addOnAttachStateChangeListener(Landroid/view/View$OnAttachStateChangeListener;)V
 
     return-void
 .end method

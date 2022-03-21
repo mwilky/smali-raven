@@ -42,7 +42,7 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
+            "Lcom/android/systemui/flags/FeatureFlags;",
             ">;"
         }
     .end annotation
@@ -68,6 +68,16 @@
     .end annotation
 .end field
 
+.field private final mainHandlerProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Landroid/os/Handler;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private final statusBarServiceProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -80,7 +90,7 @@
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -92,10 +102,13 @@
             "Lcom/android/systemui/util/time/SystemClock;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
+            "Lcom/android/systemui/flags/FeatureFlags;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifCollectionLogger;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Landroid/os/Handler;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/dump/LogBufferEulogizer;",
@@ -116,15 +129,17 @@
 
     iput-object p4, p0, Lcom/android/systemui/statusbar/notification/collection/NotifCollection_Factory;->loggerProvider:Ljavax/inject/Provider;
 
-    iput-object p5, p0, Lcom/android/systemui/statusbar/notification/collection/NotifCollection_Factory;->logBufferEulogizerProvider:Ljavax/inject/Provider;
+    iput-object p5, p0, Lcom/android/systemui/statusbar/notification/collection/NotifCollection_Factory;->mainHandlerProvider:Ljavax/inject/Provider;
 
-    iput-object p6, p0, Lcom/android/systemui/statusbar/notification/collection/NotifCollection_Factory;->dumpManagerProvider:Ljavax/inject/Provider;
+    iput-object p6, p0, Lcom/android/systemui/statusbar/notification/collection/NotifCollection_Factory;->logBufferEulogizerProvider:Ljavax/inject/Provider;
+
+    iput-object p7, p0, Lcom/android/systemui/statusbar/notification/collection/NotifCollection_Factory;->dumpManagerProvider:Ljavax/inject/Provider;
 
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/statusbar/notification/collection/NotifCollection_Factory;
-    .locals 8
+.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/statusbar/notification/collection/NotifCollection_Factory;
+    .locals 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -135,10 +150,13 @@
             "Lcom/android/systemui/util/time/SystemClock;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
+            "Lcom/android/systemui/flags/FeatureFlags;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifCollectionLogger;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Landroid/os/Handler;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/dump/LogBufferEulogizer;",
@@ -150,9 +168,9 @@
         }
     .end annotation
 
-    new-instance v7, Lcom/android/systemui/statusbar/notification/collection/NotifCollection_Factory;
+    new-instance v8, Lcom/android/systemui/statusbar/notification/collection/NotifCollection_Factory;
 
-    move-object v0, v7
+    move-object v0, v8
 
     move-object v1, p0
 
@@ -166,17 +184,19 @@
 
     move-object v6, p5
 
-    invoke-direct/range {v0 .. v6}, Lcom/android/systemui/statusbar/notification/collection/NotifCollection_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+    move-object v7, p6
 
-    return-object v7
+    invoke-direct/range {v0 .. v7}, Lcom/android/systemui/statusbar/notification/collection/NotifCollection_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+
+    return-object v8
 .end method
 
-.method public static newInstance(Lcom/android/internal/statusbar/IStatusBarService;Lcom/android/systemui/util/time/SystemClock;Lcom/android/systemui/statusbar/FeatureFlags;Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifCollectionLogger;Lcom/android/systemui/dump/LogBufferEulogizer;Lcom/android/systemui/dump/DumpManager;)Lcom/android/systemui/statusbar/notification/collection/NotifCollection;
-    .locals 8
+.method public static newInstance(Lcom/android/internal/statusbar/IStatusBarService;Lcom/android/systemui/util/time/SystemClock;Lcom/android/systemui/flags/FeatureFlags;Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifCollectionLogger;Landroid/os/Handler;Lcom/android/systemui/dump/LogBufferEulogizer;Lcom/android/systemui/dump/DumpManager;)Lcom/android/systemui/statusbar/notification/collection/NotifCollection;
+    .locals 9
 
-    new-instance v7, Lcom/android/systemui/statusbar/notification/collection/NotifCollection;
+    new-instance v8, Lcom/android/systemui/statusbar/notification/collection/NotifCollection;
 
-    move-object v0, v7
+    move-object v0, v8
 
     move-object v1, p0
 
@@ -190,15 +210,17 @@
 
     move-object v6, p5
 
-    invoke-direct/range {v0 .. v6}, Lcom/android/systemui/statusbar/notification/collection/NotifCollection;-><init>(Lcom/android/internal/statusbar/IStatusBarService;Lcom/android/systemui/util/time/SystemClock;Lcom/android/systemui/statusbar/FeatureFlags;Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifCollectionLogger;Lcom/android/systemui/dump/LogBufferEulogizer;Lcom/android/systemui/dump/DumpManager;)V
+    move-object v7, p6
 
-    return-object v7
+    invoke-direct/range {v0 .. v7}, Lcom/android/systemui/statusbar/notification/collection/NotifCollection;-><init>(Lcom/android/internal/statusbar/IStatusBarService;Lcom/android/systemui/util/time/SystemClock;Lcom/android/systemui/flags/FeatureFlags;Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifCollectionLogger;Landroid/os/Handler;Lcom/android/systemui/dump/LogBufferEulogizer;Lcom/android/systemui/dump/DumpManager;)V
+
+    return-object v8
 .end method
 
 
 # virtual methods
 .method public get()Lcom/android/systemui/statusbar/notification/collection/NotifCollection;
-    .locals 7
+    .locals 8
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/NotifCollection_Factory;->statusBarServiceProvider:Ljavax/inject/Provider;
 
@@ -228,7 +250,7 @@
 
     move-object v3, v0
 
-    check-cast v3, Lcom/android/systemui/statusbar/FeatureFlags;
+    check-cast v3, Lcom/android/systemui/flags/FeatureFlags;
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/NotifCollection_Factory;->loggerProvider:Ljavax/inject/Provider;
 
@@ -240,7 +262,7 @@
 
     check-cast v4, Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifCollectionLogger;
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/NotifCollection_Factory;->logBufferEulogizerProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/NotifCollection_Factory;->mainHandlerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -248,7 +270,17 @@
 
     move-object v5, v0
 
-    check-cast v5, Lcom/android/systemui/dump/LogBufferEulogizer;
+    check-cast v5, Landroid/os/Handler;
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/NotifCollection_Factory;->logBufferEulogizerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v6, v0
+
+    check-cast v6, Lcom/android/systemui/dump/LogBufferEulogizer;
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotifCollection_Factory;->dumpManagerProvider:Ljavax/inject/Provider;
 
@@ -256,11 +288,11 @@
 
     move-result-object p0
 
-    move-object v6, p0
+    move-object v7, p0
 
-    check-cast v6, Lcom/android/systemui/dump/DumpManager;
+    check-cast v7, Lcom/android/systemui/dump/DumpManager;
 
-    invoke-static/range {v1 .. v6}, Lcom/android/systemui/statusbar/notification/collection/NotifCollection_Factory;->newInstance(Lcom/android/internal/statusbar/IStatusBarService;Lcom/android/systemui/util/time/SystemClock;Lcom/android/systemui/statusbar/FeatureFlags;Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifCollectionLogger;Lcom/android/systemui/dump/LogBufferEulogizer;Lcom/android/systemui/dump/DumpManager;)Lcom/android/systemui/statusbar/notification/collection/NotifCollection;
+    invoke-static/range {v1 .. v7}, Lcom/android/systemui/statusbar/notification/collection/NotifCollection_Factory;->newInstance(Lcom/android/internal/statusbar/IStatusBarService;Lcom/android/systemui/util/time/SystemClock;Lcom/android/systemui/flags/FeatureFlags;Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifCollectionLogger;Landroid/os/Handler;Lcom/android/systemui/dump/LogBufferEulogizer;Lcom/android/systemui/dump/DumpManager;)Lcom/android/systemui/statusbar/notification/collection/NotifCollection;
 
     move-result-object p0
 

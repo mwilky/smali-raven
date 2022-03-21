@@ -39,9 +39,7 @@
 
     iget-object p0, p0, Lcom/android/wm/shell/bubbles/ManageEducationView$show$1$3;->this$0:Lcom/android/wm/shell/bubbles/ManageEducationView;
 
-    const/4 p1, 0x1
-
-    invoke-virtual {p0, p1}, Lcom/android/wm/shell/bubbles/ManageEducationView;->hide(Z)V
+    invoke-virtual {p0}, Lcom/android/wm/shell/bubbles/ManageEducationView;->hide()V
 
     return-void
 .end method

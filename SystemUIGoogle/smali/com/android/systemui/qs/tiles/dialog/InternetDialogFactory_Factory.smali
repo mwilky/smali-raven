@@ -28,6 +28,16 @@
     .end annotation
 .end field
 
+.field private final dialogLaunchAnimatorProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/animation/DialogLaunchAnimator;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private final executorProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -70,7 +80,7 @@
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -89,6 +99,9 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/internal/logging/UiEventLogger;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/animation/DialogLaunchAnimator;",
             ">;)V"
         }
     .end annotation
@@ -105,11 +118,13 @@
 
     iput-object p5, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory_Factory;->uiEventLoggerProvider:Ljavax/inject/Provider;
 
+    iput-object p6, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory_Factory;->dialogLaunchAnimatorProvider:Ljavax/inject/Provider;
+
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory_Factory;
-    .locals 7
+.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory_Factory;
+    .locals 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -127,14 +142,17 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/internal/logging/UiEventLogger;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/animation/DialogLaunchAnimator;",
             ">;)",
             "Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory_Factory;"
         }
     .end annotation
 
-    new-instance v6, Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory_Factory;
+    new-instance v7, Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory_Factory;
 
-    move-object v0, v6
+    move-object v0, v7
 
     move-object v1, p0
 
@@ -146,17 +164,19 @@
 
     move-object v5, p4
 
-    invoke-direct/range {v0 .. v5}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+    move-object v6, p5
 
-    return-object v6
+    invoke-direct/range {v0 .. v6}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+
+    return-object v7
 .end method
 
-.method public static newInstance(Landroid/os/Handler;Ljava/util/concurrent/Executor;Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;Landroid/content/Context;Lcom/android/internal/logging/UiEventLogger;)Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;
-    .locals 7
+.method public static newInstance(Landroid/os/Handler;Ljava/util/concurrent/Executor;Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;Landroid/content/Context;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/animation/DialogLaunchAnimator;)Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;
+    .locals 8
 
-    new-instance v6, Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;
+    new-instance v7, Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;
 
-    move-object v0, v6
+    move-object v0, v7
 
     move-object v1, p0
 
@@ -168,15 +188,17 @@
 
     move-object v5, p4
 
-    invoke-direct/range {v0 .. v5}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;-><init>(Landroid/os/Handler;Ljava/util/concurrent/Executor;Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;Landroid/content/Context;Lcom/android/internal/logging/UiEventLogger;)V
+    move-object v6, p5
 
-    return-object v6
+    invoke-direct/range {v0 .. v6}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;-><init>(Landroid/os/Handler;Ljava/util/concurrent/Executor;Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;Landroid/content/Context;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/animation/DialogLaunchAnimator;)V
+
+    return-object v7
 .end method
 
 
 # virtual methods
 .method public get()Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;
-    .locals 4
+    .locals 7
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory_Factory;->handlerProvider:Ljavax/inject/Provider;
 
@@ -184,41 +206,61 @@
 
     move-result-object v0
 
-    check-cast v0, Landroid/os/Handler;
+    move-object v1, v0
 
-    iget-object v1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory_Factory;->executorProvider:Ljavax/inject/Provider;
+    check-cast v1, Landroid/os/Handler;
 
-    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory_Factory;->executorProvider:Ljavax/inject/Provider;
 
-    move-result-object v1
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    check-cast v1, Ljava/util/concurrent/Executor;
+    move-result-object v0
 
-    iget-object v2, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory_Factory;->internetDialogControllerProvider:Ljavax/inject/Provider;
+    move-object v2, v0
 
-    invoke-interface {v2}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    check-cast v2, Ljava/util/concurrent/Executor;
 
-    move-result-object v2
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory_Factory;->internetDialogControllerProvider:Ljavax/inject/Provider;
 
-    check-cast v2, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    iget-object v3, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory_Factory;->contextProvider:Ljavax/inject/Provider;
+    move-result-object v0
 
-    invoke-interface {v3}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    move-object v3, v0
 
-    move-result-object v3
+    check-cast v3, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
 
-    check-cast v3, Landroid/content/Context;
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory_Factory;->contextProvider:Ljavax/inject/Provider;
 
-    iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory_Factory;->uiEventLoggerProvider:Ljavax/inject/Provider;
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v4, v0
+
+    check-cast v4, Landroid/content/Context;
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory_Factory;->uiEventLoggerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v5, v0
+
+    check-cast v5, Lcom/android/internal/logging/UiEventLogger;
+
+    iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory_Factory;->dialogLaunchAnimatorProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object p0
 
-    check-cast p0, Lcom/android/internal/logging/UiEventLogger;
+    move-object v6, p0
 
-    invoke-static {v0, v1, v2, v3, p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory_Factory;->newInstance(Landroid/os/Handler;Ljava/util/concurrent/Executor;Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;Landroid/content/Context;Lcom/android/internal/logging/UiEventLogger;)Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;
+    check-cast v6, Lcom/android/systemui/animation/DialogLaunchAnimator;
+
+    invoke-static/range {v1 .. v6}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory_Factory;->newInstance(Landroid/os/Handler;Ljava/util/concurrent/Executor;Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;Landroid/content/Context;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/animation/DialogLaunchAnimator;)Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;
 
     move-result-object p0
 

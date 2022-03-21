@@ -16,6 +16,9 @@
 .method public abstract getBool4()Z
 .end method
 
+.method public abstract getDouble1()D
+.end method
+
 .method public abstract getInt1()I
 .end method
 
@@ -68,6 +71,9 @@
 .end method
 
 .method public abstract setBool4(Z)V
+.end method
+
+.method public abstract setDouble1(D)V
 .end method
 
 .method public abstract setInt1(I)V

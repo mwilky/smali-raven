@@ -621,7 +621,7 @@
 
     move-result-object v2
 
-    const-string/jumbo v3, "title"
+    const-string v3, "title"
 
     const-string v5, "shortcut"
 

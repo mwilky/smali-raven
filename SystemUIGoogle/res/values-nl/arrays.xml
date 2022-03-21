@@ -373,7 +373,7 @@
         <item>Nog sneller</item>
         <item>Heel erg snel</item>
         <item>Snelst</item>
-        <item>Allerallersnelst</item>
+        <item>Allersnelst</item>
     </string-array>
     <string-array name="usb_configuration_titles">
         <item>Opladen</item>

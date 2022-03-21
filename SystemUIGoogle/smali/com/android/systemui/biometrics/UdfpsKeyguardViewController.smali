@@ -42,6 +42,8 @@
 
 .field private final mLockScreenShadeTransitionController:Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;
 
+.field private final mPanelExpansionListener:Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionListener;
+
 .field private mQsExpanded:Z
 
 .field private mShowingUdfpsBouncer:Z
@@ -49,8 +51,6 @@
 .field private final mStateListener:Lcom/android/systemui/plugins/statusbar/StatusBarStateController$StateListener;
 
 .field private mStatusBarExpansion:F
-
-.field private final mStatusBarExpansionChangedListener:Lcom/android/systemui/statusbar/phone/StatusBar$ExpansionChangedListener;
 
 .field private mStatusBarState:I
 
@@ -76,66 +76,96 @@
     return-void
 .end method
 
-.method protected constructor <init>(Lcom/android/systemui/biometrics/UdfpsKeyguardView;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/phone/StatusBar;Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/dump/DumpManager;Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/util/time/SystemClock;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;Lcom/android/systemui/biometrics/UdfpsController;)V
-    .locals 0
+.method protected constructor <init>(Lcom/android/systemui/biometrics/UdfpsKeyguardView;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionStateManager;Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/dump/DumpManager;Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/util/time/SystemClock;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;Lcom/android/systemui/biometrics/UdfpsController;)V
+    .locals 7
 
-    invoke-direct {p0, p1, p2, p3, p6}, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;-><init>(Lcom/android/systemui/biometrics/UdfpsAnimationView;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/phone/StatusBar;Lcom/android/systemui/dump/DumpManager;)V
+    move-object v6, p0
 
-    const-wide/16 p1, -0x1
+    move-object v0, p0
 
-    iput-wide p1, p0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->mLastUdfpsBouncerShowTime:J
+    move-object v1, p1
 
-    new-instance p1, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController$1;
+    move-object v2, p2
 
-    invoke-direct {p1, p0}, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController$1;-><init>(Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;)V
+    move-object v3, p3
 
-    iput-object p1, p0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->mStateListener:Lcom/android/systemui/plugins/statusbar/StatusBarStateController$StateListener;
+    move-object/from16 v4, p12
 
-    new-instance p1, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController$2;
+    move-object v5, p6
 
-    invoke-direct {p1, p0}, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController$2;-><init>(Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;)V
+    invoke-direct/range {v0 .. v5}, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;-><init>(Lcom/android/systemui/biometrics/UdfpsAnimationView;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionStateManager;Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;Lcom/android/systemui/dump/DumpManager;)V
 
-    iput-object p1, p0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->mAlternateAuthInterceptor:Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager$AlternateAuthInterceptor;
+    const-wide/16 v0, -0x1
 
-    new-instance p1, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController$3;
+    iput-wide v0, v6, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->mLastUdfpsBouncerShowTime:J
 
-    invoke-direct {p1, p0}, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController$3;-><init>(Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;)V
+    new-instance v0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController$1;
 
-    iput-object p1, p0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->mConfigurationListener:Lcom/android/systemui/statusbar/policy/ConfigurationController$ConfigurationListener;
+    invoke-direct {v0, p0}, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController$1;-><init>(Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;)V
 
-    new-instance p1, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController$4;
+    iput-object v0, v6, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->mStateListener:Lcom/android/systemui/plugins/statusbar/StatusBarStateController$StateListener;
 
-    invoke-direct {p1, p0}, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController$4;-><init>(Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;)V
+    new-instance v0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController$2;
 
-    iput-object p1, p0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->mStatusBarExpansionChangedListener:Lcom/android/systemui/statusbar/phone/StatusBar$ExpansionChangedListener;
+    invoke-direct {v0, p0}, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController$2;-><init>(Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;)V
 
-    new-instance p1, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController$5;
+    iput-object v0, v6, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->mAlternateAuthInterceptor:Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager$AlternateAuthInterceptor;
 
-    invoke-direct {p1, p0}, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController$5;-><init>(Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;)V
+    new-instance v0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController$3;
 
-    iput-object p1, p0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->mKeyguardStateControllerCallback:Lcom/android/systemui/statusbar/policy/KeyguardStateController$Callback;
+    invoke-direct {v0, p0}, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController$3;-><init>(Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;)V
 
-    new-instance p1, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController$$ExternalSyntheticLambda0;
+    iput-object v0, v6, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->mConfigurationListener:Lcom/android/systemui/statusbar/policy/ConfigurationController$ConfigurationListener;
 
-    invoke-direct {p1, p0}, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;)V
+    new-instance v0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController$4;
 
-    iput-object p1, p0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->mUnlockedScreenOffCallback:Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController$Callback;
+    invoke-direct {v0, p0}, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController$4;-><init>(Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;)V
 
-    iput-object p4, p0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->mKeyguardViewManager:Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;
+    iput-object v0, v6, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->mPanelExpansionListener:Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionListener;
 
-    iput-object p5, p0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
+    new-instance v0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController$5;
 
-    iput-object p7, p0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->mLockScreenShadeTransitionController:Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;
+    invoke-direct {v0, p0}, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController$5;-><init>(Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;)V
 
-    iput-object p8, p0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->mConfigurationController:Lcom/android/systemui/statusbar/policy/ConfigurationController;
+    iput-object v0, v6, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->mKeyguardStateControllerCallback:Lcom/android/systemui/statusbar/policy/KeyguardStateController$Callback;
 
-    iput-object p9, p0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->mSystemClock:Lcom/android/systemui/util/time/SystemClock;
+    new-instance v0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController$$ExternalSyntheticLambda0;
 
-    iput-object p10, p0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->mKeyguardStateController:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
+    invoke-direct {v0, p0}, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;)V
 
-    iput-object p12, p0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->mUdfpsController:Lcom/android/systemui/biometrics/UdfpsController;
+    iput-object v0, v6, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->mUnlockedScreenOffCallback:Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController$Callback;
 
-    iput-object p11, p0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->mUnlockedScreenOffAnimationController:Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;
+    move-object v0, p4
+
+    iput-object v0, v6, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->mKeyguardViewManager:Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;
+
+    move-object v0, p5
+
+    iput-object v0, v6, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
+
+    move-object v0, p7
+
+    iput-object v0, v6, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->mLockScreenShadeTransitionController:Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;
+
+    move-object v0, p8
+
+    iput-object v0, v6, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->mConfigurationController:Lcom/android/systemui/statusbar/policy/ConfigurationController;
+
+    move-object/from16 v0, p9
+
+    iput-object v0, v6, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->mSystemClock:Lcom/android/systemui/util/time/SystemClock;
+
+    move-object/from16 v0, p10
+
+    iput-object v0, v6, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->mKeyguardStateController:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
+
+    move-object/from16 v0, p13
+
+    iput-object v0, v6, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->mUdfpsController:Lcom/android/systemui/biometrics/UdfpsController;
+
+    move-object/from16 v0, p11
+
+    iput-object v0, v6, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->mUnlockedScreenOffAnimationController:Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;
 
     return-void
 .end method
@@ -238,18 +268,18 @@
     return-object p0
 .end method
 
-.method static synthetic access$1800(Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;)Landroid/view/View;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
-
-    return-object p0
-.end method
-
-.method static synthetic access$1902(Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;F)F
+.method static synthetic access$1802(Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;F)F
     .locals 0
 
     iput p1, p0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->mStatusBarExpansion:F
+
+    return p1
+.end method
+
+.method static synthetic access$1902(Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;Z)Z
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->mLaunchTransitionFadingAway:Z
 
     return p1
 .end method
@@ -262,15 +292,7 @@
     return-object p0
 .end method
 
-.method static synthetic access$2002(Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->mLaunchTransitionFadingAway:Z
-
-    return p1
-.end method
-
-.method static synthetic access$2100(Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;)Lcom/android/systemui/statusbar/policy/KeyguardStateController;
+.method static synthetic access$2000(Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;)Lcom/android/systemui/statusbar/policy/KeyguardStateController;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->mKeyguardStateController:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
@@ -375,7 +397,7 @@
 .end method
 
 .method private maybeShowInputBouncer()V
-    .locals 2
+    .locals 1
 
     iget-boolean v0, p0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->mShowingUdfpsBouncer:Z
 
@@ -387,17 +409,11 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->mKeyguardViewManager:Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;
-
-    const/4 v1, 0x1
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;->showBouncer(Z)V
-
     iget-object p0, p0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->mKeyguardViewManager:Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;
 
-    const/4 v0, 0x0
+    const/4 v0, 0x1
 
-    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;->resetAlternateAuth(Z)V
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;->showBouncer(Z)V
 
     :cond_0
     return-void
@@ -707,7 +723,7 @@
 
     invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo p3, "unpausedAlpha="
+    const-string p3, "unpausedAlpha="
 
     invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -901,11 +917,11 @@
 
     invoke-interface {v0, v1}, Lcom/android/systemui/statusbar/policy/CallbackController;->addCallback(Ljava/lang/Object;)V
 
-    iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
+    iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->mPanelExpansionStateManager:Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionStateManager;
 
-    iget-object v1, p0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->mStatusBarExpansionChangedListener:Lcom/android/systemui/statusbar/phone/StatusBar$ExpansionChangedListener;
+    iget-object v1, p0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->mPanelExpansionListener:Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionListener;
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/StatusBar;->addExpansionChangedListener(Lcom/android/systemui/statusbar/phone/StatusBar$ExpansionChangedListener;)V
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionStateManager;->addExpansionListener(Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionListener;)V
 
     invoke-direct {p0}, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->updateAlpha()V
 
@@ -967,11 +983,11 @@
 
     invoke-interface {v0, v1}, Lcom/android/systemui/statusbar/policy/CallbackController;->removeCallback(Ljava/lang/Object;)V
 
-    iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
+    iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->mPanelExpansionStateManager:Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionStateManager;
 
-    iget-object v1, p0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->mStatusBarExpansionChangedListener:Lcom/android/systemui/statusbar/phone/StatusBar$ExpansionChangedListener;
+    iget-object v1, p0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->mPanelExpansionListener:Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionListener;
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/StatusBar;->removeExpansionChangedListener(Lcom/android/systemui/statusbar/phone/StatusBar$ExpansionChangedListener;)V
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionStateManager;->removeExpansionListener(Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionListener;)V
 
     iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->mLockScreenShadeTransitionController:Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;
 
@@ -1023,7 +1039,7 @@
 
     if-eqz v0, :cond_2
 
-    iget-boolean v0, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->mNotificationShadeExpanded:Z
+    iget-boolean v0, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->mNotificationShadeVisible:Z
 
     if-nez v0, :cond_2
 
@@ -1043,7 +1059,11 @@
     return v1
 
     :cond_2
-    iget-boolean v0, p0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->mLaunchTransitionFadingAway:Z
+    iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->mDialogManager:Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;
+
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;->shouldHideAffordance()Z
+
+    move-result v0
 
     const/4 v2, 0x1
 
@@ -1052,38 +1072,45 @@
     return v2
 
     :cond_3
-    iget v0, p0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->mStatusBarState:I
+    iget-boolean v0, p0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->mLaunchTransitionFadingAway:Z
 
-    if-eq v0, v2, :cond_4
+    if-eqz v0, :cond_4
 
     return v2
 
     :cond_4
-    iget-boolean v0, p0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->mQsExpanded:Z
+    iget v0, p0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->mStatusBarState:I
 
-    if-eqz v0, :cond_5
+    if-eq v0, v2, :cond_5
 
     return v2
 
     :cond_5
+    iget-boolean v0, p0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->mQsExpanded:Z
+
+    if-eqz v0, :cond_6
+
+    return v2
+
+    :cond_6
     iget v0, p0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->mInputBouncerHiddenAmount:F
 
     const/high16 v3, 0x3f000000    # 0.5f
 
     cmpg-float v0, v0, v3
 
-    if-ltz v0, :cond_7
+    if-ltz v0, :cond_8
 
     iget-boolean p0, p0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->mIsBouncerVisible:Z
 
-    if-eqz p0, :cond_6
+    if-eqz p0, :cond_7
 
     goto :goto_0
 
-    :cond_6
+    :cond_7
     return v1
 
-    :cond_7
+    :cond_8
     :goto_0
     return v2
 .end method

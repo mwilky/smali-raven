@@ -48,6 +48,16 @@
     .end annotation
 .end field
 
+.field private final dialogManagerProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private final displayManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -179,6 +189,16 @@
     .end annotation
 .end field
 
+.field private final panelExpansionStateManagerProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionStateManager;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private final powerManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -204,16 +224,6 @@
         value = {
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field private final statusBarProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/phone/StatusBar;",
             ">;"
         }
     .end annotation
@@ -281,7 +291,7 @@
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -308,7 +318,7 @@
             "Lcom/android/systemui/util/concurrency/DelayableExecutor;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/phone/StatusBar;",
+            "Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionStateManager;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;",
@@ -364,6 +374,9 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;",
             ">;)V"
         }
     .end annotation
@@ -402,7 +415,7 @@
 
     move-object v1, p8
 
-    iput-object v1, v0, Lcom/android/systemui/biometrics/UdfpsController_Factory;->statusBarProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/biometrics/UdfpsController_Factory;->panelExpansionStateManagerProvider:Ljavax/inject/Provider;
 
     move-object v1, p9
 
@@ -476,11 +489,15 @@
 
     iput-object v1, v0, Lcom/android/systemui/biometrics/UdfpsController_Factory;->unlockedScreenOffAnimationControllerProvider:Ljavax/inject/Provider;
 
+    move-object/from16 v1, p27
+
+    iput-object v1, v0, Lcom/android/systemui/biometrics/UdfpsController_Factory;->dialogManagerProvider:Ljavax/inject/Provider;
+
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/biometrics/UdfpsController_Factory;
-    .locals 28
+.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/biometrics/UdfpsController_Factory;
+    .locals 29
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -506,7 +523,7 @@
             "Lcom/android/systemui/util/concurrency/DelayableExecutor;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/phone/StatusBar;",
+            "Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionStateManager;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;",
@@ -562,6 +579,9 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;",
             ">;)",
             "Lcom/android/systemui/biometrics/UdfpsController_Factory;"
         }
@@ -619,17 +639,19 @@
 
     move-object/from16 v26, p25
 
-    new-instance v27, Lcom/android/systemui/biometrics/UdfpsController_Factory;
+    move-object/from16 v27, p26
 
-    move-object/from16 v0, v27
+    new-instance v28, Lcom/android/systemui/biometrics/UdfpsController_Factory;
 
-    invoke-direct/range {v0 .. v26}, Lcom/android/systemui/biometrics/UdfpsController_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+    move-object/from16 v0, v28
 
-    return-object v27
+    invoke-direct/range {v0 .. v27}, Lcom/android/systemui/biometrics/UdfpsController_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+
+    return-object v28
 .end method
 
-.method public static newInstance(Landroid/content/Context;Lcom/android/systemui/util/concurrency/Execution;Landroid/view/LayoutInflater;Landroid/hardware/fingerprint/FingerprintManager;Landroid/view/WindowManager;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/util/concurrency/DelayableExecutor;Lcom/android/systemui/statusbar/phone/StatusBar;Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;Lcom/android/systemui/dump/DumpManager;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/plugins/FalsingManager;Landroid/os/PowerManager;Landroid/view/accessibility/AccessibilityManager;Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;Lcom/android/systemui/keyguard/ScreenLifecycle;Landroid/os/Vibrator;Lcom/android/systemui/biometrics/UdfpsHapticsSimulator;Ljava/util/Optional;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Landroid/hardware/display/DisplayManager;Landroid/os/Handler;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/util/time/SystemClock;Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;)Lcom/android/systemui/biometrics/UdfpsController;
-    .locals 28
+.method public static newInstance(Landroid/content/Context;Lcom/android/systemui/util/concurrency/Execution;Landroid/view/LayoutInflater;Landroid/hardware/fingerprint/FingerprintManager;Landroid/view/WindowManager;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/util/concurrency/DelayableExecutor;Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionStateManager;Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;Lcom/android/systemui/dump/DumpManager;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/plugins/FalsingManager;Landroid/os/PowerManager;Landroid/view/accessibility/AccessibilityManager;Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;Lcom/android/systemui/keyguard/ScreenLifecycle;Landroid/os/Vibrator;Lcom/android/systemui/biometrics/UdfpsHapticsSimulator;Ljava/util/Optional;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Landroid/hardware/display/DisplayManager;Landroid/os/Handler;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/util/time/SystemClock;Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;)Lcom/android/systemui/biometrics/UdfpsController;
+    .locals 29
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -640,7 +662,7 @@
             "Landroid/view/WindowManager;",
             "Lcom/android/systemui/plugins/statusbar/StatusBarStateController;",
             "Lcom/android/systemui/util/concurrency/DelayableExecutor;",
-            "Lcom/android/systemui/statusbar/phone/StatusBar;",
+            "Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionStateManager;",
             "Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;",
             "Lcom/android/systemui/dump/DumpManager;",
             "Lcom/android/keyguard/KeyguardUpdateMonitor;",
@@ -661,6 +683,7 @@
             "Lcom/android/systemui/statusbar/policy/ConfigurationController;",
             "Lcom/android/systemui/util/time/SystemClock;",
             "Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;",
+            "Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;",
             ")",
             "Lcom/android/systemui/biometrics/UdfpsController;"
         }
@@ -718,19 +741,21 @@
 
     move-object/from16 v26, p25
 
-    new-instance v27, Lcom/android/systemui/biometrics/UdfpsController;
+    move-object/from16 v27, p26
 
-    move-object/from16 v0, v27
+    new-instance v28, Lcom/android/systemui/biometrics/UdfpsController;
 
-    invoke-direct/range {v0 .. v26}, Lcom/android/systemui/biometrics/UdfpsController;-><init>(Landroid/content/Context;Lcom/android/systemui/util/concurrency/Execution;Landroid/view/LayoutInflater;Landroid/hardware/fingerprint/FingerprintManager;Landroid/view/WindowManager;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/util/concurrency/DelayableExecutor;Lcom/android/systemui/statusbar/phone/StatusBar;Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;Lcom/android/systemui/dump/DumpManager;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/plugins/FalsingManager;Landroid/os/PowerManager;Landroid/view/accessibility/AccessibilityManager;Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;Lcom/android/systemui/keyguard/ScreenLifecycle;Landroid/os/Vibrator;Lcom/android/systemui/biometrics/UdfpsHapticsSimulator;Ljava/util/Optional;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Landroid/hardware/display/DisplayManager;Landroid/os/Handler;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/util/time/SystemClock;Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;)V
+    move-object/from16 v0, v28
 
-    return-object v27
+    invoke-direct/range {v0 .. v27}, Lcom/android/systemui/biometrics/UdfpsController;-><init>(Landroid/content/Context;Lcom/android/systemui/util/concurrency/Execution;Landroid/view/LayoutInflater;Landroid/hardware/fingerprint/FingerprintManager;Landroid/view/WindowManager;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/util/concurrency/DelayableExecutor;Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionStateManager;Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;Lcom/android/systemui/dump/DumpManager;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/plugins/FalsingManager;Landroid/os/PowerManager;Landroid/view/accessibility/AccessibilityManager;Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;Lcom/android/systemui/keyguard/ScreenLifecycle;Landroid/os/Vibrator;Lcom/android/systemui/biometrics/UdfpsHapticsSimulator;Ljava/util/Optional;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Landroid/hardware/display/DisplayManager;Landroid/os/Handler;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/util/time/SystemClock;Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;)V
+
+    return-object v28
 .end method
 
 
 # virtual methods
 .method public get()Lcom/android/systemui/biometrics/UdfpsController;
-    .locals 28
+    .locals 29
 
     move-object/from16 v0, p0
 
@@ -804,7 +829,7 @@
 
     check-cast v8, Lcom/android/systemui/util/concurrency/DelayableExecutor;
 
-    iget-object v1, v0, Lcom/android/systemui/biometrics/UdfpsController_Factory;->statusBarProvider:Ljavax/inject/Provider;
+    iget-object v1, v0, Lcom/android/systemui/biometrics/UdfpsController_Factory;->panelExpansionStateManagerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -812,7 +837,7 @@
 
     move-object v9, v1
 
-    check-cast v9, Lcom/android/systemui/statusbar/phone/StatusBar;
+    check-cast v9, Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionStateManager;
 
     iget-object v1, v0, Lcom/android/systemui/biometrics/UdfpsController_Factory;->statusBarKeyguardViewManagerProvider:Ljavax/inject/Provider;
 
@@ -984,17 +1009,27 @@
 
     check-cast v26, Lcom/android/systemui/util/time/SystemClock;
 
-    iget-object v0, v0, Lcom/android/systemui/biometrics/UdfpsController_Factory;->unlockedScreenOffAnimationControllerProvider:Ljavax/inject/Provider;
+    iget-object v1, v0, Lcom/android/systemui/biometrics/UdfpsController_Factory;->unlockedScreenOffAnimationControllerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object/from16 v27, v1
+
+    check-cast v27, Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;
+
+    iget-object v0, v0, Lcom/android/systemui/biometrics/UdfpsController_Factory;->dialogManagerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object v0
 
-    move-object/from16 v27, v0
+    move-object/from16 v28, v0
 
-    check-cast v27, Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;
+    check-cast v28, Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;
 
-    invoke-static/range {v2 .. v27}, Lcom/android/systemui/biometrics/UdfpsController_Factory;->newInstance(Landroid/content/Context;Lcom/android/systemui/util/concurrency/Execution;Landroid/view/LayoutInflater;Landroid/hardware/fingerprint/FingerprintManager;Landroid/view/WindowManager;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/util/concurrency/DelayableExecutor;Lcom/android/systemui/statusbar/phone/StatusBar;Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;Lcom/android/systemui/dump/DumpManager;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/plugins/FalsingManager;Landroid/os/PowerManager;Landroid/view/accessibility/AccessibilityManager;Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;Lcom/android/systemui/keyguard/ScreenLifecycle;Landroid/os/Vibrator;Lcom/android/systemui/biometrics/UdfpsHapticsSimulator;Ljava/util/Optional;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Landroid/hardware/display/DisplayManager;Landroid/os/Handler;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/util/time/SystemClock;Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;)Lcom/android/systemui/biometrics/UdfpsController;
+    invoke-static/range {v2 .. v28}, Lcom/android/systemui/biometrics/UdfpsController_Factory;->newInstance(Landroid/content/Context;Lcom/android/systemui/util/concurrency/Execution;Landroid/view/LayoutInflater;Landroid/hardware/fingerprint/FingerprintManager;Landroid/view/WindowManager;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/util/concurrency/DelayableExecutor;Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionStateManager;Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;Lcom/android/systemui/dump/DumpManager;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/plugins/FalsingManager;Landroid/os/PowerManager;Landroid/view/accessibility/AccessibilityManager;Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;Lcom/android/systemui/keyguard/ScreenLifecycle;Landroid/os/Vibrator;Lcom/android/systemui/biometrics/UdfpsHapticsSimulator;Ljava/util/Optional;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Landroid/hardware/display/DisplayManager;Landroid/os/Handler;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/util/time/SystemClock;Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;)Lcom/android/systemui/biometrics/UdfpsController;
 
     move-result-object v0
 

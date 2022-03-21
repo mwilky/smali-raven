@@ -145,7 +145,7 @@
 .end method
 
 .method public rotateAndScaleWithCrop(Landroid/view/SurfaceControl$Transaction;Landroid/view/SurfaceControl;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;FFFZZ)Lcom/android/wm/shell/pip/PipSurfaceTransactionHelper;
-    .locals 3
+    .locals 4
 
     iget-object v0, p0, Lcom/android/wm/shell/pip/PipSurfaceTransactionHelper;->mTmpDestinationRect:Landroid/graphics/Rect;
 
@@ -195,9 +195,29 @@
     :goto_0
     iget-object p3, p0, Lcom/android/wm/shell/pip/PipSurfaceTransactionHelper;->mTmpDestinationRect:Landroid/graphics/Rect;
 
-    const/4 v2, 0x0
+    sget-boolean v2, Lcom/android/wm/shell/transition/Transitions;->ENABLE_SHELL_TRANSITIONS:Z
 
-    invoke-virtual {p3, v2, v2, v1, p4}, Landroid/graphics/Rect;->set(IIII)V
+    if-eqz v2, :cond_1
+
+    move v3, p4
+
+    goto :goto_1
+
+    :cond_1
+    move v3, v1
+
+    :goto_1
+    if-eqz v2, :cond_2
+
+    goto :goto_2
+
+    :cond_2
+    move v1, p4
+
+    :goto_2
+    const/4 p4, 0x0
+
+    invoke-virtual {p3, p4, p4, v3, v1}, Landroid/graphics/Rect;->set(IIII)V
 
     const/high16 p4, 0x3f800000    # 1.0f
 
@@ -211,7 +231,7 @@
 
     invoke-virtual {p3, p4, v1}, Landroid/graphics/Rect;->offset(II)V
 
-    if-eqz p9, :cond_1
+    if-eqz p9, :cond_3
 
     iget p4, p5, Landroid/graphics/Rect;->left:I
 
@@ -223,17 +243,17 @@
 
     iget p4, p5, Landroid/graphics/Rect;->top:I
 
-    :goto_1
+    :goto_3
     int-to-float p4, p4
 
     mul-float/2addr p4, v0
 
     sub-float/2addr p8, p4
 
-    goto :goto_2
+    goto :goto_4
 
-    :cond_1
-    if-eqz p10, :cond_2
+    :cond_3
+    if-eqz p10, :cond_4
 
     iget p4, p5, Landroid/graphics/Rect;->top:I
 
@@ -251,9 +271,9 @@
 
     add-float/2addr p8, p4
 
-    goto :goto_2
+    goto :goto_4
 
-    :cond_2
+    :cond_4
     iget p4, p5, Landroid/graphics/Rect;->top:I
 
     int-to-float p4, p4
@@ -264,9 +284,9 @@
 
     iget p4, p5, Landroid/graphics/Rect;->left:I
 
-    goto :goto_1
+    goto :goto_3
 
-    :goto_2
+    :goto_4
     iget-object p4, p0, Lcom/android/wm/shell/pip/PipSurfaceTransactionHelper;->mTmpTransform:Landroid/graphics/Matrix;
 
     invoke-virtual {p4, v0, v0}, Landroid/graphics/Matrix;->setScale(FF)V

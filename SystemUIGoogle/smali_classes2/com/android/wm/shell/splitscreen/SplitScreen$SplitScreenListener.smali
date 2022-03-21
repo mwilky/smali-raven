@@ -15,8 +15,20 @@
 
 
 # virtual methods
-.method public abstract onStagePositionChanged(II)V
+.method public onSplitVisibilityChanged(Z)V
+    .locals 0
+
+    return-void
 .end method
 
-.method public abstract onTaskStageChanged(IIZ)V
+.method public onStagePositionChanged(II)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onTaskStageChanged(IIZ)V
+    .locals 0
+
+    return-void
 .end method

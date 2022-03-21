@@ -172,7 +172,7 @@
 
     const/4 v1, 0x1
 
-    invoke-virtual {v0, v1}, Lcom/android/wm/shell/bubbles/BubbleController;->updateWindowFlagsForOverflow(Z)V
+    invoke-virtual {v0, v1}, Lcom/android/wm/shell/bubbles/BubbleController;->updateWindowFlagsForBackpress(Z)V
 
     :cond_0
     iget-object v0, p0, Lcom/android/wm/shell/bubbles/BubbleOverflowContainerView;->mKeyListener:Landroid/view/View$OnKeyListener;
@@ -193,7 +193,7 @@
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Lcom/android/wm/shell/bubbles/BubbleController;->updateWindowFlagsForOverflow(Z)V
+    invoke-virtual {v0, v1}, Lcom/android/wm/shell/bubbles/BubbleController;->updateWindowFlagsForBackpress(Z)V
 
     :cond_0
     const/4 v0, 0x0
@@ -333,7 +333,7 @@
 
     move-result-object v0
 
-    const v1, 0x1050287
+    const v1, 0x1050294
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

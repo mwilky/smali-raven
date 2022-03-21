@@ -36,7 +36,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/ScreenDecorations$3;->this$0:Lcom/android/systemui/ScreenDecorations;
 
-    invoke-static {p0, p1}, Lcom/android/systemui/ScreenDecorations;->access$500(Lcom/android/systemui/ScreenDecorations;I)V
+    invoke-static {p0, p1}, Lcom/android/systemui/ScreenDecorations;->access$900(Lcom/android/systemui/ScreenDecorations;I)V
 
     return-void
 .end method

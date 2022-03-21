@@ -2,24 +2,28 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Ljava/util/function/Consumer;
+.implements Lcom/android/wm/shell/common/SingleInstanceRemoteListener$RemoteCall;
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/android/wm/shell/startingsurface/StartingWindowController$IStartingWindowImpl;
+.field public final synthetic f$0:Ljava/lang/Integer;
 
-.field public final synthetic f$1:Lcom/android/wm/shell/startingsurface/IStartingWindowListener;
+.field public final synthetic f$1:Ljava/lang/Integer;
+
+.field public final synthetic f$2:Ljava/lang/Integer;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/wm/shell/startingsurface/StartingWindowController$IStartingWindowImpl;Lcom/android/wm/shell/startingsurface/IStartingWindowListener;)V
+.method public synthetic constructor <init>(Ljava/lang/Integer;Ljava/lang/Integer;Ljava/lang/Integer;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/wm/shell/startingsurface/StartingWindowController$IStartingWindowImpl$$ExternalSyntheticLambda1;->f$0:Lcom/android/wm/shell/startingsurface/StartingWindowController$IStartingWindowImpl;
+    iput-object p1, p0, Lcom/android/wm/shell/startingsurface/StartingWindowController$IStartingWindowImpl$$ExternalSyntheticLambda1;->f$0:Ljava/lang/Integer;
 
-    iput-object p2, p0, Lcom/android/wm/shell/startingsurface/StartingWindowController$IStartingWindowImpl$$ExternalSyntheticLambda1;->f$1:Lcom/android/wm/shell/startingsurface/IStartingWindowListener;
+    iput-object p2, p0, Lcom/android/wm/shell/startingsurface/StartingWindowController$IStartingWindowImpl$$ExternalSyntheticLambda1;->f$1:Ljava/lang/Integer;
+
+    iput-object p3, p0, Lcom/android/wm/shell/startingsurface/StartingWindowController$IStartingWindowImpl$$ExternalSyntheticLambda1;->f$2:Ljava/lang/Integer;
 
     return-void
 .end method
@@ -27,15 +31,17 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;)V
-    .locals 1
+    .locals 2
 
-    iget-object v0, p0, Lcom/android/wm/shell/startingsurface/StartingWindowController$IStartingWindowImpl$$ExternalSyntheticLambda1;->f$0:Lcom/android/wm/shell/startingsurface/StartingWindowController$IStartingWindowImpl;
+    iget-object v0, p0, Lcom/android/wm/shell/startingsurface/StartingWindowController$IStartingWindowImpl$$ExternalSyntheticLambda1;->f$0:Ljava/lang/Integer;
 
-    iget-object p0, p0, Lcom/android/wm/shell/startingsurface/StartingWindowController$IStartingWindowImpl$$ExternalSyntheticLambda1;->f$1:Lcom/android/wm/shell/startingsurface/IStartingWindowListener;
+    iget-object v1, p0, Lcom/android/wm/shell/startingsurface/StartingWindowController$IStartingWindowImpl$$ExternalSyntheticLambda1;->f$1:Ljava/lang/Integer;
 
-    check-cast p1, Lcom/android/wm/shell/startingsurface/StartingWindowController;
+    iget-object p0, p0, Lcom/android/wm/shell/startingsurface/StartingWindowController$IStartingWindowImpl$$ExternalSyntheticLambda1;->f$2:Ljava/lang/Integer;
 
-    invoke-static {v0, p0, p1}, Lcom/android/wm/shell/startingsurface/StartingWindowController$IStartingWindowImpl;->$r8$lambda$M0ZyrR71XJ_pY5MIJcwJvru-qoI(Lcom/android/wm/shell/startingsurface/StartingWindowController$IStartingWindowImpl;Lcom/android/wm/shell/startingsurface/IStartingWindowListener;Lcom/android/wm/shell/startingsurface/StartingWindowController;)V
+    check-cast p1, Lcom/android/wm/shell/startingsurface/IStartingWindowListener;
+
+    invoke-static {v0, v1, p0, p1}, Lcom/android/wm/shell/startingsurface/StartingWindowController$IStartingWindowImpl;->$r8$lambda$Zwvnb-x0BWUfttGVSiFEKxXio7Q(Ljava/lang/Integer;Ljava/lang/Integer;Ljava/lang/Integer;Lcom/android/wm/shell/startingsurface/IStartingWindowListener;)V
 
     return-void
 .end method

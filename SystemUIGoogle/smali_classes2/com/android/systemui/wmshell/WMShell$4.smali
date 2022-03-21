@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/wmshell/WMShell;->initSplitScreen(Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreen;)V
+    value = Lcom/android/systemui/wmshell/WMShell;->initLegacySplitScreen(Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreen;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;

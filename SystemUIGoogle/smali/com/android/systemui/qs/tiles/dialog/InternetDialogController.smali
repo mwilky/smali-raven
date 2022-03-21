@@ -3,14 +3,14 @@
 .source "InternetDialogController.java"
 
 # interfaces
-.implements Lcom/android/wifitrackerlib/WifiEntry$DisconnectCallback;
-.implements Lcom/android/systemui/statusbar/policy/NetworkController$AccessPointController$AccessPointCallback;
+.implements Lcom/android/systemui/statusbar/connectivity/AccessPointController$AccessPointCallback;
 
 
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$InternetDialogCallback;,
+        Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$ConnectedWifiInternetMonitor;,
         Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$DataConnectivityListener;,
         Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$InternetOnSubscriptionChangedListener;,
         Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$InternetTelephonyCallback;,
@@ -44,7 +44,7 @@
 
 
 # instance fields
-.field private mAccessPointController:Lcom/android/systemui/statusbar/policy/NetworkController$AccessPointController;
+.field private mAccessPointController:Lcom/android/systemui/statusbar/connectivity/AccessPointController;
 
 .field protected mActivityStarter:Lcom/android/systemui/plugins/ActivityStarter;
 
@@ -58,7 +58,7 @@
 
 .field private mConfig:Lcom/android/settingslib/mobile/MobileMappings$Config;
 
-.field private mConnectedEntry:Lcom/android/wifitrackerlib/WifiEntry;
+.field protected mConnectedWifiInternetMonitor:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$ConnectedWifiInternetMonitor;
 
 .field private mConnectionStateFilter:Landroid/content/IntentFilter;
 
@@ -72,6 +72,8 @@
 
 .field private mDefaultDataSubId:I
 
+.field private mDialogLaunchAnimator:Lcom/android/systemui/animation/DialogLaunchAnimator;
+
 .field private mExecutor:Ljava/util/concurrent/Executor;
 
 .field private mGlobalSettings:Lcom/android/systemui/util/settings/GlobalSettings;
@@ -79,6 +81,8 @@
 .field private mHandler:Landroid/os/Handler;
 
 .field protected mHasEthernet:Z
+
+.field private mHasWifiEntries:Z
 
 .field protected mInternetTelephonyCallback:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$InternetTelephonyCallback;
 
@@ -103,8 +107,6 @@
 .field private mToastFactory:Lcom/android/systemui/toast/ToastFactory;
 
 .field private mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
-
-.field private mWifiEntriesCount:I
 
 .field protected mWifiIconInjector:Lcom/android/settingslib/wifi/WifiUtils$InternetIconInjector;
 
@@ -204,16 +206,6 @@
     return-object p0
 .end method
 
-.method public static synthetic $r8$lambda$bHFXYCr27HTflRWqtVZVPpTMdIs(Lcom/android/wifitrackerlib/WifiEntry;)Z
-    .locals 0
-
-    invoke-static {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->lambda$onAccessPointsChanged$13(Lcom/android/wifitrackerlib/WifiEntry;)Z
-
-    move-result p0
-
-    return p0
-.end method
-
 .method public static synthetic $r8$lambda$fnx1-2lue7Q1E6mt2auFncSHqGw(Landroid/telephony/SubscriptionInfo;)Z
     .locals 0
 
@@ -302,7 +294,7 @@
     return-void
 .end method
 
-.method public constructor <init>(Landroid/content/Context;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/statusbar/policy/NetworkController$AccessPointController;Landroid/telephony/SubscriptionManager;Landroid/telephony/TelephonyManager;Landroid/net/wifi/WifiManager;Landroid/net/ConnectivityManager;Landroid/os/Handler;Ljava/util/concurrent/Executor;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/util/settings/GlobalSettings;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Landroid/view/WindowManager;Lcom/android/systemui/toast/ToastFactory;Landroid/os/Handler;Lcom/android/systemui/util/CarrierConfigTracker;Lcom/android/systemui/statusbar/policy/LocationController;)V
+.method public constructor <init>(Landroid/content/Context;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/statusbar/connectivity/AccessPointController;Landroid/telephony/SubscriptionManager;Landroid/telephony/TelephonyManager;Landroid/net/wifi/WifiManager;Landroid/net/ConnectivityManager;Landroid/os/Handler;Ljava/util/concurrent/Executor;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/util/settings/GlobalSettings;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Landroid/view/WindowManager;Lcom/android/systemui/toast/ToastFactory;Landroid/os/Handler;Lcom/android/systemui/util/CarrierConfigTracker;Lcom/android/systemui/statusbar/policy/LocationController;Lcom/android/systemui/animation/DialogLaunchAnimator;)V
     .locals 4
 
     move-object v0, p0
@@ -428,7 +420,7 @@
 
     move-object v2, p4
 
-    iput-object v2, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mAccessPointController:Lcom/android/systemui/statusbar/policy/NetworkController$AccessPointController;
+    iput-object v2, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mAccessPointController:Lcom/android/systemui/statusbar/connectivity/AccessPointController;
 
     new-instance v2, Lcom/android/settingslib/wifi/WifiUtils$InternetIconInjector;
 
@@ -463,6 +455,16 @@
     move-object/from16 v1, p19
 
     iput-object v1, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mLocationController:Lcom/android/systemui/statusbar/policy/LocationController;
+
+    move-object/from16 v1, p20
+
+    iput-object v1, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mDialogLaunchAnimator:Lcom/android/systemui/animation/DialogLaunchAnimator;
+
+    new-instance v1, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$ConnectedWifiInternetMonitor;
+
+    invoke-direct {v1, p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$ConnectedWifiInternetMonitor;-><init>(Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;)V
+
+    iput-object v1, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mConnectedWifiInternetMonitor:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$ConnectedWifiInternetMonitor;
 
     return-void
 .end method
@@ -541,21 +543,6 @@
     return-object p0
 
     :cond_0
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->isDataStateInService()Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    sget p0, Lcom/android/systemui/R$string;->mobile_data_no_connection:I
-
-    invoke-virtual {p1, p0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object p0
-
-    return-object p0
-
-    :cond_1
     invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->activeNetworkIsCellular()Z
 
     move-result v0
@@ -564,11 +551,29 @@
 
     invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->isCarrierNetworkActive()Z
 
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    goto :goto_0
+
+    :cond_1
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->isDataStateInService()Z
+
     move-result p0
 
-    if-eqz p0, :cond_3
+    if-nez p0, :cond_3
+
+    sget p0, Lcom/android/systemui/R$string;->mobile_data_no_connection:I
+
+    invoke-virtual {p1, p0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object p2
+
+    goto :goto_1
 
     :cond_2
+    :goto_0
     sget p0, Lcom/android/systemui/R$string;->preference_summary_default_combination:I
 
     const/4 v0, 0x2
@@ -594,6 +599,7 @@
     move-result-object p2
 
     :cond_3
+    :goto_1
     return-object p2
 .end method
 
@@ -713,9 +719,9 @@
         }
     .end annotation
 
-    new-instance v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$$ExternalSyntheticLambda12;
+    new-instance v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$$ExternalSyntheticLambda11;
 
-    invoke-direct {v0, p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$$ExternalSyntheticLambda12;-><init>(Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;)V
+    invoke-direct {v0, p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$$ExternalSyntheticLambda11;-><init>(Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;)V
 
     new-instance p0, Ljava/util/HashSet;
 
@@ -751,9 +757,9 @@
 
     check-cast v1, Ljava/util/Set;
 
-    new-instance v2, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$$ExternalSyntheticLambda13;
+    new-instance v2, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$$ExternalSyntheticLambda12;
 
-    invoke-direct {v2, v0, v1, p1}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$$ExternalSyntheticLambda13;-><init>(Ljava/util/function/Supplier;Ljava/util/Set;Landroid/content/Context;)V
+    invoke-direct {v2, v0, v1, p1}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$$ExternalSyntheticLambda12;-><init>(Ljava/util/function/Supplier;Ljava/util/Set;Landroid/content/Context;)V
 
     invoke-interface {p0}, Ljava/util/Set;->clear()V
 
@@ -1111,36 +1117,6 @@
     return-object p1
 .end method
 
-.method private static synthetic lambda$onAccessPointsChanged$13(Lcom/android/wifitrackerlib/WifiEntry;)Z
-    .locals 1
-
-    invoke-virtual {p0}, Lcom/android/wifitrackerlib/WifiEntry;->isDefaultNetwork()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    invoke-virtual {p0}, Lcom/android/wifitrackerlib/WifiEntry;->hasInternetAccess()Z
-
-    move-result p0
-
-    if-nez p0, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    goto :goto_1
-
-    :cond_1
-    :goto_0
-    const/4 p0, 0x1
-
-    :goto_1
-    return p0
-.end method
-
 .method private synthetic lambda$setMobileDataEnabled$12(IZ)V
     .locals 0
 
@@ -1156,9 +1132,9 @@
 
     if-eqz v0, :cond_0
 
-    iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mAccessPointController:Lcom/android/systemui/statusbar/policy/NetworkController$AccessPointController;
+    iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mAccessPointController:Lcom/android/systemui/statusbar/connectivity/AccessPointController;
 
-    invoke-interface {p0}, Lcom/android/systemui/statusbar/policy/NetworkController$AccessPointController;->scanForAccessPoints()V
+    invoke-interface {p0}, Lcom/android/systemui/statusbar/connectivity/AccessPointController;->scanForAccessPoints()V
 
     :cond_0
     return-void
@@ -1424,9 +1400,9 @@
 .method connectCarrierNetwork()V
     .locals 3
 
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mAccessPointController:Lcom/android/systemui/statusbar/policy/NetworkController$AccessPointController;
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mAccessPointController:Lcom/android/systemui/statusbar/connectivity/AccessPointController;
 
-    invoke-interface {v0}, Lcom/android/systemui/statusbar/policy/NetworkController$AccessPointController;->getMergedCarrierEntry()Lcom/android/wifitrackerlib/MergedCarrierEntry;
+    invoke-interface {v0}, Lcom/android/systemui/statusbar/connectivity/AccessPointController;->getMergedCarrierEntry()Lcom/android/wifitrackerlib/MergedCarrierEntry;
 
     move-result-object v0
 
@@ -1598,7 +1574,7 @@
 .end method
 
 .method getSignalStrengthDrawable()Landroid/graphics/drawable/Drawable;
-    .locals 3
+    .locals 4
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mContext:Landroid/content/Context;
 
@@ -1627,57 +1603,59 @@
     return-object v0
 
     :cond_1
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->isDataStateInService()Z
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->isCarrierNetworkActive()Z
 
     move-result v1
 
-    if-nez v1, :cond_2
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->isDataStateInService()Z
+
+    move-result v2
+
+    if-nez v2, :cond_2
 
     invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->isVoiceStateInService()Z
 
-    move-result v1
+    move-result v2
+
+    if-nez v2, :cond_2
 
     if-eqz v1, :cond_3
 
     :cond_2
-    new-instance v1, Ljava/util/concurrent/atomic/AtomicReference;
+    new-instance v2, Ljava/util/concurrent/atomic/AtomicReference;
 
-    invoke-direct {v1}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
+    invoke-direct {v2}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
 
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->getSignalStrengthDrawableWithLevel()Landroid/graphics/drawable/Drawable;
+    invoke-virtual {p0, v1}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->getSignalStrengthDrawableWithLevel(Z)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/util/concurrent/atomic/AtomicReference;->set(Ljava/lang/Object;)V
+
+    invoke-virtual {v2}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
 
     move-result-object v2
 
-    invoke-virtual {v1, v2}, Ljava/util/concurrent/atomic/AtomicReference;->set(Ljava/lang/Object;)V
+    check-cast v2, Landroid/graphics/drawable/Drawable;
 
-    invoke-virtual {v1}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/graphics/drawable/Drawable;
-
-    move-object v0, v1
+    move-object v0, v2
 
     :cond_3
-    iget-object v1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mContext:Landroid/content/Context;
+    iget-object v2, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mContext:Landroid/content/Context;
 
-    const v2, 0x1010212
+    const v3, 0x1010212
 
-    invoke-static {v1, v2}, Lcom/android/settingslib/Utils;->getColorAttrDefaultColor(Landroid/content/Context;I)I
+    invoke-static {v2, v3}, Lcom/android/settingslib/Utils;->getColorAttrDefaultColor(Landroid/content/Context;I)I
 
-    move-result v1
+    move-result v2
 
     invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->activeNetworkIsCellular()Z
 
-    move-result v2
+    move-result v3
 
-    if-nez v2, :cond_4
+    if-nez v3, :cond_4
 
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->isCarrierNetworkActive()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_5
+    if-eqz v1, :cond_5
 
     :cond_4
     iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mContext:Landroid/content/Context;
@@ -1686,10 +1664,10 @@
 
     invoke-virtual {p0, v1}, Landroid/content/Context;->getColor(I)I
 
-    move-result v1
+    move-result v2
 
     :cond_5
-    invoke-virtual {v0, v1}, Landroid/graphics/drawable/Drawable;->setTint(I)V
+    invoke-virtual {v0, v2}, Landroid/graphics/drawable/Drawable;->setTint(I)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -1704,8 +1682,8 @@
     return-object v0
 .end method
 
-.method getSignalStrengthDrawableWithLevel()Landroid/graphics/drawable/Drawable;
-    .locals 8
+.method getSignalStrengthDrawableWithLevel(Z)Landroid/graphics/drawable/Drawable;
+    .locals 9
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mTelephonyManager:Landroid/telephony/TelephonyManager;
 
@@ -1725,42 +1703,54 @@
     move-result v0
 
     :goto_0
-    const/4 v1, 0x5
+    iget-object v1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mSubscriptionManager:Landroid/telephony/SubscriptionManager;
 
-    iget-object v2, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mSubscriptionManager:Landroid/telephony/SubscriptionManager;
+    const/4 v2, 0x5
 
-    if-eqz v2, :cond_1
+    if-eqz v1, :cond_1
 
-    iget v2, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mDefaultDataSubId:I
+    iget v1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mDefaultDataSubId:I
 
-    invoke-direct {p0, v2}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->shouldInflateSignalStrength(I)Z
+    invoke-direct {p0, v1}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->shouldInflateSignalStrength(I)Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_1
-
-    add-int/lit8 v0, v0, 0x1
-
-    const/4 v1, 0x6
+    if-nez v1, :cond_2
 
     :cond_1
-    move v4, v0
+    if-eqz p1, :cond_4
 
-    move v5, v1
+    :cond_2
+    if-eqz p1, :cond_3
 
-    iget-object v3, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mContext:Landroid/content/Context;
+    move v0, v2
 
-    const/4 v6, 0x0
+    goto :goto_1
+
+    :cond_3
+    add-int/lit8 v0, v0, 0x1
+
+    :goto_1
+    const/4 v2, 0x6
+
+    :cond_4
+    move v5, v0
+
+    move v6, v2
+
+    iget-object v4, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mContext:Landroid/content/Context;
+
+    const/4 v7, 0x0
 
     invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->isMobileDataEnabled()Z
 
-    move-result v0
+    move-result p1
 
-    xor-int/lit8 v7, v0, 0x1
+    xor-int/lit8 v8, p1, 0x1
 
-    move-object v2, p0
+    move-object v3, p0
 
-    invoke-virtual/range {v2 .. v7}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->getSignalStrengthIcon(Landroid/content/Context;IIIZ)Landroid/graphics/drawable/Drawable;
+    invoke-virtual/range {v3 .. v8}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->getSignalStrengthIcon(Landroid/content/Context;IIIZ)Landroid/graphics/drawable/Drawable;
 
     move-result-object p0
 
@@ -1880,22 +1870,11 @@
 .method getSubtitleText(Z)Ljava/lang/CharSequence;
     .locals 3
 
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->isAirplaneModeEnabled()Z
-
-    move-result v0
-
-    const/4 v1, 0x0
-
-    if-eqz v0, :cond_0
-
-    return-object v1
-
-    :cond_0
     iget-boolean v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mCanConfigWifi:Z
 
-    const-string v2, "InternetDialogController"
+    const-string v1, "InternetDialogController"
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mWifiManager:Landroid/net/wifi/WifiManager;
 
@@ -1903,17 +1882,17 @@
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_1
 
     sget-boolean p1, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->DEBUG:Z
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_0
 
-    const-string p1, "Airplane mode off + Wi-Fi off."
+    const-string p1, "Wi-Fi off."
 
-    invoke-static {v2, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_1
+    :cond_0
     iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mContext:Landroid/content/Context;
 
     sget p1, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->SUBTITLE_TEXT_WIFI_IS_OFF:I
@@ -1924,22 +1903,22 @@
 
     return-object p0
 
-    :cond_2
+    :cond_1
     invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->isDeviceLocked()Z
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_3
 
     sget-boolean p1, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->DEBUG:Z
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_2
 
     const-string p1, "The device is locked."
 
-    invoke-static {v2, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_3
+    :cond_2
     iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mContext:Landroid/content/Context;
 
     sget p1, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->SUBTITLE_TEXT_UNLOCK_TO_VIEW_NETWORKS:I
@@ -1950,16 +1929,27 @@
 
     return-object p0
 
+    :cond_3
+    iget-boolean v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mHasWifiEntries:Z
+
+    const/4 v2, 0x0
+
+    if-eqz v0, :cond_5
+
+    iget-boolean p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mCanConfigWifi:Z
+
+    if-eqz p1, :cond_4
+
+    iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mContext:Landroid/content/Context;
+
+    sget p1, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->SUBTITLE_TEXT_TAP_A_NETWORK_TO_CONNECT:I
+
+    invoke-virtual {p0, p1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object v2
+
     :cond_4
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mConnectedEntry:Lcom/android/wifitrackerlib/WifiEntry;
-
-    if-nez v0, :cond_10
-
-    iget v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mWifiEntriesCount:I
-
-    if-lez v0, :cond_5
-
-    goto/16 :goto_1
+    return-object v2
 
     :cond_5
     iget-boolean v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mCanConfigWifi:Z
@@ -1979,53 +1969,70 @@
     return-object p0
 
     :cond_6
-    sget-boolean p1, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->DEBUG:Z
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->isCarrierNetworkActive()Z
+
+    move-result p1
 
     if-eqz p1, :cond_7
 
-    const-string v0, "No Wi-Fi item."
+    iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mContext:Landroid/content/Context;
 
-    invoke-static {v2, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    sget p1, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->SUBTITLE_TEXT_NON_CARRIER_NETWORK_UNAVAILABLE:I
+
+    invoke-virtual {p0, p1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object p0
+
+    return-object p0
 
     :cond_7
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->hasCarrier()Z
+    sget-boolean p1, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->DEBUG:Z
+
+    if-eqz p1, :cond_8
+
+    const-string v0, "No Wi-Fi item."
+
+    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_8
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->hasActiveSubId()Z
 
     move-result v0
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_f
 
     invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->isVoiceStateInService()Z
 
     move-result v0
 
-    if-nez v0, :cond_8
+    if-nez v0, :cond_9
 
     invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->isDataStateInService()Z
 
     move-result v0
 
-    if-nez v0, :cond_8
+    if-nez v0, :cond_9
 
     goto :goto_0
 
-    :cond_8
+    :cond_9
     iget-boolean v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mCanConfigWifi:Z
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_b
 
     invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->isMobileDataEnabled()Z
 
     move-result v0
 
-    if-nez v0, :cond_a
+    if-nez v0, :cond_b
 
-    if-eqz p1, :cond_9
+    if-eqz p1, :cond_a
 
     const-string p1, "Mobile data off"
 
-    invoke-static {v2, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_9
+    :cond_a
     iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mContext:Landroid/content/Context;
 
     sget p1, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->SUBTITLE_TEXT_NON_CARRIER_NETWORK_UNAVAILABLE:I
@@ -2036,38 +2043,23 @@
 
     return-object p0
 
-    :cond_a
+    :cond_b
     invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->activeNetworkIsCellular()Z
 
     move-result v0
 
-    if-nez v0, :cond_c
+    if-nez v0, :cond_d
 
-    if-eqz p1, :cond_b
+    if-eqz p1, :cond_c
 
     const-string p1, "No carrier data."
 
-    invoke-static {v2, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_b
+    :cond_c
     iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mContext:Landroid/content/Context;
 
     sget p1, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->SUBTITLE_TEXT_ALL_CARRIER_NETWORK_UNAVAILABLE:I
-
-    invoke-virtual {p0, p1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
-
-    move-result-object p0
-
-    return-object p0
-
-    :cond_c
-    iget-boolean p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mCanConfigWifi:Z
-
-    if-eqz p1, :cond_d
-
-    iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mContext:Landroid/content/Context;
-
-    sget p1, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->SUBTITLE_TEXT_NON_CARRIER_NETWORK_UNAVAILABLE:I
 
     invoke-virtual {p0, p1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -2076,17 +2068,32 @@
     return-object p0
 
     :cond_d
-    return-object v1
+    iget-boolean p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mCanConfigWifi:Z
+
+    if-eqz p1, :cond_e
+
+    iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mContext:Landroid/content/Context;
+
+    sget p1, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->SUBTITLE_TEXT_NON_CARRIER_NETWORK_UNAVAILABLE:I
+
+    invoke-virtual {p0, p1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object p0
+
+    return-object p0
 
     :cond_e
+    return-object v2
+
+    :cond_f
     :goto_0
-    if-eqz p1, :cond_f
+    if-eqz p1, :cond_10
 
     const-string p1, "No carrier or service is out of service."
 
-    invoke-static {v2, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_f
+    :cond_10
     iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mContext:Landroid/content/Context;
 
     sget p1, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->SUBTITLE_TEXT_ALL_CARRIER_NETWORK_UNAVAILABLE:I
@@ -2096,23 +2103,6 @@
     move-result-object p0
 
     return-object p0
-
-    :cond_10
-    :goto_1
-    iget-boolean p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mCanConfigWifi:Z
-
-    if-eqz p1, :cond_11
-
-    iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mContext:Landroid/content/Context;
-
-    sget p1, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->SUBTITLE_TEXT_TAP_A_NETWORK_TO_CONNECT:I
-
-    invoke-virtual {p0, p1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
-
-    move-result-object v1
-
-    :cond_11
-    return-object v1
 .end method
 
 .method getTelephonyManager()Landroid/telephony/TelephonyManager;
@@ -2171,7 +2161,7 @@
     return-object p0
 .end method
 
-.method hasCarrier()Z
+.method hasActiveSubId()Z
     .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mSubscriptionManager:Landroid/telephony/SubscriptionManager;
@@ -2258,9 +2248,9 @@
 .method isCarrierNetworkActive()Z
     .locals 0
 
-    iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mAccessPointController:Lcom/android/systemui/statusbar/policy/NetworkController$AccessPointController;
+    iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mAccessPointController:Lcom/android/systemui/statusbar/connectivity/AccessPointController;
 
-    invoke-interface {p0}, Lcom/android/systemui/statusbar/policy/NetworkController$AccessPointController;->getMergedCarrierEntry()Lcom/android/wifitrackerlib/MergedCarrierEntry;
+    invoke-interface {p0}, Lcom/android/systemui/statusbar/connectivity/AccessPointController;->getMergedCarrierEntry()Lcom/android/wifitrackerlib/MergedCarrierEntry;
 
     move-result-object p0
 
@@ -2433,6 +2423,10 @@
 .method launchNetworkSetting()V
     .locals 2
 
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mDialogLaunchAnimator:Lcom/android/systemui/animation/DialogLaunchAnimator;
+
+    invoke-virtual {v0}, Lcom/android/systemui/animation/DialogLaunchAnimator;->disableAllCurrentDialogsExitAnimations()V
+
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mCallback:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$InternetDialogCallback;
 
     invoke-interface {v0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$InternetDialogCallback;->dismissDialog()V
@@ -2459,6 +2453,10 @@
 
     if-eqz p1, :cond_0
 
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mDialogLaunchAnimator:Lcom/android/systemui/animation/DialogLaunchAnimator;
+
+    invoke-virtual {v0}, Lcom/android/systemui/animation/DialogLaunchAnimator;->disableAllCurrentDialogsExitAnimations()V
+
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mCallback:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$InternetDialogCallback;
 
     invoke-interface {v0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$InternetDialogCallback;->dismissDialog()V
@@ -2475,6 +2473,10 @@
 
 .method launchWifiScanningSetting()V
     .locals 2
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mDialogLaunchAnimator:Lcom/android/systemui/animation/DialogLaunchAnimator;
+
+    invoke-virtual {v0}, Lcom/android/systemui/animation/DialogLaunchAnimator;->disableAllCurrentDialogsExitAnimations()V
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mCallback:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$InternetDialogCallback;
 
@@ -2563,6 +2565,10 @@
 
     iput v3, v2, Landroid/view/WindowManager$LayoutParams;->type:I
 
+    const/16 v3, 0x98
+
+    iput v3, v2, Landroid/view/WindowManager$LayoutParams;->flags:I
+
     invoke-virtual {p1}, Lcom/android/systemui/toast/SystemUIToast;->getYOffset()Ljava/lang/Integer;
 
     move-result-object v3
@@ -2642,7 +2648,7 @@
 .end method
 
 .method public onAccessPointsChanged(Ljava/util/List;)V
-    .locals 6
+    .locals 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -2661,156 +2667,106 @@
     :cond_0
     const/4 v0, 0x0
 
-    const/4 v1, 0x0
+    if-nez p1, :cond_1
 
-    if-eqz p1, :cond_a
+    move v1, v0
 
-    invoke-interface {p1}, Ljava/util/List;->size()I
-
-    move-result v2
-
-    if-nez v2, :cond_1
-
-    goto :goto_3
+    goto :goto_0
 
     :cond_1
     invoke-interface {p1}, Ljava/util/List;->size()I
 
-    move-result v2
-
-    move v3, v0
+    move-result v1
 
     :goto_0
-    if-ge v3, v2, :cond_3
+    const/4 v2, 0x3
 
-    invoke-interface {p1, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    const/4 v3, 0x1
 
-    move-result-object v4
+    if-le v1, v2, :cond_2
 
-    check-cast v4, Lcom/android/wifitrackerlib/WifiEntry;
-
-    invoke-virtual {v4}, Lcom/android/wifitrackerlib/WifiEntry;->isDefaultNetwork()Z
-
-    move-result v5
-
-    if-eqz v5, :cond_2
-
-    invoke-virtual {v4}, Lcom/android/wifitrackerlib/WifiEntry;->hasInternetAccess()Z
-
-    move-result v5
-
-    if-eqz v5, :cond_2
-
-    iput-object v4, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mConnectedEntry:Lcom/android/wifitrackerlib/WifiEntry;
-
-    const/4 v2, 0x1
+    move v4, v3
 
     goto :goto_1
 
     :cond_2
-    add-int/lit8 v3, v3, 0x1
-
-    goto :goto_0
-
-    :cond_3
-    move v2, v0
+    move v4, v0
 
     :goto_1
-    if-nez v2, :cond_4
+    const/4 v5, 0x0
 
-    iput-object v1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mConnectedEntry:Lcom/android/wifitrackerlib/WifiEntry;
+    if-lez v1, :cond_6
+
+    new-instance v6, Ljava/util/ArrayList;
+
+    invoke-direct {v6}, Ljava/util/ArrayList;-><init>()V
+
+    if-eqz v4, :cond_3
+
+    move v1, v2
+
+    :cond_3
+    iget-object v2, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mConnectedWifiInternetMonitor:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$ConnectedWifiInternetMonitor;
+
+    invoke-virtual {v2}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$ConnectedWifiInternetMonitor;->unregisterCallback()V
+
+    :goto_2
+    if-ge v0, v1, :cond_5
+
+    invoke-interface {p1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/wifitrackerlib/WifiEntry;
+
+    iget-object v7, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mConnectedWifiInternetMonitor:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$ConnectedWifiInternetMonitor;
+
+    invoke-virtual {v7, v2}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$ConnectedWifiInternetMonitor;->registerCallbackIfNeed(Lcom/android/wifitrackerlib/WifiEntry;)V
+
+    if-nez v5, :cond_4
+
+    invoke-virtual {v2}, Lcom/android/wifitrackerlib/WifiEntry;->isDefaultNetwork()Z
+
+    move-result v7
+
+    if-eqz v7, :cond_4
+
+    invoke-virtual {v2}, Lcom/android/wifitrackerlib/WifiEntry;->hasInternetAccess()Z
+
+    move-result v7
+
+    if-eqz v7, :cond_4
+
+    move-object v5, v2
+
+    goto :goto_3
 
     :cond_4
-    const/4 v1, 0x4
+    invoke-interface {v6, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    iget-boolean v3, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mHasEthernet:Z
-
-    if-eqz v3, :cond_5
-
-    const/4 v1, 0x3
-
-    :cond_5
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->hasCarrier()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_6
-
-    add-int/lit8 v1, v1, -0x1
-
-    :cond_6
-    if-eqz v2, :cond_7
-
-    add-int/lit8 v1, v1, -0x1
-
-    :cond_7
-    invoke-interface {p1}, Ljava/util/List;->stream()Ljava/util/stream/Stream;
-
-    move-result-object p1
-
-    sget-object v2, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$$ExternalSyntheticLambda11;->INSTANCE:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$$ExternalSyntheticLambda11;
-
-    invoke-interface {p1, v2}, Ljava/util/stream/Stream;->filter(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
-
-    move-result-object p1
-
-    int-to-long v1, v1
-
-    invoke-interface {p1, v1, v2}, Ljava/util/stream/Stream;->limit(J)Ljava/util/stream/Stream;
-
-    move-result-object p1
-
-    invoke-static {}, Ljava/util/stream/Collectors;->toList()Ljava/util/stream/Collector;
-
-    move-result-object v1
-
-    invoke-interface {p1, v1}, Ljava/util/stream/Stream;->collect(Ljava/util/stream/Collector;)Ljava/lang/Object;
-
-    move-result-object p1
-
-    check-cast p1, Ljava/util/List;
-
-    if-nez p1, :cond_8
+    :goto_3
+    add-int/lit8 v0, v0, 0x1
 
     goto :goto_2
 
-    :cond_8
-    invoke-interface {p1}, Ljava/util/List;->size()I
+    :cond_5
+    iput-boolean v3, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mHasWifiEntries:Z
 
-    move-result v0
+    move-object p1, v5
 
-    :goto_2
-    iput v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mWifiEntriesCount:I
+    move-object v5, v6
 
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mCallback:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$InternetDialogCallback;
+    goto :goto_4
 
-    if-eqz v0, :cond_9
+    :cond_6
+    iput-boolean v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mHasWifiEntries:Z
 
-    iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mConnectedEntry:Lcom/android/wifitrackerlib/WifiEntry;
+    move-object p1, v5
 
-    invoke-interface {v0, p1, p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$InternetDialogCallback;->onAccessPointsChanged(Ljava/util/List;Lcom/android/wifitrackerlib/WifiEntry;)V
-
-    :cond_9
-    return-void
-
-    :cond_a
-    :goto_3
-    iput-object v1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mConnectedEntry:Lcom/android/wifitrackerlib/WifiEntry;
-
-    iput v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mWifiEntriesCount:I
-
+    :goto_4
     iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mCallback:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$InternetDialogCallback;
 
-    if-eqz p0, :cond_b
-
-    invoke-interface {p0, v1, v1}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$InternetDialogCallback;->onAccessPointsChanged(Ljava/util/List;Lcom/android/wifitrackerlib/WifiEntry;)V
-
-    :cond_b
-    return-void
-.end method
-
-.method public onDisconnectResult(I)V
-    .locals 0
+    invoke-interface {p0, v5, p1, v4}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$InternetDialogCallback;->onAccessPointsChanged(Ljava/util/List;Lcom/android/wifitrackerlib/WifiEntry;Z)V
 
     return-void
 .end method
@@ -2843,9 +2799,9 @@
 
     invoke-virtual {p1, v2}, Lcom/android/keyguard/KeyguardUpdateMonitor;->registerCallback(Lcom/android/keyguard/KeyguardUpdateMonitorCallback;)V
 
-    iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mAccessPointController:Lcom/android/systemui/statusbar/policy/NetworkController$AccessPointController;
+    iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mAccessPointController:Lcom/android/systemui/statusbar/connectivity/AccessPointController;
 
-    invoke-interface {p1, p0}, Lcom/android/systemui/statusbar/policy/NetworkController$AccessPointController;->addAccessPointCallback(Lcom/android/systemui/statusbar/policy/NetworkController$AccessPointController$AccessPointCallback;)V
+    invoke-interface {p1, p0}, Lcom/android/systemui/statusbar/connectivity/AccessPointController;->addAccessPointCallback(Lcom/android/systemui/statusbar/connectivity/AccessPointController$AccessPointCallback;)V
 
     iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mBroadcastDispatcher:Lcom/android/systemui/broadcast/BroadcastDispatcher;
 
@@ -2973,9 +2929,9 @@
 
     invoke-virtual {v0, v1}, Landroid/telephony/SubscriptionManager;->removeOnSubscriptionsChangedListener(Landroid/telephony/SubscriptionManager$OnSubscriptionsChangedListener;)V
 
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mAccessPointController:Lcom/android/systemui/statusbar/policy/NetworkController$AccessPointController;
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mAccessPointController:Lcom/android/systemui/statusbar/connectivity/AccessPointController;
 
-    invoke-interface {v0, p0}, Lcom/android/systemui/statusbar/policy/NetworkController$AccessPointController;->removeAccessPointCallback(Lcom/android/systemui/statusbar/policy/NetworkController$AccessPointController$AccessPointCallback;)V
+    invoke-interface {v0, p0}, Lcom/android/systemui/statusbar/connectivity/AccessPointController;->removeAccessPointCallback(Lcom/android/systemui/statusbar/connectivity/AccessPointController$AccessPointCallback;)V
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
@@ -2985,9 +2941,25 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mConnectivityManager:Landroid/net/ConnectivityManager;
 
-    iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mConnectivityManagerNetworkCallback:Landroid/net/ConnectivityManager$NetworkCallback;
+    iget-object v1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mConnectivityManagerNetworkCallback:Landroid/net/ConnectivityManager$NetworkCallback;
 
-    invoke-virtual {v0, p0}, Landroid/net/ConnectivityManager;->unregisterNetworkCallback(Landroid/net/ConnectivityManager$NetworkCallback;)V
+    invoke-virtual {v0, v1}, Landroid/net/ConnectivityManager;->unregisterNetworkCallback(Landroid/net/ConnectivityManager$NetworkCallback;)V
+
+    iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mConnectedWifiInternetMonitor:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$ConnectedWifiInternetMonitor;
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$ConnectedWifiInternetMonitor;->unregisterCallback()V
+
+    return-void
+.end method
+
+.method setAirplaneModeDisabled()V
+    .locals 1
+
+    iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mConnectivityManager:Landroid/net/ConnectivityManager;
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, v0}, Landroid/net/ConnectivityManager;->setAirplaneMode(Z)V
 
     return-void
 .end method
@@ -3006,9 +2978,9 @@
     return-void
 
     :cond_0
-    iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mAccessPointController:Lcom/android/systemui/statusbar/policy/NetworkController$AccessPointController;
+    iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mAccessPointController:Lcom/android/systemui/statusbar/connectivity/AccessPointController;
 
-    invoke-interface {p0}, Lcom/android/systemui/statusbar/policy/NetworkController$AccessPointController;->getMergedCarrierEntry()Lcom/android/wifitrackerlib/MergedCarrierEntry;
+    invoke-interface {p0}, Lcom/android/systemui/statusbar/connectivity/AccessPointController;->getMergedCarrierEntry()Lcom/android/wifitrackerlib/MergedCarrierEntry;
 
     move-result-object p0
 

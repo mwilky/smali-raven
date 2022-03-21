@@ -21,10 +21,6 @@
 .field private static sStyleId:I
 
 
-# instance fields
-.field private mLockScreenMode:I
-
-
 # direct methods
 .method static constructor <clinit>()V
     .locals 1
@@ -46,8 +42,6 @@
     const/4 v2, 0x0
 
     invoke-direct {p0, p1, v1, v2, v0}, Landroid/widget/TextView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
-
-    iput v2, p0, Lcom/android/keyguard/KeyguardSliceView$KeyguardSliceTextView;->mLockScreenMode:I
 
     invoke-virtual {p0}, Lcom/android/keyguard/KeyguardSliceView$KeyguardSliceTextView;->onDensityOrFontScaleChanged()V
 
@@ -92,7 +86,7 @@
 .end method
 
 .method private updatePadding()V
-    .locals 5
+    .locals 3
 
     invoke-virtual {p0}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
 
@@ -102,62 +96,40 @@
 
     move-result v0
 
-    const/4 v1, 0x1
-
-    xor-int/2addr v0, v1
+    xor-int/lit8 v0, v0, 0x1
 
     invoke-virtual {p0}, Landroid/widget/TextView;->getContext()Landroid/content/Context;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v2
+    move-result-object v1
 
-    sget v3, Lcom/android/systemui/R$dimen;->widget_horizontal_padding:I
+    sget v2, Lcom/android/systemui/R$dimen;->widget_horizontal_padding:I
 
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
-    move-result v2
+    move-result v1
 
-    float-to-int v2, v2
+    float-to-int v1, v1
 
-    div-int/lit8 v2, v2, 0x2
+    div-int/lit8 v1, v1, 0x2
 
-    iget v3, p0, Lcom/android/keyguard/KeyguardSliceView$KeyguardSliceTextView;->mLockScreenMode:I
-
-    const/4 v4, 0x0
-
-    if-ne v3, v1, :cond_1
+    const/4 v2, 0x0
 
     if-eqz v0, :cond_0
 
-    move v0, v2
+    move v0, v1
 
     goto :goto_0
 
     :cond_0
-    move v0, v4
+    move v0, v2
 
     :goto_0
-    invoke-virtual {p0, v4, v2, v4, v0}, Landroid/widget/TextView;->setPadding(IIII)V
+    invoke-virtual {p0, v2, v1, v2, v0}, Landroid/widget/TextView;->setPadding(IIII)V
 
-    goto :goto_2
-
-    :cond_1
-    if-eqz v0, :cond_2
-
-    goto :goto_1
-
-    :cond_2
-    const/4 v1, -0x1
-
-    :goto_1
-    mul-int/2addr v1, v2
-
-    invoke-virtual {p0, v2, v4, v1, v4}, Landroid/widget/TextView;->setPadding(IIII)V
-
-    :goto_2
     iget-object v0, p0, Landroid/widget/TextView;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -204,32 +176,6 @@
 
     invoke-direct {p0}, Lcom/android/keyguard/KeyguardSliceView$KeyguardSliceTextView;->updateDrawableColors()V
 
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardSliceView$KeyguardSliceTextView;->updatePadding()V
-
-    return-void
-.end method
-
-.method public setLockScreenMode(I)V
-    .locals 1
-
-    iput p1, p0, Lcom/android/keyguard/KeyguardSliceView$KeyguardSliceTextView;->mLockScreenMode:I
-
-    const/4 v0, 0x1
-
-    if-ne p1, v0, :cond_0
-
-    const/4 p1, 0x5
-
-    invoke-virtual {p0, p1}, Landroid/widget/TextView;->setTextAlignment(I)V
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p1, 0x4
-
-    invoke-virtual {p0, p1}, Landroid/widget/TextView;->setTextAlignment(I)V
-
-    :goto_0
     invoke-direct {p0}, Lcom/android/keyguard/KeyguardSliceView$KeyguardSliceTextView;->updatePadding()V
 
     return-void

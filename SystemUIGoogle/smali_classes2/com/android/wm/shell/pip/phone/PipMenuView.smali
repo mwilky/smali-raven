@@ -34,6 +34,10 @@
 
 .field private mDismissFadeOutDurationMs:I
 
+.field protected mEnterSplitButton:Landroid/view/View;
+
+.field private mFocusedTaskAllowSplitScreen:Z
+
 .field private final mHideMenuRunnable:Ljava/lang/Runnable;
 
 .field private mMainExecutor:Lcom/android/wm/shell/common/ShellExecutor;
@@ -50,9 +54,17 @@
 
 .field protected mPipMenuIconsAlgorithm:Lcom/android/wm/shell/pip/phone/PipMenuIconsAlgorithm;
 
-.field protected mResizeHandle:Landroid/view/View;
-
 .field protected mSettingsButton:Landroid/view/View;
+
+.field private mSplitScreenControllerOptional:Ljava/util/Optional;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/Optional<",
+            "Lcom/android/wm/shell/splitscreen/SplitScreenController;",
+            ">;"
+        }
+    .end annotation
+.end field
 
 .field protected mTopEndContainer:Landroid/view/View;
 
@@ -60,30 +72,28 @@
 
 
 # direct methods
-.method public static synthetic $r8$lambda$6XIQFkz_elD7etJcKadv0cxhW2I(Lcom/android/wm/shell/pip/phone/PipMenuView;)V
+.method public static synthetic $r8$lambda$3KqCcOVAtn9jHLOvgCEu-iouZ8o(Lcom/android/wm/shell/pip/phone/PipMenuView;Landroid/view/View;)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/wm/shell/pip/phone/PipMenuView;->lambda$showMenu$3()V
+    invoke-direct {p0, p1}, Lcom/android/wm/shell/pip/phone/PipMenuView;->lambda$new$3(Landroid/view/View;)V
 
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$P9w5edAGM0v9Xn-IxIn6-0EccBU(Lcom/android/wm/shell/pip/phone/PipMenuActionView;Landroid/graphics/drawable/Drawable;)V
+.method public static synthetic $r8$lambda$5yvEMiMSrTAjVmPfTTO_YZ7Ep60(Lcom/android/wm/shell/pip/phone/PipMenuActionView;Landroid/graphics/drawable/Drawable;)V
     .locals 0
 
-    invoke-static {p0, p1}, Lcom/android/wm/shell/pip/phone/PipMenuView;->lambda$updateActionViews$5(Lcom/android/wm/shell/pip/phone/PipMenuActionView;Landroid/graphics/drawable/Drawable;)V
+    invoke-static {p0, p1}, Lcom/android/wm/shell/pip/phone/PipMenuView;->lambda$updateActionViews$6(Lcom/android/wm/shell/pip/phone/PipMenuActionView;Landroid/graphics/drawable/Drawable;)V
 
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$Q_oiADxaejLr5dACX4s8rmIWm1c(Landroid/view/View;Landroid/view/MotionEvent;)Z
+.method public static synthetic $r8$lambda$QT_TRWQ_WmSLcQag4NpFqArZ6Gw(Landroid/app/RemoteAction;Landroid/view/View;)V
     .locals 0
 
-    invoke-static {p0, p1}, Lcom/android/wm/shell/pip/phone/PipMenuView;->lambda$updateActionViews$4(Landroid/view/View;Landroid/view/MotionEvent;)Z
+    invoke-static {p0, p1}, Lcom/android/wm/shell/pip/phone/PipMenuView;->lambda$updateActionViews$7(Landroid/app/RemoteAction;Landroid/view/View;)V
 
-    move-result p0
-
-    return p0
+    return-void
 .end method
 
 .method public static synthetic $r8$lambda$TVGiqqzKEZGnpVVCecTNWyek8VQ(Lcom/android/wm/shell/pip/phone/PipMenuView;Landroid/view/View;)V
@@ -110,16 +120,38 @@
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$apC0Uo0wV_xZDBuo55rW3f1_jIQ(Landroid/app/RemoteAction;Landroid/view/View;)V
+.method public static synthetic $r8$lambda$eAJyGHshdj_yjIr-y0ffYR6kYCM(Lcom/android/wm/shell/pip/phone/PipMenuView;)V
     .locals 0
 
-    invoke-static {p0, p1}, Lcom/android/wm/shell/pip/phone/PipMenuView;->lambda$updateActionViews$6(Landroid/app/RemoteAction;Landroid/view/View;)V
+    invoke-direct {p0}, Lcom/android/wm/shell/pip/phone/PipMenuView;->lambda$showMenu$4()V
 
     return-void
 .end method
 
-.method public constructor <init>(Landroid/content/Context;Lcom/android/wm/shell/pip/phone/PhonePipMenuController;Lcom/android/wm/shell/common/ShellExecutor;Landroid/os/Handler;)V
-    .locals 6
+.method public static synthetic $r8$lambda$oAakdKD2xYwybzBmjwvTwpl5TrA(Landroid/view/View;Landroid/view/MotionEvent;)Z
+    .locals 0
+
+    invoke-static {p0, p1}, Lcom/android/wm/shell/pip/phone/PipMenuView;->lambda$updateActionViews$5(Landroid/view/View;Landroid/view/MotionEvent;)Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public constructor <init>(Landroid/content/Context;Lcom/android/wm/shell/pip/phone/PhonePipMenuController;Lcom/android/wm/shell/common/ShellExecutor;Landroid/os/Handler;Ljava/util/Optional;)V
+    .locals 7
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/content/Context;",
+            "Lcom/android/wm/shell/pip/phone/PhonePipMenuController;",
+            "Lcom/android/wm/shell/common/ShellExecutor;",
+            "Landroid/os/Handler;",
+            "Ljava/util/Optional<",
+            "Lcom/android/wm/shell/splitscreen/SplitScreenController;",
+            ">;)V"
+        }
+    .end annotation
 
     const/4 v0, 0x0
 
@@ -145,9 +177,9 @@
 
     iput-object v0, p0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mMenuBgUpdateListener:Landroid/animation/ValueAnimator$AnimatorUpdateListener;
 
-    new-instance v0, Lcom/android/wm/shell/pip/phone/PipMenuView$$ExternalSyntheticLambda7;
+    new-instance v0, Lcom/android/wm/shell/pip/phone/PipMenuView$$ExternalSyntheticLambda9;
 
-    invoke-direct {v0, p0}, Lcom/android/wm/shell/pip/phone/PipMenuView$$ExternalSyntheticLambda7;-><init>(Lcom/android/wm/shell/pip/phone/PipMenuView;)V
+    invoke-direct {v0, p0}, Lcom/android/wm/shell/pip/phone/PipMenuView$$ExternalSyntheticLambda9;-><init>(Lcom/android/wm/shell/pip/phone/PipMenuView;)V
 
     iput-object v0, p0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mHideMenuRunnable:Ljava/lang/Runnable;
 
@@ -158,6 +190,8 @@
     iput-object p3, p0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mMainExecutor:Lcom/android/wm/shell/common/ShellExecutor;
 
     iput-object p4, p0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mMainHandler:Landroid/os/Handler;
+
+    iput-object p5, p0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mSplitScreenControllerOptional:Ljava/util/Optional;
 
     const-class p2, Landroid/view/accessibility/AccessibilityManager;
 
@@ -229,9 +263,9 @@
 
     iget-object p2, p0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mSettingsButton:Landroid/view/View;
 
-    new-instance p4, Lcom/android/wm/shell/pip/phone/PipMenuView$$ExternalSyntheticLambda3;
+    new-instance p4, Lcom/android/wm/shell/pip/phone/PipMenuView$$ExternalSyntheticLambda4;
 
-    invoke-direct {p4, p0}, Lcom/android/wm/shell/pip/phone/PipMenuView$$ExternalSyntheticLambda3;-><init>(Lcom/android/wm/shell/pip/phone/PipMenuView;)V
+    invoke-direct {p4, p0}, Lcom/android/wm/shell/pip/phone/PipMenuView$$ExternalSyntheticLambda4;-><init>(Lcom/android/wm/shell/pip/phone/PipMenuView;)V
 
     invoke-virtual {p2, p4}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
@@ -247,9 +281,9 @@
 
     iget-object p2, p0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mDismissButton:Landroid/view/View;
 
-    new-instance p4, Lcom/android/wm/shell/pip/phone/PipMenuView$$ExternalSyntheticLambda4;
+    new-instance p4, Lcom/android/wm/shell/pip/phone/PipMenuView$$ExternalSyntheticLambda5;
 
-    invoke-direct {p4, p0}, Lcom/android/wm/shell/pip/phone/PipMenuView$$ExternalSyntheticLambda4;-><init>(Lcom/android/wm/shell/pip/phone/PipMenuView;)V
+    invoke-direct {p4, p0}, Lcom/android/wm/shell/pip/phone/PipMenuView$$ExternalSyntheticLambda5;-><init>(Lcom/android/wm/shell/pip/phone/PipMenuView;)V
 
     invoke-virtual {p2, p4}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
@@ -258,6 +292,24 @@
     invoke-virtual {p0, p2}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
 
     move-result-object p2
+
+    new-instance p4, Lcom/android/wm/shell/pip/phone/PipMenuView$$ExternalSyntheticLambda3;
+
+    invoke-direct {p4, p0}, Lcom/android/wm/shell/pip/phone/PipMenuView$$ExternalSyntheticLambda3;-><init>(Lcom/android/wm/shell/pip/phone/PipMenuView;)V
+
+    invoke-virtual {p2, p4}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    sget p2, Lcom/android/wm/shell/R$id;->enter_split:I
+
+    invoke-virtual {p0, p2}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
+
+    move-result-object p2
+
+    iput-object p2, p0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mEnterSplitButton:Landroid/view/View;
+
+    invoke-virtual {p2, p3}, Landroid/view/View;->setAlpha(F)V
+
+    iget-object p2, p0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mEnterSplitButton:Landroid/view/View;
 
     new-instance p4, Lcom/android/wm/shell/pip/phone/PipMenuView$$ExternalSyntheticLambda2;
 
@@ -269,61 +321,63 @@
 
     invoke-virtual {p0, p2}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
 
-    move-result-object p2
+    move-result-object p4
 
-    iput-object p2, p0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mResizeHandle:Landroid/view/View;
+    invoke-virtual {p4, p3}, Landroid/view/View;->setAlpha(F)V
 
-    invoke-virtual {p2, p3}, Landroid/view/View;->setAlpha(F)V
+    sget p3, Lcom/android/wm/shell/R$id;->actions_group:I
 
-    sget p2, Lcom/android/wm/shell/R$id;->actions_group:I
+    invoke-virtual {p0, p3}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
 
-    invoke-virtual {p0, p2}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
+    move-result-object p3
 
-    move-result-object p2
+    check-cast p3, Landroid/widget/LinearLayout;
 
-    check-cast p2, Landroid/widget/LinearLayout;
-
-    iput-object p2, p0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mActionsGroup:Landroid/widget/LinearLayout;
+    iput-object p3, p0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mActionsGroup:Landroid/widget/LinearLayout;
 
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->getResources()Landroid/content/res/Resources;
 
-    move-result-object p2
+    move-result-object p3
 
-    sget p3, Lcom/android/wm/shell/R$dimen;->pip_between_action_padding_land:I
+    sget p4, Lcom/android/wm/shell/R$dimen;->pip_between_action_padding_land:I
 
-    invoke-virtual {p2, p3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    invoke-virtual {p3, p4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
-    move-result p2
+    move-result p3
 
-    iput p2, p0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mBetweenActionPaddingLand:I
+    iput p3, p0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mBetweenActionPaddingLand:I
 
     new-instance v0, Lcom/android/wm/shell/pip/phone/PipMenuIconsAlgorithm;
 
-    iget-object p2, p0, Landroid/widget/FrameLayout;->mContext:Landroid/content/Context;
+    iget-object p3, p0, Landroid/widget/FrameLayout;->mContext:Landroid/content/Context;
 
-    invoke-direct {v0, p2}, Lcom/android/wm/shell/pip/phone/PipMenuIconsAlgorithm;-><init>(Landroid/content/Context;)V
+    invoke-direct {v0, p3}, Lcom/android/wm/shell/pip/phone/PipMenuIconsAlgorithm;-><init>(Landroid/content/Context;)V
 
     iput-object v0, p0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mPipMenuIconsAlgorithm:Lcom/android/wm/shell/pip/phone/PipMenuIconsAlgorithm;
 
-    iget-object p2, p0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mViewRoot:Landroid/view/View;
+    iget-object p3, p0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mViewRoot:Landroid/view/View;
 
-    move-object v1, p2
+    move-object v1, p3
 
     check-cast v1, Landroid/view/ViewGroup;
 
-    iget-object p2, p0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mTopEndContainer:Landroid/view/View;
+    iget-object p3, p0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mTopEndContainer:Landroid/view/View;
 
-    move-object v2, p2
+    move-object v2, p3
 
     check-cast v2, Landroid/view/ViewGroup;
 
-    iget-object v3, p0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mResizeHandle:Landroid/view/View;
+    invoke-virtual {p0, p2}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
 
-    iget-object v4, p0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mSettingsButton:Landroid/view/View;
+    move-result-object v3
 
-    iget-object v5, p0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mDismissButton:Landroid/view/View;
+    iget-object v4, p0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mEnterSplitButton:Landroid/view/View;
 
-    invoke-virtual/range {v0 .. v5}, Lcom/android/wm/shell/pip/phone/PipMenuIconsAlgorithm;->bindViews(Landroid/view/ViewGroup;Landroid/view/ViewGroup;Landroid/view/View;Landroid/view/View;Landroid/view/View;)V
+    iget-object v5, p0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mSettingsButton:Landroid/view/View;
+
+    iget-object v6, p0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mDismissButton:Landroid/view/View;
+
+    invoke-virtual/range {v0 .. v6}, Lcom/android/wm/shell/pip/phone/PipMenuIconsAlgorithm;->bindViews(Landroid/view/ViewGroup;Landroid/view/ViewGroup;Landroid/view/View;Landroid/view/View;Landroid/view/View;Landroid/view/View;)V
 
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -417,6 +471,26 @@
     return-void
 .end method
 
+.method private enterSplit()V
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mController:Lcom/android/wm/shell/pip/phone/PhonePipMenuController;
+
+    invoke-static {v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
+
+    new-instance v1, Lcom/android/wm/shell/pip/phone/PipMenuView$$ExternalSyntheticLambda7;
+
+    invoke-direct {v1, v0}, Lcom/android/wm/shell/pip/phone/PipMenuView$$ExternalSyntheticLambda7;-><init>(Lcom/android/wm/shell/pip/phone/PhonePipMenuController;)V
+
+    const/4 v0, 0x0
+
+    const/4 v2, 0x1
+
+    invoke-virtual {p0, v1, v0, v2, v2}, Lcom/android/wm/shell/pip/phone/PipMenuView;->hideMenu(Ljava/lang/Runnable;ZZI)V
+
+    return-void
+.end method
+
 .method private expandPip()V
     .locals 3
 
@@ -424,9 +498,9 @@
 
     invoke-static {v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    new-instance v1, Lcom/android/wm/shell/pip/phone/PipMenuView$$ExternalSyntheticLambda6;
+    new-instance v1, Lcom/android/wm/shell/pip/phone/PipMenuView$$ExternalSyntheticLambda8;
 
-    invoke-direct {v1, v0}, Lcom/android/wm/shell/pip/phone/PipMenuView$$ExternalSyntheticLambda6;-><init>(Lcom/android/wm/shell/pip/phone/PhonePipMenuController;)V
+    invoke-direct {v1, v0}, Lcom/android/wm/shell/pip/phone/PipMenuView$$ExternalSyntheticLambda8;-><init>(Lcom/android/wm/shell/pip/phone/PhonePipMenuController;)V
 
     const/4 v0, 0x0
 
@@ -548,7 +622,28 @@
     return-void
 .end method
 
-.method private synthetic lambda$showMenu$3()V
+.method private synthetic lambda$new$3(Landroid/view/View;)V
+    .locals 1
+
+    iget-object p1, p0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mEnterSplitButton:Landroid/view/View;
+
+    invoke-virtual {p1}, Landroid/view/View;->getAlpha()F
+
+    move-result p1
+
+    const/4 v0, 0x0
+
+    cmpl-float p1, p1, v0
+
+    if-eqz p1, :cond_0
+
+    invoke-direct {p0}, Lcom/android/wm/shell/pip/phone/PipMenuView;->enterSplit()V
+
+    :cond_0
+    return-void
+.end method
+
+.method private synthetic lambda$showMenu$4()V
     .locals 3
 
     iget-object v0, p0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mMenuContainerAnimator:Landroid/animation/AnimatorSet;
@@ -573,7 +668,7 @@
     return-void
 .end method
 
-.method private static synthetic lambda$updateActionViews$4(Landroid/view/View;Landroid/view/MotionEvent;)Z
+.method private static synthetic lambda$updateActionViews$5(Landroid/view/View;Landroid/view/MotionEvent;)Z
     .locals 0
 
     const/4 p0, 0x1
@@ -581,7 +676,7 @@
     return p0
 .end method
 
-.method private static synthetic lambda$updateActionViews$5(Lcom/android/wm/shell/pip/phone/PipMenuActionView;Landroid/graphics/drawable/Drawable;)V
+.method private static synthetic lambda$updateActionViews$6(Lcom/android/wm/shell/pip/phone/PipMenuActionView;Landroid/graphics/drawable/Drawable;)V
     .locals 1
 
     if-eqz p1, :cond_0
@@ -596,7 +691,7 @@
     return-void
 .end method
 
-.method private static synthetic lambda$updateActionViews$6(Landroid/app/RemoteAction;Landroid/view/View;)V
+.method private static synthetic lambda$updateActionViews$7(Landroid/app/RemoteAction;Landroid/view/View;)V
     .locals 1
 
     :try_start_0
@@ -751,52 +846,48 @@
 
     check-cast v1, Landroid/view/ViewGroup;
 
-    sget-object v2, Lcom/android/wm/shell/pip/phone/PipMenuView$$ExternalSyntheticLambda5;->INSTANCE:Lcom/android/wm/shell/pip/phone/PipMenuView$$ExternalSyntheticLambda5;
+    sget-object v2, Lcom/android/wm/shell/pip/phone/PipMenuView$$ExternalSyntheticLambda6;->INSTANCE:Lcom/android/wm/shell/pip/phone/PipMenuView$$ExternalSyntheticLambda6;
 
     invoke-virtual {v1, v2}, Landroid/view/ViewGroup;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
 
     const/4 v2, 0x4
 
-    const/4 v3, 0x0
+    const/4 v3, 0x1
 
-    const/4 v4, 0x2
+    const/4 v4, 0x0
 
-    if-ne p1, v4, :cond_0
+    if-ne p1, v3, :cond_0
 
-    move v4, v3
+    move v5, v4
 
     goto :goto_0
 
     :cond_0
-    move v4, v2
+    move v5, v2
 
     :goto_0
-    invoke-virtual {v0, v4}, Landroid/view/ViewGroup;->setVisibility(I)V
+    invoke-virtual {v0, v5}, Landroid/view/ViewGroup;->setVisibility(I)V
 
     invoke-virtual {v0}, Landroid/view/ViewGroup;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
-    move-result-object v4
+    move-result-object v5
 
-    check-cast v4, Landroid/widget/FrameLayout$LayoutParams;
+    check-cast v5, Landroid/widget/FrameLayout$LayoutParams;
 
-    iget-object v5, p0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mActions:Ljava/util/List;
+    iget-object v6, p0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mActions:Ljava/util/List;
 
-    invoke-interface {v5}, Ljava/util/List;->isEmpty()Z
+    invoke-interface {v6}, Ljava/util/List;->isEmpty()Z
 
-    move-result v5
+    move-result v6
 
-    if-nez v5, :cond_a
-
-    const/4 v5, 0x1
-
-    if-eq p1, v5, :cond_a
+    if-nez v6, :cond_a
 
     if-nez p1, :cond_1
 
     goto/16 :goto_8
 
     :cond_1
-    invoke-virtual {v1, v3}, Landroid/view/ViewGroup;->setVisibility(I)V
+    invoke-virtual {v1, v4}, Landroid/view/ViewGroup;->setVisibility(I)V
 
     iget-object p1, p0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mActionsGroup:Landroid/widget/LinearLayout;
 
@@ -827,7 +918,7 @@
 
     iget-object v2, p0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mActionsGroup:Landroid/widget/LinearLayout;
 
-    invoke-virtual {p1, v1, v2, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+    invoke-virtual {p1, v1, v2, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
     move-result-object v1
 
@@ -840,7 +931,7 @@
     goto :goto_1
 
     :cond_2
-    move p1, v3
+    move p1, v4
 
     :goto_2
     iget-object v1, p0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mActionsGroup:Landroid/widget/LinearLayout;
@@ -865,7 +956,7 @@
 
     if-ge p1, v2, :cond_3
 
-    move v2, v3
+    move v2, v4
 
     goto :goto_3
 
@@ -895,10 +986,10 @@
     goto :goto_4
 
     :cond_5
-    move v5, v3
+    move v3, v4
 
     :goto_4
-    move p1, v3
+    move p1, v4
 
     :goto_5
     iget-object p2, p0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mActions:Ljava/util/List;
@@ -986,7 +1077,7 @@
 
     check-cast p2, Landroid/widget/LinearLayout$LayoutParams;
 
-    if-eqz v5, :cond_8
+    if-eqz v3, :cond_8
 
     if-lez p1, :cond_8
 
@@ -995,7 +1086,7 @@
     goto :goto_7
 
     :cond_8
-    move v1, v3
+    move v1, v4
 
     :goto_7
     iput v1, p2, Landroid/widget/LinearLayout$LayoutParams;->leftMargin:I
@@ -1015,7 +1106,7 @@
 
     move-result p1
 
-    iput p1, v4, Landroid/widget/FrameLayout$LayoutParams;->topMargin:I
+    iput p1, v5, Landroid/widget/FrameLayout$LayoutParams;->topMargin:I
 
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->getResources()Landroid/content/res/Resources;
 
@@ -1027,7 +1118,7 @@
 
     move-result p0
 
-    iput p0, v4, Landroid/widget/FrameLayout$LayoutParams;->bottomMargin:I
+    iput p0, v5, Landroid/widget/FrameLayout$LayoutParams;->bottomMargin:I
 
     goto :goto_9
 
@@ -1035,9 +1126,9 @@
     :goto_8
     invoke-virtual {v1, v2}, Landroid/view/ViewGroup;->setVisibility(I)V
 
-    iput v3, v4, Landroid/widget/FrameLayout$LayoutParams;->topMargin:I
+    iput v4, v5, Landroid/widget/FrameLayout$LayoutParams;->topMargin:I
 
-    iput v3, v4, Landroid/widget/FrameLayout$LayoutParams;->bottomMargin:I
+    iput v4, v5, Landroid/widget/FrameLayout$LayoutParams;->bottomMargin:I
 
     :goto_9
     invoke-virtual {v0}, Landroid/view/ViewGroup;->requestLayout()V
@@ -1111,7 +1202,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setAlpha(F)V
 
-    iget-object p0, p0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mResizeHandle:Landroid/view/View;
+    iget-object p0, p0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mEnterSplitButton:Landroid/view/View;
 
     invoke-virtual {p0, v1}, Landroid/view/View;->setAlpha(F)V
 
@@ -1296,7 +1387,7 @@
 
     move-result-object v3
 
-    iget-object v6, p0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mResizeHandle:Landroid/view/View;
+    iget-object v6, p0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mEnterSplitButton:Landroid/view/View;
 
     sget-object v7, Landroid/view/View;->ALPHA:Landroid/util/Property;
 
@@ -1374,6 +1465,72 @@
     return-void
 .end method
 
+.method public onFocusTaskChanged(Landroid/app/ActivityManager$RunningTaskInfo;)V
+    .locals 4
+
+    iget-object v0, p0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mSplitScreenControllerOptional:Ljava/util/Optional;
+
+    invoke-virtual {v0}, Ljava/util/Optional;->isPresent()Z
+
+    move-result v0
+
+    const/4 v1, 0x0
+
+    const/4 v2, 0x1
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mSplitScreenControllerOptional:Ljava/util/Optional;
+
+    invoke-virtual {v0}, Ljava/util/Optional;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/wm/shell/splitscreen/SplitScreenController;
+
+    iget v3, p1, Landroid/app/ActivityManager$RunningTaskInfo;->taskId:I
+
+    invoke-virtual {v0, v3}, Lcom/android/wm/shell/splitscreen/SplitScreenController;->isTaskInSplitScreen(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    move v0, v2
+
+    goto :goto_0
+
+    :cond_0
+    move v0, v1
+
+    :goto_0
+    if-nez v0, :cond_1
+
+    invoke-virtual {p1}, Landroid/app/ActivityManager$RunningTaskInfo;->getWindowingMode()I
+
+    move-result v0
+
+    if-ne v0, v2, :cond_2
+
+    iget-boolean v0, p1, Landroid/app/ActivityManager$RunningTaskInfo;->supportsSplitScreenMultiWindow:Z
+
+    if-eqz v0, :cond_2
+
+    iget p1, p1, Landroid/app/ActivityManager$RunningTaskInfo;->topActivityType:I
+
+    const/4 v0, 0x2
+
+    if-eq p1, v0, :cond_2
+
+    :cond_1
+    move v1, v2
+
+    :cond_2
+    iput-boolean v1, p0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mFocusedTaskAllowSplitScreen:Z
+
+    return-void
+.end method
+
 .method public onKeyUp(ILandroid/view/KeyEvent;)Z
     .locals 1
 
@@ -1425,7 +1582,7 @@
 
     iget p2, p0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mMenuState:I
 
-    const/4 v0, 0x2
+    const/4 v0, 0x1
 
     if-ne p2, v0, :cond_0
 
@@ -1444,225 +1601,253 @@
 .end method
 
 .method showMenu(ILandroid/graphics/Rect;ZZZZ)V
-    .locals 9
+    .locals 16
 
-    iput-boolean p3, p0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mAllowMenuTimeout:Z
+    move-object/from16 v0, p0
 
-    iput-boolean p4, p0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mDidLastShowMenuResize:Z
+    move/from16 v1, p1
 
-    iget p6, p0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mMenuState:I
+    move/from16 v2, p3
 
-    if-eq p6, p1, :cond_5
+    move/from16 v3, p4
 
-    const/4 v0, 0x1
+    iput-boolean v2, v0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mAllowMenuTimeout:Z
 
-    const/4 v1, 0x0
+    iput-boolean v3, v0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mDidLastShowMenuResize:Z
 
-    const/4 v2, 0x2
+    iget-object v4, v0, Landroid/widget/FrameLayout;->mContext:Landroid/content/Context;
 
-    if-eqz p4, :cond_1
+    invoke-virtual {v4}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    if-eq p6, v2, :cond_0
+    move-result-object v4
 
-    if-ne p1, v2, :cond_1
+    sget v5, Lcom/android/wm/shell/R$bool;->config_pipEnableEnterSplitButton:I
+
+    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getBoolean(I)Z
+
+    move-result v4
+
+    iget v5, v0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mMenuState:I
+
+    if-eq v5, v1, :cond_6
+
+    const/4 v6, 0x0
+
+    const/4 v7, 0x1
+
+    if-eqz v3, :cond_1
+
+    if-eq v5, v7, :cond_0
+
+    if-ne v1, v7, :cond_1
 
     :cond_0
-    move p6, v0
+    move v5, v7
 
     goto :goto_0
 
     :cond_1
-    move p6, v1
+    move v5, v6
 
     :goto_0
-    xor-int/2addr p6, v0
+    xor-int/2addr v5, v7
 
-    iput-boolean p6, p0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mAllowTouches:Z
+    iput-boolean v5, v0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mAllowTouches:Z
 
-    invoke-direct {p0}, Lcom/android/wm/shell/pip/phone/PipMenuView;->cancelDelayedHide()V
+    invoke-direct/range {p0 .. p0}, Lcom/android/wm/shell/pip/phone/PipMenuView;->cancelDelayedHide()V
 
-    iget-object p6, p0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mMenuContainerAnimator:Landroid/animation/AnimatorSet;
+    iget-object v5, v0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mMenuContainerAnimator:Landroid/animation/AnimatorSet;
 
-    if-eqz p6, :cond_2
+    if-eqz v5, :cond_2
 
-    invoke-virtual {p6}, Landroid/animation/AnimatorSet;->cancel()V
+    invoke-virtual {v5}, Landroid/animation/AnimatorSet;->cancel()V
 
     :cond_2
-    new-instance p6, Landroid/animation/AnimatorSet;
+    new-instance v5, Landroid/animation/AnimatorSet;
 
-    invoke-direct {p6}, Landroid/animation/AnimatorSet;-><init>()V
+    invoke-direct {v5}, Landroid/animation/AnimatorSet;-><init>()V
 
-    iput-object p6, p0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mMenuContainerAnimator:Landroid/animation/AnimatorSet;
+    iput-object v5, v0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mMenuContainerAnimator:Landroid/animation/AnimatorSet;
 
-    iget-object p6, p0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mMenuContainer:Landroid/view/View;
+    iget-object v5, v0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mMenuContainer:Landroid/view/View;
 
-    sget-object v3, Landroid/view/View;->ALPHA:Landroid/util/Property;
+    sget-object v8, Landroid/view/View;->ALPHA:Landroid/util/Property;
 
-    new-array v4, v2, [F
+    const/4 v9, 0x2
 
-    invoke-virtual {p6}, Landroid/view/View;->getAlpha()F
-
-    move-result v5
-
-    aput v5, v4, v1
-
-    const/high16 v5, 0x3f800000    # 1.0f
-
-    aput v5, v4, v0
-
-    invoke-static {p6, v3, v4}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Landroid/util/Property;[F)Landroid/animation/ObjectAnimator;
-
-    move-result-object p6
-
-    iget-object v3, p0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mMenuBgUpdateListener:Landroid/animation/ValueAnimator$AnimatorUpdateListener;
-
-    invoke-virtual {p6, v3}, Landroid/animation/ObjectAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
-
-    iget-object v3, p0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mSettingsButton:Landroid/view/View;
-
-    sget-object v4, Landroid/view/View;->ALPHA:Landroid/util/Property;
-
-    new-array v6, v2, [F
-
-    invoke-virtual {v3}, Landroid/view/View;->getAlpha()F
-
-    move-result v7
-
-    aput v7, v6, v1
-
-    aput v5, v6, v0
-
-    invoke-static {v3, v4, v6}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Landroid/util/Property;[F)Landroid/animation/ObjectAnimator;
-
-    move-result-object v3
-
-    iget-object v4, p0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mDismissButton:Landroid/view/View;
-
-    sget-object v6, Landroid/view/View;->ALPHA:Landroid/util/Property;
-
-    new-array v7, v2, [F
-
-    invoke-virtual {v4}, Landroid/view/View;->getAlpha()F
-
-    move-result v8
-
-    aput v8, v7, v1
-
-    aput v5, v7, v0
-
-    invoke-static {v4, v6, v7}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Landroid/util/Property;[F)Landroid/animation/ObjectAnimator;
-
-    move-result-object v4
-
-    iget-object v5, p0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mResizeHandle:Landroid/view/View;
-
-    sget-object v6, Landroid/view/View;->ALPHA:Landroid/util/Property;
-
-    new-array v7, v2, [F
+    new-array v10, v9, [F
 
     invoke-virtual {v5}, Landroid/view/View;->getAlpha()F
 
-    move-result v8
+    move-result v11
 
-    aput v8, v7, v1
+    aput v11, v10, v6
 
-    const/4 v8, 0x0
+    const/high16 v11, 0x3f800000    # 1.0f
 
-    aput v8, v7, v0
+    aput v11, v10, v7
 
-    invoke-static {v5, v6, v7}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Landroid/util/Property;[F)Landroid/animation/ObjectAnimator;
+    invoke-static {v5, v8, v10}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Landroid/util/Property;[F)Landroid/animation/ObjectAnimator;
 
     move-result-object v5
 
-    if-ne p1, v2, :cond_3
+    iget-object v8, v0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mMenuBgUpdateListener:Landroid/animation/ValueAnimator$AnimatorUpdateListener;
 
-    iget-object v6, p0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mMenuContainerAnimator:Landroid/animation/AnimatorSet;
+    invoke-virtual {v5, v8}, Landroid/animation/ObjectAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
 
-    const/4 v7, 0x4
+    iget-object v8, v0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mSettingsButton:Landroid/view/View;
 
-    new-array v7, v7, [Landroid/animation/Animator;
+    sget-object v10, Landroid/view/View;->ALPHA:Landroid/util/Property;
 
-    aput-object p6, v7, v1
+    new-array v12, v9, [F
 
-    aput-object v3, v7, v0
+    invoke-virtual {v8}, Landroid/view/View;->getAlpha()F
 
-    aput-object v4, v7, v2
+    move-result v13
 
-    const/4 p6, 0x3
+    aput v13, v12, v6
 
-    aput-object v5, v7, p6
+    aput v11, v12, v7
 
-    invoke-virtual {v6, v7}, Landroid/animation/AnimatorSet;->playTogether([Landroid/animation/Animator;)V
+    invoke-static {v8, v10, v12}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Landroid/util/Property;[F)Landroid/animation/ObjectAnimator;
+
+    move-result-object v8
+
+    iget-object v10, v0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mDismissButton:Landroid/view/View;
+
+    sget-object v12, Landroid/view/View;->ALPHA:Landroid/util/Property;
+
+    new-array v13, v9, [F
+
+    invoke-virtual {v10}, Landroid/view/View;->getAlpha()F
+
+    move-result v14
+
+    aput v14, v13, v6
+
+    aput v11, v13, v7
+
+    invoke-static {v10, v12, v13}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Landroid/util/Property;[F)Landroid/animation/ObjectAnimator;
+
+    move-result-object v10
+
+    iget-object v12, v0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mEnterSplitButton:Landroid/view/View;
+
+    sget-object v13, Landroid/view/View;->ALPHA:Landroid/util/Property;
+
+    new-array v14, v9, [F
+
+    invoke-virtual {v12}, Landroid/view/View;->getAlpha()F
+
+    move-result v15
+
+    aput v15, v14, v6
+
+    if-eqz v4, :cond_3
+
+    iget-boolean v4, v0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mFocusedTaskAllowSplitScreen:Z
+
+    if-eqz v4, :cond_3
 
     goto :goto_1
 
     :cond_3
-    iget-object p6, p0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mMenuContainerAnimator:Landroid/animation/AnimatorSet;
-
-    new-array v2, v2, [Landroid/animation/Animator;
-
-    aput-object v4, v2, v1
-
-    aput-object v5, v2, v0
-
-    invoke-virtual {p6, v2}, Landroid/animation/AnimatorSet;->playTogether([Landroid/animation/Animator;)V
+    const/4 v11, 0x0
 
     :goto_1
-    iget-object p6, p0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mMenuContainerAnimator:Landroid/animation/AnimatorSet;
+    aput v11, v14, v7
 
-    sget-object v0, Lcom/android/wm/shell/animation/Interpolators;->ALPHA_IN:Landroid/view/animation/Interpolator;
+    invoke-static {v12, v13, v14}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Landroid/util/Property;[F)Landroid/animation/ObjectAnimator;
 
-    invoke-virtual {p6, v0}, Landroid/animation/AnimatorSet;->setInterpolator(Landroid/animation/TimeInterpolator;)V
+    move-result-object v4
 
-    iget-object p6, p0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mMenuContainerAnimator:Landroid/animation/AnimatorSet;
+    if-ne v1, v7, :cond_4
 
-    const-wide/16 v2, 0x7d
+    iget-object v11, v0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mMenuContainerAnimator:Landroid/animation/AnimatorSet;
 
-    invoke-virtual {p6, v2, v3}, Landroid/animation/AnimatorSet;->setDuration(J)Landroid/animation/AnimatorSet;
+    const/4 v12, 0x4
 
-    iget-object p6, p0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mMenuContainerAnimator:Landroid/animation/AnimatorSet;
+    new-array v12, v12, [Landroid/animation/Animator;
 
-    new-instance v0, Lcom/android/wm/shell/pip/phone/PipMenuView$3;
+    aput-object v5, v12, v6
 
-    invoke-direct {v0, p0, p1, p3}, Lcom/android/wm/shell/pip/phone/PipMenuView$3;-><init>(Lcom/android/wm/shell/pip/phone/PipMenuView;IZ)V
+    aput-object v8, v12, v7
 
-    invoke-virtual {p6, v0}, Landroid/animation/AnimatorSet;->addListener(Landroid/animation/Animator$AnimatorListener;)V
+    aput-object v10, v12, v9
 
-    if-eqz p5, :cond_4
+    const/4 v5, 0x3
 
-    new-instance p3, Lcom/android/wm/shell/pip/phone/PipMenuView$$ExternalSyntheticLambda8;
+    aput-object v4, v12, v5
 
-    invoke-direct {p3, p0}, Lcom/android/wm/shell/pip/phone/PipMenuView$$ExternalSyntheticLambda8;-><init>(Lcom/android/wm/shell/pip/phone/PipMenuView;)V
-
-    invoke-direct {p0, p1, p4, p3}, Lcom/android/wm/shell/pip/phone/PipMenuView;->notifyMenuStateChangeStart(IZLjava/lang/Runnable;)V
+    invoke-virtual {v11, v12}, Landroid/animation/AnimatorSet;->playTogether([Landroid/animation/Animator;)V
 
     goto :goto_2
 
     :cond_4
-    const/4 p3, 0x0
+    iget-object v5, v0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mMenuContainerAnimator:Landroid/animation/AnimatorSet;
 
-    invoke-direct {p0, p1, p4, p3}, Lcom/android/wm/shell/pip/phone/PipMenuView;->notifyMenuStateChangeStart(IZLjava/lang/Runnable;)V
+    new-array v7, v7, [Landroid/animation/Animator;
 
-    invoke-virtual {p0, v1}, Landroid/widget/FrameLayout;->setVisibility(I)V
+    aput-object v4, v7, v6
 
-    iget-object p3, p0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mMenuContainerAnimator:Landroid/animation/AnimatorSet;
-
-    invoke-virtual {p3}, Landroid/animation/AnimatorSet;->start()V
+    invoke-virtual {v5, v7}, Landroid/animation/AnimatorSet;->playTogether([Landroid/animation/Animator;)V
 
     :goto_2
-    invoke-direct {p0, p1, p2}, Lcom/android/wm/shell/pip/phone/PipMenuView;->updateActionViews(ILandroid/graphics/Rect;)V
+    iget-object v4, v0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mMenuContainerAnimator:Landroid/animation/AnimatorSet;
+
+    sget-object v5, Lcom/android/wm/shell/animation/Interpolators;->ALPHA_IN:Landroid/view/animation/Interpolator;
+
+    invoke-virtual {v4, v5}, Landroid/animation/AnimatorSet;->setInterpolator(Landroid/animation/TimeInterpolator;)V
+
+    iget-object v4, v0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mMenuContainerAnimator:Landroid/animation/AnimatorSet;
+
+    const-wide/16 v7, 0x7d
+
+    invoke-virtual {v4, v7, v8}, Landroid/animation/AnimatorSet;->setDuration(J)Landroid/animation/AnimatorSet;
+
+    iget-object v4, v0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mMenuContainerAnimator:Landroid/animation/AnimatorSet;
+
+    new-instance v5, Lcom/android/wm/shell/pip/phone/PipMenuView$3;
+
+    invoke-direct {v5, v0, v1, v2}, Lcom/android/wm/shell/pip/phone/PipMenuView$3;-><init>(Lcom/android/wm/shell/pip/phone/PipMenuView;IZ)V
+
+    invoke-virtual {v4, v5}, Landroid/animation/AnimatorSet;->addListener(Landroid/animation/Animator$AnimatorListener;)V
+
+    if-eqz p5, :cond_5
+
+    new-instance v2, Lcom/android/wm/shell/pip/phone/PipMenuView$$ExternalSyntheticLambda10;
+
+    invoke-direct {v2, v0}, Lcom/android/wm/shell/pip/phone/PipMenuView$$ExternalSyntheticLambda10;-><init>(Lcom/android/wm/shell/pip/phone/PipMenuView;)V
+
+    invoke-direct {v0, v1, v3, v2}, Lcom/android/wm/shell/pip/phone/PipMenuView;->notifyMenuStateChangeStart(IZLjava/lang/Runnable;)V
 
     goto :goto_3
 
     :cond_5
-    if-eqz p3, :cond_6
+    const/4 v2, 0x0
 
-    const/16 p1, 0x7d0
+    invoke-direct {v0, v1, v3, v2}, Lcom/android/wm/shell/pip/phone/PipMenuView;->notifyMenuStateChangeStart(IZLjava/lang/Runnable;)V
 
-    invoke-direct {p0, p1}, Lcom/android/wm/shell/pip/phone/PipMenuView;->repostDelayedHide(I)V
+    invoke-virtual {v0, v6}, Landroid/widget/FrameLayout;->setVisibility(I)V
+
+    iget-object v2, v0, Lcom/android/wm/shell/pip/phone/PipMenuView;->mMenuContainerAnimator:Landroid/animation/AnimatorSet;
+
+    invoke-virtual {v2}, Landroid/animation/AnimatorSet;->start()V
+
+    :goto_3
+    invoke-direct/range {p0 .. p2}, Lcom/android/wm/shell/pip/phone/PipMenuView;->updateActionViews(ILandroid/graphics/Rect;)V
+
+    goto :goto_4
 
     :cond_6
-    :goto_3
+    if-eqz v2, :cond_7
+
+    const/16 v1, 0x7d0
+
+    invoke-direct {v0, v1}, Lcom/android/wm/shell/pip/phone/PipMenuView;->repostDelayedHide(I)V
+
+    :cond_7
+    :goto_4
     return-void
 .end method
 

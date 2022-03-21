@@ -105,7 +105,7 @@
 
     iput-object v2, p0, Lcom/android/settingslib/graph/SignalDrawable;->mChangeDot:Ljava/lang/Runnable;
 
-    const v2, 0x104027b
+    const v2, 0x104027e
 
     invoke-virtual {p1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -123,7 +123,7 @@
 
     move-result-object v1
 
-    const v2, 0x10500d5
+    const v2, 0x10500d7
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getFloat(I)F
 
@@ -135,7 +135,7 @@
 
     move-result-object v1
 
-    const v2, 0x10500d4
+    const v2, 0x10500d6
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getFloat(I)F
 

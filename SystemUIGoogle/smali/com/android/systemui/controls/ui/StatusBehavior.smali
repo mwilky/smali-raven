@@ -192,7 +192,7 @@
 
     invoke-virtual {p1, v0}, Lcom/android/systemui/controls/ui/ControlViewHolder;->setLoading(Z)V
 
-    const p1, 0x104047b
+    const p1, 0x1040480
 
     goto :goto_1
 

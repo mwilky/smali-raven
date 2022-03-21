@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController;-><init>(Landroid/content/Context;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Ldagger/Lazy;Lcom/android/keyguard/KeyguardViewController;Lcom/android/systemui/shared/system/smartspace/SmartspaceTransitionController;Lcom/android/systemui/statusbar/FeatureFlags;)V
+    value = Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController;-><init>(Landroid/content/Context;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Ldagger/Lazy;Lcom/android/keyguard/KeyguardViewController;Lcom/android/systemui/shared/system/smartspace/SmartspaceTransitionController;Lcom/android/systemui/flags/FeatureFlags;Lcom/android/systemui/statusbar/phone/BiometricUnlockController;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;

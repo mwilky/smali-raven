@@ -2,7 +2,7 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Lcom/android/wm/shell/ShellTaskOrganizer$LocusIdListener;
+.implements Landroid/view/View$OnApplyWindowInsetsListener;
 
 
 # instance fields
@@ -22,12 +22,14 @@
 
 
 # virtual methods
-.method public final onVisibilityChanged(ILandroid/content/LocusId;Z)V
+.method public final onApplyWindowInsets(Landroid/view/View;Landroid/view/WindowInsets;)Landroid/view/WindowInsets;
     .locals 0
 
     iget-object p0, p0, Lcom/android/wm/shell/bubbles/BubbleController$$ExternalSyntheticLambda0;->f$0:Lcom/android/wm/shell/bubbles/BubbleController;
 
-    invoke-static {p0, p1, p2, p3}, Lcom/android/wm/shell/bubbles/BubbleController;->$r8$lambda$Pkc007G1_HINcqvRKg0Jp-iDRFU(Lcom/android/wm/shell/bubbles/BubbleController;ILandroid/content/LocusId;Z)V
+    invoke-static {p0, p1, p2}, Lcom/android/wm/shell/bubbles/BubbleController;->$r8$lambda$NX6q6cIi7gCuP-kheLF4ygfbY5c(Lcom/android/wm/shell/bubbles/BubbleController;Landroid/view/View;Landroid/view/WindowInsets;)Landroid/view/WindowInsets;
 
-    return-void
+    move-result-object p0
+
+    return-object p0
 .end method

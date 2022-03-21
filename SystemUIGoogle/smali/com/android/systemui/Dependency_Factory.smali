@@ -98,6 +98,16 @@
     .end annotation
 .end field
 
+.field private final mAmbientStateLazyProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/notification/stack/AmbientState;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private final mAppOpsControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -372,7 +382,7 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
+            "Lcom/android/systemui/flags/FeatureFlags;",
             ">;"
         }
     .end annotation
@@ -423,6 +433,26 @@
         value = {
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/util/leak/GarbageMonitor;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private final mGroupExpansionManagerLazyProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/notification/collection/render/GroupExpansionManager;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private final mGroupMembershipManagerLazyProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/notification/collection/render/GroupMembershipManager;",
             ">;"
         }
     .end annotation
@@ -688,16 +718,6 @@
     .end annotation
 .end field
 
-.field private final mNetworkControllerProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/policy/NetworkController;",
-            ">;"
-        }
-    .end annotation
-.end field
-
 .field private final mNextAlarmControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -828,6 +848,16 @@
     .end annotation
 .end field
 
+.field private final mNotificationSectionsManagerLazyProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private final mNotificationShadeWindowControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -913,16 +943,6 @@
         value = {
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/tracing/ProtoTracer;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field private final mRecentsProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/recents/Recents;",
             ">;"
         }
     .end annotation
@@ -1048,16 +1068,6 @@
     .end annotation
 .end field
 
-.field private final mStatusBarProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/phone/StatusBar;",
-            ">;"
-        }
-    .end annotation
-.end field
-
 .field private final mStatusBarStateControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1112,7 +1122,7 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/phone/StatusBarWindowController;",
+            "Lcom/android/systemui/statusbar/window/StatusBarWindowController;",
             ">;"
         }
     .end annotation
@@ -1163,6 +1173,16 @@
         value = {
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/UiOffloadThread;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private final mUnlockedScreenOffAnimationControllerLazyProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;",
             ">;"
         }
     .end annotation
@@ -1260,7 +1280,7 @@
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1285,9 +1305,6 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/policy/RotationLockController;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/policy/NetworkController;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/policy/ZenModeController;",
@@ -1362,7 +1379,7 @@
             "Lcom/android/systemui/statusbar/NotificationShadeWindowController;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/phone/StatusBarWindowController;",
+            "Lcom/android/systemui/statusbar/window/StatusBarWindowController;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/plugins/DarkIconDispatcher;",
@@ -1593,12 +1610,6 @@
             "Lcom/android/systemui/statusbar/CommandQueue;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/recents/Recents;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/phone/StatusBar;",
-            ">;",
-            "Ljavax/inject/Provider<",
             "Lcom/android/systemui/screenrecord/RecordingController;",
             ">;",
             "Ljavax/inject/Provider<",
@@ -1629,13 +1640,28 @@
             "Lcom/android/internal/logging/UiEventLogger;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
+            "Lcom/android/systemui/flags/FeatureFlags;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/phone/StatusBarContentInsetsProvider;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/notification/stack/AmbientState;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/notification/collection/render/GroupMembershipManager;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/notification/collection/render/GroupExpansionManager;",
             ">;)V"
         }
     .end annotation
@@ -1674,477 +1700,485 @@
 
     move-object v1, p8
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mNetworkControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mZenModeControllerProvider:Ljavax/inject/Provider;
 
     move-object v1, p9
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mZenModeControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mHotspotControllerProvider:Ljavax/inject/Provider;
 
     move-object v1, p10
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mHotspotControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mCastControllerProvider:Ljavax/inject/Provider;
 
     move-object v1, p11
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mCastControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mFlashlightControllerProvider:Ljavax/inject/Provider;
 
     move-object v1, p12
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mFlashlightControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mUserSwitcherControllerProvider:Ljavax/inject/Provider;
 
     move-object v1, p13
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mUserSwitcherControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mUserInfoControllerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p14
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mUserInfoControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mKeyguardMonitorProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p15
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mKeyguardMonitorProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mKeyguardUpdateMonitorProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p16
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mKeyguardUpdateMonitorProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mBatteryControllerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p17
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mBatteryControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mNightDisplayListenerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p18
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mNightDisplayListenerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mReduceBrightColorsControllerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p19
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mReduceBrightColorsControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mManagedProfileControllerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p20
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mManagedProfileControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mNextAlarmControllerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p21
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mNextAlarmControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mDataSaverControllerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p22
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mDataSaverControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mAccessibilityControllerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p23
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mAccessibilityControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mDeviceProvisionedControllerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p24
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mDeviceProvisionedControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mPluginManagerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p25
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mPluginManagerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mAssistManagerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p26
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mAssistManagerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mSecurityControllerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p27
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mSecurityControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mLeakDetectorProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p28
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mLeakDetectorProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mLeakReporterProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p29
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mLeakReporterProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mGarbageMonitorProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p30
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mGarbageMonitorProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mTunerServiceProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p31
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mTunerServiceProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mNotificationShadeWindowControllerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p32
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mNotificationShadeWindowControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mTempStatusBarWindowControllerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p33
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mTempStatusBarWindowControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mDarkIconDispatcherProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p34
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mDarkIconDispatcherProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mConfigurationControllerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p35
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mConfigurationControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mStatusBarIconControllerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p36
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mStatusBarIconControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mScreenLifecycleProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p37
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mScreenLifecycleProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mWakefulnessLifecycleProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p38
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mWakefulnessLifecycleProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mFragmentServiceProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p39
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mFragmentServiceProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mExtensionControllerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p40
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mExtensionControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mPluginDependencyProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p41
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mPluginDependencyProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mLocalBluetoothManagerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p42
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mLocalBluetoothManagerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mVolumeDialogControllerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p43
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mVolumeDialogControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mMetricsLoggerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p44
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mMetricsLoggerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mAccessibilityManagerWrapperProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p45
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mAccessibilityManagerWrapperProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mSysuiColorExtractorProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p46
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mSysuiColorExtractorProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mTunablePaddingServiceProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p47
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mTunablePaddingServiceProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mForegroundServiceControllerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p48
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mForegroundServiceControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mUiOffloadThreadProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p49
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mUiOffloadThreadProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mWarningsUIProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p50
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mWarningsUIProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mLightBarControllerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p51
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mLightBarControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mIWindowManagerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p52
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mIWindowManagerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mOverviewProxyServiceProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p53
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mOverviewProxyServiceProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mNavBarModeControllerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p54
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mNavBarModeControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mAccessibilityButtonModeObserverProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p55
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mAccessibilityButtonModeObserverProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mAccessibilityButtonListControllerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p56
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mAccessibilityButtonListControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mEnhancedEstimatesProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p57
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mEnhancedEstimatesProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mVibratorHelperProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p58
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mVibratorHelperProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mIStatusBarServiceProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p59
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mIStatusBarServiceProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mDisplayMetricsProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p60
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mDisplayMetricsProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mLockscreenGestureLoggerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p61
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mLockscreenGestureLoggerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mKeyguardEnvironmentProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p62
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mKeyguardEnvironmentProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mShadeControllerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p63
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mShadeControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mNotificationRemoteInputManagerCallbackProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p64
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mNotificationRemoteInputManagerCallbackProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mAppOpsControllerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p65
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mAppOpsControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mNavigationBarControllerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p66
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mNavigationBarControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mAccessibilityFloatingMenuControllerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p67
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mAccessibilityFloatingMenuControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mStatusBarStateControllerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p68
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mStatusBarStateControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mNotificationLockscreenUserManagerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p69
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mNotificationLockscreenUserManagerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mNotificationGroupAlertTransferHelperProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p70
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mNotificationGroupAlertTransferHelperProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mNotificationGroupManagerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p71
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mNotificationGroupManagerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mVisualStabilityManagerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p72
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mVisualStabilityManagerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mNotificationGutsManagerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p73
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mNotificationGutsManagerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mNotificationMediaManagerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p74
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mNotificationMediaManagerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mNotificationRemoteInputManagerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p75
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mNotificationRemoteInputManagerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mSmartReplyConstantsProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p76
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mSmartReplyConstantsProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mNotificationListenerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p77
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mNotificationListenerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mNotificationLoggerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p78
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mNotificationLoggerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mNotificationViewHierarchyManagerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p79
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mNotificationViewHierarchyManagerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mNotificationFilterProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p80
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mNotificationFilterProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mKeyguardDismissUtilProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p81
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mKeyguardDismissUtilProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mSmartReplyControllerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p82
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mSmartReplyControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mRemoteInputQuickSettingsDisablerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p83
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mRemoteInputQuickSettingsDisablerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mNotificationEntryManagerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p84
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mNotificationEntryManagerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mSensorPrivacyManagerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p85
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mSensorPrivacyManagerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mAutoHideControllerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p86
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mAutoHideControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mForegroundServiceNotificationListenerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p87
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mForegroundServiceNotificationListenerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mPrivacyItemControllerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p88
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mPrivacyItemControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mBgLooperProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p89
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mBgLooperProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mBgHandlerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p90
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mBgHandlerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mMainLooperProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p91
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mMainLooperProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mMainHandlerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p92
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mMainHandlerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mTimeTickHandlerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p93
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mTimeTickHandlerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mLeakReportEmailProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p94
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mLeakReportEmailProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mMainExecutorProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p95
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mMainExecutorProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mBackgroundExecutorProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p96
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mBackgroundExecutorProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mClockManagerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p97
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mClockManagerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mActivityManagerWrapperProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p98
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mActivityManagerWrapperProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mDevicePolicyManagerWrapperProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p99
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mDevicePolicyManagerWrapperProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mPackageManagerWrapperProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p100
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mPackageManagerWrapperProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mSensorPrivacyControllerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p101
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mSensorPrivacyControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mDockManagerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p102
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mDockManagerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mINotificationManagerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p103
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mINotificationManagerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mSysUiStateFlagsContainerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p104
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mSysUiStateFlagsContainerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mAlarmManagerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p105
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mAlarmManagerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mKeyguardSecurityModelProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p106
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mKeyguardSecurityModelProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mDozeParametersProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p107
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mDozeParametersProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mWallpaperManagerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p108
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mWallpaperManagerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mCommandQueueProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p109
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mCommandQueueProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mRecordingControllerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p110
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mRecentsProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mProtoTracerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p111
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mStatusBarProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mMediaOutputDialogFactoryProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p112
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mRecordingControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mDeviceConfigProxyProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p113
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mProtoTracerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mNavbarButtonsControllerLazyProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p114
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mMediaOutputDialogFactoryProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mTelephonyListenerManagerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p115
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mDeviceConfigProxyProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mSystemStatusAnimationSchedulerLazyProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p116
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mNavbarButtonsControllerLazyProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mPrivacyDotViewControllerLazyProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p117
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mTelephonyListenerManagerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mEdgeBackGestureHandlerFactoryLazyProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p118
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mSystemStatusAnimationSchedulerLazyProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mUiEventLoggerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p119
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mPrivacyDotViewControllerLazyProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mFeatureFlagsLazyProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p120
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mEdgeBackGestureHandlerFactoryLazyProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mContentInsetsProviderLazyProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p121
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mUiEventLoggerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mInternetDialogFactoryProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p122
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mFeatureFlagsLazyProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mNotificationSectionsManagerLazyProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p123
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mContentInsetsProviderLazyProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mUnlockedScreenOffAnimationControllerLazyProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p124
 
-    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mInternetDialogFactoryProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mAmbientStateLazyProvider:Ljavax/inject/Provider;
+
+    move-object/from16 v1, p125
+
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mGroupMembershipManagerLazyProvider:Ljavax/inject/Provider;
+
+    move-object/from16 v1, p126
+
+    iput-object v1, v0, Lcom/android/systemui/Dependency_Factory;->mGroupExpansionManagerLazyProvider:Ljavax/inject/Provider;
 
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/Dependency_Factory;
-    .locals 126
+.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/Dependency_Factory;
+    .locals 128
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -2168,9 +2202,6 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/policy/RotationLockController;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/policy/NetworkController;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/policy/ZenModeController;",
@@ -2245,7 +2276,7 @@
             "Lcom/android/systemui/statusbar/NotificationShadeWindowController;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/phone/StatusBarWindowController;",
+            "Lcom/android/systemui/statusbar/window/StatusBarWindowController;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/plugins/DarkIconDispatcher;",
@@ -2476,12 +2507,6 @@
             "Lcom/android/systemui/statusbar/CommandQueue;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/recents/Recents;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/phone/StatusBar;",
-            ">;",
-            "Ljavax/inject/Provider<",
             "Lcom/android/systemui/screenrecord/RecordingController;",
             ">;",
             "Ljavax/inject/Provider<",
@@ -2512,13 +2537,28 @@
             "Lcom/android/internal/logging/UiEventLogger;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
+            "Lcom/android/systemui/flags/FeatureFlags;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/phone/StatusBarContentInsetsProvider;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/notification/stack/AmbientState;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/notification/collection/render/GroupMembershipManager;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/notification/collection/render/GroupExpansionManager;",
             ">;)",
             "Lcom/android/systemui/Dependency_Factory;"
         }
@@ -2772,13 +2812,17 @@
 
     move-object/from16 v124, p123
 
-    new-instance v125, Lcom/android/systemui/Dependency_Factory;
+    move-object/from16 v125, p124
 
-    move-object/from16 v0, v125
+    move-object/from16 v126, p125
 
-    invoke-direct/range {v0 .. v124}, Lcom/android/systemui/Dependency_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+    new-instance v127, Lcom/android/systemui/Dependency_Factory;
 
-    return-object v125
+    move-object/from16 v0, v127
+
+    invoke-direct/range {v0 .. v126}, Lcom/android/systemui/Dependency_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+
+    return-object v127
 .end method
 
 .method public static newInstance()Lcom/android/systemui/Dependency;
@@ -2857,14 +2901,6 @@
     move-result-object v1
 
     invoke-static {v0, v1}, Lcom/android/systemui/Dependency_MembersInjector;->injectMRotationLockController(Lcom/android/systemui/Dependency;Ldagger/Lazy;)V
-
-    iget-object v1, p0, Lcom/android/systemui/Dependency_Factory;->mNetworkControllerProvider:Ljavax/inject/Provider;
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->lazy(Ljavax/inject/Provider;)Ldagger/Lazy;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Lcom/android/systemui/Dependency_MembersInjector;->injectMNetworkController(Lcom/android/systemui/Dependency;Ldagger/Lazy;)V
 
     iget-object v1, p0, Lcom/android/systemui/Dependency_Factory;->mZenModeControllerProvider:Ljavax/inject/Provider;
 
@@ -3674,22 +3710,6 @@
 
     invoke-static {v0, v1}, Lcom/android/systemui/Dependency_MembersInjector;->injectMCommandQueue(Lcom/android/systemui/Dependency;Ldagger/Lazy;)V
 
-    iget-object v1, p0, Lcom/android/systemui/Dependency_Factory;->mRecentsProvider:Ljavax/inject/Provider;
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->lazy(Ljavax/inject/Provider;)Ldagger/Lazy;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Lcom/android/systemui/Dependency_MembersInjector;->injectMRecents(Lcom/android/systemui/Dependency;Ldagger/Lazy;)V
-
-    iget-object v1, p0, Lcom/android/systemui/Dependency_Factory;->mStatusBarProvider:Ljavax/inject/Provider;
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->lazy(Ljavax/inject/Provider;)Ldagger/Lazy;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Lcom/android/systemui/Dependency_MembersInjector;->injectMStatusBar(Lcom/android/systemui/Dependency;Ldagger/Lazy;)V
-
     iget-object v1, p0, Lcom/android/systemui/Dependency_Factory;->mRecordingControllerProvider:Ljavax/inject/Provider;
 
     invoke-static {v1}, Ldagger/internal/DoubleCheck;->lazy(Ljavax/inject/Provider;)Ldagger/Lazy;
@@ -3786,13 +3806,53 @@
 
     invoke-static {v0, v1}, Lcom/android/systemui/Dependency_MembersInjector;->injectMContentInsetsProviderLazy(Lcom/android/systemui/Dependency;Ldagger/Lazy;)V
 
-    iget-object p0, p0, Lcom/android/systemui/Dependency_Factory;->mInternetDialogFactoryProvider:Ljavax/inject/Provider;
+    iget-object v1, p0, Lcom/android/systemui/Dependency_Factory;->mInternetDialogFactoryProvider:Ljavax/inject/Provider;
+
+    invoke-static {v1}, Ldagger/internal/DoubleCheck;->lazy(Ljavax/inject/Provider;)Ldagger/Lazy;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/android/systemui/Dependency_MembersInjector;->injectMInternetDialogFactory(Lcom/android/systemui/Dependency;Ldagger/Lazy;)V
+
+    iget-object v1, p0, Lcom/android/systemui/Dependency_Factory;->mNotificationSectionsManagerLazyProvider:Ljavax/inject/Provider;
+
+    invoke-static {v1}, Ldagger/internal/DoubleCheck;->lazy(Ljavax/inject/Provider;)Ldagger/Lazy;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/android/systemui/Dependency_MembersInjector;->injectMNotificationSectionsManagerLazy(Lcom/android/systemui/Dependency;Ldagger/Lazy;)V
+
+    iget-object v1, p0, Lcom/android/systemui/Dependency_Factory;->mUnlockedScreenOffAnimationControllerLazyProvider:Ljavax/inject/Provider;
+
+    invoke-static {v1}, Ldagger/internal/DoubleCheck;->lazy(Ljavax/inject/Provider;)Ldagger/Lazy;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/android/systemui/Dependency_MembersInjector;->injectMUnlockedScreenOffAnimationControllerLazy(Lcom/android/systemui/Dependency;Ldagger/Lazy;)V
+
+    iget-object v1, p0, Lcom/android/systemui/Dependency_Factory;->mAmbientStateLazyProvider:Ljavax/inject/Provider;
+
+    invoke-static {v1}, Ldagger/internal/DoubleCheck;->lazy(Ljavax/inject/Provider;)Ldagger/Lazy;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/android/systemui/Dependency_MembersInjector;->injectMAmbientStateLazy(Lcom/android/systemui/Dependency;Ldagger/Lazy;)V
+
+    iget-object v1, p0, Lcom/android/systemui/Dependency_Factory;->mGroupMembershipManagerLazyProvider:Ljavax/inject/Provider;
+
+    invoke-static {v1}, Ldagger/internal/DoubleCheck;->lazy(Ljavax/inject/Provider;)Ldagger/Lazy;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/android/systemui/Dependency_MembersInjector;->injectMGroupMembershipManagerLazy(Lcom/android/systemui/Dependency;Ldagger/Lazy;)V
+
+    iget-object p0, p0, Lcom/android/systemui/Dependency_Factory;->mGroupExpansionManagerLazyProvider:Ljavax/inject/Provider;
 
     invoke-static {p0}, Ldagger/internal/DoubleCheck;->lazy(Ljavax/inject/Provider;)Ldagger/Lazy;
 
     move-result-object p0
 
-    invoke-static {v0, p0}, Lcom/android/systemui/Dependency_MembersInjector;->injectMInternetDialogFactory(Lcom/android/systemui/Dependency;Ldagger/Lazy;)V
+    invoke-static {v0, p0}, Lcom/android/systemui/Dependency_MembersInjector;->injectMGroupExpansionManagerLazy(Lcom/android/systemui/Dependency;Ldagger/Lazy;)V
 
     return-object v0
 .end method

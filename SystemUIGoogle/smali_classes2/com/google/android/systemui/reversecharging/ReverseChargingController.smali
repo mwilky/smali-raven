@@ -165,10 +165,18 @@
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$9bdcCulnqaDUbhpWXFYttXSWUUI(Lcom/google/android/systemui/reversecharging/ReverseChargingController;)V
+.method public static synthetic $r8$lambda$5YKfFfBNfO-QtET3L-Gqvc59Qa8(Lcom/google/android/systemui/reversecharging/ReverseChargingController;Z)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/google/android/systemui/reversecharging/ReverseChargingController;->lambda$onDockPresentChanged$7()V
+    invoke-direct {p0, p1}, Lcom/google/android/systemui/reversecharging/ReverseChargingController;->lambda$setRtxMode$10(Z)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$5p2kg9OXdhPuOCD_4P3A41osyxU(Lcom/google/android/systemui/reversecharging/ReverseChargingController;Landroid/os/Bundle;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/google/android/systemui/reversecharging/ReverseChargingController;->lambda$onDockPresentChanged$7(Landroid/os/Bundle;)V
 
     return-void
 .end method
@@ -189,34 +197,10 @@
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$IGuhNsZTAuHQTEJwH09K6N7H0rg(Lcom/google/android/systemui/reversecharging/ReverseChargingController;Landroid/os/Bundle;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/google/android/systemui/reversecharging/ReverseChargingController;->lambda$onDockPresentChanged$8(Landroid/os/Bundle;)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$M3fogE18ovw1iPcm-2BeX06HQdc(Lcom/google/android/systemui/reversecharging/ReverseChargingController;Z)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/google/android/systemui/reversecharging/ReverseChargingController;->lambda$setReverseStateInternal$6(Z)V
-
-    return-void
-.end method
-
 .method public static synthetic $r8$lambda$M7sexPp3tPjpYYUlPppZ4JhikQQ(Lcom/google/android/systemui/reversecharging/ReverseChargingController;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/google/android/systemui/reversecharging/ReverseChargingController;->lambda$new$4()V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$O95qNi22D-nlA8YhzBBTzbLOHag(Lcom/google/android/systemui/reversecharging/ReverseChargingController;Landroid/os/Bundle;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/google/android/systemui/reversecharging/ReverseChargingController;->lambda$onReverseStateChanged$10(Landroid/os/Bundle;)V
 
     return-void
 .end method
@@ -229,10 +213,26 @@
     return-void
 .end method
 
+.method public static synthetic $r8$lambda$WaRVcVcyrQ1IfeFqZQK5AK9Xe24(Lcom/google/android/systemui/reversecharging/ReverseChargingController;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/google/android/systemui/reversecharging/ReverseChargingController;->lambda$onDockPresentChanged$6()V
+
+    return-void
+.end method
+
 .method public static synthetic $r8$lambda$fYAEHPtltT5GhlK5m5UEV_v2QNI(Lcom/google/android/systemui/reversecharging/ReverseChargingController;Landroid/os/Bundle;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/google/android/systemui/reversecharging/ReverseChargingController;->onReverseInformationChanged(Landroid/os/Bundle;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$iQYRQoYBaDcUHPnU3Ir8smdSCe0(Lcom/google/android/systemui/reversecharging/ReverseChargingController;Landroid/os/Bundle;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/google/android/systemui/reversecharging/ReverseChargingController;->lambda$onReverseInformationChanged$8(Landroid/os/Bundle;)V
 
     return-void
 .end method
@@ -245,10 +245,10 @@
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$xIWUfUH3aPi8lGe74eTsSXEwYiY(Lcom/google/android/systemui/reversecharging/ReverseChargingController;Landroid/os/Bundle;)V
+.method public static synthetic $r8$lambda$xWKO5fe0W_wHhT2mdvHG7HQhqGk(Lcom/google/android/systemui/reversecharging/ReverseChargingController;Landroid/os/Bundle;)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/google/android/systemui/reversecharging/ReverseChargingController;->lambda$onReverseInformationChanged$9(Landroid/os/Bundle;)V
+    invoke-direct {p0, p1}, Lcom/google/android/systemui/reversecharging/ReverseChargingController;->lambda$onReverseStateChanged$9(Landroid/os/Bundle;)V
 
     return-void
 .end method
@@ -1028,7 +1028,7 @@
 
     const-string v0, "ReverseChargingControl"
 
-    const-string v1, "onBootComplete(): ACTION_BOOT_COMPLETED, setRtxTimer, REVERSE_FINISH"
+    const-string v1, "onBootComplete(): ACTION_BOOT_COMPLETED"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -1120,7 +1120,7 @@
     return-void
 .end method
 
-.method private synthetic lambda$onDockPresentChanged$7()V
+.method private synthetic lambda$onDockPresentChanged$6()V
     .locals 0
 
     invoke-direct {p0}, Lcom/google/android/systemui/reversecharging/ReverseChargingController;->requestReverseInformation()V
@@ -1128,7 +1128,7 @@
     return-void
 .end method
 
-.method private synthetic lambda$onDockPresentChanged$8(Landroid/os/Bundle;)V
+.method private synthetic lambda$onDockPresentChanged$7(Landroid/os/Bundle;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/google/android/systemui/reversecharging/ReverseChargingController;->onDockPresentChangedOnMainThread(Landroid/os/Bundle;)V
@@ -1136,7 +1136,7 @@
     return-void
 .end method
 
-.method private synthetic lambda$onReverseInformationChanged$9(Landroid/os/Bundle;)V
+.method private synthetic lambda$onReverseInformationChanged$8(Landroid/os/Bundle;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/google/android/systemui/reversecharging/ReverseChargingController;->onReverseInformationChangedOnMainThread(Landroid/os/Bundle;)V
@@ -1144,7 +1144,7 @@
     return-void
 .end method
 
-.method private synthetic lambda$onReverseStateChanged$10(Landroid/os/Bundle;)V
+.method private synthetic lambda$onReverseStateChanged$9(Landroid/os/Bundle;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/google/android/systemui/reversecharging/ReverseChargingController;->onReverseStateChangedOnMainThread(Landroid/os/Bundle;)V
@@ -1152,10 +1152,36 @@
     return-void
 .end method
 
-.method private synthetic lambda$setReverseStateInternal$6(Z)V
-    .locals 0
+.method private synthetic lambda$setRtxMode$10(Z)V
+    .locals 2
 
-    invoke-direct {p0, p1}, Lcom/google/android/systemui/reversecharging/ReverseChargingController;->setRtxMode(Z)V
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "setRtxMode(): rtx="
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "ReverseChargingControl"
+
+    invoke-static {v1, v0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object p0, p0, Lcom/google/android/systemui/reversecharging/ReverseChargingController;->mRtxChargerManagerOptional:Ljava/util/Optional;
+
+    invoke-virtual {p0}, Ljava/util/Optional;->get()Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Lcom/google/android/systemui/reversecharging/ReverseWirelessCharger;
+
+    invoke-virtual {p0, p1}, Lcom/google/android/systemui/reversecharging/ReverseWirelessCharger;->setRtxMode(Z)V
 
     return-void
 .end method
@@ -1683,9 +1709,9 @@
     :cond_2
     iget-object v0, p0, Lcom/google/android/systemui/reversecharging/ReverseChargingController;->mMainExecutor:Ljava/util/concurrent/Executor;
 
-    new-instance v1, Lcom/google/android/systemui/reversecharging/ReverseChargingController$$ExternalSyntheticLambda12;
+    new-instance v1, Lcom/google/android/systemui/reversecharging/ReverseChargingController$$ExternalSyntheticLambda11;
 
-    invoke-direct {v1, p0, p1}, Lcom/google/android/systemui/reversecharging/ReverseChargingController$$ExternalSyntheticLambda12;-><init>(Lcom/google/android/systemui/reversecharging/ReverseChargingController;Landroid/os/Bundle;)V
+    invoke-direct {v1, p0, p1}, Lcom/google/android/systemui/reversecharging/ReverseChargingController$$ExternalSyntheticLambda11;-><init>(Lcom/google/android/systemui/reversecharging/ReverseChargingController;Landroid/os/Bundle;)V
 
     invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
@@ -2562,13 +2588,7 @@
     invoke-direct {p0, p2, v0, v1}, Lcom/google/android/systemui/reversecharging/ReverseChargingController;->setRtxTimer(IJ)V
 
     :cond_6
-    iget-object p2, p0, Lcom/google/android/systemui/reversecharging/ReverseChargingController;->mBgExecutor:Ljava/util/concurrent/Executor;
-
-    new-instance v0, Lcom/google/android/systemui/reversecharging/ReverseChargingController$$ExternalSyntheticLambda13;
-
-    invoke-direct {v0, p0, p1}, Lcom/google/android/systemui/reversecharging/ReverseChargingController$$ExternalSyntheticLambda13;-><init>(Lcom/google/android/systemui/reversecharging/ReverseChargingController;Z)V
-
-    invoke-interface {p2, v0}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
+    invoke-direct {p0, p1}, Lcom/google/android/systemui/reversecharging/ReverseChargingController;->setRtxMode(Z)V
 
     :cond_7
     return-void
@@ -2583,42 +2603,26 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
-
-    sget-boolean v0, Lcom/google/android/systemui/reversecharging/ReverseChargingController;->DEBUG:Z
-
     if-eqz v0, :cond_0
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    iget-object v0, p0, Lcom/google/android/systemui/reversecharging/ReverseChargingController;->mBgExecutor:Ljava/util/concurrent/Executor;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    new-instance v1, Lcom/google/android/systemui/reversecharging/ReverseChargingController$$ExternalSyntheticLambda13;
 
-    const-string v1, "setRtxMode(): rtx="
+    invoke-direct {v1, p0, p1}, Lcom/google/android/systemui/reversecharging/ReverseChargingController$$ExternalSyntheticLambda13;-><init>(Lcom/google/android/systemui/reversecharging/ReverseChargingController;Z)V
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string v1, "ReverseChargingControl"
-
-    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    goto :goto_0
 
     :cond_0
-    iget-object p0, p0, Lcom/google/android/systemui/reversecharging/ReverseChargingController;->mRtxChargerManagerOptional:Ljava/util/Optional;
+    const-string p0, "ReverseChargingControl"
 
-    invoke-virtual {p0}, Ljava/util/Optional;->get()Ljava/lang/Object;
+    const-string p1, "setRtxMode(): rtx not available"
 
-    move-result-object p0
+    invoke-static {p0, p1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    check-cast p0, Lcom/google/android/systemui/reversecharging/ReverseWirelessCharger;
-
-    invoke-virtual {p0, p1}, Lcom/google/android/systemui/reversecharging/ReverseWirelessCharger;->setRtxMode(Z)V
-
-    :cond_1
+    :goto_0
     return-void
 .end method
 
@@ -3289,7 +3293,7 @@
 .end method
 
 .method public init(Lcom/android/systemui/statusbar/policy/BatteryController;)V
-    .locals 1
+    .locals 2
 
     iget-object v0, p0, Lcom/google/android/systemui/reversecharging/ReverseChargingController;->mBatteryStateChangeCallback:Lcom/android/systemui/statusbar/policy/BatteryController$BatteryStateChangeCallback;
 
@@ -3303,19 +3307,21 @@
 
     invoke-direct {p0}, Lcom/google/android/systemui/reversecharging/ReverseChargingController;->registerReceiver()V
 
-    iget-object p1, p0, Lcom/google/android/systemui/reversecharging/ReverseChargingController;->mBootCompleteCache:Lcom/android/systemui/BootCompleteCache;
+    iget-object v0, p0, Lcom/google/android/systemui/reversecharging/ReverseChargingController;->mBootCompleteCache:Lcom/android/systemui/BootCompleteCache;
 
-    iget-object v0, p0, Lcom/google/android/systemui/reversecharging/ReverseChargingController;->mBootCompleteListener:Lcom/android/systemui/BootCompleteCache$BootCompleteListener;
+    iget-object v1, p0, Lcom/google/android/systemui/reversecharging/ReverseChargingController;->mBootCompleteListener:Lcom/android/systemui/BootCompleteCache$BootCompleteListener;
 
-    invoke-interface {p1, v0}, Lcom/android/systemui/BootCompleteCache;->addListener(Lcom/android/systemui/BootCompleteCache$BootCompleteListener;)Z
+    invoke-interface {v0, v1}, Lcom/android/systemui/BootCompleteCache;->addListener(Lcom/android/systemui/BootCompleteCache$BootCompleteListener;)Z
 
-    iget-object p1, p0, Lcom/google/android/systemui/reversecharging/ReverseChargingController;->mRtxChargerManagerOptional:Ljava/util/Optional;
+    iget-object v0, p0, Lcom/google/android/systemui/reversecharging/ReverseChargingController;->mRtxChargerManagerOptional:Ljava/util/Optional;
 
-    invoke-virtual {p1}, Ljava/util/Optional;->isPresent()Z
+    invoke-virtual {v0}, Ljava/util/Optional;->isPresent()Z
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_1
+    if-eqz v0, :cond_1
+
+    invoke-direct {p0, p1}, Lcom/google/android/systemui/reversecharging/ReverseChargingController;->setRtxMode(Z)V
 
     iget-object p1, p0, Lcom/google/android/systemui/reversecharging/ReverseChargingController;->mRtxChargerManagerOptional:Ljava/util/Optional;
 
@@ -3537,9 +3543,9 @@
 
     iget-object v0, p0, Lcom/google/android/systemui/reversecharging/ReverseChargingController;->mMainExecutor:Ljava/util/concurrent/Executor;
 
-    new-instance v1, Lcom/google/android/systemui/reversecharging/ReverseChargingController$$ExternalSyntheticLambda11;
+    new-instance v1, Lcom/google/android/systemui/reversecharging/ReverseChargingController$$ExternalSyntheticLambda12;
 
-    invoke-direct {v1, p0, p1}, Lcom/google/android/systemui/reversecharging/ReverseChargingController$$ExternalSyntheticLambda11;-><init>(Lcom/google/android/systemui/reversecharging/ReverseChargingController;Landroid/os/Bundle;)V
+    invoke-direct {v1, p0, p1}, Lcom/google/android/systemui/reversecharging/ReverseChargingController$$ExternalSyntheticLambda12;-><init>(Lcom/google/android/systemui/reversecharging/ReverseChargingController;Landroid/os/Bundle;)V
 
     invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 

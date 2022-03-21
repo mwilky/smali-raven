@@ -18,21 +18,31 @@
 
 
 # instance fields
-.field private final bgLooperProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Landroid/os/Looper;",
-            ">;"
-        }
-    .end annotation
-.end field
-
 .field private final contextProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
             "Landroid/content/Context;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private final delayableExecutorProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/util/concurrency/DelayableExecutor;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private final dumpManagerProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/dump/DumpManager;",
             ">;"
         }
     .end annotation
@@ -58,9 +68,19 @@
     .end annotation
 .end field
 
+.field private final messageRouterProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/util/concurrency/MessageRouter;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -69,13 +89,19 @@
             "Landroid/content/Context;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Landroid/os/Looper;",
+            "Lcom/android/systemui/util/concurrency/DelayableExecutor;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/util/concurrency/MessageRouter;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/util/leak/LeakDetector;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/util/leak/LeakReporter;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/dump/DumpManager;",
             ">;)V"
         }
     .end annotation
@@ -84,17 +110,21 @@
 
     iput-object p1, p0, Lcom/android/systemui/util/leak/GarbageMonitor_Factory;->contextProvider:Ljavax/inject/Provider;
 
-    iput-object p2, p0, Lcom/android/systemui/util/leak/GarbageMonitor_Factory;->bgLooperProvider:Ljavax/inject/Provider;
+    iput-object p2, p0, Lcom/android/systemui/util/leak/GarbageMonitor_Factory;->delayableExecutorProvider:Ljavax/inject/Provider;
 
-    iput-object p3, p0, Lcom/android/systemui/util/leak/GarbageMonitor_Factory;->leakDetectorProvider:Ljavax/inject/Provider;
+    iput-object p3, p0, Lcom/android/systemui/util/leak/GarbageMonitor_Factory;->messageRouterProvider:Ljavax/inject/Provider;
 
-    iput-object p4, p0, Lcom/android/systemui/util/leak/GarbageMonitor_Factory;->leakReporterProvider:Ljavax/inject/Provider;
+    iput-object p4, p0, Lcom/android/systemui/util/leak/GarbageMonitor_Factory;->leakDetectorProvider:Ljavax/inject/Provider;
+
+    iput-object p5, p0, Lcom/android/systemui/util/leak/GarbageMonitor_Factory;->leakReporterProvider:Ljavax/inject/Provider;
+
+    iput-object p6, p0, Lcom/android/systemui/util/leak/GarbageMonitor_Factory;->dumpManagerProvider:Ljavax/inject/Provider;
 
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/util/leak/GarbageMonitor_Factory;
-    .locals 1
+.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/util/leak/GarbageMonitor_Factory;
+    .locals 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -102,39 +132,73 @@
             "Landroid/content/Context;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Landroid/os/Looper;",
+            "Lcom/android/systemui/util/concurrency/DelayableExecutor;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/util/concurrency/MessageRouter;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/util/leak/LeakDetector;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/util/leak/LeakReporter;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/dump/DumpManager;",
             ">;)",
             "Lcom/android/systemui/util/leak/GarbageMonitor_Factory;"
         }
     .end annotation
 
-    new-instance v0, Lcom/android/systemui/util/leak/GarbageMonitor_Factory;
+    new-instance v7, Lcom/android/systemui/util/leak/GarbageMonitor_Factory;
 
-    invoke-direct {v0, p0, p1, p2, p3}, Lcom/android/systemui/util/leak/GarbageMonitor_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+    move-object v0, v7
 
-    return-object v0
+    move-object v1, p0
+
+    move-object v2, p1
+
+    move-object v3, p2
+
+    move-object v4, p3
+
+    move-object v5, p4
+
+    move-object v6, p5
+
+    invoke-direct/range {v0 .. v6}, Lcom/android/systemui/util/leak/GarbageMonitor_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+
+    return-object v7
 .end method
 
-.method public static newInstance(Landroid/content/Context;Landroid/os/Looper;Lcom/android/systemui/util/leak/LeakDetector;Lcom/android/systemui/util/leak/LeakReporter;)Lcom/android/systemui/util/leak/GarbageMonitor;
-    .locals 1
+.method public static newInstance(Landroid/content/Context;Lcom/android/systemui/util/concurrency/DelayableExecutor;Lcom/android/systemui/util/concurrency/MessageRouter;Lcom/android/systemui/util/leak/LeakDetector;Lcom/android/systemui/util/leak/LeakReporter;Lcom/android/systemui/dump/DumpManager;)Lcom/android/systemui/util/leak/GarbageMonitor;
+    .locals 8
 
-    new-instance v0, Lcom/android/systemui/util/leak/GarbageMonitor;
+    new-instance v7, Lcom/android/systemui/util/leak/GarbageMonitor;
 
-    invoke-direct {v0, p0, p1, p2, p3}, Lcom/android/systemui/util/leak/GarbageMonitor;-><init>(Landroid/content/Context;Landroid/os/Looper;Lcom/android/systemui/util/leak/LeakDetector;Lcom/android/systemui/util/leak/LeakReporter;)V
+    move-object v0, v7
 
-    return-object v0
+    move-object v1, p0
+
+    move-object v2, p1
+
+    move-object v3, p2
+
+    move-object v4, p3
+
+    move-object v5, p4
+
+    move-object v6, p5
+
+    invoke-direct/range {v0 .. v6}, Lcom/android/systemui/util/leak/GarbageMonitor;-><init>(Landroid/content/Context;Lcom/android/systemui/util/concurrency/DelayableExecutor;Lcom/android/systemui/util/concurrency/MessageRouter;Lcom/android/systemui/util/leak/LeakDetector;Lcom/android/systemui/util/leak/LeakReporter;Lcom/android/systemui/dump/DumpManager;)V
+
+    return-object v7
 .end method
 
 
 # virtual methods
 .method public get()Lcom/android/systemui/util/leak/GarbageMonitor;
-    .locals 3
+    .locals 7
 
     iget-object v0, p0, Lcom/android/systemui/util/leak/GarbageMonitor_Factory;->contextProvider:Ljavax/inject/Provider;
 
@@ -142,33 +206,61 @@
 
     move-result-object v0
 
-    check-cast v0, Landroid/content/Context;
+    move-object v1, v0
 
-    iget-object v1, p0, Lcom/android/systemui/util/leak/GarbageMonitor_Factory;->bgLooperProvider:Ljavax/inject/Provider;
+    check-cast v1, Landroid/content/Context;
 
-    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    iget-object v0, p0, Lcom/android/systemui/util/leak/GarbageMonitor_Factory;->delayableExecutorProvider:Ljavax/inject/Provider;
 
-    move-result-object v1
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    check-cast v1, Landroid/os/Looper;
+    move-result-object v0
 
-    iget-object v2, p0, Lcom/android/systemui/util/leak/GarbageMonitor_Factory;->leakDetectorProvider:Ljavax/inject/Provider;
+    move-object v2, v0
 
-    invoke-interface {v2}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    check-cast v2, Lcom/android/systemui/util/concurrency/DelayableExecutor;
 
-    move-result-object v2
+    iget-object v0, p0, Lcom/android/systemui/util/leak/GarbageMonitor_Factory;->messageRouterProvider:Ljavax/inject/Provider;
 
-    check-cast v2, Lcom/android/systemui/util/leak/LeakDetector;
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    iget-object p0, p0, Lcom/android/systemui/util/leak/GarbageMonitor_Factory;->leakReporterProvider:Ljavax/inject/Provider;
+    move-result-object v0
+
+    move-object v3, v0
+
+    check-cast v3, Lcom/android/systemui/util/concurrency/MessageRouter;
+
+    iget-object v0, p0, Lcom/android/systemui/util/leak/GarbageMonitor_Factory;->leakDetectorProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v4, v0
+
+    check-cast v4, Lcom/android/systemui/util/leak/LeakDetector;
+
+    iget-object v0, p0, Lcom/android/systemui/util/leak/GarbageMonitor_Factory;->leakReporterProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v5, v0
+
+    check-cast v5, Lcom/android/systemui/util/leak/LeakReporter;
+
+    iget-object p0, p0, Lcom/android/systemui/util/leak/GarbageMonitor_Factory;->dumpManagerProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object p0
 
-    check-cast p0, Lcom/android/systemui/util/leak/LeakReporter;
+    move-object v6, p0
 
-    invoke-static {v0, v1, v2, p0}, Lcom/android/systemui/util/leak/GarbageMonitor_Factory;->newInstance(Landroid/content/Context;Landroid/os/Looper;Lcom/android/systemui/util/leak/LeakDetector;Lcom/android/systemui/util/leak/LeakReporter;)Lcom/android/systemui/util/leak/GarbageMonitor;
+    check-cast v6, Lcom/android/systemui/dump/DumpManager;
+
+    invoke-static/range {v1 .. v6}, Lcom/android/systemui/util/leak/GarbageMonitor_Factory;->newInstance(Landroid/content/Context;Lcom/android/systemui/util/concurrency/DelayableExecutor;Lcom/android/systemui/util/concurrency/MessageRouter;Lcom/android/systemui/util/leak/LeakDetector;Lcom/android/systemui/util/leak/LeakReporter;Lcom/android/systemui/dump/DumpManager;)Lcom/android/systemui/util/leak/GarbageMonitor;
 
     move-result-object p0
 

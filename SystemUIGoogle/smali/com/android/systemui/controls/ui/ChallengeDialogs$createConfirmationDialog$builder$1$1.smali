@@ -47,7 +47,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/controls/ui/ChallengeDialogs$createConfirmationDialog$builder$1$1;->$lastAction:Landroid/service/controls/actions/ControlAction;
 
-    const-string/jumbo v1, "true"
+    const-string v1, "true"
 
     invoke-static {v0, p0, v1}, Lcom/android/systemui/controls/ui/ChallengeDialogs;->access$addChallengeValue(Lcom/android/systemui/controls/ui/ChallengeDialogs;Landroid/service/controls/actions/ControlAction;Ljava/lang/String;)Landroid/service/controls/actions/ControlAction;
 

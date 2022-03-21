@@ -39,7 +39,7 @@
 
     iget-object p1, p0, Lcom/android/keyguard/CarrierTextManager$3;->this$0:Lcom/android/keyguard/CarrierTextManager;
 
-    invoke-static {p1}, Lcom/android/keyguard/CarrierTextManager;->access$500(Lcom/android/keyguard/CarrierTextManager;)Ljava/util/concurrent/atomic/AtomicBoolean;
+    invoke-static {p1}, Lcom/android/keyguard/CarrierTextManager;->access$600(Lcom/android/keyguard/CarrierTextManager;)Ljava/util/concurrent/atomic/AtomicBoolean;
 
     move-result-object p1
 

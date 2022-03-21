@@ -86,7 +86,7 @@
     return p0
 .end method
 
-.method public onExpansionChanged(FZ)V
+.method public onExpansionChanged(F)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/systemui/biometrics/UdfpsAnimationView;->expansionToAlpha(F)I

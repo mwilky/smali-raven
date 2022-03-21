@@ -3,7 +3,7 @@
 .source "WMShell.java"
 
 # interfaces
-.implements Lcom/android/systemui/statusbar/policy/ConfigurationController$ConfigurationListener;
+.implements Lcom/android/systemui/keyguard/ScreenLifecycle$Observer;
 
 
 # annotations
@@ -38,12 +38,14 @@
 
 
 # virtual methods
-.method public onConfigChanged(Landroid/content/res/Configuration;)V
-    .locals 0
+.method public onScreenTurningOff()V
+    .locals 1
 
     iget-object p0, p0, Lcom/android/systemui/wmshell/WMShell$11;->val$oneHanded:Lcom/android/wm/shell/onehanded/OneHanded;
 
-    invoke-interface {p0, p1}, Lcom/android/wm/shell/onehanded/OneHanded;->onConfigChanged(Landroid/content/res/Configuration;)V
+    const/4 v0, 0x7
+
+    invoke-interface {p0, v0}, Lcom/android/wm/shell/onehanded/OneHanded;->stopOneHanded(I)V
 
     return-void
 .end method

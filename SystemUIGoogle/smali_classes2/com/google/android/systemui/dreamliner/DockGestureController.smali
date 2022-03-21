@@ -22,6 +22,8 @@
 
 .field private mDiffX:F
 
+.field final mDockIndicationController:Lcom/google/android/systemui/dreamliner/DockIndicationController;
+
 .field private mFirstTouchX:F
 
 .field private mFirstTouchY:F
@@ -62,6 +64,8 @@
 .end field
 
 .field private final mSettingsGear:Landroid/widget/ImageView;
+
+.field private mShouldConsumeTouch:Z
 
 .field private final mStatusBarStateController:Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
 
@@ -159,7 +163,7 @@
     return-void
 .end method
 
-.method constructor <init>(Landroid/content/Context;Landroid/widget/ImageView;Landroid/widget/FrameLayout;Landroid/view/View;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;)V
+.method constructor <init>(Landroid/content/Context;Landroid/widget/ImageView;Landroid/widget/FrameLayout;Landroid/view/View;Lcom/google/android/systemui/dreamliner/DockIndicationController;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;)V
     .locals 3
 
     invoke-direct {p0}, Landroid/view/GestureDetector$SimpleOnGestureListener;-><init>()V
@@ -180,19 +184,21 @@
 
     iput-object v0, p0, Lcom/google/android/systemui/dreamliner/DockGestureController;->mKeyguardMonitorCallback:Lcom/android/systemui/statusbar/policy/KeyguardStateController$Callback;
 
+    iput-object p5, p0, Lcom/google/android/systemui/dreamliner/DockGestureController;->mDockIndicationController:Lcom/google/android/systemui/dreamliner/DockIndicationController;
+
     iput-object p1, p0, Lcom/google/android/systemui/dreamliner/DockGestureController;->mContext:Landroid/content/Context;
 
-    new-instance v0, Lcom/google/android/systemui/dreamliner/DockGestureController$$ExternalSyntheticLambda4;
+    new-instance p5, Lcom/google/android/systemui/dreamliner/DockGestureController$$ExternalSyntheticLambda4;
 
-    invoke-direct {v0, p0}, Lcom/google/android/systemui/dreamliner/DockGestureController$$ExternalSyntheticLambda4;-><init>(Lcom/google/android/systemui/dreamliner/DockGestureController;)V
+    invoke-direct {p5, p0}, Lcom/google/android/systemui/dreamliner/DockGestureController$$ExternalSyntheticLambda4;-><init>(Lcom/google/android/systemui/dreamliner/DockGestureController;)V
 
-    iput-object v0, p0, Lcom/google/android/systemui/dreamliner/DockGestureController;->mHideGearRunnable:Ljava/lang/Runnable;
+    iput-object p5, p0, Lcom/google/android/systemui/dreamliner/DockGestureController;->mHideGearRunnable:Ljava/lang/Runnable;
 
-    new-instance v0, Landroid/view/GestureDetector;
+    new-instance p5, Landroid/view/GestureDetector;
 
-    invoke-direct {v0, p1, p0}, Landroid/view/GestureDetector;-><init>(Landroid/content/Context;Landroid/view/GestureDetector$OnGestureListener;)V
+    invoke-direct {p5, p1, p0}, Landroid/view/GestureDetector;-><init>(Landroid/content/Context;Landroid/view/GestureDetector$OnGestureListener;)V
 
-    iput-object v0, p0, Lcom/google/android/systemui/dreamliner/DockGestureController;->mGestureDetector:Landroid/view/GestureDetector;
+    iput-object p5, p0, Lcom/google/android/systemui/dreamliner/DockGestureController;->mGestureDetector:Landroid/view/GestureDetector;
 
     iput-object p4, p0, Lcom/google/android/systemui/dreamliner/DockGestureController;->mTouchDelegateView:Landroid/view/View;
 
@@ -212,15 +218,15 @@
 
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v0
+    move-result-object p5
 
-    sget v1, Lcom/android/systemui/R$string;->dock_photo_preview_text:I
+    sget v0, Lcom/android/systemui/R$string;->dock_photo_preview_text:I
 
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    invoke-virtual {p5, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p5
 
-    invoke-virtual {p4, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {p4, p5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     new-instance p4, Lcom/google/android/systemui/dreamliner/DockGestureController$$ExternalSyntheticLambda0;
 
@@ -250,9 +256,9 @@
 
     iput p1, p0, Lcom/google/android/systemui/dreamliner/DockGestureController;->mPhotoDiffThreshold:I
 
-    iput-object p5, p0, Lcom/google/android/systemui/dreamliner/DockGestureController;->mStatusBarStateController:Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
+    iput-object p6, p0, Lcom/google/android/systemui/dreamliner/DockGestureController;->mStatusBarStateController:Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
 
-    iput-object p6, p0, Lcom/google/android/systemui/dreamliner/DockGestureController;->mKeyguardStateController:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
+    iput-object p7, p0, Lcom/google/android/systemui/dreamliner/DockGestureController;->mKeyguardStateController:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
 
     invoke-static {p3}, Lcom/android/wm/shell/animation/PhysicsAnimator;->getInstance(Ljava/lang/Object;)Lcom/android/wm/shell/animation/PhysicsAnimator;
 
@@ -864,16 +870,16 @@
 
     if-eq v0, v1, :cond_1
 
-    const/4 v2, 0x2
+    const/4 v1, 0x2
 
-    if-eq v0, v2, :cond_0
+    if-eq v0, v1, :cond_0
 
-    goto/16 :goto_0
+    goto/16 :goto_2
 
     :cond_0
     invoke-direct {p0, p2}, Lcom/google/android/systemui/dreamliner/DockGestureController;->handleMoveEvent(Landroid/view/MotionEvent;)V
 
-    goto/16 :goto_0
+    goto/16 :goto_2
 
     :cond_1
     iget-object v0, p0, Lcom/google/android/systemui/dreamliner/DockGestureController;->mVelocityTracker:Landroid/view/VelocityTracker;
@@ -960,12 +966,12 @@
 
     iput-boolean v2, p0, Lcom/google/android/systemui/dreamliner/DockGestureController;->mTriggerPhoto:Z
 
-    goto :goto_0
+    goto :goto_2
 
     :cond_4
     invoke-direct {p0, v1}, Lcom/google/android/systemui/dreamliner/DockGestureController;->hidePhotoPreview(Z)V
 
-    goto :goto_0
+    goto :goto_2
 
     :cond_5
     iget-object v0, p0, Lcom/google/android/systemui/dreamliner/DockGestureController;->mVelocityTracker:Landroid/view/VelocityTracker;
@@ -984,6 +990,35 @@
 
     iput-boolean v2, p0, Lcom/google/android/systemui/dreamliner/DockGestureController;->mFromRight:Z
 
+    iget-object v0, p0, Lcom/google/android/systemui/dreamliner/DockGestureController;->mDockIndicationController:Lcom/google/android/systemui/dreamliner/DockIndicationController;
+
+    if-eqz v0, :cond_7
+
+    invoke-virtual {v0, p2}, Lcom/google/android/systemui/dreamliner/DockIndicationController;->isDockedTopIconTouched(Landroid/view/MotionEvent;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_6
+
+    goto :goto_0
+
+    :cond_6
+    move v0, v2
+
+    goto :goto_1
+
+    :cond_7
+    :goto_0
+    move v0, v1
+
+    :goto_1
+    iput-boolean v0, p0, Lcom/google/android/systemui/dreamliner/DockGestureController;->mShouldConsumeTouch:Z
+
+    if-nez v0, :cond_8
+
+    goto :goto_2
+
+    :cond_8
     iget-object v0, p0, Lcom/google/android/systemui/dreamliner/DockGestureController;->mPhotoPreview:Landroid/widget/FrameLayout;
 
     invoke-virtual {v0}, Landroid/widget/FrameLayout;->getRight()I
@@ -998,13 +1033,13 @@
 
     cmpl-float v0, p1, v0
 
-    if-lez v0, :cond_6
+    if-lez v0, :cond_9
 
     iput-boolean v1, p0, Lcom/google/android/systemui/dreamliner/DockGestureController;->mFromRight:Z
 
     iget-boolean v0, p0, Lcom/google/android/systemui/dreamliner/DockGestureController;->mPhotoEnabled:Z
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_9
 
     iget-object v0, p0, Lcom/google/android/systemui/dreamliner/DockGestureController;->mPhotoPreview:Landroid/widget/FrameLayout;
 
@@ -1016,15 +1051,22 @@
 
     invoke-static {v0, v3, v4, v2}, Lcom/android/systemui/statusbar/CrossFadeHelper;->fadeIn(Landroid/view/View;JI)V
 
-    :cond_6
-    :goto_0
+    :cond_9
+    :goto_2
     iput p1, p0, Lcom/google/android/systemui/dreamliner/DockGestureController;->mLastTouchX:F
 
-    iget-object p0, p0, Lcom/google/android/systemui/dreamliner/DockGestureController;->mGestureDetector:Landroid/view/GestureDetector;
+    iget-boolean p1, p0, Lcom/google/android/systemui/dreamliner/DockGestureController;->mShouldConsumeTouch:Z
 
-    invoke-virtual {p0, p2}, Landroid/view/GestureDetector;->onTouchEvent(Landroid/view/MotionEvent;)Z
+    if-eqz p1, :cond_a
 
-    return v1
+    iget-object p1, p0, Lcom/google/android/systemui/dreamliner/DockGestureController;->mGestureDetector:Landroid/view/GestureDetector;
+
+    invoke-virtual {p1, p2}, Landroid/view/GestureDetector;->onTouchEvent(Landroid/view/MotionEvent;)Z
+
+    :cond_a
+    iget-boolean p0, p0, Lcom/google/android/systemui/dreamliner/DockGestureController;->mShouldConsumeTouch:Z
+
+    return p0
 .end method
 
 .method setPhotoEnabled(Z)V

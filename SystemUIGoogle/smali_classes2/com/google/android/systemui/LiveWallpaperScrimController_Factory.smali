@@ -128,6 +128,16 @@
     .end annotation
 .end field
 
+.field private final panelExpansionStateManagerProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionStateManager;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private final unlockedScreenOffAnimationControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -150,7 +160,7 @@
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -193,6 +203,9 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionStateManager;",
             ">;)V"
         }
     .end annotation
@@ -225,11 +238,13 @@
 
     iput-object p13, p0, Lcom/google/android/systemui/LiveWallpaperScrimController_Factory;->unlockedScreenOffAnimationControllerProvider:Ljavax/inject/Provider;
 
+    iput-object p14, p0, Lcom/google/android/systemui/LiveWallpaperScrimController_Factory;->panelExpansionStateManagerProvider:Ljavax/inject/Provider;
+
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/google/android/systemui/LiveWallpaperScrimController_Factory;
-    .locals 15
+.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/google/android/systemui/LiveWallpaperScrimController_Factory;
+    .locals 16
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -271,16 +286,19 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionStateManager;",
             ">;)",
             "Lcom/google/android/systemui/LiveWallpaperScrimController_Factory;"
         }
     .end annotation
 
-    new-instance v14, Lcom/google/android/systemui/LiveWallpaperScrimController_Factory;
+    new-instance v15, Lcom/google/android/systemui/LiveWallpaperScrimController_Factory;
 
-    move-object v0, v14
+    move-object v0, v15
 
-    move-object v1, p0
+    move-object/from16 v1, p0
 
     move-object/from16 v2, p1
 
@@ -306,19 +324,21 @@
 
     move-object/from16 v13, p12
 
-    invoke-direct/range {v0 .. v13}, Lcom/google/android/systemui/LiveWallpaperScrimController_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+    move-object/from16 v14, p13
 
-    return-object v14
+    invoke-direct/range {v0 .. v14}, Lcom/google/android/systemui/LiveWallpaperScrimController_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+
+    return-object v15
 .end method
 
-.method public static newInstance(Lcom/android/systemui/statusbar/phone/LightBarController;Lcom/android/systemui/statusbar/phone/DozeParameters;Landroid/app/AlarmManager;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/util/wakelock/DelayedWakeLock$Builder;Landroid/os/Handler;Landroid/app/IWallpaperManager;Lcom/android/systemui/statusbar/phone/LockscreenWallpaper;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/dock/DockManager;Ljava/util/concurrent/Executor;Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;)Lcom/google/android/systemui/LiveWallpaperScrimController;
-    .locals 15
+.method public static newInstance(Lcom/android/systemui/statusbar/phone/LightBarController;Lcom/android/systemui/statusbar/phone/DozeParameters;Landroid/app/AlarmManager;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/util/wakelock/DelayedWakeLock$Builder;Landroid/os/Handler;Landroid/app/IWallpaperManager;Lcom/android/systemui/statusbar/phone/LockscreenWallpaper;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/dock/DockManager;Ljava/util/concurrent/Executor;Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionStateManager;)Lcom/google/android/systemui/LiveWallpaperScrimController;
+    .locals 16
 
-    new-instance v14, Lcom/google/android/systemui/LiveWallpaperScrimController;
+    new-instance v15, Lcom/google/android/systemui/LiveWallpaperScrimController;
 
-    move-object v0, v14
+    move-object v0, v15
 
-    move-object v1, p0
+    move-object/from16 v1, p0
 
     move-object/from16 v2, p1
 
@@ -344,15 +364,17 @@
 
     move-object/from16 v13, p12
 
-    invoke-direct/range {v0 .. v13}, Lcom/google/android/systemui/LiveWallpaperScrimController;-><init>(Lcom/android/systemui/statusbar/phone/LightBarController;Lcom/android/systemui/statusbar/phone/DozeParameters;Landroid/app/AlarmManager;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/util/wakelock/DelayedWakeLock$Builder;Landroid/os/Handler;Landroid/app/IWallpaperManager;Lcom/android/systemui/statusbar/phone/LockscreenWallpaper;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/dock/DockManager;Ljava/util/concurrent/Executor;Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;)V
+    move-object/from16 v14, p13
 
-    return-object v14
+    invoke-direct/range {v0 .. v14}, Lcom/google/android/systemui/LiveWallpaperScrimController;-><init>(Lcom/android/systemui/statusbar/phone/LightBarController;Lcom/android/systemui/statusbar/phone/DozeParameters;Landroid/app/AlarmManager;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/util/wakelock/DelayedWakeLock$Builder;Landroid/os/Handler;Landroid/app/IWallpaperManager;Lcom/android/systemui/statusbar/phone/LockscreenWallpaper;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/dock/DockManager;Ljava/util/concurrent/Executor;Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionStateManager;)V
+
+    return-object v15
 .end method
 
 
 # virtual methods
 .method public get()Lcom/google/android/systemui/LiveWallpaperScrimController;
-    .locals 14
+    .locals 15
 
     iget-object v0, p0, Lcom/google/android/systemui/LiveWallpaperScrimController_Factory;->lightBarControllerProvider:Ljavax/inject/Provider;
 
@@ -474,17 +496,27 @@
 
     check-cast v12, Ljava/util/concurrent/Executor;
 
-    iget-object p0, p0, Lcom/google/android/systemui/LiveWallpaperScrimController_Factory;->unlockedScreenOffAnimationControllerProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/google/android/systemui/LiveWallpaperScrimController_Factory;->unlockedScreenOffAnimationControllerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v13, v0
+
+    check-cast v13, Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;
+
+    iget-object p0, p0, Lcom/google/android/systemui/LiveWallpaperScrimController_Factory;->panelExpansionStateManagerProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object p0
 
-    move-object v13, p0
+    move-object v14, p0
 
-    check-cast v13, Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;
+    check-cast v14, Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionStateManager;
 
-    invoke-static/range {v1 .. v13}, Lcom/google/android/systemui/LiveWallpaperScrimController_Factory;->newInstance(Lcom/android/systemui/statusbar/phone/LightBarController;Lcom/android/systemui/statusbar/phone/DozeParameters;Landroid/app/AlarmManager;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/util/wakelock/DelayedWakeLock$Builder;Landroid/os/Handler;Landroid/app/IWallpaperManager;Lcom/android/systemui/statusbar/phone/LockscreenWallpaper;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/dock/DockManager;Ljava/util/concurrent/Executor;Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;)Lcom/google/android/systemui/LiveWallpaperScrimController;
+    invoke-static/range {v1 .. v14}, Lcom/google/android/systemui/LiveWallpaperScrimController_Factory;->newInstance(Lcom/android/systemui/statusbar/phone/LightBarController;Lcom/android/systemui/statusbar/phone/DozeParameters;Landroid/app/AlarmManager;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/util/wakelock/DelayedWakeLock$Builder;Landroid/os/Handler;Landroid/app/IWallpaperManager;Lcom/android/systemui/statusbar/phone/LockscreenWallpaper;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/dock/DockManager;Ljava/util/concurrent/Executor;Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionStateManager;)Lcom/google/android/systemui/LiveWallpaperScrimController;
 
     move-result-object p0
 

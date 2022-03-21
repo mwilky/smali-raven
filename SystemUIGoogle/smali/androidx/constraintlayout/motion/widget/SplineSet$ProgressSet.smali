@@ -36,7 +36,7 @@
 .method public setProperty(Landroid/view/View;F)V
     .locals 9
 
-    const-string/jumbo v0, "unable to setProgress"
+    const-string v0, "unable to setProgress"
 
     const-string v1, "SplineSet"
 

@@ -10,11 +10,11 @@
 
 .field private final designatedCorner:Landroid/view/View;
 
-.field private final height:I
-
 .field private final landscapeRect:Landroid/graphics/Rect;
 
 .field private final layoutRtl:Z
+
+.field private final paddingTop:I
 
 .field private final portraitRect:Landroid/graphics/Rect;
 
@@ -101,7 +101,7 @@
 
     iput p10, p0, Lcom/android/systemui/statusbar/events/ViewState;->rotation:I
 
-    iput p11, p0, Lcom/android/systemui/statusbar/events/ViewState;->height:I
+    iput p11, p0, Lcom/android/systemui/statusbar/events/ViewState;->paddingTop:I
 
     iput p12, p0, Lcom/android/systemui/statusbar/events/ViewState;->cornerIndex:I
 
@@ -449,7 +449,7 @@
 
     if-eqz v12, :cond_a
 
-    iget v12, v0, Lcom/android/systemui/statusbar/events/ViewState;->height:I
+    iget v12, v0, Lcom/android/systemui/statusbar/events/ViewState;->paddingTop:I
 
     goto :goto_a
 
@@ -768,9 +768,9 @@
     return v2
 
     :cond_b
-    iget v1, p0, Lcom/android/systemui/statusbar/events/ViewState;->height:I
+    iget v1, p0, Lcom/android/systemui/statusbar/events/ViewState;->paddingTop:I
 
-    iget v3, p1, Lcom/android/systemui/statusbar/events/ViewState;->height:I
+    iget v3, p1, Lcom/android/systemui/statusbar/events/ViewState;->paddingTop:I
 
     if-eq v1, v3, :cond_c
 
@@ -835,6 +835,14 @@
     .locals 0
 
     iget-boolean p0, p0, Lcom/android/systemui/statusbar/events/ViewState;->layoutRtl:Z
+
+    return p0
+.end method
+
+.method public final getPaddingTop()I
+    .locals 0
+
+    iget p0, p0, Lcom/android/systemui/statusbar/events/ViewState;->paddingTop:I
 
     return p0
 .end method
@@ -1000,7 +1008,7 @@
 
     mul-int/lit8 v0, v0, 0x1f
 
-    iget v1, p0, Lcom/android/systemui/statusbar/events/ViewState;->height:I
+    iget v1, p0, Lcom/android/systemui/statusbar/events/ViewState;->paddingTop:I
 
     invoke-static {v1}, Ljava/lang/Integer;->hashCode(I)I
 
@@ -1242,11 +1250,11 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v1, ", height="
+    const-string v1, ", paddingTop="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v1, p0, Lcom/android/systemui/statusbar/events/ViewState;->height:I
+    iget v1, p0, Lcom/android/systemui/statusbar/events/ViewState;->paddingTop:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 

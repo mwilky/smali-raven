@@ -89,7 +89,7 @@
 
     invoke-virtual {p1, p0, p3, p2}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    const-string/jumbo p0, "ticker_gets_heads_up"
+    const-string p0, "ticker_gets_heads_up"
 
     invoke-static {p0}, Landroid/provider/Settings$Global;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 

@@ -22,7 +22,8 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/lang/Class<",
-            "*>;"
+            "Lcom/android/systemui/plugins/ViewProvider;",
+            ">;"
         }
     .end annotation
 .end field

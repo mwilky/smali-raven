@@ -100,9 +100,6 @@
     <item type="id" name="action_snooze_short" />
     <item type="id" name="action_snooze_shorter" />
     <item type="id" name="action_snooze_undo" />
-    <item type="id" name="action_split_task_to_left" />
-    <item type="id" name="action_split_task_to_right" />
-    <item type="id" name="action_split_task_to_top" />
     <item type="id" name="action_text" />
     <item type="id" name="action_toggle_overview" />
     <item type="id" name="actions" />
@@ -111,6 +108,7 @@
     <item type="id" name="activity_chooser_view_content" />
     <item type="id" name="add_icon" />
     <item type="id" name="additional_summary" />
+    <item type="id" name="airplane_mode_summary" />
     <item type="id" name="alarm_icon" />
     <item type="id" name="alarm_text" />
     <item type="id" name="album_art" />
@@ -133,6 +131,7 @@
     <item type="id" name="animatable_clock_view" />
     <item type="id" name="animatable_clock_view_large" />
     <item type="id" name="animation_view" />
+    <item type="id" name="apm_button" />
     <item type="id" name="app1_view" />
     <item type="id" name="app2_view" />
     <item type="id" name="app3_view" />
@@ -142,7 +141,6 @@
     <item type="id" name="app_icon" />
     <item type="id" name="app_label" />
     <item type="id" name="app_name" />
-    <item type="id" name="app_ops_info" />
     <item type="id" name="app_or_structure_spinner" />
     <item type="id" name="app_settings" />
     <item type="id" name="app_summary" />
@@ -153,10 +151,6 @@
     <item type="id" name="arrow_forward" />
     <item type="id" name="arrow_left" />
     <item type="id" name="arrow_right" />
-    <item type="id" name="assist_orb" />
-    <item type="id" name="assist_orb_navbar_scrim" />
-    <item type="id" name="assist_orb_scrim" />
-    <item type="id" name="assist_prompt" />
     <item type="id" name="auth_ripple" />
     <item type="id" name="auto_rule" />
     <item type="id" name="automatic_icon" />
@@ -173,6 +167,7 @@
     <item type="id" name="background_container" />
     <item type="id" name="background_imagein" />
     <item type="id" name="background_imageout" />
+    <item type="id" name="background_view" />
     <item type="id" name="banner_dismiss_btn" />
     <item type="id" name="banner_icon" />
     <item type="id" name="banner_negative_btn" />
@@ -200,7 +195,6 @@
     <item type="id" name="battery_mode_radio_button" />
     <item type="id" name="battery_percentage_view" />
     <item type="id" name="bc_smartspace_view" />
-    <item type="id" name="big_clock_container" />
     <item type="id" name="biometric_icon" />
     <item type="id" name="biometric_icon_frame" />
     <item type="id" name="biometric_scrollview" />
@@ -321,9 +315,9 @@
     <item type="id" name="clip_layer" />
     <item type="id" name="clock" />
     <item type="id" name="clock_container" />
-    <item type="id" name="close" />
     <item type="id" name="collapsing_toolbar" />
     <item type="id" name="column" />
+    <item type="id" name="compat_mode_hint_text" />
     <item type="id" name="confirm_button" />
     <item type="id" name="connected_device_network_signal" />
     <item type="id" name="connected_device_signals" />
@@ -359,7 +353,6 @@
     <item type="id" name="controls_management_root" />
     <item type="id" name="controls_more" />
     <item type="id" name="controls_no_favorites_group" />
-    <item type="id" name="controls_pane" />
     <item type="id" name="controls_pin_input" />
     <item type="id" name="controls_pin_use_alpha" />
     <item type="id" name="controls_spacer" />
@@ -432,6 +425,7 @@
     <item type="id" name="divider1" />
     <item type="id" name="divider2" />
     <item type="id" name="divider3" />
+    <item type="id" name="divider_bar" />
     <item type="id" name="dnd_icon" />
     <item type="id" name="dock_promo" />
     <item type="id" name="docked_divider_background" />
@@ -439,14 +433,10 @@
     <item type="id" name="docked_top_icon" />
     <item type="id" name="done" />
     <item type="id" name="done_button" />
-    <item type="id" name="done_layout" />
     <item type="id" name="dot_view" />
     <item type="id" name="down_control" />
     <item type="id" name="doze_intensity_tag" />
-    <item type="id" name="doze_saved_filter_tag" />
-    <item type="id" name="drag" />
     <item type="id" name="drag_handle" />
-    <item type="id" name="dreamliner_arrow" />
     <item type="id" name="dreamliner_gear" />
     <item type="id" name="dummy" />
     <item type="id" name="dungeon_title" />
@@ -470,13 +460,12 @@
     <item type="id" name="empty_list_message" />
     <item type="id" name="empty_state_icon" />
     <item type="id" name="empty_state_title" />
-    <item type="id" name="empty_text" />
     <item type="id" name="empty_time_view" />
     <item type="id" name="empty_view" />
     <item type="id" name="enableUsb" />
-    <item type="id" name="end_divider" />
     <item type="id" name="end_padder" />
     <item type="id" name="ends_group" />
+    <item type="id" name="enter_split" />
     <item type="id" name="enter_transition" />
     <item type="id" name="entity_header" />
     <item type="id" name="entity_header_content" />
@@ -513,10 +502,10 @@
     <item type="id" name="first_competitor_score" />
     <item type="id" name="first_sub_card" />
     <item type="id" name="flight_qr_code" />
+    <item type="id" name="flow1" />
     <item type="id" name="footer_icon" />
     <item type="id" name="footer_page_indicator" />
     <item type="id" name="footer_text" />
-    <item type="id" name="fore" />
     <item type="id" name="foreground_container" />
     <item type="id" name="foreground_service_dungeon" />
     <item type="id" name="foreground_service_dungeon_row" />
@@ -525,8 +514,6 @@
     <item type="id" name="frame" />
     <item type="id" name="friction_icon" />
     <item type="id" name="game_dashboard_entry_button" />
-    <item type="id" name="game_dashboard_entry_point" />
-    <item type="id" name="game_dashboard_game_menu" />
     <item type="id" name="game_launch_toast" />
     <item type="id" name="game_launch_toast_change" />
     <item type="id" name="game_launch_toast_dnd_message" />
@@ -539,12 +526,8 @@
     <item type="id" name="game_menu_screen_record" />
     <item type="id" name="game_menu_screenshot" />
     <item type="id" name="game_menu_settings_button" />
-    <item type="id" name="game_menu_shortcut_toast_textview" />
     <item type="id" name="game_menu_title" />
-    <item type="id" name="game_menu_title_bar" />
-    <item type="id" name="game_menu_toggles" />
     <item type="id" name="game_menu_widgets" />
-    <item type="id" name="game_menu_widgets_scroll" />
     <item type="id" name="game_mode" />
     <item type="id" name="game_screen_record_save_toast" />
     <item type="id" name="gate_title" />
@@ -552,18 +535,13 @@
     <item type="id" name="ghost_view" />
     <item type="id" name="ghost_view_holder" />
     <item type="id" name="gleam_container" />
-    <item type="id" name="global_actions_change_button" />
-    <item type="id" name="global_actions_change_message" />
     <item type="id" name="global_actions_container" />
     <item type="id" name="global_actions_controls" />
     <item type="id" name="global_actions_controls_list" />
     <item type="id" name="global_actions_grid_root" />
-    <item type="id" name="global_actions_lock_message" />
-    <item type="id" name="global_actions_lock_message_container" />
     <item type="id" name="global_actions_overflow_button" />
     <item type="id" name="global_actions_panel_container" />
     <item type="id" name="global_actions_view" />
-    <item type="id" name="global_actions_wallet" />
     <item type="id" name="global_screenshot_action_chip" />
     <item type="id" name="global_screenshot_actions" />
     <item type="id" name="global_screenshot_actions_background" />
@@ -588,6 +566,7 @@
     <item type="id" name="green" />
     <item type="id" name="green_glow" />
     <item type="id" name="greeting" />
+    <item type="id" name="grid" />
     <item type="id" name="grid_frame" />
     <item type="id" name="group_divider" />
     <item type="id" name="group_name" />
@@ -631,6 +610,7 @@
     <item type="id" name="header_subtitle" />
     <item type="id" name="header_text_container" />
     <item type="id" name="header_title" />
+    <item type="id" name="header_transition" />
     <item type="id" name="heads_up_status_bar_view" />
     <item type="id" name="height_animator_end_value_tag" />
     <item type="id" name="height_animator_start_value_tag" />
@@ -687,6 +667,7 @@
     <item type="id" name="keyboard_shortcuts_keyword" />
     <item type="id" name="keyboard_shortcuts_scroll_view" />
     <item type="id" name="keyguard_bottom_area" />
+    <item type="id" name="keyguard_bouncer_container" />
     <item type="id" name="keyguard_carrier_text" />
     <item type="id" name="keyguard_clock_container" />
     <item type="id" name="keyguard_disable_esim" />
@@ -700,6 +681,7 @@
     <item type="id" name="keyguard_indication_text" />
     <item type="id" name="keyguard_indication_text_bottom" />
     <item type="id" name="keyguard_message_area" />
+    <item type="id" name="keyguard_message_area_container" />
     <item type="id" name="keyguard_password_view" />
     <item type="id" name="keyguard_pattern_view" />
     <item type="id" name="keyguard_pin_view" />
@@ -710,6 +692,7 @@
     <item type="id" name="keyguard_sim" />
     <item type="id" name="keyguard_sim_pin_view" />
     <item type="id" name="keyguard_sim_puk_view" />
+    <item type="id" name="keyguard_slice_view" />
     <item type="id" name="keyguard_status_area" />
     <item type="id" name="keyguard_status_view" />
     <item type="id" name="keyguard_user_switcher_list" />
@@ -720,6 +703,7 @@
     <item type="id" name="label" />
     <item type="id" name="last_interaction" />
     <item type="id" name="last_updated" />
+    <item type="id" name="launch_animation_running" />
     <item type="id" name="lb_action_button" />
     <item type="id" name="lb_control_closed_captioning" />
     <item type="id" name="lb_control_fast_forward" />
@@ -780,6 +764,9 @@
     <item type="id" name="lock_icon_view" />
     <item type="id" name="lock_screen_clock" />
     <item type="id" name="lock_udfps_aod_fp" />
+    <item type="id" name="locked" />
+    <item type="id" name="locked_aod" />
+    <item type="id" name="locked_fp" />
     <item type="id" name="lockscreen_clock_view" />
     <item type="id" name="lockscreen_clock_view_large" />
     <item type="id" name="lockscreen_opa" />
@@ -791,7 +778,7 @@
     <item type="id" name="magnifier" />
     <item type="id" name="main_icon" />
     <item type="id" name="main_image" />
-    <item type="id" name="manage" />
+    <item type="id" name="manage_button" />
     <item type="id" name="manage_education_view" />
     <item type="id" name="manage_text" />
     <item type="id" name="masked" />
@@ -848,6 +835,7 @@
     <item type="id" name="media_progress_bar" />
     <item type="id" name="media_recommendations" />
     <item type="id" name="media_seamless" />
+    <item type="id" name="media_seamless_button" />
     <item type="id" name="media_seamless_image" />
     <item type="id" name="media_seamless_text" />
     <item type="id" name="media_total_time" />
@@ -873,6 +861,7 @@
     <item type="id" name="mobile_summary" />
     <item type="id" name="mobile_title" />
     <item type="id" name="mobile_toggle" />
+    <item type="id" name="mobile_toggle_divider" />
     <item type="id" name="mobile_type" />
     <item type="id" name="month_grid" />
     <item type="id" name="month_navigation_bar" />
@@ -977,9 +966,9 @@
     <item type="id" name="network_logging_disclosures" />
     <item type="id" name="network_logging_subtitle" />
     <item type="id" name="network_logging_warning" />
-    <item type="id" name="nfc_pane" />
     <item type="id" name="no" />
     <item type="id" name="no_carrier_text" />
+    <item type="id" name="no_icon" />
     <item type="id" name="no_notifications" />
     <item type="id" name="no_tv_notifications" />
     <item type="id" name="non_configurable_multichannel_text" />
@@ -990,7 +979,6 @@
     <item type="id" name="notification_container_parent" />
     <item type="id" name="notification_guts" />
     <item type="id" name="notification_guts_stub" />
-    <item type="id" name="notification_hidden" />
     <item type="id" name="notification_icon_area" />
     <item type="id" name="notification_icon_area_inner" />
     <item type="id" name="notification_lights_out" />
@@ -999,12 +987,8 @@
     <item type="id" name="notification_media_progress_time" />
     <item type="id" name="notification_more_divider" />
     <item type="id" name="notification_panel" />
-    <item type="id" name="notification_plugin" />
-    <item type="id" name="notification_power" />
-    <item type="id" name="notification_screenshot" />
     <item type="id" name="notification_snooze" />
     <item type="id" name="notification_stack_scroller" />
-    <item type="id" name="notification_temperature" />
     <item type="id" name="notification_text" />
     <item type="id" name="notification_title" />
     <item type="id" name="notifications_list" />
@@ -1013,7 +997,6 @@
     <item type="id" name="odi_captions_tooltip_stub" />
     <item type="id" name="odi_captions_tooltip_view" />
     <item type="id" name="off" />
-    <item type="id" name="ok" />
     <item type="id" name="on" />
     <item type="id" name="onboarding_fragment_root" />
     <item type="id" name="onboarding_text" />
@@ -1029,7 +1012,6 @@
     <item type="id" name="other_apps" />
     <item type="id" name="overlay_container" />
     <item type="id" name="overlay_see_more" />
-    <item type="id" name="package_icon" />
     <item type="id" name="padding_before_availability" />
     <item type="id" name="page_container" />
     <item type="id" name="page_indicator" />
@@ -1046,6 +1028,7 @@
     <item type="id" name="parental_controls_warning" />
     <item type="id" name="passwordEntry" />
     <item type="id" name="pattern_container" />
+    <item type="id" name="pattern_top_guideline" />
     <item type="id" name="paused" />
     <item type="id" name="people_list" />
     <item type="id" name="performance_mode" />
@@ -1058,20 +1041,13 @@
     <item type="id" name="picker" />
     <item type="id" name="pinEntry" />
     <item type="id" name="pin_container" />
+    <item type="id" name="pin_pad_top_guideline" />
     <item type="id" name="pkg_icon" />
     <item type="id" name="pkg_name" />
-    <item type="id" name="pkgicon" />
-    <item type="id" name="pkgname" />
-    <item type="id" name="play_button" />
-    <item type="id" name="play_button_image" />
-    <item type="id" name="play_button_text" />
     <item type="id" name="playback_controls_dock" />
     <item type="id" name="playback_fragment_background" />
     <item type="id" name="playback_fragment_root" />
     <item type="id" name="playback_progress" />
-    <item type="id" name="player_minus_button" />
-    <item type="id" name="player_plus_button" />
-    <item type="id" name="player_setup" />
     <item type="id" name="playing" />
     <item type="id" name="plugin_frame" />
     <item type="id" name="pm_lite" />
@@ -1091,9 +1067,7 @@
     <item type="id" name="privacy_chip" />
     <item type="id" name="privacy_container" />
     <item type="id" name="privacy_dot" />
-    <item type="id" name="privacy_dot_left" />
     <item type="id" name="privacy_dot_left_container" />
-    <item type="id" name="privacy_dot_right" />
     <item type="id" name="privacy_dot_right_container" />
     <item type="id" name="privacy_item" />
     <item type="id" name="progress_bar_animation" />
@@ -1108,8 +1082,9 @@
     <item type="id" name="punctuation4" />
     <item type="id" name="punctuation5" />
     <item type="id" name="punctuation6" />
-    <item type="id" name="punctuation_layout" />
     <item type="id" name="punctuations" />
+    <item type="id" name="qqs_footer_actions" />
+    <item type="id" name="qqs_header_constraint" />
     <item type="id" name="qs_carrier_divider1" />
     <item type="id" name="qs_carrier_divider2" />
     <item type="id" name="qs_carrier_text" />
@@ -1120,8 +1095,10 @@
     <item type="id" name="qs_detail_header_progress" />
     <item type="id" name="qs_edge_guideline" />
     <item type="id" name="qs_footer" />
-    <item type="id" name="qs_footer_actions_container" />
+    <item type="id" name="qs_footer_actions" />
     <item type="id" name="qs_frame" />
+    <item type="id" name="qs_header_constraint" />
+    <item type="id" name="qs_header_stub" />
     <item type="id" name="qs_icon_tag" />
     <item type="id" name="qs_media_controls" />
     <item type="id" name="qs_mobile" />
@@ -1133,7 +1110,6 @@
     <item type="id" name="quick_settings_panel" />
     <item type="id" name="quick_status_bar_date_privacy" />
     <item type="id" name="radio" />
-    <item type="id" name="radio_button" />
     <item type="id" name="radio_extra_widget" />
     <item type="id" name="radio_extra_widget_container" />
     <item type="id" name="recent" />
@@ -1147,7 +1123,6 @@
     <item type="id" name="recycler_view" />
     <item type="id" name="red" />
     <item type="id" name="red_glow" />
-    <item type="id" name="remember" />
     <item type="id" name="remote_input" />
     <item type="id" name="remote_input_attachment_image" />
     <item type="id" name="remote_input_content" />
@@ -1179,14 +1154,9 @@
     <item type="id" name="root" />
     <item type="id" name="rotate_suggestion" />
     <item type="id" name="rounded_corners_bottom" />
-    <item type="id" name="rounded_corners_default" />
     <item type="id" name="rounded_corners_top" />
     <item type="id" name="row" />
     <item type="id" name="row0" />
-    <item type="id" name="row1" />
-    <item type="id" name="row2" />
-    <item type="id" name="row3" />
-    <item type="id" name="row4" />
     <item type="id" name="row_content" />
     <item type="id" name="row_header" />
     <item type="id" name="row_header_description" />
@@ -1205,8 +1175,6 @@
     <item type="id" name="scale_y_animator_start_value_tag" />
     <item type="id" name="scale_y_animator_tag" />
     <item type="id" name="scale_y_dynamicanimation_tag" />
-    <item type="id" name="score" />
-    <item type="id" name="scores" />
     <item type="id" name="screen_pinning_back_bg" />
     <item type="id" name="screen_pinning_back_bg_light" />
     <item type="id" name="screen_pinning_back_group" />
@@ -1228,7 +1196,6 @@
     <item type="id" name="screen_recording_dialog_source_text" />
     <item type="id" name="screen_recording_options" />
     <item type="id" name="screenrecord_audio_switch" />
-    <item type="id" name="screenrecord_taps_switch" />
     <item type="id" name="screenshot" />
     <item type="id" name="screenshot_action_chip_icon" />
     <item type="id" name="screenshot_action_chip_text" />
@@ -1239,7 +1206,6 @@
     <item type="id" name="screenshot_scrollable_preview" />
     <item type="id" name="screenshot_scrolling_scrim" />
     <item type="id" name="screenshot_share_chip" />
-    <item type="id" name="screenshot_transition_view" />
     <item type="id" name="scrim" />
     <item type="id" name="scrim_alpha_end" />
     <item type="id" name="scrim_alpha_start" />
@@ -1258,7 +1224,6 @@
     <item type="id" name="search_close_btn" />
     <item type="id" name="search_edit_frame" />
     <item type="id" name="search_go_btn" />
-    <item type="id" name="search_logo" />
     <item type="id" name="search_mag_icon" />
     <item type="id" name="search_orb" />
     <item type="id" name="search_plate" />
@@ -1303,15 +1268,15 @@
     <item type="id" name="settingslib_main_switch_bar" />
     <item type="id" name="shade_falsing_tap_again" />
     <item type="id" name="share" />
-    <item type="id" name="shelf_menu_anchor_anchor" />
     <item type="id" name="shortcut" />
-    <item type="id" name="sidefps_view" />
+    <item type="id" name="sidefps_animation" />
     <item type="id" name="signal_icon" />
     <item type="id" name="silence" />
     <item type="id" name="silence_icon" />
     <item type="id" name="silence_label" />
     <item type="id" name="silence_summary" />
     <item type="id" name="simPinEntry" />
+    <item type="id" name="size_compat_hint" />
     <item type="id" name="size_compat_restart_button" />
     <item type="id" name="sleep_warning_dialog_container" />
     <item type="id" name="slice_permission_checkbox" />
@@ -1322,6 +1287,7 @@
     <item type="id" name="smartspace_card_pager" />
     <item type="id" name="smartspace_extras_group" />
     <item type="id" name="smartspace_page_indicator" />
+    <item type="id" name="smartspace_subtitle_group" />
     <item type="id" name="snackbar_action" />
     <item type="id" name="snackbar_text" />
     <item type="id" name="snooze_option_default" />
@@ -1330,10 +1296,14 @@
     <item type="id" name="space_above_icon" />
     <item type="id" name="space_below_icon" />
     <item type="id" name="spacer" />
-    <item type="id" name="spacer_dot" />
     <item type="id" name="special_effects_controller_view_tag" />
     <item type="id" name="spinner" />
     <item type="id" name="split_action_bar" />
+    <item type="id" name="split_header_constraint" />
+    <item type="id" name="split_header_transition" />
+    <item type="id" name="split_outline" />
+    <item type="id" name="split_resizing_icon" />
+    <item type="id" name="split_shade_status_bar" />
     <item type="id" name="stack_education_description" />
     <item type="id" name="stack_education_layout" />
     <item type="id" name="stack_education_title" />
@@ -1499,10 +1469,11 @@
     <item type="id" name="udfps_fpm_other_fp_view" />
     <item type="id" name="udfps_keyguard_fp_bg" />
     <item type="id" name="udfps_lockscreen_fp" />
-    <item type="id" name="udfps_surface_view" />
     <item type="id" name="udfps_view" />
     <item type="id" name="unchecked" />
     <item type="id" name="undo" />
+    <item type="id" name="unlocked" />
+    <item type="id" name="unlocked_aod" />
     <item type="id" name="up" />
     <item type="id" name="up_control" />
     <item type="id" name="url_container" />
@@ -1587,13 +1558,9 @@
     <item type="id" name="wallet_toolbar_app_button" />
     <item type="id" name="wallet_view" />
     <item type="id" name="weather_icon" />
-    <item type="id" name="welcome" />
     <item type="id" name="white" />
     <item type="id" name="white_cutout" />
-    <item type="id" name="widget_icon" />
     <item type="id" name="widget_initial_layout" />
-    <item type="id" name="widget_list_view" />
-    <item type="id" name="width" />
     <item type="id" name="wifi_airplane_spacer" />
     <item type="id" name="wifi_combo" />
     <item type="id" name="wifi_connected_icon" />
@@ -1622,7 +1589,6 @@
     <item type="id" name="wireless_charging_ripple" />
     <item type="id" name="wireless_charging_text_layout" />
     <item type="id" name="work_widget_badge_icon" />
-    <item type="id" name="world" />
     <item type="id" name="x_animator_tag" />
     <item type="id" name="x_animator_tag_end_value" />
     <item type="id" name="x_animator_tag_start_value" />

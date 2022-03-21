@@ -27,9 +27,9 @@
 
     iget-object p0, p0, Lcom/android/systemui/ActivityStarterDelegate$$ExternalSyntheticLambda14;->f$0:Ljava/lang/Runnable;
 
-    check-cast p1, Ldagger/Lazy;
+    check-cast p1, Lcom/android/systemui/statusbar/phone/StatusBar;
 
-    invoke-static {p0, p1}, Lcom/android/systemui/ActivityStarterDelegate;->$r8$lambda$GzyBy2b3NSkGSU5PUbMjcd8vV2s(Ljava/lang/Runnable;Ldagger/Lazy;)V
+    invoke-static {p0, p1}, Lcom/android/systemui/ActivityStarterDelegate;->$r8$lambda$dQnTXuiPNlZ_F2scRD6ogzvgVyA(Ljava/lang/Runnable;Lcom/android/systemui/statusbar/phone/StatusBar;)V
 
     return-void
 .end method

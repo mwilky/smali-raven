@@ -10,6 +10,8 @@
 # instance fields
 .field private mAnimStartTime:J
 
+.field private final mBatteryStateChangeCallback:Lcom/android/systemui/statusbar/policy/BatteryController$BatteryStateChangeCallback;
+
 .field private mChargingAnimShown:Z
 
 .field private final mKeyguardIndicationController:Lcom/google/android/systemui/statusbar/KeyguardIndicationControllerGoogle;
@@ -73,8 +75,8 @@
     return-void
 .end method
 
-.method public constructor <init>(Lcom/google/android/systemui/smartspace/SmartSpaceController;Lcom/google/android/systemui/statusbar/phone/WallpaperNotifier;Ljava/util/Optional;Landroid/content/Context;Lcom/android/systemui/statusbar/notification/init/NotificationsController;Lcom/android/systemui/statusbar/phone/LightBarController;Lcom/android/systemui/statusbar/phone/AutoHideController;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/statusbar/phone/StatusBarSignalPolicy;Lcom/android/systemui/statusbar/PulseExpansionHandler;Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/statusbar/phone/HeadsUpManagerPhone;Lcom/android/systemui/statusbar/notification/DynamicPrivacyController;Lcom/android/systemui/statusbar/notification/interruption/BypassHeadsUpNotifier;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/classifier/FalsingCollector;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/statusbar/policy/RemoteInputQuickSettingsDisabler;Lcom/android/systemui/statusbar/notification/row/NotificationGutsManager;Lcom/android/systemui/statusbar/notification/logging/NotificationLogger;Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptStateProvider;Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;Lcom/android/systemui/keyguard/KeyguardViewMediator;Landroid/util/DisplayMetrics;Lcom/android/internal/logging/MetricsLogger;Ljava/util/concurrent/Executor;Lcom/android/systemui/statusbar/NotificationMediaManager;Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;Lcom/android/systemui/statusbar/NotificationRemoteInputManager;Lcom/android/systemui/statusbar/policy/UserSwitcherController;Lcom/android/systemui/statusbar/policy/NetworkController;Lcom/android/systemui/statusbar/policy/BatteryController;Lcom/android/systemui/colorextraction/SysuiColorExtractor;Lcom/android/systemui/keyguard/ScreenLifecycle;Lcom/android/systemui/keyguard/WakefulnessLifecycle;Lcom/android/systemui/statusbar/SysuiStatusBarStateController;Lcom/android/systemui/statusbar/VibratorHelper;Ljava/util/Optional;Ljava/util/Optional;Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Lcom/android/systemui/navigationbar/NavigationBarController;Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuController;Ldagger/Lazy;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/statusbar/NotificationShadeWindowController;Lcom/android/systemui/statusbar/phone/DozeParameters;Lcom/google/android/systemui/LiveWallpaperScrimController;Lcom/android/systemui/statusbar/phone/KeyguardLiftController;Ldagger/Lazy;Ldagger/Lazy;Ldagger/Lazy;Lcom/android/systemui/statusbar/phone/DozeServiceHost;Landroid/os/PowerManager;Lcom/android/systemui/recents/ScreenPinningRequest;Lcom/android/systemui/statusbar/phone/DozeScrimController;Lcom/android/systemui/volume/VolumeComponent;Lcom/android/systemui/statusbar/CommandQueue;Ljavax/inject/Provider;Lcom/android/systemui/shared/plugins/PluginManager;Ljava/util/Optional;Lcom/android/systemui/statusbar/phone/LightsOutNotifController;Lcom/android/systemui/statusbar/phone/StatusBarNotificationActivityStarter$Builder;Lcom/android/systemui/statusbar/phone/ShadeController;Lcom/android/systemui/statusbar/SuperStatusBarViewFactory;Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;Lcom/android/keyguard/ViewMediatorCallback;Lcom/android/systemui/InitController;Landroid/os/Handler;Lcom/android/systemui/plugins/PluginDependencyProvider;Lcom/android/systemui/statusbar/phone/KeyguardDismissUtil;Lcom/android/systemui/statusbar/policy/ExtensionController;Lcom/android/systemui/statusbar/policy/UserInfoControllerImpl;Lcom/android/systemui/statusbar/phone/PhoneStatusBarPolicy;Lcom/google/android/systemui/statusbar/KeyguardIndicationControllerGoogle;Lcom/android/systemui/keyguard/DismissCallbackRegistry;Lcom/android/systemui/demomode/DemoModeController;Lcom/android/systemui/statusbar/phone/StatusBarTouchableRegionManager;Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;Lcom/android/systemui/settings/brightness/BrightnessSlider$Factory;Lcom/android/systemui/statusbar/charging/WiredChargingRippleController;Lcom/android/systemui/statusbar/phone/ongoingcall/OngoingCallController;Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler;Lcom/android/systemui/statusbar/phone/StatusBarLocationPublisher;Lcom/android/systemui/statusbar/phone/StatusBarIconController;Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;Lcom/android/systemui/statusbar/FeatureFlags;Ldagger/Lazy;Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController;Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;Ljava/util/Optional;)V
-    .locals 90
+.method public constructor <init>(Lcom/google/android/systemui/smartspace/SmartSpaceController;Lcom/google/android/systemui/statusbar/phone/WallpaperNotifier;Ljava/util/Optional;Landroid/content/Context;Lcom/android/systemui/statusbar/notification/init/NotificationsController;Lcom/android/systemui/fragments/FragmentService;Lcom/android/systemui/statusbar/phone/LightBarController;Lcom/android/systemui/statusbar/phone/AutoHideController;Lcom/android/systemui/statusbar/window/StatusBarWindowController;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/statusbar/phone/StatusBarSignalPolicy;Lcom/android/systemui/statusbar/PulseExpansionHandler;Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/statusbar/phone/HeadsUpManagerPhone;Lcom/android/systemui/statusbar/notification/DynamicPrivacyController;Lcom/android/systemui/statusbar/notification/interruption/BypassHeadsUpNotifier;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/classifier/FalsingCollector;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/statusbar/policy/RemoteInputQuickSettingsDisabler;Lcom/android/systemui/statusbar/notification/collection/render/NotifShadeEventSource;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/systemui/statusbar/notification/row/NotificationGutsManager;Lcom/android/systemui/statusbar/notification/logging/NotificationLogger;Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptStateProvider;Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionStateManager;Lcom/android/systemui/keyguard/KeyguardViewMediator;Landroid/util/DisplayMetrics;Lcom/android/internal/logging/MetricsLogger;Ljava/util/concurrent/Executor;Lcom/android/systemui/statusbar/NotificationMediaManager;Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;Lcom/android/systemui/statusbar/NotificationRemoteInputManager;Lcom/android/systemui/statusbar/policy/UserSwitcherController;Lcom/android/systemui/statusbar/connectivity/NetworkController;Lcom/android/systemui/statusbar/policy/BatteryController;Lcom/android/systemui/colorextraction/SysuiColorExtractor;Lcom/android/systemui/keyguard/ScreenLifecycle;Lcom/android/systemui/keyguard/WakefulnessLifecycle;Lcom/android/systemui/statusbar/SysuiStatusBarStateController;Lcom/android/systemui/statusbar/VibratorHelper;Ljava/util/Optional;Ljava/util/Optional;Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Lcom/android/systemui/navigationbar/NavigationBarController;Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuController;Ldagger/Lazy;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/statusbar/NotificationShadeWindowController;Lcom/android/systemui/statusbar/phone/DozeParameters;Lcom/google/android/systemui/LiveWallpaperScrimController;Lcom/android/systemui/statusbar/phone/KeyguardLiftController;Ldagger/Lazy;Lcom/android/systemui/statusbar/phone/LockscreenGestureLogger;Ldagger/Lazy;Ldagger/Lazy;Lcom/android/systemui/statusbar/phone/DozeServiceHost;Landroid/os/PowerManager;Lcom/android/systemui/recents/ScreenPinningRequest;Lcom/android/systemui/statusbar/phone/DozeScrimController;Lcom/android/systemui/volume/VolumeComponent;Lcom/android/systemui/statusbar/CommandQueue;Lcom/android/systemui/statusbar/phone/fragment/CollapsedStatusBarFragmentLogger;Lcom/android/systemui/statusbar/phone/dagger/StatusBarComponent$Factory;Lcom/android/systemui/shared/plugins/PluginManager;Ljava/util/Optional;Lcom/android/systemui/statusbar/phone/LightsOutNotifController;Lcom/android/systemui/statusbar/phone/StatusBarNotificationActivityStarter$Builder;Lcom/android/systemui/statusbar/phone/ShadeController;Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;Lcom/android/keyguard/ViewMediatorCallback;Lcom/android/systemui/InitController;Landroid/os/Handler;Lcom/android/systemui/plugins/PluginDependencyProvider;Lcom/android/systemui/statusbar/phone/KeyguardDismissUtil;Lcom/android/systemui/statusbar/policy/ExtensionController;Lcom/android/systemui/statusbar/policy/UserInfoControllerImpl;Lcom/android/systemui/statusbar/OperatorNameViewController$Factory;Lcom/android/systemui/statusbar/phone/PhoneStatusBarPolicy;Lcom/google/android/systemui/statusbar/KeyguardIndicationControllerGoogle;Lcom/android/systemui/keyguard/DismissCallbackRegistry;Lcom/android/systemui/demomode/DemoModeController;Lcom/android/systemui/statusbar/phone/StatusBarTouchableRegionManager;Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;Lcom/android/systemui/settings/brightness/BrightnessSliderController$Factory;Lcom/android/systemui/statusbar/charging/WiredChargingRippleController;Lcom/android/systemui/util/WallpaperController;Lcom/android/systemui/statusbar/phone/ongoingcall/OngoingCallController;Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler;Lcom/android/systemui/statusbar/phone/StatusBarLocationPublisher;Lcom/android/systemui/statusbar/phone/StatusBarIconController;Lcom/android/systemui/statusbar/phone/StatusBarHideIconsForBouncerManager;Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;Lcom/android/systemui/flags/FeatureFlags;Ldagger/Lazy;Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController;Landroid/os/Handler;Lcom/android/systemui/util/concurrency/DelayableExecutor;Lcom/android/systemui/util/concurrency/MessageRouter;Landroid/app/WallpaperManager;Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;Ljava/util/Optional;Lcom/android/systemui/tuner/TunerService;Lcom/android/systemui/dump/DumpManager;Lcom/android/systemui/animation/ActivityLaunchAnimator;)V
+    .locals 101
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -85,8 +87,10 @@
             ">;",
             "Landroid/content/Context;",
             "Lcom/android/systemui/statusbar/notification/init/NotificationsController;",
+            "Lcom/android/systemui/fragments/FragmentService;",
             "Lcom/android/systemui/statusbar/phone/LightBarController;",
             "Lcom/android/systemui/statusbar/phone/AutoHideController;",
+            "Lcom/android/systemui/statusbar/window/StatusBarWindowController;",
             "Lcom/android/keyguard/KeyguardUpdateMonitor;",
             "Lcom/android/systemui/statusbar/phone/StatusBarSignalPolicy;",
             "Lcom/android/systemui/statusbar/PulseExpansionHandler;",
@@ -100,10 +104,13 @@
             "Lcom/android/systemui/classifier/FalsingCollector;",
             "Lcom/android/systemui/broadcast/BroadcastDispatcher;",
             "Lcom/android/systemui/statusbar/policy/RemoteInputQuickSettingsDisabler;",
+            "Lcom/android/systemui/statusbar/notification/collection/render/NotifShadeEventSource;",
+            "Lcom/android/systemui/statusbar/notification/NotificationEntryManager;",
             "Lcom/android/systemui/statusbar/notification/row/NotificationGutsManager;",
             "Lcom/android/systemui/statusbar/notification/logging/NotificationLogger;",
             "Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptStateProvider;",
             "Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;",
+            "Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionStateManager;",
             "Lcom/android/systemui/keyguard/KeyguardViewMediator;",
             "Landroid/util/DisplayMetrics;",
             "Lcom/android/internal/logging/MetricsLogger;",
@@ -112,7 +119,7 @@
             "Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;",
             "Lcom/android/systemui/statusbar/NotificationRemoteInputManager;",
             "Lcom/android/systemui/statusbar/policy/UserSwitcherController;",
-            "Lcom/android/systemui/statusbar/policy/NetworkController;",
+            "Lcom/android/systemui/statusbar/connectivity/NetworkController;",
             "Lcom/android/systemui/statusbar/policy/BatteryController;",
             "Lcom/android/systemui/colorextraction/SysuiColorExtractor;",
             "Lcom/android/systemui/keyguard/ScreenLifecycle;",
@@ -140,6 +147,7 @@
             "Ldagger/Lazy<",
             "Lcom/android/systemui/statusbar/phone/LockscreenWallpaper;",
             ">;",
+            "Lcom/android/systemui/statusbar/phone/LockscreenGestureLogger;",
             "Ldagger/Lazy<",
             "Lcom/android/systemui/statusbar/phone/BiometricUnlockController;",
             ">;",
@@ -152,9 +160,8 @@
             "Lcom/android/systemui/statusbar/phone/DozeScrimController;",
             "Lcom/android/systemui/volume/VolumeComponent;",
             "Lcom/android/systemui/statusbar/CommandQueue;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/phone/dagger/StatusBarComponent$Builder;",
-            ">;",
+            "Lcom/android/systemui/statusbar/phone/fragment/CollapsedStatusBarFragmentLogger;",
+            "Lcom/android/systemui/statusbar/phone/dagger/StatusBarComponent$Factory;",
             "Lcom/android/systemui/shared/plugins/PluginManager;",
             "Ljava/util/Optional<",
             "Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreen;",
@@ -162,7 +169,6 @@
             "Lcom/android/systemui/statusbar/phone/LightsOutNotifController;",
             "Lcom/android/systemui/statusbar/phone/StatusBarNotificationActivityStarter$Builder;",
             "Lcom/android/systemui/statusbar/phone/ShadeController;",
-            "Lcom/android/systemui/statusbar/SuperStatusBarViewFactory;",
             "Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;",
             "Lcom/android/keyguard/ViewMediatorCallback;",
             "Lcom/android/systemui/InitController;",
@@ -171,35 +177,46 @@
             "Lcom/android/systemui/statusbar/phone/KeyguardDismissUtil;",
             "Lcom/android/systemui/statusbar/policy/ExtensionController;",
             "Lcom/android/systemui/statusbar/policy/UserInfoControllerImpl;",
+            "Lcom/android/systemui/statusbar/OperatorNameViewController$Factory;",
             "Lcom/android/systemui/statusbar/phone/PhoneStatusBarPolicy;",
             "Lcom/google/android/systemui/statusbar/KeyguardIndicationControllerGoogle;",
             "Lcom/android/systemui/keyguard/DismissCallbackRegistry;",
             "Lcom/android/systemui/demomode/DemoModeController;",
             "Lcom/android/systemui/statusbar/phone/StatusBarTouchableRegionManager;",
             "Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;",
-            "Lcom/android/systemui/settings/brightness/BrightnessSlider$Factory;",
+            "Lcom/android/systemui/settings/brightness/BrightnessSliderController$Factory;",
             "Lcom/android/systemui/statusbar/charging/WiredChargingRippleController;",
+            "Lcom/android/systemui/util/WallpaperController;",
             "Lcom/android/systemui/statusbar/phone/ongoingcall/OngoingCallController;",
             "Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler;",
             "Lcom/android/systemui/statusbar/phone/StatusBarLocationPublisher;",
             "Lcom/android/systemui/statusbar/phone/StatusBarIconController;",
+            "Lcom/android/systemui/statusbar/phone/StatusBarHideIconsForBouncerManager;",
             "Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
+            "Lcom/android/systemui/flags/FeatureFlags;",
             "Ldagger/Lazy<",
             "Ljava/util/Optional<",
             "Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyClient;",
             ">;>;",
             "Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController;",
+            "Landroid/os/Handler;",
+            "Lcom/android/systemui/util/concurrency/DelayableExecutor;",
+            "Lcom/android/systemui/util/concurrency/MessageRouter;",
+            "Landroid/app/WallpaperManager;",
             "Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;",
             "Ljava/util/Optional<",
             "Lcom/android/wm/shell/startingsurface/StartingSurface;",
-            ">;)V"
+            ">;",
+            "Lcom/android/systemui/tuner/TunerService;",
+            "Lcom/android/systemui/dump/DumpManager;",
+            "Lcom/android/systemui/animation/ActivityLaunchAnimator;",
+            ")V"
         }
     .end annotation
 
     move-object/from16 v15, p0
 
-    move-object/from16 v14, p77
+    move-object/from16 v14, p84
 
     move-object/from16 v0, p0
 
@@ -239,177 +256,303 @@
 
     move-object/from16 v18, p21
 
-    move-object/from16 v19, p22
+    move-object/from16 v19, p23
 
-    move-object/from16 v20, p23
+    move-object/from16 v20, p24
 
-    move-object/from16 v21, p24
+    move-object/from16 v21, p25
 
-    move-object/from16 v22, p25
+    move-object/from16 v22, p26
 
-    move-object/from16 v23, p26
+    move-object/from16 v23, p27
 
-    move-object/from16 v24, p27
+    move-object/from16 v24, p28
 
-    move-object/from16 v25, p28
+    move-object/from16 v25, p29
 
-    move-object/from16 v26, p29
+    move-object/from16 v26, p30
 
-    move-object/from16 v27, p30
+    move-object/from16 v27, p31
 
-    move-object/from16 v28, p31
+    move-object/from16 v28, p32
 
-    move-object/from16 v29, p32
+    move-object/from16 v29, p33
 
-    move-object/from16 v30, p33
+    move-object/from16 v30, p34
 
-    move-object/from16 v31, p34
+    move-object/from16 v31, p35
 
-    move-object/from16 v32, p35
+    move-object/from16 v32, p36
 
-    move-object/from16 v33, p36
+    move-object/from16 v33, p37
 
-    move-object/from16 v34, p37
+    move-object/from16 v34, p38
 
-    move-object/from16 v35, p38
+    move-object/from16 v35, p39
 
-    move-object/from16 v36, p39
+    move-object/from16 v36, p40
 
-    move-object/from16 v37, p40
+    move-object/from16 v37, p41
 
-    move-object/from16 v38, p41
+    move-object/from16 v38, p42
 
-    move-object/from16 v39, p42
+    move-object/from16 v39, p43
 
-    move-object/from16 v40, p43
+    move-object/from16 v40, p45
 
-    move-object/from16 v41, p44
+    move-object/from16 v41, p46
 
-    move-object/from16 v42, p45
+    move-object/from16 v42, p47
 
-    move-object/from16 v43, p46
+    move-object/from16 v43, p48
 
-    move-object/from16 v44, p47
+    move-object/from16 v44, p49
 
-    move-object/from16 v45, p48
+    move-object/from16 v45, p50
 
-    move-object/from16 v46, p49
+    move-object/from16 v46, p51
 
-    move-object/from16 v47, p50
+    move-object/from16 v47, p52
 
-    move-object/from16 v48, p51
+    move-object/from16 v48, p53
 
-    move-object/from16 v49, p52
+    move-object/from16 v49, p54
 
-    move-object/from16 v50, p53
+    move-object/from16 v50, p55
 
-    move-object/from16 v76, p54
+    move-object/from16 v51, p57
 
-    move-object/from16 v51, p55
+    move-object/from16 v52, p58
 
-    move-object/from16 v52, p56
+    move-object/from16 v53, p59
 
-    move-object/from16 v53, p57
+    move-object/from16 v79, p60
 
-    move-object/from16 v54, p58
+    move-object/from16 v54, p61
 
-    move-object/from16 v55, p59
+    move-object/from16 v55, p62
 
-    move-object/from16 v56, p60
+    move-object/from16 v56, p63
 
-    move-object/from16 v57, p61
+    move-object/from16 v57, p64
 
-    move-object/from16 v58, p62
+    move-object/from16 v58, p65
 
-    move-object/from16 v59, p63
+    move-object/from16 v59, p66
 
-    move-object/from16 v60, p64
+    move-object/from16 v60, p67
 
-    move-object/from16 v61, p65
+    move-object/from16 v61, p68
 
-    move-object/from16 v62, p66
+    move-object/from16 v62, p69
 
-    move-object/from16 v63, p67
+    move-object/from16 v63, p70
 
-    move-object/from16 v64, p68
+    move-object/from16 v64, p71
 
-    move-object/from16 v65, p69
+    move-object/from16 v65, p72
 
-    move-object/from16 v66, p70
+    move-object/from16 v66, p73
 
-    move-object/from16 v67, p71
+    move-object/from16 v67, p74
 
-    move-object/from16 v68, p72
+    move-object/from16 v68, p75
 
-    move-object/from16 v69, p73
+    move-object/from16 v69, p76
 
-    move-object/from16 v70, p74
+    move-object/from16 v70, p77
 
-    move-object/from16 v71, p75
+    move-object/from16 v71, p78
 
-    move-object/from16 v72, p76
+    move-object/from16 v72, p79
 
-    move-object/from16 v73, p77
+    move-object/from16 v73, p80
 
-    move-object/from16 v74, p78
+    move-object/from16 v74, p81
 
-    move-object/from16 v75, p79
+    move-object/from16 v75, p82
 
-    move-object/from16 v77, p80
+    move-object/from16 v76, p83
 
-    move-object/from16 v78, p81
+    move-object/from16 v77, p84
 
-    move-object/from16 v79, p82
+    move-object/from16 v78, p86
 
-    move-object/from16 v80, p83
+    move-object/from16 v80, p87
 
-    move-object/from16 v81, p84
+    move-object/from16 v81, p88
 
-    move-object/from16 v82, p85
+    move-object/from16 v82, p89
 
-    move-object/from16 v83, p86
+    move-object/from16 v83, p91
 
-    move-object/from16 v84, p87
+    move-object/from16 v84, p92
 
-    move-object/from16 v85, p88
+    move-object/from16 v85, p93
 
-    move-object/from16 v86, p89
+    move-object/from16 v86, p94
 
-    move-object/from16 v87, p91
+    move-object/from16 v87, p95
 
-    move-object/from16 v88, p92
+    move-object/from16 v88, p96
 
-    move-object/from16 v89, p93
+    move-object/from16 v89, p97
 
-    invoke-direct/range {v0 .. v89}, Lcom/android/systemui/statusbar/phone/StatusBar;-><init>(Landroid/content/Context;Lcom/android/systemui/statusbar/notification/init/NotificationsController;Lcom/android/systemui/statusbar/phone/LightBarController;Lcom/android/systemui/statusbar/phone/AutoHideController;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/statusbar/phone/StatusBarSignalPolicy;Lcom/android/systemui/statusbar/PulseExpansionHandler;Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/statusbar/phone/HeadsUpManagerPhone;Lcom/android/systemui/statusbar/notification/DynamicPrivacyController;Lcom/android/systemui/statusbar/notification/interruption/BypassHeadsUpNotifier;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/classifier/FalsingCollector;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/statusbar/policy/RemoteInputQuickSettingsDisabler;Lcom/android/systemui/statusbar/notification/row/NotificationGutsManager;Lcom/android/systemui/statusbar/notification/logging/NotificationLogger;Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptStateProvider;Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;Lcom/android/systemui/keyguard/KeyguardViewMediator;Landroid/util/DisplayMetrics;Lcom/android/internal/logging/MetricsLogger;Ljava/util/concurrent/Executor;Lcom/android/systemui/statusbar/NotificationMediaManager;Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;Lcom/android/systemui/statusbar/NotificationRemoteInputManager;Lcom/android/systemui/statusbar/policy/UserSwitcherController;Lcom/android/systemui/statusbar/policy/NetworkController;Lcom/android/systemui/statusbar/policy/BatteryController;Lcom/android/systemui/colorextraction/SysuiColorExtractor;Lcom/android/systemui/keyguard/ScreenLifecycle;Lcom/android/systemui/keyguard/WakefulnessLifecycle;Lcom/android/systemui/statusbar/SysuiStatusBarStateController;Lcom/android/systemui/statusbar/VibratorHelper;Ljava/util/Optional;Ljava/util/Optional;Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Lcom/android/systemui/navigationbar/NavigationBarController;Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuController;Ldagger/Lazy;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/statusbar/NotificationShadeWindowController;Lcom/android/systemui/statusbar/phone/DozeParameters;Lcom/android/systemui/statusbar/phone/ScrimController;Lcom/android/systemui/statusbar/phone/KeyguardLiftController;Ldagger/Lazy;Ldagger/Lazy;Lcom/android/systemui/statusbar/phone/DozeServiceHost;Landroid/os/PowerManager;Lcom/android/systemui/recents/ScreenPinningRequest;Lcom/android/systemui/statusbar/phone/DozeScrimController;Lcom/android/systemui/volume/VolumeComponent;Lcom/android/systemui/statusbar/CommandQueue;Ljavax/inject/Provider;Lcom/android/systemui/shared/plugins/PluginManager;Ljava/util/Optional;Lcom/android/systemui/statusbar/phone/LightsOutNotifController;Lcom/android/systemui/statusbar/phone/StatusBarNotificationActivityStarter$Builder;Lcom/android/systemui/statusbar/phone/ShadeController;Lcom/android/systemui/statusbar/SuperStatusBarViewFactory;Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;Lcom/android/keyguard/ViewMediatorCallback;Lcom/android/systemui/InitController;Landroid/os/Handler;Lcom/android/systemui/plugins/PluginDependencyProvider;Lcom/android/systemui/statusbar/phone/KeyguardDismissUtil;Lcom/android/systemui/statusbar/policy/ExtensionController;Lcom/android/systemui/statusbar/policy/UserInfoControllerImpl;Lcom/android/systemui/statusbar/phone/PhoneStatusBarPolicy;Lcom/android/systemui/statusbar/KeyguardIndicationController;Lcom/android/systemui/keyguard/DismissCallbackRegistry;Lcom/android/systemui/demomode/DemoModeController;Ldagger/Lazy;Lcom/android/systemui/statusbar/phone/StatusBarTouchableRegionManager;Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;Lcom/android/systemui/settings/brightness/BrightnessSlider$Factory;Lcom/android/systemui/statusbar/charging/WiredChargingRippleController;Lcom/android/systemui/statusbar/phone/ongoingcall/OngoingCallController;Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler;Lcom/android/systemui/statusbar/phone/StatusBarLocationPublisher;Lcom/android/systemui/statusbar/phone/StatusBarIconController;Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;Lcom/android/systemui/statusbar/FeatureFlags;Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController;Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;Ljava/util/Optional;)V
+    move-object/from16 v90, p98
 
-    move-object/from16 v1, p1
+    move-object/from16 v91, p100
 
-    iput-object v1, v0, Lcom/google/android/systemui/statusbar/phone/StatusBarGoogle;->mSmartSpaceController:Lcom/google/android/systemui/smartspace/SmartSpaceController;
+    move-object/from16 v92, p101
 
-    move-object/from16 v1, p2
+    move-object/from16 v93, p102
 
-    iput-object v1, v0, Lcom/google/android/systemui/statusbar/phone/StatusBarGoogle;->mWallpaperNotifier:Lcom/google/android/systemui/statusbar/phone/WallpaperNotifier;
+    move-object/from16 v94, p103
 
-    move-object/from16 v1, p3
+    move-object/from16 v95, p104
 
-    iput-object v1, v0, Lcom/google/android/systemui/statusbar/phone/StatusBarGoogle;->mReverseChargingViewControllerOptional:Ljava/util/Optional;
+    move-object/from16 v96, p105
 
-    move-object/from16 v1, p90
+    move-object/from16 v97, p106
 
-    iput-object v1, v0, Lcom/google/android/systemui/statusbar/phone/StatusBarGoogle;->mVoiceReplyClient:Ldagger/Lazy;
+    move-object/from16 v98, p107
 
-    move-object/from16 v1, p77
+    move-object/from16 v99, p108
 
-    iput-object v1, v0, Lcom/google/android/systemui/statusbar/phone/StatusBarGoogle;->mKeyguardIndicationController:Lcom/google/android/systemui/statusbar/KeyguardIndicationControllerGoogle;
+    move-object/from16 v100, p109
 
-    invoke-virtual {v1, v0}, Lcom/google/android/systemui/statusbar/KeyguardIndicationControllerGoogle;->setStatusBar(Lcom/android/systemui/statusbar/phone/StatusBar;)V
+    invoke-direct/range {v0 .. v100}, Lcom/android/systemui/statusbar/phone/StatusBar;-><init>(Landroid/content/Context;Lcom/android/systemui/statusbar/notification/init/NotificationsController;Lcom/android/systemui/fragments/FragmentService;Lcom/android/systemui/statusbar/phone/LightBarController;Lcom/android/systemui/statusbar/phone/AutoHideController;Lcom/android/systemui/statusbar/window/StatusBarWindowController;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/statusbar/phone/StatusBarSignalPolicy;Lcom/android/systemui/statusbar/PulseExpansionHandler;Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/statusbar/phone/HeadsUpManagerPhone;Lcom/android/systemui/statusbar/notification/DynamicPrivacyController;Lcom/android/systemui/statusbar/notification/interruption/BypassHeadsUpNotifier;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/classifier/FalsingCollector;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/statusbar/notification/collection/render/NotifShadeEventSource;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/systemui/statusbar/notification/row/NotificationGutsManager;Lcom/android/systemui/statusbar/notification/logging/NotificationLogger;Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptStateProvider;Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionStateManager;Lcom/android/systemui/keyguard/KeyguardViewMediator;Landroid/util/DisplayMetrics;Lcom/android/internal/logging/MetricsLogger;Ljava/util/concurrent/Executor;Lcom/android/systemui/statusbar/NotificationMediaManager;Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;Lcom/android/systemui/statusbar/NotificationRemoteInputManager;Lcom/android/systemui/statusbar/policy/UserSwitcherController;Lcom/android/systemui/statusbar/connectivity/NetworkController;Lcom/android/systemui/statusbar/policy/BatteryController;Lcom/android/systemui/colorextraction/SysuiColorExtractor;Lcom/android/systemui/keyguard/ScreenLifecycle;Lcom/android/systemui/keyguard/WakefulnessLifecycle;Lcom/android/systemui/statusbar/SysuiStatusBarStateController;Ljava/util/Optional;Ljava/util/Optional;Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Lcom/android/systemui/navigationbar/NavigationBarController;Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuController;Ldagger/Lazy;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/statusbar/NotificationShadeWindowController;Lcom/android/systemui/statusbar/phone/DozeParameters;Lcom/android/systemui/statusbar/phone/ScrimController;Ldagger/Lazy;Lcom/android/systemui/statusbar/phone/LockscreenGestureLogger;Ldagger/Lazy;Lcom/android/systemui/statusbar/phone/DozeServiceHost;Landroid/os/PowerManager;Lcom/android/systemui/recents/ScreenPinningRequest;Lcom/android/systemui/statusbar/phone/DozeScrimController;Lcom/android/systemui/volume/VolumeComponent;Lcom/android/systemui/statusbar/CommandQueue;Lcom/android/systemui/statusbar/phone/fragment/CollapsedStatusBarFragmentLogger;Lcom/android/systemui/statusbar/phone/dagger/StatusBarComponent$Factory;Lcom/android/systemui/shared/plugins/PluginManager;Ljava/util/Optional;Lcom/android/systemui/statusbar/phone/LightsOutNotifController;Lcom/android/systemui/statusbar/phone/StatusBarNotificationActivityStarter$Builder;Lcom/android/systemui/statusbar/phone/ShadeController;Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;Lcom/android/keyguard/ViewMediatorCallback;Lcom/android/systemui/InitController;Landroid/os/Handler;Lcom/android/systemui/plugins/PluginDependencyProvider;Lcom/android/systemui/statusbar/phone/KeyguardDismissUtil;Lcom/android/systemui/statusbar/policy/ExtensionController;Lcom/android/systemui/statusbar/policy/UserInfoControllerImpl;Lcom/android/systemui/statusbar/OperatorNameViewController$Factory;Lcom/android/systemui/statusbar/phone/PhoneStatusBarPolicy;Lcom/android/systemui/statusbar/KeyguardIndicationController;Lcom/android/systemui/demomode/DemoModeController;Ldagger/Lazy;Lcom/android/systemui/statusbar/phone/StatusBarTouchableRegionManager;Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;Lcom/android/systemui/settings/brightness/BrightnessSliderController$Factory;Lcom/android/systemui/util/WallpaperController;Lcom/android/systemui/statusbar/phone/ongoingcall/OngoingCallController;Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler;Lcom/android/systemui/statusbar/phone/StatusBarLocationPublisher;Lcom/android/systemui/statusbar/phone/StatusBarIconController;Lcom/android/systemui/statusbar/phone/StatusBarHideIconsForBouncerManager;Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;Lcom/android/systemui/flags/FeatureFlags;Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController;Landroid/os/Handler;Lcom/android/systemui/util/concurrency/DelayableExecutor;Lcom/android/systemui/util/concurrency/MessageRouter;Landroid/app/WallpaperManager;Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;Ljava/util/Optional;Lcom/android/systemui/tuner/TunerService;Lcom/android/systemui/dump/DumpManager;Lcom/android/systemui/animation/ActivityLaunchAnimator;)V
 
-    move-object/from16 v1, p38
+    new-instance v0, Lcom/google/android/systemui/statusbar/phone/StatusBarGoogle$1;
 
-    iput-object v1, v0, Lcom/google/android/systemui/statusbar/phone/StatusBarGoogle;->mStatusBarStateController:Lcom/android/systemui/statusbar/SysuiStatusBarStateController;
+    move-object/from16 v1, p0
+
+    invoke-direct {v0, v1}, Lcom/google/android/systemui/statusbar/phone/StatusBarGoogle$1;-><init>(Lcom/google/android/systemui/statusbar/phone/StatusBarGoogle;)V
+
+    iput-object v0, v1, Lcom/google/android/systemui/statusbar/phone/StatusBarGoogle;->mBatteryStateChangeCallback:Lcom/android/systemui/statusbar/policy/BatteryController$BatteryStateChangeCallback;
+
+    move-object/from16 v0, p1
+
+    iput-object v0, v1, Lcom/google/android/systemui/statusbar/phone/StatusBarGoogle;->mSmartSpaceController:Lcom/google/android/systemui/smartspace/SmartSpaceController;
+
+    move-object/from16 v0, p2
+
+    iput-object v0, v1, Lcom/google/android/systemui/statusbar/phone/StatusBarGoogle;->mWallpaperNotifier:Lcom/google/android/systemui/statusbar/phone/WallpaperNotifier;
+
+    move-object/from16 v0, p3
+
+    iput-object v0, v1, Lcom/google/android/systemui/statusbar/phone/StatusBarGoogle;->mReverseChargingViewControllerOptional:Ljava/util/Optional;
+
+    move-object/from16 v0, p99
+
+    iput-object v0, v1, Lcom/google/android/systemui/statusbar/phone/StatusBarGoogle;->mVoiceReplyClient:Ldagger/Lazy;
+
+    move-object/from16 v0, p84
+
+    iput-object v0, v1, Lcom/google/android/systemui/statusbar/phone/StatusBarGoogle;->mKeyguardIndicationController:Lcom/google/android/systemui/statusbar/KeyguardIndicationControllerGoogle;
+
+    invoke-virtual {v0, v1}, Lcom/google/android/systemui/statusbar/KeyguardIndicationControllerGoogle;->setStatusBar(Lcom/android/systemui/statusbar/phone/StatusBar;)V
+
+    move-object/from16 v0, p43
+
+    iput-object v0, v1, Lcom/google/android/systemui/statusbar/phone/StatusBarGoogle;->mStatusBarStateController:Lcom/android/systemui/statusbar/SysuiStatusBarStateController;
 
     return-void
+.end method
+
+.method static synthetic access$000(Lcom/google/android/systemui/statusbar/phone/StatusBarGoogle;)I
+    .locals 0
+
+    iget p0, p0, Lcom/google/android/systemui/statusbar/phone/StatusBarGoogle;->mReceivingBatteryLevel:I
+
+    return p0
+.end method
+
+.method static synthetic access$002(Lcom/google/android/systemui/statusbar/phone/StatusBarGoogle;I)I
+    .locals 0
+
+    iput p1, p0, Lcom/google/android/systemui/statusbar/phone/StatusBarGoogle;->mReceivingBatteryLevel:I
+
+    return p1
+.end method
+
+.method static synthetic access$100(Lcom/google/android/systemui/statusbar/phone/StatusBarGoogle;)Lcom/android/systemui/statusbar/policy/BatteryController;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mBatteryController:Lcom/android/systemui/statusbar/policy/BatteryController;
+
+    return-object p0
+.end method
+
+.method static synthetic access$200(Lcom/google/android/systemui/statusbar/phone/StatusBarGoogle;)J
+    .locals 2
+
+    iget-wide v0, p0, Lcom/google/android/systemui/statusbar/phone/StatusBarGoogle;->mAnimStartTime:J
+
+    return-wide v0
+.end method
+
+.method static synthetic access$300(Lcom/google/android/systemui/statusbar/phone/StatusBarGoogle;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/google/android/systemui/statusbar/phone/StatusBarGoogle;->mChargingAnimShown:Z
+
+    return p0
+.end method
+
+.method static synthetic access$302(Lcom/google/android/systemui/statusbar/phone/StatusBarGoogle;Z)Z
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/google/android/systemui/statusbar/phone/StatusBarGoogle;->mChargingAnimShown:Z
+
+    return p1
+.end method
+
+.method static synthetic access$400(Lcom/google/android/systemui/statusbar/phone/StatusBarGoogle;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/google/android/systemui/statusbar/phone/StatusBarGoogle;->mReverseChargingAnimShown:Z
+
+    return p0
+.end method
+
+.method static synthetic access$402(Lcom/google/android/systemui/statusbar/phone/StatusBarGoogle;Z)Z
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/google/android/systemui/statusbar/phone/StatusBarGoogle;->mReverseChargingAnimShown:Z
+
+    return p1
+.end method
+
+.method static synthetic access$500(Lcom/google/android/systemui/statusbar/phone/StatusBarGoogle;)Lcom/android/systemui/statusbar/policy/BatteryController;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mBatteryController:Lcom/android/systemui/statusbar/policy/BatteryController;
+
+    return-object p0
+.end method
+
+.method static synthetic access$600(Lcom/google/android/systemui/statusbar/phone/StatusBarGoogle;)Lcom/android/systemui/statusbar/policy/BatteryController;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mBatteryController:Lcom/android/systemui/statusbar/policy/BatteryController;
+
+    return-object p0
+.end method
+
+.method static synthetic access$700(Lcom/google/android/systemui/statusbar/phone/StatusBarGoogle;IIJ)V
+    .locals 0
+
+    invoke-virtual {p0, p1, p2, p3, p4}, Lcom/android/systemui/statusbar/phone/StatusBar;->showChargingAnimation(IIJ)V
+
+    return-void
+.end method
+
+.method static synthetic access$800(Lcom/google/android/systemui/statusbar/phone/StatusBarGoogle;)Lcom/android/systemui/statusbar/policy/BatteryController;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mBatteryController:Lcom/android/systemui/statusbar/policy/BatteryController;
+
+    return-object p0
 .end method
 
 .method private static synthetic lambda$start$0(Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyClient;)V
@@ -438,245 +581,6 @@
     invoke-virtual {p0, p1, p2, p3}, Lcom/google/android/systemui/statusbar/phone/NotificationIconCenteringController;->dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
 
     :cond_0
-    return-void
-.end method
-
-.method public onBatteryLevelChanged(IZZ)V
-    .locals 2
-
-    invoke-super {p0, p1, p2, p3}, Lcom/android/systemui/statusbar/phone/StatusBar;->onBatteryLevelChanged(IZZ)V
-
-    iput p1, p0, Lcom/google/android/systemui/statusbar/phone/StatusBarGoogle;->mReceivingBatteryLevel:I
-
-    iget-object p2, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mBatteryController:Lcom/android/systemui/statusbar/policy/BatteryController;
-
-    invoke-interface {p2}, Lcom/android/systemui/statusbar/policy/BatteryController;->isWirelessCharging()Z
-
-    move-result p2
-
-    if-nez p2, :cond_1
-
-    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
-
-    move-result-wide p2
-
-    iget-wide v0, p0, Lcom/google/android/systemui/statusbar/phone/StatusBarGoogle;->mAnimStartTime:J
-
-    sub-long/2addr p2, v0
-
-    const-wide/16 v0, 0x5dc
-
-    cmp-long p2, p2, v0
-
-    const/4 p3, 0x0
-
-    if-lez p2, :cond_0
-
-    iput-boolean p3, p0, Lcom/google/android/systemui/statusbar/phone/StatusBarGoogle;->mChargingAnimShown:Z
-
-    :cond_0
-    iput-boolean p3, p0, Lcom/google/android/systemui/statusbar/phone/StatusBarGoogle;->mReverseChargingAnimShown:Z
-
-    :cond_1
-    sget-boolean p2, Lcom/google/android/systemui/statusbar/phone/StatusBarGoogle;->DEBUG:Z
-
-    if-eqz p2, :cond_2
-
-    new-instance p2, Ljava/lang/StringBuilder;
-
-    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string p3, "onBatteryLevelChanged(): level="
-
-    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string p1, ",wlc="
-
-    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object p1, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mBatteryController:Lcom/android/systemui/statusbar/policy/BatteryController;
-
-    invoke-interface {p1}, Lcom/android/systemui/statusbar/policy/BatteryController;->isWirelessCharging()Z
-
-    move-result p1
-
-    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string p1, ",wlcs="
-
-    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-boolean p1, p0, Lcom/google/android/systemui/statusbar/phone/StatusBarGoogle;->mChargingAnimShown:Z
-
-    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    const-string p1, ",rtxs="
-
-    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-boolean p1, p0, Lcom/google/android/systemui/statusbar/phone/StatusBarGoogle;->mReverseChargingAnimShown:Z
-
-    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    const-string p1, ",this="
-
-    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p0
-
-    const-string p1, "StatusBarGoogle"
-
-    invoke-static {p1, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_2
-    return-void
-.end method
-
-.method public onReverseChanged(ZILjava/lang/String;)V
-    .locals 5
-
-    invoke-super {p0, p1, p2, p3}, Lcom/android/systemui/statusbar/policy/BatteryController$BatteryStateChangeCallback;->onReverseChanged(ZILjava/lang/String;)V
-
-    if-nez p1, :cond_1
-
-    if-ltz p2, :cond_1
-
-    invoke-static {p3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mBatteryController:Lcom/android/systemui/statusbar/policy/BatteryController;
-
-    invoke-interface {v0}, Lcom/android/systemui/statusbar/policy/BatteryController;->isWirelessCharging()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    iget-boolean v0, p0, Lcom/google/android/systemui/statusbar/phone/StatusBarGoogle;->mChargingAnimShown:Z
-
-    if-eqz v0, :cond_1
-
-    iget-boolean v0, p0, Lcom/google/android/systemui/statusbar/phone/StatusBarGoogle;->mReverseChargingAnimShown:Z
-
-    if-nez v0, :cond_1
-
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/google/android/systemui/statusbar/phone/StatusBarGoogle;->mReverseChargingAnimShown:Z
-
-    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
-
-    move-result-wide v0
-
-    iget-wide v2, p0, Lcom/google/android/systemui/statusbar/phone/StatusBarGoogle;->mAnimStartTime:J
-
-    sub-long/2addr v0, v2
-
-    const-wide/16 v2, 0x5dc
-
-    cmp-long v4, v0, v2
-
-    if-lez v4, :cond_0
-
-    const-wide/16 v0, 0x0
-
-    goto :goto_0
-
-    :cond_0
-    sub-long v0, v2, v0
-
-    :goto_0
-    iget v2, p0, Lcom/google/android/systemui/statusbar/phone/StatusBarGoogle;->mReceivingBatteryLevel:I
-
-    invoke-virtual {p0, v2, p2, v0, v1}, Lcom/android/systemui/statusbar/phone/StatusBar;->showChargingAnimation(IIJ)V
-
-    :cond_1
-    sget-boolean v0, Lcom/google/android/systemui/statusbar/phone/StatusBarGoogle;->DEBUG:Z
-
-    if-eqz v0, :cond_2
-
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "onReverseChanged(): rtx="
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string p1, ",rxlevel="
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget p1, p0, Lcom/google/android/systemui/statusbar/phone/StatusBarGoogle;->mReceivingBatteryLevel:I
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string p1, ",level="
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string p1, ",name="
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string p1, ",wlc="
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object p1, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mBatteryController:Lcom/android/systemui/statusbar/policy/BatteryController;
-
-    invoke-interface {p1}, Lcom/android/systemui/statusbar/policy/BatteryController;->isWirelessCharging()Z
-
-    move-result p1
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string p1, ",wlcs="
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-boolean p1, p0, Lcom/google/android/systemui/statusbar/phone/StatusBarGoogle;->mChargingAnimShown:Z
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    const-string p1, ",rtxs="
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-boolean p1, p0, Lcom/google/android/systemui/statusbar/phone/StatusBarGoogle;->mReverseChargingAnimShown:Z
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    const-string p1, ",this="
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p0
-
-    const-string p1, "StatusBarGoogle"
-
-    invoke-static {p1, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_2
     return-void
 .end method
 
@@ -725,6 +629,16 @@
     .locals 5
 
     invoke-super {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->start()V
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mBatteryController:Lcom/android/systemui/statusbar/policy/BatteryController;
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->getLifecycle()Landroidx/lifecycle/Lifecycle;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/google/android/systemui/statusbar/phone/StatusBarGoogle;->mBatteryStateChangeCallback:Lcom/android/systemui/statusbar/policy/BatteryController$BatteryStateChangeCallback;
+
+    invoke-interface {v0, v1, v2}, Lcom/android/systemui/statusbar/policy/CallbackController;->observe(Landroidx/lifecycle/Lifecycle;Ljava/lang/Object;)Ljava/lang/Object;
 
     const-class v0, Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;
 

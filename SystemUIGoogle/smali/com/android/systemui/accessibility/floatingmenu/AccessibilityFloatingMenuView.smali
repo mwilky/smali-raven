@@ -24,6 +24,12 @@
     .end annotation
 .end field
 
+.field private mDisplayHeight:I
+
+.field private final mDisplayInsetsRect:Landroid/graphics/Rect;
+
+.field private mDisplayWidth:I
+
 .field private mDownX:I
 
 .field private mDownY:I
@@ -41,7 +47,7 @@
 
 .field private mIconWidth:I
 
-.field private mImeVisibility:Z
+.field private final mImeInsetsRect:Landroid/graphics/Rect;
 
 .field private mInset:I
 
@@ -80,10 +86,6 @@
 .field private mRelativeToPointerDownX:I
 
 .field private mRelativeToPointerDownY:I
-
-.field private mScreenHeight:I
-
-.field private mScreenWidth:I
 
 .field mShapeType:I
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
@@ -198,6 +200,18 @@
     iput v0, p0, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->mSizeType:I
 
     iput v0, p0, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->mShapeType:I
+
+    new-instance v1, Landroid/graphics/Rect;
+
+    invoke-direct {v1}, Landroid/graphics/Rect;-><init>()V
+
+    iput-object v1, p0, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->mDisplayInsetsRect:Landroid/graphics/Rect;
+
+    new-instance v1, Landroid/graphics/Rect;
+
+    invoke-direct {v1}, Landroid/graphics/Rect;-><init>()V
+
+    iput-object v1, p0, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->mImeInsetsRect:Landroid/graphics/Rect;
 
     invoke-static {}, Ljava/util/Optional;->empty()Ljava/util/Optional;
 
@@ -569,6 +583,14 @@
 
     iput-boolean v0, v6, Landroid/view/WindowManager$LayoutParams;->receiveInsetsIgnoringZOrder:Z
 
+    iget v1, v6, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
+
+    const/high16 v2, 0x200000
+
+    or-int/2addr v1, v2
+
+    iput v1, v6, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
+
     const v1, 0x1030003
 
     iput v1, v6, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
@@ -740,51 +762,56 @@
     return-object p0
 .end method
 
+.method private getDisplayInsets(Landroid/view/WindowMetrics;)Landroid/graphics/Insets;
+    .locals 1
+
+    invoke-virtual {p1}, Landroid/view/WindowMetrics;->getWindowInsets()Landroid/view/WindowInsets;
+
+    move-result-object p0
+
+    invoke-static {}, Landroid/view/WindowInsets$Type;->systemBars()I
+
+    move-result p1
+
+    invoke-static {}, Landroid/view/WindowInsets$Type;->displayCutout()I
+
+    move-result v0
+
+    or-int/2addr p1, v0
+
+    invoke-virtual {p0, p1}, Landroid/view/WindowInsets;->getInsetsIgnoringVisibility(I)Landroid/graphics/Insets;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method private getInterval()I
-    .locals 4
+    .locals 3
 
-    iget-boolean v0, p0, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->mImeVisibility:Z
+    iget-object v0, p0, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->mPosition:Lcom/android/systemui/accessibility/floatingmenu/Position;
 
-    const/4 v1, 0x0
+    invoke-virtual {v0}, Lcom/android/systemui/accessibility/floatingmenu/Position;->getPercentageY()F
 
-    if-nez v0, :cond_0
+    move-result v0
 
-    return v1
+    invoke-direct {p0}, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->getMaxWindowY()I
 
-    :cond_0
-    iget-object v0, p0, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->mWindowManager:Landroid/view/WindowManager;
+    move-result v1
 
-    invoke-interface {v0}, Landroid/view/WindowManager;->getCurrentWindowMetrics()Landroid/view/WindowMetrics;
+    int-to-float v1, v1
 
-    move-result-object v0
+    mul-float/2addr v0, v1
 
-    invoke-virtual {v0}, Landroid/view/WindowMetrics;->getWindowInsets()Landroid/view/WindowInsets;
+    float-to-int v0, v0
 
-    move-result-object v0
+    iget v1, p0, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->mDisplayHeight:I
 
-    invoke-static {}, Landroid/view/WindowInsets$Type;->ime()I
+    iget-object v2, p0, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->mImeInsetsRect:Landroid/graphics/Rect;
 
-    move-result v2
+    iget v2, v2, Landroid/graphics/Rect;->bottom:I
 
-    invoke-static {}, Landroid/view/WindowInsets$Type;->navigationBars()I
-
-    move-result v3
-
-    or-int/2addr v2, v3
-
-    invoke-virtual {v0, v2}, Landroid/view/WindowInsets;->getInsets(I)Landroid/graphics/Insets;
-
-    move-result-object v0
-
-    iget v2, p0, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->mScreenHeight:I
-
-    iget v0, v0, Landroid/graphics/Insets;->bottom:I
-
-    sub-int/2addr v2, v0
-
-    iget-object v0, p0, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->mCurrentLayoutParams:Landroid/view/WindowManager$LayoutParams;
-
-    iget v0, v0, Landroid/view/WindowManager$LayoutParams;->y:I
+    sub-int/2addr v1, v2
 
     invoke-direct {p0}, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->getWindowHeight()I
 
@@ -792,12 +819,17 @@
 
     add-int/2addr v0, p0
 
-    if-le v0, v2, :cond_1
+    if-le v0, v1, :cond_0
 
-    sub-int v1, v0, v2
+    sub-int/2addr v0, v1
 
-    :cond_1
-    return v1
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    return v0
 .end method
 
 .method private getLargeSizeResIdWith(I)I
@@ -875,7 +907,7 @@
 .method private getMaxLayoutHeight()I
     .locals 1
 
-    iget v0, p0, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->mScreenHeight:I
+    iget v0, p0, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->mDisplayHeight:I
 
     iget p0, p0, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->mMargin:I
 
@@ -889,7 +921,7 @@
 .method private getMaxWindowX()I
     .locals 2
 
-    iget v0, p0, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->mScreenWidth:I
+    iget v0, p0, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->mDisplayWidth:I
 
     iget-object v1, p0, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->mLastConfiguration:Landroid/content/res/Configuration;
 
@@ -911,7 +943,7 @@
 .method private getMaxWindowY()I
     .locals 1
 
-    iget v0, p0, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->mScreenHeight:I
+    iget v0, p0, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->mDisplayHeight:I
 
     invoke-direct {p0}, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->getWindowHeight()I
 
@@ -1009,7 +1041,7 @@
 .method private getWindowHeight()I
     .locals 2
 
-    iget v0, p0, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->mScreenHeight:I
+    iget v0, p0, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->mDisplayHeight:I
 
     iget v1, p0, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->mMargin:I
 
@@ -1178,6 +1210,40 @@
     invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;)V
 
     return-void
+.end method
+
+.method private isImeVisible(Landroid/graphics/Rect;)Z
+    .locals 0
+
+    iget p0, p1, Landroid/graphics/Rect;->left:I
+
+    if-nez p0, :cond_1
+
+    iget p0, p1, Landroid/graphics/Rect;->top:I
+
+    if-nez p0, :cond_1
+
+    iget p0, p1, Landroid/graphics/Rect;->right:I
+
+    if-nez p0, :cond_1
+
+    iget p0, p1, Landroid/graphics/Rect;->bottom:I
+
+    if-eqz p0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    goto :goto_1
+
+    :cond_1
+    :goto_0
+    const/4 p0, 0x1
+
+    :goto_1
+    return p0
 .end method
 
 .method private isMovingTowardsScreenEdge(III)Z
@@ -1451,27 +1517,84 @@
 .end method
 
 .method private onWindowInsetsApplied(Landroid/view/WindowInsets;)Landroid/view/WindowInsets;
-    .locals 2
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->mWindowManager:Landroid/view/WindowManager;
+
+    invoke-interface {v0}, Landroid/view/WindowManager;->getCurrentWindowMetrics()Landroid/view/WindowMetrics;
+
+    move-result-object v0
+
+    invoke-direct {p0, v0}, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->getDisplayInsets(Landroid/view/WindowMetrics;)Landroid/graphics/Insets;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/graphics/Insets;->toRect()Landroid/graphics/Rect;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->mDisplayInsetsRect:Landroid/graphics/Rect;
+
+    invoke-virtual {v1, v2}, Landroid/graphics/Rect;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    invoke-direct {p0, v0}, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->updateDisplaySizeWith(Landroid/view/WindowMetrics;)V
+
+    iget-object v1, p0, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->mPosition:Lcom/android/systemui/accessibility/floatingmenu/Position;
+
+    invoke-direct {p0, v1}, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->updateLocationWith(Lcom/android/systemui/accessibility/floatingmenu/Position;)V
+
+    :cond_0
+    invoke-virtual {v0}, Landroid/view/WindowMetrics;->getWindowInsets()Landroid/view/WindowInsets;
+
+    move-result-object v0
 
     invoke-static {}, Landroid/view/WindowInsets$Type;->ime()I
 
-    move-result v0
+    move-result v1
 
-    invoke-virtual {p1, v0}, Landroid/view/WindowInsets;->isVisible(I)Z
+    invoke-virtual {v0, v1}, Landroid/view/WindowInsets;->getInsets(I)Landroid/graphics/Insets;
 
-    move-result v0
+    move-result-object v0
 
-    iget-boolean v1, p0, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->mImeVisibility:Z
+    invoke-virtual {v0}, Landroid/graphics/Insets;->toRect()Landroid/graphics/Rect;
 
-    if-eq v0, v1, :cond_0
+    move-result-object v0
 
-    iput-boolean v0, p0, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->mImeVisibility:Z
+    iget-object v1, p0, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->mImeInsetsRect:Landroid/graphics/Rect;
 
+    invoke-virtual {v0, v1}, Landroid/graphics/Rect;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_2
+
+    invoke-direct {p0, v0}, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->isImeVisible(Landroid/graphics/Rect;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    iget-object v1, p0, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->mImeInsetsRect:Landroid/graphics/Rect;
+
+    invoke-virtual {v1, v0}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
+
+    goto :goto_0
+
+    :cond_1
+    iget-object v0, p0, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->mImeInsetsRect:Landroid/graphics/Rect;
+
+    invoke-virtual {v0}, Landroid/graphics/Rect;->setEmpty()V
+
+    :goto_0
     iget-object v0, p0, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->mPosition:Lcom/android/systemui/accessibility/floatingmenu/Position;
 
     invoke-direct {p0, v0}, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->updateLocationWith(Lcom/android/systemui/accessibility/floatingmenu/Position;)V
 
-    :cond_0
+    :cond_2
     return-object p1
 .end method
 
@@ -1643,23 +1766,19 @@
 .end method
 
 .method private updateDimensions()V
-    .locals 3
+    .locals 2
 
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+    iget-object v1, p0, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->mWindowManager:Landroid/view/WindowManager;
+
+    invoke-interface {v1}, Landroid/view/WindowManager;->getCurrentWindowMetrics()Landroid/view/WindowMetrics;
 
     move-result-object v1
 
-    iget v2, v1, Landroid/util/DisplayMetrics;->widthPixels:I
-
-    iput v2, p0, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->mScreenWidth:I
-
-    iget v1, v1, Landroid/util/DisplayMetrics;->heightPixels:I
-
-    iput v1, p0, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->mScreenHeight:I
+    invoke-direct {p0, v1}, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->updateDisplaySizeWith(Landroid/view/WindowMetrics;)V
 
     sget v1, Lcom/android/systemui/R$dimen;->accessibility_floating_menu_margin:I
 
@@ -1700,6 +1819,42 @@
     iget v0, p0, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->mSizeType:I
 
     invoke-direct {p0, v0}, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->updateItemViewDimensionsWith(I)V
+
+    return-void
+.end method
+
+.method private updateDisplaySizeWith(Landroid/view/WindowMetrics;)V
+    .locals 3
+
+    invoke-virtual {p1}, Landroid/view/WindowMetrics;->getBounds()Landroid/graphics/Rect;
+
+    move-result-object v0
+
+    invoke-direct {p0, p1}, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->getDisplayInsets(Landroid/view/WindowMetrics;)Landroid/graphics/Insets;
+
+    move-result-object p1
+
+    iget-object v1, p0, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->mDisplayInsetsRect:Landroid/graphics/Rect;
+
+    invoke-virtual {p1}, Landroid/graphics/Insets;->toRect()Landroid/graphics/Rect;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
+
+    invoke-virtual {v0, p1}, Landroid/graphics/Rect;->inset(Landroid/graphics/Insets;)V
+
+    invoke-virtual {v0}, Landroid/graphics/Rect;->width()I
+
+    move-result p1
+
+    iput p1, p0, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->mDisplayWidth:I
+
+    invoke-virtual {v0}, Landroid/graphics/Rect;->height()I
+
+    move-result p1
+
+    iput p1, p0, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->mDisplayHeight:I
 
     return-void
 .end method
@@ -2144,7 +2299,7 @@
 
     new-instance v0, Landroid/graphics/Rect;
 
-    iget v1, p0, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->mScreenWidth:I
+    iget v1, p0, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->mDisplayWidth:I
 
     invoke-direct {p0}, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->getWindowWidth()I
 
@@ -2152,7 +2307,7 @@
 
     sub-int/2addr v1, v2
 
-    iget v2, p0, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->mScreenHeight:I
+    iget v2, p0, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->mDisplayHeight:I
 
     invoke-direct {p0}, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->getWindowHeight()I
 

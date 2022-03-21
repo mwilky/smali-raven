@@ -33,7 +33,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/ImageWallpaper$GLEngine$$ExternalSyntheticLambda5;->f$1:Landroid/view/SurfaceHolder;
 
-    invoke-static {v0, p0}, Lcom/android/systemui/ImageWallpaper$GLEngine;->$r8$lambda$RRKzfeEd6ZtOtAMy4Zv6Q14rzcA(Lcom/android/systemui/ImageWallpaper$GLEngine;Landroid/view/SurfaceHolder;)V
+    invoke-static {v0, p0}, Lcom/android/systemui/ImageWallpaper$GLEngine;->$r8$lambda$xXQCyEnJF12w8UbEsmO_FkJelm8(Lcom/android/systemui/ImageWallpaper$GLEngine;Landroid/view/SurfaceHolder;)V
 
     return-void
 .end method

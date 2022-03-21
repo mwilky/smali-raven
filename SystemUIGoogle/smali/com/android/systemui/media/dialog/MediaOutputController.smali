@@ -29,6 +29,10 @@
 
 .field private final mContext:Landroid/content/Context;
 
+.field private final mDialogLaunchAnimator:Lcom/android/systemui/animation/DialogLaunchAnimator;
+
+.field private final mDialogManager:Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;
+
 .field private final mGroupMediaDevices:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -38,6 +42,8 @@
         }
     .end annotation
 .end field
+
+.field private final mLocalBluetoothManager:Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
 
 .field mLocalMediaManager:Lcom/android/settingslib/media/LocalMediaManager;
 
@@ -77,16 +83,6 @@
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$KING0QJ4KuOYGMQnnP8vCcodenI(Lcom/android/systemui/media/dialog/MediaOutputController;)Z
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/media/dialog/MediaOutputController;->lambda$launchBluetoothPairing$2()Z
-
-    move-result p0
-
-    return p0
-.end method
-
 .method public static synthetic $r8$lambda$nknXMz-UuEQSYUcOcbaNqDVEqTY(Lcom/android/systemui/media/dialog/MediaOutputController;Lcom/android/settingslib/media/MediaDevice;)V
     .locals 0
 
@@ -111,7 +107,7 @@
     return-void
 .end method
 
-.method public constructor <init>(Landroid/content/Context;Ljava/lang/String;ZLandroid/media/session/MediaSessionManager;Lcom/android/settingslib/bluetooth/LocalBluetoothManager;Lcom/android/systemui/statusbar/phone/ShadeController;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/internal/logging/UiEventLogger;)V
+.method public constructor <init>(Landroid/content/Context;Ljava/lang/String;ZLandroid/media/session/MediaSessionManager;Lcom/android/settingslib/bluetooth/LocalBluetoothManager;Lcom/android/systemui/statusbar/phone/ShadeController;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/animation/DialogLaunchAnimator;Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -139,6 +135,8 @@
     iput-object p2, p0, Lcom/android/systemui/media/dialog/MediaOutputController;->mPackageName:Ljava/lang/String;
 
     iput-object p4, p0, Lcom/android/systemui/media/dialog/MediaOutputController;->mMediaSessionManager:Landroid/media/session/MediaSessionManager;
+
+    iput-object p5, p0, Lcom/android/systemui/media/dialog/MediaOutputController;->mLocalBluetoothManager:Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
 
     iput-object p6, p0, Lcom/android/systemui/media/dialog/MediaOutputController;->mShadeController:Lcom/android/systemui/statusbar/phone/ShadeController;
 
@@ -168,17 +166,21 @@
 
     iput-object p9, p0, Lcom/android/systemui/media/dialog/MediaOutputController;->mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
 
+    iput-object p10, p0, Lcom/android/systemui/media/dialog/MediaOutputController;->mDialogLaunchAnimator:Lcom/android/systemui/animation/DialogLaunchAnimator;
+
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object p1
 
-    const p2, 0x1110174
+    const p2, 0x111017b
 
     invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getBoolean(I)Z
 
     move-result p1
 
     iput-boolean p1, p0, Lcom/android/systemui/media/dialog/MediaOutputController;->mVolumeAdjustmentForRemoteGroupSessions:Z
+
+    iput-object p11, p0, Lcom/android/systemui/media/dialog/MediaOutputController;->mDialogManager:Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;
 
     return-void
 .end method
@@ -380,38 +382,6 @@
     return-void
 .end method
 
-.method private synthetic lambda$launchBluetoothPairing$2()Z
-    .locals 3
-
-    iget-object v0, p0, Lcom/android/systemui/media/dialog/MediaOutputController;->mContext:Landroid/content/Context;
-
-    new-instance v1, Landroid/content/Intent;
-
-    invoke-direct {v1}, Landroid/content/Intent;-><init>()V
-
-    const-string v2, "com.android.settings.action.LAUNCH_BLUETOOTH_PAIRING"
-
-    invoke-virtual {v1, v2}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
-
-    move-result-object v1
-
-    const-string v2, "com.android.settings"
-
-    invoke-virtual {v1, v2}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
-
-    iget-object p0, p0, Lcom/android/systemui/media/dialog/MediaOutputController;->mShadeController:Lcom/android/systemui/statusbar/phone/ShadeController;
-
-    invoke-interface {p0}, Lcom/android/systemui/statusbar/phone/ShadeController;->animateCollapsePanels()V
-
-    const/4 p0, 0x1
-
-    return p0
-.end method
-
 
 # virtual methods
 .method addDeviceToPlayMedia(Lcom/android/settingslib/media/MediaDevice;)Z
@@ -439,9 +409,9 @@
 .method adjustVolume(Lcom/android/settingslib/media/MediaDevice;I)V
     .locals 0
 
-    new-instance p0, Lcom/android/systemui/media/dialog/MediaOutputController$$ExternalSyntheticLambda1;
+    new-instance p0, Lcom/android/systemui/media/dialog/MediaOutputController$$ExternalSyntheticLambda0;
 
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/media/dialog/MediaOutputController$$ExternalSyntheticLambda1;-><init>(Lcom/android/settingslib/media/MediaDevice;I)V
+    invoke-direct {p0, p1, p2}, Lcom/android/systemui/media/dialog/MediaOutputController$$ExternalSyntheticLambda0;-><init>(Lcom/android/settingslib/media/MediaDevice;I)V
 
     invoke-static {p0}, Lcom/android/settingslib/utils/ThreadUtils;->postOnBackgroundThread(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;
 
@@ -459,9 +429,9 @@
 
     invoke-virtual {v0, v1, p1}, Lcom/android/systemui/media/dialog/MediaOutputMetricLogger;->updateOutputEndPoints(Lcom/android/settingslib/media/MediaDevice;Lcom/android/settingslib/media/MediaDevice;)V
 
-    new-instance v0, Lcom/android/systemui/media/dialog/MediaOutputController$$ExternalSyntheticLambda2;
+    new-instance v0, Lcom/android/systemui/media/dialog/MediaOutputController$$ExternalSyntheticLambda1;
 
-    invoke-direct {v0, p0, p1}, Lcom/android/systemui/media/dialog/MediaOutputController$$ExternalSyntheticLambda2;-><init>(Lcom/android/systemui/media/dialog/MediaOutputController;Lcom/android/settingslib/media/MediaDevice;)V
+    invoke-direct {v0, p0, p1}, Lcom/android/systemui/media/dialog/MediaOutputController$$ExternalSyntheticLambda1;-><init>(Lcom/android/systemui/media/dialog/MediaOutputController;Lcom/android/settingslib/media/MediaDevice;)V
 
     invoke-static {v0}, Lcom/android/settingslib/utils/ThreadUtils;->postOnBackgroundThread(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;
 
@@ -889,7 +859,7 @@
 
     move-result-object v3
 
-    invoke-virtual {v3}, Landroid/app/Notification;->hasMediaSession()Z
+    invoke-virtual {v3}, Landroid/app/Notification;->isMediaNotification()Z
 
     move-result v4
 
@@ -1223,53 +1193,116 @@
 .end method
 
 .method launchBluetoothPairing()V
-    .locals 3
+    .locals 5
+
+    iget-object v0, p0, Lcom/android/systemui/media/dialog/MediaOutputController;->mDialogLaunchAnimator:Lcom/android/systemui/animation/DialogLaunchAnimator;
+
+    invoke-virtual {v0}, Lcom/android/systemui/animation/DialogLaunchAnimator;->disableAllCurrentDialogsExitAnimations()V
 
     iget-object v0, p0, Lcom/android/systemui/media/dialog/MediaOutputController;->mCallback:Lcom/android/systemui/media/dialog/MediaOutputController$Callback;
 
     invoke-interface {v0}, Lcom/android/systemui/media/dialog/MediaOutputController$Callback;->dismissDialog()V
 
-    new-instance v0, Lcom/android/systemui/media/dialog/MediaOutputController$$ExternalSyntheticLambda0;
+    new-instance v0, Landroid/content/Intent;
 
-    invoke-direct {v0, p0}, Lcom/android/systemui/media/dialog/MediaOutputController$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/media/dialog/MediaOutputController;)V
+    const-string v1, "android.settings.BLUETOOTH_PAIRING_SETTINGS"
+
+    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    const/high16 v1, 0x14000000
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+
+    move-result-object v0
+
+    new-instance v1, Landroid/content/Intent;
+
+    const-string v2, "android.settings.SETTINGS_EMBED_DEEP_LINK_ACTIVITY"
+
+    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    iget-object v2, p0, Lcom/android/systemui/media/dialog/MediaOutputController;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Landroid/content/Intent;->resolveActivity(Landroid/content/pm/PackageManager;)Landroid/content/ComponentName;
+
+    move-result-object v2
+
+    const/4 v3, 0x1
+
+    if-eqz v2, :cond_0
+
+    const-string v2, "MediaOutputController"
+
+    const-string v4, "Device support split mode, launch page with deep link"
+
+    invoke-static {v2, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/high16 v2, 0x10000000
+
+    invoke-virtual {v1, v2}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
+
+    invoke-virtual {v0, v3}, Landroid/content/Intent;->toUri(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v2, "android.provider.extra.SETTINGS_EMBEDDED_DEEP_LINK_INTENT_URI"
+
+    invoke-virtual {v1, v2, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    const-string v0, "android.provider.extra.SETTINGS_EMBEDDED_DEEP_LINK_HIGHLIGHT_MENU_KEY"
+
+    const-string v2, "top_level_connected_devices"
+
+    invoke-virtual {v1, v0, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
     iget-object p0, p0, Lcom/android/systemui/media/dialog/MediaOutputController;->mActivityStarter:Lcom/android/systemui/plugins/ActivityStarter;
 
-    const/4 v1, 0x0
+    invoke-interface {p0, v1, v3}, Lcom/android/systemui/plugins/ActivityStarter;->startActivity(Landroid/content/Intent;Z)V
 
-    const/4 v2, 0x1
+    return-void
 
-    invoke-interface {p0, v0, v1, v2}, Lcom/android/systemui/plugins/ActivityStarter;->dismissKeyguardThenExecute(Lcom/android/systemui/plugins/ActivityStarter$OnDismissAction;Ljava/lang/Runnable;Z)V
+    :cond_0
+    iget-object p0, p0, Lcom/android/systemui/media/dialog/MediaOutputController;->mActivityStarter:Lcom/android/systemui/plugins/ActivityStarter;
+
+    invoke-interface {p0, v0, v3}, Lcom/android/systemui/plugins/ActivityStarter;->startActivity(Landroid/content/Intent;Z)V
 
     return-void
 .end method
 
-.method launchMediaOutputDialog()V
-    .locals 4
+.method launchMediaOutputGroupDialog(Landroid/view/View;)V
+    .locals 13
 
-    iget-object v0, p0, Lcom/android/systemui/media/dialog/MediaOutputController;->mCallback:Lcom/android/systemui/media/dialog/MediaOutputController$Callback;
-
-    invoke-interface {v0}, Lcom/android/systemui/media/dialog/MediaOutputController$Callback;->dismissDialog()V
-
-    new-instance v0, Lcom/android/systemui/media/dialog/MediaOutputDialog;
+    new-instance v12, Lcom/android/systemui/media/dialog/MediaOutputController;
 
     iget-object v1, p0, Lcom/android/systemui/media/dialog/MediaOutputController;->mContext:Landroid/content/Context;
 
-    iget-boolean v2, p0, Lcom/android/systemui/media/dialog/MediaOutputController;->mAboveStatusbar:Z
+    iget-object v2, p0, Lcom/android/systemui/media/dialog/MediaOutputController;->mPackageName:Ljava/lang/String;
 
-    iget-object v3, p0, Lcom/android/systemui/media/dialog/MediaOutputController;->mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
+    iget-boolean v3, p0, Lcom/android/systemui/media/dialog/MediaOutputController;->mAboveStatusbar:Z
 
-    invoke-direct {v0, v1, v2, p0, v3}, Lcom/android/systemui/media/dialog/MediaOutputDialog;-><init>(Landroid/content/Context;ZLcom/android/systemui/media/dialog/MediaOutputController;Lcom/android/internal/logging/UiEventLogger;)V
+    iget-object v4, p0, Lcom/android/systemui/media/dialog/MediaOutputController;->mMediaSessionManager:Landroid/media/session/MediaSessionManager;
 
-    return-void
-.end method
+    iget-object v5, p0, Lcom/android/systemui/media/dialog/MediaOutputController;->mLocalBluetoothManager:Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
 
-.method launchMediaOutputGroupDialog()V
-    .locals 3
+    iget-object v6, p0, Lcom/android/systemui/media/dialog/MediaOutputController;->mShadeController:Lcom/android/systemui/statusbar/phone/ShadeController;
 
-    iget-object v0, p0, Lcom/android/systemui/media/dialog/MediaOutputController;->mCallback:Lcom/android/systemui/media/dialog/MediaOutputController$Callback;
+    iget-object v7, p0, Lcom/android/systemui/media/dialog/MediaOutputController;->mActivityStarter:Lcom/android/systemui/plugins/ActivityStarter;
 
-    invoke-interface {v0}, Lcom/android/systemui/media/dialog/MediaOutputController$Callback;->dismissDialog()V
+    iget-object v8, p0, Lcom/android/systemui/media/dialog/MediaOutputController;->mNotificationEntryManager:Lcom/android/systemui/statusbar/notification/NotificationEntryManager;
+
+    iget-object v9, p0, Lcom/android/systemui/media/dialog/MediaOutputController;->mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
+
+    iget-object v10, p0, Lcom/android/systemui/media/dialog/MediaOutputController;->mDialogLaunchAnimator:Lcom/android/systemui/animation/DialogLaunchAnimator;
+
+    iget-object v11, p0, Lcom/android/systemui/media/dialog/MediaOutputController;->mDialogManager:Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;
+
+    move-object v0, v12
+
+    invoke-direct/range {v0 .. v11}, Lcom/android/systemui/media/dialog/MediaOutputController;-><init>(Landroid/content/Context;Ljava/lang/String;ZLandroid/media/session/MediaSessionManager;Lcom/android/settingslib/bluetooth/LocalBluetoothManager;Lcom/android/systemui/statusbar/phone/ShadeController;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/animation/DialogLaunchAnimator;Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;)V
 
     new-instance v0, Lcom/android/systemui/media/dialog/MediaOutputGroupDialog;
 
@@ -1277,7 +1310,13 @@
 
     iget-boolean v2, p0, Lcom/android/systemui/media/dialog/MediaOutputController;->mAboveStatusbar:Z
 
-    invoke-direct {v0, v1, v2, p0}, Lcom/android/systemui/media/dialog/MediaOutputGroupDialog;-><init>(Landroid/content/Context;ZLcom/android/systemui/media/dialog/MediaOutputController;)V
+    iget-object v3, p0, Lcom/android/systemui/media/dialog/MediaOutputController;->mDialogManager:Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;
+
+    invoke-direct {v0, v1, v2, v12, v3}, Lcom/android/systemui/media/dialog/MediaOutputGroupDialog;-><init>(Landroid/content/Context;ZLcom/android/systemui/media/dialog/MediaOutputController;Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;)V
+
+    iget-object p0, p0, Lcom/android/systemui/media/dialog/MediaOutputController;->mDialogLaunchAnimator:Lcom/android/systemui/animation/DialogLaunchAnimator;
+
+    invoke-virtual {p0, v0, p1}, Lcom/android/systemui/animation/DialogLaunchAnimator;->showFromView(Landroid/app/Dialog;Landroid/view/View;)V
 
     return-void
 .end method

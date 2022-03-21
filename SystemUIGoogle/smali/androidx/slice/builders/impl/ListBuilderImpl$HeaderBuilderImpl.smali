@@ -126,7 +126,7 @@
 
     new-array v1, v1, [Ljava/lang/String;
 
-    const-string/jumbo v2, "text"
+    const-string v2, "text"
 
     const/4 v3, 0x0
 
@@ -165,7 +165,7 @@
 
     move-result-object v1
 
-    const-string/jumbo v2, "text"
+    const-string v2, "text"
 
     const/4 v3, 0x0
 
@@ -198,13 +198,13 @@
 
     new-instance v0, Landroidx/slice/SliceItem;
 
-    const-string/jumbo v1, "title"
+    const-string v1, "title"
 
     filled-new-array {v1}, [Ljava/lang/String;
 
     move-result-object v1
 
-    const-string/jumbo v2, "text"
+    const-string v2, "text"
 
     const/4 v3, 0x0
 

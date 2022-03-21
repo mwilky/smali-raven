@@ -12,7 +12,8 @@
     value = {
         Lcom/android/wm/shell/pip/phone/PipController$IPipImpl;,
         Lcom/android/wm/shell/pip/phone/PipController$PipImpl;,
-        Lcom/android/wm/shell/pip/phone/PipController$PipControllerPinnedTaskListener;
+        Lcom/android/wm/shell/pip/phone/PipController$PipControllerPinnedTaskListener;,
+        Lcom/android/wm/shell/pip/phone/PipController$PipAnimationListener;
     }
 .end annotation
 
@@ -59,7 +60,7 @@
     .end annotation
 .end field
 
-.field private mPinnedStackAnimationRecentsCallback:Lcom/android/wm/shell/pip/IPipAnimationListener;
+.field private mPinnedStackAnimationRecentsCallback:Lcom/android/wm/shell/pip/phone/PipController$PipAnimationListener;
 
 .field protected mPinnedTaskListener:Lcom/android/wm/shell/pip/PinnedStackListenerForwarder$PinnedTaskListener;
 
@@ -374,15 +375,7 @@
     return-object p0
 .end method
 
-.method static synthetic access$2200(Lcom/android/wm/shell/pip/phone/PipController;Lcom/android/wm/shell/pip/IPipAnimationListener;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/wm/shell/pip/phone/PipController;->setPinnedStackAnimationListener(Lcom/android/wm/shell/pip/IPipAnimationListener;)V
-
-    return-void
-.end method
-
-.method static synthetic access$2300(Lcom/android/wm/shell/pip/phone/PipController;Landroid/content/ComponentName;Landroid/graphics/Rect;Landroid/view/SurfaceControl;)V
+.method static synthetic access$2100(Lcom/android/wm/shell/pip/phone/PipController;Landroid/content/ComponentName;Landroid/graphics/Rect;Landroid/view/SurfaceControl;)V
     .locals 0
 
     invoke-direct {p0, p1, p2, p3}, Lcom/android/wm/shell/pip/phone/PipController;->stopSwipePipToHome(Landroid/content/ComponentName;Landroid/graphics/Rect;Landroid/view/SurfaceControl;)V
@@ -390,7 +383,7 @@
     return-void
 .end method
 
-.method static synthetic access$2400(Lcom/android/wm/shell/pip/phone/PipController;Landroid/content/ComponentName;Landroid/content/pm/ActivityInfo;Landroid/app/PictureInPictureParams;II)Landroid/graphics/Rect;
+.method static synthetic access$2200(Lcom/android/wm/shell/pip/phone/PipController;Landroid/content/ComponentName;Landroid/content/pm/ActivityInfo;Landroid/app/PictureInPictureParams;II)Landroid/graphics/Rect;
     .locals 0
 
     invoke-direct/range {p0 .. p5}, Lcom/android/wm/shell/pip/phone/PipController;->startSwipePipToHome(Landroid/content/ComponentName;Landroid/content/pm/ActivityInfo;Landroid/app/PictureInPictureParams;II)Landroid/graphics/Rect;
@@ -398,6 +391,14 @@
     move-result-object p0
 
     return-object p0
+.end method
+
+.method static synthetic access$2300(Lcom/android/wm/shell/pip/phone/PipController;Lcom/android/wm/shell/pip/phone/PipController$PipAnimationListener;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/wm/shell/pip/phone/PipController;->setPinnedStackAnimationListener(Lcom/android/wm/shell/pip/phone/PipController$PipAnimationListener;)V
+
+    return-void
 .end method
 
 .method static synthetic access$300(Lcom/android/wm/shell/pip/phone/PipController;)Lcom/android/wm/shell/common/DisplayController;
@@ -570,6 +571,64 @@
     invoke-virtual {p0, p1, v1}, Lcom/android/wm/shell/pip/phone/PipInputConsumer;->dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
 
     return-void
+.end method
+
+.method private getTransitionTag(I)Ljava/lang/String;
+    .locals 0
+
+    packed-switch p1, :pswitch_data_0
+
+    const-string p0, "TRANSITION_LEAVE_UNKNOWN"
+
+    return-object p0
+
+    :pswitch_0
+    const-string p0, "TRANSITION_EXPAND_OR_UNEXPAND"
+
+    return-object p0
+
+    :pswitch_1
+    const-string p0, "TRANSITION_USER_RESIZE"
+
+    return-object p0
+
+    :pswitch_2
+    const-string p0, "TRANSITION_SNAP_AFTER_RESIZE"
+
+    return-object p0
+
+    :pswitch_3
+    const-string p0, "TRANSITION_REMOVE_STACK"
+
+    return-object p0
+
+    :pswitch_4
+    const-string p0, "TRANSITION_LEAVE_PIP_TO_SPLIT_SCREEN"
+
+    return-object p0
+
+    :pswitch_5
+    const-string p0, "TRANSITION_LEAVE_PIP"
+
+    return-object p0
+
+    :pswitch_6
+    const-string p0, "TRANSITION_TO_PIP"
+
+    return-object p0
+
+    nop
+
+    :pswitch_data_0
+    .packed-switch 0x2
+        :pswitch_6
+        :pswitch_5
+        :pswitch_4
+        :pswitch_3
+        :pswitch_2
+        :pswitch_1
+        :pswitch_0
+    .end packed-switch
 .end method
 
 .method private synthetic lambda$init$1(I)V
@@ -838,26 +897,75 @@
 .end method
 
 .method private synthetic lambda$onDisplayChanged$5(Lcom/android/wm/shell/common/DisplayLayout;)V
-    .locals 7
+    .locals 10
 
+    sget-boolean v0, Lcom/android/wm/shell/transition/Transitions;->ENABLE_SHELL_TRANSITIONS:Z
+
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/wm/shell/pip/phone/PipController;->mPipBoundsState:Lcom/android/wm/shell/pip/PipBoundsState;
+
+    invoke-virtual {v0}, Lcom/android/wm/shell/pip/PipBoundsState;->getDisplayLayout()Lcom/android/wm/shell/common/DisplayLayout;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/wm/shell/common/DisplayLayout;->rotation()I
+
+    move-result v0
+
+    invoke-virtual {p1}, Lcom/android/wm/shell/common/DisplayLayout;->rotation()I
+
+    move-result v3
+
+    if-eq v0, v3, :cond_0
+
+    move v6, v1
+
+    goto :goto_0
+
+    :cond_0
+    move v6, v2
+
+    :goto_0
     iget-object v0, p0, Lcom/android/wm/shell/pip/phone/PipController;->mPipBoundsState:Lcom/android/wm/shell/pip/PipBoundsState;
 
     invoke-virtual {v0, p1}, Lcom/android/wm/shell/pip/PipBoundsState;->setDisplayLayout(Lcom/android/wm/shell/common/DisplayLayout;)V
 
-    const/4 v2, 0x0
+    if-eqz v6, :cond_1
 
-    const/4 v3, 0x0
+    new-instance p1, Landroid/window/WindowContainerTransaction;
 
-    const/4 v4, 0x0
+    invoke-direct {p1}, Landroid/window/WindowContainerTransaction;-><init>()V
 
+    goto :goto_1
+
+    :cond_1
+    const/4 p1, 0x0
+
+    :goto_1
     const/4 v5, 0x0
 
-    const/4 v6, 0x0
+    const/4 v7, 0x0
 
-    move-object v1, p0
+    const/4 v8, 0x0
 
-    invoke-direct/range {v1 .. v6}, Lcom/android/wm/shell/pip/phone/PipController;->updateMovementBounds(Landroid/graphics/Rect;ZZZLandroid/window/WindowContainerTransaction;)V
+    move-object v4, p0
 
+    move-object v9, p1
+
+    invoke-direct/range {v4 .. v9}, Lcom/android/wm/shell/pip/phone/PipController;->updateMovementBounds(Landroid/graphics/Rect;ZZZLandroid/window/WindowContainerTransaction;)V
+
+    if-eqz p1, :cond_2
+
+    iget-object p0, p0, Lcom/android/wm/shell/pip/phone/PipController;->mPipTaskOrganizer:Lcom/android/wm/shell/pip/PipTaskOrganizer;
+
+    invoke-virtual {p0, p1, v1, v2}, Lcom/android/wm/shell/pip/PipTaskOrganizer;->applyFinishBoundsResize(Landroid/window/WindowContainerTransaction;IZ)V
+
+    :cond_2
     return-void
 .end method
 
@@ -1195,6 +1303,10 @@
 .method private onOverlayChanged()V
     .locals 3
 
+    iget-object v0, p0, Lcom/android/wm/shell/pip/phone/PipController;->mTouchHandler:Lcom/android/wm/shell/pip/phone/PipTouchHandler;
+
+    invoke-virtual {v0}, Lcom/android/wm/shell/pip/phone/PipTouchHandler;->onOverlayChanged()V
+
     new-instance v0, Lcom/android/wm/shell/common/DisplayLayout;
 
     iget-object v1, p0, Lcom/android/wm/shell/pip/phone/PipController;->mContext:Landroid/content/Context;
@@ -1215,7 +1327,7 @@
 .method private onPipCornerRadiusChanged()V
     .locals 2
 
-    iget-object v0, p0, Lcom/android/wm/shell/pip/phone/PipController;->mPinnedStackAnimationRecentsCallback:Lcom/android/wm/shell/pip/IPipAnimationListener;
+    iget-object v0, p0, Lcom/android/wm/shell/pip/phone/PipController;->mPinnedStackAnimationRecentsCallback:Lcom/android/wm/shell/pip/phone/PipController$PipAnimationListener;
 
     if-eqz v0, :cond_0
 
@@ -1231,31 +1343,24 @@
 
     move-result v0
 
-    :try_start_0
-    iget-object p0, p0, Lcom/android/wm/shell/pip/phone/PipController;->mPinnedStackAnimationRecentsCallback:Lcom/android/wm/shell/pip/IPipAnimationListener;
+    iget-object p0, p0, Lcom/android/wm/shell/pip/phone/PipController;->mPinnedStackAnimationRecentsCallback:Lcom/android/wm/shell/pip/phone/PipController$PipAnimationListener;
 
-    invoke-interface {p0, v0}, Lcom/android/wm/shell/pip/IPipAnimationListener;->onPipCornerRadiusChanged(I)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    goto :goto_0
-
-    :catch_0
-    move-exception p0
-
-    const-string v0, "PipController"
-
-    const-string v1, "Failed to call onPipCornerRadiusChanged"
-
-    invoke-static {v0, v1, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-interface {p0, v0}, Lcom/android/wm/shell/pip/phone/PipController$PipAnimationListener;->onPipCornerRadiusChanged(I)V
 
     :cond_0
-    :goto_0
     return-void
 .end method
 
 .method private onPipTransitionFinishedOrCanceled(I)V
     .locals 2
+
+    invoke-static {}, Lcom/android/internal/jank/InteractionJankMonitor;->getInstance()Lcom/android/internal/jank/InteractionJankMonitor;
+
+    move-result-object v0
+
+    const/16 v1, 0x23
+
+    invoke-virtual {v0, v1}, Lcom/android/internal/jank/InteractionJankMonitor;->end(I)Z
 
     iget-object v0, p0, Lcom/android/wm/shell/pip/phone/PipController;->mTouchHandler:Lcom/android/wm/shell/pip/phone/PipTouchHandler;
 
@@ -1290,10 +1395,10 @@
     return-void
 .end method
 
-.method private setPinnedStackAnimationListener(Lcom/android/wm/shell/pip/IPipAnimationListener;)V
+.method private setPinnedStackAnimationListener(Lcom/android/wm/shell/pip/phone/PipController$PipAnimationListener;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/android/wm/shell/pip/phone/PipController;->mPinnedStackAnimationRecentsCallback:Lcom/android/wm/shell/pip/IPipAnimationListener;
+    iput-object p1, p0, Lcom/android/wm/shell/pip/phone/PipController;->mPinnedStackAnimationRecentsCallback:Lcom/android/wm/shell/pip/phone/PipController$PipAnimationListener;
 
     invoke-direct {p0}, Lcom/android/wm/shell/pip/phone/PipController;->onPipCornerRadiusChanged()V
 
@@ -1301,11 +1406,25 @@
 .end method
 
 .method private setPinnedStackAnimationType(I)V
-    .locals 0
+    .locals 1
 
-    iget-object p0, p0, Lcom/android/wm/shell/pip/phone/PipController;->mPipTaskOrganizer:Lcom/android/wm/shell/pip/PipTaskOrganizer;
+    iget-object v0, p0, Lcom/android/wm/shell/pip/phone/PipController;->mPipTaskOrganizer:Lcom/android/wm/shell/pip/PipTaskOrganizer;
 
-    invoke-virtual {p0, p1}, Lcom/android/wm/shell/pip/PipTaskOrganizer;->setOneShotAnimationType(I)V
+    invoke-virtual {v0, p1}, Lcom/android/wm/shell/pip/PipTaskOrganizer;->setOneShotAnimationType(I)V
+
+    iget-object p0, p0, Lcom/android/wm/shell/pip/phone/PipController;->mPipTransitionController:Lcom/android/wm/shell/pip/PipTransitionController;
+
+    if-nez p1, :cond_0
+
+    const/4 p1, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p1, 0x0
+
+    :goto_0
+    invoke-virtual {p0, p1}, Lcom/android/wm/shell/pip/PipTransitionController;->setIsFullAnimation(Z)V
 
     return-void
 .end method
@@ -1693,7 +1812,41 @@
 .end method
 
 .method public onPipTransitionStarted(ILandroid/graphics/Rect;)V
-    .locals 0
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/wm/shell/pip/phone/PipController;->mContext:Landroid/content/Context;
+
+    iget-object v1, p0, Lcom/android/wm/shell/pip/phone/PipController;->mPipTaskOrganizer:Lcom/android/wm/shell/pip/PipTaskOrganizer;
+
+    invoke-virtual {v1}, Lcom/android/wm/shell/pip/PipTaskOrganizer;->getSurfaceControl()Landroid/view/SurfaceControl;
+
+    move-result-object v1
+
+    const/16 v2, 0x23
+
+    invoke-static {v2, v0, v1}, Lcom/android/internal/jank/InteractionJankMonitor$Configuration$Builder;->withSurface(ILandroid/content/Context;Landroid/view/SurfaceControl;)Lcom/android/internal/jank/InteractionJankMonitor$Configuration$Builder;
+
+    move-result-object v0
+
+    invoke-direct {p0, p1}, Lcom/android/wm/shell/pip/phone/PipController;->getTransitionTag(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/android/internal/jank/InteractionJankMonitor$Configuration$Builder;->setTag(Ljava/lang/String;)Lcom/android/internal/jank/InteractionJankMonitor$Configuration$Builder;
+
+    move-result-object v0
+
+    const-wide/16 v1, 0x7d0
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/internal/jank/InteractionJankMonitor$Configuration$Builder;->setTimeout(J)Lcom/android/internal/jank/InteractionJankMonitor$Configuration$Builder;
+
+    move-result-object v0
+
+    invoke-static {}, Lcom/android/internal/jank/InteractionJankMonitor;->getInstance()Lcom/android/internal/jank/InteractionJankMonitor;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0}, Lcom/android/internal/jank/InteractionJankMonitor;->begin(Lcom/android/internal/jank/InteractionJankMonitor$Configuration$Builder;)Z
 
     invoke-static {p1}, Lcom/android/wm/shell/pip/PipAnimationController;->isOutPipDirection(I)Z
 
@@ -1710,28 +1863,13 @@
 
     invoke-virtual {p1, p2}, Lcom/android/wm/shell/pip/phone/PipTouchHandler;->setTouchEnabled(Z)V
 
-    iget-object p0, p0, Lcom/android/wm/shell/pip/phone/PipController;->mPinnedStackAnimationRecentsCallback:Lcom/android/wm/shell/pip/IPipAnimationListener;
+    iget-object p0, p0, Lcom/android/wm/shell/pip/phone/PipController;->mPinnedStackAnimationRecentsCallback:Lcom/android/wm/shell/pip/phone/PipController$PipAnimationListener;
 
     if-eqz p0, :cond_1
 
-    :try_start_0
-    invoke-interface {p0}, Lcom/android/wm/shell/pip/IPipAnimationListener;->onPipAnimationStarted()V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    goto :goto_0
-
-    :catch_0
-    move-exception p0
-
-    const-string p1, "PipController"
-
-    const-string p2, "Failed to call onPinnedStackAnimationStarted()"
-
-    invoke-static {p1, p2, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-interface {p0}, Lcom/android/wm/shell/pip/phone/PipController$PipAnimationListener;->onPipAnimationStarted()V
 
     :cond_1
-    :goto_0
     return-void
 .end method
 

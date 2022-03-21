@@ -32,18 +32,6 @@
         <item quantity="other">SIM PUK コードが無効です。入力できるのはあと %d 回です。この回数を超えると SIM は完全に使用できなくなります。</item>
         <item quantity="one">SIM PUK コードが無効です。入力できるのはあと %d 回です。この回数を超えると SIM は完全に使用できなくなります。</item>
     </plurals>
-    <plurals name="kg_prompt_reason_time_password">
-        <item quantity="other">デバイスのロックが %d 時間、解除されていません。パスワードを確認してください。</item>
-        <item quantity="one">デバイスのロックが %d 時間、解除されていません。パスワードを確認してください。</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pattern">
-        <item quantity="other">デバイスのロックが %d 時間、解除されていません。パターンを確認してください。</item>
-        <item quantity="one">デバイスのロックが %d 時間、解除されていません。パターンを確認してください。</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pin">
-        <item quantity="other">デバイスのロックが %d 時間、解除されていません。PIN を確認してください。</item>
-        <item quantity="one">デバイスのロックが %d 時間、解除されていません。PIN を確認してください。</item>
-    </plurals>
     <plurals name="kg_too_many_failed_attempts_countdown">
         <item quantity="other">%d 秒後にもう一度お試しください。</item>
         <item quantity="one">1 秒後にもう一度お試しください。</item>

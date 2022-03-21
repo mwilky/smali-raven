@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:androidprv="http://schemas.android.com/apk/prv/res/android" android:compileSdkVersion="31" android:compileSdkVersionCodename="12" android:sharedUserId="android.uid.systemui" coreApp="true" package="com.android.systemui" platformBuildVersionCode="31" platformBuildVersionName="12">
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:androidprv="http://schemas.android.com/apk/prv/res/android" android:compileSdkVersion="32" android:compileSdkVersionCodename="12" android:sharedUserId="android.uid.systemui" coreApp="true" package="com.android.systemui" platformBuildVersionCode="32" platformBuildVersionName="12">
     <original-package android:name="com.android.systemui"/>
     <uses-permission android:name="android.permission.SET_WALLPAPER_COMPONENT"/>
     <uses-permission android:name="android.permission.ACCESS_CONTEXT_HUB"/>
@@ -28,6 +28,9 @@
     <protected-broadcast android:name="com.google.android.systemui.dreamliner.ASSISTANT_POODLE"/>
     <protected-broadcast android:name="com.google.android.systemui.dreamliner.ACTION_UPDATE_FAN_LEVEL"/>
     <protected-broadcast android:name="com.google.android.systemui.dreamliner.PHOTO_EVENT"/>
+    <protected-broadcast android:name="PNW.defenderResumeCharging.settings"/>
+    <protected-broadcast android:name="PNW.batteryStatusChanged"/>
+    <protected-broadcast android:name="PNW.bluetoothStatusChanged"/>
     <protected-broadcast android:name="com.breel.wallpapers.NOTIFICATION_RECEIVED"/>
     <permission android:name="com.breel.wallpapers.notifications"/>
     <uses-permission android:name="com.breel.wallpapers.notifications"/>
@@ -35,6 +38,21 @@
     <uses-permission android:name="android.permission.BATTERY_STATS"/>
     <uses-permission android:name="android.permission.MANAGE_GAME_MODE" android:protectionLevel="signature"/>
     <uses-permission android:name="android.permission.FORCE_STOP_PACKAGES"/>
+    <original-package android:name="com.android.systemui"/>
+    <protected-broadcast android:name="com.google.android.apps.dreamliner.SETTINGS"/>
+    <protected-broadcast android:name="com.google.android.systemui.smartspace.ENABLE_UPDATE"/>
+    <protected-broadcast android:name="com.google.android.systemui.smartspace.EXPIRE_EVENT"/>
+    <protected-broadcast android:name="com.google.android.systemui.smartspace.CLICK_EVENT"/>
+    <protected-broadcast android:name="com.google.android.systemui.dreamliner.ALIGNMENT_CHANGE"/>
+    <protected-broadcast android:name="com.google.android.systemui.dreamliner.TOUCH_EVENT"/>
+    <protected-broadcast android:name="com.google.android.systemui.dreamliner.FLING_EVENT"/>
+    <protected-broadcast android:name="com.google.android.systemui.dreamliner.ASSISTANT_POODLE"/>
+    <protected-broadcast android:name="com.google.android.systemui.dreamliner.ACTION_UPDATE_FAN_LEVEL"/>
+    <protected-broadcast android:name="com.google.android.systemui.dreamliner.PHOTO_EVENT"/>
+    <protected-broadcast android:name="PNW.defenderResumeCharging.settings"/>
+    <protected-broadcast android:name="PNW.batteryStatusChanged"/>
+    <protected-broadcast android:name="PNW.bluetoothStatusChanged"/>
+    <protected-broadcast android:name="com.breel.wallpapers.NOTIFICATION_RECEIVED"/>
     <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
@@ -110,6 +128,7 @@
     <uses-permission android:name="android.permission.SET_ORIENTATION"/>
     <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
     <uses-permission android:name="android.permission.MONITOR_INPUT"/>
+    <uses-permission android:name="android.permission.ALLOW_SLIPPERY_TOUCHES"/>
     <uses-permission android:name="android.permission.INPUT_CONSUMER"/>
     <uses-permission android:name="android.permission.READ_DREAM_STATE"/>
     <uses-permission android:name="android.permission.WRITE_DREAM_STATE"/>
@@ -145,6 +164,7 @@
     <permission android:name="com.android.systemui.permission.SELF" android:protectionLevel="signature"/>
     <uses-permission android:name="com.android.systemui.permission.SELF"/>
     <permission android:name="com.android.systemui.permission.PLUGIN" android:protectionLevel="signature"/>
+    <permission android:name="com.android.systemui.permission.FLAGS" android:protectionLevel="signature"/>
     <uses-permission android:name="android.permission.BIND_QUICK_SETTINGS_TILE"/>
     <uses-permission android:name="android.permission.BIND_QUICK_ACCESS_WALLET_SERVICE"/>
     <uses-permission android:name="android.permission.BIND_CONTROLS"/>
@@ -210,7 +230,8 @@
         <service android:exported="true" android:name="com.google.android.systemui.statusbar.NotificationVoiceReplyManagerService"/>
         <provider android:authorities="com.android.systemui.keyguard" android:enabled="false" android:exported="true" android:name="com.google.android.systemui.keyguard.KeyguardSliceProviderGoogle"/>
         <activity android:excludeFromRecents="true" android:exported="false" android:finishOnCloseSystemDialogs="true" android:launchMode="singleTask" android:name="com.google.android.systemui.gamedashboard.GameMenuActivity" android:screenOrientation="behind" android:showForAllUsers="true" android:theme="@style/GameMenuTheme"/>
-        <activity android:excludeFromRecents="true" android:exported="false" android:finishOnCloseSystemDialogs="true" android:launchMode="singleTask" android:name="com.google.android.systemui.gamedashboard.GameDndConfigActivity" android:screenOrientation="behind" android:showForAllUsers="true" android:theme="@style/GameMenuTheme"/>
+        <activity android:excludeFromRecents="true" android:exported="false" android:finishOnCloseSystemDialogs="true" android:name="com.google.android.systemui.gamedashboard.GameDndConfigActivity" android:screenOrientation="behind" android:showForAllUsers="true" android:theme="@style/GameMenuTheme"/>
+        <profileable android:shell="true"/>
         <meta-data android:name="com.google.android.backup.api_key" android:value="AEdPqrEAAAAIWTZsUG100coeb3xbEoTWKd3ZL3R79JshRDZfYQ"/>
         <service android:exported="true" android:name="com.android.systemui.SystemUIService"/>
         <service android:exported="false" android:name="com.android.systemui.dump.SystemUIAuxiliaryDumpService" android:permission="com.android.systemui.permission.SELF"/>
@@ -222,7 +243,6 @@
             </intent-filter>
         </receiver>
         <activity android:exported="false" android:finishOnTaskLaunch="true" android:name="com.android.systemui.screenshot.LongScreenshotActivity" android:process=":screenshot" android:theme="@style/LongScreenshotActivity"/>
-        <activity android:excludeFromRecents="true" android:name="com.android.systemui.screenrecord.ScreenRecordDialog" android:showForAllUsers="true" android:theme="@style/ScreenRecord"/>
         <service android:name="com.android.systemui.screenrecord.RecordingService"/>
         <receiver android:exported="false" android:name="com.android.systemui.SysuiRestartReceiver">
             <intent-filter>
@@ -276,12 +296,6 @@
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <activity android:excludeFromRecents="true" android:exported="true" android:icon="@drawable/icon" android:label="@string/mland" android:launchMode="singleInstance" android:name="com.android.systemui.egg.MLandActivity" android:process=":sweetsweetdesserts" android:screenOrientation="locked" android:theme="@android:style/Theme.Material.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-            </intent-filter>
-        </activity>
         <activity android:enabled="true" android:exported="true" android:label="@string/people_tile_title" android:name="com.android.systemui.people.PeopleSpaceActivity" android:theme="@style/Theme.PeopleTileConfigActivity" android:windowDisablePreview="true">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
@@ -324,7 +338,7 @@
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <activity android:excludeFromRecents="true" android:exported="true" android:launchMode="singleTop" android:name="com.android.systemui.ForegroundServicesDialog" android:process=":fgservices" android:theme="@*android:style/Theme.DeviceDefault.Settings.Dialog">
+        <activity android:excludeFromRecents="true" android:exported="true" android:launchMode="singleTop" android:name="com.android.systemui.ForegroundServicesDialog" android:process=":fgservices" android:theme="@android:style/Theme.DeviceDefault.Settings.Dialog">
             <intent-filter android:priority="1">
                 <action android:name="android.settings.FOREGROUND_SERVICES_SETTINGS"/>
                 <category android:name="android.intent.category.DEFAULT"/>

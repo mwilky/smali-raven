@@ -92,7 +92,7 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
+            "Lcom/android/systemui/flags/FeatureFlags;",
             ">;"
         }
     .end annotation
@@ -238,7 +238,7 @@
             "Lcom/android/systemui/settings/UserTracker;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
+            "Lcom/android/systemui/flags/FeatureFlags;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/keyguard/WakefulnessLifecycle;",
@@ -372,7 +372,7 @@
             "Lcom/android/systemui/settings/UserTracker;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
+            "Lcom/android/systemui/flags/FeatureFlags;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/keyguard/WakefulnessLifecycle;",
@@ -427,7 +427,7 @@
     return-object v18
 .end method
 
-.method public static newInstance(Landroid/content/Context;Lcom/android/systemui/broadcast/BroadcastDispatcher;Landroid/os/Handler;Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;Lcom/android/systemui/theme/ThemeOverlayApplier;Lcom/android/systemui/util/settings/SecureSettings;Lcom/android/systemui/flags/SystemPropertiesHelper;Landroid/content/res/Resources;Landroid/app/WallpaperManager;Landroid/os/UserManager;Lcom/android/systemui/dump/DumpManager;Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Lcom/android/systemui/settings/UserTracker;Lcom/android/systemui/statusbar/FeatureFlags;Lcom/android/systemui/keyguard/WakefulnessLifecycle;Lcom/android/systemui/statusbar/policy/ConfigurationController;)Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle;
+.method public static newInstance(Landroid/content/Context;Lcom/android/systemui/broadcast/BroadcastDispatcher;Landroid/os/Handler;Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;Lcom/android/systemui/theme/ThemeOverlayApplier;Lcom/android/systemui/util/settings/SecureSettings;Lcom/android/systemui/flags/SystemPropertiesHelper;Landroid/content/res/Resources;Landroid/app/WallpaperManager;Landroid/os/UserManager;Lcom/android/systemui/dump/DumpManager;Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Lcom/android/systemui/settings/UserTracker;Lcom/android/systemui/flags/FeatureFlags;Lcom/android/systemui/keyguard/WakefulnessLifecycle;Lcom/android/systemui/statusbar/policy/ConfigurationController;)Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle;
     .locals 19
 
     move-object/from16 v1, p0
@@ -468,7 +468,7 @@
 
     move-object/from16 v0, v18
 
-    invoke-direct/range {v0 .. v17}, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle;-><init>(Landroid/content/Context;Lcom/android/systemui/broadcast/BroadcastDispatcher;Landroid/os/Handler;Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;Lcom/android/systemui/theme/ThemeOverlayApplier;Lcom/android/systemui/util/settings/SecureSettings;Lcom/android/systemui/flags/SystemPropertiesHelper;Landroid/content/res/Resources;Landroid/app/WallpaperManager;Landroid/os/UserManager;Lcom/android/systemui/dump/DumpManager;Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Lcom/android/systemui/settings/UserTracker;Lcom/android/systemui/statusbar/FeatureFlags;Lcom/android/systemui/keyguard/WakefulnessLifecycle;Lcom/android/systemui/statusbar/policy/ConfigurationController;)V
+    invoke-direct/range {v0 .. v17}, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle;-><init>(Landroid/content/Context;Lcom/android/systemui/broadcast/BroadcastDispatcher;Landroid/os/Handler;Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;Lcom/android/systemui/theme/ThemeOverlayApplier;Lcom/android/systemui/util/settings/SecureSettings;Lcom/android/systemui/flags/SystemPropertiesHelper;Landroid/content/res/Resources;Landroid/app/WallpaperManager;Landroid/os/UserManager;Lcom/android/systemui/dump/DumpManager;Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Lcom/android/systemui/settings/UserTracker;Lcom/android/systemui/flags/FeatureFlags;Lcom/android/systemui/keyguard/WakefulnessLifecycle;Lcom/android/systemui/statusbar/policy/ConfigurationController;)V
 
     return-object v18
 .end method
@@ -628,7 +628,7 @@
 
     move-object/from16 v16, v1
 
-    check-cast v16, Lcom/android/systemui/statusbar/FeatureFlags;
+    check-cast v16, Lcom/android/systemui/flags/FeatureFlags;
 
     iget-object v1, v0, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;->wakefulnessLifecycleProvider:Ljavax/inject/Provider;
 
@@ -650,7 +650,7 @@
 
     check-cast v18, Lcom/android/systemui/statusbar/policy/ConfigurationController;
 
-    invoke-static/range {v2 .. v18}, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;->newInstance(Landroid/content/Context;Lcom/android/systemui/broadcast/BroadcastDispatcher;Landroid/os/Handler;Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;Lcom/android/systemui/theme/ThemeOverlayApplier;Lcom/android/systemui/util/settings/SecureSettings;Lcom/android/systemui/flags/SystemPropertiesHelper;Landroid/content/res/Resources;Landroid/app/WallpaperManager;Landroid/os/UserManager;Lcom/android/systemui/dump/DumpManager;Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Lcom/android/systemui/settings/UserTracker;Lcom/android/systemui/statusbar/FeatureFlags;Lcom/android/systemui/keyguard/WakefulnessLifecycle;Lcom/android/systemui/statusbar/policy/ConfigurationController;)Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle;
+    invoke-static/range {v2 .. v18}, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;->newInstance(Landroid/content/Context;Lcom/android/systemui/broadcast/BroadcastDispatcher;Landroid/os/Handler;Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;Lcom/android/systemui/theme/ThemeOverlayApplier;Lcom/android/systemui/util/settings/SecureSettings;Lcom/android/systemui/flags/SystemPropertiesHelper;Landroid/content/res/Resources;Landroid/app/WallpaperManager;Landroid/os/UserManager;Lcom/android/systemui/dump/DumpManager;Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Lcom/android/systemui/settings/UserTracker;Lcom/android/systemui/flags/FeatureFlags;Lcom/android/systemui/keyguard/WakefulnessLifecycle;Lcom/android/systemui/statusbar/policy/ConfigurationController;)Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle;
 
     move-result-object v0
 

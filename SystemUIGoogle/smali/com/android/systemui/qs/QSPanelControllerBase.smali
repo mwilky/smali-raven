@@ -30,8 +30,6 @@
 
 .field private final mDumpManager:Lcom/android/systemui/dump/DumpManager;
 
-.field private final mFeatureFlags:Lcom/android/systemui/statusbar/FeatureFlags;
-
 .field protected final mHost:Lcom/android/systemui/qs/QSTileHost;
 
 .field private mLastOrientation:I
@@ -86,7 +84,7 @@
 
 .field private mRevealExpansion:F
 
-.field private mShouldUseSplitNotificationShade:Z
+.field protected mShouldUseSplitNotificationShade:Z
 
 .field private final mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
 
@@ -118,7 +116,7 @@
     return-object p0
 .end method
 
-.method protected constructor <init>(Lcom/android/systemui/qs/QSPanel;Lcom/android/systemui/qs/QSTileHost;Lcom/android/systemui/qs/customize/QSCustomizerController;ZLcom/android/systemui/media/MediaHost;Lcom/android/internal/logging/MetricsLogger;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/systemui/dump/DumpManager;Lcom/android/systemui/statusbar/FeatureFlags;)V
+.method protected constructor <init>(Lcom/android/systemui/qs/QSPanel;Lcom/android/systemui/qs/QSTileHost;Lcom/android/systemui/qs/customize/QSCustomizerController;ZLcom/android/systemui/media/MediaHost;Lcom/android/internal/logging/MetricsLogger;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/systemui/dump/DumpManager;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -131,7 +129,6 @@
             "Lcom/android/internal/logging/UiEventLogger;",
             "Lcom/android/systemui/qs/logging/QSLogger;",
             "Lcom/android/systemui/dump/DumpManager;",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
             ")V"
         }
     .end annotation
@@ -182,13 +179,11 @@
 
     iput-object p9, p0, Lcom/android/systemui/qs/QSPanelControllerBase;->mDumpManager:Lcom/android/systemui/dump/DumpManager;
 
-    iput-object p10, p0, Lcom/android/systemui/qs/QSPanelControllerBase;->mFeatureFlags:Lcom/android/systemui/statusbar/FeatureFlags;
-
     invoke-virtual {p0}, Lcom/android/systemui/util/ViewController;->getResources()Landroid/content/res/Resources;
 
     move-result-object p1
 
-    invoke-static {p10, p1}, Lcom/android/systemui/util/Utils;->shouldUseSplitNotificationShade(Lcom/android/systemui/statusbar/FeatureFlags;Landroid/content/res/Resources;)Z
+    invoke-static {p1}, Lcom/android/systemui/util/Utils;->shouldUseSplitNotificationShade(Landroid/content/res/Resources;)Z
 
     move-result p1
 
@@ -197,23 +192,7 @@
     return-void
 .end method
 
-.method static synthetic access$002(Lcom/android/systemui/qs/QSPanelControllerBase;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/systemui/qs/QSPanelControllerBase;->mShouldUseSplitNotificationShade:Z
-
-    return p1
-.end method
-
-.method static synthetic access$100(Lcom/android/systemui/qs/QSPanelControllerBase;)Lcom/android/systemui/statusbar/FeatureFlags;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/qs/QSPanelControllerBase;->mFeatureFlags:Lcom/android/systemui/statusbar/FeatureFlags;
-
-    return-object p0
-.end method
-
-.method static synthetic access$200(Lcom/android/systemui/qs/QSPanelControllerBase;)Landroid/content/res/Resources;
+.method static synthetic access$000(Lcom/android/systemui/qs/QSPanelControllerBase;)Landroid/content/res/Resources;
     .locals 0
 
     invoke-virtual {p0}, Lcom/android/systemui/util/ViewController;->getResources()Landroid/content/res/Resources;
@@ -223,7 +202,7 @@
     return-object p0
 .end method
 
-.method static synthetic access$300(Lcom/android/systemui/qs/QSPanelControllerBase;)I
+.method static synthetic access$100(Lcom/android/systemui/qs/QSPanelControllerBase;)I
     .locals 0
 
     iget p0, p0, Lcom/android/systemui/qs/QSPanelControllerBase;->mLastOrientation:I
@@ -231,7 +210,7 @@
     return p0
 .end method
 
-.method static synthetic access$302(Lcom/android/systemui/qs/QSPanelControllerBase;I)I
+.method static synthetic access$102(Lcom/android/systemui/qs/QSPanelControllerBase;I)I
     .locals 0
 
     iput p1, p0, Lcom/android/systemui/qs/QSPanelControllerBase;->mLastOrientation:I
@@ -576,6 +555,20 @@
     return-void
 .end method
 
+.method public getBrightnessView()Landroid/view/View;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
+
+    check-cast p0, Lcom/android/systemui/qs/QSPanel;
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/QSPanel;->getBrightnessView()Landroid/view/View;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method public getMediaHost()Lcom/android/systemui/media/MediaHost;
     .locals 0
 
@@ -693,6 +686,12 @@
     const/4 p0, 0x0
 
     return-object p0
+.end method
+
+.method protected onConfigurationChanged()V
+    .locals 0
+
+    return-void
 .end method
 
 .method protected onInit()V
@@ -1066,6 +1065,18 @@
     invoke-virtual {p0, p1}, Lcom/android/systemui/qs/QSTileRevealController;->setExpansion(F)V
 
     :cond_0
+    return-void
+.end method
+
+.method public setSquishinessFraction(F)V
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
+
+    check-cast p0, Lcom/android/systemui/qs/QSPanel;
+
+    invoke-virtual {p0, p1}, Lcom/android/systemui/qs/QSPanel;->setSquishinessFraction(F)V
+
     return-void
 .end method
 

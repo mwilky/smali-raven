@@ -35,9 +35,9 @@
 .method public final accept(Ljava/lang/Object;)V
     .locals 0
 
-    check-cast p1, Lcom/android/wm/shell/pip/phone/PipTouchHandler;
+    check-cast p1, Lcom/android/wm/shell/bubbles/BubbleController;
 
-    invoke-static {p1}, Lcom/android/wm/shell/ShellInitImpl;->$r8$lambda$0_VEJ-5_3pUGu_rD0wyeu5DU67E(Lcom/android/wm/shell/pip/phone/PipTouchHandler;)V
+    invoke-virtual {p1}, Lcom/android/wm/shell/bubbles/BubbleController;->initialize()V
 
     return-void
 .end method

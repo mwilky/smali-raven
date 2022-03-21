@@ -18,11 +18,11 @@
 
 
 # instance fields
-.field private final contextProvider:Ljavax/inject/Provider;
+.field private final accessibilityManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
-            "Landroid/content/Context;",
+            "Landroid/view/accessibility/AccessibilityManager;",
             ">;"
         }
     .end annotation
@@ -36,14 +36,14 @@
         value = {
             "(",
             "Ljavax/inject/Provider<",
-            "Landroid/content/Context;",
+            "Landroid/view/accessibility/AccessibilityManager;",
             ">;)V"
         }
     .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/systemui/statusbar/policy/AccessibilityManagerWrapper_Factory;->contextProvider:Ljavax/inject/Provider;
+    iput-object p1, p0, Lcom/android/systemui/statusbar/policy/AccessibilityManagerWrapper_Factory;->accessibilityManagerProvider:Ljavax/inject/Provider;
 
     return-void
 .end method
@@ -54,7 +54,7 @@
         value = {
             "(",
             "Ljavax/inject/Provider<",
-            "Landroid/content/Context;",
+            "Landroid/view/accessibility/AccessibilityManager;",
             ">;)",
             "Lcom/android/systemui/statusbar/policy/AccessibilityManagerWrapper_Factory;"
         }
@@ -67,12 +67,12 @@
     return-object v0
 .end method
 
-.method public static newInstance(Landroid/content/Context;)Lcom/android/systemui/statusbar/policy/AccessibilityManagerWrapper;
+.method public static newInstance(Landroid/view/accessibility/AccessibilityManager;)Lcom/android/systemui/statusbar/policy/AccessibilityManagerWrapper;
     .locals 1
 
     new-instance v0, Lcom/android/systemui/statusbar/policy/AccessibilityManagerWrapper;
 
-    invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/policy/AccessibilityManagerWrapper;-><init>(Landroid/content/Context;)V
+    invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/policy/AccessibilityManagerWrapper;-><init>(Landroid/view/accessibility/AccessibilityManager;)V
 
     return-object v0
 .end method
@@ -82,15 +82,15 @@
 .method public get()Lcom/android/systemui/statusbar/policy/AccessibilityManagerWrapper;
     .locals 0
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/policy/AccessibilityManagerWrapper_Factory;->contextProvider:Ljavax/inject/Provider;
+    iget-object p0, p0, Lcom/android/systemui/statusbar/policy/AccessibilityManagerWrapper_Factory;->accessibilityManagerProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object p0
 
-    check-cast p0, Landroid/content/Context;
+    check-cast p0, Landroid/view/accessibility/AccessibilityManager;
 
-    invoke-static {p0}, Lcom/android/systemui/statusbar/policy/AccessibilityManagerWrapper_Factory;->newInstance(Landroid/content/Context;)Lcom/android/systemui/statusbar/policy/AccessibilityManagerWrapper;
+    invoke-static {p0}, Lcom/android/systemui/statusbar/policy/AccessibilityManagerWrapper_Factory;->newInstance(Landroid/view/accessibility/AccessibilityManager;)Lcom/android/systemui/statusbar/policy/AccessibilityManagerWrapper;
 
     move-result-object p0
 

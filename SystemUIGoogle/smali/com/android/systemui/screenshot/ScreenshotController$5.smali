@@ -49,7 +49,7 @@
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Lcom/android/systemui/screenshot/ScreenshotController;->access$702(Lcom/android/systemui/screenshot/ScreenshotController;Z)Z
+    invoke-static {v0, v1}, Lcom/android/systemui/screenshot/ScreenshotController;->access$802(Lcom/android/systemui/screenshot/ScreenshotController;Z)Z
 
     iget-object v0, p0, Lcom/android/systemui/screenshot/ScreenshotController$5;->val$decorView:Landroid/view/View;
 

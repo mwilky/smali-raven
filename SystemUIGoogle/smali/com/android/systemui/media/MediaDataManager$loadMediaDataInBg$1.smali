@@ -53,8 +53,6 @@
     .end annotation
 .end field
 
-.field final synthetic $isLocalSession:Z
-
 .field final synthetic $isPlaying:Ljava/lang/Boolean;
 
 .field final synthetic $key:Ljava/lang/String;
@@ -64,6 +62,8 @@
 .field final synthetic $notif:Landroid/app/Notification;
 
 .field final synthetic $oldKey:Ljava/lang/String;
+
+.field final synthetic $playbackLocation:I
 
 .field final synthetic $sbn:Landroid/service/notification/StatusBarNotification;
 
@@ -85,7 +85,7 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/media/MediaDataManager;Ljava/lang/String;Ljava/lang/String;Landroid/service/notification/StatusBarNotification;Ljava/lang/String;Landroid/graphics/drawable/Icon;Lkotlin/jvm/internal/Ref$ObjectRef;Lkotlin/jvm/internal/Ref$ObjectRef;Landroid/graphics/drawable/Icon;Ljava/util/List;Lkotlin/jvm/internal/Ref$ObjectRef;Landroid/media/session/MediaSession$Token;Landroid/app/Notification;ZLjava/lang/Boolean;J)V
+.method constructor <init>(Lcom/android/systemui/media/MediaDataManager;Ljava/lang/String;Ljava/lang/String;Landroid/service/notification/StatusBarNotification;Ljava/lang/String;Landroid/graphics/drawable/Icon;Lkotlin/jvm/internal/Ref$ObjectRef;Lkotlin/jvm/internal/Ref$ObjectRef;Landroid/graphics/drawable/Icon;Ljava/util/List;Lkotlin/jvm/internal/Ref$ObjectRef;Landroid/media/session/MediaSession$Token;Landroid/app/Notification;ILjava/lang/Boolean;J)V
     .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -112,7 +112,7 @@
             ">;>;",
             "Landroid/media/session/MediaSession$Token;",
             "Landroid/app/Notification;",
-            "Z",
+            "I",
             "Ljava/lang/Boolean;",
             "J)V"
         }
@@ -174,7 +174,7 @@
 
     move/from16 v1, p14
 
-    iput-boolean v1, v0, Lcom/android/systemui/media/MediaDataManager$loadMediaDataInBg$1;->$isLocalSession:Z
+    iput v1, v0, Lcom/android/systemui/media/MediaDataManager$loadMediaDataInBg$1;->$playbackLocation:I
 
     move-object/from16 v1, p15
 
@@ -370,7 +370,7 @@
 
     const/16 v17, 0x0
 
-    iget-boolean v5, v0, Lcom/android/systemui/media/MediaDataManager$loadMediaDataInBg$1;->$isLocalSession:Z
+    iget v5, v0, Lcom/android/systemui/media/MediaDataManager$loadMediaDataInBg$1;->$playbackLocation:I
 
     move/from16 v20, v5
 
@@ -404,7 +404,7 @@
 
     const/4 v5, 0x1
 
-    invoke-direct/range {v3 .. v29}, Lcom/android/systemui/media/MediaData;-><init>(IZILjava/lang/String;Landroid/graphics/drawable/Icon;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/graphics/drawable/Icon;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Landroid/media/session/MediaSession$Token;Landroid/app/PendingIntent;Lcom/android/systemui/media/MediaDeviceData;ZLjava/lang/Runnable;ZZLjava/lang/String;ZLjava/lang/Boolean;ZJILkotlin/jvm/internal/DefaultConstructorMarker;)V
+    invoke-direct/range {v3 .. v29}, Lcom/android/systemui/media/MediaData;-><init>(IZILjava/lang/String;Landroid/graphics/drawable/Icon;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/graphics/drawable/Icon;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Landroid/media/session/MediaSession$Token;Landroid/app/PendingIntent;Lcom/android/systemui/media/MediaDeviceData;ZLjava/lang/Runnable;IZLjava/lang/String;ZLjava/lang/Boolean;ZJILkotlin/jvm/internal/DefaultConstructorMarker;)V
 
     move-object/from16 v1, v30
 

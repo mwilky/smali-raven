@@ -54,7 +54,7 @@
 
 .field private final mDumpManager:Lcom/android/systemui/dump/DumpManager;
 
-.field private final mFeatureFlags:Lcom/android/systemui/statusbar/FeatureFlags;
+.field private final mFeatureFlags:Lcom/android/systemui/flags/FeatureFlags;
 
 .field private final mIconController:Lcom/android/systemui/statusbar/phone/StatusBarIconController;
 
@@ -209,7 +209,7 @@
     return-void
 .end method
 
-.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/statusbar/phone/StatusBarIconController;Lcom/android/systemui/plugins/qs/QSFactory;Landroid/os/Handler;Landroid/os/Looper;Lcom/android/systemui/shared/plugins/PluginManager;Lcom/android/systemui/tuner/TunerService;Ljavax/inject/Provider;Lcom/android/systemui/dump/DumpManager;Lcom/android/systemui/broadcast/BroadcastDispatcher;Ljava/util/Optional;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/settings/UserTracker;Lcom/android/systemui/util/settings/SecureSettings;Lcom/android/systemui/qs/external/CustomTileStatePersister;Lcom/android/systemui/statusbar/FeatureFlags;)V
+.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/statusbar/phone/StatusBarIconController;Lcom/android/systemui/plugins/qs/QSFactory;Landroid/os/Handler;Landroid/os/Looper;Lcom/android/systemui/shared/plugins/PluginManager;Lcom/android/systemui/tuner/TunerService;Ljavax/inject/Provider;Lcom/android/systemui/dump/DumpManager;Lcom/android/systemui/broadcast/BroadcastDispatcher;Ljava/util/Optional;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/settings/UserTracker;Lcom/android/systemui/util/settings/SecureSettings;Lcom/android/systemui/qs/external/CustomTileStatePersister;Lcom/android/systemui/flags/FeatureFlags;)V
     .locals 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -234,7 +234,7 @@
             "Lcom/android/systemui/settings/UserTracker;",
             "Lcom/android/systemui/util/settings/SecureSettings;",
             "Lcom/android/systemui/qs/external/CustomTileStatePersister;",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
+            "Lcom/android/systemui/flags/FeatureFlags;",
             ")V"
         }
     .end annotation
@@ -353,7 +353,7 @@
 
     move-object/from16 v1, p17
 
-    iput-object v1, v0, Lcom/android/systemui/qs/QSTileHost;->mFeatureFlags:Lcom/android/systemui/statusbar/FeatureFlags;
+    iput-object v1, v0, Lcom/android/systemui/qs/QSTileHost;->mFeatureFlags:Lcom/android/systemui/flags/FeatureFlags;
 
     new-instance v1, Lcom/android/systemui/qs/QSTileHost$$ExternalSyntheticLambda0;
 
@@ -384,7 +384,7 @@
 
     iget v1, p0, Lcom/android/systemui/qs/QSTileHost;->mCurrentUser:I
 
-    const-string/jumbo v2, "sysui_qs_tiles"
+    const-string v2, "sysui_qs_tiles"
 
     invoke-interface {v0, v2, v1}, Lcom/android/systemui/util/settings/SettingsProxy;->getStringForUser(Ljava/lang/String;I)Ljava/lang/String;
 
@@ -392,9 +392,9 @@
 
     iget-object v1, p0, Lcom/android/systemui/qs/QSTileHost;->mContext:Landroid/content/Context;
 
-    iget-object v2, p0, Lcom/android/systemui/qs/QSTileHost;->mFeatureFlags:Lcom/android/systemui/statusbar/FeatureFlags;
+    iget-object v2, p0, Lcom/android/systemui/qs/QSTileHost;->mFeatureFlags:Lcom/android/systemui/flags/FeatureFlags;
 
-    invoke-static {v1, v0, v2}, Lcom/android/systemui/qs/QSTileHost;->loadTileSpecs(Landroid/content/Context;Ljava/lang/String;Lcom/android/systemui/statusbar/FeatureFlags;)Ljava/util/List;
+    invoke-static {v1, v0, v2}, Lcom/android/systemui/qs/QSTileHost;->loadTileSpecs(Landroid/content/Context;Ljava/lang/String;Lcom/android/systemui/flags/FeatureFlags;)Ljava/util/List;
 
     move-result-object v0
 
@@ -523,7 +523,7 @@
 .method private synthetic lambda$new$0(Lcom/android/systemui/tuner/TunerService;Ljavax/inject/Provider;)V
     .locals 1
 
-    const-string/jumbo v0, "sysui_qs_tiles"
+    const-string v0, "sysui_qs_tiles"
 
     filled-new-array {v0}, [Ljava/lang/String;
 
@@ -628,14 +628,14 @@
     return p0
 .end method
 
-.method protected static loadTileSpecs(Landroid/content/Context;Ljava/lang/String;Lcom/android/systemui/statusbar/FeatureFlags;)Ljava/util/List;
+.method protected static loadTileSpecs(Landroid/content/Context;Ljava/lang/String;Lcom/android/systemui/flags/FeatureFlags;)Ljava/util/List;
     .locals 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Landroid/content/Context;",
             "Ljava/lang/String;",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
+            "Lcom/android/systemui/flags/FeatureFlags;",
             ")",
             "Ljava/util/List<",
             "Ljava/lang/String;",
@@ -811,7 +811,7 @@
     goto :goto_1
 
     :cond_7
-    invoke-virtual {p2}, Lcom/android/systemui/statusbar/FeatureFlags;->isProviderModelSettingEnabled()Z
+    invoke-virtual {p2}, Lcom/android/systemui/flags/FeatureFlags;->isProviderModelSettingEnabled()Z
 
     move-result p0
 
@@ -1386,7 +1386,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/qs/QSTileHost;->mTunerService:Lcom/android/systemui/tuner/TunerService;
 
-    const-string/jumbo p2, "sysui_qs_tiles"
+    const-string p2, "sysui_qs_tiles"
 
     invoke-virtual {p1, p2}, Lcom/android/systemui/tuner/TunerService;->getValue(Ljava/lang/String;)Ljava/lang/String;
 
@@ -1420,7 +1420,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/qs/QSTileHost;->mTunerService:Lcom/android/systemui/tuner/TunerService;
 
-    const-string/jumbo v0, "sysui_qs_tiles"
+    const-string v0, "sysui_qs_tiles"
 
     invoke-virtual {p1, v0}, Lcom/android/systemui/tuner/TunerService;->getValue(Ljava/lang/String;)Ljava/lang/String;
 
@@ -1438,7 +1438,7 @@
 .method public onTuningChanged(Ljava/lang/String;Ljava/lang/String;)V
     .locals 9
 
-    const-string/jumbo v0, "sysui_qs_tiles"
+    const-string v0, "sysui_qs_tiles"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1480,9 +1480,9 @@
     :cond_1
     iget-object v0, p0, Lcom/android/systemui/qs/QSTileHost;->mContext:Landroid/content/Context;
 
-    iget-object v1, p0, Lcom/android/systemui/qs/QSTileHost;->mFeatureFlags:Lcom/android/systemui/statusbar/FeatureFlags;
+    iget-object v1, p0, Lcom/android/systemui/qs/QSTileHost;->mFeatureFlags:Lcom/android/systemui/flags/FeatureFlags;
 
-    invoke-static {v0, p2, v1}, Lcom/android/systemui/qs/QSTileHost;->loadTileSpecs(Landroid/content/Context;Ljava/lang/String;Lcom/android/systemui/statusbar/FeatureFlags;)Ljava/util/List;
+    invoke-static {v0, p2, v1}, Lcom/android/systemui/qs/QSTileHost;->loadTileSpecs(Landroid/content/Context;Ljava/lang/String;Lcom/android/systemui/flags/FeatureFlags;)Ljava/util/List;
 
     move-result-object p2
 
@@ -1834,11 +1834,11 @@
 
     iget-object p1, p0, Lcom/android/systemui/qs/QSTileHost;->mContext:Landroid/content/Context;
 
-    iget-object p2, p0, Lcom/android/systemui/qs/QSTileHost;->mFeatureFlags:Lcom/android/systemui/statusbar/FeatureFlags;
+    iget-object p2, p0, Lcom/android/systemui/qs/QSTileHost;->mFeatureFlags:Lcom/android/systemui/flags/FeatureFlags;
 
     const-string v1, ""
 
-    invoke-static {p1, v1, p2}, Lcom/android/systemui/qs/QSTileHost;->loadTileSpecs(Landroid/content/Context;Ljava/lang/String;Lcom/android/systemui/statusbar/FeatureFlags;)Ljava/util/List;
+    invoke-static {p1, v1, p2}, Lcom/android/systemui/qs/QSTileHost;->loadTileSpecs(Landroid/content/Context;Ljava/lang/String;Lcom/android/systemui/flags/FeatureFlags;)Ljava/util/List;
 
     move-result-object p1
 
@@ -1995,7 +1995,7 @@
 
     const/4 v8, 0x1
 
-    const-string/jumbo v3, "sysui_qs_tiles"
+    const-string v3, "sysui_qs_tiles"
 
     invoke-interface/range {v2 .. v8}, Lcom/android/systemui/util/settings/SettingsProxy;->putStringForUser(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZIZ)Z
 

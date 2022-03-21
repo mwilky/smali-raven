@@ -21,7 +21,7 @@
 
 .field private mDoneButton:Landroid/widget/Button;
 
-.field private mHeaderIcon:Landroid/widget/ImageView;
+.field protected mHeaderIcon:Landroid/widget/ImageView;
 
 .field private mHeaderSubtitle:Landroid/widget/TextView;
 
@@ -87,36 +87,38 @@
     return-void
 .end method
 
-.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/media/dialog/MediaOutputController;)V
-    .locals 2
+.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/media/dialog/MediaOutputController;Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;)V
+    .locals 1
 
-    sget v0, Lcom/android/systemui/R$style;->Theme_SystemUI_Dialog_MediaOutput:I
+    invoke-direct {p0, p1, p3}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;-><init>(Landroid/content/Context;Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;)V
 
-    invoke-direct {p0, p1, v0}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;-><init>(Landroid/content/Context;I)V
-
-    new-instance v0, Landroid/os/Handler;
+    new-instance p3, Landroid/os/Handler;
 
     invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-direct {v0, v1}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
+    invoke-direct {p3, v0}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
-    iput-object v0, p0, Lcom/android/systemui/media/dialog/MediaOutputBaseDialog;->mMainThreadHandler:Landroid/os/Handler;
+    iput-object p3, p0, Lcom/android/systemui/media/dialog/MediaOutputBaseDialog;->mMainThreadHandler:Landroid/os/Handler;
 
-    new-instance v0, Lcom/android/systemui/media/dialog/MediaOutputBaseDialog$$ExternalSyntheticLambda3;
+    new-instance p3, Lcom/android/systemui/media/dialog/MediaOutputBaseDialog$$ExternalSyntheticLambda3;
 
-    invoke-direct {v0, p0}, Lcom/android/systemui/media/dialog/MediaOutputBaseDialog$$ExternalSyntheticLambda3;-><init>(Lcom/android/systemui/media/dialog/MediaOutputBaseDialog;)V
+    invoke-direct {p3, p0}, Lcom/android/systemui/media/dialog/MediaOutputBaseDialog$$ExternalSyntheticLambda3;-><init>(Lcom/android/systemui/media/dialog/MediaOutputBaseDialog;)V
 
-    iput-object v0, p0, Lcom/android/systemui/media/dialog/MediaOutputBaseDialog;->mDeviceListLayoutListener:Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;
+    iput-object p3, p0, Lcom/android/systemui/media/dialog/MediaOutputBaseDialog;->mDeviceListLayoutListener:Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;
 
-    iput-object p1, p0, Lcom/android/systemui/media/dialog/MediaOutputBaseDialog;->mContext:Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/app/AlertDialog;->getContext()Landroid/content/Context;
+
+    move-result-object p3
+
+    iput-object p3, p0, Lcom/android/systemui/media/dialog/MediaOutputBaseDialog;->mContext:Landroid/content/Context;
 
     iput-object p2, p0, Lcom/android/systemui/media/dialog/MediaOutputBaseDialog;->mMediaOutputController:Lcom/android/systemui/media/dialog/MediaOutputController;
 
     new-instance p2, Landroidx/recyclerview/widget/LinearLayoutManager;
 
-    invoke-direct {p2, p1}, Landroidx/recyclerview/widget/LinearLayoutManager;-><init>(Landroid/content/Context;)V
+    invoke-direct {p2, p3}, Landroidx/recyclerview/widget/LinearLayoutManager;-><init>(Landroid/content/Context;)V
 
     iput-object p2, p0, Lcom/android/systemui/media/dialog/MediaOutputBaseDialog;->mLayoutManager:Landroidx/recyclerview/widget/RecyclerView$LayoutManager;
 
@@ -220,13 +222,18 @@
     return-void
 .end method
 
+.method getDialogView()Landroid/view/View;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/media/dialog/MediaOutputBaseDialog;->mDialogView:Landroid/view/View;
+
+    return-object p0
+.end method
+
 .method abstract getHeaderIcon()Landroidx/core/graphics/drawable/IconCompat;
 .end method
 
 .method abstract getHeaderIconRes()I
-.end method
-
-.method abstract getHeaderIconSize()I
 .end method
 
 .method abstract getHeaderSubtitle()Ljava/lang/CharSequence;
@@ -241,7 +248,7 @@
 .method public onCreate(Landroid/os/Bundle;)V
     .locals 3
 
-    invoke-super {p0, p1}, Landroid/app/AlertDialog;->onCreate(Landroid/os/Bundle;)V
+    invoke-super {p0, p1}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->onCreate(Landroid/os/Bundle;)V
 
     iget-object p1, p0, Lcom/android/systemui/media/dialog/MediaOutputBaseDialog;->mContext:Landroid/content/Context;
 
@@ -267,7 +274,7 @@
 
     move-result-object v0
 
-    const/16 v1, 0x50
+    const/16 v1, 0x11
 
     iput v1, v0, Landroid/view/WindowManager$LayoutParams;->gravity:I
 
@@ -299,15 +306,9 @@
 
     invoke-virtual {p1, v0}, Landroid/view/Window;->setContentView(Landroid/view/View;)V
 
-    const/4 v0, -0x1
+    const-string v0, " "
 
-    const/4 v1, -0x2
-
-    invoke-virtual {p1, v0, v1}, Landroid/view/Window;->setLayout(II)V
-
-    sget v0, Lcom/android/systemui/R$style;->Animation_MediaOutputDialog:I
-
-    invoke-virtual {p1, v0}, Landroid/view/Window;->setWindowAnimations(I)V
+    invoke-virtual {p1, v0}, Landroid/view/Window;->setTitle(Ljava/lang/CharSequence;)V
 
     iget-object p1, p0, Lcom/android/systemui/media/dialog/MediaOutputBaseDialog;->mDialogView:Landroid/view/View;
 
@@ -515,27 +516,8 @@
     return-void
 .end method
 
-.method public onWindowFocusChanged(Z)V
-    .locals 0
-
-    invoke-super {p0, p1}, Landroid/app/AlertDialog;->onWindowFocusChanged(Z)V
-
-    if-nez p1, :cond_0
-
-    invoke-virtual {p0}, Landroid/app/AlertDialog;->isShowing()Z
-
-    move-result p1
-
-    if-eqz p1, :cond_0
-
-    invoke-virtual {p0}, Landroid/app/AlertDialog;->dismiss()V
-
-    :cond_0
-    return-void
-.end method
-
 .method refresh()V
-    .locals 6
+    .locals 5
 
     invoke-virtual {p0}, Lcom/android/systemui/media/dialog/MediaOutputBaseDialog;->getHeaderIconRes()I
 
@@ -586,41 +568,6 @@
     invoke-virtual {v0, v2}, Landroid/widget/ImageView;->setVisibility(I)V
 
     :goto_0
-    iget-object v0, p0, Lcom/android/systemui/media/dialog/MediaOutputBaseDialog;->mHeaderIcon:Landroid/widget/ImageView;
-
-    invoke-virtual {v0}, Landroid/widget/ImageView;->getVisibility()I
-
-    move-result v0
-
-    if-nez v0, :cond_2
-
-    invoke-virtual {p0}, Lcom/android/systemui/media/dialog/MediaOutputBaseDialog;->getHeaderIconSize()I
-
-    move-result v0
-
-    iget-object v1, p0, Lcom/android/systemui/media/dialog/MediaOutputBaseDialog;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v1
-
-    sget v4, Lcom/android/systemui/R$dimen;->media_output_dialog_header_icon_padding:I
-
-    invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v1
-
-    iget-object v4, p0, Lcom/android/systemui/media/dialog/MediaOutputBaseDialog;->mHeaderIcon:Landroid/widget/ImageView;
-
-    new-instance v5, Landroid/widget/LinearLayout$LayoutParams;
-
-    add-int/2addr v1, v0
-
-    invoke-direct {v5, v1, v0}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
-
-    invoke-virtual {v4, v5}, Landroid/widget/ImageView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
-
-    :cond_2
     iget-object v0, p0, Lcom/android/systemui/media/dialog/MediaOutputBaseDialog;->mHeaderTitle:Landroid/widget/TextView;
 
     invoke-virtual {p0}, Lcom/android/systemui/media/dialog/MediaOutputBaseDialog;->getHeaderText()Ljava/lang/CharSequence;
@@ -637,7 +584,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_2
 
     iget-object v0, p0, Lcom/android/systemui/media/dialog/MediaOutputBaseDialog;->mHeaderSubtitle:Landroid/widget/TextView;
 
@@ -651,7 +598,7 @@
 
     goto :goto_1
 
-    :cond_3
+    :cond_2
     iget-object v1, p0, Lcom/android/systemui/media/dialog/MediaOutputBaseDialog;->mHeaderSubtitle:Landroid/widget/TextView;
 
     invoke-virtual {v1, v3}, Landroid/widget/TextView;->setVisibility(I)V
@@ -671,7 +618,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_4
 
     iget-object v0, p0, Lcom/android/systemui/media/dialog/MediaOutputBaseDialog;->mAdapter:Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter;
 
@@ -679,7 +626,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_4
 
     iget-object v0, p0, Lcom/android/systemui/media/dialog/MediaOutputBaseDialog;->mAdapter:Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter;
 
@@ -687,7 +634,15 @@
 
     move-result v0
 
-    if-ltz v0, :cond_4
+    if-ltz v0, :cond_3
+
+    iget-object v1, p0, Lcom/android/systemui/media/dialog/MediaOutputBaseDialog;->mAdapter:Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter;
+
+    invoke-virtual {v1}, Landroidx/recyclerview/widget/RecyclerView$Adapter;->getItemCount()I
+
+    move-result v1
+
+    if-ge v0, v1, :cond_3
 
     iget-object v1, p0, Lcom/android/systemui/media/dialog/MediaOutputBaseDialog;->mAdapter:Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter;
 
@@ -695,12 +650,12 @@
 
     goto :goto_2
 
-    :cond_4
+    :cond_3
     iget-object v0, p0, Lcom/android/systemui/media/dialog/MediaOutputBaseDialog;->mAdapter:Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter;
 
     invoke-virtual {v0}, Landroidx/recyclerview/widget/RecyclerView$Adapter;->notifyDataSetChanged()V
 
-    :cond_5
+    :cond_4
     :goto_2
     iget-object v0, p0, Lcom/android/systemui/media/dialog/MediaOutputBaseDialog;->mStopButton:Landroid/widget/Button;
 

@@ -22,6 +22,8 @@
 # static fields
 .field private static final ANIMATION_PROPERTIES:Lcom/android/systemui/statusbar/notification/stack/AnimationProperties;
 
+.field private static final DEBUG:Z
+
 
 # instance fields
 .field private mAdapter:Lcom/android/systemui/statusbar/policy/UserSwitcherController$BaseUserAdapter;
@@ -39,6 +41,8 @@
 .field public final mDataSetObserver:Landroid/database/DataSetObserver;
 
 .field private final mFalsingManager:Lcom/android/systemui/plugins/FalsingManager;
+
+.field private final mFeatureFlags:Lcom/android/systemui/flags/FeatureFlags;
 
 .field private final mKeyguardStateController:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
 
@@ -58,6 +62,8 @@
 
 .field private final mUserDetailAdapter:Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController$KeyguardUserDetailAdapter;
 
+.field private final mUserSwitchDialogController:Lcom/android/systemui/qs/user/UserSwitchDialogController;
+
 .field private final mUserSwitcherController:Lcom/android/systemui/statusbar/policy/UserSwitcherController;
 
 
@@ -72,6 +78,10 @@
 
 .method static constructor <clinit>()V
     .locals 3
+
+    sget-boolean v0, Lcom/android/keyguard/KeyguardConstants;->DEBUG:Z
+
+    sput-boolean v0, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;->DEBUG:Z
 
     new-instance v0, Lcom/android/systemui/statusbar/notification/stack/AnimationProperties;
 
@@ -88,7 +98,7 @@
     return-void
 .end method
 
-.method public constructor <init>(Landroid/widget/FrameLayout;Landroid/content/Context;Landroid/content/res/Resources;Lcom/android/systemui/keyguard/ScreenLifecycle;Lcom/android/systemui/statusbar/policy/UserSwitcherController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/statusbar/SysuiStatusBarStateController;Lcom/android/systemui/statusbar/phone/DozeParameters;Ljavax/inject/Provider;Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;)V
+.method public constructor <init>(Landroid/widget/FrameLayout;Landroid/content/Context;Landroid/content/res/Resources;Lcom/android/systemui/keyguard/ScreenLifecycle;Lcom/android/systemui/statusbar/policy/UserSwitcherController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/statusbar/SysuiStatusBarStateController;Lcom/android/systemui/statusbar/phone/DozeParameters;Ljavax/inject/Provider;Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;Lcom/android/systemui/flags/FeatureFlags;Lcom/android/systemui/qs/user/UserSwitchDialogController;)V
     .locals 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -107,6 +117,8 @@
             "Lcom/android/systemui/qs/tiles/UserDetailView$Adapter;",
             ">;",
             "Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;",
+            "Lcom/android/systemui/flags/FeatureFlags;",
+            "Lcom/android/systemui/qs/user/UserSwitchDialogController;",
             ")V"
         }
     .end annotation
@@ -135,6 +147,17 @@
 
     iput-object v2, v0, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;->mDataSetObserver:Landroid/database/DataSetObserver;
 
+    sget-boolean v2, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;->DEBUG:Z
+
+    if-eqz v2, :cond_0
+
+    const-string v2, "KeyguardQsUserSwitchController"
+
+    const-string v3, "New KeyguardQsUserSwitchController"
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
     iput-object v1, v0, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;->mContext:Landroid/content/Context;
 
     move-object v2, p3
@@ -189,10 +212,26 @@
 
     iput-object v2, v0, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;->mUserDetailAdapter:Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController$KeyguardUserDetailAdapter;
 
+    move-object/from16 v1, p13
+
+    iput-object v1, v0, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;->mFeatureFlags:Lcom/android/systemui/flags/FeatureFlags;
+
+    move-object/from16 v1, p14
+
+    iput-object v1, v0, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;->mUserSwitchDialogController:Lcom/android/systemui/qs/user/UserSwitchDialogController;
+
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;)Lcom/android/systemui/statusbar/policy/KeyguardStateController;
+.method static synthetic access$000()Z
+    .locals 1
+
+    sget-boolean v0, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;->DEBUG:Z
+
+    return v0
+.end method
+
+.method static synthetic access$100(Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;)Lcom/android/systemui/statusbar/policy/KeyguardStateController;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;->mKeyguardStateController:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
@@ -200,7 +239,7 @@
     return-object p0
 .end method
 
-.method static synthetic access$100(Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;)I
+.method static synthetic access$200(Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;)I
     .locals 0
 
     iget p0, p0, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;->mBarState:I
@@ -208,7 +247,7 @@
     return p0
 .end method
 
-.method static synthetic access$102(Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;I)I
+.method static synthetic access$202(Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;I)I
     .locals 0
 
     iput p1, p0, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;->mBarState:I
@@ -216,7 +255,7 @@
     return p1
 .end method
 
-.method static synthetic access$200(Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;Z)V
+.method static synthetic access$300(Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;Z)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;->updateView(Z)V
@@ -224,7 +263,7 @@
     return-void
 .end method
 
-.method static synthetic access$300(Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;)Landroid/content/Context;
+.method static synthetic access$400(Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;)Landroid/content/Context;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;->mContext:Landroid/content/Context;
@@ -232,7 +271,7 @@
     return-object p0
 .end method
 
-.method static synthetic access$400(Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;)Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;
+.method static synthetic access$500(Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;)Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;->mNotificationPanelViewController:Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;
@@ -277,8 +316,26 @@
     return-void
 
     :cond_1
+    iget-object p1, p0, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;->mFeatureFlags:Lcom/android/systemui/flags/FeatureFlags;
+
+    invoke-virtual {p1}, Lcom/android/systemui/flags/FeatureFlags;->useNewUserSwitcher()Z
+
+    move-result p1
+
+    if-eqz p1, :cond_2
+
+    iget-object p1, p0, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;->mUserSwitchDialogController:Lcom/android/systemui/qs/user/UserSwitchDialogController;
+
+    iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
+
+    invoke-virtual {p1, p0}, Lcom/android/systemui/qs/user/UserSwitchDialogController;->showDialog(Landroid/view/View;)V
+
+    goto :goto_0
+
+    :cond_2
     invoke-direct {p0}, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;->openQsUserPanel()V
 
+    :goto_0
     return-void
 .end method
 
@@ -593,6 +650,17 @@
 
     invoke-super {p0}, Lcom/android/systemui/util/ViewController;->onInit()V
 
+    sget-boolean v0, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;->DEBUG:Z
+
+    if-eqz v0, :cond_0
+
+    const-string v0, "KeyguardQsUserSwitchController"
+
+    const-string v1, "onInit"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
     iget-object v0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
 
     check-cast v0, Landroid/widget/FrameLayout;
@@ -637,6 +705,17 @@
 .method protected onViewAttached()V
     .locals 2
 
+    sget-boolean v0, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;->DEBUG:Z
+
+    if-eqz v0, :cond_0
+
+    const-string v0, "KeyguardQsUserSwitchController"
+
+    const-string v1, "onViewAttached"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;->mAdapter:Lcom/android/systemui/statusbar/policy/UserSwitcherController$BaseUserAdapter;
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;->mDataSetObserver:Landroid/database/DataSetObserver;
@@ -669,6 +748,17 @@
 .method protected onViewDetached()V
     .locals 2
 
+    sget-boolean v0, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;->DEBUG:Z
+
+    if-eqz v0, :cond_0
+
+    const-string v0, "KeyguardQsUserSwitchController"
+
+    const-string v1, "onViewDetached"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;->mAdapter:Lcom/android/systemui/statusbar/policy/UserSwitcherController$BaseUserAdapter;
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;->mDataSetObserver:Landroid/database/DataSetObserver;

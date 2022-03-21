@@ -29,7 +29,7 @@
 
     check-cast p1, Landroid/graphics/Bitmap;
 
-    invoke-static {p0, p1}, Lcom/android/systemui/ImageWallpaper$GLEngine;->$r8$lambda$VqThTYKKE4bUyXZIoUJ6GkdgW7o(Lcom/android/systemui/ImageWallpaper$GLEngine;Landroid/graphics/Bitmap;)V
+    invoke-static {p0, p1}, Lcom/android/systemui/ImageWallpaper$GLEngine;->$r8$lambda$Py4SWhllP-m3HGlzRetd04MxREU(Lcom/android/systemui/ImageWallpaper$GLEngine;Landroid/graphics/Bitmap;)V
 
     return-void
 .end method

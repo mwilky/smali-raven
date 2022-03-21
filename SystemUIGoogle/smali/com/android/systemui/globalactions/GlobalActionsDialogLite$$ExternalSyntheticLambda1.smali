@@ -27,7 +27,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$$ExternalSyntheticLambda1;->f$0:Lcom/android/systemui/globalactions/GlobalActionsDialogLite;
 
-    invoke-virtual {p0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->onRotate()V
+    invoke-virtual {p0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->onRefresh()V
 
     return-void
 .end method

@@ -91,12 +91,13 @@
 
 .field private mSkinThermalEventListener:Landroid/os/IThermalEventListener;
 
-.field private final mStatusBarLazy:Ldagger/Lazy;
+.field private final mStatusBarOptionalLazy:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
+            "Ljava/util/Optional<",
             "Lcom/android/systemui/statusbar/phone/StatusBar;",
-            ">;"
+            ">;>;"
         }
     .end annotation
 .end field
@@ -157,8 +158,9 @@
             "Lcom/android/systemui/broadcast/BroadcastDispatcher;",
             "Lcom/android/systemui/statusbar/CommandQueue;",
             "Ldagger/Lazy<",
+            "Ljava/util/Optional<",
             "Lcom/android/systemui/statusbar/phone/StatusBar;",
-            ">;)V"
+            ">;>;)V"
         }
     .end annotation
 
@@ -210,7 +212,7 @@
 
     iput-object p3, p0, Lcom/android/systemui/power/PowerUI;->mCommandQueue:Lcom/android/systemui/statusbar/CommandQueue;
 
-    iput-object p4, p0, Lcom/android/systemui/power/PowerUI;->mStatusBarLazy:Ldagger/Lazy;
+    iput-object p4, p0, Lcom/android/systemui/power/PowerUI;->mStatusBarOptionalLazy:Ldagger/Lazy;
 
     return-void
 .end method
@@ -266,7 +268,7 @@
 .method static synthetic access$1300(Lcom/android/systemui/power/PowerUI;)Ldagger/Lazy;
     .locals 0
 
-    iget-object p0, p0, Lcom/android/systemui/power/PowerUI;->mStatusBarLazy:Ldagger/Lazy;
+    iget-object p0, p0, Lcom/android/systemui/power/PowerUI;->mStatusBarOptionalLazy:Ldagger/Lazy;
 
     return-object p0
 .end method
@@ -591,7 +593,7 @@
 
     if-nez v0, :cond_2
 
-    const-string/jumbo v0, "thermalservice"
+    const-string v0, "thermalservice"
 
     invoke-static {v0}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
@@ -752,7 +754,7 @@
 
     if-nez v0, :cond_2
 
-    const-string/jumbo v0, "thermalservice"
+    const-string v0, "thermalservice"
 
     invoke-static {v0}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
@@ -2053,7 +2055,7 @@
 
     move-result-object v0
 
-    const v1, 0x10e002d
+    const v1, 0x10e002e
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -2065,7 +2067,7 @@
 
     move-result-object v1
 
-    const v2, 0x10e007d
+    const v2, 0x10e0081
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -2094,7 +2096,7 @@
 
     move-result-object v1
 
-    const v2, 0x10e007c
+    const v2, 0x10e0080
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 

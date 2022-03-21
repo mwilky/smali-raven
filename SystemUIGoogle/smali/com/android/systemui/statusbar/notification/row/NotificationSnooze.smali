@@ -358,13 +358,13 @@
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    new-array v1, v2, [Ljava/lang/Object;
+    new-array v6, v2, [Ljava/lang/Object;
 
-    aput-object v5, v1, v4
+    aput-object v5, v6, v4
 
-    invoke-static {v0, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1, v6}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v6
 
@@ -374,11 +374,11 @@
 
     invoke-virtual {v6, v5}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
 
-    move-result v0
+    move-result v1
 
-    const/4 v1, -0x1
+    const/4 v8, -0x1
 
-    if-ne v0, v1, :cond_3
+    if-ne v1, v8, :cond_3
 
     new-instance v8, Lcom/android/systemui/statusbar/notification/row/NotificationSnooze$NotificationSnoozeOption;
 
@@ -405,17 +405,23 @@
 
     invoke-direct {v8, v6}, Landroid/text/SpannableString;-><init>(Ljava/lang/CharSequence;)V
 
-    new-instance v1, Landroid/text/style/StyleSpan;
+    new-instance v6, Landroid/text/style/StyleSpan;
 
-    invoke-direct {v1, v2}, Landroid/text/style/StyleSpan;-><init>(I)V
+    invoke-virtual {v0}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+
+    move-result-object v0
+
+    iget v0, v0, Landroid/content/res/Configuration;->fontWeightAdjustment:I
+
+    invoke-direct {v6, v2, v0}, Landroid/text/style/StyleSpan;-><init>(II)V
 
     invoke-virtual {v5}, Ljava/lang/String;->length()I
 
-    move-result v2
+    move-result v0
 
-    add-int/2addr v2, v0
+    add-int/2addr v0, v1
 
-    invoke-virtual {v8, v1, v0, v2, v4}, Landroid/text/SpannableString;->setSpan(Ljava/lang/Object;III)V
+    invoke-virtual {v8, v6, v1, v0, v4}, Landroid/text/SpannableString;->setSpan(Ljava/lang/Object;III)V
 
     new-instance v9, Lcom/android/systemui/statusbar/notification/row/NotificationSnooze$NotificationSnoozeOption;
 
@@ -954,6 +960,16 @@
     const/16 v1, 0x471
 
     invoke-direct {p0, v1, v0}, Lcom/android/systemui/statusbar/notification/row/NotificationSnooze;->logOptionSelection(ILcom/android/systemui/plugins/statusbar/NotificationSwipeActionHelper$SnoozeOption;)V
+
+    invoke-virtual {p0}, Landroid/widget/LinearLayout;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->dispatchConfigurationChanged(Landroid/content/res/Configuration;)V
 
     return-void
 .end method

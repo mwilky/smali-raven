@@ -8,14 +8,18 @@
 # instance fields
 .field public final synthetic f$0:Lcom/android/systemui/theme/ThemeOverlayController;
 
+.field public final synthetic f$1:Landroid/app/WallpaperColors;
+
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/systemui/theme/ThemeOverlayController;)V
+.method public synthetic constructor <init>(Lcom/android/systemui/theme/ThemeOverlayController;Landroid/app/WallpaperColors;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/systemui/theme/ThemeOverlayController$$ExternalSyntheticLambda1;->f$0:Lcom/android/systemui/theme/ThemeOverlayController;
+
+    iput-object p2, p0, Lcom/android/systemui/theme/ThemeOverlayController$$ExternalSyntheticLambda1;->f$1:Landroid/app/WallpaperColors;
 
     return-void
 .end method
@@ -23,11 +27,13 @@
 
 # virtual methods
 .method public final run()V
-    .locals 0
+    .locals 1
 
-    iget-object p0, p0, Lcom/android/systemui/theme/ThemeOverlayController$$ExternalSyntheticLambda1;->f$0:Lcom/android/systemui/theme/ThemeOverlayController;
+    iget-object v0, p0, Lcom/android/systemui/theme/ThemeOverlayController$$ExternalSyntheticLambda1;->f$0:Lcom/android/systemui/theme/ThemeOverlayController;
 
-    invoke-static {p0}, Lcom/android/systemui/theme/ThemeOverlayController;->$r8$lambda$bwzSfJVlvwP831EnhmBVXyBbzpQ(Lcom/android/systemui/theme/ThemeOverlayController;)V
+    iget-object p0, p0, Lcom/android/systemui/theme/ThemeOverlayController$$ExternalSyntheticLambda1;->f$1:Landroid/app/WallpaperColors;
+
+    invoke-static {v0, p0}, Lcom/android/systemui/theme/ThemeOverlayController;->$r8$lambda$MhjNc8crRZkPW_z7htKa2mJa3_s(Lcom/android/systemui/theme/ThemeOverlayController;Landroid/app/WallpaperColors;)V
 
     return-void
 .end method

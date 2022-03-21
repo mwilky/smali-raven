@@ -13,7 +13,7 @@
 # instance fields
 .field private final mAutoDisabledPrefs:Landroid/content/SharedPreferences;
 
-.field private mPm:Landroid/content/pm/PackageManager;
+.field private final mPm:Landroid/content/pm/PackageManager;
 
 
 # direct methods

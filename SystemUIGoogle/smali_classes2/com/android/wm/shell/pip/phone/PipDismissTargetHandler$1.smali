@@ -83,6 +83,14 @@
 
     iget-object p1, p0, Lcom/android/wm/shell/pip/phone/PipDismissTargetHandler$1;->this$0:Lcom/android/wm/shell/pip/phone/PipDismissTargetHandler;
 
+    invoke-static {p1}, Lcom/android/wm/shell/pip/phone/PipDismissTargetHandler;->access$000(Lcom/android/wm/shell/pip/phone/PipDismissTargetHandler;)Z
+
+    move-result p1
+
+    if-eqz p1, :cond_0
+
+    iget-object p1, p0, Lcom/android/wm/shell/pip/phone/PipDismissTargetHandler$1;->this$0:Lcom/android/wm/shell/pip/phone/PipDismissTargetHandler;
+
     invoke-static {p1}, Lcom/android/wm/shell/pip/phone/PipDismissTargetHandler;->access$200(Lcom/android/wm/shell/pip/phone/PipDismissTargetHandler;)Lcom/android/wm/shell/common/ShellExecutor;
 
     move-result-object p1
@@ -95,6 +103,7 @@
 
     invoke-interface {p1, v0, v1, v2}, Lcom/android/wm/shell/common/ShellExecutor;->executeDelayed(Ljava/lang/Runnable;J)V
 
+    :cond_0
     return-void
 .end method
 

@@ -43,37 +43,8 @@
 
 # virtual methods
 .method public final run()V
-    .locals 3
+    .locals 4
 
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/DeviceControlsTile$handleClick$1;->this$0:Lcom/android/systemui/qs/tiles/DeviceControlsTile;
-
-    invoke-static {v0}, Lcom/android/systemui/qs/tiles/DeviceControlsTile;->access$getKeyguardStateController$p(Lcom/android/systemui/qs/tiles/DeviceControlsTile;)Lcom/android/systemui/statusbar/policy/KeyguardStateController;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Lcom/android/systemui/statusbar/policy/KeyguardStateController;->isUnlocked()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/DeviceControlsTile$handleClick$1;->this$0:Lcom/android/systemui/qs/tiles/DeviceControlsTile;
-
-    invoke-static {v0}, Lcom/android/systemui/qs/tiles/DeviceControlsTile;->access$getMActivityStarter$p(Lcom/android/systemui/qs/tiles/DeviceControlsTile;)Lcom/android/systemui/plugins/ActivityStarter;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/systemui/qs/tiles/DeviceControlsTile$handleClick$1;->$intent:Landroid/content/Intent;
-
-    const/4 v2, 0x1
-
-    iget-object p0, p0, Lcom/android/systemui/qs/tiles/DeviceControlsTile$handleClick$1;->$animationController:Lcom/android/systemui/animation/ActivityLaunchAnimator$Controller;
-
-    invoke-interface {v0, v1, v2, p0}, Lcom/android/systemui/plugins/ActivityStarter;->startActivity(Landroid/content/Intent;ZLcom/android/systemui/animation/ActivityLaunchAnimator$Controller;)V
-
-    goto :goto_0
-
-    :cond_0
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/DeviceControlsTile$handleClick$1;->this$0:Lcom/android/systemui/qs/tiles/DeviceControlsTile;
 
     invoke-virtual {v0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->getState()Lcom/android/systemui/plugins/qs/QSTile$State;
@@ -82,45 +53,31 @@
 
     iget v0, v0, Lcom/android/systemui/plugins/qs/QSTile$State;->state:I
 
-    const/4 v1, 0x2
+    const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_1
+    const/4 v2, 0x2
 
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/DeviceControlsTile$handleClick$1;->this$0:Lcom/android/systemui/qs/tiles/DeviceControlsTile;
+    if-ne v0, v2, :cond_0
 
-    invoke-static {v0}, Lcom/android/systemui/qs/tiles/DeviceControlsTile;->access$getMHost$p(Lcom/android/systemui/qs/tiles/DeviceControlsTile;)Lcom/android/systemui/qs/QSHost;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Lcom/android/systemui/qs/QSHost;->collapsePanels()V
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/DeviceControlsTile$handleClick$1;->this$0:Lcom/android/systemui/qs/tiles/DeviceControlsTile;
-
-    invoke-static {v0}, Lcom/android/systemui/qs/tiles/DeviceControlsTile;->access$getMContext$p(Lcom/android/systemui/qs/tiles/DeviceControlsTile;)Landroid/content/Context;
-
-    move-result-object v0
-
-    iget-object p0, p0, Lcom/android/systemui/qs/tiles/DeviceControlsTile$handleClick$1;->$intent:Landroid/content/Intent;
-
-    invoke-virtual {v0, p0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
+    move v0, v1
 
     goto :goto_0
 
-    :cond_1
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/DeviceControlsTile$handleClick$1;->this$0:Lcom/android/systemui/qs/tiles/DeviceControlsTile;
+    :cond_0
+    const/4 v0, 0x0
 
-    invoke-static {v0}, Lcom/android/systemui/qs/tiles/DeviceControlsTile;->access$getMActivityStarter$p(Lcom/android/systemui/qs/tiles/DeviceControlsTile;)Lcom/android/systemui/plugins/ActivityStarter;
+    :goto_0
+    iget-object v2, p0, Lcom/android/systemui/qs/tiles/DeviceControlsTile$handleClick$1;->this$0:Lcom/android/systemui/qs/tiles/DeviceControlsTile;
 
-    move-result-object v0
+    invoke-static {v2}, Lcom/android/systemui/qs/tiles/DeviceControlsTile;->access$getMActivityStarter$p(Lcom/android/systemui/qs/tiles/DeviceControlsTile;)Lcom/android/systemui/plugins/ActivityStarter;
 
-    iget-object v1, p0, Lcom/android/systemui/qs/tiles/DeviceControlsTile$handleClick$1;->$intent:Landroid/content/Intent;
+    move-result-object v2
 
-    const/4 v2, 0x0
+    iget-object v3, p0, Lcom/android/systemui/qs/tiles/DeviceControlsTile$handleClick$1;->$intent:Landroid/content/Intent;
 
     iget-object p0, p0, Lcom/android/systemui/qs/tiles/DeviceControlsTile$handleClick$1;->$animationController:Lcom/android/systemui/animation/ActivityLaunchAnimator$Controller;
 
-    invoke-interface {v0, v1, v2, p0}, Lcom/android/systemui/plugins/ActivityStarter;->postStartActivityDismissingKeyguard(Landroid/content/Intent;ILcom/android/systemui/animation/ActivityLaunchAnimator$Controller;)V
+    invoke-interface {v2, v3, v1, p0, v0}, Lcom/android/systemui/plugins/ActivityStarter;->startActivity(Landroid/content/Intent;ZLcom/android/systemui/animation/ActivityLaunchAnimator$Controller;Z)V
 
-    :goto_0
     return-void
 .end method

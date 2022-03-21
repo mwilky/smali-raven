@@ -4,22 +4,26 @@
 
 
 # instance fields
+.field private final mBackgroundHandler:Landroid/os/Handler;
+
 .field private mBrightnessController:Lcom/android/systemui/settings/brightness/BrightnessController;
 
 .field private final mBroadcastDispatcher:Lcom/android/systemui/broadcast/BroadcastDispatcher;
 
-.field private final mToggleSliderFactory:Lcom/android/systemui/settings/brightness/BrightnessSlider$Factory;
+.field private final mToggleSliderFactory:Lcom/android/systemui/settings/brightness/BrightnessSliderController$Factory;
 
 
 # direct methods
-.method public constructor <init>(Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/settings/brightness/BrightnessSlider$Factory;)V
+.method public constructor <init>(Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/settings/brightness/BrightnessSliderController$Factory;Landroid/os/Handler;)V
     .locals 0
 
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
     iput-object p1, p0, Lcom/android/systemui/settings/brightness/BrightnessDialog;->mBroadcastDispatcher:Lcom/android/systemui/broadcast/BroadcastDispatcher;
 
-    iput-object p2, p0, Lcom/android/systemui/settings/brightness/BrightnessDialog;->mToggleSliderFactory:Lcom/android/systemui/settings/brightness/BrightnessSlider$Factory;
+    iput-object p2, p0, Lcom/android/systemui/settings/brightness/BrightnessDialog;->mToggleSliderFactory:Lcom/android/systemui/settings/brightness/BrightnessSliderController$Factory;
+
+    iput-object p3, p0, Lcom/android/systemui/settings/brightness/BrightnessDialog;->mBackgroundHandler:Landroid/os/Handler;
 
     return-void
 .end method
@@ -71,15 +75,15 @@
 
     invoke-virtual {p1, v2}, Landroid/widget/FrameLayout;->setVisibility(I)V
 
-    iget-object v2, p0, Lcom/android/systemui/settings/brightness/BrightnessDialog;->mToggleSliderFactory:Lcom/android/systemui/settings/brightness/BrightnessSlider$Factory;
+    iget-object v2, p0, Lcom/android/systemui/settings/brightness/BrightnessDialog;->mToggleSliderFactory:Lcom/android/systemui/settings/brightness/BrightnessSliderController$Factory;
 
-    invoke-virtual {v2, p0, p1}, Lcom/android/systemui/settings/brightness/BrightnessSlider$Factory;->create(Landroid/content/Context;Landroid/view/ViewGroup;)Lcom/android/systemui/settings/brightness/BrightnessSlider;
+    invoke-virtual {v2, p0, p1}, Lcom/android/systemui/settings/brightness/BrightnessSliderController$Factory;->create(Landroid/content/Context;Landroid/view/ViewGroup;)Lcom/android/systemui/settings/brightness/BrightnessSliderController;
 
     move-result-object v2
 
     invoke-virtual {v2}, Lcom/android/systemui/util/ViewController;->init()V
 
-    invoke-virtual {v2}, Lcom/android/systemui/settings/brightness/BrightnessSlider;->getRootView()Landroid/view/View;
+    invoke-virtual {v2}, Lcom/android/systemui/settings/brightness/BrightnessSliderController;->getRootView()Landroid/view/View;
 
     move-result-object v3
 
@@ -89,7 +93,9 @@
 
     iget-object v0, p0, Lcom/android/systemui/settings/brightness/BrightnessDialog;->mBroadcastDispatcher:Lcom/android/systemui/broadcast/BroadcastDispatcher;
 
-    invoke-direct {p1, p0, v2, v0}, Lcom/android/systemui/settings/brightness/BrightnessController;-><init>(Landroid/content/Context;Lcom/android/systemui/settings/brightness/ToggleSlider;Lcom/android/systemui/broadcast/BroadcastDispatcher;)V
+    iget-object v1, p0, Lcom/android/systemui/settings/brightness/BrightnessDialog;->mBackgroundHandler:Landroid/os/Handler;
+
+    invoke-direct {p1, p0, v2, v0, v1}, Lcom/android/systemui/settings/brightness/BrightnessController;-><init>(Landroid/content/Context;Lcom/android/systemui/settings/brightness/ToggleSlider;Lcom/android/systemui/broadcast/BroadcastDispatcher;Landroid/os/Handler;)V
 
     iput-object p1, p0, Lcom/android/systemui/settings/brightness/BrightnessDialog;->mBrightnessController:Lcom/android/systemui/settings/brightness/BrightnessController;
 

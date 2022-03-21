@@ -39,7 +39,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda7;->f$2:[Landroid/view/RemoteAnimationTarget;
 
-    invoke-static {v0, v1, p0}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->$r8$lambda$28GmQNopLQVImuSHfa1aEse3FAs(Lcom/android/systemui/keyguard/KeyguardViewMediator;Landroid/view/IRemoteAnimationFinishedCallback;[Landroid/view/RemoteAnimationTarget;)V
+    invoke-static {v0, v1, p0}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->$r8$lambda$Gum5Nk10mw3bohg7j38n2wL1aNs(Lcom/android/systemui/keyguard/KeyguardViewMediator;Landroid/view/IRemoteAnimationFinishedCallback;[Landroid/view/RemoteAnimationTarget;)V
 
     return-void
 .end method

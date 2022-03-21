@@ -107,7 +107,7 @@
 
     const/4 v1, 0x0
 
-    const-string/jumbo v2, "titleView"
+    const-string v2, "titleView"
 
     if-eqz v0, :cond_2
 

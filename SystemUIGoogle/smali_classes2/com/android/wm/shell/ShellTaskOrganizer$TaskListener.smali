@@ -57,7 +57,7 @@
     return-void
 .end method
 
-.method public supportSizeCompatUI()Z
+.method public supportCompatUI()Z
     .locals 0
 
     const/4 p0, 0x1

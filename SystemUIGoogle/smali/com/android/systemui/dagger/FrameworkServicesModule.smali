@@ -132,6 +132,20 @@
     return-object p0
 .end method
 
+.method static provideDeviceStateManager(Landroid/content/Context;)Landroid/hardware/devicestate/DeviceStateManager;
+    .locals 1
+
+    const-class v0, Landroid/hardware/devicestate/DeviceStateManager;
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Landroid/hardware/devicestate/DeviceStateManager;
+
+    return-object p0
+.end method
+
 .method static provideDisplayId(Landroid/content/Context;)I
     .locals 0
 
@@ -310,6 +324,16 @@
     return-object p0
 .end method
 
+.method static provideInteractionJankMonitor()Lcom/android/internal/jank/InteractionJankMonitor;
+    .locals 1
+
+    invoke-static {}, Lcom/android/internal/jank/InteractionJankMonitor;->getInstance()Lcom/android/internal/jank/InteractionJankMonitor;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method static provideKeyguardManager(Landroid/content/Context;)Landroid/app/KeyguardManager;
     .locals 1
 
@@ -400,6 +424,34 @@
     return-object p0
 .end method
 
+.method static provideOptionalTelecomManager(Landroid/content/Context;)Ljava/util/Optional;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/content/Context;",
+            ")",
+            "Ljava/util/Optional<",
+            "Landroid/telecom/TelecomManager;",
+            ">;"
+        }
+    .end annotation
+
+    const-class v0, Landroid/telecom/TelecomManager;
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Landroid/telecom/TelecomManager;
+
+    invoke-static {p0}, Ljava/util/Optional;->ofNullable(Ljava/lang/Object;)Ljava/util/Optional;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method static provideOptionalVibrator(Landroid/content/Context;)Ljava/util/Optional;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
@@ -473,6 +525,11 @@
 
     check-cast p0, Landroid/permission/PermissionManager;
 
+    if-eqz p0, :cond_0
+
+    invoke-virtual {p0}, Landroid/permission/PermissionManager;->initializeUsageHelper()V
+
+    :cond_0
     return-object p0
 .end method
 

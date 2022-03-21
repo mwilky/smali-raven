@@ -1,11 +1,14 @@
 .class Lcom/android/systemui/theme/ThemeOverlayController$3;
-.super Landroid/database/ContentObserver;
+.super Ljava/lang/Object;
 .source "ThemeOverlayController.java"
+
+# interfaces
+.implements Lcom/android/systemui/settings/UserTracker$Callback;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/theme/ThemeOverlayController;->start()V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/systemui/theme/ThemeOverlayController;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -19,111 +22,75 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/theme/ThemeOverlayController;Landroid/os/Handler;)V
+.method constructor <init>(Lcom/android/systemui/theme/ThemeOverlayController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/theme/ThemeOverlayController$3;->this$0:Lcom/android/systemui/theme/ThemeOverlayController;
 
-    invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onChange(ZLjava/util/Collection;II)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(Z",
-            "Ljava/util/Collection<",
-            "Landroid/net/Uri;",
-            ">;II)V"
-        }
-    .end annotation
+.method public onUserChanged(ILandroid/content/Context;)V
+    .locals 1
 
-    new-instance p1, Ljava/lang/StringBuilder;
+    iget-object p2, p0, Lcom/android/systemui/theme/ThemeOverlayController$3;->this$0:Lcom/android/systemui/theme/ThemeOverlayController;
 
-    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {p2}, Lcom/android/systemui/theme/ThemeOverlayController;->access$900(Lcom/android/systemui/theme/ThemeOverlayController;)Landroid/os/UserManager;
 
-    const-string p2, "Overlay changed for user: "
+    move-result-object p2
 
-    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p1, p4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    const-string p2, "ThemeOverlayController"
-
-    invoke-static {p2, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object p1, p0, Lcom/android/systemui/theme/ThemeOverlayController$3;->this$0:Lcom/android/systemui/theme/ThemeOverlayController;
-
-    invoke-static {p1}, Lcom/android/systemui/theme/ThemeOverlayController;->access$500(Lcom/android/systemui/theme/ThemeOverlayController;)Lcom/android/systemui/settings/UserTracker;
-
-    move-result-object p1
-
-    invoke-interface {p1}, Lcom/android/systemui/settings/UserTracker;->getUserId()I
+    invoke-virtual {p2, p1}, Landroid/os/UserManager;->isManagedProfile(I)Z
 
     move-result p1
 
-    if-eq p1, p4, :cond_0
+    iget-object p2, p0, Lcom/android/systemui/theme/ThemeOverlayController$3;->this$0:Lcom/android/systemui/theme/ThemeOverlayController;
+
+    invoke-static {p2}, Lcom/android/systemui/theme/ThemeOverlayController;->access$000(Lcom/android/systemui/theme/ThemeOverlayController;)Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;
+
+    move-result-object p2
+
+    invoke-interface {p2}, Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;->isCurrentUserSetup()Z
+
+    move-result p2
+
+    const-string v0, "ThemeOverlayController"
+
+    if-nez p2, :cond_0
+
+    if-eqz p1, :cond_0
+
+    new-instance p0, Ljava/lang/StringBuilder;
+
+    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string p2, "User setup not finished when new user event was received. Deferring... Managed profile? "
+
+    invoke-virtual {p0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-static {v0, p0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
     :cond_0
-    iget-object p1, p0, Lcom/android/systemui/theme/ThemeOverlayController$3;->this$0:Lcom/android/systemui/theme/ThemeOverlayController;
+    const-string p1, "Updating overlays for user switch / profile added."
 
-    invoke-static {p1}, Lcom/android/systemui/theme/ThemeOverlayController;->access$000(Lcom/android/systemui/theme/ThemeOverlayController;)Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;
-
-    move-result-object p1
-
-    invoke-interface {p1, p4}, Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;->isUserSetup(I)Z
-
-    move-result p1
-
-    const/4 p3, 0x1
-
-    if-nez p1, :cond_1
-
-    const-string p1, "Theme application deferred when setting changed."
-
-    invoke-static {p2, p1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-object p0, p0, Lcom/android/systemui/theme/ThemeOverlayController$3;->this$0:Lcom/android/systemui/theme/ThemeOverlayController;
 
-    invoke-static {p0, p3}, Lcom/android/systemui/theme/ThemeOverlayController;->access$102(Lcom/android/systemui/theme/ThemeOverlayController;Z)Z
+    const/4 p1, 0x1
 
-    return-void
-
-    :cond_1
-    iget-object p1, p0, Lcom/android/systemui/theme/ThemeOverlayController$3;->this$0:Lcom/android/systemui/theme/ThemeOverlayController;
-
-    invoke-static {p1}, Lcom/android/systemui/theme/ThemeOverlayController;->access$600(Lcom/android/systemui/theme/ThemeOverlayController;)Z
-
-    move-result p1
-
-    if-eqz p1, :cond_2
-
-    const-string p1, "Skipping setting change"
-
-    invoke-static {p2, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object p0, p0, Lcom/android/systemui/theme/ThemeOverlayController$3;->this$0:Lcom/android/systemui/theme/ThemeOverlayController;
-
-    const/4 p1, 0x0
-
-    invoke-static {p0, p1}, Lcom/android/systemui/theme/ThemeOverlayController;->access$602(Lcom/android/systemui/theme/ThemeOverlayController;Z)Z
-
-    return-void
-
-    :cond_2
-    iget-object p0, p0, Lcom/android/systemui/theme/ThemeOverlayController$3;->this$0:Lcom/android/systemui/theme/ThemeOverlayController;
-
-    invoke-static {p0, p3}, Lcom/android/systemui/theme/ThemeOverlayController;->access$200(Lcom/android/systemui/theme/ThemeOverlayController;Z)V
+    invoke-static {p0, p1}, Lcom/android/systemui/theme/ThemeOverlayController;->access$200(Lcom/android/systemui/theme/ThemeOverlayController;Z)V
 
     return-void
 .end method

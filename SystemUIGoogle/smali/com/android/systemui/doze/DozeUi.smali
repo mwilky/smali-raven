@@ -4,14 +4,10 @@
 
 # interfaces
 .implements Lcom/android/systemui/doze/DozeMachine$Part;
-.implements Lcom/android/systemui/tuner/TunerService$Tunable;
-.implements Lcom/android/systemui/statusbar/policy/ConfigurationController$ConfigurationListener;
 
 
 # instance fields
 .field private final mCanAnimateTransition:Z
-
-.field private final mConfigurationController:Lcom/android/systemui/statusbar/policy/ConfigurationController;
 
 .field private final mContext:Landroid/content/Context;
 
@@ -22,8 +18,6 @@
 .field private final mHandler:Landroid/os/Handler;
 
 .field private final mHost:Lcom/android/systemui/doze/DozeHost;
-
-.field private mKeyguardShowing:Z
 
 .field private final mKeyguardVisibilityCallback:Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
 
@@ -42,8 +36,6 @@
 .end field
 
 .field private final mTimeTicker:Lcom/android/systemui/util/AlarmTimeout;
-
-.field private final mTunerService:Lcom/android/systemui/tuner/TunerService;
 
 .field private final mWakeLock:Lcom/android/systemui/util/wakelock/WakeLock;
 
@@ -65,7 +57,7 @@
     return-void
 .end method
 
-.method public constructor <init>(Landroid/content/Context;Landroid/app/AlarmManager;Lcom/android/systemui/util/wakelock/WakeLock;Lcom/android/systemui/doze/DozeHost;Landroid/os/Handler;Lcom/android/systemui/statusbar/phone/DozeParameters;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/doze/DozeLog;Lcom/android/systemui/tuner/TunerService;Ldagger/Lazy;Lcom/android/systemui/statusbar/policy/ConfigurationController;)V
+.method public constructor <init>(Landroid/content/Context;Landroid/app/AlarmManager;Lcom/android/systemui/util/wakelock/WakeLock;Lcom/android/systemui/doze/DozeHost;Landroid/os/Handler;Lcom/android/systemui/statusbar/phone/DozeParameters;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/doze/DozeLog;Ldagger/Lazy;)V
     .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -78,12 +70,9 @@
             "Lcom/android/systemui/statusbar/phone/DozeParameters;",
             "Lcom/android/keyguard/KeyguardUpdateMonitor;",
             "Lcom/android/systemui/doze/DozeLog;",
-            "Lcom/android/systemui/tuner/TunerService;",
             "Ldagger/Lazy<",
             "Lcom/android/systemui/plugins/statusbar/StatusBarStateController;",
-            ">;",
-            "Lcom/android/systemui/statusbar/policy/ConfigurationController;",
-            ")V"
+            ">;)V"
         }
     .end annotation
 
@@ -133,42 +122,12 @@
 
     iput-object p8, p0, Lcom/android/systemui/doze/DozeUi;->mDozeLog:Lcom/android/systemui/doze/DozeLog;
 
-    iput-object p9, p0, Lcom/android/systemui/doze/DozeUi;->mTunerService:Lcom/android/systemui/tuner/TunerService;
-
-    iput-object p10, p0, Lcom/android/systemui/doze/DozeUi;->mStatusBarStateController:Ldagger/Lazy;
-
-    const-string p1, "doze_always_on"
-
-    filled-new-array {p1}, [Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-virtual {p9, p0, p1}, Lcom/android/systemui/tuner/TunerService;->addTunable(Lcom/android/systemui/tuner/TunerService$Tunable;[Ljava/lang/String;)V
-
-    iput-object p11, p0, Lcom/android/systemui/doze/DozeUi;->mConfigurationController:Lcom/android/systemui/statusbar/policy/ConfigurationController;
-
-    invoke-interface {p11, p0}, Lcom/android/systemui/statusbar/policy/CallbackController;->addCallback(Ljava/lang/Object;)V
+    iput-object p9, p0, Lcom/android/systemui/doze/DozeUi;->mStatusBarStateController:Ldagger/Lazy;
 
     return-void
 .end method
 
-.method static synthetic access$002(Lcom/android/systemui/doze/DozeUi;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/systemui/doze/DozeUi;->mKeyguardShowing:Z
-
-    return p1
-.end method
-
-.method static synthetic access$100(Lcom/android/systemui/doze/DozeUi;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/doze/DozeUi;->updateAnimateScreenOff()V
-
-    return-void
-.end method
-
-.method static synthetic access$200(Lcom/android/systemui/doze/DozeUi;)Lcom/android/systemui/doze/DozeMachine;
+.method static synthetic access$000(Lcom/android/systemui/doze/DozeUi;)Lcom/android/systemui/doze/DozeMachine;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/doze/DozeUi;->mMachine:Lcom/android/systemui/doze/DozeMachine;
@@ -331,62 +290,6 @@
     return-void
 .end method
 
-.method private updateAnimateScreenOff()V
-    .locals 2
-
-    iget-boolean v0, p0, Lcom/android/systemui/doze/DozeUi;->mCanAnimateTransition:Z
-
-    if-eqz v0, :cond_2
-
-    iget-object v0, p0, Lcom/android/systemui/doze/DozeUi;->mDozeParameters:Lcom/android/systemui/statusbar/phone/DozeParameters;
-
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/DozeParameters;->getAlwaysOn()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    iget-boolean v0, p0, Lcom/android/systemui/doze/DozeUi;->mKeyguardShowing:Z
-
-    if-nez v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/doze/DozeUi;->mDozeParameters:Lcom/android/systemui/statusbar/phone/DozeParameters;
-
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/DozeParameters;->shouldControlUnlockedScreenOff()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/systemui/doze/DozeUi;->mHost:Lcom/android/systemui/doze/DozeHost;
-
-    invoke-interface {v0}, Lcom/android/systemui/doze/DozeHost;->isPowerSaveActive()Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    const/4 v0, 0x1
-
-    goto :goto_0
-
-    :cond_1
-    const/4 v0, 0x0
-
-    :goto_0
-    iget-object v1, p0, Lcom/android/systemui/doze/DozeUi;->mDozeParameters:Lcom/android/systemui/statusbar/phone/DozeParameters;
-
-    invoke-virtual {v1, v0}, Lcom/android/systemui/statusbar/phone/DozeParameters;->setControlScreenOffAnimation(Z)V
-
-    iget-object p0, p0, Lcom/android/systemui/doze/DozeUi;->mHost:Lcom/android/systemui/doze/DozeHost;
-
-    invoke-interface {p0, v0}, Lcom/android/systemui/doze/DozeHost;->setAnimateScreenOff(Z)V
-
-    :cond_2
-    return-void
-.end method
-
 .method private updateAnimateWakeup(Lcom/android/systemui/doze/DozeMachine$State;)V
     .locals 2
 
@@ -498,55 +401,6 @@
 
 
 # virtual methods
-.method public destroy()V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/doze/DozeUi;->mTunerService:Lcom/android/systemui/tuner/TunerService;
-
-    invoke-virtual {v0, p0}, Lcom/android/systemui/tuner/TunerService;->removeTunable(Lcom/android/systemui/tuner/TunerService$Tunable;)V
-
-    iget-object v0, p0, Lcom/android/systemui/doze/DozeUi;->mConfigurationController:Lcom/android/systemui/statusbar/policy/ConfigurationController;
-
-    invoke-interface {v0, p0}, Lcom/android/systemui/statusbar/policy/CallbackController;->removeCallback(Ljava/lang/Object;)V
-
-    return-void
-.end method
-
-.method getKeyguardCallback()Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
-    .locals 0
-    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
-    .end annotation
-
-    iget-object p0, p0, Lcom/android/systemui/doze/DozeUi;->mKeyguardVisibilityCallback:Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
-
-    return-object p0
-.end method
-
-.method public onConfigChanged(Landroid/content/res/Configuration;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/doze/DozeUi;->updateAnimateScreenOff()V
-
-    return-void
-.end method
-
-.method public onTuningChanged(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 0
-
-    const-string p2, "doze_always_on"
-
-    invoke-virtual {p1, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p1
-
-    if-eqz p1, :cond_0
-
-    invoke-direct {p0}, Lcom/android/systemui/doze/DozeUi;->updateAnimateScreenOff()V
-
-    :cond_0
-    return-void
-.end method
-
 .method public setDozeMachine(Lcom/android/systemui/doze/DozeMachine;)V
     .locals 0
 

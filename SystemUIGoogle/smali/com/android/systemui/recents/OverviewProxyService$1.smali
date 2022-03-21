@@ -19,18 +19,26 @@
 
 
 # direct methods
-.method public static synthetic $r8$lambda$2JgHAa8GExKeBOZAaOw787fNOJw(Lcom/android/systemui/recents/OverviewProxyService$1;Z)V
+.method public static synthetic $r8$lambda$3MyHYUESwjq1QhDV1UOje-Aug2o(Lcom/android/systemui/recents/OverviewProxyService$1;Z)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/recents/OverviewProxyService$1;->lambda$onOverviewShown$8(Z)V
+    invoke-direct {p0, p1}, Lcom/android/systemui/recents/OverviewProxyService$1;->lambda$onOverviewShown$11(Z)V
 
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$40I1jyCluUGCOaA7efdx6lOnamE(ZLcom/android/wm/shell/legacysplitscreen/LegacySplitScreen;)V
+.method public static synthetic $r8$lambda$3lv73vs9_Lc97TpotBciTuDPbbQ(Lcom/android/systemui/recents/OverviewProxyService$1;Landroid/view/MotionEvent;Lcom/android/systemui/statusbar/phone/StatusBar;)V
     .locals 0
 
-    invoke-static {p0, p1}, Lcom/android/systemui/recents/OverviewProxyService$1;->lambda$setSplitScreenMinimized$14(ZLcom/android/wm/shell/legacysplitscreen/LegacySplitScreen;)V
+    invoke-direct {p0, p1, p2}, Lcom/android/systemui/recents/OverviewProxyService$1;->lambda$onStatusBarMotionEvent$4(Landroid/view/MotionEvent;Lcom/android/systemui/statusbar/phone/StatusBar;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$42gDl7SQJ0x6lC_qRR0IuFSJ43g(Lcom/android/systemui/recents/OverviewProxyService$1;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/systemui/recents/OverviewProxyService$1;->lambda$expandNotificationPanel$25()V
 
     return-void
 .end method
@@ -43,28 +51,74 @@
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$GBmwncgLIP4Zee5Oh-ocYLPtcUw(Lcom/android/systemui/recents/OverviewProxyService$1;)V
+.method public static synthetic $r8$lambda$8GVPnlGuOV62tQe9f7hc_Yu5Dic(Lcom/android/systemui/recents/OverviewProxyService$1;)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/systemui/recents/OverviewProxyService$1;->lambda$onBackPressed$5()V
+    invoke-direct {p0}, Lcom/android/systemui/recents/OverviewProxyService$1;->lambda$onBackPressed$6()V
 
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$HLL1eaX-1Dghdikw2-eg5p3XOEU(Lcom/android/systemui/recents/OverviewProxyService$1;F)V
+.method public static synthetic $r8$lambda$ATqwkGbEQbYo1fYOQBGWqZYsv54(Lcom/android/systemui/recents/OverviewProxyService$1;)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/recents/OverviewProxyService$1;->lambda$onAssistantProgress$11(F)V
+    invoke-direct {p0}, Lcom/android/systemui/recents/OverviewProxyService$1;->lambda$notifySwipeUpGestureStarted$23()V
 
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$ISV6Pn_Hy0GT6ziOP6BsyJP1n4s(ILdagger/Lazy;)V
+.method public static synthetic $r8$lambda$DVWHCzjWn79g53a5jp_2_bIDLJY(Lcom/android/systemui/recents/OverviewProxyService$1;F)V
     .locals 0
 
-    invoke-static {p0, p1}, Lcom/android/systemui/recents/OverviewProxyService$1;->lambda$startScreenPinning$0(ILdagger/Lazy;)V
+    invoke-direct {p0, p1}, Lcom/android/systemui/recents/OverviewProxyService$1;->lambda$onAssistantProgress$15(F)V
 
     return-void
+.end method
+
+.method public static synthetic $r8$lambda$EMvirdpVoHPM1x7HVkZLs51QSeo(Lcom/android/systemui/recents/OverviewProxyService$1;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/systemui/recents/OverviewProxyService$1;->lambda$notifyAccessibilityButtonLongClicked$19()V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$EQ-hNM_s_ou6d4_sJNOFi1uQueA(Ljava/lang/Runnable;)Ljava/lang/Object;
+    .locals 0
+
+    invoke-static {p0}, Lcom/android/systemui/recents/OverviewProxyService$1;->lambda$verifyCallerAndClearCallingIdentity$26(Ljava/lang/Runnable;)Ljava/lang/Object;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static synthetic $r8$lambda$GLLx13oEkmjlYUhZJinfa6GzPQ8(Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreen;)Landroid/graphics/Rect;
+    .locals 0
+
+    invoke-static {p0}, Lcom/android/systemui/recents/OverviewProxyService$1;->lambda$getNonMinimizedSplitScreenSecondaryBounds$12(Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreen;)Landroid/graphics/Rect;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static synthetic $r8$lambda$IBg28_vaDNWW4pKydu0trn4zupI(Lcom/android/systemui/recents/OverviewProxyService$1;FZ)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/systemui/recents/OverviewProxyService$1;->lambda$setNavBarButtonAlpha$14(FZ)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$JWUG7pIBDd2p0lGrjRQm6OJpXpk(Lcom/android/systemui/recents/OverviewProxyService$1;Ljava/lang/Runnable;)Ljava/lang/Boolean;
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/systemui/recents/OverviewProxyService$1;->lambda$verifyCallerAndClearCallingIdentityPostMain$27(Ljava/lang/Runnable;)Ljava/lang/Boolean;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method public static synthetic $r8$lambda$LH-44PafQiAaDgNB3OGPlnJdAqw(Lcom/android/systemui/recents/OverviewProxyService$1;Z)V
@@ -75,18 +129,42 @@
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$Qd0GdgEzCv4Tv9BMEo0V2kChLdQ(Lcom/android/wm/shell/pip/Pip;)V
+.method public static synthetic $r8$lambda$MYtnpxfI0IaHwV2wCHDJcLlCmWg(Lcom/android/systemui/recents/OverviewProxyService$1;Landroid/view/MotionEvent;)V
     .locals 0
 
-    invoke-static {p0}, Lcom/android/systemui/recents/OverviewProxyService$1;->lambda$notifySwipeToHomeFinished$15(Lcom/android/wm/shell/pip/Pip;)V
+    invoke-direct {p0, p1}, Lcom/android/systemui/recents/OverviewProxyService$1;->lambda$onStatusBarMotionEvent$5(Landroid/view/MotionEvent;)V
 
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$Z81msrRnDwLB2CmvnggTuJEqEEY(Lcom/android/systemui/recents/OverviewProxyService$1;Z)V
+.method public static synthetic $r8$lambda$Mp4ATWfDSrLRRGibyhrKW2v8LoU(ZLcom/android/wm/shell/legacysplitscreen/LegacySplitScreen;)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/recents/OverviewProxyService$1;->lambda$setHomeRotationEnabled$6(Z)V
+    invoke-static {p0, p1}, Lcom/android/systemui/recents/OverviewProxyService$1;->lambda$setSplitScreenMinimized$20(ZLcom/android/wm/shell/legacysplitscreen/LegacySplitScreen;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$NF-sUoYS8d441zcPOYeHPtGl0LE(Lcom/android/systemui/recents/OverviewProxyService$1;I)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/systemui/recents/OverviewProxyService$1;->lambda$notifyAccessibilityButtonClicked$18(I)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$W8h7K19fVKEq-PX5-84STDoQP1g(Lcom/android/systemui/recents/OverviewProxyService$1;Z)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/systemui/recents/OverviewProxyService$1;->lambda$setHomeRotationEnabled$8(Z)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$X0frDxCPAme-_ER7CrwgWTRLVOM(Lcom/android/wm/shell/pip/Pip;)V
+    .locals 0
+
+    invoke-static {p0}, Lcom/android/systemui/recents/OverviewProxyService$1;->lambda$notifySwipeToHomeFinished$21(Lcom/android/wm/shell/pip/Pip;)V
 
     return-void
 .end method
@@ -99,52 +177,68 @@
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$cfa42ktpei2hAZ2lOXTQW6mR8L0(Lcom/android/systemui/recents/OverviewProxyService$1;I)V
+.method public static synthetic $r8$lambda$bOzLsFvG2gA8I9D6wTUlNU1MNPA(ILcom/android/systemui/statusbar/phone/StatusBar;)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/recents/OverviewProxyService$1;->lambda$notifyPrioritizedRotation$17(I)V
+    invoke-static {p0, p1}, Lcom/android/systemui/recents/OverviewProxyService$1;->lambda$startScreenPinning$0(ILcom/android/systemui/statusbar/phone/StatusBar;)V
 
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$l-emq-RSIDewH5E81y63uL8Hjhk(Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreen;)Landroid/graphics/Rect;
+.method public static synthetic $r8$lambda$g_jS4Lb1_cKNpyhnCRJEeQ1zg-Q(Lcom/android/systemui/recents/OverviewProxyService$1;Landroid/os/Bundle;)V
     .locals 0
 
-    invoke-static {p0}, Lcom/android/systemui/recents/OverviewProxyService$1;->lambda$getNonMinimizedSplitScreenSecondaryBounds$9(Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreen;)Landroid/graphics/Rect;
+    invoke-direct {p0, p1}, Lcom/android/systemui/recents/OverviewProxyService$1;->lambda$startAssistant$17(Landroid/os/Bundle;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$hXJmiadNDhGI284b2mK6rSGbZ-k(Lcom/android/systemui/recents/OverviewProxyService$1;F)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/systemui/recents/OverviewProxyService$1;->lambda$onAssistantGestureCompletion$16(F)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$jyO22PJy3nXPe_7obXY8M-hYsdc(Lcom/android/systemui/recents/OverviewProxyService$1;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/systemui/recents/OverviewProxyService$1;->lambda$notifySwipeToHomeFinished$22()V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$l0Grgg8HqM_Cz46z6uFeGkW7SsE(Lcom/android/systemui/recents/OverviewProxyService$1;ZZ)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/systemui/recents/OverviewProxyService$1;->lambda$notifyTaskbarStatus$9(ZZ)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$l55HvUFfq_RqJq3lQ8pfTJjimI8(Lcom/android/systemui/recents/OverviewProxyService$1;)Landroid/graphics/Rect;
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/systemui/recents/OverviewProxyService$1;->lambda$getNonMinimizedSplitScreenSecondaryBounds$13()Landroid/graphics/Rect;
 
     move-result-object p0
 
     return-object p0
 .end method
 
-.method public static synthetic $r8$lambda$qHqqhpO5o0ID23A1JdWUDY2z1aM(Lcom/android/systemui/recents/OverviewProxyService$1;)V
+.method public static synthetic $r8$lambda$sT3ZsYhx5pIH37WOnUN3PNAJShE(Lcom/android/systemui/recents/OverviewProxyService$1;I)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/systemui/recents/OverviewProxyService$1;->lambda$notifySwipeUpGestureStarted$16()V
+    invoke-direct {p0, p1}, Lcom/android/systemui/recents/OverviewProxyService$1;->lambda$notifyPrioritizedRotation$24(I)V
 
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$tmw7OYIUpxUfM0HqMFPGNuXf5Bo(Lcom/android/systemui/recents/OverviewProxyService$1;F)V
+.method public static synthetic $r8$lambda$tAJ1cIROgAYzbS4RqeO9XeCpY-E(Lcom/android/systemui/recents/OverviewProxyService$1;Z)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/recents/OverviewProxyService$1;->lambda$onAssistantGestureCompletion$12(F)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$uR9_N7EkgDgWIJHUdWtVffJ6Y8E(Lcom/android/systemui/recents/OverviewProxyService$1;Landroid/view/MotionEvent;Ldagger/Lazy;)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/recents/OverviewProxyService$1;->lambda$onStatusBarMotionEvent$4(Landroid/view/MotionEvent;Ldagger/Lazy;)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$xUClUppKBfKFujF-0BLLP83Hwa8(Lcom/android/systemui/recents/OverviewProxyService$1;FZ)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/recents/OverviewProxyService$1;->lambda$setNavBarButtonAlpha$10(FZ)V
+    invoke-direct {p0, p1}, Lcom/android/systemui/recents/OverviewProxyService$1;->lambda$notifyTaskbarAutohideSuspend$10(Z)V
 
     return-void
 .end method
@@ -153,14 +247,6 @@
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/systemui/recents/OverviewProxyService$1;->lambda$onStatusBarMotionEvent$3(Landroid/view/MotionEvent;Lcom/android/systemui/statusbar/phone/StatusBar;)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$zvsDwFM4mjDpFMNJZbSWtzjGEHE(Lcom/android/systemui/recents/OverviewProxyService$1;Landroid/os/Bundle;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/recents/OverviewProxyService$1;->lambda$startAssistant$13(Landroid/os/Bundle;)V
 
     return-void
 .end method
@@ -175,7 +261,23 @@
     return-void
 .end method
 
-.method private static synthetic lambda$getNonMinimizedSplitScreenSecondaryBounds$9(Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreen;)Landroid/graphics/Rect;
+.method private synthetic lambda$expandNotificationPanel$25()V
+    .locals 1
+
+    iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService$1;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
+
+    invoke-static {p0}, Lcom/android/systemui/recents/OverviewProxyService;->access$600(Lcom/android/systemui/recents/OverviewProxyService;)Lcom/android/systemui/statusbar/CommandQueue;
+
+    move-result-object p0
+
+    const/16 v0, 0x119
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/CommandQueue;->handleSystemKey(I)V
+
+    return-void
+.end method
+
+.method private static synthetic lambda$getNonMinimizedSplitScreenSecondaryBounds$12(Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreen;)Landroid/graphics/Rect;
     .locals 0
 
     invoke-interface {p0}, Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreen;->getDividerView()Lcom/android/wm/shell/legacysplitscreen/DividerView;
@@ -189,17 +291,97 @@
     return-object p0
 .end method
 
-.method private synthetic lambda$notifyPrioritizedRotation$17(I)V
+.method private synthetic lambda$getNonMinimizedSplitScreenSecondaryBounds$13()Landroid/graphics/Rect;
+    .locals 1
+
+    iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService$1;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
+
+    invoke-static {p0}, Lcom/android/systemui/recents/OverviewProxyService;->access$200(Lcom/android/systemui/recents/OverviewProxyService;)Ljava/util/Optional;
+
+    move-result-object p0
+
+    sget-object v0, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda24;->INSTANCE:Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda24;
+
+    invoke-virtual {p0, v0}, Ljava/util/Optional;->map(Ljava/util/function/Function;)Ljava/util/Optional;
+
+    move-result-object p0
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, v0}, Ljava/util/Optional;->orElse(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Landroid/graphics/Rect;
+
+    return-object p0
+.end method
+
+.method private synthetic lambda$notifyAccessibilityButtonClicked$18(I)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService$1;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
 
-    invoke-static {p0, p1}, Lcom/android/systemui/recents/OverviewProxyService;->access$900(Lcom/android/systemui/recents/OverviewProxyService;I)V
+    invoke-static {p0}, Lcom/android/systemui/recents/OverviewProxyService;->access$000(Lcom/android/systemui/recents/OverviewProxyService;)Landroid/content/Context;
+
+    move-result-object p0
+
+    invoke-static {p0}, Landroid/view/accessibility/AccessibilityManager;->getInstance(Landroid/content/Context;)Landroid/view/accessibility/AccessibilityManager;
+
+    move-result-object p0
+
+    invoke-virtual {p0, p1}, Landroid/view/accessibility/AccessibilityManager;->notifyAccessibilityButtonClicked(I)V
 
     return-void
 .end method
 
-.method private static synthetic lambda$notifySwipeToHomeFinished$15(Lcom/android/wm/shell/pip/Pip;)V
+.method private synthetic lambda$notifyAccessibilityButtonLongClicked$19()V
+    .locals 3
+
+    new-instance v0, Landroid/content/Intent;
+
+    const-string v1, "com.android.internal.intent.action.CHOOSE_ACCESSIBILITY_BUTTON"
+
+    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    const-class v1, Lcom/android/internal/accessibility/dialog/AccessibilityButtonChooserActivity;
+
+    invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string v2, "android"
+
+    invoke-virtual {v0, v2, v1}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    const v1, 0x10008000
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+
+    iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService$1;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
+
+    invoke-static {p0}, Lcom/android/systemui/recents/OverviewProxyService;->access$000(Lcom/android/systemui/recents/OverviewProxyService;)Landroid/content/Context;
+
+    move-result-object p0
+
+    sget-object v1, Landroid/os/UserHandle;->CURRENT:Landroid/os/UserHandle;
+
+    invoke-virtual {p0, v0, v1}, Landroid/content/Context;->startActivityAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
+
+    return-void
+.end method
+
+.method private synthetic lambda$notifyPrioritizedRotation$24(I)V
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService$1;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
+
+    invoke-static {p0, p1}, Lcom/android/systemui/recents/OverviewProxyService;->access$700(Lcom/android/systemui/recents/OverviewProxyService;I)V
+
+    return-void
+.end method
+
+.method private static synthetic lambda$notifySwipeToHomeFinished$21(Lcom/android/wm/shell/pip/Pip;)V
     .locals 1
 
     const/4 v0, 0x1
@@ -209,17 +391,63 @@
     return-void
 .end method
 
-.method private synthetic lambda$notifySwipeUpGestureStarted$16()V
-    .locals 0
+.method private synthetic lambda$notifySwipeToHomeFinished$22()V
+    .locals 1
 
     iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService$1;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
 
-    invoke-static {p0}, Lcom/android/systemui/recents/OverviewProxyService;->access$1000(Lcom/android/systemui/recents/OverviewProxyService;)V
+    invoke-static {p0}, Lcom/android/systemui/recents/OverviewProxyService;->access$900(Lcom/android/systemui/recents/OverviewProxyService;)Ljava/util/Optional;
+
+    move-result-object p0
+
+    sget-object v0, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda23;->INSTANCE:Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda23;
+
+    invoke-virtual {p0, v0}, Ljava/util/Optional;->ifPresent(Ljava/util/function/Consumer;)V
 
     return-void
 .end method
 
-.method private synthetic lambda$onAssistantGestureCompletion$12(F)V
+.method private synthetic lambda$notifySwipeUpGestureStarted$23()V
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService$1;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
+
+    invoke-static {p0}, Lcom/android/systemui/recents/OverviewProxyService;->access$800(Lcom/android/systemui/recents/OverviewProxyService;)V
+
+    return-void
+.end method
+
+.method private synthetic lambda$notifyTaskbarAutohideSuspend$10(Z)V
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService$1;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
+
+    invoke-static {p0, p1}, Lcom/android/systemui/recents/OverviewProxyService;->access$1500(Lcom/android/systemui/recents/OverviewProxyService;Z)V
+
+    return-void
+.end method
+
+.method private synthetic lambda$notifyTaskbarStatus$9(ZZ)V
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService$1;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
+
+    invoke-static {p0, p1, p2}, Lcom/android/systemui/recents/OverviewProxyService;->access$1600(Lcom/android/systemui/recents/OverviewProxyService;ZZ)V
+
+    return-void
+.end method
+
+.method private synthetic lambda$onAssistantGestureCompletion$16(F)V
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService$1;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
+
+    invoke-static {p0, p1}, Lcom/android/systemui/recents/OverviewProxyService;->access$1100(Lcom/android/systemui/recents/OverviewProxyService;F)V
+
+    return-void
+.end method
+
+.method private synthetic lambda$onAssistantProgress$15(F)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService$1;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
@@ -229,17 +457,7 @@
     return-void
 .end method
 
-.method private synthetic lambda$onAssistantProgress$11(F)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService$1;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
-
-    invoke-static {p0, p1}, Lcom/android/systemui/recents/OverviewProxyService;->access$1300(Lcom/android/systemui/recents/OverviewProxyService;F)V
-
-    return-void
-.end method
-
-.method private synthetic lambda$onBackPressed$5()V
+.method private synthetic lambda$onBackPressed$6()V
     .locals 8
 
     const/4 v0, 0x0
@@ -269,12 +487,12 @@
     return-void
 .end method
 
-.method private synthetic lambda$onOverviewShown$8(Z)V
+.method private synthetic lambda$onOverviewShown$11(Z)V
     .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/recents/OverviewProxyService$1;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
 
-    invoke-static {v0}, Lcom/android/systemui/recents/OverviewProxyService;->access$1500(Lcom/android/systemui/recents/OverviewProxyService;)Ljava/util/List;
+    invoke-static {v0}, Lcom/android/systemui/recents/OverviewProxyService;->access$1400(Lcom/android/systemui/recents/OverviewProxyService;)Ljava/util/List;
 
     move-result-object v0
 
@@ -289,7 +507,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/recents/OverviewProxyService$1;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
 
-    invoke-static {v1}, Lcom/android/systemui/recents/OverviewProxyService;->access$1500(Lcom/android/systemui/recents/OverviewProxyService;)Ljava/util/List;
+    invoke-static {v1}, Lcom/android/systemui/recents/OverviewProxyService;->access$1400(Lcom/android/systemui/recents/OverviewProxyService;)Ljava/util/List;
 
     move-result-object v1
 
@@ -310,7 +528,7 @@
 .end method
 
 .method private synthetic lambda$onStatusBarMotionEvent$3(Landroid/view/MotionEvent;Lcom/android/systemui/statusbar/phone/StatusBar;)V
-    .locals 7
+    .locals 9
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionMasked()I
 
@@ -324,7 +542,7 @@
 
     iget-object v3, p0, Lcom/android/systemui/recents/OverviewProxyService$1;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
 
-    invoke-static {v3, v2}, Lcom/android/systemui/recents/OverviewProxyService;->access$1702(Lcom/android/systemui/recents/OverviewProxyService;Z)Z
+    invoke-static {v3, v2}, Lcom/android/systemui/recents/OverviewProxyService;->access$1902(Lcom/android/systemui/recents/OverviewProxyService;Z)Z
 
     iget-object v3, p0, Lcom/android/systemui/recents/OverviewProxyService$1;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
 
@@ -332,7 +550,7 @@
 
     move-result v4
 
-    invoke-static {v3, v4}, Lcom/android/systemui/recents/OverviewProxyService;->access$1802(Lcom/android/systemui/recents/OverviewProxyService;F)F
+    invoke-static {v3, v4}, Lcom/android/systemui/recents/OverviewProxyService;->access$2002(Lcom/android/systemui/recents/OverviewProxyService;F)F
 
     iget-object v3, p0, Lcom/android/systemui/recents/OverviewProxyService$1;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
 
@@ -340,11 +558,11 @@
 
     move-result-wide v4
 
-    invoke-static {v3, v4, v5}, Lcom/android/systemui/recents/OverviewProxyService;->access$1902(Lcom/android/systemui/recents/OverviewProxyService;J)J
+    invoke-static {v3, v4, v5}, Lcom/android/systemui/recents/OverviewProxyService;->access$2102(Lcom/android/systemui/recents/OverviewProxyService;J)J
 
     iget-object v3, p0, Lcom/android/systemui/recents/OverviewProxyService$1;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
 
-    invoke-static {v3}, Lcom/android/systemui/recents/OverviewProxyService;->access$1700(Lcom/android/systemui/recents/OverviewProxyService;)Z
+    invoke-static {v3}, Lcom/android/systemui/recents/OverviewProxyService;->access$1900(Lcom/android/systemui/recents/OverviewProxyService;)Z
 
     move-result v3
 
@@ -362,48 +580,48 @@
     :cond_1
     iget-object v4, p0, Lcom/android/systemui/recents/OverviewProxyService$1;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
 
-    invoke-static {v4, v1}, Lcom/android/systemui/recents/OverviewProxyService;->access$1702(Lcom/android/systemui/recents/OverviewProxyService;Z)Z
+    invoke-static {v4, v1}, Lcom/android/systemui/recents/OverviewProxyService;->access$1902(Lcom/android/systemui/recents/OverviewProxyService;Z)Z
 
-    iget-object v4, p0, Lcom/android/systemui/recents/OverviewProxyService$1;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
-
-    invoke-static {v4}, Lcom/android/systemui/recents/OverviewProxyService;->access$1700(Lcom/android/systemui/recents/OverviewProxyService;)Z
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
 
     move-result v4
+
+    iget-object v5, p0, Lcom/android/systemui/recents/OverviewProxyService$1;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
+
+    invoke-static {v5}, Lcom/android/systemui/recents/OverviewProxyService;->access$2000(Lcom/android/systemui/recents/OverviewProxyService;)F
+
+    move-result v5
+
+    sub-float/2addr v4, v5
+
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getEventTime()J
+
+    move-result-wide v5
+
+    iget-object v7, p0, Lcom/android/systemui/recents/OverviewProxyService$1;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
+
+    invoke-static {v7}, Lcom/android/systemui/recents/OverviewProxyService;->access$2100(Lcom/android/systemui/recents/OverviewProxyService;)J
+
+    move-result-wide v7
+
+    sub-long/2addr v5, v7
+
+    long-to-float v5, v5
+
+    div-float/2addr v4, v5
+
+    iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService$1;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
+
+    invoke-static {p0}, Lcom/android/systemui/recents/OverviewProxyService;->access$1900(Lcom/android/systemui/recents/OverviewProxyService;)Z
+
+    move-result p0
 
     if-ne v0, v3, :cond_2
 
     move v1, v2
 
     :cond_2
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
-
-    move-result v0
-
-    iget-object v2, p0, Lcom/android/systemui/recents/OverviewProxyService$1;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
-
-    invoke-static {v2}, Lcom/android/systemui/recents/OverviewProxyService;->access$1800(Lcom/android/systemui/recents/OverviewProxyService;)F
-
-    move-result v2
-
-    sub-float/2addr v0, v2
-
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getEventTime()J
-
-    move-result-wide v2
-
-    iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService$1;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
-
-    invoke-static {p0}, Lcom/android/systemui/recents/OverviewProxyService;->access$1900(Lcom/android/systemui/recents/OverviewProxyService;)J
-
-    move-result-wide v5
-
-    sub-long/2addr v2, v5
-
-    long-to-float p0, v2
-
-    div-float/2addr v0, p0
-
-    invoke-virtual {p2, v4, v1, v0}, Lcom/android/systemui/statusbar/phone/StatusBar;->onInputFocusTransfer(ZZF)V
+    invoke-virtual {p2, p0, v1, v4}, Lcom/android/systemui/statusbar/phone/StatusBar;->onInputFocusTransfer(ZZF)V
 
     :cond_3
     invoke-virtual {p1}, Landroid/view/MotionEvent;->recycle()V
@@ -411,14 +629,8 @@
     return-void
 .end method
 
-.method private synthetic lambda$onStatusBarMotionEvent$4(Landroid/view/MotionEvent;Ldagger/Lazy;)V
+.method private synthetic lambda$onStatusBarMotionEvent$4(Landroid/view/MotionEvent;Lcom/android/systemui/statusbar/phone/StatusBar;)V
     .locals 2
-
-    invoke-interface {p2}, Ldagger/Lazy;->get()Ljava/lang/Object;
-
-    move-result-object p2
-
-    check-cast p2, Lcom/android/systemui/statusbar/phone/StatusBar;
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionMasked()I
 
@@ -435,58 +647,82 @@
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/recents/OverviewProxyService$1;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
 
-    invoke-static {v0}, Lcom/android/systemui/recents/OverviewProxyService;->access$000(Lcom/android/systemui/recents/OverviewProxyService;)Landroid/os/Handler;
+    invoke-static {v0}, Lcom/android/systemui/recents/OverviewProxyService;->access$300(Lcom/android/systemui/recents/OverviewProxyService;)Landroid/os/Handler;
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda8;
+    new-instance v1, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda13;
 
-    invoke-direct {v1, p0, p1, p2}, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda8;-><init>(Lcom/android/systemui/recents/OverviewProxyService$1;Landroid/view/MotionEvent;Lcom/android/systemui/statusbar/phone/StatusBar;)V
+    invoke-direct {v1, p0, p1, p2}, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda13;-><init>(Lcom/android/systemui/recents/OverviewProxyService$1;Landroid/view/MotionEvent;Lcom/android/systemui/statusbar/phone/StatusBar;)V
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     return-void
 .end method
 
-.method private synthetic lambda$setHomeRotationEnabled$6(Z)V
-    .locals 0
+.method private synthetic lambda$onStatusBarMotionEvent$5(Landroid/view/MotionEvent;)V
+    .locals 2
 
-    iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService$1;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
+    iget-object v0, p0, Lcom/android/systemui/recents/OverviewProxyService$1;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
 
-    invoke-static {p0, p1}, Lcom/android/systemui/recents/OverviewProxyService;->access$1600(Lcom/android/systemui/recents/OverviewProxyService;Z)V
+    invoke-static {v0}, Lcom/android/systemui/recents/OverviewProxyService;->access$1800(Lcom/android/systemui/recents/OverviewProxyService;)Ldagger/Lazy;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ldagger/Lazy;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/util/Optional;
+
+    new-instance v1, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda21;
+
+    invoke-direct {v1, p0, p1}, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda21;-><init>(Lcom/android/systemui/recents/OverviewProxyService$1;Landroid/view/MotionEvent;)V
+
+    invoke-virtual {v0, v1}, Ljava/util/Optional;->ifPresent(Ljava/util/function/Consumer;)V
 
     return-void
 .end method
 
 .method private synthetic lambda$setHomeRotationEnabled$7(Z)V
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService$1;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
+
+    invoke-static {p0, p1}, Lcom/android/systemui/recents/OverviewProxyService;->access$1700(Lcom/android/systemui/recents/OverviewProxyService;Z)V
+
+    return-void
+.end method
+
+.method private synthetic lambda$setHomeRotationEnabled$8(Z)V
     .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/recents/OverviewProxyService$1;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
 
-    invoke-static {v0}, Lcom/android/systemui/recents/OverviewProxyService;->access$000(Lcom/android/systemui/recents/OverviewProxyService;)Landroid/os/Handler;
+    invoke-static {v0}, Lcom/android/systemui/recents/OverviewProxyService;->access$300(Lcom/android/systemui/recents/OverviewProxyService;)Landroid/os/Handler;
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda11;
+    new-instance v1, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda15;
 
-    invoke-direct {v1, p0, p1}, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda11;-><init>(Lcom/android/systemui/recents/OverviewProxyService$1;Z)V
+    invoke-direct {v1, p0, p1}, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda15;-><init>(Lcom/android/systemui/recents/OverviewProxyService$1;Z)V
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     return-void
 .end method
 
-.method private synthetic lambda$setNavBarButtonAlpha$10(FZ)V
+.method private synthetic lambda$setNavBarButtonAlpha$14(FZ)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService$1;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
 
-    invoke-static {p0, p1, p2}, Lcom/android/systemui/recents/OverviewProxyService;->access$1400(Lcom/android/systemui/recents/OverviewProxyService;FZ)V
+    invoke-static {p0, p1, p2}, Lcom/android/systemui/recents/OverviewProxyService;->access$1300(Lcom/android/systemui/recents/OverviewProxyService;FZ)V
 
     return-void
 .end method
 
-.method private static synthetic lambda$setSplitScreenMinimized$14(ZLcom/android/wm/shell/legacysplitscreen/LegacySplitScreen;)V
+.method private static synthetic lambda$setSplitScreenMinimized$20(ZLcom/android/wm/shell/legacysplitscreen/LegacySplitScreen;)V
     .locals 0
 
     invoke-interface {p1, p0}, Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreen;->setMinimized(Z)V
@@ -494,24 +730,18 @@
     return-void
 .end method
 
-.method private synthetic lambda$startAssistant$13(Landroid/os/Bundle;)V
+.method private synthetic lambda$startAssistant$17(Landroid/os/Bundle;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService$1;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
 
-    invoke-static {p0, p1}, Lcom/android/systemui/recents/OverviewProxyService;->access$1100(Lcom/android/systemui/recents/OverviewProxyService;Landroid/os/Bundle;)V
+    invoke-static {p0, p1}, Lcom/android/systemui/recents/OverviewProxyService;->access$1000(Lcom/android/systemui/recents/OverviewProxyService;Landroid/os/Bundle;)V
 
     return-void
 .end method
 
-.method private static synthetic lambda$startScreenPinning$0(ILdagger/Lazy;)V
+.method private static synthetic lambda$startScreenPinning$0(ILcom/android/systemui/statusbar/phone/StatusBar;)V
     .locals 1
-
-    invoke-interface {p1}, Ldagger/Lazy;->get()Ljava/lang/Object;
-
-    move-result-object p1
-
-    check-cast p1, Lcom/android/systemui/statusbar/phone/StatusBar;
 
     const/4 v0, 0x0
 
@@ -525,13 +755,19 @@
 
     iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService$1;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
 
-    invoke-static {p0}, Lcom/android/systemui/recents/OverviewProxyService;->access$100(Lcom/android/systemui/recents/OverviewProxyService;)Ljava/util/Optional;
+    invoke-static {p0}, Lcom/android/systemui/recents/OverviewProxyService;->access$1800(Lcom/android/systemui/recents/OverviewProxyService;)Ldagger/Lazy;
 
     move-result-object p0
 
-    new-instance v0, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda13;
+    invoke-interface {p0}, Ldagger/Lazy;->get()Ljava/lang/Object;
 
-    invoke-direct {v0, p1}, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda13;-><init>(I)V
+    move-result-object p0
+
+    check-cast p0, Ljava/util/Optional;
+
+    new-instance v0, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda20;
+
+    invoke-direct {v0, p1}, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda20;-><init>(I)V
 
     invoke-virtual {p0, v0}, Ljava/util/Optional;->ifPresent(Ljava/util/function/Consumer;)V
 
@@ -561,6 +797,36 @@
 
     :goto_0
     return-void
+.end method
+
+.method private static synthetic lambda$verifyCallerAndClearCallingIdentity$26(Ljava/lang/Runnable;)Ljava/lang/Object;
+    .locals 0
+
+    invoke-interface {p0}, Ljava/lang/Runnable;->run()V
+
+    const/4 p0, 0x0
+
+    return-object p0
+.end method
+
+.method private synthetic lambda$verifyCallerAndClearCallingIdentityPostMain$27(Ljava/lang/Runnable;)Ljava/lang/Boolean;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService$1;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
+
+    invoke-static {p0}, Lcom/android/systemui/recents/OverviewProxyService;->access$300(Lcom/android/systemui/recents/OverviewProxyService;)Landroid/os/Handler;
+
+    move-result-object p0
+
+    invoke-virtual {p0, p1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+
+    move-result p0
+
+    invoke-static {p0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method private sendEvent(II)Z
@@ -598,7 +864,7 @@
 
     iget-object v0, v0, Lcom/android/systemui/recents/OverviewProxyService$1;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
 
-    invoke-static {v0}, Lcom/android/systemui/recents/OverviewProxyService;->access$200(Lcom/android/systemui/recents/OverviewProxyService;)Landroid/content/Context;
+    invoke-static {v0}, Lcom/android/systemui/recents/OverviewProxyService;->access$000(Lcom/android/systemui/recents/OverviewProxyService;)Landroid/content/Context;
 
     move-result-object v0
 
@@ -638,7 +904,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService$1;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
 
-    invoke-static {p0}, Lcom/android/systemui/recents/OverviewProxyService;->access$800(Lcom/android/systemui/recents/OverviewProxyService;)I
+    invoke-static {p0}, Lcom/android/systemui/recents/OverviewProxyService;->access$500(Lcom/android/systemui/recents/OverviewProxyService;)I
 
     move-result p0
 
@@ -678,102 +944,109 @@
     return p0
 .end method
 
+.method private verifyCallerAndClearCallingIdentity(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/Object;
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<T:",
+            "Ljava/lang/Object;",
+            ">(",
+            "Ljava/lang/String;",
+            "Ljava/util/function/Supplier<",
+            "TT;>;)TT;"
+        }
+    .end annotation
 
-# virtual methods
-.method public expandNotificationPanel()V
-    .locals 3
+    invoke-direct {p0, p1}, Lcom/android/systemui/recents/OverviewProxyService$1;->verifyCaller(Ljava/lang/String;)Z
 
-    const-string v0, "expandNotificationPanel"
+    move-result p0
 
-    invoke-direct {p0, v0}, Lcom/android/systemui/recents/OverviewProxyService$1;->verifyCaller(Ljava/lang/String;)Z
+    if-nez p0, :cond_0
 
-    move-result v0
+    const/4 p0, 0x0
 
-    if-nez v0, :cond_0
-
-    return-void
+    return-object p0
 
     :cond_0
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
-    move-result-wide v0
+    move-result-wide p0
 
     :try_start_0
-    iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService$1;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
+    invoke-interface {p2}, Ljava/util/function/Supplier;->get()Ljava/lang/Object;
 
-    invoke-static {p0}, Lcom/android/systemui/recents/OverviewProxyService;->access$700(Lcom/android/systemui/recents/OverviewProxyService;)Lcom/android/systemui/statusbar/CommandQueue;
-
-    move-result-object p0
-
-    const/16 v2, 0x119
-
-    invoke-virtual {p0, v2}, Lcom/android/systemui/statusbar/CommandQueue;->handleSystemKey(I)V
+    move-result-object p2
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static {p0, p1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    return-void
+    return-object p2
 
     :catchall_0
-    move-exception p0
+    move-exception p2
 
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static {p0, p1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    throw p0
+    throw p2
+.end method
+
+.method private verifyCallerAndClearCallingIdentity(Ljava/lang/String;Ljava/lang/Runnable;)V
+    .locals 1
+
+    new-instance v0, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda27;
+
+    invoke-direct {v0, p2}, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda27;-><init>(Ljava/lang/Runnable;)V
+
+    invoke-direct {p0, p1, v0}, Lcom/android/systemui/recents/OverviewProxyService$1;->verifyCallerAndClearCallingIdentity(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/Object;
+
+    return-void
+.end method
+
+.method private verifyCallerAndClearCallingIdentityPostMain(Ljava/lang/String;Ljava/lang/Runnable;)V
+    .locals 1
+
+    new-instance v0, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda26;
+
+    invoke-direct {v0, p0, p2}, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda26;-><init>(Lcom/android/systemui/recents/OverviewProxyService$1;Ljava/lang/Runnable;)V
+
+    invoke-direct {p0, p1, v0}, Lcom/android/systemui/recents/OverviewProxyService$1;->verifyCallerAndClearCallingIdentity(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/Object;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public expandNotificationPanel()V
+    .locals 2
+
+    new-instance v0, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda0;
+
+    invoke-direct {v0, p0}, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/recents/OverviewProxyService$1;)V
+
+    const-string v1, "expandNotificationPanel"
+
+    invoke-direct {p0, v1, v0}, Lcom/android/systemui/recents/OverviewProxyService$1;->verifyCallerAndClearCallingIdentity(Ljava/lang/String;Ljava/lang/Runnable;)V
+
+    return-void
 .end method
 
 .method public getNonMinimizedSplitScreenSecondaryBounds()Landroid/graphics/Rect;
-    .locals 4
+    .locals 2
 
-    const-string v0, "getNonMinimizedSplitScreenSecondaryBounds"
+    new-instance v0, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda25;
 
-    invoke-direct {p0, v0}, Lcom/android/systemui/recents/OverviewProxyService$1;->verifyCaller(Ljava/lang/String;)Z
+    invoke-direct {v0, p0}, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda25;-><init>(Lcom/android/systemui/recents/OverviewProxyService$1;)V
 
-    move-result v0
+    const-string v1, "getNonMinimizedSplitScreenSecondaryBounds"
 
-    const/4 v1, 0x0
-
-    if-nez v0, :cond_0
-
-    return-object v1
-
-    :cond_0
-    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
-
-    move-result-wide v2
-
-    :try_start_0
-    iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService$1;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
-
-    invoke-static {p0}, Lcom/android/systemui/recents/OverviewProxyService;->access$300(Lcom/android/systemui/recents/OverviewProxyService;)Ljava/util/Optional;
-
-    move-result-object p0
-
-    sget-object v0, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda17;->INSTANCE:Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda17;
-
-    invoke-virtual {p0, v0}, Ljava/util/Optional;->map(Ljava/util/function/Function;)Ljava/util/Optional;
-
-    move-result-object p0
-
-    invoke-virtual {p0, v1}, Ljava/util/Optional;->orElse(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-direct {p0, v1, v0}, Lcom/android/systemui/recents/OverviewProxyService$1;->verifyCallerAndClearCallingIdentity(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/Object;
 
     move-result-object p0
 
     check-cast p0, Landroid/graphics/Rect;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     return-object p0
-
-    :catchall_0
-    move-exception p0
-
-    invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    throw p0
 .end method
 
 .method public handleImageAsScreenshot(Landroid/graphics/Bitmap;Landroid/graphics/Rect;Landroid/graphics/Insets;I)V
@@ -787,7 +1060,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/recents/OverviewProxyService$1;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
 
-    invoke-static {v0}, Lcom/android/systemui/recents/OverviewProxyService;->access$600(Lcom/android/systemui/recents/OverviewProxyService;)Lcom/android/internal/util/ScreenshotHelper;
+    invoke-static {v0}, Lcom/android/systemui/recents/OverviewProxyService;->access$400(Lcom/android/systemui/recents/OverviewProxyService;)Lcom/android/internal/util/ScreenshotHelper;
 
     move-result-object v1
 
@@ -799,7 +1072,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService$1;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
 
-    invoke-static {p0}, Lcom/android/systemui/recents/OverviewProxyService;->access$000(Lcom/android/systemui/recents/OverviewProxyService;)Landroid/os/Handler;
+    invoke-static {p0}, Lcom/android/systemui/recents/OverviewProxyService;->access$300(Lcom/android/systemui/recents/OverviewProxyService;)Landroid/os/Handler;
 
     move-result-object v9
 
@@ -819,568 +1092,245 @@
 .end method
 
 .method public notifyAccessibilityButtonClicked(I)V
-    .locals 2
+    .locals 1
 
-    const-string v0, "notifyAccessibilityButtonClicked"
+    new-instance v0, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda8;
 
-    invoke-direct {p0, v0}, Lcom/android/systemui/recents/OverviewProxyService$1;->verifyCaller(Ljava/lang/String;)Z
+    invoke-direct {v0, p0, p1}, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda8;-><init>(Lcom/android/systemui/recents/OverviewProxyService$1;I)V
 
-    move-result v0
+    const-string p1, "notifyAccessibilityButtonClicked"
 
-    if-nez v0, :cond_0
-
-    return-void
-
-    :cond_0
-    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
-
-    move-result-wide v0
-
-    :try_start_0
-    iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService$1;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
-
-    invoke-static {p0}, Lcom/android/systemui/recents/OverviewProxyService;->access$200(Lcom/android/systemui/recents/OverviewProxyService;)Landroid/content/Context;
-
-    move-result-object p0
-
-    invoke-static {p0}, Landroid/view/accessibility/AccessibilityManager;->getInstance(Landroid/content/Context;)Landroid/view/accessibility/AccessibilityManager;
-
-    move-result-object p0
-
-    invoke-virtual {p0, p1}, Landroid/view/accessibility/AccessibilityManager;->notifyAccessibilityButtonClicked(I)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-direct {p0, p1, v0}, Lcom/android/systemui/recents/OverviewProxyService$1;->verifyCallerAndClearCallingIdentity(Ljava/lang/String;Ljava/lang/Runnable;)V
 
     return-void
-
-    :catchall_0
-    move-exception p0
-
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    throw p0
 .end method
 
 .method public notifyAccessibilityButtonLongClicked()V
-    .locals 5
+    .locals 2
 
-    const-string v0, "notifyAccessibilityButtonLongClicked"
+    new-instance v0, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda3;
 
-    invoke-direct {p0, v0}, Lcom/android/systemui/recents/OverviewProxyService$1;->verifyCaller(Ljava/lang/String;)Z
+    invoke-direct {v0, p0}, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda3;-><init>(Lcom/android/systemui/recents/OverviewProxyService$1;)V
 
-    move-result v0
+    const-string v1, "notifyAccessibilityButtonLongClicked"
 
-    if-nez v0, :cond_0
-
-    return-void
-
-    :cond_0
-    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
-
-    move-result-wide v0
-
-    :try_start_0
-    new-instance v2, Landroid/content/Intent;
-
-    const-string v3, "com.android.internal.intent.action.CHOOSE_ACCESSIBILITY_BUTTON"
-
-    invoke-direct {v2, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    const-class v3, Lcom/android/internal/accessibility/dialog/AccessibilityButtonChooserActivity;
-
-    invoke-virtual {v3}, Ljava/lang/Class;->getName()Ljava/lang/String;
-
-    move-result-object v3
-
-    const-string v4, "android"
-
-    invoke-virtual {v2, v4, v3}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-
-    const v3, 0x10008000
-
-    invoke-virtual {v2, v3}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
-
-    iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService$1;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
-
-    invoke-static {p0}, Lcom/android/systemui/recents/OverviewProxyService;->access$200(Lcom/android/systemui/recents/OverviewProxyService;)Landroid/content/Context;
-
-    move-result-object p0
-
-    sget-object v3, Landroid/os/UserHandle;->CURRENT:Landroid/os/UserHandle;
-
-    invoke-virtual {p0, v2, v3}, Landroid/content/Context;->startActivityAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-direct {p0, v1, v0}, Lcom/android/systemui/recents/OverviewProxyService$1;->verifyCallerAndClearCallingIdentity(Ljava/lang/String;Ljava/lang/Runnable;)V
 
     return-void
-
-    :catchall_0
-    move-exception p0
-
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    throw p0
 .end method
 
 .method public notifyPrioritizedRotation(I)V
-    .locals 4
+    .locals 1
 
-    const-string v0, "notifyPrioritizedRotation"
+    new-instance v0, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda10;
 
-    invoke-direct {p0, v0}, Lcom/android/systemui/recents/OverviewProxyService$1;->verifyCaller(Ljava/lang/String;)Z
+    invoke-direct {v0, p0, p1}, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda10;-><init>(Lcom/android/systemui/recents/OverviewProxyService$1;I)V
 
-    move-result v0
+    const-string p1, "notifyPrioritizedRotation"
 
-    if-nez v0, :cond_0
-
-    return-void
-
-    :cond_0
-    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
-
-    move-result-wide v0
-
-    :try_start_0
-    iget-object v2, p0, Lcom/android/systemui/recents/OverviewProxyService$1;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
-
-    invoke-static {v2}, Lcom/android/systemui/recents/OverviewProxyService;->access$000(Lcom/android/systemui/recents/OverviewProxyService;)Landroid/os/Handler;
-
-    move-result-object v2
-
-    new-instance v3, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda6;
-
-    invoke-direct {v3, p0, p1}, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda6;-><init>(Lcom/android/systemui/recents/OverviewProxyService$1;I)V
-
-    invoke-virtual {v2, v3}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-direct {p0, p1, v0}, Lcom/android/systemui/recents/OverviewProxyService$1;->verifyCallerAndClearCallingIdentityPostMain(Ljava/lang/String;Ljava/lang/Runnable;)V
 
     return-void
-
-    :catchall_0
-    move-exception p0
-
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    throw p0
 .end method
 
 .method public notifySwipeToHomeFinished()V
-    .locals 3
+    .locals 2
 
-    const-string v0, "notifySwipeToHomeFinished"
+    new-instance v0, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda4;
 
-    invoke-direct {p0, v0}, Lcom/android/systemui/recents/OverviewProxyService$1;->verifyCaller(Ljava/lang/String;)Z
+    invoke-direct {v0, p0}, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda4;-><init>(Lcom/android/systemui/recents/OverviewProxyService$1;)V
 
-    move-result v0
+    const-string v1, "notifySwipeToHomeFinished"
 
-    if-nez v0, :cond_0
-
-    return-void
-
-    :cond_0
-    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
-
-    move-result-wide v0
-
-    :try_start_0
-    iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService$1;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
-
-    invoke-static {p0}, Lcom/android/systemui/recents/OverviewProxyService;->access$500(Lcom/android/systemui/recents/OverviewProxyService;)Ljava/util/Optional;
-
-    move-result-object p0
-
-    sget-object v2, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda16;->INSTANCE:Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda16;
-
-    invoke-virtual {p0, v2}, Ljava/util/Optional;->ifPresent(Ljava/util/function/Consumer;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-direct {p0, v1, v0}, Lcom/android/systemui/recents/OverviewProxyService$1;->verifyCallerAndClearCallingIdentity(Ljava/lang/String;Ljava/lang/Runnable;)V
 
     return-void
-
-    :catchall_0
-    move-exception p0
-
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    throw p0
 .end method
 
 .method public notifySwipeUpGestureStarted()V
-    .locals 4
+    .locals 2
 
-    const-string v0, "notifySwipeUpGestureStarted"
+    new-instance v0, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda2;
 
-    invoke-direct {p0, v0}, Lcom/android/systemui/recents/OverviewProxyService$1;->verifyCaller(Ljava/lang/String;)Z
+    invoke-direct {v0, p0}, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda2;-><init>(Lcom/android/systemui/recents/OverviewProxyService$1;)V
 
-    move-result v0
+    const-string v1, "notifySwipeUpGestureStarted"
 
-    if-nez v0, :cond_0
-
-    return-void
-
-    :cond_0
-    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
-
-    move-result-wide v0
-
-    :try_start_0
-    iget-object v2, p0, Lcom/android/systemui/recents/OverviewProxyService$1;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
-
-    invoke-static {v2}, Lcom/android/systemui/recents/OverviewProxyService;->access$000(Lcom/android/systemui/recents/OverviewProxyService;)Landroid/os/Handler;
-
-    move-result-object v2
-
-    new-instance v3, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda1;
-
-    invoke-direct {v3, p0}, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda1;-><init>(Lcom/android/systemui/recents/OverviewProxyService$1;)V
-
-    invoke-virtual {v2, v3}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-direct {p0, v1, v0}, Lcom/android/systemui/recents/OverviewProxyService$1;->verifyCallerAndClearCallingIdentityPostMain(Ljava/lang/String;Ljava/lang/Runnable;)V
 
     return-void
+.end method
 
-    :catchall_0
-    move-exception p0
+.method public notifyTaskbarAutohideSuspend(Z)V
+    .locals 1
 
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    new-instance v0, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda17;
 
-    throw p0
+    invoke-direct {v0, p0, p1}, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda17;-><init>(Lcom/android/systemui/recents/OverviewProxyService$1;Z)V
+
+    const-string p1, "notifyTaskbarAutohideSuspend"
+
+    invoke-direct {p0, p1, v0}, Lcom/android/systemui/recents/OverviewProxyService$1;->verifyCallerAndClearCallingIdentityPostMain(Ljava/lang/String;Ljava/lang/Runnable;)V
+
+    return-void
+.end method
+
+.method public notifyTaskbarStatus(ZZ)V
+    .locals 1
+
+    new-instance v0, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda18;
+
+    invoke-direct {v0, p0, p1, p2}, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda18;-><init>(Lcom/android/systemui/recents/OverviewProxyService$1;ZZ)V
+
+    const-string p1, "notifyTaskbarStatus"
+
+    invoke-direct {p0, p1, v0}, Lcom/android/systemui/recents/OverviewProxyService$1;->verifyCallerAndClearCallingIdentityPostMain(Ljava/lang/String;Ljava/lang/Runnable;)V
+
+    return-void
 .end method
 
 .method public onAssistantGestureCompletion(F)V
-    .locals 4
+    .locals 1
 
-    const-string v0, "onAssistantGestureCompletion"
+    new-instance v0, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda6;
 
-    invoke-direct {p0, v0}, Lcom/android/systemui/recents/OverviewProxyService$1;->verifyCaller(Ljava/lang/String;)Z
+    invoke-direct {v0, p0, p1}, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda6;-><init>(Lcom/android/systemui/recents/OverviewProxyService$1;F)V
 
-    move-result v0
+    const-string p1, "onAssistantGestureCompletion"
 
-    if-nez v0, :cond_0
-
-    return-void
-
-    :cond_0
-    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
-
-    move-result-wide v0
-
-    :try_start_0
-    iget-object v2, p0, Lcom/android/systemui/recents/OverviewProxyService$1;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
-
-    invoke-static {v2}, Lcom/android/systemui/recents/OverviewProxyService;->access$000(Lcom/android/systemui/recents/OverviewProxyService;)Landroid/os/Handler;
-
-    move-result-object v2
-
-    new-instance v3, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda3;
-
-    invoke-direct {v3, p0, p1}, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda3;-><init>(Lcom/android/systemui/recents/OverviewProxyService$1;F)V
-
-    invoke-virtual {v2, v3}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-direct {p0, p1, v0}, Lcom/android/systemui/recents/OverviewProxyService$1;->verifyCallerAndClearCallingIdentityPostMain(Ljava/lang/String;Ljava/lang/Runnable;)V
 
     return-void
-
-    :catchall_0
-    move-exception p0
-
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    throw p0
 .end method
 
 .method public onAssistantProgress(F)V
-    .locals 4
+    .locals 1
 
-    const-string v0, "onAssistantProgress"
+    new-instance v0, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda5;
 
-    invoke-direct {p0, v0}, Lcom/android/systemui/recents/OverviewProxyService$1;->verifyCaller(Ljava/lang/String;)Z
+    invoke-direct {v0, p0, p1}, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda5;-><init>(Lcom/android/systemui/recents/OverviewProxyService$1;F)V
 
-    move-result v0
+    const-string p1, "onAssistantProgress"
 
-    if-nez v0, :cond_0
-
-    return-void
-
-    :cond_0
-    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
-
-    move-result-wide v0
-
-    :try_start_0
-    iget-object v2, p0, Lcom/android/systemui/recents/OverviewProxyService$1;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
-
-    invoke-static {v2}, Lcom/android/systemui/recents/OverviewProxyService;->access$000(Lcom/android/systemui/recents/OverviewProxyService;)Landroid/os/Handler;
-
-    move-result-object v2
-
-    new-instance v3, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda2;
-
-    invoke-direct {v3, p0, p1}, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda2;-><init>(Lcom/android/systemui/recents/OverviewProxyService$1;F)V
-
-    invoke-virtual {v2, v3}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-direct {p0, p1, v0}, Lcom/android/systemui/recents/OverviewProxyService$1;->verifyCallerAndClearCallingIdentityPostMain(Ljava/lang/String;Ljava/lang/Runnable;)V
 
     return-void
-
-    :catchall_0
-    move-exception p0
-
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    throw p0
 .end method
 
 .method public onBackPressed()V
-    .locals 4
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const-string v0, "onBackPressed"
+    new-instance v0, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda1;
 
-    invoke-direct {p0, v0}, Lcom/android/systemui/recents/OverviewProxyService$1;->verifyCaller(Ljava/lang/String;)Z
+    invoke-direct {v0, p0}, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda1;-><init>(Lcom/android/systemui/recents/OverviewProxyService$1;)V
 
-    move-result v0
+    const-string v1, "onBackPressed"
 
-    if-nez v0, :cond_0
-
-    return-void
-
-    :cond_0
-    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
-
-    move-result-wide v0
-
-    :try_start_0
-    iget-object v2, p0, Lcom/android/systemui/recents/OverviewProxyService$1;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
-
-    invoke-static {v2}, Lcom/android/systemui/recents/OverviewProxyService;->access$000(Lcom/android/systemui/recents/OverviewProxyService;)Landroid/os/Handler;
-
-    move-result-object v2
-
-    new-instance v3, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, p0}, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/recents/OverviewProxyService$1;)V
-
-    invoke-virtual {v2, v3}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-direct {p0, v1, v0}, Lcom/android/systemui/recents/OverviewProxyService$1;->verifyCallerAndClearCallingIdentityPostMain(Ljava/lang/String;Ljava/lang/Runnable;)V
 
     return-void
+.end method
 
-    :catchall_0
-    move-exception p0
+.method public onImeSwitcherPressed()V
+    .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
 
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    iget-object v0, p0, Lcom/android/systemui/recents/OverviewProxyService$1;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
 
-    throw p0
+    invoke-static {v0}, Lcom/android/systemui/recents/OverviewProxyService;->access$000(Lcom/android/systemui/recents/OverviewProxyService;)Landroid/content/Context;
+
+    move-result-object v0
+
+    const-class v1, Landroid/view/inputmethod/InputMethodManager;
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/view/inputmethod/InputMethodManager;
+
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v1, v2}, Landroid/view/inputmethod/InputMethodManager;->showInputMethodPickerFromSystem(ZI)V
+
+    iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService$1;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
+
+    invoke-static {p0}, Lcom/android/systemui/recents/OverviewProxyService;->access$100(Lcom/android/systemui/recents/OverviewProxyService;)Lcom/android/internal/logging/UiEventLogger;
+
+    move-result-object p0
+
+    sget-object v0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView$NavBarButtonEvent;->NAVBAR_IME_SWITCHER_BUTTON_TAP:Lcom/android/systemui/navigationbar/buttons/KeyButtonView$NavBarButtonEvent;
+
+    invoke-interface {p0, v0}, Lcom/android/internal/logging/UiEventLogger;->log(Lcom/android/internal/logging/UiEventLogger$UiEventEnum;)V
+
+    return-void
 .end method
 
 .method public onOverviewShown(Z)V
-    .locals 4
+    .locals 1
 
-    const-string v0, "onOverviewShown"
+    new-instance v0, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda14;
 
-    invoke-direct {p0, v0}, Lcom/android/systemui/recents/OverviewProxyService$1;->verifyCaller(Ljava/lang/String;)Z
+    invoke-direct {v0, p0, p1}, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda14;-><init>(Lcom/android/systemui/recents/OverviewProxyService$1;Z)V
 
-    move-result v0
+    const-string p1, "onOverviewShown"
 
-    if-nez v0, :cond_0
-
-    return-void
-
-    :cond_0
-    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
-
-    move-result-wide v0
-
-    :try_start_0
-    iget-object v2, p0, Lcom/android/systemui/recents/OverviewProxyService$1;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
-
-    invoke-static {v2}, Lcom/android/systemui/recents/OverviewProxyService;->access$000(Lcom/android/systemui/recents/OverviewProxyService;)Landroid/os/Handler;
-
-    move-result-object v2
-
-    new-instance v3, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda9;
-
-    invoke-direct {v3, p0, p1}, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda9;-><init>(Lcom/android/systemui/recents/OverviewProxyService$1;Z)V
-
-    invoke-virtual {v2, v3}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-direct {p0, p1, v0}, Lcom/android/systemui/recents/OverviewProxyService$1;->verifyCallerAndClearCallingIdentityPostMain(Ljava/lang/String;Ljava/lang/Runnable;)V
 
     return-void
-
-    :catchall_0
-    move-exception p0
-
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    throw p0
 .end method
 
 .method public onStatusBarMotionEvent(Landroid/view/MotionEvent;)V
-    .locals 4
+    .locals 1
 
-    const-string v0, "onStatusBarMotionEvent"
+    new-instance v0, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda12;
 
-    invoke-direct {p0, v0}, Lcom/android/systemui/recents/OverviewProxyService$1;->verifyCaller(Ljava/lang/String;)Z
+    invoke-direct {v0, p0, p1}, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda12;-><init>(Lcom/android/systemui/recents/OverviewProxyService$1;Landroid/view/MotionEvent;)V
 
-    move-result v0
+    const-string p1, "onStatusBarMotionEvent"
 
-    if-nez v0, :cond_0
-
-    return-void
-
-    :cond_0
-    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
-
-    move-result-wide v0
-
-    :try_start_0
-    iget-object v2, p0, Lcom/android/systemui/recents/OverviewProxyService$1;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
-
-    invoke-static {v2}, Lcom/android/systemui/recents/OverviewProxyService;->access$100(Lcom/android/systemui/recents/OverviewProxyService;)Ljava/util/Optional;
-
-    move-result-object v2
-
-    new-instance v3, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda14;
-
-    invoke-direct {v3, p0, p1}, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda14;-><init>(Lcom/android/systemui/recents/OverviewProxyService$1;Landroid/view/MotionEvent;)V
-
-    invoke-virtual {v2, v3}, Ljava/util/Optional;->ifPresent(Ljava/util/function/Consumer;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-direct {p0, p1, v0}, Lcom/android/systemui/recents/OverviewProxyService$1;->verifyCallerAndClearCallingIdentity(Ljava/lang/String;Ljava/lang/Runnable;)V
 
     return-void
-
-    :catchall_0
-    move-exception p0
-
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    throw p0
 .end method
 
 .method public setHomeRotationEnabled(Z)V
-    .locals 4
+    .locals 1
 
-    const-string v0, "setHomeRotationEnabled"
+    new-instance v0, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda16;
 
-    invoke-direct {p0, v0}, Lcom/android/systemui/recents/OverviewProxyService$1;->verifyCaller(Ljava/lang/String;)Z
+    invoke-direct {v0, p0, p1}, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda16;-><init>(Lcom/android/systemui/recents/OverviewProxyService$1;Z)V
 
-    move-result v0
+    const-string p1, "setHomeRotationEnabled"
 
-    if-nez v0, :cond_0
-
-    return-void
-
-    :cond_0
-    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
-
-    move-result-wide v0
-
-    :try_start_0
-    iget-object v2, p0, Lcom/android/systemui/recents/OverviewProxyService$1;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
-
-    invoke-static {v2}, Lcom/android/systemui/recents/OverviewProxyService;->access$000(Lcom/android/systemui/recents/OverviewProxyService;)Landroid/os/Handler;
-
-    move-result-object v2
-
-    new-instance v3, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda10;
-
-    invoke-direct {v3, p0, p1}, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda10;-><init>(Lcom/android/systemui/recents/OverviewProxyService$1;Z)V
-
-    invoke-virtual {v2, v3}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-direct {p0, p1, v0}, Lcom/android/systemui/recents/OverviewProxyService$1;->verifyCallerAndClearCallingIdentityPostMain(Ljava/lang/String;Ljava/lang/Runnable;)V
 
     return-void
-
-    :catchall_0
-    move-exception p0
-
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    throw p0
 .end method
 
 .method public setNavBarButtonAlpha(FZ)V
-    .locals 4
+    .locals 1
 
-    const-string v0, "setNavBarButtonAlpha"
+    new-instance v0, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda7;
 
-    invoke-direct {p0, v0}, Lcom/android/systemui/recents/OverviewProxyService$1;->verifyCaller(Ljava/lang/String;)Z
+    invoke-direct {v0, p0, p1, p2}, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda7;-><init>(Lcom/android/systemui/recents/OverviewProxyService$1;FZ)V
 
-    move-result v0
+    const-string p1, "setNavBarButtonAlpha"
 
-    if-nez v0, :cond_0
-
-    return-void
-
-    :cond_0
-    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
-
-    move-result-wide v0
-
-    :try_start_0
-    iget-object v2, p0, Lcom/android/systemui/recents/OverviewProxyService$1;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
-
-    invoke-static {v2, p1}, Lcom/android/systemui/recents/OverviewProxyService;->access$402(Lcom/android/systemui/recents/OverviewProxyService;F)F
-
-    iget-object v2, p0, Lcom/android/systemui/recents/OverviewProxyService$1;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
-
-    invoke-static {v2}, Lcom/android/systemui/recents/OverviewProxyService;->access$000(Lcom/android/systemui/recents/OverviewProxyService;)Landroid/os/Handler;
-
-    move-result-object v2
-
-    new-instance v3, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda4;
-
-    invoke-direct {v3, p0, p1, p2}, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda4;-><init>(Lcom/android/systemui/recents/OverviewProxyService$1;FZ)V
-
-    invoke-virtual {v2, v3}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-direct {p0, p1, v0}, Lcom/android/systemui/recents/OverviewProxyService$1;->verifyCallerAndClearCallingIdentityPostMain(Ljava/lang/String;Ljava/lang/Runnable;)V
 
     return-void
-
-    :catchall_0
-    move-exception p0
-
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    throw p0
 .end method
 
 .method public setSplitScreenMinimized(Z)V
@@ -1388,13 +1338,13 @@
 
     iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService$1;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
 
-    invoke-static {p0}, Lcom/android/systemui/recents/OverviewProxyService;->access$300(Lcom/android/systemui/recents/OverviewProxyService;)Ljava/util/Optional;
+    invoke-static {p0}, Lcom/android/systemui/recents/OverviewProxyService;->access$200(Lcom/android/systemui/recents/OverviewProxyService;)Ljava/util/Optional;
 
     move-result-object p0
 
-    new-instance v0, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda15;
+    new-instance v0, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda22;
 
-    invoke-direct {v0, p1}, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda15;-><init>(Z)V
+    invoke-direct {v0, p1}, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda22;-><init>(Z)V
 
     invoke-virtual {p0, v0}, Ljava/util/Optional;->ifPresent(Ljava/util/function/Consumer;)V
 
@@ -1402,134 +1352,41 @@
 .end method
 
 .method public startAssistant(Landroid/os/Bundle;)V
-    .locals 4
+    .locals 1
 
-    const-string v0, "startAssistant"
+    new-instance v0, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda11;
 
-    invoke-direct {p0, v0}, Lcom/android/systemui/recents/OverviewProxyService$1;->verifyCaller(Ljava/lang/String;)Z
+    invoke-direct {v0, p0, p1}, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda11;-><init>(Lcom/android/systemui/recents/OverviewProxyService$1;Landroid/os/Bundle;)V
 
-    move-result v0
+    const-string p1, "startAssistant"
 
-    if-nez v0, :cond_0
-
-    return-void
-
-    :cond_0
-    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
-
-    move-result-wide v0
-
-    :try_start_0
-    iget-object v2, p0, Lcom/android/systemui/recents/OverviewProxyService$1;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
-
-    invoke-static {v2}, Lcom/android/systemui/recents/OverviewProxyService;->access$000(Lcom/android/systemui/recents/OverviewProxyService;)Landroid/os/Handler;
-
-    move-result-object v2
-
-    new-instance v3, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda7;
-
-    invoke-direct {v3, p0, p1}, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda7;-><init>(Lcom/android/systemui/recents/OverviewProxyService$1;Landroid/os/Bundle;)V
-
-    invoke-virtual {v2, v3}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-direct {p0, p1, v0}, Lcom/android/systemui/recents/OverviewProxyService$1;->verifyCallerAndClearCallingIdentityPostMain(Ljava/lang/String;Ljava/lang/Runnable;)V
 
     return-void
-
-    :catchall_0
-    move-exception p0
-
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    throw p0
 .end method
 
 .method public startScreenPinning(I)V
-    .locals 4
+    .locals 1
 
-    const-string v0, "startScreenPinning"
+    new-instance v0, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda9;
 
-    invoke-direct {p0, v0}, Lcom/android/systemui/recents/OverviewProxyService$1;->verifyCaller(Ljava/lang/String;)Z
+    invoke-direct {v0, p0, p1}, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda9;-><init>(Lcom/android/systemui/recents/OverviewProxyService$1;I)V
 
-    move-result v0
+    const-string p1, "startScreenPinning"
 
-    if-nez v0, :cond_0
-
-    return-void
-
-    :cond_0
-    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
-
-    move-result-wide v0
-
-    :try_start_0
-    iget-object v2, p0, Lcom/android/systemui/recents/OverviewProxyService$1;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
-
-    invoke-static {v2}, Lcom/android/systemui/recents/OverviewProxyService;->access$000(Lcom/android/systemui/recents/OverviewProxyService;)Landroid/os/Handler;
-
-    move-result-object v2
-
-    new-instance v3, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda5;
-
-    invoke-direct {v3, p0, p1}, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda5;-><init>(Lcom/android/systemui/recents/OverviewProxyService$1;I)V
-
-    invoke-virtual {v2, v3}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-direct {p0, p1, v0}, Lcom/android/systemui/recents/OverviewProxyService$1;->verifyCallerAndClearCallingIdentityPostMain(Ljava/lang/String;Ljava/lang/Runnable;)V
 
     return-void
-
-    :catchall_0
-    move-exception p0
-
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    throw p0
 .end method
 
 .method public stopScreenPinning()V
-    .locals 3
+    .locals 2
 
-    const-string v0, "stopScreenPinning"
+    sget-object v0, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda19;->INSTANCE:Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda19;
 
-    invoke-direct {p0, v0}, Lcom/android/systemui/recents/OverviewProxyService$1;->verifyCaller(Ljava/lang/String;)Z
+    const-string v1, "stopScreenPinning"
 
-    move-result v0
-
-    if-nez v0, :cond_0
+    invoke-direct {p0, v1, v0}, Lcom/android/systemui/recents/OverviewProxyService$1;->verifyCallerAndClearCallingIdentityPostMain(Ljava/lang/String;Ljava/lang/Runnable;)V
 
     return-void
-
-    :cond_0
-    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
-
-    move-result-wide v0
-
-    :try_start_0
-    iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService$1;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
-
-    invoke-static {p0}, Lcom/android/systemui/recents/OverviewProxyService;->access$000(Lcom/android/systemui/recents/OverviewProxyService;)Landroid/os/Handler;
-
-    move-result-object p0
-
-    sget-object v2, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda12;->INSTANCE:Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda12;
-
-    invoke-virtual {p0, v2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    return-void
-
-    :catchall_0
-    move-exception p0
-
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    throw p0
 .end method

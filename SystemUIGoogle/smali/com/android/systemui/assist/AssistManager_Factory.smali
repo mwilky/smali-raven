@@ -48,16 +48,6 @@
     .end annotation
 .end field
 
-.field private final configurationControllerProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/policy/ConfigurationController;",
-            ">;"
-        }
-    .end annotation
-.end field
-
 .field private final contextProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -118,6 +108,16 @@
     .end annotation
 .end field
 
+.field private final uiHandlerProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Landroid/os/Handler;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 
 # direct methods
 .method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
@@ -144,9 +144,6 @@
             "Lcom/android/systemui/recents/OverviewProxyService;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/policy/ConfigurationController;",
-            ">;",
-            "Ljavax/inject/Provider<",
             "Lcom/android/systemui/model/SysUiState;",
             ">;",
             "Ljavax/inject/Provider<",
@@ -154,6 +151,9 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/assist/AssistLogger;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Landroid/os/Handler;",
             ">;)V"
         }
     .end annotation
@@ -172,13 +172,13 @@
 
     iput-object p6, p0, Lcom/android/systemui/assist/AssistManager_Factory;->overviewProxyServiceProvider:Ljavax/inject/Provider;
 
-    iput-object p7, p0, Lcom/android/systemui/assist/AssistManager_Factory;->configurationControllerProvider:Ljavax/inject/Provider;
+    iput-object p7, p0, Lcom/android/systemui/assist/AssistManager_Factory;->sysUiStateProvider:Ljavax/inject/Provider;
 
-    iput-object p8, p0, Lcom/android/systemui/assist/AssistManager_Factory;->sysUiStateProvider:Ljavax/inject/Provider;
+    iput-object p8, p0, Lcom/android/systemui/assist/AssistManager_Factory;->defaultUiControllerProvider:Ljavax/inject/Provider;
 
-    iput-object p9, p0, Lcom/android/systemui/assist/AssistManager_Factory;->defaultUiControllerProvider:Ljavax/inject/Provider;
+    iput-object p9, p0, Lcom/android/systemui/assist/AssistManager_Factory;->assistLoggerProvider:Ljavax/inject/Provider;
 
-    iput-object p10, p0, Lcom/android/systemui/assist/AssistManager_Factory;->assistLoggerProvider:Ljavax/inject/Provider;
+    iput-object p10, p0, Lcom/android/systemui/assist/AssistManager_Factory;->uiHandlerProvider:Ljavax/inject/Provider;
 
     return-void
 .end method
@@ -207,9 +207,6 @@
             "Lcom/android/systemui/recents/OverviewProxyService;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/policy/ConfigurationController;",
-            ">;",
-            "Ljavax/inject/Provider<",
             "Lcom/android/systemui/model/SysUiState;",
             ">;",
             "Ljavax/inject/Provider<",
@@ -217,6 +214,9 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/assist/AssistLogger;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Landroid/os/Handler;",
             ">;)",
             "Lcom/android/systemui/assist/AssistManager_Factory;"
         }
@@ -251,7 +251,7 @@
     return-object v11
 .end method
 
-.method public static newInstance(Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Landroid/content/Context;Lcom/android/internal/app/AssistUtils;Lcom/android/systemui/statusbar/CommandQueue;Lcom/android/systemui/assist/PhoneStateMonitor;Lcom/android/systemui/recents/OverviewProxyService;Lcom/android/systemui/statusbar/policy/ConfigurationController;Ldagger/Lazy;Lcom/android/systemui/assist/ui/DefaultUiController;Lcom/android/systemui/assist/AssistLogger;)Lcom/android/systemui/assist/AssistManager;
+.method public static newInstance(Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Landroid/content/Context;Lcom/android/internal/app/AssistUtils;Lcom/android/systemui/statusbar/CommandQueue;Lcom/android/systemui/assist/PhoneStateMonitor;Lcom/android/systemui/recents/OverviewProxyService;Ldagger/Lazy;Lcom/android/systemui/assist/ui/DefaultUiController;Lcom/android/systemui/assist/AssistLogger;Landroid/os/Handler;)Lcom/android/systemui/assist/AssistManager;
     .locals 12
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -262,12 +262,12 @@
             "Lcom/android/systemui/statusbar/CommandQueue;",
             "Lcom/android/systemui/assist/PhoneStateMonitor;",
             "Lcom/android/systemui/recents/OverviewProxyService;",
-            "Lcom/android/systemui/statusbar/policy/ConfigurationController;",
             "Ldagger/Lazy<",
             "Lcom/android/systemui/model/SysUiState;",
             ">;",
             "Lcom/android/systemui/assist/ui/DefaultUiController;",
             "Lcom/android/systemui/assist/AssistLogger;",
+            "Landroid/os/Handler;",
             ")",
             "Lcom/android/systemui/assist/AssistManager;"
         }
@@ -297,7 +297,7 @@
 
     move-object/from16 v10, p9
 
-    invoke-direct/range {v0 .. v10}, Lcom/android/systemui/assist/AssistManager;-><init>(Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Landroid/content/Context;Lcom/android/internal/app/AssistUtils;Lcom/android/systemui/statusbar/CommandQueue;Lcom/android/systemui/assist/PhoneStateMonitor;Lcom/android/systemui/recents/OverviewProxyService;Lcom/android/systemui/statusbar/policy/ConfigurationController;Ldagger/Lazy;Lcom/android/systemui/assist/ui/DefaultUiController;Lcom/android/systemui/assist/AssistLogger;)V
+    invoke-direct/range {v0 .. v10}, Lcom/android/systemui/assist/AssistManager;-><init>(Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Landroid/content/Context;Lcom/android/internal/app/AssistUtils;Lcom/android/systemui/statusbar/CommandQueue;Lcom/android/systemui/assist/PhoneStateMonitor;Lcom/android/systemui/recents/OverviewProxyService;Ldagger/Lazy;Lcom/android/systemui/assist/ui/DefaultUiController;Lcom/android/systemui/assist/AssistLogger;Landroid/os/Handler;)V
 
     return-object v11
 .end method
@@ -367,21 +367,11 @@
 
     check-cast v6, Lcom/android/systemui/recents/OverviewProxyService;
 
-    iget-object v0, p0, Lcom/android/systemui/assist/AssistManager_Factory;->configurationControllerProvider:Ljavax/inject/Provider;
-
-    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
-
-    move-result-object v0
-
-    move-object v7, v0
-
-    check-cast v7, Lcom/android/systemui/statusbar/policy/ConfigurationController;
-
     iget-object v0, p0, Lcom/android/systemui/assist/AssistManager_Factory;->sysUiStateProvider:Ljavax/inject/Provider;
 
     invoke-static {v0}, Ldagger/internal/DoubleCheck;->lazy(Ljavax/inject/Provider;)Ldagger/Lazy;
 
-    move-result-object v8
+    move-result-object v7
 
     iget-object v0, p0, Lcom/android/systemui/assist/AssistManager_Factory;->defaultUiControllerProvider:Ljavax/inject/Provider;
 
@@ -389,11 +379,21 @@
 
     move-result-object v0
 
+    move-object v8, v0
+
+    check-cast v8, Lcom/android/systemui/assist/ui/DefaultUiController;
+
+    iget-object v0, p0, Lcom/android/systemui/assist/AssistManager_Factory;->assistLoggerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
     move-object v9, v0
 
-    check-cast v9, Lcom/android/systemui/assist/ui/DefaultUiController;
+    check-cast v9, Lcom/android/systemui/assist/AssistLogger;
 
-    iget-object p0, p0, Lcom/android/systemui/assist/AssistManager_Factory;->assistLoggerProvider:Ljavax/inject/Provider;
+    iget-object p0, p0, Lcom/android/systemui/assist/AssistManager_Factory;->uiHandlerProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -401,9 +401,9 @@
 
     move-object v10, p0
 
-    check-cast v10, Lcom/android/systemui/assist/AssistLogger;
+    check-cast v10, Landroid/os/Handler;
 
-    invoke-static/range {v1 .. v10}, Lcom/android/systemui/assist/AssistManager_Factory;->newInstance(Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Landroid/content/Context;Lcom/android/internal/app/AssistUtils;Lcom/android/systemui/statusbar/CommandQueue;Lcom/android/systemui/assist/PhoneStateMonitor;Lcom/android/systemui/recents/OverviewProxyService;Lcom/android/systemui/statusbar/policy/ConfigurationController;Ldagger/Lazy;Lcom/android/systemui/assist/ui/DefaultUiController;Lcom/android/systemui/assist/AssistLogger;)Lcom/android/systemui/assist/AssistManager;
+    invoke-static/range {v1 .. v10}, Lcom/android/systemui/assist/AssistManager_Factory;->newInstance(Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Landroid/content/Context;Lcom/android/internal/app/AssistUtils;Lcom/android/systemui/statusbar/CommandQueue;Lcom/android/systemui/assist/PhoneStateMonitor;Lcom/android/systemui/recents/OverviewProxyService;Ldagger/Lazy;Lcom/android/systemui/assist/ui/DefaultUiController;Lcom/android/systemui/assist/AssistLogger;Landroid/os/Handler;)Lcom/android/systemui/assist/AssistManager;
 
     move-result-object p0
 

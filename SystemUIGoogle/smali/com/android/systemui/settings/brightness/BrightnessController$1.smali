@@ -41,7 +41,7 @@
 .end method
 
 .method public onDisplayChanged(I)V
-    .locals 1
+    .locals 0
 
     iget-object p1, p0, Lcom/android/systemui/settings/brightness/BrightnessController$1;->this$0:Lcom/android/systemui/settings/brightness/BrightnessController;
 
@@ -49,17 +49,13 @@
 
     move-result-object p1
 
-    iget-object v0, p0, Lcom/android/systemui/settings/brightness/BrightnessController$1;->this$0:Lcom/android/systemui/settings/brightness/BrightnessController;
-
-    invoke-static {v0}, Lcom/android/systemui/settings/brightness/BrightnessController;->access$000(Lcom/android/systemui/settings/brightness/BrightnessController;)Ljava/lang/Runnable;
-
-    move-result-object v0
-
-    invoke-virtual {p1, v0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
-
     iget-object p0, p0, Lcom/android/systemui/settings/brightness/BrightnessController$1;->this$0:Lcom/android/systemui/settings/brightness/BrightnessController;
 
-    invoke-static {p0}, Lcom/android/systemui/settings/brightness/BrightnessController;->access$200(Lcom/android/systemui/settings/brightness/BrightnessController;)V
+    invoke-static {p0}, Lcom/android/systemui/settings/brightness/BrightnessController;->access$000(Lcom/android/systemui/settings/brightness/BrightnessController;)Ljava/lang/Runnable;
+
+    move-result-object p0
+
+    invoke-virtual {p1, p0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     return-void
 .end method

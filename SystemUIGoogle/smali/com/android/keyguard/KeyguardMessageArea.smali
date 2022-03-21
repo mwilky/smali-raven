@@ -20,6 +20,8 @@
 
 .field private mBouncerVisible:Z
 
+.field private mContainer:Landroid/view/ViewGroup;
+
 .field private mDefaultColorState:Landroid/content/res/ColorStateList;
 
 .field private final mHandler:Landroid/os/Handler;
@@ -27,6 +29,8 @@
 .field private mMessage:Ljava/lang/CharSequence;
 
 .field private mNextMessageColorState:Landroid/content/res/ColorStateList;
+
+.field private mTopMargin:I
 
 
 # direct methods
@@ -182,6 +186,67 @@
 
 
 # virtual methods
+.method protected onAttachedToWindow()V
+    .locals 2
+
+    invoke-super {p0}, Landroid/widget/TextView;->onAttachedToWindow()V
+
+    invoke-virtual {p0}, Landroid/widget/TextView;->getRootView()Landroid/view/View;
+
+    move-result-object v0
+
+    sget v1, Lcom/android/systemui/R$id;->keyguard_message_area_container:I
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/view/ViewGroup;
+
+    iput-object v0, p0, Lcom/android/keyguard/KeyguardMessageArea;->mContainer:Landroid/view/ViewGroup;
+
+    return-void
+.end method
+
+.method onConfigChanged()V
+    .locals 2
+
+    invoke-virtual {p0}, Landroid/widget/TextView;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/android/internal/policy/SystemBarUtils;->getStatusBarHeight(Landroid/content/Context;)I
+
+    move-result v0
+
+    iget v1, p0, Lcom/android/keyguard/KeyguardMessageArea;->mTopMargin:I
+
+    if-ne v1, v0, :cond_0
+
+    return-void
+
+    :cond_0
+    iput v0, p0, Lcom/android/keyguard/KeyguardMessageArea;->mTopMargin:I
+
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardMessageArea;->mContainer:Landroid/view/ViewGroup;
+
+    invoke-virtual {v0}, Landroid/view/ViewGroup;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/view/ViewGroup$MarginLayoutParams;
+
+    iget v1, p0, Lcom/android/keyguard/KeyguardMessageArea;->mTopMargin:I
+
+    iput v1, v0, Landroid/view/ViewGroup$MarginLayoutParams;->topMargin:I
+
+    iget-object p0, p0, Lcom/android/keyguard/KeyguardMessageArea;->mContainer:Landroid/view/ViewGroup;
+
+    invoke-virtual {p0, v0}, Landroid/view/ViewGroup;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    return-void
+.end method
+
 .method onDensityOrFontScaleChanged()V
     .locals 5
 
@@ -409,6 +474,15 @@
     iput-object v1, p0, Lcom/android/keyguard/KeyguardMessageArea;->mNextMessageColorState:Landroid/content/res/ColorStateList;
 
     :cond_2
+    iget-boolean v1, p0, Lcom/android/keyguard/KeyguardMessageArea;->mAltBouncerShowing:Z
+
+    if-eqz v1, :cond_3
+
+    invoke-static {v2}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
+
+    move-result-object v0
+
+    :cond_3
     invoke-virtual {p0, v0}, Landroid/widget/TextView;->setTextColor(Landroid/content/res/ColorStateList;)V
 
     return-void

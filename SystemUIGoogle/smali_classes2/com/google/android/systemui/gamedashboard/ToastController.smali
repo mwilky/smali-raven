@@ -762,6 +762,30 @@
 .method public removeViewImmediate()V
     .locals 2
 
+    iget-object v0, p0, Lcom/google/android/systemui/gamedashboard/ToastController;->mLaunchLayout:Landroid/view/View;
+
+    invoke-virtual {v0}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/view/ViewPropertyAnimator;->cancel()V
+
+    iget-object v0, p0, Lcom/google/android/systemui/gamedashboard/ToastController;->mShortcutView:Landroid/widget/TextView;
+
+    invoke-virtual {v0}, Landroid/widget/TextView;->animate()Landroid/view/ViewPropertyAnimator;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/view/ViewPropertyAnimator;->cancel()V
+
+    iget-object v0, p0, Lcom/google/android/systemui/gamedashboard/ToastController;->mRecordSaveView:Landroid/widget/TextView;
+
+    invoke-virtual {v0}, Landroid/widget/TextView;->animate()Landroid/view/ViewPropertyAnimator;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/view/ViewPropertyAnimator;->cancel()V
+
     iget v0, p0, Lcom/google/android/systemui/gamedashboard/ToastController;->mIsAddedToWindowManager:I
 
     const/4 v1, 0x1
@@ -805,30 +829,6 @@
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/google/android/systemui/gamedashboard/ToastController;->mIsAddedToWindowManager:I
-
-    iget-object v0, p0, Lcom/google/android/systemui/gamedashboard/ToastController;->mLaunchLayout:Landroid/view/View;
-
-    invoke-virtual {v0}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/view/ViewPropertyAnimator;->cancel()V
-
-    iget-object v0, p0, Lcom/google/android/systemui/gamedashboard/ToastController;->mShortcutView:Landroid/widget/TextView;
-
-    invoke-virtual {v0}, Landroid/widget/TextView;->animate()Landroid/view/ViewPropertyAnimator;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/view/ViewPropertyAnimator;->cancel()V
-
-    iget-object p0, p0, Lcom/google/android/systemui/gamedashboard/ToastController;->mRecordSaveView:Landroid/widget/TextView;
-
-    invoke-virtual {p0}, Landroid/widget/TextView;->animate()Landroid/view/ViewPropertyAnimator;
-
-    move-result-object p0
-
-    invoke-virtual {p0}, Landroid/view/ViewPropertyAnimator;->cancel()V
 
     return-void
 .end method

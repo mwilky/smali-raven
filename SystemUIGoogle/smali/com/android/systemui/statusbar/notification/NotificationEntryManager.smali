@@ -42,7 +42,9 @@
     .end annotation
 .end field
 
-.field private final mFeatureFlags:Lcom/android/systemui/statusbar/FeatureFlags;
+.field private final mDumpManager:Lcom/android/systemui/dump/DumpManager;
+
+.field private final mFeatureFlags:Lcom/android/systemui/flags/FeatureFlags;
 
 .field private final mFgsFeatureController:Lcom/android/systemui/statusbar/notification/ForegroundServiceDismissalFeatureController;
 
@@ -211,14 +213,14 @@
     return-void
 .end method
 
-.method public constructor <init>(Lcom/android/systemui/statusbar/notification/NotificationEntryManagerLogger;Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;Lcom/android/systemui/statusbar/FeatureFlags;Ldagger/Lazy;Ldagger/Lazy;Lcom/android/systemui/util/leak/LeakDetector;Lcom/android/systemui/statusbar/notification/ForegroundServiceDismissalFeatureController;Lcom/android/internal/statusbar/IStatusBarService;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/notification/NotificationEntryManagerLogger;Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;Lcom/android/systemui/flags/FeatureFlags;Ldagger/Lazy;Ldagger/Lazy;Lcom/android/systemui/util/leak/LeakDetector;Lcom/android/systemui/statusbar/notification/ForegroundServiceDismissalFeatureController;Lcom/android/internal/statusbar/IStatusBarService;Lcom/android/systemui/dump/DumpManager;)V
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Lcom/android/systemui/statusbar/notification/NotificationEntryManagerLogger;",
             "Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
+            "Lcom/android/systemui/flags/FeatureFlags;",
             "Ldagger/Lazy<",
             "Lcom/android/systemui/statusbar/notification/collection/inflation/NotificationRowBinder;",
             ">;",
@@ -228,6 +230,7 @@
             "Lcom/android/systemui/util/leak/LeakDetector;",
             "Lcom/android/systemui/statusbar/notification/ForegroundServiceDismissalFeatureController;",
             "Lcom/android/internal/statusbar/IStatusBarService;",
+            "Lcom/android/systemui/dump/DumpManager;",
             ")V"
         }
     .end annotation
@@ -322,7 +325,7 @@
 
     iput-object p2, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mGroupManager:Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;
 
-    iput-object p3, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mFeatureFlags:Lcom/android/systemui/statusbar/FeatureFlags;
+    iput-object p3, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mFeatureFlags:Lcom/android/systemui/flags/FeatureFlags;
 
     iput-object p4, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mNotificationRowBinderLazy:Ldagger/Lazy;
 
@@ -334,11 +337,13 @@
 
     iput-object p8, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mStatusBarService:Lcom/android/internal/statusbar/IStatusBarService;
 
+    iput-object p9, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mDumpManager:Lcom/android/systemui/dump/DumpManager;
+
     return-void
 .end method
 
 .method private abortExistingInflation(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mPendingNotifications:Ljava/util/HashMap;
 
@@ -346,7 +351,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mPendingNotifications:Ljava/util/HashMap;
 
@@ -358,46 +363,22 @@
 
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->abortTask()V
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mPendingNotifications:Ljava/util/HashMap;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mPendingNotifications:Ljava/util/HashMap;
 
-    invoke-virtual {v1, p1}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, p1}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mNotifCollectionListeners:Ljava/util/List;
-
-    invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object v1
-
-    :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifCollectionListener;
-
-    invoke-interface {v2, v0}, Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifCollectionListener;->onEntryCleanUp(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
-
-    goto :goto_0
-
-    :cond_0
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mLogger:Lcom/android/systemui/statusbar/notification/NotificationEntryManagerLogger;
 
     const-string v1, "pending"
 
     invoke-virtual {v0, p1, v1, p2}, Lcom/android/systemui/statusbar/notification/NotificationEntryManagerLogger;->logInflationAborted(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_1
+    :cond_0
     invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->getActiveNotificationUnfiltered(Ljava/lang/String;)Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
 
     move-result-object v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1
 
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->abortTask()V
 
@@ -407,7 +388,7 @@
 
     invoke-virtual {p0, p1, v0, p2}, Lcom/android/systemui/statusbar/notification/NotificationEntryManagerLogger;->logInflationAborted(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_2
+    :cond_1
     return-void
 .end method
 
@@ -618,9 +599,9 @@
     goto :goto_2
 
     :cond_3
-    iget-object p1, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mFeatureFlags:Lcom/android/systemui/statusbar/FeatureFlags;
+    iget-object p1, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mFeatureFlags:Lcom/android/systemui/flags/FeatureFlags;
 
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/FeatureFlags;->isNewNotifPipelineRenderingEnabled()Z
+    invoke-virtual {p1}, Lcom/android/systemui/flags/FeatureFlags;->isNewNotifPipelineRenderingEnabled()Z
 
     move-result p1
 
@@ -1204,7 +1185,7 @@
 
     const/4 v3, 0x0
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_6
 
     iget-object p2, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mPendingNotifications:Ljava/util/HashMap;
 
@@ -1214,7 +1195,7 @@
 
     check-cast p2, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
 
-    if-eqz p2, :cond_d
+    if-eqz p2, :cond_f
 
     iget-object p3, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mNotificationLifetimeExtenders:Ljava/util/ArrayList;
 
@@ -1222,51 +1203,101 @@
 
     move-result-object p3
 
+    move p4, v3
+
     :cond_2
     :goto_0
     invoke-interface {p3}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result p4
+    move-result p5
 
-    if-eqz p4, :cond_3
+    if-eqz p5, :cond_3
 
     invoke-interface {p3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object p4
+    move-result-object p5
 
-    check-cast p4, Lcom/android/systemui/statusbar/NotificationLifetimeExtender;
+    check-cast p5, Lcom/android/systemui/statusbar/NotificationLifetimeExtender;
 
-    invoke-interface {p4, p2}, Lcom/android/systemui/statusbar/NotificationLifetimeExtender;->shouldExtendLifetimeForPendingNotification(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)Z
+    invoke-interface {p5, p2}, Lcom/android/systemui/statusbar/NotificationLifetimeExtender;->shouldExtendLifetimeForPendingNotification(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)Z
 
-    move-result p5
+    move-result p6
 
-    if-eqz p5, :cond_2
+    if-eqz p6, :cond_2
 
-    invoke-direct {p0, p2, p4}, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->extendLifetime(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Lcom/android/systemui/statusbar/NotificationLifetimeExtender;)V
+    invoke-direct {p0, p2, p5}, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->extendLifetime(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Lcom/android/systemui/statusbar/NotificationLifetimeExtender;)V
 
-    iget-object p5, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mLogger:Lcom/android/systemui/statusbar/notification/NotificationEntryManagerLogger;
+    iget-object p4, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mLogger:Lcom/android/systemui/statusbar/notification/NotificationEntryManagerLogger;
 
-    invoke-virtual {p4}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {p5}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object p4
+    move-result-object p5
 
-    invoke-virtual {p4}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    invoke-virtual {p5}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object p4
+    move-result-object p5
 
     const-string p6, "pending"
 
-    invoke-virtual {p5, p1, p4, p6}, Lcom/android/systemui/statusbar/notification/NotificationEntryManagerLogger;->logLifetimeExtended(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p4, p1, p5, p6}, Lcom/android/systemui/statusbar/notification/NotificationEntryManagerLogger;->logLifetimeExtended(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    move v3, v2
+    move p4, v2
 
     goto :goto_0
 
     :cond_3
-    if-nez v3, :cond_d
+    if-nez p4, :cond_f
 
     invoke-direct {p0, p1, v1}, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->abortExistingInflation(Ljava/lang/String;Ljava/lang/String;)V
 
+    iget-object p1, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mNotifCollectionListeners:Ljava/util/List;
+
+    invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object p1
+
+    :goto_1
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result p3
+
+    if-eqz p3, :cond_4
+
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object p3
+
+    check-cast p3, Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifCollectionListener;
+
+    invoke-interface {p3, p2, v3}, Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifCollectionListener;->onEntryRemoved(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;I)V
+
+    goto :goto_1
+
+    :cond_4
+    iget-object p1, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mNotifCollectionListeners:Ljava/util/List;
+
+    invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object p1
+
+    :goto_2
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result p3
+
+    if-eqz p3, :cond_5
+
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object p3
+
+    check-cast p3, Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifCollectionListener;
+
+    invoke-interface {p3, p2}, Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifCollectionListener;->onEntryCleanUp(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
+
+    goto :goto_2
+
+    :cond_5
     iget-object p1, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mAllNotifications:Ljava/util/Set;
 
     invoke-interface {p1, p2}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
@@ -1275,16 +1306,16 @@
 
     invoke-virtual {p0, p2}, Lcom/android/systemui/util/leak/LeakDetector;->trackGarbage(Ljava/lang/Object;)V
 
-    goto/16 :goto_6
+    goto/16 :goto_8
 
-    :cond_4
+    :cond_6
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->isRowDismissed()Z
 
     move-result v4
 
-    if-nez p4, :cond_6
+    if-nez p4, :cond_8
 
-    if-nez v4, :cond_6
+    if-nez v4, :cond_8
 
     iget-object p4, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mNotificationLifetimeExtenders:Ljava/util/ArrayList;
 
@@ -1292,12 +1323,12 @@
 
     move-result-object p4
 
-    :cond_5
+    :cond_7
     invoke-interface {p4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_6
+    if-eqz v4, :cond_8
 
     invoke-interface {p4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1309,7 +1340,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_5
+    if-eqz v5, :cond_7
 
     iput-object p2, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mLatestRankingMap:Landroid/service/notification/NotificationListenerService$RankingMap;
 
@@ -1331,13 +1362,13 @@
 
     move p2, v2
 
-    goto :goto_1
+    goto :goto_3
 
-    :cond_6
+    :cond_8
     move p2, v3
 
-    :goto_1
-    if-nez p2, :cond_d
+    :goto_3
+    if-nez p2, :cond_f
 
     invoke-direct {p0, p1, v1}, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->abortExistingInflation(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -1351,11 +1382,11 @@
 
     move-result p2
 
-    if-eqz p2, :cond_7
+    if-eqz p2, :cond_9
 
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->removeRow()V
 
-    :cond_7
+    :cond_9
     invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->handleGroupSummaryRemoved(Ljava/lang/String;)V
 
     invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->removeVisibleNotification(Ljava/lang/String;)V
@@ -1364,14 +1395,14 @@
 
     invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->updateNotifications(Ljava/lang/String;)V
 
-    if-eqz p5, :cond_8
+    if-eqz p5, :cond_a
 
-    goto :goto_2
+    goto :goto_4
 
-    :cond_8
+    :cond_a
     move v2, v3
 
-    :goto_2
+    :goto_4
     iget-object p1, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mLogger:Lcom/android/systemui/statusbar/notification/NotificationEntryManagerLogger;
 
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getKey()Ljava/lang/String;
@@ -1380,9 +1411,9 @@
 
     invoke-virtual {p1, p2, v2}, Lcom/android/systemui/statusbar/notification/NotificationEntryManagerLogger;->logNotifRemoved(Ljava/lang/String;Z)V
 
-    if-eqz v2, :cond_9
+    if-eqz v2, :cond_b
 
-    if-eqz p3, :cond_9
+    if-eqz p3, :cond_b
 
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getSbn()Landroid/service/notification/StatusBarNotification;
 
@@ -1390,56 +1421,8 @@
 
     invoke-direct {p0, p1, p5}, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->sendNotificationRemovalToServer(Landroid/service/notification/StatusBarNotification;Lcom/android/systemui/statusbar/notification/collection/notifcollection/DismissedByUserStats;)V
 
-    :cond_9
-    iget-object p1, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mNotificationEntryListeners:Ljava/util/List;
-
-    invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object p1
-
-    :goto_3
-    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result p2
-
-    if-eqz p2, :cond_a
-
-    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object p2
-
-    check-cast p2, Lcom/android/systemui/statusbar/notification/NotificationEntryListener;
-
-    invoke-interface {p2, v0, p3, v2, p6}, Lcom/android/systemui/statusbar/notification/NotificationEntryListener;->onEntryRemoved(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Lcom/android/internal/statusbar/NotificationVisibility;ZI)V
-
-    goto :goto_3
-
-    :cond_a
-    iget-object p1, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mNotifCollectionListeners:Ljava/util/List;
-
-    invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object p1
-
-    :goto_4
-    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result p2
-
-    if-eqz p2, :cond_b
-
-    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object p2
-
-    check-cast p2, Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifCollectionListener;
-
-    invoke-interface {p2, v0, v3}, Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifCollectionListener;->onEntryRemoved(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;I)V
-
-    goto :goto_4
-
     :cond_b
-    iget-object p1, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mNotifCollectionListeners:Ljava/util/List;
+    iget-object p1, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mNotificationEntryListeners:Ljava/util/List;
 
     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -1456,19 +1439,67 @@
 
     move-result-object p2
 
-    check-cast p2, Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifCollectionListener;
+    check-cast p2, Lcom/android/systemui/statusbar/notification/NotificationEntryListener;
 
-    invoke-interface {p2, v0}, Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifCollectionListener;->onEntryCleanUp(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
+    invoke-interface {p2, v0, p3, v2, p6}, Lcom/android/systemui/statusbar/notification/NotificationEntryListener;->onEntryRemoved(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Lcom/android/internal/statusbar/NotificationVisibility;ZI)V
 
     goto :goto_5
 
     :cond_c
+    iget-object p1, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mNotifCollectionListeners:Ljava/util/List;
+
+    invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object p1
+
+    :goto_6
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result p2
+
+    if-eqz p2, :cond_d
+
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object p2
+
+    check-cast p2, Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifCollectionListener;
+
+    invoke-interface {p2, v0, v3}, Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifCollectionListener;->onEntryRemoved(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;I)V
+
+    goto :goto_6
+
+    :cond_d
+    iget-object p1, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mNotifCollectionListeners:Ljava/util/List;
+
+    invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object p1
+
+    :goto_7
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result p2
+
+    if-eqz p2, :cond_e
+
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object p2
+
+    check-cast p2, Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifCollectionListener;
+
+    invoke-interface {p2, v0}, Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifCollectionListener;->onEntryCleanUp(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
+
+    goto :goto_7
+
+    :cond_e
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mLeakDetector:Lcom/android/systemui/util/leak/LeakDetector;
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/util/leak/LeakDetector;->trackGarbage(Ljava/lang/Object;)V
 
-    :cond_d
-    :goto_6
+    :cond_f
+    :goto_8
     return-void
 .end method
 
@@ -1534,7 +1565,7 @@
 .end method
 
 .method private updateNotificationInternal(Landroid/service/notification/StatusBarNotification;Landroid/service/notification/NotificationListenerService$RankingMap;)V
-    .locals 4
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/android/systemui/statusbar/notification/InflationException;
@@ -1593,45 +1624,45 @@
 
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getSbn()Landroid/service/notification/StatusBarNotification;
 
-    move-result-object p2
+    move-result-object v2
 
     invoke-virtual {v0, p1}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->setSbn(Landroid/service/notification/StatusBarNotification;)V
 
-    iget-object v2, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mNotifCollectionListeners:Ljava/util/List;
+    iget-object v3, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mNotifCollectionListeners:Ljava/util/List;
 
-    invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object v2
-
-    :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_2
-
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v3}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
 
-    check-cast v3, Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifCollectionListener;
+    :goto_0
+    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
-    invoke-interface {v3, v0, p1}, Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifCollectionListener;->onEntryBind(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Landroid/service/notification/StatusBarNotification;)V
+    move-result v4
+
+    if-eqz v4, :cond_2
+
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifCollectionListener;
+
+    invoke-interface {v4, v0, p1}, Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifCollectionListener;->onEntryBind(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Landroid/service/notification/StatusBarNotification;)V
 
     goto :goto_0
 
     :cond_2
     iget-object p1, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mGroupManager:Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;
 
-    invoke-virtual {p1, v0, p2}, Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;->onEntryUpdated(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Landroid/service/notification/StatusBarNotification;)V
+    invoke-virtual {p1, v0, v2}, Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;->onEntryUpdated(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Landroid/service/notification/StatusBarNotification;)V
 
     iget-object p1, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mLogger:Lcom/android/systemui/statusbar/notification/NotificationEntryManagerLogger;
 
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getKey()Ljava/lang/String;
 
-    move-result-object p2
+    move-result-object v2
 
-    invoke-virtual {p1, p2}, Lcom/android/systemui/statusbar/notification/NotificationEntryManagerLogger;->logNotifUpdated(Ljava/lang/String;)V
+    invoke-virtual {p1, v2}, Lcom/android/systemui/statusbar/notification/NotificationEntryManagerLogger;->logNotifUpdated(Ljava/lang/String;)V
 
     iget-object p1, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mNotificationEntryListeners:Ljava/util/List;
 
@@ -1642,52 +1673,62 @@
     :goto_1
     invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result p2
+    move-result v2
 
-    if-eqz p2, :cond_3
+    if-eqz v2, :cond_3
 
     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object p2
+    move-result-object v2
 
-    check-cast p2, Lcom/android/systemui/statusbar/notification/NotificationEntryListener;
+    check-cast v2, Lcom/android/systemui/statusbar/notification/NotificationEntryListener;
 
-    invoke-interface {p2, v0}, Lcom/android/systemui/statusbar/notification/NotificationEntryListener;->onPreEntryUpdated(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
+    invoke-interface {v2, v0}, Lcom/android/systemui/statusbar/notification/NotificationEntryListener;->onPreEntryUpdated(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
 
     goto :goto_1
 
     :cond_3
-    iget-object p1, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mNotifCollectionListeners:Ljava/util/List;
-
-    invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object p1
-
-    :goto_2
-    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result p2
-
     if-eqz p2, :cond_4
 
-    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object p2
-
-    check-cast p2, Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifCollectionListener;
-
-    invoke-interface {p2, v0}, Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifCollectionListener;->onEntryUpdated(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
+    const/4 p1, 0x1
 
     goto :goto_2
 
     :cond_4
-    iget-object p1, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mFeatureFlags:Lcom/android/systemui/statusbar/FeatureFlags;
+    const/4 p1, 0x0
 
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/FeatureFlags;->isNewNotifPipelineRenderingEnabled()Z
+    :goto_2
+    iget-object p2, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mNotifCollectionListeners:Ljava/util/List;
+
+    invoke-interface {p2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object p2
+
+    :goto_3
+    invoke-interface {p2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_5
+
+    invoke-interface {p2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifCollectionListener;
+
+    invoke-interface {v2, v0, p1}, Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifCollectionListener;->onEntryUpdated(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Z)V
+
+    goto :goto_3
+
+    :cond_5
+    iget-object p1, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mFeatureFlags:Lcom/android/systemui/flags/FeatureFlags;
+
+    invoke-virtual {p1}, Lcom/android/systemui/flags/FeatureFlags;->isNewNotifPipelineRenderingEnabled()Z
 
     move-result p1
 
-    if-nez p1, :cond_5
+    if-nez p1, :cond_6
 
     iget-object p1, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mNotificationRowBinderLazy:Ldagger/Lazy;
 
@@ -1701,7 +1742,7 @@
 
     invoke-interface {p1, v0, p2}, Lcom/android/systemui/statusbar/notification/collection/inflation/NotificationRowBinder;->inflateViews(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Lcom/android/systemui/statusbar/notification/row/NotificationRowContentBinder$InflationCallback;)V
 
-    :cond_5
+    :cond_6
     invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->updateNotifications(Ljava/lang/String;)V
 
     iget-object p1, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mNotificationEntryListeners:Ljava/util/List;
@@ -1710,12 +1751,12 @@
 
     move-result-object p1
 
-    :goto_3
+    :goto_4
     invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result p2
 
-    if-eqz p2, :cond_6
+    if-eqz p2, :cond_7
 
     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1725,21 +1766,21 @@
 
     invoke-interface {p2, v0}, Lcom/android/systemui/statusbar/notification/NotificationEntryListener;->onPostEntryUpdated(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
 
-    goto :goto_3
+    goto :goto_4
 
-    :cond_6
+    :cond_7
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mNotifCollectionListeners:Ljava/util/List;
 
     invoke-interface {p0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object p0
 
-    :goto_4
+    :goto_5
     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result p1
 
-    if-eqz p1, :cond_7
+    if-eqz p1, :cond_8
 
     invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1749,9 +1790,9 @@
 
     invoke-interface {p1}, Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifCollectionListener;->onRankingApplied()V
 
-    goto :goto_4
+    goto :goto_5
 
-    :cond_7
+    :cond_8
     return-void
 .end method
 
@@ -1958,16 +1999,6 @@
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mRemoveInterceptors:Ljava/util/List;
 
     invoke-interface {p0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    return-void
-.end method
-
-.method public attach(Lcom/android/systemui/statusbar/NotificationListener;)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mNotifListener:Lcom/android/systemui/statusbar/NotificationListener$NotificationHandler;
-
-    invoke-virtual {p1, p0}, Lcom/android/systemui/statusbar/NotificationListener;->addNotificationHandler(Lcom/android/systemui/statusbar/NotificationListener$NotificationHandler;)V
 
     return-void
 .end method
@@ -2590,6 +2621,22 @@
     return p0
 .end method
 
+.method public initialize(Lcom/android/systemui/statusbar/NotificationListener;Lcom/android/systemui/statusbar/notification/collection/legacy/LegacyNotificationRanker;)V
+    .locals 0
+
+    iput-object p2, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mRanker:Lcom/android/systemui/statusbar/notification/collection/legacy/LegacyNotificationRanker;
+
+    iget-object p2, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mNotifListener:Lcom/android/systemui/statusbar/NotificationListener$NotificationHandler;
+
+    invoke-virtual {p1, p2}, Lcom/android/systemui/statusbar/NotificationListener;->addNotificationHandler(Lcom/android/systemui/statusbar/NotificationListener$NotificationHandler;)V
+
+    iget-object p1, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mDumpManager:Lcom/android/systemui/dump/DumpManager;
+
+    invoke-virtual {p1, p0}, Lcom/android/systemui/dump/DumpManager;->registerDumpable(Lcom/android/systemui/Dumpable;)V
+
+    return-void
+.end method
+
 .method public onChangeAllowed()V
     .locals 1
 
@@ -2670,14 +2717,6 @@
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mNotificationEntryListeners:Ljava/util/List;
 
     invoke-interface {p0, p1}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
-
-    return-void
-.end method
-
-.method public setRanker(Lcom/android/systemui/statusbar/notification/collection/legacy/LegacyNotificationRanker;)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mRanker:Lcom/android/systemui/statusbar/notification/collection/legacy/LegacyNotificationRanker;
 
     return-void
 .end method
@@ -2938,9 +2977,9 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mFeatureFlags:Lcom/android/systemui/statusbar/FeatureFlags;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mFeatureFlags:Lcom/android/systemui/flags/FeatureFlags;
 
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/FeatureFlags;->isNewNotifPipelineRenderingEnabled()Z
+    invoke-virtual {v0}, Lcom/android/systemui/flags/FeatureFlags;->isNewNotifPipelineRenderingEnabled()Z
 
     move-result v0
 

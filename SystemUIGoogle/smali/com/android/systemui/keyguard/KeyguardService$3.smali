@@ -1,5 +1,5 @@
 .class Lcom/android/systemui/keyguard/KeyguardService$3;
-.super Lcom/android/internal/policy/IKeyguardService$Stub;
+.super Landroid/view/IRemoteAnimationRunner$Stub;
 .source "KeyguardService.java"
 
 
@@ -24,527 +24,85 @@
 
     iput-object p1, p0, Lcom/android/systemui/keyguard/KeyguardService$3;->this$0:Lcom/android/systemui/keyguard/KeyguardService;
 
-    invoke-direct {p0}, Lcom/android/internal/policy/IKeyguardService$Stub;-><init>()V
+    invoke-direct {p0}, Landroid/view/IRemoteAnimationRunner$Stub;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public addStateMonitorCallback(Lcom/android/internal/policy/IKeyguardStateCallback;)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardService$3;->this$0:Lcom/android/systemui/keyguard/KeyguardService;
-
-    invoke-virtual {v0}, Lcom/android/systemui/keyguard/KeyguardService;->checkPermission()V
-
-    iget-object p0, p0, Lcom/android/systemui/keyguard/KeyguardService$3;->this$0:Lcom/android/systemui/keyguard/KeyguardService;
-
-    invoke-static {p0}, Lcom/android/systemui/keyguard/KeyguardService;->access$000(Lcom/android/systemui/keyguard/KeyguardService;)Lcom/android/systemui/keyguard/KeyguardViewMediator;
-
-    move-result-object p0
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->addStateMonitorCallback(Lcom/android/internal/policy/IKeyguardStateCallback;)V
+.method public onAnimationCancelled()V
+    .locals 0
 
     return-void
 .end method
 
-.method public dismiss(Lcom/android/internal/policy/IKeyguardDismissCallback;Ljava/lang/CharSequence;)V
-    .locals 1
+.method public onAnimationStart(I[Landroid/view/RemoteAnimationTarget;[Landroid/view/RemoteAnimationTarget;[Landroid/view/RemoteAnimationTarget;Landroid/view/IRemoteAnimationFinishedCallback;)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardService$3;->this$0:Lcom/android/systemui/keyguard/KeyguardService;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Lcom/android/systemui/keyguard/KeyguardService;->checkPermission()V
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
 
+    const-string p3, "mOccludeAnimationRunner.onAnimationStart: transit="
+
+    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p2
+
+    const-string p3, "KeyguardService"
+
+    invoke-static {p3, p2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/16 p2, 0x16
+
+    if-ne p1, p2, :cond_0
+
+    :try_start_0
     iget-object p0, p0, Lcom/android/systemui/keyguard/KeyguardService$3;->this$0:Lcom/android/systemui/keyguard/KeyguardService;
 
-    invoke-static {p0}, Lcom/android/systemui/keyguard/KeyguardService;->access$000(Lcom/android/systemui/keyguard/KeyguardService;)Lcom/android/systemui/keyguard/KeyguardViewMediator;
+    invoke-static {p0}, Lcom/android/systemui/keyguard/KeyguardService;->access$300(Lcom/android/systemui/keyguard/KeyguardService;)Lcom/android/internal/policy/IKeyguardService$Stub;
 
     move-result-object p0
 
-    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->dismiss(Lcom/android/internal/policy/IKeyguardDismissCallback;Ljava/lang/CharSequence;)V
+    const/4 p1, 0x1
 
-    return-void
-.end method
+    invoke-virtual {p0, p1, p1}, Lcom/android/internal/policy/IKeyguardService$Stub;->setOccluded(ZZ)V
 
-.method public doKeyguardTimeout(Landroid/os/Bundle;)V
-    .locals 1
+    goto :goto_0
 
-    iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardService$3;->this$0:Lcom/android/systemui/keyguard/KeyguardService;
+    :cond_0
+    const/16 p2, 0x17
 
-    invoke-virtual {v0}, Lcom/android/systemui/keyguard/KeyguardService;->checkPermission()V
-
-    iget-object p0, p0, Lcom/android/systemui/keyguard/KeyguardService$3;->this$0:Lcom/android/systemui/keyguard/KeyguardService;
-
-    invoke-static {p0}, Lcom/android/systemui/keyguard/KeyguardService;->access$000(Lcom/android/systemui/keyguard/KeyguardService;)Lcom/android/systemui/keyguard/KeyguardViewMediator;
-
-    move-result-object p0
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->doKeyguardTimeout(Landroid/os/Bundle;)V
-
-    return-void
-.end method
-
-.method public onBootCompleted()V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardService$3;->this$0:Lcom/android/systemui/keyguard/KeyguardService;
-
-    invoke-virtual {v0}, Lcom/android/systemui/keyguard/KeyguardService;->checkPermission()V
+    if-ne p1, p2, :cond_1
 
     iget-object p0, p0, Lcom/android/systemui/keyguard/KeyguardService$3;->this$0:Lcom/android/systemui/keyguard/KeyguardService;
 
-    invoke-static {p0}, Lcom/android/systemui/keyguard/KeyguardService;->access$000(Lcom/android/systemui/keyguard/KeyguardService;)Lcom/android/systemui/keyguard/KeyguardViewMediator;
-
-    move-result-object p0
-
-    invoke-virtual {p0}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->onBootCompleted()V
-
-    return-void
-.end method
-
-.method public onDreamingStarted()V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardService$3;->this$0:Lcom/android/systemui/keyguard/KeyguardService;
-
-    invoke-virtual {v0}, Lcom/android/systemui/keyguard/KeyguardService;->checkPermission()V
-
-    iget-object p0, p0, Lcom/android/systemui/keyguard/KeyguardService$3;->this$0:Lcom/android/systemui/keyguard/KeyguardService;
-
-    invoke-static {p0}, Lcom/android/systemui/keyguard/KeyguardService;->access$000(Lcom/android/systemui/keyguard/KeyguardService;)Lcom/android/systemui/keyguard/KeyguardViewMediator;
-
-    move-result-object p0
-
-    invoke-virtual {p0}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->onDreamingStarted()V
-
-    return-void
-.end method
-
-.method public onDreamingStopped()V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardService$3;->this$0:Lcom/android/systemui/keyguard/KeyguardService;
-
-    invoke-virtual {v0}, Lcom/android/systemui/keyguard/KeyguardService;->checkPermission()V
-
-    iget-object p0, p0, Lcom/android/systemui/keyguard/KeyguardService$3;->this$0:Lcom/android/systemui/keyguard/KeyguardService;
-
-    invoke-static {p0}, Lcom/android/systemui/keyguard/KeyguardService;->access$000(Lcom/android/systemui/keyguard/KeyguardService;)Lcom/android/systemui/keyguard/KeyguardViewMediator;
-
-    move-result-object p0
-
-    invoke-virtual {p0}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->onDreamingStopped()V
-
-    return-void
-.end method
-
-.method public onFinishedGoingToSleep(IZ)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardService$3;->this$0:Lcom/android/systemui/keyguard/KeyguardService;
-
-    invoke-virtual {v0}, Lcom/android/systemui/keyguard/KeyguardService;->checkPermission()V
-
-    iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardService$3;->this$0:Lcom/android/systemui/keyguard/KeyguardService;
-
-    invoke-static {v0}, Lcom/android/systemui/keyguard/KeyguardService;->access$000(Lcom/android/systemui/keyguard/KeyguardService;)Lcom/android/systemui/keyguard/KeyguardViewMediator;
-
-    move-result-object v0
-
-    invoke-static {p1}, Landroid/view/WindowManagerPolicyConstants;->translateSleepReasonToOffReason(I)I
-
-    move-result p1
-
-    invoke-virtual {v0, p1, p2}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->onFinishedGoingToSleep(IZ)V
-
-    iget-object p0, p0, Lcom/android/systemui/keyguard/KeyguardService$3;->this$0:Lcom/android/systemui/keyguard/KeyguardService;
-
-    invoke-static {p0}, Lcom/android/systemui/keyguard/KeyguardService;->access$200(Lcom/android/systemui/keyguard/KeyguardService;)Lcom/android/systemui/keyguard/KeyguardLifecyclesDispatcher;
-
-    move-result-object p0
-
-    const/4 p1, 0x7
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/keyguard/KeyguardLifecyclesDispatcher;->dispatch(I)V
-
-    return-void
-.end method
-
-.method public onFinishedWakingUp()V
-    .locals 1
-
-    const-string v0, "KeyguardService.mBinder#onFinishedWakingUp"
-
-    invoke-static {v0}, Landroid/os/Trace;->beginSection(Ljava/lang/String;)V
-
-    iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardService$3;->this$0:Lcom/android/systemui/keyguard/KeyguardService;
-
-    invoke-virtual {v0}, Lcom/android/systemui/keyguard/KeyguardService;->checkPermission()V
-
-    iget-object p0, p0, Lcom/android/systemui/keyguard/KeyguardService$3;->this$0:Lcom/android/systemui/keyguard/KeyguardService;
-
-    invoke-static {p0}, Lcom/android/systemui/keyguard/KeyguardService;->access$200(Lcom/android/systemui/keyguard/KeyguardService;)Lcom/android/systemui/keyguard/KeyguardLifecyclesDispatcher;
-
-    move-result-object p0
-
-    const/4 v0, 0x5
-
-    invoke-virtual {p0, v0}, Lcom/android/systemui/keyguard/KeyguardLifecyclesDispatcher;->dispatch(I)V
-
-    invoke-static {}, Landroid/os/Trace;->endSection()V
-
-    return-void
-.end method
-
-.method public onScreenTurnedOff()V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardService$3;->this$0:Lcom/android/systemui/keyguard/KeyguardService;
-
-    invoke-virtual {v0}, Lcom/android/systemui/keyguard/KeyguardService;->checkPermission()V
-
-    iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardService$3;->this$0:Lcom/android/systemui/keyguard/KeyguardService;
-
-    invoke-static {v0}, Lcom/android/systemui/keyguard/KeyguardService;->access$000(Lcom/android/systemui/keyguard/KeyguardService;)Lcom/android/systemui/keyguard/KeyguardViewMediator;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->onScreenTurnedOff()V
-
-    iget-object p0, p0, Lcom/android/systemui/keyguard/KeyguardService$3;->this$0:Lcom/android/systemui/keyguard/KeyguardService;
-
-    invoke-static {p0}, Lcom/android/systemui/keyguard/KeyguardService;->access$200(Lcom/android/systemui/keyguard/KeyguardService;)Lcom/android/systemui/keyguard/KeyguardLifecyclesDispatcher;
-
-    move-result-object p0
-
-    const/4 v0, 0x3
-
-    invoke-virtual {p0, v0}, Lcom/android/systemui/keyguard/KeyguardLifecyclesDispatcher;->dispatch(I)V
-
-    return-void
-.end method
-
-.method public onScreenTurnedOn()V
-    .locals 1
-
-    const-string v0, "KeyguardService.mBinder#onScreenTurnedOn"
-
-    invoke-static {v0}, Landroid/os/Trace;->beginSection(Ljava/lang/String;)V
-
-    iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardService$3;->this$0:Lcom/android/systemui/keyguard/KeyguardService;
-
-    invoke-virtual {v0}, Lcom/android/systemui/keyguard/KeyguardService;->checkPermission()V
-
-    iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardService$3;->this$0:Lcom/android/systemui/keyguard/KeyguardService;
-
-    invoke-static {v0}, Lcom/android/systemui/keyguard/KeyguardService;->access$000(Lcom/android/systemui/keyguard/KeyguardService;)Lcom/android/systemui/keyguard/KeyguardViewMediator;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->onScreenTurnedOn()V
-
-    iget-object p0, p0, Lcom/android/systemui/keyguard/KeyguardService$3;->this$0:Lcom/android/systemui/keyguard/KeyguardService;
-
-    invoke-static {p0}, Lcom/android/systemui/keyguard/KeyguardService;->access$200(Lcom/android/systemui/keyguard/KeyguardService;)Lcom/android/systemui/keyguard/KeyguardLifecyclesDispatcher;
-
-    move-result-object p0
-
-    const/4 v0, 0x1
-
-    invoke-virtual {p0, v0}, Lcom/android/systemui/keyguard/KeyguardLifecyclesDispatcher;->dispatch(I)V
-
-    invoke-static {}, Landroid/os/Trace;->endSection()V
-
-    return-void
-.end method
-
-.method public onScreenTurningOff()V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardService$3;->this$0:Lcom/android/systemui/keyguard/KeyguardService;
-
-    invoke-virtual {v0}, Lcom/android/systemui/keyguard/KeyguardService;->checkPermission()V
-
-    iget-object p0, p0, Lcom/android/systemui/keyguard/KeyguardService$3;->this$0:Lcom/android/systemui/keyguard/KeyguardService;
-
-    invoke-static {p0}, Lcom/android/systemui/keyguard/KeyguardService;->access$200(Lcom/android/systemui/keyguard/KeyguardService;)Lcom/android/systemui/keyguard/KeyguardLifecyclesDispatcher;
-
-    move-result-object p0
-
-    const/4 v0, 0x2
-
-    invoke-virtual {p0, v0}, Lcom/android/systemui/keyguard/KeyguardLifecyclesDispatcher;->dispatch(I)V
-
-    return-void
-.end method
-
-.method public onScreenTurningOn(Lcom/android/internal/policy/IKeyguardDrawnCallback;)V
-    .locals 1
-
-    const-string v0, "KeyguardService.mBinder#onScreenTurningOn"
-
-    invoke-static {v0}, Landroid/os/Trace;->beginSection(Ljava/lang/String;)V
-
-    iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardService$3;->this$0:Lcom/android/systemui/keyguard/KeyguardService;
-
-    invoke-virtual {v0}, Lcom/android/systemui/keyguard/KeyguardService;->checkPermission()V
-
-    iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardService$3;->this$0:Lcom/android/systemui/keyguard/KeyguardService;
-
-    invoke-static {v0}, Lcom/android/systemui/keyguard/KeyguardService;->access$000(Lcom/android/systemui/keyguard/KeyguardService;)Lcom/android/systemui/keyguard/KeyguardViewMediator;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p1}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->onScreenTurningOn(Lcom/android/internal/policy/IKeyguardDrawnCallback;)V
-
-    iget-object p0, p0, Lcom/android/systemui/keyguard/KeyguardService$3;->this$0:Lcom/android/systemui/keyguard/KeyguardService;
-
-    invoke-static {p0}, Lcom/android/systemui/keyguard/KeyguardService;->access$200(Lcom/android/systemui/keyguard/KeyguardService;)Lcom/android/systemui/keyguard/KeyguardLifecyclesDispatcher;
+    invoke-static {p0}, Lcom/android/systemui/keyguard/KeyguardService;->access$300(Lcom/android/systemui/keyguard/KeyguardService;)Lcom/android/internal/policy/IKeyguardService$Stub;
 
     move-result-object p0
 
     const/4 p1, 0x0
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/keyguard/KeyguardLifecyclesDispatcher;->dispatch(I)V
+    invoke-virtual {p0, p1, p1}, Lcom/android/internal/policy/IKeyguardService$Stub;->setOccluded(ZZ)V
 
-    invoke-static {}, Landroid/os/Trace;->endSection()V
+    :cond_1
+    :goto_0
+    invoke-interface {p5}, Landroid/view/IRemoteAnimationFinishedCallback;->onAnimationFinished()V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-void
-.end method
+    goto :goto_1
 
-.method public onShortPowerPressedGoHome()V
-    .locals 1
+    :catch_0
+    const-string p0, "RemoteException"
 
-    iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardService$3;->this$0:Lcom/android/systemui/keyguard/KeyguardService;
+    invoke-static {p3, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {v0}, Lcom/android/systemui/keyguard/KeyguardService;->checkPermission()V
-
-    iget-object p0, p0, Lcom/android/systemui/keyguard/KeyguardService$3;->this$0:Lcom/android/systemui/keyguard/KeyguardService;
-
-    invoke-static {p0}, Lcom/android/systemui/keyguard/KeyguardService;->access$000(Lcom/android/systemui/keyguard/KeyguardService;)Lcom/android/systemui/keyguard/KeyguardViewMediator;
-
-    move-result-object p0
-
-    invoke-virtual {p0}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->onShortPowerPressedGoHome()V
-
-    return-void
-.end method
-
-.method public onStartedGoingToSleep(I)V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardService$3;->this$0:Lcom/android/systemui/keyguard/KeyguardService;
-
-    invoke-virtual {v0}, Lcom/android/systemui/keyguard/KeyguardService;->checkPermission()V
-
-    iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardService$3;->this$0:Lcom/android/systemui/keyguard/KeyguardService;
-
-    invoke-static {v0}, Lcom/android/systemui/keyguard/KeyguardService;->access$000(Lcom/android/systemui/keyguard/KeyguardService;)Lcom/android/systemui/keyguard/KeyguardViewMediator;
-
-    move-result-object v0
-
-    invoke-static {p1}, Landroid/view/WindowManagerPolicyConstants;->translateSleepReasonToOffReason(I)I
-
-    move-result v1
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->onStartedGoingToSleep(I)V
-
-    iget-object p0, p0, Lcom/android/systemui/keyguard/KeyguardService$3;->this$0:Lcom/android/systemui/keyguard/KeyguardService;
-
-    invoke-static {p0}, Lcom/android/systemui/keyguard/KeyguardService;->access$200(Lcom/android/systemui/keyguard/KeyguardService;)Lcom/android/systemui/keyguard/KeyguardLifecyclesDispatcher;
-
-    move-result-object p0
-
-    const/4 v0, 0x6
-
-    invoke-virtual {p0, v0, p1}, Lcom/android/systemui/keyguard/KeyguardLifecyclesDispatcher;->dispatch(II)V
-
-    return-void
-.end method
-
-.method public onStartedWakingUp(IZ)V
-    .locals 1
-
-    const-string v0, "KeyguardService.mBinder#onStartedWakingUp"
-
-    invoke-static {v0}, Landroid/os/Trace;->beginSection(Ljava/lang/String;)V
-
-    iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardService$3;->this$0:Lcom/android/systemui/keyguard/KeyguardService;
-
-    invoke-virtual {v0}, Lcom/android/systemui/keyguard/KeyguardService;->checkPermission()V
-
-    iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardService$3;->this$0:Lcom/android/systemui/keyguard/KeyguardService;
-
-    invoke-static {v0}, Lcom/android/systemui/keyguard/KeyguardService;->access$000(Lcom/android/systemui/keyguard/KeyguardService;)Lcom/android/systemui/keyguard/KeyguardViewMediator;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p2}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->onStartedWakingUp(Z)V
-
-    iget-object p0, p0, Lcom/android/systemui/keyguard/KeyguardService$3;->this$0:Lcom/android/systemui/keyguard/KeyguardService;
-
-    invoke-static {p0}, Lcom/android/systemui/keyguard/KeyguardService;->access$200(Lcom/android/systemui/keyguard/KeyguardService;)Lcom/android/systemui/keyguard/KeyguardLifecyclesDispatcher;
-
-    move-result-object p0
-
-    const/4 p2, 0x4
-
-    invoke-virtual {p0, p2, p1}, Lcom/android/systemui/keyguard/KeyguardLifecyclesDispatcher;->dispatch(II)V
-
-    invoke-static {}, Landroid/os/Trace;->endSection()V
-
-    return-void
-.end method
-
-.method public onSystemReady()V
-    .locals 1
-
-    const-string v0, "KeyguardService.mBinder#onSystemReady"
-
-    invoke-static {v0}, Landroid/os/Trace;->beginSection(Ljava/lang/String;)V
-
-    iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardService$3;->this$0:Lcom/android/systemui/keyguard/KeyguardService;
-
-    invoke-virtual {v0}, Lcom/android/systemui/keyguard/KeyguardService;->checkPermission()V
-
-    iget-object p0, p0, Lcom/android/systemui/keyguard/KeyguardService$3;->this$0:Lcom/android/systemui/keyguard/KeyguardService;
-
-    invoke-static {p0}, Lcom/android/systemui/keyguard/KeyguardService;->access$000(Lcom/android/systemui/keyguard/KeyguardService;)Lcom/android/systemui/keyguard/KeyguardViewMediator;
-
-    move-result-object p0
-
-    invoke-virtual {p0}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->onSystemReady()V
-
-    invoke-static {}, Landroid/os/Trace;->endSection()V
-
-    return-void
-.end method
-
-.method public setCurrentUser(I)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardService$3;->this$0:Lcom/android/systemui/keyguard/KeyguardService;
-
-    invoke-virtual {v0}, Lcom/android/systemui/keyguard/KeyguardService;->checkPermission()V
-
-    iget-object p0, p0, Lcom/android/systemui/keyguard/KeyguardService$3;->this$0:Lcom/android/systemui/keyguard/KeyguardService;
-
-    invoke-static {p0}, Lcom/android/systemui/keyguard/KeyguardService;->access$000(Lcom/android/systemui/keyguard/KeyguardService;)Lcom/android/systemui/keyguard/KeyguardViewMediator;
-
-    move-result-object p0
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->setCurrentUser(I)V
-
-    return-void
-.end method
-
-.method public setKeyguardEnabled(Z)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardService$3;->this$0:Lcom/android/systemui/keyguard/KeyguardService;
-
-    invoke-virtual {v0}, Lcom/android/systemui/keyguard/KeyguardService;->checkPermission()V
-
-    iget-object p0, p0, Lcom/android/systemui/keyguard/KeyguardService$3;->this$0:Lcom/android/systemui/keyguard/KeyguardService;
-
-    invoke-static {p0}, Lcom/android/systemui/keyguard/KeyguardService;->access$000(Lcom/android/systemui/keyguard/KeyguardService;)Lcom/android/systemui/keyguard/KeyguardViewMediator;
-
-    move-result-object p0
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->setKeyguardEnabled(Z)V
-
-    return-void
-.end method
-
-.method public setOccluded(ZZ)V
-    .locals 1
-
-    const-string v0, "KeyguardService.mBinder#setOccluded"
-
-    invoke-static {v0}, Landroid/os/Trace;->beginSection(Ljava/lang/String;)V
-
-    iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardService$3;->this$0:Lcom/android/systemui/keyguard/KeyguardService;
-
-    invoke-virtual {v0}, Lcom/android/systemui/keyguard/KeyguardService;->checkPermission()V
-
-    iget-object p0, p0, Lcom/android/systemui/keyguard/KeyguardService$3;->this$0:Lcom/android/systemui/keyguard/KeyguardService;
-
-    invoke-static {p0}, Lcom/android/systemui/keyguard/KeyguardService;->access$000(Lcom/android/systemui/keyguard/KeyguardService;)Lcom/android/systemui/keyguard/KeyguardViewMediator;
-
-    move-result-object p0
-
-    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->setOccluded(ZZ)V
-
-    invoke-static {}, Landroid/os/Trace;->endSection()V
-
-    return-void
-.end method
-
-.method public setSwitchingUser(Z)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardService$3;->this$0:Lcom/android/systemui/keyguard/KeyguardService;
-
-    invoke-virtual {v0}, Lcom/android/systemui/keyguard/KeyguardService;->checkPermission()V
-
-    iget-object p0, p0, Lcom/android/systemui/keyguard/KeyguardService$3;->this$0:Lcom/android/systemui/keyguard/KeyguardService;
-
-    invoke-static {p0}, Lcom/android/systemui/keyguard/KeyguardService;->access$000(Lcom/android/systemui/keyguard/KeyguardService;)Lcom/android/systemui/keyguard/KeyguardViewMediator;
-
-    move-result-object p0
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->setSwitchingUser(Z)V
-
-    return-void
-.end method
-
-.method public startKeyguardExitAnimation(JJ)V
-    .locals 1
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-
-    const-string v0, "KeyguardService.mBinder#startKeyguardExitAnimation"
-
-    invoke-static {v0}, Landroid/os/Trace;->beginSection(Ljava/lang/String;)V
-
-    iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardService$3;->this$0:Lcom/android/systemui/keyguard/KeyguardService;
-
-    invoke-virtual {v0}, Lcom/android/systemui/keyguard/KeyguardService;->checkPermission()V
-
-    iget-object p0, p0, Lcom/android/systemui/keyguard/KeyguardService$3;->this$0:Lcom/android/systemui/keyguard/KeyguardService;
-
-    invoke-static {p0}, Lcom/android/systemui/keyguard/KeyguardService;->access$000(Lcom/android/systemui/keyguard/KeyguardService;)Lcom/android/systemui/keyguard/KeyguardViewMediator;
-
-    move-result-object p0
-
-    invoke-virtual {p0, p1, p2, p3, p4}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->startKeyguardExitAnimation(JJ)V
-
-    invoke-static {}, Landroid/os/Trace;->endSection()V
-
-    return-void
-.end method
-
-.method public verifyUnlock(Lcom/android/internal/policy/IKeyguardExitCallback;)V
-    .locals 1
-
-    const-string v0, "KeyguardService.mBinder#verifyUnlock"
-
-    invoke-static {v0}, Landroid/os/Trace;->beginSection(Ljava/lang/String;)V
-
-    iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardService$3;->this$0:Lcom/android/systemui/keyguard/KeyguardService;
-
-    invoke-virtual {v0}, Lcom/android/systemui/keyguard/KeyguardService;->checkPermission()V
-
-    iget-object p0, p0, Lcom/android/systemui/keyguard/KeyguardService$3;->this$0:Lcom/android/systemui/keyguard/KeyguardService;
-
-    invoke-static {p0}, Lcom/android/systemui/keyguard/KeyguardService;->access$000(Lcom/android/systemui/keyguard/KeyguardService;)Lcom/android/systemui/keyguard/KeyguardViewMediator;
-
-    move-result-object p0
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->verifyUnlock(Lcom/android/internal/policy/IKeyguardExitCallback;)V
-
-    invoke-static {}, Landroid/os/Trace;->endSection()V
-
+    :goto_1
     return-void
 .end method

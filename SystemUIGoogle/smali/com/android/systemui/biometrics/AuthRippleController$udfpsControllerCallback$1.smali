@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onFingerDown()V
-    .locals 2
+    .locals 3
 
     iget-object v0, p0, Lcom/android/systemui/biometrics/AuthRippleController$udfpsControllerCallback$1;->this$0:Lcom/android/systemui/biometrics/AuthRippleController;
 
@@ -70,7 +70,13 @@
 
     invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/biometrics/AuthRippleView;->setSensorLocation(Landroid/graphics/PointF;)V
+    iget-object v2, p0, Lcom/android/systemui/biometrics/AuthRippleController$udfpsControllerCallback$1;->this$0:Lcom/android/systemui/biometrics/AuthRippleController;
+
+    invoke-static {v2}, Lcom/android/systemui/biometrics/AuthRippleController;->access$getUdfpsRadius$p(Lcom/android/systemui/biometrics/AuthRippleController;)F
+
+    move-result v2
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/systemui/biometrics/AuthRippleView;->setFingerprintSensorLocation(Landroid/graphics/PointF;F)V
 
     iget-object p0, p0, Lcom/android/systemui/biometrics/AuthRippleController$udfpsControllerCallback$1;->this$0:Lcom/android/systemui/biometrics/AuthRippleController;
 

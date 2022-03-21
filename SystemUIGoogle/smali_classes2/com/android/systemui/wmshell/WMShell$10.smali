@@ -3,7 +3,7 @@
 .source "WMShell.java"
 
 # interfaces
-.implements Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
+.implements Lcom/android/systemui/keyguard/WakefulnessLifecycle$Observer;
 
 
 # annotations
@@ -38,31 +38,32 @@
 
 
 # virtual methods
-.method public onCameraLaunchGestureDetected(I)V
-    .locals 0
+.method public onFinishedWakingUp()V
+    .locals 1
 
     iget-object p0, p0, Lcom/android/systemui/wmshell/WMShell$10;->val$oneHanded:Lcom/android/wm/shell/onehanded/OneHanded;
 
-    invoke-interface {p0}, Lcom/android/wm/shell/onehanded/OneHanded;->stopOneHanded()V
+    const/4 v0, 0x0
+
+    invoke-interface {p0, v0, v0}, Lcom/android/wm/shell/onehanded/OneHanded;->setLockedDisabled(ZZ)V
 
     return-void
 .end method
 
-.method public setImeWindowStatus(ILandroid/os/IBinder;IIZ)V
-    .locals 0
+.method public onStartedGoingToSleep()V
+    .locals 2
 
-    if-nez p1, :cond_0
+    iget-object v0, p0, Lcom/android/systemui/wmshell/WMShell$10;->val$oneHanded:Lcom/android/wm/shell/onehanded/OneHanded;
 
-    and-int/lit8 p1, p3, 0x2
-
-    if-eqz p1, :cond_0
+    invoke-interface {v0}, Lcom/android/wm/shell/onehanded/OneHanded;->stopOneHanded()V
 
     iget-object p0, p0, Lcom/android/systemui/wmshell/WMShell$10;->val$oneHanded:Lcom/android/wm/shell/onehanded/OneHanded;
 
-    const/4 p1, 0x3
+    const/4 v0, 0x1
 
-    invoke-interface {p0, p1}, Lcom/android/wm/shell/onehanded/OneHanded;->stopOneHanded(I)V
+    const/4 v1, 0x0
 
-    :cond_0
+    invoke-interface {p0, v0, v1}, Lcom/android/wm/shell/onehanded/OneHanded;->setLockedDisabled(ZZ)V
+
     return-void
 .end method

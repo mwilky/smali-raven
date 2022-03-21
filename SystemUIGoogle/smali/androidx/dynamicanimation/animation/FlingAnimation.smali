@@ -195,6 +195,24 @@
     return-object p0
 .end method
 
+.method setValueThreshold(F)V
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "threshold"
+        }
+    .end annotation
+
+    iget-object p0, p0, Landroidx/dynamicanimation/animation/FlingAnimation;->mFlingForce:Landroidx/dynamicanimation/animation/FlingAnimation$DragForce;
+
+    invoke-virtual {p0, p1}, Landroidx/dynamicanimation/animation/FlingAnimation$DragForce;->setValueThreshold(F)V
+
+    return-void
+.end method
+
 .method updateValueAndVelocity(J)Z
     .locals 3
     .annotation system Ldalvik/annotation/MethodParameters;

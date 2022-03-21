@@ -30,6 +30,14 @@
 
 
 # direct methods
+.method public static synthetic $r8$lambda$-_tXuqbm13EL4DB5RrpZNhapEPc(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;Lcom/android/wm/shell/bubbles/Bubbles$BubbleExpandListener;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;->lambda$setExpandListener$13(Lcom/android/wm/shell/bubbles/Bubbles$BubbleExpandListener;)V
+
+    return-void
+.end method
+
 .method public static synthetic $r8$lambda$2XavN2teSxwDpR81UfafRZOMwEw(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;Lcom/android/wm/shell/bubbles/Bubble;)V
     .locals 0
 
@@ -46,26 +54,10 @@
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$5FN2RXnDAtnPkqFWmmuHPm5XoX4(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;Landroid/os/Bundle;)V
+.method public static synthetic $r8$lambda$64MfwT1YqQxuGVX2-uHarEBMbWM(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;->lambda$onTaskbarChanged$7(Landroid/os/Bundle;)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$5rnWic-60O8P0qw3ecRAuo02u9w(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;Landroid/view/View;Ljava/util/function/BiConsumer;)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;->lambda$setBubbleScrim$13(Landroid/view/View;Ljava/util/function/BiConsumer;)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$7Hm38cUZSDM7yF7xYkO3tpvMvDM(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;Z)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;->lambda$onStatusBarStateChanged$21(Z)V
+    invoke-direct {p0}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;->lambda$onZenStateChanged$19()V
 
     return-void
 .end method
@@ -78,10 +70,10 @@
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$FZQiWYUan_qUpBa2Q0wOHV_ZrSo(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;Landroid/util/SparseArray;)V
+.method public static synthetic $r8$lambda$D8VGj5_b9eSOx5k-u4xgo9Q8mA8(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;->lambda$onCurrentProfilesChanged$23(Landroid/util/SparseArray;)V
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;->lambda$dump$24(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
 
     return-void
 .end method
@@ -94,26 +86,18 @@
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$J-XjjYXOznUGjoEhhuM6Ch10RMI(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;->lambda$dump$25(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$JYq8lko8YyeVb05fbj4S7ddrHM4(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;I)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;->lambda$onUserChanged$22(I)V
-
-    return-void
-.end method
-
 .method public static synthetic $r8$lambda$LEOegkQuwezDE8PI-22JtbGZDj8(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;Ljava/util/function/Consumer;Ljava/util/concurrent/Executor;Ljava/lang/String;)V
     .locals 0
 
     invoke-direct {p0, p1, p2, p3}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;->lambda$removeSuppressedSummaryIfNecessary$2(Ljava/util/function/Consumer;Ljava/util/concurrent/Executor;Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$PAWJ-4eX_rkGbEY0rASL14VxgH4(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;Landroid/service/notification/NotificationListenerService$RankingMap;Ljava/util/HashMap;)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;->lambda$onRankingUpdated$17(Landroid/service/notification/NotificationListenerService$RankingMap;Ljava/util/HashMap;)V
 
     return-void
 .end method
@@ -126,18 +110,10 @@
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$S0JhFMBTbU-Qzsajc6VJJ2edcHY(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;Lcom/android/wm/shell/bubbles/BubbleEntry;)V
+.method public static synthetic $r8$lambda$bq32YQNYpXyTKTG3ub8mbpdH_0g(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;Lcom/android/wm/shell/bubbles/BubbleEntry;)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;->lambda$onEntryAdded$15(Lcom/android/wm/shell/bubbles/BubbleEntry;)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$Z8e8ffoyi7-EB6gg2e1ZSQF6AP0(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;Lcom/android/wm/shell/bubbles/BubbleEntry;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;->lambda$onEntryRemoved$17(Lcom/android/wm/shell/bubbles/BubbleEntry;)V
+    invoke-direct {p0, p1}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;->lambda$onEntryAdded$14(Lcom/android/wm/shell/bubbles/BubbleEntry;)V
 
     return-void
 .end method
@@ -150,18 +126,18 @@
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$fq67AoaLQ-SiEbdfinwbFFRbvWI(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;Lcom/android/wm/shell/bubbles/BubbleEntry;Z)V
+.method public static synthetic $r8$lambda$e-aBuINhtetlzrs8Wk2g2dg_Tvs(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;Lcom/android/wm/shell/bubbles/BubbleEntry;)V
     .locals 0
 
-    invoke-direct {p0, p1, p2}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;->lambda$onEntryUpdated$16(Lcom/android/wm/shell/bubbles/BubbleEntry;Z)V
+    invoke-direct {p0, p1}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;->lambda$onEntryRemoved$16(Lcom/android/wm/shell/bubbles/BubbleEntry;)V
 
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$ju5RBSSJ5haufwqAkV332v8hAhU(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;Lcom/android/wm/shell/bubbles/Bubbles$BubbleExpandListener;)V
+.method public static synthetic $r8$lambda$gX59u4-lMCbYlTsmmOQcJdXHj6s(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;I)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;->lambda$setExpandListener$14(Lcom/android/wm/shell/bubbles/Bubbles$BubbleExpandListener;)V
+    invoke-direct {p0, p1}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;->lambda$onUserChanged$21(I)V
 
     return-void
 .end method
@@ -176,34 +152,34 @@
     return-object p0
 .end method
 
-.method public static synthetic $r8$lambda$khJCWMqceYqNyIePtmjWpRWy2yE(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;Landroid/content/res/Configuration;)V
+.method public static synthetic $r8$lambda$qA-bQF0WQ4ech_VFz9vas6bJrVs(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;Z)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;->lambda$onConfigChanged$24(Landroid/content/res/Configuration;)V
+    invoke-direct {p0, p1}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;->lambda$onStatusBarStateChanged$20(Z)V
 
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$nGhYBvtO13gmTsTej9B0HzS7YIU(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;Landroid/service/notification/NotificationListenerService$RankingMap;Ljava/util/HashMap;)V
+.method public static synthetic $r8$lambda$sJ_fxg2x5MbskW-0CoqoyvsW700(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;Landroid/util/SparseArray;)V
     .locals 0
 
-    invoke-direct {p0, p1, p2}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;->lambda$onRankingUpdated$18(Landroid/service/notification/NotificationListenerService$RankingMap;Ljava/util/HashMap;)V
+    invoke-direct {p0, p1}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;->lambda$onCurrentProfilesChanged$22(Landroid/util/SparseArray;)V
 
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$onIhMykAitMU1fNTulNOwCTpPYA(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;)V
+.method public static synthetic $r8$lambda$vsvZBxyxDLpou2q0stduLy7mxMs(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;Lcom/android/wm/shell/bubbles/BubbleEntry;Z)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;->lambda$onZenStateChanged$20()V
+    invoke-direct {p0, p1, p2}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;->lambda$onEntryUpdated$15(Lcom/android/wm/shell/bubbles/BubbleEntry;Z)V
 
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$uC3MbLLfPnBu5xmVQWzCDrswegQ(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;Z)V
+.method public static synthetic $r8$lambda$w7js6MsbmDON9kM3umrnQSDRtgA(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;Z)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;->lambda$onStatusBarVisibilityChanged$19(Z)V
+    invoke-direct {p0, p1}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;->lambda$onStatusBarVisibilityChanged$18(Z)V
 
     return-void
 .end method
@@ -212,6 +188,14 @@
     .locals 0
 
     invoke-direct {p0}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;->lambda$collapseStack$3()V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$xEYCP0lVzbXq5naSvqMc3Ws3Htc(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;Landroid/content/res/Configuration;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;->lambda$onConfigChanged$23(Landroid/content/res/Configuration;)V
 
     return-void
 .end method
@@ -274,7 +258,7 @@
     return-void
 .end method
 
-.method private synthetic lambda$dump$25(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
+.method private synthetic lambda$dump$24(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;->this$0:Lcom/android/wm/shell/bubbles/BubbleController;
@@ -311,9 +295,9 @@
 .method private static synthetic lambda$handleDismissalInterception$10(Ljava/util/concurrent/Executor;Ljava/util/function/IntConsumer;I)V
     .locals 1
 
-    new-instance v0, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda21;
+    new-instance v0, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda19;
 
-    invoke-direct {v0, p1, p2}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda21;-><init>(Ljava/util/function/IntConsumer;I)V
+    invoke-direct {v0, p1, p2}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda19;-><init>(Ljava/util/function/IntConsumer;I)V
 
     invoke-interface {p0, v0}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
@@ -325,7 +309,7 @@
 
     iget-object p0, p0, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;->this$0:Lcom/android/wm/shell/bubbles/BubbleController;
 
-    invoke-static {p0, p1, p2, p3}, Lcom/android/wm/shell/bubbles/BubbleController;->access$2600(Lcom/android/wm/shell/bubbles/BubbleController;Lcom/android/wm/shell/bubbles/BubbleEntry;Ljava/util/List;Ljava/util/function/IntConsumer;)Z
+    invoke-static {p0, p1, p2, p3}, Lcom/android/wm/shell/bubbles/BubbleController;->access$2500(Lcom/android/wm/shell/bubbles/BubbleController;Lcom/android/wm/shell/bubbles/BubbleEntry;Ljava/util/List;Ljava/util/function/IntConsumer;)Z
 
     move-result p0
 
@@ -344,7 +328,7 @@
     return-void
 .end method
 
-.method private synthetic lambda$onConfigChanged$24(Landroid/content/res/Configuration;)V
+.method private synthetic lambda$onConfigChanged$23(Landroid/content/res/Configuration;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;->this$0:Lcom/android/wm/shell/bubbles/BubbleController;
@@ -354,7 +338,7 @@
     return-void
 .end method
 
-.method private synthetic lambda$onCurrentProfilesChanged$23(Landroid/util/SparseArray;)V
+.method private synthetic lambda$onCurrentProfilesChanged$22(Landroid/util/SparseArray;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;->this$0:Lcom/android/wm/shell/bubbles/BubbleController;
@@ -364,7 +348,7 @@
     return-void
 .end method
 
-.method private synthetic lambda$onEntryAdded$15(Lcom/android/wm/shell/bubbles/BubbleEntry;)V
+.method private synthetic lambda$onEntryAdded$14(Lcom/android/wm/shell/bubbles/BubbleEntry;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;->this$0:Lcom/android/wm/shell/bubbles/BubbleController;
@@ -374,7 +358,7 @@
     return-void
 .end method
 
-.method private synthetic lambda$onEntryRemoved$17(Lcom/android/wm/shell/bubbles/BubbleEntry;)V
+.method private synthetic lambda$onEntryRemoved$16(Lcom/android/wm/shell/bubbles/BubbleEntry;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;->this$0:Lcom/android/wm/shell/bubbles/BubbleController;
@@ -384,7 +368,7 @@
     return-void
 .end method
 
-.method private synthetic lambda$onEntryUpdated$16(Lcom/android/wm/shell/bubbles/BubbleEntry;Z)V
+.method private synthetic lambda$onEntryUpdated$15(Lcom/android/wm/shell/bubbles/BubbleEntry;Z)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;->this$0:Lcom/android/wm/shell/bubbles/BubbleController;
@@ -394,7 +378,7 @@
     return-void
 .end method
 
-.method private synthetic lambda$onRankingUpdated$18(Landroid/service/notification/NotificationListenerService$RankingMap;Ljava/util/HashMap;)V
+.method private synthetic lambda$onRankingUpdated$17(Landroid/service/notification/NotificationListenerService$RankingMap;Ljava/util/HashMap;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;->this$0:Lcom/android/wm/shell/bubbles/BubbleController;
@@ -404,7 +388,7 @@
     return-void
 .end method
 
-.method private synthetic lambda$onStatusBarStateChanged$21(Z)V
+.method private synthetic lambda$onStatusBarStateChanged$20(Z)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;->this$0:Lcom/android/wm/shell/bubbles/BubbleController;
@@ -414,7 +398,7 @@
     return-void
 .end method
 
-.method private synthetic lambda$onStatusBarVisibilityChanged$19(Z)V
+.method private synthetic lambda$onStatusBarVisibilityChanged$18(Z)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;->this$0:Lcom/android/wm/shell/bubbles/BubbleController;
@@ -424,17 +408,7 @@
     return-void
 .end method
 
-.method private synthetic lambda$onTaskbarChanged$7(Landroid/os/Bundle;)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;->this$0:Lcom/android/wm/shell/bubbles/BubbleController;
-
-    invoke-static {p0, p1}, Lcom/android/wm/shell/bubbles/BubbleController;->access$2800(Lcom/android/wm/shell/bubbles/BubbleController;Landroid/os/Bundle;)V
-
-    return-void
-.end method
-
-.method private synthetic lambda$onUserChanged$22(I)V
+.method private synthetic lambda$onUserChanged$21(I)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;->this$0:Lcom/android/wm/shell/bubbles/BubbleController;
@@ -444,7 +418,7 @@
     return-void
 .end method
 
-.method private synthetic lambda$onZenStateChanged$20()V
+.method private synthetic lambda$onZenStateChanged$19()V
     .locals 0
 
     iget-object p0, p0, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;->this$0:Lcom/android/wm/shell/bubbles/BubbleController;
@@ -465,9 +439,9 @@
 .method private static synthetic lambda$removeSuppressedSummaryIfNecessary$1(Ljava/util/concurrent/Executor;Ljava/util/function/Consumer;Ljava/lang/String;)V
     .locals 1
 
-    new-instance v0, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda20;
+    new-instance v0, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda18;
 
-    invoke-direct {v0, p1, p2}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda20;-><init>(Ljava/util/function/Consumer;Ljava/lang/String;)V
+    invoke-direct {v0, p1, p2}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda18;-><init>(Ljava/util/function/Consumer;Ljava/lang/String;)V
 
     invoke-interface {p0, v0}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
@@ -479,9 +453,9 @@
 
     if-eqz p1, :cond_0
 
-    new-instance v0, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda22;
+    new-instance v0, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda20;
 
-    invoke-direct {v0, p2, p1}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda22;-><init>(Ljava/util/concurrent/Executor;Ljava/util/function/Consumer;)V
+    invoke-direct {v0, p2, p1}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda20;-><init>(Ljava/util/concurrent/Executor;Ljava/util/function/Consumer;)V
 
     goto :goto_0
 
@@ -491,22 +465,12 @@
     :goto_0
     iget-object p0, p0, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;->this$0:Lcom/android/wm/shell/bubbles/BubbleController;
 
-    invoke-static {p0, p3, v0}, Lcom/android/wm/shell/bubbles/BubbleController;->access$3000(Lcom/android/wm/shell/bubbles/BubbleController;Ljava/lang/String;Ljava/util/function/Consumer;)V
+    invoke-static {p0, p3, v0}, Lcom/android/wm/shell/bubbles/BubbleController;->access$2900(Lcom/android/wm/shell/bubbles/BubbleController;Ljava/lang/String;Ljava/util/function/Consumer;)V
 
     return-void
 .end method
 
-.method private synthetic lambda$setBubbleScrim$13(Landroid/view/View;Ljava/util/function/BiConsumer;)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;->this$0:Lcom/android/wm/shell/bubbles/BubbleController;
-
-    invoke-static {p0, p1, p2}, Lcom/android/wm/shell/bubbles/BubbleController;->access$2400(Lcom/android/wm/shell/bubbles/BubbleController;Landroid/view/View;Ljava/util/function/BiConsumer;)V
-
-    return-void
-.end method
-
-.method private synthetic lambda$setExpandListener$14(Lcom/android/wm/shell/bubbles/Bubbles$BubbleExpandListener;)V
+.method private synthetic lambda$setExpandListener$13(Lcom/android/wm/shell/bubbles/Bubbles$BubbleExpandListener;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;->this$0:Lcom/android/wm/shell/bubbles/BubbleController;
@@ -521,7 +485,7 @@
 
     iget-object p0, p0, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;->this$0:Lcom/android/wm/shell/bubbles/BubbleController;
 
-    invoke-static {p0, p1}, Lcom/android/wm/shell/bubbles/BubbleController;->access$2500(Lcom/android/wm/shell/bubbles/BubbleController;Lcom/android/wm/shell/bubbles/Bubbles$SysuiProxy;)V
+    invoke-static {p0, p1}, Lcom/android/wm/shell/bubbles/BubbleController;->access$2400(Lcom/android/wm/shell/bubbles/BubbleController;Lcom/android/wm/shell/bubbles/Bubbles$SysuiProxy;)V
 
     return-void
 .end method
@@ -531,7 +495,7 @@
 
     iget-object p0, p0, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;->this$0:Lcom/android/wm/shell/bubbles/BubbleController;
 
-    invoke-static {p0}, Lcom/android/wm/shell/bubbles/BubbleController;->access$2900(Lcom/android/wm/shell/bubbles/BubbleController;)V
+    invoke-static {p0}, Lcom/android/wm/shell/bubbles/BubbleController;->access$2800(Lcom/android/wm/shell/bubbles/BubbleController;)V
 
     return-void
 .end method
@@ -566,9 +530,9 @@
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda16;
+    new-instance v1, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda14;
 
-    invoke-direct {v1, p0, p1, p2, p3}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda16;-><init>(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
+    invoke-direct {v1, p0, p1, p2, p3}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda14;-><init>(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
 
     invoke-interface {v0, v1}, Lcom/android/wm/shell/common/ShellExecutor;->executeBlocking(Ljava/lang/Runnable;)V
     :try_end_0
@@ -596,9 +560,9 @@
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda9;
+    new-instance v1, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda7;
 
-    invoke-direct {v1, p0, p1}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda9;-><init>(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;Lcom/android/wm/shell/bubbles/Bubble;)V
+    invoke-direct {v1, p0, p1}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda7;-><init>(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;Lcom/android/wm/shell/bubbles/Bubble;)V
 
     invoke-interface {v0, v1}, Lcom/android/wm/shell/common/ShellExecutor;->execute(Ljava/lang/Runnable;)V
 
@@ -614,9 +578,9 @@
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda12;
+    new-instance v1, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda10;
 
-    invoke-direct {v1, p0, p1}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda12;-><init>(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;Lcom/android/wm/shell/bubbles/BubbleEntry;)V
+    invoke-direct {v1, p0, p1}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda10;-><init>(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;Lcom/android/wm/shell/bubbles/BubbleEntry;)V
 
     invoke-interface {v0, v1}, Lcom/android/wm/shell/common/ShellExecutor;->execute(Ljava/lang/Runnable;)V
 
@@ -652,9 +616,9 @@
 
     if-eqz p3, :cond_0
 
-    new-instance v0, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda23;
+    new-instance v0, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda21;
 
-    invoke-direct {v0, p4, p3}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda23;-><init>(Ljava/util/concurrent/Executor;Ljava/util/function/IntConsumer;)V
+    invoke-direct {v0, p4, p3}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda21;-><init>(Ljava/util/concurrent/Executor;Ljava/util/function/IntConsumer;)V
 
     goto :goto_0
 
@@ -668,9 +632,9 @@
 
     move-result-object p3
 
-    new-instance p4, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda24;
+    new-instance p4, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda22;
 
-    invoke-direct {p4, p0, p1, p2, v0}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda24;-><init>(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;Lcom/android/wm/shell/bubbles/BubbleEntry;Ljava/util/List;Ljava/util/function/IntConsumer;)V
+    invoke-direct {p4, p0, p1, p2, v0}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda22;-><init>(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;Lcom/android/wm/shell/bubbles/BubbleEntry;Ljava/util/List;Ljava/util/function/IntConsumer;)V
 
     const-class p0, Ljava/lang/Boolean;
 
@@ -758,9 +722,9 @@
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda7;
+    new-instance v1, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda6;
 
-    invoke-direct {v1, p0, p1}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda7;-><init>(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;Landroid/util/SparseArray;)V
+    invoke-direct {v1, p0, p1}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda6;-><init>(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;Landroid/util/SparseArray;)V
 
     invoke-interface {v0, v1}, Lcom/android/wm/shell/common/ShellExecutor;->execute(Ljava/lang/Runnable;)V
 
@@ -776,9 +740,9 @@
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda10;
+    new-instance v1, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda8;
 
-    invoke-direct {v1, p0, p1}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda10;-><init>(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;Lcom/android/wm/shell/bubbles/BubbleEntry;)V
+    invoke-direct {v1, p0, p1}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda8;-><init>(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;Lcom/android/wm/shell/bubbles/BubbleEntry;)V
 
     invoke-interface {v0, v1}, Lcom/android/wm/shell/common/ShellExecutor;->execute(Ljava/lang/Runnable;)V
 
@@ -794,9 +758,9 @@
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda11;
+    new-instance v1, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda9;
 
-    invoke-direct {v1, p0, p1}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda11;-><init>(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;Lcom/android/wm/shell/bubbles/BubbleEntry;)V
+    invoke-direct {v1, p0, p1}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda9;-><init>(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;Lcom/android/wm/shell/bubbles/BubbleEntry;)V
 
     invoke-interface {v0, v1}, Lcom/android/wm/shell/common/ShellExecutor;->execute(Ljava/lang/Runnable;)V
 
@@ -812,9 +776,9 @@
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda13;
+    new-instance v1, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda11;
 
-    invoke-direct {v1, p0, p1, p2}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda13;-><init>(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;Lcom/android/wm/shell/bubbles/BubbleEntry;Z)V
+    invoke-direct {v1, p0, p1, p2}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda11;-><init>(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;Lcom/android/wm/shell/bubbles/BubbleEntry;Z)V
 
     invoke-interface {v0, v1}, Lcom/android/wm/shell/common/ShellExecutor;->execute(Ljava/lang/Runnable;)V
 
@@ -842,9 +806,9 @@
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda6;
+    new-instance v1, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda5;
 
-    invoke-direct {v1, p0, p1, p2}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda6;-><init>(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;Landroid/service/notification/NotificationListenerService$RankingMap;Ljava/util/HashMap;)V
+    invoke-direct {v1, p0, p1, p2}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda5;-><init>(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;Landroid/service/notification/NotificationListenerService$RankingMap;Ljava/util/HashMap;)V
 
     invoke-interface {v0, v1}, Lcom/android/wm/shell/common/ShellExecutor;->execute(Ljava/lang/Runnable;)V
 
@@ -860,9 +824,9 @@
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda18;
+    new-instance v1, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda16;
 
-    invoke-direct {v1, p0, p1}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda18;-><init>(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;Z)V
+    invoke-direct {v1, p0, p1}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda16;-><init>(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;Z)V
 
     invoke-interface {v0, v1}, Lcom/android/wm/shell/common/ShellExecutor;->execute(Ljava/lang/Runnable;)V
 
@@ -878,27 +842,9 @@
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda19;
+    new-instance v1, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda17;
 
-    invoke-direct {v1, p0, p1}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda19;-><init>(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;Z)V
-
-    invoke-interface {v0, v1}, Lcom/android/wm/shell/common/ShellExecutor;->execute(Ljava/lang/Runnable;)V
-
-    return-void
-.end method
-
-.method public onTaskbarChanged(Landroid/os/Bundle;)V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;->this$0:Lcom/android/wm/shell/bubbles/BubbleController;
-
-    invoke-static {v0}, Lcom/android/wm/shell/bubbles/BubbleController;->access$400(Lcom/android/wm/shell/bubbles/BubbleController;)Lcom/android/wm/shell/common/ShellExecutor;
-
-    move-result-object v0
-
-    new-instance v1, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda5;
-
-    invoke-direct {v1, p0, p1}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda5;-><init>(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;Landroid/os/Bundle;)V
+    invoke-direct {v1, p0, p1}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda17;-><init>(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;Z)V
 
     invoke-interface {v0, v1}, Lcom/android/wm/shell/common/ShellExecutor;->execute(Ljava/lang/Runnable;)V
 
@@ -932,9 +878,9 @@
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda1;
+    new-instance v1, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda0;
 
-    invoke-direct {v1, p0}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda1;-><init>(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;)V
+    invoke-direct {v1, p0}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda0;-><init>(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;)V
 
     invoke-interface {v0, v1}, Lcom/android/wm/shell/common/ShellExecutor;->execute(Ljava/lang/Runnable;)V
 
@@ -961,37 +907,9 @@
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda17;
+    new-instance v1, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda15;
 
-    invoke-direct {v1, p0, p2, p3, p1}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda17;-><init>(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;Ljava/util/function/Consumer;Ljava/util/concurrent/Executor;Ljava/lang/String;)V
-
-    invoke-interface {v0, v1}, Lcom/android/wm/shell/common/ShellExecutor;->execute(Ljava/lang/Runnable;)V
-
-    return-void
-.end method
-
-.method public setBubbleScrim(Landroid/view/View;Ljava/util/function/BiConsumer;)V
-    .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroid/view/View;",
-            "Ljava/util/function/BiConsumer<",
-            "Ljava/util/concurrent/Executor;",
-            "Landroid/os/Looper;",
-            ">;)V"
-        }
-    .end annotation
-
-    iget-object v0, p0, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;->this$0:Lcom/android/wm/shell/bubbles/BubbleController;
-
-    invoke-static {v0}, Lcom/android/wm/shell/bubbles/BubbleController;->access$400(Lcom/android/wm/shell/bubbles/BubbleController;)Lcom/android/wm/shell/common/ShellExecutor;
-
-    move-result-object v0
-
-    new-instance v1, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda8;
-
-    invoke-direct {v1, p0, p1, p2}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda8;-><init>(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;Landroid/view/View;Ljava/util/function/BiConsumer;)V
+    invoke-direct {v1, p0, p2, p3, p1}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda15;-><init>(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;Ljava/util/function/Consumer;Ljava/util/concurrent/Executor;Ljava/lang/String;)V
 
     invoke-interface {v0, v1}, Lcom/android/wm/shell/common/ShellExecutor;->execute(Ljava/lang/Runnable;)V
 
@@ -1007,9 +925,9 @@
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda14;
+    new-instance v1, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda12;
 
-    invoke-direct {v1, p0, p1}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda14;-><init>(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;Lcom/android/wm/shell/bubbles/Bubbles$BubbleExpandListener;)V
+    invoke-direct {v1, p0, p1}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda12;-><init>(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;Lcom/android/wm/shell/bubbles/Bubbles$BubbleExpandListener;)V
 
     invoke-interface {v0, v1}, Lcom/android/wm/shell/common/ShellExecutor;->execute(Ljava/lang/Runnable;)V
 
@@ -1025,9 +943,9 @@
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda15;
+    new-instance v1, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda13;
 
-    invoke-direct {v1, p0, p1}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda15;-><init>(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;Lcom/android/wm/shell/bubbles/Bubbles$SysuiProxy;)V
+    invoke-direct {v1, p0, p1}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda13;-><init>(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;Lcom/android/wm/shell/bubbles/Bubbles$SysuiProxy;)V
 
     invoke-interface {v0, v1}, Lcom/android/wm/shell/common/ShellExecutor;->execute(Ljava/lang/Runnable;)V
 
@@ -1043,9 +961,9 @@
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda0;
+    new-instance v1, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda1;
 
-    invoke-direct {v1, p0}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda0;-><init>(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;)V
+    invoke-direct {v1, p0}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda1;-><init>(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;)V
 
     invoke-interface {v0, v1}, Lcom/android/wm/shell/common/ShellExecutor;->execute(Ljava/lang/Runnable;)V
 

@@ -6,9 +6,11 @@
 # instance fields
 .field private final entry:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
 
+.field private final fromSystem:Z
+
 
 # direct methods
-.method public constructor <init>(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Z)V
     .locals 1
 
     const-string v0, "entry"
@@ -20,6 +22,8 @@
     invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifEvent;-><init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/notification/collection/notifcollection/EntryUpdatedEvent;->entry:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
+
+    iput-boolean p2, p0, Lcom/android/systemui/statusbar/notification/collection/notifcollection/EntryUpdatedEvent;->fromSystem:Z
 
     return-void
 .end method
@@ -33,15 +37,17 @@
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/notifcollection/EntryUpdatedEvent;->entry:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/notifcollection/EntryUpdatedEvent;->entry:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
 
-    invoke-interface {p1, p0}, Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifCollectionListener;->onEntryUpdated(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
+    iget-boolean p0, p0, Lcom/android/systemui/statusbar/notification/collection/notifcollection/EntryUpdatedEvent;->fromSystem:Z
+
+    invoke-interface {p1, v0, p0}, Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifCollectionListener;->onEntryUpdated(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Z)V
 
     return-void
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
+    .locals 4
 
     const/4 v0, 0x1
 
@@ -61,32 +67,52 @@
     :cond_1
     check-cast p1, Lcom/android/systemui/statusbar/notification/collection/notifcollection/EntryUpdatedEvent;
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/notifcollection/EntryUpdatedEvent;->entry:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
+    iget-object v1, p0, Lcom/android/systemui/statusbar/notification/collection/notifcollection/EntryUpdatedEvent;->entry:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
 
-    iget-object p1, p1, Lcom/android/systemui/statusbar/notification/collection/notifcollection/EntryUpdatedEvent;->entry:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
+    iget-object v3, p1, Lcom/android/systemui/statusbar/notification/collection/notifcollection/EntryUpdatedEvent;->entry:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
 
-    invoke-static {p0, p1}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v1, v3}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    move-result p0
+    move-result v1
 
-    if-nez p0, :cond_2
+    if-nez v1, :cond_2
 
     return v2
 
     :cond_2
+    iget-boolean p0, p0, Lcom/android/systemui/statusbar/notification/collection/notifcollection/EntryUpdatedEvent;->fromSystem:Z
+
+    iget-boolean p1, p1, Lcom/android/systemui/statusbar/notification/collection/notifcollection/EntryUpdatedEvent;->fromSystem:Z
+
+    if-eq p0, p1, :cond_3
+
+    return v2
+
+    :cond_3
     return v0
 .end method
 
 .method public hashCode()I
-    .locals 0
+    .locals 1
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/notifcollection/EntryUpdatedEvent;->entry:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/notifcollection/EntryUpdatedEvent;->entry:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
 
-    invoke-virtual {p0}, Ljava/lang/Object;->hashCode()I
+    invoke-virtual {v0}, Ljava/lang/Object;->hashCode()I
 
-    move-result p0
+    move-result v0
 
-    return p0
+    mul-int/lit8 v0, v0, 0x1f
+
+    iget-boolean p0, p0, Lcom/android/systemui/statusbar/notification/collection/notifcollection/EntryUpdatedEvent;->fromSystem:Z
+
+    if-eqz p0, :cond_0
+
+    const/4 p0, 0x1
+
+    :cond_0
+    add-int/2addr v0, p0
+
+    return v0
 .end method
 
 .method public toString()Ljava/lang/String;
@@ -100,9 +126,17 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/notifcollection/EntryUpdatedEvent;->entry:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
+    iget-object v1, p0, Lcom/android/systemui/statusbar/notification/collection/notifcollection/EntryUpdatedEvent;->entry:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
 
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string v1, ", fromSystem="
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-boolean p0, p0, Lcom/android/systemui/statusbar/notification/collection/notifcollection/EntryUpdatedEvent;->fromSystem:Z
+
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
     const/16 p0, 0x29
 

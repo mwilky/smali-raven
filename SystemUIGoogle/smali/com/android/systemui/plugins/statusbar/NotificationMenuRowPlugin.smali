@@ -160,12 +160,6 @@
 .method public abstract setAppName(Ljava/lang/String;)V
 .end method
 
-.method public setDismissRtl(Z)V
-    .locals 0
-
-    return-void
-.end method
-
 .method public abstract setMenuClickListener(Lcom/android/systemui/plugins/statusbar/NotificationMenuRowPlugin$OnMenuEventListener;)V
 .end method
 

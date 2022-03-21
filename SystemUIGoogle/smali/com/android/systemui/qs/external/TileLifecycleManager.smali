@@ -142,7 +142,7 @@
 
     invoke-virtual {p5, p2, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/IBinder;)Landroid/content/Intent;
 
-    const-string/jumbo p1, "token"
+    const-string p1, "token"
 
     invoke-virtual {p5, p1, p4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/IBinder;)Landroid/content/Intent;
 
@@ -551,7 +551,7 @@
 .method public static isTileAdded(Landroid/content/Context;Landroid/content/ComponentName;)Z
     .locals 2
 
-    const-string/jumbo v0, "tiles_prefs"
+    const-string v0, "tiles_prefs"
 
     const/4 v1, 0x0
 
@@ -603,7 +603,7 @@
 .method public static setTileAdded(Landroid/content/Context;Landroid/content/ComponentName;Z)V
     .locals 2
 
-    const-string/jumbo v0, "tiles_prefs"
+    const-string v0, "tiles_prefs"
 
     const/4 v1, 0x0
 

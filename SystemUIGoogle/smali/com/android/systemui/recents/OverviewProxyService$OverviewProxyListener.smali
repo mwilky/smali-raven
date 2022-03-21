@@ -63,6 +63,18 @@
     return-void
 .end method
 
+.method public onTaskbarAutohideSuspend(Z)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onTaskbarStatusUpdated(ZZ)V
+    .locals 0
+
+    return-void
+.end method
+
 .method public onToggleRecentApps()V
     .locals 0
 

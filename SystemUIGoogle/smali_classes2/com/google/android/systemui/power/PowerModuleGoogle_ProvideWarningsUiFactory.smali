@@ -28,6 +28,16 @@
     .end annotation
 .end field
 
+.field private final broadcastDispatcherProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/broadcast/BroadcastDispatcher;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private final contextProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -50,7 +60,7 @@
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -60,6 +70,9 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/plugins/ActivityStarter;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/broadcast/BroadcastDispatcher;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/internal/logging/UiEventLogger;",
@@ -73,12 +86,14 @@
 
     iput-object p2, p0, Lcom/google/android/systemui/power/PowerModuleGoogle_ProvideWarningsUiFactory;->activityStarterProvider:Ljavax/inject/Provider;
 
-    iput-object p3, p0, Lcom/google/android/systemui/power/PowerModuleGoogle_ProvideWarningsUiFactory;->uiEventLoggerProvider:Ljavax/inject/Provider;
+    iput-object p3, p0, Lcom/google/android/systemui/power/PowerModuleGoogle_ProvideWarningsUiFactory;->broadcastDispatcherProvider:Ljavax/inject/Provider;
+
+    iput-object p4, p0, Lcom/google/android/systemui/power/PowerModuleGoogle_ProvideWarningsUiFactory;->uiEventLoggerProvider:Ljavax/inject/Provider;
 
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/google/android/systemui/power/PowerModuleGoogle_ProvideWarningsUiFactory;
+.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/google/android/systemui/power/PowerModuleGoogle_ProvideWarningsUiFactory;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -90,6 +105,9 @@
             "Lcom/android/systemui/plugins/ActivityStarter;",
             ">;",
             "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/broadcast/BroadcastDispatcher;",
+            ">;",
+            "Ljavax/inject/Provider<",
             "Lcom/android/internal/logging/UiEventLogger;",
             ">;)",
             "Lcom/google/android/systemui/power/PowerModuleGoogle_ProvideWarningsUiFactory;"
@@ -98,15 +116,15 @@
 
     new-instance v0, Lcom/google/android/systemui/power/PowerModuleGoogle_ProvideWarningsUiFactory;
 
-    invoke-direct {v0, p0, p1, p2}, Lcom/google/android/systemui/power/PowerModuleGoogle_ProvideWarningsUiFactory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+    invoke-direct {v0, p0, p1, p2, p3}, Lcom/google/android/systemui/power/PowerModuleGoogle_ProvideWarningsUiFactory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
 
     return-object v0
 .end method
 
-.method public static provideWarningsUi(Landroid/content/Context;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/internal/logging/UiEventLogger;)Lcom/android/systemui/power/PowerUI$WarningsUI;
+.method public static provideWarningsUi(Landroid/content/Context;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/internal/logging/UiEventLogger;)Lcom/android/systemui/power/PowerUI$WarningsUI;
     .locals 0
 
-    invoke-static {p0, p1, p2}, Lcom/google/android/systemui/power/PowerModuleGoogle;->provideWarningsUi(Landroid/content/Context;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/internal/logging/UiEventLogger;)Lcom/android/systemui/power/PowerUI$WarningsUI;
+    invoke-static {p0, p1, p2, p3}, Lcom/google/android/systemui/power/PowerModuleGoogle;->provideWarningsUi(Landroid/content/Context;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/internal/logging/UiEventLogger;)Lcom/android/systemui/power/PowerUI$WarningsUI;
 
     move-result-object p0
 
@@ -122,7 +140,7 @@
 
 # virtual methods
 .method public get()Lcom/android/systemui/power/PowerUI$WarningsUI;
-    .locals 2
+    .locals 3
 
     iget-object v0, p0, Lcom/google/android/systemui/power/PowerModuleGoogle_ProvideWarningsUiFactory;->contextProvider:Ljavax/inject/Provider;
 
@@ -140,6 +158,14 @@
 
     check-cast v1, Lcom/android/systemui/plugins/ActivityStarter;
 
+    iget-object v2, p0, Lcom/google/android/systemui/power/PowerModuleGoogle_ProvideWarningsUiFactory;->broadcastDispatcherProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v2}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/systemui/broadcast/BroadcastDispatcher;
+
     iget-object p0, p0, Lcom/google/android/systemui/power/PowerModuleGoogle_ProvideWarningsUiFactory;->uiEventLoggerProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
@@ -148,7 +174,7 @@
 
     check-cast p0, Lcom/android/internal/logging/UiEventLogger;
 
-    invoke-static {v0, v1, p0}, Lcom/google/android/systemui/power/PowerModuleGoogle_ProvideWarningsUiFactory;->provideWarningsUi(Landroid/content/Context;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/internal/logging/UiEventLogger;)Lcom/android/systemui/power/PowerUI$WarningsUI;
+    invoke-static {v0, v1, v2, p0}, Lcom/google/android/systemui/power/PowerModuleGoogle_ProvideWarningsUiFactory;->provideWarningsUi(Landroid/content/Context;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/internal/logging/UiEventLogger;)Lcom/android/systemui/power/PowerUI$WarningsUI;
 
     move-result-object p0
 

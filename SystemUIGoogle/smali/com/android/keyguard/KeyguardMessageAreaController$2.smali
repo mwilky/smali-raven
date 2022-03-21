@@ -34,12 +34,28 @@
 
 
 # virtual methods
+.method public onConfigChanged(Landroid/content/res/Configuration;)V
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/keyguard/KeyguardMessageAreaController$2;->this$0:Lcom/android/keyguard/KeyguardMessageAreaController;
+
+    invoke-static {p0}, Lcom/android/keyguard/KeyguardMessageAreaController;->access$400(Lcom/android/keyguard/KeyguardMessageAreaController;)Landroid/view/View;
+
+    move-result-object p0
+
+    check-cast p0, Lcom/android/keyguard/KeyguardMessageArea;
+
+    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardMessageArea;->onConfigChanged()V
+
+    return-void
+.end method
+
 .method public onDensityOrFontScaleChanged()V
     .locals 0
 
     iget-object p0, p0, Lcom/android/keyguard/KeyguardMessageAreaController$2;->this$0:Lcom/android/keyguard/KeyguardMessageAreaController;
 
-    invoke-static {p0}, Lcom/android/keyguard/KeyguardMessageAreaController;->access$500(Lcom/android/keyguard/KeyguardMessageAreaController;)Landroid/view/View;
+    invoke-static {p0}, Lcom/android/keyguard/KeyguardMessageAreaController;->access$600(Lcom/android/keyguard/KeyguardMessageAreaController;)Landroid/view/View;
 
     move-result-object p0
 
@@ -55,7 +71,7 @@
 
     iget-object p0, p0, Lcom/android/keyguard/KeyguardMessageAreaController$2;->this$0:Lcom/android/keyguard/KeyguardMessageAreaController;
 
-    invoke-static {p0}, Lcom/android/keyguard/KeyguardMessageAreaController;->access$400(Lcom/android/keyguard/KeyguardMessageAreaController;)Landroid/view/View;
+    invoke-static {p0}, Lcom/android/keyguard/KeyguardMessageAreaController;->access$500(Lcom/android/keyguard/KeyguardMessageAreaController;)Landroid/view/View;
 
     move-result-object p0
 

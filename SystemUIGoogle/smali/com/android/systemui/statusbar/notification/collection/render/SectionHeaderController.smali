@@ -10,5 +10,8 @@
 .method public abstract reinflateView(Landroid/view/ViewGroup;)V
 .end method
 
-.method public abstract setOnClearAllClickListener(Landroid/view/View$OnClickListener;)V
+.method public abstract setClearSectionEnabled(Z)V
+.end method
+
+.method public abstract setOnClearSectionClickListener(Landroid/view/View$OnClickListener;)V
 .end method

@@ -3,7 +3,7 @@
 .source "UdfpsAnimationViewController.java"
 
 # interfaces
-.implements Lcom/android/systemui/statusbar/phone/StatusBar$ExpansionChangedListener;
+.implements Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionListener;
 
 
 # annotations
@@ -34,20 +34,36 @@
 
 
 # virtual methods
-.method public onExpansionChanged(FZ)V
-    .locals 1
+.method public onPanelExpansionChanged(FZZ)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController$1;->this$0:Lcom/android/systemui/biometrics/UdfpsAnimationViewController;
+    iget-object p3, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController$1;->this$0:Lcom/android/systemui/biometrics/UdfpsAnimationViewController;
 
-    iput-boolean p2, v0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->mNotificationShadeExpanded:Z
+    if-eqz p2, :cond_0
 
-    invoke-static {v0}, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->access$000(Lcom/android/systemui/biometrics/UdfpsAnimationViewController;)Landroid/view/View;
+    const/4 p2, 0x0
 
-    move-result-object v0
+    cmpl-float p2, p1, p2
 
-    check-cast v0, Lcom/android/systemui/biometrics/UdfpsAnimationView;
+    if-lez p2, :cond_0
 
-    invoke-virtual {v0, p1, p2}, Lcom/android/systemui/biometrics/UdfpsAnimationView;->onExpansionChanged(FZ)V
+    const/4 p2, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p2, 0x0
+
+    :goto_0
+    iput-boolean p2, p3, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->mNotificationShadeVisible:Z
+
+    invoke-static {p3}, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->access$000(Lcom/android/systemui/biometrics/UdfpsAnimationViewController;)Landroid/view/View;
+
+    move-result-object p2
+
+    check-cast p2, Lcom/android/systemui/biometrics/UdfpsAnimationView;
+
+    invoke-virtual {p2, p1}, Lcom/android/systemui/biometrics/UdfpsAnimationView;->onExpansionChanged(F)V
 
     iget-object p0, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController$1;->this$0:Lcom/android/systemui/biometrics/UdfpsAnimationViewController;
 

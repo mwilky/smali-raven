@@ -4,8 +4,10 @@
 
 
 # static fields
-.field public static final accessibility_smartspace_page:I = 0x7f13011b
+.field public static final accessibility_next_alarm:I = 0x7f130091
 
-.field public static final smartspace_icu_date_pattern:I = 0x7f130779
+.field public static final accessibility_smartspace_page:I = 0x7f1300d7
 
-.field public static final weather_description:I = 0x7f130880
+.field public static final generic_smartspace_concatenated_desc:I = 0x7f1302fd
+
+.field public static final smartspace_icu_date_pattern:I = 0x7f13063f

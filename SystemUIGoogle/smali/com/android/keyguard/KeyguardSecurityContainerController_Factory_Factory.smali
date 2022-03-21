@@ -38,6 +38,16 @@
     .end annotation
 .end field
 
+.field private final falsingCollectorProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/classifier/FalsingCollector;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private final keyguardSecurityModelProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -120,7 +130,7 @@
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -154,6 +164,9 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/policy/ConfigurationController;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/classifier/FalsingCollector;",
             ">;)V"
         }
     .end annotation
@@ -180,11 +193,13 @@
 
     iput-object p10, p0, Lcom/android/keyguard/KeyguardSecurityContainerController_Factory_Factory;->configurationControllerProvider:Ljavax/inject/Provider;
 
+    iput-object p11, p0, Lcom/android/keyguard/KeyguardSecurityContainerController_Factory_Factory;->falsingCollectorProvider:Ljavax/inject/Provider;
+
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/keyguard/KeyguardSecurityContainerController_Factory_Factory;
-    .locals 12
+.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/keyguard/KeyguardSecurityContainerController_Factory_Factory;
+    .locals 13
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -217,14 +232,17 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/policy/ConfigurationController;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/classifier/FalsingCollector;",
             ">;)",
             "Lcom/android/keyguard/KeyguardSecurityContainerController_Factory_Factory;"
         }
     .end annotation
 
-    new-instance v11, Lcom/android/keyguard/KeyguardSecurityContainerController_Factory_Factory;
+    new-instance v12, Lcom/android/keyguard/KeyguardSecurityContainerController_Factory_Factory;
 
-    move-object v0, v11
+    move-object v0, v12
 
     move-object v1, p0
 
@@ -232,7 +250,7 @@
 
     move-object v3, p2
 
-    move-object v4, p3
+    move-object/from16 v4, p3
 
     move-object/from16 v5, p4
 
@@ -246,17 +264,19 @@
 
     move-object/from16 v10, p9
 
-    invoke-direct/range {v0 .. v10}, Lcom/android/keyguard/KeyguardSecurityContainerController_Factory_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+    move-object/from16 v11, p10
 
-    return-object v11
+    invoke-direct/range {v0 .. v11}, Lcom/android/keyguard/KeyguardSecurityContainerController_Factory_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+
+    return-object v12
 .end method
 
-.method public static newInstance(Lcom/android/keyguard/KeyguardSecurityContainer;Lcom/android/keyguard/AdminSecondaryLockScreenController$Factory;Lcom/android/internal/widget/LockPatternUtils;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/keyguard/KeyguardSecurityModel;Lcom/android/internal/logging/MetricsLogger;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/keyguard/KeyguardSecurityViewFlipperController;Lcom/android/systemui/statusbar/policy/ConfigurationController;)Lcom/android/keyguard/KeyguardSecurityContainerController$Factory;
-    .locals 12
+.method public static newInstance(Lcom/android/keyguard/KeyguardSecurityContainer;Lcom/android/keyguard/AdminSecondaryLockScreenController$Factory;Lcom/android/internal/widget/LockPatternUtils;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/keyguard/KeyguardSecurityModel;Lcom/android/internal/logging/MetricsLogger;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/keyguard/KeyguardSecurityViewFlipperController;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/classifier/FalsingCollector;)Lcom/android/keyguard/KeyguardSecurityContainerController$Factory;
+    .locals 13
 
-    new-instance v11, Lcom/android/keyguard/KeyguardSecurityContainerController$Factory;
+    new-instance v12, Lcom/android/keyguard/KeyguardSecurityContainerController$Factory;
 
-    move-object v0, v11
+    move-object v0, v12
 
     move-object v1, p0
 
@@ -264,7 +284,7 @@
 
     move-object v3, p2
 
-    move-object v4, p3
+    move-object/from16 v4, p3
 
     move-object/from16 v5, p4
 
@@ -278,15 +298,17 @@
 
     move-object/from16 v10, p9
 
-    invoke-direct/range {v0 .. v10}, Lcom/android/keyguard/KeyguardSecurityContainerController$Factory;-><init>(Lcom/android/keyguard/KeyguardSecurityContainer;Lcom/android/keyguard/AdminSecondaryLockScreenController$Factory;Lcom/android/internal/widget/LockPatternUtils;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/keyguard/KeyguardSecurityModel;Lcom/android/internal/logging/MetricsLogger;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/keyguard/KeyguardSecurityViewFlipperController;Lcom/android/systemui/statusbar/policy/ConfigurationController;)V
+    move-object/from16 v11, p10
 
-    return-object v11
+    invoke-direct/range {v0 .. v11}, Lcom/android/keyguard/KeyguardSecurityContainerController$Factory;-><init>(Lcom/android/keyguard/KeyguardSecurityContainer;Lcom/android/keyguard/AdminSecondaryLockScreenController$Factory;Lcom/android/internal/widget/LockPatternUtils;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/keyguard/KeyguardSecurityModel;Lcom/android/internal/logging/MetricsLogger;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/keyguard/KeyguardSecurityViewFlipperController;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/classifier/FalsingCollector;)V
+
+    return-object v12
 .end method
 
 
 # virtual methods
 .method public get()Lcom/android/keyguard/KeyguardSecurityContainerController$Factory;
-    .locals 11
+    .locals 12
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController_Factory_Factory;->viewProvider:Ljavax/inject/Provider;
 
@@ -378,17 +400,27 @@
 
     check-cast v9, Lcom/android/keyguard/KeyguardSecurityViewFlipperController;
 
-    iget-object p0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController_Factory_Factory;->configurationControllerProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController_Factory_Factory;->configurationControllerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v10, v0
+
+    check-cast v10, Lcom/android/systemui/statusbar/policy/ConfigurationController;
+
+    iget-object p0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController_Factory_Factory;->falsingCollectorProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object p0
 
-    move-object v10, p0
+    move-object v11, p0
 
-    check-cast v10, Lcom/android/systemui/statusbar/policy/ConfigurationController;
+    check-cast v11, Lcom/android/systemui/classifier/FalsingCollector;
 
-    invoke-static/range {v1 .. v10}, Lcom/android/keyguard/KeyguardSecurityContainerController_Factory_Factory;->newInstance(Lcom/android/keyguard/KeyguardSecurityContainer;Lcom/android/keyguard/AdminSecondaryLockScreenController$Factory;Lcom/android/internal/widget/LockPatternUtils;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/keyguard/KeyguardSecurityModel;Lcom/android/internal/logging/MetricsLogger;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/keyguard/KeyguardSecurityViewFlipperController;Lcom/android/systemui/statusbar/policy/ConfigurationController;)Lcom/android/keyguard/KeyguardSecurityContainerController$Factory;
+    invoke-static/range {v1 .. v11}, Lcom/android/keyguard/KeyguardSecurityContainerController_Factory_Factory;->newInstance(Lcom/android/keyguard/KeyguardSecurityContainer;Lcom/android/keyguard/AdminSecondaryLockScreenController$Factory;Lcom/android/internal/widget/LockPatternUtils;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/keyguard/KeyguardSecurityModel;Lcom/android/internal/logging/MetricsLogger;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/keyguard/KeyguardSecurityViewFlipperController;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/classifier/FalsingCollector;)Lcom/android/keyguard/KeyguardSecurityContainerController$Factory;
 
     move-result-object p0
 

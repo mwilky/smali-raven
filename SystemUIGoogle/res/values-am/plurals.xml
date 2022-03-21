@@ -32,18 +32,6 @@
         <item quantity="other">ልክ ያልሆነ የሲም ፒዩኬ ኮድ፣ ሲሙ እስከመጨረሻው የማይሰራ ከመሆኑ በፊት %d ሙከራዎች ይቀረዎታል።</item>
         <item quantity="one">ልክ ያልሆነ የሲም ፒዩኬ ኮድ፣ ሲሙ እስከመጨረሻው የማይሰራ ከመሆኑ በፊት %d ሙከራዎች ይቀረዎታል።</item>
     </plurals>
-    <plurals name="kg_prompt_reason_time_password">
-        <item quantity="other">መሣሪያው ለ%d ሰዓቶች አልተከፈተም ነበር። የይለፍ ቃል ያረጋግጡ።</item>
-        <item quantity="one">መሣሪያው ለ%d ሰዓቶች አልተከፈተም ነበር። የይለፍ ቃል ያረጋግጡ።</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pattern">
-        <item quantity="other">መሣሪያው ለ%d ሰዓቶች አልተከፈተም ነበር። ስርዓተ-ጥለት ያረጋግጡ።</item>
-        <item quantity="one">ው ለ%d ሰዓቶች አልተከፈተም ነበር። ስርዓተ-ጥለት ያረጋግጡ።</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pin">
-        <item quantity="other">መሣሪያው ለ%d ሰዓቶች አልተከፈተም ነበር። ፒን ያረጋግጡ።</item>
-        <item quantity="one">መሣሪያው ለ%d ሰዓቶች አልተከፈተም ነበር። ፒን ያረጋግጡ።</item>
-    </plurals>
     <plurals name="kg_too_many_failed_attempts_countdown">
         <item quantity="other">በ%d ሰኮንዶች ውስጥ እንደገና ይሞክሩ።</item>
         <item quantity="one">በ%d ሰኮንዶች ውስጥ እንደገና ይሞክሩ።</item>

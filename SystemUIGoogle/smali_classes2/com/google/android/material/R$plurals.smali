@@ -4,4 +4,4 @@
 
 
 # static fields
-.field public static final mtrl_badge_content_description:I = 0x7f11000c
+.field public static final mtrl_badge_content_description:I = 0x7f110009

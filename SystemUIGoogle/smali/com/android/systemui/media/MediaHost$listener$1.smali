@@ -34,7 +34,7 @@
 
 
 # virtual methods
-.method public onMediaDataLoaded(Ljava/lang/String;Ljava/lang/String;Lcom/android/systemui/media/MediaData;ZZ)V
+.method public onMediaDataLoaded(Ljava/lang/String;Ljava/lang/String;Lcom/android/systemui/media/MediaData;ZI)V
     .locals 0
 
     const-string p2, "key"
@@ -69,7 +69,7 @@
     return-void
 .end method
 
-.method public onSmartspaceMediaDataLoaded(Ljava/lang/String;Lcom/android/systemui/media/SmartspaceMediaData;Z)V
+.method public onSmartspaceMediaDataLoaded(Ljava/lang/String;Lcom/android/systemui/media/SmartspaceMediaData;ZZ)V
     .locals 0
 
     const-string p3, "key"

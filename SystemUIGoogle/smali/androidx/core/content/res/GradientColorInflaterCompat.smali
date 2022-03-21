@@ -154,7 +154,7 @@
 
     sget v5, Landroidx/core/R$styleable;->GradientColor_android_type:I
 
-    const-string/jumbo v6, "type"
+    const-string v6, "type"
 
     const/4 v8, 0x0
 
@@ -192,7 +192,7 @@
 
     sget v13, Landroidx/core/R$styleable;->GradientColor_android_tileMode:I
 
-    const-string/jumbo v4, "tileMode"
+    const-string v4, "tileMode"
 
     invoke-static {v1, v0, v4, v13, v8}, Landroidx/core/content/res/TypedArrayUtils;->getNamedInt(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;II)I
 

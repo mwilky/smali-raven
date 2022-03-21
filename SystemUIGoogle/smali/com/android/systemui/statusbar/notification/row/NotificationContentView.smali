@@ -2,6 +2,9 @@
 .super Landroid/widget/FrameLayout;
 .source "NotificationContentView.java"
 
+# interfaces
+.implements Lcom/android/systemui/statusbar/notification/NotificationFadeAware;
+
 
 # static fields
 .field private static final DEBUG:Z
@@ -328,7 +331,7 @@
     goto/16 :goto_4
 
     :cond_0
-    const v0, 0x1020203
+    const v0, 0x1020206
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -336,7 +339,7 @@
 
     check-cast v0, Landroid/widget/ImageView;
 
-    const v1, 0x10201b3
+    const v1, 0x10201b6
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -498,7 +501,7 @@
     move v1, v0
 
     :goto_0
-    const v2, 0x10203f3
+    const v2, 0x10203f6
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -562,7 +565,7 @@
     move-result-object p2
 
     :goto_2
-    const v1, 0x10201b2
+    const v1, 0x10201b5
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -612,7 +615,7 @@
 
     move-result-object v2
 
-    const v4, 0x10203af
+    const v4, 0x10203b2
 
     invoke-virtual {v2, v4}, Landroid/view/View;->getTag(I)Ljava/lang/Object;
 
@@ -659,7 +662,7 @@
 .method private applyRemoteInput(Landroid/view/View;Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;ZLandroid/app/PendingIntent;Lcom/android/systemui/statusbar/policy/RemoteInputView;Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationViewWrapper;)Lcom/android/systemui/statusbar/policy/RemoteInputView;
     .locals 2
 
-    const v0, 0x10201b3
+    const v0, 0x10201b6
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -733,7 +736,7 @@
 
     invoke-direct {p1, p0}, Lcom/android/systemui/statusbar/notification/row/NotificationContentView$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/statusbar/notification/row/NotificationContentView;)V
 
-    invoke-virtual {p5, p1}, Lcom/android/systemui/statusbar/policy/RemoteInputView;->setOnVisibilityChangedListener(Ljava/util/function/Consumer;)V
+    invoke-virtual {p5, p1}, Lcom/android/systemui/statusbar/policy/RemoteInputView;->addOnVisibilityChangedListener(Ljava/util/function/Consumer;)V
 
     if-nez p4, :cond_3
 
@@ -1020,7 +1023,7 @@
 .method private applySmartReplyView(Landroid/view/View;Lcom/android/systemui/statusbar/policy/InflatedSmartReplyState;Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Lcom/android/systemui/statusbar/policy/InflatedSmartReplyViewHolder;)Lcom/android/systemui/statusbar/policy/SmartReplyView;
     .locals 6
 
-    const v0, 0x1020494
+    const v0, 0x1020497
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1301,7 +1304,7 @@
     goto/16 :goto_2
 
     :cond_0
-    const v0, 0x102049c
+    const v0, 0x102049f
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1309,7 +1312,7 @@
 
     check-cast v0, Landroid/widget/ImageView;
 
-    const v1, 0x10201b3
+    const v1, 0x10201b6
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1485,7 +1488,7 @@
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v3, "the total transformation distance is 0\n StartType: "
+    const-string v3, "the total transformation distance is 0\n StartType: "
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1721,7 +1724,7 @@
 
     move-result-object p0
 
-    const p1, 0x10501e1
+    const p1, 0x10501e3
 
     invoke-virtual {p0, p1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1740,7 +1743,7 @@
 
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/notification/row/NotificationContentView;->mIsChildInGroup:Z
 
-    const v1, 0x10501d4
+    const v1, 0x10501d6
 
     if-eqz v0, :cond_0
 
@@ -3439,10 +3442,6 @@
 .method public dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
     .locals 2
 
-    const-string p1, "    "
-
-    invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
     new-instance p1, Ljava/lang/StringBuilder;
 
     invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
@@ -3617,6 +3616,46 @@
     :goto_0
     invoke-virtual {p2}, Ljava/io/PrintWriter;->println()V
 
+    return-void
+.end method
+
+.method public dumpSmartReplies(Landroid/util/IndentingPrintWriter;)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/row/NotificationContentView;->mHeadsUpSmartReplyView:Lcom/android/systemui/statusbar/policy/SmartReplyView;
+
+    if-eqz v0, :cond_0
+
+    const-string v0, "HeadsUp SmartReplyView:"
+
+    invoke-virtual {p1, v0}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
+
+    invoke-virtual {p1}, Landroid/util/IndentingPrintWriter;->increaseIndent()Landroid/util/IndentingPrintWriter;
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/row/NotificationContentView;->mHeadsUpSmartReplyView:Lcom/android/systemui/statusbar/policy/SmartReplyView;
+
+    invoke-virtual {v0, p1}, Lcom/android/systemui/statusbar/policy/SmartReplyView;->dump(Landroid/util/IndentingPrintWriter;)V
+
+    invoke-virtual {p1}, Landroid/util/IndentingPrintWriter;->decreaseIndent()Landroid/util/IndentingPrintWriter;
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/row/NotificationContentView;->mExpandedSmartReplyView:Lcom/android/systemui/statusbar/policy/SmartReplyView;
+
+    if-eqz v0, :cond_1
+
+    const-string v0, "Expanded SmartReplyView:"
+
+    invoke-virtual {p1, v0}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
+
+    invoke-virtual {p1}, Landroid/util/IndentingPrintWriter;->increaseIndent()Landroid/util/IndentingPrintWriter;
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/row/NotificationContentView;->mExpandedSmartReplyView:Lcom/android/systemui/statusbar/policy/SmartReplyView;
+
+    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/policy/SmartReplyView;->dump(Landroid/util/IndentingPrintWriter;)V
+
+    invoke-virtual {p1}, Landroid/util/IndentingPrintWriter;->decreaseIndent()Landroid/util/IndentingPrintWriter;
+
+    :cond_1
     return-void
 .end method
 
@@ -4200,7 +4239,7 @@
 
     move-result-object v0
 
-    const v1, 0x10501e2
+    const v1, 0x10501e4
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -5091,6 +5130,42 @@
     return-void
 .end method
 
+.method public requireRowToHaveOverlappingRendering()Z
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/row/NotificationContentView;->mHeadsUpRemoteInput:Lcom/android/systemui/statusbar/policy/RemoteInputView;
+
+    const/4 v1, 0x1
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/policy/RemoteInputView;->isActive()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    return v1
+
+    :cond_0
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/row/NotificationContentView;->mExpandedRemoteInput:Lcom/android/systemui/statusbar/policy/RemoteInputView;
+
+    if-eqz p0, :cond_1
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/RemoteInputView;->isActive()Z
+
+    move-result p0
+
+    if-eqz p0, :cond_1
+
+    return v1
+
+    :cond_1
+    const/4 p0, 0x0
+
+    return p0
+.end method
+
 .method public setBackgroundTintColor(I)V
     .locals 2
 
@@ -5829,6 +5904,40 @@
 
     invoke-direct {p0}, Lcom/android/systemui/statusbar/notification/row/NotificationContentView;->updateLegacy()V
 
+    return-void
+.end method
+
+.method public setNotificationFaded(Z)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/row/NotificationContentView;->mContractedWrapper:Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationViewWrapper;
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0, p1}, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationViewWrapper;->setNotificationFaded(Z)V
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/row/NotificationContentView;->mHeadsUpWrapper:Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationViewWrapper;
+
+    if-eqz v0, :cond_1
+
+    invoke-virtual {v0, p1}, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationViewWrapper;->setNotificationFaded(Z)V
+
+    :cond_1
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/row/NotificationContentView;->mExpandedWrapper:Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationViewWrapper;
+
+    if-eqz v0, :cond_2
+
+    invoke-virtual {v0, p1}, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationViewWrapper;->setNotificationFaded(Z)V
+
+    :cond_2
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/row/NotificationContentView;->mSingleLineView:Lcom/android/systemui/statusbar/notification/row/HybridNotificationView;
+
+    if-eqz p0, :cond_3
+
+    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/notification/row/HybridNotificationView;->setNotificationFaded(Z)V
+
+    :cond_3
     return-void
 .end method
 

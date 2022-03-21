@@ -268,11 +268,11 @@
     .end annotation
 .end field
 
-.field private final rotationLockTileProvider:Ljavax/inject/Provider;
+.field private final rotationLockTileGoogleProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/qs/tiles/RotationLockTile;",
+            "Lcom/google/android/systemui/qs/tiles/RotationLockTileGoogle;",
             ">;"
         }
     .end annotation
@@ -366,7 +366,7 @@
             "Lcom/android/systemui/qs/tiles/WorkModeTile;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/qs/tiles/RotationLockTile;",
+            "Lcom/google/android/systemui/qs/tiles/RotationLockTileGoogle;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/qs/tiles/FlashlightTile;",
@@ -477,7 +477,7 @@
 
     move-object v1, p11
 
-    iput-object v1, v0, Lcom/google/android/systemui/qs/tileimpl/QSFactoryImplGoogle_Factory;->rotationLockTileProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/google/android/systemui/qs/tileimpl/QSFactoryImplGoogle_Factory;->rotationLockTileGoogleProvider:Ljavax/inject/Provider;
 
     move-object v1, p12
 
@@ -598,7 +598,7 @@
             "Lcom/android/systemui/qs/tiles/WorkModeTile;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/qs/tiles/RotationLockTile;",
+            "Lcom/google/android/systemui/qs/tiles/RotationLockTileGoogle;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/qs/tiles/FlashlightTile;",
@@ -771,7 +771,7 @@
             "Lcom/android/systemui/qs/tiles/WorkModeTile;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/qs/tiles/RotationLockTile;",
+            "Lcom/google/android/systemui/qs/tiles/RotationLockTileGoogle;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/qs/tiles/FlashlightTile;",
@@ -939,7 +939,7 @@
 
     iget-object v11, v0, Lcom/google/android/systemui/qs/tileimpl/QSFactoryImplGoogle_Factory;->workModeTileProvider:Ljavax/inject/Provider;
 
-    iget-object v12, v0, Lcom/google/android/systemui/qs/tileimpl/QSFactoryImplGoogle_Factory;->rotationLockTileProvider:Ljavax/inject/Provider;
+    iget-object v12, v0, Lcom/google/android/systemui/qs/tileimpl/QSFactoryImplGoogle_Factory;->rotationLockTileGoogleProvider:Ljavax/inject/Provider;
 
     iget-object v13, v0, Lcom/google/android/systemui/qs/tileimpl/QSFactoryImplGoogle_Factory;->flashlightTileProvider:Ljavax/inject/Provider;
 

@@ -44,40 +44,6 @@
     return-void
 .end method
 
-.method public constructor <init>(Landroid/graphics/drawable/Drawable;Landroid/content/Context;II)V
-    .locals 8
-
-    const/4 v0, 0x0
-
-    new-array v0, v0, [Landroid/graphics/drawable/Drawable;
-
-    invoke-direct {p0, v0}, Landroid/graphics/drawable/LayerDrawable;-><init>([Landroid/graphics/drawable/Drawable;)V
-
-    invoke-virtual {p2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    sget v1, Lcom/android/systemui/bcsmartspace/R$dimen;->enhanced_smartspace_icon_size:I
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v7
-
-    move-object v2, p0
-
-    move-object v3, p1
-
-    move-object v4, p2
-
-    move v5, p3
-
-    move v6, p4
-
-    invoke-direct/range {v2 .. v7}, Lcom/google/android/systemui/smartspace/DoubleShadowIconDrawable;->generateIconAndShadow(Landroid/graphics/drawable/Drawable;Landroid/content/Context;III)V
-
-    return-void
-.end method
-
 .method private generateIconAndShadow(Landroid/graphics/drawable/Drawable;Landroid/content/Context;III)V
     .locals 4
 

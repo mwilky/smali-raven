@@ -2,7 +2,7 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Landroid/view/View$OnClickListener;
+.implements Landroid/widget/AdapterView$OnItemLongClickListener;
 
 
 # instance fields
@@ -22,12 +22,22 @@
 
 
 # virtual methods
-.method public final onClick(Landroid/view/View;)V
-    .locals 0
+.method public final onItemLongClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)Z
+    .locals 6
 
-    iget-object p0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite$$ExternalSyntheticLambda3;->f$0:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;
+    iget-object v0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite$$ExternalSyntheticLambda3;->f$0:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;
 
-    invoke-static {p0, p1}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->$r8$lambda$2abIJnOKX5ZDprGqt3CqWPIEHRY(Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;Landroid/view/View;)V
+    move-object v1, p1
 
-    return-void
+    move-object v2, p2
+
+    move v3, p3
+
+    move-wide v4, p4
+
+    invoke-static/range {v0 .. v5}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->$r8$lambda$OYraFvuRg6ngyNPYU2hW1NWnqfY(Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;Landroid/widget/AdapterView;Landroid/view/View;IJ)Z
+
+    move-result p0
+
+    return p0
 .end method

@@ -32,18 +32,6 @@
         <item quantity="other">កូដ PUK របស់​ស៊ីម​មិន​ត្រឹមត្រូវ​ទេ ប្រសិន​បើ​អ្នក​បញ្ចូល​កូដខុស %d ដងទៀត ស៊ីមនឹង​មិន​អាច​ប្រើ​បាន​ជា​អចិន្ត្រៃយ៍។</item>
         <item quantity="one">កូដ PUK របស់​ស៊ីម​មិន​ត្រឹមត្រូវ​ទេ ប្រសិន​បើ​អ្នក​បញ្ចូល​កូដខុស %d ដងទៀត ស៊ីមនឹង​មិន​អាច​ប្រើ​បាន​ជា​អចិន្ត្រៃយ៍។</item>
     </plurals>
-    <plurals name="kg_prompt_reason_time_password">
-        <item quantity="other">ឧបករណ៍​បាន​ជាប់​សោ​អស់រយៈ​ពេល %d ម៉ោង​ហើយ។ សូម​បញ្ជាក់​ពាក្យ​សម្ងាត់។</item>
-        <item quantity="one">ឧបករណ៍​បាន​ជាប់​សោ​អស់រយៈ​ពេល %d ម៉ោង​ហើយ។ សូម​បញ្ជាក់​ពាក្យ​សម្ងាត់។</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pattern">
-        <item quantity="other">ឧបករណ៍​បាន​ជាប់​សោ​អស់រយៈ​ពេល %d ម៉ោង​ហើយ។ សូម​បញ្ជាក់​លំនាំ។</item>
-        <item quantity="one">ឧបករណ៍​បាន​ជាប់​សោ​អស់រយៈ​ពេល %d ម៉ោង​ហើយ។ សូម​បញ្ជាក់​លំនាំ។</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pin">
-        <item quantity="other">ឧបករណ៍​បាន​ជាប់​សោ​អស់រយៈ​ពេល %d ម៉ោង​ហើយ។ សូម​បញ្ជាក់​កូដ PIN ។</item>
-        <item quantity="one">ឧបករណ៍​បាន​ជាប់​សោ​អស់រយៈ​ពេល %d ម៉ោង​ហើយ។ សូម​បញ្ជាក់​កូដ PIN ។</item>
-    </plurals>
     <plurals name="kg_too_many_failed_attempts_countdown">
         <item quantity="other">ព្យាយាមម្តងទៀតក្នុងរយៈពេល %d វិនាទី។</item>
         <item quantity="one">ព្យាយាមម្តងទៀតក្នុងរយៈពេល 1 វិនាទី។</item>

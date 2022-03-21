@@ -32,18 +32,6 @@
         <item quantity="other">[Îñçöŕŕéçţ ŠÎḾ ÞÛĶ çöðé, ýöû ĥåVé %d ŕéḿåîñîñĝ åţţéḿþţš ɓéƒöŕé ŠÎḾ ɓéçöḿéš þéŕḿåñéñţļý ûñûšåɓļé. one two three four five six seven eight nine ten]</item>
         <item quantity="one">[Îñçöŕŕéçţ ŠÎḾ ÞÛĶ çöðé, ýöû ĥåVé %d ŕéḿåîñîñĝ åţţéḿþţ ɓéƒöŕé ŠÎḾ ɓéçöḿéš þéŕḿåñéñţļý ûñûšåɓļé. one two three four five six seven eight nine ten]</item>
     </plurals>
-    <plurals name="kg_prompt_reason_time_password">
-        <item quantity="other">"[ÐéVîçé ĥåšñ'ţ ɓééñ ûñļöçķéð ƒöŕ %d ĥöûŕš. Çöñƒîŕḿ þåššŵöŕð. one two three four five six seven]"</item>
-        <item quantity="one">"[ÐéVîçé ĥåšñ'ţ ɓééñ ûñļöçķéð ƒöŕ %d ĥöûŕ. Çöñƒîŕḿ þåššŵöŕð. one two three four five six seven]"</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pattern">
-        <item quantity="other">"[ÐéVîçé ĥåšñ'ţ ɓééñ ûñļöçķéð ƒöŕ %d ĥöûŕš. Çöñƒîŕḿ þåţţéŕñ. one two three four five six seven]"</item>
-        <item quantity="one">"[ÐéVîçé ĥåšñ'ţ ɓééñ ûñļöçķéð ƒöŕ %d ĥöûŕ. Çöñƒîŕḿ þåţţéŕñ. one two three four five six seven]"</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pin">
-        <item quantity="other">"[ÐéVîçé ĥåšñ'ţ ɓééñ ûñļöçķéð ƒöŕ %d ĥöûŕš. Çöñƒîŕḿ ÞÎÑ. one two three four five six]"</item>
-        <item quantity="one">"[ÐéVîçé ĥåšñ'ţ ɓééñ ûñļöçķéð ƒöŕ %d ĥöûŕ. Çöñƒîŕḿ ÞÎÑ. one two three four five six]"</item>
-    </plurals>
     <plurals name="kg_too_many_failed_attempts_countdown">
         <item quantity="other">[Ţŕý åĝåîñ îñ %d šéçöñðš. one two three]</item>
         <item quantity="one">[Ţŕý åĝåîñ îñ 1 šéçöñð. one two three]</item>

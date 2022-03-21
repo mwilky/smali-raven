@@ -343,7 +343,7 @@
     iput-object v0, p0, Landroidx/slice/widget/SliceContent;->mLayoutDirItem:Landroidx/slice/SliceItem;
 
     :cond_1
-    const-string/jumbo v0, "text"
+    const-string v0, "text"
 
     const-string v1, "content_description"
 
@@ -450,7 +450,7 @@
     :cond_0
     const/4 v3, 0x5
 
-    const-string/jumbo v4, "title"
+    const-string v4, "title"
 
     const-string v5, "shortcut"
 
@@ -464,7 +464,7 @@
 
     move-result-object v1
 
-    const-string/jumbo v5, "text"
+    const-string v5, "text"
 
     const-string v7, "image"
 

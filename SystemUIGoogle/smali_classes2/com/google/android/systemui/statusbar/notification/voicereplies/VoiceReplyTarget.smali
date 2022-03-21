@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nNotificationVoiceReplyManager.kt\nKotlin\n*S Kotlin\n*F\n+ 1 NotificationVoiceReplyManager.kt\ncom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget\n+ 2 NotificationVoiceReplyLogger.kt\ncom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger\n+ 3 LogBuffer.kt\ncom/android/systemui/log/LogBuffer\n+ 4 CancellableContinuation.kt\nkotlinx/coroutines/CancellableContinuationKt\n*L\n1#1,1013:1\n59#2:1014\n59#2:1021\n59#2:1028\n59#2:1035\n59#2:1042\n59#2:1063\n59#2:1078\n59#2:1087\n113#3,6:1015\n113#3,6:1022\n113#3,6:1029\n113#3,6:1036\n113#3,6:1043\n113#3,6:1064\n113#3,6:1079\n113#3,6:1088\n197#4,8:1049\n197#4,6:1057\n203#4,2:1070\n197#4,6:1072\n203#4,2:1085\n197#4,8:1094\n*E\n*S KotlinDebug\n*F\n+ 1 NotificationVoiceReplyManager.kt\ncom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget\n*L\n647#1:1014\n649#1:1021\n656#1:1028\n680#1:1035\n683#1:1042\n722#1:1063\n738#1:1078\n753#1:1087\n647#1,6:1015\n649#1,6:1022\n656#1,6:1029\n680#1,6:1036\n683#1,6:1043\n722#1,6:1064\n738#1,6:1079\n753#1,6:1088\n703#1,8:1049\n721#1,6:1057\n721#1,2:1070\n737#1,6:1072\n737#1,2:1085\n760#1,8:1094\n*E\n"
+    value = "SMAP\nNotificationVoiceReplyManager.kt\nKotlin\n*S Kotlin\n*F\n+ 1 NotificationVoiceReplyManager.kt\ncom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget\n+ 2 CancellableContinuation.kt\nkotlinx/coroutines/CancellableContinuationKt\n+ 3 NotificationVoiceReplyLogger.kt\ncom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger\n+ 4 LogBuffer.kt\ncom/android/systemui/log/LogBuffer\n*L\n1#1,1168:1\n197#2,8:1169\n197#2,6:1177\n203#2,2:1190\n197#2,6:1192\n203#2,2:1205\n197#2,8:1214\n67#3:1183\n67#3:1198\n67#3:1207\n120#4,6:1184\n120#4,6:1199\n120#4,6:1208\n*E\n*S KotlinDebug\n*F\n+ 1 NotificationVoiceReplyManager.kt\ncom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget\n*L\n856#1,8:1169\n874#1,6:1177\n874#1,2:1190\n890#1,6:1192\n890#1,2:1205\n913#1,8:1214\n875#1:1183\n891#1:1198\n906#1:1207\n875#1,6:1184\n891#1,6:1199\n906#1,6:1208\n*E\n"
 .end annotation
 
 
@@ -40,6 +40,8 @@
 
 .field private final postTime:J
 
+.field private final powerManager:Landroid/os/PowerManager;
+
 .field private final remoteInputs:[Landroid/app/RemoteInput;
 
 .field private final shadeTransitionController:Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;
@@ -54,7 +56,7 @@
 
 
 # direct methods
-.method public constructor <init>(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Landroid/app/Notification$Builder;JLjava/util/List;Landroid/app/PendingIntent;[Landroid/app/RemoteInput;Landroid/app/RemoteInput;Landroid/widget/Button;Lcom/android/systemui/statusbar/NotificationRemoteInputManager;Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;Lcom/android/systemui/statusbar/phone/StatusBar;Lcom/android/systemui/statusbar/SysuiStatusBarStateController;Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger;Lcom/android/systemui/statusbar/NotificationShadeWindowController;Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Landroid/app/Notification$Builder;JLjava/util/List;Landroid/app/PendingIntent;[Landroid/app/RemoteInput;Landroid/app/RemoteInput;Landroid/widget/Button;Lcom/android/systemui/statusbar/NotificationRemoteInputManager;Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;Lcom/android/systemui/statusbar/phone/StatusBar;Lcom/android/systemui/statusbar/SysuiStatusBarStateController;Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger;Lcom/android/systemui/statusbar/NotificationShadeWindowController;Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;Landroid/os/PowerManager;)V
     .locals 16
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -78,6 +80,7 @@
             "Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger;",
             "Lcom/android/systemui/statusbar/NotificationShadeWindowController;",
             "Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;",
+            "Landroid/os/PowerManager;",
             ")V"
         }
     .end annotation
@@ -112,63 +115,71 @@
 
     move-object/from16 v14, p16
 
-    const-string v15, "entry"
+    move-object/from16 v15, p17
 
-    invoke-static {v1, v15}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    const-string v0, "entry"
 
-    const-string v15, "builder"
+    invoke-static {v1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    invoke-static {v2, v15}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    const-string v0, "builder"
 
-    const-string v15, "handlers"
+    invoke-static {v2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    invoke-static {v3, v15}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    const-string v0, "handlers"
 
-    const-string v15, "actionIntent"
+    invoke-static {v3, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    invoke-static {v4, v15}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    const-string v0, "actionIntent"
 
-    const-string v15, "remoteInputs"
+    invoke-static {v4, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    invoke-static {v5, v15}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    const-string v0, "remoteInputs"
 
-    const-string v15, "freeformInput"
+    invoke-static {v5, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    invoke-static {v6, v15}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    const-string v0, "freeformInput"
 
-    const-string v15, "expandedViewReplyButton"
+    invoke-static {v6, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    invoke-static {v7, v15}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    const-string v0, "expandedViewReplyButton"
 
-    const-string v15, "notificationRemoteInputManager"
+    invoke-static {v7, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    invoke-static {v8, v15}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    const-string v0, "notificationRemoteInputManager"
 
-    const-string v15, "shadeTransitionController"
+    invoke-static {v8, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    invoke-static {v9, v15}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    const-string v0, "shadeTransitionController"
 
-    const-string v15, "statusBar"
+    invoke-static {v9, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    invoke-static {v10, v15}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    const-string v0, "statusBar"
 
-    const-string v15, "statusBarStateController"
+    invoke-static {v10, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    invoke-static {v11, v15}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    const-string v0, "statusBarStateController"
 
-    const-string v15, "logger"
+    invoke-static {v11, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    invoke-static {v12, v15}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    const-string v0, "logger"
 
-    const-string v15, "notifShadeWindowController"
+    invoke-static {v12, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    invoke-static {v13, v15}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    const-string v0, "notifShadeWindowController"
 
-    const-string v15, "statusBarKeyguardViewManager"
+    invoke-static {v13, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    invoke-static {v14, v15}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    const-string v0, "statusBarKeyguardViewManager"
+
+    invoke-static {v14, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    const-string v0, "powerManager"
+
+    invoke-static {v15, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+
+    move-object/from16 v0, p0
 
     iput-object v1, v0, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget;->entry:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
 
@@ -202,6 +213,8 @@
 
     iput-object v14, v0, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget;->statusBarKeyguardViewManager:Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;
 
+    iput-object v15, v0, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget;->powerManager:Landroid/os/PowerManager;
+
     invoke-virtual/range {p1 .. p1}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getKey()Ljava/lang/String;
 
     move-result-object v1
@@ -229,10 +242,58 @@
     return-void
 .end method
 
+.method public static final synthetic access$getActionIntent$p(Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget;)Landroid/app/PendingIntent;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget;->actionIntent:Landroid/app/PendingIntent;
+
+    return-object p0
+.end method
+
+.method public static final synthetic access$getExpandedViewReplyButton$p(Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget;)Landroid/widget/Button;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget;->expandedViewReplyButton:Landroid/widget/Button;
+
+    return-object p0
+.end method
+
+.method public static final synthetic access$getFreeformInput$p(Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget;)Landroid/app/RemoteInput;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget;->freeformInput:Landroid/app/RemoteInput;
+
+    return-object p0
+.end method
+
 .method public static final synthetic access$getLogger$p(Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget;)Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger;
     .locals 0
 
     iget-object p0, p0, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget;->logger:Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger;
+
+    return-object p0
+.end method
+
+.method public static final synthetic access$getNotificationRemoteInputManager$p(Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget;)Lcom/android/systemui/statusbar/NotificationRemoteInputManager;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget;->notificationRemoteInputManager:Lcom/android/systemui/statusbar/NotificationRemoteInputManager;
+
+    return-object p0
+.end method
+
+.method public static final synthetic access$getPowerManager$p(Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget;)Landroid/os/PowerManager;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget;->powerManager:Landroid/os/PowerManager;
+
+    return-object p0
+.end method
+
+.method public static final synthetic access$getRemoteInputs$p(Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget;)[Landroid/app/RemoteInput;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget;->remoteInputs:[Landroid/app/RemoteInput;
 
     return-object p0
 .end method
@@ -835,7 +896,7 @@
 .end method
 
 .method public final focus(Lcom/google/android/systemui/statusbar/notification/voicereplies/AuthStateRef;Ljava/lang/String;Lkotlinx/coroutines/flow/MutableSharedFlow;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 25
+    .locals 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -854,740 +915,38 @@
         }
     .end annotation
 
-    move-object/from16 v1, p0
+    new-instance v6, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget$focus$2;
 
-    move-object/from16 v2, p1
+    const/4 v5, 0x0
 
-    move-object/from16 v0, p2
+    move-object v0, v6
 
-    move-object/from16 v3, p4
+    move-object v1, p0
 
-    instance-of v4, v3, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget$focus$1;
+    move-object v2, p2
 
-    if-eqz v4, :cond_0
+    move-object v3, p3
 
-    move-object v4, v3
+    move-object v4, p1
 
-    check-cast v4, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget$focus$1;
+    invoke-direct/range {v0 .. v5}, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget$focus$2;-><init>(Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget;Ljava/lang/String;Lkotlinx/coroutines/flow/MutableSharedFlow;Lcom/google/android/systemui/statusbar/notification/voicereplies/AuthStateRef;Lkotlin/coroutines/Continuation;)V
 
-    iget v5, v4, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget$focus$1;->label:I
+    invoke-static {v6, p4}, Lkotlinx/coroutines/CoroutineScopeKt;->coroutineScope(Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
-    const/high16 v6, -0x80000000
-
-    and-int v7, v5, v6
-
-    if-eqz v7, :cond_0
-
-    sub-int/2addr v5, v6
-
-    iput v5, v4, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget$focus$1;->label:I
-
-    goto :goto_0
-
-    :cond_0
-    new-instance v4, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget$focus$1;
-
-    invoke-direct {v4, v1, v3}, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget$focus$1;-><init>(Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget;Lkotlin/coroutines/Continuation;)V
-
-    :goto_0
-    iget-object v3, v4, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget$focus$1;->result:Ljava/lang/Object;
+    move-result-object p0
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object p1
 
-    iget v6, v4, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget$focus$1;->label:I
+    if-ne p0, p1, :cond_0
 
-    const-string v7, "riv"
+    return-object p0
 
-    const/4 v8, 0x5
+    :cond_0
+    sget-object p0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
-    const/4 v9, 0x4
-
-    const/4 v10, 0x3
-
-    const/4 v11, 0x2
-
-    const/4 v12, 0x0
-
-    const/4 v13, 0x1
-
-    const-string v14, "NotifVoiceReply"
-
-    const/4 v15, 0x0
-
-    if-eqz v6, :cond_6
-
-    if-eq v6, v13, :cond_5
-
-    if-eq v6, v11, :cond_4
-
-    if-eq v6, v10, :cond_3
-
-    if-eq v6, v9, :cond_2
-
-    if-ne v6, v8, :cond_1
-
-    iget-object v0, v4, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget$focus$1;->L$1:Ljava/lang/Object;
-
-    move-object v1, v0
-
-    check-cast v1, Lcom/google/android/systemui/statusbar/notification/voicereplies/AuthStateRef;
-
-    iget-object v0, v4, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget$focus$1;->L$0:Ljava/lang/Object;
-
-    move-object v2, v0
-
-    check-cast v2, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget;
-
-    :try_start_0
-    invoke-static {v3}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    goto/16 :goto_e
-
-    :cond_1
-    new-instance v0, Ljava/lang/IllegalStateException;
-
-    const-string v1, "call to \'resume\' before \'invoke\' with coroutine"
-
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    :cond_2
-    iget-object v0, v4, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget$focus$1;->L$2:Ljava/lang/Object;
-
-    check-cast v0, Lcom/android/systemui/statusbar/policy/RemoteInputView;
-
-    iget-object v1, v4, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget$focus$1;->L$1:Ljava/lang/Object;
-
-    check-cast v1, Lcom/google/android/systemui/statusbar/notification/voicereplies/AuthStateRef;
-
-    iget-object v2, v4, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget$focus$1;->L$0:Ljava/lang/Object;
-
-    check-cast v2, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget;
-
-    :try_start_1
-    invoke-static {v3}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    move-object v11, v2
-
-    goto/16 :goto_d
-
-    :cond_3
-    iget-object v0, v4, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget$focus$1;->L$2:Ljava/lang/Object;
-
-    check-cast v0, Lcom/android/systemui/statusbar/policy/RemoteInputView;
-
-    iget-object v1, v4, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget$focus$1;->L$1:Ljava/lang/Object;
-
-    check-cast v1, Lcom/google/android/systemui/statusbar/notification/voicereplies/AuthStateRef;
-
-    iget-object v2, v4, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget$focus$1;->L$0:Ljava/lang/Object;
-
-    check-cast v2, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget;
-
-    :try_start_2
-    invoke-static {v3}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
-
-    move-object v11, v2
-
-    goto/16 :goto_c
-
-    :catchall_0
-    move-exception v0
-
-    move-object v11, v2
-
-    :goto_1
-    move-object v2, v1
-
-    goto/16 :goto_f
-
-    :cond_4
-    iget-object v0, v4, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget$focus$1;->L$4:Ljava/lang/Object;
-
-    check-cast v0, Lcom/android/systemui/statusbar/notification/row/NotificationContentView;
-
-    iget-object v1, v4, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget$focus$1;->L$3:Ljava/lang/Object;
-
-    check-cast v1, Lkotlinx/coroutines/flow/MutableSharedFlow;
-
-    iget-object v2, v4, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget$focus$1;->L$2:Ljava/lang/Object;
-
-    check-cast v2, Ljava/lang/String;
-
-    iget-object v6, v4, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget$focus$1;->L$1:Ljava/lang/Object;
-
-    check-cast v6, Lcom/google/android/systemui/statusbar/notification/voicereplies/AuthStateRef;
-
-    iget-object v11, v4, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget$focus$1;->L$0:Ljava/lang/Object;
-
-    check-cast v11, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget;
-
-    :try_start_3
-    invoke-static {v3}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_1
-
-    move-object/from16 v23, v2
-
-    move-object v2, v6
-
-    goto/16 :goto_a
-
-    :catchall_1
-    move-exception v0
-
-    move-object v2, v6
-
-    goto/16 :goto_f
-
-    :cond_5
-    iget-object v0, v4, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget$focus$1;->L$4:Ljava/lang/Object;
-
-    check-cast v0, Lcom/android/systemui/statusbar/notification/row/NotificationContentView;
-
-    iget-object v1, v4, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget$focus$1;->L$3:Ljava/lang/Object;
-
-    check-cast v1, Lkotlinx/coroutines/flow/MutableSharedFlow;
-
-    iget-object v2, v4, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget$focus$1;->L$2:Ljava/lang/Object;
-
-    check-cast v2, Ljava/lang/String;
-
-    iget-object v6, v4, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget$focus$1;->L$1:Ljava/lang/Object;
-
-    check-cast v6, Lcom/google/android/systemui/statusbar/notification/voicereplies/AuthStateRef;
-
-    iget-object v13, v4, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget$focus$1;->L$0:Ljava/lang/Object;
-
-    check-cast v13, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget;
-
-    :try_start_4
-    invoke-static {v3}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_2
-
-    move-object v3, v0
-
-    move-object v0, v2
-
-    move-object v2, v6
-
-    goto/16 :goto_8
-
-    :catchall_2
-    move-exception v0
-
-    move-object v2, v6
-
-    :goto_2
-    move-object v11, v13
-
-    goto/16 :goto_f
-
-    :cond_6
-    invoke-static {v3}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
-
-    :try_start_5
-    iget-object v3, v1, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget;->logger:Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger;
-
-    invoke-virtual/range {p0 .. p0}, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget;->getNotifKey()Ljava/lang/String;
-
-    move-result-object v6
-
-    if-eqz v0, :cond_8
-
-    invoke-interface/range {p2 .. p2}, Ljava/lang/CharSequence;->length()I
-
-    move-result v16
-
-    if-nez v16, :cond_7
-
-    goto :goto_3
-
-    :cond_7
-    move/from16 v16, v15
-
-    goto :goto_4
-
-    :cond_8
-    :goto_3
-    move/from16 v16, v13
-
-    :goto_4
-    if-nez v16, :cond_9
-
-    move v8, v13
-
-    goto :goto_5
-
-    :cond_9
-    move v8, v15
-
-    :goto_5
-    invoke-virtual {v3, v6, v8}, Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger;->logFocus(Ljava/lang/String;Z)V
-
-    invoke-virtual/range {p0 .. p0}, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget;->getEntry()Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getRow()Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
-
-    move-result-object v3
-
-    if-nez v3, :cond_a
-
-    move-object v3, v12
-
-    goto :goto_6
-
-    :cond_a
-    invoke-virtual {v3}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->getShowingLayout()Lcom/android/systemui/statusbar/notification/row/NotificationContentView;
-
-    move-result-object v3
-
-    :goto_6
-    if-nez v3, :cond_b
-
-    iget-object v0, v1, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget;->logger:Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger;
-
-    invoke-virtual {v0}, Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger;->logBadNotifState()V
-
-    sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_6
-
-    invoke-virtual {v2, v15}, Lcom/google/android/systemui/statusbar/notification/voicereplies/AuthStateRef;->setValue(I)V
-
-    iget-object v1, v1, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget;->logger:Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger;
-
-    :goto_7
-    invoke-virtual {v1}, Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger;->logSessionEnd()V
-
-    return-object v0
-
-    :cond_b
-    :try_start_6
-    iget-object v6, v1, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget;->statusBarKeyguardViewManager:Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;
-
-    invoke-virtual {v6}, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;->isOccluded()Z
-
-    move-result v6
-
-    if-eqz v6, :cond_e
-
-    iget-object v6, v1, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget;->logger:Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger;
-
-    const-string v8, "Waiting for keyguard occlusion to end"
-
-    invoke-virtual {v6}, Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger;->getLogBuffer()Lcom/android/systemui/log/LogBuffer;
-
-    move-result-object v6
-
-    sget-object v9, Lcom/android/systemui/log/LogLevel;->DEBUG:Lcom/android/systemui/log/LogLevel;
-
-    new-instance v10, Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger$logStatic$2;
-
-    invoke-direct {v10, v8}, Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger$logStatic$2;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v6}, Lcom/android/systemui/log/LogBuffer;->getFrozen()Z
-
-    move-result v8
-
-    if-nez v8, :cond_c
-
-    invoke-virtual {v6, v14, v9, v10}, Lcom/android/systemui/log/LogBuffer;->obtain(Ljava/lang/String;Lcom/android/systemui/log/LogLevel;Lkotlin/jvm/functions/Function1;)Lcom/android/systemui/log/LogMessageImpl;
-
-    move-result-object v8
-
-    invoke-virtual {v6, v8}, Lcom/android/systemui/log/LogBuffer;->push(Lcom/android/systemui/log/LogMessage;)V
-
-    :cond_c
-    iput-object v1, v4, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget$focus$1;->L$0:Ljava/lang/Object;
-
-    iput-object v2, v4, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget$focus$1;->L$1:Ljava/lang/Object;
-
-    iput-object v0, v4, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget$focus$1;->L$2:Ljava/lang/Object;
-
-    move-object/from16 v6, p3
-
-    iput-object v6, v4, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget$focus$1;->L$3:Ljava/lang/Object;
-
-    iput-object v3, v4, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget$focus$1;->L$4:Ljava/lang/Object;
-
-    iput v13, v4, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget$focus$1;->label:I
-
-    invoke-virtual {v1, v4}, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget;->awaitKeyguardNotOccluded(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-
-    move-result-object v8
-    :try_end_6
-    .catchall {:try_start_6 .. :try_end_6} :catchall_6
-
-    if-ne v8, v5, :cond_d
-
-    return-object v5
-
-    :cond_d
-    move-object v13, v1
-
-    move-object v1, v6
-
-    :goto_8
-    :try_start_7
-    iget-object v6, v13, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget;->logger:Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger;
-
-    const-string v8, "Keyguard no longer occluded"
-
-    invoke-virtual {v6}, Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger;->getLogBuffer()Lcom/android/systemui/log/LogBuffer;
-
-    move-result-object v6
-
-    sget-object v9, Lcom/android/systemui/log/LogLevel;->DEBUG:Lcom/android/systemui/log/LogLevel;
-
-    new-instance v10, Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger$logStatic$2;
-
-    invoke-direct {v10, v8}, Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger$logStatic$2;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v6}, Lcom/android/systemui/log/LogBuffer;->getFrozen()Z
-
-    move-result v8
-
-    if-nez v8, :cond_f
-
-    invoke-virtual {v6, v14, v9, v10}, Lcom/android/systemui/log/LogBuffer;->obtain(Ljava/lang/String;Lcom/android/systemui/log/LogLevel;Lkotlin/jvm/functions/Function1;)Lcom/android/systemui/log/LogMessageImpl;
-
-    move-result-object v8
-
-    invoke-virtual {v6, v8}, Lcom/android/systemui/log/LogBuffer;->push(Lcom/android/systemui/log/LogMessage;)V
-
-    goto :goto_9
-
-    :catchall_3
-    move-exception v0
-
-    goto/16 :goto_2
-
-    :cond_e
-    move-object/from16 v6, p3
-
-    move-object v13, v1
-
-    move-object v1, v6
-
-    :cond_f
-    :goto_9
-    iput-object v13, v4, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget$focus$1;->L$0:Ljava/lang/Object;
-
-    iput-object v2, v4, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget$focus$1;->L$1:Ljava/lang/Object;
-
-    iput-object v0, v4, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget$focus$1;->L$2:Ljava/lang/Object;
-
-    iput-object v1, v4, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget$focus$1;->L$3:Ljava/lang/Object;
-
-    iput-object v3, v4, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget$focus$1;->L$4:Ljava/lang/Object;
-
-    iput v11, v4, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget$focus$1;->label:I
-
-    invoke-virtual {v13, v4}, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget;->expandShade(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-
-    move-result-object v6
-    :try_end_7
-    .catchall {:try_start_7 .. :try_end_7} :catchall_3
-
-    if-ne v6, v5, :cond_10
-
-    return-object v5
-
-    :cond_10
-    move-object/from16 v23, v0
-
-    move-object v0, v3
-
-    move-object v3, v6
-
-    move-object v11, v13
-
-    :goto_a
-    :try_start_8
-    check-cast v3, Ljava/lang/Boolean;
-
-    invoke-virtual {v3}, Ljava/lang/Boolean;->booleanValue()Z
-
-    move-result v3
-
-    if-nez v3, :cond_11
-
-    iget-object v0, v11, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget;->logger:Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger;
-
-    invoke-virtual {v0}, Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger;->logBadShadeState()V
-
-    sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_8
-    .catchall {:try_start_8 .. :try_end_8} :catchall_5
-
-    :goto_b
-    invoke-virtual {v2, v15}, Lcom/google/android/systemui/statusbar/notification/voicereplies/AuthStateRef;->setValue(I)V
-
-    iget-object v1, v11, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget;->logger:Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger;
-
-    goto/16 :goto_7
-
-    :cond_11
-    :try_start_9
-    iget-object v3, v11, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget;->logger:Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger;
-
-    const-string v6, "Shade expanded"
-
-    invoke-virtual {v3}, Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger;->getLogBuffer()Lcom/android/systemui/log/LogBuffer;
-
-    move-result-object v3
-
-    sget-object v8, Lcom/android/systemui/log/LogLevel;->DEBUG:Lcom/android/systemui/log/LogLevel;
-
-    new-instance v9, Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger$logStatic$2;
-
-    invoke-direct {v9, v6}, Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger$logStatic$2;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v3}, Lcom/android/systemui/log/LogBuffer;->getFrozen()Z
-
-    move-result v6
-
-    if-nez v6, :cond_12
-
-    invoke-virtual {v3, v14, v8, v9}, Lcom/android/systemui/log/LogBuffer;->obtain(Ljava/lang/String;Lcom/android/systemui/log/LogLevel;Lkotlin/jvm/functions/Function1;)Lcom/android/systemui/log/LogMessageImpl;
-
-    move-result-object v6
-
-    invoke-virtual {v3, v6}, Lcom/android/systemui/log/LogBuffer;->push(Lcom/android/systemui/log/LogMessage;)V
-
-    :cond_12
-    new-instance v3, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget$focus$authBypassCheck$1;
-
-    invoke-direct {v3, v2}, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget$focus$authBypassCheck$1;-><init>(Lcom/google/android/systemui/statusbar/notification/voicereplies/AuthStateRef;)V
-
-    iget-object v6, v11, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget;->notificationRemoteInputManager:Lcom/android/systemui/statusbar/NotificationRemoteInputManager;
-
-    iget-object v8, v11, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget;->expandedViewReplyButton:Landroid/widget/Button;
-
-    iget-object v9, v11, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget;->remoteInputs:[Landroid/app/RemoteInput;
-
-    iget-object v10, v11, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget;->freeformInput:Landroid/app/RemoteInput;
-
-    iget-object v13, v11, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget;->actionIntent:Landroid/app/PendingIntent;
-
-    const/16 v22, 0x0
-
-    move-object/from16 v17, v6
-
-    move-object/from16 v18, v8
-
-    move-object/from16 v19, v9
-
-    move-object/from16 v20, v10
-
-    move-object/from16 v21, v13
-
-    move-object/from16 v24, v3
-
-    invoke-virtual/range {v17 .. v24}, Lcom/android/systemui/statusbar/NotificationRemoteInputManager;->activateRemoteInput(Landroid/view/View;[Landroid/app/RemoteInput;Landroid/app/RemoteInput;Landroid/app/PendingIntent;Lcom/android/systemui/statusbar/notification/collection/NotificationEntry$EditedSuggestionInfo;Ljava/lang/String;Lcom/android/systemui/statusbar/NotificationRemoteInputManager$AuthBypassPredicate;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_13
-
-    iget-object v0, v11, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget;->logger:Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger;
-
-    invoke-virtual {v0}, Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger;->logBadRemoteInputState()V
-
-    sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-
-    goto :goto_b
-
-    :cond_13
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/notification/row/NotificationContentView;->getExpandedRemoteInput()Lcom/android/systemui/statusbar/policy/RemoteInputView;
-
-    move-result-object v0
-
-    invoke-virtual {v11}, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget;->getNotifKey()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v3, v0}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
-
-    move-result-object v3
-
-    iput-object v11, v4, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget$focus$1;->L$0:Ljava/lang/Object;
-
-    iput-object v2, v4, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget$focus$1;->L$1:Ljava/lang/Object;
-
-    iput-object v0, v4, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget$focus$1;->L$2:Ljava/lang/Object;
-
-    iput-object v12, v4, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget$focus$1;->L$3:Ljava/lang/Object;
-
-    iput-object v12, v4, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget$focus$1;->L$4:Ljava/lang/Object;
-
-    const/4 v6, 0x3
-
-    iput v6, v4, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget$focus$1;->label:I
-
-    invoke-interface {v1, v3, v4}, Lkotlinx/coroutines/flow/FlowCollector;->emit(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-
-    move-result-object v1
-    :try_end_9
-    .catchall {:try_start_9 .. :try_end_9} :catchall_5
-
-    if-ne v1, v5, :cond_14
-
-    return-object v5
-
-    :cond_14
-    move-object v1, v2
-
-    :goto_c
-    :try_start_a
-    iget-object v2, v11, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget;->logger:Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger;
-
-    const-string v3, "Waiting for RemoteInputView focus"
-
-    invoke-virtual {v2}, Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger;->getLogBuffer()Lcom/android/systemui/log/LogBuffer;
-
-    move-result-object v2
-
-    sget-object v6, Lcom/android/systemui/log/LogLevel;->DEBUG:Lcom/android/systemui/log/LogLevel;
-
-    new-instance v8, Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger$logStatic$2;
-
-    invoke-direct {v8, v3}, Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger$logStatic$2;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v2}, Lcom/android/systemui/log/LogBuffer;->getFrozen()Z
-
-    move-result v3
-
-    if-nez v3, :cond_15
-
-    invoke-virtual {v2, v14, v6, v8}, Lcom/android/systemui/log/LogBuffer;->obtain(Ljava/lang/String;Lcom/android/systemui/log/LogLevel;Lkotlin/jvm/functions/Function1;)Lcom/android/systemui/log/LogMessageImpl;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Lcom/android/systemui/log/LogBuffer;->push(Lcom/android/systemui/log/LogMessage;)V
-
-    :cond_15
-    invoke-static {v0, v7}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
-    iput-object v11, v4, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget$focus$1;->L$0:Ljava/lang/Object;
-
-    iput-object v1, v4, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget$focus$1;->L$1:Ljava/lang/Object;
-
-    iput-object v0, v4, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget$focus$1;->L$2:Ljava/lang/Object;
-
-    const/4 v2, 0x4
-
-    iput v2, v4, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget$focus$1;->label:I
-
-    invoke-virtual {v11, v0, v4}, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget;->awaitFocusGained(Lcom/android/systemui/statusbar/policy/RemoteInputView;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-
-    move-result-object v2
-
-    if-ne v2, v5, :cond_16
-
-    return-object v5
-
-    :cond_16
-    :goto_d
-    iget-object v2, v11, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget;->logger:Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger;
-
-    const-string v3, "Waiting for session end (RemoteInputView focus lost)"
-
-    invoke-virtual {v2}, Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger;->getLogBuffer()Lcom/android/systemui/log/LogBuffer;
-
-    move-result-object v2
-
-    sget-object v6, Lcom/android/systemui/log/LogLevel;->DEBUG:Lcom/android/systemui/log/LogLevel;
-
-    new-instance v8, Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger$logStatic$2;
-
-    invoke-direct {v8, v3}, Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger$logStatic$2;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v2}, Lcom/android/systemui/log/LogBuffer;->getFrozen()Z
-
-    move-result v3
-
-    if-nez v3, :cond_17
-
-    invoke-virtual {v2, v14, v6, v8}, Lcom/android/systemui/log/LogBuffer;->obtain(Ljava/lang/String;Lcom/android/systemui/log/LogLevel;Lkotlin/jvm/functions/Function1;)Lcom/android/systemui/log/LogMessageImpl;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Lcom/android/systemui/log/LogBuffer;->push(Lcom/android/systemui/log/LogMessage;)V
-
-    :cond_17
-    invoke-static {v0, v7}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
-    iput-object v11, v4, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget$focus$1;->L$0:Ljava/lang/Object;
-
-    iput-object v1, v4, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget$focus$1;->L$1:Ljava/lang/Object;
-
-    iput-object v12, v4, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget$focus$1;->L$2:Ljava/lang/Object;
-
-    const/4 v2, 0x5
-
-    iput v2, v4, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget$focus$1;->label:I
-
-    invoke-virtual {v11, v0, v4}, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget;->awaitFocusLost(Lcom/android/systemui/statusbar/policy/RemoteInputView;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-
-    move-result-object v0
-    :try_end_a
-    .catchall {:try_start_a .. :try_end_a} :catchall_4
-
-    if-ne v0, v5, :cond_18
-
-    return-object v5
-
-    :cond_18
-    move-object v2, v11
-
-    :goto_e
-    invoke-virtual {v1, v15}, Lcom/google/android/systemui/statusbar/notification/voicereplies/AuthStateRef;->setValue(I)V
-
-    iget-object v0, v2, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget;->logger:Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger;
-
-    invoke-virtual {v0}, Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger;->logSessionEnd()V
-
-    sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-
-    return-object v0
-
-    :catchall_4
-    move-exception v0
-
-    goto/16 :goto_1
-
-    :catchall_5
-    move-exception v0
-
-    goto :goto_f
-
-    :catchall_6
-    move-exception v0
-
-    move-object v11, v1
-
-    :goto_f
-    invoke-virtual {v2, v15}, Lcom/google/android/systemui/statusbar/notification/voicereplies/AuthStateRef;->setValue(I)V
-
-    iget-object v1, v11, Lcom/google/android/systemui/statusbar/notification/voicereplies/VoiceReplyTarget;->logger:Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger;
-
-    invoke-virtual {v1}, Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger;->logSessionEnd()V
-
-    throw v0
+    return-object p0
 .end method
 
 .method public final getBuilder()Landroid/app/Notification$Builder;

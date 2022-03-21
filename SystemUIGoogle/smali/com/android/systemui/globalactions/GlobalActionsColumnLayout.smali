@@ -125,27 +125,6 @@
     return p0
 .end method
 
-.method public getAnimationOffsetX()F
-    .locals 1
-
-    invoke-virtual {p0}, Lcom/android/systemui/globalactions/GlobalActionsLayout;->getCurrentRotation()I
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    invoke-virtual {p0}, Lcom/android/systemui/globalactions/GlobalActionsColumnLayout;->getAnimationDistance()F
-
-    move-result p0
-
-    return p0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    return p0
-.end method
-
 .method protected getGridItemSize()F
     .locals 1
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;

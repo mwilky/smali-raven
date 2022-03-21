@@ -8,8 +8,6 @@
 
 .field private final context:Landroid/content/Context;
 
-.field private final featureFlags:Lcom/android/systemui/statusbar/FeatureFlags;
-
 .field private final mediaHost:Lcom/android/systemui/media/MediaHost;
 
 .field private final notifLockscreenUserManager:Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;
@@ -38,7 +36,7 @@
 
 
 # direct methods
-.method public constructor <init>(Lcom/android/systemui/media/MediaHost;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/statusbar/SysuiStatusBarStateController;Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;Lcom/android/systemui/statusbar/FeatureFlags;Landroid/content/Context;Lcom/android/systemui/statusbar/policy/ConfigurationController;)V
+.method public constructor <init>(Lcom/android/systemui/media/MediaHost;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/statusbar/SysuiStatusBarStateController;Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;Landroid/content/Context;Lcom/android/systemui/statusbar/policy/ConfigurationController;)V
     .locals 1
 
     const-string v0, "mediaHost"
@@ -57,17 +55,13 @@
 
     invoke-static {p4, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    const-string v0, "featureFlags"
+    const-string v0, "context"
 
     invoke-static {p5, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    const-string v0, "context"
-
-    invoke-static {p6, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
     const-string v0, "configurationController"
 
-    invoke-static {p7, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p6, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -79,9 +73,7 @@
 
     iput-object p4, p0, Lcom/android/systemui/media/KeyguardMediaController;->notifLockscreenUserManager:Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;
 
-    iput-object p5, p0, Lcom/android/systemui/media/KeyguardMediaController;->featureFlags:Lcom/android/systemui/statusbar/FeatureFlags;
-
-    iput-object p6, p0, Lcom/android/systemui/media/KeyguardMediaController;->context:Landroid/content/Context;
+    iput-object p5, p0, Lcom/android/systemui/media/KeyguardMediaController;->context:Landroid/content/Context;
 
     new-instance p2, Lcom/android/systemui/media/KeyguardMediaController$1;
 
@@ -93,7 +85,7 @@
 
     invoke-direct {p2, p0}, Lcom/android/systemui/media/KeyguardMediaController$2;-><init>(Lcom/android/systemui/media/KeyguardMediaController;)V
 
-    invoke-interface {p7, p2}, Lcom/android/systemui/statusbar/policy/CallbackController;->addCallback(Ljava/lang/Object;)V
+    invoke-interface {p6, p2}, Lcom/android/systemui/statusbar/policy/CallbackController;->addCallback(Ljava/lang/Object;)V
 
     const/4 p2, 0x0
 
@@ -415,17 +407,15 @@
 .end method
 
 .method private final updateResources()V
-    .locals 2
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/systemui/media/KeyguardMediaController;->featureFlags:Lcom/android/systemui/statusbar/FeatureFlags;
+    iget-object v0, p0, Lcom/android/systemui/media/KeyguardMediaController;->context:Landroid/content/Context;
 
-    iget-object v1, p0, Lcom/android/systemui/media/KeyguardMediaController;->context:Landroid/content/Context;
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    move-result-object v0
 
-    move-result-object v1
-
-    invoke-static {v0, v1}, Lcom/android/systemui/util/Utils;->shouldUseSplitNotificationShade(Lcom/android/systemui/statusbar/FeatureFlags;Landroid/content/res/Resources;)Z
+    invoke-static {v0}, Lcom/android/systemui/util/Utils;->shouldUseSplitNotificationShade(Landroid/content/res/Resources;)Z
 
     move-result v0
 

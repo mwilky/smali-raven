@@ -104,7 +104,7 @@
 
     const/4 v0, 0x0
 
-    const-string/jumbo v1, "title"
+    const-string v1, "title"
 
     invoke-static {p1, v0, v1, v0}, Landroidx/slice/core/SliceQuery;->findAll(Landroidx/slice/SliceItem;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;
 
@@ -510,7 +510,7 @@
 
     const-string v0, "keywords"
 
-    const-string/jumbo v1, "ttl"
+    const-string v1, "ttl"
 
     const-string v2, "last_updated"
 
@@ -579,7 +579,7 @@
 
     if-nez v0, :cond_1
 
-    const-string/jumbo v0, "text"
+    const-string v0, "text"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -702,7 +702,7 @@
 
     move-result v2
 
-    const-string/jumbo v3, "title"
+    const-string v3, "title"
 
     const-string v4, "action"
 
@@ -945,7 +945,7 @@
 
     move-result-object v6
 
-    const-string/jumbo v7, "text"
+    const-string v7, "text"
 
     invoke-virtual {v7, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 

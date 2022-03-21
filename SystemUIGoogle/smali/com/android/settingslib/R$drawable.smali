@@ -4,84 +4,84 @@
 
 
 # static fields
-.field public static final ic_1x_mobiledata:I = 0x7f080345
+.field public static final ic_1x_mobiledata:I = 0x7f0803cb
 
-.field public static final ic_3g_mobiledata:I = 0x7f080346
+.field public static final ic_3g_mobiledata:I = 0x7f0803cc
 
-.field public static final ic_4g_mobiledata:I = 0x7f080347
+.field public static final ic_4g_mobiledata:I = 0x7f0803cd
 
-.field public static final ic_4g_plus_mobiledata:I = 0x7f080348
+.field public static final ic_4g_plus_mobiledata:I = 0x7f0803ce
 
-.field public static final ic_5g_e_mobiledata:I = 0x7f080349
+.field public static final ic_5g_e_mobiledata:I = 0x7f0803cf
 
-.field public static final ic_5g_mobiledata:I = 0x7f08034a
+.field public static final ic_5g_mobiledata:I = 0x7f0803d0
 
-.field public static final ic_5g_plus_mobiledata:I = 0x7f08034b
+.field public static final ic_5g_plus_mobiledata:I = 0x7f0803d1
 
-.field public static final ic_carrier_wifi:I = 0x7f08036e
+.field public static final ic_carrier_wifi:I = 0x7f0803f0
 
-.field public static final ic_e_mobiledata:I = 0x7f080417
+.field public static final ic_e_mobiledata:I = 0x7f080494
 
-.field public static final ic_g_mobiledata:I = 0x7f080425
+.field public static final ic_g_mobiledata:I = 0x7f0804a0
 
-.field public static final ic_h_mobiledata:I = 0x7f08044f
+.field public static final ic_h_mobiledata:I = 0x7f0804ca
 
-.field public static final ic_h_plus_mobiledata:I = 0x7f080450
+.field public static final ic_h_plus_mobiledata:I = 0x7f0804cb
 
-.field public static final ic_headphone:I = 0x7f080451
+.field public static final ic_headphone:I = 0x7f0804cc
 
-.field public static final ic_help:I = 0x7f080454
+.field public static final ic_help:I = 0x7f0804cf
 
-.field public static final ic_lte_mobiledata:I = 0x7f08046d
+.field public static final ic_lte_mobiledata:I = 0x7f0804ea
 
-.field public static final ic_lte_plus_mobiledata:I = 0x7f08046e
+.field public static final ic_lte_plus_mobiledata:I = 0x7f0804eb
 
-.field public static final ic_media_display_device:I = 0x7f08046f
+.field public static final ic_media_display_device:I = 0x7f0804ec
 
-.field public static final ic_media_group_device:I = 0x7f080470
+.field public static final ic_media_group_device:I = 0x7f0804ed
 
-.field public static final ic_media_speaker_device:I = 0x7f080477
+.field public static final ic_media_speaker_device:I = 0x7f0804f4
 
-.field public static final ic_mobile_call_strength_0:I = 0x7f08047e
+.field public static final ic_mobile_call_strength_0:I = 0x7f0804fb
 
-.field public static final ic_mobile_call_strength_1:I = 0x7f08047f
+.field public static final ic_mobile_call_strength_1:I = 0x7f0804fc
 
-.field public static final ic_mobile_call_strength_2:I = 0x7f080480
+.field public static final ic_mobile_call_strength_2:I = 0x7f0804fd
 
-.field public static final ic_mobile_call_strength_3:I = 0x7f080481
+.field public static final ic_mobile_call_strength_3:I = 0x7f0804fe
 
-.field public static final ic_mobile_call_strength_4:I = 0x7f080482
+.field public static final ic_mobile_call_strength_4:I = 0x7f0804ff
 
-.field public static final ic_no_internet_wifi_signal_0:I = 0x7f08050d
+.field public static final ic_no_internet_wifi_signal_0:I = 0x7f08058a
 
-.field public static final ic_no_internet_wifi_signal_1:I = 0x7f08050e
+.field public static final ic_no_internet_wifi_signal_1:I = 0x7f08058b
 
-.field public static final ic_no_internet_wifi_signal_2:I = 0x7f08050f
+.field public static final ic_no_internet_wifi_signal_2:I = 0x7f08058c
 
-.field public static final ic_no_internet_wifi_signal_3:I = 0x7f080510
+.field public static final ic_no_internet_wifi_signal_3:I = 0x7f08058d
 
-.field public static final ic_no_internet_wifi_signal_4:I = 0x7f080511
+.field public static final ic_no_internet_wifi_signal_4:I = 0x7f08058e
 
-.field public static final ic_show_x_wifi_signal_0:I = 0x7f08055d
+.field public static final ic_show_x_wifi_signal_0:I = 0x7f0805ca
 
-.field public static final ic_show_x_wifi_signal_1:I = 0x7f08055e
+.field public static final ic_show_x_wifi_signal_1:I = 0x7f0805cb
 
-.field public static final ic_show_x_wifi_signal_2:I = 0x7f08055f
+.field public static final ic_show_x_wifi_signal_2:I = 0x7f0805cc
 
-.field public static final ic_show_x_wifi_signal_3:I = 0x7f080560
+.field public static final ic_show_x_wifi_signal_3:I = 0x7f0805cd
 
-.field public static final ic_show_x_wifi_signal_4:I = 0x7f080561
+.field public static final ic_show_x_wifi_signal_4:I = 0x7f0805ce
 
-.field public static final ic_smartphone:I = 0x7f080563
+.field public static final ic_smartphone:I = 0x7f0805d0
 
-.field public static final ic_wifi_call_strength_0:I = 0x7f0805a3
+.field public static final ic_wifi_call_strength_0:I = 0x7f08060e
 
-.field public static final ic_wifi_call_strength_1:I = 0x7f0805a4
+.field public static final ic_wifi_call_strength_1:I = 0x7f08060f
 
-.field public static final ic_wifi_call_strength_2:I = 0x7f0805a5
+.field public static final ic_wifi_call_strength_2:I = 0x7f080610
 
-.field public static final ic_wifi_call_strength_3:I = 0x7f0805a6
+.field public static final ic_wifi_call_strength_3:I = 0x7f080611
 
-.field public static final ic_wifi_call_strength_4:I = 0x7f0805a7
+.field public static final ic_wifi_call_strength_4:I = 0x7f080612
 
-.field public static final stat_sys_airplane_mode:I = 0x7f0806d8
+.field public static final stat_sys_airplane_mode:I = 0x7f080739

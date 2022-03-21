@@ -3,6 +3,14 @@
 .source "StartingSurface.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/android/wm/shell/startingsurface/StartingSurface$SysuiProxy;
+    }
+.end annotation
+
+
 # virtual methods
 .method public createExternalInterface()Lcom/android/wm/shell/startingsurface/IStartingWindow;
     .locals 0
@@ -18,4 +26,7 @@
     const/high16 p0, -0x1000000
 
     return p0
+.end method
+
+.method public abstract setSysuiProxy(Lcom/android/wm/shell/startingsurface/StartingSurface$SysuiProxy;)V
 .end method

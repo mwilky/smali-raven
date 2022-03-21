@@ -229,3 +229,13 @@
 
     return-void
 .end method
+
+.method public setTintList(Landroid/content/res/ColorStateList;)V
+    .locals 0
+
+    invoke-super {p0, p1}, Landroid/graphics/drawable/InsetDrawable;->setTintList(Landroid/content/res/ColorStateList;)V
+
+    iput-object p1, p0, Lcom/android/systemui/util/AlphaTintDrawableWrapper;->mTint:Landroid/content/res/ColorStateList;
+
+    return-void
+.end method

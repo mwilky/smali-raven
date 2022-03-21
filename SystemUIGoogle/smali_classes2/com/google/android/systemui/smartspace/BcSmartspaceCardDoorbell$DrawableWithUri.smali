@@ -30,7 +30,7 @@
 
     new-instance v0, Landroid/graphics/drawable/ColorDrawable;
 
-    const/high16 v1, -0x1000000
+    const/4 v1, 0x0
 
     invoke-direct {v0, v1}, Landroid/graphics/drawable/ColorDrawable;-><init>(I)V
 

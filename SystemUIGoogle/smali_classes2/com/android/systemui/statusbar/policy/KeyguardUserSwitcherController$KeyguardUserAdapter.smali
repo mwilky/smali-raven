@@ -344,7 +344,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController$KeyguardUserAdapter;->mKeyguardUserSwitcherController:Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;->access$400(Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;)Z
+    invoke-static {v0}, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;->access$500(Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;)Z
 
     move-result v0
 
@@ -355,7 +355,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController$KeyguardUserAdapter;->mKeyguardUserSwitcherController:Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;->access$500(Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;)Z
+    invoke-static {v0}, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;->access$600(Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;)Z
 
     move-result v0
 
@@ -389,7 +389,7 @@
     :cond_3
     iget-object p0, p0, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController$KeyguardUserAdapter;->mKeyguardUserSwitcherController:Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;
 
-    invoke-static {p0, v1, v1}, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;->access$600(Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;ZZ)V
+    invoke-static {p0, v1, v1}, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;->access$700(Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;ZZ)V
 
     :goto_1
     return-void

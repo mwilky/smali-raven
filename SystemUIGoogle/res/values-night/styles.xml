@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <style name="InternetDialog.Divider.Active" parent="@style/InternetDialog.Divider">
+        <item name="android:background">?android:textColorSecondaryInverse</item>
+    </style>
     <style name="LongScreenshotActivity" parent="@android:style/Theme.DeviceDefault.DayNight">
         <item name="android:textColorSecondary">?android:textColorPrimaryInverse</item>
         <item name="android:windowNoTitle">true</item>
@@ -12,17 +15,17 @@
     </style>
     <style name="TextAppearance.InternetDialog.Active" parent="@style/TextAppearance.InternetDialog">
         <item name="android:textSize">16.0sp</item>
-        <item name="android:textColor">@color/connected_network_primary_color</item>
-        <item name="android:fontFamily">@*android:string/config_headlineFontFamily</item>
+        <item name="android:textColor">?android:textColorPrimaryInverse</item>
+        <item name="android:fontFamily">@android:string/config_headlineFontFamily</item>
         <item name="android:textDirection">locale</item>
     </style>
     <style name="TextAppearance.InternetDialog.Secondary.Active" parent="@style/TextAppearance.InternetDialog.Secondary">
         <item name="android:textSize">14.0sp</item>
-        <item name="android:textColor">@color/connected_network_secondary_color</item>
+        <item name="android:textColor">?android:textColorSecondaryInverse</item>
     </style>
     <style name="TextAppearance.QS.Status" parent="@style/TextAppearance.QS.TileLabel.Secondary">
         <item name="android:textColor">?android:textColorPrimary</item>
-        <item name="android:fontFamily">@*android:string/config_bodyFontFamily</item>
+        <item name="android:fontFamily">@android:string/config_bodyFontFamily</item>
     </style>
     <style name="Theme.AppCompat.DayNight" parent="@style/Theme.AppCompat" />
     <style name="Theme.AppCompat.DayNight.DarkActionBar" parent="@style/Theme.AppCompat" />
@@ -58,7 +61,7 @@
         <item name="android:windowActionBar">false</item>
         <item name="android:windowLightStatusBar">false</item>
     </style>
-    <style name="Theme.SystemUI.Dialog" parent="@android:style/Theme.DeviceDefault.Dialog" />
+    <style name="Theme.SystemUI.DayNightDialog" parent="@android:style/Theme.DeviceDefault.Dialog" />
     <style name="Theme.SystemUI.Dialog.Alert" parent="@android:style/Theme.DeviceDefault.Dialog.Alert" />
     <style name="Theme.SystemUI.Dialog.GlobalActions" parent="@android:style/Theme.DeviceDefault.NoActionBar.Fullscreen">
         <item name="android:windowIsFloating">true</item>

@@ -91,7 +91,7 @@
 
     check-cast p1, Lcom/android/systemui/qs/customize/QSCustomizer;
 
-    const p2, 0x10201a6
+    const p2, 0x10201a9
 
     invoke-virtual {p1, p2}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -602,14 +602,14 @@
     return-void
 .end method
 
-.method public setContainer(Lcom/android/systemui/statusbar/phone/NotificationsQuickSettingsContainer;)V
+.method public setContainerController(Lcom/android/systemui/plugins/qs/QSContainerController;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
 
     check-cast p0, Lcom/android/systemui/qs/customize/QSCustomizer;
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/qs/customize/QSCustomizer;->setContainer(Lcom/android/systemui/statusbar/phone/NotificationsQuickSettingsContainer;)V
+    invoke-virtual {p0, p1}, Lcom/android/systemui/qs/customize/QSCustomizer;->setContainerController(Lcom/android/systemui/plugins/qs/QSContainerController;)V
 
     return-void
 .end method

@@ -47,7 +47,7 @@
     :cond_0
     iget-object p1, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$8;->this$0:Lcom/android/systemui/globalactions/GlobalActionsDialogLite;
 
-    invoke-static {p1}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->access$2900(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;)V
+    invoke-static {p1}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->access$3000(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;)V
 
     iget-object p0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$8;->this$0:Lcom/android/systemui/globalactions/GlobalActionsDialogLite;
 
@@ -78,7 +78,13 @@
 
     iget-object p1, p1, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->mDialog:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;
 
-    invoke-virtual {p1}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->completeDismiss()V
+    invoke-virtual {p1}, Landroid/app/AlertDialog;->hide()V
+
+    iget-object p1, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$8;->this$0:Lcom/android/systemui/globalactions/GlobalActionsDialogLite;
+
+    iget-object p1, p1, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->mDialog:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;
+
+    invoke-virtual {p1}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->dismiss()V
 
     goto :goto_0
 

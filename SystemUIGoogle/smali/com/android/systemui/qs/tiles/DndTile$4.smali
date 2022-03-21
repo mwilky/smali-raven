@@ -3,7 +3,7 @@
 .source "DndTile.java"
 
 # interfaces
-.implements Lcom/android/systemui/volume/ZenModePanel$Callback;
+.implements Lcom/android/systemui/statusbar/policy/ZenModeController$Callback;
 
 
 # annotations
@@ -34,34 +34,56 @@
 
 
 # virtual methods
-.method public onExpanded(Z)V
+.method public onConfigChanged(Landroid/service/notification/ZenModeConfig;)V
     .locals 0
 
-    return-void
-.end method
+    iget-object p1, p0, Lcom/android/systemui/qs/tiles/DndTile$4;->this$0:Lcom/android/systemui/qs/tiles/DndTile;
 
-.method public onInteraction()V
-    .locals 0
+    invoke-static {p1}, Lcom/android/systemui/qs/tiles/DndTile;->access$600(Lcom/android/systemui/qs/tiles/DndTile;)Z
 
-    return-void
-.end method
+    move-result p1
 
-.method public onPrioritySettings()V
-    .locals 2
+    if-eqz p1, :cond_0
 
     iget-object p0, p0, Lcom/android/systemui/qs/tiles/DndTile$4;->this$0:Lcom/android/systemui/qs/tiles/DndTile;
 
-    invoke-static {p0}, Lcom/android/systemui/qs/tiles/DndTile;->access$2100(Lcom/android/systemui/qs/tiles/DndTile;)Lcom/android/systemui/plugins/ActivityStarter;
+    invoke-static {p0}, Lcom/android/systemui/qs/tiles/DndTile;->access$400(Lcom/android/systemui/qs/tiles/DndTile;)Lcom/android/systemui/qs/tiles/DndTile$DndDetailAdapter;
 
     move-result-object p0
 
-    invoke-static {}, Lcom/android/systemui/qs/tiles/DndTile;->access$2000()Landroid/content/Intent;
+    invoke-static {p0}, Lcom/android/systemui/qs/tiles/DndTile$DndDetailAdapter;->access$500(Lcom/android/systemui/qs/tiles/DndTile$DndDetailAdapter;)V
 
-    move-result-object v0
+    :cond_0
+    return-void
+.end method
 
-    const/4 v1, 0x0
+.method public onZenChanged(I)V
+    .locals 1
 
-    invoke-interface {p0, v0, v1}, Lcom/android/systemui/plugins/ActivityStarter;->postStartActivityDismissingKeyguard(Landroid/content/Intent;I)V
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/DndTile$4;->this$0:Lcom/android/systemui/qs/tiles/DndTile;
 
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object p1
+
+    invoke-static {v0, p1}, Lcom/android/systemui/qs/tiles/DndTile;->access$200(Lcom/android/systemui/qs/tiles/DndTile;Ljava/lang/Object;)V
+
+    iget-object p1, p0, Lcom/android/systemui/qs/tiles/DndTile$4;->this$0:Lcom/android/systemui/qs/tiles/DndTile;
+
+    invoke-static {p1}, Lcom/android/systemui/qs/tiles/DndTile;->access$300(Lcom/android/systemui/qs/tiles/DndTile;)Z
+
+    move-result p1
+
+    if-eqz p1, :cond_0
+
+    iget-object p0, p0, Lcom/android/systemui/qs/tiles/DndTile$4;->this$0:Lcom/android/systemui/qs/tiles/DndTile;
+
+    invoke-static {p0}, Lcom/android/systemui/qs/tiles/DndTile;->access$400(Lcom/android/systemui/qs/tiles/DndTile;)Lcom/android/systemui/qs/tiles/DndTile$DndDetailAdapter;
+
+    move-result-object p0
+
+    invoke-static {p0}, Lcom/android/systemui/qs/tiles/DndTile$DndDetailAdapter;->access$500(Lcom/android/systemui/qs/tiles/DndTile$DndDetailAdapter;)V
+
+    :cond_0
     return-void
 .end method

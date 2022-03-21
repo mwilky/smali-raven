@@ -4,4 +4,4 @@
 
 
 # static fields
-.field public static final selection_padding:I = 0x7f0706a3
+.field public static final selection_padding:I = 0x7f070626

@@ -77,62 +77,16 @@
 
     new-instance p1, Lcom/android/wm/shell/common/DisplayController$DisplayWindowListenerImpl;
 
-    const/4 p3, 0x0
+    const/4 p2, 0x0
 
-    invoke-direct {p1, p0, p3}, Lcom/android/wm/shell/common/DisplayController$DisplayWindowListenerImpl;-><init>(Lcom/android/wm/shell/common/DisplayController;Lcom/android/wm/shell/common/DisplayController$1;)V
+    invoke-direct {p1, p0, p2}, Lcom/android/wm/shell/common/DisplayController$DisplayWindowListenerImpl;-><init>(Lcom/android/wm/shell/common/DisplayController;Lcom/android/wm/shell/common/DisplayController$1;)V
 
     iput-object p1, p0, Lcom/android/wm/shell/common/DisplayController;->mDisplayContainerListener:Landroid/view/IDisplayWindowListener;
 
-    :try_start_0
-    invoke-interface {p2, p1}, Landroid/view/IWindowManager;->registerDisplayWindowListener(Landroid/view/IDisplayWindowListener;)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    return-void
-
-    :catch_0
-    new-instance p0, Ljava/lang/RuntimeException;
-
-    const-string p1, "Unable to register hierarchy listener"
-
-    invoke-direct {p0, p1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw p0
-.end method
-
-.method static synthetic access$200(Lcom/android/wm/shell/common/DisplayController;)Lcom/android/wm/shell/common/ShellExecutor;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/wm/shell/common/DisplayController;->mMainExecutor:Lcom/android/wm/shell/common/ShellExecutor;
-
-    return-object p0
-.end method
-
-.method static synthetic access$300(Lcom/android/wm/shell/common/DisplayController;I)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/wm/shell/common/DisplayController;->onFixedRotationFinished(I)V
-
     return-void
 .end method
 
-.method static synthetic access$400(Lcom/android/wm/shell/common/DisplayController;II)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/wm/shell/common/DisplayController;->onFixedRotationStarted(II)V
-
-    return-void
-.end method
-
-.method static synthetic access$500(Lcom/android/wm/shell/common/DisplayController;I)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/wm/shell/common/DisplayController;->onDisplayRemoved(I)V
-
-    return-void
-.end method
-
-.method static synthetic access$600(Lcom/android/wm/shell/common/DisplayController;ILandroid/content/res/Configuration;)V
+.method static synthetic access$1000(Lcom/android/wm/shell/common/DisplayController;ILandroid/content/res/Configuration;)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/wm/shell/common/DisplayController;->onDisplayConfigurationChanged(ILandroid/content/res/Configuration;)V
@@ -140,10 +94,42 @@
     return-void
 .end method
 
-.method static synthetic access$700(Lcom/android/wm/shell/common/DisplayController;I)V
+.method static synthetic access$1100(Lcom/android/wm/shell/common/DisplayController;I)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/wm/shell/common/DisplayController;->onDisplayAdded(I)V
+
+    return-void
+.end method
+
+.method static synthetic access$600(Lcom/android/wm/shell/common/DisplayController;)Lcom/android/wm/shell/common/ShellExecutor;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/wm/shell/common/DisplayController;->mMainExecutor:Lcom/android/wm/shell/common/ShellExecutor;
+
+    return-object p0
+.end method
+
+.method static synthetic access$700(Lcom/android/wm/shell/common/DisplayController;I)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/wm/shell/common/DisplayController;->onFixedRotationFinished(I)V
+
+    return-void
+.end method
+
+.method static synthetic access$800(Lcom/android/wm/shell/common/DisplayController;II)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/wm/shell/common/DisplayController;->onFixedRotationStarted(II)V
+
+    return-void
+.end method
+
+.method static synthetic access$900(Lcom/android/wm/shell/common/DisplayController;I)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/wm/shell/common/DisplayController;->onDisplayRemoved(I)V
 
     return-void
 .end method
@@ -180,39 +166,35 @@
     return-void
 
     :cond_1
-    new-instance v2, Lcom/android/wm/shell/common/DisplayController$DisplayRecord;
-
-    const/4 v3, 0x0
-
-    invoke-direct {v2, v3}, Lcom/android/wm/shell/common/DisplayController$DisplayRecord;-><init>(Lcom/android/wm/shell/common/DisplayController$1;)V
-
-    iput p1, v2, Lcom/android/wm/shell/common/DisplayController$DisplayRecord;->mDisplayId:I
-
     if-nez p1, :cond_2
 
-    iget-object v3, p0, Lcom/android/wm/shell/common/DisplayController;->mContext:Landroid/content/Context;
+    iget-object v2, p0, Lcom/android/wm/shell/common/DisplayController;->mContext:Landroid/content/Context;
 
     goto :goto_0
 
     :cond_2
-    iget-object v3, p0, Lcom/android/wm/shell/common/DisplayController;->mContext:Landroid/content/Context;
+    iget-object v2, p0, Lcom/android/wm/shell/common/DisplayController;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v3, v1}, Landroid/content/Context;->createDisplayContext(Landroid/view/Display;)Landroid/content/Context;
+    invoke-virtual {v2, v1}, Landroid/content/Context;->createDisplayContext(Landroid/view/Display;)Landroid/content/Context;
 
-    move-result-object v3
+    move-result-object v2
 
     :goto_0
-    iput-object v3, v2, Lcom/android/wm/shell/common/DisplayController$DisplayRecord;->mContext:Landroid/content/Context;
+    new-instance v3, Lcom/android/wm/shell/common/DisplayController$DisplayRecord;
+
+    const/4 v4, 0x0
+
+    invoke-direct {v3, p1, v4}, Lcom/android/wm/shell/common/DisplayController$DisplayRecord;-><init>(ILcom/android/wm/shell/common/DisplayController$1;)V
 
     new-instance v4, Lcom/android/wm/shell/common/DisplayLayout;
 
-    invoke-direct {v4, v3, v1}, Lcom/android/wm/shell/common/DisplayLayout;-><init>(Landroid/content/Context;Landroid/view/Display;)V
+    invoke-direct {v4, v2, v1}, Lcom/android/wm/shell/common/DisplayLayout;-><init>(Landroid/content/Context;Landroid/view/Display;)V
 
-    iput-object v4, v2, Lcom/android/wm/shell/common/DisplayController$DisplayRecord;->mDisplayLayout:Lcom/android/wm/shell/common/DisplayLayout;
+    invoke-static {v3, v2, v4}, Lcom/android/wm/shell/common/DisplayController$DisplayRecord;->access$500(Lcom/android/wm/shell/common/DisplayController$DisplayRecord;Landroid/content/Context;Lcom/android/wm/shell/common/DisplayLayout;)V
 
     iget-object v1, p0, Lcom/android/wm/shell/common/DisplayController;->mDisplays:Landroid/util/SparseArray;
 
-    invoke-virtual {v1, p1, v2}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+    invoke-virtual {v1, p1, v3}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
     const/4 v1, 0x0
 
@@ -300,30 +282,33 @@
     return-void
 
     :cond_1
+    if-nez p1, :cond_2
+
     iget-object v3, p0, Lcom/android/wm/shell/common/DisplayController;->mContext:Landroid/content/Context;
 
-    if-eqz p1, :cond_2
+    goto :goto_0
+
+    :cond_2
+    iget-object v3, p0, Lcom/android/wm/shell/common/DisplayController;->mContext:Landroid/content/Context;
 
     invoke-virtual {v3, v2}, Landroid/content/Context;->createDisplayContext(Landroid/view/Display;)Landroid/content/Context;
 
     move-result-object v3
 
-    :cond_2
+    :goto_0
     invoke-virtual {v3, p2}, Landroid/content/Context;->createConfigurationContext(Landroid/content/res/Configuration;)Landroid/content/Context;
 
     move-result-object v3
-
-    iput-object v3, v1, Lcom/android/wm/shell/common/DisplayController$DisplayRecord;->mContext:Landroid/content/Context;
 
     new-instance v4, Lcom/android/wm/shell/common/DisplayLayout;
 
     invoke-direct {v4, v3, v2}, Lcom/android/wm/shell/common/DisplayLayout;-><init>(Landroid/content/Context;Landroid/view/Display;)V
 
-    iput-object v4, v1, Lcom/android/wm/shell/common/DisplayController$DisplayRecord;->mDisplayLayout:Lcom/android/wm/shell/common/DisplayLayout;
+    invoke-static {v1, v3, v4}, Lcom/android/wm/shell/common/DisplayController$DisplayRecord;->access$500(Lcom/android/wm/shell/common/DisplayController$DisplayRecord;Landroid/content/Context;Lcom/android/wm/shell/common/DisplayLayout;)V
 
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_1
     iget-object v2, p0, Lcom/android/wm/shell/common/DisplayController;->mDisplayChangedListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
@@ -344,7 +329,7 @@
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     :cond_3
     monitor-exit v0
@@ -712,7 +697,9 @@
 
     if-eqz p0, :cond_0
 
-    iget-object p0, p0, Lcom/android/wm/shell/common/DisplayController$DisplayRecord;->mContext:Landroid/content/Context;
+    invoke-static {p0}, Lcom/android/wm/shell/common/DisplayController$DisplayRecord;->access$200(Lcom/android/wm/shell/common/DisplayController$DisplayRecord;)Landroid/content/Context;
+
+    move-result-object p0
 
     goto :goto_0
 
@@ -736,7 +723,9 @@
 
     if-eqz p0, :cond_0
 
-    iget-object p0, p0, Lcom/android/wm/shell/common/DisplayController$DisplayRecord;->mDisplayLayout:Lcom/android/wm/shell/common/DisplayLayout;
+    invoke-static {p0}, Lcom/android/wm/shell/common/DisplayController$DisplayRecord;->access$100(Lcom/android/wm/shell/common/DisplayController$DisplayRecord;)Lcom/android/wm/shell/common/DisplayLayout;
+
+    move-result-object p0
 
     goto :goto_0
 
@@ -745,6 +734,48 @@
 
     :goto_0
     return-object p0
+.end method
+
+.method public initialize()V
+    .locals 3
+
+    :try_start_0
+    iget-object v0, p0, Lcom/android/wm/shell/common/DisplayController;->mWmService:Landroid/view/IWindowManager;
+
+    iget-object v1, p0, Lcom/android/wm/shell/common/DisplayController;->mDisplayContainerListener:Landroid/view/IDisplayWindowListener;
+
+    invoke-interface {v0, v1}, Landroid/view/IWindowManager;->registerDisplayWindowListener(Landroid/view/IDisplayWindowListener;)[I
+
+    move-result-object v0
+
+    const/4 v1, 0x0
+
+    :goto_0
+    array-length v2, v0
+
+    if-ge v1, v2, :cond_0
+
+    aget v2, v0, v1
+
+    invoke-direct {p0, v2}, Lcom/android/wm/shell/common/DisplayController;->onDisplayAdded(I)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    return-void
+
+    :catch_0
+    new-instance p0, Ljava/lang/RuntimeException;
+
+    const-string v0, "Unable to register display controller"
+
+    invoke-direct {p0, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+
+    throw p0
 .end method
 
 .method public removeDisplayWindowListener(Lcom/android/wm/shell/common/DisplayController$OnDisplaysChangedListener;)V
@@ -771,4 +802,23 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw p0
+.end method
+
+.method public updateDisplayInsets(ILandroid/view/InsetsState;)V
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/wm/shell/common/DisplayController;->mDisplays:Landroid/util/SparseArray;
+
+    invoke-virtual {p0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Lcom/android/wm/shell/common/DisplayController$DisplayRecord;
+
+    if-eqz p0, :cond_0
+
+    invoke-static {p0, p2}, Lcom/android/wm/shell/common/DisplayController$DisplayRecord;->access$300(Lcom/android/wm/shell/common/DisplayController$DisplayRecord;Landroid/view/InsetsState;)V
+
+    :cond_0
+    return-void
 .end method

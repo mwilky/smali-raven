@@ -22,6 +22,8 @@
 # instance fields
 .field private final mDisplayController:Lcom/android/wm/shell/common/DisplayController;
 
+.field private final mDisplayInsetsController:Lcom/android/wm/shell/common/DisplayInsetsController;
+
 .field private final mImePerDisplay:Landroid/util/SparseArray;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -70,7 +72,7 @@
     return-void
 .end method
 
-.method public constructor <init>(Landroid/view/IWindowManager;Lcom/android/wm/shell/common/DisplayController;Ljava/util/concurrent/Executor;Lcom/android/wm/shell/common/TransactionPool;)V
+.method public constructor <init>(Landroid/view/IWindowManager;Lcom/android/wm/shell/common/DisplayController;Lcom/android/wm/shell/common/DisplayInsetsController;Ljava/util/concurrent/Executor;Lcom/android/wm/shell/common/TransactionPool;)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -91,14 +93,32 @@
 
     iput-object p2, p0, Lcom/android/wm/shell/common/DisplayImeController;->mDisplayController:Lcom/android/wm/shell/common/DisplayController;
 
-    iput-object p3, p0, Lcom/android/wm/shell/common/DisplayImeController;->mMainExecutor:Ljava/util/concurrent/Executor;
+    iput-object p3, p0, Lcom/android/wm/shell/common/DisplayImeController;->mDisplayInsetsController:Lcom/android/wm/shell/common/DisplayInsetsController;
 
-    iput-object p4, p0, Lcom/android/wm/shell/common/DisplayImeController;->mTransactionPool:Lcom/android/wm/shell/common/TransactionPool;
+    iput-object p4, p0, Lcom/android/wm/shell/common/DisplayImeController;->mMainExecutor:Ljava/util/concurrent/Executor;
+
+    iput-object p5, p0, Lcom/android/wm/shell/common/DisplayImeController;->mTransactionPool:Lcom/android/wm/shell/common/TransactionPool;
 
     return-void
 .end method
 
-.method static synthetic access$100(Lcom/android/wm/shell/common/DisplayImeController;IZ)V
+.method static synthetic access$100(Lcom/android/wm/shell/common/DisplayImeController;)Lcom/android/wm/shell/common/DisplayInsetsController;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/wm/shell/common/DisplayImeController;->mDisplayInsetsController:Lcom/android/wm/shell/common/DisplayInsetsController;
+
+    return-object p0
+.end method
+
+.method static synthetic access$1000(Lcom/android/wm/shell/common/DisplayImeController;IILandroid/view/SurfaceControl$Transaction;)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/wm/shell/common/DisplayImeController;->dispatchPositionChanged(IILandroid/view/SurfaceControl$Transaction;)V
+
+    return-void
+.end method
+
+.method static synthetic access$200(Lcom/android/wm/shell/common/DisplayImeController;IZ)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/wm/shell/common/DisplayImeController;->dispatchImeControlTargetChanged(IZ)V
@@ -106,7 +126,7 @@
     return-void
 .end method
 
-.method static synthetic access$200(Landroid/view/InsetsSourceControl;Landroid/view/InsetsSourceControl;)Z
+.method static synthetic access$300(Landroid/view/InsetsSourceControl;Landroid/view/InsetsSourceControl;)Z
     .locals 0
 
     invoke-static {p0, p1}, Lcom/android/wm/shell/common/DisplayImeController;->haveSameLeash(Landroid/view/InsetsSourceControl;Landroid/view/InsetsSourceControl;)Z
@@ -116,7 +136,7 @@
     return p0
 .end method
 
-.method static synthetic access$300(Lcom/android/wm/shell/common/DisplayImeController;)Lcom/android/wm/shell/common/TransactionPool;
+.method static synthetic access$400(Lcom/android/wm/shell/common/DisplayImeController;)Lcom/android/wm/shell/common/TransactionPool;
     .locals 0
 
     iget-object p0, p0, Lcom/android/wm/shell/common/DisplayImeController;->mTransactionPool:Lcom/android/wm/shell/common/TransactionPool;
@@ -124,7 +144,7 @@
     return-object p0
 .end method
 
-.method static synthetic access$400(Lcom/android/wm/shell/common/DisplayImeController;)Lcom/android/wm/shell/common/DisplayController;
+.method static synthetic access$500(Lcom/android/wm/shell/common/DisplayImeController;)Lcom/android/wm/shell/common/DisplayController;
     .locals 0
 
     iget-object p0, p0, Lcom/android/wm/shell/common/DisplayImeController;->mDisplayController:Lcom/android/wm/shell/common/DisplayController;
@@ -132,7 +152,7 @@
     return-object p0
 .end method
 
-.method static synthetic access$600(Lcom/android/wm/shell/common/DisplayImeController;IIIZZLandroid/view/SurfaceControl$Transaction;)I
+.method static synthetic access$700(Lcom/android/wm/shell/common/DisplayImeController;IIIZZLandroid/view/SurfaceControl$Transaction;)I
     .locals 0
 
     invoke-direct/range {p0 .. p6}, Lcom/android/wm/shell/common/DisplayImeController;->dispatchStartPositioning(IIIZZLandroid/view/SurfaceControl$Transaction;)I
@@ -142,7 +162,7 @@
     return p0
 .end method
 
-.method static synthetic access$700(Lcom/android/wm/shell/common/DisplayImeController;IZLandroid/view/SurfaceControl$Transaction;)V
+.method static synthetic access$800(Lcom/android/wm/shell/common/DisplayImeController;IZLandroid/view/SurfaceControl$Transaction;)V
     .locals 0
 
     invoke-direct {p0, p1, p2, p3}, Lcom/android/wm/shell/common/DisplayImeController;->dispatchEndPositioning(IZLandroid/view/SurfaceControl$Transaction;)V
@@ -150,18 +170,10 @@
     return-void
 .end method
 
-.method static synthetic access$800(Lcom/android/wm/shell/common/DisplayImeController;IZ)V
+.method static synthetic access$900(Lcom/android/wm/shell/common/DisplayImeController;IZ)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/wm/shell/common/DisplayImeController;->dispatchVisibilityChanged(IZ)V
-
-    return-void
-.end method
-
-.method static synthetic access$900(Lcom/android/wm/shell/common/DisplayImeController;IILandroid/view/SurfaceControl$Transaction;)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/wm/shell/common/DisplayImeController;->dispatchPositionChanged(IILandroid/view/SurfaceControl$Transaction;)V
 
     return-void
 .end method
@@ -658,39 +670,23 @@
 .end method
 
 .method public onDisplayRemoved(I)V
-    .locals 2
+    .locals 1
 
-    :try_start_0
-    iget-object v0, p0, Lcom/android/wm/shell/common/DisplayImeController;->mWmService:Landroid/view/IWindowManager;
+    iget-object v0, p0, Lcom/android/wm/shell/common/DisplayImeController;->mImePerDisplay:Landroid/util/SparseArray;
 
-    const/4 v1, 0x0
-
-    invoke-interface {v0, p1, v1}, Landroid/view/IWindowManager;->setDisplayWindowInsetsController(ILandroid/view/IDisplayWindowInsetsController;)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    goto :goto_0
-
-    :catch_0
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "Unable to remove insets controller on display "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 
-    const-string v1, "DisplayImeController"
+    check-cast v0, Lcom/android/wm/shell/common/DisplayImeController$PerDisplay;
 
-    invoke-static {v1, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    if-nez v0, :cond_0
 
-    :goto_0
+    return-void
+
+    :cond_0
+    invoke-virtual {v0}, Lcom/android/wm/shell/common/DisplayImeController$PerDisplay;->unregister()V
+
     iget-object p0, p0, Lcom/android/wm/shell/common/DisplayImeController;->mImePerDisplay:Landroid/util/SparseArray;
 
     invoke-virtual {p0, p1}, Landroid/util/SparseArray;->remove(I)V

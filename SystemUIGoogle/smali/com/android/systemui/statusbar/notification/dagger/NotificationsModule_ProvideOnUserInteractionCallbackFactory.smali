@@ -32,7 +32,7 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
+            "Lcom/android/systemui/flags/FeatureFlags;",
             ">;"
         }
     .end annotation
@@ -116,7 +116,7 @@
         value = {
             "(",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
+            "Lcom/android/systemui/flags/FeatureFlags;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/policy/HeadsUpManager;",
@@ -174,7 +174,7 @@
         value = {
             "(",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
+            "Lcom/android/systemui/flags/FeatureFlags;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/policy/HeadsUpManager;",
@@ -231,12 +231,12 @@
     return-object v10
 .end method
 
-.method public static provideOnUserInteractionCallback(Lcom/android/systemui/statusbar/FeatureFlags;Lcom/android/systemui/statusbar/policy/HeadsUpManager;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Ldagger/Lazy;Ldagger/Lazy;Ldagger/Lazy;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;Ldagger/Lazy;)Lcom/android/systemui/statusbar/notification/row/OnUserInteractionCallback;
+.method public static provideOnUserInteractionCallback(Lcom/android/systemui/flags/FeatureFlags;Lcom/android/systemui/statusbar/policy/HeadsUpManager;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Ldagger/Lazy;Ldagger/Lazy;Ldagger/Lazy;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;Ldagger/Lazy;)Lcom/android/systemui/statusbar/notification/row/OnUserInteractionCallback;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
+            "Lcom/android/systemui/flags/FeatureFlags;",
             "Lcom/android/systemui/statusbar/policy/HeadsUpManager;",
             "Lcom/android/systemui/plugins/statusbar/StatusBarStateController;",
             "Ldagger/Lazy<",
@@ -257,7 +257,7 @@
         }
     .end annotation
 
-    invoke-static/range {p0 .. p8}, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule;->provideOnUserInteractionCallback(Lcom/android/systemui/statusbar/FeatureFlags;Lcom/android/systemui/statusbar/policy/HeadsUpManager;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Ldagger/Lazy;Ldagger/Lazy;Ldagger/Lazy;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;Ldagger/Lazy;)Lcom/android/systemui/statusbar/notification/row/OnUserInteractionCallback;
+    invoke-static/range {p0 .. p8}, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule;->provideOnUserInteractionCallback(Lcom/android/systemui/flags/FeatureFlags;Lcom/android/systemui/statusbar/policy/HeadsUpManager;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Ldagger/Lazy;Ldagger/Lazy;Ldagger/Lazy;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;Ldagger/Lazy;)Lcom/android/systemui/statusbar/notification/row/OnUserInteractionCallback;
 
     move-result-object p0
 
@@ -283,7 +283,7 @@
 
     move-object v1, v0
 
-    check-cast v1, Lcom/android/systemui/statusbar/FeatureFlags;
+    check-cast v1, Lcom/android/systemui/flags/FeatureFlags;
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideOnUserInteractionCallbackFactory;->headsUpManagerProvider:Ljavax/inject/Provider;
 
@@ -349,7 +349,7 @@
 
     move-result-object v9
 
-    invoke-static/range {v1 .. v9}, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideOnUserInteractionCallbackFactory;->provideOnUserInteractionCallback(Lcom/android/systemui/statusbar/FeatureFlags;Lcom/android/systemui/statusbar/policy/HeadsUpManager;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Ldagger/Lazy;Ldagger/Lazy;Ldagger/Lazy;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;Ldagger/Lazy;)Lcom/android/systemui/statusbar/notification/row/OnUserInteractionCallback;
+    invoke-static/range {v1 .. v9}, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideOnUserInteractionCallbackFactory;->provideOnUserInteractionCallback(Lcom/android/systemui/flags/FeatureFlags;Lcom/android/systemui/statusbar/policy/HeadsUpManager;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Ldagger/Lazy;Ldagger/Lazy;Ldagger/Lazy;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;Ldagger/Lazy;)Lcom/android/systemui/statusbar/notification/row/OnUserInteractionCallback;
 
     move-result-object p0
 

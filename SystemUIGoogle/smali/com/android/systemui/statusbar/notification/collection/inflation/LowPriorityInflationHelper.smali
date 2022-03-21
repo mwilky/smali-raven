@@ -4,7 +4,7 @@
 
 
 # instance fields
-.field private final mFeatureFlags:Lcom/android/systemui/statusbar/FeatureFlags;
+.field private final mFeatureFlags:Lcom/android/systemui/flags/FeatureFlags;
 
 .field private final mGroupManager:Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;
 
@@ -20,12 +20,12 @@
     return-void
 .end method
 
-.method constructor <init>(Lcom/android/systemui/statusbar/FeatureFlags;Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;Lcom/android/systemui/statusbar/notification/row/RowContentBindStage;)V
+.method constructor <init>(Lcom/android/systemui/flags/FeatureFlags;Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;Lcom/android/systemui/statusbar/notification/row/RowContentBindStage;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/collection/inflation/LowPriorityInflationHelper;->mFeatureFlags:Lcom/android/systemui/statusbar/FeatureFlags;
+    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/collection/inflation/LowPriorityInflationHelper;->mFeatureFlags:Lcom/android/systemui/flags/FeatureFlags;
 
     iput-object p2, p0, Lcom/android/systemui/statusbar/notification/collection/inflation/LowPriorityInflationHelper;->mGroupManager:Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;
 
@@ -88,9 +88,9 @@
 .method public shouldUseLowPriorityView(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)Z
     .locals 3
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/inflation/LowPriorityInflationHelper;->mFeatureFlags:Lcom/android/systemui/statusbar/FeatureFlags;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/inflation/LowPriorityInflationHelper;->mFeatureFlags:Lcom/android/systemui/flags/FeatureFlags;
 
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/FeatureFlags;->isNewNotifPipelineRenderingEnabled()Z
+    invoke-virtual {v0}, Lcom/android/systemui/flags/FeatureFlags;->isNewNotifPipelineRenderingEnabled()Z
 
     move-result v0
 

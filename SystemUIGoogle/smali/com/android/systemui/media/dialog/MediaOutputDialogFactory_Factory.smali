@@ -28,6 +28,26 @@
     .end annotation
 .end field
 
+.field private final dialogLaunchAnimatorProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/animation/DialogLaunchAnimator;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private final dialogManagerProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private final lbmProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -90,7 +110,7 @@
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -115,6 +135,12 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/internal/logging/UiEventLogger;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/animation/DialogLaunchAnimator;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;",
             ">;)V"
         }
     .end annotation
@@ -135,11 +161,15 @@
 
     iput-object p7, p0, Lcom/android/systemui/media/dialog/MediaOutputDialogFactory_Factory;->uiEventLoggerProvider:Ljavax/inject/Provider;
 
+    iput-object p8, p0, Lcom/android/systemui/media/dialog/MediaOutputDialogFactory_Factory;->dialogLaunchAnimatorProvider:Ljavax/inject/Provider;
+
+    iput-object p9, p0, Lcom/android/systemui/media/dialog/MediaOutputDialogFactory_Factory;->dialogManagerProvider:Ljavax/inject/Provider;
+
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/media/dialog/MediaOutputDialogFactory_Factory;
-    .locals 9
+.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/media/dialog/MediaOutputDialogFactory_Factory;
+    .locals 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -163,14 +193,20 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/internal/logging/UiEventLogger;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/animation/DialogLaunchAnimator;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;",
             ">;)",
             "Lcom/android/systemui/media/dialog/MediaOutputDialogFactory_Factory;"
         }
     .end annotation
 
-    new-instance v8, Lcom/android/systemui/media/dialog/MediaOutputDialogFactory_Factory;
+    new-instance v10, Lcom/android/systemui/media/dialog/MediaOutputDialogFactory_Factory;
 
-    move-object v0, v8
+    move-object v0, v10
 
     move-object v1, p0
 
@@ -182,21 +218,25 @@
 
     move-object v5, p4
 
-    move-object v6, p5
+    move-object/from16 v6, p5
 
-    move-object v7, p6
+    move-object/from16 v7, p6
 
-    invoke-direct/range {v0 .. v7}, Lcom/android/systemui/media/dialog/MediaOutputDialogFactory_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+    move-object/from16 v8, p7
 
-    return-object v8
+    move-object/from16 v9, p8
+
+    invoke-direct/range {v0 .. v9}, Lcom/android/systemui/media/dialog/MediaOutputDialogFactory_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+
+    return-object v10
 .end method
 
-.method public static newInstance(Landroid/content/Context;Landroid/media/session/MediaSessionManager;Lcom/android/settingslib/bluetooth/LocalBluetoothManager;Lcom/android/systemui/statusbar/phone/ShadeController;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/internal/logging/UiEventLogger;)Lcom/android/systemui/media/dialog/MediaOutputDialogFactory;
-    .locals 9
+.method public static newInstance(Landroid/content/Context;Landroid/media/session/MediaSessionManager;Lcom/android/settingslib/bluetooth/LocalBluetoothManager;Lcom/android/systemui/statusbar/phone/ShadeController;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/animation/DialogLaunchAnimator;Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;)Lcom/android/systemui/media/dialog/MediaOutputDialogFactory;
+    .locals 11
 
-    new-instance v8, Lcom/android/systemui/media/dialog/MediaOutputDialogFactory;
+    new-instance v10, Lcom/android/systemui/media/dialog/MediaOutputDialogFactory;
 
-    move-object v0, v8
+    move-object v0, v10
 
     move-object v1, p0
 
@@ -208,19 +248,23 @@
 
     move-object v5, p4
 
-    move-object v6, p5
+    move-object/from16 v6, p5
 
-    move-object v7, p6
+    move-object/from16 v7, p6
 
-    invoke-direct/range {v0 .. v7}, Lcom/android/systemui/media/dialog/MediaOutputDialogFactory;-><init>(Landroid/content/Context;Landroid/media/session/MediaSessionManager;Lcom/android/settingslib/bluetooth/LocalBluetoothManager;Lcom/android/systemui/statusbar/phone/ShadeController;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/internal/logging/UiEventLogger;)V
+    move-object/from16 v8, p7
 
-    return-object v8
+    move-object/from16 v9, p8
+
+    invoke-direct/range {v0 .. v9}, Lcom/android/systemui/media/dialog/MediaOutputDialogFactory;-><init>(Landroid/content/Context;Landroid/media/session/MediaSessionManager;Lcom/android/settingslib/bluetooth/LocalBluetoothManager;Lcom/android/systemui/statusbar/phone/ShadeController;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/animation/DialogLaunchAnimator;Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;)V
+
+    return-object v10
 .end method
 
 
 # virtual methods
 .method public get()Lcom/android/systemui/media/dialog/MediaOutputDialogFactory;
-    .locals 8
+    .locals 10
 
     iget-object v0, p0, Lcom/android/systemui/media/dialog/MediaOutputDialogFactory_Factory;->contextProvider:Ljavax/inject/Provider;
 
@@ -282,17 +326,37 @@
 
     check-cast v6, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;
 
-    iget-object p0, p0, Lcom/android/systemui/media/dialog/MediaOutputDialogFactory_Factory;->uiEventLoggerProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/android/systemui/media/dialog/MediaOutputDialogFactory_Factory;->uiEventLoggerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v7, v0
+
+    check-cast v7, Lcom/android/internal/logging/UiEventLogger;
+
+    iget-object v0, p0, Lcom/android/systemui/media/dialog/MediaOutputDialogFactory_Factory;->dialogLaunchAnimatorProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v8, v0
+
+    check-cast v8, Lcom/android/systemui/animation/DialogLaunchAnimator;
+
+    iget-object p0, p0, Lcom/android/systemui/media/dialog/MediaOutputDialogFactory_Factory;->dialogManagerProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object p0
 
-    move-object v7, p0
+    move-object v9, p0
 
-    check-cast v7, Lcom/android/internal/logging/UiEventLogger;
+    check-cast v9, Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;
 
-    invoke-static/range {v1 .. v7}, Lcom/android/systemui/media/dialog/MediaOutputDialogFactory_Factory;->newInstance(Landroid/content/Context;Landroid/media/session/MediaSessionManager;Lcom/android/settingslib/bluetooth/LocalBluetoothManager;Lcom/android/systemui/statusbar/phone/ShadeController;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/internal/logging/UiEventLogger;)Lcom/android/systemui/media/dialog/MediaOutputDialogFactory;
+    invoke-static/range {v1 .. v9}, Lcom/android/systemui/media/dialog/MediaOutputDialogFactory_Factory;->newInstance(Landroid/content/Context;Landroid/media/session/MediaSessionManager;Lcom/android/settingslib/bluetooth/LocalBluetoothManager;Lcom/android/systemui/statusbar/phone/ShadeController;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/animation/DialogLaunchAnimator;Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;)Lcom/android/systemui/media/dialog/MediaOutputDialogFactory;
 
     move-result-object p0
 

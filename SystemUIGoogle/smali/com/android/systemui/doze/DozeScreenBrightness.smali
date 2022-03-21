@@ -18,9 +18,15 @@
 
 .field private mDefaultDozeBrightness:I
 
-.field private final mDockManager:Lcom/android/systemui/dock/DockManager;
+.field private mDevicePosture:I
+
+.field private final mDevicePostureCallback:Lcom/android/systemui/statusbar/policy/DevicePostureController$Callback;
+
+.field private final mDevicePostureController:Lcom/android/systemui/statusbar/policy/DevicePostureController;
 
 .field private final mDozeHost:Lcom/android/systemui/doze/DozeHost;
+
+.field private final mDozeLog:Lcom/android/systemui/doze/DozeLog;
 
 .field private final mDozeParameters:Lcom/android/systemui/statusbar/phone/DozeParameters;
 
@@ -30,9 +36,10 @@
 
 .field private mLastSensorValue:I
 
-.field private final mLightSensorOptional:Ljava/util/Optional;
+.field private final mLightSensorOptional:[Ljava/util/Optional;
     .annotation system Ldalvik/annotation/Signature;
         value = {
+            "[",
             "Ljava/util/Optional<",
             "Landroid/hardware/Sensor;",
             ">;"
@@ -45,6 +52,8 @@
 .field private mRegistered:Z
 
 .field private final mScreenBrightnessDim:I
+
+.field private final mScreenBrightnessMinimumDimAmountFloat:F
 
 .field private mScreenOff:Z
 
@@ -76,7 +85,7 @@
     return-void
 .end method
 
-.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/doze/DozeMachine$Service;Lcom/android/systemui/util/sensors/AsyncSensorManager;Ljava/util/Optional;Lcom/android/systemui/doze/DozeHost;Landroid/os/Handler;Lcom/android/systemui/doze/AlwaysOnDisplayPolicy;Lcom/android/systemui/keyguard/WakefulnessLifecycle;Lcom/android/systemui/statusbar/phone/DozeParameters;Lcom/android/systemui/dock/DockManager;Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;)V
+.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/doze/DozeMachine$Service;Lcom/android/systemui/util/sensors/AsyncSensorManager;[Ljava/util/Optional;Lcom/android/systemui/doze/DozeHost;Landroid/os/Handler;Lcom/android/systemui/doze/AlwaysOnDisplayPolicy;Lcom/android/systemui/keyguard/WakefulnessLifecycle;Lcom/android/systemui/statusbar/phone/DozeParameters;Lcom/android/systemui/statusbar/policy/DevicePostureController;Lcom/android/systemui/doze/DozeLog;Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;)V
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -84,6 +93,7 @@
             "Landroid/content/Context;",
             "Lcom/android/systemui/doze/DozeMachine$Service;",
             "Lcom/android/systemui/util/sensors/AsyncSensorManager;",
+            "[",
             "Ljava/util/Optional<",
             "Landroid/hardware/Sensor;",
             ">;",
@@ -92,7 +102,8 @@
             "Lcom/android/systemui/doze/AlwaysOnDisplayPolicy;",
             "Lcom/android/systemui/keyguard/WakefulnessLifecycle;",
             "Lcom/android/systemui/statusbar/phone/DozeParameters;",
-            "Lcom/android/systemui/dock/DockManager;",
+            "Lcom/android/systemui/statusbar/policy/DevicePostureController;",
+            "Lcom/android/systemui/doze/DozeLog;",
             "Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;",
             ")V"
         }
@@ -112,13 +123,27 @@
 
     iput v0, p0, Lcom/android/systemui/doze/DozeScreenBrightness;->mDebugBrightnessBucket:I
 
+    new-instance v0, Lcom/android/systemui/doze/DozeScreenBrightness$1;
+
+    invoke-direct {v0, p0}, Lcom/android/systemui/doze/DozeScreenBrightness$1;-><init>(Lcom/android/systemui/doze/DozeScreenBrightness;)V
+
+    iput-object v0, p0, Lcom/android/systemui/doze/DozeScreenBrightness;->mDevicePostureCallback:Lcom/android/systemui/statusbar/policy/DevicePostureController$Callback;
+
     iput-object p1, p0, Lcom/android/systemui/doze/DozeScreenBrightness;->mContext:Landroid/content/Context;
 
     iput-object p2, p0, Lcom/android/systemui/doze/DozeScreenBrightness;->mDozeService:Lcom/android/systemui/doze/DozeMachine$Service;
 
     iput-object p3, p0, Lcom/android/systemui/doze/DozeScreenBrightness;->mSensorManager:Landroid/hardware/SensorManager;
 
-    iput-object p4, p0, Lcom/android/systemui/doze/DozeScreenBrightness;->mLightSensorOptional:Ljava/util/Optional;
+    iput-object p4, p0, Lcom/android/systemui/doze/DozeScreenBrightness;->mLightSensorOptional:[Ljava/util/Optional;
+
+    iput-object p10, p0, Lcom/android/systemui/doze/DozeScreenBrightness;->mDevicePostureController:Lcom/android/systemui/statusbar/policy/DevicePostureController;
+
+    invoke-interface {p10}, Lcom/android/systemui/statusbar/policy/DevicePostureController;->getDevicePosture()I
+
+    move-result p2
+
+    iput p2, p0, Lcom/android/systemui/doze/DozeScreenBrightness;->mDevicePosture:I
 
     iput-object p8, p0, Lcom/android/systemui/doze/DozeScreenBrightness;->mWakefulnessLifecycle:Lcom/android/systemui/keyguard/WakefulnessLifecycle;
 
@@ -128,9 +153,21 @@
 
     iput-object p6, p0, Lcom/android/systemui/doze/DozeScreenBrightness;->mHandler:Landroid/os/Handler;
 
-    iput-object p10, p0, Lcom/android/systemui/doze/DozeScreenBrightness;->mDockManager:Lcom/android/systemui/dock/DockManager;
+    iput-object p11, p0, Lcom/android/systemui/doze/DozeScreenBrightness;->mDozeLog:Lcom/android/systemui/doze/DozeLog;
 
-    iput-object p11, p0, Lcom/android/systemui/doze/DozeScreenBrightness;->mUnlockedScreenOffAnimationController:Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;
+    iput-object p12, p0, Lcom/android/systemui/doze/DozeScreenBrightness;->mUnlockedScreenOffAnimationController:Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;
+
+    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object p1
+
+    const p2, 0x10500cc
+
+    invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getFloat(I)F
+
+    move-result p1
+
+    iput p1, p0, Lcom/android/systemui/doze/DozeScreenBrightness;->mScreenBrightnessMinimumDimAmountFloat:F
 
     iget p1, p7, Lcom/android/systemui/doze/AlwaysOnDisplayPolicy;->defaultDozeBrightness:I
 
@@ -148,11 +185,61 @@
 
     iput-object p1, p0, Lcom/android/systemui/doze/DozeScreenBrightness;->mSensorToScrimOpacity:[I
 
+    invoke-interface {p10, v0}, Lcom/android/systemui/statusbar/policy/CallbackController;->addCallback(Ljava/lang/Object;)V
+
     return-void
 .end method
 
+.method static synthetic access$000(Lcom/android/systemui/doze/DozeScreenBrightness;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/systemui/doze/DozeScreenBrightness;->mDevicePosture:I
+
+    return p0
+.end method
+
+.method static synthetic access$002(Lcom/android/systemui/doze/DozeScreenBrightness;I)I
+    .locals 0
+
+    iput p1, p0, Lcom/android/systemui/doze/DozeScreenBrightness;->mDevicePosture:I
+
+    return p1
+.end method
+
+.method static synthetic access$100(Lcom/android/systemui/doze/DozeScreenBrightness;)[Ljava/util/Optional;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/doze/DozeScreenBrightness;->mLightSensorOptional:[Ljava/util/Optional;
+
+    return-object p0
+.end method
+
+.method static synthetic access$200(Lcom/android/systemui/doze/DozeScreenBrightness;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/systemui/doze/DozeScreenBrightness;->mRegistered:Z
+
+    return p0
+.end method
+
+.method static synthetic access$300(Lcom/android/systemui/doze/DozeScreenBrightness;Z)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/systemui/doze/DozeScreenBrightness;->setLightSensorEnabled(Z)V
+
+    return-void
+.end method
+
+.method static synthetic access$400(Lcom/android/systemui/doze/DozeScreenBrightness;)Lcom/android/systemui/doze/DozeLog;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/doze/DozeScreenBrightness;->mDozeLog:Lcom/android/systemui/doze/DozeLog;
+
+    return-object p0
+.end method
+
 .method private clampToDimBrightnessForScreenOff(I)I
-    .locals 2
+    .locals 4
 
     iget-object v0, p0, Lcom/android/systemui/doze/DozeScreenBrightness;->mUnlockedScreenOffAnimationController:Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;
 
@@ -160,7 +247,33 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    const/4 v1, 0x0
+
+    if-nez v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/systemui/doze/DozeScreenBrightness;->mWakefulnessLifecycle:Lcom/android/systemui/keyguard/WakefulnessLifecycle;
+
+    invoke-virtual {v0}, Lcom/android/systemui/keyguard/WakefulnessLifecycle;->getWakefulness()I
+
+    move-result v0
+
+    const/4 v2, 0x3
+
+    if-ne v0, v2, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    move v0, v1
+
+    goto :goto_1
+
+    :cond_1
+    :goto_0
+    const/4 v0, 0x1
+
+    :goto_1
+    if-eqz v0, :cond_2
 
     iget-object v0, p0, Lcom/android/systemui/doze/DozeScreenBrightness;->mWakefulnessLifecycle:Lcom/android/systemui/keyguard/WakefulnessLifecycle;
 
@@ -168,13 +281,25 @@
 
     move-result v0
 
-    const/4 v1, 0x2
+    const/4 v2, 0x2
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v2, :cond_2
 
-    const/4 v0, 0x0
+    iget v0, p0, Lcom/android/systemui/doze/DozeScreenBrightness;->mScreenBrightnessMinimumDimAmountFloat:F
 
-    add-int/lit8 p1, p1, -0xa
+    const/high16 v2, 0x437f0000    # 255.0f
+
+    mul-float/2addr v0, v2
+
+    float-to-double v2, v0
+
+    invoke-static {v2, v3}, Ljava/lang/Math;->floor(D)D
+
+    move-result-wide v2
+
+    double-to-int v0, v2
+
+    sub-int/2addr p1, v0
 
     iget p0, p0, Lcom/android/systemui/doze/DozeScreenBrightness;->mScreenBrightnessDim:I
 
@@ -182,13 +307,13 @@
 
     move-result p0
 
-    invoke-static {v0, p0}, Ljava/lang/Math;->max(II)I
+    invoke-static {v1, p0}, Ljava/lang/Math;->max(II)I
 
     move-result p0
 
     return p0
 
-    :cond_0
+    :cond_2
     return p1
 .end method
 
@@ -268,12 +393,113 @@
     return p0
 .end method
 
+.method private getLightSensor()Landroid/hardware/Sensor;
+    .locals 1
+
+    invoke-direct {p0}, Lcom/android/systemui/doze/DozeScreenBrightness;->lightSensorSupportsCurrentPosture()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    const/4 p0, 0x0
+
+    return-object p0
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/systemui/doze/DozeScreenBrightness;->mLightSensorOptional:[Ljava/util/Optional;
+
+    iget p0, p0, Lcom/android/systemui/doze/DozeScreenBrightness;->mDevicePosture:I
+
+    aget-object p0, v0, p0
+
+    invoke-virtual {p0}, Ljava/util/Optional;->get()Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Landroid/hardware/Sensor;
+
+    return-object p0
+.end method
+
+.method private isLightSensorPresent()Z
+    .locals 1
+
+    invoke-direct {p0}, Lcom/android/systemui/doze/DozeScreenBrightness;->lightSensorSupportsCurrentPosture()Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    iget-object p0, p0, Lcom/android/systemui/doze/DozeScreenBrightness;->mLightSensorOptional:[Ljava/util/Optional;
+
+    const/4 v0, 0x0
+
+    if-eqz p0, :cond_0
+
+    aget-object p0, p0, v0
+
+    invoke-virtual {p0}, Ljava/util/Optional;->isPresent()Z
+
+    move-result p0
+
+    if-eqz p0, :cond_0
+
+    const/4 v0, 0x1
+
+    :cond_0
+    return v0
+
+    :cond_1
+    iget-object v0, p0, Lcom/android/systemui/doze/DozeScreenBrightness;->mLightSensorOptional:[Ljava/util/Optional;
+
+    iget p0, p0, Lcom/android/systemui/doze/DozeScreenBrightness;->mDevicePosture:I
+
+    aget-object p0, v0, p0
+
+    invoke-virtual {p0}, Ljava/util/Optional;->isPresent()Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method private lightSensorSupportsCurrentPosture()Z
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/doze/DozeScreenBrightness;->mLightSensorOptional:[Ljava/util/Optional;
+
+    if-eqz v0, :cond_0
+
+    iget p0, p0, Lcom/android/systemui/doze/DozeScreenBrightness;->mDevicePosture:I
+
+    array-length v0, v0
+
+    if-ge p0, v0, :cond_0
+
+    const/4 p0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    :goto_0
+    return p0
+.end method
+
 .method private onDestroy()V
     .locals 1
 
     const/4 v0, 0x0
 
     invoke-direct {p0, v0}, Lcom/android/systemui/doze/DozeScreenBrightness;->setLightSensorEnabled(Z)V
+
+    iget-object v0, p0, Lcom/android/systemui/doze/DozeScreenBrightness;->mDevicePostureController:Lcom/android/systemui/statusbar/policy/DevicePostureController;
+
+    iget-object p0, p0, Lcom/android/systemui/doze/DozeScreenBrightness;->mDevicePostureCallback:Lcom/android/systemui/statusbar/policy/DevicePostureController$Callback;
+
+    invoke-interface {v0, p0}, Lcom/android/systemui/statusbar/policy/CallbackController;->removeCallback(Ljava/lang/Object;)V
 
     return-void
 .end method
@@ -315,9 +541,7 @@
 
     if-nez v1, :cond_0
 
-    iget-object v1, p0, Lcom/android/systemui/doze/DozeScreenBrightness;->mLightSensorOptional:Ljava/util/Optional;
-
-    invoke-virtual {v1}, Ljava/util/Optional;->isPresent()Z
+    invoke-direct {p0}, Lcom/android/systemui/doze/DozeScreenBrightness;->isLightSensorPresent()Z
 
     move-result v1
 
@@ -325,13 +549,9 @@
 
     iget-object p1, p0, Lcom/android/systemui/doze/DozeScreenBrightness;->mSensorManager:Landroid/hardware/SensorManager;
 
-    iget-object v1, p0, Lcom/android/systemui/doze/DozeScreenBrightness;->mLightSensorOptional:Ljava/util/Optional;
-
-    invoke-virtual {v1}, Ljava/util/Optional;->get()Ljava/lang/Object;
+    invoke-direct {p0}, Lcom/android/systemui/doze/DozeScreenBrightness;->getLightSensor()Landroid/hardware/Sensor;
 
     move-result-object v1
-
-    check-cast v1, Landroid/hardware/Sensor;
 
     const/4 v2, 0x3
 
@@ -408,23 +628,55 @@
 .method public dump(Ljava/io/PrintWriter;)V
     .locals 2
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    const-string v0, "DozeScreenBrightness:"
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    const-string v1, "DozeScreenBrightnessSensorRegistered="
+    new-instance v0, Landroid/util/IndentingPrintWriter;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, p1}, Landroid/util/IndentingPrintWriter;-><init>(Ljava/io/Writer;)V
 
-    iget-boolean p0, p0, Lcom/android/systemui/doze/DozeScreenBrightness;->mRegistered:Z
+    invoke-virtual {v0}, Landroid/util/IndentingPrintWriter;->increaseIndent()Landroid/util/IndentingPrintWriter;
 
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    new-instance p1, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "registered="
+
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-boolean v1, p0, Lcom/android/systemui/doze/DozeScreenBrightness;->mRegistered:Z
+
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-virtual {v0, p1}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
+
+    new-instance p1, Ljava/lang/StringBuilder;
+
+    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "posture="
+
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget p0, p0, Lcom/android/systemui/doze/DozeScreenBrightness;->mDevicePosture:I
+
+    invoke-static {p0}, Lcom/android/systemui/statusbar/policy/DevicePostureController;->devicePostureToString(I)Ljava/lang/String;
 
     move-result-object p0
 
-    invoke-virtual {p1, p0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-virtual {v0, p0}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
 
     return-void
 .end method
@@ -513,7 +765,7 @@
 .method public transitionTo(Lcom/android/systemui/doze/DozeMachine$State;Lcom/android/systemui/doze/DozeMachine$State;)V
     .locals 2
 
-    sget-object p1, Lcom/android/systemui/doze/DozeScreenBrightness$1;->$SwitchMap$com$android$systemui$doze$DozeMachine$State:[I
+    sget-object p1, Lcom/android/systemui/doze/DozeScreenBrightness$2;->$SwitchMap$com$android$systemui$doze$DozeMachine$State:[I
 
     invoke-virtual {p2}, Ljava/lang/Enum;->ordinal()I
 
@@ -647,9 +899,7 @@
     invoke-interface {v4, v1}, Lcom/android/systemui/doze/DozeMachine$Service;->setDozeScreenBrightness(I)V
 
     :cond_3
-    iget-object v1, p0, Lcom/android/systemui/doze/DozeScreenBrightness;->mLightSensorOptional:Ljava/util/Optional;
-
-    invoke-virtual {v1}, Ljava/util/Optional;->isPresent()Z
+    invoke-direct {p0}, Lcom/android/systemui/doze/DozeScreenBrightness;->isLightSensorPresent()Z
 
     move-result v1
 

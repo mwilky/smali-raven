@@ -27,5 +27,8 @@
 .method public abstract getQSPanelController()Lcom/android/systemui/qs/QSPanelController;
 .end method
 
+.method public abstract getQSSquishinessController()Lcom/android/systemui/qs/QSSquishinessController;
+.end method
+
 .method public abstract getQuickQSPanelController()Lcom/android/systemui/qs/QuickQSPanelController;
 .end method

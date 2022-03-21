@@ -39,9 +39,9 @@
 
     iget-boolean p0, p0, Lcom/android/systemui/ActivityStarterDelegate$$ExternalSyntheticLambda11;->f$2:Z
 
-    check-cast p1, Ldagger/Lazy;
+    check-cast p1, Lcom/android/systemui/statusbar/phone/StatusBar;
 
-    invoke-static {v0, v1, p0, p1}, Lcom/android/systemui/ActivityStarterDelegate;->$r8$lambda$TnVER6KGnQoJTf40L_GZQH1lfsM(Landroid/content/Intent;ZZLdagger/Lazy;)V
+    invoke-static {v0, v1, p0, p1}, Lcom/android/systemui/ActivityStarterDelegate;->$r8$lambda$-Uvr_BHeQFwKOntfLtocC20LxcI(Landroid/content/Intent;ZZLcom/android/systemui/statusbar/phone/StatusBar;)V
 
     return-void
 .end method

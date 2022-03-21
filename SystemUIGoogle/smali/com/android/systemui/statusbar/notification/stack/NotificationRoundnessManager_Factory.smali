@@ -18,6 +18,16 @@
 
 
 # instance fields
+.field private final featureFlagsProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/flags/FeatureFlags;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private final keyguardBypassControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -40,7 +50,7 @@
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -50,6 +60,9 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/notification/NotificationSectionsFeatureManager;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/flags/FeatureFlags;",
             ">;)V"
         }
     .end annotation
@@ -60,10 +73,12 @@
 
     iput-object p2, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager_Factory;->sectionsFeatureManagerProvider:Ljavax/inject/Provider;
 
+    iput-object p3, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager_Factory;->featureFlagsProvider:Ljavax/inject/Provider;
+
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager_Factory;
+.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager_Factory;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -73,6 +88,9 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/notification/NotificationSectionsFeatureManager;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/flags/FeatureFlags;",
             ">;)",
             "Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager_Factory;"
         }
@@ -80,17 +98,17 @@
 
     new-instance v0, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager_Factory;
 
-    invoke-direct {v0, p0, p1}, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+    invoke-direct {v0, p0, p1, p2}, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
 
     return-object v0
 .end method
 
-.method public static newInstance(Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/statusbar/notification/NotificationSectionsFeatureManager;)Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;
+.method public static newInstance(Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/statusbar/notification/NotificationSectionsFeatureManager;Lcom/android/systemui/flags/FeatureFlags;)Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;
     .locals 1
 
     new-instance v0, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;
 
-    invoke-direct {v0, p0, p1}, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;-><init>(Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/statusbar/notification/NotificationSectionsFeatureManager;)V
+    invoke-direct {v0, p0, p1, p2}, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;-><init>(Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/statusbar/notification/NotificationSectionsFeatureManager;Lcom/android/systemui/flags/FeatureFlags;)V
 
     return-object v0
 .end method
@@ -98,7 +116,7 @@
 
 # virtual methods
 .method public get()Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;
-    .locals 1
+    .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager_Factory;->keyguardBypassControllerProvider:Ljavax/inject/Provider;
 
@@ -108,15 +126,23 @@
 
     check-cast v0, Lcom/android/systemui/statusbar/phone/KeyguardBypassController;
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager_Factory;->sectionsFeatureManagerProvider:Ljavax/inject/Provider;
+    iget-object v1, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager_Factory;->sectionsFeatureManagerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/systemui/statusbar/notification/NotificationSectionsFeatureManager;
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager_Factory;->featureFlagsProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object p0
 
-    check-cast p0, Lcom/android/systemui/statusbar/notification/NotificationSectionsFeatureManager;
+    check-cast p0, Lcom/android/systemui/flags/FeatureFlags;
 
-    invoke-static {v0, p0}, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager_Factory;->newInstance(Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/statusbar/notification/NotificationSectionsFeatureManager;)Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;
+    invoke-static {v0, v1, p0}, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager_Factory;->newInstance(Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/statusbar/notification/NotificationSectionsFeatureManager;Lcom/android/systemui/flags/FeatureFlags;)Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;
 
     move-result-object p0
 

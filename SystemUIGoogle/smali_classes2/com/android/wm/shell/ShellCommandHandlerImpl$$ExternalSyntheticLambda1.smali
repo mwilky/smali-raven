@@ -29,7 +29,7 @@
 
     check-cast p1, Lcom/android/wm/shell/splitscreen/SplitScreenController;
 
-    invoke-static {p0, p1}, Lcom/android/wm/shell/ShellCommandHandlerImpl;->$r8$lambda$6k4m1oi8DeXqelUWKnN75HsO7hI(ILcom/android/wm/shell/splitscreen/SplitScreenController;)V
+    invoke-static {p0, p1}, Lcom/android/wm/shell/ShellCommandHandlerImpl;->$r8$lambda$IoL28QuzNTsw_lefPnjZMPVImn4(ILcom/android/wm/shell/splitscreen/SplitScreenController;)V
 
     return-void
 .end method

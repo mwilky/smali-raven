@@ -122,9 +122,80 @@
     goto :goto_0
 
     :cond_1
+    iget-object p1, p0, Lcom/android/systemui/ScreenDecorations$2;->this$0:Lcom/android/systemui/ScreenDecorations;
+
+    iget-object p1, p1, Lcom/android/systemui/SystemUI;->mContext:Landroid/content/Context;
+
+    invoke-virtual {p1}, Landroid/content/Context;->getDisplay()Landroid/view/Display;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Landroid/view/Display;->getUniqueId()Ljava/lang/String;
+
+    move-result-object p1
+
+    if-eqz p1, :cond_2
+
+    iget-object v0, p0, Lcom/android/systemui/ScreenDecorations$2;->this$0:Lcom/android/systemui/ScreenDecorations;
+
+    invoke-static {v0}, Lcom/android/systemui/ScreenDecorations;->access$400(Lcom/android/systemui/ScreenDecorations;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    :cond_2
+    iget-object v0, p0, Lcom/android/systemui/ScreenDecorations$2;->this$0:Lcom/android/systemui/ScreenDecorations;
+
+    invoke-static {v0}, Lcom/android/systemui/ScreenDecorations;->access$400(Lcom/android/systemui/ScreenDecorations;)Ljava/lang/String;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_4
+
+    iget-object v0, p0, Lcom/android/systemui/ScreenDecorations$2;->this$0:Lcom/android/systemui/ScreenDecorations;
+
+    invoke-static {v0}, Lcom/android/systemui/ScreenDecorations;->access$400(Lcom/android/systemui/ScreenDecorations;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_4
+
+    :cond_3
+    iget-object v0, p0, Lcom/android/systemui/ScreenDecorations$2;->this$0:Lcom/android/systemui/ScreenDecorations;
+
+    invoke-static {v0, p1}, Lcom/android/systemui/ScreenDecorations;->access$402(Lcom/android/systemui/ScreenDecorations;Ljava/lang/String;)Ljava/lang/String;
+
+    iget-object p1, p0, Lcom/android/systemui/ScreenDecorations$2;->this$0:Lcom/android/systemui/ScreenDecorations;
+
+    iget-object v0, p1, Lcom/android/systemui/SystemUI;->mContext:Landroid/content/Context;
+
+    invoke-static {p1}, Lcom/android/systemui/ScreenDecorations;->access$400(Lcom/android/systemui/ScreenDecorations;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/android/systemui/ScreenDecorations;->access$600(Landroid/content/Context;Ljava/lang/String;)Z
+
+    move-result v0
+
+    invoke-static {p1, v0}, Lcom/android/systemui/ScreenDecorations;->access$502(Lcom/android/systemui/ScreenDecorations;Z)Z
+
+    iget-object p1, p0, Lcom/android/systemui/ScreenDecorations$2;->this$0:Lcom/android/systemui/ScreenDecorations;
+
+    invoke-static {p1}, Lcom/android/systemui/ScreenDecorations;->access$700(Lcom/android/systemui/ScreenDecorations;)V
+
+    :cond_4
     iget-object p0, p0, Lcom/android/systemui/ScreenDecorations$2;->this$0:Lcom/android/systemui/ScreenDecorations;
 
-    invoke-static {p0}, Lcom/android/systemui/ScreenDecorations;->access$400(Lcom/android/systemui/ScreenDecorations;)V
+    invoke-static {p0}, Lcom/android/systemui/ScreenDecorations;->access$800(Lcom/android/systemui/ScreenDecorations;)V
 
     return-void
 .end method

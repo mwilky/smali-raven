@@ -27,9 +27,9 @@
 
     iget-object p0, p0, Lcom/android/systemui/wmshell/WMShell$$ExternalSyntheticLambda3;->f$0:Lcom/android/systemui/wmshell/WMShell;
 
-    check-cast p1, Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreen;
+    check-cast p1, Lcom/android/wm/shell/draganddrop/DragAndDrop;
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/wmshell/WMShell;->initSplitScreen(Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreen;)V
+    invoke-virtual {p0, p1}, Lcom/android/systemui/wmshell/WMShell;->initDragAndDrop(Lcom/android/wm/shell/draganddrop/DragAndDrop;)V
 
     return-void
 .end method

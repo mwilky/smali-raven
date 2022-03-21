@@ -33,7 +33,7 @@
 
     iget-object p0, p0, Lcom/android/wm/shell/apppairs/AppPair$$ExternalSyntheticLambda6;->f$1:Lcom/android/wm/shell/common/split/SplitLayout;
 
-    invoke-static {v0, p0, p1}, Lcom/android/wm/shell/apppairs/AppPair;->$r8$lambda$GsEyroza5Ng2tDh26cOJd4B1Bek(Lcom/android/wm/shell/apppairs/AppPair;Lcom/android/wm/shell/common/split/SplitLayout;Landroid/view/SurfaceControl$Transaction;)V
+    invoke-static {v0, p0, p1}, Lcom/android/wm/shell/apppairs/AppPair;->$r8$lambda$UGH7urbSokP-VmouhaZTZurtzws(Lcom/android/wm/shell/apppairs/AppPair;Lcom/android/wm/shell/common/split/SplitLayout;Landroid/view/SurfaceControl$Transaction;)V
 
     return-void
 .end method

@@ -47,7 +47,7 @@
 
     const/4 p1, 0x1
 
-    invoke-static {p0, p1}, Lcom/android/wm/shell/bubbles/BubbleStackView;->access$4002(Lcom/android/wm/shell/bubbles/BubbleStackView;Z)Z
+    invoke-static {p0, p1}, Lcom/android/wm/shell/bubbles/BubbleStackView;->access$4102(Lcom/android/wm/shell/bubbles/BubbleStackView;Z)Z
 
     return-void
 .end method
@@ -59,7 +59,7 @@
 
     const/4 p1, 0x0
 
-    invoke-static {p0, p1}, Lcom/android/wm/shell/bubbles/BubbleStackView;->access$4002(Lcom/android/wm/shell/bubbles/BubbleStackView;Z)Z
+    invoke-static {p0, p1}, Lcom/android/wm/shell/bubbles/BubbleStackView;->access$4102(Lcom/android/wm/shell/bubbles/BubbleStackView;Z)Z
 
     return-void
 .end method

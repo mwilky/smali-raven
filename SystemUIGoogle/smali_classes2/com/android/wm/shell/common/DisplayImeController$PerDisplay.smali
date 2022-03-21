@@ -2,6 +2,9 @@
 .super Ljava/lang/Object;
 .source "DisplayImeController.java"
 
+# interfaces
+.implements Lcom/android/wm/shell/common/DisplayInsetsController$OnInsetsChangedListener;
+
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingClass;
@@ -11,12 +14,6 @@
 .annotation system Ldalvik/annotation/InnerClass;
     accessFlags = 0x1
     name = "PerDisplay"
-.end annotation
-
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/android/wm/shell/common/DisplayImeController$PerDisplay$DisplayWindowInsetsControllerImpl;
-    }
 .end annotation
 
 
@@ -35,9 +32,9 @@
 
 .field mImeSourceControl:Landroid/view/InsetsSourceControl;
 
-.field protected final mInsetsControllerImpl:Lcom/android/wm/shell/common/DisplayImeController$PerDisplay$DisplayWindowInsetsControllerImpl;
-
 .field final mInsetsState:Landroid/view/InsetsState;
+
+.field final mRequestedVisibilities:Landroid/view/InsetsVisibilities;
 
 .field mRotation:I
 
@@ -66,11 +63,11 @@
 
     iput-object p1, p0, Lcom/android/wm/shell/common/DisplayImeController$PerDisplay;->mInsetsState:Landroid/view/InsetsState;
 
-    new-instance p1, Lcom/android/wm/shell/common/DisplayImeController$PerDisplay$DisplayWindowInsetsControllerImpl;
+    new-instance p1, Landroid/view/InsetsVisibilities;
 
-    invoke-direct {p1, p0}, Lcom/android/wm/shell/common/DisplayImeController$PerDisplay$DisplayWindowInsetsControllerImpl;-><init>(Lcom/android/wm/shell/common/DisplayImeController$PerDisplay;)V
+    invoke-direct {p1}, Landroid/view/InsetsVisibilities;-><init>()V
 
-    iput-object p1, p0, Lcom/android/wm/shell/common/DisplayImeController$PerDisplay;->mInsetsControllerImpl:Lcom/android/wm/shell/common/DisplayImeController$PerDisplay$DisplayWindowInsetsControllerImpl;
+    iput-object p1, p0, Lcom/android/wm/shell/common/DisplayImeController$PerDisplay;->mRequestedVisibilities:Landroid/view/InsetsVisibilities;
 
     const/4 p1, 0x0
 
@@ -111,7 +108,7 @@
     return-void
 .end method
 
-.method static synthetic access$500(Lcom/android/wm/shell/common/DisplayImeController$PerDisplay;F)I
+.method static synthetic access$600(Lcom/android/wm/shell/common/DisplayImeController$PerDisplay;F)I
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/wm/shell/common/DisplayImeController$PerDisplay;->imeTop(F)I
@@ -132,7 +129,7 @@
 
     iget-object v0, p0, Lcom/android/wm/shell/common/DisplayImeController$PerDisplay;->this$0:Lcom/android/wm/shell/common/DisplayImeController;
 
-    invoke-static {v0}, Lcom/android/wm/shell/common/DisplayImeController;->access$300(Lcom/android/wm/shell/common/DisplayImeController;)Lcom/android/wm/shell/common/TransactionPool;
+    invoke-static {v0}, Lcom/android/wm/shell/common/DisplayImeController;->access$400(Lcom/android/wm/shell/common/DisplayImeController;)Lcom/android/wm/shell/common/TransactionPool;
 
     move-result-object v0
 
@@ -156,7 +153,7 @@
 
     iget-object p0, p0, Lcom/android/wm/shell/common/DisplayImeController$PerDisplay;->this$0:Lcom/android/wm/shell/common/DisplayImeController;
 
-    invoke-static {p0}, Lcom/android/wm/shell/common/DisplayImeController;->access$300(Lcom/android/wm/shell/common/DisplayImeController;)Lcom/android/wm/shell/common/TransactionPool;
+    invoke-static {p0}, Lcom/android/wm/shell/common/DisplayImeController;->access$400(Lcom/android/wm/shell/common/DisplayImeController;)Lcom/android/wm/shell/common/TransactionPool;
 
     move-result-object p0
 
@@ -190,7 +187,7 @@
 
     iget-object v0, p0, Lcom/android/wm/shell/common/DisplayImeController$PerDisplay;->this$0:Lcom/android/wm/shell/common/DisplayImeController;
 
-    invoke-static {v0}, Lcom/android/wm/shell/common/DisplayImeController;->access$400(Lcom/android/wm/shell/common/DisplayImeController;)Lcom/android/wm/shell/common/DisplayController;
+    invoke-static {v0}, Lcom/android/wm/shell/common/DisplayImeController;->access$500(Lcom/android/wm/shell/common/DisplayImeController;)Lcom/android/wm/shell/common/DisplayController;
 
     move-result-object v0
 
@@ -234,7 +231,7 @@
 
     iget-object v0, p0, Lcom/android/wm/shell/common/DisplayImeController$PerDisplay;->this$0:Lcom/android/wm/shell/common/DisplayImeController;
 
-    invoke-static {v0}, Lcom/android/wm/shell/common/DisplayImeController;->access$300(Lcom/android/wm/shell/common/DisplayImeController;)Lcom/android/wm/shell/common/TransactionPool;
+    invoke-static {v0}, Lcom/android/wm/shell/common/DisplayImeController;->access$400(Lcom/android/wm/shell/common/DisplayImeController;)Lcom/android/wm/shell/common/TransactionPool;
 
     move-result-object v0
 
@@ -298,13 +295,13 @@
 
     move-result p3
 
-    invoke-static {p1, p2, p3, v0}, Lcom/android/wm/shell/common/DisplayImeController;->access$900(Lcom/android/wm/shell/common/DisplayImeController;IILandroid/view/SurfaceControl$Transaction;)V
+    invoke-static {p1, p2, p3, v0}, Lcom/android/wm/shell/common/DisplayImeController;->access$1000(Lcom/android/wm/shell/common/DisplayImeController;IILandroid/view/SurfaceControl$Transaction;)V
 
     invoke-virtual {v0}, Landroid/view/SurfaceControl$Transaction;->apply()V
 
     iget-object p0, p0, Lcom/android/wm/shell/common/DisplayImeController$PerDisplay;->this$0:Lcom/android/wm/shell/common/DisplayImeController;
 
-    invoke-static {p0}, Lcom/android/wm/shell/common/DisplayImeController;->access$300(Lcom/android/wm/shell/common/DisplayImeController;)Lcom/android/wm/shell/common/TransactionPool;
+    invoke-static {p0}, Lcom/android/wm/shell/common/DisplayImeController;->access$400(Lcom/android/wm/shell/common/DisplayImeController;)Lcom/android/wm/shell/common/TransactionPool;
 
     move-result-object p0
 
@@ -326,6 +323,10 @@
 
     invoke-virtual {v0, p1}, Landroid/view/InsetsSource;->setVisible(Z)V
 
+    iget-object v0, p0, Lcom/android/wm/shell/common/DisplayImeController$PerDisplay;->mRequestedVisibilities:Landroid/view/InsetsVisibilities;
+
+    invoke-virtual {v0, v1, p1}, Landroid/view/InsetsVisibilities;->setVisibility(IZ)V
+
     :try_start_0
     iget-object p1, p0, Lcom/android/wm/shell/common/DisplayImeController$PerDisplay;->this$0:Lcom/android/wm/shell/common/DisplayImeController;
 
@@ -333,9 +334,9 @@
 
     iget v0, p0, Lcom/android/wm/shell/common/DisplayImeController$PerDisplay;->mDisplayId:I
 
-    iget-object p0, p0, Lcom/android/wm/shell/common/DisplayImeController$PerDisplay;->mInsetsState:Landroid/view/InsetsState;
+    iget-object p0, p0, Lcom/android/wm/shell/common/DisplayImeController$PerDisplay;->mRequestedVisibilities:Landroid/view/InsetsVisibilities;
 
-    invoke-interface {p1, v0, p0}, Landroid/view/IWindowManager;->modifyDisplayWindowInsets(ILandroid/view/InsetsState;)V
+    invoke-interface {p1, v0, p0}, Landroid/view/IWindowManager;->updateDisplayWindowRequestedVisibilities(ILandroid/view/InsetsVisibilities;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -397,7 +398,7 @@
 
     iget-object v0, v8, Lcom/android/wm/shell/common/DisplayImeController$PerDisplay;->this$0:Lcom/android/wm/shell/common/DisplayImeController;
 
-    invoke-static {v0}, Lcom/android/wm/shell/common/DisplayImeController;->access$400(Lcom/android/wm/shell/common/DisplayImeController;)Lcom/android/wm/shell/common/DisplayController;
+    invoke-static {v0}, Lcom/android/wm/shell/common/DisplayImeController;->access$500(Lcom/android/wm/shell/common/DisplayImeController;)Lcom/android/wm/shell/common/DisplayController;
 
     move-result-object v0
 
@@ -696,7 +697,7 @@
 
     iget p0, p0, Lcom/android/wm/shell/common/DisplayImeController$PerDisplay;->mDisplayId:I
 
-    invoke-static {v0, p0, p1}, Lcom/android/wm/shell/common/DisplayImeController;->access$800(Lcom/android/wm/shell/common/DisplayImeController;IZ)V
+    invoke-static {v0, p0, p1}, Lcom/android/wm/shell/common/DisplayImeController;->access$900(Lcom/android/wm/shell/common/DisplayImeController;IZ)V
 
     :cond_0
     return-void
@@ -704,7 +705,7 @@
 
 
 # virtual methods
-.method protected hideInsets(IZ)V
+.method public hideInsets(IZ)V
     .locals 0
 
     invoke-static {}, Landroid/view/WindowInsets$Type;->ime()I
@@ -725,7 +726,7 @@
     return-void
 .end method
 
-.method protected insetsChanged(Landroid/view/InsetsState;)V
+.method public insetsChanged(Landroid/view/InsetsState;)V
     .locals 5
 
     iget-object v0, p0, Lcom/android/wm/shell/common/DisplayImeController$PerDisplay;->mInsetsState:Landroid/view/InsetsState;
@@ -795,7 +796,7 @@
     return-void
 .end method
 
-.method protected insetsControlChanged(Landroid/view/InsetsState;[Landroid/view/InsetsSourceControl;)V
+.method public insetsControlChanged(Landroid/view/InsetsState;[Landroid/view/InsetsSourceControl;)V
     .locals 7
 
     invoke-virtual {p0, p1}, Lcom/android/wm/shell/common/DisplayImeController$PerDisplay;->insetsChanged(Landroid/view/InsetsState;)V
@@ -867,7 +868,7 @@
 
     iget v2, p0, Lcom/android/wm/shell/common/DisplayImeController$PerDisplay;->mDisplayId:I
 
-    invoke-static {p2, v2, v0}, Lcom/android/wm/shell/common/DisplayImeController;->access$100(Lcom/android/wm/shell/common/DisplayImeController;IZ)V
+    invoke-static {p2, v2, v0}, Lcom/android/wm/shell/common/DisplayImeController;->access$200(Lcom/android/wm/shell/common/DisplayImeController;IZ)V
 
     :cond_6
     if-eqz v0, :cond_c
@@ -893,7 +894,7 @@
 
     iget-object p2, p0, Lcom/android/wm/shell/common/DisplayImeController$PerDisplay;->mImeSourceControl:Landroid/view/InsetsSourceControl;
 
-    invoke-static {p2, v3}, Lcom/android/wm/shell/common/DisplayImeController;->access$200(Landroid/view/InsetsSourceControl;Landroid/view/InsetsSourceControl;)Z
+    invoke-static {p2, v3}, Lcom/android/wm/shell/common/DisplayImeController;->access$300(Landroid/view/InsetsSourceControl;Landroid/view/InsetsSourceControl;)Z
 
     move-result p2
 
@@ -903,7 +904,7 @@
 
     if-eqz v0, :cond_8
 
-    if-eqz p1, :cond_a
+    if-eqz p1, :cond_b
 
     iget-boolean p1, p0, Lcom/android/wm/shell/common/DisplayImeController$PerDisplay;->mImeShowing:Z
 
@@ -926,7 +927,6 @@
     invoke-virtual {p1}, Lcom/android/wm/shell/common/DisplayImeController;->removeImeSurface()V
 
     :cond_a
-    :goto_3
     iget-object p1, p0, Lcom/android/wm/shell/common/DisplayImeController$PerDisplay;->mImeSourceControl:Landroid/view/InsetsSourceControl;
 
     if-eqz p1, :cond_b
@@ -936,6 +936,7 @@
     invoke-virtual {p1, p2}, Landroid/view/InsetsSourceControl;->release(Ljava/util/function/Consumer;)V
 
     :cond_b
+    :goto_3
     iput-object v3, p0, Lcom/android/wm/shell/common/DisplayImeController$PerDisplay;->mImeSourceControl:Landroid/view/InsetsSourceControl;
 
     :cond_c
@@ -943,49 +944,22 @@
 .end method
 
 .method public register()V
-    .locals 3
+    .locals 2
 
-    :try_start_0
     iget-object v0, p0, Lcom/android/wm/shell/common/DisplayImeController$PerDisplay;->this$0:Lcom/android/wm/shell/common/DisplayImeController;
 
-    iget-object v0, v0, Lcom/android/wm/shell/common/DisplayImeController;->mWmService:Landroid/view/IWindowManager;
+    invoke-static {v0}, Lcom/android/wm/shell/common/DisplayImeController;->access$100(Lcom/android/wm/shell/common/DisplayImeController;)Lcom/android/wm/shell/common/DisplayInsetsController;
+
+    move-result-object v0
 
     iget v1, p0, Lcom/android/wm/shell/common/DisplayImeController$PerDisplay;->mDisplayId:I
 
-    iget-object v2, p0, Lcom/android/wm/shell/common/DisplayImeController$PerDisplay;->mInsetsControllerImpl:Lcom/android/wm/shell/common/DisplayImeController$PerDisplay$DisplayWindowInsetsControllerImpl;
+    invoke-virtual {v0, v1, p0}, Lcom/android/wm/shell/common/DisplayInsetsController;->addInsetsChangedListener(ILcom/android/wm/shell/common/DisplayInsetsController$OnInsetsChangedListener;)V
 
-    invoke-interface {v0, v1, v2}, Landroid/view/IWindowManager;->setDisplayWindowInsetsController(ILandroid/view/IDisplayWindowInsetsController;)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    goto :goto_0
-
-    :catch_0
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "Unable to set insets controller on display "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget p0, p0, Lcom/android/wm/shell/common/DisplayImeController$PerDisplay;->mDisplayId:I
-
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p0
-
-    const-string v0, "DisplayImeController"
-
-    invoke-static {v0, p0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    :goto_0
     return-void
 .end method
 
-.method protected showInsets(IZ)V
+.method public showInsets(IZ)V
     .locals 0
 
     invoke-static {}, Landroid/view/WindowInsets$Type;->ime()I
@@ -1010,6 +984,22 @@
 
 .method public topFocusedWindowChanged(Ljava/lang/String;)V
     .locals 0
+
+    return-void
+.end method
+
+.method public unregister()V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/wm/shell/common/DisplayImeController$PerDisplay;->this$0:Lcom/android/wm/shell/common/DisplayImeController;
+
+    invoke-static {v0}, Lcom/android/wm/shell/common/DisplayImeController;->access$100(Lcom/android/wm/shell/common/DisplayImeController;)Lcom/android/wm/shell/common/DisplayInsetsController;
+
+    move-result-object v0
+
+    iget v1, p0, Lcom/android/wm/shell/common/DisplayImeController$PerDisplay;->mDisplayId:I
+
+    invoke-virtual {v0, v1, p0}, Lcom/android/wm/shell/common/DisplayInsetsController;->removeInsetsChangedListener(ILcom/android/wm/shell/common/DisplayInsetsController$OnInsetsChangedListener;)V
 
     return-void
 .end method

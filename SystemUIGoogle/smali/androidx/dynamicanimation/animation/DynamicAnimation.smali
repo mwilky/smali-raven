@@ -107,7 +107,7 @@
 
     new-instance v0, Landroidx/dynamicanimation/animation/DynamicAnimation$1;
 
-    const-string/jumbo v1, "translationX"
+    const-string v1, "translationX"
 
     invoke-direct {v0, v1}, Landroidx/dynamicanimation/animation/DynamicAnimation$1;-><init>(Ljava/lang/String;)V
 
@@ -115,7 +115,7 @@
 
     new-instance v0, Landroidx/dynamicanimation/animation/DynamicAnimation$2;
 
-    const-string/jumbo v1, "translationY"
+    const-string v1, "translationY"
 
     invoke-direct {v0, v1}, Landroidx/dynamicanimation/animation/DynamicAnimation$2;-><init>(Ljava/lang/String;)V
 
@@ -123,7 +123,7 @@
 
     new-instance v0, Landroidx/dynamicanimation/animation/DynamicAnimation$3;
 
-    const-string/jumbo v1, "translationZ"
+    const-string v1, "translationZ"
 
     invoke-direct {v0, v1}, Landroidx/dynamicanimation/animation/DynamicAnimation$3;-><init>(Ljava/lang/String;)V
 
@@ -892,6 +892,49 @@
     return-object p0
 .end method
 
+.method public setMinimumVisibleChange(F)Landroidx/dynamicanimation/animation/DynamicAnimation;
+    .locals 1
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "minimumVisibleChange"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(F)TT;"
+        }
+    .end annotation
+
+    const/4 v0, 0x0
+
+    cmpg-float v0, p1, v0
+
+    if-lez v0, :cond_0
+
+    iput p1, p0, Landroidx/dynamicanimation/animation/DynamicAnimation;->mMinVisibleChange:F
+
+    const/high16 v0, 0x3f400000    # 0.75f
+
+    mul-float/2addr p1, v0
+
+    invoke-virtual {p0, p1}, Landroidx/dynamicanimation/animation/DynamicAnimation;->setValueThreshold(F)V
+
+    return-object p0
+
+    :cond_0
+    new-instance p0, Ljava/lang/IllegalArgumentException;
+
+    const-string p1, "Minimum visible change must be positive."
+
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw p0
+.end method
+
 .method setPropertyValue(F)V
     .locals 3
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -1001,6 +1044,17 @@
     iput p1, p0, Landroidx/dynamicanimation/animation/DynamicAnimation;->mVelocity:F
 
     return-object p0
+.end method
+
+.method abstract setValueThreshold(F)V
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "threshold"
+        }
+    .end annotation
 .end method
 
 .method public start()V

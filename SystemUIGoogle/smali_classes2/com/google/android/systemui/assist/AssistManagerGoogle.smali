@@ -58,7 +58,7 @@
     return-void
 .end method
 
-.method public constructor <init>(Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Landroid/content/Context;Lcom/android/internal/app/AssistUtils;Lcom/google/android/systemui/assist/uihints/NgaUiController;Lcom/android/systemui/statusbar/CommandQueue;Lcom/google/android/systemui/assist/OpaEnabledReceiver;Lcom/android/systemui/assist/PhoneStateMonitor;Lcom/android/systemui/recents/OverviewProxyService;Lcom/google/android/systemui/assist/OpaEnabledDispatcher;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/navigationbar/NavigationModeController;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/google/android/systemui/assist/uihints/AssistantPresenceHandler;Lcom/google/android/systemui/assist/uihints/NgaMessageHandler;Ldagger/Lazy;Landroid/os/Handler;Lcom/android/systemui/assist/ui/DefaultUiController;Lcom/google/android/systemui/assist/uihints/GoogleDefaultUiController;Landroid/view/IWindowManager;Lcom/android/systemui/assist/AssistLogger;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Landroid/content/Context;Lcom/android/internal/app/AssistUtils;Lcom/google/android/systemui/assist/uihints/NgaUiController;Lcom/android/systemui/statusbar/CommandQueue;Lcom/google/android/systemui/assist/OpaEnabledReceiver;Lcom/android/systemui/assist/PhoneStateMonitor;Lcom/android/systemui/recents/OverviewProxyService;Lcom/google/android/systemui/assist/OpaEnabledDispatcher;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/navigationbar/NavigationModeController;Lcom/google/android/systemui/assist/uihints/AssistantPresenceHandler;Lcom/google/android/systemui/assist/uihints/NgaMessageHandler;Ldagger/Lazy;Landroid/os/Handler;Lcom/android/systemui/assist/ui/DefaultUiController;Lcom/google/android/systemui/assist/uihints/GoogleDefaultUiController;Landroid/view/IWindowManager;Lcom/android/systemui/assist/AssistLogger;)V
     .locals 14
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -74,7 +74,6 @@
             "Lcom/google/android/systemui/assist/OpaEnabledDispatcher;",
             "Lcom/android/keyguard/KeyguardUpdateMonitor;",
             "Lcom/android/systemui/navigationbar/NavigationModeController;",
-            "Lcom/android/systemui/statusbar/policy/ConfigurationController;",
             "Lcom/google/android/systemui/assist/uihints/AssistantPresenceHandler;",
             "Lcom/google/android/systemui/assist/uihints/NgaMessageHandler;",
             "Ldagger/Lazy<",
@@ -91,9 +90,9 @@
 
     move-object v11, p0
 
-    move-object/from16 v12, p13
+    move-object/from16 v12, p12
 
-    move-object/from16 v13, p18
+    move-object/from16 v13, p17
 
     move-object v0, p0
 
@@ -109,21 +108,21 @@
 
     move-object/from16 v6, p8
 
-    move-object/from16 v7, p12
+    move-object/from16 v7, p14
 
-    move-object/from16 v8, p15
+    move-object/from16 v8, p16
 
-    move-object/from16 v9, p17
+    move-object/from16 v9, p19
 
-    move-object/from16 v10, p20
+    move-object/from16 v10, p15
 
-    invoke-direct/range {v0 .. v10}, Lcom/android/systemui/assist/AssistManager;-><init>(Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Landroid/content/Context;Lcom/android/internal/app/AssistUtils;Lcom/android/systemui/statusbar/CommandQueue;Lcom/android/systemui/assist/PhoneStateMonitor;Lcom/android/systemui/recents/OverviewProxyService;Lcom/android/systemui/statusbar/policy/ConfigurationController;Ldagger/Lazy;Lcom/android/systemui/assist/ui/DefaultUiController;Lcom/android/systemui/assist/AssistLogger;)V
+    invoke-direct/range {v0 .. v10}, Lcom/android/systemui/assist/AssistManager;-><init>(Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Landroid/content/Context;Lcom/android/internal/app/AssistUtils;Lcom/android/systemui/statusbar/CommandQueue;Lcom/android/systemui/assist/PhoneStateMonitor;Lcom/android/systemui/recents/OverviewProxyService;Ldagger/Lazy;Lcom/android/systemui/assist/ui/DefaultUiController;Lcom/android/systemui/assist/AssistLogger;Landroid/os/Handler;)V
 
     const/4 v0, 0x1
 
     iput-boolean v0, v11, Lcom/google/android/systemui/assist/AssistManagerGoogle;->mCheckAssistantStatus:Z
 
-    move-object/from16 v0, p16
+    move-object/from16 v0, p15
 
     iput-object v0, v11, Lcom/google/android/systemui/assist/AssistManagerGoogle;->mUiHandler:Landroid/os/Handler;
 
@@ -171,7 +170,7 @@
 
     invoke-virtual {v12, v0}, Lcom/google/android/systemui/assist/uihints/AssistantPresenceHandler;->registerAssistantPresenceChangeListener(Lcom/google/android/systemui/assist/uihints/AssistantPresenceHandler$AssistantPresenceChangeListener;)V
 
-    move-object/from16 v0, p14
+    move-object/from16 v0, p13
 
     iput-object v0, v11, Lcom/google/android/systemui/assist/AssistManagerGoogle;->mNgaMessageHandler:Lcom/google/android/systemui/assist/uihints/NgaMessageHandler;
 
@@ -181,7 +180,7 @@
 
     iput-object v0, v11, Lcom/google/android/systemui/assist/AssistManagerGoogle;->mOnProcessBundle:Ljava/lang/Runnable;
 
-    move-object/from16 v0, p19
+    move-object/from16 v0, p18
 
     iput-object v0, v11, Lcom/google/android/systemui/assist/AssistManagerGoogle;->mWindowManagerService:Landroid/view/IWindowManager;
 
@@ -546,14 +545,6 @@
     invoke-virtual {v0, v1}, Lcom/android/internal/app/AssistUtils;->registerVoiceInteractionSessionListener(Lcom/android/internal/app/IVoiceInteractionSessionListener;)V
 
     return-void
-.end method
-
-.method public shouldShowOrb()Z
-    .locals 0
-
-    const/4 p0, 0x0
-
-    return p0
 .end method
 
 .method public shouldUseHomeButtonAnimations()Z

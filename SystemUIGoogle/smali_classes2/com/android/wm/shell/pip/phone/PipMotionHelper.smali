@@ -272,6 +272,32 @@
     return-void
 .end method
 
+.method private expandLeavePip(ZZ)V
+    .locals 2
+
+    invoke-direct {p0}, Lcom/android/wm/shell/pip/phone/PipMotionHelper;->cancelPhysicsAnimation()V
+
+    iget-object v0, p0, Lcom/android/wm/shell/pip/phone/PipMotionHelper;->mMenuController:Lcom/android/wm/shell/pip/phone/PhonePipMenuController;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1, v1}, Lcom/android/wm/shell/pip/phone/PhonePipMenuController;->hideMenu(IZ)V
+
+    iget-object p0, p0, Lcom/android/wm/shell/pip/phone/PipMotionHelper;->mPipTaskOrganizer:Lcom/android/wm/shell/pip/PipTaskOrganizer;
+
+    if-eqz p1, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    const/16 v1, 0x12c
+
+    :goto_0
+    invoke-virtual {p0, v1, p2}, Lcom/android/wm/shell/pip/PipTaskOrganizer;->exitPip(IZ)V
+
+    return-void
+.end method
+
 .method private getBounds()Landroid/graphics/Rect;
     .locals 0
 
@@ -1533,38 +1559,24 @@
     return-void
 .end method
 
-.method expandLeavePip()V
-    .locals 1
+.method expandIntoSplit()V
+    .locals 2
 
     const/4 v0, 0x0
 
-    invoke-virtual {p0, v0}, Lcom/android/wm/shell/pip/phone/PipMotionHelper;->expandLeavePip(Z)V
+    const/4 v1, 0x1
+
+    invoke-direct {p0, v0, v1}, Lcom/android/wm/shell/pip/phone/PipMotionHelper;->expandLeavePip(ZZ)V
 
     return-void
 .end method
 
 .method expandLeavePip(Z)V
-    .locals 2
+    .locals 1
 
-    invoke-direct {p0}, Lcom/android/wm/shell/pip/phone/PipMotionHelper;->cancelPhysicsAnimation()V
+    const/4 v0, 0x0
 
-    iget-object v0, p0, Lcom/android/wm/shell/pip/phone/PipMotionHelper;->mMenuController:Lcom/android/wm/shell/pip/phone/PhonePipMenuController;
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1, v1}, Lcom/android/wm/shell/pip/phone/PhonePipMenuController;->hideMenu(IZ)V
-
-    iget-object p0, p0, Lcom/android/wm/shell/pip/phone/PipMotionHelper;->mPipTaskOrganizer:Lcom/android/wm/shell/pip/PipTaskOrganizer;
-
-    if-eqz p1, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    const/16 v1, 0x12c
-
-    :goto_0
-    invoke-virtual {p0, v1}, Lcom/android/wm/shell/pip/PipTaskOrganizer;->exitPip(I)V
+    invoke-direct {p0, p1, v0}, Lcom/android/wm/shell/pip/phone/PipMotionHelper;->expandLeavePip(ZZ)V
 
     return-void
 .end method

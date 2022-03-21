@@ -34,12 +34,12 @@
 
 
 # virtual methods
-.method public onOverlayChanged()V
+.method public onThemeChanged()V
     .locals 0
 
     iget-object p0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController$4;->this$0:Lcom/android/keyguard/KeyguardSecurityContainerController;
 
-    invoke-static {p0}, Lcom/android/keyguard/KeyguardSecurityContainerController;->access$600(Lcom/android/keyguard/KeyguardSecurityContainerController;)Lcom/android/keyguard/KeyguardSecurityViewFlipperController;
+    invoke-static {p0}, Lcom/android/keyguard/KeyguardSecurityContainerController;->access$1400(Lcom/android/keyguard/KeyguardSecurityContainerController;)Lcom/android/keyguard/KeyguardSecurityViewFlipperController;
 
     move-result-object p0
 
@@ -53,7 +53,7 @@
 
     iget-object p0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController$4;->this$0:Lcom/android/keyguard/KeyguardSecurityContainerController;
 
-    invoke-static {p0}, Lcom/android/keyguard/KeyguardSecurityContainerController;->access$600(Lcom/android/keyguard/KeyguardSecurityContainerController;)Lcom/android/keyguard/KeyguardSecurityViewFlipperController;
+    invoke-static {p0}, Lcom/android/keyguard/KeyguardSecurityContainerController;->access$1400(Lcom/android/keyguard/KeyguardSecurityContainerController;)Lcom/android/keyguard/KeyguardSecurityViewFlipperController;
 
     move-result-object p0
 

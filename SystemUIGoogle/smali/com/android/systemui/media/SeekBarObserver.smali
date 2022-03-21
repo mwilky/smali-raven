@@ -208,13 +208,21 @@
 
     invoke-virtual {p1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
+    iget-object p1, p0, Lcom/android/systemui/media/SeekBarObserver;->holder:Lcom/android/systemui/media/PlayerViewHolder;
+
+    invoke-virtual {p1}, Lcom/android/systemui/media/PlayerViewHolder;->getTotalTimeView()Landroid/widget/TextView;
+
+    move-result-object p1
+
+    invoke-virtual {p1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
     iget-object p0, p0, Lcom/android/systemui/media/SeekBarObserver;->holder:Lcom/android/systemui/media/PlayerViewHolder;
 
-    invoke-virtual {p0}, Lcom/android/systemui/media/PlayerViewHolder;->getTotalTimeView()Landroid/widget/TextView;
+    invoke-virtual {p0}, Lcom/android/systemui/media/PlayerViewHolder;->getSeekBar()Landroid/widget/SeekBar;
 
     move-result-object p0
 
-    invoke-virtual {p0, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {p0, v0}, Landroid/widget/SeekBar;->setContentDescription(Ljava/lang/CharSequence;)V
 
     return-void
 
@@ -235,10 +243,15 @@
 
     if-eqz v2, :cond_2
 
-    const/16 v1, 0xff
+    const/16 v2, 0xff
+
+    goto :goto_0
 
     :cond_2
-    invoke-virtual {v0, v1}, Landroid/graphics/drawable/Drawable;->setAlpha(I)V
+    move v2, v1
+
+    :goto_0
+    invoke-virtual {v0, v2}, Landroid/graphics/drawable/Drawable;->setAlpha(I)V
 
     iget-object v0, p0, Lcom/android/systemui/media/SeekBarObserver;->holder:Lcom/android/systemui/media/PlayerViewHolder;
 
@@ -248,9 +261,9 @@
 
     invoke-virtual {p1}, Lcom/android/systemui/media/SeekBarViewModel$Progress;->getSeekAvailable()Z
 
-    move-result v1
+    move-result v2
 
-    invoke-virtual {v0, v1}, Landroid/widget/SeekBar;->setEnabled(Z)V
+    invoke-virtual {v0, v2}, Landroid/widget/SeekBar;->setEnabled(Z)V
 
     iget-object v0, p0, Lcom/android/systemui/media/SeekBarObserver;->holder:Lcom/android/systemui/media/PlayerViewHolder;
 
@@ -262,9 +275,9 @@
 
     move-result v0
 
-    iget v1, p0, Lcom/android/systemui/media/SeekBarObserver;->seekBarEnabledMaxHeight:I
+    iget v2, p0, Lcom/android/systemui/media/SeekBarObserver;->seekBarEnabledMaxHeight:I
 
-    if-eq v0, v1, :cond_3
+    if-eq v0, v2, :cond_3
 
     iget-object v0, p0, Lcom/android/systemui/media/SeekBarObserver;->holder:Lcom/android/systemui/media/PlayerViewHolder;
 
@@ -272,32 +285,30 @@
 
     move-result-object v0
 
-    iget v1, p0, Lcom/android/systemui/media/SeekBarObserver;->seekBarEnabledMaxHeight:I
+    iget v2, p0, Lcom/android/systemui/media/SeekBarObserver;->seekBarEnabledMaxHeight:I
 
-    invoke-virtual {v0, v1}, Landroid/widget/SeekBar;->setMaxHeight(I)V
+    invoke-virtual {v0, v2}, Landroid/widget/SeekBar;->setMaxHeight(I)V
 
     iget v0, p0, Lcom/android/systemui/media/SeekBarObserver;->seekBarEnabledVerticalPadding:I
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/media/SeekBarObserver;->setVerticalPadding(I)V
 
     :cond_3
+    iget-object v0, p0, Lcom/android/systemui/media/SeekBarObserver;->holder:Lcom/android/systemui/media/PlayerViewHolder;
+
+    invoke-virtual {v0}, Lcom/android/systemui/media/PlayerViewHolder;->getSeekBar()Landroid/widget/SeekBar;
+
+    move-result-object v0
+
+    invoke-virtual {p1}, Lcom/android/systemui/media/SeekBarViewModel$Progress;->getDuration()I
+
+    move-result v2
+
+    invoke-virtual {v0, v2}, Landroid/widget/SeekBar;->setMax(I)V
+
     invoke-virtual {p1}, Lcom/android/systemui/media/SeekBarViewModel$Progress;->getDuration()I
 
     move-result v0
-
-    iget-object v1, p0, Lcom/android/systemui/media/SeekBarObserver;->holder:Lcom/android/systemui/media/PlayerViewHolder;
-
-    invoke-virtual {v1}, Lcom/android/systemui/media/PlayerViewHolder;->getSeekBar()Landroid/widget/SeekBar;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v0}, Landroid/widget/SeekBar;->setMax(I)V
-
-    iget-object v1, p0, Lcom/android/systemui/media/SeekBarObserver;->holder:Lcom/android/systemui/media/PlayerViewHolder;
-
-    invoke-virtual {v1}, Lcom/android/systemui/media/PlayerViewHolder;->getTotalTimeView()Landroid/widget/TextView;
-
-    move-result-object v1
 
     int-to-long v2, v0
 
@@ -309,7 +320,13 @@
 
     move-result-object v0
 
-    invoke-virtual {v1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    iget-object v2, p0, Lcom/android/systemui/media/SeekBarObserver;->holder:Lcom/android/systemui/media/PlayerViewHolder;
+
+    invoke-virtual {v2}, Lcom/android/systemui/media/PlayerViewHolder;->getTotalTimeView()Landroid/widget/TextView;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     invoke-virtual {p1}, Lcom/android/systemui/media/SeekBarViewModel$Progress;->getElapsedTime()Ljava/lang/Integer;
 
@@ -317,38 +334,72 @@
 
     if-nez p1, :cond_4
 
-    goto :goto_0
+    goto :goto_1
 
     :cond_4
     invoke-virtual {p1}, Ljava/lang/Number;->intValue()I
 
     move-result p1
 
-    iget-object v0, p0, Lcom/android/systemui/media/SeekBarObserver;->holder:Lcom/android/systemui/media/PlayerViewHolder;
+    iget-object v2, p0, Lcom/android/systemui/media/SeekBarObserver;->holder:Lcom/android/systemui/media/PlayerViewHolder;
 
-    invoke-virtual {v0}, Lcom/android/systemui/media/PlayerViewHolder;->getSeekBar()Landroid/widget/SeekBar;
+    invoke-virtual {v2}, Lcom/android/systemui/media/PlayerViewHolder;->getSeekBar()Landroid/widget/SeekBar;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-virtual {v0, p1}, Landroid/widget/SeekBar;->setProgress(I)V
+    invoke-virtual {v2, p1}, Landroid/widget/SeekBar;->setProgress(I)V
 
-    iget-object p0, p0, Lcom/android/systemui/media/SeekBarObserver;->holder:Lcom/android/systemui/media/PlayerViewHolder;
+    int-to-long v2, p1
 
-    invoke-virtual {p0}, Lcom/android/systemui/media/PlayerViewHolder;->getElapsedTimeView()Landroid/widget/TextView;
+    div-long/2addr v2, v4
 
-    move-result-object p0
-
-    int-to-long v0, p1
-
-    div-long/2addr v0, v4
-
-    invoke-static {v0, v1}, Landroid/text/format/DateUtils;->formatElapsedTime(J)Ljava/lang/String;
+    invoke-static {v2, v3}, Landroid/text/format/DateUtils;->formatElapsedTime(J)Ljava/lang/String;
 
     move-result-object p1
 
-    invoke-virtual {p0, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    iget-object v2, p0, Lcom/android/systemui/media/SeekBarObserver;->holder:Lcom/android/systemui/media/PlayerViewHolder;
 
-    :goto_0
+    invoke-virtual {v2}, Lcom/android/systemui/media/PlayerViewHolder;->getElapsedTimeView()Landroid/widget/TextView;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    iget-object v2, p0, Lcom/android/systemui/media/SeekBarObserver;->holder:Lcom/android/systemui/media/PlayerViewHolder;
+
+    invoke-virtual {v2}, Lcom/android/systemui/media/PlayerViewHolder;->getSeekBar()Landroid/widget/SeekBar;
+
+    move-result-object v2
+
+    iget-object p0, p0, Lcom/android/systemui/media/SeekBarObserver;->holder:Lcom/android/systemui/media/PlayerViewHolder;
+
+    invoke-virtual {p0}, Lcom/android/systemui/media/PlayerViewHolder;->getSeekBar()Landroid/widget/SeekBar;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Landroid/widget/SeekBar;->getContext()Landroid/content/Context;
+
+    move-result-object p0
+
+    sget v3, Lcom/android/systemui/R$string;->controls_media_seekbar_description:I
+
+    const/4 v4, 0x2
+
+    new-array v4, v4, [Ljava/lang/Object;
+
+    aput-object p1, v4, v1
+
+    const/4 p1, 0x1
+
+    aput-object v0, v4, p1
+
+    invoke-virtual {p0, v3, v4}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-virtual {v2, p0}, Landroid/widget/SeekBar;->setContentDescription(Ljava/lang/CharSequence;)V
+
+    :goto_1
     return-void
 .end method
 

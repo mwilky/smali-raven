@@ -52,7 +52,7 @@
 
 # virtual methods
 .method protected createInstance(Landroid/view/Display;)Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;
-    .locals 9
+    .locals 11
 
     iget-object v0, p0, Lcom/android/systemui/accessibility/WindowMagnification$AnimationControllerSupplier;->mContext:Landroid/content/Context;
 
@@ -64,33 +64,33 @@
 
     move-result-object p1
 
-    new-instance v8, Lcom/android/systemui/accessibility/WindowMagnificationController;
+    new-instance v0, Lcom/android/systemui/accessibility/WindowMagnificationController;
 
-    iget-object v1, p0, Lcom/android/systemui/accessibility/WindowMagnification$AnimationControllerSupplier;->mContext:Landroid/content/Context;
+    iget-object v5, p0, Lcom/android/systemui/accessibility/WindowMagnification$AnimationControllerSupplier;->mHandler:Landroid/os/Handler;
 
-    iget-object v2, p0, Lcom/android/systemui/accessibility/WindowMagnification$AnimationControllerSupplier;->mHandler:Landroid/os/Handler;
+    new-instance v6, Lcom/android/internal/graphics/SfVsyncFrameCallbackProvider;
 
-    new-instance v3, Lcom/android/internal/graphics/SfVsyncFrameCallbackProvider;
+    invoke-direct {v6}, Lcom/android/internal/graphics/SfVsyncFrameCallbackProvider;-><init>()V
 
-    invoke-direct {v3}, Lcom/android/internal/graphics/SfVsyncFrameCallbackProvider;-><init>()V
+    new-instance v8, Landroid/view/SurfaceControl$Transaction;
 
-    new-instance v5, Landroid/view/SurfaceControl$Transaction;
+    invoke-direct {v8}, Landroid/view/SurfaceControl$Transaction;-><init>()V
 
-    invoke-direct {v5}, Landroid/view/SurfaceControl$Transaction;-><init>()V
+    iget-object v9, p0, Lcom/android/systemui/accessibility/WindowMagnification$AnimationControllerSupplier;->mWindowMagnifierCallback:Lcom/android/systemui/accessibility/WindowMagnifierCallback;
 
-    iget-object v6, p0, Lcom/android/systemui/accessibility/WindowMagnification$AnimationControllerSupplier;->mWindowMagnifierCallback:Lcom/android/systemui/accessibility/WindowMagnifierCallback;
+    iget-object v10, p0, Lcom/android/systemui/accessibility/WindowMagnification$AnimationControllerSupplier;->mSysUiState:Lcom/android/systemui/model/SysUiState;
 
-    iget-object v7, p0, Lcom/android/systemui/accessibility/WindowMagnification$AnimationControllerSupplier;->mSysUiState:Lcom/android/systemui/model/SysUiState;
+    const/4 v7, 0x0
 
-    const/4 v4, 0x0
+    move-object v3, v0
 
-    move-object v0, v8
+    move-object v4, p1
 
-    invoke-direct/range {v0 .. v7}, Lcom/android/systemui/accessibility/WindowMagnificationController;-><init>(Landroid/content/Context;Landroid/os/Handler;Lcom/android/internal/graphics/SfVsyncFrameCallbackProvider;Lcom/android/systemui/accessibility/MirrorWindowControl;Landroid/view/SurfaceControl$Transaction;Lcom/android/systemui/accessibility/WindowMagnifierCallback;Lcom/android/systemui/model/SysUiState;)V
+    invoke-direct/range {v3 .. v10}, Lcom/android/systemui/accessibility/WindowMagnificationController;-><init>(Landroid/content/Context;Landroid/os/Handler;Lcom/android/internal/graphics/SfVsyncFrameCallbackProvider;Lcom/android/systemui/accessibility/MirrorWindowControl;Landroid/view/SurfaceControl$Transaction;Lcom/android/systemui/accessibility/WindowMagnifierCallback;Lcom/android/systemui/model/SysUiState;)V
 
     new-instance p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;
 
-    invoke-direct {p0, p1, v8}, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;-><init>(Landroid/content/Context;Lcom/android/systemui/accessibility/WindowMagnificationController;)V
+    invoke-direct {p0, p1, v0}, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;-><init>(Landroid/content/Context;Lcom/android/systemui/accessibility/WindowMagnificationController;)V
 
     return-object p0
 .end method

@@ -2,40 +2,44 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Ljava/util/function/Predicate;
+.implements Ljava/util/Comparator;
 
 
-# instance fields
-.field public final synthetic f$0:Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;
-
-.field public final synthetic f$1:Ljava/util/List;
+# static fields
+.field public static final synthetic INSTANCE:Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder$$ExternalSyntheticLambda7;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;Ljava/util/List;)V
+.method static synthetic constructor <clinit>()V
+    .locals 1
+
+    new-instance v0, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder$$ExternalSyntheticLambda7;
+
+    invoke-direct {v0}, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder$$ExternalSyntheticLambda7;-><init>()V
+
+    sput-object v0, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder$$ExternalSyntheticLambda7;->INSTANCE:Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder$$ExternalSyntheticLambda7;
+
+    return-void
+.end method
+
+.method private synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder$$ExternalSyntheticLambda7;->f$0:Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;
-
-    iput-object p2, p0, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder$$ExternalSyntheticLambda7;->f$1:Ljava/util/List;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final test(Ljava/lang/Object;)Z
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder$$ExternalSyntheticLambda7;->f$0:Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder$$ExternalSyntheticLambda7;->f$1:Ljava/util/List;
+.method public final compare(Ljava/lang/Object;Ljava/lang/Object;)I
+    .locals 0
 
     check-cast p1, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
 
-    invoke-static {v0, p0, p1}, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;->$r8$lambda$vLkLlJeQTgr7h3T6JnhNBB4VY0c(Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;Ljava/util/List;Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)Z
+    check-cast p2, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
+
+    invoke-static {p1, p2}, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;->$r8$lambda$YEapH8SV32GjCSU2P4eW8IJfN2M(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)I
 
     move-result p0
 

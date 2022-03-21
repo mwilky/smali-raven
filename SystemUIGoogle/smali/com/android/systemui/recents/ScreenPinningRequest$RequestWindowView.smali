@@ -33,16 +33,6 @@
 
 
 # direct methods
-.method public static synthetic $r8$lambda$wYShk2fUBRDFLhCqRnFc-SrsIdw(Ldagger/Lazy;)Lcom/android/systemui/navigationbar/NavigationBarView;
-    .locals 0
-
-    invoke-static {p0}, Lcom/android/systemui/recents/ScreenPinningRequest$RequestWindowView;->lambda$inflateView$0(Ldagger/Lazy;)Lcom/android/systemui/navigationbar/NavigationBarView;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
 .method public constructor <init>(Lcom/android/systemui/recents/ScreenPinningRequest;Landroid/content/Context;Z)V
     .locals 1
 
@@ -256,6 +246,14 @@
 
     if-eqz v5, :cond_2
 
+    iget-object v5, p0, Landroid/widget/FrameLayout;->mContext:Landroid/content/Context;
+
+    invoke-static {v5}, Lcom/android/systemui/shared/recents/utilities/Utilities;->isTablet(Landroid/content/Context;)Z
+
+    move-result v5
+
+    if-nez v5, :cond_2
+
     invoke-virtual {v0, v2}, Landroid/view/View;->setLayoutDirection(I)V
 
     invoke-direct {p0, v0}, Lcom/android/systemui/recents/ScreenPinningRequest$RequestWindowView;->swapChildrenIfRtlAndVertical(Landroid/view/View;)V
@@ -320,9 +318,15 @@
     :goto_2
     iget-object v0, p0, Lcom/android/systemui/recents/ScreenPinningRequest$RequestWindowView;->this$0:Lcom/android/systemui/recents/ScreenPinningRequest;
 
-    invoke-static {v0}, Lcom/android/systemui/recents/ScreenPinningRequest;->access$300(Lcom/android/systemui/recents/ScreenPinningRequest;)Ljava/util/Optional;
+    invoke-static {v0}, Lcom/android/systemui/recents/ScreenPinningRequest;->access$300(Lcom/android/systemui/recents/ScreenPinningRequest;)Ldagger/Lazy;
 
     move-result-object v0
+
+    invoke-interface {v0}, Ldagger/Lazy;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/util/Optional;
 
     sget-object v5, Lcom/android/systemui/recents/ScreenPinningRequest$RequestWindowView$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/systemui/recents/ScreenPinningRequest$RequestWindowView$$ExternalSyntheticLambda0;
 
@@ -616,22 +620,6 @@
     invoke-virtual {p0, v0, p1}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
     return-void
-.end method
-
-.method private static synthetic lambda$inflateView$0(Ldagger/Lazy;)Lcom/android/systemui/navigationbar/NavigationBarView;
-    .locals 0
-
-    invoke-interface {p0}, Ldagger/Lazy;->get()Ljava/lang/Object;
-
-    move-result-object p0
-
-    check-cast p0, Lcom/android/systemui/statusbar/phone/StatusBar;
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->getNavigationBarView()Lcom/android/systemui/navigationbar/NavigationBarView;
-
-    move-result-object p0
-
-    return-object p0
 .end method
 
 .method private swapChildrenIfRtlAndVertical(Landroid/view/View;)V

@@ -24,21 +24,7 @@
 
 
 # virtual methods
-.method public abstract getCurrentUser()I
-.end method
-
-.method public isCurrentUserSetup()Z
-    .locals 1
-
-    invoke-interface {p0}, Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;->getCurrentUser()I
-
-    move-result v0
-
-    invoke-interface {p0, v0}, Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;->isUserSetup(I)Z
-
-    move-result p0
-
-    return p0
+.method public abstract isCurrentUserSetup()Z
 .end method
 
 .method public abstract isDeviceProvisioned()Z

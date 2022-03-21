@@ -8,18 +8,18 @@
 # instance fields
 .field public final synthetic f$0:Landroid/window/TransitionFilter;
 
-.field public final synthetic f$1:Landroid/window/IRemoteTransition;
+.field public final synthetic f$1:Landroid/window/RemoteTransition;
 
 
 # direct methods
-.method public synthetic constructor <init>(Landroid/window/TransitionFilter;Landroid/window/IRemoteTransition;)V
+.method public synthetic constructor <init>(Landroid/window/TransitionFilter;Landroid/window/RemoteTransition;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/wm/shell/transition/Transitions$IShellTransitionsImpl$$ExternalSyntheticLambda1;->f$0:Landroid/window/TransitionFilter;
 
-    iput-object p2, p0, Lcom/android/wm/shell/transition/Transitions$IShellTransitionsImpl$$ExternalSyntheticLambda1;->f$1:Landroid/window/IRemoteTransition;
+    iput-object p2, p0, Lcom/android/wm/shell/transition/Transitions$IShellTransitionsImpl$$ExternalSyntheticLambda1;->f$1:Landroid/window/RemoteTransition;
 
     return-void
 .end method
@@ -31,11 +31,11 @@
 
     iget-object v0, p0, Lcom/android/wm/shell/transition/Transitions$IShellTransitionsImpl$$ExternalSyntheticLambda1;->f$0:Landroid/window/TransitionFilter;
 
-    iget-object p0, p0, Lcom/android/wm/shell/transition/Transitions$IShellTransitionsImpl$$ExternalSyntheticLambda1;->f$1:Landroid/window/IRemoteTransition;
+    iget-object p0, p0, Lcom/android/wm/shell/transition/Transitions$IShellTransitionsImpl$$ExternalSyntheticLambda1;->f$1:Landroid/window/RemoteTransition;
 
     check-cast p1, Lcom/android/wm/shell/transition/Transitions;
 
-    invoke-static {v0, p0, p1}, Lcom/android/wm/shell/transition/Transitions$IShellTransitionsImpl;->$r8$lambda$3EVM_WT6Pt7jr3a8zr3vx48gruc(Landroid/window/TransitionFilter;Landroid/window/IRemoteTransition;Lcom/android/wm/shell/transition/Transitions;)V
+    invoke-static {v0, p0, p1}, Lcom/android/wm/shell/transition/Transitions$IShellTransitionsImpl;->$r8$lambda$vEdvWF-vkIrcXu4E5XECdMx0VRY(Landroid/window/TransitionFilter;Landroid/window/RemoteTransition;Lcom/android/wm/shell/transition/Transitions;)V
 
     return-void
 .end method

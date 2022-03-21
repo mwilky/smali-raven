@@ -40,11 +40,13 @@
 .end method
 
 .method public onFling(Landroid/view/MotionEvent;Landroid/view/MotionEvent;FF)Z
-    .locals 0
+    .locals 1
 
     const/4 p2, 0x0
 
     cmpl-float p2, p4, p2
+
+    const/4 v0, 0x0
 
     if-lez p2, :cond_0
 
@@ -66,11 +68,27 @@
 
     iget-object p2, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite$1;->this$0:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;
 
-    invoke-static {p2}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->access$3100(Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;)Lcom/android/systemui/statusbar/phone/StatusBar;
+    invoke-static {p2}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->access$3200(Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;)Ljava/util/Optional;
 
     move-result-object p2
 
-    invoke-virtual {p2}, Lcom/android/systemui/statusbar/phone/StatusBar;->getStatusBarHeight()I
+    sget-object p3, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite$1$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite$1$$ExternalSyntheticLambda0;
+
+    invoke-virtual {p2, p3}, Ljava/util/Optional;->map(Ljava/util/function/Function;)Ljava/util/Optional;
+
+    move-result-object p2
+
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object p3
+
+    invoke-virtual {p2, p3}, Ljava/util/Optional;->orElse(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object p2
+
+    check-cast p2, Ljava/lang/Integer;
+
+    invoke-virtual {p2}, Ljava/lang/Integer;->intValue()I
 
     move-result p2
 
@@ -82,24 +100,24 @@
 
     iget-object p0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite$1;->this$0:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;
 
-    invoke-static {p0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->access$3200(Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;)V
+    invoke-static {p0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->access$3300(Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;)V
 
     const/4 p0, 0x1
 
     return p0
 
     :cond_0
-    const/4 p0, 0x0
-
-    return p0
+    return v0
 .end method
 
 .method public onScroll(Landroid/view/MotionEvent;Landroid/view/MotionEvent;FF)Z
-    .locals 0
+    .locals 1
 
     const/4 p2, 0x0
 
     cmpg-float p2, p4, p2
+
+    const/4 v0, 0x0
 
     if-gez p2, :cond_0
 
@@ -113,11 +131,27 @@
 
     iget-object p2, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite$1;->this$0:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;
 
-    invoke-static {p2}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->access$3100(Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;)Lcom/android/systemui/statusbar/phone/StatusBar;
+    invoke-static {p2}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->access$3200(Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;)Ljava/util/Optional;
 
     move-result-object p2
 
-    invoke-virtual {p2}, Lcom/android/systemui/statusbar/phone/StatusBar;->getStatusBarHeight()I
+    sget-object p3, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite$1$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite$1$$ExternalSyntheticLambda0;
+
+    invoke-virtual {p2, p3}, Ljava/util/Optional;->map(Ljava/util/function/Function;)Ljava/util/Optional;
+
+    move-result-object p2
+
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object p3
+
+    invoke-virtual {p2, p3}, Ljava/util/Optional;->orElse(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object p2
+
+    check-cast p2, Ljava/lang/Integer;
+
+    invoke-virtual {p2}, Ljava/lang/Integer;->intValue()I
 
     move-result p2
 
@@ -129,24 +163,22 @@
 
     iget-object p0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite$1;->this$0:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;
 
-    invoke-static {p0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->access$3200(Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;)V
+    invoke-static {p0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->access$3300(Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;)V
 
     const/4 p0, 0x1
 
     return p0
 
     :cond_0
-    const/4 p0, 0x0
-
-    return p0
+    return v0
 .end method
 
-.method public onSingleTapConfirmed(Landroid/view/MotionEvent;)Z
+.method public onSingleTapUp(Landroid/view/MotionEvent;)Z
     .locals 1
 
     iget-object p1, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite$1;->this$0:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;
 
-    invoke-static {p1}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->access$3000(Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;)Lcom/android/internal/logging/UiEventLogger;
+    invoke-static {p1}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->access$3100(Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;)Lcom/android/internal/logging/UiEventLogger;
 
     move-result-object p1
 
@@ -156,7 +188,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite$1;->this$0:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;
 
-    invoke-virtual {p0}, Landroid/app/Dialog;->cancel()V
+    invoke-virtual {p0}, Landroid/app/AlertDialog;->cancel()V
 
     const/4 p0, 0x0
 

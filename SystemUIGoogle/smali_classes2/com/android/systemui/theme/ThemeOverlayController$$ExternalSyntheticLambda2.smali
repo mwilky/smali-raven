@@ -2,38 +2,36 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Ljava/util/function/Function;
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/android/systemui/theme/ThemeOverlayController;
-
-.field public final synthetic f$1:Landroid/app/WallpaperColors;
+.field public final synthetic f$0:Ljava/util/Map;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/systemui/theme/ThemeOverlayController;Landroid/app/WallpaperColors;)V
+.method public synthetic constructor <init>(Ljava/util/Map;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/systemui/theme/ThemeOverlayController$$ExternalSyntheticLambda2;->f$0:Lcom/android/systemui/theme/ThemeOverlayController;
-
-    iput-object p2, p0, Lcom/android/systemui/theme/ThemeOverlayController$$ExternalSyntheticLambda2;->f$1:Landroid/app/WallpaperColors;
+    iput-object p1, p0, Lcom/android/systemui/theme/ThemeOverlayController$$ExternalSyntheticLambda2;->f$0:Ljava/util/Map;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final run()V
-    .locals 1
+.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/systemui/theme/ThemeOverlayController$$ExternalSyntheticLambda2;->f$0:Lcom/android/systemui/theme/ThemeOverlayController;
+    iget-object p0, p0, Lcom/android/systemui/theme/ThemeOverlayController$$ExternalSyntheticLambda2;->f$0:Ljava/util/Map;
 
-    iget-object p0, p0, Lcom/android/systemui/theme/ThemeOverlayController$$ExternalSyntheticLambda2;->f$1:Landroid/app/WallpaperColors;
+    check-cast p1, Ljava/lang/String;
 
-    invoke-static {v0, p0}, Lcom/android/systemui/theme/ThemeOverlayController;->$r8$lambda$4cBbJrB1bp_rxXJ2pMu2eAni80k(Lcom/android/systemui/theme/ThemeOverlayController;Landroid/app/WallpaperColors;)V
+    invoke-static {p0, p1}, Lcom/android/systemui/theme/ThemeOverlayController;->$r8$lambda$eGIx99lFye6ycQqVOgetuJGarhI(Ljava/util/Map;Ljava/lang/String;)Ljava/lang/String;
 
-    return-void
+    move-result-object p0
+
+    return-object p0
 .end method

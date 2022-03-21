@@ -32,18 +32,6 @@
         <item quantity="other">Yanlış SIM PUK kodu,%d cəhddən sonra SIM kart həmişəlik yararsız olacaq.</item>
         <item quantity="one">Yanlış SIM PUK kodu, %d cəhddən sonra SIM kart həmişəlik yararsız olacaq.</item>
     </plurals>
-    <plurals name="kg_prompt_reason_time_password">
-        <item quantity="other">Cihaz %d saat kiliddən çıxarılmayıb. Parolu təsdiq edin.</item>
-        <item quantity="one">Cihaz %d saat kiliddən çıxarılmayıb. Parolu təsdiq edin.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pattern">
-        <item quantity="other">Cihaz %d saat kiliddən çıxarılmayıb. Nümunə kodu təsdiq edin.</item>
-        <item quantity="one">Cihaz %d saat kiliddən çıxarılmayıb. Nümunə kodu təsdiq edin.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pin">
-        <item quantity="other">Cihaz %d saat kiliddən çıxarılmayıb. PIN kodu təsdiq edin.</item>
-        <item quantity="one">Cihaz %d saat kiliddən çıxarılmayıb. PIN kodu təsdiq edin.</item>
-    </plurals>
     <plurals name="kg_too_many_failed_attempts_countdown">
         <item quantity="other">%d saniyə ərzində yenidən cəhd edin.</item>
         <item quantity="one">1 saniyə ərzində yenidən cəhd edin.</item>

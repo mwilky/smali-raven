@@ -4,7 +4,7 @@
 
 # interfaces
 .implements Lcom/android/systemui/plugins/qs/DetailAdapter;
-.implements Lcom/android/systemui/statusbar/policy/NetworkController$AccessPointController$AccessPointCallback;
+.implements Lcom/android/systemui/statusbar/connectivity/AccessPointController$AccessPointCallback;
 .implements Lcom/android/systemui/qs/QSDetailItems$Callback;
 
 
@@ -222,11 +222,11 @@
 
     iget-object v4, p0, Lcom/android/systemui/qs/tiles/WifiTile$WifiDetailAdapter;->this$0:Lcom/android/systemui/qs/tiles/WifiTile;
 
-    invoke-static {v4}, Lcom/android/systemui/qs/tiles/WifiTile;->access$1300(Lcom/android/systemui/qs/tiles/WifiTile;)Lcom/android/systemui/statusbar/policy/NetworkController$AccessPointController;
+    invoke-static {v4}, Lcom/android/systemui/qs/tiles/WifiTile;->access$1300(Lcom/android/systemui/qs/tiles/WifiTile;)Lcom/android/systemui/statusbar/connectivity/AccessPointController;
 
     move-result-object v4
 
-    invoke-interface {v4, v0}, Lcom/android/systemui/statusbar/policy/NetworkController$AccessPointController;->getIcon(Lcom/android/wifitrackerlib/WifiEntry;)I
+    invoke-interface {v4, v0}, Lcom/android/systemui/statusbar/connectivity/AccessPointController;->getIcon(Lcom/android/wifitrackerlib/WifiEntry;)I
 
     move-result v4
 
@@ -338,11 +338,11 @@
 
     iget-object p1, p0, Lcom/android/systemui/qs/tiles/WifiTile$WifiDetailAdapter;->this$0:Lcom/android/systemui/qs/tiles/WifiTile;
 
-    invoke-static {p1}, Lcom/android/systemui/qs/tiles/WifiTile;->access$1300(Lcom/android/systemui/qs/tiles/WifiTile;)Lcom/android/systemui/statusbar/policy/NetworkController$AccessPointController;
+    invoke-static {p1}, Lcom/android/systemui/qs/tiles/WifiTile;->access$1300(Lcom/android/systemui/qs/tiles/WifiTile;)Lcom/android/systemui/statusbar/connectivity/AccessPointController;
 
     move-result-object p1
 
-    invoke-interface {p1}, Lcom/android/systemui/statusbar/policy/NetworkController$AccessPointController;->scanForAccessPoints()V
+    invoke-interface {p1}, Lcom/android/systemui/statusbar/connectivity/AccessPointController;->scanForAccessPoints()V
 
     iget-object p1, p0, Lcom/android/systemui/qs/tiles/WifiTile$WifiDetailAdapter;->this$0:Lcom/android/systemui/qs/tiles/WifiTile;
 
@@ -471,11 +471,11 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/WifiTile$WifiDetailAdapter;->this$0:Lcom/android/systemui/qs/tiles/WifiTile;
 
-    invoke-static {v0}, Lcom/android/systemui/qs/tiles/WifiTile;->access$1300(Lcom/android/systemui/qs/tiles/WifiTile;)Lcom/android/systemui/statusbar/policy/NetworkController$AccessPointController;
+    invoke-static {v0}, Lcom/android/systemui/qs/tiles/WifiTile;->access$1300(Lcom/android/systemui/qs/tiles/WifiTile;)Lcom/android/systemui/statusbar/connectivity/AccessPointController;
 
     move-result-object v0
 
-    invoke-interface {v0, p1}, Lcom/android/systemui/statusbar/policy/NetworkController$AccessPointController;->connect(Lcom/android/wifitrackerlib/WifiEntry;)Z
+    invoke-interface {v0, p1}, Lcom/android/systemui/statusbar/connectivity/AccessPointController;->connect(Lcom/android/wifitrackerlib/WifiEntry;)Z
 
     move-result p1
 
@@ -582,9 +582,9 @@
 
     iget-object p0, p0, Lcom/android/systemui/qs/tiles/WifiTile$WifiDetailAdapter;->this$0:Lcom/android/systemui/qs/tiles/WifiTile;
 
-    iget-object p0, p0, Lcom/android/systemui/qs/tiles/WifiTile;->mController:Lcom/android/systemui/statusbar/policy/NetworkController;
+    iget-object p0, p0, Lcom/android/systemui/qs/tiles/WifiTile;->mController:Lcom/android/systemui/statusbar/connectivity/NetworkController;
 
-    invoke-interface {p0, p1}, Lcom/android/systemui/statusbar/policy/NetworkController;->setWifiEnabled(Z)V
+    invoke-interface {p0, p1}, Lcom/android/systemui/statusbar/connectivity/NetworkController;->setWifiEnabled(Z)V
 
     return-void
 .end method

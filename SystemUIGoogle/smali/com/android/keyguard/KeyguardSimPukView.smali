@@ -3,7 +3,21 @@
 .source "KeyguardSimPukView.java"
 
 
+# static fields
+.field private static final DEBUG:Z
+
+
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    sget-boolean v0, Lcom/android/keyguard/KeyguardConstants;->DEBUG:Z
+
+    sput-boolean v0, Lcom/android/keyguard/KeyguardSimPukView;->DEBUG:Z
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
 
@@ -51,13 +65,13 @@
 
     invoke-virtual {p0}, Landroid/widget/LinearLayout;->getContext()Landroid/content/Context;
 
-    move-result-object p1
+    move-result-object p2
 
-    sget p2, Lcom/android/systemui/R$string;->kg_password_wrong_puk_code_dead:I
+    sget v2, Lcom/android/systemui/R$string;->kg_password_wrong_puk_code_dead:I
 
-    invoke-virtual {p1, p2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+    invoke-virtual {p2, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object p2
 
     goto :goto_2
 
@@ -92,28 +106,28 @@
 
     invoke-virtual {v2, p2, p1, v3}, Landroid/content/res/Resources;->getQuantityString(II[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object p2
 
     goto :goto_2
 
     :cond_2
     if-eqz p2, :cond_3
 
-    sget p1, Lcom/android/systemui/R$string;->kg_puk_enter_puk_hint:I
+    sget p2, Lcom/android/systemui/R$string;->kg_puk_enter_puk_hint:I
 
     goto :goto_1
 
     :cond_3
-    sget p1, Lcom/android/systemui/R$string;->kg_password_puk_failed:I
+    sget p2, Lcom/android/systemui/R$string;->kg_password_puk_failed:I
 
     :goto_1
     invoke-virtual {p0}, Landroid/widget/LinearLayout;->getContext()Landroid/content/Context;
 
+    move-result-object v2
+
+    invoke-virtual {v2, p2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
     move-result-object p2
-
-    invoke-virtual {p2, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object p1
 
     :goto_2
     if-eqz p3, :cond_4
@@ -122,18 +136,47 @@
 
     move-result-object p0
 
-    sget p2, Lcom/android/systemui/R$string;->kg_sim_lock_esim_instructions:I
+    sget p3, Lcom/android/systemui/R$string;->kg_sim_lock_esim_instructions:I
 
-    new-array p3, v1, [Ljava/lang/Object;
+    new-array v1, v1, [Ljava/lang/Object;
 
-    aput-object p1, p3, v0
+    aput-object p2, v1, v0
 
-    invoke-virtual {p0, p2, p3}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {p0, p3, v1}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object p2
 
     :cond_4
-    return-object p1
+    sget-boolean p0, Lcom/android/keyguard/KeyguardSimPukView;->DEBUG:Z
+
+    if-eqz p0, :cond_5
+
+    new-instance p0, Ljava/lang/StringBuilder;
+
+    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string p3, "getPukPasswordErrorMessage: attemptsRemaining="
+
+    invoke-virtual {p0, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string p1, " displayMessage="
+
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    const-string p1, "KeyguardSimPukView"
+
+    invoke-static {p1, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_5
+    return-object p2
 .end method
 
 .method public getTitle()Ljava/lang/CharSequence;
@@ -143,7 +186,7 @@
 
     move-result-object p0
 
-    const v0, 0x104043a
+    const v0, 0x104043f
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

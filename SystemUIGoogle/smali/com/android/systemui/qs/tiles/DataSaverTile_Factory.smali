@@ -48,6 +48,16 @@
     .end annotation
 .end field
 
+.field private final dialogLaunchAnimatorProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/animation/DialogLaunchAnimator;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private final falsingManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -110,7 +120,7 @@
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -141,6 +151,9 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/policy/DataSaverController;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/animation/DialogLaunchAnimator;",
             ">;)V"
         }
     .end annotation
@@ -165,11 +178,13 @@
 
     iput-object p9, p0, Lcom/android/systemui/qs/tiles/DataSaverTile_Factory;->dataSaverControllerProvider:Ljavax/inject/Provider;
 
+    iput-object p10, p0, Lcom/android/systemui/qs/tiles/DataSaverTile_Factory;->dialogLaunchAnimatorProvider:Ljavax/inject/Provider;
+
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/qs/tiles/DataSaverTile_Factory;
-    .locals 11
+.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/qs/tiles/DataSaverTile_Factory;
+    .locals 12
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -199,14 +214,17 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/policy/DataSaverController;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/animation/DialogLaunchAnimator;",
             ">;)",
             "Lcom/android/systemui/qs/tiles/DataSaverTile_Factory;"
         }
     .end annotation
 
-    new-instance v10, Lcom/android/systemui/qs/tiles/DataSaverTile_Factory;
+    new-instance v11, Lcom/android/systemui/qs/tiles/DataSaverTile_Factory;
 
-    move-object v0, v10
+    move-object v0, v11
 
     move-object v1, p0
 
@@ -216,7 +234,7 @@
 
     move-object v4, p3
 
-    move-object v5, p4
+    move-object/from16 v5, p4
 
     move-object/from16 v6, p5
 
@@ -226,17 +244,19 @@
 
     move-object/from16 v9, p8
 
-    invoke-direct/range {v0 .. v9}, Lcom/android/systemui/qs/tiles/DataSaverTile_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+    move-object/from16 v10, p9
 
-    return-object v10
+    invoke-direct/range {v0 .. v10}, Lcom/android/systemui/qs/tiles/DataSaverTile_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+
+    return-object v11
 .end method
 
-.method public static newInstance(Lcom/android/systemui/qs/QSHost;Landroid/os/Looper;Landroid/os/Handler;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/systemui/statusbar/policy/DataSaverController;)Lcom/android/systemui/qs/tiles/DataSaverTile;
-    .locals 11
+.method public static newInstance(Lcom/android/systemui/qs/QSHost;Landroid/os/Looper;Landroid/os/Handler;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/systemui/statusbar/policy/DataSaverController;Lcom/android/systemui/animation/DialogLaunchAnimator;)Lcom/android/systemui/qs/tiles/DataSaverTile;
+    .locals 12
 
-    new-instance v10, Lcom/android/systemui/qs/tiles/DataSaverTile;
+    new-instance v11, Lcom/android/systemui/qs/tiles/DataSaverTile;
 
-    move-object v0, v10
+    move-object v0, v11
 
     move-object v1, p0
 
@@ -246,7 +266,7 @@
 
     move-object v4, p3
 
-    move-object v5, p4
+    move-object/from16 v5, p4
 
     move-object/from16 v6, p5
 
@@ -256,15 +276,17 @@
 
     move-object/from16 v9, p8
 
-    invoke-direct/range {v0 .. v9}, Lcom/android/systemui/qs/tiles/DataSaverTile;-><init>(Lcom/android/systemui/qs/QSHost;Landroid/os/Looper;Landroid/os/Handler;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/systemui/statusbar/policy/DataSaverController;)V
+    move-object/from16 v10, p9
 
-    return-object v10
+    invoke-direct/range {v0 .. v10}, Lcom/android/systemui/qs/tiles/DataSaverTile;-><init>(Lcom/android/systemui/qs/QSHost;Landroid/os/Looper;Landroid/os/Handler;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/systemui/statusbar/policy/DataSaverController;Lcom/android/systemui/animation/DialogLaunchAnimator;)V
+
+    return-object v11
 .end method
 
 
 # virtual methods
 .method public get()Lcom/android/systemui/qs/tiles/DataSaverTile;
-    .locals 10
+    .locals 11
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/DataSaverTile_Factory;->hostProvider:Ljavax/inject/Provider;
 
@@ -346,17 +368,27 @@
 
     check-cast v8, Lcom/android/systemui/qs/logging/QSLogger;
 
-    iget-object p0, p0, Lcom/android/systemui/qs/tiles/DataSaverTile_Factory;->dataSaverControllerProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/DataSaverTile_Factory;->dataSaverControllerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v9, v0
+
+    check-cast v9, Lcom/android/systemui/statusbar/policy/DataSaverController;
+
+    iget-object p0, p0, Lcom/android/systemui/qs/tiles/DataSaverTile_Factory;->dialogLaunchAnimatorProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object p0
 
-    move-object v9, p0
+    move-object v10, p0
 
-    check-cast v9, Lcom/android/systemui/statusbar/policy/DataSaverController;
+    check-cast v10, Lcom/android/systemui/animation/DialogLaunchAnimator;
 
-    invoke-static/range {v1 .. v9}, Lcom/android/systemui/qs/tiles/DataSaverTile_Factory;->newInstance(Lcom/android/systemui/qs/QSHost;Landroid/os/Looper;Landroid/os/Handler;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/systemui/statusbar/policy/DataSaverController;)Lcom/android/systemui/qs/tiles/DataSaverTile;
+    invoke-static/range {v1 .. v10}, Lcom/android/systemui/qs/tiles/DataSaverTile_Factory;->newInstance(Lcom/android/systemui/qs/QSHost;Landroid/os/Looper;Landroid/os/Handler;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/systemui/statusbar/policy/DataSaverController;Lcom/android/systemui/animation/DialogLaunchAnimator;)Lcom/android/systemui/qs/tiles/DataSaverTile;
 
     move-result-object p0
 

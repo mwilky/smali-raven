@@ -34,12 +34,18 @@
 
 
 # virtual methods
-.method public onDensityOrFontScaleChanged()V
+.method public onConfigChanged(Landroid/content/res/Configuration;)V
     .locals 0
+
+    iget-object p1, p0, Lcom/android/systemui/media/MediaHierarchyManager$1;->this$0:Lcom/android/systemui/media/MediaHierarchyManager;
+
+    invoke-static {p1}, Lcom/android/systemui/media/MediaHierarchyManager;->access$updateConfiguration(Lcom/android/systemui/media/MediaHierarchyManager;)V
 
     iget-object p0, p0, Lcom/android/systemui/media/MediaHierarchyManager$1;->this$0:Lcom/android/systemui/media/MediaHierarchyManager;
 
-    invoke-static {p0}, Lcom/android/systemui/media/MediaHierarchyManager;->access$updateConfiguration(Lcom/android/systemui/media/MediaHierarchyManager;)V
+    const/4 p1, 0x1
+
+    invoke-static {p0, p1, p1}, Lcom/android/systemui/media/MediaHierarchyManager;->access$updateDesiredLocation(Lcom/android/systemui/media/MediaHierarchyManager;ZZ)V
 
     return-void
 .end method

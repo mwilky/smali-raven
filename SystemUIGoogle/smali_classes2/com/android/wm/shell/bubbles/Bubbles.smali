@@ -98,9 +98,6 @@
 .method public abstract onStatusBarVisibilityChanged(Z)V
 .end method
 
-.method public abstract onTaskbarChanged(Landroid/os/Bundle;)V
-.end method
-
 .method public abstract onUserChanged(I)V
 .end method
 
@@ -117,19 +114,6 @@
             ">;",
             "Ljava/util/concurrent/Executor;",
             ")V"
-        }
-    .end annotation
-.end method
-
-.method public abstract setBubbleScrim(Landroid/view/View;Ljava/util/function/BiConsumer;)V
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroid/view/View;",
-            "Ljava/util/function/BiConsumer<",
-            "Ljava/util/concurrent/Executor;",
-            "Landroid/os/Looper;",
-            ">;)V"
         }
     .end annotation
 .end method

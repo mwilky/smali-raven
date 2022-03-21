@@ -67,42 +67,6 @@
     return v0
 .end method
 
-.method public getAnimationOffsetX()F
-    .locals 2
-
-    invoke-virtual {p0}, Lcom/android/systemui/globalactions/GlobalActionsLayout;->getCurrentRotation()I
-
-    move-result v0
-
-    const/4 v1, 0x1
-
-    if-eq v0, v1, :cond_1
-
-    const/4 v1, 0x3
-
-    if-eq v0, v1, :cond_0
-
-    const/4 p0, 0x0
-
-    return p0
-
-    :cond_0
-    invoke-virtual {p0}, Lcom/android/systemui/globalactions/GlobalActionsGridLayout;->getAnimationDistance()F
-
-    move-result p0
-
-    neg-float p0, p0
-
-    return p0
-
-    :cond_1
-    invoke-virtual {p0}, Lcom/android/systemui/globalactions/GlobalActionsGridLayout;->getAnimationDistance()F
-
-    move-result p0
-
-    return p0
-.end method
-
 .method protected bridge synthetic getListView()Landroid/view/ViewGroup;
     .locals 0
 

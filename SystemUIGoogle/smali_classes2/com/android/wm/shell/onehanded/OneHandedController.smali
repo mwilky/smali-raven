@@ -4,6 +4,7 @@
 
 # interfaces
 .implements Lcom/android/wm/shell/common/RemoteCallable;
+.implements Lcom/android/wm/shell/common/DisplayChangeController$OnDisplayChangingListener;
 
 
 # annotations
@@ -19,7 +20,8 @@
         "Ljava/lang/Object;",
         "Lcom/android/wm/shell/common/RemoteCallable<",
         "Lcom/android/wm/shell/onehanded/OneHandedController;",
-        ">;"
+        ">;",
+        "Lcom/android/wm/shell/common/DisplayChangeController$OnDisplayChangingListener;"
     }
 .end annotation
 
@@ -71,8 +73,6 @@
 
 .field private final mOverlayManager:Landroid/content/om/IOverlayManager;
 
-.field private final mRotationController:Lcom/android/wm/shell/common/DisplayChangeController$OnDisplayChangingListener;
-
 .field private final mShortcutEnabledObserver:Landroid/database/ContentObserver;
 
 .field private final mState:Lcom/android/wm/shell/onehanded/OneHandedState;
@@ -97,62 +97,54 @@
 
 
 # direct methods
-.method public static synthetic $r8$lambda$ATS_-SYfDEdXE49yQIVOUaqWFOk(Lcom/android/wm/shell/onehanded/OneHandedController;)V
+.method public static synthetic $r8$lambda$0CSiH37_f2JhaGJj3NZ3f8L8MNg(Lcom/android/wm/shell/onehanded/OneHandedController;)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/wm/shell/onehanded/OneHandedController;->lambda$setupCallback$1()V
+    invoke-direct {p0}, Lcom/android/wm/shell/onehanded/OneHandedController;->lambda$notifyExpandNotification$1()V
 
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$FvOeIsqgdWPxwYCerwn7RLMMDZM(Lcom/android/wm/shell/onehanded/OneHandedController;)V
+.method public static synthetic $r8$lambda$71uyfUc5Z-spLxYexezB6Jzdb3U(Lcom/android/wm/shell/onehanded/OneHandedController;I)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/wm/shell/onehanded/OneHandedController;->lambda$updateOneHandedEnabled$4()V
+    invoke-direct {p0, p1}, Lcom/android/wm/shell/onehanded/OneHandedController;->lambda$setupTimeoutListener$2(I)V
 
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$Hy9gyrs4CJslXvjvvHMy8L84PzM(Lcom/android/wm/shell/onehanded/OneHandedController;Z)V
+.method public static synthetic $r8$lambda$I2CksqCQ12hnYLeGDACNLCXNozc(Lcom/android/wm/shell/onehanded/OneHandedController;)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/wm/shell/onehanded/OneHandedController;->lambda$setEnabledGesturalOverlay$5(Z)V
+    invoke-direct {p0}, Lcom/android/wm/shell/onehanded/OneHandedController;->lambda$setupCallback$0()V
 
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$Vyt1IYrk_OiVPD4P1AwCmrmcO1s(Lcom/android/wm/shell/onehanded/OneHandedController;IIILandroid/window/WindowContainerTransaction;)V
+.method public static synthetic $r8$lambda$OtuMj6RSV5qgRjSpH-HT35EbYL0(Lcom/android/wm/shell/onehanded/OneHandedController;Z)V
     .locals 0
 
-    invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/wm/shell/onehanded/OneHandedController;->lambda$new$0(IIILandroid/window/WindowContainerTransaction;)V
+    invoke-direct {p0, p1}, Lcom/android/wm/shell/onehanded/OneHandedController;->lambda$setEnabledGesturalOverlay$4(Z)V
 
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$fQrNDg5hmSaXVLye6IvJCK5qQGA(Lcom/android/wm/shell/onehanded/OneHandedController;)V
+.method public static synthetic $r8$lambda$tF38Rrv2YMu-fFWmDFWEva2mu1M(Lcom/android/wm/shell/onehanded/OneHandedController;)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/wm/shell/onehanded/OneHandedController;->lambda$notifyExpandNotification$2()V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$ti0Y9nobDx5ZYnnenyGgDBuXH7c(Lcom/android/wm/shell/onehanded/OneHandedController;I)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/wm/shell/onehanded/OneHandedController;->lambda$setupTimeoutListener$3(I)V
+    invoke-direct {p0}, Lcom/android/wm/shell/onehanded/OneHandedController;->lambda$updateOneHandedEnabled$3()V
 
     return-void
 .end method
 
 .method constructor <init>(Landroid/content/Context;Lcom/android/wm/shell/common/DisplayController;Lcom/android/wm/shell/onehanded/OneHandedBackgroundPanelOrganizer;Lcom/android/wm/shell/onehanded/OneHandedDisplayAreaOrganizer;Lcom/android/wm/shell/onehanded/OneHandedTouchHandler;Lcom/android/wm/shell/onehanded/OneHandedTutorialHandler;Lcom/android/wm/shell/onehanded/OneHandedSettingsUtil;Lcom/android/wm/shell/onehanded/OneHandedAccessibilityUtil;Lcom/android/wm/shell/onehanded/OneHandedTimeoutHandler;Lcom/android/wm/shell/onehanded/OneHandedState;Lcom/android/wm/shell/onehanded/OneHandedUiEventLogger;Landroid/content/om/IOverlayManager;Lcom/android/wm/shell/common/TaskStackListenerImpl;Lcom/android/wm/shell/common/ShellExecutor;Landroid/os/Handler;)V
-    .locals 10
+    .locals 9
 
     move-object v0, p0
 
     move-object v1, p2
 
-    move-object/from16 v2, p6
+    move-object v2, p6
 
     move-object/from16 v3, p7
 
@@ -168,143 +160,137 @@
 
     iput-object v5, v0, Lcom/android/wm/shell/onehanded/OneHandedController;->mImpl:Lcom/android/wm/shell/onehanded/OneHandedController$OneHandedImpl;
 
-    new-instance v5, Lcom/android/wm/shell/onehanded/OneHandedController$$ExternalSyntheticLambda0;
+    new-instance v5, Lcom/android/wm/shell/onehanded/OneHandedController$1;
 
-    invoke-direct {v5, p0}, Lcom/android/wm/shell/onehanded/OneHandedController$$ExternalSyntheticLambda0;-><init>(Lcom/android/wm/shell/onehanded/OneHandedController;)V
+    invoke-direct {v5, p0}, Lcom/android/wm/shell/onehanded/OneHandedController$1;-><init>(Lcom/android/wm/shell/onehanded/OneHandedController;)V
 
-    iput-object v5, v0, Lcom/android/wm/shell/onehanded/OneHandedController;->mRotationController:Lcom/android/wm/shell/common/DisplayChangeController$OnDisplayChangingListener;
+    iput-object v5, v0, Lcom/android/wm/shell/onehanded/OneHandedController;->mDisplaysChangedListener:Lcom/android/wm/shell/common/DisplayController$OnDisplaysChangedListener;
 
-    new-instance v6, Lcom/android/wm/shell/onehanded/OneHandedController$1;
+    new-instance v6, Lcom/android/wm/shell/onehanded/OneHandedController$2;
 
-    invoke-direct {v6, p0}, Lcom/android/wm/shell/onehanded/OneHandedController$1;-><init>(Lcom/android/wm/shell/onehanded/OneHandedController;)V
+    invoke-direct {v6, p0}, Lcom/android/wm/shell/onehanded/OneHandedController$2;-><init>(Lcom/android/wm/shell/onehanded/OneHandedController;)V
 
-    iput-object v6, v0, Lcom/android/wm/shell/onehanded/OneHandedController;->mDisplaysChangedListener:Lcom/android/wm/shell/common/DisplayController$OnDisplaysChangedListener;
+    iput-object v6, v0, Lcom/android/wm/shell/onehanded/OneHandedController;->mAccessibilityStateChangeListener:Landroid/view/accessibility/AccessibilityManager$AccessibilityStateChangeListener;
 
-    new-instance v7, Lcom/android/wm/shell/onehanded/OneHandedController$2;
+    new-instance v6, Lcom/android/wm/shell/onehanded/OneHandedController$3;
 
-    invoke-direct {v7, p0}, Lcom/android/wm/shell/onehanded/OneHandedController$2;-><init>(Lcom/android/wm/shell/onehanded/OneHandedController;)V
+    invoke-direct {v6, p0}, Lcom/android/wm/shell/onehanded/OneHandedController$3;-><init>(Lcom/android/wm/shell/onehanded/OneHandedController;)V
 
-    iput-object v7, v0, Lcom/android/wm/shell/onehanded/OneHandedController;->mAccessibilityStateChangeListener:Landroid/view/accessibility/AccessibilityManager$AccessibilityStateChangeListener;
+    iput-object v6, v0, Lcom/android/wm/shell/onehanded/OneHandedController;->mTransitionCallBack:Lcom/android/wm/shell/onehanded/OneHandedTransitionCallback;
 
-    new-instance v7, Lcom/android/wm/shell/onehanded/OneHandedController$3;
+    new-instance v6, Lcom/android/wm/shell/onehanded/OneHandedController$4;
 
-    invoke-direct {v7, p0}, Lcom/android/wm/shell/onehanded/OneHandedController$3;-><init>(Lcom/android/wm/shell/onehanded/OneHandedController;)V
+    invoke-direct {v6, p0}, Lcom/android/wm/shell/onehanded/OneHandedController$4;-><init>(Lcom/android/wm/shell/onehanded/OneHandedController;)V
 
-    iput-object v7, v0, Lcom/android/wm/shell/onehanded/OneHandedController;->mTransitionCallBack:Lcom/android/wm/shell/onehanded/OneHandedTransitionCallback;
+    iput-object v6, v0, Lcom/android/wm/shell/onehanded/OneHandedController;->mTaskStackListenerCallback:Lcom/android/wm/shell/common/TaskStackListenerCallback;
 
-    new-instance v7, Lcom/android/wm/shell/onehanded/OneHandedController$4;
+    move-object v6, p1
 
-    invoke-direct {v7, p0}, Lcom/android/wm/shell/onehanded/OneHandedController$4;-><init>(Lcom/android/wm/shell/onehanded/OneHandedController;)V
-
-    iput-object v7, v0, Lcom/android/wm/shell/onehanded/OneHandedController;->mTaskStackListenerCallback:Lcom/android/wm/shell/common/TaskStackListenerCallback;
-
-    move-object v7, p1
-
-    iput-object v7, v0, Lcom/android/wm/shell/onehanded/OneHandedController;->mContext:Landroid/content/Context;
+    iput-object v6, v0, Lcom/android/wm/shell/onehanded/OneHandedController;->mContext:Landroid/content/Context;
 
     iput-object v3, v0, Lcom/android/wm/shell/onehanded/OneHandedController;->mOneHandedSettingsUtil:Lcom/android/wm/shell/onehanded/OneHandedSettingsUtil;
 
-    move-object/from16 v8, p8
+    move-object/from16 v7, p8
 
-    iput-object v8, v0, Lcom/android/wm/shell/onehanded/OneHandedController;->mOneHandedAccessibilityUtil:Lcom/android/wm/shell/onehanded/OneHandedAccessibilityUtil;
+    iput-object v7, v0, Lcom/android/wm/shell/onehanded/OneHandedController;->mOneHandedAccessibilityUtil:Lcom/android/wm/shell/onehanded/OneHandedAccessibilityUtil;
 
-    move-object v8, p3
+    move-object v7, p3
 
-    iput-object v8, v0, Lcom/android/wm/shell/onehanded/OneHandedController;->mBackgroundPanelOrganizer:Lcom/android/wm/shell/onehanded/OneHandedBackgroundPanelOrganizer;
+    iput-object v7, v0, Lcom/android/wm/shell/onehanded/OneHandedController;->mBackgroundPanelOrganizer:Lcom/android/wm/shell/onehanded/OneHandedBackgroundPanelOrganizer;
 
-    move-object v8, p4
+    move-object v7, p4
 
-    iput-object v8, v0, Lcom/android/wm/shell/onehanded/OneHandedController;->mDisplayAreaOrganizer:Lcom/android/wm/shell/onehanded/OneHandedDisplayAreaOrganizer;
+    iput-object v7, v0, Lcom/android/wm/shell/onehanded/OneHandedController;->mDisplayAreaOrganizer:Lcom/android/wm/shell/onehanded/OneHandedDisplayAreaOrganizer;
 
     iput-object v1, v0, Lcom/android/wm/shell/onehanded/OneHandedController;->mDisplayController:Lcom/android/wm/shell/common/DisplayController;
 
-    move-object v8, p5
+    move-object v7, p5
 
-    iput-object v8, v0, Lcom/android/wm/shell/onehanded/OneHandedController;->mTouchHandler:Lcom/android/wm/shell/onehanded/OneHandedTouchHandler;
+    iput-object v7, v0, Lcom/android/wm/shell/onehanded/OneHandedController;->mTouchHandler:Lcom/android/wm/shell/onehanded/OneHandedTouchHandler;
 
     iput-object v4, v0, Lcom/android/wm/shell/onehanded/OneHandedController;->mState:Lcom/android/wm/shell/onehanded/OneHandedState;
 
     iput-object v2, v0, Lcom/android/wm/shell/onehanded/OneHandedController;->mTutorialHandler:Lcom/android/wm/shell/onehanded/OneHandedTutorialHandler;
 
-    move-object/from16 v8, p12
+    move-object/from16 v7, p12
 
-    iput-object v8, v0, Lcom/android/wm/shell/onehanded/OneHandedController;->mOverlayManager:Landroid/content/om/IOverlayManager;
+    iput-object v7, v0, Lcom/android/wm/shell/onehanded/OneHandedController;->mOverlayManager:Landroid/content/om/IOverlayManager;
 
-    move-object/from16 v8, p14
+    move-object/from16 v7, p14
 
-    iput-object v8, v0, Lcom/android/wm/shell/onehanded/OneHandedController;->mMainExecutor:Lcom/android/wm/shell/common/ShellExecutor;
+    iput-object v7, v0, Lcom/android/wm/shell/onehanded/OneHandedController;->mMainExecutor:Lcom/android/wm/shell/common/ShellExecutor;
 
-    move-object/from16 v8, p15
+    move-object/from16 v7, p15
 
-    iput-object v8, v0, Lcom/android/wm/shell/onehanded/OneHandedController;->mMainHandler:Landroid/os/Handler;
+    iput-object v7, v0, Lcom/android/wm/shell/onehanded/OneHandedController;->mMainHandler:Landroid/os/Handler;
 
-    move-object/from16 v8, p11
+    move-object/from16 v7, p11
 
-    iput-object v8, v0, Lcom/android/wm/shell/onehanded/OneHandedController;->mOneHandedUiEventLogger:Lcom/android/wm/shell/onehanded/OneHandedUiEventLogger;
+    iput-object v7, v0, Lcom/android/wm/shell/onehanded/OneHandedController;->mOneHandedUiEventLogger:Lcom/android/wm/shell/onehanded/OneHandedUiEventLogger;
 
-    move-object/from16 v8, p13
+    move-object/from16 v7, p13
 
-    iput-object v8, v0, Lcom/android/wm/shell/onehanded/OneHandedController;->mTaskStackListener:Lcom/android/wm/shell/common/TaskStackListenerImpl;
+    iput-object v7, v0, Lcom/android/wm/shell/onehanded/OneHandedController;->mTaskStackListener:Lcom/android/wm/shell/common/TaskStackListenerImpl;
 
-    invoke-virtual {p2, v6}, Lcom/android/wm/shell/common/DisplayController;->addDisplayWindowListener(Lcom/android/wm/shell/common/DisplayController$OnDisplaysChangedListener;)V
+    invoke-virtual {p2, v5}, Lcom/android/wm/shell/common/DisplayController;->addDisplayWindowListener(Lcom/android/wm/shell/common/DisplayController$OnDisplaysChangedListener;)V
 
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v6
+    move-result-object v5
 
-    sget v8, Lcom/android/wm/shell/R$fraction;->config_one_handed_offset:I
+    sget v7, Lcom/android/wm/shell/R$fraction;->config_one_handed_offset:I
 
-    const/4 v9, 0x1
+    const/4 v8, 0x1
 
-    invoke-virtual {v6, v8, v9, v9}, Landroid/content/res/Resources;->getFraction(III)F
+    invoke-virtual {v5, v7, v8, v8}, Landroid/content/res/Resources;->getFraction(III)F
 
-    move-result v6
+    move-result v5
 
-    const/high16 v8, 0x42c80000    # 100.0f
+    const/high16 v7, 0x42c80000    # 100.0f
 
-    mul-float/2addr v6, v8
+    mul-float/2addr v5, v7
 
-    invoke-static {v6}, Ljava/lang/Math;->round(F)I
+    invoke-static {v5}, Ljava/lang/Math;->round(F)I
 
-    move-result v6
+    move-result v5
 
-    const-string v9, "persist.debug.one_handed_offset_percentage"
+    const-string v8, "persist.debug.one_handed_offset_percentage"
 
-    invoke-static {v9, v6}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
+    invoke-static {v8, v5}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
 
-    move-result v6
+    move-result v5
 
     invoke-static {}, Landroid/os/UserHandle;->myUserId()I
 
-    move-result v9
+    move-result v8
 
-    iput v9, v0, Lcom/android/wm/shell/onehanded/OneHandedController;->mUserId:I
+    iput v8, v0, Lcom/android/wm/shell/onehanded/OneHandedController;->mUserId:I
 
-    int-to-float v6, v6
+    int-to-float v5, v5
 
-    div-float/2addr v6, v8
+    div-float/2addr v5, v7
 
-    iput v6, v0, Lcom/android/wm/shell/onehanded/OneHandedController;->mOffSetFraction:F
-
-    invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v6
-
-    iget v8, v0, Lcom/android/wm/shell/onehanded/OneHandedController;->mUserId:I
-
-    invoke-virtual {v3, v6, v8}, Lcom/android/wm/shell/onehanded/OneHandedSettingsUtil;->getSettingsOneHandedModeEnabled(Landroid/content/ContentResolver;I)Z
-
-    move-result v6
-
-    iput-boolean v6, v0, Lcom/android/wm/shell/onehanded/OneHandedController;->mIsOneHandedEnabled:Z
+    iput v5, v0, Lcom/android/wm/shell/onehanded/OneHandedController;->mOffSetFraction:F
 
     invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v6
+    move-result-object v5
 
-    iget v8, v0, Lcom/android/wm/shell/onehanded/OneHandedController;->mUserId:I
+    iget v7, v0, Lcom/android/wm/shell/onehanded/OneHandedController;->mUserId:I
 
-    invoke-virtual {v3, v6, v8}, Lcom/android/wm/shell/onehanded/OneHandedSettingsUtil;->getSettingsSwipeToNotificationEnabled(Landroid/content/ContentResolver;I)Z
+    invoke-virtual {v3, v5, v7}, Lcom/android/wm/shell/onehanded/OneHandedSettingsUtil;->getSettingsOneHandedModeEnabled(Landroid/content/ContentResolver;I)Z
+
+    move-result v5
+
+    iput-boolean v5, v0, Lcom/android/wm/shell/onehanded/OneHandedController;->mIsOneHandedEnabled:Z
+
+    invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v5
+
+    iget v7, v0, Lcom/android/wm/shell/onehanded/OneHandedController;->mUserId:I
+
+    invoke-virtual {v3, v5, v7}, Lcom/android/wm/shell/onehanded/OneHandedSettingsUtil;->getSettingsSwipeToNotificationEnabled(Landroid/content/ContentResolver;I)Z
 
     move-result v3
 
@@ -314,6 +300,16 @@
 
     iput-object v3, v0, Lcom/android/wm/shell/onehanded/OneHandedController;->mTimeoutHandler:Lcom/android/wm/shell/onehanded/OneHandedTimeoutHandler;
 
+    new-instance v3, Lcom/android/wm/shell/onehanded/OneHandedController$$ExternalSyntheticLambda2;
+
+    invoke-direct {v3, p0}, Lcom/android/wm/shell/onehanded/OneHandedController$$ExternalSyntheticLambda2;-><init>(Lcom/android/wm/shell/onehanded/OneHandedController;)V
+
+    invoke-direct {p0, v3}, Lcom/android/wm/shell/onehanded/OneHandedController;->getObserver(Ljava/lang/Runnable;)Landroid/database/ContentObserver;
+
+    move-result-object v3
+
+    iput-object v3, v0, Lcom/android/wm/shell/onehanded/OneHandedController;->mActivatedObserver:Landroid/database/ContentObserver;
+
     new-instance v3, Lcom/android/wm/shell/onehanded/OneHandedController$$ExternalSyntheticLambda3;
 
     invoke-direct {v3, p0}, Lcom/android/wm/shell/onehanded/OneHandedController$$ExternalSyntheticLambda3;-><init>(Lcom/android/wm/shell/onehanded/OneHandedController;)V
@@ -322,27 +318,7 @@
 
     move-result-object v3
 
-    iput-object v3, v0, Lcom/android/wm/shell/onehanded/OneHandedController;->mActivatedObserver:Landroid/database/ContentObserver;
-
-    new-instance v3, Lcom/android/wm/shell/onehanded/OneHandedController$$ExternalSyntheticLambda4;
-
-    invoke-direct {v3, p0}, Lcom/android/wm/shell/onehanded/OneHandedController$$ExternalSyntheticLambda4;-><init>(Lcom/android/wm/shell/onehanded/OneHandedController;)V
-
-    invoke-direct {p0, v3}, Lcom/android/wm/shell/onehanded/OneHandedController;->getObserver(Ljava/lang/Runnable;)Landroid/database/ContentObserver;
-
-    move-result-object v3
-
     iput-object v3, v0, Lcom/android/wm/shell/onehanded/OneHandedController;->mEnabledObserver:Landroid/database/ContentObserver;
-
-    new-instance v3, Lcom/android/wm/shell/onehanded/OneHandedController$$ExternalSyntheticLambda6;
-
-    invoke-direct {v3, p0}, Lcom/android/wm/shell/onehanded/OneHandedController$$ExternalSyntheticLambda6;-><init>(Lcom/android/wm/shell/onehanded/OneHandedController;)V
-
-    invoke-direct {p0, v3}, Lcom/android/wm/shell/onehanded/OneHandedController;->getObserver(Ljava/lang/Runnable;)Landroid/database/ContentObserver;
-
-    move-result-object v3
-
-    iput-object v3, v0, Lcom/android/wm/shell/onehanded/OneHandedController;->mSwipeToNotificationEnabledObserver:Landroid/database/ContentObserver;
 
     new-instance v3, Lcom/android/wm/shell/onehanded/OneHandedController$$ExternalSyntheticLambda5;
 
@@ -352,9 +328,19 @@
 
     move-result-object v3
 
+    iput-object v3, v0, Lcom/android/wm/shell/onehanded/OneHandedController;->mSwipeToNotificationEnabledObserver:Landroid/database/ContentObserver;
+
+    new-instance v3, Lcom/android/wm/shell/onehanded/OneHandedController$$ExternalSyntheticLambda4;
+
+    invoke-direct {v3, p0}, Lcom/android/wm/shell/onehanded/OneHandedController$$ExternalSyntheticLambda4;-><init>(Lcom/android/wm/shell/onehanded/OneHandedController;)V
+
+    invoke-direct {p0, v3}, Lcom/android/wm/shell/onehanded/OneHandedController;->getObserver(Ljava/lang/Runnable;)Landroid/database/ContentObserver;
+
+    move-result-object v3
+
     iput-object v3, v0, Lcom/android/wm/shell/onehanded/OneHandedController;->mShortcutEnabledObserver:Landroid/database/ContentObserver;
 
-    invoke-virtual {p2, v5}, Lcom/android/wm/shell/common/DisplayController;->addDisplayChangingController(Lcom/android/wm/shell/common/DisplayChangeController$OnDisplayChangingListener;)V
+    invoke-virtual {p2, p0}, Lcom/android/wm/shell/common/DisplayController;->addDisplayChangingController(Lcom/android/wm/shell/common/DisplayChangeController$OnDisplayChangingListener;)V
 
     invoke-direct {p0}, Lcom/android/wm/shell/onehanded/OneHandedController;->setupCallback()V
 
@@ -382,7 +368,7 @@
 
     invoke-virtual {v4, v0}, Lcom/android/wm/shell/onehanded/OneHandedState;->addSListeners(Lcom/android/wm/shell/onehanded/OneHandedState$OnStateChangedListener;)V
 
-    invoke-virtual {v4, v2}, Lcom/android/wm/shell/onehanded/OneHandedState;->addSListeners(Lcom/android/wm/shell/onehanded/OneHandedState$OnStateChangedListener;)V
+    invoke-virtual {v4, p6}, Lcom/android/wm/shell/onehanded/OneHandedState;->addSListeners(Lcom/android/wm/shell/onehanded/OneHandedState$OnStateChangedListener;)V
 
     return-void
 .end method
@@ -508,27 +494,6 @@
 
     move-object/from16 v14, p6
 
-    const-string v0, "ro.support_one_handed_mode"
-
-    const/4 v1, 0x0
-
-    invoke-static {v0, v1}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    const-string v0, "OneHandedController"
-
-    const-string v1, "Device doesn\'t support OneHanded feature"
-
-    invoke-static {v0, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v0, 0x0
-
-    return-object v0
-
-    :cond_0
     new-instance v9, Lcom/android/wm/shell/onehanded/OneHandedSettingsUtil;
 
     invoke-direct {v9}, Lcom/android/wm/shell/onehanded/OneHandedSettingsUtil;-><init>()V
@@ -629,8 +594,6 @@
 
     move-object/from16 v13, p4
 
-    move-object/from16 v14, p6
-
     move-object/from16 v15, p7
 
     invoke-direct/range {v0 .. v15}, Lcom/android/wm/shell/onehanded/OneHandedController;-><init>(Landroid/content/Context;Lcom/android/wm/shell/common/DisplayController;Lcom/android/wm/shell/onehanded/OneHandedBackgroundPanelOrganizer;Lcom/android/wm/shell/onehanded/OneHandedDisplayAreaOrganizer;Lcom/android/wm/shell/onehanded/OneHandedTouchHandler;Lcom/android/wm/shell/onehanded/OneHandedTutorialHandler;Lcom/android/wm/shell/onehanded/OneHandedSettingsUtil;Lcom/android/wm/shell/onehanded/OneHandedAccessibilityUtil;Lcom/android/wm/shell/onehanded/OneHandedTimeoutHandler;Lcom/android/wm/shell/onehanded/OneHandedState;Lcom/android/wm/shell/onehanded/OneHandedUiEventLogger;Landroid/content/om/IOverlayManager;Lcom/android/wm/shell/common/TaskStackListenerImpl;Lcom/android/wm/shell/common/ShellExecutor;Landroid/os/Handler;)V
@@ -685,34 +648,7 @@
     return p0
 .end method
 
-.method private synthetic lambda$new$0(IIILandroid/window/WindowContainerTransaction;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/wm/shell/onehanded/OneHandedController;->isInitialized()Z
-
-    move-result p1
-
-    if-nez p1, :cond_0
-
-    return-void
-
-    :cond_0
-    iget-object p1, p0, Lcom/android/wm/shell/onehanded/OneHandedController;->mDisplayAreaOrganizer:Lcom/android/wm/shell/onehanded/OneHandedDisplayAreaOrganizer;
-
-    iget-object p2, p0, Lcom/android/wm/shell/onehanded/OneHandedController;->mContext:Landroid/content/Context;
-
-    invoke-virtual {p1, p2, p3, p4}, Lcom/android/wm/shell/onehanded/OneHandedDisplayAreaOrganizer;->onRotateDisplay(Landroid/content/Context;ILandroid/window/WindowContainerTransaction;)V
-
-    iget-object p0, p0, Lcom/android/wm/shell/onehanded/OneHandedController;->mOneHandedUiEventLogger:Lcom/android/wm/shell/onehanded/OneHandedUiEventLogger;
-
-    const/4 p1, 0x4
-
-    invoke-virtual {p0, p1}, Lcom/android/wm/shell/onehanded/OneHandedUiEventLogger;->writeEvent(I)V
-
-    return-void
-.end method
-
-.method private synthetic lambda$notifyExpandNotification$2()V
+.method private synthetic lambda$notifyExpandNotification$1()V
     .locals 0
 
     iget-object p0, p0, Lcom/android/wm/shell/onehanded/OneHandedController;->mEventCallback:Lcom/android/wm/shell/onehanded/OneHandedEventCallback;
@@ -722,7 +658,7 @@
     return-void
 .end method
 
-.method private synthetic lambda$setEnabledGesturalOverlay$5(Z)V
+.method private synthetic lambda$setEnabledGesturalOverlay$4(Z)V
     .locals 1
 
     const/4 v0, 0x0
@@ -732,7 +668,7 @@
     return-void
 .end method
 
-.method private synthetic lambda$setupCallback$1()V
+.method private synthetic lambda$setupCallback$0()V
     .locals 1
 
     const/4 v0, 0x2
@@ -742,7 +678,7 @@
     return-void
 .end method
 
-.method private synthetic lambda$setupTimeoutListener$3(I)V
+.method private synthetic lambda$setupTimeoutListener$2(I)V
     .locals 0
 
     const/4 p1, 0x6
@@ -752,7 +688,7 @@
     return-void
 .end method
 
-.method private synthetic lambda$updateOneHandedEnabled$4()V
+.method private synthetic lambda$updateOneHandedEnabled$3()V
     .locals 0
 
     invoke-virtual {p0}, Lcom/android/wm/shell/onehanded/OneHandedController;->stopOneHanded()V
@@ -942,9 +878,9 @@
     :goto_0
     iget-object p2, p0, Lcom/android/wm/shell/onehanded/OneHandedController;->mMainExecutor:Lcom/android/wm/shell/common/ShellExecutor;
 
-    new-instance v0, Lcom/android/wm/shell/onehanded/OneHandedController$$ExternalSyntheticLambda10;
+    new-instance v0, Lcom/android/wm/shell/onehanded/OneHandedController$$ExternalSyntheticLambda9;
 
-    invoke-direct {v0, p0, p1}, Lcom/android/wm/shell/onehanded/OneHandedController$$ExternalSyntheticLambda10;-><init>(Lcom/android/wm/shell/onehanded/OneHandedController;Z)V
+    invoke-direct {v0, p0, p1}, Lcom/android/wm/shell/onehanded/OneHandedController$$ExternalSyntheticLambda9;-><init>(Lcom/android/wm/shell/onehanded/OneHandedController;Z)V
 
     const-wide/16 p0, 0xfa
 
@@ -958,9 +894,9 @@
 
     iget-object v0, p0, Lcom/android/wm/shell/onehanded/OneHandedController;->mTouchHandler:Lcom/android/wm/shell/onehanded/OneHandedTouchHandler;
 
-    new-instance v1, Lcom/android/wm/shell/onehanded/OneHandedController$$ExternalSyntheticLambda2;
+    new-instance v1, Lcom/android/wm/shell/onehanded/OneHandedController$$ExternalSyntheticLambda1;
 
-    invoke-direct {v1, p0}, Lcom/android/wm/shell/onehanded/OneHandedController$$ExternalSyntheticLambda2;-><init>(Lcom/android/wm/shell/onehanded/OneHandedController;)V
+    invoke-direct {v1, p0}, Lcom/android/wm/shell/onehanded/OneHandedController$$ExternalSyntheticLambda1;-><init>(Lcom/android/wm/shell/onehanded/OneHandedController;)V
 
     invoke-virtual {v0, v1}, Lcom/android/wm/shell/onehanded/OneHandedTouchHandler;->registerTouchEventListener(Lcom/android/wm/shell/onehanded/OneHandedTouchHandler$OneHandedTouchEventCallback;)V
 
@@ -1061,9 +997,9 @@
 
     iget-object v0, p0, Lcom/android/wm/shell/onehanded/OneHandedController;->mTimeoutHandler:Lcom/android/wm/shell/onehanded/OneHandedTimeoutHandler;
 
-    new-instance v1, Lcom/android/wm/shell/onehanded/OneHandedController$$ExternalSyntheticLambda1;
+    new-instance v1, Lcom/android/wm/shell/onehanded/OneHandedController$$ExternalSyntheticLambda0;
 
-    invoke-direct {v1, p0}, Lcom/android/wm/shell/onehanded/OneHandedController$$ExternalSyntheticLambda1;-><init>(Lcom/android/wm/shell/onehanded/OneHandedController;)V
+    invoke-direct {v1, p0}, Lcom/android/wm/shell/onehanded/OneHandedController$$ExternalSyntheticLambda0;-><init>(Lcom/android/wm/shell/onehanded/OneHandedController;)V
 
     invoke-virtual {v0, v1}, Lcom/android/wm/shell/onehanded/OneHandedTimeoutHandler;->registerTimeoutListener(Lcom/android/wm/shell/onehanded/OneHandedTimeoutHandler$TimeoutListener;)V
 
@@ -1430,6 +1366,14 @@
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Z)V
 
+    const-string v0, "  mIsSwipeToNotificationEnabled="
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    iget-boolean v0, p0, Lcom/android/wm/shell/onehanded/OneHandedController;->mIsSwipeToNotificationEnabled:Z
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Z)V
+
     iget-object v0, p0, Lcom/android/wm/shell/onehanded/OneHandedController;->mBackgroundPanelOrganizer:Lcom/android/wm/shell/onehanded/OneHandedBackgroundPanelOrganizer;
 
     if-eqz v0, :cond_0
@@ -1586,9 +1530,9 @@
 
     iget-object v0, p0, Lcom/android/wm/shell/onehanded/OneHandedController;->mMainExecutor:Lcom/android/wm/shell/common/ShellExecutor;
 
-    new-instance v1, Lcom/android/wm/shell/onehanded/OneHandedController$$ExternalSyntheticLambda9;
+    new-instance v1, Lcom/android/wm/shell/onehanded/OneHandedController$$ExternalSyntheticLambda7;
 
-    invoke-direct {v1, p0}, Lcom/android/wm/shell/onehanded/OneHandedController$$ExternalSyntheticLambda9;-><init>(Lcom/android/wm/shell/onehanded/OneHandedController;)V
+    invoke-direct {v1, p0}, Lcom/android/wm/shell/onehanded/OneHandedController$$ExternalSyntheticLambda7;-><init>(Lcom/android/wm/shell/onehanded/OneHandedController;)V
 
     invoke-interface {v0, v1}, Lcom/android/wm/shell/common/ShellExecutor;->execute(Ljava/lang/Runnable;)V
 
@@ -1821,6 +1765,70 @@
     return-void
 .end method
 
+.method public onRotateDisplay(IIILandroid/window/WindowContainerTransaction;)V
+    .locals 1
+
+    invoke-direct {p0}, Lcom/android/wm/shell/onehanded/OneHandedController;->isInitialized()Z
+
+    move-result p1
+
+    if-nez p1, :cond_0
+
+    return-void
+
+    :cond_0
+    iget-object p1, p0, Lcom/android/wm/shell/onehanded/OneHandedController;->mOneHandedSettingsUtil:Lcom/android/wm/shell/onehanded/OneHandedSettingsUtil;
+
+    iget-object p2, p0, Lcom/android/wm/shell/onehanded/OneHandedController;->mContext:Landroid/content/Context;
+
+    invoke-virtual {p2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object p2
+
+    iget v0, p0, Lcom/android/wm/shell/onehanded/OneHandedController;->mUserId:I
+
+    invoke-virtual {p1, p2, v0}, Lcom/android/wm/shell/onehanded/OneHandedSettingsUtil;->getSettingsOneHandedModeEnabled(Landroid/content/ContentResolver;I)Z
+
+    move-result p1
+
+    if-eqz p1, :cond_2
+
+    iget-object p1, p0, Lcom/android/wm/shell/onehanded/OneHandedController;->mOneHandedSettingsUtil:Lcom/android/wm/shell/onehanded/OneHandedSettingsUtil;
+
+    iget-object p2, p0, Lcom/android/wm/shell/onehanded/OneHandedController;->mContext:Landroid/content/Context;
+
+    invoke-virtual {p2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object p2
+
+    iget v0, p0, Lcom/android/wm/shell/onehanded/OneHandedController;->mUserId:I
+
+    invoke-virtual {p1, p2, v0}, Lcom/android/wm/shell/onehanded/OneHandedSettingsUtil;->getSettingsSwipeToNotificationEnabled(Landroid/content/ContentResolver;I)Z
+
+    move-result p1
+
+    if-eqz p1, :cond_1
+
+    goto :goto_0
+
+    :cond_1
+    iget-object p1, p0, Lcom/android/wm/shell/onehanded/OneHandedController;->mDisplayAreaOrganizer:Lcom/android/wm/shell/onehanded/OneHandedDisplayAreaOrganizer;
+
+    iget-object p2, p0, Lcom/android/wm/shell/onehanded/OneHandedController;->mContext:Landroid/content/Context;
+
+    invoke-virtual {p1, p2, p3, p4}, Lcom/android/wm/shell/onehanded/OneHandedDisplayAreaOrganizer;->onRotateDisplay(Landroid/content/Context;ILandroid/window/WindowContainerTransaction;)V
+
+    iget-object p0, p0, Lcom/android/wm/shell/onehanded/OneHandedController;->mOneHandedUiEventLogger:Lcom/android/wm/shell/onehanded/OneHandedUiEventLogger;
+
+    const/4 p1, 0x4
+
+    invoke-virtual {p0, p1}, Lcom/android/wm/shell/onehanded/OneHandedUiEventLogger;->writeEvent(I)V
+
+    :cond_2
+    :goto_0
+    return-void
+.end method
+
 .method onShortcutEnabledChanged()V
     .locals 3
 
@@ -1875,6 +1883,14 @@
     move-result v0
 
     invoke-virtual {p0, v0}, Lcom/android/wm/shell/onehanded/OneHandedController;->setSwipeToNotificationEnabled(Z)V
+
+    iget-object v1, p0, Lcom/android/wm/shell/onehanded/OneHandedController;->mState:Lcom/android/wm/shell/onehanded/OneHandedState;
+
+    invoke-virtual {v1}, Lcom/android/wm/shell/onehanded/OneHandedState;->getState()I
+
+    move-result v1
+
+    invoke-virtual {p0, v1}, Lcom/android/wm/shell/onehanded/OneHandedController;->notifyShortcutStateChanged(I)V
 
     iget-object p0, p0, Lcom/android/wm/shell/onehanded/OneHandedController;->mOneHandedUiEventLogger:Lcom/android/wm/shell/onehanded/OneHandedUiEventLogger;
 
@@ -2027,9 +2043,9 @@
 
     iget-object v0, p0, Lcom/android/wm/shell/onehanded/OneHandedController;->mMainExecutor:Lcom/android/wm/shell/common/ShellExecutor;
 
-    new-instance v1, Lcom/android/wm/shell/onehanded/OneHandedController$$ExternalSyntheticLambda7;
+    new-instance v1, Lcom/android/wm/shell/onehanded/OneHandedController$$ExternalSyntheticLambda6;
 
-    invoke-direct {v1, p0}, Lcom/android/wm/shell/onehanded/OneHandedController$$ExternalSyntheticLambda7;-><init>(Lcom/android/wm/shell/onehanded/OneHandedController;)V
+    invoke-direct {v1, p0}, Lcom/android/wm/shell/onehanded/OneHandedController$$ExternalSyntheticLambda6;-><init>(Lcom/android/wm/shell/onehanded/OneHandedController;)V
 
     const-wide/16 v2, 0xa
 

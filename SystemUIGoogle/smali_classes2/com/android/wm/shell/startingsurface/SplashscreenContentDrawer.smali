@@ -15,8 +15,6 @@
 
 
 # static fields
-.field private static final DEBUG:Z
-
 .field private static final TAG:Ljava/lang/String;
 
 
@@ -70,14 +68,6 @@
     return-object p0
 .end method
 
-.method public static synthetic $r8$lambda$HD5XITBtIIUAfAHg3SDPPTmyF4M(Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;Landroid/content/Context;Landroid/content/pm/ActivityInfo;IILjava/util/function/Consumer;)V
-    .locals 0
-
-    invoke-direct/range {p0 .. p5}, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;->lambda$createContentView$0(Landroid/content/Context;Landroid/content/pm/ActivityInfo;IILjava/util/function/Consumer;)V
-
-    return-void
-.end method
-
 .method public static synthetic $r8$lambda$HtaCJwqySeODkAIcFF6CFKD_KWY(Landroid/content/res/TypedArray;Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
     .locals 0
 
@@ -118,6 +108,14 @@
     return p0
 .end method
 
+.method public static synthetic $r8$lambda$lZyvCQ2c1RHUi_XrfxYSO6QNwH4(Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;Landroid/content/Context;Landroid/content/pm/ActivityInfo;ILjava/util/function/Consumer;ILjava/util/function/Consumer;)V
+    .locals 0
+
+    invoke-direct/range {p0 .. p6}, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;->lambda$createContentView$0(Landroid/content/Context;Landroid/content/pm/ActivityInfo;ILjava/util/function/Consumer;ILjava/util/function/Consumer;)V
+
+    return-void
+.end method
+
 .method public static synthetic $r8$lambda$lkS1HjzoK_mso-3b1wIN1uVXg7E(Landroid/content/res/TypedArray;Ljava/lang/Integer;)Ljava/lang/Integer;
     .locals 0
 
@@ -145,15 +143,11 @@
 
     sput-object v0, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;->TAG:Ljava/lang/String;
 
-    sget-boolean v0, Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer;->DEBUG_SPLASH_SCREEN:Z
-
-    sput-boolean v0, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;->DEBUG:Z
-
     return-void
 .end method
 
-.method constructor <init>(Landroid/content/Context;Lcom/android/wm/shell/common/TransactionPool;)V
-    .locals 2
+.method constructor <init>(Landroid/content/Context;Lcom/android/launcher3/icons/IconProvider;Lcom/android/wm/shell/common/TransactionPool;)V
+    .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -165,21 +159,17 @@
 
     iput-object p1, p0, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;->mContext:Landroid/content/Context;
 
-    new-instance v0, Lcom/android/launcher3/icons/IconProvider;
+    iput-object p2, p0, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;->mIconProvider:Lcom/android/launcher3/icons/IconProvider;
 
-    invoke-direct {v0, p1}, Lcom/android/launcher3/icons/IconProvider;-><init>(Landroid/content/Context;)V
-
-    iput-object v0, p0, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;->mIconProvider:Lcom/android/launcher3/icons/IconProvider;
-
-    iput-object p2, p0, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;->mTransactionPool:Lcom/android/wm/shell/common/TransactionPool;
+    iput-object p3, p0, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;->mTransactionPool:Lcom/android/wm/shell/common/TransactionPool;
 
     new-instance p2, Landroid/os/HandlerThread;
 
-    const-string v0, "wmshell.splashworker"
+    const-string p3, "wmshell.splashworker"
 
-    const/16 v1, -0xa
+    const/16 v0, -0xa
 
-    invoke-direct {p2, v0, v1}, Landroid/os/HandlerThread;-><init>(Ljava/lang/String;I)V
+    invoke-direct {p2, p3, v0}, Landroid/os/HandlerThread;-><init>(Ljava/lang/String;I)V
 
     invoke-virtual {p2}, Landroid/os/HandlerThread;->start()V
 
@@ -189,32 +179,16 @@
 
     iput-object p2, p0, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;->mSplashscreenWorkerHandler:Landroid/os/Handler;
 
-    new-instance v0, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer$ColorCache;
+    new-instance p3, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer$ColorCache;
 
-    invoke-direct {v0, p1, p2}, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer$ColorCache;-><init>(Landroid/content/Context;Landroid/os/Handler;)V
+    invoke-direct {p3, p1, p2}, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer$ColorCache;-><init>(Landroid/content/Context;Landroid/os/Handler;)V
 
-    iput-object v0, p0, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;->mColorCache:Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer$ColorCache;
+    iput-object p3, p0, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;->mColorCache:Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer$ColorCache;
 
     return-void
 .end method
 
-.method static synthetic access$1000()Z
-    .locals 1
-
-    sget-boolean v0, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;->DEBUG:Z
-
-    return v0
-.end method
-
-.method static synthetic access$1100()Ljava/lang/String;
-    .locals 1
-
-    sget-object v0, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;->TAG:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method static synthetic access$1200(Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;)Landroid/content/Context;
+.method static synthetic access$1000(Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;)Landroid/content/Context;
     .locals 0
 
     iget-object p0, p0, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;->mContext:Landroid/content/Context;
@@ -222,7 +196,7 @@
     return-object p0
 .end method
 
-.method static synthetic access$1300(Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;)Landroid/os/Handler;
+.method static synthetic access$1100(Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;)Landroid/os/Handler;
     .locals 0
 
     iget-object p0, p0, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;->mSplashscreenWorkerHandler:Landroid/os/Handler;
@@ -230,7 +204,7 @@
     return-object p0
 .end method
 
-.method static synthetic access$1400(Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;)I
+.method static synthetic access$1200(Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;)I
     .locals 0
 
     iget p0, p0, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;->mLastPackageContextConfigHash:I
@@ -238,7 +212,7 @@
     return p0
 .end method
 
-.method static synthetic access$1500(II)Z
+.method static synthetic access$1300(II)Z
     .locals 0
 
     invoke-static {p0, p1}, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;->isRgbSimilarInHsv(II)Z
@@ -248,7 +222,7 @@
     return p0
 .end method
 
-.method static synthetic access$1600(Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;)I
+.method static synthetic access$1400(Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;)I
     .locals 0
 
     iget p0, p0, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;->mBrandingImageWidth:I
@@ -256,7 +230,7 @@
     return p0
 .end method
 
-.method static synthetic access$1700(Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;)I
+.method static synthetic access$1500(Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;)I
     .locals 0
 
     iget p0, p0, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;->mBrandingImageHeight:I
@@ -264,7 +238,7 @@
     return p0
 .end method
 
-.method static synthetic access$1800()Landroid/graphics/drawable/Drawable;
+.method static synthetic access$1600()Landroid/graphics/drawable/Drawable;
     .locals 1
 
     invoke-static {}, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;->createDefaultBackgroundDrawable()Landroid/graphics/drawable/Drawable;
@@ -523,359 +497,156 @@
 
     invoke-virtual {p0}, Landroid/content/res/TypedArray;->recycle()V
 
-    sget-boolean p0, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;->DEBUG:Z
-
-    if-eqz p0, :cond_0
-
-    sget-object p0, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;->TAG:Ljava/lang/String;
-
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "window attributes color: "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-static {p1}, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer$SplashScreenWindowAttrs;->access$000(Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer$SplashScreenWindowAttrs;)I
-
-    move-result v1
-
-    invoke-static {v1}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v1, " icon "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-static {p1}, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer$SplashScreenWindowAttrs;->access$200(Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer$SplashScreenWindowAttrs;)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    const-string v1, " duration "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-static {p1}, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer$SplashScreenWindowAttrs;->access$300(Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer$SplashScreenWindowAttrs;)I
-
-    move-result v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string v1, " brandImage "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-static {p1}, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer$SplashScreenWindowAttrs;->access$400(Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer$SplashScreenWindowAttrs;)Landroid/graphics/drawable/Drawable;
-
-    move-result-object p1
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-static {p0, p1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_0
     return-void
 .end method
 
 .method private static isRgbSimilarInHsv(II)Z
-    .locals 17
+    .locals 9
 
-    move/from16 v0, p0
+    const/4 v0, 0x1
 
-    move/from16 v1, p1
+    if-ne p0, p1, :cond_0
 
-    const/4 v2, 0x1
-
-    if-ne v0, v1, :cond_0
-
-    return v2
+    return v0
 
     :cond_0
-    invoke-static/range {p0 .. p0}, Landroid/graphics/Color;->luminance(I)F
+    invoke-static {p0}, Landroid/graphics/Color;->luminance(I)F
 
-    move-result v3
+    move-result v1
 
-    invoke-static/range {p1 .. p1}, Landroid/graphics/Color;->luminance(I)F
+    invoke-static {p1}, Landroid/graphics/Color;->luminance(I)F
 
-    move-result v4
+    move-result v2
 
-    cmpl-float v5, v3, v4
+    cmpl-float v3, v1, v2
 
-    const v6, 0x3d4ccccd    # 0.05f
+    const v4, 0x3d4ccccd    # 0.05f
 
-    if-lez v5, :cond_1
+    if-lez v3, :cond_1
 
-    add-float/2addr v3, v6
+    add-float/2addr v1, v4
 
-    add-float/2addr v4, v6
+    add-float/2addr v2, v4
 
-    div-float/2addr v3, v4
+    div-float/2addr v1, v2
 
     goto :goto_0
 
     :cond_1
-    add-float/2addr v4, v6
+    add-float/2addr v2, v4
 
-    add-float/2addr v3, v6
+    add-float/2addr v1, v4
 
-    div-float v3, v4, v3
+    div-float v1, v2, v1
 
     :goto_0
-    sget-boolean v4, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;->DEBUG:Z
+    const/high16 v2, 0x40000000    # 2.0f
 
-    if-eqz v4, :cond_2
+    cmpg-float v1, v1, v2
 
-    sget-object v5, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;->TAG:Ljava/lang/String;
+    if-gez v1, :cond_2
 
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v7, "isRgbSimilarInHsv a: "
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-static/range {p0 .. p0}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v7, " b "
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-static/range {p1 .. p1}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v7, " contrast ratio: "
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v6, v3}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v5, v6}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    return v0
 
     :cond_2
-    const/high16 v5, 0x40000000    # 2.0f
+    const/4 v1, 0x3
 
-    cmpg-float v3, v3, v5
+    new-array v2, v1, [F
 
-    if-gez v3, :cond_3
+    new-array v1, v1, [F
 
-    return v2
+    invoke-static {p0, v2}, Landroid/graphics/Color;->colorToHSV(I[F)V
 
-    :cond_3
-    const/4 v3, 0x3
+    invoke-static {p1, v1}, Landroid/graphics/Color;->colorToHSV(I[F)V
 
-    new-array v5, v3, [F
+    const/4 p0, 0x0
 
-    new-array v3, v3, [F
+    aget p1, v2, p0
 
-    invoke-static {v0, v5}, Landroid/graphics/Color;->colorToHSV(I[F)V
+    aget v3, v1, p0
 
-    invoke-static {v1, v3}, Landroid/graphics/Color;->colorToHSV(I[F)V
+    sub-float/2addr p1, v3
 
-    const/4 v0, 0x0
+    invoke-static {p1}, Ljava/lang/Math;->abs(F)F
 
-    aget v1, v5, v0
+    move-result p1
 
-    aget v6, v3, v0
+    float-to-int p1, p1
 
-    sub-float/2addr v1, v6
+    add-int/lit16 p1, p1, 0xb4
 
-    invoke-static {v1}, Ljava/lang/Math;->abs(F)F
+    rem-int/lit16 p1, p1, 0x168
 
-    move-result v1
+    add-int/lit16 p1, p1, -0xb4
 
-    float-to-int v1, v1
+    int-to-float p1, p1
 
-    add-int/lit16 v1, v1, 0xb4
+    const/high16 v3, 0x43340000    # 180.0f
 
-    rem-int/lit16 v1, v1, 0x168
+    div-float/2addr p1, v3
 
-    add-int/lit16 v1, v1, -0xb4
+    float-to-double v3, p1
 
-    int-to-float v6, v1
+    const-wide/high16 v5, 0x4000000000000000L    # 2.0
 
-    const/high16 v7, 0x43340000    # 180.0f
+    invoke-static {v3, v4, v5, v6}, Ljava/lang/Math;->pow(DD)D
 
-    div-float/2addr v6, v7
+    move-result-wide v3
 
-    float-to-double v6, v6
+    aget p1, v2, v0
 
-    const-wide/high16 v8, 0x4000000000000000L    # 2.0
+    aget v7, v1, v0
 
-    invoke-static {v6, v7, v8, v9}, Ljava/lang/Math;->pow(DD)D
+    sub-float/2addr p1, v7
 
-    move-result-wide v6
+    float-to-double v7, p1
 
-    aget v10, v5, v2
+    invoke-static {v7, v8, v5, v6}, Ljava/lang/Math;->pow(DD)D
 
-    aget v11, v3, v2
+    move-result-wide v7
 
-    sub-float/2addr v10, v11
+    const/4 p1, 0x2
 
-    float-to-double v10, v10
+    aget v2, v2, p1
 
-    invoke-static {v10, v11, v8, v9}, Ljava/lang/Math;->pow(DD)D
+    aget p1, v1, p1
 
-    move-result-wide v10
+    sub-float/2addr v2, p1
 
-    const/4 v12, 0x2
+    float-to-double v1, v2
 
-    aget v13, v5, v12
+    invoke-static {v1, v2, v5, v6}, Ljava/lang/Math;->pow(DD)D
 
-    aget v14, v3, v12
+    move-result-wide v1
 
-    sub-float/2addr v13, v14
+    add-double/2addr v3, v7
 
-    float-to-double v13, v13
+    add-double/2addr v3, v1
 
-    invoke-static {v13, v14, v8, v9}, Ljava/lang/Math;->pow(DD)D
+    const-wide/high16 v1, 0x4008000000000000L    # 3.0
 
-    move-result-wide v8
+    div-double/2addr v3, v1
 
-    add-double v13, v6, v10
+    invoke-static {v3, v4}, Ljava/lang/Math;->sqrt(D)D
 
-    add-double/2addr v13, v8
+    move-result-wide v1
 
-    const-wide/high16 v15, 0x4008000000000000L    # 3.0
-
-    div-double/2addr v13, v15
-
-    invoke-static {v13, v14}, Ljava/lang/Math;->sqrt(D)D
-
-    move-result-wide v13
-
-    if-eqz v4, :cond_4
-
-    sget-object v4, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;->TAG:Ljava/lang/String;
-
-    new-instance v15, Ljava/lang/StringBuilder;
-
-    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v12, "hsvDiff "
-
-    invoke-virtual {v15, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v15, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string v1, " ah "
-
-    invoke-virtual {v15, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    aget v1, v5, v0
-
-    invoke-virtual {v15, v1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
-
-    const-string v1, " bh "
-
-    invoke-virtual {v15, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    aget v1, v3, v0
-
-    invoke-virtual {v15, v1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
-
-    const-string v1, " as "
-
-    invoke-virtual {v15, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    aget v1, v5, v2
-
-    invoke-virtual {v15, v1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
-
-    const-string v1, " bs "
-
-    invoke-virtual {v15, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    aget v1, v3, v2
-
-    invoke-virtual {v15, v1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
-
-    const-string v1, " av "
-
-    invoke-virtual {v15, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const/4 v1, 0x2
-
-    aget v5, v5, v1
-
-    invoke-virtual {v15, v5}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
-
-    const-string v5, " bv "
-
-    invoke-virtual {v15, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    aget v1, v3, v1
-
-    invoke-virtual {v15, v1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
-
-    const-string v1, " sqH "
-
-    invoke-virtual {v15, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v15, v6, v7}, Ljava/lang/StringBuilder;->append(D)Ljava/lang/StringBuilder;
-
-    const-string v1, " sqS "
-
-    invoke-virtual {v15, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v15, v10, v11}, Ljava/lang/StringBuilder;->append(D)Ljava/lang/StringBuilder;
-
-    const-string v1, " sqV "
-
-    invoke-virtual {v15, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v15, v8, v9}, Ljava/lang/StringBuilder;->append(D)Ljava/lang/StringBuilder;
-
-    const-string v1, " root "
-
-    invoke-virtual {v15, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v15, v13, v14}, Ljava/lang/StringBuilder;->append(D)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v4, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_4
     const-wide v3, 0x3fb999999999999aL    # 0.1
 
-    cmpg-double v1, v13, v3
+    cmpg-double p1, v1, v3
 
-    if-gez v1, :cond_5
+    if-gez p1, :cond_3
 
     goto :goto_1
 
-    :cond_5
-    move v2, v0
+    :cond_3
+    move v0, p0
 
     :goto_1
-    return v2
+    return v0
 .end method
 
-.method private synthetic lambda$createContentView$0(Landroid/content/Context;Landroid/content/pm/ActivityInfo;IILjava/util/function/Consumer;)V
+.method private synthetic lambda$createContentView$0(Landroid/content/Context;Landroid/content/pm/ActivityInfo;ILjava/util/function/Consumer;ILjava/util/function/Consumer;)V
     .locals 3
 
     :try_start_0
@@ -885,7 +656,7 @@
 
     invoke-static {v1, v2, v0}, Landroid/os/Trace;->traceBegin(JLjava/lang/String;)V
 
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;->makeSplashScreenContentView(Landroid/content/Context;Landroid/content/pm/ActivityInfo;I)Landroid/window/SplashScreenView;
+    invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;->makeSplashScreenContentView(Landroid/content/Context;Landroid/content/pm/ActivityInfo;ILjava/util/function/Consumer;)Landroid/window/SplashScreenView;
 
     move-result-object p0
 
@@ -908,7 +679,7 @@
 
     invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p2, p4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -919,7 +690,7 @@
     const/4 p0, 0x0
 
     :goto_0
-    invoke-interface {p5, p0}, Ljava/util/function/Consumer;->accept(Ljava/lang/Object;)V
+    invoke-interface {p6, p0}, Ljava/util/function/Consumer;->accept(Ljava/lang/Object;)V
 
     return-void
 .end method
@@ -1050,12 +821,24 @@
     return-object p0
 .end method
 
-.method private makeSplashScreenContentView(Landroid/content/Context;Landroid/content/pm/ActivityInfo;I)Landroid/window/SplashScreenView;
+.method private makeSplashScreenContentView(Landroid/content/Context;Landroid/content/pm/ActivityInfo;ILjava/util/function/Consumer;)Landroid/window/SplashScreenView;
     .locals 3
     .param p3    # I
         .annotation build Landroid/window/StartingWindowInfo$StartingWindowType;
         .end annotation
     .end param
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/content/Context;",
+            "Landroid/content/pm/ActivityInfo;",
+            "I",
+            "Ljava/util/function/Consumer<",
+            "Ljava/lang/Runnable;",
+            ">;)",
+            "Landroid/window/SplashScreenView;"
+        }
+    .end annotation
 
     invoke-direct {p0}, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;->updateDensity()V
 
@@ -1128,6 +911,10 @@
     move-result-object p0
 
     invoke-virtual {p0, p3}, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer$StartingWindowViewBuilder;->chooseStyle(I)Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer$StartingWindowViewBuilder;
+
+    move-result-object p0
+
+    invoke-virtual {p0, p4}, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer$StartingWindowViewBuilder;->setUiThreadInitConsumer(Ljava/util/function/Consumer;)Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer$StartingWindowViewBuilder;
 
     move-result-object p0
 
@@ -1333,7 +1120,7 @@
 
     move-result-object v0
 
-    const v1, 0x1050273
+    const v1, 0x105027f
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1347,7 +1134,7 @@
 
     move-result-object v0
 
-    const v1, 0x1050272
+    const v1, 0x105027e
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1430,8 +1217,8 @@
     return-void
 .end method
 
-.method createContentView(Landroid/content/Context;ILandroid/content/pm/ActivityInfo;ILjava/util/function/Consumer;)V
-    .locals 9
+.method createContentView(Landroid/content/Context;ILandroid/content/pm/ActivityInfo;ILjava/util/function/Consumer;Ljava/util/function/Consumer;)V
+    .locals 10
     .param p2    # I
         .annotation build Landroid/window/StartingWindowInfo$StartingWindowType;
         .end annotation
@@ -1445,31 +1232,36 @@
             "I",
             "Ljava/util/function/Consumer<",
             "Landroid/window/SplashScreenView;",
+            ">;",
+            "Ljava/util/function/Consumer<",
+            "Ljava/lang/Runnable;",
             ">;)V"
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;->mSplashscreenWorkerHandler:Landroid/os/Handler;
+    move-object v1, p0
 
-    new-instance v8, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer$$ExternalSyntheticLambda0;
+    iget-object v8, v1, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;->mSplashscreenWorkerHandler:Landroid/os/Handler;
 
-    move-object v1, v8
+    new-instance v9, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer$$ExternalSyntheticLambda0;
 
-    move-object v2, p0
+    move-object v0, v9
 
-    move-object v3, p1
+    move-object v2, p1
 
-    move-object v4, p3
+    move-object v3, p3
 
-    move v5, p2
+    move v4, p2
+
+    move-object/from16 v5, p6
 
     move v6, p4
 
     move-object v7, p5
 
-    invoke-direct/range {v1 .. v7}, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer$$ExternalSyntheticLambda0;-><init>(Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;Landroid/content/Context;Landroid/content/pm/ActivityInfo;IILjava/util/function/Consumer;)V
+    invoke-direct/range {v0 .. v7}, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer$$ExternalSyntheticLambda0;-><init>(Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;Landroid/content/Context;Landroid/content/pm/ActivityInfo;ILjava/util/function/Consumer;ILjava/util/function/Consumer;)V
 
-    invoke-virtual {v0, v8}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+    invoke-virtual {v8, v9}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     return-void
 .end method

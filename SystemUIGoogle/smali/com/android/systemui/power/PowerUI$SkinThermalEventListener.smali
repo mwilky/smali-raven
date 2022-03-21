@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public notifyThrottling(Landroid/os/Temperature;)V
-    .locals 2
+    .locals 3
 
     invoke-virtual {p1}, Landroid/os/Temperature;->getStatus()I
 
@@ -55,9 +55,23 @@
 
     move-result-object v1
 
-    check-cast v1, Lcom/android/systemui/statusbar/phone/StatusBar;
+    check-cast v1, Ljava/util/Optional;
 
-    invoke-virtual {v1}, Lcom/android/systemui/statusbar/phone/StatusBar;->isDeviceInVrMode()Z
+    sget-object v2, Lcom/android/systemui/power/PowerUI$SkinThermalEventListener$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/systemui/power/PowerUI$SkinThermalEventListener$$ExternalSyntheticLambda0;
+
+    invoke-virtual {v1, v2}, Ljava/util/Optional;->map(Ljava/util/function/Function;)Ljava/util/Optional;
+
+    move-result-object v1
+
+    sget-object v2, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
+
+    invoke-virtual {v1, v2}, Ljava/util/Optional;->orElse(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/lang/Boolean;
+
+    invoke-virtual {v1}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v1
 

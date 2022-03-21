@@ -1676,7 +1676,7 @@
     throw p0
 .end method
 
-.method public onSystemBarAttributesChanged(II[Lcom/android/internal/view/AppearanceRegion;ZIZ)V
+.method public onSystemBarAttributesChanged(II[Lcom/android/internal/view/AppearanceRegion;ZILandroid/view/InsetsVisibilities;Ljava/lang/String;)V
     .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/CommandQueue;->mLock:Ljava/lang/Object;
@@ -1692,35 +1692,25 @@
 
     iput p2, v1, Lcom/android/internal/os/SomeArgs;->argi2:I
 
-    const/4 p1, 0x1
-
-    const/4 p2, 0x0
-
     if-eqz p4, :cond_0
 
-    move p4, p1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    move p4, p2
+    const/4 p1, 0x0
 
     :goto_0
-    iput p4, v1, Lcom/android/internal/os/SomeArgs;->argi3:I
+    iput p1, v1, Lcom/android/internal/os/SomeArgs;->argi3:I
 
     iput-object p3, v1, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
 
     iput p5, v1, Lcom/android/internal/os/SomeArgs;->argi4:I
 
-    if-eqz p6, :cond_1
+    iput-object p6, v1, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
 
-    goto :goto_1
-
-    :cond_1
-    move p1, p2
-
-    :goto_1
-    iput p1, v1, Lcom/android/internal/os/SomeArgs;->argi5:I
+    iput-object p7, v1, Lcom/android/internal/os/SomeArgs;->arg3:Ljava/lang/Object;
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/CommandQueue;->mHandler:Landroid/os/Handler;
 
@@ -1854,19 +1844,35 @@
 .end method
 
 .method public recomputeDisableFlags(IZ)V
-    .locals 2
+    .locals 3
 
+    iget-object v0, p0, Lcom/android/systemui/statusbar/CommandQueue;->mLock:Ljava/lang/Object;
+
+    monitor-enter v0
+
+    :try_start_0
     invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/CommandQueue;->getDisabled1(I)I
-
-    move-result v0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/CommandQueue;->getDisabled2(I)I
 
     move-result v1
 
-    invoke-virtual {p0, p1, v0, v1, p2}, Lcom/android/systemui/statusbar/CommandQueue;->disable(IIIZ)V
+    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/CommandQueue;->getDisabled2(I)I
+
+    move-result v2
+
+    invoke-virtual {p0, p1, v1, v2, p2}, Lcom/android/systemui/statusbar/CommandQueue;->disable(IIIZ)V
+
+    monitor-exit v0
 
     return-void
+
+    :catchall_0
+    move-exception p0
+
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw p0
 .end method
 
 .method public remQsTile(Landroid/content/ComponentName;)V
@@ -2711,8 +2717,8 @@
     throw p0
 .end method
 
-.method public showTransient(I[I)V
-    .locals 3
+.method public showTransient(I[IZ)V
+    .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/CommandQueue;->mLock:Ljava/lang/Object;
 
@@ -2723,9 +2729,17 @@
 
     const/high16 v1, 0x300000
 
-    const/4 v2, 0x0
+    if-eqz p3, :cond_0
 
-    invoke-virtual {p0, v1, p1, v2, p2}, Landroid/os/Handler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
+    const/4 p3, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p3, 0x0
+
+    :goto_0
+    invoke-virtual {p0, v1, p1, p3, p2}, Landroid/os/Handler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object p0
 

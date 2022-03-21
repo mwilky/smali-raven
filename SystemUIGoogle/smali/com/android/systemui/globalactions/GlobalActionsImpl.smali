@@ -93,7 +93,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/globalactions/GlobalActionsImpl;->mContext:Landroid/content/Context;
 
-    const p1, 0x104075c
+    const p1, 0x1040761
 
     invoke-virtual {p0, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -114,7 +114,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/globalactions/GlobalActionsImpl;->mContext:Landroid/content/Context;
 
-    const p1, 0x1040758
+    const p1, 0x104075d
 
     invoke-virtual {p0, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -141,12 +141,12 @@
 
     if-eqz p0, :cond_0
 
-    const p0, 0x104075b
+    const p0, 0x1040760
 
     return p0
 
     :cond_0
-    const p0, 0x1040757
+    const p0, 0x104075c
 
     if-eqz p2, :cond_1
 
@@ -166,7 +166,7 @@
     return p0
 
     :cond_2
-    const p0, 0x10407ec
+    const p0, 0x10407f1
 
     return p0
 .end method
@@ -310,7 +310,7 @@
 .end method
 
 .method public showGlobalActions(Lcom/android/systemui/plugins/GlobalActions$GlobalActionsManager;)V
-    .locals 1
+    .locals 2
 
     iget-boolean p1, p0, Lcom/android/systemui/globalactions/GlobalActionsImpl;->mDisabled:Z
 
@@ -341,7 +341,9 @@
 
     move-result p0
 
-    invoke-virtual {p1, v0, p0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->showOrHideDialog(ZZ)V
+    const/4 v1, 0x0
+
+    invoke-virtual {p1, v0, p0, v1}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->showOrHideDialog(ZZLandroid/view/View;)V
 
     return-void
 .end method

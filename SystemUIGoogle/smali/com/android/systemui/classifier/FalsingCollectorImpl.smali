@@ -61,10 +61,10 @@
 
 
 # direct methods
-.method public static synthetic $r8$lambda$GHD5NqS_UivQZRtWSaZkM3kaw9Y(Lcom/android/systemui/classifier/FalsingCollectorImpl;Lcom/android/systemui/util/sensors/ThresholdSensor$ThresholdSensorEvent;)V
+.method public static synthetic $r8$lambda$46E8rIKAPM-_BziFC6P7CAGq5TY(Lcom/android/systemui/classifier/FalsingCollectorImpl;Lcom/android/systemui/util/sensors/ThresholdSensorEvent;)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/classifier/FalsingCollectorImpl;->onProximityEvent(Lcom/android/systemui/util/sensors/ThresholdSensor$ThresholdSensorEvent;)V
+    invoke-direct {p0, p1}, Lcom/android/systemui/classifier/FalsingCollectorImpl;->onProximityEvent(Lcom/android/systemui/util/sensors/ThresholdSensorEvent;)V
 
     return-void
 .end method
@@ -128,11 +128,11 @@
 
     const-string p1, "FalsingManager"
 
-    invoke-virtual {p5, p1}, Lcom/android/systemui/util/sensors/ProximitySensor;->setTag(Ljava/lang/String;)V
+    invoke-interface {p5, p1}, Lcom/android/systemui/util/sensors/ThresholdSensor;->setTag(Ljava/lang/String;)V
 
     const/4 p1, 0x1
 
-    invoke-virtual {p5, p1}, Lcom/android/systemui/util/sensors/ProximitySensor;->setDelay(I)V
+    invoke-interface {p5, p1}, Lcom/android/systemui/util/sensors/ThresholdSensor;->setDelay(I)V
 
     invoke-interface {p6, v0}, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;->addCallback(Lcom/android/systemui/plugins/statusbar/StatusBarStateController$StateListener;)V
 
@@ -215,14 +215,14 @@
     return-void
 .end method
 
-.method private onProximityEvent(Lcom/android/systemui/util/sensors/ThresholdSensor$ThresholdSensorEvent;)V
+.method private onProximityEvent(Lcom/android/systemui/util/sensors/ThresholdSensorEvent;)V
     .locals 1
 
     iget-object p0, p0, Lcom/android/systemui/classifier/FalsingCollectorImpl;->mFalsingManager:Lcom/android/systemui/plugins/FalsingManager;
 
     new-instance v0, Lcom/android/systemui/classifier/FalsingCollectorImpl$ProximityEventImpl;
 
-    invoke-direct {v0, p1}, Lcom/android/systemui/classifier/FalsingCollectorImpl$ProximityEventImpl;-><init>(Lcom/android/systemui/util/sensors/ThresholdSensor$ThresholdSensorEvent;)V
+    invoke-direct {v0, p1}, Lcom/android/systemui/classifier/FalsingCollectorImpl$ProximityEventImpl;-><init>(Lcom/android/systemui/util/sensors/ThresholdSensorEvent;)V
 
     invoke-interface {p0, v0}, Lcom/android/systemui/plugins/FalsingManager;->onProximityEvent(Lcom/android/systemui/plugins/FalsingManager$ProximityEvent;)V
 
@@ -236,7 +236,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/classifier/FalsingCollectorImpl;->mSensorEventListener:Lcom/android/systemui/util/sensors/ThresholdSensor$Listener;
 
-    invoke-virtual {v0, p0}, Lcom/android/systemui/util/sensors/ProximitySensor;->register(Lcom/android/systemui/util/sensors/ThresholdSensor$Listener;)V
+    invoke-interface {v0, p0}, Lcom/android/systemui/util/sensors/ThresholdSensor;->register(Lcom/android/systemui/util/sensors/ThresholdSensor$Listener;)V
 
     return-void
 .end method
@@ -336,7 +336,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/classifier/FalsingCollectorImpl;->mSensorEventListener:Lcom/android/systemui/util/sensors/ThresholdSensor$Listener;
 
-    invoke-virtual {v0, p0}, Lcom/android/systemui/util/sensors/ProximitySensor;->unregister(Lcom/android/systemui/util/sensors/ThresholdSensor$Listener;)V
+    invoke-interface {v0, p0}, Lcom/android/systemui/util/sensors/ThresholdSensor;->unregister(Lcom/android/systemui/util/sensors/ThresholdSensor$Listener;)V
 
     return-void
 .end method

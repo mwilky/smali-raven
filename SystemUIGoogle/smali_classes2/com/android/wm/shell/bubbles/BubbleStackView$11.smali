@@ -56,7 +56,7 @@
 
     iget-object p1, p0, Lcom/android/wm/shell/bubbles/BubbleStackView$11;->this$0:Lcom/android/wm/shell/bubbles/BubbleStackView;
 
-    invoke-static {p1}, Lcom/android/wm/shell/bubbles/BubbleStackView;->access$4100(Lcom/android/wm/shell/bubbles/BubbleStackView;)Z
+    invoke-static {p1}, Lcom/android/wm/shell/bubbles/BubbleStackView;->access$4200(Lcom/android/wm/shell/bubbles/BubbleStackView;)Z
 
     move-result p1
 

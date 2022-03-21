@@ -98,11 +98,11 @@
     .end annotation
 .end field
 
-.field private final wallpaperManagerProvider:Ljavax/inject/Provider;
+.field private final wallpaperControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
-            "Landroid/app/WallpaperManager;",
+            "Lcom/android/systemui/util/WallpaperController;",
             ">;"
         }
     .end annotation
@@ -131,7 +131,7 @@
             "Landroid/view/Choreographer;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Landroid/app/WallpaperManager;",
+            "Lcom/android/systemui/util/WallpaperController;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/NotificationShadeWindowController;",
@@ -157,7 +157,7 @@
 
     iput-object p5, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController_Factory;->choreographerProvider:Ljavax/inject/Provider;
 
-    iput-object p6, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController_Factory;->wallpaperManagerProvider:Ljavax/inject/Provider;
+    iput-object p6, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController_Factory;->wallpaperControllerProvider:Ljavax/inject/Provider;
 
     iput-object p7, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController_Factory;->notificationShadeWindowControllerProvider:Ljavax/inject/Provider;
 
@@ -189,7 +189,7 @@
             "Landroid/view/Choreographer;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Landroid/app/WallpaperManager;",
+            "Lcom/android/systemui/util/WallpaperController;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/NotificationShadeWindowController;",
@@ -231,7 +231,7 @@
     return-object v10
 .end method
 
-.method public static newInstance(Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/BlurUtils;Lcom/android/systemui/statusbar/phone/BiometricUnlockController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Landroid/view/Choreographer;Landroid/app/WallpaperManager;Lcom/android/systemui/statusbar/NotificationShadeWindowController;Lcom/android/systemui/statusbar/phone/DozeParameters;Lcom/android/systemui/dump/DumpManager;)Lcom/android/systemui/statusbar/NotificationShadeDepthController;
+.method public static newInstance(Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/BlurUtils;Lcom/android/systemui/statusbar/phone/BiometricUnlockController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Landroid/view/Choreographer;Lcom/android/systemui/util/WallpaperController;Lcom/android/systemui/statusbar/NotificationShadeWindowController;Lcom/android/systemui/statusbar/phone/DozeParameters;Lcom/android/systemui/dump/DumpManager;)Lcom/android/systemui/statusbar/NotificationShadeDepthController;
     .locals 11
 
     new-instance v10, Lcom/android/systemui/statusbar/NotificationShadeDepthController;
@@ -256,7 +256,7 @@
 
     move-object/from16 v9, p8
 
-    invoke-direct/range {v0 .. v9}, Lcom/android/systemui/statusbar/NotificationShadeDepthController;-><init>(Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/BlurUtils;Lcom/android/systemui/statusbar/phone/BiometricUnlockController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Landroid/view/Choreographer;Landroid/app/WallpaperManager;Lcom/android/systemui/statusbar/NotificationShadeWindowController;Lcom/android/systemui/statusbar/phone/DozeParameters;Lcom/android/systemui/dump/DumpManager;)V
+    invoke-direct/range {v0 .. v9}, Lcom/android/systemui/statusbar/NotificationShadeDepthController;-><init>(Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/BlurUtils;Lcom/android/systemui/statusbar/phone/BiometricUnlockController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Landroid/view/Choreographer;Lcom/android/systemui/util/WallpaperController;Lcom/android/systemui/statusbar/NotificationShadeWindowController;Lcom/android/systemui/statusbar/phone/DozeParameters;Lcom/android/systemui/dump/DumpManager;)V
 
     return-object v10
 .end method
@@ -316,7 +316,7 @@
 
     check-cast v5, Landroid/view/Choreographer;
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController_Factory;->wallpaperManagerProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController_Factory;->wallpaperControllerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -324,7 +324,7 @@
 
     move-object v6, v0
 
-    check-cast v6, Landroid/app/WallpaperManager;
+    check-cast v6, Lcom/android/systemui/util/WallpaperController;
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController_Factory;->notificationShadeWindowControllerProvider:Ljavax/inject/Provider;
 
@@ -356,7 +356,7 @@
 
     check-cast v9, Lcom/android/systemui/dump/DumpManager;
 
-    invoke-static/range {v1 .. v9}, Lcom/android/systemui/statusbar/NotificationShadeDepthController_Factory;->newInstance(Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/BlurUtils;Lcom/android/systemui/statusbar/phone/BiometricUnlockController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Landroid/view/Choreographer;Landroid/app/WallpaperManager;Lcom/android/systemui/statusbar/NotificationShadeWindowController;Lcom/android/systemui/statusbar/phone/DozeParameters;Lcom/android/systemui/dump/DumpManager;)Lcom/android/systemui/statusbar/NotificationShadeDepthController;
+    invoke-static/range {v1 .. v9}, Lcom/android/systemui/statusbar/NotificationShadeDepthController_Factory;->newInstance(Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/BlurUtils;Lcom/android/systemui/statusbar/phone/BiometricUnlockController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Landroid/view/Choreographer;Lcom/android/systemui/util/WallpaperController;Lcom/android/systemui/statusbar/NotificationShadeWindowController;Lcom/android/systemui/statusbar/phone/DozeParameters;Lcom/android/systemui/dump/DumpManager;)Lcom/android/systemui/statusbar/NotificationShadeDepthController;
 
     move-result-object p0
 

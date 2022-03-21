@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/google/android/systemui/assist/uihints/NavBarFader;-><init>(Ldagger/Lazy;Landroid/os/Handler;)V
+    value = Lcom/google/android/systemui/assist/uihints/NavBarFader;-><init>(Lcom/android/systemui/navigationbar/NavigationBarController;Landroid/os/Handler;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;

@@ -32,18 +32,6 @@
         <item quantity="other">ಸಿಮ್‌ PUK ಕೋಡ್‌ ತಪ್ಪಾಗಿದೆ, %d ಪ್ರಯತ್ನಗಳ ನಂತರ ಸಿಮ್‌ ಶಾಶ್ವತವಾಗಿ ನಿಷ್ಪ್ರಯೋಜಕವಾಗುತ್ತದೆ.</item>
         <item quantity="one">ಸಿಮ್‌ PUK ಕೋಡ್‌ ತಪ್ಪಾಗಿದೆ, %d ಪ್ರಯತ್ನಗಳ ನಂತರ ಸಿಮ್‌ ಶಾಶ್ವತವಾಗಿ ನಿಷ್ಪ್ರಯೋಜಕವಾಗುತ್ತದೆ.</item>
     </plurals>
-    <plurals name="kg_prompt_reason_time_password">
-        <item quantity="other">ಸಾಧನವನ್ನು %d ಗಂಟೆಗಳವರೆಗೆ ಅನ್‌ಲಾಕ್‌ ಮಾಡಿರಲಿಲ್ಲ. ಪಾಸ್‌ವರ್ಡ್‌ ಖಚಿತಪಡಿಸಿ.</item>
-        <item quantity="one">ಸಾಧನವನ್ನು %d ಗಂಟೆಗಳವರೆಗೆ ಅನ್‌ಲಾಕ್‌ ಮಾಡಿರಲಿಲ್ಲ. ಪಾಸ್‌ವರ್ಡ್‌ ಖಚಿತಪಡಿಸಿ.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pattern">
-        <item quantity="other">ಸಾಧನವನ್ನು %d ಗಂಟೆಗಳವರೆಗೆ ಅನ್‌ಲಾಕ್‌ ಮಾಡಿರಲಿಲ್ಲ. ಪ್ಯಾಟರ್ನ್‌ ಖಚಿತಪಡಿಸಿ.</item>
-        <item quantity="one">ಸಾಧನವನ್ನು %d ಗಂಟೆಗಳವರೆಗೆ ಅನ್‌ಲಾಕ್‌ ಮಾಡಿರಲಿಲ್ಲ. ಪ್ಯಾಟರ್ನ್‌ ಖಚಿತಪಡಿಸಿ.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pin">
-        <item quantity="other">ಸಾಧನವನ್ನು %d ಗಂಟೆಗಳವರೆಗೆ ಅನ್‌ಲಾಕ್‌ ಮಾಡಿರಲಿಲ್ಲ. ಪಿನ್ ದೃಢೀಕರಿಸಿ.</item>
-        <item quantity="one">ಸಾಧನವನ್ನು %d ಗಂಟೆಗಳವರೆಗೆ ಅನ್‌ಲಾಕ್‌ ಮಾಡಿರಲಿಲ್ಲ. ಪಿನ್ ದೃಢೀಕರಿಸಿ.</item>
-    </plurals>
     <plurals name="kg_too_many_failed_attempts_countdown">
         <item quantity="other">%d ಸೆಕೆಂಡುಗಳಲ್ಲಿ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.</item>
         <item quantity="one">%d ಸೆಕೆಂಡುಗಳಲ್ಲಿ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.</item>

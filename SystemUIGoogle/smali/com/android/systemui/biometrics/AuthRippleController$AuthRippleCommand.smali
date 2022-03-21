@@ -30,7 +30,7 @@
         }
     .end annotation
 
-    const-string/jumbo v0, "this$0"
+    const-string v0, "this$0"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -106,24 +106,39 @@
 
     invoke-static {p2}, Lcom/android/systemui/biometrics/AuthRippleController;->access$showDwellRipple(Lcom/android/systemui/biometrics/AuthRippleController;)V
 
-    iget-object p2, p0, Lcom/android/systemui/biometrics/AuthRippleController$AuthRippleCommand;->this$0:Lcom/android/systemui/biometrics/AuthRippleController;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-static {p2}, Lcom/android/systemui/biometrics/AuthRippleController;->access$getStatusBarStateController$p(Lcom/android/systemui/biometrics/AuthRippleController;)Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result-object p2
+    const-string v0, "lock screen dwell ripple: \n\tsensorLocation="
 
-    invoke-interface {p2}, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;->isDozing()Z
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result p2
+    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthRippleController$AuthRippleCommand;->this$0:Lcom/android/systemui/biometrics/AuthRippleController;
 
-    if-eqz p2, :cond_2
+    invoke-virtual {v0}, Lcom/android/systemui/biometrics/AuthRippleController;->getFingerprintSensorLocation()Landroid/graphics/PointF;
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/biometrics/AuthRippleController$AuthRippleCommand;->printAodDwellInfo(Ljava/io/PrintWriter;)V
+    move-result-object v0
 
-    goto/16 :goto_2
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    :cond_2
-    invoke-virtual {p0, p1}, Lcom/android/systemui/biometrics/AuthRippleController$AuthRippleCommand;->printLockScreenDwellInfo(Ljava/io/PrintWriter;)V
+    const-string v0, "\n\tudfpsRadius="
+
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object p0, p0, Lcom/android/systemui/biometrics/AuthRippleController$AuthRippleCommand;->this$0:Lcom/android/systemui/biometrics/AuthRippleController;
+
+    invoke-static {p0}, Lcom/android/systemui/biometrics/AuthRippleController;->access$getUdfpsRadius$p(Lcom/android/systemui/biometrics/AuthRippleController;)F
+
+    move-result p0
+
+    invoke-virtual {p2, p0}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-virtual {p1, p0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     goto/16 :goto_2
 
@@ -134,11 +149,15 @@
 
     move-result p2
 
-    if-nez p2, :cond_3
+    if-nez p2, :cond_2
 
     goto/16 :goto_1
 
-    :cond_3
+    :cond_2
+    iget-object p2, p0, Lcom/android/systemui/biometrics/AuthRippleController$AuthRippleCommand;->this$0:Lcom/android/systemui/biometrics/AuthRippleController;
+
+    invoke-virtual {p2}, Lcom/android/systemui/biometrics/AuthRippleController;->updateSensorLocation()V
+
     iget-object p2, p0, Lcom/android/systemui/biometrics/AuthRippleController$AuthRippleCommand;->this$0:Lcom/android/systemui/biometrics/AuthRippleController;
 
     invoke-static {p2}, Lcom/android/systemui/biometrics/AuthRippleController;->access$getFaceSensorLocation$p(Lcom/android/systemui/biometrics/AuthRippleController;)Landroid/graphics/PointF;
@@ -168,18 +187,18 @@
 
     move-result v0
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_3
 
     goto/16 :goto_1
 
-    :cond_4
+    :cond_3
     invoke-interface {p2}, Ljava/util/List;->size()I
 
     move-result v0
 
     const/4 v1, 0x3
 
-    if-ne v0, v1, :cond_6
+    if-ne v0, v1, :cond_5
 
     const/4 v0, 0x1
 
@@ -193,7 +212,7 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_5
 
     const/4 v1, 0x2
 
@@ -207,11 +226,11 @@
 
     move-result-object v2
 
-    if-nez v2, :cond_5
+    if-nez v2, :cond_4
 
     goto :goto_0
 
-    :cond_5
+    :cond_4
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -294,7 +313,7 @@
 
     goto :goto_2
 
-    :cond_6
+    :cond_5
     :goto_0
     invoke-virtual {p0, p1}, Lcom/android/systemui/biometrics/AuthRippleController$AuthRippleCommand;->invalidCommand(Ljava/io/PrintWriter;)V
 
@@ -307,11 +326,15 @@
 
     move-result p2
 
-    if-nez p2, :cond_7
+    if-nez p2, :cond_6
 
     goto :goto_1
 
-    :cond_7
+    :cond_6
+    iget-object p2, p0, Lcom/android/systemui/biometrics/AuthRippleController$AuthRippleCommand;->this$0:Lcom/android/systemui/biometrics/AuthRippleController;
+
+    invoke-virtual {p2}, Lcom/android/systemui/biometrics/AuthRippleController;->updateSensorLocation()V
+
     iget-object p2, p0, Lcom/android/systemui/biometrics/AuthRippleController$AuthRippleCommand;->this$0:Lcom/android/systemui/biometrics/AuthRippleController;
 
     invoke-virtual {p2}, Lcom/android/systemui/biometrics/AuthRippleController;->getFingerprintSensorLocation()Landroid/graphics/PointF;
@@ -395,118 +418,6 @@
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     invoke-virtual {p0, p1}, Lcom/android/systemui/biometrics/AuthRippleController$AuthRippleCommand;->help(Ljava/io/PrintWriter;)V
-
-    return-void
-.end method
-
-.method public final printAodDwellInfo(Ljava/io/PrintWriter;)V
-    .locals 2
-
-    const-string v0, "pw"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "aod dwell ripple: \n\tsensorLocation="
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object v1, p0, Lcom/android/systemui/biometrics/AuthRippleController$AuthRippleCommand;->this$0:Lcom/android/systemui/biometrics/AuthRippleController;
-
-    invoke-virtual {v1}, Lcom/android/systemui/biometrics/AuthRippleController;->getFingerprintSensorLocation()Landroid/graphics/PointF;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    const-string v1, "\n\tdwellScale="
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object v1, p0, Lcom/android/systemui/biometrics/AuthRippleController$AuthRippleCommand;->this$0:Lcom/android/systemui/biometrics/AuthRippleController;
-
-    invoke-static {v1}, Lcom/android/systemui/biometrics/AuthRippleController;->access$getAodDwellScale$p(Lcom/android/systemui/biometrics/AuthRippleController;)F
-
-    move-result v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
-
-    const-string v1, "\n\tdwellExpand="
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object p0, p0, Lcom/android/systemui/biometrics/AuthRippleController$AuthRippleCommand;->this$0:Lcom/android/systemui/biometrics/AuthRippleController;
-
-    invoke-static {p0}, Lcom/android/systemui/biometrics/AuthRippleController;->access$getAodExpandedDwellScale$p(Lcom/android/systemui/biometrics/AuthRippleController;)F
-
-    move-result p0
-
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p0
-
-    invoke-virtual {p1, p0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    return-void
-.end method
-
-.method public final printLockScreenDwellInfo(Ljava/io/PrintWriter;)V
-    .locals 2
-
-    const-string v0, "pw"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "lock screen dwell ripple: \n\tsensorLocation="
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object v1, p0, Lcom/android/systemui/biometrics/AuthRippleController$AuthRippleCommand;->this$0:Lcom/android/systemui/biometrics/AuthRippleController;
-
-    invoke-virtual {v1}, Lcom/android/systemui/biometrics/AuthRippleController;->getFingerprintSensorLocation()Landroid/graphics/PointF;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    const-string v1, "\n\tdwellScale="
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object v1, p0, Lcom/android/systemui/biometrics/AuthRippleController$AuthRippleCommand;->this$0:Lcom/android/systemui/biometrics/AuthRippleController;
-
-    invoke-static {v1}, Lcom/android/systemui/biometrics/AuthRippleController;->access$getDwellScale$p(Lcom/android/systemui/biometrics/AuthRippleController;)F
-
-    move-result v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
-
-    const-string v1, "\n\tdwellExpand="
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object p0, p0, Lcom/android/systemui/biometrics/AuthRippleController$AuthRippleCommand;->this$0:Lcom/android/systemui/biometrics/AuthRippleController;
-
-    invoke-static {p0}, Lcom/android/systemui/biometrics/AuthRippleController;->access$getExpandedDwellScale$p(Lcom/android/systemui/biometrics/AuthRippleController;)F
-
-    move-result p0
-
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p0
-
-    invoke-virtual {p1, p0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     return-void
 .end method

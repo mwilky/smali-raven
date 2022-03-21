@@ -2,50 +2,40 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Lcom/android/systemui/statusbar/policy/DevicePostureController$Callback;
 
 
-# instance fields
-.field public final synthetic f$0:Lcom/android/systemui/doze/DozeTriggers;
-
-.field public final synthetic f$1:F
-
-.field public final synthetic f$2:F
-
-.field public final synthetic f$3:[F
+# static fields
+.field public static final synthetic INSTANCE:Lcom/android/systemui/doze/DozeTriggers$$ExternalSyntheticLambda1;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/systemui/doze/DozeTriggers;FF[F)V
+.method static synthetic constructor <clinit>()V
+    .locals 1
+
+    new-instance v0, Lcom/android/systemui/doze/DozeTriggers$$ExternalSyntheticLambda1;
+
+    invoke-direct {v0}, Lcom/android/systemui/doze/DozeTriggers$$ExternalSyntheticLambda1;-><init>()V
+
+    sput-object v0, Lcom/android/systemui/doze/DozeTriggers$$ExternalSyntheticLambda1;->INSTANCE:Lcom/android/systemui/doze/DozeTriggers$$ExternalSyntheticLambda1;
+
+    return-void
+.end method
+
+.method private synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/systemui/doze/DozeTriggers$$ExternalSyntheticLambda1;->f$0:Lcom/android/systemui/doze/DozeTriggers;
-
-    iput p2, p0, Lcom/android/systemui/doze/DozeTriggers$$ExternalSyntheticLambda1;->f$1:F
-
-    iput p3, p0, Lcom/android/systemui/doze/DozeTriggers$$ExternalSyntheticLambda1;->f$2:F
-
-    iput-object p4, p0, Lcom/android/systemui/doze/DozeTriggers$$ExternalSyntheticLambda1;->f$3:[F
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final run()V
-    .locals 3
+.method public final onPostureChanged(I)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/systemui/doze/DozeTriggers$$ExternalSyntheticLambda1;->f$0:Lcom/android/systemui/doze/DozeTriggers;
-
-    iget v1, p0, Lcom/android/systemui/doze/DozeTriggers$$ExternalSyntheticLambda1;->f$1:F
-
-    iget v2, p0, Lcom/android/systemui/doze/DozeTriggers$$ExternalSyntheticLambda1;->f$2:F
-
-    iget-object p0, p0, Lcom/android/systemui/doze/DozeTriggers$$ExternalSyntheticLambda1;->f$3:[F
-
-    invoke-static {v0, v1, v2, p0}, Lcom/android/systemui/doze/DozeTriggers;->$r8$lambda$7x5GD8oRADMJNF_wwAFPsufPGw4(Lcom/android/systemui/doze/DozeTriggers;FF[F)V
+    invoke-static {p1}, Lcom/android/systemui/doze/DozeTriggers;->$r8$lambda$c3o90X_6hj3B4TQHaMbJliRL54k(I)V
 
     return-void
 .end method

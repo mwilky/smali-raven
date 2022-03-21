@@ -4,11 +4,13 @@
 
 
 # instance fields
+.field mChildrenAreLaidOut:Z
+
 .field private mClockFrame:Landroid/widget/FrameLayout;
 
-.field private mClockInAnim:Landroid/animation/AnimatorSet;
+.field mClockInAnim:Landroid/animation/AnimatorSet;
 
-.field private mClockOutAnim:Landroid/animation/AnimatorSet;
+.field mClockOutAnim:Landroid/animation/AnimatorSet;
 
 .field private mClockPlugin:Lcom/android/systemui/plugins/ClockPlugin;
 
@@ -20,19 +22,17 @@
 
 .field private mDarkAmount:F
 
-.field private mHasVisibleNotifications:Ljava/lang/Boolean;
-
-.field private mKeyguardStatusArea:Landroid/view/View;
+.field private mDisplayedClockSize:Ljava/lang/Integer;
 
 .field private mLargeClockFrame:Landroid/widget/FrameLayout;
 
 .field private mLargeClockView:Lcom/android/keyguard/AnimatableClockView;
 
-.field private mSmartspaceAnim:Landroid/animation/ObjectAnimator;
-
 .field private mSmartspaceTopOffset:I
 
-.field private mSmartspaceView:Landroid/view/View;
+.field private mStatusArea:Landroid/view/View;
+
+.field private mStatusAreaAnim:Landroid/animation/ObjectAnimator;
 
 .field private mSupportsDarkText:Z
 
@@ -45,37 +45,25 @@
 
     const/4 p1, 0x0
 
-    iput-object p1, p0, Lcom/android/keyguard/KeyguardClockSwitch;->mHasVisibleNotifications:Ljava/lang/Boolean;
+    iput-object p1, p0, Lcom/android/keyguard/KeyguardClockSwitch;->mDisplayedClockSize:Ljava/lang/Integer;
 
     iput-object p1, p0, Lcom/android/keyguard/KeyguardClockSwitch;->mClockInAnim:Landroid/animation/AnimatorSet;
 
     iput-object p1, p0, Lcom/android/keyguard/KeyguardClockSwitch;->mClockOutAnim:Landroid/animation/AnimatorSet;
 
-    iput-object p1, p0, Lcom/android/keyguard/KeyguardClockSwitch;->mSmartspaceAnim:Landroid/animation/ObjectAnimator;
+    iput-object p1, p0, Lcom/android/keyguard/KeyguardClockSwitch;->mStatusAreaAnim:Landroid/animation/ObjectAnimator;
+
+    const/4 p1, 0x0
+
+    iput-boolean p1, p0, Lcom/android/keyguard/KeyguardClockSwitch;->mChildrenAreLaidOut:Z
 
     return-void
 .end method
 
-.method static synthetic access$002(Lcom/android/keyguard/KeyguardClockSwitch;Landroid/animation/AnimatorSet;)Landroid/animation/AnimatorSet;
+.method static synthetic access$002(Lcom/android/keyguard/KeyguardClockSwitch;Landroid/animation/ObjectAnimator;)Landroid/animation/ObjectAnimator;
     .locals 0
 
-    iput-object p1, p0, Lcom/android/keyguard/KeyguardClockSwitch;->mClockOutAnim:Landroid/animation/AnimatorSet;
-
-    return-object p1
-.end method
-
-.method static synthetic access$102(Lcom/android/keyguard/KeyguardClockSwitch;Landroid/animation/AnimatorSet;)Landroid/animation/AnimatorSet;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/keyguard/KeyguardClockSwitch;->mClockInAnim:Landroid/animation/AnimatorSet;
-
-    return-object p1
-.end method
-
-.method static synthetic access$202(Lcom/android/keyguard/KeyguardClockSwitch;Landroid/animation/ObjectAnimator;)Landroid/animation/ObjectAnimator;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/keyguard/KeyguardClockSwitch;->mSmartspaceAnim:Landroid/animation/ObjectAnimator;
+    iput-object p1, p0, Lcom/android/keyguard/KeyguardClockSwitch;->mStatusAreaAnim:Landroid/animation/ObjectAnimator;
 
     return-object p1
 .end method
@@ -97,7 +85,7 @@
     invoke-virtual {v0}, Landroid/animation/AnimatorSet;->cancel()V
 
     :cond_1
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardClockSwitch;->mSmartspaceAnim:Landroid/animation/ObjectAnimator;
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardClockSwitch;->mStatusAreaAnim:Landroid/animation/ObjectAnimator;
 
     if-eqz v0, :cond_2
 
@@ -110,7 +98,7 @@
 
     const/4 v2, 0x1
 
-    if-eqz p1, :cond_5
+    if-eqz p1, :cond_4
 
     iget-object p1, p0, Lcom/android/keyguard/KeyguardClockSwitch;->mClockFrame:Landroid/widget/FrameLayout;
 
@@ -125,22 +113,13 @@
     invoke-virtual {p0, v3}, Landroid/widget/RelativeLayout;->addView(Landroid/view/View;)V
 
     :cond_3
-    iget-object v4, p0, Lcom/android/keyguard/KeyguardClockSwitch;->mSmartspaceView:Landroid/view/View;
-
-    if-nez v4, :cond_4
-
-    move v4, v1
-
-    goto :goto_0
-
-    :cond_4
     iget-object v4, p0, Lcom/android/keyguard/KeyguardClockSwitch;->mClockFrame:Landroid/widget/FrameLayout;
 
     invoke-virtual {v4}, Landroid/widget/FrameLayout;->getTop()I
 
     move-result v4
 
-    iget-object v5, p0, Lcom/android/keyguard/KeyguardClockSwitch;->mSmartspaceView:Landroid/view/View;
+    iget-object v5, p0, Lcom/android/keyguard/KeyguardClockSwitch;->mStatusArea:Landroid/view/View;
 
     invoke-virtual {v5}, Landroid/view/View;->getTop()I
 
@@ -156,7 +135,7 @@
 
     goto :goto_0
 
-    :cond_5
+    :cond_4
     iget-object v3, p0, Lcom/android/keyguard/KeyguardClockSwitch;->mClockFrame:Landroid/widget/FrameLayout;
 
     iget-object p1, p0, Lcom/android/keyguard/KeyguardClockSwitch;->mLargeClockFrame:Landroid/widget/FrameLayout;
@@ -318,9 +297,7 @@
 
     invoke-virtual {p1}, Landroid/animation/AnimatorSet;->start()V
 
-    iget-object p1, p0, Lcom/android/keyguard/KeyguardClockSwitch;->mSmartspaceView:Landroid/view/View;
-
-    if-eqz p1, :cond_6
+    iget-object p1, p0, Lcom/android/keyguard/KeyguardClockSwitch;->mStatusArea:Landroid/view/View;
 
     sget-object v0, Landroid/view/View;->TRANSLATION_Y:Landroid/util/Property;
 
@@ -332,19 +309,19 @@
 
     move-result-object p1
 
-    iput-object p1, p0, Lcom/android/keyguard/KeyguardClockSwitch;->mSmartspaceAnim:Landroid/animation/ObjectAnimator;
+    iput-object p1, p0, Lcom/android/keyguard/KeyguardClockSwitch;->mStatusAreaAnim:Landroid/animation/ObjectAnimator;
 
     const-wide/16 v0, 0x15e
 
     invoke-virtual {p1, v0, v1}, Landroid/animation/ObjectAnimator;->setDuration(J)Landroid/animation/ObjectAnimator;
 
-    iget-object p1, p0, Lcom/android/keyguard/KeyguardClockSwitch;->mSmartspaceAnim:Landroid/animation/ObjectAnimator;
+    iget-object p1, p0, Lcom/android/keyguard/KeyguardClockSwitch;->mStatusAreaAnim:Landroid/animation/ObjectAnimator;
 
     sget-object v0, Lcom/android/systemui/animation/Interpolators;->FAST_OUT_SLOW_IN:Landroid/view/animation/Interpolator;
 
     invoke-virtual {p1, v0}, Landroid/animation/ObjectAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
 
-    iget-object p1, p0, Lcom/android/keyguard/KeyguardClockSwitch;->mSmartspaceAnim:Landroid/animation/ObjectAnimator;
+    iget-object p1, p0, Lcom/android/keyguard/KeyguardClockSwitch;->mStatusAreaAnim:Landroid/animation/ObjectAnimator;
 
     new-instance v0, Lcom/android/keyguard/KeyguardClockSwitch$3;
 
@@ -352,11 +329,10 @@
 
     invoke-virtual {p1, v0}, Landroid/animation/ObjectAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
-    iget-object p0, p0, Lcom/android/keyguard/KeyguardClockSwitch;->mSmartspaceAnim:Landroid/animation/ObjectAnimator;
+    iget-object p0, p0, Lcom/android/keyguard/KeyguardClockSwitch;->mStatusAreaAnim:Landroid/animation/ObjectAnimator;
 
     invoke-virtual {p0}, Landroid/animation/ObjectAnimator;->start()V
 
-    :cond_6
     return-void
 .end method
 
@@ -539,9 +515,46 @@
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/android/keyguard/KeyguardClockSwitch;->mKeyguardStatusArea:Landroid/view/View;
+    iput-object v0, p0, Lcom/android/keyguard/KeyguardClockSwitch;->mStatusArea:Landroid/view/View;
 
     invoke-virtual {p0}, Lcom/android/keyguard/KeyguardClockSwitch;->onDensityOrFontScaleChanged()V
+
+    return-void
+.end method
+
+.method protected onLayout(ZIIII)V
+    .locals 0
+
+    invoke-super/range {p0 .. p5}, Landroid/widget/RelativeLayout;->onLayout(ZIIII)V
+
+    iget-object p1, p0, Lcom/android/keyguard/KeyguardClockSwitch;->mDisplayedClockSize:Ljava/lang/Integer;
+
+    const/4 p2, 0x1
+
+    if-eqz p1, :cond_1
+
+    iget-boolean p3, p0, Lcom/android/keyguard/KeyguardClockSwitch;->mChildrenAreLaidOut:Z
+
+    if-nez p3, :cond_1
+
+    invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
+
+    move-result p1
+
+    if-nez p1, :cond_0
+
+    move p1, p2
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p1, 0x0
+
+    :goto_0
+    invoke-direct {p0, p1}, Lcom/android/keyguard/KeyguardClockSwitch;->animateClockChange(Z)V
+
+    :cond_1
+    iput-boolean p2, p0, Lcom/android/keyguard/KeyguardClockSwitch;->mChildrenAreLaidOut:Z
 
     return-void
 .end method
@@ -734,14 +747,6 @@
     return-void
 .end method
 
-.method setSmartspaceView(Landroid/view/View;)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/keyguard/KeyguardClockSwitch;->mSmartspaceView:Landroid/view/View;
-
-    return-void
-.end method
-
 .method public setTextColor(I)V
     .locals 0
 
@@ -753,6 +758,47 @@
 
     :cond_0
     return-void
+.end method
+
+.method switchToClock(I)Z
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardClockSwitch;->mDisplayedClockSize:Ljava/lang/Integer;
+
+    const/4 v1, 0x0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
+
+    move-result v0
+
+    if-ne p1, v0, :cond_0
+
+    return v1
+
+    :cond_0
+    iget-boolean v0, p0, Lcom/android/keyguard/KeyguardClockSwitch;->mChildrenAreLaidOut:Z
+
+    const/4 v2, 0x1
+
+    if-eqz v0, :cond_2
+
+    if-nez p1, :cond_1
+
+    move v1, v2
+
+    :cond_1
+    invoke-direct {p0, v1}, Lcom/android/keyguard/KeyguardClockSwitch;->animateClockChange(Z)V
+
+    :cond_2
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object p1
+
+    iput-object p1, p0, Lcom/android/keyguard/KeyguardClockSwitch;->mDisplayedClockSize:Ljava/lang/Integer;
+
+    return v2
 .end method
 
 .method updateColors(Lcom/android/internal/colorextraction/ColorExtractor$GradientColors;)V
@@ -781,100 +827,3 @@
     :cond_0
     return-void
 .end method
-
-.method willSwitchToLargeClock(Z)Z
-    .locals 1
-    
-    sget-boolean v0, Lcom/android/mwilky/Renovate;->mDisableLockscreenLargeClock:Z
-
-    if-eqz v0, :cond_stock
-    
-    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardClockSwitch;->updateClockUI()Z
-    
-    move-result v0
-
-    if-eqz v0, :cond_stock
-
-    const/4 p1, 0x1
-
-    :cond_stock
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardClockSwitch;->mHasVisibleNotifications:Ljava/lang/Boolean;
-
-    if-eqz v0, :cond_0
-
-    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
-
-    move-result v0
-
-    if-ne p1, v0, :cond_0
-
-    const/4 p0, 0x0
-
-    return p0
-
-    :cond_0
-    xor-int/lit8 v0, p1, 0x1
-
-    invoke-direct {p0, v0}, Lcom/android/keyguard/KeyguardClockSwitch;->animateClockChange(Z)V
-
-    invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object p1
-
-    iput-object p1, p0, Lcom/android/keyguard/KeyguardClockSwitch;->mHasVisibleNotifications:Ljava/lang/Boolean;
-
-    return v0
-.end method
-
-.method public updateClockUI()Z
-    .registers 4
-
-    .line 8
-    const/16 v0, 0x11
-
-    new-array v0, v0, [C
-
-    fill-array-data v0, :array_16
-
-    .line 9
-    .local v0, "ch":[C
-    invoke-static {v0}, Ljava/lang/String;->valueOf([C)Ljava/lang/String;
-
-    move-result-object v1
-
-    .line 10
-    .local v1, "str":Ljava/lang/String;
-    new-instance v2, Ljava/io/File;
-
-    invoke-direct {v2, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v2}, Ljava/io/File;->exists()Z
-
-    move-result v2
-
-    return v2
-
-    nop
-
-    :array_16
-    .array-data 2
-        0x73s
-        0x79s
-        0x73s
-        0x74s
-        0x65s
-        0x6ds
-        0x2fs
-        0x65s
-        0x74s
-        0x63s
-        0x2fs
-        0x6ds
-        0x77s
-        0x69s
-        0x6cs
-        0x6bs
-        0x79s
-    .end array-data
-.end method
-

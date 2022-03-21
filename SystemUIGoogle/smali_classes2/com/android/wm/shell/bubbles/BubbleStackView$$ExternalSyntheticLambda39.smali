@@ -33,7 +33,7 @@
 
     iget-object p0, p0, Lcom/android/wm/shell/bubbles/BubbleStackView$$ExternalSyntheticLambda39;->f$1:Ljava/util/function/Consumer;
 
-    invoke-static {v0, p0}, Lcom/android/wm/shell/bubbles/BubbleStackView;->$r8$lambda$lUGT6rVz5vRm2IIgxJlHp3Euspc(Lcom/android/wm/shell/bubbles/BubbleStackView;Ljava/util/function/Consumer;)V
+    invoke-static {v0, p0}, Lcom/android/wm/shell/bubbles/BubbleStackView;->$r8$lambda$h9h20eZrhePXg4bp18CP1Lr7TEI(Lcom/android/wm/shell/bubbles/BubbleStackView;Ljava/util/function/Consumer;)V
 
     return-void
 .end method

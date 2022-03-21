@@ -6,7 +6,6 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/systemui/util/sensors/ThresholdSensor$ThresholdSensorEvent;,
         Lcom/android/systemui/util/sensors/ThresholdSensor$Listener;
     }
 .end annotation
@@ -29,4 +28,7 @@
 .end method
 
 .method public abstract setTag(Ljava/lang/String;)V
+.end method
+
+.method public abstract unregister(Lcom/android/systemui/util/sensors/ThresholdSensor$Listener;)V
 .end method

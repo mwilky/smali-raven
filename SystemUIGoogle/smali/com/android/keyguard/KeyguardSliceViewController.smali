@@ -51,8 +51,6 @@
     .end annotation
 .end field
 
-.field private mLockScreenMode:I
-
 .field mObserver:Landroidx/lifecycle/Observer;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -95,10 +93,6 @@
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/systemui/util/ViewController;-><init>(Landroid/view/View;)V
-
-    const/4 p1, 0x0
-
-    iput p1, p0, Lcom/android/keyguard/KeyguardSliceViewController;->mLockScreenMode:I
 
     new-instance p1, Lcom/android/keyguard/KeyguardSliceViewController$$ExternalSyntheticLambda0;
 
@@ -244,27 +238,9 @@
 
     invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object p3, p0, Lcom/android/keyguard/KeyguardSliceViewController;->mClickActions:Ljava/util/Map;
+    iget-object p0, p0, Lcom/android/keyguard/KeyguardSliceViewController;->mClickActions:Ljava/util/Map;
 
-    invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    new-instance p1, Ljava/lang/StringBuilder;
-
-    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string p3, "  mLockScreenMode: "
-
-    invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget p0, p0, Lcom/android/keyguard/KeyguardSliceViewController;->mLockScreenMode:I
-
-    invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -351,14 +327,6 @@
     move-result-object v1
 
     invoke-virtual {v0, v1, p0}, Lcom/android/systemui/dump/DumpManager;->registerDumpable(Ljava/lang/String;Lcom/android/systemui/Dumpable;)V
-
-    iget-object v0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
-
-    check-cast v0, Lcom/android/keyguard/KeyguardSliceView;
-
-    iget p0, p0, Lcom/android/keyguard/KeyguardSliceViewController;->mLockScreenMode:I
-
-    invoke-virtual {v0, p0}, Lcom/android/keyguard/KeyguardSliceView;->updateLockScreenMode(I)V
 
     return-void
 .end method
@@ -647,36 +615,6 @@
     iput-object p1, p0, Lcom/android/keyguard/KeyguardSliceViewController;->mClickActions:Ljava/util/Map;
 
     invoke-static {}, Landroid/os/Trace;->endSection()V
-
-    return-void
-.end method
-
-.method public updateLockScreenMode(I)V
-    .locals 0
-
-    iput p1, p0, Lcom/android/keyguard/KeyguardSliceViewController;->mLockScreenMode:I
-
-    iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
-
-    check-cast p0, Lcom/android/keyguard/KeyguardSliceView;
-
-    invoke-virtual {p0, p1}, Lcom/android/keyguard/KeyguardSliceView;->updateLockScreenMode(I)V
-
-    return-void
-.end method
-
-.method updatePosition(ILcom/android/systemui/statusbar/notification/stack/AnimationProperties;Z)V
-    .locals 1
-
-    iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
-
-    check-cast p0, Lcom/android/keyguard/KeyguardSliceView;
-
-    sget-object v0, Lcom/android/systemui/statusbar/notification/AnimatableProperty;->TRANSLATION_X:Lcom/android/systemui/statusbar/notification/AnimatableProperty;
-
-    int-to-float p1, p1
-
-    invoke-static {p0, v0, p1, p2, p3}, Lcom/android/systemui/statusbar/notification/PropertyAnimator;->setProperty(Landroid/view/View;Lcom/android/systemui/statusbar/notification/AnimatableProperty;FLcom/android/systemui/statusbar/notification/stack/AnimationProperties;Z)V
 
     return-void
 .end method

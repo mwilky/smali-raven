@@ -106,13 +106,13 @@
     return-void
 .end method
 
-.method public onHasLockscreenWallpaperChanged(Z)V
+.method public onKeyguardBouncerChanged(Z)V
     .locals 0
 
     return-void
 .end method
 
-.method public onKeyguardBouncerChanged(Z)V
+.method public onKeyguardOccludedChanged(Z)V
     .locals 0
 
     return-void
@@ -157,7 +157,7 @@
     return-void
 .end method
 
-.method public onLockScreenModeChanged(I)V
+.method public onLockedOutStateChanged(Landroid/hardware/biometrics/BiometricSourceType;)V
     .locals 0
 
     return-void

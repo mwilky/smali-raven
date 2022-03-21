@@ -2,7 +2,7 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Landroid/view/ViewTreeObserver$OnPreDrawListener;
+.implements Ljava/lang/Runnable;
 
 
 # instance fields
@@ -22,14 +22,12 @@
 
 
 # virtual methods
-.method public final onPreDraw()Z
+.method public final run()V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout$$ExternalSyntheticLambda4;->f$0:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;
 
-    invoke-static {p0}, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;->$r8$lambda$rMEa4GFn9IDiqCEJp678U4oxK1g(Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;)Z
+    invoke-static {p0}, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;->$r8$lambda$AS6jo8CEcSFhaADyX-XiuyvH2Lc(Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;)V
 
-    move-result p0
-
-    return p0
+    return-void
 .end method

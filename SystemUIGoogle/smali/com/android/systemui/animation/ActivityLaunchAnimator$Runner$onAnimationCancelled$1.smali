@@ -39,7 +39,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner$onAnimationCancelled$1;->this$0:Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;
 
-    invoke-static {v0}, Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;->access$getAnimator$p(Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;)Landroid/animation/ValueAnimator;
+    invoke-static {v0}, Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;->access$getAnimation$p(Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;)Lcom/android/systemui/animation/LaunchAnimator$Animation;
 
     move-result-object v0
 
@@ -48,7 +48,7 @@
     goto :goto_0
 
     :cond_0
-    invoke-virtual {v0}, Landroid/animation/ValueAnimator;->cancel()V
+    invoke-interface {v0}, Lcom/android/systemui/animation/LaunchAnimator$Animation;->cancel()V
 
     :goto_0
     iget-object p0, p0, Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner$onAnimationCancelled$1;->this$0:Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;

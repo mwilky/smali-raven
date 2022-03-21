@@ -6,16 +6,16 @@
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/android/systemui/volume/VolumeDialogComponent;
+.field public final synthetic f$0:Lcom/android/systemui/plugins/VolumeDialog;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/systemui/volume/VolumeDialogComponent;)V
+.method public synthetic constructor <init>(Lcom/android/systemui/plugins/VolumeDialog;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/systemui/volume/VolumeDialogComponent$$ExternalSyntheticLambda1;->f$0:Lcom/android/systemui/volume/VolumeDialogComponent;
+    iput-object p1, p0, Lcom/android/systemui/volume/VolumeDialogComponent$$ExternalSyntheticLambda1;->f$0:Lcom/android/systemui/plugins/VolumeDialog;
 
     return-void
 .end method
@@ -25,9 +25,9 @@
 .method public final get()Ljava/lang/Object;
     .locals 0
 
-    iget-object p0, p0, Lcom/android/systemui/volume/VolumeDialogComponent$$ExternalSyntheticLambda1;->f$0:Lcom/android/systemui/volume/VolumeDialogComponent;
+    iget-object p0, p0, Lcom/android/systemui/volume/VolumeDialogComponent$$ExternalSyntheticLambda1;->f$0:Lcom/android/systemui/plugins/VolumeDialog;
 
-    invoke-virtual {p0}, Lcom/android/systemui/volume/VolumeDialogComponent;->createDefault()Lcom/android/systemui/plugins/VolumeDialog;
+    invoke-static {p0}, Lcom/android/systemui/volume/VolumeDialogComponent;->$r8$lambda$L3JnflTdrQqAzB7TFSod7UDj4bc(Lcom/android/systemui/plugins/VolumeDialog;)Lcom/android/systemui/plugins/VolumeDialog;
 
     move-result-object p0
 

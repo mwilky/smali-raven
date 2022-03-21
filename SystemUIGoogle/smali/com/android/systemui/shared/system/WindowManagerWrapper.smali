@@ -4,12 +4,18 @@
 
 
 # static fields
+.field public static final RESIZE_INTERPOLATOR:Landroid/view/animation/Interpolator;
+
 .field private static final sInstance:Lcom/android/systemui/shared/system/WindowManagerWrapper;
 
 
 # direct methods
 .method static constructor <clinit>()V
     .locals 1
+
+    sget-object v0, Landroid/view/InsetsController;->RESIZE_INTERPOLATOR:Landroid/view/animation/Interpolator;
+
+    sput-object v0, Lcom/android/systemui/shared/system/WindowManagerWrapper;->RESIZE_INTERPOLATOR:Landroid/view/animation/Interpolator;
 
     new-instance v0, Lcom/android/systemui/shared/system/WindowManagerWrapper;
 

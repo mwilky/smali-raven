@@ -77,8 +77,6 @@
 
 .field private mShelfHeight:I
 
-.field private mShowPipMenuOnAnimationEnd:Z
-
 .field private mStashVelocityThreshold:F
 
 .field private final mTmpBounds:Landroid/graphics/Rect;
@@ -167,23 +165,21 @@
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
+    const/4 v2, 0x1
+
+    iput-boolean v2, v0, Lcom/android/wm/shell/pip/phone/PipTouchHandler;->mEnableStash:Z
+
+    new-instance v2, Landroid/graphics/Rect;
+
+    invoke-direct {v2}, Landroid/graphics/Rect;-><init>()V
+
+    iput-object v2, v0, Lcom/android/wm/shell/pip/phone/PipTouchHandler;->mInsetBounds:Landroid/graphics/Rect;
+
+    const/4 v2, -0x1
+
+    iput v2, v0, Lcom/android/wm/shell/pip/phone/PipTouchHandler;->mDeferResizeToNormalBoundsUntilRotation:I
+
     const/4 v2, 0x0
-
-    iput-boolean v2, v0, Lcom/android/wm/shell/pip/phone/PipTouchHandler;->mShowPipMenuOnAnimationEnd:Z
-
-    const/4 v3, 0x1
-
-    iput-boolean v3, v0, Lcom/android/wm/shell/pip/phone/PipTouchHandler;->mEnableStash:Z
-
-    new-instance v3, Landroid/graphics/Rect;
-
-    invoke-direct {v3}, Landroid/graphics/Rect;-><init>()V
-
-    iput-object v3, v0, Lcom/android/wm/shell/pip/phone/PipTouchHandler;->mInsetBounds:Landroid/graphics/Rect;
-
-    const/4 v3, -0x1
-
-    iput v3, v0, Lcom/android/wm/shell/pip/phone/PipTouchHandler;->mDeferResizeToNormalBoundsUntilRotation:I
 
     iput v2, v0, Lcom/android/wm/shell/pip/phone/PipTouchHandler;->mMenuState:I
 
@@ -909,7 +905,7 @@
     :cond_0
     iget-object v1, p0, Lcom/android/wm/shell/pip/phone/PipTouchHandler;->mMenuController:Lcom/android/wm/shell/pip/phone/PhonePipMenuController;
 
-    const/4 v2, 0x2
+    const/4 v2, 0x1
 
     iget-object v0, p0, Lcom/android/wm/shell/pip/phone/PipTouchHandler;->mPipBoundsState:Lcom/android/wm/shell/pip/PipBoundsState;
 
@@ -952,7 +948,7 @@
 
     move-result v5
 
-    const/4 v1, 0x2
+    const/4 v1, 0x1
 
     const/4 v3, 0x1
 
@@ -973,7 +969,7 @@
     return-void
 
     :cond_0
-    const/4 v1, 0x2
+    const/4 v1, 0x1
 
     if-ne p1, v1, :cond_1
 
@@ -1133,23 +1129,25 @@
 .end method
 
 .method private setMenuState(I)V
-    .locals 1
+    .locals 2
 
     iput p1, p0, Lcom/android/wm/shell/pip/phone/PipTouchHandler;->mMenuState:I
 
     invoke-direct {p0}, Lcom/android/wm/shell/pip/phone/PipTouchHandler;->updateMovementBounds()V
 
+    const/4 v0, 0x1
+
     if-nez p1, :cond_0
 
-    const/4 v0, 0x1
+    move v1, v0
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
     :goto_0
-    invoke-virtual {p0, v0}, Lcom/android/wm/shell/pip/phone/PipTouchHandler;->onRegistrationChanged(Z)V
+    invoke-virtual {p0, v1}, Lcom/android/wm/shell/pip/phone/PipTouchHandler;->onRegistrationChanged(Z)V
 
     if-nez p1, :cond_1
 
@@ -1162,8 +1160,6 @@
     goto :goto_1
 
     :cond_1
-    const/4 v0, 0x2
-
     if-ne p1, v0, :cond_2
 
     iget-object p0, p0, Lcom/android/wm/shell/pip/phone/PipTouchHandler;->mPipUiEventLogger:Lcom/android/wm/shell/pip/PipUiEventLogger;
@@ -1226,11 +1222,11 @@
 
     iget v0, p0, Lcom/android/wm/shell/pip/phone/PipTouchHandler;->mMenuState:I
 
-    const/4 v1, 0x2
+    const/4 v1, 0x1
 
     if-ne v0, v1, :cond_1
 
-    const/4 v5, 0x1
+    move v5, v1
 
     :cond_1
     iget-object v0, p0, Lcom/android/wm/shell/pip/phone/PipTouchHandler;->mPipBoundsState:Lcom/android/wm/shell/pip/PipBoundsState;
@@ -1996,7 +1992,7 @@
 
     iget-object v5, p0, Lcom/android/wm/shell/pip/phone/PipTouchHandler;->mMenuController:Lcom/android/wm/shell/pip/phone/PhonePipMenuController;
 
-    const/4 v6, 0x2
+    const/4 v6, 0x1
 
     iget-object v2, p0, Lcom/android/wm/shell/pip/phone/PipTouchHandler;->mPipBoundsState:Lcom/android/wm/shell/pip/PipBoundsState;
 
@@ -2224,10 +2220,6 @@
     iget-object v0, p0, Lcom/android/wm/shell/pip/phone/PipTouchHandler;->mPipDismissTargetHandler:Lcom/android/wm/shell/pip/phone/PipDismissTargetHandler;
 
     invoke-virtual {v0}, Lcom/android/wm/shell/pip/phone/PipDismissTargetHandler;->createOrUpdateDismissTarget()V
-
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/android/wm/shell/pip/phone/PipTouchHandler;->mShowPipMenuOnAnimationEnd:Z
 
     iget-object v0, p0, Lcom/android/wm/shell/pip/phone/PipTouchHandler;->mPipResizeGestureHandler:Lcom/android/wm/shell/pip/phone/PipResizeGestureHandler;
 
@@ -2559,9 +2551,7 @@
     :cond_9
     iget p4, p0, Lcom/android/wm/shell/pip/phone/PipTouchHandler;->mMenuState:I
 
-    const/4 p5, 0x2
-
-    if-ne p4, p5, :cond_a
+    if-ne p4, v3, :cond_a
 
     invoke-direct {p0}, Lcom/android/wm/shell/pip/phone/PipTouchHandler;->willResizeMenu()Z
 
@@ -2750,8 +2740,18 @@
     return-void
 .end method
 
+.method public onOverlayChanged()V
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/wm/shell/pip/phone/PipTouchHandler;->mPipDismissTargetHandler:Lcom/android/wm/shell/pip/phone/PipDismissTargetHandler;
+
+    invoke-virtual {p0}, Lcom/android/wm/shell/pip/phone/PipDismissTargetHandler;->init()V
+
+    return-void
+.end method
+
 .method public onPinnedStackAnimationEnded(I)V
-    .locals 6
+    .locals 1
 
     iget-object v0, p0, Lcom/android/wm/shell/pip/phone/PipTouchHandler;->mMotionHelper:Lcom/android/wm/shell/pip/phone/PipMotionHelper;
 
@@ -2765,44 +2765,15 @@
 
     iget-object p1, p0, Lcom/android/wm/shell/pip/phone/PipTouchHandler;->mPipResizeGestureHandler:Lcom/android/wm/shell/pip/phone/PipResizeGestureHandler;
 
-    iget-object v0, p0, Lcom/android/wm/shell/pip/phone/PipTouchHandler;->mPipBoundsState:Lcom/android/wm/shell/pip/PipBoundsState;
+    iget-object p0, p0, Lcom/android/wm/shell/pip/phone/PipTouchHandler;->mPipBoundsState:Lcom/android/wm/shell/pip/PipBoundsState;
 
-    invoke-virtual {v0}, Lcom/android/wm/shell/pip/PipBoundsState;->getBounds()Landroid/graphics/Rect;
+    invoke-virtual {p0}, Lcom/android/wm/shell/pip/PipBoundsState;->getBounds()Landroid/graphics/Rect;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {p1, v0}, Lcom/android/wm/shell/pip/phone/PipResizeGestureHandler;->setUserResizeBounds(Landroid/graphics/Rect;)V
+    invoke-virtual {p1, p0}, Lcom/android/wm/shell/pip/phone/PipResizeGestureHandler;->setUserResizeBounds(Landroid/graphics/Rect;)V
 
     :cond_0
-    iget-boolean p1, p0, Lcom/android/wm/shell/pip/phone/PipTouchHandler;->mShowPipMenuOnAnimationEnd:Z
-
-    if-eqz p1, :cond_1
-
-    iget-object v0, p0, Lcom/android/wm/shell/pip/phone/PipTouchHandler;->mMenuController:Lcom/android/wm/shell/pip/phone/PhonePipMenuController;
-
-    const/4 v1, 0x1
-
-    iget-object p1, p0, Lcom/android/wm/shell/pip/phone/PipTouchHandler;->mPipBoundsState:Lcom/android/wm/shell/pip/PipBoundsState;
-
-    invoke-virtual {p1}, Lcom/android/wm/shell/pip/PipBoundsState;->getBounds()Landroid/graphics/Rect;
-
-    move-result-object v2
-
-    const/4 v3, 0x1
-
-    const/4 v4, 0x0
-
-    invoke-direct {p0}, Lcom/android/wm/shell/pip/phone/PipTouchHandler;->shouldShowResizeHandle()Z
-
-    move-result v5
-
-    invoke-virtual/range {v0 .. v5}, Lcom/android/wm/shell/pip/phone/PhonePipMenuController;->showMenu(ILandroid/graphics/Rect;ZZZ)V
-
-    const/4 p1, 0x0
-
-    iput-boolean p1, p0, Lcom/android/wm/shell/pip/phone/PipTouchHandler;->mShowPipMenuOnAnimationEnd:Z
-
-    :cond_1
     return-void
 .end method
 
@@ -2918,7 +2889,7 @@
 
     iget-object v1, p0, Lcom/android/wm/shell/pip/phone/PipTouchHandler;->mMenuController:Lcom/android/wm/shell/pip/phone/PhonePipMenuController;
 
-    const/4 v2, 0x2
+    const/4 v2, 0x1
 
     iget-object v0, p0, Lcom/android/wm/shell/pip/phone/PipTouchHandler;->mPipBoundsState:Lcom/android/wm/shell/pip/PipBoundsState;
 

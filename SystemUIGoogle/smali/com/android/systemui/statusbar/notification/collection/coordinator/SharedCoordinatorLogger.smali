@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nSharedCoordinatorLogger.kt\nKotlin\n*S Kotlin\n*F\n+ 1 SharedCoordinatorLogger.kt\ncom/android/systemui/statusbar/notification/collection/coordinator/SharedCoordinatorLogger\n+ 2 LogBuffer.kt\ncom/android/systemui/log/LogBuffer\n*L\n1#1,39:1\n113#2,6:40\n*E\n*S KotlinDebug\n*F\n+ 1 SharedCoordinatorLogger.kt\ncom/android/systemui/statusbar/notification/collection/coordinator/SharedCoordinatorLogger\n*L\n31#1,6:40\n*E\n"
+    value = "SMAP\nSharedCoordinatorLogger.kt\nKotlin\n*S Kotlin\n*F\n+ 1 SharedCoordinatorLogger.kt\ncom/android/systemui/statusbar/notification/collection/coordinator/SharedCoordinatorLogger\n+ 2 LogBuffer.kt\ncom/android/systemui/log/LogBuffer\n*L\n1#1,39:1\n120#2,6:40\n*E\n*S KotlinDebug\n*F\n+ 1 SharedCoordinatorLogger.kt\ncom/android/systemui/statusbar/notification/collection/coordinator/SharedCoordinatorLogger\n*L\n31#1,6:40\n*E\n"
 .end annotation
 
 

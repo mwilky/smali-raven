@@ -73,6 +73,93 @@
     return p1
 .end method
 
+.method public static getQsHeaderSystemIconsAreaHeight(Landroid/content/Context;)I
+    .locals 2
+
+    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/android/systemui/util/Utils;->shouldUseSplitNotificationShade(Landroid/content/res/Resources;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    sget p0, Lcom/android/systemui/R$dimen;->qs_header_system_icons_area_height:I
+
+    invoke-virtual {v0, p0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result p0
+
+    return p0
+
+    :cond_0
+    invoke-static {p0}, Lcom/android/internal/policy/SystemBarUtils;->getQuickQsOffsetHeight(Landroid/content/Context;)I
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public static getSplitShadeStatusBarHeight(Landroid/content/Context;)I
+    .locals 0
+
+    invoke-static {p0}, Lcom/android/internal/policy/SystemBarUtils;->getQuickQsOffsetHeight(Landroid/content/Context;)I
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public static getStatusBarHeaderHeightKeyguard(Landroid/content/Context;)I
+    .locals 3
+
+    invoke-static {p0}, Lcom/android/internal/policy/SystemBarUtils;->getStatusBarHeight(Landroid/content/Context;)I
+
+    move-result v0
+
+    invoke-virtual {p0}, Landroid/content/Context;->getDisplay()Landroid/view/Display;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/view/Display;->getCutout()Landroid/view/DisplayCutout;
+
+    move-result-object v1
+
+    if-nez v1, :cond_0
+
+    const/4 v1, 0x0
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {v1}, Landroid/view/DisplayCutout;->getWaterfallInsets()Landroid/graphics/Insets;
+
+    move-result-object v1
+
+    iget v1, v1, Landroid/graphics/Insets;->top:I
+
+    :goto_0
+    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object p0
+
+    sget v2, Lcom/android/systemui/R$dimen;->status_bar_header_height_keyguard:I
+
+    invoke-virtual {p0, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result p0
+
+    add-int/2addr p0, v1
+
+    invoke-static {v0, p0}, Ljava/lang/Math;->max(II)I
+
+    move-result p0
+
+    return p0
+.end method
+
 .method public static isGesturalModeOnDefaultDisplay(Landroid/content/Context;I)Z
     .locals 0
 
@@ -178,31 +265,15 @@
     return-void
 .end method
 
-.method public static shouldUseSplitNotificationShade(Lcom/android/systemui/statusbar/FeatureFlags;Landroid/content/res/Resources;)Z
-    .locals 0
+.method public static shouldUseSplitNotificationShade(Landroid/content/res/Resources;)Z
+    .locals 1
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/FeatureFlags;->isTwoColumnNotificationShadeEnabled()Z
+    sget v0, Lcom/android/systemui/R$bool;->config_use_split_notification_shade:I
 
-    move-result p0
-
-    if-eqz p0, :cond_0
-
-    sget p0, Lcom/android/systemui/R$bool;->config_use_split_notification_shade:I
-
-    invoke-virtual {p1, p0}, Landroid/content/res/Resources;->getBoolean(I)Z
+    invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
 
     move-result p0
 
-    if-eqz p0, :cond_0
-
-    const/4 p0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    :goto_0
     return p0
 .end method
 

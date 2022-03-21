@@ -23,9 +23,9 @@
 
 .field private final mFalsingManager:Lcom/android/systemui/plugins/FalsingManager;
 
-.field private mFeatureFlags:Lcom/android/systemui/statusbar/FeatureFlags;
-
 .field private mFooter:Lcom/android/systemui/qs/QSFooter;
+
+.field private mFullShadeProgress:F
 
 .field protected mHeader:Lcom/android/systemui/qs/QuickStatusBarHeader;
 
@@ -33,11 +33,13 @@
 
 .field private final mHost:Lcom/android/systemui/qs/QSTileHost;
 
-.field private final mInjectionInflater:Lcom/android/systemui/util/InjectionInflationController;
+.field private mInSplitShade:Z
 
 .field private mLastHeaderTranslation:F
 
 .field private mLastKeyguardAndExpanded:Z
+
+.field private mLastPanelFraction:F
 
 .field private mLastQSExpansion:F
 
@@ -61,6 +63,8 @@
 
 .field protected mQSPanelScrollView:Lcom/android/systemui/qs/NonInterceptingScrollView;
 
+.field private mQSSquishinessController:Lcom/android/systemui/qs/QSSquishinessController;
+
 .field private final mQqsMediaHost:Lcom/android/systemui/media/MediaHost;
 
 .field private final mQsBounds:Landroid/graphics/Rect;
@@ -73,6 +77,8 @@
 
 .field private mQsExpanded:Z
 
+.field private final mQsFragmentDisableFlagsLogger:Lcom/android/systemui/qs/QSFragmentDisableFlagsLogger;
+
 .field private final mQsMediaHost:Lcom/android/systemui/media/MediaHost;
 
 .field public mQuickQSPanelController:Lcom/android/systemui/qs/QuickQSPanelController;
@@ -82,6 +88,8 @@
 .field private mScrollListener:Lcom/android/systemui/plugins/qs/QS$ScrollListener;
 
 .field private mShowCollapsedOnKeyguard:Z
+
+.field private mSquishinessFraction:F
 
 .field private mStackScrollerOverscrolling:Z
 
@@ -94,8 +102,6 @@
 .field private mTmpLocation:[I
 
 .field private mTransitioningToFullShade:Z
-
-.field private mTranslateWhileExpanding:Z
 
 
 # direct methods
@@ -131,7 +137,7 @@
     return-void
 .end method
 
-.method public constructor <init>(Lcom/android/systemui/statusbar/policy/RemoteInputQuickSettingsDisabler;Lcom/android/systemui/util/InjectionInflationController;Lcom/android/systemui/qs/QSTileHost;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/CommandQueue;Lcom/android/systemui/qs/QSDetailDisplayer;Lcom/android/systemui/media/MediaHost;Lcom/android/systemui/media/MediaHost;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/qs/dagger/QSFragmentComponent$Factory;Lcom/android/systemui/statusbar/FeatureFlags;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/dump/DumpManager;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/policy/RemoteInputQuickSettingsDisabler;Lcom/android/systemui/qs/QSTileHost;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/CommandQueue;Lcom/android/systemui/qs/QSDetailDisplayer;Lcom/android/systemui/media/MediaHost;Lcom/android/systemui/media/MediaHost;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/qs/dagger/QSFragmentComponent$Factory;Lcom/android/systemui/qs/QSFragmentDisableFlagsLogger;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/dump/DumpManager;)V
     .locals 1
 
     invoke-direct {p0}, Lcom/android/systemui/util/LifecycleFragment;-><init>()V
@@ -145,6 +151,10 @@
     const/high16 v0, -0x40800000    # -1.0f
 
     iput v0, p0, Lcom/android/systemui/qs/QSFragment;->mLastQSExpansion:F
+
+    const/high16 v0, 0x3f800000    # 1.0f
+
+    iput v0, p0, Lcom/android/systemui/qs/QSFragment;->mSquishinessFraction:F
 
     const/4 v0, 0x2
 
@@ -166,35 +176,33 @@
 
     iput-object p1, p0, Lcom/android/systemui/qs/QSFragment;->mRemoteInputQuickSettingsDisabler:Lcom/android/systemui/statusbar/policy/RemoteInputQuickSettingsDisabler;
 
-    iput-object p2, p0, Lcom/android/systemui/qs/QSFragment;->mInjectionInflater:Lcom/android/systemui/util/InjectionInflationController;
+    iput-object p4, p0, Lcom/android/systemui/qs/QSFragment;->mCommandQueue:Lcom/android/systemui/statusbar/CommandQueue;
 
-    iput-object p5, p0, Lcom/android/systemui/qs/QSFragment;->mCommandQueue:Lcom/android/systemui/statusbar/CommandQueue;
+    iput-object p5, p0, Lcom/android/systemui/qs/QSFragment;->mQsDetailDisplayer:Lcom/android/systemui/qs/QSDetailDisplayer;
 
-    iput-object p6, p0, Lcom/android/systemui/qs/QSFragment;->mQsDetailDisplayer:Lcom/android/systemui/qs/QSDetailDisplayer;
+    iput-object p6, p0, Lcom/android/systemui/qs/QSFragment;->mQsMediaHost:Lcom/android/systemui/media/MediaHost;
 
-    iput-object p7, p0, Lcom/android/systemui/qs/QSFragment;->mQsMediaHost:Lcom/android/systemui/media/MediaHost;
+    iput-object p7, p0, Lcom/android/systemui/qs/QSFragment;->mQqsMediaHost:Lcom/android/systemui/media/MediaHost;
 
-    iput-object p8, p0, Lcom/android/systemui/qs/QSFragment;->mQqsMediaHost:Lcom/android/systemui/media/MediaHost;
+    iput-object p9, p0, Lcom/android/systemui/qs/QSFragment;->mQsComponentFactory:Lcom/android/systemui/qs/dagger/QSFragmentComponent$Factory;
 
-    iput-object p10, p0, Lcom/android/systemui/qs/QSFragment;->mQsComponentFactory:Lcom/android/systemui/qs/dagger/QSFragmentComponent$Factory;
+    iput-object p10, p0, Lcom/android/systemui/qs/QSFragment;->mQsFragmentDisableFlagsLogger:Lcom/android/systemui/qs/QSFragmentDisableFlagsLogger;
 
     invoke-virtual {p0}, Lcom/android/systemui/util/LifecycleFragment;->getLifecycle()Landroidx/lifecycle/Lifecycle;
 
     move-result-object p1
 
-    invoke-interface {p5, p1, p0}, Lcom/android/systemui/statusbar/policy/CallbackController;->observe(Landroidx/lifecycle/Lifecycle;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p4, p1, p0}, Lcom/android/systemui/statusbar/policy/CallbackController;->observe(Landroidx/lifecycle/Lifecycle;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iput-object p3, p0, Lcom/android/systemui/qs/QSFragment;->mHost:Lcom/android/systemui/qs/QSTileHost;
+    iput-object p2, p0, Lcom/android/systemui/qs/QSFragment;->mHost:Lcom/android/systemui/qs/QSTileHost;
 
-    iput-object p11, p0, Lcom/android/systemui/qs/QSFragment;->mFeatureFlags:Lcom/android/systemui/statusbar/FeatureFlags;
+    iput-object p11, p0, Lcom/android/systemui/qs/QSFragment;->mFalsingManager:Lcom/android/systemui/plugins/FalsingManager;
 
-    iput-object p12, p0, Lcom/android/systemui/qs/QSFragment;->mFalsingManager:Lcom/android/systemui/plugins/FalsingManager;
+    iput-object p8, p0, Lcom/android/systemui/qs/QSFragment;->mBypassController:Lcom/android/systemui/statusbar/phone/KeyguardBypassController;
 
-    iput-object p9, p0, Lcom/android/systemui/qs/QSFragment;->mBypassController:Lcom/android/systemui/statusbar/phone/KeyguardBypassController;
+    iput-object p3, p0, Lcom/android/systemui/qs/QSFragment;->mStatusBarStateController:Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
 
-    iput-object p4, p0, Lcom/android/systemui/qs/QSFragment;->mStatusBarStateController:Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
-
-    iput-object p13, p0, Lcom/android/systemui/qs/QSFragment;->mDumpManager:Lcom/android/systemui/dump/DumpManager;
+    iput-object p12, p0, Lcom/android/systemui/qs/QSFragment;->mDumpManager:Lcom/android/systemui/dump/DumpManager;
 
     return-void
 .end method
@@ -381,9 +389,13 @@
 
     iget p1, p0, Lcom/android/systemui/qs/QSFragment;->mLastQSExpansion:F
 
-    iget p2, p0, Lcom/android/systemui/qs/QSFragment;->mLastHeaderTranslation:F
+    iget p2, p0, Lcom/android/systemui/qs/QSFragment;->mLastPanelFraction:F
 
-    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/qs/QSFragment;->setQsExpansion(FF)V
+    iget p3, p0, Lcom/android/systemui/qs/QSFragment;->mLastHeaderTranslation:F
+
+    iget p4, p0, Lcom/android/systemui/qs/QSFragment;->mSquishinessFraction:F
+
+    invoke-virtual {p0, p1, p2, p3, p4}, Lcom/android/systemui/qs/QSFragment;->setQsExpansion(FFFF)V
 
     :cond_1
     return-void
@@ -494,6 +506,55 @@
     invoke-virtual {v0, v2}, Landroid/view/View;->setTranslationY(F)V
 
     :goto_1
+    return-void
+.end method
+
+.method private setAlphaAnimationProgress(F)V
+    .locals 3
+
+    invoke-virtual {p0}, Landroid/app/Fragment;->getView()Landroid/view/View;
+
+    move-result-object p0
+
+    const/4 v0, 0x0
+
+    cmpl-float v0, p1, v0
+
+    if-nez v0, :cond_0
+
+    invoke-virtual {p0}, Landroid/view/View;->getVisibility()I
+
+    move-result v1
+
+    const/4 v2, 0x4
+
+    if-eq v1, v2, :cond_0
+
+    invoke-virtual {p0, v2}, Landroid/view/View;->setVisibility(I)V
+
+    goto :goto_0
+
+    :cond_0
+    if-lez v0, :cond_1
+
+    invoke-virtual {p0}, Landroid/view/View;->getVisibility()I
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, v0}, Landroid/view/View;->setVisibility(I)V
+
+    :cond_1
+    :goto_0
+    invoke-static {p1}, Lcom/android/systemui/animation/ShadeInterpolation;->getContentAlpha(F)F
+
+    move-result p1
+
+    invoke-virtual {p0, p1}, Landroid/view/View;->setAlpha(F)V
+
     return-void
 .end method
 
@@ -689,7 +750,7 @@
 .end method
 
 .method private updateQsState()V
-    .locals 8
+    .locals 9
 
     iget-boolean v0, p0, Lcom/android/systemui/qs/QSFragment;->mQsExpanded:Z
 
@@ -699,188 +760,196 @@
 
     if-nez v0, :cond_1
 
-    iget-boolean v3, p0, Lcom/android/systemui/qs/QSFragment;->mStackScrollerOverscrolling:Z
+    iget-boolean v0, p0, Lcom/android/systemui/qs/QSFragment;->mInSplitShade:Z
 
-    if-nez v3, :cond_1
-
-    iget-boolean v3, p0, Lcom/android/systemui/qs/QSFragment;->mHeaderAnimating:Z
-
-    if-eqz v3, :cond_0
+    if-eqz v0, :cond_0
 
     goto :goto_0
 
     :cond_0
-    move v3, v2
+    move v0, v2
 
     goto :goto_1
 
     :cond_1
     :goto_0
-    move v3, v1
+    move v0, v1
 
     :goto_1
-    iget-object v4, p0, Lcom/android/systemui/qs/QSFragment;->mQSPanelController:Lcom/android/systemui/qs/QSPanelController;
+    if-nez v0, :cond_3
 
-    invoke-virtual {v4, v0}, Lcom/android/systemui/qs/QSPanelControllerBase;->setExpanded(Z)V
+    iget-boolean v3, p0, Lcom/android/systemui/qs/QSFragment;->mStackScrollerOverscrolling:Z
 
-    iget-object v0, p0, Lcom/android/systemui/qs/QSFragment;->mQSDetail:Lcom/android/systemui/qs/QSDetail;
+    if-nez v3, :cond_3
 
-    iget-boolean v4, p0, Lcom/android/systemui/qs/QSFragment;->mQsExpanded:Z
+    iget-boolean v3, p0, Lcom/android/systemui/qs/QSFragment;->mHeaderAnimating:Z
 
-    invoke-virtual {v0, v4}, Lcom/android/systemui/qs/QSDetail;->setExpanded(Z)V
-
-    invoke-direct {p0}, Lcom/android/systemui/qs/QSFragment;->isKeyguardState()Z
-
-    move-result v0
-
-    iget-object v4, p0, Lcom/android/systemui/qs/QSFragment;->mHeader:Lcom/android/systemui/qs/QuickStatusBarHeader;
-
-    iget-boolean v5, p0, Lcom/android/systemui/qs/QSFragment;->mQsExpanded:Z
-
-    const/4 v6, 0x4
-
-    if-nez v5, :cond_3
-
-    if-eqz v0, :cond_3
-
-    iget-boolean v5, p0, Lcom/android/systemui/qs/QSFragment;->mHeaderAnimating:Z
-
-    if-nez v5, :cond_3
-
-    iget-boolean v5, p0, Lcom/android/systemui/qs/QSFragment;->mShowCollapsedOnKeyguard:Z
-
-    if-eqz v5, :cond_2
+    if-eqz v3, :cond_2
 
     goto :goto_2
 
     :cond_2
-    move v5, v6
+    move v3, v2
 
     goto :goto_3
 
     :cond_3
     :goto_2
-    move v5, v2
+    move v3, v1
 
     :goto_3
-    invoke-virtual {v4, v5}, Landroid/widget/FrameLayout;->setVisibility(I)V
+    iget-object v4, p0, Lcom/android/systemui/qs/QSFragment;->mQSPanelController:Lcom/android/systemui/qs/QSPanelController;
 
-    iget-object v4, p0, Lcom/android/systemui/qs/QSFragment;->mHeader:Lcom/android/systemui/qs/QuickStatusBarHeader;
+    invoke-virtual {v4, v0}, Lcom/android/systemui/qs/QSPanelControllerBase;->setExpanded(Z)V
 
-    if-eqz v0, :cond_4
+    iget-object v4, p0, Lcom/android/systemui/qs/QSFragment;->mQSDetail:Lcom/android/systemui/qs/QSDetail;
 
-    iget-boolean v5, p0, Lcom/android/systemui/qs/QSFragment;->mHeaderAnimating:Z
+    invoke-virtual {v4, v0}, Lcom/android/systemui/qs/QSDetail;->setExpanded(Z)V
 
-    if-nez v5, :cond_4
+    invoke-direct {p0}, Lcom/android/systemui/qs/QSFragment;->isKeyguardState()Z
 
-    iget-boolean v5, p0, Lcom/android/systemui/qs/QSFragment;->mShowCollapsedOnKeyguard:Z
+    move-result v4
 
-    if-eqz v5, :cond_5
+    iget-object v5, p0, Lcom/android/systemui/qs/QSFragment;->mHeader:Lcom/android/systemui/qs/QuickStatusBarHeader;
 
-    :cond_4
-    iget-boolean v5, p0, Lcom/android/systemui/qs/QSFragment;->mQsExpanded:Z
+    const/4 v6, 0x4
 
-    if-eqz v5, :cond_6
+    if-nez v0, :cond_5
 
-    iget-boolean v5, p0, Lcom/android/systemui/qs/QSFragment;->mStackScrollerOverscrolling:Z
+    if-eqz v4, :cond_5
 
-    if-nez v5, :cond_6
+    iget-boolean v7, p0, Lcom/android/systemui/qs/QSFragment;->mHeaderAnimating:Z
 
-    :cond_5
-    move v5, v1
+    if-nez v7, :cond_5
+
+    iget-boolean v7, p0, Lcom/android/systemui/qs/QSFragment;->mShowCollapsedOnKeyguard:Z
+
+    if-eqz v7, :cond_4
 
     goto :goto_4
 
-    :cond_6
-    move v5, v2
-
-    :goto_4
-    iget-object v7, p0, Lcom/android/systemui/qs/QSFragment;->mQuickQSPanelController:Lcom/android/systemui/qs/QuickQSPanelController;
-
-    invoke-virtual {v4, v5, v7}, Lcom/android/systemui/qs/QuickStatusBarHeader;->setExpanded(ZLcom/android/systemui/qs/QuickQSPanelController;)V
-
-    iget-object v4, p0, Lcom/android/systemui/qs/QSFragment;->mFooter:Lcom/android/systemui/qs/QSFooter;
-
-    iget-boolean v5, p0, Lcom/android/systemui/qs/QSFragment;->mQsDisabled:Z
-
-    if-nez v5, :cond_8
-
-    iget-boolean v5, p0, Lcom/android/systemui/qs/QSFragment;->mQsExpanded:Z
-
-    if-nez v5, :cond_7
-
-    if-eqz v0, :cond_7
-
-    iget-boolean v5, p0, Lcom/android/systemui/qs/QSFragment;->mHeaderAnimating:Z
-
-    if-nez v5, :cond_7
-
-    iget-boolean v5, p0, Lcom/android/systemui/qs/QSFragment;->mShowCollapsedOnKeyguard:Z
-
-    if-eqz v5, :cond_8
-
-    :cond_7
-    move v5, v2
+    :cond_4
+    move v7, v6
 
     goto :goto_5
 
-    :cond_8
-    move v5, v6
+    :cond_5
+    :goto_4
+    move v7, v2
 
     :goto_5
-    invoke-interface {v4, v5}, Lcom/android/systemui/qs/QSFooter;->setVisibility(I)V
+    invoke-virtual {v5, v7}, Landroid/widget/FrameLayout;->setVisibility(I)V
 
-    iget-object v4, p0, Lcom/android/systemui/qs/QSFragment;->mFooter:Lcom/android/systemui/qs/QSFooter;
+    iget-object v5, p0, Lcom/android/systemui/qs/QSFragment;->mHeader:Lcom/android/systemui/qs/QuickStatusBarHeader;
 
-    if-eqz v0, :cond_9
+    if-eqz v4, :cond_6
 
-    iget-boolean v0, p0, Lcom/android/systemui/qs/QSFragment;->mHeaderAnimating:Z
+    iget-boolean v7, p0, Lcom/android/systemui/qs/QSFragment;->mHeaderAnimating:Z
 
-    if-nez v0, :cond_9
+    if-nez v7, :cond_6
 
-    iget-boolean v0, p0, Lcom/android/systemui/qs/QSFragment;->mShowCollapsedOnKeyguard:Z
+    iget-boolean v7, p0, Lcom/android/systemui/qs/QSFragment;->mShowCollapsedOnKeyguard:Z
 
-    if-eqz v0, :cond_b
+    if-eqz v7, :cond_7
 
-    :cond_9
-    iget-boolean v0, p0, Lcom/android/systemui/qs/QSFragment;->mQsExpanded:Z
+    :cond_6
+    if-eqz v0, :cond_8
 
-    if-eqz v0, :cond_a
+    iget-boolean v7, p0, Lcom/android/systemui/qs/QSFragment;->mStackScrollerOverscrolling:Z
 
-    iget-boolean v0, p0, Lcom/android/systemui/qs/QSFragment;->mStackScrollerOverscrolling:Z
+    if-nez v7, :cond_8
 
-    if-nez v0, :cond_a
+    :cond_7
+    move v7, v1
 
     goto :goto_6
 
+    :cond_8
+    move v7, v2
+
+    :goto_6
+    iget-object v8, p0, Lcom/android/systemui/qs/QSFragment;->mQuickQSPanelController:Lcom/android/systemui/qs/QuickQSPanelController;
+
+    invoke-virtual {v5, v7, v8}, Lcom/android/systemui/qs/QuickStatusBarHeader;->setExpanded(ZLcom/android/systemui/qs/QuickQSPanelController;)V
+
+    iget-object v5, p0, Lcom/android/systemui/qs/QSFragment;->mFooter:Lcom/android/systemui/qs/QSFooter;
+
+    iget-boolean v7, p0, Lcom/android/systemui/qs/QSFragment;->mQsDisabled:Z
+
+    if-nez v7, :cond_a
+
+    if-nez v0, :cond_9
+
+    if-eqz v4, :cond_9
+
+    iget-boolean v7, p0, Lcom/android/systemui/qs/QSFragment;->mHeaderAnimating:Z
+
+    if-nez v7, :cond_9
+
+    iget-boolean v7, p0, Lcom/android/systemui/qs/QSFragment;->mShowCollapsedOnKeyguard:Z
+
+    if-eqz v7, :cond_a
+
+    :cond_9
+    move v7, v2
+
+    goto :goto_7
+
     :cond_a
-    move v1, v2
+    move v7, v6
+
+    :goto_7
+    invoke-interface {v5, v7}, Lcom/android/systemui/qs/QSFooter;->setVisibility(I)V
+
+    iget-object v5, p0, Lcom/android/systemui/qs/QSFragment;->mFooter:Lcom/android/systemui/qs/QSFooter;
+
+    if-eqz v4, :cond_b
+
+    iget-boolean v4, p0, Lcom/android/systemui/qs/QSFragment;->mHeaderAnimating:Z
+
+    if-nez v4, :cond_b
+
+    iget-boolean v4, p0, Lcom/android/systemui/qs/QSFragment;->mShowCollapsedOnKeyguard:Z
+
+    if-eqz v4, :cond_d
 
     :cond_b
-    :goto_6
-    invoke-interface {v4, v1}, Lcom/android/systemui/qs/QSFooter;->setExpanded(Z)V
+    if-eqz v0, :cond_c
+
+    iget-boolean v0, p0, Lcom/android/systemui/qs/QSFragment;->mStackScrollerOverscrolling:Z
+
+    if-nez v0, :cond_c
+
+    goto :goto_8
+
+    :cond_c
+    move v1, v2
+
+    :cond_d
+    :goto_8
+    invoke-interface {v5, v1}, Lcom/android/systemui/qs/QSFooter;->setExpanded(Z)V
 
     iget-object v0, p0, Lcom/android/systemui/qs/QSFragment;->mQSPanelController:Lcom/android/systemui/qs/QSPanelController;
 
     iget-boolean p0, p0, Lcom/android/systemui/qs/QSFragment;->mQsDisabled:Z
 
-    if-nez p0, :cond_c
+    if-nez p0, :cond_e
 
-    if-eqz v3, :cond_c
+    if-eqz v3, :cond_e
 
-    goto :goto_7
+    goto :goto_9
 
-    :cond_c
+    :cond_e
     move v2, v6
 
-    :goto_7
+    :goto_9
     invoke-virtual {v0, v2}, Lcom/android/systemui/qs/QSPanelController;->setVisibility(I)V
 
     return-void
 .end method
 
 .method private updateShowCollapsedOnKeyguard()V
-    .locals 2
+    .locals 4
 
     iget-object v0, p0, Lcom/android/systemui/qs/QSFragment;->mBypassController:Lcom/android/systemui/statusbar/phone/KeyguardBypassController;
 
@@ -893,6 +962,10 @@
     iget-boolean v0, p0, Lcom/android/systemui/qs/QSFragment;->mTransitioningToFullShade:Z
 
     if-eqz v0, :cond_0
+
+    iget-boolean v0, p0, Lcom/android/systemui/qs/QSFragment;->mInSplitShade:Z
+
+    if-nez v0, :cond_0
 
     goto :goto_0
 
@@ -931,9 +1004,13 @@
 
     iget v0, p0, Lcom/android/systemui/qs/QSFragment;->mLastQSExpansion:F
 
-    const/4 v1, 0x0
+    iget v1, p0, Lcom/android/systemui/qs/QSFragment;->mLastPanelFraction:F
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/systemui/qs/QSFragment;->setQsExpansion(FF)V
+    const/4 v2, 0x0
+
+    iget v3, p0, Lcom/android/systemui/qs/QSFragment;->mSquishinessFraction:F
+
+    invoke-virtual {p0, v0, v1, v2, v3}, Lcom/android/systemui/qs/QSFragment;->setQsExpansion(FFFF)V
 
     :cond_3
     return-void
@@ -1026,6 +1103,16 @@
     return-void
 .end method
 
+.method public closeCustomizer()V
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/qs/QSFragment;->mQSCustomizerController:Lcom/android/systemui/qs/customize/QSCustomizerController;
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/customize/QSCustomizerController;->hide()V
+
+    return-void
+.end method
+
 .method public closeDetail()V
     .locals 0
 
@@ -1037,7 +1124,7 @@
 .end method
 
 .method public disable(IIIZ)V
-    .locals 1
+    .locals 2
 
     invoke-virtual {p0}, Landroid/app/Fragment;->getContext()Landroid/content/Context;
 
@@ -1057,6 +1144,18 @@
     invoke-virtual {p1, p3}, Lcom/android/systemui/statusbar/policy/RemoteInputQuickSettingsDisabler;->adjustDisableFlags(I)I
 
     move-result p1
+
+    iget-object v0, p0, Lcom/android/systemui/qs/QSFragment;->mQsFragmentDisableFlagsLogger:Lcom/android/systemui/qs/QSFragmentDisableFlagsLogger;
+
+    new-instance v1, Lcom/android/systemui/statusbar/DisableFlagsLogger$DisableState;
+
+    invoke-direct {v1, p2, p3}, Lcom/android/systemui/statusbar/DisableFlagsLogger$DisableState;-><init>(II)V
+
+    new-instance p3, Lcom/android/systemui/statusbar/DisableFlagsLogger$DisableState;
+
+    invoke-direct {p3, p2, p1}, Lcom/android/systemui/statusbar/DisableFlagsLogger$DisableState;-><init>(II)V
+
+    invoke-virtual {v0, v1, p3}, Lcom/android/systemui/qs/QSFragmentDisableFlagsLogger;->logDisableFlagChange(Lcom/android/systemui/statusbar/DisableFlagsLogger$DisableState;Lcom/android/systemui/statusbar/DisableFlagsLogger$DisableState;)V
 
     and-int/lit8 p3, p1, 0x1
 
@@ -1413,36 +1512,32 @@
 
     iput p1, p0, Lcom/android/systemui/qs/QSFragment;->mLayoutDirection:I
 
-    iget-object p0, p0, Lcom/android/systemui/qs/QSFragment;->mQSAnimator:Lcom/android/systemui/qs/QSAnimator;
+    iget-object p1, p0, Lcom/android/systemui/qs/QSFragment;->mQSAnimator:Lcom/android/systemui/qs/QSAnimator;
 
-    if-eqz p0, :cond_0
+    if-eqz p1, :cond_0
 
-    invoke-virtual {p0}, Lcom/android/systemui/qs/QSAnimator;->onRtlChanged()V
+    invoke-virtual {p1}, Lcom/android/systemui/qs/QSAnimator;->onRtlChanged()V
 
     :cond_0
+    invoke-direct {p0}, Lcom/android/systemui/qs/QSFragment;->updateQsState()V
+
     return-void
 .end method
 
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
-    .locals 2
+    .locals 1
 
-    iget-object p3, p0, Lcom/android/systemui/qs/QSFragment;->mInjectionInflater:Lcom/android/systemui/util/InjectionInflationController;
-
-    new-instance v0, Landroid/view/ContextThemeWrapper;
+    new-instance p3, Landroid/view/ContextThemeWrapper;
 
     invoke-virtual {p0}, Landroid/app/Fragment;->getContext()Landroid/content/Context;
 
     move-result-object p0
 
-    sget v1, Lcom/android/systemui/R$style;->Theme_SystemUI_QuickSettings:I
+    sget v0, Lcom/android/systemui/R$style;->Theme_SystemUI_QuickSettings:I
 
-    invoke-direct {v0, p0, v1}, Landroid/view/ContextThemeWrapper;-><init>(Landroid/content/Context;I)V
+    invoke-direct {p3, p0, v0}, Landroid/view/ContextThemeWrapper;-><init>(Landroid/content/Context;I)V
 
-    invoke-virtual {p1, v0}, Landroid/view/LayoutInflater;->cloneInContext(Landroid/content/Context;)Landroid/view/LayoutInflater;
-
-    move-result-object p0
-
-    invoke-virtual {p3, p0}, Lcom/android/systemui/util/InjectionInflationController;->injectable(Landroid/view/LayoutInflater;)Landroid/view/LayoutInflater;
+    invoke-virtual {p1, p3}, Landroid/view/LayoutInflater;->cloneInContext(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
     move-result-object p0
 
@@ -1708,6 +1803,12 @@
 
     iput-object v1, p0, Lcom/android/systemui/qs/QSFragment;->mQSAnimator:Lcom/android/systemui/qs/QSAnimator;
 
+    invoke-interface {v0}, Lcom/android/systemui/qs/dagger/QSFragmentComponent;->getQSSquishinessController()Lcom/android/systemui/qs/QSSquishinessController;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/android/systemui/qs/QSFragment;->mQSSquishinessController:Lcom/android/systemui/qs/QSSquishinessController;
+
     invoke-interface {v0}, Lcom/android/systemui/qs/dagger/QSFragmentComponent;->getQSCustomizerController()Lcom/android/systemui/qs/customize/QSCustomizerController;
 
     move-result-object v0
@@ -1790,6 +1891,20 @@
     return-void
 .end method
 
+.method public setBrightnessMirrorController(Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/qs/QSFragment;->mQSPanelController:Lcom/android/systemui/qs/QSPanelController;
+
+    invoke-virtual {v0, p1}, Lcom/android/systemui/qs/QSPanelController;->setBrightnessMirror(Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;)V
+
+    iget-object p0, p0, Lcom/android/systemui/qs/QSFragment;->mQuickQSPanelController:Lcom/android/systemui/qs/QuickQSPanelController;
+
+    invoke-virtual {p0, p1}, Lcom/android/systemui/qs/QuickQSPanelController;->setBrightnessMirror(Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;)V
+
+    return-void
+.end method
+
 .method public setCollapsedMediaVisibilityChangedListener(Ljava/util/function/Consumer;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
@@ -1808,24 +1923,17 @@
     return-void
 .end method
 
-.method public setContainer(Landroid/view/ViewGroup;)V
+.method public setContainerController(Lcom/android/systemui/plugins/qs/QSContainerController;)V
     .locals 1
-
-    instance-of v0, p1, Lcom/android/systemui/statusbar/phone/NotificationsQuickSettingsContainer;
-
-    if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/systemui/qs/QSFragment;->mQSCustomizerController:Lcom/android/systemui/qs/customize/QSCustomizerController;
 
-    check-cast p1, Lcom/android/systemui/statusbar/phone/NotificationsQuickSettingsContainer;
-
-    invoke-virtual {v0, p1}, Lcom/android/systemui/qs/customize/QSCustomizerController;->setContainer(Lcom/android/systemui/statusbar/phone/NotificationsQuickSettingsContainer;)V
+    invoke-virtual {v0, p1}, Lcom/android/systemui/qs/customize/QSCustomizerController;->setContainerController(Lcom/android/systemui/plugins/qs/QSContainerController;)V
 
     iget-object p0, p0, Lcom/android/systemui/qs/QSFragment;->mQSDetail:Lcom/android/systemui/qs/QSDetail;
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/qs/QSDetail;->setContainer(Lcom/android/systemui/statusbar/phone/NotificationsQuickSettingsContainer;)V
+    invoke-virtual {p0, p1}, Lcom/android/systemui/qs/QSDetail;->setContainerController(Lcom/android/systemui/plugins/qs/QSContainerController;)V
 
-    :cond_0
     return-void
 .end method
 
@@ -1928,6 +2036,22 @@
     return-void
 .end method
 
+.method public setInSplitShade(Z)V
+    .locals 1
+
+    iput-boolean p1, p0, Lcom/android/systemui/qs/QSFragment;->mInSplitShade:Z
+
+    iget-object v0, p0, Lcom/android/systemui/qs/QSFragment;->mQSAnimator:Lcom/android/systemui/qs/QSAnimator;
+
+    invoke-virtual {v0, p1}, Lcom/android/systemui/qs/QSAnimator;->setTranslateWhileExpanding(Z)V
+
+    invoke-direct {p0}, Lcom/android/systemui/qs/QSFragment;->updateShowCollapsedOnKeyguard()V
+
+    invoke-direct {p0}, Lcom/android/systemui/qs/QSFragment;->updateQsState()V
+
+    return-void
+.end method
+
 .method public setListening(Z)V
     .locals 2
 
@@ -1974,8 +2098,8 @@
     return-void
 .end method
 
-.method public setQsExpansion(FF)V
-    .locals 11
+.method public setQsExpansion(FFFF)V
+    .locals 9
 
     iget-boolean v0, p0, Lcom/android/systemui/qs/QSFragment;->mTransitioningToFullShade:Z
 
@@ -1988,125 +2112,98 @@
     goto :goto_0
 
     :cond_0
-    move v2, p2
+    move v2, p3
 
     :goto_0
-    iget-object v3, p0, Lcom/android/systemui/qs/QSFragment;->mQSAnimator:Lcom/android/systemui/qs/QSAnimator;
+    const/4 v3, 0x1
 
-    const/4 v4, 0x1
+    if-nez v0, :cond_2
 
-    const/4 v5, 0x0
+    iget v0, p0, Lcom/android/systemui/qs/QSFragment;->mState:I
 
-    if-eqz v3, :cond_6
-
-    cmpl-float v6, p1, v1
-
-    if-lez v6, :cond_1
-
-    move v6, v4
+    if-ne v0, v3, :cond_1
 
     goto :goto_1
 
     :cond_1
-    move v6, v5
-
-    :goto_1
-    cmpl-float v7, v2, v1
-
-    if-eqz v7, :cond_3
-
-    iget-boolean v7, p0, Lcom/android/systemui/qs/QSFragment;->mTranslateWhileExpanding:Z
-
-    if-nez v7, :cond_2
+    move v0, p2
 
     goto :goto_2
 
     :cond_2
-    move v7, v5
+    :goto_1
+    iget v0, p0, Lcom/android/systemui/qs/QSFragment;->mFullShadeProgress:F
+
+    :goto_2
+    iget-boolean v4, p0, Lcom/android/systemui/qs/QSFragment;->mInSplitShade:Z
+
+    const/high16 v5, 0x3f800000    # 1.0f
+
+    if-eqz v4, :cond_3
 
     goto :goto_3
 
     :cond_3
-    :goto_2
-    move v7, v4
-
-    :goto_3
-    if-nez v6, :cond_5
-
-    if-nez v7, :cond_5
-
-    if-eqz v0, :cond_4
-
-    goto :goto_4
-
-    :cond_4
     move v0, v5
 
-    goto :goto_5
+    :goto_3
+    invoke-direct {p0, v0}, Lcom/android/systemui/qs/QSFragment;->setAlphaAnimationProgress(F)V
 
-    :cond_5
-    :goto_4
-    move v0, v4
-
-    :goto_5
-    invoke-virtual {v3, v0}, Lcom/android/systemui/qs/QSAnimator;->startAlphaAnimation(Z)V
-
-    :cond_6
     iget-object v0, p0, Lcom/android/systemui/qs/QSFragment;->mContainer:Lcom/android/systemui/qs/QSContainerImpl;
 
     invoke-virtual {v0, p1}, Lcom/android/systemui/qs/QSContainerImpl;->setExpansion(F)V
 
-    iget-boolean v0, p0, Lcom/android/systemui/qs/QSFragment;->mTranslateWhileExpanding:Z
+    iget-boolean v0, p0, Lcom/android/systemui/qs/QSFragment;->mInSplitShade:Z
 
-    const/high16 v3, 0x3f800000    # 1.0f
+    if-eqz v0, :cond_4
 
-    if-eqz v0, :cond_7
+    move v0, v5
 
-    move v0, v3
+    goto :goto_4
 
-    goto :goto_6
-
-    :cond_7
+    :cond_4
     const v0, 0x3dcccccd    # 0.1f
 
-    :goto_6
-    sub-float v6, p1, v3
+    :goto_4
+    sub-float v4, p1, v5
 
-    mul-float/2addr v0, v6
+    mul-float/2addr v0, v4
 
     invoke-direct {p0}, Lcom/android/systemui/qs/QSFragment;->isKeyguardState()Z
 
-    move-result v6
+    move-result v4
 
-    if-eqz v6, :cond_8
+    const/4 v6, 0x0
 
-    iget-boolean v6, p0, Lcom/android/systemui/qs/QSFragment;->mShowCollapsedOnKeyguard:Z
+    if-eqz v4, :cond_5
 
-    if-nez v6, :cond_8
+    iget-boolean v4, p0, Lcom/android/systemui/qs/QSFragment;->mShowCollapsedOnKeyguard:Z
 
-    move v6, v4
+    if-nez v4, :cond_5
 
-    goto :goto_7
+    move v4, v3
 
-    :cond_8
-    move v6, v5
+    goto :goto_5
 
-    :goto_7
+    :cond_5
+    move v4, v6
+
+    :goto_5
     iget-boolean v7, p0, Lcom/android/systemui/qs/QSFragment;->mHeaderAnimating:Z
 
-    if-nez v7, :cond_a
+    if-nez v7, :cond_7
 
     invoke-direct {p0}, Lcom/android/systemui/qs/QSFragment;->headerWillBeAnimating()Z
 
     move-result v7
 
-    if-nez v7, :cond_a
+    if-nez v7, :cond_7
 
     invoke-virtual {p0}, Landroid/app/Fragment;->getView()Landroid/view/View;
 
     move-result-object v7
 
-    if-eqz v6, :cond_9
+    if-eqz v4, :cond_6
 
     iget-object v8, p0, Lcom/android/systemui/qs/QSFragment;->mHeader:Lcom/android/systemui/qs/QuickStatusBarHeader;
 
@@ -2118,15 +2215,15 @@
 
     mul-float/2addr v8, v0
 
-    goto :goto_8
+    goto :goto_6
 
-    :cond_9
+    :cond_6
     move v8, v2
 
-    :goto_8
+    :goto_6
     invoke-virtual {v7, v8}, Landroid/view/View;->setTranslationY(F)V
 
-    :cond_a
+    :cond_7
     invoke-virtual {p0}, Landroid/app/Fragment;->getView()Landroid/view/View;
 
     move-result-object v7
@@ -2139,203 +2236,222 @@
 
     cmpl-float v8, p1, v8
 
-    if-nez v8, :cond_b
+    if-nez v8, :cond_8
 
     iget-boolean v8, p0, Lcom/android/systemui/qs/QSFragment;->mLastKeyguardAndExpanded:Z
 
-    if-ne v8, v6, :cond_b
+    if-ne v8, v4, :cond_8
 
     iget v8, p0, Lcom/android/systemui/qs/QSFragment;->mLastViewHeight:I
 
-    if-ne v8, v7, :cond_b
+    if-ne v8, v7, :cond_8
 
     iget v8, p0, Lcom/android/systemui/qs/QSFragment;->mLastHeaderTranslation:F
 
     cmpl-float v8, v8, v2
 
-    if-nez v8, :cond_b
+    if-nez v8, :cond_8
+
+    iget v8, p0, Lcom/android/systemui/qs/QSFragment;->mSquishinessFraction:F
+
+    cmpl-float v8, v8, p4
+
+    if-nez v8, :cond_8
 
     return-void
 
-    :cond_b
+    :cond_8
     iput v2, p0, Lcom/android/systemui/qs/QSFragment;->mLastHeaderTranslation:F
+
+    iput p2, p0, Lcom/android/systemui/qs/QSFragment;->mLastPanelFraction:F
+
+    iput p4, p0, Lcom/android/systemui/qs/QSFragment;->mSquishinessFraction:F
 
     iput p1, p0, Lcom/android/systemui/qs/QSFragment;->mLastQSExpansion:F
 
-    iput-boolean v6, p0, Lcom/android/systemui/qs/QSFragment;->mLastKeyguardAndExpanded:Z
+    iput-boolean v4, p0, Lcom/android/systemui/qs/QSFragment;->mLastKeyguardAndExpanded:Z
 
     iput v7, p0, Lcom/android/systemui/qs/QSFragment;->mLastViewHeight:I
 
-    cmpl-float v2, p1, v3
+    cmpl-float p2, p1, v5
 
-    if-nez v2, :cond_c
+    if-nez p2, :cond_9
 
-    move v2, v4
+    move p2, v3
+
+    goto :goto_7
+
+    :cond_9
+    move p2, v6
+
+    :goto_7
+    cmpl-float p4, p1, v1
+
+    if-nez p4, :cond_a
+
+    goto :goto_8
+
+    :cond_a
+    move v3, v6
+
+    :goto_8
+    iget-object p4, p0, Lcom/android/systemui/qs/QSFragment;->mQSPanelScrollView:Lcom/android/systemui/qs/NonInterceptingScrollView;
+
+    invoke-virtual {p4}, Landroid/widget/ScrollView;->getBottom()I
+
+    move-result p4
+
+    iget-object v1, p0, Lcom/android/systemui/qs/QSFragment;->mHeader:Lcom/android/systemui/qs/QuickStatusBarHeader;
+
+    invoke-virtual {v1}, Landroid/widget/FrameLayout;->getBottom()I
+
+    move-result v1
+
+    sub-int/2addr p4, v1
+
+    iget-object v1, p0, Lcom/android/systemui/qs/QSFragment;->mHeader:Lcom/android/systemui/qs/QuickStatusBarHeader;
+
+    invoke-virtual {v1}, Landroid/widget/FrameLayout;->getPaddingBottom()I
+
+    move-result v1
+
+    add-int/2addr p4, v1
+
+    int-to-float p4, p4
+
+    mul-float/2addr v0, p4
+
+    iget-object p4, p0, Lcom/android/systemui/qs/QSFragment;->mHeader:Lcom/android/systemui/qs/QuickStatusBarHeader;
+
+    invoke-virtual {p4, v4, p1, v0}, Lcom/android/systemui/qs/QuickStatusBarHeader;->setExpansion(ZFF)V
+
+    cmpg-float p4, p1, v5
+
+    if-gez p4, :cond_b
+
+    float-to-double v1, p1
+
+    const-wide v7, 0x3fefae147ae147aeL    # 0.99
+
+    cmpl-double p4, v1, v7
+
+    if-lez p4, :cond_b
+
+    iget-object p4, p0, Lcom/android/systemui/qs/QSFragment;->mQuickQSPanelController:Lcom/android/systemui/qs/QuickQSPanelController;
+
+    invoke-virtual {p4, v6}, Lcom/android/systemui/qs/QSPanelControllerBase;->switchTileLayout(Z)Z
+
+    move-result p4
+
+    if-eqz p4, :cond_b
+
+    iget-object p4, p0, Lcom/android/systemui/qs/QSFragment;->mHeader:Lcom/android/systemui/qs/QuickStatusBarHeader;
+
+    invoke-virtual {p4}, Lcom/android/systemui/qs/QuickStatusBarHeader;->updateResources()V
+
+    :cond_b
+    iget-object p4, p0, Lcom/android/systemui/qs/QSFragment;->mFooter:Lcom/android/systemui/qs/QSFooter;
+
+    if-eqz v4, :cond_c
 
     goto :goto_9
 
     :cond_c
-    move v2, v5
+    move v5, p1
 
     :goto_9
-    cmpl-float v1, p1, v1
+    invoke-interface {p4, v5}, Lcom/android/systemui/qs/QSFooter;->setExpansion(F)V
 
-    if-nez v1, :cond_d
+    iget-object p4, p0, Lcom/android/systemui/qs/QSFragment;->mQSPanelController:Lcom/android/systemui/qs/QSPanelController;
 
-    goto :goto_a
+    invoke-virtual {p4, p1}, Lcom/android/systemui/qs/QSPanelControllerBase;->setRevealExpansion(F)V
+
+    iget-object p4, p0, Lcom/android/systemui/qs/QSFragment;->mQSPanelController:Lcom/android/systemui/qs/QSPanelController;
+
+    invoke-virtual {p4}, Lcom/android/systemui/qs/QSPanelControllerBase;->getTileLayout()Lcom/android/systemui/qs/QSPanel$QSTileLayout;
+
+    move-result-object p4
+
+    invoke-interface {p4, p1, p3}, Lcom/android/systemui/qs/QSPanel$QSTileLayout;->setExpansion(FF)V
+
+    iget-object p4, p0, Lcom/android/systemui/qs/QSFragment;->mQuickQSPanelController:Lcom/android/systemui/qs/QuickQSPanelController;
+
+    invoke-virtual {p4}, Lcom/android/systemui/qs/QSPanelControllerBase;->getTileLayout()Lcom/android/systemui/qs/QSPanel$QSTileLayout;
+
+    move-result-object p4
+
+    invoke-interface {p4, p1, p3}, Lcom/android/systemui/qs/QSPanel$QSTileLayout;->setExpansion(FF)V
+
+    iget-object p3, p0, Lcom/android/systemui/qs/QSFragment;->mQSPanelScrollView:Lcom/android/systemui/qs/NonInterceptingScrollView;
+
+    invoke-virtual {p3, v0}, Landroid/widget/ScrollView;->setTranslationY(F)V
+
+    if-eqz v3, :cond_d
+
+    iget-object p3, p0, Lcom/android/systemui/qs/QSFragment;->mQSPanelScrollView:Lcom/android/systemui/qs/NonInterceptingScrollView;
+
+    invoke-virtual {p3, v6}, Landroid/widget/ScrollView;->setScrollY(I)V
 
     :cond_d
-    move v4, v5
+    iget-object p3, p0, Lcom/android/systemui/qs/QSFragment;->mQSDetail:Lcom/android/systemui/qs/QSDetail;
 
-    :goto_a
-    iget-object v1, p0, Lcom/android/systemui/qs/QSFragment;->mQSPanelScrollView:Lcom/android/systemui/qs/NonInterceptingScrollView;
+    invoke-virtual {p3, p2}, Lcom/android/systemui/qs/QSDetail;->setFullyExpanded(Z)V
 
-    invoke-virtual {v1}, Landroid/widget/ScrollView;->getBottom()I
+    if-nez p2, :cond_e
 
-    move-result v1
+    iget-object p2, p0, Lcom/android/systemui/qs/QSFragment;->mQsBounds:Landroid/graphics/Rect;
 
-    iget-object v7, p0, Lcom/android/systemui/qs/QSFragment;->mHeader:Lcom/android/systemui/qs/QuickStatusBarHeader;
+    iget-object p3, p0, Lcom/android/systemui/qs/QSFragment;->mQSPanelScrollView:Lcom/android/systemui/qs/NonInterceptingScrollView;
 
-    invoke-virtual {v7}, Landroid/widget/FrameLayout;->getBottom()I
+    invoke-virtual {p3}, Landroid/widget/ScrollView;->getTranslationY()F
 
-    move-result v7
+    move-result p3
 
-    sub-int/2addr v1, v7
+    neg-float p3, p3
 
-    iget-object v7, p0, Lcom/android/systemui/qs/QSFragment;->mHeader:Lcom/android/systemui/qs/QuickStatusBarHeader;
+    float-to-int p3, p3
 
-    invoke-virtual {v7}, Landroid/widget/FrameLayout;->getPaddingBottom()I
+    iput p3, p2, Landroid/graphics/Rect;->top:I
 
-    move-result v7
+    iget-object p2, p0, Lcom/android/systemui/qs/QSFragment;->mQsBounds:Landroid/graphics/Rect;
 
-    add-int/2addr v1, v7
+    iget-object p3, p0, Lcom/android/systemui/qs/QSFragment;->mQSPanelScrollView:Lcom/android/systemui/qs/NonInterceptingScrollView;
 
-    int-to-float v1, v1
+    invoke-virtual {p3}, Landroid/widget/ScrollView;->getWidth()I
 
-    mul-float/2addr v0, v1
+    move-result p3
 
-    iget-object v1, p0, Lcom/android/systemui/qs/QSFragment;->mHeader:Lcom/android/systemui/qs/QuickStatusBarHeader;
+    iput p3, p2, Landroid/graphics/Rect;->right:I
 
-    invoke-virtual {v1, v6, p1, v0}, Lcom/android/systemui/qs/QuickStatusBarHeader;->setExpansion(ZFF)V
+    iget-object p2, p0, Lcom/android/systemui/qs/QSFragment;->mQsBounds:Landroid/graphics/Rect;
 
-    cmpg-float v1, p1, v3
+    iget-object p3, p0, Lcom/android/systemui/qs/QSFragment;->mQSPanelScrollView:Lcom/android/systemui/qs/NonInterceptingScrollView;
 
-    if-gez v1, :cond_e
+    invoke-virtual {p3}, Landroid/widget/ScrollView;->getHeight()I
 
-    float-to-double v7, p1
+    move-result p3
 
-    const-wide v9, 0x3fefae147ae147aeL    # 0.99
-
-    cmpl-double v1, v7, v9
-
-    if-lez v1, :cond_e
-
-    iget-object v1, p0, Lcom/android/systemui/qs/QSFragment;->mQuickQSPanelController:Lcom/android/systemui/qs/QuickQSPanelController;
-
-    invoke-virtual {v1, v5}, Lcom/android/systemui/qs/QSPanelControllerBase;->switchTileLayout(Z)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_e
-
-    iget-object v1, p0, Lcom/android/systemui/qs/QSFragment;->mHeader:Lcom/android/systemui/qs/QuickStatusBarHeader;
-
-    invoke-virtual {v1}, Lcom/android/systemui/qs/QuickStatusBarHeader;->updateResources()V
+    iput p3, p2, Landroid/graphics/Rect;->bottom:I
 
     :cond_e
-    iget-object v1, p0, Lcom/android/systemui/qs/QSFragment;->mFooter:Lcom/android/systemui/qs/QSFooter;
-
-    if-eqz v6, :cond_f
-
-    goto :goto_b
-
-    :cond_f
-    move v3, p1
-
-    :goto_b
-    invoke-interface {v1, v3}, Lcom/android/systemui/qs/QSFooter;->setExpansion(F)V
-
-    iget-object v1, p0, Lcom/android/systemui/qs/QSFragment;->mQSPanelController:Lcom/android/systemui/qs/QSPanelController;
-
-    invoke-virtual {v1, p1}, Lcom/android/systemui/qs/QSPanelControllerBase;->setRevealExpansion(F)V
-
-    iget-object v1, p0, Lcom/android/systemui/qs/QSFragment;->mQSPanelController:Lcom/android/systemui/qs/QSPanelController;
-
-    invoke-virtual {v1}, Lcom/android/systemui/qs/QSPanelControllerBase;->getTileLayout()Lcom/android/systemui/qs/QSPanel$QSTileLayout;
-
-    move-result-object v1
-
-    invoke-interface {v1, p1, p2}, Lcom/android/systemui/qs/QSPanel$QSTileLayout;->setExpansion(FF)V
-
-    iget-object v1, p0, Lcom/android/systemui/qs/QSFragment;->mQuickQSPanelController:Lcom/android/systemui/qs/QuickQSPanelController;
-
-    invoke-virtual {v1}, Lcom/android/systemui/qs/QSPanelControllerBase;->getTileLayout()Lcom/android/systemui/qs/QSPanel$QSTileLayout;
-
-    move-result-object v1
-
-    invoke-interface {v1, p1, p2}, Lcom/android/systemui/qs/QSPanel$QSTileLayout;->setExpansion(FF)V
-
-    iget-object p2, p0, Lcom/android/systemui/qs/QSFragment;->mQSPanelScrollView:Lcom/android/systemui/qs/NonInterceptingScrollView;
-
-    invoke-virtual {p2, v0}, Landroid/widget/ScrollView;->setTranslationY(F)V
-
-    if-eqz v4, :cond_10
-
-    iget-object p2, p0, Lcom/android/systemui/qs/QSFragment;->mQSPanelScrollView:Lcom/android/systemui/qs/NonInterceptingScrollView;
-
-    invoke-virtual {p2, v5}, Landroid/widget/ScrollView;->setScrollY(I)V
-
-    :cond_10
-    iget-object p2, p0, Lcom/android/systemui/qs/QSFragment;->mQSDetail:Lcom/android/systemui/qs/QSDetail;
-
-    invoke-virtual {p2, v2}, Lcom/android/systemui/qs/QSDetail;->setFullyExpanded(Z)V
-
-    if-nez v2, :cond_11
-
-    iget-object p2, p0, Lcom/android/systemui/qs/QSFragment;->mQsBounds:Landroid/graphics/Rect;
-
-    iget-object v0, p0, Lcom/android/systemui/qs/QSFragment;->mQSPanelScrollView:Lcom/android/systemui/qs/NonInterceptingScrollView;
-
-    invoke-virtual {v0}, Landroid/widget/ScrollView;->getTranslationY()F
-
-    move-result v0
-
-    neg-float v0, v0
-
-    float-to-int v0, v0
-
-    iput v0, p2, Landroid/graphics/Rect;->top:I
-
-    iget-object p2, p0, Lcom/android/systemui/qs/QSFragment;->mQsBounds:Landroid/graphics/Rect;
-
-    iget-object v0, p0, Lcom/android/systemui/qs/QSFragment;->mQSPanelScrollView:Lcom/android/systemui/qs/NonInterceptingScrollView;
-
-    invoke-virtual {v0}, Landroid/widget/ScrollView;->getWidth()I
-
-    move-result v0
-
-    iput v0, p2, Landroid/graphics/Rect;->right:I
-
-    iget-object p2, p0, Lcom/android/systemui/qs/QSFragment;->mQsBounds:Landroid/graphics/Rect;
-
-    iget-object v0, p0, Lcom/android/systemui/qs/QSFragment;->mQSPanelScrollView:Lcom/android/systemui/qs/NonInterceptingScrollView;
-
-    invoke-virtual {v0}, Landroid/widget/ScrollView;->getHeight()I
-
-    move-result v0
-
-    iput v0, p2, Landroid/graphics/Rect;->bottom:I
-
-    :cond_11
     invoke-direct {p0}, Lcom/android/systemui/qs/QSFragment;->updateQsBounds()V
 
+    iget-object p2, p0, Lcom/android/systemui/qs/QSFragment;->mQSSquishinessController:Lcom/android/systemui/qs/QSSquishinessController;
+
+    if-eqz p2, :cond_f
+
+    iget p3, p0, Lcom/android/systemui/qs/QSFragment;->mSquishinessFraction:F
+
+    invoke-virtual {p2, p3}, Lcom/android/systemui/qs/QSSquishinessController;->setSquishiness(F)V
+
+    :cond_f
     iget-object p2, p0, Lcom/android/systemui/qs/QSFragment;->mQSAnimator:Lcom/android/systemui/qs/QSAnimator;
 
-    if-eqz p2, :cond_12
+    if-eqz p2, :cond_10
 
     invoke-virtual {p2, p1}, Lcom/android/systemui/qs/QSAnimator;->setPosition(F)V
 
-    :cond_12
+    :cond_10
     invoke-direct {p0}, Lcom/android/systemui/qs/QSFragment;->updateMediaPositions()V
 
     return-void
@@ -2349,12 +2465,12 @@
     return-void
 .end method
 
-.method public setTransitionToFullShadeAmount(FZ)V
-    .locals 0
+.method public setTransitionToFullShadeAmount(FF)V
+    .locals 3
 
-    const/4 p2, 0x0
+    const/4 v0, 0x0
 
-    cmpl-float p1, p1, p2
+    cmpl-float p1, p1, v0
 
     if-lez p1, :cond_0
 
@@ -2366,32 +2482,32 @@
     const/4 p1, 0x0
 
     :goto_0
-    iget-boolean p2, p0, Lcom/android/systemui/qs/QSFragment;->mTransitioningToFullShade:Z
+    iget-boolean v0, p0, Lcom/android/systemui/qs/QSFragment;->mTransitioningToFullShade:Z
 
-    if-eq p1, p2, :cond_1
+    if-eq p1, v0, :cond_1
 
     iput-boolean p1, p0, Lcom/android/systemui/qs/QSFragment;->mTransitioningToFullShade:Z
 
     invoke-direct {p0}, Lcom/android/systemui/qs/QSFragment;->updateShowCollapsedOnKeyguard()V
 
-    iget p1, p0, Lcom/android/systemui/qs/QSFragment;->mLastQSExpansion:F
-
-    iget p2, p0, Lcom/android/systemui/qs/QSFragment;->mLastHeaderTranslation:F
-
-    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/qs/QSFragment;->setQsExpansion(FF)V
-
     :cond_1
-    return-void
-.end method
+    iput p2, p0, Lcom/android/systemui/qs/QSFragment;->mFullShadeProgress:F
 
-.method public setTranslateWhileExpanding(Z)V
-    .locals 0
+    iget v0, p0, Lcom/android/systemui/qs/QSFragment;->mLastQSExpansion:F
 
-    iput-boolean p1, p0, Lcom/android/systemui/qs/QSFragment;->mTranslateWhileExpanding:Z
+    iget v1, p0, Lcom/android/systemui/qs/QSFragment;->mLastPanelFraction:F
 
-    iget-object p0, p0, Lcom/android/systemui/qs/QSFragment;->mQSAnimator:Lcom/android/systemui/qs/QSAnimator;
+    iget v2, p0, Lcom/android/systemui/qs/QSFragment;->mLastHeaderTranslation:F
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/qs/QSAnimator;->setTranslateWhileExpanding(Z)V
+    if-eqz p1, :cond_2
+
+    goto :goto_1
+
+    :cond_2
+    iget p2, p0, Lcom/android/systemui/qs/QSFragment;->mSquishinessFraction:F
+
+    :goto_1
+    invoke-virtual {p0, v0, v1, v2, p2}, Lcom/android/systemui/qs/QSFragment;->setQsExpansion(FFFF)V
 
     return-void
 .end method

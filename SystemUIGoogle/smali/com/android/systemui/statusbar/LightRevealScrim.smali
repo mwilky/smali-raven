@@ -34,6 +34,8 @@
 
 .field private final shaderGradientMatrix:Landroid/graphics/Matrix;
 
+.field private startColorAlpha:F
+
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
@@ -133,41 +135,17 @@
 .end method
 
 .method private final setPaintColorFilter()V
-    .locals 5
+    .locals 4
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/LightRevealScrim;->gradientPaint:Landroid/graphics/Paint;
 
     new-instance v1, Landroid/graphics/PorterDuffColorFilter;
 
-    iget v2, p0, Lcom/android/systemui/statusbar/LightRevealScrim;->revealGradientEndColorAlpha:F
+    iget v2, p0, Lcom/android/systemui/statusbar/LightRevealScrim;->revealGradientEndColor:I
 
-    const/16 v3, 0xff
+    iget v3, p0, Lcom/android/systemui/statusbar/LightRevealScrim;->revealGradientEndColorAlpha:F
 
-    int-to-float v3, v3
-
-    mul-float/2addr v2, v3
-
-    float-to-int v2, v2
-
-    iget v3, p0, Lcom/android/systemui/statusbar/LightRevealScrim;->revealGradientEndColor:I
-
-    invoke-static {v3}, Landroid/graphics/Color;->red(I)I
-
-    move-result v3
-
-    iget v4, p0, Lcom/android/systemui/statusbar/LightRevealScrim;->revealGradientEndColor:I
-
-    invoke-static {v4}, Landroid/graphics/Color;->green(I)I
-
-    move-result v4
-
-    iget p0, p0, Lcom/android/systemui/statusbar/LightRevealScrim;->revealGradientEndColor:I
-
-    invoke-static {p0}, Landroid/graphics/Color;->blue(I)I
-
-    move-result p0
-
-    invoke-static {v2, v3, v4, p0}, Landroid/graphics/Color;->argb(IIII)I
+    invoke-direct {p0, v2, v3}, Lcom/android/systemui/statusbar/LightRevealScrim;->updateColorAlpha(IF)I
 
     move-result p0
 
@@ -203,6 +181,36 @@
 
     :cond_0
     return-void
+.end method
+
+.method private final updateColorAlpha(IF)I
+    .locals 1
+
+    const/16 p0, 0xff
+
+    int-to-float p0, p0
+
+    mul-float/2addr p2, p0
+
+    float-to-int p0, p2
+
+    invoke-static {p1}, Landroid/graphics/Color;->red(I)I
+
+    move-result p2
+
+    invoke-static {p1}, Landroid/graphics/Color;->green(I)I
+
+    move-result v0
+
+    invoke-static {p1}, Landroid/graphics/Color;->blue(I)I
+
+    move-result p1
+
+    invoke-static {p0, p2, v0, p1}, Landroid/graphics/Color;->argb(IIII)I
+
+    move-result p0
+
+    return p0
 .end method
 
 .method private final updateScrimOpaque()V
@@ -347,7 +355,7 @@
 .method protected onDraw(Landroid/graphics/Canvas;)V
     .locals 8
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_2
 
     iget v0, p0, Lcom/android/systemui/statusbar/LightRevealScrim;->revealGradientWidth:F
 
@@ -355,7 +363,7 @@
 
     cmpg-float v0, v0, v1
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_2
 
     iget v0, p0, Lcom/android/systemui/statusbar/LightRevealScrim;->revealGradientHeight:F
 
@@ -366,6 +374,21 @@
     goto :goto_0
 
     :cond_0
+    iget v0, p0, Lcom/android/systemui/statusbar/LightRevealScrim;->startColorAlpha:F
+
+    cmpl-float v2, v0, v1
+
+    if-lez v2, :cond_1
+
+    iget v2, p0, Lcom/android/systemui/statusbar/LightRevealScrim;->revealGradientEndColor:I
+
+    invoke-direct {p0, v2, v0}, Lcom/android/systemui/statusbar/LightRevealScrim;->updateColorAlpha(IF)I
+
+    move-result v0
+
+    invoke-virtual {p1, v0}, Landroid/graphics/Canvas;->drawColor(I)V
+
+    :cond_1
     iget-object v0, p0, Lcom/android/systemui/statusbar/LightRevealScrim;->shaderGradientMatrix:Landroid/graphics/Matrix;
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/LightRevealScrim;->getRevealGradientWidth()F
@@ -424,7 +447,7 @@
 
     return-void
 
-    :cond_1
+    :cond_2
     :goto_0
     iget v0, p0, Lcom/android/systemui/statusbar/LightRevealScrim;->revealAmount:F
 
@@ -432,18 +455,18 @@
 
     cmpg-float v0, v0, v1
 
-    if-gez v0, :cond_3
+    if-gez v0, :cond_4
 
-    if-nez p1, :cond_2
+    if-nez p1, :cond_3
 
     goto :goto_1
 
-    :cond_2
+    :cond_3
     iget p0, p0, Lcom/android/systemui/statusbar/LightRevealScrim;->revealGradientEndColor:I
 
     invoke-virtual {p1, p0}, Landroid/graphics/Canvas;->drawColor(I)V
 
-    :cond_3
+    :cond_4
     :goto_1
     return-void
 .end method
@@ -592,6 +615,33 @@
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/LightRevealScrim;->isScrimOpaqueChangedListener:Ljava/util/function/Consumer;
 
+    return-void
+.end method
+
+.method public final setStartColorAlpha(F)V
+    .locals 1
+
+    iget v0, p0, Lcom/android/systemui/statusbar/LightRevealScrim;->startColorAlpha:F
+
+    cmpg-float v0, v0, p1
+
+    if-nez v0, :cond_0
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    if-nez v0, :cond_1
+
+    iput p1, p0, Lcom/android/systemui/statusbar/LightRevealScrim;->startColorAlpha:F
+
+    invoke-virtual {p0}, Landroid/view/View;->invalidate()V
+
+    :cond_1
     return-void
 .end method
 

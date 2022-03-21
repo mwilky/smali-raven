@@ -16,42 +16,32 @@
 
 .field private final locationPublisher:Lcom/android/systemui/statusbar/phone/StatusBarLocationPublisher;
 
-.field private final statusBarViewFactory:Lcom/android/systemui/statusbar/SuperStatusBarViewFactory;
-
-.field private final statusBarWindowController:Lcom/android/systemui/statusbar/phone/StatusBarWindowController;
-
-.field private statusBarWindowView:Lcom/android/systemui/statusbar/phone/StatusBarWindowView;
+.field private final statusBarWindowController:Lcom/android/systemui/statusbar/window/StatusBarWindowController;
 
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/statusbar/SuperStatusBarViewFactory;Lcom/android/systemui/statusbar/phone/StatusBarWindowController;Lcom/android/systemui/statusbar/phone/StatusBarLocationPublisher;)V
+.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/statusbar/window/StatusBarWindowController;Lcom/android/systemui/statusbar/phone/StatusBarLocationPublisher;)V
     .locals 1
 
     const-string v0, "context"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    const-string v0, "statusBarViewFactory"
+    const-string v0, "statusBarWindowController"
 
     invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    const-string v0, "statusBarWindowController"
-
-    invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
     const-string v0, "locationPublisher"
 
-    invoke-static {p4, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->context:Landroid/content/Context;
 
-    iput-object p2, p0, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->statusBarViewFactory:Lcom/android/systemui/statusbar/SuperStatusBarViewFactory;
+    iput-object p2, p0, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->statusBarWindowController:Lcom/android/systemui/statusbar/window/StatusBarWindowController;
 
-    iput-object p3, p0, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->statusBarWindowController:Lcom/android/systemui/statusbar/phone/StatusBarWindowController;
-
-    iput-object p4, p0, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->locationPublisher:Lcom/android/systemui/statusbar/phone/StatusBarLocationPublisher;
+    iput-object p3, p0, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->locationPublisher:Lcom/android/systemui/statusbar/phone/StatusBarLocationPublisher;
 
     return-void
 .end method
@@ -62,18 +52,6 @@
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->initialized:Z
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->statusBarViewFactory:Lcom/android/systemui/statusbar/SuperStatusBarViewFactory;
-
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/SuperStatusBarViewFactory;->getStatusBarWindowView()Lcom/android/systemui/statusbar/phone/StatusBarWindowView;
-
-    move-result-object v0
-
-    const-string v1, "statusBarViewFactory.statusBarWindowView"
-
-    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
-    iput-object v0, p0, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->statusBarWindowView:Lcom/android/systemui/statusbar/phone/StatusBarWindowView;
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->context:Landroid/content/Context;
 
@@ -119,27 +97,18 @@
 
     iput v1, v0, Landroid/widget/FrameLayout$LayoutParams;->gravity:I
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->statusBarWindowView:Lcom/android/systemui/statusbar/phone/StatusBarWindowView;
-
-    if-eqz v1, :cond_1
+    iget-object v1, p0, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->statusBarWindowController:Lcom/android/systemui/statusbar/window/StatusBarWindowController;
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->animationWindowView:Landroid/widget/FrameLayout;
 
     if-eqz p0, :cond_0
 
-    invoke-virtual {v1, p0, v0}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+    invoke-virtual {v1, p0, v0}, Lcom/android/systemui/statusbar/window/StatusBarWindowController;->addViewToWindow(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
     return-void
 
     :cond_0
     const-string p0, "animationWindowView"
-
-    invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    throw v2
-
-    :cond_1
-    const-string p0, "statusBarWindowView"
 
     invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 

@@ -49,7 +49,7 @@
 .method public constructor <init>(Landroid/content/Context;Lcom/android/wm/shell/TaskView;Landroid/app/PendingIntent;Lcom/android/systemui/controls/ui/ControlViewHolder;)V
     .locals 2
 
-    const-string/jumbo v0, "taskView"
+    const-string v0, "taskView"
 
     invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 

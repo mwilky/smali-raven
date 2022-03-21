@@ -489,10 +489,6 @@
 
     move-result p0
 
-    int-to-float p0, p0
-
-    int-to-float v0, v0
-
     const/high16 v1, 0x40a00000    # 5.0f
 
     mul-float/2addr p1, v1
@@ -503,7 +499,7 @@
 
     move-result p1
 
-    invoke-static {p0, v0, p1}, Landroid/util/MathUtils;->lerp(FFF)F
+    invoke-static {p0, v0, p1}, Landroid/util/MathUtils;->lerp(IIF)F
 
     move-result p0
 
@@ -531,11 +527,7 @@
 
     move-result v1
 
-    int-to-float v0, v0
-
-    int-to-float v1, v1
-
-    invoke-static {v0, v1, p1}, Landroid/util/MathUtils;->lerp(FFF)F
+    invoke-static {v0, v1, p1}, Landroid/util/MathUtils;->lerp(IIF)F
 
     move-result p1
 
@@ -926,15 +918,11 @@
 
     iget-object p0, p0, Lcom/google/android/systemui/assist/uihints/GlowController;->mGlowView:Lcom/google/android/systemui/assist/uihints/GlowView;
 
-    int-to-float p1, p1
-
-    int-to-float p2, p2
-
     invoke-virtual {p3}, Landroid/animation/ValueAnimator;->getAnimatedFraction()F
 
     move-result p3
 
-    invoke-static {p1, p2, p3}, Landroid/util/MathUtils;->lerp(FFF)F
+    invoke-static {p1, p2, p3}, Landroid/util/MathUtils;->lerp(IIF)F
 
     move-result p1
 
@@ -966,13 +954,9 @@
 
     move-result v0
 
-    int-to-float v0, v0
-
     invoke-direct {p0}, Lcom/google/android/systemui/assist/uihints/GlowController;->getMaxTranslationY()I
 
     move-result v1
-
-    int-to-float v1, v1
 
     iget-object v2, p0, Lcom/google/android/systemui/assist/uihints/GlowController;->mSpeechRolling:Lcom/google/android/systemui/assist/uihints/RollingAverage;
 
@@ -982,7 +966,7 @@
 
     double-to-float v2, v2
 
-    invoke-static {v0, v1, v2}, Landroid/util/MathUtils;->lerp(FFF)F
+    invoke-static {v0, v1, v2}, Landroid/util/MathUtils;->lerp(IIF)F
 
     move-result v0
 

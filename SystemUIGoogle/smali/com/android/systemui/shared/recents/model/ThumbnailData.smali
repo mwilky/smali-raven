@@ -12,6 +12,8 @@
 
 .field public isTranslucent:Z
 
+.field public letterboxInsets:Landroid/graphics/Rect;
+
 .field public orientation:I
 
 .field public reducedResolution:Z
@@ -48,6 +50,16 @@
     invoke-direct {v1, v2}, Landroid/graphics/Rect;-><init>(Landroid/graphics/Rect;)V
 
     iput-object v1, p0, Lcom/android/systemui/shared/recents/model/ThumbnailData;->insets:Landroid/graphics/Rect;
+
+    new-instance v1, Landroid/graphics/Rect;
+
+    invoke-virtual {p1}, Landroid/window/TaskSnapshot;->getLetterboxInsets()Landroid/graphics/Rect;
+
+    move-result-object v2
+
+    invoke-direct {v1, v2}, Landroid/graphics/Rect;-><init>(Landroid/graphics/Rect;)V
+
+    iput-object v1, p0, Lcom/android/systemui/shared/recents/model/ThumbnailData;->letterboxInsets:Landroid/graphics/Rect;
 
     invoke-virtual {p1}, Landroid/window/TaskSnapshot;->getOrientation()I
 

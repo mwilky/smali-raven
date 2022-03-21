@@ -161,7 +161,7 @@
 
     iget-object v3, p0, Lcom/android/systemui/biometrics/UdfpsDrawable;->mContext:Landroid/content/Context;
 
-    sget v4, Lcom/android/systemui/R$color;->udfps_enroll_icon:I
+    sget v4, Lcom/android/systemui/R$color;->udfps_moving_target_fill:I
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getColor(I)I
 
@@ -169,13 +169,9 @@
 
     invoke-virtual {v1, v3}, Landroid/graphics/Paint;->setColor(I)V
 
-    sget-object v3, Landroid/graphics/Paint$Style;->STROKE:Landroid/graphics/Paint$Style;
+    sget-object v3, Landroid/graphics/Paint$Style;->FILL:Landroid/graphics/Paint$Style;
 
     invoke-virtual {v1, v3}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
-
-    const/high16 v3, 0x40000000    # 2.0f
-
-    invoke-virtual {v1, v3}, Landroid/graphics/Paint;->setStrokeWidth(F)V
 
     new-instance v1, Landroid/graphics/Paint;
 
@@ -185,9 +181,7 @@
 
     invoke-virtual {v1, v2}, Landroid/graphics/Paint;->setAntiAlias(Z)V
 
-    sget v3, Lcom/android/systemui/R$color;->udfps_moving_target_fill:I
-
-    invoke-virtual {p1, v3}, Landroid/content/Context;->getColor(I)I
+    invoke-virtual {p1, v4}, Landroid/content/Context;->getColor(I)I
 
     move-result v3
 
@@ -201,7 +195,7 @@
 
     move-result-object v1
 
-    sget v3, Lcom/android/systemui/R$drawable;->ic_fingerprint:I
+    sget v3, Lcom/android/systemui/R$drawable;->ic_kg_fingerprint:I
 
     const/4 v5, 0x0
 
@@ -211,7 +205,13 @@
 
     iput-object v1, p0, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;->mMovingTargetFpIcon:Landroid/graphics/drawable/Drawable;
 
-    const/4 v3, -0x1
+    iget-object v3, p0, Lcom/android/systemui/biometrics/UdfpsDrawable;->mContext:Landroid/content/Context;
+
+    sget v5, Lcom/android/systemui/R$color;->udfps_enroll_icon:I
+
+    invoke-virtual {v3, v5}, Landroid/content/Context;->getColor(I)I
+
+    move-result v3
 
     invoke-virtual {v1, v3}, Landroid/graphics/drawable/Drawable;->setTint(I)V
 
@@ -221,13 +221,13 @@
 
     iget-object v3, p0, Lcom/android/systemui/biometrics/UdfpsDrawable;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v3, v4}, Landroid/content/Context;->getColor(I)I
+    invoke-virtual {v3, v5}, Landroid/content/Context;->getColor(I)I
 
     move-result v3
 
     invoke-virtual {v1, v3}, Landroid/graphics/drawable/ShapeDrawable;->setTint(I)V
 
-    invoke-static {p1}, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;->getHintColorFaded(Landroid/content/Context;)I
+    invoke-virtual {p1, v4}, Landroid/content/Context;->getColor(I)I
 
     move-result v1
 
@@ -430,74 +430,6 @@
     iget-object p0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;->mEdgeHintColorUpdateListener:Landroid/animation/ValueAnimator$AnimatorUpdateListener;
 
     return-object p0
-.end method
-
-.method private static getHintColorFaded(Landroid/content/Context;)I
-    .locals 4
-
-    new-instance v0, Landroid/util/TypedValue;
-
-    invoke-direct {v0}, Landroid/util/TypedValue;-><init>()V
-
-    invoke-virtual {p0}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
-
-    move-result-object v1
-
-    const v2, 0x1010033
-
-    const/4 v3, 0x1
-
-    invoke-virtual {v1, v2, v0, v3}, Landroid/content/res/Resources$Theme;->resolveAttribute(ILandroid/util/TypedValue;Z)Z
-
-    invoke-virtual {v0}, Landroid/util/TypedValue;->getFloat()F
-
-    move-result v0
-
-    const/high16 v1, 0x437f0000    # 255.0f
-
-    mul-float/2addr v0, v1
-
-    float-to-int v0, v0
-
-    new-array v1, v3, [I
-
-    const v2, 0x1010429
-
-    const/4 v3, 0x0
-
-    aput v2, v1, v3
-
-    invoke-virtual {p0, v1}, Landroid/content/Context;->obtainStyledAttributes([I)Landroid/content/res/TypedArray;
-
-    move-result-object v1
-
-    :try_start_0
-    sget v2, Lcom/android/systemui/R$color;->white_disabled:I
-
-    invoke-virtual {p0, v2}, Landroid/content/Context;->getColor(I)I
-
-    move-result p0
-
-    invoke-virtual {v1, v3, p0}, Landroid/content/res/TypedArray;->getColor(II)I
-
-    move-result p0
-
-    invoke-static {p0, v0}, Lcom/android/internal/graphics/ColorUtils;->setAlphaComponent(II)I
-
-    move-result p0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    invoke-virtual {v1}, Landroid/content/res/TypedArray;->recycle()V
-
-    return p0
-
-    :catchall_0
-    move-exception p0
-
-    invoke-virtual {v1}, Landroid/content/res/TypedArray;->recycle()V
-
-    throw p0
 .end method
 
 .method private isEdgeHintVisible()Z

@@ -34,7 +34,7 @@
     c = "com.google.android.systemui.statusbar.notification.voicereplies.NotificationVoiceReplyController$stateMachine$2$2"
     f = "NotificationVoiceReplyManager.kt"
     l = {
-        0x161
+        0x1b1
     }
     m = "invokeSuspend"
 .end annotation
@@ -187,7 +187,7 @@
 
     iput v2, p0, Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyController$stateMachine$2$2;->label:I
 
-    invoke-virtual {p1, v1, p0}, Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyController;->notifyHandlersOfReplyAvailability(Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyController$Connection;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+    invoke-virtual {p1, v1, p0}, Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyController;->notifyHandlersOfHotwordReplyAvailability(Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyController$Connection;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
     move-result-object p0
 

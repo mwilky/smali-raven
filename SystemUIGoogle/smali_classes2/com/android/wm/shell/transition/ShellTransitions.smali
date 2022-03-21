@@ -11,3 +11,9 @@
 
     return-object p0
 .end method
+
+.method public registerRemote(Landroid/window/TransitionFilter;Landroid/window/RemoteTransition;)V
+    .locals 0
+
+    return-void
+.end method

@@ -619,18 +619,6 @@
     return-object p0
 .end method
 
-.method getStageCount()I
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollHelper;->mFingerprintManager:Landroid/hardware/fingerprint/FingerprintManager;
-
-    invoke-virtual {p0}, Landroid/hardware/fingerprint/FingerprintManager;->getEnrollStageCount()I
-
-    move-result p0
-
-    return p0
-.end method
-
 .method getStageThresholdSteps(II)I
     .locals 0
 

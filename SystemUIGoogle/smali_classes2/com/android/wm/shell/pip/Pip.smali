@@ -4,6 +4,20 @@
 
 
 # virtual methods
+.method public addPipExclusionBoundsChangeListener(Ljava/util/function/Consumer;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/function/Consumer<",
+            "Landroid/graphics/Rect;",
+            ">;)V"
+        }
+    .end annotation
+
+    return-void
+.end method
+
 .method public createExternalInterface()Lcom/android/wm/shell/pip/IPip;
     .locals 0
 
@@ -54,13 +68,7 @@
     return-void
 .end method
 
-.method public setPinnedStackAnimationType(I)V
-    .locals 0
-
-    return-void
-.end method
-
-.method public setPipExclusionBoundsChangeListener(Ljava/util/function/Consumer;)V
+.method public removePipExclusionBoundsChangeListener(Ljava/util/function/Consumer;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -70,6 +78,12 @@
             ">;)V"
         }
     .end annotation
+
+    return-void
+.end method
+
+.method public setPinnedStackAnimationType(I)V
+    .locals 0
 
     return-void
 .end method

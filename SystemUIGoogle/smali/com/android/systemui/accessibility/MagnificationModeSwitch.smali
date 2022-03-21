@@ -1058,7 +1058,7 @@
 .method onConfigurationChanged(I)V
     .locals 2
 
-    and-int/lit16 v0, p1, 0x80
+    and-int/lit16 v0, p1, 0x480
 
     if-eqz v0, :cond_0
 

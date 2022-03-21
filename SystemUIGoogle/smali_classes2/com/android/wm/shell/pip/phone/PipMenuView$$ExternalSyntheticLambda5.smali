@@ -2,42 +2,32 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Landroid/view/View$OnTouchListener;
+.implements Landroid/view/View$OnClickListener;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/wm/shell/pip/phone/PipMenuView$$ExternalSyntheticLambda5;
+# instance fields
+.field public final synthetic f$0:Lcom/android/wm/shell/pip/phone/PipMenuView;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/wm/shell/pip/phone/PipMenuView$$ExternalSyntheticLambda5;
-
-    invoke-direct {v0}, Lcom/android/wm/shell/pip/phone/PipMenuView$$ExternalSyntheticLambda5;-><init>()V
-
-    sput-object v0, Lcom/android/wm/shell/pip/phone/PipMenuView$$ExternalSyntheticLambda5;->INSTANCE:Lcom/android/wm/shell/pip/phone/PipMenuView$$ExternalSyntheticLambda5;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Lcom/android/wm/shell/pip/phone/PipMenuView;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/wm/shell/pip/phone/PipMenuView$$ExternalSyntheticLambda5;->f$0:Lcom/android/wm/shell/pip/phone/PipMenuView;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
+.method public final onClick(Landroid/view/View;)V
     .locals 0
 
-    invoke-static {p1, p2}, Lcom/android/wm/shell/pip/phone/PipMenuView;->$r8$lambda$Q_oiADxaejLr5dACX4s8rmIWm1c(Landroid/view/View;Landroid/view/MotionEvent;)Z
+    iget-object p0, p0, Lcom/android/wm/shell/pip/phone/PipMenuView$$ExternalSyntheticLambda5;->f$0:Lcom/android/wm/shell/pip/phone/PipMenuView;
 
-    move-result p0
+    invoke-static {p0, p1}, Lcom/android/wm/shell/pip/phone/PipMenuView;->$r8$lambda$ZxqhoWYuErw7GDyfTQ7fpYp-LKk(Lcom/android/wm/shell/pip/phone/PipMenuView;Landroid/view/View;)V
 
-    return p0
+    return-void
 .end method

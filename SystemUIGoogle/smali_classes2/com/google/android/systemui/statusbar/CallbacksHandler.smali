@@ -13,7 +13,7 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lkotlinx/coroutines/flow/StateFlow<",
-            "Ljava/lang/Boolean;",
+            "Lcom/google/android/systemui/statusbar/notification/voicereplies/CtaState;",
             ">;"
         }
     .end annotation
@@ -30,7 +30,8 @@
             "(I",
             "Lcom/google/android/systemui/statusbar/INotificationVoiceReplyServiceCallbacks;",
             "Lkotlinx/coroutines/flow/StateFlow<",
-            "Ljava/lang/Boolean;",
+            "+",
+            "Lcom/google/android/systemui/statusbar/notification/voicereplies/CtaState;",
             ">;)V"
         }
     .end annotation
@@ -62,7 +63,7 @@
         value = {
             "()",
             "Lkotlinx/coroutines/flow/StateFlow<",
-            "Ljava/lang/Boolean;",
+            "Lcom/google/android/systemui/statusbar/notification/voicereplies/CtaState;",
             ">;"
         }
     .end annotation
@@ -78,6 +79,16 @@
     iget p0, p0, Lcom/google/android/systemui/statusbar/CallbacksHandler;->userId:I
 
     return p0
+.end method
+
+.method public onNotifAvailableForQuickPhraseReplyChanged(Z)V
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/systemui/statusbar/CallbacksHandler;->callbacks:Lcom/google/android/systemui/statusbar/INotificationVoiceReplyServiceCallbacks;
+
+    invoke-interface {p0, p1}, Lcom/google/android/systemui/statusbar/INotificationVoiceReplyServiceCallbacks;->onNotifAvailableForQuickPhraseChanged(Z)V
+
+    return-void
 .end method
 
 .method public onNotifAvailableForReplyChanged(Z)V

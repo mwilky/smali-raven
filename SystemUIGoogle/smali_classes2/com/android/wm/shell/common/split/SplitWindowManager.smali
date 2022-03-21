@@ -24,8 +24,6 @@
 
 .field private final mParentContainerCallbacks:Lcom/android/wm/shell/common/split/SplitWindowManager$ParentContainerCallbacks;
 
-.field private mResizingSplits:Z
-
 .field private mViewHost:Landroid/view/SurfaceControlViewHost;
 
 .field private final mWindowName:Ljava/lang/String;
@@ -89,7 +87,7 @@
 
     move-result-object p1
 
-    const/4 v0, 0x0
+    const/4 v0, 0x1
 
     invoke-virtual {p1, v0}, Landroid/view/SurfaceControl$Builder;->setHidden(Z)Landroid/view/SurfaceControl$Builder;
 
@@ -111,7 +109,13 @@
 
     iput-object p1, p0, Lcom/android/wm/shell/common/split/SplitWindowManager;->mLeash:Landroid/view/SurfaceControl;
 
-    invoke-virtual {p2, p1}, Landroid/view/SurfaceControl$Builder;->setParent(Landroid/view/SurfaceControl;)Landroid/view/SurfaceControl$Builder;
+    iget-object v0, p0, Lcom/android/wm/shell/common/split/SplitWindowManager;->mParentContainerCallbacks:Lcom/android/wm/shell/common/split/SplitWindowManager$ParentContainerCallbacks;
+
+    invoke-interface {v0, p1}, Lcom/android/wm/shell/common/split/SplitWindowManager$ParentContainerCallbacks;->onLeashReady(Landroid/view/SurfaceControl;)V
+
+    iget-object p0, p0, Lcom/android/wm/shell/common/split/SplitWindowManager;->mLeash:Landroid/view/SurfaceControl;
+
+    invoke-virtual {p2, p0}, Landroid/view/SurfaceControl$Builder;->setParent(Landroid/view/SurfaceControl;)Landroid/view/SurfaceControl$Builder;
 
     return-void
 .end method
@@ -134,7 +138,7 @@
     return-object p0
 .end method
 
-.method init(Lcom/android/wm/shell/common/split/SplitLayout;)V
+.method init(Lcom/android/wm/shell/common/split/SplitLayout;Landroid/view/InsetsState;)V
     .locals 8
 
     iget-object v0, p0, Lcom/android/wm/shell/common/split/SplitWindowManager;->mDividerView:Lcom/android/wm/shell/common/split/DividerView;
@@ -225,9 +229,9 @@
 
     iget-object v0, p0, Lcom/android/wm/shell/common/split/SplitWindowManager;->mDividerView:Lcom/android/wm/shell/common/split/DividerView;
 
-    iget-object p0, p0, Lcom/android/wm/shell/common/split/SplitWindowManager;->mViewHost:Landroid/view/SurfaceControlViewHost;
+    iget-object v1, p0, Lcom/android/wm/shell/common/split/SplitWindowManager;->mViewHost:Landroid/view/SurfaceControlViewHost;
 
-    invoke-virtual {v0, p1, p0}, Lcom/android/wm/shell/common/split/DividerView;->setup(Lcom/android/wm/shell/common/split/SplitLayout;Landroid/view/SurfaceControlViewHost;)V
+    invoke-virtual {v0, p1, p0, v1, p2}, Lcom/android/wm/shell/common/split/DividerView;->setup(Lcom/android/wm/shell/common/split/SplitLayout;Lcom/android/wm/shell/common/split/SplitWindowManager;Landroid/view/SurfaceControlViewHost;Landroid/view/InsetsState;)V
 
     return-void
 
@@ -239,6 +243,21 @@
     invoke-direct {p0, p1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
     throw p0
+.end method
+
+.method onInsetsChanged(Landroid/view/InsetsState;)V
+    .locals 1
+
+    iget-object p0, p0, Lcom/android/wm/shell/common/split/SplitWindowManager;->mDividerView:Lcom/android/wm/shell/common/split/DividerView;
+
+    if-eqz p0, :cond_0
+
+    const/4 v0, 0x1
+
+    invoke-virtual {p0, p1, v0}, Lcom/android/wm/shell/common/split/DividerView;->onInsetsChanged(Landroid/view/InsetsState;Z)V
+
+    :cond_0
+    return-void
 .end method
 
 .method release()V
@@ -315,46 +334,27 @@
     return-void
 .end method
 
-.method setResizingSplits(Z)V
-    .locals 1
+.method setTouchRegion(Landroid/graphics/Rect;)V
+    .locals 2
 
-    iget-boolean v0, p0, Lcom/android/wm/shell/common/split/SplitWindowManager;->mResizingSplits:Z
+    iget-object v0, p0, Lcom/android/wm/shell/common/split/SplitWindowManager;->mViewHost:Landroid/view/SurfaceControlViewHost;
 
-    if-ne p1, v0, :cond_0
+    if-eqz v0, :cond_0
 
-    return-void
-
-    :cond_0
-    :try_start_0
-    invoke-static {}, Landroid/app/ActivityTaskManager;->getService()Landroid/app/IActivityTaskManager;
+    invoke-virtual {v0}, Landroid/view/SurfaceControlViewHost;->getWindowToken()Landroid/view/IWindow;
 
     move-result-object v0
 
-    invoke-interface {v0, p1}, Landroid/app/IActivityTaskManager;->setSplitScreenResizing(Z)V
+    invoke-interface {v0}, Landroid/view/IWindow;->asBinder()Landroid/os/IBinder;
 
-    iput-boolean p1, p0, Lcom/android/wm/shell/common/split/SplitWindowManager;->mResizingSplits:Z
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    move-result-object v0
 
-    goto :goto_0
+    new-instance v1, Landroid/graphics/Region;
 
-    :catch_0
-    move-exception p0
+    invoke-direct {v1, p1}, Landroid/graphics/Region;-><init>(Landroid/graphics/Rect;)V
 
-    sget-object p1, Lcom/android/wm/shell/common/split/SplitWindowManager;->TAG:Ljava/lang/String;
+    invoke-virtual {p0, v0, v1}, Landroid/view/WindowlessWindowManager;->setTouchRegion(Landroid/os/IBinder;Landroid/graphics/Region;)V
 
-    const-string v0, "Error calling setSplitScreenResizing"
-
-    invoke-static {p1, v0, p0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    :goto_0
-    return-void
-.end method
-
-.method public setTouchRegion(Landroid/os/IBinder;Landroid/graphics/Region;)V
-    .locals 0
-
-    invoke-super {p0, p1, p2}, Landroid/view/WindowlessWindowManager;->setTouchRegion(Landroid/os/IBinder;Landroid/graphics/Region;)V
-
+    :cond_0
     return-void
 .end method

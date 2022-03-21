@@ -637,6 +637,73 @@
     return-object p0
 .end method
 
+.method public static maxOrNull([Ljava/lang/Comparable;)Ljava/lang/Comparable;
+    .locals 5
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<T::",
+            "Ljava/lang/Comparable<",
+            "-TT;>;>([TT;)TT;"
+        }
+    .end annotation
+
+    const-string v0, "$this$maxOrNull"
+
+    invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    array-length v0, p0
+
+    const/4 v1, 0x0
+
+    const/4 v2, 0x1
+
+    if-nez v0, :cond_0
+
+    move v0, v2
+
+    goto :goto_0
+
+    :cond_0
+    move v0, v1
+
+    :goto_0
+    if-eqz v0, :cond_1
+
+    const/4 p0, 0x0
+
+    return-object p0
+
+    :cond_1
+    aget-object v0, p0, v1
+
+    invoke-static {p0}, Lkotlin/collections/ArraysKt___ArraysKt;->getLastIndex([Ljava/lang/Object;)I
+
+    move-result v1
+
+    if-gt v2, v1, :cond_3
+
+    :goto_1
+    aget-object v3, p0, v2
+
+    invoke-interface {v0, v3}, Ljava/lang/Comparable;->compareTo(Ljava/lang/Object;)I
+
+    move-result v4
+
+    if-gez v4, :cond_2
+
+    move-object v0, v3
+
+    :cond_2
+    if-eq v2, v1, :cond_3
+
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_1
+
+    :cond_3
+    return-object v0
+.end method
+
 .method public static single([C)C
     .locals 2
 

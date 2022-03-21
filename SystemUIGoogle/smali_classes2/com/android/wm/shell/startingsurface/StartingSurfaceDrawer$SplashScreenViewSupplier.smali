@@ -29,6 +29,8 @@
 # instance fields
 .field private mIsViewSet:Z
 
+.field private mUiThreadInitTask:Ljava/lang/Runnable;
+
 .field private mView:Landroid/window/SplashScreenView;
 
 
@@ -75,6 +77,17 @@
 
     :cond_0
     :try_start_2
+    iget-object v0, p0, Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer$SplashScreenViewSupplier;->mUiThreadInitTask:Ljava/lang/Runnable;
+
+    if-eqz v0, :cond_1
+
+    invoke-interface {v0}, Ljava/lang/Runnable;->run()V
+
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer$SplashScreenViewSupplier;->mUiThreadInitTask:Ljava/lang/Runnable;
+
+    :cond_1
     iget-object v0, p0, Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer$SplashScreenViewSupplier;->mView:Landroid/window/SplashScreenView;
 
     monitor-exit p0
@@ -99,6 +112,28 @@
     move-result-object p0
 
     return-object p0
+.end method
+
+.method setUiThreadInitTask(Ljava/lang/Runnable;)V
+    .locals 0
+
+    monitor-enter p0
+
+    :try_start_0
+    iput-object p1, p0, Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer$SplashScreenViewSupplier;->mUiThreadInitTask:Ljava/lang/Runnable;
+
+    monitor-exit p0
+
+    return-void
+
+    :catchall_0
+    move-exception p1
+
+    monitor-exit p0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw p1
 .end method
 
 .method setView(Landroid/window/SplashScreenView;)V

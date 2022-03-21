@@ -226,127 +226,127 @@
         <item>Evidenzia cmd disegno test in verde</item>
     </string-array>
     <string-array name="tile_states_airplane">
-        <item>Elemento non disponibile</item>
+        <item>Non disponibile</item>
         <item>Off</item>
         <item>On</item>
     </string-array>
     <string-array name="tile_states_alarm">
-        <item>Elemento non disponibile</item>
+        <item>Non disponibile</item>
         <item>Off</item>
         <item>On</item>
     </string-array>
     <string-array name="tile_states_battery">
-        <item>Elemento non disponibile</item>
+        <item>Non disponibile</item>
         <item>Off</item>
         <item>On</item>
     </string-array>
     <string-array name="tile_states_bt">
-        <item>Elemento non disponibile</item>
+        <item>Non disponibile</item>
         <item>Off</item>
         <item>On</item>
     </string-array>
     <string-array name="tile_states_cameratoggle">
-        <item>Elemento non disponibile</item>
+        <item>Non disponibile</item>
         <item>Off</item>
         <item>On</item>
     </string-array>
     <string-array name="tile_states_cast">
-        <item>Elemento non disponibile</item>
+        <item>Non disponibile</item>
         <item>Off</item>
         <item>On</item>
     </string-array>
     <string-array name="tile_states_cell">
-        <item>Elemento non disponibile</item>
+        <item>Non disponibile</item>
         <item>Off</item>
         <item>On</item>
     </string-array>
     <string-array name="tile_states_controls">
-        <item>Elemento non disponibile</item>
+        <item>Non disponibile</item>
         <item>Off</item>
         <item>On</item>
     </string-array>
     <string-array name="tile_states_dark">
-        <item>Elemento non disponibile</item>
+        <item>Non disponibile</item>
         <item>Off</item>
         <item>On</item>
     </string-array>
     <string-array name="tile_states_dnd">
-        <item>Elemento non disponibile</item>
+        <item>Non disponibile</item>
         <item>Off</item>
         <item>On</item>
     </string-array>
     <string-array name="tile_states_flashlight">
-        <item>Elemento non disponibile</item>
+        <item>Non disponibile</item>
         <item>Off</item>
         <item>On</item>
     </string-array>
     <string-array name="tile_states_hotspot">
-        <item>Elemento non disponibile</item>
+        <item>Non disponibile</item>
         <item>Off</item>
         <item>On</item>
     </string-array>
     <string-array name="tile_states_internet">
-        <item>Elemento non disponibile</item>
+        <item>Non disponibile</item>
         <item>Off</item>
         <item>On</item>
     </string-array>
     <string-array name="tile_states_inversion">
-        <item>Elemento non disponibile</item>
+        <item>Non disponibile</item>
         <item>Off</item>
         <item>On</item>
     </string-array>
     <string-array name="tile_states_location">
-        <item>Elemento non disponibile</item>
+        <item>Non disponibile</item>
         <item>Off</item>
         <item>On</item>
     </string-array>
     <string-array name="tile_states_mictoggle">
-        <item>Elemento non disponibile</item>
+        <item>Non disponibile</item>
         <item>Off</item>
         <item>On</item>
     </string-array>
     <string-array name="tile_states_night">
-        <item>Elemento non disponibile</item>
+        <item>Non disponibile</item>
         <item>Off</item>
         <item>On</item>
     </string-array>
     <string-array name="tile_states_reduce_brightness">
-        <item>Elemento non disponibile</item>
+        <item>Non disponibile</item>
         <item>Off</item>
         <item>On</item>
     </string-array>
     <string-array name="tile_states_reverse">
-        <item>Elemento non disponibile</item>
+        <item>Non disponibile</item>
         <item>Off</item>
         <item>On</item>
     </string-array>
     <string-array name="tile_states_rotation">
-        <item>Elemento non disponibile</item>
+        <item>Non disponibile</item>
         <item>Off</item>
         <item>On</item>
     </string-array>
     <string-array name="tile_states_saver">
-        <item>Elemento non disponibile</item>
+        <item>Non disponibile</item>
         <item>Off</item>
         <item>On</item>
     </string-array>
     <string-array name="tile_states_screenrecord">
-        <item>Elemento non disponibile</item>
+        <item>Non disponibile</item>
         <item>Off</item>
         <item>On</item>
     </string-array>
     <string-array name="tile_states_wallet">
-        <item>Elemento non disponibile</item>
+        <item>Non disponibile</item>
         <item>Off</item>
         <item>On</item>
     </string-array>
     <string-array name="tile_states_wifi">
-        <item>Elemento non disponibile</item>
+        <item>Non disponibile</item>
         <item>Off</item>
         <item>On</item>
     </string-array>
     <string-array name="tile_states_work">
-        <item>Elemento non disponibile</item>
+        <item>Non disponibile</item>
         <item>Off</item>
         <item>On</item>
     </string-array>

@@ -64,7 +64,7 @@
     return-void
 .end method
 
-.method static synthetic access$1200(Ljavax/inject/Provider;)Ljavax/inject/Provider;
+.method static synthetic access$1000(Ljavax/inject/Provider;)Ljavax/inject/Provider;
     .locals 0
 
     invoke-static {p0}, Lcom/android/systemui/tv/DaggerTvGlobalRootComponent$PresentJdkOptionalInstanceProvider;->of(Ljavax/inject/Provider;)Ljavax/inject/Provider;

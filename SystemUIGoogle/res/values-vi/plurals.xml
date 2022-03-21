@@ -32,18 +32,6 @@
         <item quantity="other">Mã PUK của SIM không chính xác, bạn còn %d lần thử trước khi SIM vĩnh viễn không thể sử dụng được.</item>
         <item quantity="one">Mã PUK của SIM không chính xác, bạn còn %d lần thử trước khi SIM vĩnh viễn không thể sử dụng được.</item>
     </plurals>
-    <plurals name="kg_prompt_reason_time_password">
-        <item quantity="other">Thiết bị đã không được mở khóa trong %d giờ. Xác nhận mật khẩu.</item>
-        <item quantity="one">Thiết bị đã không được mở khóa trong %d giờ. Xác nhận mật khẩu.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pattern">
-        <item quantity="other">Thiết bị đã không được mở khóa trong %d giờ. Xác nhận hình mở khóa.</item>
-        <item quantity="one">Thiết bị đã không được mở khóa trong %d giờ. Xác nhận hình mở khóa.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pin">
-        <item quantity="other">Thiết bị đã không được mở khóa trong %d giờ. Xác nhận mã PIN.</item>
-        <item quantity="one">Thiết bị đã không được mở khóa trong %d giờ. Xác nhận mã PIN.</item>
-    </plurals>
     <plurals name="kg_too_many_failed_attempts_countdown">
         <item quantity="other">Hãy thử lại sau %d giây.</item>
         <item quantity="one">Hãy thử lại sau 1 giây.</item>

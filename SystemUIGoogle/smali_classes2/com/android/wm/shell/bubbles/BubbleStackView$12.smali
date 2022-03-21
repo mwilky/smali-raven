@@ -36,7 +36,7 @@
 
     iget-object p0, p0, Lcom/android/wm/shell/bubbles/BubbleStackView$12;->this$0:Lcom/android/wm/shell/bubbles/BubbleStackView;
 
-    invoke-static {p0}, Lcom/android/wm/shell/bubbles/BubbleStackView;->access$4200(Lcom/android/wm/shell/bubbles/BubbleStackView;)V
+    invoke-static {p0}, Lcom/android/wm/shell/bubbles/BubbleStackView;->access$4300(Lcom/android/wm/shell/bubbles/BubbleStackView;)V
 
     return-void
 .end method

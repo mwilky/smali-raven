@@ -20,6 +20,8 @@
 
 .field private final mBypassController:Lcom/android/systemui/statusbar/phone/KeyguardBypassController;
 
+.field private mCanShowDoubleLineClock:Z
+
 .field private final mClockChangedListener:Lcom/android/keyguard/clock/ClockManager$ClockChangedListener;
 
 .field private mClockFrame:Landroid/widget/FrameLayout;
@@ -32,6 +34,8 @@
 
 .field private final mColorsListener:Lcom/android/internal/colorextraction/ColorExtractor$OnColorsChangedListener;
 
+.field private mDoubleLineClockObserver:Landroid/database/ContentObserver;
+
 .field private mKeyguardClockTopMargin:I
 
 .field private final mKeyguardSliceViewController:Lcom/android/keyguard/KeyguardSliceViewController;
@@ -42,8 +46,6 @@
 
 .field private mLargeClockFrame:Landroid/widget/FrameLayout;
 
-.field private mLargeClockTopMargin:I
-
 .field private mLargeClockViewController:Lcom/android/keyguard/AnimatableClockController;
 
 .field private final mNotificationIconAreaController:Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;
@@ -52,16 +54,30 @@
 
 .field private final mResources:Landroid/content/res/Resources;
 
+.field private final mSecureSettings:Lcom/android/systemui/util/settings/SecureSettings;
+
 .field private final mSmartspaceController:Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;
 
 .field private mSmartspaceTransitionController:Lcom/android/systemui/shared/system/smartspace/SmartspaceTransitionController;
 
 .field private mSmartspaceView:Landroid/view/View;
 
+.field private mStatusArea:Landroid/view/ViewGroup;
+
 .field private final mStatusBarStateController:Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
+
+.field private mUiExecutor:Ljava/util/concurrent/Executor;
 
 
 # direct methods
+.method public static synthetic $r8$lambda$9pd8dyQM9IARhXuJzXidUcAA8u0(Lcom/android/keyguard/KeyguardClockSwitchController;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/keyguard/KeyguardClockSwitchController;->lambda$updateDoubleLineClock$1()V
+
+    return-void
+.end method
+
 .method public static synthetic $r8$lambda$UrWEdx7JH8CB5fSj-Qe2DHy8aFQ(Lcom/android/keyguard/KeyguardClockSwitchController;Lcom/android/internal/colorextraction/ColorExtractor;I)V
     .locals 0
 
@@ -78,56 +94,110 @@
     return-void
 .end method
 
-.method public constructor <init>(Lcom/android/keyguard/KeyguardClockSwitch;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/colorextraction/SysuiColorExtractor;Lcom/android/keyguard/clock/ClockManager;Lcom/android/keyguard/KeyguardSliceViewController;Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/statusbar/policy/BatteryController;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController;Lcom/android/systemui/shared/system/smartspace/SmartspaceTransitionController;Landroid/content/res/Resources;)V
-    .locals 1
+.method public constructor <init>(Lcom/android/keyguard/KeyguardClockSwitch;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/colorextraction/SysuiColorExtractor;Lcom/android/keyguard/clock/ClockManager;Lcom/android/keyguard/KeyguardSliceViewController;Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/statusbar/policy/BatteryController;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController;Lcom/android/systemui/shared/system/smartspace/SmartspaceTransitionController;Lcom/android/systemui/util/settings/SecureSettings;Ljava/util/concurrent/Executor;Landroid/content/res/Resources;)V
+    .locals 3
+
+    move-object v0, p0
 
     invoke-direct {p0, p1}, Lcom/android/systemui/util/ViewController;-><init>(Landroid/view/View;)V
 
-    const/4 p1, 0x0
+    const/4 v1, 0x0
 
-    iput p1, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mLargeClockTopMargin:I
+    iput v1, v0, Lcom/android/keyguard/KeyguardClockSwitchController;->mKeyguardClockTopMargin:I
 
-    iput p1, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mKeyguardClockTopMargin:I
+    new-instance v2, Lcom/android/keyguard/KeyguardClockSwitchController$$ExternalSyntheticLambda0;
 
-    new-instance v0, Lcom/android/keyguard/KeyguardClockSwitchController$$ExternalSyntheticLambda0;
+    invoke-direct {v2, p0}, Lcom/android/keyguard/KeyguardClockSwitchController$$ExternalSyntheticLambda0;-><init>(Lcom/android/keyguard/KeyguardClockSwitchController;)V
 
-    invoke-direct {v0, p0}, Lcom/android/keyguard/KeyguardClockSwitchController$$ExternalSyntheticLambda0;-><init>(Lcom/android/keyguard/KeyguardClockSwitchController;)V
+    iput-object v2, v0, Lcom/android/keyguard/KeyguardClockSwitchController;->mColorsListener:Lcom/android/internal/colorextraction/ColorExtractor$OnColorsChangedListener;
 
-    iput-object v0, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mColorsListener:Lcom/android/internal/colorextraction/ColorExtractor$OnColorsChangedListener;
+    new-instance v2, Lcom/android/keyguard/KeyguardClockSwitchController$$ExternalSyntheticLambda1;
 
-    new-instance v0, Lcom/android/keyguard/KeyguardClockSwitchController$$ExternalSyntheticLambda1;
+    invoke-direct {v2, p0}, Lcom/android/keyguard/KeyguardClockSwitchController$$ExternalSyntheticLambda1;-><init>(Lcom/android/keyguard/KeyguardClockSwitchController;)V
 
-    invoke-direct {v0, p0}, Lcom/android/keyguard/KeyguardClockSwitchController$$ExternalSyntheticLambda1;-><init>(Lcom/android/keyguard/KeyguardClockSwitchController;)V
+    iput-object v2, v0, Lcom/android/keyguard/KeyguardClockSwitchController;->mClockChangedListener:Lcom/android/keyguard/clock/ClockManager$ClockChangedListener;
 
-    iput-object v0, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mClockChangedListener:Lcom/android/keyguard/clock/ClockManager$ClockChangedListener;
+    iput-boolean v1, v0, Lcom/android/keyguard/KeyguardClockSwitchController;->mOnlyClock:Z
 
-    iput-boolean p1, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mOnlyClock:Z
+    const/4 v1, 0x1
 
-    iput-object p2, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mStatusBarStateController:Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
+    iput-boolean v1, v0, Lcom/android/keyguard/KeyguardClockSwitchController;->mCanShowDoubleLineClock:Z
 
-    iput-object p3, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mColorExtractor:Lcom/android/systemui/colorextraction/SysuiColorExtractor;
+    new-instance v1, Lcom/android/keyguard/KeyguardClockSwitchController$1;
 
-    iput-object p4, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mClockManager:Lcom/android/keyguard/clock/ClockManager;
+    const/4 v2, 0x0
 
-    iput-object p5, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mKeyguardSliceViewController:Lcom/android/keyguard/KeyguardSliceViewController;
+    invoke-direct {v1, p0, v2}, Lcom/android/keyguard/KeyguardClockSwitchController$1;-><init>(Lcom/android/keyguard/KeyguardClockSwitchController;Landroid/os/Handler;)V
 
-    iput-object p6, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mNotificationIconAreaController:Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;
+    iput-object v1, v0, Lcom/android/keyguard/KeyguardClockSwitchController;->mDoubleLineClockObserver:Landroid/database/ContentObserver;
 
-    iput-object p7, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mBroadcastDispatcher:Lcom/android/systemui/broadcast/BroadcastDispatcher;
+    move-object v1, p2
 
-    iput-object p8, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mBatteryController:Lcom/android/systemui/statusbar/policy/BatteryController;
+    iput-object v1, v0, Lcom/android/keyguard/KeyguardClockSwitchController;->mStatusBarStateController:Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
 
-    iput-object p9, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
+    move-object v1, p3
 
-    iput-object p10, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mBypassController:Lcom/android/systemui/statusbar/phone/KeyguardBypassController;
+    iput-object v1, v0, Lcom/android/keyguard/KeyguardClockSwitchController;->mColorExtractor:Lcom/android/systemui/colorextraction/SysuiColorExtractor;
 
-    iput-object p11, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mSmartspaceController:Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;
+    move-object v1, p4
 
-    iput-object p14, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mResources:Landroid/content/res/Resources;
+    iput-object v1, v0, Lcom/android/keyguard/KeyguardClockSwitchController;->mClockManager:Lcom/android/keyguard/clock/ClockManager;
 
-    iput-object p12, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mKeyguardUnlockAnimationController:Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController;
+    move-object v1, p5
 
-    iput-object p13, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mSmartspaceTransitionController:Lcom/android/systemui/shared/system/smartspace/SmartspaceTransitionController;
+    iput-object v1, v0, Lcom/android/keyguard/KeyguardClockSwitchController;->mKeyguardSliceViewController:Lcom/android/keyguard/KeyguardSliceViewController;
+
+    move-object v1, p6
+
+    iput-object v1, v0, Lcom/android/keyguard/KeyguardClockSwitchController;->mNotificationIconAreaController:Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;
+
+    move-object v1, p7
+
+    iput-object v1, v0, Lcom/android/keyguard/KeyguardClockSwitchController;->mBroadcastDispatcher:Lcom/android/systemui/broadcast/BroadcastDispatcher;
+
+    move-object v1, p8
+
+    iput-object v1, v0, Lcom/android/keyguard/KeyguardClockSwitchController;->mBatteryController:Lcom/android/systemui/statusbar/policy/BatteryController;
+
+    move-object v1, p9
+
+    iput-object v1, v0, Lcom/android/keyguard/KeyguardClockSwitchController;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
+
+    move-object v1, p10
+
+    iput-object v1, v0, Lcom/android/keyguard/KeyguardClockSwitchController;->mBypassController:Lcom/android/systemui/statusbar/phone/KeyguardBypassController;
+
+    move-object v1, p11
+
+    iput-object v1, v0, Lcom/android/keyguard/KeyguardClockSwitchController;->mSmartspaceController:Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;
+
+    move-object/from16 v1, p16
+
+    iput-object v1, v0, Lcom/android/keyguard/KeyguardClockSwitchController;->mResources:Landroid/content/res/Resources;
+
+    move-object/from16 v1, p14
+
+    iput-object v1, v0, Lcom/android/keyguard/KeyguardClockSwitchController;->mSecureSettings:Lcom/android/systemui/util/settings/SecureSettings;
+
+    move-object/from16 v1, p15
+
+    iput-object v1, v0, Lcom/android/keyguard/KeyguardClockSwitchController;->mUiExecutor:Ljava/util/concurrent/Executor;
+
+    move-object v1, p12
+
+    iput-object v1, v0, Lcom/android/keyguard/KeyguardClockSwitchController;->mKeyguardUnlockAnimationController:Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController;
+
+    move-object/from16 v1, p13
+
+    iput-object v1, v0, Lcom/android/keyguard/KeyguardClockSwitchController;->mSmartspaceTransitionController:Lcom/android/systemui/shared/system/smartspace/SmartspaceTransitionController;
+
+    return-void
+.end method
+
+.method static synthetic access$000(Lcom/android/keyguard/KeyguardClockSwitchController;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/keyguard/KeyguardClockSwitchController;->updateDoubleLineClock()V
 
     return-void
 .end method
@@ -181,6 +251,16 @@
     return-void
 .end method
 
+.method private synthetic lambda$updateDoubleLineClock$1()V
+    .locals 1
+
+    const/4 v0, 0x1
+
+    invoke-virtual {p0, v0}, Lcom/android/keyguard/KeyguardClockSwitchController;->displayClock(I)V
+
+    return-void
+.end method
+
 .method private setClockPlugin(Lcom/android/systemui/plugins/ClockPlugin;)V
     .locals 1
 
@@ -224,55 +304,106 @@
 .method private updateClockLayout()V
     .locals 3
 
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mSmartspaceController:Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;
+    invoke-virtual {p0}, Lcom/android/systemui/util/ViewController;->getContext()Landroid/content/Context;
 
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;->isEnabled()Z
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    sget v1, Lcom/android/systemui/R$dimen;->keyguard_large_clock_top_margin:I
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v0
+
+    new-instance v1, Landroid/widget/RelativeLayout$LayoutParams;
+
+    const/4 v2, -0x1
+
+    invoke-direct {v1, v2, v2}, Landroid/widget/RelativeLayout$LayoutParams;-><init>(II)V
+
+    iput v0, v1, Landroid/widget/RelativeLayout$LayoutParams;->topMargin:I
+
+    iget-object p0, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mLargeClockFrame:Landroid/widget/FrameLayout;
+
+    invoke-virtual {p0, v1}, Landroid/widget/FrameLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    return-void
+.end method
+
+.method private updateDoubleLineClock()V
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mSecureSettings:Lcom/android/systemui/util/settings/SecureSettings;
+
+    const-string v1, "lockscreen_use_double_line_clock"
+
+    const/4 v2, 0x1
+
+    invoke-interface {v0, v1, v2}, Lcom/android/systemui/util/settings/SettingsProxy;->getInt(Ljava/lang/String;I)I
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    new-instance v0, Landroid/widget/RelativeLayout$LayoutParams;
-
-    const/4 v1, -0x1
-
-    invoke-direct {v0, v1, v1}, Landroid/widget/RelativeLayout$LayoutParams;-><init>(II)V
-
-    invoke-virtual {p0}, Lcom/android/systemui/util/ViewController;->getContext()Landroid/content/Context;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v1
-
-    sget v2, Lcom/android/systemui/R$dimen;->keyguard_large_clock_top_margin:I
-
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v1
-
-    iput v1, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mLargeClockTopMargin:I
-
-    iput v1, v0, Landroid/widget/RelativeLayout$LayoutParams;->topMargin:I
-
-    iget-object p0, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mLargeClockFrame:Landroid/widget/FrameLayout;
-
-    invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
-
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
-
-    iput v0, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mLargeClockTopMargin:I
+    const/4 v2, 0x0
 
     :goto_0
+    iput-boolean v2, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mCanShowDoubleLineClock:Z
+
+    if-nez v2, :cond_1
+
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mUiExecutor:Ljava/util/concurrent/Executor;
+
+    new-instance v1, Lcom/android/keyguard/KeyguardClockSwitchController$$ExternalSyntheticLambda2;
+
+    invoke-direct {v1, p0}, Lcom/android/keyguard/KeyguardClockSwitchController$$ExternalSyntheticLambda2;-><init>(Lcom/android/keyguard/KeyguardClockSwitchController;)V
+
+    invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
+
+    :cond_1
     return-void
 .end method
 
 
 # virtual methods
+.method public displayClock(I)V
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mCanShowDoubleLineClock:Z
+
+    if-nez v0, :cond_0
+
+    if-nez p1, :cond_0
+
+    return-void
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
+
+    check-cast v0, Lcom/android/keyguard/KeyguardClockSwitch;
+
+    invoke-virtual {v0, p1}, Lcom/android/keyguard/KeyguardClockSwitch;->switchToClock(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    if-nez p1, :cond_1
+
+    iget-object p0, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mLargeClockViewController:Lcom/android/keyguard/AnimatableClockController;
+
+    invoke-virtual {p0}, Lcom/android/keyguard/AnimatableClockController;->animateAppear()V
+
+    :cond_1
+    return-void
+.end method
+
 .method getClockBottom(I)I
     .locals 2
 
@@ -425,117 +556,107 @@
 .end method
 
 .method public onInit()V
-    .locals 18
+    .locals 15
 
-    move-object/from16 v0, p0
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mKeyguardSliceViewController:Lcom/android/keyguard/KeyguardSliceViewController;
 
-    iget-object v1, v0, Lcom/android/keyguard/KeyguardClockSwitchController;->mKeyguardSliceViewController:Lcom/android/keyguard/KeyguardSliceViewController;
+    invoke-virtual {v0}, Lcom/android/systemui/util/ViewController;->init()V
 
-    invoke-virtual {v1}, Lcom/android/systemui/util/ViewController;->init()V
+    iget-object v0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
 
-    iget-object v1, v0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
+    check-cast v0, Lcom/android/keyguard/KeyguardClockSwitch;
+
+    sget v1, Lcom/android/systemui/R$id;->lockscreen_clock_view:I
+
+    invoke-virtual {v0, v1}, Landroid/widget/RelativeLayout;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/FrameLayout;
+
+    iput-object v0, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mClockFrame:Landroid/widget/FrameLayout;
+
+    iget-object v0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
+
+    check-cast v0, Lcom/android/keyguard/KeyguardClockSwitch;
+
+    sget v1, Lcom/android/systemui/R$id;->lockscreen_clock_view_large:I
+
+    invoke-virtual {v0, v1}, Landroid/widget/RelativeLayout;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/FrameLayout;
+
+    iput-object v0, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mLargeClockFrame:Landroid/widget/FrameLayout;
+
+    new-instance v0, Lcom/android/keyguard/AnimatableClockController;
+
+    iget-object v1, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
 
     check-cast v1, Lcom/android/keyguard/KeyguardClockSwitch;
 
-    sget v2, Lcom/android/systemui/R$id;->lockscreen_clock_view:I
+    sget v2, Lcom/android/systemui/R$id;->animatable_clock_view:I
 
     invoke-virtual {v1, v2}, Landroid/widget/RelativeLayout;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
-
-    check-cast v1, Landroid/widget/FrameLayout;
-
-    iput-object v1, v0, Lcom/android/keyguard/KeyguardClockSwitchController;->mClockFrame:Landroid/widget/FrameLayout;
-
-    iget-object v1, v0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
-
-    check-cast v1, Lcom/android/keyguard/KeyguardClockSwitch;
-
-    sget v2, Lcom/android/systemui/R$id;->lockscreen_clock_view_large:I
-
-    invoke-virtual {v1, v2}, Landroid/widget/RelativeLayout;->findViewById(I)Landroid/view/View;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/widget/FrameLayout;
-
-    iput-object v1, v0, Lcom/android/keyguard/KeyguardClockSwitchController;->mLargeClockFrame:Landroid/widget/FrameLayout;
-
-    new-instance v1, Lcom/android/keyguard/AnimatableClockController;
-
-    iget-object v2, v0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
-
-    check-cast v2, Lcom/android/keyguard/KeyguardClockSwitch;
-
-    sget v3, Lcom/android/systemui/R$id;->animatable_clock_view:I
-
-    invoke-virtual {v2, v3}, Landroid/widget/RelativeLayout;->findViewById(I)Landroid/view/View;
-
-    move-result-object v2
-
-    move-object v3, v2
-
-    check-cast v3, Lcom/android/keyguard/AnimatableClockView;
-
-    iget-object v4, v0, Lcom/android/keyguard/KeyguardClockSwitchController;->mStatusBarStateController:Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
-
-    iget-object v5, v0, Lcom/android/keyguard/KeyguardClockSwitchController;->mBroadcastDispatcher:Lcom/android/systemui/broadcast/BroadcastDispatcher;
-
-    iget-object v6, v0, Lcom/android/keyguard/KeyguardClockSwitchController;->mBatteryController:Lcom/android/systemui/statusbar/policy/BatteryController;
-
-    iget-object v7, v0, Lcom/android/keyguard/KeyguardClockSwitchController;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    iget-object v8, v0, Lcom/android/keyguard/KeyguardClockSwitchController;->mBypassController:Lcom/android/systemui/statusbar/phone/KeyguardBypassController;
-
-    iget-object v9, v0, Lcom/android/keyguard/KeyguardClockSwitchController;->mResources:Landroid/content/res/Resources;
 
     move-object v2, v1
 
-    invoke-direct/range {v2 .. v9}, Lcom/android/keyguard/AnimatableClockController;-><init>(Lcom/android/keyguard/AnimatableClockView;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/statusbar/policy/BatteryController;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Landroid/content/res/Resources;)V
+    check-cast v2, Lcom/android/keyguard/AnimatableClockView;
 
-    iput-object v1, v0, Lcom/android/keyguard/KeyguardClockSwitchController;->mClockViewController:Lcom/android/keyguard/AnimatableClockController;
+    iget-object v3, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mStatusBarStateController:Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
 
-    invoke-virtual {v1}, Lcom/android/systemui/util/ViewController;->init()V
+    iget-object v4, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mBroadcastDispatcher:Lcom/android/systemui/broadcast/BroadcastDispatcher;
 
-    new-instance v1, Lcom/android/keyguard/AnimatableClockController;
+    iget-object v5, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mBatteryController:Lcom/android/systemui/statusbar/policy/BatteryController;
 
-    iget-object v2, v0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
+    iget-object v6, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    check-cast v2, Lcom/android/keyguard/KeyguardClockSwitch;
+    iget-object v7, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mResources:Landroid/content/res/Resources;
 
-    sget v3, Lcom/android/systemui/R$id;->animatable_clock_view_large:I
+    move-object v1, v0
 
-    invoke-virtual {v2, v3}, Landroid/widget/RelativeLayout;->findViewById(I)Landroid/view/View;
+    invoke-direct/range {v1 .. v7}, Lcom/android/keyguard/AnimatableClockController;-><init>(Lcom/android/keyguard/AnimatableClockView;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/statusbar/policy/BatteryController;Lcom/android/keyguard/KeyguardUpdateMonitor;Landroid/content/res/Resources;)V
 
-    move-result-object v2
+    iput-object v0, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mClockViewController:Lcom/android/keyguard/AnimatableClockController;
 
-    move-object v11, v2
+    invoke-virtual {v0}, Lcom/android/systemui/util/ViewController;->init()V
 
-    check-cast v11, Lcom/android/keyguard/AnimatableClockView;
+    new-instance v0, Lcom/android/keyguard/AnimatableClockController;
 
-    iget-object v12, v0, Lcom/android/keyguard/KeyguardClockSwitchController;->mStatusBarStateController:Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
+    iget-object v1, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
 
-    iget-object v13, v0, Lcom/android/keyguard/KeyguardClockSwitchController;->mBroadcastDispatcher:Lcom/android/systemui/broadcast/BroadcastDispatcher;
+    check-cast v1, Lcom/android/keyguard/KeyguardClockSwitch;
 
-    iget-object v14, v0, Lcom/android/keyguard/KeyguardClockSwitchController;->mBatteryController:Lcom/android/systemui/statusbar/policy/BatteryController;
+    sget v2, Lcom/android/systemui/R$id;->animatable_clock_view_large:I
 
-    iget-object v15, v0, Lcom/android/keyguard/KeyguardClockSwitchController;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
+    invoke-virtual {v1, v2}, Landroid/widget/RelativeLayout;->findViewById(I)Landroid/view/View;
 
-    iget-object v2, v0, Lcom/android/keyguard/KeyguardClockSwitchController;->mBypassController:Lcom/android/systemui/statusbar/phone/KeyguardBypassController;
+    move-result-object v1
 
-    iget-object v3, v0, Lcom/android/keyguard/KeyguardClockSwitchController;->mResources:Landroid/content/res/Resources;
+    move-object v9, v1
 
-    move-object v10, v1
+    check-cast v9, Lcom/android/keyguard/AnimatableClockView;
 
-    move-object/from16 v16, v2
+    iget-object v10, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mStatusBarStateController:Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
 
-    move-object/from16 v17, v3
+    iget-object v11, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mBroadcastDispatcher:Lcom/android/systemui/broadcast/BroadcastDispatcher;
 
-    invoke-direct/range {v10 .. v17}, Lcom/android/keyguard/AnimatableClockController;-><init>(Lcom/android/keyguard/AnimatableClockView;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/statusbar/policy/BatteryController;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Landroid/content/res/Resources;)V
+    iget-object v12, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mBatteryController:Lcom/android/systemui/statusbar/policy/BatteryController;
 
-    iput-object v1, v0, Lcom/android/keyguard/KeyguardClockSwitchController;->mLargeClockViewController:Lcom/android/keyguard/AnimatableClockController;
+    iget-object v13, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    invoke-virtual {v1}, Lcom/android/systemui/util/ViewController;->init()V
+    iget-object v14, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mResources:Landroid/content/res/Resources;
+
+    move-object v8, v0
+
+    invoke-direct/range {v8 .. v14}, Lcom/android/keyguard/AnimatableClockController;-><init>(Lcom/android/keyguard/AnimatableClockView;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/statusbar/policy/BatteryController;Lcom/android/keyguard/KeyguardUpdateMonitor;Landroid/content/res/Resources;)V
+
+    iput-object v0, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mLargeClockViewController:Lcom/android/keyguard/AnimatableClockController;
+
+    invoke-virtual {v0}, Lcom/android/systemui/util/ViewController;->init()V
 
     return-void
 .end method
@@ -591,7 +712,7 @@
 
     check-cast v0, Lcom/android/keyguard/KeyguardClockSwitch;
 
-    sget v2, Lcom/android/systemui/R$id;->keyguard_status_area:I
+    sget v2, Lcom/android/systemui/R$id;->keyguard_slice_view:I
 
     invoke-virtual {v0, v2}, Landroid/widget/RelativeLayout;->findViewById(I)Landroid/view/View;
 
@@ -616,26 +737,6 @@
     :cond_0
     invoke-direct {p0}, Lcom/android/keyguard/KeyguardClockSwitchController;->updateAodIcons()V
 
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mSmartspaceController:Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;
-
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;->isEnabled()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mSmartspaceController:Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;
-
-    iget-object v2, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
-
-    check-cast v2, Landroid/view/ViewGroup;
-
-    invoke-virtual {v0, v2}, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;->buildAndConnectView(Landroid/view/ViewGroup;)Landroid/view/View;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mSmartspaceView:Landroid/view/View;
-
     iget-object v0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
 
     check-cast v0, Lcom/android/keyguard/KeyguardClockSwitch;
@@ -646,37 +747,63 @@
 
     move-result-object v0
 
-    iget-object v2, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
+    check-cast v0, Landroid/view/ViewGroup;
 
-    check-cast v2, Lcom/android/keyguard/KeyguardClockSwitch;
+    iput-object v0, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mStatusArea:Landroid/view/ViewGroup;
 
-    invoke-virtual {v2, v0}, Landroid/widget/RelativeLayout;->indexOfChild(Landroid/view/View;)I
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mSmartspaceController:Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;
 
-    move-result v2
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;->isEnabled()Z
+
+    move-result v0
+
+    const/4 v2, 0x0
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mSmartspaceController:Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;
+
+    iget-object v3, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
+
+    check-cast v3, Landroid/view/ViewGroup;
+
+    invoke-virtual {v0, v3}, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;->buildAndConnectView(Landroid/view/ViewGroup;)Landroid/view/View;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mSmartspaceView:Landroid/view/View;
+
+    iget-object v0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
+
+    check-cast v0, Lcom/android/keyguard/KeyguardClockSwitch;
+
+    sget v3, Lcom/android/systemui/R$id;->keyguard_slice_view:I
+
+    invoke-virtual {v0, v3}, Landroid/widget/RelativeLayout;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    iget-object v3, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mStatusArea:Landroid/view/ViewGroup;
+
+    invoke-virtual {v3, v0}, Landroid/view/ViewGroup;->indexOfChild(Landroid/view/View;)I
+
+    move-result v3
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
-    new-instance v0, Landroid/widget/RelativeLayout$LayoutParams;
+    new-instance v0, Landroid/widget/LinearLayout$LayoutParams;
 
     const/4 v1, -0x1
 
-    const/4 v3, -0x2
+    const/4 v4, -0x2
 
-    invoke-direct {v0, v1, v3}, Landroid/widget/RelativeLayout$LayoutParams;-><init>(II)V
+    invoke-direct {v0, v1, v4}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
 
-    sget v1, Lcom/android/systemui/R$id;->lockscreen_clock_view:I
-
-    const/4 v3, 0x3
-
-    invoke-virtual {v0, v3, v1}, Landroid/widget/RelativeLayout$LayoutParams;->addRule(II)V
-
-    iget-object v1, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
-
-    check-cast v1, Lcom/android/keyguard/KeyguardClockSwitch;
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mStatusArea:Landroid/view/ViewGroup;
 
     iget-object v4, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mSmartspaceView:Landroid/view/View;
 
-    invoke-virtual {v1, v4, v2, v0}, Landroid/widget/RelativeLayout;->addView(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;)V
+    invoke-virtual {v1, v4, v3, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;)V
 
     invoke-virtual {p0}, Lcom/android/systemui/util/ViewController;->getContext()Landroid/content/Context;
 
@@ -700,61 +827,39 @@
 
     move-result-object v1
 
-    sget v2, Lcom/android/systemui/R$dimen;->below_clock_padding_end:I
+    sget v3, Lcom/android/systemui/R$dimen;->below_clock_padding_end:I
 
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v1
 
-    iget-object v2, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mSmartspaceView:Landroid/view/View;
+    iget-object v3, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mSmartspaceView:Landroid/view/View;
 
-    const/4 v4, 0x0
-
-    invoke-virtual {v2, v0, v4, v1, v4}, Landroid/view/View;->setPaddingRelative(IIII)V
+    invoke-virtual {v3, v0, v2, v1, v2}, Landroid/view/View;->setPaddingRelative(IIII)V
 
     invoke-direct {p0}, Lcom/android/keyguard/KeyguardClockSwitchController;->updateClockLayout()V
 
-    iget-object v0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
-
-    check-cast v0, Lcom/android/keyguard/KeyguardClockSwitch;
-
-    sget v1, Lcom/android/systemui/R$id;->left_aligned_notification_icon_container:I
-
-    invoke-virtual {v0, v1}, Landroid/widget/RelativeLayout;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/widget/RelativeLayout$LayoutParams;
-
-    iget-object v2, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mSmartspaceView:Landroid/view/View;
-
-    invoke-virtual {v2}, Landroid/view/View;->getId()I
-
-    move-result v2
-
-    invoke-virtual {v1, v3, v2}, Landroid/widget/RelativeLayout$LayoutParams;->addRule(II)V
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
-
-    iget-object v0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
-
-    check-cast v0, Lcom/android/keyguard/KeyguardClockSwitch;
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mSmartspaceTransitionController:Lcom/android/systemui/shared/system/smartspace/SmartspaceTransitionController;
 
     iget-object v1, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mSmartspaceView:Landroid/view/View;
 
-    invoke-virtual {v0, v1}, Lcom/android/keyguard/KeyguardClockSwitch;->setSmartspaceView(Landroid/view/View;)V
-
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mSmartspaceTransitionController:Lcom/android/systemui/shared/system/smartspace/SmartspaceTransitionController;
-
-    iget-object p0, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mSmartspaceView:Landroid/view/View;
-
-    invoke-virtual {v0, p0}, Lcom/android/systemui/shared/system/smartspace/SmartspaceTransitionController;->setLockscreenSmartspace(Landroid/view/View;)V
+    invoke-virtual {v0, v1}, Lcom/android/systemui/shared/system/smartspace/SmartspaceTransitionController;->setLockscreenSmartspace(Landroid/view/View;)V
 
     :cond_1
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mSecureSettings:Lcom/android/systemui/util/settings/SecureSettings;
+
+    const-string v1, "lockscreen_use_double_line_clock"
+
+    invoke-static {v1}, Landroid/provider/Settings$Secure;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v1
+
+    iget-object v3, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mDoubleLineClockObserver:Landroid/database/ContentObserver;
+
+    invoke-interface {v0, v1, v2, v3}, Lcom/android/systemui/util/settings/SettingsProxy;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
+
+    invoke-direct {p0}, Lcom/android/keyguard/KeyguardClockSwitchController;->updateDoubleLineClock()V
+
     return-void
 .end method
 
@@ -787,23 +892,12 @@
 
     invoke-virtual {v0, v2, v1}, Lcom/android/keyguard/KeyguardClockSwitch;->setClockPlugin(Lcom/android/systemui/plugins/ClockPlugin;I)V
 
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mSmartspaceController:Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mSecureSettings:Lcom/android/systemui/util/settings/SecureSettings;
 
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;->disconnect()V
+    iget-object p0, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mDoubleLineClockObserver:Landroid/database/ContentObserver;
 
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mSmartspaceView:Landroid/view/View;
+    invoke-interface {v0, p0}, Lcom/android/systemui/util/settings/SettingsProxy;->unregisterContentObserver(Landroid/database/ContentObserver;)V
 
-    if-eqz v0, :cond_0
-
-    iget-object v1, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
-
-    check-cast v1, Lcom/android/keyguard/KeyguardClockSwitch;
-
-    invoke-virtual {v1, v0}, Landroid/widget/RelativeLayout;->removeView(Landroid/view/View;)V
-
-    iput-object v2, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mSmartspaceView:Landroid/view/View;
-
-    :cond_0
     return-void
 .end method
 
@@ -922,27 +1016,6 @@
     return-void
 .end method
 
-.method public setHasVisibleNotifications(Z)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
-
-    check-cast v0, Lcom/android/keyguard/KeyguardClockSwitch;
-
-    invoke-virtual {v0, p1}, Lcom/android/keyguard/KeyguardClockSwitch;->willSwitchToLargeClock(Z)Z
-
-    move-result p1
-
-    if-eqz p1, :cond_0
-
-    iget-object p0, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mLargeClockViewController:Lcom/android/keyguard/AnimatableClockController;
-
-    invoke-virtual {p0}, Lcom/android/keyguard/AnimatableClockController;->animateAppear()V
-
-    :cond_0
-    return-void
-.end method
-
 .method public setOnlyClock(Z)V
     .locals 0
 
@@ -952,7 +1025,7 @@
 .end method
 
 .method updatePosition(IFLcom/android/systemui/statusbar/notification/stack/AnimationProperties;Z)V
-    .locals 4
+    .locals 3
 
     invoke-direct {p0}, Lcom/android/keyguard/KeyguardClockSwitchController;->getCurrentLayoutDirection()I
 
@@ -969,49 +1042,41 @@
 
     sget-object v1, Lcom/android/systemui/statusbar/notification/AnimatableProperty;->TRANSLATION_X:Lcom/android/systemui/statusbar/notification/AnimatableProperty;
 
-    int-to-float v2, p1
+    int-to-float p1, p1
 
-    invoke-static {v0, v1, v2, p3, p4}, Lcom/android/systemui/statusbar/notification/PropertyAnimator;->setProperty(Landroid/view/View;Lcom/android/systemui/statusbar/notification/AnimatableProperty;FLcom/android/systemui/statusbar/notification/stack/AnimationProperties;Z)V
-
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mLargeClockFrame:Landroid/widget/FrameLayout;
-
-    sget-object v3, Lcom/android/systemui/statusbar/notification/AnimatableProperty;->SCALE_X:Lcom/android/systemui/statusbar/notification/AnimatableProperty;
-
-    invoke-static {v0, v3, p2, p3, p4}, Lcom/android/systemui/statusbar/notification/PropertyAnimator;->setProperty(Landroid/view/View;Lcom/android/systemui/statusbar/notification/AnimatableProperty;FLcom/android/systemui/statusbar/notification/stack/AnimationProperties;Z)V
+    invoke-static {v0, v1, p1, p3, p4}, Lcom/android/systemui/statusbar/notification/PropertyAnimator;->setProperty(Landroid/view/View;Lcom/android/systemui/statusbar/notification/AnimatableProperty;FLcom/android/systemui/statusbar/notification/stack/AnimationProperties;Z)V
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mLargeClockFrame:Landroid/widget/FrameLayout;
 
-    sget-object v3, Lcom/android/systemui/statusbar/notification/AnimatableProperty;->SCALE_Y:Lcom/android/systemui/statusbar/notification/AnimatableProperty;
+    sget-object v2, Lcom/android/systemui/statusbar/notification/AnimatableProperty;->SCALE_X:Lcom/android/systemui/statusbar/notification/AnimatableProperty;
 
-    invoke-static {v0, v3, p2, p3, p4}, Lcom/android/systemui/statusbar/notification/PropertyAnimator;->setProperty(Landroid/view/View;Lcom/android/systemui/statusbar/notification/AnimatableProperty;FLcom/android/systemui/statusbar/notification/stack/AnimationProperties;Z)V
+    invoke-static {v0, v2, p2, p3, p4}, Lcom/android/systemui/statusbar/notification/PropertyAnimator;->setProperty(Landroid/view/View;Lcom/android/systemui/statusbar/notification/AnimatableProperty;FLcom/android/systemui/statusbar/notification/stack/AnimationProperties;Z)V
 
-    iget-object p2, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mSmartspaceView:Landroid/view/View;
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mLargeClockFrame:Landroid/widget/FrameLayout;
 
-    if-eqz p2, :cond_1
+    sget-object v2, Lcom/android/systemui/statusbar/notification/AnimatableProperty;->SCALE_Y:Lcom/android/systemui/statusbar/notification/AnimatableProperty;
 
-    invoke-static {p2, v1, v2, p3, p4}, Lcom/android/systemui/statusbar/notification/PropertyAnimator;->setProperty(Landroid/view/View;Lcom/android/systemui/statusbar/notification/AnimatableProperty;FLcom/android/systemui/statusbar/notification/stack/AnimationProperties;Z)V
+    invoke-static {v0, v2, p2, p3, p4}, Lcom/android/systemui/statusbar/notification/PropertyAnimator;->setProperty(Landroid/view/View;Lcom/android/systemui/statusbar/notification/AnimatableProperty;FLcom/android/systemui/statusbar/notification/stack/AnimationProperties;Z)V
 
-    iget-object p2, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mKeyguardUnlockAnimationController:Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController;
-
-    invoke-virtual {p2}, Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController;->isUnlockingWithSmartSpaceTransition()Z
-
-    move-result p2
+    iget-object p2, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mStatusArea:Landroid/view/ViewGroup;
 
     if-eqz p2, :cond_1
 
-    iget-object p2, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mKeyguardUnlockAnimationController:Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController;
+    invoke-static {p2, v1, p1, p3, p4}, Lcom/android/systemui/statusbar/notification/PropertyAnimator;->setProperty(Landroid/view/View;Lcom/android/systemui/statusbar/notification/AnimatableProperty;FLcom/android/systemui/statusbar/notification/stack/AnimationProperties;Z)V
 
-    invoke-virtual {p2}, Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController;->updateLockscreenSmartSpacePosition()V
+    iget-object p1, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mKeyguardUnlockAnimationController:Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController;
+
+    invoke-virtual {p1}, Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController;->isUnlockingWithSmartSpaceTransition()Z
+
+    move-result p1
+
+    if-eqz p1, :cond_1
+
+    iget-object p0, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mKeyguardUnlockAnimationController:Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController;
+
+    invoke-virtual {p0}, Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController;->updateLockscreenSmartSpacePosition()V
 
     :cond_1
-    iget-object p2, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mKeyguardSliceViewController:Lcom/android/keyguard/KeyguardSliceViewController;
-
-    invoke-virtual {p2, p1, p3, p4}, Lcom/android/keyguard/KeyguardSliceViewController;->updatePosition(ILcom/android/systemui/statusbar/notification/stack/AnimationProperties;Z)V
-
-    iget-object p0, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mNotificationIconAreaController:Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;
-
-    invoke-virtual {p0, p1, p3, p4}, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->updatePosition(ILcom/android/systemui/statusbar/notification/stack/AnimationProperties;Z)V
-
     return-void
 .end method
 

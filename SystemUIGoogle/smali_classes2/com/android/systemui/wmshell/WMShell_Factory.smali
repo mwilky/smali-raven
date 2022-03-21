@@ -48,6 +48,17 @@
     .end annotation
 .end field
 
+.field private final dragAndDropOptionalProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Ljava/util/Optional<",
+            "Lcom/android/wm/shell/draganddrop/DragAndDrop;",
+            ">;>;"
+        }
+    .end annotation
+.end field
+
 .field private final hideDisplayCutoutOptionalProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -65,6 +76,17 @@
             "Ljavax/inject/Provider<",
             "Lcom/android/keyguard/KeyguardUpdateMonitor;",
             ">;"
+        }
+    .end annotation
+.end field
+
+.field private final legacySplitScreenOptionalProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Ljava/util/Optional<",
+            "Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreen;",
+            ">;>;"
         }
     .end annotation
 .end field
@@ -132,12 +154,23 @@
     .end annotation
 .end field
 
+.field private final sizeCompatUIOptionalProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Ljava/util/Optional<",
+            "Lcom/android/wm/shell/compatui/CompatUI;",
+            ">;>;"
+        }
+    .end annotation
+.end field
+
 .field private final splitScreenOptionalProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
             "Ljava/util/Optional<",
-            "Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreen;",
+            "Lcom/android/wm/shell/splitscreen/SplitScreen;",
             ">;>;"
         }
     .end annotation
@@ -175,8 +208,8 @@
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
-    .locals 0
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -193,6 +226,10 @@
             ">;>;",
             "Ljavax/inject/Provider<",
             "Ljava/util/Optional<",
+            "Lcom/android/wm/shell/splitscreen/SplitScreen;",
+            ">;>;",
+            "Ljavax/inject/Provider<",
+            "Ljava/util/Optional<",
             "Lcom/android/wm/shell/onehanded/OneHanded;",
             ">;>;",
             "Ljavax/inject/Provider<",
@@ -202,6 +239,14 @@
             "Ljavax/inject/Provider<",
             "Ljava/util/Optional<",
             "Lcom/android/wm/shell/ShellCommandHandler;",
+            ">;>;",
+            "Ljavax/inject/Provider<",
+            "Ljava/util/Optional<",
+            "Lcom/android/wm/shell/compatui/CompatUI;",
+            ">;>;",
+            "Ljavax/inject/Provider<",
+            "Ljava/util/Optional<",
+            "Lcom/android/wm/shell/draganddrop/DragAndDrop;",
             ">;>;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/CommandQueue;",
@@ -233,43 +278,87 @@
         }
     .end annotation
 
+    move-object v0, p0
+
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/systemui/wmshell/WMShell_Factory;->contextProvider:Ljavax/inject/Provider;
+    move-object v1, p1
 
-    iput-object p2, p0, Lcom/android/systemui/wmshell/WMShell_Factory;->pipOptionalProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/wmshell/WMShell_Factory;->contextProvider:Ljavax/inject/Provider;
 
-    iput-object p3, p0, Lcom/android/systemui/wmshell/WMShell_Factory;->splitScreenOptionalProvider:Ljavax/inject/Provider;
+    move-object v1, p2
 
-    iput-object p4, p0, Lcom/android/systemui/wmshell/WMShell_Factory;->oneHandedOptionalProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/wmshell/WMShell_Factory;->pipOptionalProvider:Ljavax/inject/Provider;
 
-    iput-object p5, p0, Lcom/android/systemui/wmshell/WMShell_Factory;->hideDisplayCutoutOptionalProvider:Ljavax/inject/Provider;
+    move-object v1, p3
 
-    iput-object p6, p0, Lcom/android/systemui/wmshell/WMShell_Factory;->shellCommandHandlerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/wmshell/WMShell_Factory;->legacySplitScreenOptionalProvider:Ljavax/inject/Provider;
 
-    iput-object p7, p0, Lcom/android/systemui/wmshell/WMShell_Factory;->commandQueueProvider:Ljavax/inject/Provider;
+    move-object v1, p4
 
-    iput-object p8, p0, Lcom/android/systemui/wmshell/WMShell_Factory;->configurationControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/wmshell/WMShell_Factory;->splitScreenOptionalProvider:Ljavax/inject/Provider;
 
-    iput-object p9, p0, Lcom/android/systemui/wmshell/WMShell_Factory;->keyguardUpdateMonitorProvider:Ljavax/inject/Provider;
+    move-object v1, p5
 
-    iput-object p10, p0, Lcom/android/systemui/wmshell/WMShell_Factory;->navigationModeControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/wmshell/WMShell_Factory;->oneHandedOptionalProvider:Ljavax/inject/Provider;
 
-    iput-object p11, p0, Lcom/android/systemui/wmshell/WMShell_Factory;->screenLifecycleProvider:Ljavax/inject/Provider;
+    move-object v1, p6
 
-    iput-object p12, p0, Lcom/android/systemui/wmshell/WMShell_Factory;->sysUiStateProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/wmshell/WMShell_Factory;->hideDisplayCutoutOptionalProvider:Ljavax/inject/Provider;
 
-    iput-object p13, p0, Lcom/android/systemui/wmshell/WMShell_Factory;->protoTracerProvider:Ljavax/inject/Provider;
+    move-object v1, p7
 
-    iput-object p14, p0, Lcom/android/systemui/wmshell/WMShell_Factory;->wakefulnessLifecycleProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/wmshell/WMShell_Factory;->shellCommandHandlerProvider:Ljavax/inject/Provider;
 
-    iput-object p15, p0, Lcom/android/systemui/wmshell/WMShell_Factory;->sysUiMainExecutorProvider:Ljavax/inject/Provider;
+    move-object v1, p8
+
+    iput-object v1, v0, Lcom/android/systemui/wmshell/WMShell_Factory;->sizeCompatUIOptionalProvider:Ljavax/inject/Provider;
+
+    move-object v1, p9
+
+    iput-object v1, v0, Lcom/android/systemui/wmshell/WMShell_Factory;->dragAndDropOptionalProvider:Ljavax/inject/Provider;
+
+    move-object v1, p10
+
+    iput-object v1, v0, Lcom/android/systemui/wmshell/WMShell_Factory;->commandQueueProvider:Ljavax/inject/Provider;
+
+    move-object v1, p11
+
+    iput-object v1, v0, Lcom/android/systemui/wmshell/WMShell_Factory;->configurationControllerProvider:Ljavax/inject/Provider;
+
+    move-object v1, p12
+
+    iput-object v1, v0, Lcom/android/systemui/wmshell/WMShell_Factory;->keyguardUpdateMonitorProvider:Ljavax/inject/Provider;
+
+    move-object v1, p13
+
+    iput-object v1, v0, Lcom/android/systemui/wmshell/WMShell_Factory;->navigationModeControllerProvider:Ljavax/inject/Provider;
+
+    move-object/from16 v1, p14
+
+    iput-object v1, v0, Lcom/android/systemui/wmshell/WMShell_Factory;->screenLifecycleProvider:Ljavax/inject/Provider;
+
+    move-object/from16 v1, p15
+
+    iput-object v1, v0, Lcom/android/systemui/wmshell/WMShell_Factory;->sysUiStateProvider:Ljavax/inject/Provider;
+
+    move-object/from16 v1, p16
+
+    iput-object v1, v0, Lcom/android/systemui/wmshell/WMShell_Factory;->protoTracerProvider:Ljavax/inject/Provider;
+
+    move-object/from16 v1, p17
+
+    iput-object v1, v0, Lcom/android/systemui/wmshell/WMShell_Factory;->wakefulnessLifecycleProvider:Ljavax/inject/Provider;
+
+    move-object/from16 v1, p18
+
+    iput-object v1, v0, Lcom/android/systemui/wmshell/WMShell_Factory;->sysUiMainExecutorProvider:Ljavax/inject/Provider;
 
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/wmshell/WMShell_Factory;
-    .locals 17
+.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/wmshell/WMShell_Factory;
+    .locals 20
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -286,6 +375,10 @@
             ">;>;",
             "Ljavax/inject/Provider<",
             "Ljava/util/Optional<",
+            "Lcom/android/wm/shell/splitscreen/SplitScreen;",
+            ">;>;",
+            "Ljavax/inject/Provider<",
+            "Ljava/util/Optional<",
             "Lcom/android/wm/shell/onehanded/OneHanded;",
             ">;>;",
             "Ljavax/inject/Provider<",
@@ -295,6 +388,14 @@
             "Ljavax/inject/Provider<",
             "Ljava/util/Optional<",
             "Lcom/android/wm/shell/ShellCommandHandler;",
+            ">;>;",
+            "Ljavax/inject/Provider<",
+            "Ljava/util/Optional<",
+            "Lcom/android/wm/shell/compatui/CompatUI;",
+            ">;>;",
+            "Ljavax/inject/Provider<",
+            "Ljava/util/Optional<",
+            "Lcom/android/wm/shell/draganddrop/DragAndDrop;",
             ">;>;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/CommandQueue;",
@@ -327,10 +428,6 @@
         }
     .end annotation
 
-    new-instance v16, Lcom/android/systemui/wmshell/WMShell_Factory;
-
-    move-object/from16 v0, v16
-
     move-object/from16 v1, p0
 
     move-object/from16 v2, p1
@@ -361,13 +458,23 @@
 
     move-object/from16 v15, p14
 
-    invoke-direct/range {v0 .. v15}, Lcom/android/systemui/wmshell/WMShell_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+    move-object/from16 v16, p15
 
-    return-object v16
+    move-object/from16 v17, p16
+
+    move-object/from16 v18, p17
+
+    new-instance v19, Lcom/android/systemui/wmshell/WMShell_Factory;
+
+    move-object/from16 v0, v19
+
+    invoke-direct/range {v0 .. v18}, Lcom/android/systemui/wmshell/WMShell_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+
+    return-object v19
 .end method
 
-.method public static newInstance(Landroid/content/Context;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Lcom/android/systemui/statusbar/CommandQueue;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/navigationbar/NavigationModeController;Lcom/android/systemui/keyguard/ScreenLifecycle;Lcom/android/systemui/model/SysUiState;Lcom/android/systemui/tracing/ProtoTracer;Lcom/android/systemui/keyguard/WakefulnessLifecycle;Ljava/util/concurrent/Executor;)Lcom/android/systemui/wmshell/WMShell;
-    .locals 17
+.method public static newInstance(Landroid/content/Context;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Lcom/android/systemui/statusbar/CommandQueue;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/navigationbar/NavigationModeController;Lcom/android/systemui/keyguard/ScreenLifecycle;Lcom/android/systemui/model/SysUiState;Lcom/android/systemui/tracing/ProtoTracer;Lcom/android/systemui/keyguard/WakefulnessLifecycle;Ljava/util/concurrent/Executor;)Lcom/android/systemui/wmshell/WMShell;
+    .locals 20
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -379,6 +486,9 @@
             "Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreen;",
             ">;",
             "Ljava/util/Optional<",
+            "Lcom/android/wm/shell/splitscreen/SplitScreen;",
+            ">;",
+            "Ljava/util/Optional<",
             "Lcom/android/wm/shell/onehanded/OneHanded;",
             ">;",
             "Ljava/util/Optional<",
@@ -386,6 +496,12 @@
             ">;",
             "Ljava/util/Optional<",
             "Lcom/android/wm/shell/ShellCommandHandler;",
+            ">;",
+            "Ljava/util/Optional<",
+            "Lcom/android/wm/shell/compatui/CompatUI;",
+            ">;",
+            "Ljava/util/Optional<",
+            "Lcom/android/wm/shell/draganddrop/DragAndDrop;",
             ">;",
             "Lcom/android/systemui/statusbar/CommandQueue;",
             "Lcom/android/systemui/statusbar/policy/ConfigurationController;",
@@ -401,10 +517,6 @@
         }
     .end annotation
 
-    new-instance v16, Lcom/android/systemui/wmshell/WMShell;
-
-    move-object/from16 v0, v16
-
     move-object/from16 v1, p0
 
     move-object/from16 v2, p1
@@ -435,15 +547,25 @@
 
     move-object/from16 v15, p14
 
-    invoke-direct/range {v0 .. v15}, Lcom/android/systemui/wmshell/WMShell;-><init>(Landroid/content/Context;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Lcom/android/systemui/statusbar/CommandQueue;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/navigationbar/NavigationModeController;Lcom/android/systemui/keyguard/ScreenLifecycle;Lcom/android/systemui/model/SysUiState;Lcom/android/systemui/tracing/ProtoTracer;Lcom/android/systemui/keyguard/WakefulnessLifecycle;Ljava/util/concurrent/Executor;)V
+    move-object/from16 v16, p15
 
-    return-object v16
+    move-object/from16 v17, p16
+
+    move-object/from16 v18, p17
+
+    new-instance v19, Lcom/android/systemui/wmshell/WMShell;
+
+    move-object/from16 v0, v19
+
+    invoke-direct/range {v0 .. v18}, Lcom/android/systemui/wmshell/WMShell;-><init>(Landroid/content/Context;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Lcom/android/systemui/statusbar/CommandQueue;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/navigationbar/NavigationModeController;Lcom/android/systemui/keyguard/ScreenLifecycle;Lcom/android/systemui/model/SysUiState;Lcom/android/systemui/tracing/ProtoTracer;Lcom/android/systemui/keyguard/WakefulnessLifecycle;Ljava/util/concurrent/Executor;)V
+
+    return-object v19
 .end method
 
 
 # virtual methods
 .method public get()Lcom/android/systemui/wmshell/WMShell;
-    .locals 17
+    .locals 20
 
     move-object/from16 v0, p0
 
@@ -467,7 +589,7 @@
 
     check-cast v3, Ljava/util/Optional;
 
-    iget-object v1, v0, Lcom/android/systemui/wmshell/WMShell_Factory;->splitScreenOptionalProvider:Ljavax/inject/Provider;
+    iget-object v1, v0, Lcom/android/systemui/wmshell/WMShell_Factory;->legacySplitScreenOptionalProvider:Ljavax/inject/Provider;
 
     invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -477,7 +599,7 @@
 
     check-cast v4, Ljava/util/Optional;
 
-    iget-object v1, v0, Lcom/android/systemui/wmshell/WMShell_Factory;->oneHandedOptionalProvider:Ljavax/inject/Provider;
+    iget-object v1, v0, Lcom/android/systemui/wmshell/WMShell_Factory;->splitScreenOptionalProvider:Ljavax/inject/Provider;
 
     invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -487,7 +609,7 @@
 
     check-cast v5, Ljava/util/Optional;
 
-    iget-object v1, v0, Lcom/android/systemui/wmshell/WMShell_Factory;->hideDisplayCutoutOptionalProvider:Ljavax/inject/Provider;
+    iget-object v1, v0, Lcom/android/systemui/wmshell/WMShell_Factory;->oneHandedOptionalProvider:Ljavax/inject/Provider;
 
     invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -497,7 +619,7 @@
 
     check-cast v6, Ljava/util/Optional;
 
-    iget-object v1, v0, Lcom/android/systemui/wmshell/WMShell_Factory;->shellCommandHandlerProvider:Ljavax/inject/Provider;
+    iget-object v1, v0, Lcom/android/systemui/wmshell/WMShell_Factory;->hideDisplayCutoutOptionalProvider:Ljavax/inject/Provider;
 
     invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -507,7 +629,7 @@
 
     check-cast v7, Ljava/util/Optional;
 
-    iget-object v1, v0, Lcom/android/systemui/wmshell/WMShell_Factory;->commandQueueProvider:Ljavax/inject/Provider;
+    iget-object v1, v0, Lcom/android/systemui/wmshell/WMShell_Factory;->shellCommandHandlerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -515,9 +637,9 @@
 
     move-object v8, v1
 
-    check-cast v8, Lcom/android/systemui/statusbar/CommandQueue;
+    check-cast v8, Ljava/util/Optional;
 
-    iget-object v1, v0, Lcom/android/systemui/wmshell/WMShell_Factory;->configurationControllerProvider:Ljavax/inject/Provider;
+    iget-object v1, v0, Lcom/android/systemui/wmshell/WMShell_Factory;->sizeCompatUIOptionalProvider:Ljavax/inject/Provider;
 
     invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -525,9 +647,9 @@
 
     move-object v9, v1
 
-    check-cast v9, Lcom/android/systemui/statusbar/policy/ConfigurationController;
+    check-cast v9, Ljava/util/Optional;
 
-    iget-object v1, v0, Lcom/android/systemui/wmshell/WMShell_Factory;->keyguardUpdateMonitorProvider:Ljavax/inject/Provider;
+    iget-object v1, v0, Lcom/android/systemui/wmshell/WMShell_Factory;->dragAndDropOptionalProvider:Ljavax/inject/Provider;
 
     invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -535,9 +657,9 @@
 
     move-object v10, v1
 
-    check-cast v10, Lcom/android/keyguard/KeyguardUpdateMonitor;
+    check-cast v10, Ljava/util/Optional;
 
-    iget-object v1, v0, Lcom/android/systemui/wmshell/WMShell_Factory;->navigationModeControllerProvider:Ljavax/inject/Provider;
+    iget-object v1, v0, Lcom/android/systemui/wmshell/WMShell_Factory;->commandQueueProvider:Ljavax/inject/Provider;
 
     invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -545,9 +667,9 @@
 
     move-object v11, v1
 
-    check-cast v11, Lcom/android/systemui/navigationbar/NavigationModeController;
+    check-cast v11, Lcom/android/systemui/statusbar/CommandQueue;
 
-    iget-object v1, v0, Lcom/android/systemui/wmshell/WMShell_Factory;->screenLifecycleProvider:Ljavax/inject/Provider;
+    iget-object v1, v0, Lcom/android/systemui/wmshell/WMShell_Factory;->configurationControllerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -555,9 +677,9 @@
 
     move-object v12, v1
 
-    check-cast v12, Lcom/android/systemui/keyguard/ScreenLifecycle;
+    check-cast v12, Lcom/android/systemui/statusbar/policy/ConfigurationController;
 
-    iget-object v1, v0, Lcom/android/systemui/wmshell/WMShell_Factory;->sysUiStateProvider:Ljavax/inject/Provider;
+    iget-object v1, v0, Lcom/android/systemui/wmshell/WMShell_Factory;->keyguardUpdateMonitorProvider:Ljavax/inject/Provider;
 
     invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -565,9 +687,9 @@
 
     move-object v13, v1
 
-    check-cast v13, Lcom/android/systemui/model/SysUiState;
+    check-cast v13, Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    iget-object v1, v0, Lcom/android/systemui/wmshell/WMShell_Factory;->protoTracerProvider:Ljavax/inject/Provider;
+    iget-object v1, v0, Lcom/android/systemui/wmshell/WMShell_Factory;->navigationModeControllerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -575,9 +697,9 @@
 
     move-object v14, v1
 
-    check-cast v14, Lcom/android/systemui/tracing/ProtoTracer;
+    check-cast v14, Lcom/android/systemui/navigationbar/NavigationModeController;
 
-    iget-object v1, v0, Lcom/android/systemui/wmshell/WMShell_Factory;->wakefulnessLifecycleProvider:Ljavax/inject/Provider;
+    iget-object v1, v0, Lcom/android/systemui/wmshell/WMShell_Factory;->screenLifecycleProvider:Ljavax/inject/Provider;
 
     invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -585,7 +707,37 @@
 
     move-object v15, v1
 
-    check-cast v15, Lcom/android/systemui/keyguard/WakefulnessLifecycle;
+    check-cast v15, Lcom/android/systemui/keyguard/ScreenLifecycle;
+
+    iget-object v1, v0, Lcom/android/systemui/wmshell/WMShell_Factory;->sysUiStateProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object/from16 v16, v1
+
+    check-cast v16, Lcom/android/systemui/model/SysUiState;
+
+    iget-object v1, v0, Lcom/android/systemui/wmshell/WMShell_Factory;->protoTracerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object/from16 v17, v1
+
+    check-cast v17, Lcom/android/systemui/tracing/ProtoTracer;
+
+    iget-object v1, v0, Lcom/android/systemui/wmshell/WMShell_Factory;->wakefulnessLifecycleProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object/from16 v18, v1
+
+    check-cast v18, Lcom/android/systemui/keyguard/WakefulnessLifecycle;
 
     iget-object v0, v0, Lcom/android/systemui/wmshell/WMShell_Factory;->sysUiMainExecutorProvider:Ljavax/inject/Provider;
 
@@ -593,11 +745,11 @@
 
     move-result-object v0
 
-    move-object/from16 v16, v0
+    move-object/from16 v19, v0
 
-    check-cast v16, Ljava/util/concurrent/Executor;
+    check-cast v19, Ljava/util/concurrent/Executor;
 
-    invoke-static/range {v2 .. v16}, Lcom/android/systemui/wmshell/WMShell_Factory;->newInstance(Landroid/content/Context;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Lcom/android/systemui/statusbar/CommandQueue;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/navigationbar/NavigationModeController;Lcom/android/systemui/keyguard/ScreenLifecycle;Lcom/android/systemui/model/SysUiState;Lcom/android/systemui/tracing/ProtoTracer;Lcom/android/systemui/keyguard/WakefulnessLifecycle;Ljava/util/concurrent/Executor;)Lcom/android/systemui/wmshell/WMShell;
+    invoke-static/range {v2 .. v19}, Lcom/android/systemui/wmshell/WMShell_Factory;->newInstance(Landroid/content/Context;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Lcom/android/systemui/statusbar/CommandQueue;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/navigationbar/NavigationModeController;Lcom/android/systemui/keyguard/ScreenLifecycle;Lcom/android/systemui/model/SysUiState;Lcom/android/systemui/tracing/ProtoTracer;Lcom/android/systemui/keyguard/WakefulnessLifecycle;Ljava/util/concurrent/Executor;)Lcom/android/systemui/wmshell/WMShell;
 
     move-result-object v0
 

@@ -15,13 +15,17 @@
 
 
 # static fields
+.field public static final config_enableShellMainThread:I = 0x7f050014
+
 .field public static final config_one_handed_enable_round_corner:I = 0x7f050021
 
 .field public static final config_pipEnableDismissDragToEdge:I = 0x7f050022
 
 .field public static final config_pipEnableDragCornerResize:I = 0x7f050023
 
-.field public static final config_pipEnableResizeForMenu:I = 0x7f050024
+.field public static final config_pipEnableEnterSplitButton:I = 0x7f050024
+
+.field public static final config_pipEnableResizeForMenu:I = 0x7f050025
 
 
 # direct methods

@@ -19,6 +19,8 @@
 
 
 # instance fields
+.field private final mActivityManager:Landroid/app/IActivityManager;
+
 .field private final mActivityStarter:Lcom/android/systemui/plugins/ActivityStarter;
 
 .field private final mActivityTaskManager:Landroid/app/IActivityTaskManager;
@@ -53,6 +55,8 @@
 
 .field private final mDeviceProvisionedController:Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;
 
+.field private final mDialogLaunchAnimator:Lcom/android/systemui/animation/DialogLaunchAnimator;
+
 .field mExitGuestDialog:Landroid/app/AlertDialog;
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
@@ -77,9 +81,13 @@
 
 .field protected final mHandler:Landroid/os/Handler;
 
+.field private final mInteractionJankMonitor:Lcom/android/internal/jank/InteractionJankMonitor;
+
 .field private final mKeyguardStateController:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
 
 .field private mLastNonGuestUser:I
+
+.field private final mLatencyTracker:Lcom/android/internal/util/LatencyTracker;
 
 .field mPauseRefreshUsers:Z
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
@@ -91,6 +99,8 @@
 .field private mReceiver:Landroid/content/BroadcastReceiver;
 
 .field private mResumeUserOnGuestLogout:Z
+
+.field private mRootView:Lcom/android/systemui/statusbar/phone/NotificationShadeWindowView;
 
 .field private mSecondaryUser:I
 
@@ -142,22 +152,22 @@
     return-void
 .end method
 
-.method public constructor <init>(Landroid/content/Context;Landroid/os/UserManager;Lcom/android/systemui/settings/UserTracker;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Landroid/app/admin/DevicePolicyManager;Landroid/os/Handler;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/telephony/TelephonyListenerManager;Landroid/app/IActivityTaskManager;Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserDetailAdapter;Lcom/android/systemui/util/settings/SecureSettings;Ljava/util/concurrent/Executor;)V
+.method public constructor <init>(Landroid/content/Context;Landroid/app/IActivityManager;Landroid/os/UserManager;Lcom/android/systemui/settings/UserTracker;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Landroid/app/admin/DevicePolicyManager;Landroid/os/Handler;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/telephony/TelephonyListenerManager;Landroid/app/IActivityTaskManager;Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserDetailAdapter;Lcom/android/systemui/util/settings/SecureSettings;Ljava/util/concurrent/Executor;Lcom/android/internal/jank/InteractionJankMonitor;Lcom/android/internal/util/LatencyTracker;Lcom/android/systemui/dump/DumpManager;Lcom/android/systemui/animation/DialogLaunchAnimator;)V
     .locals 13
 
     move-object v0, p0
 
     move-object v1, p1
 
-    move-object/from16 v2, p3
+    move-object/from16 v2, p4
 
-    move-object/from16 v3, p4
+    move-object/from16 v3, p5
 
-    move-object/from16 v4, p7
+    move-object/from16 v4, p8
 
-    move-object/from16 v5, p9
+    move-object/from16 v5, p10
 
-    move-object/from16 v6, p10
+    move-object/from16 v6, p11
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -225,37 +235,49 @@
 
     iput-object v1, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mContext:Landroid/content/Context;
 
+    move-object v11, p2
+
+    iput-object v11, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mActivityManager:Landroid/app/IActivityManager;
+
     iput-object v2, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mUserTracker:Lcom/android/systemui/settings/UserTracker;
 
     iput-object v5, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mBroadcastDispatcher:Lcom/android/systemui/broadcast/BroadcastDispatcher;
 
-    move-object/from16 v11, p12
+    move-object/from16 v11, p13
 
     iput-object v11, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mTelephonyListenerManager:Lcom/android/systemui/telephony/TelephonyListenerManager;
 
-    move-object/from16 v11, p13
+    move-object/from16 v11, p14
 
     iput-object v11, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mActivityTaskManager:Landroid/app/IActivityTaskManager;
 
     iput-object v6, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
 
-    move-object/from16 v11, p11
+    move-object/from16 v11, p12
 
     iput-object v11, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mFalsingManager:Lcom/android/systemui/plugins/FalsingManager;
 
+    move-object/from16 v11, p18
+
+    iput-object v11, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mInteractionJankMonitor:Lcom/android/internal/jank/InteractionJankMonitor;
+
+    move-object/from16 v11, p19
+
+    iput-object v11, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mLatencyTracker:Lcom/android/internal/util/LatencyTracker;
+
     new-instance v11, Lcom/android/systemui/GuestResumeSessionReceiver;
 
-    move-object/from16 v12, p15
+    move-object/from16 v12, p16
 
     invoke-direct {v11, p0, v2, v6, v12}, Lcom/android/systemui/GuestResumeSessionReceiver;-><init>(Lcom/android/systemui/statusbar/policy/UserSwitcherController;Lcom/android/systemui/settings/UserTracker;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/util/settings/SecureSettings;)V
 
     iput-object v11, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mGuestResumeSessionReceiver:Lcom/android/systemui/GuestResumeSessionReceiver;
 
-    move-object/from16 v2, p14
+    move-object/from16 v2, p15
 
     iput-object v2, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mUserDetailAdapter:Lcom/android/systemui/plugins/qs/DetailAdapter;
 
-    move-object/from16 v2, p16
+    move-object/from16 v2, p17
 
     iput-object v2, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mBgExecutor:Ljava/util/concurrent/Executor;
 
@@ -272,7 +294,7 @@
 
     move-result-object v2
 
-    const v6, 0x11100ef
+    const v6, 0x11100f1
 
     invoke-virtual {v2, v6}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -294,23 +316,27 @@
 
     iput-object v3, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mKeyguardStateController:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
 
-    move-object/from16 v2, p5
+    move-object/from16 v2, p6
 
     iput-object v2, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mDeviceProvisionedController:Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;
 
-    move-object/from16 v2, p6
+    move-object/from16 v2, p7
 
     iput-object v2, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mDevicePolicyManager:Landroid/app/admin/DevicePolicyManager;
 
     iput-object v4, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mHandler:Landroid/os/Handler;
 
-    move-object/from16 v2, p8
+    move-object/from16 v2, p9
 
     iput-object v2, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mActivityStarter:Lcom/android/systemui/plugins/ActivityStarter;
 
-    move-object v2, p2
+    move-object/from16 v2, p3
 
     iput-object v2, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mUserManager:Landroid/os/UserManager;
+
+    move-object/from16 v2, p21
+
+    iput-object v2, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mDialogLaunchAnimator:Lcom/android/systemui/animation/DialogLaunchAnimator;
 
     new-instance v2, Landroid/content/IntentFilter;
 
@@ -372,19 +398,19 @@
 
     const-string v12, "com.android.systemui.permission.SELF"
 
-    move-object/from16 p8, p1
+    move-object/from16 p9, p1
 
-    move-object/from16 p9, v5
+    move-object/from16 p10, v5
 
-    move-object/from16 p10, v6
+    move-object/from16 p11, v6
 
-    move-object/from16 p11, v2
+    move-object/from16 p12, v2
 
-    move-object/from16 p12, v12
+    move-object/from16 p13, v12
 
-    move-object/from16 p13, v11
+    move-object/from16 p14, v11
 
-    invoke-virtual/range {p8 .. p13}, Landroid/content/Context;->registerReceiverAsUser(Landroid/content/BroadcastReceiver;Landroid/os/UserHandle;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
+    invoke-virtual/range {p9 .. p14}, Landroid/content/Context;->registerReceiverAsUser(Landroid/content/BroadcastReceiver;Landroid/os/UserHandle;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
 
     new-instance v2, Lcom/android/systemui/statusbar/policy/UserSwitcherController$1;
 
@@ -433,6 +459,16 @@
     invoke-interface {v3, v10}, Lcom/android/systemui/statusbar/policy/CallbackController;->addCallback(Ljava/lang/Object;)V
 
     invoke-direct {p0}, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->listenForCallState()V
+
+    const-class v1, Lcom/android/systemui/statusbar/policy/UserSwitcherController;
+
+    invoke-virtual {v1}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
+
+    move-result-object v1
+
+    move-object/from16 v2, p20
+
+    invoke-virtual {v2, v1, p0}, Lcom/android/systemui/dump/DumpManager;->registerDumpable(Ljava/lang/String;Lcom/android/systemui/Dumpable;)V
 
     invoke-direct {p0, v9}, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->refreshUsers(I)V
 
@@ -563,7 +599,15 @@
     return p1
 .end method
 
-.method static synthetic access$2100(Lcom/android/systemui/statusbar/policy/UserSwitcherController;)Landroid/app/IActivityTaskManager;
+.method static synthetic access$2100(Lcom/android/systemui/statusbar/policy/UserSwitcherController;)Lcom/android/systemui/animation/DialogLaunchAnimator;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mDialogLaunchAnimator:Lcom/android/systemui/animation/DialogLaunchAnimator;
+
+    return-object p0
+.end method
+
+.method static synthetic access$2200(Lcom/android/systemui/statusbar/policy/UserSwitcherController;)Landroid/app/IActivityTaskManager;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mActivityTaskManager:Landroid/app/IActivityTaskManager;
@@ -571,7 +615,7 @@
     return-object p0
 .end method
 
-.method static synthetic access$2200(Lcom/android/systemui/statusbar/policy/UserSwitcherController;)Lcom/android/systemui/plugins/ActivityStarter;
+.method static synthetic access$2300(Lcom/android/systemui/statusbar/policy/UserSwitcherController;)Lcom/android/systemui/plugins/ActivityStarter;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mActivityStarter:Lcom/android/systemui/plugins/ActivityStarter;
@@ -1047,7 +1091,7 @@
 
     move-result-object v0
 
-    const v1, 0x11100e3
+    const v1, 0x11100e4
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -1076,6 +1120,128 @@
 
     :goto_0
     return p0
+.end method
+
+.method private showAddUserDialog(Lcom/android/systemui/qs/user/UserSwitchDialogController$DialogShower;)V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mAddUserDialog:Landroid/app/Dialog;
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Landroid/app/Dialog;->isShowing()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mAddUserDialog:Landroid/app/Dialog;
+
+    invoke-virtual {v0}, Landroid/app/Dialog;->cancel()V
+
+    :cond_0
+    new-instance v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController$AddUserDialog;
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mContext:Landroid/content/Context;
+
+    invoke-direct {v0, p0, v1}, Lcom/android/systemui/statusbar/policy/UserSwitcherController$AddUserDialog;-><init>(Lcom/android/systemui/statusbar/policy/UserSwitcherController;Landroid/content/Context;)V
+
+    iput-object v0, p0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mAddUserDialog:Landroid/app/Dialog;
+
+    if-eqz p1, :cond_1
+
+    invoke-interface {p1, v0}, Lcom/android/systemui/qs/user/UserSwitchDialogController$DialogShower;->showDialog(Landroid/app/Dialog;)V
+
+    goto :goto_0
+
+    :cond_1
+    invoke-virtual {v0}, Landroid/app/Dialog;->show()V
+
+    :goto_0
+    return-void
+.end method
+
+.method private showExitGuestDialog(IILcom/android/systemui/qs/user/UserSwitchDialogController$DialogShower;)V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mExitGuestDialog:Landroid/app/AlertDialog;
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Landroid/app/AlertDialog;->isShowing()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mExitGuestDialog:Landroid/app/AlertDialog;
+
+    invoke-virtual {v0}, Landroid/app/AlertDialog;->cancel()V
+
+    :cond_0
+    new-instance v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController$ExitGuestDialog;
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mContext:Landroid/content/Context;
+
+    invoke-direct {v0, p0, v1, p1, p2}, Lcom/android/systemui/statusbar/policy/UserSwitcherController$ExitGuestDialog;-><init>(Lcom/android/systemui/statusbar/policy/UserSwitcherController;Landroid/content/Context;II)V
+
+    iput-object v0, p0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mExitGuestDialog:Landroid/app/AlertDialog;
+
+    if-eqz p3, :cond_1
+
+    invoke-interface {p3, v0}, Lcom/android/systemui/qs/user/UserSwitchDialogController$DialogShower;->showDialog(Landroid/app/Dialog;)V
+
+    goto :goto_0
+
+    :cond_1
+    invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
+
+    :goto_0
+    return-void
+.end method
+
+.method private showExitGuestDialog(ILcom/android/systemui/qs/user/UserSwitchDialogController$DialogShower;)V
+    .locals 2
+
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mResumeUserOnGuestLogout:Z
+
+    if-eqz v0, :cond_0
+
+    iget v0, p0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mLastNonGuestUser:I
+
+    if-eqz v0, :cond_0
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mUserManager:Landroid/os/UserManager;
+
+    invoke-virtual {v1, v0}, Landroid/os/UserManager;->getUserInfo(I)Landroid/content/pm/UserInfo;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Landroid/content/pm/UserInfo;->isEnabled()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    invoke-virtual {v0}, Landroid/content/pm/UserInfo;->supportsSwitchToByUser()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    iget v0, v0, Landroid/content/pm/UserInfo;->id:I
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    invoke-direct {p0, p1, v0, p2}, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->showExitGuestDialog(IILcom/android/systemui/qs/user/UserSwitchDialogController$DialogShower;)V
+
+    return-void
 .end method
 
 
@@ -1336,6 +1502,14 @@
     return-object p0
 .end method
 
+.method public init(Lcom/android/systemui/statusbar/phone/NotificationShadeWindowView;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mRootView:Lcom/android/systemui/statusbar/phone/NotificationShadeWindowView;
+
+    return-void
+.end method
+
 .method public isSimpleUserSwitcher()Z
     .locals 0
 
@@ -1354,7 +1528,7 @@
     return-void
 .end method
 
-.method onUserListItemClicked(Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;)V
+.method onUserListItemClicked(Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;Lcom/android/systemui/qs/user/UserSwitchDialogController$DialogShower;)V
     .locals 3
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
@@ -1391,7 +1565,7 @@
 
     if-eqz v0, :cond_2
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->showAddUserDialog()V
+    invoke-direct {p0, p2}, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->showAddUserDialog(Lcom/android/systemui/qs/user/UserSwitchDialogController$DialogShower;)V
 
     return-void
 
@@ -1413,7 +1587,7 @@
 
     if-eqz p1, :cond_3
 
-    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->showExitGuestDialog(I)V
+    invoke-direct {p0, v0, p2}, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->showExitGuestDialog(ILcom/android/systemui/qs/user/UserSwitchDialogController$DialogShower;)V
 
     :cond_3
     return-void
@@ -1443,11 +1617,16 @@
 
     move-result p1
 
-    invoke-virtual {p0, v1, p1}, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->showExitGuestDialog(II)V
+    invoke-direct {p0, v1, p1, p2}, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->showExitGuestDialog(IILcom/android/systemui/qs/user/UserSwitchDialogController$DialogShower;)V
 
     return-void
 
     :cond_5
+    if-eqz p2, :cond_6
+
+    invoke-interface {p2}, Landroid/content/DialogInterface;->dismiss()V
+
+    :cond_6
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->switchToUserId(I)V
 
     return-void
@@ -1658,112 +1837,6 @@
     return-void
 .end method
 
-.method public showAddUserDialog()V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mAddUserDialog:Landroid/app/Dialog;
-
-    if-eqz v0, :cond_0
-
-    invoke-virtual {v0}, Landroid/app/Dialog;->isShowing()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mAddUserDialog:Landroid/app/Dialog;
-
-    invoke-virtual {v0}, Landroid/app/Dialog;->cancel()V
-
-    :cond_0
-    new-instance v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController$AddUserDialog;
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mContext:Landroid/content/Context;
-
-    invoke-direct {v0, p0, v1}, Lcom/android/systemui/statusbar/policy/UserSwitcherController$AddUserDialog;-><init>(Lcom/android/systemui/statusbar/policy/UserSwitcherController;Landroid/content/Context;)V
-
-    iput-object v0, p0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mAddUserDialog:Landroid/app/Dialog;
-
-    invoke-virtual {v0}, Landroid/app/Dialog;->show()V
-
-    return-void
-.end method
-
-.method protected showExitGuestDialog(I)V
-    .locals 2
-
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mResumeUserOnGuestLogout:Z
-
-    if-eqz v0, :cond_0
-
-    iget v0, p0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mLastNonGuestUser:I
-
-    if-eqz v0, :cond_0
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mUserManager:Landroid/os/UserManager;
-
-    invoke-virtual {v1, v0}, Landroid/os/UserManager;->getUserInfo(I)Landroid/content/pm/UserInfo;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    invoke-virtual {v0}, Landroid/content/pm/UserInfo;->isEnabled()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    invoke-virtual {v0}, Landroid/content/pm/UserInfo;->supportsSwitchToByUser()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    iget v0, v0, Landroid/content/pm/UserInfo;->id:I
-
-    goto :goto_0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    :goto_0
-    invoke-virtual {p0, p1, v0}, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->showExitGuestDialog(II)V
-
-    return-void
-.end method
-
-.method protected showExitGuestDialog(II)V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mExitGuestDialog:Landroid/app/AlertDialog;
-
-    if-eqz v0, :cond_0
-
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->isShowing()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mExitGuestDialog:Landroid/app/AlertDialog;
-
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->cancel()V
-
-    :cond_0
-    new-instance v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController$ExitGuestDialog;
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mContext:Landroid/content/Context;
-
-    invoke-direct {v0, p0, v1, p1, p2}, Lcom/android/systemui/statusbar/policy/UserSwitcherController$ExitGuestDialog;-><init>(Lcom/android/systemui/statusbar/policy/UserSwitcherController;Landroid/content/Context;II)V
-
-    iput-object v0, p0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mExitGuestDialog:Landroid/app/AlertDialog;
-
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
-
-    return-void
-.end method
-
 .method public startActivity(Landroid/content/Intent;)V
     .locals 1
 
@@ -1777,14 +1850,36 @@
 .end method
 
 .method protected switchToUserId(I)V
-    .locals 1
+    .locals 4
 
     :try_start_0
+    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mInteractionJankMonitor:Lcom/android/internal/jank/InteractionJankMonitor;
+
+    const/16 v1, 0x25
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mRootView:Lcom/android/systemui/statusbar/phone/NotificationShadeWindowView;
+
+    invoke-static {v1, v2}, Lcom/android/internal/jank/InteractionJankMonitor$Configuration$Builder;->withView(ILandroid/view/View;)Lcom/android/internal/jank/InteractionJankMonitor$Configuration$Builder;
+
+    move-result-object v1
+
+    const-wide/16 v2, 0x4e20
+
+    invoke-virtual {v1, v2, v3}, Lcom/android/internal/jank/InteractionJankMonitor$Configuration$Builder;->setTimeout(J)Lcom/android/internal/jank/InteractionJankMonitor$Configuration$Builder;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/android/internal/jank/InteractionJankMonitor;->begin(Lcom/android/internal/jank/InteractionJankMonitor$Configuration$Builder;)Z
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mLatencyTracker:Lcom/android/internal/util/LatencyTracker;
+
+    const/16 v1, 0xc
+
+    invoke-virtual {v0, v1}, Lcom/android/internal/util/LatencyTracker;->onActionStart(I)V
+
     invoke-direct {p0}, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->pauseRefreshUsers()V
 
-    invoke-static {}, Landroid/app/ActivityManager;->getService()Landroid/app/IActivityManager;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mActivityManager:Landroid/app/IActivityManager;
 
     invoke-interface {p0, p1}, Landroid/app/IActivityManager;->switchUser(I)Z
     :try_end_0

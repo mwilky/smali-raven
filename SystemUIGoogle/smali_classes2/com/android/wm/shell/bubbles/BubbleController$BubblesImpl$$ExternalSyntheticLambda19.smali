@@ -6,20 +6,20 @@
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;
+.field public final synthetic f$0:Ljava/util/function/IntConsumer;
 
-.field public final synthetic f$1:Z
+.field public final synthetic f$1:I
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;Z)V
+.method public synthetic constructor <init>(Ljava/util/function/IntConsumer;I)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda19;->f$0:Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;
+    iput-object p1, p0, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda19;->f$0:Ljava/util/function/IntConsumer;
 
-    iput-boolean p2, p0, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda19;->f$1:Z
+    iput p2, p0, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda19;->f$1:I
 
     return-void
 .end method
@@ -29,11 +29,11 @@
 .method public final run()V
     .locals 1
 
-    iget-object v0, p0, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda19;->f$0:Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;
+    iget-object v0, p0, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda19;->f$0:Ljava/util/function/IntConsumer;
 
-    iget-boolean p0, p0, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda19;->f$1:Z
+    iget p0, p0, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda19;->f$1:I
 
-    invoke-static {v0, p0}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;->$r8$lambda$uC3MbLLfPnBu5xmVQWzCDrswegQ(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;Z)V
+    invoke-static {v0, p0}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;->$r8$lambda$C4dzXg_KJjluGsLHD5Dkx9rhfPc(Ljava/util/function/IntConsumer;I)V
 
     return-void
 .end method

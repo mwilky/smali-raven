@@ -66,6 +66,16 @@
     return-object v0
 .end method
 
+.method public static final synthetic access$getCtaState(I)Lcom/google/android/systemui/statusbar/notification/voicereplies/CtaState;
+    .locals 0
+
+    invoke-static {p0}, Lcom/google/android/systemui/statusbar/NotificationVoiceReplyManagerServiceKt;->getCtaState(I)Lcom/google/android/systemui/statusbar/notification/voicereplies/CtaState;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method public static final synthetic access$onDeath(Landroid/os/IBinder;Lkotlin/jvm/functions/Function0;)Lcom/android/systemui/statusbar/notification/people/Subscription;
     .locals 0
 
@@ -93,6 +103,33 @@
 
     move-result-object p0
 
+    return-object p0
+.end method
+
+.method private static final getCtaState(I)Lcom/google/android/systemui/statusbar/notification/voicereplies/CtaState;
+    .locals 1
+
+    const/4 v0, 0x2
+
+    if-eq p0, v0, :cond_1
+
+    const/4 v0, 0x3
+
+    if-eq p0, v0, :cond_0
+
+    sget-object p0, Lcom/google/android/systemui/statusbar/notification/voicereplies/CtaState;->NONE:Lcom/google/android/systemui/statusbar/notification/voicereplies/CtaState;
+
+    goto :goto_0
+
+    :cond_0
+    sget-object p0, Lcom/google/android/systemui/statusbar/notification/voicereplies/CtaState;->QUICK_PHRASE:Lcom/google/android/systemui/statusbar/notification/voicereplies/CtaState;
+
+    goto :goto_0
+
+    :cond_1
+    sget-object p0, Lcom/google/android/systemui/statusbar/notification/voicereplies/CtaState;->HOTWORD:Lcom/google/android/systemui/statusbar/notification/voicereplies/CtaState;
+
+    :goto_0
     return-object p0
 .end method
 

@@ -2,7 +2,7 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Lcom/android/systemui/statusbar/notification/VisibilityLocationProvider;
+.implements Lcom/android/systemui/statusbar/notification/DynamicPrivacyController$Listener;
 
 
 # instance fields
@@ -22,14 +22,12 @@
 
 
 # virtual methods
-.method public final isInVisibleLocation(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)Z
+.method public final onDynamicPrivacyChanged()V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController$$ExternalSyntheticLambda2;->f$0:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;
 
-    invoke-static {p0, p1}, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;->$r8$lambda$Ru6DHxlqBNEqb13xFPYfkqsAh9o(Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)Z
+    invoke-static {p0}, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;->$r8$lambda$U30yK22X8wQCMNDP7JKbnJNAjio(Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;)V
 
-    move-result p0
-
-    return p0
+    return-void
 .end method

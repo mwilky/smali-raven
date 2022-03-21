@@ -22,6 +22,8 @@
 
 .field private mBatteryPresent:Z
 
+.field private mBiometricMessage:Ljava/lang/CharSequence;
+
 .field private final mBroadcastDispatcher:Lcom/android/systemui/broadcast/BroadcastDispatcher;
 
 .field private mBroadcastReceiver:Landroid/content/BroadcastReceiver;
@@ -50,8 +52,6 @@
 
 .field private final mHandler:Landroid/os/Handler;
 
-.field private mHideTransientMessageOnScreenOff:Z
-
 .field private final mIActivityManager:Landroid/app/IActivityManager;
 
 .field private mIndicationArea:Landroid/view/ViewGroup;
@@ -72,8 +72,6 @@
 
 .field private mLockScreenIndicationView:Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;
 
-.field protected mLockScreenMode:I
-
 .field private mMessageToShowOnScreenOn:Ljava/lang/String;
 
 .field private mPowerCharged:Z
@@ -81,6 +79,8 @@
 .field private mPowerPluggedIn:Z
 
 .field private mPowerPluggedInWired:Z
+
+.field private mPowerPluggedInWireless:Z
 
 .field private mRestingIndication:Ljava/lang/String;
 
@@ -108,10 +108,26 @@
 
 
 # direct methods
+.method public static synthetic $r8$lambda$I7mNe1735guEz1gKG0bJ8ksgGo4(Lcom/android/systemui/statusbar/KeyguardIndicationController;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->lambda$updateIndication$4()V
+
+    return-void
+.end method
+
 .method public static synthetic $r8$lambda$O8r1HF9bhsNVoO3jIeRsVe06ioI(Lcom/android/systemui/statusbar/KeyguardIndicationController;I)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->lambda$init$1(I)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$Rjy1BvqiS6RmZ9lFMvmTiQFVpMo(Lcom/android/systemui/statusbar/KeyguardIndicationController;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->lambda$updateIndication$3()V
 
     return-void
 .end method
@@ -124,6 +140,14 @@
     move-result p0
 
     return p0
+.end method
+
+.method public static synthetic $r8$lambda$i7RGKU1T-Kz-_1g9O4WDiY2Z13c(Lcom/android/systemui/statusbar/KeyguardIndicationController;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->lambda$updateIndication$5()V
+
+    return-void
 .end method
 
 .method public static synthetic $r8$lambda$uz3fxKZ1OowKn1M5Yg5eNRbv5Wk(Lcom/android/systemui/statusbar/KeyguardIndicationController;I)V
@@ -281,31 +305,23 @@
 .method static synthetic access$1002(Lcom/android/systemui/statusbar/KeyguardIndicationController;I)I
     .locals 0
 
+    iput p1, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mChargingSpeed:I
+
+    return p1
+.end method
+
+.method static synthetic access$1100(Lcom/android/systemui/statusbar/KeyguardIndicationController;)Landroid/content/Context;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mContext:Landroid/content/Context;
+
+    return-object p0
+.end method
+
+.method static synthetic access$1202(Lcom/android/systemui/statusbar/KeyguardIndicationController;I)I
+    .locals 0
+
     iput p1, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mBatteryLevel:I
-
-    return p1
-.end method
-
-.method static synthetic access$1102(Lcom/android/systemui/statusbar/KeyguardIndicationController;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mBatteryPresent:Z
-
-    return p1
-.end method
-
-.method static synthetic access$1200(Lcom/android/systemui/statusbar/KeyguardIndicationController;)Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mBatteryOverheated:Z
-
-    return p0
-.end method
-
-.method static synthetic access$1202(Lcom/android/systemui/statusbar/KeyguardIndicationController;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mBatteryOverheated:Z
 
     return p1
 .end method
@@ -313,12 +329,36 @@
 .method static synthetic access$1302(Lcom/android/systemui/statusbar/KeyguardIndicationController;Z)Z
     .locals 0
 
+    iput-boolean p1, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mBatteryPresent:Z
+
+    return p1
+.end method
+
+.method static synthetic access$1400(Lcom/android/systemui/statusbar/KeyguardIndicationController;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mBatteryOverheated:Z
+
+    return p0
+.end method
+
+.method static synthetic access$1402(Lcom/android/systemui/statusbar/KeyguardIndicationController;Z)Z
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mBatteryOverheated:Z
+
+    return p1
+.end method
+
+.method static synthetic access$1502(Lcom/android/systemui/statusbar/KeyguardIndicationController;Z)Z
+    .locals 0
+
     iput-boolean p1, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mEnableBatteryDefender:Z
 
     return p1
 .end method
 
-.method static synthetic access$1402(Lcom/android/systemui/statusbar/KeyguardIndicationController;J)J
+.method static synthetic access$1602(Lcom/android/systemui/statusbar/KeyguardIndicationController;J)J
     .locals 0
 
     iput-wide p1, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mChargingTimeRemaining:J
@@ -326,7 +366,7 @@
     return-wide p1
 .end method
 
-.method static synthetic access$1500(Lcom/android/systemui/statusbar/KeyguardIndicationController;)Lcom/android/internal/app/IBatteryStats;
+.method static synthetic access$1700(Lcom/android/systemui/statusbar/KeyguardIndicationController;)Lcom/android/internal/app/IBatteryStats;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mBatteryInfo:Lcom/android/internal/app/IBatteryStats;
@@ -334,7 +374,7 @@
     return-object p0
 .end method
 
-.method static synthetic access$1600(Lcom/android/systemui/statusbar/KeyguardIndicationController;)Z
+.method static synthetic access$1800(Lcom/android/systemui/statusbar/KeyguardIndicationController;)Z
     .locals 0
 
     iget-boolean p0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mDozing:Z
@@ -342,7 +382,7 @@
     return p0
 .end method
 
-.method static synthetic access$1602(Lcom/android/systemui/statusbar/KeyguardIndicationController;Z)Z
+.method static synthetic access$1802(Lcom/android/systemui/statusbar/KeyguardIndicationController;Z)Z
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mDozing:Z
@@ -350,7 +390,15 @@
     return p1
 .end method
 
-.method static synthetic access$1700(Lcom/android/systemui/statusbar/KeyguardIndicationController;)Lcom/android/keyguard/KeyguardUpdateMonitor;
+.method static synthetic access$1900(Lcom/android/systemui/statusbar/KeyguardIndicationController;Ljava/lang/CharSequence;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->showTransientIndication(Ljava/lang/CharSequence;)V
+
+    return-void
+.end method
+
+.method static synthetic access$2000(Lcom/android/systemui/statusbar/KeyguardIndicationController;)Lcom/android/keyguard/KeyguardUpdateMonitor;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
@@ -358,7 +406,7 @@
     return-object p0
 .end method
 
-.method static synthetic access$1800(Lcom/android/systemui/statusbar/KeyguardIndicationController;)Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;
+.method static synthetic access$2100(Lcom/android/systemui/statusbar/KeyguardIndicationController;)Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mStatusBarKeyguardViewManager:Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;
@@ -366,31 +414,23 @@
     return-object p0
 .end method
 
-.method static synthetic access$1900(Lcom/android/systemui/statusbar/KeyguardIndicationController;Ljava/lang/String;)V
+.method static synthetic access$2200(Lcom/android/systemui/statusbar/KeyguardIndicationController;ILjava/lang/String;)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->showTryFingerprintMsg(Ljava/lang/String;)V
+    invoke-direct {p0, p1, p2}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->showTryFingerprintMsg(ILjava/lang/String;)V
 
     return-void
 .end method
 
-.method static synthetic access$200(Lcom/android/systemui/statusbar/KeyguardIndicationController;)Lcom/android/internal/widget/ViewClippingUtil$ClippingParameters;
+.method static synthetic access$2300(Lcom/android/systemui/statusbar/KeyguardIndicationController;Ljava/lang/CharSequence;)V
     .locals 0
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mClippingParams:Lcom/android/internal/widget/ViewClippingUtil$ClippingParameters;
-
-    return-object p0
-.end method
-
-.method static synthetic access$2000(Lcom/android/systemui/statusbar/KeyguardIndicationController;Ljava/lang/CharSequence;ZZ)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->showTransientIndication(Ljava/lang/CharSequence;ZZ)V
+    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->showBiometricMessage(Ljava/lang/CharSequence;)V
 
     return-void
 .end method
 
-.method static synthetic access$2100(Lcom/android/systemui/statusbar/KeyguardIndicationController;)Landroid/os/Handler;
+.method static synthetic access$2400(Lcom/android/systemui/statusbar/KeyguardIndicationController;)Landroid/os/Handler;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mHandler:Landroid/os/Handler;
@@ -398,7 +438,7 @@
     return-object p0
 .end method
 
-.method static synthetic access$2200(Lcom/android/systemui/statusbar/KeyguardIndicationController;)Ljava/lang/String;
+.method static synthetic access$2500(Lcom/android/systemui/statusbar/KeyguardIndicationController;)Ljava/lang/String;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mMessageToShowOnScreenOn:Ljava/lang/String;
@@ -406,7 +446,7 @@
     return-object p0
 .end method
 
-.method static synthetic access$2202(Lcom/android/systemui/statusbar/KeyguardIndicationController;Ljava/lang/String;)Ljava/lang/String;
+.method static synthetic access$2502(Lcom/android/systemui/statusbar/KeyguardIndicationController;Ljava/lang/String;)Ljava/lang/String;
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mMessageToShowOnScreenOn:Ljava/lang/String;
@@ -414,7 +454,7 @@
     return-object p1
 .end method
 
-.method static synthetic access$2300(Lcom/android/systemui/statusbar/KeyguardIndicationController;)Lcom/android/systemui/statusbar/phone/KeyguardBypassController;
+.method static synthetic access$2600(Lcom/android/systemui/statusbar/KeyguardIndicationController;)Lcom/android/systemui/statusbar/phone/KeyguardBypassController;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mKeyguardBypassController:Lcom/android/systemui/statusbar/phone/KeyguardBypassController;
@@ -422,15 +462,7 @@
     return-object p0
 .end method
 
-.method static synthetic access$2400(Lcom/android/systemui/statusbar/KeyguardIndicationController;)Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mHideTransientMessageOnScreenOff:Z
-
-    return p0
-.end method
-
-.method static synthetic access$2500(Lcom/android/systemui/statusbar/KeyguardIndicationController;)Lcom/android/systemui/statusbar/policy/KeyguardStateController;
+.method static synthetic access$2700(Lcom/android/systemui/statusbar/KeyguardIndicationController;)Lcom/android/systemui/statusbar/policy/KeyguardStateController;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mKeyguardStateController:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
@@ -438,18 +470,10 @@
     return-object p0
 .end method
 
-.method static synthetic access$2600(Lcom/android/systemui/statusbar/KeyguardIndicationController;)Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;
+.method static synthetic access$2800(Lcom/android/systemui/statusbar/KeyguardIndicationController;)Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mTopIndicationView:Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;
-
-    return-object p0
-.end method
-
-.method static synthetic access$2700(Lcom/android/systemui/statusbar/KeyguardIndicationController;)Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mLockScreenIndicationView:Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;
 
     return-object p0
 .end method
@@ -462,7 +486,15 @@
     return p0
 .end method
 
-.method static synthetic access$400(Lcom/android/systemui/statusbar/KeyguardIndicationController;)Z
+.method static synthetic access$400(Lcom/android/systemui/statusbar/KeyguardIndicationController;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->hideBiometricMessage()V
+
+    return-void
+.end method
+
+.method static synthetic access$500(Lcom/android/systemui/statusbar/KeyguardIndicationController;)Z
     .locals 0
 
     iget-boolean p0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mPowerPluggedIn:Z
@@ -470,7 +502,7 @@
     return p0
 .end method
 
-.method static synthetic access$402(Lcom/android/systemui/statusbar/KeyguardIndicationController;Z)Z
+.method static synthetic access$502(Lcom/android/systemui/statusbar/KeyguardIndicationController;Z)Z
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mPowerPluggedIn:Z
@@ -478,7 +510,7 @@
     return p1
 .end method
 
-.method static synthetic access$500(Lcom/android/systemui/statusbar/KeyguardIndicationController;)Z
+.method static synthetic access$600(Lcom/android/systemui/statusbar/KeyguardIndicationController;)Z
     .locals 0
 
     iget-boolean p0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mPowerPluggedInWired:Z
@@ -486,7 +518,7 @@
     return p0
 .end method
 
-.method static synthetic access$502(Lcom/android/systemui/statusbar/KeyguardIndicationController;Z)Z
+.method static synthetic access$602(Lcom/android/systemui/statusbar/KeyguardIndicationController;Z)Z
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mPowerPluggedInWired:Z
@@ -494,7 +526,15 @@
     return p1
 .end method
 
-.method static synthetic access$602(Lcom/android/systemui/statusbar/KeyguardIndicationController;Z)Z
+.method static synthetic access$702(Lcom/android/systemui/statusbar/KeyguardIndicationController;Z)Z
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mPowerPluggedInWireless:Z
+
+    return p1
+.end method
+
+.method static synthetic access$802(Lcom/android/systemui/statusbar/KeyguardIndicationController;Z)Z
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mPowerCharged:Z
@@ -502,110 +542,12 @@
     return p1
 .end method
 
-.method static synthetic access$702(Lcom/android/systemui/statusbar/KeyguardIndicationController;I)I
+.method static synthetic access$902(Lcom/android/systemui/statusbar/KeyguardIndicationController;I)I
     .locals 0
 
     iput p1, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mChargingWattage:I
 
     return p1
-.end method
-
-.method static synthetic access$802(Lcom/android/systemui/statusbar/KeyguardIndicationController;I)I
-    .locals 0
-
-    iput p1, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mChargingSpeed:I
-
-    return p1
-.end method
-
-.method static synthetic access$900(Lcom/android/systemui/statusbar/KeyguardIndicationController;)Landroid/content/Context;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mContext:Landroid/content/Context;
-
-    return-object p0
-.end method
-
-.method private animateText(Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;Ljava/lang/String;)V
-    .locals 5
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    sget v1, Lcom/android/systemui/R$integer;->wired_charging_keyguard_text_animation_distance:I
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
-
-    move-result v0
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v1
-
-    sget v2, Lcom/android/systemui/R$integer;->wired_charging_keyguard_text_animation_duration_up:I
-
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
-
-    move-result v1
-
-    iget-object v2, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v2
-
-    sget v3, Lcom/android/systemui/R$integer;->wired_charging_keyguard_text_animation_duration_down:I
-
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getInteger(I)I
-
-    move-result v2
-
-    invoke-virtual {p1}, Landroid/widget/TextView;->animate()Landroid/view/ViewPropertyAnimator;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Landroid/view/ViewPropertyAnimator;->cancel()V
-
-    iget-object v3, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mClippingParams:Lcom/android/internal/widget/ViewClippingUtil$ClippingParameters;
-
-    const/4 v4, 0x1
-
-    invoke-static {p1, v4, v3}, Lcom/android/internal/widget/ViewClippingUtil;->setClippingDeactivated(Landroid/view/View;ZLcom/android/internal/widget/ViewClippingUtil$ClippingParameters;)V
-
-    invoke-virtual {p1}, Landroid/widget/TextView;->animate()Landroid/view/ViewPropertyAnimator;
-
-    move-result-object v3
-
-    int-to-float v0, v0
-
-    invoke-virtual {v3, v0}, Landroid/view/ViewPropertyAnimator;->translationYBy(F)Landroid/view/ViewPropertyAnimator;
-
-    move-result-object v0
-
-    sget-object v3, Lcom/android/systemui/animation/Interpolators;->LINEAR:Landroid/view/animation/Interpolator;
-
-    invoke-virtual {v0, v3}, Landroid/view/ViewPropertyAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)Landroid/view/ViewPropertyAnimator;
-
-    move-result-object v0
-
-    int-to-long v3, v1
-
-    invoke-virtual {v0, v3, v4}, Landroid/view/ViewPropertyAnimator;->setDuration(J)Landroid/view/ViewPropertyAnimator;
-
-    move-result-object v0
-
-    new-instance v1, Lcom/android/systemui/statusbar/KeyguardIndicationController$3;
-
-    invoke-direct {v1, p0, p1, p2, v2}, Lcom/android/systemui/statusbar/KeyguardIndicationController$3;-><init>(Lcom/android/systemui/statusbar/KeyguardIndicationController;Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;Ljava/lang/String;I)V
-
-    invoke-virtual {v0, v1}, Landroid/view/ViewPropertyAnimator;->setListener(Landroid/animation/Animator$AnimatorListener;)Landroid/view/ViewPropertyAnimator;
-
-    return-void
 .end method
 
 .method private getDisclosureText(Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
@@ -859,6 +801,29 @@
     return-void
 .end method
 
+.method private hideBiometricMessage()V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mBiometricMessage:Ljava/lang/CharSequence;
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mBiometricMessage:Ljava/lang/CharSequence;
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mHandler:Landroid/os/Handler;
+
+    const/4 v1, 0x3
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeMessages(I)V
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->updateBiometricMessage()V
+
+    :cond_0
+    return-void
+.end method
+
 .method private isOrganizationOwnedDevice()Z
     .locals 1
 
@@ -906,11 +871,47 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mHandler:Landroid/os/Handler;
 
-    new-instance v1, Lcom/android/systemui/statusbar/KeyguardIndicationController$$ExternalSyntheticLambda2;
+    new-instance v1, Lcom/android/systemui/statusbar/KeyguardIndicationController$$ExternalSyntheticLambda5;
 
-    invoke-direct {v1, p0, p1}, Lcom/android/systemui/statusbar/KeyguardIndicationController$$ExternalSyntheticLambda2;-><init>(Lcom/android/systemui/statusbar/KeyguardIndicationController;I)V
+    invoke-direct {v1, p0, p1}, Lcom/android/systemui/statusbar/KeyguardIndicationController$$ExternalSyntheticLambda5;-><init>(Lcom/android/systemui/statusbar/KeyguardIndicationController;I)V
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+
+    return-void
+.end method
+
+.method private synthetic lambda$updateIndication$3()V
+    .locals 1
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mWakeLock:Lcom/android/systemui/util/wakelock/SettableWakeLock;
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/util/wakelock/SettableWakeLock;->setAcquired(Z)V
+
+    return-void
+.end method
+
+.method private synthetic lambda$updateIndication$4()V
+    .locals 1
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mWakeLock:Lcom/android/systemui/util/wakelock/SettableWakeLock;
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/util/wakelock/SettableWakeLock;->setAcquired(Z)V
+
+    return-void
+.end method
+
+.method private synthetic lambda$updateIndication$5()V
+    .locals 1
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mWakeLock:Lcom/android/systemui/util/wakelock/SettableWakeLock;
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/util/wakelock/SettableWakeLock;->setAcquired(Z)V
 
     return-void
 .end method
@@ -965,75 +966,62 @@
     return-void
 .end method
 
-.method private showTransientIndication(Ljava/lang/CharSequence;ZZ)V
+.method private showBiometricMessage(Ljava/lang/CharSequence;)V
     .locals 2
 
-    iput-object p1, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mTransientIndication:Ljava/lang/CharSequence;
-
-    const/4 p2, 0x0
-
-    const/4 v0, 0x1
-
-    if-eqz p3, :cond_0
-
-    if-eqz p1, :cond_0
-
-    move p1, v0
-
-    goto :goto_0
-
-    :cond_0
-    move p1, p2
-
-    :goto_0
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mHideTransientMessageOnScreenOff:Z
+    iput-object p1, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mBiometricMessage:Ljava/lang/CharSequence;
 
     iget-object p1, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mHandler:Landroid/os/Handler;
+
+    const/4 v0, 0x2
 
     invoke-virtual {p1, v0}, Landroid/os/Handler;->removeMessages(I)V
 
     iget-object p1, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mHandler:Landroid/os/Handler;
 
-    const/4 p3, 0x2
+    const/4 v0, 0x3
 
-    invoke-virtual {p1, p3}, Landroid/os/Handler;->removeMessages(I)V
+    invoke-virtual {p1, v0}, Landroid/os/Handler;->removeMessages(I)V
 
-    iget-boolean p1, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mDozing:Z
-
-    if-eqz p1, :cond_1
-
-    iget-object p1, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mTransientIndication:Ljava/lang/CharSequence;
-
-    invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result p1
-
-    if-nez p1, :cond_1
-
-    iget-object p1, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mWakeLock:Lcom/android/systemui/util/wakelock/SettableWakeLock;
-
-    invoke-virtual {p1, v0}, Lcom/android/systemui/util/wakelock/SettableWakeLock;->setAcquired(Z)V
-
-    :cond_1
     const-wide/16 v0, 0x1388
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->hideTransientIndicationDelayed(J)V
+    invoke-virtual {p0, v0, v1}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->hideBiometricMessageDelayed(J)V
 
-    invoke-virtual {p0, p2}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->updateIndication(Z)V
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->updateBiometricMessage()V
 
     return-void
 .end method
 
-.method private showTryFingerprintMsg(Ljava/lang/String;)V
+.method private showTransientIndication(Ljava/lang/CharSequence;)V
+    .locals 2
+
+    iput-object p1, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mTransientIndication:Ljava/lang/CharSequence;
+
+    iget-object p1, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mHandler:Landroid/os/Handler;
+
+    const/4 v0, 0x1
+
+    invoke-virtual {p1, v0}, Landroid/os/Handler;->removeMessages(I)V
+
+    const-wide/16 v0, 0x1388
+
+    invoke-virtual {p0, v0, v1}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->hideTransientIndicationDelayed(J)V
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->updateTransient()V
+
+    return-void
+.end method
+
+.method private showTryFingerprintMsg(ILjava/lang/String;)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    invoke-virtual {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isUdfpsAvailable()Z
+    invoke-virtual {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isUdfpsSupported()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mKeyguardBypassController:Lcom/android/systemui/statusbar/phone/KeyguardBypassController;
 
@@ -1043,36 +1031,47 @@
 
     if-eqz v0, :cond_0
 
-    sget v0, Lcom/android/systemui/R$string;->keyguard_unlock_press:I
+    sget p1, Lcom/android/systemui/R$string;->keyguard_unlock_press:I
 
-    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->showTransientIndication(I)V
+    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->showBiometricMessage(I)V
 
     goto :goto_0
 
     :cond_0
-    sget v0, Lcom/android/systemui/R$string;->keyguard_face_failed_use_fp:I
+    const/16 v0, 0x9
 
-    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->showTransientIndication(I)V
+    if-ne p1, v0, :cond_1
+
+    sget p1, Lcom/android/systemui/R$string;->keyguard_try_fingerprint:I
+
+    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->showBiometricMessage(I)V
 
     goto :goto_0
 
     :cond_1
-    sget v0, Lcom/android/systemui/R$string;->keyguard_try_fingerprint:I
+    sget p1, Lcom/android/systemui/R$string;->keyguard_face_failed_use_fp:I
 
-    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->showTransientIndication(I)V
+    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->showBiometricMessage(I)V
+
+    goto :goto_0
+
+    :cond_2
+    sget p1, Lcom/android/systemui/R$string;->keyguard_try_fingerprint:I
+
+    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->showBiometricMessage(I)V
 
     :goto_0
-    invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v0
+    move-result p1
 
-    if-nez v0, :cond_2
+    if-nez p1, :cond_3
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mLockScreenIndicationView:Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;
 
-    invoke-virtual {p0, p1}, Landroid/widget/TextView;->announceForAccessibility(Ljava/lang/CharSequence;)V
+    invoke-virtual {p0, p2}, Landroid/widget/TextView;->announceForAccessibility(Ljava/lang/CharSequence;)V
 
-    :cond_2
+    :cond_3
     return-void
 .end method
 
@@ -1190,12 +1189,81 @@
     return-void
 .end method
 
+.method private updateBiometricMessage()V
+    .locals 5
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mBiometricMessage:Ljava/lang/CharSequence;
+
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    const/16 v1, 0xb
+
+    if-nez v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mRotateTextViewController:Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController;
+
+    new-instance v2, Lcom/android/systemui/keyguard/KeyguardIndication$Builder;
+
+    invoke-direct {v2}, Lcom/android/systemui/keyguard/KeyguardIndication$Builder;-><init>()V
+
+    iget-object v3, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mBiometricMessage:Ljava/lang/CharSequence;
+
+    invoke-virtual {v2, v3}, Lcom/android/systemui/keyguard/KeyguardIndication$Builder;->setMessage(Ljava/lang/CharSequence;)Lcom/android/systemui/keyguard/KeyguardIndication$Builder;
+
+    move-result-object v2
+
+    const-wide/16 v3, 0xa28
+
+    invoke-static {v3, v4}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Lcom/android/systemui/keyguard/KeyguardIndication$Builder;->setMinVisibilityMillis(Ljava/lang/Long;)Lcom/android/systemui/keyguard/KeyguardIndication$Builder;
+
+    move-result-object v2
+
+    iget-object v3, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mInitialTextColorState:Landroid/content/res/ColorStateList;
+
+    invoke-virtual {v2, v3}, Lcom/android/systemui/keyguard/KeyguardIndication$Builder;->setTextColor(Landroid/content/res/ColorStateList;)Lcom/android/systemui/keyguard/KeyguardIndication$Builder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/android/systemui/keyguard/KeyguardIndication$Builder;->build()Lcom/android/systemui/keyguard/KeyguardIndication;
+
+    move-result-object v2
+
+    const/4 v3, 0x1
+
+    invoke-virtual {v0, v1, v2, v3}, Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController;->updateIndication(ILcom/android/systemui/keyguard/KeyguardIndication;Z)V
+
+    goto :goto_0
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mRotateTextViewController:Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController;
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController;->hideIndication(I)V
+
+    :goto_0
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mDozing:Z
+
+    if-eqz v0, :cond_1
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->updateIndication(Z)V
+
+    :cond_1
+    return-void
+.end method
+
 .method private updateDisclosure()V
     .locals 4
 
-    new-instance v0, Lcom/android/systemui/statusbar/KeyguardIndicationController$$ExternalSyntheticLambda3;
+    new-instance v0, Lcom/android/systemui/statusbar/KeyguardIndicationController$$ExternalSyntheticLambda6;
 
-    invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/KeyguardIndicationController$$ExternalSyntheticLambda3;-><init>(Lcom/android/systemui/statusbar/KeyguardIndicationController;)V
+    invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/KeyguardIndicationController$$ExternalSyntheticLambda6;-><init>(Lcom/android/systemui/statusbar/KeyguardIndicationController;)V
 
     invoke-static {v0}, Lcom/android/systemui/DejankUtils;->whitelistIpcs(Ljava/util/function/Supplier;)Ljava/lang/Object;
 
@@ -1256,36 +1324,6 @@
     return-void
 .end method
 
-.method private updateIndications(ZI)V
-    .locals 1
-
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->updateOwnerInfo()V
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->updateBattery(Z)V
-
-    invoke-direct {p0, p2}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->updateUserLocked(I)V
-
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->updateTransient()V
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->getTrustGrantedIndication()Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->getTrustManagedIndication()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-direct {p0, p2, p1, v0}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->updateTrust(ILjava/lang/CharSequence;Ljava/lang/CharSequence;)V
-
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->updateAlignment()V
-
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->updateLogoutView()V
-
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->updateResting()V
-
-    return-void
-.end method
-
 .method private updateLogoutView()V
     .locals 6
 
@@ -1329,7 +1367,7 @@
 
     move-result-object v4
 
-    const v5, 0x10403c5
+    const v5, 0x10403ca
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1463,6 +1501,34 @@
     return-void
 .end method
 
+.method private updatePersistentIndications(ZI)V
+    .locals 1
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->updateOwnerInfo()V
+
+    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->updateBattery(Z)V
+
+    invoke-direct {p0, p2}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->updateUserLocked(I)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->getTrustGrantedIndication()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->getTrustManagedIndication()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-direct {p0, p2, p1, v0}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->updateTrust(ILjava/lang/CharSequence;Ljava/lang/CharSequence;)V
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->updateAlignment()V
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->updateLogoutView()V
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->updateResting()V
+
+    return-void
+.end method
+
 .method private updateResting()V
     .locals 4
 
@@ -1522,7 +1588,7 @@
 .end method
 
 .method private updateTransient()V
-    .locals 1
+    .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mTransientIndication:Ljava/lang/CharSequence;
 
@@ -1534,18 +1600,27 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mRotateTextViewController:Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController;
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mTransientIndication:Ljava/lang/CharSequence;
+    iget-object v1, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mTransientIndication:Ljava/lang/CharSequence;
 
-    invoke-virtual {v0, p0}, Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController;->showTransient(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, v1}, Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController;->showTransient(Ljava/lang/CharSequence;)V
 
     goto :goto_0
 
     :cond_0
-    iget-object p0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mRotateTextViewController:Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mRotateTextViewController:Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController;
 
-    invoke-virtual {p0}, Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController;->hideTransient()V
+    invoke-virtual {v0}, Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController;->hideTransient()V
 
     :goto_0
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mDozing:Z
+
+    if-eqz v0, :cond_1
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->updateIndication(Z)V
+
+    :cond_1
     return-void
 .end method
 
@@ -1675,7 +1750,7 @@
 
     move-result-object v2
 
-    const v3, 0x10404af
+    const v3, 0x10404b4
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1843,6 +1918,10 @@
     goto :goto_1
 
     :cond_8
+    iget-boolean v4, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mPowerPluggedInWireless:Z
+
+    if-eqz v4, :cond_a
+
     if-eqz v0, :cond_9
 
     sget v4, Lcom/android/systemui/R$string;->keyguard_indication_charging_time_wireless:I
@@ -1851,6 +1930,18 @@
 
     :cond_9
     sget v4, Lcom/android/systemui/R$string;->keyguard_plugged_in_wireless:I
+
+    goto :goto_1
+
+    :cond_a
+    if-eqz v0, :cond_b
+
+    sget v4, Lcom/android/systemui/R$string;->keyguard_indication_charging_time:I
+
+    goto :goto_1
+
+    :cond_b
+    sget v4, Lcom/android/systemui/R$string;->keyguard_plugged_in:I
 
     :goto_1
     invoke-static {}, Ljava/text/NumberFormat;->getPercentInstance()Ljava/text/NumberFormat;
@@ -1869,7 +1960,7 @@
 
     move-result-object v1
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_c
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mContext:Landroid/content/Context;
 
@@ -1897,7 +1988,7 @@
 
     return-object p0
 
-    :cond_a
+    :cond_c
     iget-object p0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mContext:Landroid/content/Context;
 
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -2070,6 +2161,42 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
+    const-string v1, "  mTransientIndication: "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mTransientIndication:Ljava/lang/CharSequence;
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "  mBiometricMessage: "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mBiometricMessage:Ljava/lang/CharSequence;
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
     const-string v1, "  mBatteryLevel: "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -2194,8 +2321,24 @@
     return-object p0
 .end method
 
+.method public hideBiometricMessageDelayed(J)V
+    .locals 1
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mHandler:Landroid/os/Handler;
+
+    const/4 v0, 0x3
+
+    invoke-virtual {p0, v0}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0, p1, p2}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
+
+    return-void
+.end method
+
 .method public hideTransientIndication()V
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mTransientIndication:Ljava/lang/CharSequence;
 
@@ -2205,21 +2348,13 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mTransientIndication:Ljava/lang/CharSequence;
 
-    const/4 v0, 0x0
+    iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mHandler:Landroid/os/Handler;
 
-    iput-boolean v0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mHideTransientMessageOnScreenOff:Z
+    const/4 v1, 0x1
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mHandler:Landroid/os/Handler;
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeMessages(I)V
 
-    const/4 v2, 0x1
-
-    invoke-virtual {v1, v2}, Landroid/os/Handler;->removeMessages(I)V
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mRotateTextViewController:Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController;
-
-    invoke-virtual {v1}, Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController;->hideTransient()V
-
-    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->updateIndication(Z)V
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->updateTransient()V
 
     :cond_0
     return-void
@@ -2466,7 +2601,7 @@
 .end method
 
 .method public showActionToUnlock()V
-    .locals 3
+    .locals 2
 
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mDozing:Z
 
@@ -2512,7 +2647,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_4
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mContext:Landroid/content/Context;
 
@@ -2531,6 +2666,39 @@
     goto :goto_0
 
     :cond_2
+    iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
+
+    invoke-virtual {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isUdfpsSupported()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
+
+    invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getCurrentUser()I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getUserCanSkipBouncer(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mContext:Landroid/content/Context;
+
+    sget v1, Lcom/android/systemui/R$string;->keyguard_unlock_press:I
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->showBiometricMessage(Ljava/lang/CharSequence;)V
+
+    goto :goto_0
+
+    :cond_3
     iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mContext:Landroid/content/Context;
 
     sget v1, Lcom/android/systemui/R$string;->keyguard_unlock:I
@@ -2539,14 +2707,28 @@
 
     move-result-object v0
 
-    const/4 v1, 0x0
+    invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->showBiometricMessage(Ljava/lang/CharSequence;)V
 
-    const/4 v2, 0x1
-
-    invoke-direct {p0, v0, v1, v2}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->showTransientIndication(Ljava/lang/CharSequence;ZZ)V
-
-    :cond_3
+    :cond_4
     :goto_0
+    return-void
+.end method
+
+.method public showBiometricMessage(I)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->showBiometricMessage(Ljava/lang/CharSequence;)V
+
     return-void
 .end method
 
@@ -2563,47 +2745,24 @@
 
     move-result-object p1
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->showTransientIndication(Ljava/lang/CharSequence;)V
-
-    return-void
-.end method
-
-.method public showTransientIndication(Ljava/lang/CharSequence;)V
-    .locals 1
-
-    const/4 v0, 0x0
-
-    invoke-direct {p0, p1, v0, v0}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->showTransientIndication(Ljava/lang/CharSequence;ZZ)V
+    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->showTransientIndication(Ljava/lang/CharSequence;)V
 
     return-void
 .end method
 
 .method protected final updateIndication(Z)V
-    .locals 4
+    .locals 6
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mTransientIndication:Ljava/lang/CharSequence;
-
-    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v0
-
-    const/4 v1, 0x0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mWakeLock:Lcom/android/systemui/util/wakelock/SettableWakeLock;
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/util/wakelock/SettableWakeLock;->setAcquired(Z)V
-
-    :cond_0
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mVisible:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_0
 
     return-void
 
-    :cond_1
+    :cond_0
     iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mIndicationArea:Landroid/view/ViewGroup;
+
+    const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->setVisibility(I)V
 
@@ -2625,10 +2784,37 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mTopIndicationView:Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;
 
-    const/4 v1, -0x1
+    const/4 v4, -0x1
 
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTextColor(I)V
+    invoke-virtual {v0, v4}, Landroid/widget/TextView;->setTextColor(I)V
 
+    iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mBiometricMessage:Ljava/lang/CharSequence;
+
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    const/4 v4, 0x1
+
+    if-nez v0, :cond_1
+
+    iget-object p1, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mWakeLock:Lcom/android/systemui/util/wakelock/SettableWakeLock;
+
+    invoke-virtual {p1, v4}, Lcom/android/systemui/util/wakelock/SettableWakeLock;->setAcquired(Z)V
+
+    iget-object p1, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mTopIndicationView:Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mBiometricMessage:Ljava/lang/CharSequence;
+
+    new-instance v1, Lcom/android/systemui/statusbar/KeyguardIndicationController$$ExternalSyntheticLambda3;
+
+    invoke-direct {v1, p0}, Lcom/android/systemui/statusbar/KeyguardIndicationController$$ExternalSyntheticLambda3;-><init>(Lcom/android/systemui/statusbar/KeyguardIndicationController;)V
+
+    invoke-virtual {p1, v0, v3, v4, v1}, Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;->switchIndication(Ljava/lang/CharSequence;Lcom/android/systemui/keyguard/KeyguardIndication;ZLjava/lang/Runnable;)V
+
+    goto/16 :goto_1
+
+    :cond_1
     iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mTransientIndication:Ljava/lang/CharSequence;
 
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
@@ -2637,11 +2823,19 @@
 
     if-nez v0, :cond_2
 
+    iget-object p1, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mWakeLock:Lcom/android/systemui/util/wakelock/SettableWakeLock;
+
+    invoke-virtual {p1, v4}, Lcom/android/systemui/util/wakelock/SettableWakeLock;->setAcquired(Z)V
+
     iget-object p1, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mTopIndicationView:Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mTransientIndication:Ljava/lang/CharSequence;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mTransientIndication:Ljava/lang/CharSequence;
 
-    invoke-virtual {p1, p0, v3}, Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;->switchIndication(Ljava/lang/CharSequence;Lcom/android/systemui/keyguard/KeyguardIndication;)V
+    new-instance v1, Lcom/android/systemui/statusbar/KeyguardIndicationController$$ExternalSyntheticLambda2;
+
+    invoke-direct {v1, p0}, Lcom/android/systemui/statusbar/KeyguardIndicationController$$ExternalSyntheticLambda2;-><init>(Lcom/android/systemui/statusbar/KeyguardIndicationController;)V
+
+    invoke-virtual {p1, v0, v3, v4, v1}, Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;->switchIndication(Ljava/lang/CharSequence;Lcom/android/systemui/keyguard/KeyguardIndication;ZLjava/lang/Runnable;)V
 
     goto :goto_1
 
@@ -2669,7 +2863,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mAlignmentIndication:Ljava/lang/String;
 
-    invoke-virtual {p1, v0, v3}, Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;->switchIndication(Ljava/lang/CharSequence;Lcom/android/systemui/keyguard/KeyguardIndication;)V
+    invoke-virtual {p1, v0, v3, v1, v3}, Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;->switchIndication(Ljava/lang/CharSequence;Lcom/android/systemui/keyguard/KeyguardIndication;ZLjava/lang/Runnable;)V
 
     iget-object p1, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mTopIndicationView:Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;
 
@@ -2705,19 +2899,19 @@
 
     int-to-float v0, v0
 
-    const/high16 v1, 0x42c80000    # 100.0f
+    const/high16 v2, 0x42c80000    # 100.0f
 
-    div-float/2addr v0, v1
+    div-float/2addr v0, v2
 
-    float-to-double v0, v0
+    float-to-double v4, v0
 
-    invoke-virtual {p1, v0, v1}, Ljava/text/NumberFormat;->format(D)Ljava/lang/String;
+    invoke-virtual {p1, v4, v5}, Ljava/text/NumberFormat;->format(D)Ljava/lang/String;
 
     move-result-object p1
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mTopIndicationView:Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;
 
-    invoke-virtual {p0, p1, v3}, Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;->switchIndication(Ljava/lang/CharSequence;Lcom/android/systemui/keyguard/KeyguardIndication;)V
+    invoke-virtual {p0, p1, v3, v1, v3}, Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;->switchIndication(Ljava/lang/CharSequence;Lcom/android/systemui/keyguard/KeyguardIndication;ZLjava/lang/Runnable;)V
 
     goto :goto_1
 
@@ -2729,16 +2923,24 @@
 
     if-eqz p1, :cond_7
 
+    iget-object p1, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mWakeLock:Lcom/android/systemui/util/wakelock/SettableWakeLock;
+
+    invoke-virtual {p1, v4}, Lcom/android/systemui/util/wakelock/SettableWakeLock;->setAcquired(Z)V
+
     iget-object p1, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mTopIndicationView:Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;
 
-    invoke-direct {p0, p1, v0}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->animateText(Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;Ljava/lang/String;)V
+    new-instance v1, Lcom/android/systemui/statusbar/KeyguardIndicationController$$ExternalSyntheticLambda4;
+
+    invoke-direct {v1, p0}, Lcom/android/systemui/statusbar/KeyguardIndicationController$$ExternalSyntheticLambda4;-><init>(Lcom/android/systemui/statusbar/KeyguardIndicationController;)V
+
+    invoke-virtual {p1, v0, v3, v4, v1}, Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;->switchIndication(Ljava/lang/CharSequence;Lcom/android/systemui/keyguard/KeyguardIndication;ZLjava/lang/Runnable;)V
 
     goto :goto_1
 
     :cond_7
     iget-object p0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mTopIndicationView:Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;
 
-    invoke-virtual {p0, v0, v3}, Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;->switchIndication(Ljava/lang/CharSequence;Lcom/android/systemui/keyguard/KeyguardIndication;)V
+    invoke-virtual {p0, v0, v3, v1, v3}, Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;->switchIndication(Ljava/lang/CharSequence;Lcom/android/systemui/keyguard/KeyguardIndication;ZLjava/lang/Runnable;)V
 
     :goto_1
     return-void
@@ -2760,7 +2962,7 @@
 
     move-result v0
 
-    invoke-direct {p0, p1, v0}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->updateIndications(ZI)V
+    invoke-direct {p0, p1, v0}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->updatePersistentIndications(ZI)V
 
     return-void
 .end method

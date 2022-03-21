@@ -17,7 +17,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nMediaSessionBasedFilter.kt\nKotlin\n*S Kotlin\n*F\n+ 1 MediaSessionBasedFilter.kt\ncom/android/systemui/media/MediaSessionBasedFilter$dispatchSmartspaceMediaDataLoaded$1\n+ 2 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n*L\n1#1,211:1\n1819#2,2:212\n*E\n*S KotlinDebug\n*F\n+ 1 MediaSessionBasedFilter.kt\ncom/android/systemui/media/MediaSessionBasedFilter$dispatchSmartspaceMediaDataLoaded$1\n*L\n186#1,2:212\n*E\n"
+    value = "SMAP\nMediaSessionBasedFilter.kt\nKotlin\n*S Kotlin\n*F\n+ 1 MediaSessionBasedFilter.kt\ncom/android/systemui/media/MediaSessionBasedFilter$dispatchSmartspaceMediaDataLoaded$1\n+ 2 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n*L\n1#1,212:1\n1819#2,2:213\n*E\n*S KotlinDebug\n*F\n+ 1 MediaSessionBasedFilter.kt\ncom/android/systemui/media/MediaSessionBasedFilter$dispatchSmartspaceMediaDataLoaded$1\n*L\n187#1,2:213\n*E\n"
 .end annotation
 
 
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public final run()V
-    .locals 8
+    .locals 9
 
     iget-object v0, p0, Lcom/android/systemui/media/MediaSessionBasedFilter$dispatchSmartspaceMediaDataLoaded$1;->this$0:Lcom/android/systemui/media/MediaSessionBasedFilter;
 
@@ -59,7 +59,7 @@
 
     move-result-object v0
 
-    iget-object v7, p0, Lcom/android/systemui/media/MediaSessionBasedFilter$dispatchSmartspaceMediaDataLoaded$1;->$key:Ljava/lang/String;
+    iget-object v8, p0, Lcom/android/systemui/media/MediaSessionBasedFilter$dispatchSmartspaceMediaDataLoaded$1;->$key:Ljava/lang/String;
 
     iget-object p0, p0, Lcom/android/systemui/media/MediaSessionBasedFilter$dispatchSmartspaceMediaDataLoaded$1;->$info:Lcom/android/systemui/media/SmartspaceMediaData;
 
@@ -82,15 +82,17 @@
 
     const/4 v4, 0x0
 
-    const/4 v5, 0x4
+    const/4 v5, 0x0
 
-    const/4 v6, 0x0
+    const/16 v6, 0xc
 
-    move-object v2, v7
+    const/4 v7, 0x0
+
+    move-object v2, v8
 
     move-object v3, p0
 
-    invoke-static/range {v1 .. v6}, Lcom/android/systemui/media/MediaDataManager$Listener$DefaultImpls;->onSmartspaceMediaDataLoaded$default(Lcom/android/systemui/media/MediaDataManager$Listener;Ljava/lang/String;Lcom/android/systemui/media/SmartspaceMediaData;ZILjava/lang/Object;)V
+    invoke-static/range {v1 .. v7}, Lcom/android/systemui/media/MediaDataManager$Listener$DefaultImpls;->onSmartspaceMediaDataLoaded$default(Lcom/android/systemui/media/MediaDataManager$Listener;Ljava/lang/String;Lcom/android/systemui/media/SmartspaceMediaData;ZZILjava/lang/Object;)V
 
     goto :goto_0
 

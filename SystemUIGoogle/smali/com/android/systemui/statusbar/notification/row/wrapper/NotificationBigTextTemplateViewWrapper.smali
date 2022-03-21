@@ -21,7 +21,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationViewWrapper;->mView:Landroid/view/View;
 
-    const v0, 0x10201fa
+    const v0, 0x10201fd
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

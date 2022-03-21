@@ -17,3 +17,6 @@
 # virtual methods
 .method public abstract attachToParentSurface(Landroid/view/SurfaceControl$Builder;)V
 .end method
+
+.method public abstract onLeashReady(Landroid/view/SurfaceControl;)V
+.end method

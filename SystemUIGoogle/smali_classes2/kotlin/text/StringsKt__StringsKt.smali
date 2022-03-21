@@ -1793,6 +1793,58 @@
     return-object p0
 .end method
 
+.method public static final substringAfter(Ljava/lang/String;CLjava/lang/String;)Ljava/lang/String;
+    .locals 7
+
+    const-string v0, "$this$substringAfter"
+
+    invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    const-string v0, "missingDelimiterValue"
+
+    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    const/4 v3, 0x0
+
+    const/4 v4, 0x0
+
+    const/4 v5, 0x6
+
+    const/4 v6, 0x0
+
+    move-object v1, p0
+
+    move v2, p1
+
+    invoke-static/range {v1 .. v6}, Lkotlin/text/StringsKt;->indexOf$default(Ljava/lang/CharSequence;CIZILjava/lang/Object;)I
+
+    move-result p1
+
+    const/4 v0, -0x1
+
+    if-ne p1, v0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    add-int/lit8 p1, p1, 0x1
+
+    invoke-virtual {p0}, Ljava/lang/String;->length()I
+
+    move-result p2
+
+    invoke-virtual {p0, p1, p2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object p2
+
+    const-string p0, "(this as java.lang.Strin\u2026ing(startIndex, endIndex)"
+
+    invoke-static {p2, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+
+    :goto_0
+    return-object p2
+.end method
+
 .method public static final substringAfter(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
     .locals 7
 
@@ -1851,6 +1903,23 @@
 
     :goto_0
     return-object p2
+.end method
+
+.method public static synthetic substringAfter$default(Ljava/lang/String;CLjava/lang/String;ILjava/lang/Object;)Ljava/lang/String;
+    .locals 0
+
+    and-int/lit8 p3, p3, 0x2
+
+    if-eqz p3, :cond_0
+
+    move-object p2, p0
+
+    :cond_0
+    invoke-static {p0, p1, p2}, Lkotlin/text/StringsKt__StringsKt;->substringAfter(Ljava/lang/String;CLjava/lang/String;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method public static synthetic substringAfter$default(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Ljava/lang/String;

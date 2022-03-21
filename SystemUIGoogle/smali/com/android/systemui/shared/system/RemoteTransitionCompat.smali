@@ -29,7 +29,7 @@
 # instance fields
 .field mFilter:Landroid/window/TransitionFilter;
 
-.field final mTransition:Landroid/window/IRemoteTransition;
+.field final mTransition:Landroid/window/RemoteTransition;
 
 
 # direct methods
@@ -58,13 +58,13 @@
 
     move-result v1
 
-    invoke-virtual {p1}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
+    sget-object v2, Landroid/window/RemoteTransition;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    invoke-virtual {p1, v2}, Landroid/os/Parcel;->readTypedObject(Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
 
     move-result-object v2
 
-    invoke-static {v2}, Landroid/window/IRemoteTransition$Stub;->asInterface(Landroid/os/IBinder;)Landroid/window/IRemoteTransition;
-
-    move-result-object v2
+    check-cast v2, Landroid/window/RemoteTransition;
 
     and-int/lit8 v1, v1, 0x2
 
@@ -84,7 +84,7 @@
     check-cast p1, Landroid/window/TransitionFilter;
 
     :goto_0
-    iput-object v2, p0, Lcom/android/systemui/shared/system/RemoteTransitionCompat;->mTransition:Landroid/window/IRemoteTransition;
+    iput-object v2, p0, Lcom/android/systemui/shared/system/RemoteTransitionCompat;->mTransition:Landroid/window/RemoteTransition;
 
     const-class v1, Landroid/annotation/NonNull;
 
@@ -124,9 +124,9 @@
     :goto_0
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeByte(B)V
 
-    iget-object v0, p0, Lcom/android/systemui/shared/system/RemoteTransitionCompat;->mTransition:Landroid/window/IRemoteTransition;
+    iget-object v0, p0, Lcom/android/systemui/shared/system/RemoteTransitionCompat;->mTransition:Landroid/window/RemoteTransition;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeStrongInterface(Landroid/os/IInterface;)V
+    invoke-virtual {p1, v0, p2}, Landroid/os/Parcel;->writeTypedObject(Landroid/os/Parcelable;I)V
 
     iget-object p0, p0, Lcom/android/systemui/shared/system/RemoteTransitionCompat;->mFilter:Landroid/window/TransitionFilter;
 

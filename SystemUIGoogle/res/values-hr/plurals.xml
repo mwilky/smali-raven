@@ -40,21 +40,6 @@
         <item quantity="one">PUK kôd SIM-a nije točan. Imate još %d pokušaj, a ako ne uspijete, SIM će postati trajno neupotrebljiv.</item>
         <item quantity="few">PUK kôd SIM-a nije točan. Imate još %d pokušaja, a ako ne uspijete, SIM će postati trajno neupotrebljiv.</item>
     </plurals>
-    <plurals name="kg_prompt_reason_time_password">
-        <item quantity="other">Uređaj nije bio otključan %d sati. Potvrdite zaporku.</item>
-        <item quantity="one">Uređaj nije bio otključan %d sat. Potvrdite zaporku.</item>
-        <item quantity="few">Uređaj nije bio otključan %d sata. Potvrdite zaporku.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pattern">
-        <item quantity="other">Uređaj nije bio otključan %d sati. Potvrdite uzorak.</item>
-        <item quantity="one">Uređaj nije bio otključan %d sat. Potvrdite uzorak.</item>
-        <item quantity="few">Uređaj nije bio otključan %d sata. Potvrdite uzorak.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pin">
-        <item quantity="other">Uređaj nije bio otključan %d sati. Potvrdite PIN.</item>
-        <item quantity="one">Uređaj nije bio otključan %d sat. Potvrdite PIN.</item>
-        <item quantity="few">Uređaj nije bio otključan %d sata. Potvrdite PIN.</item>
-    </plurals>
     <plurals name="kg_too_many_failed_attempts_countdown">
         <item quantity="other">Pokušajte ponovo za %d sekundi</item>
         <item quantity="one">Pokušajte ponovo za %d sekundu</item>

@@ -18,12 +18,40 @@
     return-object p0
 .end method
 
+.method public static provideCollapsedSbFragmentLogBuffer(Lcom/android/systemui/log/LogBufferFactory;)Lcom/android/systemui/log/LogBuffer;
+    .locals 2
+
+    const-string v0, "CollapsedSbFragmentLog"
+
+    const/16 v1, 0x14
+
+    invoke-virtual {p0, v0, v1}, Lcom/android/systemui/log/LogBufferFactory;->create(Ljava/lang/String;I)Lcom/android/systemui/log/LogBuffer;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method public static provideDozeLogBuffer(Lcom/android/systemui/log/LogBufferFactory;)Lcom/android/systemui/log/LogBuffer;
     .locals 2
 
     const-string v0, "DozeLog"
 
     const/16 v1, 0x64
+
+    invoke-virtual {p0, v0, v1}, Lcom/android/systemui/log/LogBufferFactory;->create(Ljava/lang/String;I)Lcom/android/systemui/log/LogBuffer;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static provideLSShadeTransitionControllerBuffer(Lcom/android/systemui/log/LogBufferFactory;)Lcom/android/systemui/log/LogBuffer;
+    .locals 2
+
+    const-string v0, "LSShadeTransitionLog"
+
+    const/16 v1, 0x32
 
     invoke-virtual {p0, v0, v1}, Lcom/android/systemui/log/LogBufferFactory;->create(Ljava/lang/String;I)Lcom/android/systemui/log/LogBuffer;
 
@@ -109,12 +137,40 @@
     return-object p0
 .end method
 
+.method public static provideQSFragmentDisableLogBuffer(Lcom/android/systemui/log/LogBufferFactory;)Lcom/android/systemui/log/LogBuffer;
+    .locals 2
+
+    const-string v0, "QSFragmentDisableFlagsLog"
+
+    const/16 v1, 0xa
+
+    invoke-virtual {p0, v0, v1}, Lcom/android/systemui/log/LogBufferFactory;->create(Ljava/lang/String;I)Lcom/android/systemui/log/LogBuffer;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method public static provideQuickSettingsLogBuffer(Lcom/android/systemui/log/LogBufferFactory;)Lcom/android/systemui/log/LogBuffer;
     .locals 2
 
     const-string v0, "QSLog"
 
     const/16 v1, 0x1f4
+
+    invoke-virtual {p0, v0, v1}, Lcom/android/systemui/log/LogBufferFactory;->create(Ljava/lang/String;I)Lcom/android/systemui/log/LogBuffer;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static provideSwipeAwayGestureLogBuffer(Lcom/android/systemui/log/LogBufferFactory;)Lcom/android/systemui/log/LogBuffer;
+    .locals 2
+
+    const-string v0, "SwipeStatusBarAwayLog"
+
+    const/16 v1, 0x1e
 
     invoke-virtual {p0, v0, v1}, Lcom/android/systemui/log/LogBufferFactory;->create(Ljava/lang/String;I)Lcom/android/systemui/log/LogBuffer;
 

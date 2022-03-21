@@ -29,7 +29,7 @@
 
     check-cast p1, Lcom/android/wm/shell/apppairs/AppPairsController;
 
-    invoke-static {p0, p1}, Lcom/android/wm/shell/ShellCommandHandlerImpl;->$r8$lambda$9_0BaZ6xNMUBYDDQSVB1-d7pJTA(ILcom/android/wm/shell/apppairs/AppPairsController;)V
+    invoke-static {p0, p1}, Lcom/android/wm/shell/ShellCommandHandlerImpl;->$r8$lambda$BVKOyUytbLcPLonmw1bcsRdh_MU(ILcom/android/wm/shell/apppairs/AppPairsController;)V
 
     return-void
 .end method

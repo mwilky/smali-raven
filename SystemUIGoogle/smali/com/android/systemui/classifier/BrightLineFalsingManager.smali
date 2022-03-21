@@ -499,7 +499,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/classifier/BrightLineFalsingManager;->mAccessibilityManager:Landroid/view/accessibility/AccessibilityManager;
 
-    invoke-virtual {p0}, Landroid/view/accessibility/AccessibilityManager;->isEnabled()Z
+    invoke-virtual {p0}, Landroid/view/accessibility/AccessibilityManager;->isTouchExplorationEnabled()Z
 
     move-result p0
 

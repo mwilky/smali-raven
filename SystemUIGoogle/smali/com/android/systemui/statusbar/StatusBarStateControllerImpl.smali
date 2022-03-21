@@ -28,6 +28,8 @@
 
 
 # static fields
+.field private static final DEBUG_IMMERSIVE_APPS:Z
+
 .field private static final SET_DARK_AMOUNT_PROPERTY:Landroid/util/FloatProperty;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -119,6 +121,16 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    const-string v0, "persist.debug.immersive_apps"
+
+    const/4 v1, 0x0
+
+    invoke-static {v0, v1}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
+
+    move-result v0
+
+    sput-boolean v0, Lcom/android/systemui/statusbar/StatusBarStateControllerImpl;->DEBUG_IMMERSIVE_APPS:Z
+
     sget-object v0, Lcom/android/systemui/statusbar/StatusBarStateControllerImpl$$ExternalSyntheticLambda1;->INSTANCE:Lcom/android/systemui/statusbar/StatusBarStateControllerImpl$$ExternalSyntheticLambda1;
 
     invoke-static {v0}, Ljava/util/Comparator;->comparingInt(Ljava/util/function/ToIntFunction;)Ljava/util/Comparator;
@@ -138,7 +150,7 @@
     return-void
 .end method
 
-.method public constructor <init>(Lcom/android/internal/logging/UiEventLogger;)V
+.method public constructor <init>(Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/dump/DumpManager;)V
     .locals 4
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -185,6 +197,8 @@
     goto :goto_0
 
     :cond_0
+    invoke-virtual {p2, p0}, Lcom/android/systemui/dump/DumpManager;->registerDumpable(Lcom/android/systemui/Dumpable;)V
+
     return-void
 .end method
 
@@ -392,7 +406,7 @@
     return p0
 .end method
 
-.method private recordHistoricalState(II)V
+.method private recordHistoricalState(IIZ)V
     .locals 1
 
     iget v0, p0, Lcom/android/systemui/statusbar/StatusBarStateControllerImpl;->mHistoryIndex:I
@@ -407,7 +421,7 @@
 
     aget-object p0, p0, v0
 
-    iput p1, p0, Lcom/android/systemui/statusbar/StatusBarStateControllerImpl$HistoricalState;->mState:I
+    iput p1, p0, Lcom/android/systemui/statusbar/StatusBarStateControllerImpl$HistoricalState;->mNewState:I
 
     iput p2, p0, Lcom/android/systemui/statusbar/StatusBarStateControllerImpl$HistoricalState;->mLastState:I
 
@@ -416,6 +430,8 @@
     move-result-wide p1
 
     iput-wide p1, p0, Lcom/android/systemui/statusbar/StatusBarStateControllerImpl$HistoricalState;->mTimestamp:J
+
+    iput-boolean p3, p0, Lcom/android/systemui/statusbar/StatusBarStateControllerImpl$HistoricalState;->mUpcoming:Z
 
     return-void
 .end method
@@ -1087,70 +1103,6 @@
     return-void
 .end method
 
-.method public setFullscreenState(Z)V
-    .locals 3
-
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/StatusBarStateControllerImpl;->mIsFullscreen:Z
-
-    if-eq v0, p1, :cond_1
-
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/StatusBarStateControllerImpl;->mIsFullscreen:Z
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarStateControllerImpl;->mListeners:Ljava/util/ArrayList;
-
-    monitor-enter v0
-
-    :try_start_0
-    new-instance v1, Ljava/util/ArrayList;
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/StatusBarStateControllerImpl;->mListeners:Ljava/util/ArrayList;
-
-    invoke-direct {v1, p0}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
-
-    invoke-virtual {v1}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
-
-    move-result-object p0
-
-    :goto_0
-    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/android/systemui/statusbar/SysuiStatusBarStateController$RankedListener;
-
-    iget-object v1, v1, Lcom/android/systemui/statusbar/SysuiStatusBarStateController$RankedListener;->mListener:Lcom/android/systemui/plugins/statusbar/StatusBarStateController$StateListener;
-
-    const/4 v2, 0x1
-
-    invoke-interface {v1, p1, v2}, Lcom/android/systemui/plugins/statusbar/StatusBarStateController$StateListener;->onFullscreenStateChanged(ZZ)V
-
-    goto :goto_0
-
-    :cond_0
-    monitor-exit v0
-
-    goto :goto_1
-
-    :catchall_0
-    move-exception p0
-
-    monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw p0
-
-    :cond_1
-    :goto_1
-    return-void
-.end method
-
 .method public setIsDozing(Z)Z
     .locals 3
 
@@ -1402,20 +1354,20 @@
 
     if-ltz p1, :cond_5
 
+    const/4 v0, 0x0
+
     if-nez p2, :cond_0
 
     iget p2, p0, Lcom/android/systemui/statusbar/StatusBarStateControllerImpl;->mState:I
 
     if-ne p1, p2, :cond_0
 
-    const/4 p0, 0x0
-
-    return p0
+    return v0
 
     :cond_0
     iget p2, p0, Lcom/android/systemui/statusbar/StatusBarStateControllerImpl;->mState:I
 
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/statusbar/StatusBarStateControllerImpl;->recordHistoricalState(II)V
+    invoke-direct {p0, p1, p2, v0}, Lcom/android/systemui/statusbar/StatusBarStateControllerImpl;->recordHistoricalState(IIZ)V
 
     iget p2, p0, Lcom/android/systemui/statusbar/StatusBarStateControllerImpl;->mState:I
 
@@ -1618,10 +1570,171 @@
     throw p0
 .end method
 
+.method public setSystemBarAttributes(IILandroid/view/InsetsVisibilities;Ljava/lang/String;)V
+    .locals 5
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p3, v0}, Landroid/view/InsetsVisibilities;->getVisibility(I)Z
+
+    move-result v1
+
+    const/4 v2, 0x1
+
+    if-eqz v1, :cond_1
+
+    invoke-virtual {p3, v2}, Landroid/view/InsetsVisibilities;->getVisibility(I)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    move v1, v0
+
+    goto :goto_1
+
+    :cond_1
+    :goto_0
+    move v1, v2
+
+    :goto_1
+    iget-boolean v3, p0, Lcom/android/systemui/statusbar/StatusBarStateControllerImpl;->mIsFullscreen:Z
+
+    if-eq v3, v1, :cond_3
+
+    iput-boolean v1, p0, Lcom/android/systemui/statusbar/StatusBarStateControllerImpl;->mIsFullscreen:Z
+
+    iget-object v3, p0, Lcom/android/systemui/statusbar/StatusBarStateControllerImpl;->mListeners:Ljava/util/ArrayList;
+
+    monitor-enter v3
+
+    :try_start_0
+    new-instance v4, Ljava/util/ArrayList;
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/StatusBarStateControllerImpl;->mListeners:Ljava/util/ArrayList;
+
+    invoke-direct {v4, p0}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
+
+    invoke-virtual {v4}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object p0
+
+    :goto_2
+    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_2
+
+    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Lcom/android/systemui/statusbar/SysuiStatusBarStateController$RankedListener;
+
+    iget-object v4, v4, Lcom/android/systemui/statusbar/SysuiStatusBarStateController$RankedListener;->mListener:Lcom/android/systemui/plugins/statusbar/StatusBarStateController$StateListener;
+
+    invoke-interface {v4, v1}, Lcom/android/systemui/plugins/statusbar/StatusBarStateController$StateListener;->onFullscreenStateChanged(Z)V
+
+    goto :goto_2
+
+    :cond_2
+    monitor-exit v3
+
+    goto :goto_3
+
+    :catchall_0
+    move-exception p0
+
+    monitor-exit v3
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw p0
+
+    :cond_3
+    :goto_3
+    sget-boolean p0, Lcom/android/systemui/statusbar/StatusBarStateControllerImpl;->DEBUG_IMMERSIVE_APPS:Z
+
+    if-eqz p0, :cond_6
+
+    and-int/lit8 p0, p1, 0x4
+
+    if-eqz p0, :cond_4
+
+    move v0, v2
+
+    :cond_4
+    const-class p0, Landroid/view/InsetsFlags;
+
+    const-string p1, "behavior"
+
+    invoke-static {p0, p1, p2}, Landroid/view/ViewDebug;->flagsToString(Ljava/lang/Class;Ljava/lang/String;I)Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-virtual {p3}, Landroid/view/InsetsVisibilities;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/String;->isEmpty()Z
+
+    move-result p2
+
+    if-eqz p2, :cond_5
+
+    const-string p1, "none"
+
+    :cond_5
+    const-string p2, "SbStateController"
+
+    new-instance p3, Ljava/lang/StringBuilder;
+
+    invoke-direct {p3}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {p3, p4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string p4, " dim="
+
+    invoke-virtual {p3, p4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p3, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    const-string p4, " behavior="
+
+    invoke-virtual {p3, p4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p3, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string p0, " requested visibilities: "
+
+    invoke-virtual {p3, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-static {p2, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_6
+    return-void
+.end method
+
 .method public setUpcomingState(I)V
-    .locals 0
+    .locals 2
 
     iput p1, p0, Lcom/android/systemui/statusbar/StatusBarStateControllerImpl;->mUpcomingState:I
+
+    iget v0, p0, Lcom/android/systemui/statusbar/StatusBarStateControllerImpl;->mState:I
+
+    const/4 v1, 0x1
+
+    invoke-direct {p0, p1, v0, v1}, Lcom/android/systemui/statusbar/StatusBarStateControllerImpl;->recordHistoricalState(IIZ)V
 
     return-void
 .end method

@@ -2,7 +2,7 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Ljava/util/function/Supplier;
+.implements Ljava/lang/Runnable;
 
 
 # instance fields
@@ -22,18 +22,12 @@
 
 
 # virtual methods
-.method public final get()Ljava/lang/Object;
+.method public final run()V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController$$ExternalSyntheticLambda3;->f$0:Lcom/android/systemui/statusbar/KeyguardIndicationController;
 
-    invoke-static {p0}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->$r8$lambda$_EbDkTOKzRYp9bqhb01jE2aOQq0(Lcom/android/systemui/statusbar/KeyguardIndicationController;)Z
+    invoke-static {p0}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->$r8$lambda$Rjy1BvqiS6RmZ9lFMvmTiQFVpMo(Lcom/android/systemui/statusbar/KeyguardIndicationController;)V
 
-    move-result p0
-
-    invoke-static {p0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object p0
-
-    return-object p0
+    return-void
 .end method

@@ -108,7 +108,7 @@
 
     invoke-direct {p1, p2, v0}, Landroid/app/Dialog;-><init>(Landroid/content/Context;I)V
 
-    const p2, 0x10201a6
+    const p2, 0x10201a9
 
     invoke-virtual {p1, p2}, Landroid/app/Dialog;->findViewById(I)Landroid/view/View;
 

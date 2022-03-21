@@ -2,7 +2,7 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Lcom/android/systemui/util/sensors/ThresholdSensor$Listener;
+.implements Lcom/android/systemui/statusbar/policy/DevicePostureController$Callback;
 
 
 # instance fields
@@ -22,12 +22,12 @@
 
 
 # virtual methods
-.method public final onThresholdCrossed(Lcom/android/systemui/util/sensors/ThresholdSensor$ThresholdSensorEvent;)V
+.method public final onPostureChanged(I)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/doze/DozeSensors$$ExternalSyntheticLambda0;->f$0:Lcom/android/systemui/doze/DozeSensors;
 
-    invoke-static {p0, p1}, Lcom/android/systemui/doze/DozeSensors;->$r8$lambda$N4YrYDoXTRYK88tngl6eFyEj_Pk(Lcom/android/systemui/doze/DozeSensors;Lcom/android/systemui/util/sensors/ThresholdSensor$ThresholdSensorEvent;)V
+    invoke-static {p0, p1}, Lcom/android/systemui/doze/DozeSensors;->$r8$lambda$VQjohpwsnLQ5JraKYCVNTU2ST1U(Lcom/android/systemui/doze/DozeSensors;I)V
 
     return-void
 .end method

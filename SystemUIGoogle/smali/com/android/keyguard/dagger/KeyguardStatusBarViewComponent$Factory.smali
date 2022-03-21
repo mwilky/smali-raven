@@ -15,5 +15,5 @@
 
 
 # virtual methods
-.method public abstract build(Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;)Lcom/android/keyguard/dagger/KeyguardStatusBarViewComponent;
+.method public abstract build(Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$NotificationPanelViewStateProvider;)Lcom/android/keyguard/dagger/KeyguardStatusBarViewComponent;
 .end method

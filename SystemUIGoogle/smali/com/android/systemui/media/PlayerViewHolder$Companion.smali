@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public final create(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;)Lcom/android/systemui/media/PlayerViewHolder;
-    .locals 1
+    .locals 2
 
     const-string p0, "inflater"
 
@@ -52,17 +52,21 @@
 
     move-result-object p0
 
+    const/4 p1, 0x2
+
+    const/4 p2, 0x0
+
+    invoke-virtual {p0, p1, p2}, Landroid/view/View;->setLayerType(ILandroid/graphics/Paint;)V
+
     const/4 p1, 0x3
 
     invoke-virtual {p0, p1}, Landroid/view/View;->setLayoutDirection(I)V
 
     new-instance p1, Lcom/android/systemui/media/PlayerViewHolder;
 
-    const-string p2, "mediaView"
+    const-string v1, "mediaView"
 
-    invoke-static {p0, p2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const/4 p2, 0x0
+    invoke-static {p0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
     invoke-direct {p1, p0, p2}, Lcom/android/systemui/media/PlayerViewHolder;-><init>(Landroid/view/View;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 

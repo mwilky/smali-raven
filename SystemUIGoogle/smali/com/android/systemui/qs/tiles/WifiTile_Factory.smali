@@ -22,7 +22,7 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/policy/NetworkController$AccessPointController;",
+            "Lcom/android/systemui/statusbar/connectivity/AccessPointController;",
             ">;"
         }
     .end annotation
@@ -92,7 +92,7 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/policy/NetworkController;",
+            "Lcom/android/systemui/statusbar/connectivity/NetworkController;",
             ">;"
         }
     .end annotation
@@ -150,10 +150,10 @@
             "Lcom/android/systemui/qs/logging/QSLogger;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/policy/NetworkController;",
+            "Lcom/android/systemui/statusbar/connectivity/NetworkController;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/policy/NetworkController$AccessPointController;",
+            "Lcom/android/systemui/statusbar/connectivity/AccessPointController;",
             ">;)V"
         }
     .end annotation
@@ -213,10 +213,10 @@
             "Lcom/android/systemui/qs/logging/QSLogger;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/policy/NetworkController;",
+            "Lcom/android/systemui/statusbar/connectivity/NetworkController;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/policy/NetworkController$AccessPointController;",
+            "Lcom/android/systemui/statusbar/connectivity/AccessPointController;",
             ">;)",
             "Lcom/android/systemui/qs/tiles/WifiTile_Factory;"
         }
@@ -251,7 +251,7 @@
     return-object v11
 .end method
 
-.method public static newInstance(Lcom/android/systemui/qs/QSHost;Landroid/os/Looper;Landroid/os/Handler;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/systemui/statusbar/policy/NetworkController;Lcom/android/systemui/statusbar/policy/NetworkController$AccessPointController;)Lcom/android/systemui/qs/tiles/WifiTile;
+.method public static newInstance(Lcom/android/systemui/qs/QSHost;Landroid/os/Looper;Landroid/os/Handler;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/systemui/statusbar/connectivity/NetworkController;Lcom/android/systemui/statusbar/connectivity/AccessPointController;)Lcom/android/systemui/qs/tiles/WifiTile;
     .locals 12
 
     new-instance v11, Lcom/android/systemui/qs/tiles/WifiTile;
@@ -278,7 +278,7 @@
 
     move-object/from16 v10, p9
 
-    invoke-direct/range {v0 .. v10}, Lcom/android/systemui/qs/tiles/WifiTile;-><init>(Lcom/android/systemui/qs/QSHost;Landroid/os/Looper;Landroid/os/Handler;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/systemui/statusbar/policy/NetworkController;Lcom/android/systemui/statusbar/policy/NetworkController$AccessPointController;)V
+    invoke-direct/range {v0 .. v10}, Lcom/android/systemui/qs/tiles/WifiTile;-><init>(Lcom/android/systemui/qs/QSHost;Landroid/os/Looper;Landroid/os/Handler;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/systemui/statusbar/connectivity/NetworkController;Lcom/android/systemui/statusbar/connectivity/AccessPointController;)V
 
     return-object v11
 .end method
@@ -376,7 +376,7 @@
 
     move-object v9, v0
 
-    check-cast v9, Lcom/android/systemui/statusbar/policy/NetworkController;
+    check-cast v9, Lcom/android/systemui/statusbar/connectivity/NetworkController;
 
     iget-object p0, p0, Lcom/android/systemui/qs/tiles/WifiTile_Factory;->accessPointControllerProvider:Ljavax/inject/Provider;
 
@@ -386,9 +386,9 @@
 
     move-object v10, p0
 
-    check-cast v10, Lcom/android/systemui/statusbar/policy/NetworkController$AccessPointController;
+    check-cast v10, Lcom/android/systemui/statusbar/connectivity/AccessPointController;
 
-    invoke-static/range {v1 .. v10}, Lcom/android/systemui/qs/tiles/WifiTile_Factory;->newInstance(Lcom/android/systemui/qs/QSHost;Landroid/os/Looper;Landroid/os/Handler;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/systemui/statusbar/policy/NetworkController;Lcom/android/systemui/statusbar/policy/NetworkController$AccessPointController;)Lcom/android/systemui/qs/tiles/WifiTile;
+    invoke-static/range {v1 .. v10}, Lcom/android/systemui/qs/tiles/WifiTile_Factory;->newInstance(Lcom/android/systemui/qs/QSHost;Landroid/os/Looper;Landroid/os/Handler;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/systemui/statusbar/connectivity/NetworkController;Lcom/android/systemui/statusbar/connectivity/AccessPointController;)Lcom/android/systemui/qs/tiles/WifiTile;
 
     move-result-object p0
 

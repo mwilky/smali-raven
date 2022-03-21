@@ -231,7 +231,7 @@
 
     new-instance p0, Landroid/graphics/ColorMatrixColorFilter;
 
-    invoke-direct {p0, v0}, Landroid/graphics/ColorMatrixColorFilter;-><init>(Landroid/graphics/ColorMatrix;)V
+    invoke-direct {p0, v1}, Landroid/graphics/ColorMatrixColorFilter;-><init>(Landroid/graphics/ColorMatrix;)V
 
     return-object p0
 .end method

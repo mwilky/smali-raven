@@ -43,9 +43,27 @@
 
     iget-object v0, p0, Lcom/google/android/systemui/smartspace/KeyguardZenAlarmViewController$init$1;->this$0:Lcom/google/android/systemui/smartspace/KeyguardZenAlarmViewController;
 
+    invoke-virtual {v0}, Lcom/google/android/systemui/smartspace/KeyguardZenAlarmViewController;->getSmartspaceViews()Ljava/util/Set;
+
+    move-result-object v0
+
     check-cast p1, Lcom/android/systemui/plugins/BcSmartspaceDataPlugin$SmartspaceView;
 
-    invoke-virtual {v0, p1}, Lcom/google/android/systemui/smartspace/KeyguardZenAlarmViewController;->setSmartspaceView(Lcom/android/systemui/plugins/BcSmartspaceDataPlugin$SmartspaceView;)V
+    invoke-interface {v0, p1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    iget-object p1, p0, Lcom/google/android/systemui/smartspace/KeyguardZenAlarmViewController$init$1;->this$0:Lcom/google/android/systemui/smartspace/KeyguardZenAlarmViewController;
+
+    invoke-virtual {p1}, Lcom/google/android/systemui/smartspace/KeyguardZenAlarmViewController;->getSmartspaceViews()Ljava/util/Set;
+
+    move-result-object p1
+
+    invoke-interface {p1}, Ljava/util/Set;->size()I
+
+    move-result p1
+
+    const/4 v0, 0x1
+
+    if-ne p1, v0, :cond_0
 
     iget-object p1, p0, Lcom/google/android/systemui/smartspace/KeyguardZenAlarmViewController$init$1;->this$0:Lcom/google/android/systemui/smartspace/KeyguardZenAlarmViewController;
 
@@ -75,6 +93,7 @@
 
     invoke-interface {p1, v0}, Lcom/android/systemui/statusbar/policy/CallbackController;->addCallback(Ljava/lang/Object;)V
 
+    :cond_0
     iget-object p0, p0, Lcom/google/android/systemui/smartspace/KeyguardZenAlarmViewController$init$1;->this$0:Lcom/google/android/systemui/smartspace/KeyguardZenAlarmViewController;
 
     invoke-static {p0}, Lcom/google/android/systemui/smartspace/KeyguardZenAlarmViewController;->access$refresh(Lcom/google/android/systemui/smartspace/KeyguardZenAlarmViewController;)V
@@ -89,11 +108,27 @@
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
+    iget-object v0, p0, Lcom/google/android/systemui/smartspace/KeyguardZenAlarmViewController$init$1;->this$0:Lcom/google/android/systemui/smartspace/KeyguardZenAlarmViewController;
+
+    invoke-virtual {v0}, Lcom/google/android/systemui/smartspace/KeyguardZenAlarmViewController;->getSmartspaceViews()Ljava/util/Set;
+
+    move-result-object v0
+
+    check-cast p1, Lcom/android/systemui/plugins/BcSmartspaceDataPlugin$SmartspaceView;
+
+    invoke-interface {v0, p1}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
+
     iget-object p1, p0, Lcom/google/android/systemui/smartspace/KeyguardZenAlarmViewController$init$1;->this$0:Lcom/google/android/systemui/smartspace/KeyguardZenAlarmViewController;
 
-    const/4 v0, 0x0
+    invoke-virtual {p1}, Lcom/google/android/systemui/smartspace/KeyguardZenAlarmViewController;->getSmartspaceViews()Ljava/util/Set;
 
-    invoke-virtual {p1, v0}, Lcom/google/android/systemui/smartspace/KeyguardZenAlarmViewController;->setSmartspaceView(Lcom/android/systemui/plugins/BcSmartspaceDataPlugin$SmartspaceView;)V
+    move-result-object p1
+
+    invoke-interface {p1}, Ljava/util/Set;->isEmpty()Z
+
+    move-result p1
+
+    if-eqz p1, :cond_0
 
     iget-object p1, p0, Lcom/google/android/systemui/smartspace/KeyguardZenAlarmViewController$init$1;->this$0:Lcom/google/android/systemui/smartspace/KeyguardZenAlarmViewController;
 
@@ -123,5 +158,6 @@
 
     invoke-interface {p1, p0}, Lcom/android/systemui/statusbar/policy/CallbackController;->removeCallback(Ljava/lang/Object;)V
 
+    :cond_0
     return-void
 .end method

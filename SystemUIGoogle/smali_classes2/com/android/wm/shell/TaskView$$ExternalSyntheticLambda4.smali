@@ -27,7 +27,7 @@
 
     iget-object p0, p0, Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda4;->f$0:Lcom/android/wm/shell/TaskView;
 
-    invoke-static {p0}, Lcom/android/wm/shell/TaskView;->$r8$lambda$sVBaWhz9L005LnajRQ9JcFFjsyo(Lcom/android/wm/shell/TaskView;)V
+    invoke-static {p0}, Lcom/android/wm/shell/TaskView;->$r8$lambda$cg3PbrUIUMCTEvDPvu-OUPjsetY(Lcom/android/wm/shell/TaskView;)V
 
     return-void
 .end method

@@ -68,11 +68,21 @@
     .end annotation
 .end field
 
-.field private final featureFlagsProvider:Ljavax/inject/Provider;
+.field private final interactionJankMonitorProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
+            "Lcom/android/internal/jank/InteractionJankMonitor;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private final latencyTrackerProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/internal/util/LatencyTracker;",
             ">;"
         }
     .end annotation
@@ -83,6 +93,16 @@
         value = {
             "Ljavax/inject/Provider<",
             "Lcom/android/internal/widget/LockPatternUtils;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private final mainExecutorProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Ljava/util/concurrent/Executor;",
             ">;"
         }
     .end annotation
@@ -128,19 +148,9 @@
     .end annotation
 .end field
 
-.field private final vibratorProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Landroid/os/Vibrator;",
-            ">;"
-        }
-    .end annotation
-.end field
-
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -164,6 +174,9 @@
             "Ljava/util/concurrent/Executor;",
             ">;",
             "Ljavax/inject/Provider<",
+            "Ljava/util/concurrent/Executor;",
+            ">;",
+            "Ljavax/inject/Provider<",
             "Lcom/android/systemui/plugins/statusbar/StatusBarStateController;",
             ">;",
             "Ljavax/inject/Provider<",
@@ -176,10 +189,10 @@
             "Lcom/android/systemui/telephony/TelephonyListenerManager;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
+            "Lcom/android/internal/jank/InteractionJankMonitor;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Landroid/os/Vibrator;",
+            "Lcom/android/internal/util/LatencyTracker;",
             ">;)V"
         }
     .end annotation
@@ -198,23 +211,25 @@
 
     iput-object p6, p0, Lcom/android/keyguard/KeyguardUpdateMonitor_Factory;->backgroundExecutorProvider:Ljavax/inject/Provider;
 
-    iput-object p7, p0, Lcom/android/keyguard/KeyguardUpdateMonitor_Factory;->statusBarStateControllerProvider:Ljavax/inject/Provider;
+    iput-object p7, p0, Lcom/android/keyguard/KeyguardUpdateMonitor_Factory;->mainExecutorProvider:Ljavax/inject/Provider;
 
-    iput-object p8, p0, Lcom/android/keyguard/KeyguardUpdateMonitor_Factory;->lockPatternUtilsProvider:Ljavax/inject/Provider;
+    iput-object p8, p0, Lcom/android/keyguard/KeyguardUpdateMonitor_Factory;->statusBarStateControllerProvider:Ljavax/inject/Provider;
 
-    iput-object p9, p0, Lcom/android/keyguard/KeyguardUpdateMonitor_Factory;->authControllerProvider:Ljavax/inject/Provider;
+    iput-object p9, p0, Lcom/android/keyguard/KeyguardUpdateMonitor_Factory;->lockPatternUtilsProvider:Ljavax/inject/Provider;
 
-    iput-object p10, p0, Lcom/android/keyguard/KeyguardUpdateMonitor_Factory;->telephonyListenerManagerProvider:Ljavax/inject/Provider;
+    iput-object p10, p0, Lcom/android/keyguard/KeyguardUpdateMonitor_Factory;->authControllerProvider:Ljavax/inject/Provider;
 
-    iput-object p11, p0, Lcom/android/keyguard/KeyguardUpdateMonitor_Factory;->featureFlagsProvider:Ljavax/inject/Provider;
+    iput-object p11, p0, Lcom/android/keyguard/KeyguardUpdateMonitor_Factory;->telephonyListenerManagerProvider:Ljavax/inject/Provider;
 
-    iput-object p12, p0, Lcom/android/keyguard/KeyguardUpdateMonitor_Factory;->vibratorProvider:Ljavax/inject/Provider;
+    iput-object p12, p0, Lcom/android/keyguard/KeyguardUpdateMonitor_Factory;->interactionJankMonitorProvider:Ljavax/inject/Provider;
+
+    iput-object p13, p0, Lcom/android/keyguard/KeyguardUpdateMonitor_Factory;->latencyTrackerProvider:Ljavax/inject/Provider;
 
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/keyguard/KeyguardUpdateMonitor_Factory;
-    .locals 14
+.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/keyguard/KeyguardUpdateMonitor_Factory;
+    .locals 15
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -237,6 +252,9 @@
             "Ljava/util/concurrent/Executor;",
             ">;",
             "Ljavax/inject/Provider<",
+            "Ljava/util/concurrent/Executor;",
+            ">;",
+            "Ljavax/inject/Provider<",
             "Lcom/android/systemui/plugins/statusbar/StatusBarStateController;",
             ">;",
             "Ljavax/inject/Provider<",
@@ -249,22 +267,22 @@
             "Lcom/android/systemui/telephony/TelephonyListenerManager;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
+            "Lcom/android/internal/jank/InteractionJankMonitor;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Landroid/os/Vibrator;",
+            "Lcom/android/internal/util/LatencyTracker;",
             ">;)",
             "Lcom/android/keyguard/KeyguardUpdateMonitor_Factory;"
         }
     .end annotation
 
-    new-instance v13, Lcom/android/keyguard/KeyguardUpdateMonitor_Factory;
+    new-instance v14, Lcom/android/keyguard/KeyguardUpdateMonitor_Factory;
 
-    move-object v0, v13
+    move-object v0, v14
 
     move-object v1, p0
 
-    move-object v2, p1
+    move-object/from16 v2, p1
 
     move-object/from16 v3, p2
 
@@ -286,21 +304,23 @@
 
     move-object/from16 v12, p11
 
-    invoke-direct/range {v0 .. v12}, Lcom/android/keyguard/KeyguardUpdateMonitor_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+    move-object/from16 v13, p12
 
-    return-object v13
+    invoke-direct/range {v0 .. v13}, Lcom/android/keyguard/KeyguardUpdateMonitor_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+
+    return-object v14
 .end method
 
-.method public static newInstance(Landroid/content/Context;Landroid/os/Looper;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/dump/DumpManager;Lcom/android/systemui/util/RingerModeTracker;Ljava/util/concurrent/Executor;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/internal/widget/LockPatternUtils;Lcom/android/systemui/biometrics/AuthController;Lcom/android/systemui/telephony/TelephonyListenerManager;Lcom/android/systemui/statusbar/FeatureFlags;Landroid/os/Vibrator;)Lcom/android/keyguard/KeyguardUpdateMonitor;
-    .locals 14
+.method public static newInstance(Landroid/content/Context;Landroid/os/Looper;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/dump/DumpManager;Lcom/android/systemui/util/RingerModeTracker;Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/internal/widget/LockPatternUtils;Lcom/android/systemui/biometrics/AuthController;Lcom/android/systemui/telephony/TelephonyListenerManager;Lcom/android/internal/jank/InteractionJankMonitor;Lcom/android/internal/util/LatencyTracker;)Lcom/android/keyguard/KeyguardUpdateMonitor;
+    .locals 15
 
-    new-instance v13, Lcom/android/keyguard/KeyguardUpdateMonitor;
+    new-instance v14, Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    move-object v0, v13
+    move-object v0, v14
 
     move-object v1, p0
 
-    move-object v2, p1
+    move-object/from16 v2, p1
 
     move-object/from16 v3, p2
 
@@ -322,15 +342,17 @@
 
     move-object/from16 v12, p11
 
-    invoke-direct/range {v0 .. v12}, Lcom/android/keyguard/KeyguardUpdateMonitor;-><init>(Landroid/content/Context;Landroid/os/Looper;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/dump/DumpManager;Lcom/android/systemui/util/RingerModeTracker;Ljava/util/concurrent/Executor;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/internal/widget/LockPatternUtils;Lcom/android/systemui/biometrics/AuthController;Lcom/android/systemui/telephony/TelephonyListenerManager;Lcom/android/systemui/statusbar/FeatureFlags;Landroid/os/Vibrator;)V
+    move-object/from16 v13, p12
 
-    return-object v13
+    invoke-direct/range {v0 .. v13}, Lcom/android/keyguard/KeyguardUpdateMonitor;-><init>(Landroid/content/Context;Landroid/os/Looper;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/dump/DumpManager;Lcom/android/systemui/util/RingerModeTracker;Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/internal/widget/LockPatternUtils;Lcom/android/systemui/biometrics/AuthController;Lcom/android/systemui/telephony/TelephonyListenerManager;Lcom/android/internal/jank/InteractionJankMonitor;Lcom/android/internal/util/LatencyTracker;)V
+
+    return-object v14
 .end method
 
 
 # virtual methods
 .method public get()Lcom/android/keyguard/KeyguardUpdateMonitor;
-    .locals 13
+    .locals 14
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor_Factory;->contextProvider:Ljavax/inject/Provider;
 
@@ -392,7 +414,7 @@
 
     check-cast v6, Ljava/util/concurrent/Executor;
 
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor_Factory;->statusBarStateControllerProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor_Factory;->mainExecutorProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -400,9 +422,9 @@
 
     move-object v7, v0
 
-    check-cast v7, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
+    check-cast v7, Ljava/util/concurrent/Executor;
 
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor_Factory;->lockPatternUtilsProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor_Factory;->statusBarStateControllerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -410,9 +432,9 @@
 
     move-object v8, v0
 
-    check-cast v8, Lcom/android/internal/widget/LockPatternUtils;
+    check-cast v8, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
 
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor_Factory;->authControllerProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor_Factory;->lockPatternUtilsProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -420,9 +442,9 @@
 
     move-object v9, v0
 
-    check-cast v9, Lcom/android/systemui/biometrics/AuthController;
+    check-cast v9, Lcom/android/internal/widget/LockPatternUtils;
 
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor_Factory;->telephonyListenerManagerProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor_Factory;->authControllerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -430,9 +452,9 @@
 
     move-object v10, v0
 
-    check-cast v10, Lcom/android/systemui/telephony/TelephonyListenerManager;
+    check-cast v10, Lcom/android/systemui/biometrics/AuthController;
 
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor_Factory;->featureFlagsProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor_Factory;->telephonyListenerManagerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -440,19 +462,29 @@
 
     move-object v11, v0
 
-    check-cast v11, Lcom/android/systemui/statusbar/FeatureFlags;
+    check-cast v11, Lcom/android/systemui/telephony/TelephonyListenerManager;
 
-    iget-object p0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor_Factory;->vibratorProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor_Factory;->interactionJankMonitorProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v12, v0
+
+    check-cast v12, Lcom/android/internal/jank/InteractionJankMonitor;
+
+    iget-object p0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor_Factory;->latencyTrackerProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object p0
 
-    move-object v12, p0
+    move-object v13, p0
 
-    check-cast v12, Landroid/os/Vibrator;
+    check-cast v13, Lcom/android/internal/util/LatencyTracker;
 
-    invoke-static/range {v1 .. v12}, Lcom/android/keyguard/KeyguardUpdateMonitor_Factory;->newInstance(Landroid/content/Context;Landroid/os/Looper;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/dump/DumpManager;Lcom/android/systemui/util/RingerModeTracker;Ljava/util/concurrent/Executor;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/internal/widget/LockPatternUtils;Lcom/android/systemui/biometrics/AuthController;Lcom/android/systemui/telephony/TelephonyListenerManager;Lcom/android/systemui/statusbar/FeatureFlags;Landroid/os/Vibrator;)Lcom/android/keyguard/KeyguardUpdateMonitor;
+    invoke-static/range {v1 .. v13}, Lcom/android/keyguard/KeyguardUpdateMonitor_Factory;->newInstance(Landroid/content/Context;Landroid/os/Looper;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/dump/DumpManager;Lcom/android/systemui/util/RingerModeTracker;Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/internal/widget/LockPatternUtils;Lcom/android/systemui/biometrics/AuthController;Lcom/android/systemui/telephony/TelephonyListenerManager;Lcom/android/internal/jank/InteractionJankMonitor;Lcom/android/internal/util/LatencyTracker;)Lcom/android/keyguard/KeyguardUpdateMonitor;
 
     move-result-object p0
 

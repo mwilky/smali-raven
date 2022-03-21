@@ -275,7 +275,7 @@
 
     new-instance v1, Lcom/android/systemui/statusbar/notification/row/NotificationContentInflater$AsyncInflationTask$RtlEnabledContext;
 
-    invoke-direct {v1, p0, v0, p1}, Lcom/android/systemui/statusbar/notification/row/NotificationContentInflater$AsyncInflationTask$RtlEnabledContext;-><init>(Lcom/android/systemui/statusbar/notification/row/NotificationContentInflater$AsyncInflationTask;Landroid/content/Context;Lcom/android/systemui/statusbar/notification/row/NotificationContentInflater$1;)V
+    invoke-direct {v1, v0, p1}, Lcom/android/systemui/statusbar/notification/row/NotificationContentInflater$AsyncInflationTask$RtlEnabledContext;-><init>(Landroid/content/Context;Lcom/android/systemui/statusbar/notification/row/NotificationContentInflater$1;)V
 
     move-object v0, v1
 

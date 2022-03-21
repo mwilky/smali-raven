@@ -33,20 +33,30 @@
 
 .field private mDialog:Landroid/app/Dialog;
 
+.field private final mDialogLaunchAnimator:Lcom/android/systemui/animation/DialogLaunchAnimator;
+
 .field private final mHotspotCallback:Lcom/android/systemui/statusbar/policy/HotspotController$Callback;
 
 .field private mHotspotConnected:Z
 
 .field private final mKeyguard:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
 
-.field private final mNetworkController:Lcom/android/systemui/statusbar/policy/NetworkController;
+.field private final mNetworkController:Lcom/android/systemui/statusbar/connectivity/NetworkController;
 
-.field private final mSignalCallback:Lcom/android/systemui/statusbar/policy/NetworkController$SignalCallback;
+.field private final mSignalCallback:Lcom/android/systemui/statusbar/connectivity/SignalCallback;
 
 .field private mWifiConnected:Z
 
 
 # direct methods
+.method public static synthetic $r8$lambda$Ci0Hgnh6nF53zpCxOEYFcfTxg6Y(Lcom/android/systemui/qs/tiles/CastTile;Landroid/view/View;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/systemui/qs/tiles/CastTile;->lambda$showDetail$3(Landroid/view/View;)V
+
+    return-void
+.end method
+
 .method public static synthetic $r8$lambda$FdJ_pEd_DiDup5alS3-AlwlwBu8(Lcom/android/systemui/qs/tiles/CastTile;Landroid/view/View;)V
     .locals 0
 
@@ -55,26 +65,18 @@
     return-void
 .end method
 
+.method public static synthetic $r8$lambda$HO5m9FNj4-CxCDVWUoKi_-MZ-CU(Lcom/android/systemui/qs/tiles/CastTile;Landroid/view/View;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/systemui/qs/tiles/CastTile;->lambda$showDetail$2(Landroid/view/View;)V
+
+    return-void
+.end method
+
 .method public static synthetic $r8$lambda$POKuZwVyiRf3tLhQTpY7DkkBWxw(Lcom/android/systemui/qs/tiles/CastTile;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/systemui/qs/tiles/CastTile;->lambda$handleClick$0()V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$dT84btF5gdDzkAAN7098keb-7ec(Lcom/android/systemui/qs/tiles/CastTile;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/CastTile;->lambda$showDetail$3()V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$mrULPY1YjGT2BnkGLyRdpitTR2g(Lcom/android/systemui/qs/tiles/CastTile;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/CastTile;->lambda$showDetail$2()V
 
     return-void
 .end method
@@ -93,7 +95,7 @@
     return-void
 .end method
 
-.method public constructor <init>(Lcom/android/systemui/qs/QSHost;Landroid/os/Looper;Landroid/os/Handler;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/systemui/statusbar/policy/CastController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/statusbar/policy/NetworkController;Lcom/android/systemui/statusbar/policy/HotspotController;)V
+.method public constructor <init>(Lcom/android/systemui/qs/QSHost;Landroid/os/Looper;Landroid/os/Handler;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/systemui/statusbar/policy/CastController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/statusbar/connectivity/NetworkController;Lcom/android/systemui/statusbar/policy/HotspotController;Lcom/android/systemui/animation/DialogLaunchAnimator;)V
     .locals 0
 
     invoke-direct/range {p0 .. p8}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;-><init>(Lcom/android/systemui/qs/QSHost;Landroid/os/Looper;Landroid/os/Handler;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/qs/logging/QSLogger;)V
@@ -110,7 +112,7 @@
 
     invoke-direct {p3, p0}, Lcom/android/systemui/qs/tiles/CastTile$1;-><init>(Lcom/android/systemui/qs/tiles/CastTile;)V
 
-    iput-object p3, p0, Lcom/android/systemui/qs/tiles/CastTile;->mSignalCallback:Lcom/android/systemui/statusbar/policy/NetworkController$SignalCallback;
+    iput-object p3, p0, Lcom/android/systemui/qs/tiles/CastTile;->mSignalCallback:Lcom/android/systemui/statusbar/connectivity/SignalCallback;
 
     new-instance p4, Lcom/android/systemui/qs/tiles/CastTile$2;
 
@@ -128,7 +130,9 @@
 
     iput-object p10, p0, Lcom/android/systemui/qs/tiles/CastTile;->mKeyguard:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
 
-    iput-object p11, p0, Lcom/android/systemui/qs/tiles/CastTile;->mNetworkController:Lcom/android/systemui/statusbar/policy/NetworkController;
+    iput-object p11, p0, Lcom/android/systemui/qs/tiles/CastTile;->mNetworkController:Lcom/android/systemui/statusbar/connectivity/NetworkController;
+
+    iput-object p13, p0, Lcom/android/systemui/qs/tiles/CastTile;->mDialogLaunchAnimator:Lcom/android/systemui/animation/DialogLaunchAnimator;
 
     invoke-interface {p9, p0, p1}, Lcom/android/systemui/statusbar/policy/CallbackController;->observe(Landroidx/lifecycle/LifecycleOwner;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -396,15 +400,19 @@
 .method private synthetic lambda$handleClick$0()V
     .locals 1
 
-    const/4 v0, 0x1
+    const/4 v0, 0x0
 
-    invoke-virtual {p0, v0}, Lcom/android/systemui/qs/tiles/CastTile;->showDetail(Z)V
+    invoke-direct {p0, v0}, Lcom/android/systemui/qs/tiles/CastTile;->showDetail(Landroid/view/View;)V
 
     return-void
 .end method
 
 .method private synthetic lambda$showDetail$1(Landroid/view/View;)V
     .locals 1
+
+    iget-object p1, p0, Lcom/android/systemui/qs/tiles/CastTile;->mDialogLaunchAnimator:Lcom/android/systemui/animation/DialogLaunchAnimator;
+
+    invoke-virtual {p1}, Lcom/android/systemui/animation/DialogLaunchAnimator;->disableAllCurrentDialogsExitAnimations()V
 
     iget-object p1, p0, Lcom/android/systemui/qs/tiles/CastTile;->mDialog:Landroid/app/Dialog;
 
@@ -423,17 +431,29 @@
     return-void
 .end method
 
-.method private synthetic lambda$showDetail$2()V
-    .locals 0
+.method private synthetic lambda$showDetail$2(Landroid/view/View;)V
+    .locals 1
 
+    if-eqz p1, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/CastTile;->mDialogLaunchAnimator:Lcom/android/systemui/animation/DialogLaunchAnimator;
+
+    iget-object p0, p0, Lcom/android/systemui/qs/tiles/CastTile;->mDialog:Landroid/app/Dialog;
+
+    invoke-virtual {v0, p0, p1}, Lcom/android/systemui/animation/DialogLaunchAnimator;->showFromView(Landroid/app/Dialog;Landroid/view/View;)V
+
+    goto :goto_0
+
+    :cond_0
     iget-object p0, p0, Lcom/android/systemui/qs/tiles/CastTile;->mDialog:Landroid/app/Dialog;
 
     invoke-virtual {p0}, Landroid/app/Dialog;->show()V
 
+    :goto_0
     return-void
 .end method
 
-.method private synthetic lambda$showDetail$3()V
+.method private synthetic lambda$showDetail$3(Landroid/view/View;)V
     .locals 3
 
     iget-object v0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mContext:Landroid/content/Context;
@@ -449,16 +469,6 @@
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/systemui/qs/tiles/CastTile;->mDialog:Landroid/app/Dialog;
-
-    invoke-virtual {v0}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
-
-    move-result-object v0
-
-    const/16 v1, 0x7d9
-
-    invoke-virtual {v0, v1}, Landroid/view/Window;->setType(I)V
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/CastTile;->mDialog:Landroid/app/Dialog;
 
     const/4 v1, 0x1
 
@@ -476,13 +486,23 @@
 
     new-instance v1, Lcom/android/systemui/qs/tiles/CastTile$$ExternalSyntheticLambda3;
 
-    invoke-direct {v1, p0}, Lcom/android/systemui/qs/tiles/CastTile$$ExternalSyntheticLambda3;-><init>(Lcom/android/systemui/qs/tiles/CastTile;)V
+    invoke-direct {v1, p0, p1}, Lcom/android/systemui/qs/tiles/CastTile$$ExternalSyntheticLambda3;-><init>(Lcom/android/systemui/qs/tiles/CastTile;Landroid/view/View;)V
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mHost:Lcom/android/systemui/qs/QSHost;
+    return-void
+.end method
 
-    invoke-interface {p0}, Lcom/android/systemui/qs/QSHost;->collapsePanels()V
+.method private showDetail(Landroid/view/View;)V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mUiHandler:Landroid/os/Handler;
+
+    new-instance v1, Lcom/android/systemui/qs/tiles/CastTile$$ExternalSyntheticLambda2;
+
+    invoke-direct {v1, p0, p1}, Lcom/android/systemui/qs/tiles/CastTile$$ExternalSyntheticLambda2;-><init>(Lcom/android/systemui/qs/tiles/CastTile;Landroid/view/View;)V
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     return-void
 .end method
@@ -593,31 +613,44 @@
 .end method
 
 .method protected handleClick(Landroid/view/View;)V
-    .locals 1
+    .locals 2
 
     invoke-virtual {p0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->getState()Lcom/android/systemui/plugins/qs/QSTile$State;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
+    check-cast v0, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
 
-    iget p1, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->state:I
+    iget v0, v0, Lcom/android/systemui/plugins/qs/QSTile$State;->state:I
 
-    if-nez p1, :cond_0
+    if-nez v0, :cond_0
 
     return-void
 
     :cond_0
     invoke-direct {p0}, Lcom/android/systemui/qs/tiles/CastTile;->getActiveDevices()Ljava/util/List;
 
-    move-result-object p1
+    move-result-object v0
 
     invoke-direct {p0}, Lcom/android/systemui/qs/tiles/CastTile;->willPopDetail()Z
 
+    move-result v1
+
+    if-eqz v1, :cond_2
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/CastTile;->mKeyguard:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
+
+    invoke-interface {v0}, Lcom/android/systemui/statusbar/policy/KeyguardStateController;->isShowing()Z
+
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-nez v0, :cond_1
 
+    invoke-direct {p0, p1}, Lcom/android/systemui/qs/tiles/CastTile;->showDetail(Landroid/view/View;)V
+
+    goto :goto_0
+
+    :cond_1
     iget-object p1, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mActivityStarter:Lcom/android/systemui/plugins/ActivityStarter;
 
     new-instance v0, Lcom/android/systemui/qs/tiles/CastTile$$ExternalSyntheticLambda1;
@@ -628,12 +661,12 @@
 
     goto :goto_0
 
-    :cond_1
+    :cond_2
     iget-object p0, p0, Lcom/android/systemui/qs/tiles/CastTile;->mController:Lcom/android/systemui/statusbar/policy/CastController;
 
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    invoke-interface {p1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v0, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object p1
 
@@ -1002,18 +1035,4 @@
     move-result-object p0
 
     return-object p0
-.end method
-
-.method public showDetail(Z)V
-    .locals 1
-
-    iget-object p1, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mUiHandler:Landroid/os/Handler;
-
-    new-instance v0, Lcom/android/systemui/qs/tiles/CastTile$$ExternalSyntheticLambda2;
-
-    invoke-direct {v0, p0}, Lcom/android/systemui/qs/tiles/CastTile$$ExternalSyntheticLambda2;-><init>(Lcom/android/systemui/qs/tiles/CastTile;)V
-
-    invoke-virtual {p1, v0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
-
-    return-void
 .end method

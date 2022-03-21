@@ -8,18 +8,18 @@
 # instance fields
 .field public final synthetic f$0:Lcom/android/systemui/recents/OverviewProxyService$1;
 
-.field public final synthetic f$1:Z
+.field public final synthetic f$1:I
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/systemui/recents/OverviewProxyService$1;Z)V
+.method public synthetic constructor <init>(Lcom/android/systemui/recents/OverviewProxyService$1;I)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda10;->f$0:Lcom/android/systemui/recents/OverviewProxyService$1;
 
-    iput-boolean p2, p0, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda10;->f$1:Z
+    iput p2, p0, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda10;->f$1:I
 
     return-void
 .end method
@@ -31,9 +31,9 @@
 
     iget-object v0, p0, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda10;->f$0:Lcom/android/systemui/recents/OverviewProxyService$1;
 
-    iget-boolean p0, p0, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda10;->f$1:Z
+    iget p0, p0, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda10;->f$1:I
 
-    invoke-static {v0, p0}, Lcom/android/systemui/recents/OverviewProxyService$1;->$r8$lambda$LH-44PafQiAaDgNB3OGPlnJdAqw(Lcom/android/systemui/recents/OverviewProxyService$1;Z)V
+    invoke-static {v0, p0}, Lcom/android/systemui/recents/OverviewProxyService$1;->$r8$lambda$sT3ZsYhx5pIH37WOnUN3PNAJShE(Lcom/android/systemui/recents/OverviewProxyService$1;I)V
 
     return-void
 .end method

@@ -46,6 +46,14 @@
     return-void
 .end method
 
+.method public static synthetic $r8$lambda$e6_XSg3m84Lwc4989V0A9MUakvI(Landroid/os/Bundle;Lcom/android/wm/shell/recents/RecentTasks;)V
+    .locals 0
+
+    invoke-static {p0, p1}, Lcom/android/systemui/recents/OverviewProxyService$3;->lambda$onServiceConnected$4(Landroid/os/Bundle;Lcom/android/wm/shell/recents/RecentTasks;)V
+
+    return-void
+.end method
+
 .method public static synthetic $r8$lambda$lK9_FRvhZxCwKpXcG6Mz3PJjpB8(Landroid/os/Bundle;Lcom/android/wm/shell/startingsurface/StartingSurface;)V
     .locals 0
 
@@ -136,6 +144,24 @@
     return-void
 .end method
 
+.method private static synthetic lambda$onServiceConnected$4(Landroid/os/Bundle;Lcom/android/wm/shell/recents/RecentTasks;)V
+    .locals 1
+
+    invoke-interface {p1}, Lcom/android/wm/shell/recents/RecentTasks;->createExternalInterface()Lcom/android/wm/shell/recents/IRecentTasks;
+
+    move-result-object p1
+
+    invoke-interface {p1}, Landroid/os/IInterface;->asBinder()Landroid/os/IBinder;
+
+    move-result-object p1
+
+    const-string v0, "recent_tasks"
+
+    invoke-virtual {p0, v0, p1}, Landroid/os/Bundle;->putBinder(Ljava/lang/String;Landroid/os/IBinder;)V
+
+    return-void
+.end method
+
 
 # virtual methods
 .method public onBindingDied(Landroid/content/ComponentName;)V
@@ -167,11 +193,11 @@
 
     const/4 v0, -0x1
 
-    invoke-static {p1, v0}, Lcom/android/systemui/recents/OverviewProxyService;->access$802(Lcom/android/systemui/recents/OverviewProxyService;I)I
+    invoke-static {p1, v0}, Lcom/android/systemui/recents/OverviewProxyService;->access$502(Lcom/android/systemui/recents/OverviewProxyService;I)I
 
     iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService$3;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
 
-    invoke-static {p0}, Lcom/android/systemui/recents/OverviewProxyService;->access$2500(Lcom/android/systemui/recents/OverviewProxyService;)V
+    invoke-static {p0}, Lcom/android/systemui/recents/OverviewProxyService;->access$2700(Lcom/android/systemui/recents/OverviewProxyService;)V
 
     return-void
 .end method
@@ -205,11 +231,11 @@
 
     const/4 v0, -0x1
 
-    invoke-static {p1, v0}, Lcom/android/systemui/recents/OverviewProxyService;->access$802(Lcom/android/systemui/recents/OverviewProxyService;I)I
+    invoke-static {p1, v0}, Lcom/android/systemui/recents/OverviewProxyService;->access$502(Lcom/android/systemui/recents/OverviewProxyService;I)I
 
     iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService$3;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
 
-    invoke-static {p0}, Lcom/android/systemui/recents/OverviewProxyService;->access$2500(Lcom/android/systemui/recents/OverviewProxyService;)V
+    invoke-static {p0}, Lcom/android/systemui/recents/OverviewProxyService;->access$2700(Lcom/android/systemui/recents/OverviewProxyService;)V
 
     return-void
 .end method
@@ -223,17 +249,17 @@
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Lcom/android/systemui/recents/OverviewProxyService;->access$2102(Lcom/android/systemui/recents/OverviewProxyService;I)I
+    invoke-static {v0, v1}, Lcom/android/systemui/recents/OverviewProxyService;->access$2302(Lcom/android/systemui/recents/OverviewProxyService;I)I
 
     iget-object v0, p0, Lcom/android/systemui/recents/OverviewProxyService$3;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
 
-    invoke-static {v0}, Lcom/android/systemui/recents/OverviewProxyService;->access$000(Lcom/android/systemui/recents/OverviewProxyService;)Landroid/os/Handler;
+    invoke-static {v0}, Lcom/android/systemui/recents/OverviewProxyService;->access$300(Lcom/android/systemui/recents/OverviewProxyService;)Landroid/os/Handler;
 
     move-result-object v0
 
     iget-object v2, p0, Lcom/android/systemui/recents/OverviewProxyService$3;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
 
-    invoke-static {v2}, Lcom/android/systemui/recents/OverviewProxyService;->access$2200(Lcom/android/systemui/recents/OverviewProxyService;)Ljava/lang/Runnable;
+    invoke-static {v2}, Lcom/android/systemui/recents/OverviewProxyService;->access$2400(Lcom/android/systemui/recents/OverviewProxyService;)Ljava/lang/Runnable;
 
     move-result-object v2
 
@@ -242,7 +268,7 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/systemui/recents/OverviewProxyService$3;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
 
-    invoke-static {v0}, Lcom/android/systemui/recents/OverviewProxyService;->access$2300(Lcom/android/systemui/recents/OverviewProxyService;)Landroid/os/IBinder$DeathRecipient;
+    invoke-static {v0}, Lcom/android/systemui/recents/OverviewProxyService;->access$2500(Lcom/android/systemui/recents/OverviewProxyService;)Landroid/os/IBinder$DeathRecipient;
 
     move-result-object v0
 
@@ -256,7 +282,7 @@
 
     move-result v1
 
-    invoke-static {v0, v1}, Lcom/android/systemui/recents/OverviewProxyService;->access$802(Lcom/android/systemui/recents/OverviewProxyService;I)I
+    invoke-static {v0, v1}, Lcom/android/systemui/recents/OverviewProxyService;->access$502(Lcom/android/systemui/recents/OverviewProxyService;I)I
 
     iget-object v0, p0, Lcom/android/systemui/recents/OverviewProxyService$3;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
 
@@ -264,7 +290,7 @@
 
     move-result-object p2
 
-    invoke-static {v0, p2}, Lcom/android/systemui/recents/OverviewProxyService;->access$2602(Lcom/android/systemui/recents/OverviewProxyService;Lcom/android/systemui/shared/recents/IOverviewProxy;)Lcom/android/systemui/shared/recents/IOverviewProxy;
+    invoke-static {v0, p2}, Lcom/android/systemui/recents/OverviewProxyService;->access$2802(Lcom/android/systemui/recents/OverviewProxyService;Lcom/android/systemui/shared/recents/IOverviewProxy;)Lcom/android/systemui/shared/recents/IOverviewProxy;
 
     new-instance p2, Landroid/os/Bundle;
 
@@ -284,7 +310,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/recents/OverviewProxyService$3;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
 
-    invoke-static {v0}, Lcom/android/systemui/recents/OverviewProxyService;->access$2700(Lcom/android/systemui/recents/OverviewProxyService;)F
+    invoke-static {v0}, Lcom/android/systemui/recents/OverviewProxyService;->access$2900(Lcom/android/systemui/recents/OverviewProxyService;)F
 
     move-result v0
 
@@ -294,7 +320,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/recents/OverviewProxyService$3;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
 
-    invoke-static {v0}, Lcom/android/systemui/recents/OverviewProxyService;->access$2800(Lcom/android/systemui/recents/OverviewProxyService;)Z
+    invoke-static {v0}, Lcom/android/systemui/recents/OverviewProxyService;->access$3000(Lcom/android/systemui/recents/OverviewProxyService;)Z
 
     move-result v0
 
@@ -304,7 +330,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/recents/OverviewProxyService$3;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
 
-    invoke-static {v0}, Lcom/android/systemui/recents/OverviewProxyService;->access$500(Lcom/android/systemui/recents/OverviewProxyService;)Ljava/util/Optional;
+    invoke-static {v0}, Lcom/android/systemui/recents/OverviewProxyService;->access$900(Lcom/android/systemui/recents/OverviewProxyService;)Ljava/util/Optional;
 
     move-result-object v0
 
@@ -316,19 +342,19 @@
 
     iget-object v0, p0, Lcom/android/systemui/recents/OverviewProxyService$3;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
 
-    invoke-static {v0}, Lcom/android/systemui/recents/OverviewProxyService;->access$2900(Lcom/android/systemui/recents/OverviewProxyService;)Ljava/util/Optional;
+    invoke-static {v0}, Lcom/android/systemui/recents/OverviewProxyService;->access$3100(Lcom/android/systemui/recents/OverviewProxyService;)Ljava/util/Optional;
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/systemui/recents/OverviewProxyService$3$$ExternalSyntheticLambda2;
+    new-instance v1, Lcom/android/systemui/recents/OverviewProxyService$3$$ExternalSyntheticLambda3;
 
-    invoke-direct {v1, p2}, Lcom/android/systemui/recents/OverviewProxyService$3$$ExternalSyntheticLambda2;-><init>(Landroid/os/Bundle;)V
+    invoke-direct {v1, p2}, Lcom/android/systemui/recents/OverviewProxyService$3$$ExternalSyntheticLambda3;-><init>(Landroid/os/Bundle;)V
 
     invoke-virtual {v0, v1}, Ljava/util/Optional;->ifPresent(Ljava/util/function/Consumer;)V
 
     iget-object v0, p0, Lcom/android/systemui/recents/OverviewProxyService$3;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
 
-    invoke-static {v0}, Lcom/android/systemui/recents/OverviewProxyService;->access$3000(Lcom/android/systemui/recents/OverviewProxyService;)Ljava/util/Optional;
+    invoke-static {v0}, Lcom/android/systemui/recents/OverviewProxyService;->access$3200(Lcom/android/systemui/recents/OverviewProxyService;)Ljava/util/Optional;
 
     move-result-object v0
 
@@ -340,7 +366,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/recents/OverviewProxyService$3;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
 
-    invoke-static {v0}, Lcom/android/systemui/recents/OverviewProxyService;->access$3100(Lcom/android/systemui/recents/OverviewProxyService;)Lcom/android/wm/shell/transition/ShellTransitions;
+    invoke-static {v0}, Lcom/android/systemui/recents/OverviewProxyService;->access$3300(Lcom/android/systemui/recents/OverviewProxyService;)Lcom/android/wm/shell/transition/ShellTransitions;
 
     move-result-object v0
 
@@ -358,19 +384,19 @@
 
     iget-object v0, p0, Lcom/android/systemui/recents/OverviewProxyService$3;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
 
-    invoke-static {v0}, Lcom/android/systemui/recents/OverviewProxyService;->access$3200(Lcom/android/systemui/recents/OverviewProxyService;)Ljava/util/Optional;
+    invoke-static {v0}, Lcom/android/systemui/recents/OverviewProxyService;->access$3400(Lcom/android/systemui/recents/OverviewProxyService;)Ljava/util/Optional;
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/systemui/recents/OverviewProxyService$3$$ExternalSyntheticLambda3;
+    new-instance v1, Lcom/android/systemui/recents/OverviewProxyService$3$$ExternalSyntheticLambda4;
 
-    invoke-direct {v1, p2}, Lcom/android/systemui/recents/OverviewProxyService$3$$ExternalSyntheticLambda3;-><init>(Landroid/os/Bundle;)V
+    invoke-direct {v1, p2}, Lcom/android/systemui/recents/OverviewProxyService$3$$ExternalSyntheticLambda4;-><init>(Landroid/os/Bundle;)V
 
     invoke-virtual {v0, v1}, Ljava/util/Optional;->ifPresent(Ljava/util/function/Consumer;)V
 
     iget-object v0, p0, Lcom/android/systemui/recents/OverviewProxyService$3;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
 
-    invoke-static {v0}, Lcom/android/systemui/recents/OverviewProxyService;->access$3300(Lcom/android/systemui/recents/OverviewProxyService;)Lcom/android/systemui/shared/system/smartspace/SmartspaceTransitionController;
+    invoke-static {v0}, Lcom/android/systemui/recents/OverviewProxyService;->access$3500(Lcom/android/systemui/recents/OverviewProxyService;)Lcom/android/systemui/shared/system/smartspace/SmartspaceTransitionController;
 
     move-result-object v0
 
@@ -386,10 +412,22 @@
 
     invoke-virtual {p2, v1, v0}, Landroid/os/Bundle;->putBinder(Ljava/lang/String;Landroid/os/IBinder;)V
 
+    iget-object v0, p0, Lcom/android/systemui/recents/OverviewProxyService$3;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
+
+    invoke-static {v0}, Lcom/android/systemui/recents/OverviewProxyService;->access$3600(Lcom/android/systemui/recents/OverviewProxyService;)Ljava/util/Optional;
+
+    move-result-object v0
+
+    new-instance v1, Lcom/android/systemui/recents/OverviewProxyService$3$$ExternalSyntheticLambda2;
+
+    invoke-direct {v1, p2}, Lcom/android/systemui/recents/OverviewProxyService$3$$ExternalSyntheticLambda2;-><init>(Landroid/os/Bundle;)V
+
+    invoke-virtual {v0, v1}, Ljava/util/Optional;->ifPresent(Ljava/util/function/Consumer;)V
+
     :try_start_1
     iget-object v0, p0, Lcom/android/systemui/recents/OverviewProxyService$3;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
 
-    invoke-static {v0}, Lcom/android/systemui/recents/OverviewProxyService;->access$2600(Lcom/android/systemui/recents/OverviewProxyService;)Lcom/android/systemui/shared/recents/IOverviewProxy;
+    invoke-static {v0}, Lcom/android/systemui/recents/OverviewProxyService;->access$2800(Lcom/android/systemui/recents/OverviewProxyService;)Lcom/android/systemui/shared/recents/IOverviewProxy;
 
     move-result-object v0
 
@@ -406,7 +444,7 @@
 
     const/4 v1, -0x1
 
-    invoke-static {v0, v1}, Lcom/android/systemui/recents/OverviewProxyService;->access$802(Lcom/android/systemui/recents/OverviewProxyService;I)I
+    invoke-static {v0, v1}, Lcom/android/systemui/recents/OverviewProxyService;->access$502(Lcom/android/systemui/recents/OverviewProxyService;I)I
 
     const-string v0, "Failed to call onInitialize()"
 
@@ -415,15 +453,15 @@
     :goto_0
     iget-object p1, p0, Lcom/android/systemui/recents/OverviewProxyService$3;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
 
-    invoke-static {p1}, Lcom/android/systemui/recents/OverviewProxyService;->access$3400(Lcom/android/systemui/recents/OverviewProxyService;)V
+    invoke-static {p1}, Lcom/android/systemui/recents/OverviewProxyService;->access$3700(Lcom/android/systemui/recents/OverviewProxyService;)V
 
     iget-object p1, p0, Lcom/android/systemui/recents/OverviewProxyService$3;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
 
-    invoke-static {p1}, Lcom/android/systemui/recents/OverviewProxyService;->access$3500(Lcom/android/systemui/recents/OverviewProxyService;)V
+    invoke-static {p1}, Lcom/android/systemui/recents/OverviewProxyService;->access$3800(Lcom/android/systemui/recents/OverviewProxyService;)V
 
     iget-object p1, p0, Lcom/android/systemui/recents/OverviewProxyService$3;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
 
-    invoke-static {p1}, Lcom/android/systemui/recents/OverviewProxyService;->access$3600(Lcom/android/systemui/recents/OverviewProxyService;)Lcom/android/systemui/model/SysUiState;
+    invoke-static {p1}, Lcom/android/systemui/recents/OverviewProxyService;->access$3900(Lcom/android/systemui/recents/OverviewProxyService;)Lcom/android/systemui/model/SysUiState;
 
     move-result-object p2
 
@@ -431,11 +469,11 @@
 
     move-result p2
 
-    invoke-static {p1, p2}, Lcom/android/systemui/recents/OverviewProxyService;->access$3700(Lcom/android/systemui/recents/OverviewProxyService;I)V
+    invoke-static {p1, p2}, Lcom/android/systemui/recents/OverviewProxyService;->access$4000(Lcom/android/systemui/recents/OverviewProxyService;I)V
 
     iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService$3;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
 
-    invoke-static {p0}, Lcom/android/systemui/recents/OverviewProxyService;->access$3800(Lcom/android/systemui/recents/OverviewProxyService;)V
+    invoke-static {p0}, Lcom/android/systemui/recents/OverviewProxyService;->access$4100(Lcom/android/systemui/recents/OverviewProxyService;)V
 
     return-void
 
@@ -448,11 +486,11 @@
 
     iget-object p1, p0, Lcom/android/systemui/recents/OverviewProxyService$3;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
 
-    invoke-static {p1}, Lcom/android/systemui/recents/OverviewProxyService;->access$2400(Lcom/android/systemui/recents/OverviewProxyService;)V
+    invoke-static {p1}, Lcom/android/systemui/recents/OverviewProxyService;->access$2600(Lcom/android/systemui/recents/OverviewProxyService;)V
 
     iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService$3;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
 
-    invoke-static {p0}, Lcom/android/systemui/recents/OverviewProxyService;->access$2500(Lcom/android/systemui/recents/OverviewProxyService;)V
+    invoke-static {p0}, Lcom/android/systemui/recents/OverviewProxyService;->access$2700(Lcom/android/systemui/recents/OverviewProxyService;)V
 
     return-void
 .end method
@@ -470,7 +508,7 @@
 
     const/4 p1, -0x1
 
-    invoke-static {p0, p1}, Lcom/android/systemui/recents/OverviewProxyService;->access$802(Lcom/android/systemui/recents/OverviewProxyService;I)I
+    invoke-static {p0, p1}, Lcom/android/systemui/recents/OverviewProxyService;->access$502(Lcom/android/systemui/recents/OverviewProxyService;I)I
 
     return-void
 .end method

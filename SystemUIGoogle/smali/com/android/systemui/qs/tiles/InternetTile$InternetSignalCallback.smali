@@ -3,7 +3,7 @@
 .source "InternetTile.java"
 
 # interfaces
-.implements Lcom/android/systemui/statusbar/policy/NetworkController$SignalCallback;
+.implements Lcom/android/systemui/statusbar/connectivity/SignalCallback;
 
 
 # annotations
@@ -127,7 +127,7 @@
     return-void
 .end method
 
-.method public setEthernetIndicators(Lcom/android/systemui/statusbar/policy/NetworkController$IconState;)V
+.method public setEthernetIndicators(Lcom/android/systemui/statusbar/connectivity/IconState;)V
     .locals 3
 
     invoke-static {}, Lcom/android/systemui/qs/tiles/InternetTile;->access$900()Z
@@ -157,7 +157,7 @@
     goto :goto_0
 
     :cond_0
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/policy/NetworkController$IconState;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Lcom/android/systemui/statusbar/connectivity/IconState;->toString()Ljava/lang/String;
 
     move-result-object v2
 
@@ -173,15 +173,15 @@
     :cond_1
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/InternetTile$InternetSignalCallback;->mEthernetInfo:Lcom/android/systemui/qs/tiles/InternetTile$EthernetCallbackInfo;
 
-    iget-boolean v1, p1, Lcom/android/systemui/statusbar/policy/NetworkController$IconState;->visible:Z
+    iget-boolean v1, p1, Lcom/android/systemui/statusbar/connectivity/IconState;->visible:Z
 
     iput-boolean v1, v0, Lcom/android/systemui/qs/tiles/InternetTile$EthernetCallbackInfo;->mConnected:Z
 
-    iget v2, p1, Lcom/android/systemui/statusbar/policy/NetworkController$IconState;->icon:I
+    iget v2, p1, Lcom/android/systemui/statusbar/connectivity/IconState;->icon:I
 
     iput v2, v0, Lcom/android/systemui/qs/tiles/InternetTile$EthernetCallbackInfo;->mEthernetSignalIconId:I
 
-    iget-object p1, p1, Lcom/android/systemui/statusbar/policy/NetworkController$IconState;->contentDescription:Ljava/lang/String;
+    iget-object p1, p1, Lcom/android/systemui/statusbar/connectivity/IconState;->contentDescription:Ljava/lang/String;
 
     iput-object p1, v0, Lcom/android/systemui/qs/tiles/InternetTile$EthernetCallbackInfo;->mEthernetContentDescription:Ljava/lang/String;
 
@@ -195,7 +195,7 @@
     return-void
 .end method
 
-.method public setIsAirplaneMode(Lcom/android/systemui/statusbar/policy/NetworkController$IconState;)V
+.method public setIsAirplaneMode(Lcom/android/systemui/statusbar/connectivity/IconState;)V
     .locals 3
 
     invoke-static {}, Lcom/android/systemui/qs/tiles/InternetTile;->access$1400()Z
@@ -225,7 +225,7 @@
     goto :goto_0
 
     :cond_0
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/policy/NetworkController$IconState;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Lcom/android/systemui/statusbar/connectivity/IconState;->toString()Ljava/lang/String;
 
     move-result-object v2
 
@@ -243,7 +243,7 @@
 
     iget-boolean v1, v0, Lcom/android/systemui/qs/tiles/InternetTile$CellularCallbackInfo;->mAirplaneModeEnabled:Z
 
-    iget-boolean p1, p1, Lcom/android/systemui/statusbar/policy/NetworkController$IconState;->visible:Z
+    iget-boolean p1, p1, Lcom/android/systemui/statusbar/connectivity/IconState;->visible:Z
 
     if-ne v1, p1, :cond_2
 
@@ -290,7 +290,7 @@
     return-void
 .end method
 
-.method public setMobileDataIndicators(Lcom/android/systemui/statusbar/policy/NetworkController$MobileDataIndicators;)V
+.method public setMobileDataIndicators(Lcom/android/systemui/statusbar/connectivity/MobileDataIndicators;)V
     .locals 3
 
     invoke-static {}, Lcom/android/systemui/qs/tiles/InternetTile;->access$600()Z
@@ -322,7 +322,7 @@
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    iget-object v0, p1, Lcom/android/systemui/statusbar/policy/NetworkController$MobileDataIndicators;->qsIcon:Lcom/android/systemui/statusbar/policy/NetworkController$IconState;
+    iget-object v0, p1, Lcom/android/systemui/statusbar/connectivity/MobileDataIndicators;->qsIcon:Lcom/android/systemui/statusbar/connectivity/IconState;
 
     if-nez v0, :cond_1
 
@@ -331,15 +331,15 @@
     :cond_1
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/InternetTile$InternetSignalCallback;->mCellularInfo:Lcom/android/systemui/qs/tiles/InternetTile$CellularCallbackInfo;
 
-    iget-object v1, p1, Lcom/android/systemui/statusbar/policy/NetworkController$MobileDataIndicators;->description:Ljava/lang/CharSequence;
+    iget-object v1, p1, Lcom/android/systemui/statusbar/connectivity/MobileDataIndicators;->qsDescription:Ljava/lang/CharSequence;
 
     if-nez v1, :cond_2
 
     iget-object v1, p0, Lcom/android/systemui/qs/tiles/InternetTile$InternetSignalCallback;->this$0:Lcom/android/systemui/qs/tiles/InternetTile;
 
-    iget-object v1, v1, Lcom/android/systemui/qs/tiles/InternetTile;->mController:Lcom/android/systemui/statusbar/policy/NetworkController;
+    iget-object v1, v1, Lcom/android/systemui/qs/tiles/InternetTile;->mController:Lcom/android/systemui/statusbar/connectivity/NetworkController;
 
-    invoke-interface {v1}, Lcom/android/systemui/statusbar/policy/NetworkController;->getMobileDataNetworkName()Ljava/lang/String;
+    invoke-interface {v1}, Lcom/android/systemui/statusbar/connectivity/NetworkController;->getMobileDataNetworkName()Ljava/lang/String;
 
     move-result-object v1
 
@@ -348,11 +348,11 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/InternetTile$InternetSignalCallback;->mCellularInfo:Lcom/android/systemui/qs/tiles/InternetTile$CellularCallbackInfo;
 
-    iget-object v1, p1, Lcom/android/systemui/statusbar/policy/NetworkController$MobileDataIndicators;->description:Ljava/lang/CharSequence;
+    iget-object v1, p1, Lcom/android/systemui/statusbar/connectivity/MobileDataIndicators;->qsDescription:Ljava/lang/CharSequence;
 
     if-eqz v1, :cond_3
 
-    iget-object v1, p1, Lcom/android/systemui/statusbar/policy/NetworkController$MobileDataIndicators;->typeContentDescriptionHtml:Ljava/lang/CharSequence;
+    iget-object v1, p1, Lcom/android/systemui/statusbar/connectivity/MobileDataIndicators;->typeContentDescriptionHtml:Ljava/lang/CharSequence;
 
     goto :goto_0
 
@@ -362,33 +362,33 @@
     :goto_0
     iput-object v1, v0, Lcom/android/systemui/qs/tiles/InternetTile$CellularCallbackInfo;->mDataContentDescription:Ljava/lang/CharSequence;
 
-    iget-object v1, p1, Lcom/android/systemui/statusbar/policy/NetworkController$MobileDataIndicators;->qsIcon:Lcom/android/systemui/statusbar/policy/NetworkController$IconState;
+    iget-object v1, p1, Lcom/android/systemui/statusbar/connectivity/MobileDataIndicators;->qsIcon:Lcom/android/systemui/statusbar/connectivity/IconState;
 
-    iget v1, v1, Lcom/android/systemui/statusbar/policy/NetworkController$IconState;->icon:I
+    iget v1, v1, Lcom/android/systemui/statusbar/connectivity/IconState;->icon:I
 
     iput v1, v0, Lcom/android/systemui/qs/tiles/InternetTile$CellularCallbackInfo;->mMobileSignalIconId:I
 
-    iget v1, p1, Lcom/android/systemui/statusbar/policy/NetworkController$MobileDataIndicators;->qsType:I
+    iget v1, p1, Lcom/android/systemui/statusbar/connectivity/MobileDataIndicators;->qsType:I
 
     iput v1, v0, Lcom/android/systemui/qs/tiles/InternetTile$CellularCallbackInfo;->mQsTypeIcon:I
 
-    iget-boolean v1, p1, Lcom/android/systemui/statusbar/policy/NetworkController$MobileDataIndicators;->activityIn:Z
+    iget-boolean v1, p1, Lcom/android/systemui/statusbar/connectivity/MobileDataIndicators;->activityIn:Z
 
     iput-boolean v1, v0, Lcom/android/systemui/qs/tiles/InternetTile$CellularCallbackInfo;->mActivityIn:Z
 
-    iget-boolean v1, p1, Lcom/android/systemui/statusbar/policy/NetworkController$MobileDataIndicators;->activityOut:Z
+    iget-boolean v1, p1, Lcom/android/systemui/statusbar/connectivity/MobileDataIndicators;->activityOut:Z
 
     iput-boolean v1, v0, Lcom/android/systemui/qs/tiles/InternetTile$CellularCallbackInfo;->mActivityOut:Z
 
-    iget-boolean p1, p1, Lcom/android/systemui/statusbar/policy/NetworkController$MobileDataIndicators;->roaming:Z
+    iget-boolean p1, p1, Lcom/android/systemui/statusbar/connectivity/MobileDataIndicators;->roaming:Z
 
     iput-boolean p1, v0, Lcom/android/systemui/qs/tiles/InternetTile$CellularCallbackInfo;->mRoaming:Z
 
     iget-object p1, p0, Lcom/android/systemui/qs/tiles/InternetTile$InternetSignalCallback;->this$0:Lcom/android/systemui/qs/tiles/InternetTile;
 
-    iget-object p1, p1, Lcom/android/systemui/qs/tiles/InternetTile;->mController:Lcom/android/systemui/statusbar/policy/NetworkController;
+    iget-object p1, p1, Lcom/android/systemui/qs/tiles/InternetTile;->mController:Lcom/android/systemui/statusbar/connectivity/NetworkController;
 
-    invoke-interface {p1}, Lcom/android/systemui/statusbar/policy/NetworkController;->getNumberSubscriptions()I
+    invoke-interface {p1}, Lcom/android/systemui/statusbar/connectivity/NetworkController;->getNumberSubscriptions()I
 
     move-result p1
 
@@ -467,7 +467,7 @@
     return-void
 .end method
 
-.method public setWifiIndicators(Lcom/android/systemui/statusbar/policy/NetworkController$WifiIndicators;)V
+.method public setWifiIndicators(Lcom/android/systemui/statusbar/connectivity/WifiIndicators;)V
     .locals 4
 
     invoke-static {}, Lcom/android/systemui/qs/tiles/InternetTile;->access$300()Z
@@ -501,48 +501,48 @@
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/InternetTile$InternetSignalCallback;->mWifiInfo:Lcom/android/systemui/qs/tiles/InternetTile$WifiCallbackInfo;
 
-    iget-boolean v1, p1, Lcom/android/systemui/statusbar/policy/NetworkController$WifiIndicators;->enabled:Z
+    iget-boolean v1, p1, Lcom/android/systemui/statusbar/connectivity/WifiIndicators;->enabled:Z
 
     iput-boolean v1, v0, Lcom/android/systemui/qs/tiles/InternetTile$WifiCallbackInfo;->mEnabled:Z
 
-    iget-object v2, p1, Lcom/android/systemui/statusbar/policy/NetworkController$WifiIndicators;->qsIcon:Lcom/android/systemui/statusbar/policy/NetworkController$IconState;
+    iget-object v2, p1, Lcom/android/systemui/statusbar/connectivity/WifiIndicators;->qsIcon:Lcom/android/systemui/statusbar/connectivity/IconState;
 
     if-nez v2, :cond_1
 
     return-void
 
     :cond_1
-    iget-boolean v3, v2, Lcom/android/systemui/statusbar/policy/NetworkController$IconState;->visible:Z
+    iget-boolean v3, v2, Lcom/android/systemui/statusbar/connectivity/IconState;->visible:Z
 
     iput-boolean v3, v0, Lcom/android/systemui/qs/tiles/InternetTile$WifiCallbackInfo;->mConnected:Z
 
-    iget v3, v2, Lcom/android/systemui/statusbar/policy/NetworkController$IconState;->icon:I
+    iget v3, v2, Lcom/android/systemui/statusbar/connectivity/IconState;->icon:I
 
     iput v3, v0, Lcom/android/systemui/qs/tiles/InternetTile$WifiCallbackInfo;->mWifiSignalIconId:I
 
-    iget-object v2, v2, Lcom/android/systemui/statusbar/policy/NetworkController$IconState;->contentDescription:Ljava/lang/String;
+    iget-object v2, v2, Lcom/android/systemui/statusbar/connectivity/IconState;->contentDescription:Ljava/lang/String;
 
     iput-object v2, v0, Lcom/android/systemui/qs/tiles/InternetTile$WifiCallbackInfo;->mWifiSignalContentDescription:Ljava/lang/String;
 
     iput-boolean v1, v0, Lcom/android/systemui/qs/tiles/InternetTile$WifiCallbackInfo;->mEnabled:Z
 
-    iget-object v1, p1, Lcom/android/systemui/statusbar/policy/NetworkController$WifiIndicators;->description:Ljava/lang/String;
+    iget-object v1, p1, Lcom/android/systemui/statusbar/connectivity/WifiIndicators;->description:Ljava/lang/String;
 
     iput-object v1, v0, Lcom/android/systemui/qs/tiles/InternetTile$WifiCallbackInfo;->mSsid:Ljava/lang/String;
 
-    iget-boolean v1, p1, Lcom/android/systemui/statusbar/policy/NetworkController$WifiIndicators;->activityIn:Z
+    iget-boolean v1, p1, Lcom/android/systemui/statusbar/connectivity/WifiIndicators;->activityIn:Z
 
     iput-boolean v1, v0, Lcom/android/systemui/qs/tiles/InternetTile$WifiCallbackInfo;->mActivityIn:Z
 
-    iget-boolean v1, p1, Lcom/android/systemui/statusbar/policy/NetworkController$WifiIndicators;->activityOut:Z
+    iget-boolean v1, p1, Lcom/android/systemui/statusbar/connectivity/WifiIndicators;->activityOut:Z
 
     iput-boolean v1, v0, Lcom/android/systemui/qs/tiles/InternetTile$WifiCallbackInfo;->mActivityOut:Z
 
-    iget-boolean v1, p1, Lcom/android/systemui/statusbar/policy/NetworkController$WifiIndicators;->isTransient:Z
+    iget-boolean v1, p1, Lcom/android/systemui/statusbar/connectivity/WifiIndicators;->isTransient:Z
 
     iput-boolean v1, v0, Lcom/android/systemui/qs/tiles/InternetTile$WifiCallbackInfo;->mIsTransient:Z
 
-    iget-object p1, p1, Lcom/android/systemui/statusbar/policy/NetworkController$WifiIndicators;->statusLabel:Ljava/lang/String;
+    iget-object p1, p1, Lcom/android/systemui/statusbar/connectivity/WifiIndicators;->statusLabel:Ljava/lang/String;
 
     iput-object p1, v0, Lcom/android/systemui/qs/tiles/InternetTile$WifiCallbackInfo;->mStatusLabel:Ljava/lang/String;
 

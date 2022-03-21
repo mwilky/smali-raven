@@ -181,7 +181,7 @@
     return p0
 .end method
 
-.method setAreThereDismissableGentleNotifs(Z)V
+.method public setClearSectionButtonEnabled(Z)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/SectionHeaderView;->mClearAllButton:Landroid/widget/ImageView;

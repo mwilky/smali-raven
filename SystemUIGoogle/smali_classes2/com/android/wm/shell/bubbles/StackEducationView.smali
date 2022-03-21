@@ -10,9 +10,13 @@
 
 .field private final TAG:Ljava/lang/String;
 
+.field private final controller:Lcom/android/wm/shell/bubbles/BubbleController;
+
 .field private final descTextView$delegate:Lkotlin/Lazy;
 
 .field private isHiding:Z
+
+.field private final positioner:Lcom/android/wm/shell/bubbles/BubblePositioner;
 
 .field private final titleTextView$delegate:Lkotlin/Lazy;
 
@@ -26,12 +30,20 @@
     return-void
 .end method
 
-.method public constructor <init>(Landroid/content/Context;)V
+.method public constructor <init>(Landroid/content/Context;Lcom/android/wm/shell/bubbles/BubblePositioner;Lcom/android/wm/shell/bubbles/BubbleController;)V
     .locals 2
 
     const-string v0, "context"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    const-string v0, "positioner"
+
+    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    const-string v0, "controller"
+
+    invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     invoke-direct {p0, p1}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
 
@@ -47,43 +59,47 @@
 
     iput-wide v0, p0, Lcom/android/wm/shell/bubbles/StackEducationView;->ANIMATE_DURATION_SHORT:J
 
-    new-instance v0, Lcom/android/wm/shell/bubbles/StackEducationView$view$2;
+    iput-object p2, p0, Lcom/android/wm/shell/bubbles/StackEducationView;->positioner:Lcom/android/wm/shell/bubbles/BubblePositioner;
 
-    invoke-direct {v0, p0}, Lcom/android/wm/shell/bubbles/StackEducationView$view$2;-><init>(Lcom/android/wm/shell/bubbles/StackEducationView;)V
+    iput-object p3, p0, Lcom/android/wm/shell/bubbles/StackEducationView;->controller:Lcom/android/wm/shell/bubbles/BubbleController;
 
-    invoke-static {v0}, Lkotlin/LazyKt;->lazy(Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
+    new-instance p2, Lcom/android/wm/shell/bubbles/StackEducationView$view$2;
 
-    move-result-object v0
+    invoke-direct {p2, p0}, Lcom/android/wm/shell/bubbles/StackEducationView$view$2;-><init>(Lcom/android/wm/shell/bubbles/StackEducationView;)V
 
-    iput-object v0, p0, Lcom/android/wm/shell/bubbles/StackEducationView;->view$delegate:Lkotlin/Lazy;
+    invoke-static {p2}, Lkotlin/LazyKt;->lazy(Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
 
-    new-instance v0, Lcom/android/wm/shell/bubbles/StackEducationView$titleTextView$2;
+    move-result-object p2
 
-    invoke-direct {v0, p0}, Lcom/android/wm/shell/bubbles/StackEducationView$titleTextView$2;-><init>(Lcom/android/wm/shell/bubbles/StackEducationView;)V
+    iput-object p2, p0, Lcom/android/wm/shell/bubbles/StackEducationView;->view$delegate:Lkotlin/Lazy;
 
-    invoke-static {v0}, Lkotlin/LazyKt;->lazy(Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
+    new-instance p2, Lcom/android/wm/shell/bubbles/StackEducationView$titleTextView$2;
 
-    move-result-object v0
+    invoke-direct {p2, p0}, Lcom/android/wm/shell/bubbles/StackEducationView$titleTextView$2;-><init>(Lcom/android/wm/shell/bubbles/StackEducationView;)V
 
-    iput-object v0, p0, Lcom/android/wm/shell/bubbles/StackEducationView;->titleTextView$delegate:Lkotlin/Lazy;
+    invoke-static {p2}, Lkotlin/LazyKt;->lazy(Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
 
-    new-instance v0, Lcom/android/wm/shell/bubbles/StackEducationView$descTextView$2;
+    move-result-object p2
 
-    invoke-direct {v0, p0}, Lcom/android/wm/shell/bubbles/StackEducationView$descTextView$2;-><init>(Lcom/android/wm/shell/bubbles/StackEducationView;)V
+    iput-object p2, p0, Lcom/android/wm/shell/bubbles/StackEducationView;->titleTextView$delegate:Lkotlin/Lazy;
 
-    invoke-static {v0}, Lkotlin/LazyKt;->lazy(Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
+    new-instance p2, Lcom/android/wm/shell/bubbles/StackEducationView$descTextView$2;
 
-    move-result-object v0
+    invoke-direct {p2, p0}, Lcom/android/wm/shell/bubbles/StackEducationView$descTextView$2;-><init>(Lcom/android/wm/shell/bubbles/StackEducationView;)V
 
-    iput-object v0, p0, Lcom/android/wm/shell/bubbles/StackEducationView;->descTextView$delegate:Lkotlin/Lazy;
+    invoke-static {p2}, Lkotlin/LazyKt;->lazy(Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
+
+    move-result-object p2
+
+    iput-object p2, p0, Lcom/android/wm/shell/bubbles/StackEducationView;->descTextView$delegate:Lkotlin/Lazy;
 
     invoke-static {p1}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
     move-result-object p1
 
-    sget v0, Lcom/android/wm/shell/R$layout;->bubble_stack_user_education:I
+    sget p2, Lcom/android/wm/shell/R$layout;->bubble_stack_user_education:I
 
-    invoke-virtual {p1, v0, p0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+    invoke-virtual {p1, p2, p0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
     const/16 p1, 0x8
 
@@ -93,9 +109,9 @@
 
     move-result-object p1
 
-    sget v0, Lcom/android/wm/shell/R$dimen;->bubble_elevation:I
+    sget p2, Lcom/android/wm/shell/R$dimen;->bubble_elevation:I
 
-    invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result p1
 
@@ -118,6 +134,14 @@
     return-wide v0
 .end method
 
+.method public static final synthetic access$getPositioner$p(Lcom/android/wm/shell/bubbles/StackEducationView;)Lcom/android/wm/shell/bubbles/BubblePositioner;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/wm/shell/bubbles/StackEducationView;->positioner:Lcom/android/wm/shell/bubbles/BubblePositioner;
+
+    return-object p0
+.end method
+
 .method public static final synthetic access$getView(Lcom/android/wm/shell/bubbles/StackEducationView;)Landroid/view/View;
     .locals 0
 
@@ -126,6 +150,14 @@
     move-result-object p0
 
     return-object p0
+.end method
+
+.method public static final synthetic access$isHiding$p(Lcom/android/wm/shell/bubbles/StackEducationView;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/wm/shell/bubbles/StackEducationView;->isHiding:Z
+
+    return p0
 .end method
 
 .method private final getDescTextView()Landroid/widget/TextView;
@@ -320,6 +352,16 @@
     goto :goto_1
 
     :cond_0
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/android/wm/shell/bubbles/StackEducationView;->isHiding:Z
+
+    iget-object v0, p0, Lcom/android/wm/shell/bubbles/StackEducationView;->controller:Lcom/android/wm/shell/bubbles/BubbleController;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Lcom/android/wm/shell/bubbles/BubbleController;->updateWindowFlagsForBackpress(Z)V
+
     invoke-virtual {p0}, Landroid/widget/LinearLayout;->animate()Landroid/view/ViewPropertyAnimator;
 
     move-result-object v0
@@ -352,6 +394,42 @@
 
     :cond_2
     :goto_1
+    return-void
+.end method
+
+.method protected onAttachedToWindow()V
+    .locals 1
+
+    invoke-super {p0}, Landroid/widget/LinearLayout;->onAttachedToWindow()V
+
+    const/4 v0, 0x1
+
+    invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->setFocusableInTouchMode(Z)V
+
+    new-instance v0, Lcom/android/wm/shell/bubbles/StackEducationView$onAttachedToWindow$1;
+
+    invoke-direct {v0, p0}, Lcom/android/wm/shell/bubbles/StackEducationView$onAttachedToWindow$1;-><init>(Lcom/android/wm/shell/bubbles/StackEducationView;)V
+
+    invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->setOnKeyListener(Landroid/view/View$OnKeyListener;)V
+
+    return-void
+.end method
+
+.method protected onDetachedFromWindow()V
+    .locals 1
+
+    invoke-super {p0}, Landroid/widget/LinearLayout;->onDetachedFromWindow()V
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->setOnKeyListener(Landroid/view/View$OnKeyListener;)V
+
+    iget-object p0, p0, Lcom/android/wm/shell/bubbles/StackEducationView;->controller:Lcom/android/wm/shell/bubbles/BubbleController;
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, v0}, Lcom/android/wm/shell/bubbles/BubbleController;->updateWindowFlagsForBackpress(Z)V
+
     return-void
 .end method
 
@@ -390,38 +468,78 @@
 .end method
 
 .method public final show(Landroid/graphics/PointF;)Z
-    .locals 2
+    .locals 5
 
     const-string v0, "stackPosition"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/wm/shell/bubbles/StackEducationView;->isHiding:Z
+
     invoke-virtual {p0}, Landroid/widget/LinearLayout;->getVisibility()I
 
-    move-result v0
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    return v0
+
+    :cond_0
+    iget-object v1, p0, Lcom/android/wm/shell/bubbles/StackEducationView;->controller:Lcom/android/wm/shell/bubbles/BubbleController;
+
+    const/4 v2, 0x1
+
+    invoke-virtual {v1, v2}, Lcom/android/wm/shell/bubbles/BubbleController;->updateWindowFlagsForBackpress(Z)V
+
+    invoke-virtual {p0}, Landroid/widget/LinearLayout;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v1
+
+    iget-object v3, p0, Lcom/android/wm/shell/bubbles/StackEducationView;->positioner:Lcom/android/wm/shell/bubbles/BubblePositioner;
+
+    invoke-virtual {v3}, Lcom/android/wm/shell/bubbles/BubblePositioner;->isLargeScreen()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    invoke-virtual {p0}, Landroid/widget/LinearLayout;->getContext()Landroid/content/Context;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v3
+
+    sget v4, Lcom/android/wm/shell/R$dimen;->bubbles_user_education_width_large_screen:I
+
+    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v3
+
+    goto :goto_0
+
+    :cond_1
+    const/4 v3, -0x1
+
+    :goto_0
+    iput v3, v1, Landroid/view/ViewGroup$LayoutParams;->width:I
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    invoke-virtual {p0, v1}, Landroid/widget/LinearLayout;->setAlpha(F)V
 
-    return v1
+    invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
-    :cond_0
-    const/4 v0, 0x0
+    new-instance v1, Lcom/android/wm/shell/bubbles/StackEducationView$show$1;
 
-    invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->setAlpha(F)V
+    invoke-direct {v1, p0, p1}, Lcom/android/wm/shell/bubbles/StackEducationView$show$1;-><init>(Lcom/android/wm/shell/bubbles/StackEducationView;Landroid/graphics/PointF;)V
 
-    invoke-virtual {p0, v1}, Landroid/widget/LinearLayout;->setVisibility(I)V
+    invoke-virtual {p0, v1}, Landroid/widget/LinearLayout;->post(Ljava/lang/Runnable;)Z
 
-    new-instance v0, Lcom/android/wm/shell/bubbles/StackEducationView$show$1;
+    invoke-direct {p0, v0}, Lcom/android/wm/shell/bubbles/StackEducationView;->setShouldShow(Z)V
 
-    invoke-direct {v0, p0, p1}, Lcom/android/wm/shell/bubbles/StackEducationView$show$1;-><init>(Lcom/android/wm/shell/bubbles/StackEducationView;Landroid/graphics/PointF;)V
-
-    invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->post(Ljava/lang/Runnable;)Z
-
-    invoke-direct {p0, v1}, Lcom/android/wm/shell/bubbles/StackEducationView;->setShouldShow(Z)V
-
-    const/4 p0, 0x1
-
-    return p0
+    return v2
 .end method

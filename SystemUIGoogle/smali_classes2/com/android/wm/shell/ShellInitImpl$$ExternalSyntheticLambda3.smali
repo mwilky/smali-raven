@@ -35,9 +35,9 @@
 .method public final accept(Ljava/lang/Object;)V
     .locals 0
 
-    check-cast p1, Lcom/android/wm/shell/splitscreen/SplitScreenController;
+    check-cast p1, Lcom/android/wm/shell/fullscreen/FullscreenUnfoldController;
 
-    invoke-virtual {p1}, Lcom/android/wm/shell/splitscreen/SplitScreenController;->onOrganizerRegistered()V
+    invoke-virtual {p1}, Lcom/android/wm/shell/fullscreen/FullscreenUnfoldController;->init()V
 
     return-void
 .end method

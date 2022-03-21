@@ -2,7 +2,7 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Landroid/view/View$OnLayoutChangeListener;
+.implements Landroid/view/View$OnLongClickListener;
 
 
 # instance fields
@@ -22,32 +22,14 @@
 
 
 # virtual methods
-.method public final onLayoutChange(Landroid/view/View;IIIIIIII)V
-    .locals 10
+.method public final onLongClick(Landroid/view/View;)Z
+    .locals 0
 
-    move-object v0, p0
+    iget-object p0, p0, Lcom/android/systemui/qs/QSFooterViewController$$ExternalSyntheticLambda1;->f$0:Lcom/android/systemui/qs/QSFooterViewController;
 
-    iget-object v0, v0, Lcom/android/systemui/qs/QSFooterViewController$$ExternalSyntheticLambda1;->f$0:Lcom/android/systemui/qs/QSFooterViewController;
+    invoke-static {p0, p1}, Lcom/android/systemui/qs/QSFooterViewController;->$r8$lambda$9A4T_43SBWj_Liw2YVUUP-Jl3ds(Lcom/android/systemui/qs/QSFooterViewController;Landroid/view/View;)Z
 
-    move-object v1, p1
+    move-result p0
 
-    move v2, p2
-
-    move v3, p3
-
-    move v4, p4
-
-    move v5, p5
-
-    move/from16 v6, p6
-
-    move/from16 v7, p7
-
-    move/from16 v8, p8
-
-    move/from16 v9, p9
-
-    invoke-static/range {v0 .. v9}, Lcom/android/systemui/qs/QSFooterViewController;->$r8$lambda$NASq1B-6K5EFvckIHNgjIM4jWOM(Lcom/android/systemui/qs/QSFooterViewController;Landroid/view/View;IIIIIIII)V
-
-    return-void
+    return p0
 .end method

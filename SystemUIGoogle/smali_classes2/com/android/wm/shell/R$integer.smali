@@ -21,23 +21,23 @@
 
 .field public static final bubbles_overflow_columns:I = 0x7f0c000a
 
-.field public static final config_one_handed_translate_animation_duration:I = 0x7f0c001a
+.field public static final config_one_handed_translate_animation_duration:I = 0x7f0c0017
 
-.field public static final config_pipCrossfadeAnimationDuration:I = 0x7f0c001b
+.field public static final config_pipCrossfadeAnimationDuration:I = 0x7f0c0018
 
-.field public static final config_pipEnterAnimationDuration:I = 0x7f0c001c
+.field public static final config_pipEnterAnimationDuration:I = 0x7f0c0019
 
-.field public static final config_pipExitAnimationDuration:I = 0x7f0c001d
+.field public static final config_pipExitAnimationDuration:I = 0x7f0c001a
 
-.field public static final config_pipResizeAnimationDuration:I = 0x7f0c001e
+.field public static final config_pipResizeAnimationDuration:I = 0x7f0c001b
 
-.field public static final long_press_dock_anim_duration:I = 0x7f0c006d
+.field public static final long_press_dock_anim_duration:I = 0x7f0c0065
 
-.field public static final starting_window_app_reveal_anim_delay:I = 0x7f0c009e
+.field public static final starting_window_app_reveal_anim_delay:I = 0x7f0c0091
 
-.field public static final starting_window_app_reveal_anim_duration:I = 0x7f0c009f
+.field public static final starting_window_app_reveal_anim_duration:I = 0x7f0c0092
 
-.field public static final starting_window_app_reveal_icon_fade_out_duration:I = 0x7f0c00a0
+.field public static final starting_window_app_reveal_icon_fade_out_duration:I = 0x7f0c0093
 
 
 # direct methods

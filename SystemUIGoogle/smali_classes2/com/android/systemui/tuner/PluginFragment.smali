@@ -64,7 +64,7 @@
     return-void
 
     :cond_0
-    invoke-interface {p2}, Lcom/android/systemui/shared/plugins/PluginManager;->getWhitelistedPlugins()[Ljava/lang/String;
+    invoke-interface {p2}, Lcom/android/systemui/shared/plugins/PluginManager;->getPrivilegedPlugins()[Ljava/lang/String;
 
     move-result-object p2
 

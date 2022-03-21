@@ -36,13 +36,13 @@
 
     iget-object p1, p0, Lcom/android/wm/shell/bubbles/BubbleStackView$9;->this$0:Lcom/android/wm/shell/bubbles/BubbleStackView;
 
-    invoke-static {p1}, Lcom/android/wm/shell/bubbles/BubbleStackView;->access$3800(Lcom/android/wm/shell/bubbles/BubbleStackView;)Lcom/android/wm/shell/bubbles/BubbleFlyoutView;
+    invoke-static {p1}, Lcom/android/wm/shell/bubbles/BubbleStackView;->access$3900(Lcom/android/wm/shell/bubbles/BubbleStackView;)Lcom/android/wm/shell/bubbles/BubbleFlyoutView;
 
     move-result-object p1
 
     iget-object p0, p0, Lcom/android/wm/shell/bubbles/BubbleStackView$9;->this$0:Lcom/android/wm/shell/bubbles/BubbleStackView;
 
-    invoke-static {p0}, Lcom/android/wm/shell/bubbles/BubbleStackView;->access$3700(Lcom/android/wm/shell/bubbles/BubbleStackView;)Ljava/lang/Runnable;
+    invoke-static {p0}, Lcom/android/wm/shell/bubbles/BubbleStackView;->access$3800(Lcom/android/wm/shell/bubbles/BubbleStackView;)Ljava/lang/Runnable;
 
     move-result-object p0
 
@@ -112,7 +112,7 @@
 
     iget-object p8, p0, Lcom/android/wm/shell/bubbles/BubbleStackView$9;->this$0:Lcom/android/wm/shell/bubbles/BubbleStackView;
 
-    invoke-static {p8}, Lcom/android/wm/shell/bubbles/BubbleStackView;->access$3800(Lcom/android/wm/shell/bubbles/BubbleStackView;)Lcom/android/wm/shell/bubbles/BubbleFlyoutView;
+    invoke-static {p8}, Lcom/android/wm/shell/bubbles/BubbleStackView;->access$3900(Lcom/android/wm/shell/bubbles/BubbleStackView;)Lcom/android/wm/shell/bubbles/BubbleFlyoutView;
 
     move-result-object p8
 
@@ -135,7 +135,7 @@
     :cond_2
     iget-object p8, p0, Lcom/android/wm/shell/bubbles/BubbleStackView$9;->this$0:Lcom/android/wm/shell/bubbles/BubbleStackView;
 
-    invoke-static {p8}, Lcom/android/wm/shell/bubbles/BubbleStackView;->access$3800(Lcom/android/wm/shell/bubbles/BubbleStackView;)Lcom/android/wm/shell/bubbles/BubbleFlyoutView;
+    invoke-static {p8}, Lcom/android/wm/shell/bubbles/BubbleStackView;->access$3900(Lcom/android/wm/shell/bubbles/BubbleStackView;)Lcom/android/wm/shell/bubbles/BubbleFlyoutView;
 
     move-result-object p8
 
@@ -199,13 +199,13 @@
     :goto_6
     iget-object p1, p0, Lcom/android/wm/shell/bubbles/BubbleStackView$9;->this$0:Lcom/android/wm/shell/bubbles/BubbleStackView;
 
-    invoke-static {p1}, Lcom/android/wm/shell/bubbles/BubbleStackView;->access$3800(Lcom/android/wm/shell/bubbles/BubbleStackView;)Lcom/android/wm/shell/bubbles/BubbleFlyoutView;
+    invoke-static {p1}, Lcom/android/wm/shell/bubbles/BubbleStackView;->access$3900(Lcom/android/wm/shell/bubbles/BubbleStackView;)Lcom/android/wm/shell/bubbles/BubbleFlyoutView;
 
     move-result-object p1
 
     iget-object p3, p0, Lcom/android/wm/shell/bubbles/BubbleStackView$9;->this$0:Lcom/android/wm/shell/bubbles/BubbleStackView;
 
-    invoke-static {p3}, Lcom/android/wm/shell/bubbles/BubbleStackView;->access$3700(Lcom/android/wm/shell/bubbles/BubbleStackView;)Ljava/lang/Runnable;
+    invoke-static {p3}, Lcom/android/wm/shell/bubbles/BubbleStackView;->access$3800(Lcom/android/wm/shell/bubbles/BubbleStackView;)Ljava/lang/Runnable;
 
     move-result-object p3
 
@@ -213,7 +213,7 @@
 
     iget-object p1, p0, Lcom/android/wm/shell/bubbles/BubbleStackView$9;->this$0:Lcom/android/wm/shell/bubbles/BubbleStackView;
 
-    invoke-static {p1, p2, p7}, Lcom/android/wm/shell/bubbles/BubbleStackView;->access$3900(Lcom/android/wm/shell/bubbles/BubbleStackView;ZF)V
+    invoke-static {p1, p2, p7}, Lcom/android/wm/shell/bubbles/BubbleStackView;->access$4000(Lcom/android/wm/shell/bubbles/BubbleStackView;ZF)V
 
     iget-object p0, p0, Lcom/android/wm/shell/bubbles/BubbleStackView$9;->this$0:Lcom/android/wm/shell/bubbles/BubbleStackView;
 

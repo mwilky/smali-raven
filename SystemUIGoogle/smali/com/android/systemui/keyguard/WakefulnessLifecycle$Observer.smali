@@ -27,6 +27,12 @@
     return-void
 .end method
 
+.method public onPostFinishedWakingUp()V
+    .locals 0
+
+    return-void
+.end method
+
 .method public onStartedGoingToSleep()V
     .locals 0
 

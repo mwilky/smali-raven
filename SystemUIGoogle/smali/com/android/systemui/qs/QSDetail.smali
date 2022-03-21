@@ -21,8 +21,6 @@
 
 .field private mClosingDetail:Z
 
-.field private mContainer:Lcom/android/systemui/statusbar/phone/NotificationsQuickSettingsContainer;
-
 .field private mDetailAdapter:Lcom/android/systemui/plugins/qs/DetailAdapter;
 
 .field private mDetailContent:Landroid/view/ViewGroup;
@@ -56,6 +54,8 @@
 .field private mOpenX:I
 
 .field private mOpenY:I
+
+.field private mQsContainerController:Lcom/android/systemui/plugins/qs/QSContainerController;
 
 .field protected mQsDetailHeader:Landroid/view/View;
 
@@ -951,11 +951,11 @@
 
     invoke-virtual {p0, p2, p3, p4, p1}, Lcom/android/systemui/qs/QSDetail;->animateDetailVisibleDiff(IIZLandroid/animation/Animator$AnimatorListener;)V
 
-    iget-object p0, p0, Lcom/android/systemui/qs/QSDetail;->mContainer:Lcom/android/systemui/statusbar/phone/NotificationsQuickSettingsContainer;
+    iget-object p0, p0, Lcom/android/systemui/qs/QSDetail;->mQsContainerController:Lcom/android/systemui/plugins/qs/QSContainerController;
 
     if-eqz p0, :cond_b
 
-    invoke-virtual {p0, v2}, Lcom/android/systemui/statusbar/phone/NotificationsQuickSettingsContainer;->setDetailShowing(Z)V
+    invoke-interface {p0, v2}, Lcom/android/systemui/plugins/qs/QSContainerController;->setDetailShowing(Z)V
 
     :cond_b
     return-void
@@ -1147,10 +1147,10 @@
     return-void
 .end method
 
-.method public setContainer(Lcom/android/systemui/statusbar/phone/NotificationsQuickSettingsContainer;)V
+.method public setContainerController(Lcom/android/systemui/plugins/qs/QSContainerController;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/android/systemui/qs/QSDetail;->mContainer:Lcom/android/systemui/statusbar/phone/NotificationsQuickSettingsContainer;
+    iput-object p1, p0, Lcom/android/systemui/qs/QSDetail;->mQsContainerController:Lcom/android/systemui/plugins/qs/QSContainerController;
 
     return-void
 .end method

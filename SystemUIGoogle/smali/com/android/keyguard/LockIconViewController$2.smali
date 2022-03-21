@@ -41,9 +41,19 @@
 
     invoke-static {p1, p2}, Lcom/android/keyguard/LockIconViewController;->access$502(Lcom/android/keyguard/LockIconViewController;F)F
 
+    iget-object p1, p0, Lcom/android/keyguard/LockIconViewController$2;->this$0:Lcom/android/keyguard/LockIconViewController;
+
+    invoke-static {p1}, Lcom/android/keyguard/LockIconViewController;->access$600(Lcom/android/keyguard/LockIconViewController;)Landroid/view/View;
+
+    move-result-object p1
+
+    check-cast p1, Lcom/android/keyguard/LockIconView;
+
+    invoke-virtual {p1, p2}, Lcom/android/keyguard/LockIconView;->setDozeAmount(F)V
+
     iget-object p0, p0, Lcom/android/keyguard/LockIconViewController$2;->this$0:Lcom/android/keyguard/LockIconViewController;
 
-    invoke-static {p0}, Lcom/android/keyguard/LockIconViewController;->access$600(Lcom/android/keyguard/LockIconViewController;)V
+    invoke-static {p0}, Lcom/android/keyguard/LockIconViewController;->access$700(Lcom/android/keyguard/LockIconViewController;)V
 
     return-void
 .end method
@@ -53,19 +63,19 @@
 
     iget-object v0, p0, Lcom/android/keyguard/LockIconViewController$2;->this$0:Lcom/android/keyguard/LockIconViewController;
 
-    invoke-static {v0, p1}, Lcom/android/keyguard/LockIconViewController;->access$702(Lcom/android/keyguard/LockIconViewController;Z)Z
+    invoke-static {v0, p1}, Lcom/android/keyguard/LockIconViewController;->access$802(Lcom/android/keyguard/LockIconViewController;Z)Z
 
     iget-object p1, p0, Lcom/android/keyguard/LockIconViewController$2;->this$0:Lcom/android/keyguard/LockIconViewController;
 
-    invoke-static {p1}, Lcom/android/keyguard/LockIconViewController;->access$600(Lcom/android/keyguard/LockIconViewController;)V
+    invoke-static {p1}, Lcom/android/keyguard/LockIconViewController;->access$700(Lcom/android/keyguard/LockIconViewController;)V
 
     iget-object p1, p0, Lcom/android/keyguard/LockIconViewController$2;->this$0:Lcom/android/keyguard/LockIconViewController;
 
-    invoke-static {p1}, Lcom/android/keyguard/LockIconViewController;->access$800(Lcom/android/keyguard/LockIconViewController;)V
+    invoke-static {p1}, Lcom/android/keyguard/LockIconViewController;->access$900(Lcom/android/keyguard/LockIconViewController;)V
 
     iget-object p0, p0, Lcom/android/keyguard/LockIconViewController$2;->this$0:Lcom/android/keyguard/LockIconViewController;
 
-    invoke-static {p0}, Lcom/android/keyguard/LockIconViewController;->access$900(Lcom/android/keyguard/LockIconViewController;)V
+    invoke-static {p0}, Lcom/android/keyguard/LockIconViewController;->access$1000(Lcom/android/keyguard/LockIconViewController;)V
 
     return-void
 .end method
@@ -75,11 +85,11 @@
 
     iget-object v0, p0, Lcom/android/keyguard/LockIconViewController$2;->this$0:Lcom/android/keyguard/LockIconViewController;
 
-    invoke-static {v0, p1}, Lcom/android/keyguard/LockIconViewController;->access$1002(Lcom/android/keyguard/LockIconViewController;I)I
+    invoke-static {v0, p1}, Lcom/android/keyguard/LockIconViewController;->access$1102(Lcom/android/keyguard/LockIconViewController;I)I
 
     iget-object p0, p0, Lcom/android/keyguard/LockIconViewController$2;->this$0:Lcom/android/keyguard/LockIconViewController;
 
-    invoke-static {p0}, Lcom/android/keyguard/LockIconViewController;->access$900(Lcom/android/keyguard/LockIconViewController;)V
+    invoke-static {p0}, Lcom/android/keyguard/LockIconViewController;->access$1000(Lcom/android/keyguard/LockIconViewController;)V
 
     return-void
 .end method

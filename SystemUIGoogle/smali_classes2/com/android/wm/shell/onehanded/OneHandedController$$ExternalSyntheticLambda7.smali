@@ -27,7 +27,7 @@
 
     iget-object p0, p0, Lcom/android/wm/shell/onehanded/OneHandedController$$ExternalSyntheticLambda7;->f$0:Lcom/android/wm/shell/onehanded/OneHandedController;
 
-    invoke-virtual {p0}, Lcom/android/wm/shell/onehanded/OneHandedController;->startOneHanded()V
+    invoke-static {p0}, Lcom/android/wm/shell/onehanded/OneHandedController;->$r8$lambda$0CSiH37_f2JhaGJj3NZ3f8L8MNg(Lcom/android/wm/shell/onehanded/OneHandedController;)V
 
     return-void
 .end method

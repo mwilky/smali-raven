@@ -27,9 +27,9 @@
 
     iget-object p0, p0, Lcom/android/wm/shell/bubbles/BubbleController$$ExternalSyntheticLambda10;->f$0:Lcom/android/wm/shell/bubbles/BubbleController;
 
-    check-cast p1, Ljava/util/List;
+    check-cast p1, Lcom/android/wm/shell/bubbles/Bubble;
 
-    invoke-static {p0, p1}, Lcom/android/wm/shell/bubbles/BubbleController;->$r8$lambda$-gao8rXuoMoWmQbfJqebhms76Ac(Lcom/android/wm/shell/bubbles/BubbleController;Ljava/util/List;)V
+    invoke-static {p0, p1}, Lcom/android/wm/shell/bubbles/BubbleController;->$r8$lambda$mpuDdjRrfH0oTrzaDplPAvZ9uI8(Lcom/android/wm/shell/bubbles/BubbleController;Lcom/android/wm/shell/bubbles/Bubble;)V
 
     return-void
 .end method

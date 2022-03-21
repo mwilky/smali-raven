@@ -32,18 +32,6 @@
         <item quantity="other">SIM kartaning PUK kodi noto‘g‘ri kiritildi. Yana %d ta muvaffaqiyatsiz urinishdan keyin SIM karta butunlay ishdan chiqadi.</item>
         <item quantity="one">SIM karta PUK kodi noto‘g‘ri terildi, yana %d marta urinib ko‘rganingizdan keyin SIM kartadan umuman foydalanib bo‘lmaydi.</item>
     </plurals>
-    <plurals name="kg_prompt_reason_time_password">
-        <item quantity="other">Qurilma %d soatdan beri qulfdan chiqarilgani yo‘q. Parolni yana bir marta kiriting.</item>
-        <item quantity="one">Qurilma %d soatdan beri qulfdan chiqarilgani yo‘q. Parolni yana bir marta kiriting.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pattern">
-        <item quantity="other">Qurilma %d soatdan beri qulfdan chiqarilgani yo‘q. Chizmali kalitni yana bir marta kiriting.</item>
-        <item quantity="one">Qurilma %d soatdan beri qulfdan chiqarilgani yo‘q. Chizmali kalitni yana bir marta kiriting.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pin">
-        <item quantity="other">Qurilma %d soatdan beri qulfdan chiqarilgani yo‘q. PIN kodni yana bir marta kiriting.</item>
-        <item quantity="one">Qurilma %d soatdan beri qulfdan chiqarilgani yo‘q. PIN kodni yana bir marta kiriting.</item>
-    </plurals>
     <plurals name="kg_too_many_failed_attempts_countdown">
         <item quantity="other">%d soniyadan keyin qaytadan urining.</item>
         <item quantity="one">1 soniyadan keyin qaytadan urining.</item>

@@ -201,7 +201,7 @@
 .end method
 
 .method private onTransactionReceived(Landroid/view/SurfaceControl$Transaction;)V
-    .locals 3
+    .locals 4
 
     iget-object v0, p0, Lcom/android/wm/shell/common/SyncTransactionQueue;->mRunnables:Ljava/util/ArrayList;
 
@@ -211,31 +211,33 @@
 
     const/4 v1, 0x0
 
+    move v2, v1
+
     :goto_0
-    if-ge v1, v0, :cond_0
+    if-ge v2, v0, :cond_0
 
-    iget-object v2, p0, Lcom/android/wm/shell/common/SyncTransactionQueue;->mRunnables:Ljava/util/ArrayList;
+    iget-object v3, p0, Lcom/android/wm/shell/common/SyncTransactionQueue;->mRunnables:Ljava/util/ArrayList;
 
-    invoke-virtual {v2, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v3, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v3
 
-    check-cast v2, Lcom/android/wm/shell/common/SyncTransactionQueue$TransactionRunnable;
+    check-cast v3, Lcom/android/wm/shell/common/SyncTransactionQueue$TransactionRunnable;
 
-    invoke-interface {v2, p1}, Lcom/android/wm/shell/common/SyncTransactionQueue$TransactionRunnable;->runWithTransaction(Landroid/view/SurfaceControl$Transaction;)V
+    invoke-interface {v3, p1}, Lcom/android/wm/shell/common/SyncTransactionQueue$TransactionRunnable;->runWithTransaction(Landroid/view/SurfaceControl$Transaction;)V
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     :cond_0
     iget-object p0, p0, Lcom/android/wm/shell/common/SyncTransactionQueue;->mRunnables:Ljava/util/ArrayList;
 
-    invoke-virtual {p0}, Ljava/util/ArrayList;->clear()V
+    invoke-virtual {p0, v1, v0}, Ljava/util/ArrayList;->subList(II)Ljava/util/List;
 
-    invoke-virtual {p1}, Landroid/view/SurfaceControl$Transaction;->apply()V
+    move-result-object p0
 
-    invoke-virtual {p1}, Landroid/view/SurfaceControl$Transaction;->close()V
+    invoke-interface {p0}, Ljava/util/List;->clear()V
 
     return-void
 .end method
@@ -245,6 +247,15 @@
 .method public queue(Landroid/window/WindowContainerTransaction;)V
     .locals 2
 
+    invoke-virtual {p1}, Landroid/window/WindowContainerTransaction;->isEmpty()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    return-void
+
+    :cond_0
     new-instance v0, Lcom/android/wm/shell/common/SyncTransactionQueue$SyncCallback;
 
     invoke-direct {v0, p0, p1}, Lcom/android/wm/shell/common/SyncTransactionQueue$SyncCallback;-><init>(Lcom/android/wm/shell/common/SyncTransactionQueue;Landroid/window/WindowContainerTransaction;)V
@@ -266,11 +277,63 @@
 
     const/4 v1, 0x1
 
-    if-ne p0, v1, :cond_0
+    if-ne p0, v1, :cond_1
 
     invoke-virtual {v0}, Lcom/android/wm/shell/common/SyncTransactionQueue$SyncCallback;->send()V
 
+    :cond_1
+    monitor-exit p1
+
+    return-void
+
+    :catchall_0
+    move-exception p0
+
+    monitor-exit p1
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw p0
+.end method
+
+.method public queue(Lcom/android/wm/shell/transition/LegacyTransitions$ILegacyTransition;ILandroid/window/WindowContainerTransaction;)V
+    .locals 1
+
+    invoke-virtual {p3}, Landroid/window/WindowContainerTransaction;->isEmpty()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    return-void
+
     :cond_0
+    new-instance v0, Lcom/android/wm/shell/common/SyncTransactionQueue$SyncCallback;
+
+    invoke-direct {v0, p0, p1, p2, p3}, Lcom/android/wm/shell/common/SyncTransactionQueue$SyncCallback;-><init>(Lcom/android/wm/shell/common/SyncTransactionQueue;Lcom/android/wm/shell/transition/LegacyTransitions$ILegacyTransition;ILandroid/window/WindowContainerTransaction;)V
+
+    iget-object p1, p0, Lcom/android/wm/shell/common/SyncTransactionQueue;->mQueue:Ljava/util/ArrayList;
+
+    monitor-enter p1
+
+    :try_start_0
+    iget-object p2, p0, Lcom/android/wm/shell/common/SyncTransactionQueue;->mQueue:Ljava/util/ArrayList;
+
+    invoke-virtual {p2, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    iget-object p0, p0, Lcom/android/wm/shell/common/SyncTransactionQueue;->mQueue:Ljava/util/ArrayList;
+
+    invoke-virtual {p0}, Ljava/util/ArrayList;->size()I
+
+    move-result p0
+
+    const/4 p2, 0x1
+
+    if-ne p0, p2, :cond_1
+
+    invoke-virtual {v0}, Lcom/android/wm/shell/common/SyncTransactionQueue$SyncCallback;->send()V
+
+    :cond_1
     monitor-exit p1
 
     return-void
@@ -286,28 +349,37 @@
 .end method
 
 .method public queueIfWaiting(Landroid/window/WindowContainerTransaction;)Z
-    .locals 2
+    .locals 3
 
+    invoke-virtual {p1}, Landroid/window/WindowContainerTransaction;->isEmpty()Z
+
+    move-result v0
+
+    const/4 v1, 0x0
+
+    if-eqz v0, :cond_0
+
+    return v1
+
+    :cond_0
     iget-object v0, p0, Lcom/android/wm/shell/common/SyncTransactionQueue;->mQueue:Ljava/util/ArrayList;
 
     monitor-enter v0
 
     :try_start_0
-    iget-object v1, p0, Lcom/android/wm/shell/common/SyncTransactionQueue;->mQueue:Ljava/util/ArrayList;
+    iget-object v2, p0, Lcom/android/wm/shell/common/SyncTransactionQueue;->mQueue:Ljava/util/ArrayList;
 
-    invoke-virtual {v1}, Ljava/util/ArrayList;->isEmpty()Z
+    invoke-virtual {v2}, Ljava/util/ArrayList;->isEmpty()Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_0
-
-    const/4 p0, 0x0
+    if-eqz v2, :cond_1
 
     monitor-exit v0
 
-    return p0
+    return v1
 
-    :cond_0
+    :cond_1
     new-instance v1, Lcom/android/wm/shell/common/SyncTransactionQueue$SyncCallback;
 
     invoke-direct {v1, p0, p1}, Lcom/android/wm/shell/common/SyncTransactionQueue$SyncCallback;-><init>(Lcom/android/wm/shell/common/SyncTransactionQueue;Landroid/window/WindowContainerTransaction;)V
@@ -324,11 +396,11 @@
 
     const/4 p1, 0x1
 
-    if-ne p0, p1, :cond_1
+    if-ne p0, p1, :cond_2
 
     invoke-virtual {v1}, Lcom/android/wm/shell/common/SyncTransactionQueue$SyncCallback;->send()V
 
-    :cond_1
+    :cond_2
     monitor-exit v0
 
     return p1

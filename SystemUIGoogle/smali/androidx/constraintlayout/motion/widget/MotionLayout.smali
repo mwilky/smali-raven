@@ -191,6 +191,136 @@
 
 
 # direct methods
+.method public constructor <init>(Landroid/content/Context;)V
+    .locals 4
+
+    invoke-direct {p0, p1}, Landroidx/constraintlayout/widget/ConstraintLayout;-><init>(Landroid/content/Context;)V
+
+    const/4 p1, 0x0
+
+    iput p1, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mLastVelocity:F
+
+    const/4 v0, -0x1
+
+    iput v0, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mBeginState:I
+
+    iput v0, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mCurrentState:I
+
+    iput v0, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mEndState:I
+
+    const/4 v0, 0x0
+
+    iput v0, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mLastWidthMeasureSpec:I
+
+    iput v0, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mLastHeightMeasureSpec:I
+
+    const/4 v1, 0x1
+
+    iput-boolean v1, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mInteractionEnabled:Z
+
+    new-instance v2, Ljava/util/HashMap;
+
+    invoke-direct {v2}, Ljava/util/HashMap;-><init>()V
+
+    iput-object v2, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mFrameArrayList:Ljava/util/HashMap;
+
+    const-wide/16 v2, 0x0
+
+    iput-wide v2, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mAnimationStartTime:J
+
+    const/high16 v2, 0x3f800000    # 1.0f
+
+    iput v2, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mTransitionDuration:F
+
+    iput p1, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mTransitionPosition:F
+
+    iput p1, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mTransitionLastPosition:F
+
+    iput p1, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mTransitionGoalPosition:F
+
+    iput-boolean v0, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mInTransition:Z
+
+    iput-boolean v0, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mIndirectTransition:Z
+
+    iput v0, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mDebugPath:I
+
+    iput-boolean v0, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mTemporalInterpolator:Z
+
+    new-instance v2, Landroidx/constraintlayout/motion/utils/StopLogic;
+
+    invoke-direct {v2}, Landroidx/constraintlayout/motion/utils/StopLogic;-><init>()V
+
+    iput-object v2, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mStopLogic:Landroidx/constraintlayout/motion/utils/StopLogic;
+
+    new-instance v2, Landroidx/constraintlayout/motion/widget/MotionLayout$DecelerateInterpolator;
+
+    invoke-direct {v2, p0}, Landroidx/constraintlayout/motion/widget/MotionLayout$DecelerateInterpolator;-><init>(Landroidx/constraintlayout/motion/widget/MotionLayout;)V
+
+    iput-object v2, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mDecelerateLogic:Landroidx/constraintlayout/motion/widget/MotionLayout$DecelerateInterpolator;
+
+    iput-boolean v1, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->firstDown:Z
+
+    iput-boolean v0, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mUndergoingMotion:Z
+
+    iput-boolean v0, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mKeepAnimating:Z
+
+    const/4 v1, 0x0
+
+    iput-object v1, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mOnShowHelpers:Ljava/util/ArrayList;
+
+    iput-object v1, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mOnHideHelpers:Ljava/util/ArrayList;
+
+    iput-object v1, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mTransitionListeners:Ljava/util/ArrayList;
+
+    iput v0, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mFrames:I
+
+    const-wide/16 v2, -0x1
+
+    iput-wide v2, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mLastDrawTime:J
+
+    iput p1, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mLastFps:F
+
+    iput v0, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mListenerState:I
+
+    iput p1, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mListenerPosition:F
+
+    iput-boolean v0, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mIsAnimating:Z
+
+    iput-boolean v0, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mMeasureDuringTransition:Z
+
+    new-instance p1, Landroidx/constraintlayout/motion/widget/KeyCache;
+
+    invoke-direct {p1}, Landroidx/constraintlayout/motion/widget/KeyCache;-><init>()V
+
+    iput-object p1, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mKeyCache:Landroidx/constraintlayout/motion/widget/KeyCache;
+
+    new-instance p1, Landroidx/constraintlayout/motion/widget/MotionLayout$Model;
+
+    invoke-direct {p1, p0}, Landroidx/constraintlayout/motion/widget/MotionLayout$Model;-><init>(Landroidx/constraintlayout/motion/widget/MotionLayout;)V
+
+    iput-object p1, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mModel:Landroidx/constraintlayout/motion/widget/MotionLayout$Model;
+
+    iput-boolean v0, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mNeedsFireTransitionCompleted:Z
+
+    new-instance p1, Landroid/graphics/RectF;
+
+    invoke-direct {p1}, Landroid/graphics/RectF;-><init>()V
+
+    iput-object p1, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mBoundsCheck:Landroid/graphics/RectF;
+
+    iput-object v1, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mRegionView:Landroid/view/View;
+
+    new-instance p1, Ljava/util/ArrayList;
+
+    invoke-direct {p1}, Ljava/util/ArrayList;-><init>()V
+
+    iput-object p1, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mTransitionCompleted:Ljava/util/ArrayList;
+
+    invoke-direct {p0, v1}, Landroidx/constraintlayout/motion/widget/MotionLayout;->init(Landroid/util/AttributeSet;)V
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 4
 
@@ -309,6 +439,136 @@
     iput-object p1, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mBoundsCheck:Landroid/graphics/RectF;
 
     iput-object v1, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mRegionView:Landroid/view/View;
+
+    new-instance p1, Ljava/util/ArrayList;
+
+    invoke-direct {p1}, Ljava/util/ArrayList;-><init>()V
+
+    iput-object p1, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mTransitionCompleted:Ljava/util/ArrayList;
+
+    invoke-direct {p0, p2}, Landroidx/constraintlayout/motion/widget/MotionLayout;->init(Landroid/util/AttributeSet;)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
+    .locals 3
+
+    invoke-direct {p0, p1, p2, p3}, Landroidx/constraintlayout/widget/ConstraintLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
+
+    const/4 p1, 0x0
+
+    iput p1, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mLastVelocity:F
+
+    const/4 p3, -0x1
+
+    iput p3, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mBeginState:I
+
+    iput p3, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mCurrentState:I
+
+    iput p3, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mEndState:I
+
+    const/4 p3, 0x0
+
+    iput p3, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mLastWidthMeasureSpec:I
+
+    iput p3, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mLastHeightMeasureSpec:I
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mInteractionEnabled:Z
+
+    new-instance v1, Ljava/util/HashMap;
+
+    invoke-direct {v1}, Ljava/util/HashMap;-><init>()V
+
+    iput-object v1, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mFrameArrayList:Ljava/util/HashMap;
+
+    const-wide/16 v1, 0x0
+
+    iput-wide v1, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mAnimationStartTime:J
+
+    const/high16 v1, 0x3f800000    # 1.0f
+
+    iput v1, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mTransitionDuration:F
+
+    iput p1, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mTransitionPosition:F
+
+    iput p1, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mTransitionLastPosition:F
+
+    iput p1, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mTransitionGoalPosition:F
+
+    iput-boolean p3, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mInTransition:Z
+
+    iput-boolean p3, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mIndirectTransition:Z
+
+    iput p3, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mDebugPath:I
+
+    iput-boolean p3, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mTemporalInterpolator:Z
+
+    new-instance v1, Landroidx/constraintlayout/motion/utils/StopLogic;
+
+    invoke-direct {v1}, Landroidx/constraintlayout/motion/utils/StopLogic;-><init>()V
+
+    iput-object v1, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mStopLogic:Landroidx/constraintlayout/motion/utils/StopLogic;
+
+    new-instance v1, Landroidx/constraintlayout/motion/widget/MotionLayout$DecelerateInterpolator;
+
+    invoke-direct {v1, p0}, Landroidx/constraintlayout/motion/widget/MotionLayout$DecelerateInterpolator;-><init>(Landroidx/constraintlayout/motion/widget/MotionLayout;)V
+
+    iput-object v1, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mDecelerateLogic:Landroidx/constraintlayout/motion/widget/MotionLayout$DecelerateInterpolator;
+
+    iput-boolean v0, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->firstDown:Z
+
+    iput-boolean p3, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mUndergoingMotion:Z
+
+    iput-boolean p3, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mKeepAnimating:Z
+
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mOnShowHelpers:Ljava/util/ArrayList;
+
+    iput-object v0, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mOnHideHelpers:Ljava/util/ArrayList;
+
+    iput-object v0, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mTransitionListeners:Ljava/util/ArrayList;
+
+    iput p3, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mFrames:I
+
+    const-wide/16 v1, -0x1
+
+    iput-wide v1, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mLastDrawTime:J
+
+    iput p1, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mLastFps:F
+
+    iput p3, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mListenerState:I
+
+    iput p1, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mListenerPosition:F
+
+    iput-boolean p3, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mIsAnimating:Z
+
+    iput-boolean p3, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mMeasureDuringTransition:Z
+
+    new-instance p1, Landroidx/constraintlayout/motion/widget/KeyCache;
+
+    invoke-direct {p1}, Landroidx/constraintlayout/motion/widget/KeyCache;-><init>()V
+
+    iput-object p1, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mKeyCache:Landroidx/constraintlayout/motion/widget/KeyCache;
+
+    new-instance p1, Landroidx/constraintlayout/motion/widget/MotionLayout$Model;
+
+    invoke-direct {p1, p0}, Landroidx/constraintlayout/motion/widget/MotionLayout$Model;-><init>(Landroidx/constraintlayout/motion/widget/MotionLayout;)V
+
+    iput-object p1, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mModel:Landroidx/constraintlayout/motion/widget/MotionLayout$Model;
+
+    iput-boolean p3, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mNeedsFireTransitionCompleted:Z
+
+    new-instance p1, Landroid/graphics/RectF;
+
+    invoke-direct {p1}, Landroid/graphics/RectF;-><init>()V
+
+    iput-object p1, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mBoundsCheck:Landroid/graphics/RectF;
+
+    iput-object v0, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mRegionView:Landroid/view/View;
 
     new-instance p1, Ljava/util/ArrayList;
 
@@ -2563,7 +2823,7 @@
 
     if-ne v1, v4, :cond_3
 
-    const-string/jumbo v1, "undefined"
+    const-string v1, "undefined"
 
     goto :goto_1
 
@@ -3406,6 +3666,25 @@
     return-void
 .end method
 
+.method public getConstraintSet(I)Landroidx/constraintlayout/widget/ConstraintSet;
+    .locals 0
+
+    iget-object p0, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mScene:Landroidx/constraintlayout/motion/widget/MotionScene;
+
+    if-nez p0, :cond_0
+
+    const/4 p0, 0x0
+
+    return-object p0
+
+    :cond_0
+    invoke-virtual {p0, p1}, Landroidx/constraintlayout/motion/widget/MotionScene;->getConstraintSet(I)Landroidx/constraintlayout/widget/ConstraintSet;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method public getCurrentState()I
     .locals 0
 
@@ -3446,6 +3725,18 @@
     iget p0, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mBeginState:I
 
     return p0
+.end method
+
+.method public getTransition(I)Landroidx/constraintlayout/motion/widget/MotionScene$Transition;
+    .locals 0
+
+    iget-object p0, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mScene:Landroidx/constraintlayout/motion/widget/MotionScene;
+
+    invoke-virtual {p0, p1}, Landroidx/constraintlayout/motion/widget/MotionScene;->getTransitionById(I)Landroidx/constraintlayout/motion/widget/MotionScene$Transition;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method public getViewVelocity(Landroid/view/View;FF[FI)V
@@ -4739,6 +5030,132 @@
 
     invoke-virtual {p0}, Landroid/view/ViewGroup;->invalidate()V
 
+    return-void
+.end method
+
+.method public setTransition(I)V
+    .locals 6
+
+    iget-object v0, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mScene:Landroidx/constraintlayout/motion/widget/MotionScene;
+
+    if-eqz v0, :cond_4
+
+    invoke-virtual {p0, p1}, Landroidx/constraintlayout/motion/widget/MotionLayout;->getTransition(I)Landroidx/constraintlayout/motion/widget/MotionScene$Transition;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Landroidx/constraintlayout/motion/widget/MotionScene$Transition;->getStartConstraintSetId()I
+
+    move-result v0
+
+    iput v0, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mBeginState:I
+
+    invoke-virtual {p1}, Landroidx/constraintlayout/motion/widget/MotionScene$Transition;->getEndConstraintSetId()I
+
+    move-result v0
+
+    iput v0, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mEndState:I
+
+    const/high16 v1, 0x7fc00000    # Float.NaN
+
+    iget v2, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mCurrentState:I
+
+    iget v3, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mBeginState:I
+
+    const/4 v4, 0x0
+
+    if-ne v2, v3, :cond_0
+
+    move v1, v4
+
+    goto :goto_0
+
+    :cond_0
+    if-ne v2, v0, :cond_1
+
+    const/high16 v1, 0x3f800000    # 1.0f
+
+    :cond_1
+    :goto_0
+    iget-object v0, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mScene:Landroidx/constraintlayout/motion/widget/MotionScene;
+
+    invoke-virtual {v0, p1}, Landroidx/constraintlayout/motion/widget/MotionScene;->setTransition(Landroidx/constraintlayout/motion/widget/MotionScene$Transition;)V
+
+    iget-object p1, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mModel:Landroidx/constraintlayout/motion/widget/MotionLayout$Model;
+
+    iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintLayout;->mLayoutWidget:Landroidx/constraintlayout/solver/widgets/ConstraintWidgetContainer;
+
+    iget-object v2, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mScene:Landroidx/constraintlayout/motion/widget/MotionScene;
+
+    iget v3, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mBeginState:I
+
+    invoke-virtual {v2, v3}, Landroidx/constraintlayout/motion/widget/MotionScene;->getConstraintSet(I)Landroidx/constraintlayout/widget/ConstraintSet;
+
+    move-result-object v2
+
+    iget-object v3, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mScene:Landroidx/constraintlayout/motion/widget/MotionScene;
+
+    iget v5, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mEndState:I
+
+    invoke-virtual {v3, v5}, Landroidx/constraintlayout/motion/widget/MotionScene;->getConstraintSet(I)Landroidx/constraintlayout/widget/ConstraintSet;
+
+    move-result-object v3
+
+    invoke-virtual {p1, v0, v2, v3}, Landroidx/constraintlayout/motion/widget/MotionLayout$Model;->initFrom(Landroidx/constraintlayout/solver/widgets/ConstraintWidgetContainer;Landroidx/constraintlayout/widget/ConstraintSet;Landroidx/constraintlayout/widget/ConstraintSet;)V
+
+    invoke-virtual {p0}, Landroidx/constraintlayout/motion/widget/MotionLayout;->rebuildScene()V
+
+    invoke-static {v1}, Ljava/lang/Float;->isNaN(F)Z
+
+    move-result p1
+
+    if-eqz p1, :cond_2
+
+    goto :goto_1
+
+    :cond_2
+    move v4, v1
+
+    :goto_1
+    iput v4, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mTransitionLastPosition:F
+
+    invoke-static {v1}, Ljava/lang/Float;->isNaN(F)Z
+
+    move-result p1
+
+    if-eqz p1, :cond_3
+
+    new-instance p1, Ljava/lang/StringBuilder;
+
+    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-static {}, Landroidx/constraintlayout/motion/widget/Debug;->getLocation()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v0, " transitionToStart "
+
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    const-string v0, "MotionLayout"
+
+    invoke-static {v0, p1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {p0}, Landroidx/constraintlayout/motion/widget/MotionLayout;->transitionToStart()V
+
+    goto :goto_2
+
+    :cond_3
+    invoke-virtual {p0, v1}, Landroidx/constraintlayout/motion/widget/MotionLayout;->setProgress(F)V
+
+    :cond_4
+    :goto_2
     return-void
 .end method
 

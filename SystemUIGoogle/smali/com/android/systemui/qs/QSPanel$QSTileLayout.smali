@@ -18,10 +18,16 @@
 .method public abstract addTile(Lcom/android/systemui/qs/QSPanelControllerBase$TileRecord;)V
 .end method
 
+.method public abstract getHeight()I
+.end method
+
 .method public abstract getNumVisibleTiles()I
 .end method
 
 .method public abstract getOffsetTop(Lcom/android/systemui/qs/QSPanelControllerBase$TileRecord;)I
+.end method
+
+.method public abstract getTilesHeight()I
 .end method
 
 .method public abstract removeTile(Lcom/android/systemui/qs/QSPanelControllerBase$TileRecord;)V
@@ -62,6 +68,9 @@
     const/4 p0, 0x0
 
     return p0
+.end method
+
+.method public abstract setSquishinessFraction(F)V
 .end method
 
 .method public abstract updateResources()Z

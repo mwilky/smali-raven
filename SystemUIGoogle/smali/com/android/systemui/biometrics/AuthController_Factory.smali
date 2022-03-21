@@ -58,6 +58,16 @@
     .end annotation
 .end field
 
+.field private final executionProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/util/concurrency/Execution;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private final faceManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -120,13 +130,16 @@
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Ljavax/inject/Provider<",
             "Landroid/content/Context;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/util/concurrency/Execution;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/CommandQueue;",
@@ -162,34 +175,39 @@
 
     iput-object p1, p0, Lcom/android/systemui/biometrics/AuthController_Factory;->contextProvider:Ljavax/inject/Provider;
 
-    iput-object p2, p0, Lcom/android/systemui/biometrics/AuthController_Factory;->commandQueueProvider:Ljavax/inject/Provider;
+    iput-object p2, p0, Lcom/android/systemui/biometrics/AuthController_Factory;->executionProvider:Ljavax/inject/Provider;
 
-    iput-object p3, p0, Lcom/android/systemui/biometrics/AuthController_Factory;->activityTaskManagerProvider:Ljavax/inject/Provider;
+    iput-object p3, p0, Lcom/android/systemui/biometrics/AuthController_Factory;->commandQueueProvider:Ljavax/inject/Provider;
 
-    iput-object p4, p0, Lcom/android/systemui/biometrics/AuthController_Factory;->windowManagerProvider:Ljavax/inject/Provider;
+    iput-object p4, p0, Lcom/android/systemui/biometrics/AuthController_Factory;->activityTaskManagerProvider:Ljavax/inject/Provider;
 
-    iput-object p5, p0, Lcom/android/systemui/biometrics/AuthController_Factory;->fingerprintManagerProvider:Ljavax/inject/Provider;
+    iput-object p5, p0, Lcom/android/systemui/biometrics/AuthController_Factory;->windowManagerProvider:Ljavax/inject/Provider;
 
-    iput-object p6, p0, Lcom/android/systemui/biometrics/AuthController_Factory;->faceManagerProvider:Ljavax/inject/Provider;
+    iput-object p6, p0, Lcom/android/systemui/biometrics/AuthController_Factory;->fingerprintManagerProvider:Ljavax/inject/Provider;
 
-    iput-object p7, p0, Lcom/android/systemui/biometrics/AuthController_Factory;->udfpsControllerFactoryProvider:Ljavax/inject/Provider;
+    iput-object p7, p0, Lcom/android/systemui/biometrics/AuthController_Factory;->faceManagerProvider:Ljavax/inject/Provider;
 
-    iput-object p8, p0, Lcom/android/systemui/biometrics/AuthController_Factory;->sidefpsControllerFactoryProvider:Ljavax/inject/Provider;
+    iput-object p8, p0, Lcom/android/systemui/biometrics/AuthController_Factory;->udfpsControllerFactoryProvider:Ljavax/inject/Provider;
 
-    iput-object p9, p0, Lcom/android/systemui/biometrics/AuthController_Factory;->displayManagerProvider:Ljavax/inject/Provider;
+    iput-object p9, p0, Lcom/android/systemui/biometrics/AuthController_Factory;->sidefpsControllerFactoryProvider:Ljavax/inject/Provider;
 
-    iput-object p10, p0, Lcom/android/systemui/biometrics/AuthController_Factory;->handlerProvider:Ljavax/inject/Provider;
+    iput-object p10, p0, Lcom/android/systemui/biometrics/AuthController_Factory;->displayManagerProvider:Ljavax/inject/Provider;
+
+    iput-object p11, p0, Lcom/android/systemui/biometrics/AuthController_Factory;->handlerProvider:Ljavax/inject/Provider;
 
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/biometrics/AuthController_Factory;
-    .locals 12
+.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/biometrics/AuthController_Factory;
+    .locals 13
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Ljavax/inject/Provider<",
             "Landroid/content/Context;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/util/concurrency/Execution;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/CommandQueue;",
@@ -222,9 +240,9 @@
         }
     .end annotation
 
-    new-instance v11, Lcom/android/systemui/biometrics/AuthController_Factory;
+    new-instance v12, Lcom/android/systemui/biometrics/AuthController_Factory;
 
-    move-object v0, v11
+    move-object v0, v12
 
     move-object v1, p0
 
@@ -232,7 +250,7 @@
 
     move-object v3, p2
 
-    move-object v4, p3
+    move-object/from16 v4, p3
 
     move-object/from16 v5, p4
 
@@ -246,17 +264,20 @@
 
     move-object/from16 v10, p9
 
-    invoke-direct/range {v0 .. v10}, Lcom/android/systemui/biometrics/AuthController_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+    move-object/from16 v11, p10
 
-    return-object v11
+    invoke-direct/range {v0 .. v11}, Lcom/android/systemui/biometrics/AuthController_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+
+    return-object v12
 .end method
 
-.method public static newInstance(Landroid/content/Context;Lcom/android/systemui/statusbar/CommandQueue;Landroid/app/ActivityTaskManager;Landroid/view/WindowManager;Landroid/hardware/fingerprint/FingerprintManager;Landroid/hardware/face/FaceManager;Ljavax/inject/Provider;Ljavax/inject/Provider;Landroid/hardware/display/DisplayManager;Landroid/os/Handler;)Lcom/android/systemui/biometrics/AuthController;
-    .locals 12
+.method public static newInstance(Landroid/content/Context;Lcom/android/systemui/util/concurrency/Execution;Lcom/android/systemui/statusbar/CommandQueue;Landroid/app/ActivityTaskManager;Landroid/view/WindowManager;Landroid/hardware/fingerprint/FingerprintManager;Landroid/hardware/face/FaceManager;Ljavax/inject/Provider;Ljavax/inject/Provider;Landroid/hardware/display/DisplayManager;Landroid/os/Handler;)Lcom/android/systemui/biometrics/AuthController;
+    .locals 13
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Landroid/content/Context;",
+            "Lcom/android/systemui/util/concurrency/Execution;",
             "Lcom/android/systemui/statusbar/CommandQueue;",
             "Landroid/app/ActivityTaskManager;",
             "Landroid/view/WindowManager;",
@@ -275,9 +296,9 @@
         }
     .end annotation
 
-    new-instance v11, Lcom/android/systemui/biometrics/AuthController;
+    new-instance v12, Lcom/android/systemui/biometrics/AuthController;
 
-    move-object v0, v11
+    move-object v0, v12
 
     move-object v1, p0
 
@@ -285,7 +306,7 @@
 
     move-object v3, p2
 
-    move-object v4, p3
+    move-object/from16 v4, p3
 
     move-object/from16 v5, p4
 
@@ -299,15 +320,17 @@
 
     move-object/from16 v10, p9
 
-    invoke-direct/range {v0 .. v10}, Lcom/android/systemui/biometrics/AuthController;-><init>(Landroid/content/Context;Lcom/android/systemui/statusbar/CommandQueue;Landroid/app/ActivityTaskManager;Landroid/view/WindowManager;Landroid/hardware/fingerprint/FingerprintManager;Landroid/hardware/face/FaceManager;Ljavax/inject/Provider;Ljavax/inject/Provider;Landroid/hardware/display/DisplayManager;Landroid/os/Handler;)V
+    move-object/from16 v11, p10
 
-    return-object v11
+    invoke-direct/range {v0 .. v11}, Lcom/android/systemui/biometrics/AuthController;-><init>(Landroid/content/Context;Lcom/android/systemui/util/concurrency/Execution;Lcom/android/systemui/statusbar/CommandQueue;Landroid/app/ActivityTaskManager;Landroid/view/WindowManager;Landroid/hardware/fingerprint/FingerprintManager;Landroid/hardware/face/FaceManager;Ljavax/inject/Provider;Ljavax/inject/Provider;Landroid/hardware/display/DisplayManager;Landroid/os/Handler;)V
+
+    return-object v12
 .end method
 
 
 # virtual methods
 .method public get()Lcom/android/systemui/biometrics/AuthController;
-    .locals 11
+    .locals 12
 
     iget-object v0, p0, Lcom/android/systemui/biometrics/AuthController_Factory;->contextProvider:Ljavax/inject/Provider;
 
@@ -319,7 +342,7 @@
 
     check-cast v1, Landroid/content/Context;
 
-    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthController_Factory;->commandQueueProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthController_Factory;->executionProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -327,9 +350,9 @@
 
     move-object v2, v0
 
-    check-cast v2, Lcom/android/systemui/statusbar/CommandQueue;
+    check-cast v2, Lcom/android/systemui/util/concurrency/Execution;
 
-    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthController_Factory;->activityTaskManagerProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthController_Factory;->commandQueueProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -337,9 +360,9 @@
 
     move-object v3, v0
 
-    check-cast v3, Landroid/app/ActivityTaskManager;
+    check-cast v3, Lcom/android/systemui/statusbar/CommandQueue;
 
-    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthController_Factory;->windowManagerProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthController_Factory;->activityTaskManagerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -347,9 +370,9 @@
 
     move-object v4, v0
 
-    check-cast v4, Landroid/view/WindowManager;
+    check-cast v4, Landroid/app/ActivityTaskManager;
 
-    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthController_Factory;->fingerprintManagerProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthController_Factory;->windowManagerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -357,9 +380,9 @@
 
     move-object v5, v0
 
-    check-cast v5, Landroid/hardware/fingerprint/FingerprintManager;
+    check-cast v5, Landroid/view/WindowManager;
 
-    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthController_Factory;->faceManagerProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthController_Factory;->fingerprintManagerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -367,11 +390,21 @@
 
     move-object v6, v0
 
-    check-cast v6, Landroid/hardware/face/FaceManager;
+    check-cast v6, Landroid/hardware/fingerprint/FingerprintManager;
 
-    iget-object v7, p0, Lcom/android/systemui/biometrics/AuthController_Factory;->udfpsControllerFactoryProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthController_Factory;->faceManagerProvider:Ljavax/inject/Provider;
 
-    iget-object v8, p0, Lcom/android/systemui/biometrics/AuthController_Factory;->sidefpsControllerFactoryProvider:Ljavax/inject/Provider;
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v7, v0
+
+    check-cast v7, Landroid/hardware/face/FaceManager;
+
+    iget-object v8, p0, Lcom/android/systemui/biometrics/AuthController_Factory;->udfpsControllerFactoryProvider:Ljavax/inject/Provider;
+
+    iget-object v9, p0, Lcom/android/systemui/biometrics/AuthController_Factory;->sidefpsControllerFactoryProvider:Ljavax/inject/Provider;
 
     iget-object v0, p0, Lcom/android/systemui/biometrics/AuthController_Factory;->displayManagerProvider:Ljavax/inject/Provider;
 
@@ -379,9 +412,9 @@
 
     move-result-object v0
 
-    move-object v9, v0
+    move-object v10, v0
 
-    check-cast v9, Landroid/hardware/display/DisplayManager;
+    check-cast v10, Landroid/hardware/display/DisplayManager;
 
     iget-object p0, p0, Lcom/android/systemui/biometrics/AuthController_Factory;->handlerProvider:Ljavax/inject/Provider;
 
@@ -389,11 +422,11 @@
 
     move-result-object p0
 
-    move-object v10, p0
+    move-object v11, p0
 
-    check-cast v10, Landroid/os/Handler;
+    check-cast v11, Landroid/os/Handler;
 
-    invoke-static/range {v1 .. v10}, Lcom/android/systemui/biometrics/AuthController_Factory;->newInstance(Landroid/content/Context;Lcom/android/systemui/statusbar/CommandQueue;Landroid/app/ActivityTaskManager;Landroid/view/WindowManager;Landroid/hardware/fingerprint/FingerprintManager;Landroid/hardware/face/FaceManager;Ljavax/inject/Provider;Ljavax/inject/Provider;Landroid/hardware/display/DisplayManager;Landroid/os/Handler;)Lcom/android/systemui/biometrics/AuthController;
+    invoke-static/range {v1 .. v11}, Lcom/android/systemui/biometrics/AuthController_Factory;->newInstance(Landroid/content/Context;Lcom/android/systemui/util/concurrency/Execution;Lcom/android/systemui/statusbar/CommandQueue;Landroid/app/ActivityTaskManager;Landroid/view/WindowManager;Landroid/hardware/fingerprint/FingerprintManager;Landroid/hardware/face/FaceManager;Ljavax/inject/Provider;Ljavax/inject/Provider;Landroid/hardware/display/DisplayManager;Landroid/os/Handler;)Lcom/android/systemui/biometrics/AuthController;
 
     move-result-object p0
 

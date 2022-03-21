@@ -1471,7 +1471,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v2}, Landroid/widget/LinearLayout;->setVisibility(I)V
+    invoke-virtual {v0, v2}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->setVisibility(I)V
 
     invoke-static {p1}, Lcom/android/systemui/qs/customize/TileAdapter$Holder;->access$200(Lcom/android/systemui/qs/customize/TileAdapter$Holder;)Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;
 

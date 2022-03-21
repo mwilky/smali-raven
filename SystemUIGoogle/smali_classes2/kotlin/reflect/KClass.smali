@@ -16,3 +16,8 @@
         "Lkotlin/reflect/KDeclarationContainer;"
     }
 .end annotation
+
+
+# virtual methods
+.method public abstract getSimpleName()Ljava/lang/String;
+.end method

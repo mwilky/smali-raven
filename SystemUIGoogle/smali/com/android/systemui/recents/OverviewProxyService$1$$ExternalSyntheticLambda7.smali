@@ -8,18 +8,22 @@
 # instance fields
 .field public final synthetic f$0:Lcom/android/systemui/recents/OverviewProxyService$1;
 
-.field public final synthetic f$1:Landroid/os/Bundle;
+.field public final synthetic f$1:F
+
+.field public final synthetic f$2:Z
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/systemui/recents/OverviewProxyService$1;Landroid/os/Bundle;)V
+.method public synthetic constructor <init>(Lcom/android/systemui/recents/OverviewProxyService$1;FZ)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda7;->f$0:Lcom/android/systemui/recents/OverviewProxyService$1;
 
-    iput-object p2, p0, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda7;->f$1:Landroid/os/Bundle;
+    iput p2, p0, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda7;->f$1:F
+
+    iput-boolean p3, p0, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda7;->f$2:Z
 
     return-void
 .end method
@@ -27,13 +31,15 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda7;->f$0:Lcom/android/systemui/recents/OverviewProxyService$1;
 
-    iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda7;->f$1:Landroid/os/Bundle;
+    iget v1, p0, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda7;->f$1:F
 
-    invoke-static {v0, p0}, Lcom/android/systemui/recents/OverviewProxyService$1;->$r8$lambda$zvsDwFM4mjDpFMNJZbSWtzjGEHE(Lcom/android/systemui/recents/OverviewProxyService$1;Landroid/os/Bundle;)V
+    iget-boolean p0, p0, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda7;->f$2:Z
+
+    invoke-static {v0, v1, p0}, Lcom/android/systemui/recents/OverviewProxyService$1;->$r8$lambda$IBg28_vaDNWW4pKydu0trn4zupI(Lcom/android/systemui/recents/OverviewProxyService$1;FZ)V
 
     return-void
 .end method

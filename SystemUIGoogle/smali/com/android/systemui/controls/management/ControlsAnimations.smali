@@ -77,7 +77,7 @@
 
     aput v3, v1, v2
 
-    const-string/jumbo v4, "transitionAlpha"
+    const-string v4, "transitionAlpha"
 
     invoke-static {p0, v4, v1}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
 
@@ -101,7 +101,7 @@
 
     aput v7, v3, v2
 
-    const-string/jumbo v7, "translationY"
+    const-string v7, "translationY"
 
     invoke-static {p0, v7, v3}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
 
@@ -194,7 +194,7 @@
 
     fill-array-data v1, :array_0
 
-    const-string/jumbo v2, "transitionAlpha"
+    const-string v2, "transitionAlpha"
 
     invoke-static {p1, v2, v1}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
 
@@ -220,7 +220,7 @@
 
     aput p0, v4, v5
 
-    const-string/jumbo p0, "translationY"
+    const-string p0, "translationY"
 
     invoke-static {p1, p0, v4}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
 

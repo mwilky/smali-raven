@@ -585,7 +585,7 @@
     :cond_6
     iget-object p0, p0, Lcom/android/wm/shell/pip/phone/PipAccessibilityInteractionConnection;->mMotionHelper:Lcom/android/wm/shell/pip/phone/PipMotionHelper;
 
-    invoke-virtual {p0}, Lcom/android/wm/shell/pip/phone/PipMotionHelper;->expandLeavePip()V
+    invoke-virtual {p0, p2}, Lcom/android/wm/shell/pip/phone/PipMotionHelper;->expandLeavePip(Z)V
 
     goto :goto_0
 

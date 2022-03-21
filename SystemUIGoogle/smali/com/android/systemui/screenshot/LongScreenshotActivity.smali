@@ -203,7 +203,7 @@
 .end method
 
 .method private doEdit(Landroid/net/Uri;)V
-    .locals 6
+    .locals 3
 
     sget v0, Lcom/android/systemui/R$string;->config_screenshotEditor:I
 
@@ -246,6 +246,12 @@
 
     iget-object p1, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mTransitionView:Landroid/widget/ImageView;
 
+    const/4 v0, 0x0
+
+    invoke-virtual {p1, v0}, Landroid/widget/ImageView;->setVisibility(I)V
+
+    iget-object p1, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mTransitionView:Landroid/widget/ImageView;
+
     const-string v0, "screenshot_preview_image"
 
     invoke-virtual {p1, v0}, Landroid/widget/ImageView;->setTransitionName(Ljava/lang/String;)V
@@ -253,58 +259,6 @@
     const/4 p1, 0x1
 
     iput-boolean p1, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mTransitionStarted:Z
-
-    const/4 v2, 0x2
-
-    new-array v3, v2, [I
-
-    iget-object v4, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mTransitionView:Landroid/widget/ImageView;
-
-    invoke-virtual {v4, v3}, Landroid/widget/ImageView;->getLocationOnScreen([I)V
-
-    new-array v2, v2, [I
-
-    iget-object v4, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mTransitionView:Landroid/widget/ImageView;
-
-    invoke-virtual {v4, v2}, Landroid/widget/ImageView;->getLocationInWindow([I)V
-
-    const/4 v4, 0x0
-
-    aget v5, v3, v4
-
-    aget v4, v2, v4
-
-    sub-int/2addr v5, v4
-
-    aget v3, v3, p1
-
-    aget p1, v2, p1
-
-    sub-int/2addr v3, p1
-
-    iget-object p1, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mTransitionView:Landroid/widget/ImageView;
-
-    invoke-virtual {p1}, Landroid/widget/ImageView;->getX()F
-
-    move-result v2
-
-    int-to-float v4, v5
-
-    sub-float/2addr v2, v4
-
-    invoke-virtual {p1, v2}, Landroid/widget/ImageView;->setX(F)V
-
-    iget-object p1, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mTransitionView:Landroid/widget/ImageView;
-
-    invoke-virtual {p1}, Landroid/widget/ImageView;->getY()F
-
-    move-result v2
-
-    int-to-float v3, v3
-
-    sub-float/2addr v2, v3
-
-    invoke-virtual {p1, v2}, Landroid/widget/ImageView;->setY(F)V
 
     iget-object p1, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mTransitionView:Landroid/widget/ImageView;
 

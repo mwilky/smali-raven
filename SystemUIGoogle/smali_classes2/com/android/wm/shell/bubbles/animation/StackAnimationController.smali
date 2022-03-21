@@ -30,8 +30,6 @@
 
 .field private mFloatingContentCoordinator:Lcom/android/wm/shell/common/FloatingContentCoordinator;
 
-.field private mImeHeight:F
-
 .field private mIsMovingFromFlinging:Z
 
 .field private mMagnetizedStack:Lcom/android/wm/shell/common/magnetictarget/MagnetizedObject;
@@ -175,10 +173,6 @@
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/wm/shell/bubbles/animation/StackAnimationController;->mStackMovedToStartPosition:Z
-
-    const/4 v1, 0x0
-
-    iput v1, p0, Lcom/android/wm/shell/bubbles/animation/StackAnimationController;->mImeHeight:F
 
     const v1, -0x7fffffff
 
@@ -1672,7 +1666,7 @@
 .end method
 
 .method public getAllowableStackPositionRegion()Landroid/graphics/RectF;
-    .locals 5
+    .locals 6
 
     new-instance v0, Landroid/graphics/RectF;
 
@@ -1684,67 +1678,81 @@
 
     invoke-direct {v0, v1}, Landroid/graphics/RectF;-><init>(Landroid/graphics/Rect;)V
 
-    iget v1, v0, Landroid/graphics/RectF;->left:F
+    iget-object v1, p0, Lcom/android/wm/shell/bubbles/animation/StackAnimationController;->mPositioner:Lcom/android/wm/shell/bubbles/BubblePositioner;
 
-    iget v2, p0, Lcom/android/wm/shell/bubbles/animation/StackAnimationController;->mBubbleOffscreen:I
+    invoke-virtual {v1}, Lcom/android/wm/shell/bubbles/BubblePositioner;->getImeHeight()I
 
-    int-to-float v3, v2
+    move-result v1
 
-    sub-float/2addr v1, v3
+    invoke-direct {p0}, Lcom/android/wm/shell/bubbles/animation/StackAnimationController;->getBubbleCount()I
 
-    iput v1, v0, Landroid/graphics/RectF;->left:F
+    move-result v2
 
-    iget v1, v0, Landroid/graphics/RectF;->top:F
+    const/4 v3, 0x1
 
-    iget v3, p0, Lcom/android/wm/shell/bubbles/animation/StackAnimationController;->mBubblePaddingTop:I
+    if-le v2, v3, :cond_0
 
-    int-to-float v4, v3
-
-    add-float/2addr v1, v4
-
-    iput v1, v0, Landroid/graphics/RectF;->top:F
-
-    iget v1, v0, Landroid/graphics/RectF;->right:F
-
-    iget v4, p0, Lcom/android/wm/shell/bubbles/animation/StackAnimationController;->mBubbleSize:I
-
-    sub-int/2addr v2, v4
+    iget v2, p0, Lcom/android/wm/shell/bubbles/animation/StackAnimationController;->mBubblePaddingTop:I
 
     int-to-float v2, v2
 
-    add-float/2addr v1, v2
+    iget v3, p0, Lcom/android/wm/shell/bubbles/animation/StackAnimationController;->mStackOffset:F
 
-    iput v1, v0, Landroid/graphics/RectF;->right:F
-
-    iget v1, v0, Landroid/graphics/RectF;->bottom:F
-
-    add-int/2addr v4, v3
-
-    int-to-float v2, v4
-
-    iget p0, p0, Lcom/android/wm/shell/bubbles/animation/StackAnimationController;->mImeHeight:F
-
-    const v4, -0x7fffffff
-
-    cmpl-float v4, p0, v4
-
-    if-eqz v4, :cond_0
-
-    int-to-float v3, v3
-
-    add-float/2addr p0, v3
+    add-float/2addr v2, v3
 
     goto :goto_0
 
     :cond_0
-    const/4 p0, 0x0
+    iget v2, p0, Lcom/android/wm/shell/bubbles/animation/StackAnimationController;->mBubblePaddingTop:I
+
+    int-to-float v2, v2
 
     :goto_0
-    add-float/2addr v2, p0
+    iget v3, v0, Landroid/graphics/RectF;->left:F
 
-    sub-float/2addr v1, v2
+    iget v4, p0, Lcom/android/wm/shell/bubbles/animation/StackAnimationController;->mBubbleOffscreen:I
 
-    iput v1, v0, Landroid/graphics/RectF;->bottom:F
+    int-to-float v5, v4
+
+    sub-float/2addr v3, v5
+
+    iput v3, v0, Landroid/graphics/RectF;->left:F
+
+    iget v3, v0, Landroid/graphics/RectF;->top:F
+
+    iget v5, p0, Lcom/android/wm/shell/bubbles/animation/StackAnimationController;->mBubblePaddingTop:I
+
+    int-to-float v5, v5
+
+    add-float/2addr v3, v5
+
+    iput v3, v0, Landroid/graphics/RectF;->top:F
+
+    iget v3, v0, Landroid/graphics/RectF;->right:F
+
+    iget p0, p0, Lcom/android/wm/shell/bubbles/animation/StackAnimationController;->mBubbleSize:I
+
+    sub-int/2addr v4, p0
+
+    int-to-float v4, v4
+
+    add-float/2addr v3, v4
+
+    iput v3, v0, Landroid/graphics/RectF;->right:F
+
+    iget v3, v0, Landroid/graphics/RectF;->bottom:F
+
+    int-to-float v1, v1
+
+    add-float/2addr v1, v2
+
+    int-to-float p0, p0
+
+    add-float/2addr v1, p0
+
+    sub-float/2addr v3, v1
+
+    iput v3, v0, Landroid/graphics/RectF;->bottom:F
 
     return-object v0
 .end method
@@ -1799,14 +1807,6 @@
     move-result-object p0
 
     return-object p0
-.end method
-
-.method public getImeHeight()F
-    .locals 0
-
-    iget p0, p0, Lcom/android/wm/shell/bubbles/animation/StackAnimationController;->mImeHeight:F
-
-    return p0
 .end method
 
 .method public getMagnetizedStack()Lcom/android/wm/shell/common/magnetictarget/MagnetizedObject;
@@ -2097,13 +2097,11 @@
 .end method
 
 .method public isStackOnLeftSide()Z
-    .locals 3
+    .locals 1
 
     iget-object v0, p0, Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout$PhysicsAnimationController;->mLayout:Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout;
 
-    const/4 v1, 0x1
-
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1
 
     invoke-direct {p0}, Lcom/android/wm/shell/bubbles/animation/StackAnimationController;->isStackPositionSet()Z
 
@@ -2114,40 +2112,21 @@
     goto :goto_0
 
     :cond_0
-    iget-object v0, p0, Lcom/android/wm/shell/bubbles/animation/StackAnimationController;->mStackPosition:Landroid/graphics/PointF;
+    iget-object v0, p0, Lcom/android/wm/shell/bubbles/animation/StackAnimationController;->mPositioner:Lcom/android/wm/shell/bubbles/BubblePositioner;
 
-    iget v0, v0, Landroid/graphics/PointF;->x:F
+    iget-object p0, p0, Lcom/android/wm/shell/bubbles/animation/StackAnimationController;->mStackPosition:Landroid/graphics/PointF;
 
-    iget v2, p0, Lcom/android/wm/shell/bubbles/animation/StackAnimationController;->mBubbleSize:I
-
-    div-int/lit8 v2, v2, 0x2
-
-    int-to-float v2, v2
-
-    add-float/2addr v0, v2
-
-    iget-object p0, p0, Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout$PhysicsAnimationController;->mLayout:Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout;
-
-    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getWidth()I
+    invoke-virtual {v0, p0}, Lcom/android/wm/shell/bubbles/BubblePositioner;->isStackOnLeft(Landroid/graphics/PointF;)Z
 
     move-result p0
 
-    div-int/lit8 p0, p0, 0x2
-
-    int-to-float p0, p0
-
-    cmpg-float p0, v0, p0
-
-    if-gez p0, :cond_1
-
-    goto :goto_0
+    return p0
 
     :cond_1
-    const/4 v1, 0x0
-
-    :cond_2
     :goto_0
-    return v1
+    const/4 p0, 0x1
+
+    return p0
 .end method
 
 .method public moveFirstBubbleWithStackFollowing(FF)V
@@ -2489,16 +2468,6 @@
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/wm/shell/bubbles/animation/StackAnimationController;->mSpringToTouchOnNextMotionEvent:Z
-
-    return-void
-.end method
-
-.method public setImeHeight(I)V
-    .locals 0
-
-    int-to-float p1, p1
-
-    iput p1, p0, Lcom/android/wm/shell/bubbles/animation/StackAnimationController;->mImeHeight:F
 
     return-void
 .end method

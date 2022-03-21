@@ -27,9 +27,9 @@
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder$$ExternalSyntheticLambda2;->f$0:Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;
 
-    check-cast p1, Lcom/android/systemui/statusbar/notification/collection/listbuilder/pluggable/NotifPromoter;
+    check-cast p1, Lcom/android/systemui/statusbar/notification/collection/listbuilder/pluggable/NotifFilter;
 
-    invoke-static {p0, p1}, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;->$r8$lambda$Gz3LoEvGGbsZ66wIaxSRUnUPU6I(Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;Lcom/android/systemui/statusbar/notification/collection/listbuilder/pluggable/NotifPromoter;)V
+    invoke-static {p0, p1}, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;->$r8$lambda$aYm05unBM6YYUDTzEPYpmRFh5sM(Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;Lcom/android/systemui/statusbar/notification/collection/listbuilder/pluggable/NotifFilter;)V
 
     return-void
 .end method

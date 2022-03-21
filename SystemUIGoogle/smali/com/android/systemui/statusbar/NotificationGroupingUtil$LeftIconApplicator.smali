@@ -39,11 +39,11 @@
 
     :array_0
     .array-data 4
-        0x10204d5
-        0x10201fa
+        0x10204d8
+        0x10201fd
         0x1020016
+        0x10203b8
         0x10203b5
-        0x10203b2
     .end array-data
 .end method
 
@@ -86,12 +86,12 @@
     :cond_1
     if-eqz p1, :cond_2
 
-    const p0, 0x10204d1
+    const p0, 0x10204d4
 
     goto :goto_0
 
     :cond_2
-    const p0, 0x10204d0
+    const p0, 0x10204d3
 
     :goto_0
     invoke-virtual {p2, p0}, Landroid/view/View;->getTag(I)Ljava/lang/Object;
@@ -156,7 +156,7 @@
 .method public apply(Landroid/view/View;Landroid/view/View;ZZ)V
     .locals 5
 
-    const p1, 0x102034e
+    const p1, 0x1020351
 
     invoke-virtual {p2, p1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -169,7 +169,7 @@
     return-void
 
     :cond_0
-    const p4, 0x1020444
+    const p4, 0x1020447
 
     invoke-virtual {p2, p4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -187,7 +187,7 @@
 
     move-result-object v2
 
-    const v3, 0x10204ce
+    const v3, 0x10204d1
 
     invoke-virtual {p4, v3}, Landroid/widget/ImageView;->getTag(I)Ljava/lang/Object;
 
@@ -211,7 +211,7 @@
 
     move-result-object v3
 
-    const v4, 0x10204d4
+    const v4, 0x10204d7
 
     invoke-virtual {p1, v4}, Landroid/widget/ImageView;->getTag(I)Ljava/lang/Object;
 

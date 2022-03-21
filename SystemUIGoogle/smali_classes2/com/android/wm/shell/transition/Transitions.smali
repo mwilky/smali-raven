@@ -158,8 +158,8 @@
     return-void
 .end method
 
-.method public constructor <init>(Landroid/window/WindowOrganizer;Lcom/android/wm/shell/common/TransactionPool;Landroid/content/Context;Lcom/android/wm/shell/common/ShellExecutor;Lcom/android/wm/shell/common/ShellExecutor;)V
-    .locals 3
+.method public constructor <init>(Landroid/window/WindowOrganizer;Lcom/android/wm/shell/common/TransactionPool;Lcom/android/wm/shell/common/DisplayController;Landroid/content/Context;Lcom/android/wm/shell/common/ShellExecutor;Lcom/android/wm/shell/common/ShellExecutor;)V
+    .locals 8
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -189,11 +189,11 @@
 
     iput-object p1, p0, Lcom/android/wm/shell/transition/Transitions;->mOrganizer:Landroid/window/WindowOrganizer;
 
-    iput-object p3, p0, Lcom/android/wm/shell/transition/Transitions;->mContext:Landroid/content/Context;
+    iput-object p4, p0, Lcom/android/wm/shell/transition/Transitions;->mContext:Landroid/content/Context;
 
-    iput-object p4, p0, Lcom/android/wm/shell/transition/Transitions;->mMainExecutor:Lcom/android/wm/shell/common/ShellExecutor;
+    iput-object p5, p0, Lcom/android/wm/shell/transition/Transitions;->mMainExecutor:Lcom/android/wm/shell/common/ShellExecutor;
 
-    iput-object p5, p0, Lcom/android/wm/shell/transition/Transitions;->mAnimExecutor:Lcom/android/wm/shell/common/ShellExecutor;
+    iput-object p6, p0, Lcom/android/wm/shell/transition/Transitions;->mAnimExecutor:Lcom/android/wm/shell/common/ShellExecutor;
 
     new-instance p1, Lcom/android/wm/shell/transition/Transitions$TransitionPlayerImpl;
 
@@ -203,27 +203,39 @@
 
     new-instance p1, Lcom/android/wm/shell/transition/DefaultTransitionHandler;
 
-    invoke-direct {p1, p2, p3, p4, p5}, Lcom/android/wm/shell/transition/DefaultTransitionHandler;-><init>(Lcom/android/wm/shell/common/TransactionPool;Landroid/content/Context;Lcom/android/wm/shell/common/ShellExecutor;Lcom/android/wm/shell/common/ShellExecutor;)V
+    move-object v2, p1
+
+    move-object v3, p3
+
+    move-object v4, p2
+
+    move-object v5, p4
+
+    move-object v6, p5
+
+    move-object v7, p6
+
+    invoke-direct/range {v2 .. v7}, Lcom/android/wm/shell/transition/DefaultTransitionHandler;-><init>(Lcom/android/wm/shell/common/DisplayController;Lcom/android/wm/shell/common/TransactionPool;Landroid/content/Context;Lcom/android/wm/shell/common/ShellExecutor;Lcom/android/wm/shell/common/ShellExecutor;)V
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     new-instance p1, Lcom/android/wm/shell/transition/RemoteTransitionHandler;
 
-    invoke-direct {p1, p4}, Lcom/android/wm/shell/transition/RemoteTransitionHandler;-><init>(Lcom/android/wm/shell/common/ShellExecutor;)V
+    invoke-direct {p1, p5}, Lcom/android/wm/shell/transition/RemoteTransitionHandler;-><init>(Lcom/android/wm/shell/common/ShellExecutor;)V
 
     iput-object p1, p0, Lcom/android/wm/shell/transition/Transitions;->mRemoteTransitionHandler:Lcom/android/wm/shell/transition/RemoteTransitionHandler;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    invoke-virtual {p3}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p4}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object p1
 
-    invoke-virtual {p3}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p4}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object p2
 
-    const p3, 0x10500a4
+    const p3, 0x10500a5
 
     invoke-virtual {p2, p3}, Landroid/content/res/Resources;->getFloat(I)F
 
@@ -300,18 +312,6 @@
     invoke-direct {p0, p1}, Lcom/android/wm/shell/transition/Transitions;->dispatchAnimScaleSetting(F)V
 
     return-void
-.end method
-
-.method public static createEmptyForTesting()Lcom/android/wm/shell/transition/ShellTransitions;
-    .locals 1
-    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
-    .end annotation
-
-    new-instance v0, Lcom/android/wm/shell/transition/Transitions$1;
-
-    invoke-direct {v0}, Lcom/android/wm/shell/transition/Transitions$1;-><init>()V
-
-    return-object v0
 .end method
 
 .method private dispatchAnimScaleSetting(F)V
@@ -465,57 +465,29 @@
 .end method
 
 .method private onAbort(Landroid/os/IBinder;)V
-    .locals 6
-
-    invoke-direct {p0, p1}, Lcom/android/wm/shell/transition/Transitions;->findActiveTransition(Landroid/os/IBinder;)I
-
-    move-result v0
-
-    if-gez v0, :cond_0
-
-    return-void
-
-    :cond_0
-    sget-boolean v1, Lcom/android/wm/shell/protolog/ShellProtoLogCache;->WM_SHELL_TRANSITIONS_enabled:Z
-
-    if-eqz v1, :cond_1
-
-    invoke-static {p1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v1
-
-    sget-object v2, Lcom/android/wm/shell/protolog/ShellProtoLogGroup;->WM_SHELL_TRANSITIONS:Lcom/android/wm/shell/protolog/ShellProtoLogGroup;
-
-    const v3, 0x3a47217e
-
-    const/4 v4, 0x1
-
-    new-array v4, v4, [Ljava/lang/Object;
-
-    const/4 v5, 0x0
-
-    aput-object v1, v4, v5
-
-    const-string v1, "Transition animation aborted due to no-op, notifying core %s"
-
-    invoke-static {v2, v3, v5, v1, v4}, Lcom/android/wm/shell/protolog/ShellProtoLogImpl;->v(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
-
-    :cond_1
-    iget-object v1, p0, Lcom/android/wm/shell/transition/Transitions;->mActiveTransitions:Ljava/util/ArrayList;
-
-    invoke-virtual {v1, v0}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
-
-    iget-object p0, p0, Lcom/android/wm/shell/transition/Transitions;->mOrganizer:Landroid/window/WindowOrganizer;
+    .locals 2
 
     const/4 v0, 0x0
 
-    invoke-virtual {p0, p1, v0, v0}, Landroid/window/WindowOrganizer;->finishTransition(Landroid/os/IBinder;Landroid/window/WindowContainerTransaction;Landroid/window/WindowContainerTransactionCallback;)I
+    const/4 v1, 0x1
+
+    invoke-direct {p0, p1, v0, v0, v1}, Lcom/android/wm/shell/transition/Transitions;->onFinish(Landroid/os/IBinder;Landroid/window/WindowContainerTransaction;Landroid/window/WindowContainerTransactionCallback;Z)V
 
     return-void
 .end method
 
 .method private onFinish(Landroid/os/IBinder;Landroid/window/WindowContainerTransaction;Landroid/window/WindowContainerTransactionCallback;)V
-    .locals 7
+    .locals 1
+
+    const/4 v0, 0x0
+
+    invoke-direct {p0, p1, p2, p3, v0}, Lcom/android/wm/shell/transition/Transitions;->onFinish(Landroid/os/IBinder;Landroid/window/WindowContainerTransaction;Landroid/window/WindowContainerTransactionCallback;Z)V
+
+    return-void
+.end method
+
+.method private onFinish(Landroid/os/IBinder;Landroid/window/WindowContainerTransaction;Landroid/window/WindowContainerTransactionCallback;Z)V
+    .locals 8
 
     invoke-direct {p0, p1}, Lcom/android/wm/shell/transition/Transitions;->findActiveTransition(Landroid/os/IBinder;)I
 
@@ -536,9 +508,13 @@
     return-void
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 v1, 0x2
 
-    const/4 v2, 0x1
+    const/4 v2, 0x3
+
+    const/4 v3, 0x0
+
+    const/4 v4, 0x1
 
     if-lez v0, :cond_3
 
@@ -552,15 +528,21 @@
 
     sget-object p2, Lcom/android/wm/shell/protolog/ShellProtoLogGroup;->WM_SHELL_TRANSITIONS:Lcom/android/wm/shell/protolog/ShellProtoLogGroup;
 
-    const p3, 0x67ad5e88
+    const p3, -0x5b64ed6a
 
-    new-array v3, v2, [Ljava/lang/Object;
+    new-array v1, v1, [Ljava/lang/Object;
 
-    aput-object p1, v3, v1
+    invoke-static {p4}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    const-string p1, "Transition was merged: %s"
+    move-result-object v5
 
-    invoke-static {p2, p3, v1, p1, v3}, Lcom/android/wm/shell/protolog/ShellProtoLogImpl;->v(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
+    aput-object v5, v1, v3
+
+    aput-object p1, v1, v4
+
+    const-string p1, "Transition was merged (abort=%b: %s"
+
+    invoke-static {p2, p3, v2, p1, v1}, Lcom/android/wm/shell/protolog/ShellProtoLogImpl;->v(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
 
     :cond_1
     iget-object p0, p0, Lcom/android/wm/shell/transition/Transitions;->mActiveTransitions:Ljava/util/ArrayList;
@@ -571,7 +553,9 @@
 
     check-cast p0, Lcom/android/wm/shell/transition/Transitions$ActiveTransition;
 
-    iput-boolean v2, p0, Lcom/android/wm/shell/transition/Transitions$ActiveTransition;->mMerged:Z
+    iput-boolean v4, p0, Lcom/android/wm/shell/transition/Transitions$ActiveTransition;->mMerged:Z
+
+    iput-boolean p4, p0, Lcom/android/wm/shell/transition/Transitions$ActiveTransition;->mAborted:Z
 
     iget-object p1, p0, Lcom/android/wm/shell/transition/Transitions$ActiveTransition;->mHandler:Lcom/android/wm/shell/transition/Transitions$TransitionHandler;
 
@@ -585,102 +569,143 @@
     return-void
 
     :cond_3
-    sget-boolean v3, Lcom/android/wm/shell/protolog/ShellProtoLogCache;->WM_SHELL_TRANSITIONS_enabled:Z
-
-    if-eqz v3, :cond_4
-
-    invoke-static {p1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v3
-
-    sget-object v4, Lcom/android/wm/shell/protolog/ShellProtoLogGroup;->WM_SHELL_TRANSITIONS:Lcom/android/wm/shell/protolog/ShellProtoLogGroup;
-
-    const v5, 0x724981cb
-
-    new-array v6, v2, [Ljava/lang/Object;
-
-    aput-object v3, v6, v1
-
-    const-string v3, "Transition animation finished, notifying core %s"
-
-    invoke-static {v4, v5, v1, v3, v6}, Lcom/android/wm/shell/protolog/ShellProtoLogImpl;->v(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
-
-    :cond_4
-    iget-object v3, p0, Lcom/android/wm/shell/transition/Transitions;->mActiveTransitions:Ljava/util/ArrayList;
-
-    invoke-virtual {v3, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Lcom/android/wm/shell/transition/Transitions$ActiveTransition;
-
-    iget-object v3, v3, Lcom/android/wm/shell/transition/Transitions$ActiveTransition;->mFinishT:Landroid/view/SurfaceControl$Transaction;
-
-    add-int/lit8 v4, v0, 0x1
-
-    :goto_0
     iget-object v5, p0, Lcom/android/wm/shell/transition/Transitions;->mActiveTransitions:Ljava/util/ArrayList;
 
-    invoke-virtual {v5}, Ljava/util/ArrayList;->size()I
-
-    move-result v5
-
-    if-ge v4, v5, :cond_6
-
-    iget-object v5, p0, Lcom/android/wm/shell/transition/Transitions;->mActiveTransitions:Ljava/util/ArrayList;
-
-    invoke-virtual {v5, v4}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v5, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v5
 
     check-cast v5, Lcom/android/wm/shell/transition/Transitions$ActiveTransition;
 
-    iget-boolean v5, v5, Lcom/android/wm/shell/transition/Transitions$ActiveTransition;->mMerged:Z
+    iput-boolean p4, v5, Lcom/android/wm/shell/transition/Transitions$ActiveTransition;->mAborted:Z
 
-    if-nez v5, :cond_5
+    sget-boolean v5, Lcom/android/wm/shell/protolog/ShellProtoLogCache;->WM_SHELL_TRANSITIONS_enabled:Z
+
+    if-eqz v5, :cond_4
+
+    invoke-static {p1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v5
+
+    sget-object v6, Lcom/android/wm/shell/protolog/ShellProtoLogGroup;->WM_SHELL_TRANSITIONS:Lcom/android/wm/shell/protolog/ShellProtoLogGroup;
+
+    const v7, 0x6b4922b4
+
+    new-array v1, v1, [Ljava/lang/Object;
+
+    invoke-static {p4}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object p4
+
+    aput-object p4, v1, v3
+
+    aput-object v5, v1, v4
+
+    const-string p4, "Transition animation finished (abort=%b), notifying core %s"
+
+    invoke-static {v6, v7, v2, p4, v1}, Lcom/android/wm/shell/protolog/ShellProtoLogImpl;->v(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
+
+    :cond_4
+    iget-object p4, p0, Lcom/android/wm/shell/transition/Transitions;->mActiveTransitions:Ljava/util/ArrayList;
+
+    invoke-virtual {p4, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object p4
+
+    check-cast p4, Lcom/android/wm/shell/transition/Transitions$ActiveTransition;
+
+    iget-object p4, p4, Lcom/android/wm/shell/transition/Transitions$ActiveTransition;->mFinishT:Landroid/view/SurfaceControl$Transaction;
+
+    add-int/lit8 v1, v0, 0x1
+
+    :goto_0
+    iget-object v2, p0, Lcom/android/wm/shell/transition/Transitions;->mActiveTransitions:Ljava/util/ArrayList;
+
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+
+    move-result v2
+
+    if-ge v1, v2, :cond_8
+
+    iget-object v2, p0, Lcom/android/wm/shell/transition/Transitions;->mActiveTransitions:Ljava/util/ArrayList;
+
+    invoke-virtual {v2, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/wm/shell/transition/Transitions$ActiveTransition;
+
+    iget-boolean v2, v2, Lcom/android/wm/shell/transition/Transitions$ActiveTransition;->mMerged:Z
+
+    if-nez v2, :cond_5
 
     goto :goto_1
 
     :cond_5
-    iget-object v5, p0, Lcom/android/wm/shell/transition/Transitions;->mActiveTransitions:Ljava/util/ArrayList;
+    iget-object v2, p0, Lcom/android/wm/shell/transition/Transitions;->mActiveTransitions:Ljava/util/ArrayList;
 
-    invoke-virtual {v5, v4}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v2, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object v2
 
-    check-cast v5, Lcom/android/wm/shell/transition/Transitions$ActiveTransition;
+    check-cast v2, Lcom/android/wm/shell/transition/Transitions$ActiveTransition;
 
-    iget-object v5, v5, Lcom/android/wm/shell/transition/Transitions$ActiveTransition;->mStartT:Landroid/view/SurfaceControl$Transaction;
+    iget-object v2, v2, Lcom/android/wm/shell/transition/Transitions$ActiveTransition;->mStartT:Landroid/view/SurfaceControl$Transaction;
 
-    invoke-virtual {v3, v5}, Landroid/view/SurfaceControl$Transaction;->merge(Landroid/view/SurfaceControl$Transaction;)Landroid/view/SurfaceControl$Transaction;
+    if-nez v2, :cond_6
 
-    iget-object v5, p0, Lcom/android/wm/shell/transition/Transitions;->mActiveTransitions:Ljava/util/ArrayList;
+    goto :goto_1
 
-    invoke-virtual {v5, v4}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    :cond_6
+    if-nez p4, :cond_7
 
-    move-result-object v5
+    new-instance p4, Landroid/view/SurfaceControl$Transaction;
 
-    check-cast v5, Lcom/android/wm/shell/transition/Transitions$ActiveTransition;
+    invoke-direct {p4}, Landroid/view/SurfaceControl$Transaction;-><init>()V
 
-    iget-object v5, v5, Lcom/android/wm/shell/transition/Transitions$ActiveTransition;->mFinishT:Landroid/view/SurfaceControl$Transaction;
+    :cond_7
+    iget-object v2, p0, Lcom/android/wm/shell/transition/Transitions;->mActiveTransitions:Ljava/util/ArrayList;
 
-    invoke-virtual {v3, v5}, Landroid/view/SurfaceControl$Transaction;->merge(Landroid/view/SurfaceControl$Transaction;)Landroid/view/SurfaceControl$Transaction;
+    invoke-virtual {v2, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    add-int/lit8 v4, v4, 0x1
+    move-result-object v2
+
+    check-cast v2, Lcom/android/wm/shell/transition/Transitions$ActiveTransition;
+
+    iget-object v2, v2, Lcom/android/wm/shell/transition/Transitions$ActiveTransition;->mStartT:Landroid/view/SurfaceControl$Transaction;
+
+    invoke-virtual {p4, v2}, Landroid/view/SurfaceControl$Transaction;->merge(Landroid/view/SurfaceControl$Transaction;)Landroid/view/SurfaceControl$Transaction;
+
+    iget-object v2, p0, Lcom/android/wm/shell/transition/Transitions;->mActiveTransitions:Ljava/util/ArrayList;
+
+    invoke-virtual {v2, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/wm/shell/transition/Transitions$ActiveTransition;
+
+    iget-object v2, v2, Lcom/android/wm/shell/transition/Transitions$ActiveTransition;->mFinishT:Landroid/view/SurfaceControl$Transaction;
+
+    invoke-virtual {p4, v2}, Landroid/view/SurfaceControl$Transaction;->merge(Landroid/view/SurfaceControl$Transaction;)Landroid/view/SurfaceControl$Transaction;
+
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    :cond_6
+    :cond_8
     :goto_1
-    invoke-virtual {v3}, Landroid/view/SurfaceControl$Transaction;->apply()V
+    if-eqz p4, :cond_9
 
-    iget-object v3, p0, Lcom/android/wm/shell/transition/Transitions;->mActiveTransitions:Ljava/util/ArrayList;
+    invoke-virtual {p4}, Landroid/view/SurfaceControl$Transaction;->apply()V
 
-    invoke-virtual {v3, v0}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
+    :cond_9
+    iget-object p4, p0, Lcom/android/wm/shell/transition/Transitions;->mActiveTransitions:Ljava/util/ArrayList;
 
-    iget-object v3, p0, Lcom/android/wm/shell/transition/Transitions;->mOrganizer:Landroid/window/WindowOrganizer;
+    invoke-virtual {p4, v0}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
 
-    invoke-virtual {v3, p1, p2, p3}, Landroid/window/WindowOrganizer;->finishTransition(Landroid/os/IBinder;Landroid/window/WindowContainerTransaction;Landroid/window/WindowContainerTransactionCallback;)I
+    iget-object p4, p0, Lcom/android/wm/shell/transition/Transitions;->mOrganizer:Landroid/window/WindowOrganizer;
+
+    invoke-virtual {p4, p1, p2, p3}, Landroid/window/WindowOrganizer;->finishTransition(Landroid/os/IBinder;Landroid/window/WindowContainerTransaction;Landroid/window/WindowContainerTransactionCallback;)I
 
     :goto_2
     iget-object p1, p0, Lcom/android/wm/shell/transition/Transitions;->mActiveTransitions:Ljava/util/ArrayList;
@@ -691,7 +716,7 @@
 
     const/4 p2, 0x0
 
-    if-ge v0, p1, :cond_8
+    if-ge v0, p1, :cond_b
 
     iget-object p1, p0, Lcom/android/wm/shell/transition/Transitions;->mActiveTransitions:Ljava/util/ArrayList;
 
@@ -703,11 +728,11 @@
 
     iget-boolean p1, p1, Lcom/android/wm/shell/transition/Transitions$ActiveTransition;->mMerged:Z
 
-    if-nez p1, :cond_7
+    if-nez p1, :cond_a
 
     goto :goto_3
 
-    :cond_7
+    :cond_a
     iget-object p1, p0, Lcom/android/wm/shell/transition/Transitions;->mActiveTransitions:Ljava/util/ArrayList;
 
     invoke-virtual {p1, v0}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
@@ -724,7 +749,7 @@
 
     goto :goto_2
 
-    :cond_8
+    :cond_b
     :goto_3
     iget-object p1, p0, Lcom/android/wm/shell/transition/Transitions;->mActiveTransitions:Ljava/util/ArrayList;
 
@@ -732,11 +757,48 @@
 
     move-result p1
 
-    if-gt p1, v0, :cond_a
+    if-le p1, v0, :cond_c
+
+    iget-object p1, p0, Lcom/android/wm/shell/transition/Transitions;->mActiveTransitions:Ljava/util/ArrayList;
+
+    invoke-virtual {p1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Lcom/android/wm/shell/transition/Transitions$ActiveTransition;
+
+    iget-boolean p1, p1, Lcom/android/wm/shell/transition/Transitions$ActiveTransition;->mAborted:Z
+
+    if-eqz p1, :cond_c
+
+    iget-object p1, p0, Lcom/android/wm/shell/transition/Transitions;->mActiveTransitions:Ljava/util/ArrayList;
+
+    invoke-virtual {p1, v0}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Lcom/android/wm/shell/transition/Transitions$ActiveTransition;
+
+    iget-object p3, p0, Lcom/android/wm/shell/transition/Transitions;->mOrganizer:Landroid/window/WindowOrganizer;
+
+    iget-object p1, p1, Lcom/android/wm/shell/transition/Transitions$ActiveTransition;->mToken:Landroid/os/IBinder;
+
+    invoke-virtual {p3, p1, p2, p2}, Landroid/window/WindowOrganizer;->finishTransition(Landroid/os/IBinder;Landroid/window/WindowContainerTransaction;Landroid/window/WindowContainerTransactionCallback;)I
+
+    goto :goto_3
+
+    :cond_c
+    iget-object p1, p0, Lcom/android/wm/shell/transition/Transitions;->mActiveTransitions:Ljava/util/ArrayList;
+
+    invoke-virtual {p1}, Ljava/util/ArrayList;->size()I
+
+    move-result p1
+
+    if-gt p1, v0, :cond_e
 
     sget-boolean p0, Lcom/android/wm/shell/protolog/ShellProtoLogCache;->WM_SHELL_TRANSITIONS_enabled:Z
 
-    if-eqz p0, :cond_9
+    if-eqz p0, :cond_d
 
     sget-object p0, Lcom/android/wm/shell/protolog/ShellProtoLogGroup;->WM_SHELL_TRANSITIONS:Lcom/android/wm/shell/protolog/ShellProtoLogGroup;
 
@@ -744,12 +806,12 @@
 
     const-string p3, "All active transition animations finished"
 
-    invoke-static {p0, p1, v1, p3, p2}, Lcom/android/wm/shell/protolog/ShellProtoLogImpl;->v(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {p0, p1, v3, p3, p2}, Lcom/android/wm/shell/protolog/ShellProtoLogImpl;->v(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
 
-    :cond_9
+    :cond_d
     return-void
 
-    :cond_a
+    :cond_e
     iget-object p1, p0, Lcom/android/wm/shell/transition/Transitions;->mActiveTransitions:Ljava/util/ArrayList;
 
     invoke-virtual {p1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -760,11 +822,11 @@
 
     iget-object p3, p1, Lcom/android/wm/shell/transition/Transitions$ActiveTransition;->mInfo:Landroid/window/TransitionInfo;
 
-    if-nez p3, :cond_c
+    if-nez p3, :cond_10
 
     sget-boolean p0, Lcom/android/wm/shell/protolog/ShellProtoLogCache;->WM_SHELL_TRANSITIONS_enabled:Z
 
-    if-eqz p0, :cond_b
+    if-eqz p0, :cond_f
 
     sget-object p0, Lcom/android/wm/shell/protolog/ShellProtoLogGroup;->WM_SHELL_TRANSITIONS:Lcom/android/wm/shell/protolog/ShellProtoLogGroup;
 
@@ -772,25 +834,25 @@
 
     const-string p3, "Pending transition after one finished, but it isn\'t ready yet."
 
-    invoke-static {p0, p1, v1, p3, p2}, Lcom/android/wm/shell/protolog/ShellProtoLogImpl;->v(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {p0, p1, v3, p3, p2}, Lcom/android/wm/shell/protolog/ShellProtoLogImpl;->v(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
 
-    :cond_b
+    :cond_f
     return-void
 
-    :cond_c
+    :cond_10
     sget-boolean p3, Lcom/android/wm/shell/protolog/ShellProtoLogCache;->WM_SHELL_TRANSITIONS_enabled:Z
 
-    if-eqz p3, :cond_d
+    if-eqz p3, :cond_11
 
     sget-object p3, Lcom/android/wm/shell/protolog/ShellProtoLogGroup;->WM_SHELL_TRANSITIONS:Lcom/android/wm/shell/protolog/ShellProtoLogGroup;
 
-    const v0, -0x30f086ad
+    const p4, -0x30f086ad
 
-    const-string v3, "Pending transitions after one finished, so start the next one."
+    const-string v0, "Pending transitions after one finished, so start the next one."
 
-    invoke-static {p3, v0, v1, v3, p2}, Lcom/android/wm/shell/protolog/ShellProtoLogImpl;->v(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {p3, p4, v3, v0, p2}, Lcom/android/wm/shell/protolog/ShellProtoLogImpl;->v(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
 
-    :cond_d
+    :cond_11
     invoke-virtual {p0, p1}, Lcom/android/wm/shell/transition/Transitions;->playTransition(Lcom/android/wm/shell/transition/Transitions$ActiveTransition;)V
 
     iget-object p2, p1, Lcom/android/wm/shell/transition/Transitions$ActiveTransition;->mToken:Landroid/os/IBinder;
@@ -799,12 +861,12 @@
 
     move-result p2
 
-    if-gez p2, :cond_e
+    if-gez p2, :cond_12
 
     return-void
 
-    :cond_e
-    add-int/2addr p2, v2
+    :cond_12
+    add-int/2addr p2, v4
 
     :goto_4
     iget-object p3, p0, Lcom/android/wm/shell/transition/Transitions;->mActiveTransitions:Ljava/util/ArrayList;
@@ -813,38 +875,43 @@
 
     move-result p3
 
-    if-ge p2, p3, :cond_11
+    if-ge p2, p3, :cond_16
 
     iget-object p3, p0, Lcom/android/wm/shell/transition/Transitions;->mActiveTransitions:Ljava/util/ArrayList;
 
     invoke-virtual {p3, p2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object p2
+    move-result-object p3
 
-    check-cast p2, Lcom/android/wm/shell/transition/Transitions$ActiveTransition;
+    check-cast p3, Lcom/android/wm/shell/transition/Transitions$ActiveTransition;
 
-    iget-boolean p3, p2, Lcom/android/wm/shell/transition/Transitions$ActiveTransition;->mMerged:Z
+    iget-boolean p4, p3, Lcom/android/wm/shell/transition/Transitions$ActiveTransition;->mAborted:Z
 
-    if-nez p3, :cond_10
+    if-eqz p4, :cond_14
 
-    invoke-virtual {p0, p1, p2}, Lcom/android/wm/shell/transition/Transitions;->attemptMergeTransition(Lcom/android/wm/shell/transition/Transitions$ActiveTransition;Lcom/android/wm/shell/transition/Transitions$ActiveTransition;)V
+    :cond_13
+    add-int/lit8 p2, p2, 0x1
 
-    iget-object p2, p2, Lcom/android/wm/shell/transition/Transitions$ActiveTransition;->mToken:Landroid/os/IBinder;
+    goto :goto_4
+
+    :cond_14
+    iget-boolean p2, p3, Lcom/android/wm/shell/transition/Transitions$ActiveTransition;->mMerged:Z
+
+    if-nez p2, :cond_15
+
+    invoke-virtual {p0, p1, p3}, Lcom/android/wm/shell/transition/Transitions;->attemptMergeTransition(Lcom/android/wm/shell/transition/Transitions$ActiveTransition;Lcom/android/wm/shell/transition/Transitions$ActiveTransition;)V
+
+    iget-object p2, p3, Lcom/android/wm/shell/transition/Transitions$ActiveTransition;->mToken:Landroid/os/IBinder;
 
     invoke-direct {p0, p2}, Lcom/android/wm/shell/transition/Transitions;->findActiveTransition(Landroid/os/IBinder;)I
 
     move-result p2
 
-    if-gez p2, :cond_f
+    if-gez p2, :cond_13
 
     return-void
 
-    :cond_f
-    add-int/lit8 p2, p2, 0x1
-
-    goto :goto_4
-
-    :cond_10
+    :cond_15
     new-instance p0, Ljava/lang/IllegalStateException;
 
     const-string p1, "Can\'t merge a transition after not-merging a preceding one."
@@ -853,7 +920,7 @@
 
     throw p0
 
-    :cond_11
+    :cond_16
     return-void
 .end method
 
@@ -1763,6 +1830,8 @@
     :cond_0
     invoke-virtual {p1, p0}, Landroid/window/TaskOrganizer;->registerTransitionPlayer(Landroid/window/ITransitionPlayer;)V
 
+    invoke-static {}, Landroid/window/TransitionMetrics;->getInstance()Landroid/window/TransitionMetrics;
+
     return-void
 .end method
 
@@ -1913,19 +1982,23 @@
 .end method
 
 .method startAnimation(Lcom/android/wm/shell/transition/Transitions$ActiveTransition;Lcom/android/wm/shell/transition/Transitions$TransitionHandler;)Z
-    .locals 4
+    .locals 6
 
-    iget-object v0, p1, Lcom/android/wm/shell/transition/Transitions$ActiveTransition;->mToken:Landroid/os/IBinder;
+    iget-object v1, p1, Lcom/android/wm/shell/transition/Transitions$ActiveTransition;->mToken:Landroid/os/IBinder;
 
-    iget-object v1, p1, Lcom/android/wm/shell/transition/Transitions$ActiveTransition;->mInfo:Landroid/window/TransitionInfo;
+    iget-object v2, p1, Lcom/android/wm/shell/transition/Transitions$ActiveTransition;->mInfo:Landroid/window/TransitionInfo;
 
-    iget-object v2, p1, Lcom/android/wm/shell/transition/Transitions$ActiveTransition;->mStartT:Landroid/view/SurfaceControl$Transaction;
+    iget-object v3, p1, Lcom/android/wm/shell/transition/Transitions$ActiveTransition;->mStartT:Landroid/view/SurfaceControl$Transaction;
 
-    new-instance v3, Lcom/android/wm/shell/transition/Transitions$$ExternalSyntheticLambda1;
+    iget-object v4, p1, Lcom/android/wm/shell/transition/Transitions$ActiveTransition;->mFinishT:Landroid/view/SurfaceControl$Transaction;
 
-    invoke-direct {v3, p0, p1}, Lcom/android/wm/shell/transition/Transitions$$ExternalSyntheticLambda1;-><init>(Lcom/android/wm/shell/transition/Transitions;Lcom/android/wm/shell/transition/Transitions$ActiveTransition;)V
+    new-instance v5, Lcom/android/wm/shell/transition/Transitions$$ExternalSyntheticLambda1;
 
-    invoke-interface {p2, v0, v1, v2, v3}, Lcom/android/wm/shell/transition/Transitions$TransitionHandler;->startAnimation(Landroid/os/IBinder;Landroid/window/TransitionInfo;Landroid/view/SurfaceControl$Transaction;Lcom/android/wm/shell/transition/Transitions$TransitionFinishCallback;)Z
+    invoke-direct {v5, p0, p1}, Lcom/android/wm/shell/transition/Transitions$$ExternalSyntheticLambda1;-><init>(Lcom/android/wm/shell/transition/Transitions;Lcom/android/wm/shell/transition/Transitions$ActiveTransition;)V
+
+    move-object v0, p2
+
+    invoke-interface/range {v0 .. v5}, Lcom/android/wm/shell/transition/Transitions$TransitionHandler;->startAnimation(Landroid/os/IBinder;Landroid/window/TransitionInfo;Landroid/view/SurfaceControl$Transaction;Landroid/view/SurfaceControl$Transaction;Lcom/android/wm/shell/transition/Transitions$TransitionFinishCallback;)Z
 
     move-result p0
 

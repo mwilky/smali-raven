@@ -3,7 +3,7 @@
 .source "UdfpsKeyguardViewController.java"
 
 # interfaces
-.implements Lcom/android/systemui/statusbar/phone/StatusBar$ExpansionChangedListener;
+.implements Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionListener;
 
 
 # annotations
@@ -34,12 +34,12 @@
 
 
 # virtual methods
-.method public onExpansionChanged(FZ)V
+.method public onPanelExpansionChanged(FZZ)V
     .locals 0
 
     iget-object p2, p0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController$4;->this$0:Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;
 
-    invoke-static {p2, p1}, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->access$1902(Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;F)F
+    invoke-static {p2, p1}, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->access$1802(Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;F)F
 
     iget-object p0, p0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController$4;->this$0:Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;
 

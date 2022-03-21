@@ -62,7 +62,7 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
+            "Lcom/android/systemui/flags/FeatureFlags;",
             ">;"
         }
     .end annotation
@@ -92,7 +92,7 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/policy/NetworkController;",
+            "Lcom/android/systemui/statusbar/connectivity/NetworkController;",
             ">;"
         }
     .end annotation
@@ -125,7 +125,7 @@
             "Landroid/os/Looper;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/policy/NetworkController;",
+            "Lcom/android/systemui/statusbar/connectivity/NetworkController;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/keyguard/CarrierTextManager$Builder;",
@@ -137,7 +137,7 @@
             "Lcom/android/systemui/util/CarrierConfigTracker;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
+            "Lcom/android/systemui/flags/FeatureFlags;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/qs/carrier/QSCarrierGroupController$SlotIndexResolver;",
@@ -183,7 +183,7 @@
             "Landroid/os/Looper;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/policy/NetworkController;",
+            "Lcom/android/systemui/statusbar/connectivity/NetworkController;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/keyguard/CarrierTextManager$Builder;",
@@ -195,7 +195,7 @@
             "Lcom/android/systemui/util/CarrierConfigTracker;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
+            "Lcom/android/systemui/flags/FeatureFlags;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/qs/carrier/QSCarrierGroupController$SlotIndexResolver;",
@@ -231,7 +231,7 @@
     return-object v10
 .end method
 
-.method public static newInstance(Lcom/android/systemui/plugins/ActivityStarter;Landroid/os/Handler;Landroid/os/Looper;Lcom/android/systemui/statusbar/policy/NetworkController;Lcom/android/keyguard/CarrierTextManager$Builder;Landroid/content/Context;Lcom/android/systemui/util/CarrierConfigTracker;Lcom/android/systemui/statusbar/FeatureFlags;Lcom/android/systemui/qs/carrier/QSCarrierGroupController$SlotIndexResolver;)Lcom/android/systemui/qs/carrier/QSCarrierGroupController$Builder;
+.method public static newInstance(Lcom/android/systemui/plugins/ActivityStarter;Landroid/os/Handler;Landroid/os/Looper;Lcom/android/systemui/statusbar/connectivity/NetworkController;Lcom/android/keyguard/CarrierTextManager$Builder;Landroid/content/Context;Lcom/android/systemui/util/CarrierConfigTracker;Lcom/android/systemui/flags/FeatureFlags;Lcom/android/systemui/qs/carrier/QSCarrierGroupController$SlotIndexResolver;)Lcom/android/systemui/qs/carrier/QSCarrierGroupController$Builder;
     .locals 11
 
     new-instance v10, Lcom/android/systemui/qs/carrier/QSCarrierGroupController$Builder;
@@ -256,7 +256,7 @@
 
     move-object/from16 v9, p8
 
-    invoke-direct/range {v0 .. v9}, Lcom/android/systemui/qs/carrier/QSCarrierGroupController$Builder;-><init>(Lcom/android/systemui/plugins/ActivityStarter;Landroid/os/Handler;Landroid/os/Looper;Lcom/android/systemui/statusbar/policy/NetworkController;Lcom/android/keyguard/CarrierTextManager$Builder;Landroid/content/Context;Lcom/android/systemui/util/CarrierConfigTracker;Lcom/android/systemui/statusbar/FeatureFlags;Lcom/android/systemui/qs/carrier/QSCarrierGroupController$SlotIndexResolver;)V
+    invoke-direct/range {v0 .. v9}, Lcom/android/systemui/qs/carrier/QSCarrierGroupController$Builder;-><init>(Lcom/android/systemui/plugins/ActivityStarter;Landroid/os/Handler;Landroid/os/Looper;Lcom/android/systemui/statusbar/connectivity/NetworkController;Lcom/android/keyguard/CarrierTextManager$Builder;Landroid/content/Context;Lcom/android/systemui/util/CarrierConfigTracker;Lcom/android/systemui/flags/FeatureFlags;Lcom/android/systemui/qs/carrier/QSCarrierGroupController$SlotIndexResolver;)V
 
     return-object v10
 .end method
@@ -304,7 +304,7 @@
 
     move-object v4, v0
 
-    check-cast v4, Lcom/android/systemui/statusbar/policy/NetworkController;
+    check-cast v4, Lcom/android/systemui/statusbar/connectivity/NetworkController;
 
     iget-object v0, p0, Lcom/android/systemui/qs/carrier/QSCarrierGroupController_Builder_Factory;->carrierTextControllerBuilderProvider:Ljavax/inject/Provider;
 
@@ -344,7 +344,7 @@
 
     move-object v8, v0
 
-    check-cast v8, Lcom/android/systemui/statusbar/FeatureFlags;
+    check-cast v8, Lcom/android/systemui/flags/FeatureFlags;
 
     iget-object p0, p0, Lcom/android/systemui/qs/carrier/QSCarrierGroupController_Builder_Factory;->slotIndexResolverProvider:Ljavax/inject/Provider;
 
@@ -356,7 +356,7 @@
 
     check-cast v9, Lcom/android/systemui/qs/carrier/QSCarrierGroupController$SlotIndexResolver;
 
-    invoke-static/range {v1 .. v9}, Lcom/android/systemui/qs/carrier/QSCarrierGroupController_Builder_Factory;->newInstance(Lcom/android/systemui/plugins/ActivityStarter;Landroid/os/Handler;Landroid/os/Looper;Lcom/android/systemui/statusbar/policy/NetworkController;Lcom/android/keyguard/CarrierTextManager$Builder;Landroid/content/Context;Lcom/android/systemui/util/CarrierConfigTracker;Lcom/android/systemui/statusbar/FeatureFlags;Lcom/android/systemui/qs/carrier/QSCarrierGroupController$SlotIndexResolver;)Lcom/android/systemui/qs/carrier/QSCarrierGroupController$Builder;
+    invoke-static/range {v1 .. v9}, Lcom/android/systemui/qs/carrier/QSCarrierGroupController_Builder_Factory;->newInstance(Lcom/android/systemui/plugins/ActivityStarter;Landroid/os/Handler;Landroid/os/Looper;Lcom/android/systemui/statusbar/connectivity/NetworkController;Lcom/android/keyguard/CarrierTextManager$Builder;Landroid/content/Context;Lcom/android/systemui/util/CarrierConfigTracker;Lcom/android/systemui/flags/FeatureFlags;Lcom/android/systemui/qs/carrier/QSCarrierGroupController$SlotIndexResolver;)Lcom/android/systemui/qs/carrier/QSCarrierGroupController$Builder;
 
     move-result-object p0
 

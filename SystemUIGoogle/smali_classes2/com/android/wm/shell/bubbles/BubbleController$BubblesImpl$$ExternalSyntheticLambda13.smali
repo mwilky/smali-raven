@@ -8,22 +8,18 @@
 # instance fields
 .field public final synthetic f$0:Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;
 
-.field public final synthetic f$1:Lcom/android/wm/shell/bubbles/BubbleEntry;
-
-.field public final synthetic f$2:Z
+.field public final synthetic f$1:Lcom/android/wm/shell/bubbles/Bubbles$SysuiProxy;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;Lcom/android/wm/shell/bubbles/BubbleEntry;Z)V
+.method public synthetic constructor <init>(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;Lcom/android/wm/shell/bubbles/Bubbles$SysuiProxy;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda13;->f$0:Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;
 
-    iput-object p2, p0, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda13;->f$1:Lcom/android/wm/shell/bubbles/BubbleEntry;
-
-    iput-boolean p3, p0, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda13;->f$2:Z
+    iput-object p2, p0, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda13;->f$1:Lcom/android/wm/shell/bubbles/Bubbles$SysuiProxy;
 
     return-void
 .end method
@@ -31,15 +27,13 @@
 
 # virtual methods
 .method public final run()V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda13;->f$0:Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;
 
-    iget-object v1, p0, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda13;->f$1:Lcom/android/wm/shell/bubbles/BubbleEntry;
+    iget-object p0, p0, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda13;->f$1:Lcom/android/wm/shell/bubbles/Bubbles$SysuiProxy;
 
-    iget-boolean p0, p0, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda13;->f$2:Z
-
-    invoke-static {v0, v1, p0}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;->$r8$lambda$fq67AoaLQ-SiEbdfinwbFFRbvWI(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;Lcom/android/wm/shell/bubbles/BubbleEntry;Z)V
+    invoke-static {v0, p0}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;->$r8$lambda$cPNaS1w2g74j0HReUA02WJnliBQ(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;Lcom/android/wm/shell/bubbles/Bubbles$SysuiProxy;)V
 
     return-void
 .end method

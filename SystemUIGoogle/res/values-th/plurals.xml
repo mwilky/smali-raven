@@ -32,18 +32,6 @@
         <item quantity="other">รหัส PUK ของซิมไม่ถูกต้อง คุณพยายามได้อีก %d ครั้งก่อนที่ซิมจะไม่สามารถใช้งานได้อย่างถาวร</item>
         <item quantity="one">รหัส PUK ของซิมไม่ถูกต้อง คุณพยายามได้อีก %d ครั้งก่อนที่ซิมจะไม่สามารถใช้งานได้อย่างถาวร</item>
     </plurals>
-    <plurals name="kg_prompt_reason_time_password">
-        <item quantity="other">ไม่มีการปลดล็อกอุปกรณ์มา %d ชั่วโมงแล้ว ยืนยันรหัสผ่าน</item>
-        <item quantity="one">ไม่มีการปลดล็อกอุปกรณ์มา %d ชั่วโมงแล้ว ยืนยันรหัสผ่าน</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pattern">
-        <item quantity="other">ไม่มีการปลดล็อกอุปกรณ์มา %d ชั่วโมงแล้ว ยืนยันรูปแบบ</item>
-        <item quantity="one">ไม่มีการปลดล็อกอุปกรณ์มา %d ชั่วโมงแล้ว ยืนยันรูปแบบ</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pin">
-        <item quantity="other">ไม่มีการปลดล็อกอุปกรณ์มา %d ชั่วโมงแล้ว ยืนยัน PIN</item>
-        <item quantity="one">ไม่มีการปลดล็อกอุปกรณ์มา %d ชั่วโมงแล้ว ยืนยัน PIN</item>
-    </plurals>
     <plurals name="kg_too_many_failed_attempts_countdown">
         <item quantity="other">ลองอีกครั้งใน %d วินาที</item>
         <item quantity="one">ลองอีกครั้งใน 1 วินาที</item>

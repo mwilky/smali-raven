@@ -1,62 +1,90 @@
-.class public Lcom/android/systemui/statusbar/policy/RemoteInputQuickSettingsDisabler;
+.class public final Lcom/android/systemui/statusbar/policy/RemoteInputQuickSettingsDisabler;
 .super Ljava/lang/Object;
-.source "RemoteInputQuickSettingsDisabler.java"
+.source "RemoteInputQuickSettingsDisabler.kt"
 
 # interfaces
 .implements Lcom/android/systemui/statusbar/policy/ConfigurationController$ConfigurationListener;
 
 
 # instance fields
-.field private final mCommandQueue:Lcom/android/systemui/statusbar/CommandQueue;
+.field private final commandQueue:Lcom/android/systemui/statusbar/CommandQueue;
 
-.field private mContext:Landroid/content/Context;
+.field private final context:Landroid/content/Context;
 
-.field private mLastOrientation:I
+.field private isLandscape:Z
 
-.field mRemoteInputActive:Z
-    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
-    .end annotation
-.end field
+.field private remoteInputActive:Z
 
-.field misLandscape:Z
-    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
-    .end annotation
-.end field
+.field private shouldUseSplitNotificationShade:Z
 
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/statusbar/CommandQueue;)V
-    .locals 0
+.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/statusbar/CommandQueue;Lcom/android/systemui/statusbar/policy/ConfigurationController;)V
+    .locals 1
+
+    const-string v0, "context"
+
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    const-string v0, "commandQueue"
+
+    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    const-string v0, "configController"
+
+    invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/systemui/statusbar/policy/RemoteInputQuickSettingsDisabler;->mContext:Landroid/content/Context;
+    iput-object p1, p0, Lcom/android/systemui/statusbar/policy/RemoteInputQuickSettingsDisabler;->context:Landroid/content/Context;
 
-    iput-object p3, p0, Lcom/android/systemui/statusbar/policy/RemoteInputQuickSettingsDisabler;->mCommandQueue:Lcom/android/systemui/statusbar/CommandQueue;
+    iput-object p2, p0, Lcom/android/systemui/statusbar/policy/RemoteInputQuickSettingsDisabler;->commandQueue:Lcom/android/systemui/statusbar/CommandQueue;
+
+    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object p2
+
+    invoke-virtual {p2}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+
+    move-result-object p2
+
+    iget p2, p2, Landroid/content/res/Configuration;->orientation:I
+
+    const/4 v0, 0x2
+
+    if-ne p2, v0, :cond_0
+
+    const/4 p2, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p2, 0x0
+
+    :goto_0
+    iput-boolean p2, p0, Lcom/android/systemui/statusbar/policy/RemoteInputQuickSettingsDisabler;->isLandscape:Z
 
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object p1
 
-    invoke-virtual {p1}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+    invoke-static {p1}, Lcom/android/systemui/util/Utils;->shouldUseSplitNotificationShade(Landroid/content/res/Resources;)Z
 
-    move-result-object p1
+    move-result p1
 
-    iget p1, p1, Landroid/content/res/Configuration;->orientation:I
+    iput-boolean p1, p0, Lcom/android/systemui/statusbar/policy/RemoteInputQuickSettingsDisabler;->shouldUseSplitNotificationShade:Z
 
-    iput p1, p0, Lcom/android/systemui/statusbar/policy/RemoteInputQuickSettingsDisabler;->mLastOrientation:I
-
-    invoke-interface {p2, p0}, Lcom/android/systemui/statusbar/policy/CallbackController;->addCallback(Ljava/lang/Object;)V
+    invoke-interface {p3, p0}, Lcom/android/systemui/statusbar/policy/CallbackController;->addCallback(Ljava/lang/Object;)V
 
     return-void
 .end method
 
-.method private recomputeDisableFlags()V
+.method private final recomputeDisableFlags()V
     .locals 2
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/RemoteInputQuickSettingsDisabler;->mCommandQueue:Lcom/android/systemui/statusbar/CommandQueue;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/RemoteInputQuickSettingsDisabler;->commandQueue:Lcom/android/systemui/statusbar/CommandQueue;
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/policy/RemoteInputQuickSettingsDisabler;->mContext:Landroid/content/Context;
+    iget-object p0, p0, Lcom/android/systemui/statusbar/policy/RemoteInputQuickSettingsDisabler;->context:Landroid/content/Context;
 
     invoke-virtual {p0}, Landroid/content/Context;->getDisplayId()I
 
@@ -71,16 +99,20 @@
 
 
 # virtual methods
-.method public adjustDisableFlags(I)I
+.method public final adjustDisableFlags(I)I
     .locals 1
 
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/policy/RemoteInputQuickSettingsDisabler;->mRemoteInputActive:Z
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/policy/RemoteInputQuickSettingsDisabler;->remoteInputActive:Z
 
     if-eqz v0, :cond_0
 
-    iget-boolean p0, p0, Lcom/android/systemui/statusbar/policy/RemoteInputQuickSettingsDisabler;->misLandscape:Z
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/policy/RemoteInputQuickSettingsDisabler;->isLandscape:Z
 
-    if-eqz p0, :cond_0
+    if-eqz v0, :cond_0
+
+    iget-boolean p0, p0, Lcom/android/systemui/statusbar/policy/RemoteInputQuickSettingsDisabler;->shouldUseSplitNotificationShade:Z
+
+    if-nez p0, :cond_0
 
     or-int/lit8 p1, p1, 0x1
 
@@ -89,44 +121,77 @@
 .end method
 
 .method public onConfigChanged(Landroid/content/res/Configuration;)V
-    .locals 1
+    .locals 3
+
+    const-string v0, "newConfig"
+
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     iget p1, p1, Landroid/content/res/Configuration;->orientation:I
 
-    iget v0, p0, Lcom/android/systemui/statusbar/policy/RemoteInputQuickSettingsDisabler;->mLastOrientation:I
+    const/4 v0, 0x0
 
-    if-eq p1, v0, :cond_1
+    const/4 v1, 0x1
 
-    const/4 v0, 0x2
+    const/4 v2, 0x2
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v2, :cond_0
 
-    const/4 v0, 0x1
+    move p1, v1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    move p1, v0
 
     :goto_0
-    iput-boolean v0, p0, Lcom/android/systemui/statusbar/policy/RemoteInputQuickSettingsDisabler;->misLandscape:Z
+    iget-boolean v2, p0, Lcom/android/systemui/statusbar/policy/RemoteInputQuickSettingsDisabler;->isLandscape:Z
 
-    iput p1, p0, Lcom/android/systemui/statusbar/policy/RemoteInputQuickSettingsDisabler;->mLastOrientation:I
+    if-eq p1, v2, :cond_1
+
+    iput-boolean p1, p0, Lcom/android/systemui/statusbar/policy/RemoteInputQuickSettingsDisabler;->isLandscape:Z
+
+    move v0, v1
+
+    :cond_1
+    iget-object p1, p0, Lcom/android/systemui/statusbar/policy/RemoteInputQuickSettingsDisabler;->context:Landroid/content/Context;
+
+    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object p1
+
+    invoke-static {p1}, Lcom/android/systemui/util/Utils;->shouldUseSplitNotificationShade(Landroid/content/res/Resources;)Z
+
+    move-result p1
+
+    iget-boolean v2, p0, Lcom/android/systemui/statusbar/policy/RemoteInputQuickSettingsDisabler;->shouldUseSplitNotificationShade:Z
+
+    if-eq p1, v2, :cond_2
+
+    iput-boolean p1, p0, Lcom/android/systemui/statusbar/policy/RemoteInputQuickSettingsDisabler;->shouldUseSplitNotificationShade:Z
+
+    goto :goto_1
+
+    :cond_2
+    move v1, v0
+
+    :goto_1
+    if-eqz v1, :cond_3
 
     invoke-direct {p0}, Lcom/android/systemui/statusbar/policy/RemoteInputQuickSettingsDisabler;->recomputeDisableFlags()V
 
-    :cond_1
+    :cond_3
     return-void
 .end method
 
-.method public setRemoteInputActive(Z)V
+.method public final setRemoteInputActive(Z)V
     .locals 1
 
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/policy/RemoteInputQuickSettingsDisabler;->mRemoteInputActive:Z
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/policy/RemoteInputQuickSettingsDisabler;->remoteInputActive:Z
 
     if-eq v0, p1, :cond_0
 
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/policy/RemoteInputQuickSettingsDisabler;->mRemoteInputActive:Z
+    iput-boolean p1, p0, Lcom/android/systemui/statusbar/policy/RemoteInputQuickSettingsDisabler;->remoteInputActive:Z
 
     invoke-direct {p0}, Lcom/android/systemui/statusbar/policy/RemoteInputQuickSettingsDisabler;->recomputeDisableFlags()V
 

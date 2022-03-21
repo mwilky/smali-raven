@@ -82,7 +82,7 @@
     return-void
 .end method
 
-.method static synthetic access$2100(Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer$DrawableColorTester$ComplexDrawableTester$AlphaFilterQuantizer;)F
+.method static synthetic access$1900(Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer$DrawableColorTester$ComplexDrawableTester$AlphaFilterQuantizer;)F
     .locals 0
 
     iget p0, p0, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer$DrawableColorTester$ComplexDrawableTester$AlphaFilterQuantizer;->mPassFilterRatio:F
@@ -188,30 +188,15 @@
     goto :goto_0
 
     :cond_1
-    if-nez v2, :cond_3
+    if-nez v2, :cond_2
 
-    invoke-static {}, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;->access$1000()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_2
-
-    invoke-static {}, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;->access$1100()Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string v1, "quantize: this is pure transparent image"
-
-    invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_2
     iget-object p0, p0, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer$DrawableColorTester$ComplexDrawableTester$AlphaFilterQuantizer;->mInnerQuantizer:Lcom/android/internal/graphics/palette/Quantizer;
 
     invoke-interface {p0, p1, p2}, Lcom/android/internal/graphics/palette/Quantizer;->quantize([II)V
 
     return-void
 
-    :cond_3
+    :cond_2
     int-to-float v0, v2
 
     array-length v3, p1
@@ -229,7 +214,7 @@
     add-int/lit8 v2, v2, -0x1
 
     :goto_1
-    if-lez v2, :cond_5
+    if-lez v2, :cond_4
 
     iget-object v3, p0, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer$DrawableColorTester$ComplexDrawableTester$AlphaFilterQuantizer;->mFilter:Ljava/util/function/IntPredicate;
 
@@ -239,7 +224,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_3
 
     aget v3, p1, v2
 
@@ -247,12 +232,12 @@
 
     add-int/lit8 v1, v1, 0x1
 
-    :cond_4
+    :cond_3
     add-int/lit8 v2, v2, -0x1
 
     goto :goto_1
 
-    :cond_5
+    :cond_4
     iget-object p0, p0, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer$DrawableColorTester$ComplexDrawableTester$AlphaFilterQuantizer;->mInnerQuantizer:Lcom/android/internal/graphics/palette/Quantizer;
 
     invoke-interface {p0, v0, p2}, Lcom/android/internal/graphics/palette/Quantizer;->quantize([II)V

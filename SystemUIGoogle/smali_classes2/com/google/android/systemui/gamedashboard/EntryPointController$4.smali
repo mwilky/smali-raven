@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/google/android/systemui/gamedashboard/EntryPointController;-><init>(Landroid/content/Context;Landroid/view/accessibility/AccessibilityManager;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/statusbar/CommandQueue;Lcom/google/android/systemui/gamedashboard/GameModeDndController;Landroid/os/Handler;Lcom/android/systemui/navigationbar/NavigationModeController;Lcom/android/systemui/recents/OverviewProxyService;Landroid/content/pm/PackageManager;Lcom/google/android/systemui/gamedashboard/ShortcutBarController;Lcom/google/android/systemui/gamedashboard/ToastController;Lcom/google/android/systemui/gamedashboard/GameDashboardUiEventLogger;Ljava/util/Optional;)V
+    value = Lcom/google/android/systemui/gamedashboard/EntryPointController;-><init>(Landroid/content/Context;Landroid/view/accessibility/AccessibilityManager;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/statusbar/CommandQueue;Lcom/google/android/systemui/gamedashboard/GameModeDndController;Landroid/os/Handler;Lcom/android/systemui/navigationbar/NavigationModeController;Ljava/util/Optional;Lcom/android/systemui/recents/OverviewProxyService;Landroid/content/pm/PackageManager;Lcom/google/android/systemui/gamedashboard/ShortcutBarController;Lcom/google/android/systemui/gamedashboard/ToastController;Lcom/google/android/systemui/gamedashboard/GameDashboardUiEventLogger;Ljava/util/Optional;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -48,51 +48,92 @@
     return-void
 .end method
 
-.method public onSystemBarAttributesChanged(II[Lcom/android/internal/view/AppearanceRegion;ZIZ)V
+.method public onSystemBarAttributesChanged(II[Lcom/android/internal/view/AppearanceRegion;ZILandroid/view/InsetsVisibilities;Ljava/lang/String;)V
     .locals 0
 
-    iget-object p1, p0, Lcom/google/android/systemui/gamedashboard/EntryPointController$4;->this$0:Lcom/google/android/systemui/gamedashboard/EntryPointController;
+    const/4 p1, 0x0
 
-    if-eqz p6, :cond_0
+    invoke-virtual {p6, p1}, Landroid/view/InsetsVisibilities;->getVisibility(I)Z
 
-    const/4 p2, 0x2
+    move-result p2
 
-    if-ne p5, p2, :cond_0
+    const/4 p3, 0x1
 
-    const/4 p2, 0x1
+    if-eqz p2, :cond_1
+
+    invoke-virtual {p6, p3}, Landroid/view/InsetsVisibilities;->getVisibility(I)Z
+
+    move-result p2
+
+    if-nez p2, :cond_0
 
     goto :goto_0
 
     :cond_0
-    const/4 p2, 0x0
+    move p2, p1
 
+    goto :goto_1
+
+    :cond_1
     :goto_0
-    invoke-static {p1, p2}, Lcom/google/android/systemui/gamedashboard/EntryPointController;->access$1002(Lcom/google/android/systemui/gamedashboard/EntryPointController;Z)Z
+    move p2, p3
 
-    iget-object p1, p0, Lcom/google/android/systemui/gamedashboard/EntryPointController$4;->this$0:Lcom/google/android/systemui/gamedashboard/EntryPointController;
+    :goto_1
+    iget-object p4, p0, Lcom/google/android/systemui/gamedashboard/EntryPointController$4;->this$0:Lcom/google/android/systemui/gamedashboard/EntryPointController;
 
-    invoke-static {p1}, Lcom/google/android/systemui/gamedashboard/EntryPointController;->access$1100(Lcom/google/android/systemui/gamedashboard/EntryPointController;)Z
+    if-eqz p2, :cond_2
 
-    move-result p1
+    const/4 p2, 0x2
 
-    if-eqz p1, :cond_1
+    if-ne p5, p2, :cond_2
+
+    move p2, p3
+
+    goto :goto_2
+
+    :cond_2
+    move p2, p1
+
+    :goto_2
+    invoke-static {p4, p2}, Lcom/google/android/systemui/gamedashboard/EntryPointController;->access$1002(Lcom/google/android/systemui/gamedashboard/EntryPointController;Z)Z
+
+    iget-object p2, p0, Lcom/google/android/systemui/gamedashboard/EntryPointController$4;->this$0:Lcom/google/android/systemui/gamedashboard/EntryPointController;
+
+    invoke-static {p2}, Lcom/google/android/systemui/gamedashboard/EntryPointController;->access$1100(Lcom/google/android/systemui/gamedashboard/EntryPointController;)Z
+
+    move-result p2
+
+    if-eqz p2, :cond_3
 
     return-void
 
-    :cond_1
-    iget-object p1, p0, Lcom/google/android/systemui/gamedashboard/EntryPointController$4;->this$0:Lcom/google/android/systemui/gamedashboard/EntryPointController;
+    :cond_3
+    iget-object p2, p0, Lcom/google/android/systemui/gamedashboard/EntryPointController$4;->this$0:Lcom/google/android/systemui/gamedashboard/EntryPointController;
 
-    invoke-static {p1}, Lcom/google/android/systemui/gamedashboard/EntryPointController;->access$000(Lcom/google/android/systemui/gamedashboard/EntryPointController;)Lcom/google/android/systemui/gamedashboard/ShortcutBarController;
+    invoke-static {p2}, Lcom/google/android/systemui/gamedashboard/EntryPointController;->access$000(Lcom/google/android/systemui/gamedashboard/EntryPointController;)Lcom/google/android/systemui/gamedashboard/ShortcutBarController;
 
-    move-result-object p1
+    move-result-object p2
+
+    iget-object p4, p0, Lcom/google/android/systemui/gamedashboard/EntryPointController$4;->this$0:Lcom/google/android/systemui/gamedashboard/EntryPointController;
+
+    invoke-static {p4}, Lcom/google/android/systemui/gamedashboard/EntryPointController;->access$1000(Lcom/google/android/systemui/gamedashboard/EntryPointController;)Z
+
+    move-result p4
+
+    if-eqz p4, :cond_4
 
     iget-object p0, p0, Lcom/google/android/systemui/gamedashboard/EntryPointController$4;->this$0:Lcom/google/android/systemui/gamedashboard/EntryPointController;
 
-    invoke-static {p0}, Lcom/google/android/systemui/gamedashboard/EntryPointController;->access$1000(Lcom/google/android/systemui/gamedashboard/EntryPointController;)Z
+    invoke-static {p0}, Lcom/google/android/systemui/gamedashboard/EntryPointController;->access$1200(Lcom/google/android/systemui/gamedashboard/EntryPointController;)Z
 
     move-result p0
 
-    invoke-virtual {p1, p0}, Lcom/google/android/systemui/gamedashboard/ShortcutBarController;->updateVisibility(Z)V
+    if-nez p0, :cond_4
+
+    move p1, p3
+
+    :cond_4
+    invoke-virtual {p2, p1}, Lcom/google/android/systemui/gamedashboard/ShortcutBarController;->updateVisibility(Z)V
 
     return-void
 .end method

@@ -205,29 +205,139 @@
 
     move-result-object v11
 
+    sget-boolean v5, Lcom/android/wm/shell/transition/Transitions;->ENABLE_SHELL_TRANSITIONS:Z
+
+    const/high16 v6, 0x42b40000    # 90.0f
+
+    const/high16 v7, -0x3d4c0000    # -90.0f
+
+    const/4 v8, 0x1
+
+    if-eqz v5, :cond_2
+
     iget v5, v0, Lcom/android/wm/shell/pip/PipAnimationController$PipTransitionAnimator$2;->val$rotationDelta:I
 
-    const/4 v6, 0x1
+    const/high16 v9, 0x3f800000    # 1.0f
 
-    if-ne v5, v6, :cond_1
+    if-ne v5, v8, :cond_1
 
-    const/high16 v5, 0x42b40000    # 90.0f
+    sub-float/2addr v9, v1
+
+    mul-float/2addr v6, v9
+
+    iget v5, v3, Landroid/graphics/Rect;->left:I
+
+    iget v7, v2, Landroid/graphics/Rect;->left:I
+
+    sub-int/2addr v5, v7
+
+    int-to-float v5, v5
 
     mul-float/2addr v5, v1
 
-    iget v7, v3, Landroid/graphics/Rect;->right:I
+    int-to-float v7, v7
 
-    iget v8, v2, Landroid/graphics/Rect;->left:I
+    add-float/2addr v5, v7
 
-    sub-int/2addr v7, v8
+    iget v7, v2, Landroid/graphics/Rect;->right:I
 
     int-to-float v7, v7
 
-    mul-float/2addr v7, v1
+    mul-float/2addr v7, v9
 
-    int-to-float v8, v8
+    add-float/2addr v5, v7
 
-    add-float/2addr v7, v8
+    iget v3, v3, Landroid/graphics/Rect;->top:I
+
+    iget v2, v2, Landroid/graphics/Rect;->top:I
+
+    sub-int/2addr v3, v2
+
+    int-to-float v3, v3
+
+    mul-float/2addr v1, v3
+
+    int-to-float v2, v2
+
+    add-float/2addr v1, v2
+
+    move v14, v1
+
+    move v13, v5
+
+    move v12, v6
+
+    goto :goto_1
+
+    :cond_1
+    sub-float/2addr v9, v1
+
+    mul-float/2addr v7, v9
+
+    iget v5, v3, Landroid/graphics/Rect;->left:I
+
+    iget v6, v2, Landroid/graphics/Rect;->left:I
+
+    sub-int/2addr v5, v6
+
+    int-to-float v5, v5
+
+    mul-float/2addr v5, v1
+
+    int-to-float v6, v6
+
+    add-float/2addr v5, v6
+
+    iget v3, v3, Landroid/graphics/Rect;->top:I
+
+    iget v6, v2, Landroid/graphics/Rect;->top:I
+
+    sub-int/2addr v3, v6
+
+    int-to-float v3, v3
+
+    mul-float/2addr v1, v3
+
+    int-to-float v3, v6
+
+    add-float/2addr v1, v3
+
+    iget v2, v2, Landroid/graphics/Rect;->bottom:I
+
+    int-to-float v2, v2
+
+    mul-float/2addr v2, v9
+
+    add-float/2addr v1, v2
+
+    move v14, v1
+
+    move v13, v5
+
+    move v12, v7
+
+    goto :goto_1
+
+    :cond_2
+    iget v5, v0, Lcom/android/wm/shell/pip/PipAnimationController$PipTransitionAnimator$2;->val$rotationDelta:I
+
+    if-ne v5, v8, :cond_3
+
+    mul-float v5, v1, v6
+
+    iget v6, v3, Landroid/graphics/Rect;->right:I
+
+    iget v7, v2, Landroid/graphics/Rect;->left:I
+
+    sub-int/2addr v6, v7
+
+    int-to-float v6, v6
+
+    mul-float/2addr v6, v1
+
+    int-to-float v7, v7
+
+    add-float/2addr v6, v7
 
     iget v3, v3, Landroid/graphics/Rect;->top:I
 
@@ -235,24 +345,22 @@
 
     goto :goto_0
 
-    :cond_1
-    const/high16 v5, -0x3d4c0000    # -90.0f
+    :cond_3
+    mul-float v5, v1, v7
 
-    mul-float/2addr v5, v1
+    iget v6, v3, Landroid/graphics/Rect;->left:I
 
-    iget v7, v3, Landroid/graphics/Rect;->left:I
+    iget v7, v2, Landroid/graphics/Rect;->left:I
 
-    iget v8, v2, Landroid/graphics/Rect;->left:I
+    sub-int/2addr v6, v7
 
-    sub-int/2addr v7, v8
+    int-to-float v6, v6
+
+    mul-float/2addr v6, v1
 
     int-to-float v7, v7
 
-    mul-float/2addr v7, v1
-
-    int-to-float v8, v8
-
-    add-float/2addr v7, v8
+    add-float/2addr v6, v7
 
     iget v3, v3, Landroid/graphics/Rect;->bottom:I
 
@@ -273,34 +381,41 @@
 
     move v12, v5
 
-    move v13, v7
+    move v13, v6
+
+    :goto_1
+    new-instance v1, Landroid/graphics/Rect;
+
+    iget-object v2, v0, Lcom/android/wm/shell/pip/PipAnimationController$PipTransitionAnimator$2;->val$initialContainerRect:Landroid/graphics/Rect;
+
+    invoke-direct {v1, v2}, Landroid/graphics/Rect;-><init>(Landroid/graphics/Rect;)V
+
+    invoke-virtual {v1, v11}, Landroid/graphics/Rect;->inset(Landroid/graphics/Rect;)V
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/wm/shell/pip/PipAnimationController$PipTransitionAnimator;->getSurfaceTransactionHelper()Lcom/android/wm/shell/pip/PipSurfaceTransactionHelper;
 
-    move-result-object v1
+    move-result-object v6
 
     iget-object v9, v0, Lcom/android/wm/shell/pip/PipAnimationController$PipTransitionAnimator$2;->val$initialContainerRect:Landroid/graphics/Rect;
 
     iget-boolean v15, v0, Lcom/android/wm/shell/pip/PipAnimationController$PipTransitionAnimator$2;->val$isOutPipDirection:Z
 
-    iget v2, v0, Lcom/android/wm/shell/pip/PipAnimationController$PipTransitionAnimator$2;->val$rotationDelta:I
+    iget v0, v0, Lcom/android/wm/shell/pip/PipAnimationController$PipTransitionAnimator$2;->val$rotationDelta:I
 
-    const/4 v3, 0x3
+    const/4 v2, 0x3
 
-    if-ne v2, v3, :cond_2
+    if-ne v0, v2, :cond_4
 
-    move/from16 v16, v6
+    move/from16 v16, v8
 
-    goto :goto_1
+    goto :goto_2
 
-    :cond_2
-    const/4 v2, 0x0
+    :cond_4
+    const/4 v0, 0x0
 
-    move/from16 v16, v2
+    move/from16 v16, v0
 
-    :goto_1
-    move-object v6, v1
-
+    :goto_2
     move-object/from16 v7, p1
 
     move-object/from16 v8, p2
@@ -309,15 +424,13 @@
 
     invoke-virtual/range {v6 .. v16}, Lcom/android/wm/shell/pip/PipSurfaceTransactionHelper;->rotateAndScaleWithCrop(Landroid/view/SurfaceControl$Transaction;Landroid/view/SurfaceControl;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;FFFZZ)Lcom/android/wm/shell/pip/PipSurfaceTransactionHelper;
 
-    move-result-object v1
-
-    iget-object v0, v0, Lcom/android/wm/shell/pip/PipAnimationController$PipTransitionAnimator$2;->val$initialContainerRect:Landroid/graphics/Rect;
+    move-result-object v0
 
     move-object/from16 v2, p1
 
     move-object/from16 v3, p2
 
-    invoke-virtual {v1, v2, v3, v0, v4}, Lcom/android/wm/shell/pip/PipSurfaceTransactionHelper;->round(Landroid/view/SurfaceControl$Transaction;Landroid/view/SurfaceControl;Landroid/graphics/Rect;Landroid/graphics/Rect;)Lcom/android/wm/shell/pip/PipSurfaceTransactionHelper;
+    invoke-virtual {v0, v2, v3, v1, v4}, Lcom/android/wm/shell/pip/PipSurfaceTransactionHelper;->round(Landroid/view/SurfaceControl$Transaction;Landroid/view/SurfaceControl;Landroid/graphics/Rect;Landroid/graphics/Rect;)Lcom/android/wm/shell/pip/PipSurfaceTransactionHelper;
 
     invoke-virtual/range {p1 .. p1}, Landroid/view/SurfaceControl$Transaction;->apply()V
 
@@ -490,7 +603,9 @@
 
     new-instance v1, Landroid/graphics/Rect;
 
-    invoke-direct {v1, v8}, Landroid/graphics/Rect;-><init>(Landroid/graphics/Rect;)V
+    iget-object v2, p0, Lcom/android/wm/shell/pip/PipAnimationController$PipTransitionAnimator$2;->val$initialContainerRect:Landroid/graphics/Rect;
+
+    invoke-direct {v1, v2}, Landroid/graphics/Rect;-><init>(Landroid/graphics/Rect;)V
 
     invoke-virtual {v1, v7}, Landroid/graphics/Rect;->inset(Landroid/graphics/Rect;)V
 
@@ -498,9 +613,7 @@
 
     move-result-object v2
 
-    iget-object v3, p0, Lcom/android/wm/shell/pip/PipAnimationController$PipTransitionAnimator$2;->val$initialContainerRect:Landroid/graphics/Rect;
-
-    invoke-virtual {v2, p2, p1, v3, v1}, Lcom/android/wm/shell/pip/PipSurfaceTransactionHelper;->round(Landroid/view/SurfaceControl$Transaction;Landroid/view/SurfaceControl;Landroid/graphics/Rect;Landroid/graphics/Rect;)Lcom/android/wm/shell/pip/PipSurfaceTransactionHelper;
+    invoke-virtual {v2, p2, p1, v1, v8}, Lcom/android/wm/shell/pip/PipSurfaceTransactionHelper;->round(Landroid/view/SurfaceControl$Transaction;Landroid/view/SurfaceControl;Landroid/graphics/Rect;Landroid/graphics/Rect;)Lcom/android/wm/shell/pip/PipSurfaceTransactionHelper;
 
     goto :goto_2
 

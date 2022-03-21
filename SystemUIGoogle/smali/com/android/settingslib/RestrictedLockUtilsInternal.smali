@@ -12,12 +12,24 @@
 
 
 # static fields
+.field private static final DEBUG:Z
+
 .field static sProxy:Lcom/android/settingslib/RestrictedLockUtilsInternal$Proxy;
 
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .locals 2
+
+    const-string v0, "RestrictedLockUtils"
+
+    const/4 v1, 0x3
+
+    invoke-static {v0, v1}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
+
+    move-result v0
+
+    sput-boolean v0, Lcom/android/settingslib/RestrictedLockUtilsInternal;->DEBUG:Z
 
     new-instance v0, Lcom/android/settingslib/RestrictedLockUtilsInternal$Proxy;
 
@@ -29,7 +41,7 @@
 .end method
 
 .method public static checkIfRestrictionEnforced(Landroid/content/Context;Ljava/lang/String;I)Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
-    .locals 5
+    .locals 6
 
     const-string v0, "device_policy"
 
@@ -56,35 +68,82 @@
 
     invoke-virtual {v0, p1, v2}, Landroid/os/UserManager;->getUserRestrictionSources(Ljava/lang/String;Landroid/os/UserHandle;)Ljava/util/List;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-interface {v2}, Ljava/util/List;->isEmpty()Z
+    invoke-interface {v3}, Ljava/util/List;->isEmpty()Z
 
-    move-result v3
+    move-result v4
 
-    if-eqz v3, :cond_1
+    if-eqz v4, :cond_1
 
     return-object v1
 
     :cond_1
-    invoke-interface {v2}, Ljava/util/List;->size()I
+    invoke-interface {v3}, Ljava/util/List;->size()I
 
-    move-result v3
+    move-result v4
 
-    const/4 v4, 0x1
+    const/4 v5, 0x1
 
-    if-le v3, v4, :cond_2
+    if-le v4, v5, :cond_3
 
     invoke-static {p1}, Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;->createDefaultEnforcedAdminWithRestriction(Ljava/lang/String;)Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
 
     move-result-object p0
 
-    return-object p0
+    iput-object v2, p0, Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;->user:Landroid/os/UserHandle;
+
+    sget-boolean p2, Lcom/android/settingslib/RestrictedLockUtilsInternal;->DEBUG:Z
+
+    if-eqz p2, :cond_2
+
+    new-instance p2, Ljava/lang/StringBuilder;
+
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v0, "Multiple ("
+
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p2, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v0, ") enforcing users for restriction \'"
+
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string p1, "\' on user "
+
+    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p2, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string p1, "; returning default admin ("
+
+    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string p1, ")"
+
+    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    const-string p2, "RestrictedLockUtils"
+
+    invoke-static {p2, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_2
-    const/4 v3, 0x0
+    return-object p0
 
-    invoke-interface {v2, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    :cond_3
+    const/4 v2, 0x0
+
+    invoke-interface {v3, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v4
 
@@ -94,7 +153,7 @@
 
     move-result v4
 
-    invoke-interface {v2, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v3, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v2
 
@@ -110,9 +169,9 @@
 
     const/4 v3, 0x4
 
-    if-ne v4, v3, :cond_5
+    if-ne v4, v3, :cond_6
 
-    if-ne v2, p2, :cond_3
+    if-ne v2, p2, :cond_4
 
     invoke-static {p0, p1, v2}, Lcom/android/settingslib/RestrictedLockUtilsInternal;->getProfileOwner(Landroid/content/Context;Ljava/lang/String;I)Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
 
@@ -120,16 +179,16 @@
 
     return-object p0
 
-    :cond_3
+    :cond_4
     invoke-virtual {v0, v2}, Landroid/os/UserManager;->getProfileParent(I)Landroid/content/pm/UserInfo;
 
     move-result-object v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_5
 
     iget v0, v0, Landroid/content/pm/UserInfo;->id:I
 
-    if-ne v0, p2, :cond_4
+    if-ne v0, p2, :cond_5
 
     invoke-static {p0, p1, v2}, Lcom/android/settingslib/RestrictedLockUtilsInternal;->getProfileOwner(Landroid/content/Context;Ljava/lang/String;I)Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
 
@@ -137,7 +196,7 @@
 
     goto :goto_0
 
-    :cond_4
+    :cond_5
     invoke-static {p1}, Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;->createDefaultEnforcedAdminWithRestriction(Ljava/lang/String;)Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
 
     move-result-object p0
@@ -145,12 +204,12 @@
     :goto_0
     return-object p0
 
-    :cond_5
+    :cond_6
     const/4 v0, 0x2
 
-    if-ne v4, v0, :cond_7
+    if-ne v4, v0, :cond_8
 
-    if-ne v2, p2, :cond_6
+    if-ne v2, p2, :cond_7
 
     invoke-static {p0, p1}, Lcom/android/settingslib/RestrictedLockUtilsInternal;->getDeviceOwner(Landroid/content/Context;Ljava/lang/String;)Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
 
@@ -158,7 +217,7 @@
 
     goto :goto_1
 
-    :cond_6
+    :cond_7
     invoke-static {p1}, Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;->createDefaultEnforcedAdminWithRestriction(Ljava/lang/String;)Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
 
     move-result-object p0
@@ -166,7 +225,7 @@
     :goto_1
     return-object p0
 
-    :cond_7
+    :cond_8
     return-object v1
 .end method
 

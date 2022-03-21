@@ -3,12 +3,12 @@
 .source "WMShell.java"
 
 # interfaces
-.implements Lcom/android/wm/shell/onehanded/OneHandedEventCallback;
+.implements Lcom/android/systemui/keyguard/WakefulnessLifecycle$Observer;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/wmshell/WMShell;->initOneHanded(Lcom/android/wm/shell/onehanded/OneHanded;)V
+    value = Lcom/android/systemui/wmshell/WMShell;->initSplitScreen(Lcom/android/wm/shell/splitscreen/SplitScreen;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,58 +20,40 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/systemui/wmshell/WMShell;
 
+.field final synthetic val$splitScreen:Lcom/android/wm/shell/splitscreen/SplitScreen;
+
 
 # direct methods
-.method public static synthetic $r8$lambda$x-EOSuJnzZMNv2Ll1hbQl7C2Ebc(Lcom/android/systemui/wmshell/WMShell$6;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/wmshell/WMShell$6;->lambda$notifyExpandNotification$0()V
-
-    return-void
-.end method
-
-.method constructor <init>(Lcom/android/systemui/wmshell/WMShell;)V
+.method constructor <init>(Lcom/android/systemui/wmshell/WMShell;Lcom/android/wm/shell/splitscreen/SplitScreen;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/wmshell/WMShell$6;->this$0:Lcom/android/systemui/wmshell/WMShell;
+
+    iput-object p2, p0, Lcom/android/systemui/wmshell/WMShell$6;->val$splitScreen:Lcom/android/wm/shell/splitscreen/SplitScreen;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
-.method private synthetic lambda$notifyExpandNotification$0()V
-    .locals 1
 
-    iget-object p0, p0, Lcom/android/systemui/wmshell/WMShell$6;->this$0:Lcom/android/systemui/wmshell/WMShell;
+# virtual methods
+.method public onFinishedGoingToSleep()V
+    .locals 0
 
-    invoke-static {p0}, Lcom/android/systemui/wmshell/WMShell;->access$200(Lcom/android/systemui/wmshell/WMShell;)Lcom/android/systemui/statusbar/CommandQueue;
+    iget-object p0, p0, Lcom/android/systemui/wmshell/WMShell$6;->val$splitScreen:Lcom/android/wm/shell/splitscreen/SplitScreen;
 
-    move-result-object p0
-
-    const/16 v0, 0x119
-
-    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/CommandQueue;->handleSystemKey(I)V
+    invoke-interface {p0}, Lcom/android/wm/shell/splitscreen/SplitScreen;->onFinishedGoingToSleep()V
 
     return-void
 .end method
 
+.method public onFinishedWakingUp()V
+    .locals 0
 
-# virtual methods
-.method public notifyExpandNotification()V
-    .locals 2
+    iget-object p0, p0, Lcom/android/systemui/wmshell/WMShell$6;->val$splitScreen:Lcom/android/wm/shell/splitscreen/SplitScreen;
 
-    iget-object v0, p0, Lcom/android/systemui/wmshell/WMShell$6;->this$0:Lcom/android/systemui/wmshell/WMShell;
-
-    invoke-static {v0}, Lcom/android/systemui/wmshell/WMShell;->access$000(Lcom/android/systemui/wmshell/WMShell;)Ljava/util/concurrent/Executor;
-
-    move-result-object v0
-
-    new-instance v1, Lcom/android/systemui/wmshell/WMShell$6$$ExternalSyntheticLambda0;
-
-    invoke-direct {v1, p0}, Lcom/android/systemui/wmshell/WMShell$6$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/wmshell/WMShell$6;)V
-
-    invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
+    invoke-interface {p0}, Lcom/android/wm/shell/splitscreen/SplitScreen;->onFinishedWakingUp()V
 
     return-void
 .end method

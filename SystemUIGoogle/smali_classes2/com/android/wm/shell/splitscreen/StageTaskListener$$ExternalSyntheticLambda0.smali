@@ -39,7 +39,7 @@
 
     iget-boolean p0, p0, Lcom/android/wm/shell/splitscreen/StageTaskListener$$ExternalSyntheticLambda0;->f$2:Z
 
-    invoke-static {v0, v1, p0, p1}, Lcom/android/wm/shell/splitscreen/StageTaskListener;->$r8$lambda$NiTBPzmwZ4VTUjdhw4thTOvW4Fk(Landroid/view/SurfaceControl;Landroid/graphics/Point;ZLandroid/view/SurfaceControl$Transaction;)V
+    invoke-static {v0, v1, p0, p1}, Lcom/android/wm/shell/splitscreen/StageTaskListener;->$r8$lambda$P-Sz_RUa8eEWSHS2GReCUMOuCAc(Landroid/view/SurfaceControl;Landroid/graphics/Point;ZLandroid/view/SurfaceControl$Transaction;)V
 
     return-void
 .end method

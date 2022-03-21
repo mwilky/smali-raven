@@ -13,6 +13,10 @@
 .end annotation
 
 
+# static fields
+.field public static final DEBUG:Z
+
+
 # instance fields
 .field private final mAudioManager:Landroid/media/AudioManager;
 
@@ -44,6 +48,16 @@
     move-result p0
 
     return p0
+.end method
+
+.method static constructor <clinit>()V
+    .locals 1
+
+    sget-boolean v0, Lcom/android/keyguard/KeyguardConstants;->DEBUG:Z
+
+    sput-boolean v0, Lcom/android/keyguard/KeyguardHostViewController;->DEBUG:Z
+
+    return-void
 .end method
 
 .method public constructor <init>(Lcom/android/keyguard/KeyguardHostView;Lcom/android/keyguard/KeyguardUpdateMonitor;Landroid/media/AudioManager;Landroid/telephony/TelephonyManager;Lcom/android/keyguard/ViewMediatorCallback;Lcom/android/keyguard/KeyguardSecurityContainerController$Factory;)V
@@ -471,11 +485,52 @@
 .end method
 
 .method public onPause()V
-    .locals 2
+    .locals 4
 
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardHostViewController;->mKeyguardSecurityContainerController:Lcom/android/keyguard/KeyguardSecurityContainerController;
+    sget-boolean v0, Lcom/android/keyguard/KeyguardHostViewController;->DEBUG:Z
 
     const/4 v1, 0x1
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x2
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    const/4 v2, 0x0
+
+    invoke-virtual {p0}, Ljava/lang/Object;->hashCode()I
+
+    move-result v3
+
+    invoke-static {v3}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
+
+    move-result-object v3
+
+    aput-object v3, v0, v2
+
+    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
+
+    move-result-wide v2
+
+    invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v2
+
+    aput-object v2, v0, v1
+
+    const-string v2, "screen off, instance %s at %s"
+
+    invoke-static {v2, v0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v2, "KeyguardViewBase"
+
+    invoke-static {v2, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardHostViewController;->mKeyguardSecurityContainerController:Lcom/android/keyguard/KeyguardSecurityContainerController;
 
     invoke-virtual {v0, v1}, Lcom/android/keyguard/KeyguardSecurityContainerController;->showPrimarySecurityScreen(Z)V
 
@@ -495,6 +550,37 @@
 .method public onResume()V
     .locals 2
 
+    sget-boolean v0, Lcom/android/keyguard/KeyguardHostViewController;->DEBUG:Z
+
+    if-eqz v0, :cond_0
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "screen on, instance "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0}, Ljava/lang/Object;->hashCode()I
+
+    move-result v1
+
+    invoke-static {v1}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "KeyguardViewBase"
+
+    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
     iget-object v0, p0, Lcom/android/keyguard/KeyguardHostViewController;->mKeyguardSecurityContainerController:Lcom/android/keyguard/KeyguardSecurityContainerController;
 
     const/4 v1, 0x1
@@ -742,8 +828,19 @@
 .end method
 
 .method public showPrimarySecurityScreen()V
-    .locals 1
+    .locals 2
 
+    sget-boolean v0, Lcom/android/keyguard/KeyguardHostViewController;->DEBUG:Z
+
+    if-eqz v0, :cond_0
+
+    const-string v0, "KeyguardViewBase"
+
+    const-string v1, "show()"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
     iget-object p0, p0, Lcom/android/keyguard/KeyguardHostViewController;->mKeyguardSecurityContainerController:Lcom/android/keyguard/KeyguardSecurityContainerController;
 
     const/4 v0, 0x0
@@ -814,7 +911,7 @@
 
     if-eqz v1, :cond_0
 
-    const v1, 0x11100cc
+    const v1, 0x11100cd
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 

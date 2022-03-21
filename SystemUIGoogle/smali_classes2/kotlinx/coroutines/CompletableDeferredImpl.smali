@@ -4,6 +4,7 @@
 
 # interfaces
 .implements Lkotlinx/coroutines/CompletableDeferred;
+.implements Lkotlinx/coroutines/selects/SelectClause1;
 
 
 # annotations
@@ -14,6 +15,8 @@
         ">",
         "Lkotlinx/coroutines/JobSupport;",
         "Lkotlinx/coroutines/CompletableDeferred<",
+        "TT;>;",
+        "Lkotlinx/coroutines/selects/SelectClause1<",
         "TT;>;"
     }
 .end annotation
@@ -145,4 +148,35 @@
     const/4 p0, 0x1
 
     return p0
+.end method
+
+.method public registerSelectClause1(Lkotlinx/coroutines/selects/SelectInstance;Lkotlin/jvm/functions/Function2;)V
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<R:",
+            "Ljava/lang/Object;",
+            ">(",
+            "Lkotlinx/coroutines/selects/SelectInstance<",
+            "-TR;>;",
+            "Lkotlin/jvm/functions/Function2<",
+            "-TT;-",
+            "Lkotlin/coroutines/Continuation<",
+            "-TR;>;+",
+            "Ljava/lang/Object;",
+            ">;)V"
+        }
+    .end annotation
+
+    const-string v0, "select"
+
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
+
+    const-string v0, "block"
+
+    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
+
+    invoke-virtual {p0, p1, p2}, Lkotlinx/coroutines/JobSupport;->registerSelectClause1Internal$kotlinx_coroutines_core(Lkotlinx/coroutines/selects/SelectInstance;Lkotlin/jvm/functions/Function2;)V
+
+    return-void
 .end method

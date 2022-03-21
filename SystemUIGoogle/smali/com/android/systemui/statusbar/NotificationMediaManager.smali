@@ -74,8 +74,6 @@
 
 .field private mMediaNotificationKey:Ljava/lang/String;
 
-.field private final mMediaSessionManager:Landroid/media/session/MediaSessionManager;
-
 .field private final mNotifCollection:Lcom/android/systemui/statusbar/notification/collection/NotifCollection;
 
 .field private final mNotifPipeline:Lcom/android/systemui/statusbar/notification/collection/NotifPipeline;
@@ -104,12 +102,13 @@
 
 .field private mScrimController:Lcom/android/systemui/statusbar/phone/ScrimController;
 
-.field private final mStatusBarLazy:Ldagger/Lazy;
+.field private final mStatusBarOptionalLazy:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
+            "Ljava/util/Optional<",
             "Lcom/android/systemui/statusbar/phone/StatusBar;",
-            ">;"
+            ">;>;"
         }
     .end annotation
 .end field
@@ -200,15 +199,16 @@
     return-void
 .end method
 
-.method public constructor <init>(Landroid/content/Context;Ldagger/Lazy;Ldagger/Lazy;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/systemui/statusbar/MediaArtworkProcessor;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/statusbar/notification/collection/NotifPipeline;Lcom/android/systemui/statusbar/notification/collection/NotifCollection;Lcom/android/systemui/statusbar/FeatureFlags;Lcom/android/systemui/util/concurrency/DelayableExecutor;Lcom/android/systemui/util/DeviceConfigProxy;Lcom/android/systemui/media/MediaDataManager;)V
-    .locals 0
+.method public constructor <init>(Landroid/content/Context;Ldagger/Lazy;Ldagger/Lazy;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/systemui/statusbar/MediaArtworkProcessor;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/statusbar/notification/collection/NotifPipeline;Lcom/android/systemui/statusbar/notification/collection/NotifCollection;Lcom/android/systemui/flags/FeatureFlags;Lcom/android/systemui/util/concurrency/DelayableExecutor;Lcom/android/systemui/media/MediaDataManager;Lcom/android/systemui/dump/DumpManager;)V
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Landroid/content/Context;",
             "Ldagger/Lazy<",
+            "Ljava/util/Optional<",
             "Lcom/android/systemui/statusbar/phone/StatusBar;",
-            ">;",
+            ">;>;",
             "Ldagger/Lazy<",
             "Lcom/android/systemui/statusbar/NotificationShadeWindowController;",
             ">;",
@@ -217,63 +217,63 @@
             "Lcom/android/systemui/statusbar/phone/KeyguardBypassController;",
             "Lcom/android/systemui/statusbar/notification/collection/NotifPipeline;",
             "Lcom/android/systemui/statusbar/notification/collection/NotifCollection;",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
+            "Lcom/android/systemui/flags/FeatureFlags;",
             "Lcom/android/systemui/util/concurrency/DelayableExecutor;",
-            "Lcom/android/systemui/util/DeviceConfigProxy;",
             "Lcom/android/systemui/media/MediaDataManager;",
+            "Lcom/android/systemui/dump/DumpManager;",
             ")V"
         }
     .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    const-class p11, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
+    const-class v0, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
 
-    invoke-static {p11}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-result-object p11
+    move-result-object v0
 
-    check-cast p11, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
+    check-cast v0, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
 
-    iput-object p11, p0, Lcom/android/systemui/statusbar/NotificationMediaManager;->mStatusBarStateController:Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
+    iput-object v0, p0, Lcom/android/systemui/statusbar/NotificationMediaManager;->mStatusBarStateController:Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
 
-    const-class p11, Lcom/android/systemui/colorextraction/SysuiColorExtractor;
+    const-class v0, Lcom/android/systemui/colorextraction/SysuiColorExtractor;
 
-    invoke-static {p11}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-result-object p11
+    move-result-object v0
 
-    check-cast p11, Lcom/android/systemui/colorextraction/SysuiColorExtractor;
+    check-cast v0, Lcom/android/systemui/colorextraction/SysuiColorExtractor;
 
-    iput-object p11, p0, Lcom/android/systemui/statusbar/NotificationMediaManager;->mColorExtractor:Lcom/android/systemui/colorextraction/SysuiColorExtractor;
+    iput-object v0, p0, Lcom/android/systemui/statusbar/NotificationMediaManager;->mColorExtractor:Lcom/android/systemui/colorextraction/SysuiColorExtractor;
 
-    const-class p11, Lcom/android/systemui/statusbar/policy/KeyguardStateController;
+    const-class v0, Lcom/android/systemui/statusbar/policy/KeyguardStateController;
 
-    invoke-static {p11}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-result-object p11
+    move-result-object v0
 
-    check-cast p11, Lcom/android/systemui/statusbar/policy/KeyguardStateController;
+    check-cast v0, Lcom/android/systemui/statusbar/policy/KeyguardStateController;
 
-    iput-object p11, p0, Lcom/android/systemui/statusbar/NotificationMediaManager;->mKeyguardStateController:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
+    iput-object v0, p0, Lcom/android/systemui/statusbar/NotificationMediaManager;->mKeyguardStateController:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
 
-    new-instance p11, Landroid/util/ArraySet;
+    new-instance v0, Landroid/util/ArraySet;
 
-    invoke-direct {p11}, Landroid/util/ArraySet;-><init>()V
+    invoke-direct {v0}, Landroid/util/ArraySet;-><init>()V
 
-    iput-object p11, p0, Lcom/android/systemui/statusbar/NotificationMediaManager;->mProcessArtworkTasks:Ljava/util/Set;
+    iput-object v0, p0, Lcom/android/systemui/statusbar/NotificationMediaManager;->mProcessArtworkTasks:Ljava/util/Set;
 
-    new-instance p11, Lcom/android/systemui/statusbar/NotificationMediaManager$1;
+    new-instance v0, Lcom/android/systemui/statusbar/NotificationMediaManager$1;
 
-    invoke-direct {p11, p0}, Lcom/android/systemui/statusbar/NotificationMediaManager$1;-><init>(Lcom/android/systemui/statusbar/NotificationMediaManager;)V
+    invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/NotificationMediaManager$1;-><init>(Lcom/android/systemui/statusbar/NotificationMediaManager;)V
 
-    iput-object p11, p0, Lcom/android/systemui/statusbar/NotificationMediaManager;->mMediaListener:Landroid/media/session/MediaController$Callback;
+    iput-object v0, p0, Lcom/android/systemui/statusbar/NotificationMediaManager;->mMediaListener:Landroid/media/session/MediaController$Callback;
 
-    new-instance p11, Lcom/android/systemui/statusbar/NotificationMediaManager$7;
+    new-instance v0, Lcom/android/systemui/statusbar/NotificationMediaManager$7;
 
-    invoke-direct {p11, p0}, Lcom/android/systemui/statusbar/NotificationMediaManager$7;-><init>(Lcom/android/systemui/statusbar/NotificationMediaManager;)V
+    invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/NotificationMediaManager$7;-><init>(Lcom/android/systemui/statusbar/NotificationMediaManager;)V
 
-    iput-object p11, p0, Lcom/android/systemui/statusbar/NotificationMediaManager;->mHideBackdropFront:Ljava/lang/Runnable;
+    iput-object v0, p0, Lcom/android/systemui/statusbar/NotificationMediaManager;->mHideBackdropFront:Ljava/lang/Runnable;
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/NotificationMediaManager;->mContext:Landroid/content/Context;
 
@@ -281,23 +281,13 @@
 
     iput-object p6, p0, Lcom/android/systemui/statusbar/NotificationMediaManager;->mKeyguardBypassController:Lcom/android/systemui/statusbar/phone/KeyguardBypassController;
 
-    new-instance p5, Ljava/util/ArrayList;
+    new-instance p1, Ljava/util/ArrayList;
 
-    invoke-direct {p5}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {p1}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object p5, p0, Lcom/android/systemui/statusbar/NotificationMediaManager;->mMediaListeners:Ljava/util/ArrayList;
+    iput-object p1, p0, Lcom/android/systemui/statusbar/NotificationMediaManager;->mMediaListeners:Ljava/util/ArrayList;
 
-    const-string p5, "media_session"
-
-    invoke-virtual {p1, p5}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object p1
-
-    check-cast p1, Landroid/media/session/MediaSessionManager;
-
-    iput-object p1, p0, Lcom/android/systemui/statusbar/NotificationMediaManager;->mMediaSessionManager:Landroid/media/session/MediaSessionManager;
-
-    iput-object p2, p0, Lcom/android/systemui/statusbar/NotificationMediaManager;->mStatusBarLazy:Ldagger/Lazy;
+    iput-object p2, p0, Lcom/android/systemui/statusbar/NotificationMediaManager;->mStatusBarOptionalLazy:Ldagger/Lazy;
 
     iput-object p3, p0, Lcom/android/systemui/statusbar/NotificationMediaManager;->mNotificationShadeWindowController:Ldagger/Lazy;
 
@@ -305,13 +295,13 @@
 
     iput-object p10, p0, Lcom/android/systemui/statusbar/NotificationMediaManager;->mMainExecutor:Lcom/android/systemui/util/concurrency/DelayableExecutor;
 
-    iput-object p12, p0, Lcom/android/systemui/statusbar/NotificationMediaManager;->mMediaDataManager:Lcom/android/systemui/media/MediaDataManager;
+    iput-object p11, p0, Lcom/android/systemui/statusbar/NotificationMediaManager;->mMediaDataManager:Lcom/android/systemui/media/MediaDataManager;
 
     iput-object p7, p0, Lcom/android/systemui/statusbar/NotificationMediaManager;->mNotifPipeline:Lcom/android/systemui/statusbar/notification/collection/NotifPipeline;
 
     iput-object p8, p0, Lcom/android/systemui/statusbar/NotificationMediaManager;->mNotifCollection:Lcom/android/systemui/statusbar/notification/collection/NotifCollection;
 
-    invoke-virtual {p9}, Lcom/android/systemui/statusbar/FeatureFlags;->isNewNotifPipelineRenderingEnabled()Z
+    invoke-virtual {p9}, Lcom/android/systemui/flags/FeatureFlags;->isNewNotifPipelineRenderingEnabled()Z
 
     move-result p1
 
@@ -333,6 +323,8 @@
     iput-boolean p1, p0, Lcom/android/systemui/statusbar/NotificationMediaManager;->mUsingNotifPipeline:Z
 
     :goto_0
+    invoke-virtual {p12, p0}, Lcom/android/systemui/dump/DumpManager;->registerDumpable(Lcom/android/systemui/Dumpable;)V
+
     return-void
 .end method
 
@@ -529,7 +521,7 @@
 .end method
 
 .method private findPlayingMediaNotification(Ljava/util/Collection;)Z
-    .locals 8
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -541,207 +533,147 @@
 
     invoke-interface {p1}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object p1
 
     :cond_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v1
+    move-result v0
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    if-eqz v1, :cond_1
+    if-eqz v0, :cond_1
 
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
+
+    move-object v1, v0
 
     check-cast v1, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
 
-    invoke-virtual {v1}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->isMediaNotification()Z
+    invoke-virtual {v1}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getSbn()Landroid/service/notification/StatusBarNotification;
 
-    move-result v3
+    move-result-object v0
 
-    if-eqz v3, :cond_0
+    invoke-virtual {v0}, Landroid/service/notification/StatusBarNotification;->getNotification()Landroid/app/Notification;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/app/Notification;->isMediaNotification()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
 
     invoke-virtual {v1}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getSbn()Landroid/service/notification/StatusBarNotification;
 
-    move-result-object v3
+    move-result-object v0
 
-    invoke-virtual {v3}, Landroid/service/notification/StatusBarNotification;->getNotification()Landroid/app/Notification;
+    invoke-virtual {v0}, Landroid/service/notification/StatusBarNotification;->getNotification()Landroid/app/Notification;
 
-    move-result-object v3
+    move-result-object v0
 
-    iget-object v3, v3, Landroid/app/Notification;->extras:Landroid/os/Bundle;
+    iget-object v0, v0, Landroid/app/Notification;->extras:Landroid/os/Bundle;
 
-    const-string v4, "android.mediaSession"
+    const-string v2, "android.mediaSession"
 
-    invoke-virtual {v3, v4}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
+    invoke-virtual {v0, v2}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
 
-    move-result-object v3
+    move-result-object v0
 
-    check-cast v3, Landroid/media/session/MediaSession$Token;
+    check-cast v0, Landroid/media/session/MediaSession$Token;
 
-    if-eqz v3, :cond_0
+    if-eqz v0, :cond_0
 
-    new-instance v4, Landroid/media/session/MediaController;
+    new-instance v2, Landroid/media/session/MediaController;
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/NotificationMediaManager;->mContext:Landroid/content/Context;
+    iget-object v3, p0, Lcom/android/systemui/statusbar/NotificationMediaManager;->mContext:Landroid/content/Context;
 
-    invoke-direct {v4, v5, v3}, Landroid/media/session/MediaController;-><init>(Landroid/content/Context;Landroid/media/session/MediaSession$Token;)V
+    invoke-direct {v2, v3, v0}, Landroid/media/session/MediaController;-><init>(Landroid/content/Context;Landroid/media/session/MediaSession$Token;)V
 
-    const/4 v3, 0x3
+    const/4 v0, 0x3
 
-    invoke-direct {p0, v4}, Lcom/android/systemui/statusbar/NotificationMediaManager;->getMediaControllerPlaybackState(Landroid/media/session/MediaController;)I
+    invoke-direct {p0, v2}, Lcom/android/systemui/statusbar/NotificationMediaManager;->getMediaControllerPlaybackState(Landroid/media/session/MediaController;)I
 
-    move-result v5
+    move-result v3
 
-    if-ne v3, v5, :cond_0
+    if-ne v0, v3, :cond_0
+
+    move-object p1, v1
+
+    move-object v1, v2
 
     goto :goto_0
 
     :cond_1
-    move-object v1, v2
-
-    move-object v4, v1
+    move-object p1, v1
 
     :goto_0
-    if-nez v1, :cond_4
+    if-eqz v1, :cond_2
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/NotificationMediaManager;->mMediaSessionManager:Landroid/media/session/MediaSessionManager;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/NotificationMediaManager;->mMediaController:Landroid/media/session/MediaController;
 
-    if-eqz v0, :cond_4
-
-    sget-object v3, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
-
-    invoke-virtual {v0, v2, v3}, Landroid/media/session/MediaSessionManager;->getActiveSessionsForUser(Landroid/content/ComponentName;Landroid/os/UserHandle;)Ljava/util/List;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object v0
-
-    :cond_2
-    :goto_1
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_4
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Landroid/media/session/MediaController;
-
-    invoke-virtual {v2}, Landroid/media/session/MediaController;->getPackageName()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-interface {p1}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
-
-    move-result-object v5
-
-    :cond_3
-    invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v6
-
-    if-eqz v6, :cond_2
-
-    invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v6
-
-    check-cast v6, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
-
-    invoke-virtual {v6}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getSbn()Landroid/service/notification/StatusBarNotification;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Landroid/service/notification/StatusBarNotification;->getPackageName()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v7, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v7
-
-    if-eqz v7, :cond_3
-
-    move-object v4, v2
-
-    move-object v1, v6
-
-    goto :goto_1
-
-    :cond_4
-    if-eqz v4, :cond_5
-
-    iget-object p1, p0, Lcom/android/systemui/statusbar/NotificationMediaManager;->mMediaController:Landroid/media/session/MediaController;
-
-    invoke-direct {p0, p1, v4}, Lcom/android/systemui/statusbar/NotificationMediaManager;->sameSessions(Landroid/media/session/MediaController;Landroid/media/session/MediaController;)Z
-
-    move-result p1
-
-    if-nez p1, :cond_5
-
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/NotificationMediaManager;->clearCurrentMediaNotificationSession()V
-
-    iput-object v4, p0, Lcom/android/systemui/statusbar/NotificationMediaManager;->mMediaController:Landroid/media/session/MediaController;
-
-    iget-object p1, p0, Lcom/android/systemui/statusbar/NotificationMediaManager;->mMediaListener:Landroid/media/session/MediaController$Callback;
-
-    invoke-virtual {v4, p1}, Landroid/media/session/MediaController;->registerCallback(Landroid/media/session/MediaController$Callback;)V
-
-    iget-object p1, p0, Lcom/android/systemui/statusbar/NotificationMediaManager;->mMediaController:Landroid/media/session/MediaController;
-
-    invoke-virtual {p1}, Landroid/media/session/MediaController;->getMetadata()Landroid/media/MediaMetadata;
-
-    move-result-object p1
-
-    iput-object p1, p0, Lcom/android/systemui/statusbar/NotificationMediaManager;->mMediaMetadata:Landroid/media/MediaMetadata;
-
-    const/4 p1, 0x1
-
-    goto :goto_2
-
-    :cond_5
-    const/4 p1, 0x0
-
-    :goto_2
-    if-eqz v1, :cond_6
-
-    invoke-virtual {v1}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getSbn()Landroid/service/notification/StatusBarNotification;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/service/notification/StatusBarNotification;->getKey()Ljava/lang/String;
-
-    move-result-object v0
-
-    iget-object v2, p0, Lcom/android/systemui/statusbar/NotificationMediaManager;->mMediaNotificationKey:Ljava/lang/String;
-
-    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-direct {p0, v0, v1}, Lcom/android/systemui/statusbar/NotificationMediaManager;->sameSessions(Landroid/media/session/MediaController;Landroid/media/session/MediaController;)Z
 
     move-result v0
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_2
 
-    invoke-virtual {v1}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getSbn()Landroid/service/notification/StatusBarNotification;
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/NotificationMediaManager;->clearCurrentMediaNotificationSession()V
+
+    iput-object v1, p0, Lcom/android/systemui/statusbar/NotificationMediaManager;->mMediaController:Landroid/media/session/MediaController;
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/NotificationMediaManager;->mMediaListener:Landroid/media/session/MediaController$Callback;
+
+    invoke-virtual {v1, v0}, Landroid/media/session/MediaController;->registerCallback(Landroid/media/session/MediaController$Callback;)V
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/NotificationMediaManager;->mMediaController:Landroid/media/session/MediaController;
+
+    invoke-virtual {v0}, Landroid/media/session/MediaController;->getMetadata()Landroid/media/MediaMetadata;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/service/notification/StatusBarNotification;->getKey()Ljava/lang/String;
+    iput-object v0, p0, Lcom/android/systemui/statusbar/NotificationMediaManager;->mMediaMetadata:Landroid/media/MediaMetadata;
 
-    move-result-object v0
+    const/4 v0, 0x1
 
-    iput-object v0, p0, Lcom/android/systemui/statusbar/NotificationMediaManager;->mMediaNotificationKey:Ljava/lang/String;
+    goto :goto_1
 
-    :cond_6
-    return p1
+    :cond_2
+    const/4 v0, 0x0
+
+    :goto_1
+    if-eqz p1, :cond_3
+
+    invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getSbn()Landroid/service/notification/StatusBarNotification;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/service/notification/StatusBarNotification;->getKey()Ljava/lang/String;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/NotificationMediaManager;->mMediaNotificationKey:Ljava/lang/String;
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_3
+
+    invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getSbn()Landroid/service/notification/StatusBarNotification;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->getKey()Ljava/lang/String;
+
+    move-result-object p1
+
+    iput-object p1, p0, Lcom/android/systemui/statusbar/NotificationMediaManager;->mMediaNotificationKey:Ljava/lang/String;
+
+    :cond_3
+    return v0
 .end method
 
 .method private finishUpdateMediaMetaData(ZZLandroid/graphics/Bitmap;)V
@@ -833,15 +765,29 @@
 
     check-cast v5, Lcom/android/systemui/statusbar/NotificationShadeWindowController;
 
-    iget-object v6, p0, Lcom/android/systemui/statusbar/NotificationMediaManager;->mStatusBarLazy:Ldagger/Lazy;
+    iget-object v6, p0, Lcom/android/systemui/statusbar/NotificationMediaManager;->mStatusBarOptionalLazy:Ldagger/Lazy;
 
     invoke-interface {v6}, Ldagger/Lazy;->get()Ljava/lang/Object;
 
     move-result-object v6
 
-    check-cast v6, Lcom/android/systemui/statusbar/phone/StatusBar;
+    check-cast v6, Ljava/util/Optional;
 
-    invoke-virtual {v6}, Lcom/android/systemui/statusbar/phone/StatusBar;->isOccluded()Z
+    sget-object v7, Lcom/android/systemui/statusbar/NotificationMediaManager$$ExternalSyntheticLambda3;->INSTANCE:Lcom/android/systemui/statusbar/NotificationMediaManager$$ExternalSyntheticLambda3;
+
+    invoke-virtual {v6, v7}, Ljava/util/Optional;->map(Ljava/util/function/Function;)Ljava/util/Optional;
+
+    move-result-object v6
+
+    sget-object v7, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
+
+    invoke-virtual {v6, v7}, Ljava/util/Optional;->orElse(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v6
+
+    check-cast v6, Ljava/lang/Boolean;
+
+    invoke-virtual {v6}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v6
 
@@ -1544,14 +1490,6 @@
 .method public dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
     .locals 0
 
-    const-string p1, "    mMediaSessionManager="
-
-    invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    iget-object p1, p0, Lcom/android/systemui/statusbar/NotificationMediaManager;->mMediaSessionManager:Landroid/media/session/MediaSessionManager;
-
-    invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V
-
     const-string p1, "    mMediaNotificationKey="
 
     invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -1733,9 +1671,9 @@
 
     move-result-object v0
 
-    new-instance v2, Lcom/android/systemui/statusbar/NotificationMediaManager$$ExternalSyntheticLambda3;
+    new-instance v2, Lcom/android/systemui/statusbar/NotificationMediaManager$$ExternalSyntheticLambda4;
 
-    invoke-direct {v2, p0}, Lcom/android/systemui/statusbar/NotificationMediaManager$$ExternalSyntheticLambda3;-><init>(Lcom/android/systemui/statusbar/NotificationMediaManager;)V
+    invoke-direct {v2, p0}, Lcom/android/systemui/statusbar/NotificationMediaManager$$ExternalSyntheticLambda4;-><init>(Lcom/android/systemui/statusbar/NotificationMediaManager;)V
 
     invoke-interface {v0, v2}, Ljava/util/stream/Stream;->filter(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
 

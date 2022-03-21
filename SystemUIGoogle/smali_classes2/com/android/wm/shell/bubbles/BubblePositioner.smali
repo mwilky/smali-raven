@@ -4,39 +4,57 @@
 
 
 # instance fields
-.field private mBubbleBadgeSize:I
-
 .field private mBubbleSize:I
 
 .field private mContext:Landroid/content/Context;
 
 .field private mDefaultMaxBubbles:I
 
+.field private mExpandedViewLargeScreenInset:I
+
 .field private mExpandedViewLargeScreenWidth:I
 
+.field private mExpandedViewMinHeight:I
+
 .field private mExpandedViewPadding:I
+
+.field private mImeHeight:I
+
+.field private mImeVisible:Z
 
 .field private mInsets:Landroid/graphics/Insets;
 
 .field private mIsLargeScreen:Z
 
+.field private mManageButtonHeight:I
+
 .field private mMaxBubbles:I
+
+.field private mMinimumFlyoutWidthLargeScreen:I
+
+.field private mOverflowHeight:I
+
+.field private mOverflowWidth:I
 
 .field private mPaddings:[I
 
 .field private mPinLocation:Landroid/graphics/PointF;
 
-.field private mPointerHeight:F
+.field private mPointerHeight:I
 
 .field private mPointerMargin:I
 
-.field private mPointerWidth:F
+.field private mPointerOverlap:I
+
+.field private mPointerWidth:I
 
 .field private mPositionRect:Landroid/graphics/Rect;
 
 .field private mRestingStackPosition:Landroid/graphics/PointF;
 
 .field private mRotation:I
+
+.field private mScreenRect:Landroid/graphics/Rect;
 
 .field private mShowingInTaskbar:Z
 
@@ -45,8 +63,6 @@
 .field private mTaskbarIconSize:I
 
 .field private mTaskbarPosition:I
-
-.field private mTaskbarSize:I
 
 .field private mWindowManager:Landroid/view/WindowManager;
 
@@ -225,6 +241,184 @@
     return p0
 .end method
 
+.method private getExpandedBubbleYForIme(II)F
+    .locals 6
+
+    invoke-virtual {p0}, Lcom/android/wm/shell/bubbles/BubblePositioner;->getAvailableRect()Landroid/graphics/Rect;
+
+    move-result-object v0
+
+    iget v0, v0, Landroid/graphics/Rect;->top:I
+
+    iget v1, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mExpandedViewPadding:I
+
+    add-int/2addr v0, v1
+
+    int-to-float v0, v0
+
+    invoke-virtual {p0}, Lcom/android/wm/shell/bubbles/BubblePositioner;->showBubblesVertically()Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    return v0
+
+    :cond_0
+    invoke-virtual {p0}, Lcom/android/wm/shell/bubbles/BubblePositioner;->getImeHeight()I
+
+    move-result v1
+
+    iget-object v2, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mInsets:Landroid/graphics/Insets;
+
+    iget v2, v2, Landroid/graphics/Insets;->bottom:I
+
+    add-int/2addr v1, v2
+
+    iget v2, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mSpacingBetweenBubbles:I
+
+    mul-int/lit8 v2, v2, 0x2
+
+    sub-int/2addr v1, v2
+
+    int-to-float v1, v1
+
+    invoke-direct {p0, p2}, Lcom/android/wm/shell/bubbles/BubblePositioner;->getExpandedStackSize(I)I
+
+    move-result v2
+
+    int-to-float v2, v2
+
+    invoke-virtual {p0}, Lcom/android/wm/shell/bubbles/BubblePositioner;->showBubblesVertically()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    iget-object v3, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mPositionRect:Landroid/graphics/Rect;
+
+    invoke-virtual {v3}, Landroid/graphics/Rect;->centerY()I
+
+    move-result v3
+
+    goto :goto_0
+
+    :cond_1
+    iget-object v3, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mPositionRect:Landroid/graphics/Rect;
+
+    invoke-virtual {v3}, Landroid/graphics/Rect;->centerX()I
+
+    move-result v3
+
+    :goto_0
+    int-to-float v3, v3
+
+    const/high16 v4, 0x40000000    # 2.0f
+
+    div-float/2addr v2, v4
+
+    add-float v5, v3, v2
+
+    sub-float/2addr v3, v2
+
+    cmpl-float v2, v5, v1
+
+    if-lez v2, :cond_4
+
+    sub-float/2addr v5, v1
+
+    sub-float/2addr v3, v5
+
+    invoke-static {v3, v0}, Ljava/lang/Math;->max(FF)F
+
+    move-result v2
+
+    cmpg-float v0, v3, v0
+
+    if-gez v0, :cond_3
+
+    add-int/lit8 p2, p2, -0x1
+
+    invoke-direct {p0, p2}, Lcom/android/wm/shell/bubbles/BubblePositioner;->getExpandedStackSize(I)I
+
+    move-result p2
+
+    int-to-float p2, p2
+
+    invoke-virtual {p0}, Lcom/android/wm/shell/bubbles/BubblePositioner;->showBubblesVertically()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    iget-object v0, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mPositionRect:Landroid/graphics/Rect;
+
+    invoke-virtual {v0}, Landroid/graphics/Rect;->centerY()I
+
+    move-result v0
+
+    goto :goto_1
+
+    :cond_2
+    iget-object v0, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mPositionRect:Landroid/graphics/Rect;
+
+    invoke-virtual {v0}, Landroid/graphics/Rect;->centerX()I
+
+    move-result v0
+
+    :goto_1
+    int-to-float v0, v0
+
+    div-float/2addr p2, v4
+
+    add-float v2, v0, p2
+
+    sub-float/2addr v0, p2
+
+    sub-float/2addr v2, v1
+
+    sub-float v3, v0, v2
+
+    goto :goto_2
+
+    :cond_3
+    move v3, v2
+
+    :cond_4
+    :goto_2
+    iget p2, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mBubbleSize:I
+
+    iget p0, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mSpacingBetweenBubbles:I
+
+    add-int/2addr p2, p0
+
+    mul-int/2addr p1, p2
+
+    int-to-float p0, p1
+
+    add-float/2addr v3, p0
+
+    return v3
+.end method
+
+.method private getExpandedStackSize(I)I
+    .locals 1
+
+    iget v0, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mBubbleSize:I
+
+    mul-int/2addr v0, p1
+
+    add-int/lit8 p1, p1, -0x1
+
+    iget p0, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mSpacingBetweenBubbles:I
+
+    mul-int/2addr p1, p0
+
+    add-int/2addr v0, p1
+
+    return v0
+.end method
+
 
 # virtual methods
 .method public getAvailableRect()Landroid/graphics/Rect;
@@ -323,162 +517,583 @@
     return-object p0
 .end method
 
-.method public getExpandedViewPadding(ZZ)[I
-    .locals 5
+.method public getExpandedBubbleXY(ILcom/android/wm/shell/bubbles/BubbleStackView$StackViewState;)Landroid/graphics/PointF;
+    .locals 4
 
-    iget-object v0, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mInsets:Landroid/graphics/Insets;
+    iget v0, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mBubbleSize:I
 
-    iget v1, v0, Landroid/graphics/Insets;->left:I
+    iget v1, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mSpacingBetweenBubbles:I
 
-    iget v2, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mExpandedViewPadding:I
+    add-int/2addr v0, v1
 
-    add-int/2addr v1, v2
+    mul-int/2addr v0, p1
 
-    iget v0, v0, Landroid/graphics/Insets;->right:I
+    int-to-float v0, v0
 
-    add-int/2addr v0, v2
+    iget v1, p2, Lcom/android/wm/shell/bubbles/BubbleStackView$StackViewState;->numberOfBubbles:I
 
-    iget-boolean v2, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mIsLargeScreen:Z
+    invoke-direct {p0, v1}, Lcom/android/wm/shell/bubbles/BubblePositioner;->getExpandedStackSize(I)I
 
-    const/4 v3, 0x1
+    move-result v1
 
-    const/4 v4, 0x0
+    int-to-float v1, v1
 
-    if-nez v2, :cond_1
-
-    if-eqz p2, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    move p2, v4
-
-    goto :goto_1
-
-    :cond_1
-    :goto_0
-    move p2, v3
-
-    :goto_1
     invoke-virtual {p0}, Lcom/android/wm/shell/bubbles/BubblePositioner;->showBubblesVertically()Z
 
     move-result v2
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_0
 
-    if-nez p1, :cond_3
+    iget-object v2, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mPositionRect:Landroid/graphics/Rect;
 
-    int-to-float p1, v0
+    invoke-virtual {v2}, Landroid/graphics/Rect;->centerY()I
 
-    iget v0, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mBubbleSize:I
+    move-result v2
 
-    int-to-float v0, v0
+    goto :goto_0
 
-    iget v2, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mPointerHeight:F
+    :cond_0
+    iget-object v2, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mPositionRect:Landroid/graphics/Rect;
 
-    sub-float/2addr v0, v2
+    invoke-virtual {v2}, Landroid/graphics/Rect;->centerX()I
 
-    add-float/2addr p1, v0
+    move-result v2
 
-    float-to-int v0, p1
+    :goto_0
+    int-to-float v2, v2
 
-    if-eqz p2, :cond_2
+    const/high16 v3, 0x40000000    # 2.0f
 
-    iget-object p1, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mPositionRect:Landroid/graphics/Rect;
+    div-float/2addr v1, v3
 
-    invoke-virtual {p1}, Landroid/graphics/Rect;->width()I
+    sub-float/2addr v2, v1
 
-    move-result p1
+    invoke-virtual {p0}, Lcom/android/wm/shell/bubbles/BubblePositioner;->showBubblesVertically()Z
 
-    sub-int/2addr p1, v0
+    move-result v1
 
-    iget p2, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mExpandedViewLargeScreenWidth:I
+    if-eqz v1, :cond_4
 
-    sub-int/2addr p1, p2
+    add-float/2addr v2, v0
+
+    iget-boolean v0, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mIsLargeScreen:Z
+
+    if-eqz v0, :cond_1
+
+    iget v1, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mExpandedViewLargeScreenInset:I
+
+    iget v3, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mExpandedViewPadding:I
+
+    sub-int/2addr v1, v3
+
+    iget v3, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mBubbleSize:I
+
+    sub-int/2addr v1, v3
+
+    goto :goto_1
+
+    :cond_1
+    iget-object v1, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mPositionRect:Landroid/graphics/Rect;
+
+    iget v1, v1, Landroid/graphics/Rect;->left:I
+
+    :goto_1
+    if-eqz v0, :cond_2
+
+    iget-object v0, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mPositionRect:Landroid/graphics/Rect;
+
+    iget v0, v0, Landroid/graphics/Rect;->right:I
+
+    iget v3, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mExpandedViewLargeScreenInset:I
+
+    sub-int/2addr v0, v3
+
+    iget v3, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mExpandedViewPadding:I
+
+    add-int/2addr v0, v3
 
     goto :goto_2
 
     :cond_2
-    move p1, v4
+    iget-object v0, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mPositionRect:Landroid/graphics/Rect;
+
+    iget v0, v0, Landroid/graphics/Rect;->right:I
+
+    iget v3, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mBubbleSize:I
+
+    sub-int/2addr v0, v3
 
     :goto_2
-    add-int/2addr v1, p1
+    iget-boolean v3, p2, Lcom/android/wm/shell/bubbles/BubbleStackView$StackViewState;->onLeft:Z
 
-    goto :goto_4
+    if-eqz v3, :cond_3
+
+    int-to-float v0, v1
+
+    goto :goto_3
 
     :cond_3
-    int-to-float p1, v1
-
-    iget v1, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mBubbleSize:I
-
-    int-to-float v1, v1
-
-    iget v2, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mPointerHeight:F
-
-    sub-float/2addr v1, v2
-
-    add-float/2addr p1, v1
-
-    float-to-int v1, p1
-
-    if-eqz p2, :cond_4
-
-    iget-object p1, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mPositionRect:Landroid/graphics/Rect;
-
-    invoke-virtual {p1}, Landroid/graphics/Rect;->width()I
-
-    move-result p1
-
-    sub-int/2addr p1, v1
-
-    iget p2, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mExpandedViewLargeScreenWidth:I
-
-    sub-int/2addr p1, p2
+    int-to-float v0, v0
 
     goto :goto_3
 
     :cond_4
-    move p1, v4
+    iget-object v1, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mPositionRect:Landroid/graphics/Rect;
+
+    iget v1, v1, Landroid/graphics/Rect;->top:I
+
+    iget v3, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mExpandedViewPadding:I
+
+    add-int/2addr v1, v3
+
+    int-to-float v1, v1
+
+    add-float/2addr v0, v2
+
+    move v2, v1
 
     :goto_3
-    add-int/2addr v0, p1
+    invoke-virtual {p0}, Lcom/android/wm/shell/bubbles/BubblePositioner;->showBubblesVertically()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_5
+
+    iget-boolean v1, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mImeVisible:Z
+
+    if-eqz v1, :cond_5
+
+    new-instance v1, Landroid/graphics/PointF;
+
+    iget p2, p2, Lcom/android/wm/shell/bubbles/BubbleStackView$StackViewState;->numberOfBubbles:I
+
+    invoke-direct {p0, p1, p2}, Lcom/android/wm/shell/bubbles/BubblePositioner;->getExpandedBubbleYForIme(II)F
+
+    move-result p0
+
+    invoke-direct {v1, v0, p0}, Landroid/graphics/PointF;-><init>(FF)V
+
+    return-object v1
 
     :cond_5
-    :goto_4
+    new-instance p0, Landroid/graphics/PointF;
+
+    invoke-direct {p0, v0, v2}, Landroid/graphics/PointF;-><init>(FF)V
+
+    return-object p0
+.end method
+
+.method public getExpandedViewContainerPadding(ZZ)[I
+    .locals 9
+
+    iget v0, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mPointerHeight:I
+
+    iget v1, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mPointerOverlap:I
+
+    sub-int/2addr v0, v1
+
+    iget-boolean v1, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mIsLargeScreen:Z
+
+    const/4 v2, 0x3
+
+    const/4 v3, 0x2
+
+    const/4 v4, 0x1
+
+    const/4 v5, 0x0
+
+    if-eqz v1, :cond_3
+
+    iget-object v1, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mPaddings:[I
+
+    if-eqz p1, :cond_0
+
+    iget v6, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mExpandedViewLargeScreenInset:I
+
+    sub-int/2addr v6, v0
+
+    goto :goto_0
+
+    :cond_0
+    iget v6, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mExpandedViewLargeScreenInset:I
+
+    :goto_0
+    aput v6, v1, v5
+
+    aput v5, v1, v4
+
+    if-eqz p1, :cond_1
+
+    iget p1, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mExpandedViewLargeScreenInset:I
+
+    goto :goto_1
+
+    :cond_1
+    iget p1, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mExpandedViewLargeScreenInset:I
+
+    sub-int/2addr p1, v0
+
+    :goto_1
+    aput p1, v1, v3
+
+    if-eqz p2, :cond_2
+
+    iget v5, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mExpandedViewPadding:I
+
+    :cond_2
+    aput v5, v1, v2
+
+    return-object v1
+
+    :cond_3
+    iget-object v1, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mInsets:Landroid/graphics/Insets;
+
+    iget v6, v1, Landroid/graphics/Insets;->left:I
+
+    iget v7, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mExpandedViewPadding:I
+
+    add-int/2addr v6, v7
+
+    iget v1, v1, Landroid/graphics/Insets;->right:I
+
+    add-int/2addr v1, v7
+
+    if-eqz p2, :cond_4
+
+    iget v7, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mOverflowWidth:I
+
+    goto :goto_2
+
+    :cond_4
+    iget v7, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mExpandedViewLargeScreenWidth:I
+
+    :goto_2
+    int-to-float v7, v7
+
+    invoke-virtual {p0}, Lcom/android/wm/shell/bubbles/BubblePositioner;->showBubblesVertically()Z
+
+    move-result v8
+
+    if-eqz v8, :cond_8
+
+    const/4 v8, 0x0
+
+    if-nez p1, :cond_6
+
+    iget p1, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mBubbleSize:I
+
+    sub-int/2addr p1, v0
+
+    add-int/2addr v1, p1
+
+    int-to-float p1, v6
+
+    if-eqz p2, :cond_5
+
+    iget-object p2, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mPositionRect:Landroid/graphics/Rect;
+
+    invoke-virtual {p2}, Landroid/graphics/Rect;->width()I
+
+    move-result p2
+
+    sub-int/2addr p2, v1
+
+    int-to-float p2, p2
+
+    sub-float v8, p2, v7
+
+    :cond_5
+    add-float/2addr p1, v8
+
+    float-to-int v6, p1
+
+    goto :goto_3
+
+    :cond_6
+    iget p1, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mBubbleSize:I
+
+    sub-int/2addr p1, v0
+
+    add-int/2addr v6, p1
+
+    int-to-float p1, v1
+
+    if-eqz p2, :cond_7
+
+    iget-object p2, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mPositionRect:Landroid/graphics/Rect;
+
+    invoke-virtual {p2}, Landroid/graphics/Rect;->width()I
+
+    move-result p2
+
+    sub-int/2addr p2, v6
+
+    int-to-float p2, p2
+
+    sub-float v8, p2, v7
+
+    :cond_7
+    add-float/2addr p1, v8
+
+    float-to-int v1, p1
+
+    :cond_8
+    :goto_3
     iget-object p1, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mPaddings:[I
 
-    aput v1, p1, v4
+    aput v6, p1, v5
 
     invoke-virtual {p0}, Lcom/android/wm/shell/bubbles/BubblePositioner;->showBubblesVertically()Z
 
     move-result p2
 
-    if-eqz p2, :cond_6
+    if-eqz p2, :cond_9
 
-    move p2, v4
+    move p2, v5
 
-    goto :goto_5
+    goto :goto_4
 
-    :cond_6
+    :cond_9
     iget p2, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mPointerMargin:I
 
-    :goto_5
-    aput p2, p1, v3
+    :goto_4
+    aput p2, p1, v4
 
     iget-object p0, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mPaddings:[I
 
-    const/4 p1, 0x2
+    aput v1, p0, v3
 
-    aput v0, p0, p1
-
-    const/4 p1, 0x3
-
-    aput v4, p0, p1
+    aput v5, p0, v2
 
     return-object p0
 .end method
 
-.method public getExpandedViewY()F
+.method public getExpandedViewHeight(Lcom/android/wm/shell/bubbles/BubbleViewProvider;)F
+    .locals 3
+
+    if-eqz p1, :cond_1
+
+    invoke-interface {p1}, Lcom/android/wm/shell/bubbles/BubbleViewProvider;->getKey()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "Overflow"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_1
+
+    :cond_1
+    :goto_0
+    const/4 v0, 0x1
+
+    :goto_1
+    const/high16 v1, -0x40800000    # -1.0f
+
+    if-eqz v0, :cond_2
+
+    invoke-virtual {p0}, Lcom/android/wm/shell/bubbles/BubblePositioner;->showBubblesVertically()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    iget-boolean v2, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mIsLargeScreen:Z
+
+    if-nez v2, :cond_2
+
+    return v1
+
+    :cond_2
+    if-eqz v0, :cond_3
+
+    iget p1, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mOverflowHeight:I
+
+    int-to-float p1, p1
+
+    goto :goto_2
+
+    :cond_3
+    check-cast p1, Lcom/android/wm/shell/bubbles/Bubble;
+
+    iget-object v2, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mContext:Landroid/content/Context;
+
+    invoke-virtual {p1, v2}, Lcom/android/wm/shell/bubbles/Bubble;->getDesiredHeight(Landroid/content/Context;)F
+
+    move-result p1
+
+    :goto_2
+    iget v2, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mExpandedViewMinHeight:I
+
+    int-to-float v2, v2
+
+    invoke-static {p1, v2}, Ljava/lang/Math;->max(FF)F
+
+    move-result p1
+
+    invoke-virtual {p0, v0}, Lcom/android/wm/shell/bubbles/BubblePositioner;->getMaxExpandedViewHeight(Z)I
+
+    move-result p0
+
+    int-to-float p0, p0
+
+    cmpl-float p0, p1, p0
+
+    if-lez p0, :cond_4
+
+    return v1
+
+    :cond_4
+    return p1
+.end method
+
+.method public getExpandedViewY(Lcom/android/wm/shell/bubbles/BubbleViewProvider;F)F
+    .locals 8
+
+    if-eqz p1, :cond_1
+
+    invoke-interface {p1}, Lcom/android/wm/shell/bubbles/BubbleViewProvider;->getKey()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "Overflow"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_1
+
+    :cond_1
+    :goto_0
+    const/4 v0, 0x1
+
+    :goto_1
+    invoke-virtual {p0, p1}, Lcom/android/wm/shell/bubbles/BubblePositioner;->getExpandedViewHeight(Lcom/android/wm/shell/bubbles/BubbleViewProvider;)F
+
+    move-result p1
+
+    invoke-virtual {p0}, Lcom/android/wm/shell/bubbles/BubblePositioner;->getExpandedViewYTopAligned()F
+
+    move-result v1
+
+    invoke-virtual {p0}, Lcom/android/wm/shell/bubbles/BubblePositioner;->showBubblesVertically()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_6
+
+    const/high16 v2, -0x40800000    # -1.0f
+
+    cmpl-float v2, p1, v2
+
+    if-nez v2, :cond_2
+
+    goto :goto_3
+
+    :cond_2
+    if-eqz v0, :cond_3
+
+    iget v0, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mExpandedViewPadding:I
+
+    goto :goto_2
+
+    :cond_3
+    iget v0, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mManageButtonHeight:I
+
+    :goto_2
+    invoke-virtual {p0, p2}, Lcom/android/wm/shell/bubbles/BubblePositioner;->getPointerPosition(F)F
+
+    move-result p2
+
+    const/high16 v2, 0x40000000    # 2.0f
+
+    div-float v2, p1, v2
+
+    add-float v3, p2, v2
+
+    int-to-float v4, v0
+
+    add-float/2addr v3, v4
+
+    sub-float v4, p2, v2
+
+    iget-object v5, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mPositionRect:Landroid/graphics/Rect;
+
+    iget v6, v5, Landroid/graphics/Rect;->top:I
+
+    int-to-float v7, v6
+
+    cmpl-float v7, v4, v7
+
+    if-lez v7, :cond_4
+
+    iget v7, v5, Landroid/graphics/Rect;->bottom:I
+
+    int-to-float v7, v7
+
+    cmpl-float v3, v7, v3
+
+    if-lez v3, :cond_4
+
+    iget p0, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mPointerWidth:I
+
+    int-to-float p0, p0
+
+    sub-float/2addr p2, p0
+
+    sub-float/2addr p2, v2
+
+    return p2
+
+    :cond_4
+    int-to-float p2, v6
+
+    cmpg-float p2, v4, p2
+
+    if-gtz p2, :cond_5
+
+    return v1
+
+    :cond_5
+    iget p2, v5, Landroid/graphics/Rect;->bottom:I
+
+    sub-int/2addr p2, v0
+
+    int-to-float p2, p2
+
+    sub-float/2addr p2, p1
+
+    iget p0, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mPointerWidth:I
+
+    int-to-float p0, p0
+
+    sub-float/2addr p2, p0
+
+    return p2
+
+    :cond_6
+    :goto_3
+    return v1
+.end method
+
+.method public getExpandedViewYTopAligned()F
     .locals 2
 
     invoke-virtual {p0}, Lcom/android/wm/shell/bubbles/BubblePositioner;->getAvailableRect()Landroid/graphics/Rect;
@@ -493,13 +1108,18 @@
 
     if-eqz v1, :cond_0
 
-    int-to-float v0, v0
+    iget v1, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mPointerWidth:I
 
-    iget p0, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mPointerWidth:F
+    sub-int/2addr v0, v1
 
-    sub-float/2addr v0, p0
+    iget p0, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mExpandedViewPadding:I
 
-    return v0
+    :goto_0
+    add-int/2addr v0, p0
+
+    int-to-float p0, v0
+
+    return p0
 
     :cond_0
     iget v1, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mBubbleSize:I
@@ -508,10 +1128,24 @@
 
     iget p0, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mPointerMargin:I
 
-    add-int/2addr v0, p0
+    goto :goto_0
+.end method
 
-    int-to-float p0, v0
+.method public getImeHeight()I
+    .locals 1
 
+    iget-boolean v0, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mImeVisible:Z
+
+    if-eqz v0, :cond_0
+
+    iget p0, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mImeHeight:I
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    :goto_0
     return p0
 .end method
 
@@ -529,6 +1163,179 @@
     iget p0, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mMaxBubbles:I
 
     return p0
+.end method
+
+.method public getMaxExpandedViewHeight(Z)I
+    .locals 4
+
+    invoke-virtual {p0}, Lcom/android/wm/shell/bubbles/BubblePositioner;->getExpandedViewYTopAligned()F
+
+    move-result v0
+
+    float-to-int v0, v0
+
+    invoke-virtual {p0}, Lcom/android/wm/shell/bubbles/BubblePositioner;->getInsets()Landroid/graphics/Insets;
+
+    move-result-object v1
+
+    iget v1, v1, Landroid/graphics/Insets;->top:I
+
+    sub-int/2addr v0, v1
+
+    invoke-virtual {p0}, Lcom/android/wm/shell/bubbles/BubblePositioner;->showBubblesVertically()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    const/4 v1, 0x0
+
+    goto :goto_0
+
+    :cond_0
+    iget v1, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mPointerHeight:I
+
+    :goto_0
+    invoke-virtual {p0}, Lcom/android/wm/shell/bubbles/BubblePositioner;->showBubblesVertically()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    iget v2, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mPointerWidth:I
+
+    goto :goto_1
+
+    :cond_1
+    iget v2, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mPointerHeight:I
+
+    iget v3, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mPointerMargin:I
+
+    add-int/2addr v2, v3
+
+    :goto_1
+    if-eqz p1, :cond_2
+
+    iget p1, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mExpandedViewPadding:I
+
+    goto :goto_2
+
+    :cond_2
+    iget p1, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mManageButtonHeight:I
+
+    :goto_2
+    invoke-virtual {p0}, Lcom/android/wm/shell/bubbles/BubblePositioner;->getAvailableRect()Landroid/graphics/Rect;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Landroid/graphics/Rect;->height()I
+
+    move-result p0
+
+    sub-int/2addr p0, v0
+
+    sub-int/2addr p0, v1
+
+    sub-int/2addr p0, v2
+
+    sub-int/2addr p0, p1
+
+    return p0
+.end method
+
+.method public getMaxFlyoutSize()F
+    .locals 2
+
+    invoke-virtual {p0}, Lcom/android/wm/shell/bubbles/BubblePositioner;->isLargeScreen()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mScreenRect:Landroid/graphics/Rect;
+
+    invoke-virtual {v0}, Landroid/graphics/Rect;->width()I
+
+    move-result v0
+
+    int-to-float v0, v0
+
+    const v1, 0x3e99999a    # 0.3f
+
+    mul-float/2addr v0, v1
+
+    iget p0, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mMinimumFlyoutWidthLargeScreen:I
+
+    int-to-float p0, p0
+
+    invoke-static {v0, p0}, Ljava/lang/Math;->max(FF)F
+
+    move-result p0
+
+    return p0
+
+    :cond_0
+    iget-object p0, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mScreenRect:Landroid/graphics/Rect;
+
+    invoke-virtual {p0}, Landroid/graphics/Rect;->width()I
+
+    move-result p0
+
+    int-to-float p0, p0
+
+    const v0, 0x3f19999a    # 0.6f
+
+    mul-float/2addr p0, v0
+
+    return p0
+.end method
+
+.method public getPointerPosition(F)F
+    .locals 3
+
+    invoke-virtual {p0}, Lcom/android/wm/shell/bubbles/BubblePositioner;->getBubbleSize()I
+
+    move-result v0
+
+    invoke-static {v0}, Lcom/android/launcher3/icons/IconNormalizer;->getNormalizedCircleSize(I)I
+
+    move-result v0
+
+    int-to-float v0, v0
+
+    invoke-virtual {p0}, Lcom/android/wm/shell/bubbles/BubblePositioner;->showBubblesVertically()Z
+
+    move-result v1
+
+    const/high16 v2, 0x40000000    # 2.0f
+
+    if-eqz v1, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/wm/shell/bubbles/BubblePositioner;->getBubbleSize()I
+
+    move-result p0
+
+    int-to-float p0, p0
+
+    div-float/2addr p0, v2
+
+    add-float/2addr p1, p0
+
+    goto :goto_0
+
+    :cond_0
+    div-float/2addr v0, v2
+
+    add-float/2addr p1, v0
+
+    iget p0, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mPointerWidth:I
+
+    int-to-float p0, p0
+
+    sub-float/2addr p1, p0
+
+    :goto_0
+    return p1
 .end method
 
 .method public getRestingPosition()Landroid/graphics/PointF;
@@ -555,20 +1362,12 @@
     return-object v0
 .end method
 
-.method public getTaskbarPosition()I
+.method public getScreenRect()Landroid/graphics/Rect;
     .locals 0
 
-    iget p0, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mTaskbarPosition:I
+    iget-object p0, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mScreenRect:Landroid/graphics/Rect;
 
-    return p0
-.end method
-
-.method public getTaskbarSize()I
-    .locals 0
-
-    iget p0, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mTaskbarSize:I
-
-    return p0
+    return-object p0
 .end method
 
 .method public isLandscape()Z
@@ -602,10 +1401,53 @@
     return p0
 .end method
 
-.method public setPinnedLocation(Landroid/graphics/PointF;)V
+.method public isStackOnLeft(Landroid/graphics/PointF;)Z
+    .locals 1
+
+    if-nez p1, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/wm/shell/bubbles/BubblePositioner;->getRestingPosition()Landroid/graphics/PointF;
+
+    move-result-object p1
+
+    :cond_0
+    iget p1, p1, Landroid/graphics/PointF;->x:F
+
+    float-to-int p1, p1
+
+    iget v0, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mBubbleSize:I
+
+    div-int/lit8 v0, v0, 0x2
+
+    add-int/2addr p1, v0
+
+    iget-object p0, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mScreenRect:Landroid/graphics/Rect;
+
+    invoke-virtual {p0}, Landroid/graphics/Rect;->width()I
+
+    move-result p0
+
+    div-int/lit8 p0, p0, 0x2
+
+    if-ge p1, p0, :cond_1
+
+    const/4 p0, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    const/4 p0, 0x0
+
+    :goto_0
+    return p0
+.end method
+
+.method public setImeVisible(ZI)V
     .locals 0
 
-    iput-object p1, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mPinLocation:Landroid/graphics/PointF;
+    iput-boolean p1, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mImeVisible:Z
+
+    iput p2, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mImeHeight:I
 
     return-void
 .end method
@@ -755,24 +1597,8 @@
     return-void
 .end method
 
-.method public updateForTaskbar(IIZI)V
-    .locals 0
-
-    iput-boolean p3, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mShowingInTaskbar:Z
-
-    iput p1, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mTaskbarIconSize:I
-
-    iput p2, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mTaskbarPosition:I
-
-    iput p4, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mTaskbarSize:I
-
-    invoke-virtual {p0}, Lcom/android/wm/shell/bubbles/BubblePositioner;->update()V
-
-    return-void
-.end method
-
 .method public updateInternal(ILandroid/graphics/Insets;Landroid/graphics/Rect;)V
-    .locals 1
+    .locals 2
 
     iput p1, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mRotation:I
 
@@ -782,39 +1608,45 @@
 
     invoke-direct {p1, p3}, Landroid/graphics/Rect;-><init>(Landroid/graphics/Rect;)V
 
+    iput-object p1, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mScreenRect:Landroid/graphics/Rect;
+
+    new-instance p1, Landroid/graphics/Rect;
+
+    invoke-direct {p1, p3}, Landroid/graphics/Rect;-><init>(Landroid/graphics/Rect;)V
+
     iput-object p1, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mPositionRect:Landroid/graphics/Rect;
 
     iget p2, p1, Landroid/graphics/Rect;->left:I
 
-    iget-object p3, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mInsets:Landroid/graphics/Insets;
+    iget-object v0, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mInsets:Landroid/graphics/Insets;
 
-    iget v0, p3, Landroid/graphics/Insets;->left:I
+    iget v1, v0, Landroid/graphics/Insets;->left:I
 
-    add-int/2addr p2, v0
+    add-int/2addr p2, v1
 
     iput p2, p1, Landroid/graphics/Rect;->left:I
 
     iget p2, p1, Landroid/graphics/Rect;->top:I
 
-    iget v0, p3, Landroid/graphics/Insets;->top:I
+    iget v1, v0, Landroid/graphics/Insets;->top:I
 
-    add-int/2addr p2, v0
+    add-int/2addr p2, v1
 
     iput p2, p1, Landroid/graphics/Rect;->top:I
 
     iget p2, p1, Landroid/graphics/Rect;->right:I
 
-    iget v0, p3, Landroid/graphics/Insets;->right:I
+    iget v1, v0, Landroid/graphics/Insets;->right:I
 
-    sub-int/2addr p2, v0
+    sub-int/2addr p2, v1
 
     iput p2, p1, Landroid/graphics/Rect;->right:I
 
     iget p2, p1, Landroid/graphics/Rect;->bottom:I
 
-    iget p3, p3, Landroid/graphics/Insets;->bottom:I
+    iget v0, v0, Landroid/graphics/Insets;->bottom:I
 
-    sub-int/2addr p2, p3
+    sub-int/2addr p2, v0
 
     iput p2, p1, Landroid/graphics/Rect;->bottom:I
 
@@ -832,14 +1664,6 @@
 
     iput p2, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mBubbleSize:I
 
-    sget p2, Lcom/android/wm/shell/R$dimen;->bubble_badge_size:I
-
-    invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result p2
-
-    iput p2, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mBubbleBadgeSize:I
-
     sget p2, Lcom/android/wm/shell/R$dimen;->bubble_spacing:I
 
     invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
@@ -856,14 +1680,6 @@
 
     iput p2, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mDefaultMaxBubbles:I
 
-    sget p2, Lcom/android/wm/shell/R$dimen;->bubble_expanded_view_tablet_width:I
-
-    invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result p2
-
-    iput p2, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mExpandedViewLargeScreenWidth:I
-
     sget p2, Lcom/android/wm/shell/R$dimen;->bubble_expanded_view_padding:I
 
     invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
@@ -872,15 +1688,67 @@
 
     iput p2, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mExpandedViewPadding:I
 
+    invoke-virtual {p3}, Landroid/graphics/Rect;->width()I
+
+    move-result p2
+
+    int-to-float p2, p2
+
+    const v0, 0x3f3851ec    # 0.72f
+
+    mul-float/2addr p2, v0
+
+    float-to-int p2, p2
+
+    iput p2, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mExpandedViewLargeScreenWidth:I
+
+    iget-boolean p2, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mIsLargeScreen:Z
+
+    if-eqz p2, :cond_0
+
+    invoke-virtual {p3}, Landroid/graphics/Rect;->width()I
+
+    move-result p2
+
+    iget p3, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mExpandedViewLargeScreenWidth:I
+
+    sub-int/2addr p2, p3
+
+    div-int/lit8 p2, p2, 0x2
+
+    goto :goto_0
+
+    :cond_0
+    iget p2, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mExpandedViewPadding:I
+
+    :goto_0
+    iput p2, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mExpandedViewLargeScreenInset:I
+
+    iget-boolean p2, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mIsLargeScreen:Z
+
+    if-eqz p2, :cond_1
+
+    iget p2, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mExpandedViewLargeScreenWidth:I
+
+    goto :goto_1
+
+    :cond_1
+    sget p2, Lcom/android/wm/shell/R$dimen;->bubble_expanded_view_phone_landscape_overflow_width:I
+
+    invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result p2
+
+    :goto_1
+    iput p2, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mOverflowWidth:I
+
     sget p2, Lcom/android/wm/shell/R$dimen;->bubble_pointer_width:I
 
     invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result p2
 
-    int-to-float p2, p2
-
-    iput p2, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mPointerWidth:F
+    iput p2, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mPointerWidth:I
 
     sget p2, Lcom/android/wm/shell/R$dimen;->bubble_pointer_height:I
 
@@ -888,17 +1756,55 @@
 
     move-result p2
 
-    int-to-float p2, p2
-
-    iput p2, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mPointerHeight:F
+    iput p2, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mPointerHeight:I
 
     sget p2, Lcom/android/wm/shell/R$dimen;->bubble_pointer_margin:I
 
     invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
+    move-result p2
+
+    iput p2, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mPointerMargin:I
+
+    sget p2, Lcom/android/wm/shell/R$dimen;->bubble_pointer_overlap:I
+
+    invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result p2
+
+    iput p2, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mPointerOverlap:I
+
+    sget p2, Lcom/android/wm/shell/R$dimen;->bubble_manage_button_total_height:I
+
+    invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result p2
+
+    iput p2, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mManageButtonHeight:I
+
+    sget p2, Lcom/android/wm/shell/R$dimen;->bubble_expanded_default_height:I
+
+    invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result p2
+
+    iput p2, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mExpandedViewMinHeight:I
+
+    sget p2, Lcom/android/wm/shell/R$dimen;->bubble_overflow_height:I
+
+    invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result p2
+
+    iput p2, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mOverflowHeight:I
+
+    sget p2, Lcom/android/wm/shell/R$dimen;->bubbles_flyout_min_width_large_screen:I
+
+    invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
     move-result p1
 
-    iput p1, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mPointerMargin:I
+    iput p1, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mMinimumFlyoutWidthLargeScreen:I
 
     invoke-direct {p0}, Lcom/android/wm/shell/bubbles/BubblePositioner;->calculateMaxBubbles()I
 
@@ -908,10 +1814,10 @@
 
     iget-boolean p1, p0, Lcom/android/wm/shell/bubbles/BubblePositioner;->mShowingInTaskbar:Z
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_2
 
     invoke-direct {p0}, Lcom/android/wm/shell/bubbles/BubblePositioner;->adjustForTaskbar()V
 
-    :cond_0
+    :cond_2
     return-void
 .end method

@@ -18,7 +18,7 @@
 
 
 # instance fields
-.field private final managerProvider:Ljavax/inject/Provider;
+.field private final managerLazyProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -43,7 +43,7 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/systemui/plugins/PluginDependencyProvider_Factory;->managerProvider:Ljavax/inject/Provider;
+    iput-object p1, p0, Lcom/android/systemui/plugins/PluginDependencyProvider_Factory;->managerLazyProvider:Ljavax/inject/Provider;
 
     return-void
 .end method
@@ -67,12 +67,21 @@
     return-object v0
 .end method
 
-.method public static newInstance(Lcom/android/systemui/shared/plugins/PluginManager;)Lcom/android/systemui/plugins/PluginDependencyProvider;
+.method public static newInstance(Ldagger/Lazy;)Lcom/android/systemui/plugins/PluginDependencyProvider;
     .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ldagger/Lazy<",
+            "Lcom/android/systemui/shared/plugins/PluginManager;",
+            ">;)",
+            "Lcom/android/systemui/plugins/PluginDependencyProvider;"
+        }
+    .end annotation
 
     new-instance v0, Lcom/android/systemui/plugins/PluginDependencyProvider;
 
-    invoke-direct {v0, p0}, Lcom/android/systemui/plugins/PluginDependencyProvider;-><init>(Lcom/android/systemui/shared/plugins/PluginManager;)V
+    invoke-direct {v0, p0}, Lcom/android/systemui/plugins/PluginDependencyProvider;-><init>(Ldagger/Lazy;)V
 
     return-object v0
 .end method
@@ -82,15 +91,13 @@
 .method public get()Lcom/android/systemui/plugins/PluginDependencyProvider;
     .locals 0
 
-    iget-object p0, p0, Lcom/android/systemui/plugins/PluginDependencyProvider_Factory;->managerProvider:Ljavax/inject/Provider;
+    iget-object p0, p0, Lcom/android/systemui/plugins/PluginDependencyProvider_Factory;->managerLazyProvider:Ljavax/inject/Provider;
 
-    invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    invoke-static {p0}, Ldagger/internal/DoubleCheck;->lazy(Ljavax/inject/Provider;)Ldagger/Lazy;
 
     move-result-object p0
 
-    check-cast p0, Lcom/android/systemui/shared/plugins/PluginManager;
-
-    invoke-static {p0}, Lcom/android/systemui/plugins/PluginDependencyProvider_Factory;->newInstance(Lcom/android/systemui/shared/plugins/PluginManager;)Lcom/android/systemui/plugins/PluginDependencyProvider;
+    invoke-static {p0}, Lcom/android/systemui/plugins/PluginDependencyProvider_Factory;->newInstance(Ldagger/Lazy;)Lcom/android/systemui/plugins/PluginDependencyProvider;
 
     move-result-object p0
 

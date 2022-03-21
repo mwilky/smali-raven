@@ -27,7 +27,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout$$ExternalSyntheticLambda6;->f$0:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;
 
-    invoke-static {p0}, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;->$r8$lambda$pkZispCVUabnPFkRM-Ue1ODDNys(Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;)V
+    invoke-static {p0}, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;->$r8$lambda$rAKvUsgIibsGra-illrNSrXx118(Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;)V
 
     return-void
 .end method

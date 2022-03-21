@@ -118,7 +118,7 @@
     return-void
 .end method
 
-.method public constructor <init>(Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Landroid/os/Handler;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/keyguard/WakefulnessLifecycle;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Landroid/os/Handler;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/keyguard/WakefulnessLifecycle;Lcom/android/systemui/dump/DumpManager;)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -178,6 +178,8 @@
     iput-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;->mWakefulnessObserver:Lcom/android/systemui/keyguard/WakefulnessLifecycle$Observer;
 
     iput-object p2, p0, Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;->mHandler:Landroid/os/Handler;
+
+    invoke-virtual {p5, p0}, Lcom/android/systemui/dump/DumpManager;->registerDumpable(Lcom/android/systemui/Dumpable;)V
 
     if-eqz p1, :cond_0
 

@@ -2,38 +2,34 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Ljava/util/function/Consumer;
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer;
-
-.field public final synthetic f$1:Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer$StartingWindowRecord;
+.field public final synthetic f$0:Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer$SplashScreenViewSupplier;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer;Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer$StartingWindowRecord;)V
+.method public synthetic constructor <init>(Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer$SplashScreenViewSupplier;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer$$ExternalSyntheticLambda7;->f$0:Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer;
-
-    iput-object p2, p0, Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer$$ExternalSyntheticLambda7;->f$1:Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer$StartingWindowRecord;
+    iput-object p1, p0, Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer$$ExternalSyntheticLambda7;->f$0:Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer$SplashScreenViewSupplier;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final run()V
-    .locals 1
+.method public final accept(Ljava/lang/Object;)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer$$ExternalSyntheticLambda7;->f$0:Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer;
+    iget-object p0, p0, Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer$$ExternalSyntheticLambda7;->f$0:Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer$SplashScreenViewSupplier;
 
-    iget-object p0, p0, Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer$$ExternalSyntheticLambda7;->f$1:Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer$StartingWindowRecord;
+    check-cast p1, Landroid/window/SplashScreenView;
 
-    invoke-static {v0, p0}, Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer;->$r8$lambda$7IxZS5v4ceykoa3h0U945bYyt1U(Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer;Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer$StartingWindowRecord;)V
+    invoke-virtual {p0, p1}, Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer$SplashScreenViewSupplier;->setView(Landroid/window/SplashScreenView;)V
 
     return-void
 .end method

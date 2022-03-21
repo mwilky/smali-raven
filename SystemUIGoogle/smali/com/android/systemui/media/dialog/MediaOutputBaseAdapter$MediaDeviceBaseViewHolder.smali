@@ -25,8 +25,6 @@
 
 .field private mDeviceId:Ljava/lang/String;
 
-.field final mDivider:Landroid/view/View;
-
 .field final mProgressBar:Landroid/widget/ProgressBar;
 
 .field final mSeekBar:Landroid/widget/SeekBar;
@@ -45,14 +43,6 @@
 
 
 # direct methods
-.method public static synthetic $r8$lambda$9UX1b5g__gZ-6-_ckeG6FJVewEs(Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter$MediaDeviceBaseViewHolder;Lcom/android/settingslib/media/MediaDevice;Landroid/graphics/drawable/Icon;ZZ)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter$MediaDeviceBaseViewHolder;->lambda$onBind$0(Lcom/android/settingslib/media/MediaDevice;Landroid/graphics/drawable/Icon;ZZ)V
-
-    return-void
-.end method
-
 .method public static synthetic $r8$lambda$FNH_3kvO-22okf6yA4sMQDSFKq8(Landroid/view/View;Landroid/view/MotionEvent;)Z
     .locals 0
 
@@ -63,10 +53,18 @@
     return p0
 .end method
 
-.method public static synthetic $r8$lambda$QfVoo3hI1mUO41L6s7TpEQAUHgo(Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter$MediaDeviceBaseViewHolder;Lcom/android/settingslib/media/MediaDevice;ZZ)V
+.method public static synthetic $r8$lambda$bvYjkCTeHkgDlLDTErswCN_YqsA(Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter$MediaDeviceBaseViewHolder;Lcom/android/settingslib/media/MediaDevice;)V
     .locals 0
 
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter$MediaDeviceBaseViewHolder;->lambda$onBind$1(Lcom/android/settingslib/media/MediaDevice;ZZ)V
+    invoke-direct {p0, p1}, Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter$MediaDeviceBaseViewHolder;->lambda$onBind$1(Lcom/android/settingslib/media/MediaDevice;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$fs53tgrD2OBAlg1-ihpvyl7yzpA(Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter$MediaDeviceBaseViewHolder;Lcom/android/settingslib/media/MediaDevice;Landroid/graphics/drawable/Icon;)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter$MediaDeviceBaseViewHolder;->lambda$onBind$0(Lcom/android/settingslib/media/MediaDevice;Landroid/graphics/drawable/Icon;)V
 
     return-void
 .end method
@@ -158,14 +156,6 @@
 
     iput-object p1, p0, Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter$MediaDeviceBaseViewHolder;->mSeekBar:Landroid/widget/SeekBar;
 
-    sget p1, Lcom/android/systemui/R$id;->end_divider:I
-
-    invoke-virtual {p2, p1}, Landroid/view/View;->requireViewById(I)Landroid/view/View;
-
-    move-result-object p1
-
-    iput-object p1, p0, Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter$MediaDeviceBaseViewHolder;->mDivider:Landroid/view/View;
-
     sget p1, Lcom/android/systemui/R$id;->bottom_divider:I
 
     invoke-virtual {p2, p1}, Landroid/view/View;->requireViewById(I)Landroid/view/View;
@@ -223,7 +213,7 @@
     return p0
 .end method
 
-.method private synthetic lambda$onBind$0(Lcom/android/settingslib/media/MediaDevice;Landroid/graphics/drawable/Icon;ZZ)V
+.method private synthetic lambda$onBind$0(Lcom/android/settingslib/media/MediaDevice;Landroid/graphics/drawable/Icon;)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter$MediaDeviceBaseViewHolder;->mDeviceId:Ljava/lang/String;
@@ -241,17 +231,15 @@
     return-void
 
     :cond_0
-    iget-object p1, p0, Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter$MediaDeviceBaseViewHolder;->mTitleIcon:Landroid/widget/ImageView;
+    iget-object p0, p0, Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter$MediaDeviceBaseViewHolder;->mTitleIcon:Landroid/widget/ImageView;
 
-    invoke-virtual {p1, p2}, Landroid/widget/ImageView;->setImageIcon(Landroid/graphics/drawable/Icon;)V
-
-    invoke-direct {p0, p3, p4}, Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter$MediaDeviceBaseViewHolder;->setMargin(ZZ)V
+    invoke-virtual {p0, p2}, Landroid/widget/ImageView;->setImageIcon(Landroid/graphics/drawable/Icon;)V
 
     return-void
 .end method
 
-.method private synthetic lambda$onBind$1(Lcom/android/settingslib/media/MediaDevice;ZZ)V
-    .locals 8
+.method private synthetic lambda$onBind$1(Lcom/android/settingslib/media/MediaDevice;)V
+    .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter$MediaDeviceBaseViewHolder;->this$0:Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter;
 
@@ -267,70 +255,13 @@
 
     invoke-virtual {v0, v1}, Landroidx/core/graphics/drawable/IconCompat;->toIcon(Landroid/content/Context;)Landroid/graphics/drawable/Icon;
 
-    move-result-object v5
-
-    new-instance v0, Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter$MediaDeviceBaseViewHolder$$ExternalSyntheticLambda1;
-
-    move-object v2, v0
-
-    move-object v3, p0
-
-    move-object v4, p1
-
-    move v6, p2
-
-    move v7, p3
-
-    invoke-direct/range {v2 .. v7}, Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter$MediaDeviceBaseViewHolder$$ExternalSyntheticLambda1;-><init>(Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter$MediaDeviceBaseViewHolder;Lcom/android/settingslib/media/MediaDevice;Landroid/graphics/drawable/Icon;ZZ)V
-
-    invoke-static {v0}, Lcom/android/settingslib/utils/ThreadUtils;->postOnMainThread(Ljava/lang/Runnable;)V
-
-    return-void
-.end method
-
-.method private setMargin(ZZ)V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter$MediaDeviceBaseViewHolder;->mContainerLayout:Landroid/widget/LinearLayout;
-
-    invoke-virtual {v0}, Landroid/widget/LinearLayout;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
-
     move-result-object v0
 
-    check-cast v0, Landroid/view/ViewGroup$MarginLayoutParams;
+    new-instance v1, Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter$MediaDeviceBaseViewHolder$$ExternalSyntheticLambda2;
 
-    const/4 v1, 0x0
+    invoke-direct {v1, p0, p1, v0}, Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter$MediaDeviceBaseViewHolder$$ExternalSyntheticLambda2;-><init>(Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter$MediaDeviceBaseViewHolder;Lcom/android/settingslib/media/MediaDevice;Landroid/graphics/drawable/Icon;)V
 
-    if-eqz p1, :cond_0
-
-    iget-object p1, p0, Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter$MediaDeviceBaseViewHolder;->this$0:Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter;
-
-    invoke-static {p1}, Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter;->access$000(Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter;)I
-
-    move-result p1
-
-    goto :goto_0
-
-    :cond_0
-    move p1, v1
-
-    :goto_0
-    iput p1, v0, Landroid/view/ViewGroup$MarginLayoutParams;->topMargin:I
-
-    if-eqz p2, :cond_1
-
-    iget-object p1, p0, Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter$MediaDeviceBaseViewHolder;->this$0:Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter;
-
-    invoke-static {p1}, Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter;->access$000(Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter;)I
-
-    move-result v1
-
-    :cond_1
-    iput v1, v0, Landroid/view/ViewGroup$MarginLayoutParams;->bottomMargin:I
-
-    iget-object p0, p0, Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter$MediaDeviceBaseViewHolder;->mContainerLayout:Landroid/widget/LinearLayout;
-
-    invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+    invoke-static {v1}, Lcom/android/settingslib/utils/ThreadUtils;->postOnMainThread(Ljava/lang/Runnable;)V
 
     return-void
 .end method
@@ -641,12 +572,7 @@
     return-void
 .end method
 
-.method onBind(IZZ)V
-    .locals 0
-
-    invoke-direct {p0, p2, p3}, Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter$MediaDeviceBaseViewHolder;->setMargin(ZZ)V
-
-    return-void
+.method abstract onBind(IZZ)V
 .end method
 
 .method onBind(Lcom/android/settingslib/media/MediaDevice;ZZI)V
@@ -654,21 +580,21 @@
 
     invoke-virtual {p1}, Lcom/android/settingslib/media/MediaDevice;->getId()Ljava/lang/String;
 
-    move-result-object p4
+    move-result-object p2
 
-    iput-object p4, p0, Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter$MediaDeviceBaseViewHolder;->mDeviceId:Ljava/lang/String;
+    iput-object p2, p0, Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter$MediaDeviceBaseViewHolder;->mDeviceId:Ljava/lang/String;
 
-    new-instance p4, Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter$MediaDeviceBaseViewHolder$$ExternalSyntheticLambda2;
+    new-instance p2, Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter$MediaDeviceBaseViewHolder$$ExternalSyntheticLambda1;
 
-    invoke-direct {p4, p0, p1, p2, p3}, Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter$MediaDeviceBaseViewHolder$$ExternalSyntheticLambda2;-><init>(Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter$MediaDeviceBaseViewHolder;Lcom/android/settingslib/media/MediaDevice;ZZ)V
+    invoke-direct {p2, p0, p1}, Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter$MediaDeviceBaseViewHolder$$ExternalSyntheticLambda1;-><init>(Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter$MediaDeviceBaseViewHolder;Lcom/android/settingslib/media/MediaDevice;)V
 
-    invoke-static {p4}, Lcom/android/settingslib/utils/ThreadUtils;->postOnBackgroundThread(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;
+    invoke-static {p2}, Lcom/android/settingslib/utils/ThreadUtils;->postOnBackgroundThread(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;
 
     return-void
 .end method
 
 .method playSwitchingAnim(Landroid/view/View;Landroid/view/View;)V
-    .locals 6
+    .locals 7
 
     iget-object v0, p0, Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter$MediaDeviceBaseViewHolder;->this$0:Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter;
 
@@ -721,7 +647,7 @@
 
     const/4 v4, 0x1
 
-    invoke-static {v3, v4}, Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter;->access$102(Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter;Z)Z
+    invoke-static {v3, v4}, Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter;->access$002(Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter;Z)Z
 
     iget-object v3, p0, Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter$MediaDeviceBaseViewHolder;->this$0:Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter;
 
@@ -743,51 +669,51 @@
 
     invoke-virtual {v2}, Landroid/widget/TextView;->animate()Landroid/view/ViewPropertyAnimator;
 
-    move-result-object v2
+    move-result-object v3
 
-    const-wide/16 v3, 0xc8
+    const-wide/16 v4, 0xc8
 
-    invoke-virtual {v2, v3, v4}, Landroid/view/ViewPropertyAnimator;->setDuration(J)Landroid/view/ViewPropertyAnimator;
+    invoke-virtual {v3, v4, v5}, Landroid/view/ViewPropertyAnimator;->setDuration(J)Landroid/view/ViewPropertyAnimator;
 
-    move-result-object v2
+    move-result-object v3
 
-    neg-float v5, v0
+    neg-float v6, v0
 
-    invoke-virtual {v2, v5}, Landroid/view/ViewPropertyAnimator;->translationY(F)Landroid/view/ViewPropertyAnimator;
+    invoke-virtual {v3, v6}, Landroid/view/ViewPropertyAnimator;->translationY(F)Landroid/view/ViewPropertyAnimator;
 
-    move-result-object v2
+    move-result-object v3
 
-    sget-object v5, Lcom/android/systemui/animation/Interpolators;->FAST_OUT_SLOW_IN:Landroid/view/animation/Interpolator;
+    sget-object v6, Lcom/android/systemui/animation/Interpolators;->FAST_OUT_SLOW_IN:Landroid/view/animation/Interpolator;
 
-    invoke-virtual {v2, v5}, Landroid/view/ViewPropertyAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)Landroid/view/ViewPropertyAnimator;
+    invoke-virtual {v3, v6}, Landroid/view/ViewPropertyAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)Landroid/view/ViewPropertyAnimator;
 
-    move-result-object v2
+    move-result-object v3
 
-    new-instance v5, Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter$MediaDeviceBaseViewHolder$3;
+    new-instance v6, Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter$MediaDeviceBaseViewHolder$3;
 
-    invoke-direct {v5, p0, p2}, Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter$MediaDeviceBaseViewHolder$3;-><init>(Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter$MediaDeviceBaseViewHolder;Landroid/view/View;)V
+    invoke-direct {v6, p0, p2, v2}, Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter$MediaDeviceBaseViewHolder$3;-><init>(Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter$MediaDeviceBaseViewHolder;Landroid/view/View;Landroid/widget/TextView;)V
 
-    invoke-virtual {v2, v5}, Landroid/view/ViewPropertyAnimator;->setListener(Landroid/animation/Animator$AnimatorListener;)Landroid/view/ViewPropertyAnimator;
+    invoke-virtual {v3, v6}, Landroid/view/ViewPropertyAnimator;->setListener(Landroid/animation/Animator$AnimatorListener;)Landroid/view/ViewPropertyAnimator;
 
     invoke-virtual {v1}, Landroid/widget/SeekBar;->animate()Landroid/view/ViewPropertyAnimator;
 
     move-result-object p2
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    invoke-virtual {p2, v1}, Landroid/view/ViewPropertyAnimator;->alpha(F)Landroid/view/ViewPropertyAnimator;
-
-    move-result-object p2
-
-    invoke-virtual {p2, v3, v4}, Landroid/view/ViewPropertyAnimator;->setDuration(J)Landroid/view/ViewPropertyAnimator;
+    invoke-virtual {p2, v2}, Landroid/view/ViewPropertyAnimator;->alpha(F)Landroid/view/ViewPropertyAnimator;
 
     move-result-object p2
 
-    new-instance v1, Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter$MediaDeviceBaseViewHolder$4;
+    invoke-virtual {p2, v4, v5}, Landroid/view/ViewPropertyAnimator;->setDuration(J)Landroid/view/ViewPropertyAnimator;
 
-    invoke-direct {v1, p0, p1, v0}, Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter$MediaDeviceBaseViewHolder$4;-><init>(Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter$MediaDeviceBaseViewHolder;Landroid/view/View;F)V
+    move-result-object p2
 
-    invoke-virtual {p2, v1}, Landroid/view/ViewPropertyAnimator;->setListener(Landroid/animation/Animator$AnimatorListener;)Landroid/view/ViewPropertyAnimator;
+    new-instance v2, Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter$MediaDeviceBaseViewHolder$4;
+
+    invoke-direct {v2, p0, p1, v0, v1}, Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter$MediaDeviceBaseViewHolder$4;-><init>(Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter$MediaDeviceBaseViewHolder;Landroid/view/View;FLandroid/widget/SeekBar;)V
+
+    invoke-virtual {p2, v2}, Landroid/view/ViewPropertyAnimator;->setListener(Landroid/animation/Animator$AnimatorListener;)Landroid/view/ViewPropertyAnimator;
 
     :cond_1
     :goto_0

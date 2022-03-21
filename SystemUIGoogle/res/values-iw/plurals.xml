@@ -48,24 +48,6 @@
         <item quantity="two">‏קוד ה-PUK של כרטיס ה-SIM שגוי. נותרו לך עוד %d ניסיונות לפני שכרטיס ה-SIM יינעל לצמיתות.</item>
         <item quantity="many">‏קוד ה-PUK של כרטיס ה-SIM שגוי. נותרו לך עוד %d ניסיונות לפני שכרטיס ה-SIM יינעל לצמיתות.</item>
     </plurals>
-    <plurals name="kg_prompt_reason_time_password">
-        <item quantity="other">נעילת המכשיר לא בוטלה במשך %d שעות. יש להזין את הסיסמה.</item>
-        <item quantity="one">נעילת המכשיר לא בוטלה במשך %d שעה. יש להזין את הסיסמה.</item>
-        <item quantity="two">נעילת המכשיר לא בוטלה במשך %d שעות. יש להזין את הסיסמה.</item>
-        <item quantity="many">נעילת המכשיר לא בוטלה במשך %d שעות. יש להזין את הסיסמה.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pattern">
-        <item quantity="other">נעילת המכשיר לא בוטלה במשך %d שעות. יש להזין את קו ביטול הנעילה.</item>
-        <item quantity="one">נעילת המכשיר לא בוטלה במשך שעה אחת (%d). יש להזין את קו ביטול הנעילה.</item>
-        <item quantity="two">נעילת המכשיר לא בוטלה במשך %d שעות. יש להזין את קו ביטול הנעילה.</item>
-        <item quantity="many">נעילת המכשיר לא בוטלה במשך %d שעות. יש להזין את קו ביטול הנעילה.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pin">
-        <item quantity="other">נעילת המכשיר לא בוטלה במשך %d שעות. יש להזין את קוד האימות.</item>
-        <item quantity="one">נעילת המכשיר לא בוטלה במשך שעה (%d). יש להזין את קוד האימות.</item>
-        <item quantity="two">נעילת המכשיר לא בוטלה במשך %d שעות. יש להזין את קוד האימות.</item>
-        <item quantity="many">נעילת המכשיר לא בוטלה במשך %d שעות. יש להזין את קוד האימות.</item>
-    </plurals>
     <plurals name="kg_too_many_failed_attempts_countdown">
         <item quantity="other">אפשר יהיה לנסות שוב בעוד %d שניות.</item>
         <item quantity="one">אפשר יהיה לנסות שוב בעוד שנייה אחת.</item>

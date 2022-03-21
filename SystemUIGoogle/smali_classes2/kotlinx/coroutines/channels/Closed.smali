@@ -27,6 +27,18 @@
 .field public final closeCause:Ljava/lang/Throwable;
 
 
+# direct methods
+.method public constructor <init>(Ljava/lang/Throwable;)V
+    .locals 0
+
+    invoke-direct {p0}, Lkotlinx/coroutines/channels/Send;-><init>()V
+
+    iput-object p1, p0, Lkotlinx/coroutines/channels/Closed;->closeCause:Ljava/lang/Throwable;
+
+    return-void
+.end method
+
+
 # virtual methods
 .method public completeResumeReceive(Ljava/lang/Object;)V
     .locals 0
@@ -194,6 +206,36 @@
 
     :goto_0
     return-object p0
+.end method
+
+.method public resumeSendClosed(Lkotlinx/coroutines/channels/Closed;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lkotlinx/coroutines/channels/Closed<",
+            "*>;)V"
+        }
+    .end annotation
+
+    const-string p0, "closed"
+
+    invoke-static {p1, p0}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
+
+    invoke-static {}, Lkotlinx/coroutines/DebugKt;->getASSERTIONS_ENABLED()Z
+
+    move-result p0
+
+    if-nez p0, :cond_0
+
+    return-void
+
+    :cond_0
+    new-instance p0, Ljava/lang/AssertionError;
+
+    invoke-direct {p0}, Ljava/lang/AssertionError;-><init>()V
+
+    throw p0
 .end method
 
 .method public toString()Ljava/lang/String;

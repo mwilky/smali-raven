@@ -5,7 +5,7 @@
 # interfaces
 .implements Lcom/android/systemui/statusbar/policy/OnHeadsUpChangedListener;
 .implements Lcom/android/systemui/plugins/statusbar/StatusBarStateController$StateListener;
-.implements Lcom/android/systemui/statusbar/phone/PanelExpansionListener;
+.implements Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionListener;
 
 
 # annotations
@@ -110,7 +110,7 @@
 
     invoke-static {p4, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    const-string/jumbo v0, "unlockedScreenOffAnimationController"
+    const-string v0, "unlockedScreenOffAnimationController"
 
     invoke-static {p5, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -1081,8 +1081,8 @@
     return-void
 .end method
 
-.method public onPanelExpansionChanged(FZ)V
-    .locals 1
+.method public onPanelExpansionChanged(FZZ)V
+    .locals 0
 
     const p2, 0x3f666666    # 0.9f
 
@@ -1100,17 +1100,17 @@
     const/4 p1, 0x0
 
     :goto_0
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->collapsedEnoughToHide:Z
+    iget-boolean p3, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->collapsedEnoughToHide:Z
 
-    if-eq p1, v0, :cond_1
+    if-eq p1, p3, :cond_1
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->getCanShowPulsingHuns()Z
 
-    move-result v0
+    move-result p3
 
     iput-boolean p1, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->collapsedEnoughToHide:Z
 
-    if-eqz v0, :cond_1
+    if-eqz p3, :cond_1
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->getCanShowPulsingHuns()Z
 

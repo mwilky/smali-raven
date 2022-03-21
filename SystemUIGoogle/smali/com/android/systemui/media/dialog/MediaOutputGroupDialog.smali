@@ -4,10 +4,10 @@
 
 
 # direct methods
-.method constructor <init>(Landroid/content/Context;ZLcom/android/systemui/media/dialog/MediaOutputController;)V
+.method constructor <init>(Landroid/content/Context;ZLcom/android/systemui/media/dialog/MediaOutputController;Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;)V
     .locals 0
 
-    invoke-direct {p0, p1, p3}, Lcom/android/systemui/media/dialog/MediaOutputBaseDialog;-><init>(Landroid/content/Context;Lcom/android/systemui/media/dialog/MediaOutputController;)V
+    invoke-direct {p0, p1, p3, p4}, Lcom/android/systemui/media/dialog/MediaOutputBaseDialog;-><init>(Landroid/content/Context;Lcom/android/systemui/media/dialog/MediaOutputController;Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;)V
 
     iget-object p1, p0, Lcom/android/systemui/media/dialog/MediaOutputBaseDialog;->mMediaOutputController:Lcom/android/systemui/media/dialog/MediaOutputController;
 
@@ -25,15 +25,13 @@
 
     invoke-virtual {p0}, Landroid/app/AlertDialog;->getWindow()Landroid/view/Window;
 
-    move-result-object p1
+    move-result-object p0
 
-    const/16 p2, 0x7f6
+    const/16 p1, 0x7f6
 
-    invoke-virtual {p1, p2}, Landroid/view/Window;->setType(I)V
+    invoke-virtual {p0, p1}, Landroid/view/Window;->setType(I)V
 
     :cond_0
-    invoke-virtual {p0}, Landroid/app/AlertDialog;->show()V
-
     return-void
 .end method
 
@@ -155,9 +153,41 @@
 .method onHeaderIconClick()V
     .locals 0
 
-    iget-object p0, p0, Lcom/android/systemui/media/dialog/MediaOutputBaseDialog;->mMediaOutputController:Lcom/android/systemui/media/dialog/MediaOutputController;
+    invoke-virtual {p0}, Landroid/app/AlertDialog;->dismiss()V
 
-    invoke-virtual {p0}, Lcom/android/systemui/media/dialog/MediaOutputController;->launchMediaOutputDialog()V
+    return-void
+.end method
+
+.method refresh()V
+    .locals 3
+
+    invoke-super {p0}, Lcom/android/systemui/media/dialog/MediaOutputBaseDialog;->refresh()V
+
+    invoke-virtual {p0}, Lcom/android/systemui/media/dialog/MediaOutputGroupDialog;->getHeaderIconSize()I
+
+    move-result v0
+
+    iget-object v1, p0, Lcom/android/systemui/media/dialog/MediaOutputBaseDialog;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    sget v2, Lcom/android/systemui/R$dimen;->media_output_dialog_header_icon_padding:I
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v1
+
+    iget-object p0, p0, Lcom/android/systemui/media/dialog/MediaOutputBaseDialog;->mHeaderIcon:Landroid/widget/ImageView;
+
+    new-instance v2, Landroid/widget/LinearLayout$LayoutParams;
+
+    add-int/2addr v1, v0
+
+    invoke-direct {v2, v1, v0}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
+
+    invoke-virtual {p0, v2}, Landroid/widget/ImageView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
     return-void
 .end method

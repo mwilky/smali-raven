@@ -26,8 +26,6 @@
 
 .field private mContext:Landroid/content/Context;
 
-.field private mDismissRtl:Z
-
 .field private mDismissing:Z
 
 .field private mFadeAnimator:Landroid/animation/ValueAnimator;
@@ -856,15 +854,17 @@
 
     if-ne v0, v2, :cond_1
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/row/NotificationMenuRow;->mContext:Landroid/content/Context;
+    const-class v0, Lcom/android/systemui/flags/FeatureFlags;
 
-    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-static {v0}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v0
 
-    sget v2, Lcom/android/systemui/R$bool;->flag_notif_updates:I
+    check-cast v0, Lcom/android/systemui/flags/FeatureFlags;
 
-    invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getBoolean(I)Z
+    sget-object v2, Lcom/android/systemui/flags/Flags;->NOTIFICATION_UPDATES:Lcom/android/systemui/flags/BooleanFlag;
+
+    invoke-virtual {v0, v2}, Lcom/android/systemui/flags/FeatureFlags;->isEnabled(Lcom/android/systemui/flags/BooleanFlag;)Z
 
     move-result v3
 
@@ -2352,23 +2352,6 @@
 
     invoke-direct {p0, p1, v0}, Lcom/android/systemui/statusbar/notification/row/NotificationMenuRow;->setAppName(Ljava/lang/String;Ljava/util/ArrayList;)V
 
-    return-void
-.end method
-
-.method public setDismissRtl(Z)V
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/notification/row/NotificationMenuRow;->mDismissRtl:Z
-
-    iget-object p1, p0, Lcom/android/systemui/statusbar/notification/row/NotificationMenuRow;->mMenuContainer:Landroid/widget/FrameLayout;
-
-    if-eqz p1, :cond_0
-
-    const/4 p1, 0x1
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/notification/row/NotificationMenuRow;->createMenuViews(Z)V
-
-    :cond_0
     return-void
 .end method
 

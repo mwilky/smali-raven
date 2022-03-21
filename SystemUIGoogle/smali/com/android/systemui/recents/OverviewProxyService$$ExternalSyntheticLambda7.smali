@@ -27,9 +27,9 @@
 
     iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService$$ExternalSyntheticLambda7;->f$0:Lcom/android/systemui/recents/OverviewProxyService;
 
-    check-cast p1, Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreen;
+    check-cast p1, Lcom/android/systemui/statusbar/phone/StatusBar;
 
-    invoke-static {p0, p1}, Lcom/android/systemui/recents/OverviewProxyService;->$r8$lambda$E2kpKu45zlhkn_A2qdV6zeoFrl0(Lcom/android/systemui/recents/OverviewProxyService;Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreen;)V
+    invoke-static {p0, p1}, Lcom/android/systemui/recents/OverviewProxyService;->$r8$lambda$nFuxkeCBkvXeeEH7O0riyTzf9eE(Lcom/android/systemui/recents/OverviewProxyService;Lcom/android/systemui/statusbar/phone/StatusBar;)V
 
     return-void
 .end method

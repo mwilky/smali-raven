@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0xa
     name = "HeightExpansionAnimator"
 .end annotation
 
@@ -131,6 +131,17 @@
 
     check-cast v2, Landroid/view/View;
 
+    instance-of v3, v2, Lcom/android/systemui/qs/tileimpl/HeightOverrideable;
+
+    if-eqz v3, :cond_0
+
+    check-cast v2, Lcom/android/systemui/qs/tileimpl/HeightOverrideable;
+
+    invoke-interface {v2}, Lcom/android/systemui/qs/tileimpl/HeightOverrideable;->resetOverride()V
+
+    goto :goto_1
+
+    :cond_0
     invoke-virtual {v2}, Landroid/view/View;->getTop()I
 
     move-result v3
@@ -143,15 +154,7 @@
 
     invoke-virtual {v2, v3}, Landroid/view/View;->setBottom(I)V
 
-    instance-of v3, v2, Lcom/android/systemui/qs/tileimpl/HeightOverrideable;
-
-    if-eqz v3, :cond_0
-
-    check-cast v2, Lcom/android/systemui/qs/tileimpl/HeightOverrideable;
-
-    invoke-interface {v2}, Lcom/android/systemui/qs/tileimpl/HeightOverrideable;->resetOverride()V
-
-    :cond_0
+    :goto_1
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0

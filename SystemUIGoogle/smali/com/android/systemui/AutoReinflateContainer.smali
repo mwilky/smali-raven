@@ -210,7 +210,7 @@
     return-void
 .end method
 
-.method public onOverlayChanged()V
+.method public onThemeChanged()V
     .locals 0
 
     invoke-virtual {p0}, Lcom/android/systemui/AutoReinflateContainer;->inflateLayout()V

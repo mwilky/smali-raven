@@ -68,6 +68,8 @@
 
 .field private final seamless:Landroid/view/ViewGroup;
 
+.field private final seamlessButton:Landroid/view/View;
+
 .field private final seamlessIcon:Landroid/widget/ImageView;
 
 .field private final seamlessText:Landroid/widget/TextView;
@@ -366,6 +368,14 @@
     check-cast v1, Landroid/widget/TextView;
 
     iput-object v1, p0, Lcom/android/systemui/media/PlayerViewHolder;->seamlessText:Landroid/widget/TextView;
+
+    sget v1, Lcom/android/systemui/R$id;->media_seamless_button:I
+
+    invoke-virtual {p1, v1}, Landroid/view/View;->requireViewById(I)Landroid/view/View;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/android/systemui/media/PlayerViewHolder;->seamlessButton:Landroid/view/View;
 
     sget v1, Lcom/android/systemui/R$id;->media_progress_bar:I
 
@@ -840,6 +850,14 @@
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/media/PlayerViewHolder;->seamless:Landroid/view/ViewGroup;
+
+    return-object p0
+.end method
+
+.method public final getSeamlessButton()Landroid/view/View;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/media/PlayerViewHolder;->seamlessButton:Landroid/view/View;
 
     return-object p0
 .end method

@@ -89,6 +89,16 @@
     .end annotation
 .end field
 
+.field private final dumpManagerProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/dump/DumpManager;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private final highPriorityProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -179,12 +189,13 @@
     .end annotation
 .end field
 
-.field private final statusBarLazyProvider:Ljavax/inject/Provider;
+.field private final statusBarOptionalLazyProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
+            "Ljava/util/Optional<",
             "Lcom/android/systemui/statusbar/phone/StatusBar;",
-            ">;"
+            ">;>;"
         }
     .end annotation
 .end field
@@ -201,7 +212,7 @@
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -210,8 +221,9 @@
             "Landroid/content/Context;",
             ">;",
             "Ljavax/inject/Provider<",
+            "Ljava/util/Optional<",
             "Lcom/android/systemui/statusbar/phone/StatusBar;",
-            ">;",
+            ">;>;",
             "Ljavax/inject/Provider<",
             "Landroid/os/Handler;",
             ">;",
@@ -260,6 +272,9 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/phone/ShadeController;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/dump/DumpManager;",
             ">;)V"
         }
     .end annotation
@@ -274,7 +289,7 @@
 
     move-object v1, p2
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideNotificationGutsManagerFactory;->statusBarLazyProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideNotificationGutsManagerFactory;->statusBarOptionalLazyProvider:Ljavax/inject/Provider;
 
     move-object v1, p3
 
@@ -340,11 +355,15 @@
 
     iput-object v1, v0, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideNotificationGutsManagerFactory;->shadeControllerProvider:Ljavax/inject/Provider;
 
+    move-object/from16 v1, p19
+
+    iput-object v1, v0, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideNotificationGutsManagerFactory;->dumpManagerProvider:Ljavax/inject/Provider;
+
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideNotificationGutsManagerFactory;
-    .locals 20
+.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideNotificationGutsManagerFactory;
+    .locals 21
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -352,8 +371,9 @@
             "Landroid/content/Context;",
             ">;",
             "Ljavax/inject/Provider<",
+            "Ljava/util/Optional<",
             "Lcom/android/systemui/statusbar/phone/StatusBar;",
-            ">;",
+            ">;>;",
             "Ljavax/inject/Provider<",
             "Landroid/os/Handler;",
             ">;",
@@ -402,6 +422,9 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/phone/ShadeController;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/dump/DumpManager;",
             ">;)",
             "Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideNotificationGutsManagerFactory;"
         }
@@ -443,24 +466,27 @@
 
     move-object/from16 v18, p17
 
-    new-instance v19, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideNotificationGutsManagerFactory;
+    move-object/from16 v19, p18
 
-    move-object/from16 v0, v19
+    new-instance v20, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideNotificationGutsManagerFactory;
 
-    invoke-direct/range {v0 .. v18}, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideNotificationGutsManagerFactory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+    move-object/from16 v0, v20
 
-    return-object v19
+    invoke-direct/range {v0 .. v19}, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideNotificationGutsManagerFactory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+
+    return-object v20
 .end method
 
-.method public static provideNotificationGutsManager(Landroid/content/Context;Ldagger/Lazy;Landroid/os/Handler;Landroid/os/Handler;Landroid/view/accessibility/AccessibilityManager;Lcom/android/systemui/statusbar/notification/collection/provider/HighPriorityProvider;Landroid/app/INotificationManager;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager;Landroid/content/pm/LauncherApps;Landroid/content/pm/ShortcutManager;Lcom/android/systemui/statusbar/notification/row/ChannelEditorDialogController;Lcom/android/systemui/settings/UserContextProvider;Lcom/android/systemui/statusbar/notification/AssistantFeedbackController;Ljava/util/Optional;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/statusbar/notification/row/OnUserInteractionCallback;Lcom/android/systemui/statusbar/phone/ShadeController;)Lcom/android/systemui/statusbar/notification/row/NotificationGutsManager;
+.method public static provideNotificationGutsManager(Landroid/content/Context;Ldagger/Lazy;Landroid/os/Handler;Landroid/os/Handler;Landroid/view/accessibility/AccessibilityManager;Lcom/android/systemui/statusbar/notification/collection/provider/HighPriorityProvider;Landroid/app/INotificationManager;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager;Landroid/content/pm/LauncherApps;Landroid/content/pm/ShortcutManager;Lcom/android/systemui/statusbar/notification/row/ChannelEditorDialogController;Lcom/android/systemui/settings/UserContextProvider;Lcom/android/systemui/statusbar/notification/AssistantFeedbackController;Ljava/util/Optional;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/statusbar/notification/row/OnUserInteractionCallback;Lcom/android/systemui/statusbar/phone/ShadeController;Lcom/android/systemui/dump/DumpManager;)Lcom/android/systemui/statusbar/notification/row/NotificationGutsManager;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Landroid/content/Context;",
             "Ldagger/Lazy<",
+            "Ljava/util/Optional<",
             "Lcom/android/systemui/statusbar/phone/StatusBar;",
-            ">;",
+            ">;>;",
             "Landroid/os/Handler;",
             "Landroid/os/Handler;",
             "Landroid/view/accessibility/AccessibilityManager;",
@@ -479,12 +505,13 @@
             "Lcom/android/internal/logging/UiEventLogger;",
             "Lcom/android/systemui/statusbar/notification/row/OnUserInteractionCallback;",
             "Lcom/android/systemui/statusbar/phone/ShadeController;",
+            "Lcom/android/systemui/dump/DumpManager;",
             ")",
             "Lcom/android/systemui/statusbar/notification/row/NotificationGutsManager;"
         }
     .end annotation
 
-    invoke-static/range {p0 .. p17}, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule;->provideNotificationGutsManager(Landroid/content/Context;Ldagger/Lazy;Landroid/os/Handler;Landroid/os/Handler;Landroid/view/accessibility/AccessibilityManager;Lcom/android/systemui/statusbar/notification/collection/provider/HighPriorityProvider;Landroid/app/INotificationManager;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager;Landroid/content/pm/LauncherApps;Landroid/content/pm/ShortcutManager;Lcom/android/systemui/statusbar/notification/row/ChannelEditorDialogController;Lcom/android/systemui/settings/UserContextProvider;Lcom/android/systemui/statusbar/notification/AssistantFeedbackController;Ljava/util/Optional;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/statusbar/notification/row/OnUserInteractionCallback;Lcom/android/systemui/statusbar/phone/ShadeController;)Lcom/android/systemui/statusbar/notification/row/NotificationGutsManager;
+    invoke-static/range {p0 .. p18}, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule;->provideNotificationGutsManager(Landroid/content/Context;Ldagger/Lazy;Landroid/os/Handler;Landroid/os/Handler;Landroid/view/accessibility/AccessibilityManager;Lcom/android/systemui/statusbar/notification/collection/provider/HighPriorityProvider;Landroid/app/INotificationManager;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager;Landroid/content/pm/LauncherApps;Landroid/content/pm/ShortcutManager;Lcom/android/systemui/statusbar/notification/row/ChannelEditorDialogController;Lcom/android/systemui/settings/UserContextProvider;Lcom/android/systemui/statusbar/notification/AssistantFeedbackController;Ljava/util/Optional;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/statusbar/notification/row/OnUserInteractionCallback;Lcom/android/systemui/statusbar/phone/ShadeController;Lcom/android/systemui/dump/DumpManager;)Lcom/android/systemui/statusbar/notification/row/NotificationGutsManager;
 
     move-result-object v0
 
@@ -500,7 +527,7 @@
 
 # virtual methods
 .method public get()Lcom/android/systemui/statusbar/notification/row/NotificationGutsManager;
-    .locals 20
+    .locals 21
 
     move-object/from16 v0, p0
 
@@ -514,7 +541,7 @@
 
     check-cast v2, Landroid/content/Context;
 
-    iget-object v1, v0, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideNotificationGutsManagerFactory;->statusBarLazyProvider:Ljavax/inject/Provider;
+    iget-object v1, v0, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideNotificationGutsManagerFactory;->statusBarOptionalLazyProvider:Ljavax/inject/Provider;
 
     invoke-static {v1}, Ldagger/internal/DoubleCheck;->lazy(Ljavax/inject/Provider;)Ldagger/Lazy;
 
@@ -670,17 +697,27 @@
 
     check-cast v18, Lcom/android/systemui/statusbar/notification/row/OnUserInteractionCallback;
 
-    iget-object v0, v0, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideNotificationGutsManagerFactory;->shadeControllerProvider:Ljavax/inject/Provider;
+    iget-object v1, v0, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideNotificationGutsManagerFactory;->shadeControllerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object/from16 v19, v1
+
+    check-cast v19, Lcom/android/systemui/statusbar/phone/ShadeController;
+
+    iget-object v0, v0, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideNotificationGutsManagerFactory;->dumpManagerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object v0
 
-    move-object/from16 v19, v0
+    move-object/from16 v20, v0
 
-    check-cast v19, Lcom/android/systemui/statusbar/phone/ShadeController;
+    check-cast v20, Lcom/android/systemui/dump/DumpManager;
 
-    invoke-static/range {v2 .. v19}, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideNotificationGutsManagerFactory;->provideNotificationGutsManager(Landroid/content/Context;Ldagger/Lazy;Landroid/os/Handler;Landroid/os/Handler;Landroid/view/accessibility/AccessibilityManager;Lcom/android/systemui/statusbar/notification/collection/provider/HighPriorityProvider;Landroid/app/INotificationManager;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager;Landroid/content/pm/LauncherApps;Landroid/content/pm/ShortcutManager;Lcom/android/systemui/statusbar/notification/row/ChannelEditorDialogController;Lcom/android/systemui/settings/UserContextProvider;Lcom/android/systemui/statusbar/notification/AssistantFeedbackController;Ljava/util/Optional;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/statusbar/notification/row/OnUserInteractionCallback;Lcom/android/systemui/statusbar/phone/ShadeController;)Lcom/android/systemui/statusbar/notification/row/NotificationGutsManager;
+    invoke-static/range {v2 .. v20}, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideNotificationGutsManagerFactory;->provideNotificationGutsManager(Landroid/content/Context;Ldagger/Lazy;Landroid/os/Handler;Landroid/os/Handler;Landroid/view/accessibility/AccessibilityManager;Lcom/android/systemui/statusbar/notification/collection/provider/HighPriorityProvider;Landroid/app/INotificationManager;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager;Landroid/content/pm/LauncherApps;Landroid/content/pm/ShortcutManager;Lcom/android/systemui/statusbar/notification/row/ChannelEditorDialogController;Lcom/android/systemui/settings/UserContextProvider;Lcom/android/systemui/statusbar/notification/AssistantFeedbackController;Ljava/util/Optional;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/statusbar/notification/row/OnUserInteractionCallback;Lcom/android/systemui/statusbar/phone/ShadeController;Lcom/android/systemui/dump/DumpManager;)Lcom/android/systemui/statusbar/notification/row/NotificationGutsManager;
 
     move-result-object v0
 

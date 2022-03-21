@@ -20,7 +20,7 @@
     value = {
         "Ljava/lang/Object;",
         "Lkotlinx/coroutines/flow/Flow<",
-        "Ljava/lang/Boolean;",
+        "Lcom/google/android/systemui/statusbar/notification/voicereplies/CtaState;",
         ">;"
     }
 .end annotation

@@ -196,6 +196,16 @@
 
 .field private final mSystemClock:Lcom/android/systemui/util/time/SystemClock;
 
+.field private final mTempSectionMembers:Ljava/util/ArrayList;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/ArrayList<",
+            "Lcom/android/systemui/statusbar/notification/collection/ListEntry;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private final mTopLevelComparator:Ljava/util/Comparator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -230,6 +240,14 @@
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;->onPromoterInvalidated(Lcom/android/systemui/statusbar/notification/collection/listbuilder/pluggable/NotifPromoter;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$I_OeZQIV42r0k2VcUyBt2uT5Flc(Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;Lcom/android/systemui/statusbar/notification/collection/listbuilder/pluggable/Invalidator;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;->onPreRenderInvalidated(Lcom/android/systemui/statusbar/notification/collection/listbuilder/pluggable/Invalidator;)V
 
     return-void
 .end method
@@ -289,9 +307,9 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 2
+    .locals 3
 
-    sget-object v0, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder$$ExternalSyntheticLambda6;->INSTANCE:Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder$$ExternalSyntheticLambda6;
+    sget-object v0, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder$$ExternalSyntheticLambda7;->INSTANCE:Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder$$ExternalSyntheticLambda7;
 
     sput-object v0, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;->sChildComparator:Ljava/util/Comparator;
 
@@ -299,7 +317,9 @@
 
     const-string v1, "UnknownSection"
 
-    invoke-direct {v0, v1}, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder$2;-><init>(Ljava/lang/String;)V
+    const/4 v2, 0x0
+
+    invoke-direct {v0, v1, v2}, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder$2;-><init>(Ljava/lang/String;I)V
 
     sput-object v0, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;->DEFAULT_SECTIONER:Lcom/android/systemui/statusbar/notification/collection/listbuilder/pluggable/NotifSectioner;
 
@@ -310,6 +330,12 @@
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    iput-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;->mTempSectionMembers:Ljava/util/ArrayList;
 
     new-instance v0, Ljava/util/ArrayList;
 
@@ -421,9 +447,9 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;->mReadyForBuildListener:Lcom/android/systemui/statusbar/notification/collection/notifcollection/CollectionReadyForBuildListener;
 
-    new-instance v0, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder$$ExternalSyntheticLambda5;
+    new-instance v0, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder$$ExternalSyntheticLambda6;
 
-    invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder$$ExternalSyntheticLambda5;-><init>(Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;)V
+    invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder$$ExternalSyntheticLambda6;-><init>(Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;)V
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;->mTopLevelComparator:Ljava/util/Comparator;
 
@@ -846,7 +872,7 @@
 .end method
 
 .method private applySections(Lcom/android/systemui/statusbar/notification/collection/ListEntry;)Lcom/android/systemui/statusbar/notification/collection/listbuilder/NotifSection;
-    .locals 3
+    .locals 4
 
     invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;->findSection(Lcom/android/systemui/statusbar/notification/collection/ListEntry;)Lcom/android/systemui/statusbar/notification/collection/listbuilder/NotifSection;
 
@@ -872,38 +898,34 @@
 
     if-eq v0, v2, :cond_0
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;->mNotifStabilityManager:Lcom/android/systemui/statusbar/notification/collection/listbuilder/pluggable/NotifStabilityManager;
+    iget-object v2, p0, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;->mNotifStabilityManager:Lcom/android/systemui/statusbar/notification/collection/listbuilder/pluggable/NotifStabilityManager;
 
     invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/collection/ListEntry;->getRepresentativeEntry()Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {p0, v2}, Lcom/android/systemui/statusbar/notification/collection/listbuilder/pluggable/NotifStabilityManager;->isSectionChangeAllowed(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)Z
+    invoke-virtual {v2, v3}, Lcom/android/systemui/statusbar/notification/collection/listbuilder/pluggable/NotifStabilityManager;->isSectionChangeAllowed(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)Z
 
-    move-result p0
+    move-result v2
 
-    if-nez p0, :cond_0
+    if-nez v2, :cond_0
 
     invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/collection/ListEntry;->getAttachState()Lcom/android/systemui/statusbar/notification/collection/ListAttachState;
 
-    move-result-object p0
+    move-result-object v2
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/collection/ListAttachState;->getSuppressedChanges()Lcom/android/systemui/statusbar/notification/collection/SuppressedAttachState;
+    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/collection/ListAttachState;->getSuppressedChanges()Lcom/android/systemui/statusbar/notification/collection/SuppressedAttachState;
 
-    move-result-object p0
+    move-result-object v2
 
-    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/notification/collection/SuppressedAttachState;->setSection(Lcom/android/systemui/statusbar/notification/collection/listbuilder/NotifSection;)V
+    invoke-virtual {v2, v0}, Lcom/android/systemui/statusbar/notification/collection/SuppressedAttachState;->setSection(Lcom/android/systemui/statusbar/notification/collection/listbuilder/NotifSection;)V
 
     invoke-virtual {v1}, Lcom/android/systemui/statusbar/notification/collection/ListAttachState;->getSection()Lcom/android/systemui/statusbar/notification/collection/listbuilder/NotifSection;
 
     move-result-object v0
 
     :cond_0
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/collection/ListEntry;->getAttachState()Lcom/android/systemui/statusbar/notification/collection/ListAttachState;
-
-    move-result-object p0
-
-    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/notification/collection/ListAttachState;->setSection(Lcom/android/systemui/statusbar/notification/collection/listbuilder/NotifSection;)V
+    invoke-direct {p0, p1, v0}, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;->setEntrySection(Lcom/android/systemui/statusbar/notification/collection/ListEntry;Lcom/android/systemui/statusbar/notification/collection/listbuilder/NotifSection;)V
 
     return-object v0
 .end method
@@ -936,6 +958,10 @@
 
 .method private buildList()V
     .locals 5
+
+    const-string v0, "ShadeListBuilder.buildList"
+
+    invoke-static {v0}, Landroid/os/Trace;->beginSection(Ljava/lang/String;)V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;->mPipelineState:Lcom/android/systemui/statusbar/notification/collection/listbuilder/PipelineState;
 
@@ -1019,23 +1045,11 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;->mReadOnlyNotifList:Ljava/util/List;
 
-    invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;->dispatchOnBeforeSort(Ljava/util/List;)V
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;->mPipelineState:Lcom/android/systemui/statusbar/notification/collection/listbuilder/PipelineState;
-
-    const/4 v2, 0x7
-
-    invoke-virtual {v0, v2}, Lcom/android/systemui/statusbar/notification/collection/listbuilder/PipelineState;->incrementTo(I)V
-
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;->sortList()V
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;->mReadOnlyNotifList:Ljava/util/List;
-
     invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;->dispatchOnBeforeFinalizeFilter(Ljava/util/List;)V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;->mPipelineState:Lcom/android/systemui/statusbar/notification/collection/listbuilder/PipelineState;
 
-    const/16 v2, 0x8
+    const/4 v2, 0x7
 
     invoke-virtual {v0, v2}, Lcom/android/systemui/statusbar/notification/collection/listbuilder/PipelineState;->incrementTo(I)V
 
@@ -1053,6 +1067,18 @@
 
     invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;->pruneIncompleteGroups(Ljava/util/List;)V
 
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;->mReadOnlyNotifList:Ljava/util/List;
+
+    invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;->dispatchOnBeforeSort(Ljava/util/List;)V
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;->mPipelineState:Lcom/android/systemui/statusbar/notification/collection/listbuilder/PipelineState;
+
+    const/16 v2, 0x8
+
+    invoke-virtual {v0, v2}, Lcom/android/systemui/statusbar/notification/collection/listbuilder/PipelineState;->incrementTo(I)V
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;->sortListAndNotifySections()V
+
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;->mPipelineState:Lcom/android/systemui/statusbar/notification/collection/listbuilder/PipelineState;
 
     const/16 v2, 0x9
@@ -1069,6 +1095,10 @@
 
     invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;->dispatchOnBeforeRenderList(Ljava/util/List;)V
 
+    const-string v0, "ShadeListBuilder.onRenderList"
+
+    invoke-static {v0}, Landroid/os/Trace;->beginSection(Ljava/lang/String;)V
+
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;->mOnRenderListListener:Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder$OnRenderListListener;
 
     if-eqz v0, :cond_0
@@ -1078,6 +1108,8 @@
     invoke-interface {v0, v2}, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder$OnRenderListListener;->onRenderList(Ljava/util/List;)V
 
     :cond_0
+    invoke-static {}, Landroid/os/Trace;->endSection()V
+
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;->mLogger:Lcom/android/systemui/statusbar/notification/collection/listbuilder/ShadeListBuilderLogger;
 
     iget v2, p0, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;->mIterationCount:I
@@ -1120,6 +1152,8 @@
     add-int/2addr v0, v1
 
     iput v0, p0, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;->mIterationCount:I
+
+    invoke-static {}, Landroid/os/Trace;->endSection()V
 
     return-void
 .end method
@@ -1288,6 +1322,10 @@
         }
     .end annotation
 
+    const-string v0, "ShadeListBuilder.dispatchOnBeforeFinalizeFilter"
+
+    invoke-static {v0}, Landroid/os/Trace;->beginSection(Ljava/lang/String;)V
+
     const/4 v0, 0x0
 
     :goto_0
@@ -1314,6 +1352,8 @@
     goto :goto_0
 
     :cond_0
+    invoke-static {}, Landroid/os/Trace;->endSection()V
+
     return-void
 .end method
 
@@ -1327,6 +1367,10 @@
             ">;)V"
         }
     .end annotation
+
+    const-string v0, "ShadeListBuilder.dispatchOnBeforeRenderList"
+
+    invoke-static {v0}, Landroid/os/Trace;->beginSection(Ljava/lang/String;)V
 
     const/4 v0, 0x0
 
@@ -1354,6 +1398,8 @@
     goto :goto_0
 
     :cond_0
+    invoke-static {}, Landroid/os/Trace;->endSection()V
+
     return-void
 .end method
 
@@ -1367,6 +1413,10 @@
             ">;)V"
         }
     .end annotation
+
+    const-string v0, "ShadeListBuilder.dispatchOnBeforeSort"
+
+    invoke-static {v0}, Landroid/os/Trace;->beginSection(Ljava/lang/String;)V
 
     const/4 v0, 0x0
 
@@ -1394,6 +1444,8 @@
     goto :goto_0
 
     :cond_0
+    invoke-static {}, Landroid/os/Trace;->endSection()V
+
     return-void
 .end method
 
@@ -1407,6 +1459,10 @@
             ">;)V"
         }
     .end annotation
+
+    const-string v0, "ShadeListBuilder.dispatchOnBeforeTransformGroups"
+
+    invoke-static {v0}, Landroid/os/Trace;->beginSection(Ljava/lang/String;)V
 
     const/4 v0, 0x0
 
@@ -1434,6 +1490,8 @@
     goto :goto_0
 
     :cond_0
+    invoke-static {}, Landroid/os/Trace;->endSection()V
+
     return-void
 .end method
 
@@ -1454,6 +1512,10 @@
             ">;)V"
         }
     .end annotation
+
+    const-string v0, "ShadeListBuilder.filterNotifs"
+
+    invoke-static {v0}, Landroid/os/Trace;->beginSection(Ljava/lang/String;)V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;->mSystemClock:Lcom/android/systemui/util/time/SystemClock;
 
@@ -1561,6 +1623,8 @@
     goto :goto_0
 
     :cond_5
+    invoke-static {}, Landroid/os/Trace;->endSection()V
+
     return-void
 .end method
 
@@ -1711,7 +1775,7 @@
 
     move-result-object p0
 
-    sget-object v0, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder$$ExternalSyntheticLambda8;->INSTANCE:Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder$$ExternalSyntheticLambda8;
+    sget-object v0, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder$$ExternalSyntheticLambda9;->INSTANCE:Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder$$ExternalSyntheticLambda9;
 
     invoke-interface {p0, v0}, Ljava/util/Collection;->removeIf(Ljava/util/function/Predicate;)Z
 
@@ -1731,6 +1795,10 @@
             ">;)V"
         }
     .end annotation
+
+    const-string v0, "ShadeListBuilder.groupNotifs"
+
+    invoke-static {v0}, Landroid/os/Trace;->beginSection(Ljava/lang/String;)V
 
     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -1923,6 +1991,8 @@
     goto/16 :goto_0
 
     :cond_7
+    invoke-static {}, Landroid/os/Trace;->endSection()V
+
     return-void
 .end method
 
@@ -1959,27 +2029,11 @@
 .method private synthetic lambda$new$2(Lcom/android/systemui/statusbar/notification/collection/ListEntry;Lcom/android/systemui/statusbar/notification/collection/ListEntry;)I
     .locals 3
 
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/collection/ListEntry;->getSection()Lcom/android/systemui/statusbar/notification/collection/listbuilder/NotifSection;
-
-    move-result-object v0
-
-    invoke-static {v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    check-cast v0, Lcom/android/systemui/statusbar/notification/collection/listbuilder/NotifSection;
-
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/notification/collection/listbuilder/NotifSection;->getIndex()I
+    invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/collection/ListEntry;->getSectionIndex()I
 
     move-result v0
 
-    invoke-virtual {p2}, Lcom/android/systemui/statusbar/notification/collection/ListEntry;->getSection()Lcom/android/systemui/statusbar/notification/collection/listbuilder/NotifSection;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    check-cast v1, Lcom/android/systemui/statusbar/notification/collection/listbuilder/NotifSection;
-
-    invoke-virtual {v1}, Lcom/android/systemui/statusbar/notification/collection/listbuilder/NotifSection;->getIndex()I
+    invoke-virtual {p2}, Lcom/android/systemui/statusbar/notification/collection/ListEntry;->getSectionIndex()I
 
     move-result v1
 
@@ -2555,6 +2609,78 @@
     return v1
 .end method
 
+.method private notifySectionEntriesUpdated()V
+    .locals 4
+
+    const-string v0, "ShadeListBuilder.notifySectionEntriesUpdated"
+
+    invoke-static {v0}, Landroid/os/Trace;->beginSection(Ljava/lang/String;)V
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;->mTempSectionMembers:Ljava/util/ArrayList;
+
+    invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
+
+    const/4 v0, 0x0
+
+    const/4 v1, 0x0
+
+    :goto_0
+    iget-object v2, p0, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;->mNotifList:Ljava/util/List;
+
+    invoke-interface {v2}, Ljava/util/List;->size()I
+
+    move-result v2
+
+    if-ge v1, v2, :cond_2
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;->mNotifList:Ljava/util/List;
+
+    invoke-interface {v2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/systemui/statusbar/notification/collection/ListEntry;
+
+    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/collection/ListEntry;->getSection()Lcom/android/systemui/statusbar/notification/collection/listbuilder/NotifSection;
+
+    move-result-object v3
+
+    if-eq v0, v3, :cond_1
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/notification/collection/listbuilder/NotifSection;->getSectioner()Lcom/android/systemui/statusbar/notification/collection/listbuilder/pluggable/NotifSectioner;
+
+    move-result-object v0
+
+    iget-object v3, p0, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;->mTempSectionMembers:Ljava/util/ArrayList;
+
+    invoke-virtual {v0, v3}, Lcom/android/systemui/statusbar/notification/collection/listbuilder/pluggable/NotifSectioner;->onEntriesUpdated(Ljava/util/List;)V
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;->mTempSectionMembers:Ljava/util/ArrayList;
+
+    invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
+
+    :cond_0
+    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/collection/ListEntry;->getSection()Lcom/android/systemui/statusbar/notification/collection/listbuilder/NotifSection;
+
+    move-result-object v0
+
+    :cond_1
+    iget-object v3, p0, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;->mTempSectionMembers:Ljava/util/ArrayList;
+
+    invoke-virtual {v3, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_2
+    invoke-static {}, Landroid/os/Trace;->endSection()V
+
+    return-void
+.end method
+
 .method private onBeginRun()V
     .locals 0
 
@@ -2587,7 +2713,7 @@
 
     invoke-virtual {v0, p1, v1}, Lcom/android/systemui/statusbar/notification/collection/listbuilder/ShadeListBuilderLogger;->logFinalizeFilterInvalidated(Ljava/lang/String;I)V
 
-    const/16 p1, 0x8
+    const/4 p1, 0x7
 
     invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;->rebuildListIfBefore(I)V
 
@@ -2613,7 +2739,7 @@
 
     invoke-virtual {v0, p1, v1}, Lcom/android/systemui/statusbar/notification/collection/listbuilder/ShadeListBuilderLogger;->logNotifSectionInvalidated(Ljava/lang/String;I)V
 
-    const/4 p1, 0x7
+    const/16 p1, 0x8
 
     invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;->rebuildListIfBefore(I)V
 
@@ -2640,6 +2766,32 @@
     invoke-virtual {v0, p1, v1}, Lcom/android/systemui/statusbar/notification/collection/listbuilder/ShadeListBuilderLogger;->logPreGroupFilterInvalidated(Ljava/lang/String;I)V
 
     const/4 p1, 0x3
+
+    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;->rebuildListIfBefore(I)V
+
+    return-void
+.end method
+
+.method private onPreRenderInvalidated(Lcom/android/systemui/statusbar/notification/collection/listbuilder/pluggable/Invalidator;)V
+    .locals 2
+
+    invoke-static {}, Lcom/android/systemui/util/Assert;->isMainThread()V
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;->mLogger:Lcom/android/systemui/statusbar/notification/collection/listbuilder/ShadeListBuilderLogger;
+
+    invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/collection/listbuilder/pluggable/Pluggable;->getName()Ljava/lang/String;
+
+    move-result-object p1
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;->mPipelineState:Lcom/android/systemui/statusbar/notification/collection/listbuilder/PipelineState;
+
+    invoke-virtual {v1}, Lcom/android/systemui/statusbar/notification/collection/listbuilder/PipelineState;->getState()I
+
+    move-result v1
+
+    invoke-virtual {v0, p1, v1}, Lcom/android/systemui/statusbar/notification/collection/listbuilder/ShadeListBuilderLogger;->logPreRenderInvalidated(Ljava/lang/String;I)V
+
+    const/16 p1, 0x9
 
     invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;->rebuildListIfBefore(I)V
 
@@ -2709,6 +2861,10 @@
         }
     .end annotation
 
+    const-string v0, "ShadeListBuilder.promoteNotifs"
+
+    invoke-static {v0}, Landroid/os/Trace;->beginSection(Ljava/lang/String;)V
+
     const/4 v0, 0x0
 
     :goto_0
@@ -2734,9 +2890,9 @@
 
     move-result-object v1
 
-    new-instance v2, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder$$ExternalSyntheticLambda7;
+    new-instance v2, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder$$ExternalSyntheticLambda8;
 
-    invoke-direct {v2, p0, p1}, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder$$ExternalSyntheticLambda7;-><init>(Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;Ljava/util/List;)V
+    invoke-direct {v2, p0, p1}, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder$$ExternalSyntheticLambda8;-><init>(Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;Ljava/util/List;)V
 
     invoke-interface {v1, v2}, Ljava/util/List;->removeIf(Ljava/util/function/Predicate;)Z
 
@@ -2746,6 +2902,8 @@
     goto :goto_0
 
     :cond_1
+    invoke-static {}, Landroid/os/Trace;->endSection()V
+
     return-void
 .end method
 
@@ -2759,6 +2917,10 @@
             ">;)V"
         }
     .end annotation
+
+    const-string v0, "ShadeListBuilder.pruneIncompleteGroups"
+
+    invoke-static {v0}, Landroid/os/Trace;->beginSection(Ljava/lang/String;)V
 
     const/4 v0, 0x0
 
@@ -2934,6 +3096,8 @@
     goto/16 :goto_0
 
     :cond_6
+    invoke-static {}, Landroid/os/Trace;->endSection()V
+
     return-void
 .end method
 
@@ -3039,8 +3203,39 @@
     return-void
 .end method
 
-.method private sortList()V
+.method private setEntrySection(Lcom/android/systemui/statusbar/notification/collection/ListEntry;Lcom/android/systemui/statusbar/notification/collection/listbuilder/NotifSection;)V
+    .locals 0
+
+    invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/collection/ListEntry;->getAttachState()Lcom/android/systemui/statusbar/notification/collection/ListAttachState;
+
+    move-result-object p0
+
+    invoke-virtual {p0, p2}, Lcom/android/systemui/statusbar/notification/collection/ListAttachState;->setSection(Lcom/android/systemui/statusbar/notification/collection/listbuilder/NotifSection;)V
+
+    invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/collection/ListEntry;->getRepresentativeEntry()Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
+
+    move-result-object p0
+
+    if-eqz p0, :cond_0
+
+    if-eqz p2, :cond_0
+
+    invoke-virtual {p2}, Lcom/android/systemui/statusbar/notification/collection/listbuilder/NotifSection;->getBucket()I
+
+    move-result p1
+
+    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->setBucket(I)V
+
+    :cond_0
+    return-void
+.end method
+
+.method private sortListAndNotifySections()V
     .locals 5
+
+    const-string v0, "ShadeListBuilder.sortListAndNotifySections"
+
+    invoke-static {v0}, Landroid/os/Trace;->beginSection(Ljava/lang/String;)V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;->mNotifList:Ljava/util/List;
 
@@ -3093,11 +3288,7 @@
 
     check-cast v4, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
 
-    invoke-virtual {v4}, Lcom/android/systemui/statusbar/notification/collection/ListEntry;->getAttachState()Lcom/android/systemui/statusbar/notification/collection/ListAttachState;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v2}, Lcom/android/systemui/statusbar/notification/collection/ListAttachState;->setSection(Lcom/android/systemui/statusbar/notification/collection/listbuilder/NotifSection;)V
+    invoke-direct {p0, v4, v2}, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;->setEntrySection(Lcom/android/systemui/statusbar/notification/collection/ListEntry;Lcom/android/systemui/statusbar/notification/collection/listbuilder/NotifSection;)V
 
     goto :goto_1
 
@@ -3111,9 +3302,13 @@
     :cond_2
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;->mNotifList:Ljava/util/List;
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;->mTopLevelComparator:Ljava/util/Comparator;
+    iget-object v1, p0, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;->mTopLevelComparator:Ljava/util/Comparator;
 
-    invoke-interface {v0, p0}, Ljava/util/List;->sort(Ljava/util/Comparator;)V
+    invoke-interface {v0, v1}, Ljava/util/List;->sort(Ljava/util/Comparator;)V
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;->notifySectionEntriesUpdated()V
+
+    invoke-static {}, Landroid/os/Trace;->endSection()V
 
     return-void
 .end method
@@ -3136,6 +3331,10 @@
     return-void
 
     :cond_0
+    const-string v0, "ShadeListBuilder.stabilizeGroupingNotifs"
+
+    invoke-static {v0}, Landroid/os/Trace;->beginSection(Ljava/lang/String;)V
+
     const/4 v0, 0x0
 
     move v1, v0
@@ -3218,6 +3417,8 @@
     goto :goto_0
 
     :cond_4
+    invoke-static {}, Landroid/os/Trace;->endSection()V
+
     return-void
 .end method
 
@@ -3238,9 +3439,9 @@
 
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    new-instance v0, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder$$ExternalSyntheticLambda0;
+    new-instance v0, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder$$ExternalSyntheticLambda1;
 
-    invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;)V
+    invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder$$ExternalSyntheticLambda1;-><init>(Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;)V
 
     invoke-virtual {p1, v0}, Lcom/android/systemui/statusbar/notification/collection/listbuilder/pluggable/Pluggable;->setInvalidationListener(Lcom/android/systemui/statusbar/notification/collection/listbuilder/pluggable/Pluggable$PluggableListener;)V
 
@@ -3298,9 +3499,29 @@
 
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    new-instance v0, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder$$ExternalSyntheticLambda1;
+    new-instance v0, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder$$ExternalSyntheticLambda2;
 
-    invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder$$ExternalSyntheticLambda1;-><init>(Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;)V
+    invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder$$ExternalSyntheticLambda2;-><init>(Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;)V
+
+    invoke-virtual {p1, v0}, Lcom/android/systemui/statusbar/notification/collection/listbuilder/pluggable/Pluggable;->setInvalidationListener(Lcom/android/systemui/statusbar/notification/collection/listbuilder/pluggable/Pluggable$PluggableListener;)V
+
+    return-void
+.end method
+
+.method addPreRenderInvalidator(Lcom/android/systemui/statusbar/notification/collection/listbuilder/pluggable/Invalidator;)V
+    .locals 2
+
+    invoke-static {}, Lcom/android/systemui/util/Assert;->isMainThread()V
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;->mPipelineState:Lcom/android/systemui/statusbar/notification/collection/listbuilder/PipelineState;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/notification/collection/listbuilder/PipelineState;->requireState(I)V
+
+    new-instance v0, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder$$ExternalSyntheticLambda0;
+
+    invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;)V
 
     invoke-virtual {p1, v0}, Lcom/android/systemui/statusbar/notification/collection/listbuilder/pluggable/Pluggable;->setInvalidationListener(Lcom/android/systemui/statusbar/notification/collection/listbuilder/pluggable/Pluggable$PluggableListener;)V
 
@@ -3322,9 +3543,9 @@
 
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    new-instance v0, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder$$ExternalSyntheticLambda2;
+    new-instance v0, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder$$ExternalSyntheticLambda3;
 
-    invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder$$ExternalSyntheticLambda2;-><init>(Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;)V
+    invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder$$ExternalSyntheticLambda3;-><init>(Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;)V
 
     invoke-virtual {p1, v0}, Lcom/android/systemui/statusbar/notification/collection/listbuilder/pluggable/Pluggable;->setInvalidationListener(Lcom/android/systemui/statusbar/notification/collection/listbuilder/pluggable/Pluggable$PluggableListener;)V
 
@@ -3419,9 +3640,9 @@
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;->mNotifStabilityManager:Lcom/android/systemui/statusbar/notification/collection/listbuilder/pluggable/NotifStabilityManager;
 
-    new-instance v0, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder$$ExternalSyntheticLambda4;
+    new-instance v0, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder$$ExternalSyntheticLambda5;
 
-    invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder$$ExternalSyntheticLambda4;-><init>(Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;)V
+    invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder$$ExternalSyntheticLambda5;-><init>(Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;)V
 
     invoke-virtual {p1, v0}, Lcom/android/systemui/statusbar/notification/collection/listbuilder/pluggable/Pluggable;->setInvalidationListener(Lcom/android/systemui/statusbar/notification/collection/listbuilder/pluggable/Pluggable$PluggableListener;)V
 
@@ -3533,9 +3754,9 @@
 
     invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    new-instance v1, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder$$ExternalSyntheticLambda3;
+    new-instance v1, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder$$ExternalSyntheticLambda4;
 
-    invoke-direct {v1, p0}, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder$$ExternalSyntheticLambda3;-><init>(Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;)V
+    invoke-direct {v1, p0}, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder$$ExternalSyntheticLambda4;-><init>(Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;)V
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/notification/collection/listbuilder/pluggable/Pluggable;->setInvalidationListener(Lcom/android/systemui/statusbar/notification/collection/listbuilder/pluggable/Pluggable$PluggableListener;)V
 

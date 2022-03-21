@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/google/android/systemui/statusbar/NotificationVoiceReplyManagerService$binder$1;->enableCallbacks(Lcom/google/android/systemui/statusbar/INotificationVoiceReplyServiceCallbacks;ZLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+    value = Lcom/google/android/systemui/statusbar/NotificationVoiceReplyManagerService$binder$1;->enableCallbacks(Lcom/google/android/systemui/statusbar/INotificationVoiceReplyServiceCallbacks;Lcom/google/android/systemui/statusbar/notification/voicereplies/CtaState;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -31,14 +31,14 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nNotificationVoiceReplyManagerService.kt\nKotlin\n*S Kotlin\n*F\n+ 1 NotificationVoiceReplyManagerService.kt\ncom/google/android/systemui/statusbar/NotificationVoiceReplyManagerService$binder$1$enableCallbacks$2\n+ 2 Transform.kt\nkotlinx/coroutines/flow/FlowKt__TransformKt\n+ 3 Emitters.kt\nkotlinx/coroutines/flow/FlowKt__EmittersKt\n+ 4 SafeCollector.kt\nkotlinx/coroutines/flow/internal/SafeCollectorKt\n+ 5 Collect.kt\nkotlinx/coroutines/flow/FlowKt__CollectKt\n*L\n1#1,257:1\n20#2:258\n22#2:262\n47#2:263\n49#2:267\n20#2:268\n22#2:272\n51#3:259\n56#3:261\n51#3:264\n56#3:266\n51#3:269\n56#3:271\n119#4:260\n119#4:265\n119#4:270\n73#5,3:273\n*E\n*S KotlinDebug\n*F\n+ 1 NotificationVoiceReplyManagerService.kt\ncom/google/android/systemui/statusbar/NotificationVoiceReplyManagerService$binder$1$enableCallbacks$2\n*L\n128#1:258\n128#1:262\n132#1:263\n132#1:267\n140#1:268\n140#1:272\n128#1:259\n128#1:261\n132#1:264\n132#1:266\n140#1:269\n140#1:271\n128#1:260\n132#1:265\n140#1:270\n141#1,3:273\n*E\n"
+    value = "SMAP\nNotificationVoiceReplyManagerService.kt\nKotlin\n*S Kotlin\n*F\n+ 1 NotificationVoiceReplyManagerService.kt\ncom/google/android/systemui/statusbar/NotificationVoiceReplyManagerService$binder$1$enableCallbacks$2\n+ 2 Transform.kt\nkotlinx/coroutines/flow/FlowKt__TransformKt\n+ 3 Emitters.kt\nkotlinx/coroutines/flow/FlowKt__EmittersKt\n+ 4 SafeCollector.kt\nkotlinx/coroutines/flow/internal/SafeCollectorKt\n+ 5 Collect.kt\nkotlinx/coroutines/flow/FlowKt__CollectKt\n*L\n1#1,273:1\n20#2:274\n22#2:278\n47#2:279\n49#2:283\n20#2:284\n22#2:288\n51#3:275\n56#3:277\n51#3:280\n56#3:282\n51#3:285\n56#3:287\n119#4:276\n119#4:281\n119#4:286\n73#5,3:289\n*E\n*S KotlinDebug\n*F\n+ 1 NotificationVoiceReplyManagerService.kt\ncom/google/android/systemui/statusbar/NotificationVoiceReplyManagerService$binder$1$enableCallbacks$2\n*L\n136#1:274\n136#1:278\n140#1:279\n140#1:283\n146#1:284\n146#1:288\n136#1:275\n136#1:277\n140#1:280\n140#1:282\n146#1:285\n146#1:287\n136#1:276\n140#1:281\n146#1:286\n147#1,3:289\n*E\n"
 .end annotation
 
 .annotation runtime Lkotlin/coroutines/jvm/internal/DebugMetadata;
     c = "com.google.android.systemui.statusbar.NotificationVoiceReplyManagerService$binder$1$enableCallbacks$2"
     f = "NotificationVoiceReplyManagerService.kt"
     l = {
-        0x111
+        0x121
     }
     m = "invokeSuspend"
 .end annotation
@@ -47,7 +47,7 @@
 # instance fields
 .field final synthetic $callbacks:Lcom/google/android/systemui/statusbar/INotificationVoiceReplyServiceCallbacks;
 
-.field final synthetic $showCTA:Z
+.field final synthetic $ctaState:Lcom/google/android/systemui/statusbar/notification/voicereplies/CtaState;
 
 .field L$0:Ljava/lang/Object;
 
@@ -61,13 +61,13 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/google/android/systemui/statusbar/NotificationVoiceReplyManagerService$binder$1;ZLcom/google/android/systemui/statusbar/INotificationVoiceReplyServiceCallbacks;Lcom/google/android/systemui/statusbar/NotificationVoiceReplyManagerService;Lkotlin/coroutines/Continuation;)V
+.method constructor <init>(Lcom/google/android/systemui/statusbar/NotificationVoiceReplyManagerService$binder$1;Lcom/google/android/systemui/statusbar/notification/voicereplies/CtaState;Lcom/google/android/systemui/statusbar/INotificationVoiceReplyServiceCallbacks;Lcom/google/android/systemui/statusbar/NotificationVoiceReplyManagerService;Lkotlin/coroutines/Continuation;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Lcom/google/android/systemui/statusbar/NotificationVoiceReplyManagerService$binder$1;",
-            "Z",
+            "Lcom/google/android/systemui/statusbar/notification/voicereplies/CtaState;",
             "Lcom/google/android/systemui/statusbar/INotificationVoiceReplyServiceCallbacks;",
             "Lcom/google/android/systemui/statusbar/NotificationVoiceReplyManagerService;",
             "Lkotlin/coroutines/Continuation<",
@@ -79,7 +79,7 @@
 
     iput-object p1, p0, Lcom/google/android/systemui/statusbar/NotificationVoiceReplyManagerService$binder$1$enableCallbacks$2;->this$0:Lcom/google/android/systemui/statusbar/NotificationVoiceReplyManagerService$binder$1;
 
-    iput-boolean p2, p0, Lcom/google/android/systemui/statusbar/NotificationVoiceReplyManagerService$binder$1$enableCallbacks$2;->$showCTA:Z
+    iput-object p2, p0, Lcom/google/android/systemui/statusbar/NotificationVoiceReplyManagerService$binder$1$enableCallbacks$2;->$ctaState:Lcom/google/android/systemui/statusbar/notification/voicereplies/CtaState;
 
     iput-object p3, p0, Lcom/google/android/systemui/statusbar/NotificationVoiceReplyManagerService$binder$1$enableCallbacks$2;->$callbacks:Lcom/google/android/systemui/statusbar/INotificationVoiceReplyServiceCallbacks;
 
@@ -120,7 +120,7 @@
 
     iget-object v1, p0, Lcom/google/android/systemui/statusbar/NotificationVoiceReplyManagerService$binder$1$enableCallbacks$2;->this$0:Lcom/google/android/systemui/statusbar/NotificationVoiceReplyManagerService$binder$1;
 
-    iget-boolean v2, p0, Lcom/google/android/systemui/statusbar/NotificationVoiceReplyManagerService$binder$1$enableCallbacks$2;->$showCTA:Z
+    iget-object v2, p0, Lcom/google/android/systemui/statusbar/NotificationVoiceReplyManagerService$binder$1$enableCallbacks$2;->$ctaState:Lcom/google/android/systemui/statusbar/notification/voicereplies/CtaState;
 
     iget-object v3, p0, Lcom/google/android/systemui/statusbar/NotificationVoiceReplyManagerService$binder$1$enableCallbacks$2;->$callbacks:Lcom/google/android/systemui/statusbar/INotificationVoiceReplyServiceCallbacks;
 
@@ -130,7 +130,7 @@
 
     move-object v5, p2
 
-    invoke-direct/range {v0 .. v5}, Lcom/google/android/systemui/statusbar/NotificationVoiceReplyManagerService$binder$1$enableCallbacks$2;-><init>(Lcom/google/android/systemui/statusbar/NotificationVoiceReplyManagerService$binder$1;ZLcom/google/android/systemui/statusbar/INotificationVoiceReplyServiceCallbacks;Lcom/google/android/systemui/statusbar/NotificationVoiceReplyManagerService;Lkotlin/coroutines/Continuation;)V
+    invoke-direct/range {v0 .. v5}, Lcom/google/android/systemui/statusbar/NotificationVoiceReplyManagerService$binder$1$enableCallbacks$2;-><init>(Lcom/google/android/systemui/statusbar/NotificationVoiceReplyManagerService$binder$1;Lcom/google/android/systemui/statusbar/notification/voicereplies/CtaState;Lcom/google/android/systemui/statusbar/INotificationVoiceReplyServiceCallbacks;Lcom/google/android/systemui/statusbar/NotificationVoiceReplyManagerService;Lkotlin/coroutines/Continuation;)V
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -243,11 +243,7 @@
 
     iget-object v1, p0, Lcom/google/android/systemui/statusbar/NotificationVoiceReplyManagerService$binder$1$enableCallbacks$2;->p$:Lkotlinx/coroutines/CoroutineScope;
 
-    iget-boolean v3, p0, Lcom/google/android/systemui/statusbar/NotificationVoiceReplyManagerService$binder$1$enableCallbacks$2;->$showCTA:Z
-
-    invoke-static {v3}, Lkotlin/coroutines/jvm/internal/Boxing;->boxBoolean(Z)Ljava/lang/Boolean;
-
-    move-result-object v3
+    iget-object v3, p0, Lcom/google/android/systemui/statusbar/NotificationVoiceReplyManagerService$binder$1$enableCallbacks$2;->$ctaState:Lcom/google/android/systemui/statusbar/notification/voicereplies/CtaState;
 
     invoke-static {p1, v1, v3}, Lcom/google/android/systemui/statusbar/NotificationVoiceReplyManagerServiceKt;->access$stateIn(Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/CoroutineScope;Ljava/lang/Object;)Lkotlinx/coroutines/flow/StateFlow;
 

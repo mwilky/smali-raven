@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/wmshell/BubblesManager;-><init>(Landroid/content/Context;Lcom/android/wm/shell/bubbles/Bubbles;Lcom/android/systemui/statusbar/NotificationShadeWindowController;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/phone/ShadeController;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/internal/statusbar/IStatusBarService;Landroid/app/INotificationManager;Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptStateProvider;Lcom/android/systemui/statusbar/policy/ZenModeController;Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/systemui/statusbar/notification/collection/NotifPipeline;Lcom/android/systemui/model/SysUiState;Lcom/android/systemui/statusbar/FeatureFlags;Lcom/android/systemui/dump/DumpManager;Ljava/util/concurrent/Executor;)V
+    value = Lcom/android/systemui/wmshell/BubblesManager;-><init>(Landroid/content/Context;Lcom/android/wm/shell/bubbles/Bubbles;Lcom/android/systemui/statusbar/NotificationShadeWindowController;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/phone/ShadeController;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/internal/statusbar/IStatusBarService;Landroid/app/INotificationManager;Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptStateProvider;Lcom/android/systemui/statusbar/policy/ZenModeController;Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/systemui/statusbar/notification/collection/NotifPipeline;Lcom/android/systemui/model/SysUiState;Lcom/android/systemui/flags/FeatureFlags;Lcom/android/systemui/dump/DumpManager;Ljava/util/concurrent/Executor;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -50,10 +50,10 @@
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$EtZV-bLlf4nbBpzXi1v8yb0hvUM(Lcom/android/systemui/wmshell/BubblesManager$5;Ljava/lang/String;)V
+.method public static synthetic $r8$lambda$E4hBu2R9-9yPqpVj9zEcue7NDs8(Lcom/android/systemui/wmshell/BubblesManager$5;Lcom/android/systemui/model/SysUiState;Z)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/wmshell/BubblesManager$5;->lambda$onUnbubbleConversation$12(Ljava/lang/String;)V
+    invoke-direct {p0, p1, p2}, Lcom/android/systemui/wmshell/BubblesManager$5;->lambda$onManageMenuExpandChanged$12(Lcom/android/systemui/model/SysUiState;Z)V
 
     return-void
 .end method
@@ -118,6 +118,14 @@
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/systemui/wmshell/BubblesManager$5;->lambda$updateNotificationBubbleButton$9(Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$vgfvjofkPXfx3UbXk6SWUG0JTCA(Lcom/android/systemui/wmshell/BubblesManager$5;Ljava/lang/String;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/systemui/wmshell/BubblesManager$5;->lambda$onUnbubbleConversation$13(Ljava/lang/String;)V
 
     return-void
 .end method
@@ -407,10 +415,10 @@
     return-void
 .end method
 
-.method private synthetic lambda$onStackExpandChanged$11(Lcom/android/systemui/model/SysUiState;Z)V
+.method private synthetic lambda$onManageMenuExpandChanged$12(Lcom/android/systemui/model/SysUiState;Z)V
     .locals 1
 
-    const/16 v0, 0x4000
+    const/high16 v0, 0x800000
 
     invoke-virtual {p1, v0, p2}, Lcom/android/systemui/model/SysUiState;->setFlag(IZ)Lcom/android/systemui/model/SysUiState;
 
@@ -431,7 +439,54 @@
     return-void
 .end method
 
-.method private synthetic lambda$onUnbubbleConversation$12(Ljava/lang/String;)V
+.method private synthetic lambda$onStackExpandChanged$11(Lcom/android/systemui/model/SysUiState;Z)V
+    .locals 2
+
+    const/16 v0, 0x4000
+
+    invoke-virtual {p1, v0, p2}, Lcom/android/systemui/model/SysUiState;->setFlag(IZ)Lcom/android/systemui/model/SysUiState;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/systemui/wmshell/BubblesManager$5;->this$0:Lcom/android/systemui/wmshell/BubblesManager;
+
+    invoke-static {v1}, Lcom/android/systemui/wmshell/BubblesManager;->access$200(Lcom/android/systemui/wmshell/BubblesManager;)Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/content/Context;->getDisplayId()I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/model/SysUiState;->commitUpdate(I)V
+
+    if-nez p2, :cond_0
+
+    const/high16 p2, 0x800000
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p1, p2, v0}, Lcom/android/systemui/model/SysUiState;->setFlag(IZ)Lcom/android/systemui/model/SysUiState;
+
+    move-result-object p1
+
+    iget-object p0, p0, Lcom/android/systemui/wmshell/BubblesManager$5;->this$0:Lcom/android/systemui/wmshell/BubblesManager;
+
+    invoke-static {p0}, Lcom/android/systemui/wmshell/BubblesManager;->access$200(Lcom/android/systemui/wmshell/BubblesManager;)Landroid/content/Context;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Landroid/content/Context;->getDisplayId()I
+
+    move-result p0
+
+    invoke-virtual {p1, p0}, Lcom/android/systemui/model/SysUiState;->commitUpdate(I)V
+
+    :cond_0
+    return-void
+.end method
+
+.method private synthetic lambda$onUnbubbleConversation$13(Ljava/lang/String;)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/wmshell/BubblesManager$5;->this$0:Lcom/android/systemui/wmshell/BubblesManager;
@@ -600,9 +655,9 @@
 
     iget-object v0, p0, Lcom/android/systemui/wmshell/BubblesManager$5;->val$sysuiMainExecutor:Ljava/util/concurrent/Executor;
 
-    new-instance v1, Lcom/android/systemui/wmshell/BubblesManager$5$$ExternalSyntheticLambda10;
+    new-instance v1, Lcom/android/systemui/wmshell/BubblesManager$5$$ExternalSyntheticLambda11;
 
-    invoke-direct {v1, p0, p1, p2}, Lcom/android/systemui/wmshell/BubblesManager$5$$ExternalSyntheticLambda10;-><init>(Lcom/android/systemui/wmshell/BubblesManager$5;Ljava/lang/String;Ljava/util/function/Consumer;)V
+    invoke-direct {v1, p0, p1, p2}, Lcom/android/systemui/wmshell/BubblesManager$5$$ExternalSyntheticLambda11;-><init>(Lcom/android/systemui/wmshell/BubblesManager$5;Ljava/lang/String;Ljava/util/function/Consumer;)V
 
     invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
@@ -648,9 +703,9 @@
 
     iget-object v0, p0, Lcom/android/systemui/wmshell/BubblesManager$5;->val$sysuiMainExecutor:Ljava/util/concurrent/Executor;
 
-    new-instance v1, Lcom/android/systemui/wmshell/BubblesManager$5$$ExternalSyntheticLambda11;
+    new-instance v1, Lcom/android/systemui/wmshell/BubblesManager$5$$ExternalSyntheticLambda12;
 
-    invoke-direct {v1, p0, p1}, Lcom/android/systemui/wmshell/BubblesManager$5$$ExternalSyntheticLambda11;-><init>(Lcom/android/systemui/wmshell/BubblesManager$5;Ljava/util/function/Consumer;)V
+    invoke-direct {v1, p0, p1}, Lcom/android/systemui/wmshell/BubblesManager$5$$ExternalSyntheticLambda12;-><init>(Lcom/android/systemui/wmshell/BubblesManager$5;Ljava/util/function/Consumer;)V
 
     invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
@@ -676,9 +731,9 @@
 
     iget-object v0, p0, Lcom/android/systemui/wmshell/BubblesManager$5;->val$sysuiMainExecutor:Ljava/util/concurrent/Executor;
 
-    new-instance v1, Lcom/android/systemui/wmshell/BubblesManager$5$$ExternalSyntheticLambda8;
+    new-instance v1, Lcom/android/systemui/wmshell/BubblesManager$5$$ExternalSyntheticLambda9;
 
-    invoke-direct {v1, p0, p1}, Lcom/android/systemui/wmshell/BubblesManager$5$$ExternalSyntheticLambda8;-><init>(Lcom/android/systemui/wmshell/BubblesManager$5;Ljava/lang/String;)V
+    invoke-direct {v1, p0, p1}, Lcom/android/systemui/wmshell/BubblesManager$5$$ExternalSyntheticLambda9;-><init>(Lcom/android/systemui/wmshell/BubblesManager$5;Ljava/lang/String;)V
 
     invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
@@ -690,16 +745,16 @@
 
     iget-object v0, p0, Lcom/android/systemui/wmshell/BubblesManager$5;->val$sysuiMainExecutor:Ljava/util/concurrent/Executor;
 
-    new-instance v1, Lcom/android/systemui/wmshell/BubblesManager$5$$ExternalSyntheticLambda9;
+    new-instance v1, Lcom/android/systemui/wmshell/BubblesManager$5$$ExternalSyntheticLambda10;
 
-    invoke-direct {v1, p0, p1, p2}, Lcom/android/systemui/wmshell/BubblesManager$5$$ExternalSyntheticLambda9;-><init>(Lcom/android/systemui/wmshell/BubblesManager$5;Ljava/lang/String;I)V
+    invoke-direct {v1, p0, p1, p2}, Lcom/android/systemui/wmshell/BubblesManager$5$$ExternalSyntheticLambda10;-><init>(Lcom/android/systemui/wmshell/BubblesManager$5;Ljava/lang/String;I)V
 
     invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
     return-void
 .end method
 
-.method public onStackExpandChanged(Z)V
+.method public onManageMenuExpandChanged(Z)V
     .locals 3
 
     iget-object v0, p0, Lcom/android/systemui/wmshell/BubblesManager$5;->val$sysuiMainExecutor:Ljava/util/concurrent/Executor;
@@ -715,14 +770,30 @@
     return-void
 .end method
 
+.method public onStackExpandChanged(Z)V
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/systemui/wmshell/BubblesManager$5;->val$sysuiMainExecutor:Ljava/util/concurrent/Executor;
+
+    iget-object v1, p0, Lcom/android/systemui/wmshell/BubblesManager$5;->val$sysUiState:Lcom/android/systemui/model/SysUiState;
+
+    new-instance v2, Lcom/android/systemui/wmshell/BubblesManager$5$$ExternalSyntheticLambda2;
+
+    invoke-direct {v2, p0, v1, p1}, Lcom/android/systemui/wmshell/BubblesManager$5$$ExternalSyntheticLambda2;-><init>(Lcom/android/systemui/wmshell/BubblesManager$5;Lcom/android/systemui/model/SysUiState;Z)V
+
+    invoke-interface {v0, v2}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
+
+    return-void
+.end method
+
 .method public onUnbubbleConversation(Ljava/lang/String;)V
     .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/wmshell/BubblesManager$5;->val$sysuiMainExecutor:Ljava/util/concurrent/Executor;
 
-    new-instance v1, Lcom/android/systemui/wmshell/BubblesManager$5$$ExternalSyntheticLambda2;
+    new-instance v1, Lcom/android/systemui/wmshell/BubblesManager$5$$ExternalSyntheticLambda8;
 
-    invoke-direct {v1, p0, p1}, Lcom/android/systemui/wmshell/BubblesManager$5$$ExternalSyntheticLambda2;-><init>(Lcom/android/systemui/wmshell/BubblesManager$5;Ljava/lang/String;)V
+    invoke-direct {v1, p0, p1}, Lcom/android/systemui/wmshell/BubblesManager$5$$ExternalSyntheticLambda8;-><init>(Lcom/android/systemui/wmshell/BubblesManager$5;Ljava/lang/String;)V
 
     invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
@@ -748,9 +819,9 @@
 
     iget-object v0, p0, Lcom/android/systemui/wmshell/BubblesManager$5;->val$sysuiMainExecutor:Ljava/util/concurrent/Executor;
 
-    new-instance v1, Lcom/android/systemui/wmshell/BubblesManager$5$$ExternalSyntheticLambda12;
+    new-instance v1, Lcom/android/systemui/wmshell/BubblesManager$5$$ExternalSyntheticLambda13;
 
-    invoke-direct {v1, p0, p1, p2}, Lcom/android/systemui/wmshell/BubblesManager$5$$ExternalSyntheticLambda12;-><init>(Lcom/android/systemui/wmshell/BubblesManager$5;ZLjava/lang/String;)V
+    invoke-direct {v1, p0, p1, p2}, Lcom/android/systemui/wmshell/BubblesManager$5$$ExternalSyntheticLambda13;-><init>(Lcom/android/systemui/wmshell/BubblesManager$5;ZLjava/lang/String;)V
 
     invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 

@@ -489,6 +489,8 @@
 
     invoke-virtual {p1}, Lcom/android/wm/shell/bubbles/Bubble;->stopInflation()V
 
+    invoke-virtual {p0, p2, p1}, Lcom/android/wm/shell/bubbles/BubbleData;->overflowBubble(ILcom/android/wm/shell/bubbles/Bubble;)V
+
     iget-object v1, p0, Lcom/android/wm/shell/bubbles/BubbleData;->mBubbles:Ljava/util/List;
 
     invoke-interface {v1}, Ljava/util/List;->size()I
@@ -581,8 +583,6 @@
     iput-boolean v3, v1, Lcom/android/wm/shell/bubbles/BubbleData$Update;->orderChanged:Z
 
     :cond_9
-    invoke-virtual {p0, p2, p1}, Lcom/android/wm/shell/bubbles/BubbleData;->overflowBubble(ILcom/android/wm/shell/bubbles/Bubble;)V
-
     iget-object v1, p0, Lcom/android/wm/shell/bubbles/BubbleData;->mSelectedBubble:Lcom/android/wm/shell/bubbles/BubbleViewProvider;
 
     invoke-static {v1, p1}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
@@ -1145,7 +1145,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_5
 
     iget-object v2, p0, Lcom/android/wm/shell/bubbles/BubbleData;->mBubbles:Ljava/util/List;
 
@@ -1179,62 +1179,6 @@
     return-void
 
     :cond_2
-    instance-of v3, v2, Lcom/android/wm/shell/bubbles/Bubble;
-
-    if-eqz v3, :cond_3
-
-    check-cast v2, Lcom/android/wm/shell/bubbles/Bubble;
-
-    iget-object v3, p0, Lcom/android/wm/shell/bubbles/BubbleData;->mTimeSource:Lcom/android/wm/shell/bubbles/BubbleData$TimeSource;
-
-    invoke-interface {v3}, Lcom/android/wm/shell/bubbles/BubbleData$TimeSource;->currentTimeMillis()J
-
-    move-result-wide v3
-
-    invoke-virtual {v2, v3, v4}, Lcom/android/wm/shell/bubbles/Bubble;->markAsAccessedAt(J)V
-
-    :cond_3
-    iget-object v2, p0, Lcom/android/wm/shell/bubbles/BubbleData;->mStateChange:Lcom/android/wm/shell/bubbles/BubbleData$Update;
-
-    iget-boolean v3, v2, Lcom/android/wm/shell/bubbles/BubbleData$Update;->orderChanged:Z
-
-    invoke-direct {p0}, Lcom/android/wm/shell/bubbles/BubbleData;->repackAll()Z
-
-    move-result v4
-
-    or-int/2addr v3, v4
-
-    iput-boolean v3, v2, Lcom/android/wm/shell/bubbles/BubbleData$Update;->orderChanged:Z
-
-    goto :goto_1
-
-    :cond_4
-    iget-object v2, p0, Lcom/android/wm/shell/bubbles/BubbleData;->mBubbles:Ljava/util/List;
-
-    invoke-interface {v2}, Ljava/util/List;->isEmpty()Z
-
-    move-result v2
-
-    if-nez v2, :cond_7
-
-    iget-object v2, p0, Lcom/android/wm/shell/bubbles/BubbleData;->mStateChange:Lcom/android/wm/shell/bubbles/BubbleData$Update;
-
-    iget-boolean v3, v2, Lcom/android/wm/shell/bubbles/BubbleData$Update;->orderChanged:Z
-
-    invoke-direct {p0}, Lcom/android/wm/shell/bubbles/BubbleData;->repackAll()Z
-
-    move-result v4
-
-    or-int/2addr v3, v4
-
-    iput-boolean v3, v2, Lcom/android/wm/shell/bubbles/BubbleData$Update;->orderChanged:Z
-
-    iget-boolean v2, p0, Lcom/android/wm/shell/bubbles/BubbleData;->mShowingOverflow:Z
-
-    if-eqz v2, :cond_6
-
-    iget-object v2, p0, Lcom/android/wm/shell/bubbles/BubbleData;->mSelectedBubble:Lcom/android/wm/shell/bubbles/BubbleViewProvider;
-
     invoke-interface {v2}, Lcom/android/wm/shell/bubbles/BubbleViewProvider;->getKey()Ljava/lang/String;
 
     move-result-object v2
@@ -1249,15 +1193,16 @@
 
     move-result v2
 
-    if-nez v2, :cond_5
+    if-eqz v2, :cond_3
 
-    iget-object v2, p0, Lcom/android/wm/shell/bubbles/BubbleData;->mSelectedBubble:Lcom/android/wm/shell/bubbles/BubbleViewProvider;
+    iget-object v2, p0, Lcom/android/wm/shell/bubbles/BubbleData;->mBubbles:Ljava/util/List;
 
-    invoke-direct {p0, v2}, Lcom/android/wm/shell/bubbles/BubbleData;->setSelectedBubbleInternal(Lcom/android/wm/shell/bubbles/BubbleViewProvider;)V
+    invoke-interface {v2}, Ljava/util/List;->isEmpty()Z
 
-    goto :goto_0
+    move-result v2
 
-    :cond_5
+    if-nez v2, :cond_3
+
     iget-object v2, p0, Lcom/android/wm/shell/bubbles/BubbleData;->mBubbles:Ljava/util/List;
 
     invoke-interface {v2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -1268,8 +1213,59 @@
 
     invoke-direct {p0, v2}, Lcom/android/wm/shell/bubbles/BubbleData;->setSelectedBubbleInternal(Lcom/android/wm/shell/bubbles/BubbleViewProvider;)V
 
-    :cond_6
-    :goto_0
+    :cond_3
+    iget-object v2, p0, Lcom/android/wm/shell/bubbles/BubbleData;->mSelectedBubble:Lcom/android/wm/shell/bubbles/BubbleViewProvider;
+
+    instance-of v3, v2, Lcom/android/wm/shell/bubbles/Bubble;
+
+    if-eqz v3, :cond_4
+
+    check-cast v2, Lcom/android/wm/shell/bubbles/Bubble;
+
+    iget-object v3, p0, Lcom/android/wm/shell/bubbles/BubbleData;->mTimeSource:Lcom/android/wm/shell/bubbles/BubbleData$TimeSource;
+
+    invoke-interface {v3}, Lcom/android/wm/shell/bubbles/BubbleData$TimeSource;->currentTimeMillis()J
+
+    move-result-wide v3
+
+    invoke-virtual {v2, v3, v4}, Lcom/android/wm/shell/bubbles/Bubble;->markAsAccessedAt(J)V
+
+    :cond_4
+    iget-object v2, p0, Lcom/android/wm/shell/bubbles/BubbleData;->mStateChange:Lcom/android/wm/shell/bubbles/BubbleData$Update;
+
+    iget-boolean v3, v2, Lcom/android/wm/shell/bubbles/BubbleData$Update;->orderChanged:Z
+
+    invoke-direct {p0}, Lcom/android/wm/shell/bubbles/BubbleData;->repackAll()Z
+
+    move-result v4
+
+    or-int/2addr v3, v4
+
+    iput-boolean v3, v2, Lcom/android/wm/shell/bubbles/BubbleData$Update;->orderChanged:Z
+
+    goto :goto_0
+
+    :cond_5
+    iget-object v2, p0, Lcom/android/wm/shell/bubbles/BubbleData;->mBubbles:Ljava/util/List;
+
+    invoke-interface {v2}, Ljava/util/List;->isEmpty()Z
+
+    move-result v2
+
+    if-nez v2, :cond_6
+
+    iget-object v2, p0, Lcom/android/wm/shell/bubbles/BubbleData;->mStateChange:Lcom/android/wm/shell/bubbles/BubbleData$Update;
+
+    iget-boolean v3, v2, Lcom/android/wm/shell/bubbles/BubbleData$Update;->orderChanged:Z
+
+    invoke-direct {p0}, Lcom/android/wm/shell/bubbles/BubbleData;->repackAll()Z
+
+    move-result v4
+
+    or-int/2addr v3, v4
+
+    iput-boolean v3, v2, Lcom/android/wm/shell/bubbles/BubbleData$Update;->orderChanged:Z
+
     iget-object v2, p0, Lcom/android/wm/shell/bubbles/BubbleData;->mBubbles:Ljava/util/List;
 
     iget-object v3, p0, Lcom/android/wm/shell/bubbles/BubbleData;->mSelectedBubble:Lcom/android/wm/shell/bubbles/BubbleViewProvider;
@@ -1278,7 +1274,7 @@
 
     move-result v2
 
-    if-lez v2, :cond_7
+    if-lez v2, :cond_6
 
     iget-object v2, p0, Lcom/android/wm/shell/bubbles/BubbleData;->mBubbles:Ljava/util/List;
 
@@ -1288,7 +1284,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_7
+    if-eqz v2, :cond_6
 
     iget-object v2, p0, Lcom/android/wm/shell/bubbles/BubbleData;->mBubbles:Ljava/util/List;
 
@@ -1310,17 +1306,17 @@
 
     iput-boolean v0, v2, Lcom/android/wm/shell/bubbles/BubbleData$Update;->orderChanged:Z
 
-    :cond_7
-    :goto_1
+    :cond_6
+    :goto_0
     iget-boolean v2, p0, Lcom/android/wm/shell/bubbles/BubbleData;->mNeedsTrimming:Z
 
-    if-eqz v2, :cond_8
+    if-eqz v2, :cond_7
 
     iput-boolean v1, p0, Lcom/android/wm/shell/bubbles/BubbleData;->mNeedsTrimming:Z
 
     invoke-direct {p0}, Lcom/android/wm/shell/bubbles/BubbleData;->trim()V
 
-    :cond_8
+    :cond_7
     iput-boolean p1, p0, Lcom/android/wm/shell/bubbles/BubbleData;->mExpanded:Z
 
     iget-object p0, p0, Lcom/android/wm/shell/bubbles/BubbleData;->mStateChange:Lcom/android/wm/shell/bubbles/BubbleData$Update;
@@ -1334,10 +1330,6 @@
 
 .method private setSelectedBubbleInternal(Lcom/android/wm/shell/bubbles/BubbleViewProvider;)V
     .locals 4
-
-    iget-boolean v0, p0, Lcom/android/wm/shell/bubbles/BubbleData;->mShowingOverflow:Z
-
-    if-nez v0, :cond_0
 
     iget-object v0, p0, Lcom/android/wm/shell/bubbles/BubbleData;->mSelectedBubble:Lcom/android/wm/shell/bubbles/BubbleViewProvider;
 
@@ -2411,7 +2403,7 @@
 
     move-result-object v0
 
-    invoke-virtual {p1}, Lcom/android/wm/shell/bubbles/Bubble;->isVisuallyInterruptive()Z
+    invoke-virtual {p1}, Lcom/android/wm/shell/bubbles/Bubble;->isTextChanged()Z
 
     move-result v1
 
@@ -2424,6 +2416,14 @@
     if-nez v0, :cond_0
 
     invoke-virtual {p1, p2}, Lcom/android/wm/shell/bubbles/Bubble;->setSuppressFlyout(Z)V
+
+    iget-object p2, p0, Lcom/android/wm/shell/bubbles/BubbleData;->mTimeSource:Lcom/android/wm/shell/bubbles/BubbleData$TimeSource;
+
+    invoke-interface {p2}, Lcom/android/wm/shell/bubbles/BubbleData$TimeSource;->currentTimeMillis()J
+
+    move-result-wide v0
+
+    invoke-virtual {p1, v0, v1}, Lcom/android/wm/shell/bubbles/Bubble;->markUpdatedAt(J)V
 
     invoke-direct {p0, p1}, Lcom/android/wm/shell/bubbles/BubbleData;->doAdd(Lcom/android/wm/shell/bubbles/Bubble;)V
 

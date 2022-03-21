@@ -13,12 +13,13 @@
 
 .field private mOverviewProxyService:Lcom/android/systemui/recents/OverviewProxyService;
 
-.field private final mStatusBarLazy:Ldagger/Lazy;
+.field private final mStatusBarOptionalLazy:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
+            "Ljava/util/Optional<",
             "Lcom/android/systemui/statusbar/phone/StatusBar;",
-            ">;"
+            ">;>;"
         }
     .end annotation
 .end field
@@ -43,13 +44,13 @@
     return-void
 .end method
 
-.method public constructor <init>(Ljava/util/Optional;)V
-    .locals 1
+.method public constructor <init>(Ldagger/Lazy;)V
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/Optional<",
             "Ldagger/Lazy<",
+            "Ljava/util/Optional<",
             "Lcom/android/systemui/statusbar/phone/StatusBar;",
             ">;>;)V"
         }
@@ -57,15 +58,7 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    const/4 v0, 0x0
-
-    invoke-virtual {p1, v0}, Ljava/util/Optional;->orElse(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object p1
-
-    check-cast p1, Ldagger/Lazy;
-
-    iput-object p1, p0, Lcom/android/systemui/recents/OverviewProxyRecentsImpl;->mStatusBarLazy:Ldagger/Lazy;
+    iput-object p1, p0, Lcom/android/systemui/recents/OverviewProxyRecentsImpl;->mStatusBarOptionalLazy:Ldagger/Lazy;
 
     return-void
 .end method
@@ -170,7 +163,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/recents/OverviewProxyRecentsImpl;->mHandler:Landroid/os/Handler;
 
-    const-string/jumbo v0, "trust"
+    const-string v0, "trust"
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -239,25 +232,35 @@
 
     invoke-direct {v0, p0}, Lcom/android/systemui/recents/OverviewProxyRecentsImpl$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/recents/OverviewProxyRecentsImpl;)V
 
-    iget-object v1, p0, Lcom/android/systemui/recents/OverviewProxyRecentsImpl;->mStatusBarLazy:Ldagger/Lazy;
-
-    if-eqz v1, :cond_0
+    iget-object v1, p0, Lcom/android/systemui/recents/OverviewProxyRecentsImpl;->mStatusBarOptionalLazy:Ldagger/Lazy;
 
     invoke-interface {v1}, Ldagger/Lazy;->get()Ljava/lang/Object;
 
     move-result-object v1
 
-    check-cast v1, Lcom/android/systemui/statusbar/phone/StatusBar;
+    check-cast v1, Ljava/util/Optional;
 
-    invoke-virtual {v1}, Lcom/android/systemui/statusbar/phone/StatusBar;->isKeyguardShowing()Z
+    sget-object v2, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite$$ExternalSyntheticLambda7;->INSTANCE:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite$$ExternalSyntheticLambda7;
 
-    move-result v1
+    invoke-virtual {v1, v2}, Ljava/util/Optional;->map(Ljava/util/function/Function;)Ljava/util/Optional;
 
-    if-eqz v1, :cond_0
+    move-result-object v2
 
-    iget-object v1, p0, Lcom/android/systemui/recents/OverviewProxyRecentsImpl;->mStatusBarLazy:Ldagger/Lazy;
+    sget-object v3, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
 
-    invoke-interface {v1}, Ldagger/Lazy;->get()Ljava/lang/Object;
+    invoke-virtual {v2, v3}, Ljava/util/Optional;->orElse(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Ljava/lang/Boolean;
+
+    invoke-virtual {v2}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    invoke-virtual {v1}, Ljava/util/Optional;->get()Ljava/lang/Object;
 
     move-result-object v1
 

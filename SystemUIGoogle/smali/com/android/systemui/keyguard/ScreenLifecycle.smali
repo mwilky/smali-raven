@@ -28,7 +28,7 @@
 
 
 # direct methods
-.method public constructor <init>()V
+.method public constructor <init>(Lcom/android/systemui/dump/DumpManager;)V
     .locals 1
 
     invoke-direct {p0}, Lcom/android/systemui/keyguard/Lifecycle;-><init>()V
@@ -36,6 +36,14 @@
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/android/systemui/keyguard/ScreenLifecycle;->mScreenState:I
+
+    const-class v0, Lcom/android/systemui/keyguard/ScreenLifecycle;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0, p0}, Lcom/android/systemui/dump/DumpManager;->registerDumpable(Ljava/lang/String;Lcom/android/systemui/Dumpable;)V
 
     return-void
 .end method

@@ -8,6 +8,8 @@
 
 .field public static final ALPHA_OUT:Landroid/view/animation/Interpolator;
 
+.field public static final DIM_INTERPOLATOR:Landroid/view/animation/PathInterpolator;
+
 .field public static final FAST_OUT_LINEAR_IN:Landroid/view/animation/Interpolator;
 
 .field public static final FAST_OUT_SLOW_IN:Landroid/view/animation/Interpolator;
@@ -17,6 +19,8 @@
 .field public static final LINEAR_OUT_SLOW_IN:Landroid/view/animation/Interpolator;
 
 .field public static final PANEL_CLOSE_ACCELERATED:Landroid/view/animation/Interpolator;
+
+.field public static final SLOWDOWN_INTERPOLATOR:Landroid/view/animation/PathInterpolator;
 
 .field public static final TOUCH_RESPONSE:Landroid/view/animation/Interpolator;
 
@@ -88,6 +92,26 @@
     invoke-direct {v0, v1, v2, v4, v3}, Landroid/view/animation/PathInterpolator;-><init>(FFFF)V
 
     sput-object v0, Lcom/android/wm/shell/animation/Interpolators;->PANEL_CLOSE_ACCELERATED:Landroid/view/animation/Interpolator;
+
+    new-instance v0, Landroid/view/animation/PathInterpolator;
+
+    invoke-direct {v0, v4, v3, v4, v3}, Landroid/view/animation/PathInterpolator;-><init>(FFFF)V
+
+    sput-object v0, Lcom/android/wm/shell/animation/Interpolators;->SLOWDOWN_INTERPOLATOR:Landroid/view/animation/PathInterpolator;
+
+    new-instance v0, Landroid/view/animation/PathInterpolator;
+
+    const v1, 0x3e6b851f    # 0.23f
+
+    const v2, 0x3f5eb852    # 0.87f
+
+    const v3, 0x3f051eb8    # 0.52f
+
+    const v4, -0x421eb852    # -0.11f
+
+    invoke-direct {v0, v1, v2, v3, v4}, Landroid/view/animation/PathInterpolator;-><init>(FFFF)V
+
+    sput-object v0, Lcom/android/wm/shell/animation/Interpolators;->DIM_INTERPOLATOR:Landroid/view/animation/PathInterpolator;
 
     return-void
 .end method

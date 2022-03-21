@@ -32,18 +32,6 @@
         <item quantity="other">වැරදි SIM PUK කේතයකි, SIM කාඩ්පත ස්ථිරවම භාවිත කළ නොහැකි බවට පත්වීමට පෙර ඔබට තවත් උත්සාහයන් %dක් ඉතිරිව ඇත.</item>
         <item quantity="one">වැරදි SIM PUK කේතයකි, SIM කාඩ්පත ස්ථිරවම භාවිත කළ නොහැකි බවට පත්වීමට පෙර ඔබට තවත් උත්සාහයන් %dක් ඉතිරිව ඇත.</item>
     </plurals>
-    <plurals name="kg_prompt_reason_time_password">
-        <item quantity="other">උපාංගය පැය %dක් අගුලු හැර නැත. මුරපදය තහවුරු කරන්න.</item>
-        <item quantity="one">උපාංගය පැය %dක් අගුලු හැර නැත. මුරපදය තහවුරු කරන්න.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pattern">
-        <item quantity="other">උපාංගය පැය %dක් අගුලු හැර නැත. රටාව තහවුරු කරන්න.</item>
-        <item quantity="one">උපාංගය පැය %dක් අගුලු හැර නැත. රටාව තහවුරු කරන්න.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pin">
-        <item quantity="other">උපාංගය පැය %dක් අගුලු හැර නැත. PIN අංකය තහවුරු කරන්න.</item>
-        <item quantity="one">උපාංගය පැය %dක් අගුලු හැර නැත. PIN අංකය තහවුරු කරන්න.</item>
-    </plurals>
     <plurals name="kg_too_many_failed_attempts_countdown">
         <item quantity="other">තත්පර %dකින් නැවත උත්සාහ කරන්න.</item>
         <item quantity="one">තත්පර %dකින් නැවත උත්සාහ කරන්න.</item>

@@ -32,18 +32,6 @@
         <item quantity="other">ဆင်းမ် ပင်နံပါတ် ပြန်ဖွင့်သည့်ကုဒ် မှန်ကန်မှုမရှိပါ။ ဆင်းမ်ကဒ်ကို အပြီးအပိုင်မပိတ်ခင် %d ကြိမ်စမ်းသပ်ခွင့် ရှိပါသေးသည်။</item>
         <item quantity="one">ဆင်းမ် ပင်နံပါတ် ပြန်ဖွင့်သည့်ကုဒ် မှန်ကန်မှုမရှိပါ။ ဆင်းမ်ကဒ်ကို အပြီးအပိုင်မပိတ်ခင် %d ကြိမ်စမ်းသပ်ခွင့် ရှိပါသေးသည်။</item>
     </plurals>
-    <plurals name="kg_prompt_reason_time_password">
-        <item quantity="other">စက်ပစ္စည်းကို %d နာရီကြာ လော့ခ်ဖွင့်ခဲ့ခြင်း မရှိပါ။ စကားဝှက်အား အတည်ပြုပါ။</item>
-        <item quantity="one">စက်ပစ္စည်းကို %d နာရီကြာ လော့ခ်ဖွင့်ခဲ့ခြင်း မရှိပါ။ စကားဝှက်အား အတည်ပြုပါ။</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pattern">
-        <item quantity="other">စက်ပစ္စည်းကို %d နာရီကြာ လော့ခ်ဖွင့်ခဲ့ခြင်း မရှိပါ။ ပုံစံအား အတည်ပြုပါ။</item>
-        <item quantity="one">စက်ပစ္စည်းကို %d နာရီကြာ လော့ခ်ဖွင့်ခဲ့ခြင်း မရှိပါ။ ပုံစံအား အတည်ပြုပါ။</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pin">
-        <item quantity="other">စက်ပစ္စည်းကို %d နာရီကြာ လော့ခ်ဖွင့်ခဲ့ခြင်း မရှိပါ။ ပင်နံပါတ်အား အတည်ပြုပါ။</item>
-        <item quantity="one">စက်ပစ္စည်းကို %d နာရီကြာ လော့ခ်ဖွင့်ခဲ့ခြင်း မရှိပါ။ ပင်နံပါတ်အား အတည်ပြုပါ။</item>
-    </plurals>
     <plurals name="kg_too_many_failed_attempts_countdown">
         <item quantity="other">%d စက္ကန့် အကြာတွင် ထပ်လုပ်ကြည့်ပါ</item>
         <item quantity="one">၁ စက္ကန့် အကြာတွင် ထပ်လုပ်ကြည့်ပါ</item>

@@ -33,7 +33,7 @@
 
     iget p0, p0, Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda7;->f$1:I
 
-    invoke-static {v0, p0}, Lcom/android/wm/shell/TaskView;->$r8$lambda$yaX_0PFtXrifdHGmoVvwNyd25zs(Lcom/android/wm/shell/TaskView;I)V
+    invoke-static {v0, p0}, Lcom/android/wm/shell/TaskView;->$r8$lambda$dDb4GjX0ndicg_NlgvyhxCUJyBU(Lcom/android/wm/shell/TaskView;I)V
 
     return-void
 .end method

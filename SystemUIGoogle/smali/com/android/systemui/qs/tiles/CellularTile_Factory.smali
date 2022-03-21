@@ -82,7 +82,7 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/policy/NetworkController;",
+            "Lcom/android/systemui/statusbar/connectivity/NetworkController;",
             ">;"
         }
     .end annotation
@@ -140,7 +140,7 @@
             "Lcom/android/systemui/qs/logging/QSLogger;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/policy/NetworkController;",
+            "Lcom/android/systemui/statusbar/connectivity/NetworkController;",
             ">;)V"
         }
     .end annotation
@@ -198,7 +198,7 @@
             "Lcom/android/systemui/qs/logging/QSLogger;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/policy/NetworkController;",
+            "Lcom/android/systemui/statusbar/connectivity/NetworkController;",
             ">;)",
             "Lcom/android/systemui/qs/tiles/CellularTile_Factory;"
         }
@@ -231,7 +231,7 @@
     return-object v10
 .end method
 
-.method public static newInstance(Lcom/android/systemui/qs/QSHost;Landroid/os/Looper;Landroid/os/Handler;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/systemui/statusbar/policy/NetworkController;)Lcom/android/systemui/qs/tiles/CellularTile;
+.method public static newInstance(Lcom/android/systemui/qs/QSHost;Landroid/os/Looper;Landroid/os/Handler;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/systemui/statusbar/connectivity/NetworkController;)Lcom/android/systemui/qs/tiles/CellularTile;
     .locals 11
 
     new-instance v10, Lcom/android/systemui/qs/tiles/CellularTile;
@@ -256,7 +256,7 @@
 
     move-object/from16 v9, p8
 
-    invoke-direct/range {v0 .. v9}, Lcom/android/systemui/qs/tiles/CellularTile;-><init>(Lcom/android/systemui/qs/QSHost;Landroid/os/Looper;Landroid/os/Handler;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/systemui/statusbar/policy/NetworkController;)V
+    invoke-direct/range {v0 .. v9}, Lcom/android/systemui/qs/tiles/CellularTile;-><init>(Lcom/android/systemui/qs/QSHost;Landroid/os/Looper;Landroid/os/Handler;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/systemui/statusbar/connectivity/NetworkController;)V
 
     return-object v10
 .end method
@@ -354,9 +354,9 @@
 
     move-object v9, p0
 
-    check-cast v9, Lcom/android/systemui/statusbar/policy/NetworkController;
+    check-cast v9, Lcom/android/systemui/statusbar/connectivity/NetworkController;
 
-    invoke-static/range {v1 .. v9}, Lcom/android/systemui/qs/tiles/CellularTile_Factory;->newInstance(Lcom/android/systemui/qs/QSHost;Landroid/os/Looper;Landroid/os/Handler;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/systemui/statusbar/policy/NetworkController;)Lcom/android/systemui/qs/tiles/CellularTile;
+    invoke-static/range {v1 .. v9}, Lcom/android/systemui/qs/tiles/CellularTile_Factory;->newInstance(Lcom/android/systemui/qs/QSHost;Landroid/os/Looper;Landroid/os/Handler;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/systemui/statusbar/connectivity/NetworkController;)Lcom/android/systemui/qs/tiles/CellularTile;
 
     move-result-object p0
 

@@ -166,6 +166,23 @@
     return-object p0
 .end method
 
+.method public static bridge synthetic maxOrNull([Ljava/lang/Comparable;)Ljava/lang/Comparable;
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<T::",
+            "Ljava/lang/Comparable<",
+            "-TT;>;>([TT;)TT;"
+        }
+    .end annotation
+
+    invoke-static {p0}, Lkotlin/collections/ArraysKt___ArraysKt;->maxOrNull([Ljava/lang/Comparable;)Ljava/lang/Comparable;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method public static bridge synthetic plus([I[I)[I
     .locals 0
 

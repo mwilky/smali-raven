@@ -4,6 +4,6 @@
 
 
 # static fields
-.field public static final url_indicator:I = 0x7f0b06a8
+.field public static final url_indicator:I = 0x7f0b068b
 
-.field public static final url_text:I = 0x7f0b06aa
+.field public static final url_text:I = 0x7f0b068d

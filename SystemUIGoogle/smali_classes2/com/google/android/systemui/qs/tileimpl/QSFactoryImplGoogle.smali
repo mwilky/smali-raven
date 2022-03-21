@@ -34,6 +34,16 @@
     .end annotation
 .end field
 
+.field private final mRotationLockTileGoogleProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/google/android/systemui/qs/tiles/RotationLockTileGoogle;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 
 # direct methods
 .method public constructor <init>(Ldagger/Lazy;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
@@ -72,7 +82,7 @@
             "Lcom/android/systemui/qs/tiles/WorkModeTile;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/qs/tiles/RotationLockTile;",
+            "Lcom/google/android/systemui/qs/tiles/RotationLockTileGoogle;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/qs/tiles/FlashlightTile;",
@@ -137,7 +147,9 @@
         }
     .end annotation
 
-    move-object/from16 v15, p0
+    move-object/from16 v11, p0
+
+    move-object/from16 v15, p11
 
     move-object/from16 v14, p17
 
@@ -163,8 +175,6 @@
 
     move-object/from16 v10, p10
 
-    move-object/from16 v11, p11
-
     move-object/from16 v12, p12
 
     move-object/from16 v13, p13
@@ -174,6 +184,8 @@
     move-object v0, v14
 
     move-object/from16 v14, p14
+
+    move-object v1, v15
 
     move-object/from16 v15, p15
 
@@ -203,15 +215,25 @@
 
     move-object/from16 v29, p31
 
+    invoke-static/range {p11 .. p11}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
+
+    new-instance v2, Lcom/google/android/systemui/qs/tileimpl/QSFactoryImplGoogle$$ExternalSyntheticLambda1;
+
+    move-object v11, v2
+
+    invoke-direct {v2, v1}, Lcom/google/android/systemui/qs/tileimpl/QSFactoryImplGoogle$$ExternalSyntheticLambda1;-><init>(Ljavax/inject/Provider;)V
+
     invoke-static/range {p17 .. p17}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    new-instance v1, Lcom/google/android/systemui/qs/tileimpl/QSFactoryImplGoogle$$ExternalSyntheticLambda0;
+    new-instance v2, Lcom/google/android/systemui/qs/tileimpl/QSFactoryImplGoogle$$ExternalSyntheticLambda0;
 
-    move-object/from16 v17, v1
+    move-object/from16 v17, v2
 
-    invoke-direct {v1, v0}, Lcom/google/android/systemui/qs/tileimpl/QSFactoryImplGoogle$$ExternalSyntheticLambda0;-><init>(Ljavax/inject/Provider;)V
+    invoke-direct {v2, v0}, Lcom/google/android/systemui/qs/tileimpl/QSFactoryImplGoogle$$ExternalSyntheticLambda0;-><init>(Ljavax/inject/Provider;)V
 
     move-object/from16 v1, p1
+
+    move-object/from16 v2, p2
 
     move-object/from16 v0, v30
 
@@ -231,22 +253,29 @@
 
     iput-object v1, v0, Lcom/google/android/systemui/qs/tileimpl/QSFactoryImplGoogle;->mOverlayToggleTileProvider:Ljavax/inject/Provider;
 
+    move-object/from16 v1, p11
+
+    iput-object v1, v0, Lcom/google/android/systemui/qs/tileimpl/QSFactoryImplGoogle;->mRotationLockTileGoogleProvider:Ljavax/inject/Provider;
+
     return-void
 .end method
 
 .method private createTileInternal(Ljava/lang/String;)Lcom/android/systemui/qs/tileimpl/QSTileImpl;
-    .locals 1
+    .locals 2
 
     invoke-virtual {p1}, Ljava/lang/String;->hashCode()I
 
-    const-string v0, "ott"
-
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1}, Ljava/lang/String;->hashCode()I
 
     move-result v0
 
-    if-nez v0, :cond_1
+    const/4 v1, -0x1
 
+    sparse-switch v0, :sswitch_data_0
+
+    goto :goto_0
+
+    :sswitch_0
     const-string v0, "reverse"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -255,11 +284,51 @@
 
     if-nez p1, :cond_0
 
+    goto :goto_0
+
+    :cond_0
+    const/4 v1, 0x2
+
+    goto :goto_0
+
+    :sswitch_1
+    const-string v0, "ott"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p1
+
+    if-nez p1, :cond_1
+
+    goto :goto_0
+
+    :cond_1
+    const/4 v1, 0x1
+
+    goto :goto_0
+
+    :sswitch_2
+    const-string v0, "rotation"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p1
+
+    if-nez p1, :cond_2
+
+    goto :goto_0
+
+    :cond_2
+    const/4 v1, 0x0
+
+    :goto_0
+    packed-switch v1, :pswitch_data_0
+
     const/4 p0, 0x0
 
     return-object p0
 
-    :cond_0
+    :pswitch_0
     iget-object p0, p0, Lcom/google/android/systemui/qs/tileimpl/QSFactoryImplGoogle;->mReverseChargingTileProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
@@ -270,7 +339,7 @@
 
     return-object p0
 
-    :cond_1
+    :pswitch_1
     iget-object p0, p0, Lcom/google/android/systemui/qs/tileimpl/QSFactoryImplGoogle;->mOverlayToggleTileProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
@@ -280,6 +349,31 @@
     check-cast p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;
 
     return-object p0
+
+    :pswitch_2
+    iget-object p0, p0, Lcom/google/android/systemui/qs/tileimpl/QSFactoryImplGoogle;->mRotationLockTileGoogleProvider:Ljavax/inject/Provider;
+
+    invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;
+
+    return-object p0
+
+    :sswitch_data_0
+    .sparse-switch
+        -0x266f082 -> :sswitch_2
+        0x1af2f -> :sswitch_1
+        0x418e52e2 -> :sswitch_0
+    .end sparse-switch
+
+    :pswitch_data_0
+    .packed-switch 0x0
+        :pswitch_2
+        :pswitch_1
+        :pswitch_0
+    .end packed-switch
 .end method
 
 

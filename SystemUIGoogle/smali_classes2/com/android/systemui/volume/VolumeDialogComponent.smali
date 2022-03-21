@@ -9,6 +9,8 @@
 
 
 # instance fields
+.field private final mActivityStarter:Lcom/android/systemui/plugins/ActivityStarter;
+
 .field private final mConfigChanges:Lcom/android/settingslib/applications/InterestingConfigChanges;
 
 .field protected final mContext:Landroid/content/Context;
@@ -25,15 +27,25 @@
 
 
 # direct methods
-.method public static synthetic $r8$lambda$OGhUKebRIkL9obK7zhlYZgrHN-w(Lcom/android/systemui/volume/VolumeDialogComponent;Lcom/android/systemui/plugins/VolumeDialog;)V
+.method public static synthetic $r8$lambda$L3JnflTdrQqAzB7TFSod7UDj4bc(Lcom/android/systemui/plugins/VolumeDialog;)Lcom/android/systemui/plugins/VolumeDialog;
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/volume/VolumeDialogComponent;->lambda$new$0(Lcom/android/systemui/plugins/VolumeDialog;)V
+    invoke-static {p0}, Lcom/android/systemui/volume/VolumeDialogComponent;->lambda$new$0(Lcom/android/systemui/plugins/VolumeDialog;)Lcom/android/systemui/plugins/VolumeDialog;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static synthetic $r8$lambda$YHoIVAo6PK6bVgqec6iEEPwYDZE(Lcom/android/systemui/volume/VolumeDialogComponent;Lcom/android/systemui/plugins/VolumeDialog;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/systemui/volume/VolumeDialogComponent;->lambda$new$1(Lcom/android/systemui/plugins/VolumeDialog;)V
 
     return-void
 .end method
 
-.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/keyguard/KeyguardViewMediator;Lcom/android/systemui/volume/VolumeDialogControllerImpl;Lcom/android/systemui/demomode/DemoModeController;)V
+.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/keyguard/KeyguardViewMediator;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/volume/VolumeDialogControllerImpl;Lcom/android/systemui/demomode/DemoModeController;Lcom/android/systemui/plugins/PluginDependencyProvider;Lcom/android/systemui/statusbar/policy/ExtensionController;Lcom/android/systemui/tuner/TunerService;Lcom/android/systemui/plugins/VolumeDialog;)V
     .locals 4
 
     const-class v0, Lcom/android/systemui/plugins/VolumeDialog;
@@ -68,31 +80,17 @@
 
     iput-object p2, p0, Lcom/android/systemui/volume/VolumeDialogComponent;->mKeyguardViewMediator:Lcom/android/systemui/keyguard/KeyguardViewMediator;
 
-    iput-object p3, p0, Lcom/android/systemui/volume/VolumeDialogComponent;->mController:Lcom/android/systemui/volume/VolumeDialogControllerImpl;
+    iput-object p3, p0, Lcom/android/systemui/volume/VolumeDialogComponent;->mActivityStarter:Lcom/android/systemui/plugins/ActivityStarter;
 
-    invoke-virtual {p3, p0}, Lcom/android/systemui/volume/VolumeDialogControllerImpl;->setUserActivityListener(Lcom/android/systemui/volume/VolumeDialogControllerImpl$UserActivityListener;)V
+    iput-object p4, p0, Lcom/android/systemui/volume/VolumeDialogComponent;->mController:Lcom/android/systemui/volume/VolumeDialogControllerImpl;
 
-    const-class p1, Lcom/android/systemui/plugins/PluginDependencyProvider;
+    invoke-virtual {p4, p0}, Lcom/android/systemui/volume/VolumeDialogControllerImpl;->setUserActivityListener(Lcom/android/systemui/volume/VolumeDialogControllerImpl$UserActivityListener;)V
 
-    invoke-static {p1}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    const-class p1, Lcom/android/systemui/plugins/VolumeDialogController;
 
-    move-result-object p1
+    invoke-virtual {p6, p1}, Lcom/android/systemui/plugins/PluginDependencyProvider;->allowPluginDependency(Ljava/lang/Class;)V
 
-    check-cast p1, Lcom/android/systemui/plugins/PluginDependencyProvider;
-
-    const-class p2, Lcom/android/systemui/plugins/VolumeDialogController;
-
-    invoke-virtual {p1, p2}, Lcom/android/systemui/plugins/PluginDependencyProvider;->allowPluginDependency(Ljava/lang/Class;)V
-
-    const-class p1, Lcom/android/systemui/statusbar/policy/ExtensionController;
-
-    invoke-static {p1}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
-
-    move-result-object p1
-
-    check-cast p1, Lcom/android/systemui/statusbar/policy/ExtensionController;
-
-    invoke-interface {p1, v0}, Lcom/android/systemui/statusbar/policy/ExtensionController;->newExtension(Ljava/lang/Class;)Lcom/android/systemui/statusbar/policy/ExtensionController$ExtensionBuilder;
+    invoke-interface {p7, v0}, Lcom/android/systemui/statusbar/policy/ExtensionController;->newExtension(Ljava/lang/Class;)Lcom/android/systemui/statusbar/policy/ExtensionController$ExtensionBuilder;
 
     move-result-object p1
 
@@ -102,7 +100,7 @@
 
     new-instance p2, Lcom/android/systemui/volume/VolumeDialogComponent$$ExternalSyntheticLambda1;
 
-    invoke-direct {p2, p0}, Lcom/android/systemui/volume/VolumeDialogComponent$$ExternalSyntheticLambda1;-><init>(Lcom/android/systemui/volume/VolumeDialogComponent;)V
+    invoke-direct {p2, p9}, Lcom/android/systemui/volume/VolumeDialogComponent$$ExternalSyntheticLambda1;-><init>(Lcom/android/systemui/plugins/VolumeDialog;)V
 
     invoke-interface {p1, p2}, Lcom/android/systemui/statusbar/policy/ExtensionController$ExtensionBuilder;->withDefault(Ljava/util/function/Supplier;)Lcom/android/systemui/statusbar/policy/ExtensionController$ExtensionBuilder;
 
@@ -120,27 +118,19 @@
 
     invoke-direct {p0}, Lcom/android/systemui/volume/VolumeDialogComponent;->applyConfiguration()V
 
-    const-class p1, Lcom/android/systemui/tuner/TunerService;
+    const-string p1, "sysui_volume_down_silent"
 
-    invoke-static {p1}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    const-string p2, "sysui_volume_up_silent"
+
+    const-string p3, "sysui_do_not_disturb"
+
+    filled-new-array {p1, p2, p3}, [Ljava/lang/String;
 
     move-result-object p1
 
-    check-cast p1, Lcom/android/systemui/tuner/TunerService;
+    invoke-virtual {p8, p0, p1}, Lcom/android/systemui/tuner/TunerService;->addTunable(Lcom/android/systemui/tuner/TunerService$Tunable;[Ljava/lang/String;)V
 
-    const-string p2, "sysui_volume_down_silent"
-
-    const-string p3, "sysui_volume_up_silent"
-
-    const-string v0, "sysui_do_not_disturb"
-
-    filled-new-array {p2, p3, v0}, [Ljava/lang/String;
-
-    move-result-object p2
-
-    invoke-virtual {p1, p0, p2}, Lcom/android/systemui/tuner/TunerService;->addTunable(Lcom/android/systemui/tuner/TunerService$Tunable;[Ljava/lang/String;)V
-
-    invoke-virtual {p4, p0}, Lcom/android/systemui/demomode/DemoModeController;->addCallback(Lcom/android/systemui/demomode/DemoMode;)V
+    invoke-virtual {p5, p0}, Lcom/android/systemui/demomode/DemoModeController;->addCallback(Lcom/android/systemui/demomode/DemoMode;)V
 
     return-void
 .end method
@@ -171,7 +161,13 @@
     return-void
 .end method
 
-.method private synthetic lambda$new$0(Lcom/android/systemui/plugins/VolumeDialog;)V
+.method private static synthetic lambda$new$0(Lcom/android/systemui/plugins/VolumeDialog;)Lcom/android/systemui/plugins/VolumeDialog;
+    .locals 0
+
+    return-object p0
+.end method
+
+.method private synthetic lambda$new$1(Lcom/android/systemui/plugins/VolumeDialog;)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/volume/VolumeDialogComponent;->mDialog:Lcom/android/systemui/plugins/VolumeDialog;
@@ -211,13 +207,7 @@
 .method private startSettings(Landroid/content/Intent;)V
     .locals 1
 
-    const-class p0, Lcom/android/systemui/plugins/ActivityStarter;
-
-    invoke-static {p0}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
-
-    move-result-object p0
-
-    check-cast p0, Lcom/android/systemui/plugins/ActivityStarter;
+    iget-object p0, p0, Lcom/android/systemui/volume/VolumeDialogComponent;->mActivityStarter:Lcom/android/systemui/plugins/ActivityStarter;
 
     const/4 v0, 0x1
 
@@ -228,28 +218,6 @@
 
 
 # virtual methods
-.method protected createDefault()Lcom/android/systemui/plugins/VolumeDialog;
-    .locals 2
-
-    new-instance v0, Lcom/android/systemui/volume/VolumeDialogImpl;
-
-    iget-object p0, p0, Lcom/android/systemui/volume/VolumeDialogComponent;->mContext:Landroid/content/Context;
-
-    invoke-direct {v0, p0}, Lcom/android/systemui/volume/VolumeDialogImpl;-><init>(Landroid/content/Context;)V
-
-    const/4 p0, 0x1
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, p0, v1}, Lcom/android/systemui/volume/VolumeDialogImpl;->setStreamImportant(IZ)V
-
-    invoke-virtual {v0, p0}, Lcom/android/systemui/volume/VolumeDialogImpl;->setAutomute(Z)V
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/volume/VolumeDialogImpl;->setSilentMode(Z)V
-
-    return-object v0
-.end method
-
 .method public demoCommands()Ljava/util/List;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;

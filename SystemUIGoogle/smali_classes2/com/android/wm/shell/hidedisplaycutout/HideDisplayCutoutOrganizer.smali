@@ -139,57 +139,6 @@
     throw p1
 .end method
 
-.method private getStatusBarHeight()I
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/wm/shell/hidedisplaycutout/HideDisplayCutoutOrganizer;->mIsDefaultPortrait:Z
-
-    if-eqz v0, :cond_0
-
-    invoke-direct {p0}, Lcom/android/wm/shell/hidedisplaycutout/HideDisplayCutoutOrganizer;->isDisplaySizeFlipped()Z
-
-    move-result v0
-
-    goto :goto_0
-
-    :cond_0
-    invoke-direct {p0}, Lcom/android/wm/shell/hidedisplaycutout/HideDisplayCutoutOrganizer;->isDisplaySizeFlipped()Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    const/4 v0, 0x1
-
-    goto :goto_0
-
-    :cond_1
-    const/4 v0, 0x0
-
-    :goto_0
-    iget-object p0, p0, Lcom/android/wm/shell/hidedisplaycutout/HideDisplayCutoutOrganizer;->mContext:Landroid/content/Context;
-
-    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object p0
-
-    if-eqz v0, :cond_2
-
-    const v0, 0x1050277
-
-    goto :goto_1
-
-    :cond_2
-    const v0, 0x1050278
-
-    :goto_1
-    invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result p0
-
-    return p0
-.end method
-
 .method private initDefaultValuesIfNeeded()V
     .locals 2
 
@@ -874,6 +823,18 @@
     return-object v0
 .end method
 
+.method getStatusBarHeight()I
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/wm/shell/hidedisplaycutout/HideDisplayCutoutOrganizer;->mContext:Landroid/content/Context;
+
+    invoke-static {p0}, Lcom/android/internal/policy/SystemBarUtils;->getStatusBarHeight(Landroid/content/Context;)I
+
+    move-result p0
+
+    return p0
+.end method
+
 .method public onDisplayAreaAppeared(Landroid/window/DisplayAreaInfo;Landroid/view/SurfaceControl;)V
     .locals 2
 
@@ -1045,7 +1006,7 @@
 
     invoke-virtual {p1, v0}, Landroid/graphics/Rect;->inset(Landroid/graphics/Insets;)V
 
-    invoke-direct {p0}, Lcom/android/wm/shell/hidedisplaycutout/HideDisplayCutoutOrganizer;->getStatusBarHeight()I
+    invoke-virtual {p0}, Lcom/android/wm/shell/hidedisplaycutout/HideDisplayCutoutOrganizer;->getStatusBarHeight()I
 
     move-result p1
 

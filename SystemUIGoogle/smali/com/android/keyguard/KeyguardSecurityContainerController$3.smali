@@ -39,7 +39,7 @@
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController$3;->this$0:Lcom/android/keyguard/KeyguardSecurityContainerController;
 
-    invoke-static {v0}, Lcom/android/keyguard/KeyguardSecurityContainerController;->access$100(Lcom/android/keyguard/KeyguardSecurityContainerController;)Lcom/android/keyguard/KeyguardUpdateMonitor;
+    invoke-static {v0}, Lcom/android/keyguard/KeyguardSecurityContainerController;->access$700(Lcom/android/keyguard/KeyguardSecurityContainerController;)Lcom/android/keyguard/KeyguardUpdateMonitor;
 
     move-result-object v0
 
@@ -51,7 +51,7 @@
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController$3;->this$0:Lcom/android/keyguard/KeyguardSecurityContainerController;
 
-    invoke-static {v0}, Lcom/android/keyguard/KeyguardSecurityContainerController;->access$100(Lcom/android/keyguard/KeyguardSecurityContainerController;)Lcom/android/keyguard/KeyguardUpdateMonitor;
+    invoke-static {v0}, Lcom/android/keyguard/KeyguardSecurityContainerController;->access$700(Lcom/android/keyguard/KeyguardSecurityContainerController;)Lcom/android/keyguard/KeyguardUpdateMonitor;
 
     move-result-object v0
 
@@ -61,7 +61,7 @@
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController$3;->this$0:Lcom/android/keyguard/KeyguardSecurityContainerController;
 
-    invoke-static {v0}, Lcom/android/keyguard/KeyguardSecurityContainerController;->access$500(Lcom/android/keyguard/KeyguardSecurityContainerController;)Lcom/android/keyguard/KeyguardSecurityCallback;
+    invoke-static {v0}, Lcom/android/keyguard/KeyguardSecurityContainerController;->access$1300(Lcom/android/keyguard/KeyguardSecurityContainerController;)Lcom/android/keyguard/KeyguardSecurityCallback;
 
     move-result-object v0
 

@@ -42,7 +42,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mContext:Landroid/content/Context;
 
-    const p2, 0x10403cf
+    const p2, 0x10403d4
 
     invoke-virtual {p0, p2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

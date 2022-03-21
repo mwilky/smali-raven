@@ -277,7 +277,7 @@
 
     const-string v7, "events"
 
-    const-string/jumbo v8, "system"
+    const-string v8, "system"
 
     const-string v9, "crash"
 

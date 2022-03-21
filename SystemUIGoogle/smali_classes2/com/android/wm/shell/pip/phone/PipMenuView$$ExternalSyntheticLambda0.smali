@@ -27,7 +27,7 @@
 
     iget-object p0, p0, Lcom/android/wm/shell/pip/phone/PipMenuView$$ExternalSyntheticLambda0;->f$0:Lcom/android/wm/shell/pip/phone/PipMenuActionView;
 
-    invoke-static {p0, p1}, Lcom/android/wm/shell/pip/phone/PipMenuView;->$r8$lambda$P9w5edAGM0v9Xn-IxIn6-0EccBU(Lcom/android/wm/shell/pip/phone/PipMenuActionView;Landroid/graphics/drawable/Drawable;)V
+    invoke-static {p0, p1}, Lcom/android/wm/shell/pip/phone/PipMenuView;->$r8$lambda$5yvEMiMSrTAjVmPfTTO_YZ7Ep60(Lcom/android/wm/shell/pip/phone/PipMenuActionView;Landroid/graphics/drawable/Drawable;)V
 
     return-void
 .end method

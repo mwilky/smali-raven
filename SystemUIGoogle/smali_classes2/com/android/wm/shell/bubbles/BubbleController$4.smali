@@ -194,7 +194,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_a
+    if-eqz v4, :cond_b
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -244,11 +244,16 @@
     :cond_4
     const/4 v6, 0x5
 
-    if-ne v4, v6, :cond_5
+    if-eq v4, v6, :cond_5
 
-    invoke-virtual {v3, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    const/16 v7, 0xc
+
+    if-ne v4, v7, :cond_6
 
     :cond_5
+    invoke-virtual {v3, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    :cond_6
     iget-object v7, p0, Lcom/android/wm/shell/bubbles/BubbleController$4;->this$0:Lcom/android/wm/shell/bubbles/BubbleController;
 
     invoke-static {v7}, Lcom/android/wm/shell/bubbles/BubbleController;->access$200(Lcom/android/wm/shell/bubbles/BubbleController;)Lcom/android/wm/shell/bubbles/BubbleData;
@@ -263,7 +268,7 @@
 
     move-result v7
 
-    if-nez v7, :cond_9
+    if-nez v7, :cond_a
 
     iget-object v7, p0, Lcom/android/wm/shell/bubbles/BubbleController$4;->this$0:Lcom/android/wm/shell/bubbles/BubbleController;
 
@@ -279,21 +284,21 @@
 
     move-result v7
 
-    if-nez v7, :cond_7
+    if-nez v7, :cond_8
 
     invoke-virtual {v5}, Lcom/android/wm/shell/bubbles/Bubble;->showInShade()Z
 
     move-result v7
 
-    if-eqz v7, :cond_6
+    if-eqz v7, :cond_7
 
-    if-eq v4, v6, :cond_6
+    if-eq v4, v6, :cond_7
 
     const/16 v6, 0x9
 
-    if-ne v4, v6, :cond_7
+    if-ne v4, v6, :cond_8
 
-    :cond_6
+    :cond_7
     iget-object v4, p0, Lcom/android/wm/shell/bubbles/BubbleController$4;->this$0:Lcom/android/wm/shell/bubbles/BubbleController;
 
     invoke-static {v4}, Lcom/android/wm/shell/bubbles/BubbleController;->access$300(Lcom/android/wm/shell/bubbles/BubbleController;)Lcom/android/wm/shell/bubbles/Bubbles$SysuiProxy;
@@ -310,18 +315,18 @@
 
     goto :goto_1
 
-    :cond_7
+    :cond_8
     invoke-virtual {v5}, Lcom/android/wm/shell/bubbles/Bubble;->isBubble()Z
 
     move-result v4
 
-    if-eqz v4, :cond_8
+    if-eqz v4, :cond_9
 
     iget-object v4, p0, Lcom/android/wm/shell/bubbles/BubbleController$4;->this$0:Lcom/android/wm/shell/bubbles/BubbleController;
 
     invoke-static {v4, v5, v2}, Lcom/android/wm/shell/bubbles/BubbleController;->access$1000(Lcom/android/wm/shell/bubbles/BubbleController;Lcom/android/wm/shell/bubbles/Bubble;Z)V
 
-    :cond_8
+    :cond_9
     iget-object v4, p0, Lcom/android/wm/shell/bubbles/BubbleController$4;->this$0:Lcom/android/wm/shell/bubbles/BubbleController;
 
     invoke-static {v4}, Lcom/android/wm/shell/bubbles/BubbleController;->access$300(Lcom/android/wm/shell/bubbles/BubbleController;)Lcom/android/wm/shell/bubbles/Bubbles$SysuiProxy;
@@ -334,7 +339,7 @@
 
     invoke-interface {v4, v6}, Lcom/android/wm/shell/bubbles/Bubbles$SysuiProxy;->updateNotificationBubbleButton(Ljava/lang/String;)V
 
-    :cond_9
+    :cond_a
     :goto_1
     iget-object v4, p0, Lcom/android/wm/shell/bubbles/BubbleController$4;->this$0:Lcom/android/wm/shell/bubbles/BubbleController;
 
@@ -354,7 +359,7 @@
 
     goto/16 :goto_0
 
-    :cond_a
+    :cond_b
     iget-object v0, p0, Lcom/android/wm/shell/bubbles/BubbleController$4;->this$0:Lcom/android/wm/shell/bubbles/BubbleController;
 
     invoke-static {v0}, Lcom/android/wm/shell/bubbles/BubbleController;->access$1200(Lcom/android/wm/shell/bubbles/BubbleController;)Lcom/android/wm/shell/bubbles/BubbleDataRepository;
@@ -371,7 +376,7 @@
 
     iget-object v0, p1, Lcom/android/wm/shell/bubbles/BubbleData$Update;->addedBubble:Lcom/android/wm/shell/bubbles/Bubble;
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_c
 
     iget-object v0, p0, Lcom/android/wm/shell/bubbles/BubbleController$4;->this$0:Lcom/android/wm/shell/bubbles/BubbleController;
 
@@ -379,7 +384,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_c
 
     iget-object v0, p0, Lcom/android/wm/shell/bubbles/BubbleController$4;->this$0:Lcom/android/wm/shell/bubbles/BubbleController;
 
@@ -407,10 +412,10 @@
 
     invoke-virtual {v0, v3}, Lcom/android/wm/shell/bubbles/BubbleStackView;->addBubble(Lcom/android/wm/shell/bubbles/Bubble;)V
 
-    :cond_b
+    :cond_c
     iget-object v0, p1, Lcom/android/wm/shell/bubbles/BubbleData$Update;->updatedBubble:Lcom/android/wm/shell/bubbles/Bubble;
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_d
 
     iget-object v0, p0, Lcom/android/wm/shell/bubbles/BubbleController$4;->this$0:Lcom/android/wm/shell/bubbles/BubbleController;
 
@@ -418,7 +423,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_d
 
     iget-object v0, p0, Lcom/android/wm/shell/bubbles/BubbleController$4;->this$0:Lcom/android/wm/shell/bubbles/BubbleController;
 
@@ -430,10 +435,10 @@
 
     invoke-virtual {v0, v3}, Lcom/android/wm/shell/bubbles/BubbleStackView;->updateBubble(Lcom/android/wm/shell/bubbles/Bubble;)V
 
-    :cond_c
+    :cond_d
     iget-boolean v0, p1, Lcom/android/wm/shell/bubbles/BubbleData$Update;->orderChanged:Z
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_e
 
     iget-object v0, p0, Lcom/android/wm/shell/bubbles/BubbleController$4;->this$0:Lcom/android/wm/shell/bubbles/BubbleController;
 
@@ -441,7 +446,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_e
 
     iget-object v0, p0, Lcom/android/wm/shell/bubbles/BubbleController$4;->this$0:Lcom/android/wm/shell/bubbles/BubbleController;
 
@@ -469,10 +474,10 @@
 
     invoke-virtual {v0, v3}, Lcom/android/wm/shell/bubbles/BubbleStackView;->updateBubbleOrder(Ljava/util/List;)V
 
-    :cond_d
+    :cond_e
     iget-boolean v0, p1, Lcom/android/wm/shell/bubbles/BubbleData$Update;->selectionChanged:Z
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_f
 
     iget-object v0, p0, Lcom/android/wm/shell/bubbles/BubbleController$4;->this$0:Lcom/android/wm/shell/bubbles/BubbleController;
 
@@ -480,7 +485,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_f
 
     iget-object v0, p0, Lcom/android/wm/shell/bubbles/BubbleController$4;->this$0:Lcom/android/wm/shell/bubbles/BubbleController;
 
@@ -494,7 +499,7 @@
 
     iget-object v0, p1, Lcom/android/wm/shell/bubbles/BubbleData$Update;->selectedBubble:Lcom/android/wm/shell/bubbles/BubbleViewProvider;
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_f
 
     iget-object v0, p0, Lcom/android/wm/shell/bubbles/BubbleController$4;->this$0:Lcom/android/wm/shell/bubbles/BubbleController;
 
@@ -510,10 +515,10 @@
 
     invoke-interface {v0, v3}, Lcom/android/wm/shell/bubbles/Bubbles$SysuiProxy;->updateNotificationSuppression(Ljava/lang/String;)V
 
-    :cond_e
+    :cond_f
     iget-object v0, p1, Lcom/android/wm/shell/bubbles/BubbleData$Update;->suppressedBubble:Lcom/android/wm/shell/bubbles/Bubble;
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_10
 
     iget-object v0, p0, Lcom/android/wm/shell/bubbles/BubbleController$4;->this$0:Lcom/android/wm/shell/bubbles/BubbleController;
 
@@ -521,7 +526,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_10
 
     iget-object v0, p0, Lcom/android/wm/shell/bubbles/BubbleController$4;->this$0:Lcom/android/wm/shell/bubbles/BubbleController;
 
@@ -533,12 +538,12 @@
 
     invoke-virtual {v0, v3, v2}, Lcom/android/wm/shell/bubbles/BubbleStackView;->setBubbleVisibility(Lcom/android/wm/shell/bubbles/Bubble;Z)V
 
-    :cond_f
+    :cond_10
     iget-object v0, p1, Lcom/android/wm/shell/bubbles/BubbleData$Update;->unsuppressedBubble:Lcom/android/wm/shell/bubbles/Bubble;
 
     const/4 v2, 0x1
 
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_11
 
     iget-object v0, p0, Lcom/android/wm/shell/bubbles/BubbleController$4;->this$0:Lcom/android/wm/shell/bubbles/BubbleController;
 
@@ -546,7 +551,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_11
 
     iget-object v0, p0, Lcom/android/wm/shell/bubbles/BubbleController$4;->this$0:Lcom/android/wm/shell/bubbles/BubbleController;
 
@@ -558,14 +563,14 @@
 
     invoke-virtual {v0, v3, v2}, Lcom/android/wm/shell/bubbles/BubbleStackView;->setBubbleVisibility(Lcom/android/wm/shell/bubbles/Bubble;Z)V
 
-    :cond_10
+    :cond_11
     iget-boolean v0, p1, Lcom/android/wm/shell/bubbles/BubbleData$Update;->expandedChanged:Z
 
-    if-eqz v0, :cond_11
+    if-eqz v0, :cond_12
 
     iget-boolean v0, p1, Lcom/android/wm/shell/bubbles/BubbleData$Update;->expanded:Z
 
-    if-eqz v0, :cond_11
+    if-eqz v0, :cond_12
 
     iget-object v0, p0, Lcom/android/wm/shell/bubbles/BubbleController$4;->this$0:Lcom/android/wm/shell/bubbles/BubbleController;
 
@@ -573,7 +578,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_11
+    if-eqz v0, :cond_12
 
     iget-object v0, p0, Lcom/android/wm/shell/bubbles/BubbleController$4;->this$0:Lcom/android/wm/shell/bubbles/BubbleController;
 
@@ -591,7 +596,7 @@
 
     invoke-interface {v0, v2, v1}, Lcom/android/wm/shell/bubbles/Bubbles$SysuiProxy;->requestNotificationShadeTopUi(ZLjava/lang/String;)V
 
-    :cond_11
+    :cond_12
     iget-object v0, p0, Lcom/android/wm/shell/bubbles/BubbleController$4;->this$0:Lcom/android/wm/shell/bubbles/BubbleController;
 
     invoke-static {v0}, Lcom/android/wm/shell/bubbles/BubbleController;->access$300(Lcom/android/wm/shell/bubbles/BubbleController;)Lcom/android/wm/shell/bubbles/Bubbles$SysuiProxy;

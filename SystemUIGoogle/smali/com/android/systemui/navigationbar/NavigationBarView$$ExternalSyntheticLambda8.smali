@@ -2,34 +2,34 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Ljava/util/function/Consumer;
+.implements Ljava/util/function/Supplier;
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;
+.field public final synthetic f$0:Lcom/android/systemui/navigationbar/NavigationBarView;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;)V
+.method public synthetic constructor <init>(Lcom/android/systemui/navigationbar/NavigationBarView;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/systemui/navigationbar/NavigationBarView$$ExternalSyntheticLambda8;->f$0:Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;
+    iput-object p1, p0, Lcom/android/systemui/navigationbar/NavigationBarView$$ExternalSyntheticLambda8;->f$0:Lcom/android/systemui/navigationbar/NavigationBarView;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;)V
+.method public final get()Ljava/lang/Object;
     .locals 0
 
-    iget-object p0, p0, Lcom/android/systemui/navigationbar/NavigationBarView$$ExternalSyntheticLambda8;->f$0:Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;
+    iget-object p0, p0, Lcom/android/systemui/navigationbar/NavigationBarView$$ExternalSyntheticLambda8;->f$0:Lcom/android/systemui/navigationbar/NavigationBarView;
 
-    check-cast p1, Landroid/graphics/Rect;
+    invoke-static {p0}, Lcom/android/systemui/navigationbar/NavigationBarView;->$r8$lambda$bLUqLUx9KxSSEX3JEEJBkDZp6K4(Lcom/android/systemui/navigationbar/NavigationBarView;)Ljava/lang/Integer;
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;->updateNavigationBarOverlayExcludeRegion(Landroid/graphics/Rect;)V
+    move-result-object p0
 
-    return-void
+    return-object p0
 .end method

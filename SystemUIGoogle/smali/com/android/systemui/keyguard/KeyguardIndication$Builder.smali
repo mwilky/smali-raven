@@ -94,7 +94,7 @@
     :cond_2
     new-instance p0, Ljava/lang/IllegalStateException;
 
-    const-string/jumbo v0, "text color must be set"
+    const-string v0, "text color must be set"
 
     invoke-direct {p0, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 

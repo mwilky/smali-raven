@@ -383,7 +383,7 @@
 
     move-result-object p1
 
-    const v0, 0x10500c0
+    const v0, 0x10500c1
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getFloat(I)F
 
@@ -391,7 +391,7 @@
 
     iput v0, p0, Lcom/android/wm/shell/pip/PipBoundsAlgorithm;->mDefaultAspectRatio:F
 
-    const v0, 0x10e0042
+    const v0, 0x10e0043
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -399,7 +399,7 @@
 
     iput v0, p0, Lcom/android/wm/shell/pip/PipBoundsAlgorithm;->mDefaultStackGravity:I
 
-    const v0, 0x105011a
+    const v0, 0x105011c
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -407,7 +407,7 @@
 
     iput v0, p0, Lcom/android/wm/shell/pip/PipBoundsAlgorithm;->mDefaultMinSize:I
 
-    const v0, 0x105021b
+    const v0, 0x105021d
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -483,7 +483,7 @@
     :goto_1
     iput-object v0, p0, Lcom/android/wm/shell/pip/PipBoundsAlgorithm;->mScreenEdgeInsets:Landroid/graphics/Point;
 
-    const v0, 0x10500c3
+    const v0, 0x10500c4
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getFloat(I)F
 
@@ -491,7 +491,7 @@
 
     iput v0, p0, Lcom/android/wm/shell/pip/PipBoundsAlgorithm;->mMinAspectRatio:F
 
-    const v0, 0x10500c2
+    const v0, 0x10500c3
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getFloat(I)F
 
@@ -499,7 +499,7 @@
 
     iput v0, p0, Lcom/android/wm/shell/pip/PipBoundsAlgorithm;->mMaxAspectRatio:F
 
-    const v0, 0x10500c1
+    const v0, 0x10500c2
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getFloat(I)F
 
@@ -507,7 +507,7 @@
 
     iput v0, p0, Lcom/android/wm/shell/pip/PipBoundsAlgorithm;->mDefaultSizePercent:F
 
-    const v0, 0x10500bf
+    const v0, 0x10500c0
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getFloat(I)F
 

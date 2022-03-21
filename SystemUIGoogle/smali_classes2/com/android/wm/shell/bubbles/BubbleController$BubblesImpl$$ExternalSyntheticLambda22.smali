@@ -2,40 +2,52 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Ljava/util/function/Consumer;
+.implements Ljava/util/function/Supplier;
 
 
 # instance fields
-.field public final synthetic f$0:Ljava/util/concurrent/Executor;
+.field public final synthetic f$0:Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;
 
-.field public final synthetic f$1:Ljava/util/function/Consumer;
+.field public final synthetic f$1:Lcom/android/wm/shell/bubbles/BubbleEntry;
+
+.field public final synthetic f$2:Ljava/util/List;
+
+.field public final synthetic f$3:Ljava/util/function/IntConsumer;
 
 
 # direct methods
-.method public synthetic constructor <init>(Ljava/util/concurrent/Executor;Ljava/util/function/Consumer;)V
+.method public synthetic constructor <init>(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;Lcom/android/wm/shell/bubbles/BubbleEntry;Ljava/util/List;Ljava/util/function/IntConsumer;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda22;->f$0:Ljava/util/concurrent/Executor;
+    iput-object p1, p0, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda22;->f$0:Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;
 
-    iput-object p2, p0, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda22;->f$1:Ljava/util/function/Consumer;
+    iput-object p2, p0, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda22;->f$1:Lcom/android/wm/shell/bubbles/BubbleEntry;
+
+    iput-object p3, p0, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda22;->f$2:Ljava/util/List;
+
+    iput-object p4, p0, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda22;->f$3:Ljava/util/function/IntConsumer;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;)V
-    .locals 1
+.method public final get()Ljava/lang/Object;
+    .locals 3
 
-    iget-object v0, p0, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda22;->f$0:Ljava/util/concurrent/Executor;
+    iget-object v0, p0, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda22;->f$0:Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;
 
-    iget-object p0, p0, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda22;->f$1:Ljava/util/function/Consumer;
+    iget-object v1, p0, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda22;->f$1:Lcom/android/wm/shell/bubbles/BubbleEntry;
 
-    check-cast p1, Ljava/lang/String;
+    iget-object v2, p0, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda22;->f$2:Ljava/util/List;
 
-    invoke-static {v0, p0, p1}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;->$r8$lambda$xiIoBUQLhc2bNbJDOE5fPb9VpXk(Ljava/util/concurrent/Executor;Ljava/util/function/Consumer;Ljava/lang/String;)V
+    iget-object p0, p0, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda22;->f$3:Ljava/util/function/IntConsumer;
 
-    return-void
+    invoke-static {v0, v1, v2, p0}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;->$r8$lambda$kFmoPdzYF4pxtHJa1ZoNGVRXBpM(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;Lcom/android/wm/shell/bubbles/BubbleEntry;Ljava/util/List;Ljava/util/function/IntConsumer;)Ljava/lang/Boolean;
+
+    move-result-object p0
+
+    return-object p0
 .end method

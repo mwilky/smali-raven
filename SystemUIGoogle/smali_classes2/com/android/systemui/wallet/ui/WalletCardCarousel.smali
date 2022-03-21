@@ -163,22 +163,6 @@
     return p0
 .end method
 
-.method static synthetic access$1300(Lcom/android/systemui/wallet/ui/WalletCardCarousel;)I
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/wallet/ui/WalletCardCarousel;->mCardWidthPx:I
-
-    return p0
-.end method
-
-.method static synthetic access$1400(Lcom/android/systemui/wallet/ui/WalletCardCarousel;)I
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/wallet/ui/WalletCardCarousel;->mCardHeightPx:I
-
-    return p0
-.end method
-
 .method static synthetic access$602(Lcom/android/systemui/wallet/ui/WalletCardCarousel;F)F
     .locals 0
 
@@ -536,6 +520,16 @@
     invoke-direct {v0, p0, p1}, Lcom/android/systemui/wallet/ui/WalletCardCarousel$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/wallet/ui/WalletCardCarousel;Landroid/view/View;)V
 
     invoke-virtual {p1, v0}, Landroid/view/View;->addOnLayoutChangeListener(Landroid/view/View$OnLayoutChangeListener;)V
+
+    return-void
+.end method
+
+.method resetAdapter()V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/wallet/ui/WalletCardCarousel;->mWalletCardCarouselAdapter:Lcom/android/systemui/wallet/ui/WalletCardCarousel$WalletCardCarouselAdapter;
+
+    invoke-virtual {p0, v0}, Landroidx/recyclerview/widget/RecyclerView;->setAdapter(Landroidx/recyclerview/widget/RecyclerView$Adapter;)V
 
     return-void
 .end method

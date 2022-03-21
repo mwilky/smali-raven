@@ -4,4 +4,4 @@
 
 
 # static fields
-.field public static final controls_toggle_bg_intensity:I = 0x7f0a0009
+.field public static final controls_toggle_bg_intensity:I = 0x7f0a0008

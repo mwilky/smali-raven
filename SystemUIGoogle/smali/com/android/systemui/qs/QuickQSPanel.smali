@@ -237,7 +237,7 @@
 .end method
 
 .method public setMaxTiles(I)V
-    .locals 1
+    .locals 0
 
     iput p1, p0, Lcom/android/systemui/qs/QuickQSPanel;->mMaxTiles:I
 

@@ -2,7 +2,7 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Ljava/util/function/Predicate;
+.implements Ljava/util/function/Consumer;
 
 
 # static fields
@@ -32,14 +32,12 @@
 
 
 # virtual methods
-.method public final test(Ljava/lang/Object;)Z
+.method public final accept(Ljava/lang/Object;)V
     .locals 0
 
-    check-cast p1, Ljava/lang/Long;
+    check-cast p1, Lcom/android/systemui/statusbar/phone/StatusBar;
 
-    invoke-static {p1}, Lcom/android/systemui/navigationbar/NavigationBar;->$r8$lambda$OcmCtezrb1TMZIWstpDMuzD1K-0(Ljava/lang/Long;)Z
+    invoke-virtual {p1}, Lcom/android/systemui/statusbar/phone/StatusBar;->checkBarModes()V
 
-    move-result p0
-
-    return p0
+    return-void
 .end method

@@ -115,7 +115,7 @@
 
     move-result-object p1
 
-    const v0, 0x10e00d7
+    const v0, 0x10e00db
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -527,29 +527,33 @@
     move-result p2
 
     :goto_1
-    iget-object p3, p0, Lcom/android/systemui/biometrics/UdfpsView;->mSensorRect:Landroid/graphics/RectF;
+    iget-object p3, p0, Lcom/android/systemui/biometrics/UdfpsView;->mSensorProps:Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;
 
-    int-to-float p4, p1
+    invoke-virtual {p3}, Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;->getLocation()Landroid/hardware/biometrics/SensorLocationInternal;
 
-    int-to-float p5, p2
+    move-result-object p3
 
-    iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsView;->mSensorProps:Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;
+    iget-object p4, p0, Lcom/android/systemui/biometrics/UdfpsView;->mSensorRect:Landroid/graphics/RectF;
 
-    iget v0, v0, Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;->sensorRadius:I
+    int-to-float p5, p1
 
-    mul-int/lit8 v1, v0, 0x2
+    int-to-float v0, p2
+
+    iget p3, p3, Landroid/hardware/biometrics/SensorLocationInternal;->sensorRadius:I
+
+    mul-int/lit8 v1, p3, 0x2
 
     add-int/2addr v1, p1
 
     int-to-float p1, v1
 
-    mul-int/lit8 v0, v0, 0x2
+    mul-int/lit8 p3, p3, 0x2
 
-    add-int/2addr v0, p2
+    add-int/2addr p3, p2
 
-    int-to-float p2, v0
+    int-to-float p2, p3
 
-    invoke-virtual {p3, p4, p5, p1, p2}, Landroid/graphics/RectF;->set(FFFF)V
+    invoke-virtual {p4, p5, v0, p1, p2}, Landroid/graphics/RectF;->set(FFFF)V
 
     iget-object p1, p0, Lcom/android/systemui/biometrics/UdfpsView;->mAnimationViewController:Lcom/android/systemui/biometrics/UdfpsAnimationViewController;
 

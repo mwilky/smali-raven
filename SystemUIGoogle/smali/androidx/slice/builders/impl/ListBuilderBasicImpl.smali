@@ -292,9 +292,9 @@
     :cond_5
     iget-object v3, p0, Landroidx/slice/builders/impl/ListBuilderBasicImpl;->mTitle:Ljava/lang/CharSequence;
 
-    const-string/jumbo v4, "title"
+    const-string v4, "title"
 
-    const-string/jumbo v5, "text"
+    const-string v5, "text"
 
     if-eqz v3, :cond_6
 
@@ -447,7 +447,7 @@
 
     move-result-object p0
 
-    const-string/jumbo p1, "ttl"
+    const-string p1, "ttl"
 
     filled-new-array {p1}, [Ljava/lang/String;
 

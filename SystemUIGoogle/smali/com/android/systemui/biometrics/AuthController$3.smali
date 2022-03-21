@@ -72,9 +72,9 @@
 
     iput-object v0, p2, Lcom/android/systemui/biometrics/AuthController;->mCurrentDialog:Lcom/android/systemui/biometrics/AuthDialog;
 
-    iget-object p2, p2, Lcom/android/systemui/biometrics/AuthController;->mOrientationListener:Lcom/android/systemui/biometrics/BiometricOrientationEventListener;
+    iget-object p2, p2, Lcom/android/systemui/biometrics/AuthController;->mOrientationListener:Lcom/android/systemui/biometrics/BiometricDisplayListener;
 
-    invoke-virtual {p2}, Lcom/android/systemui/biometrics/BiometricOrientationEventListener;->disable()V
+    invoke-virtual {p2}, Lcom/android/systemui/biometrics/BiometricDisplayListener;->disable()V
 
     :try_start_0
     iget-object p2, p0, Lcom/android/systemui/biometrics/AuthController$3;->this$0:Lcom/android/systemui/biometrics/AuthController;

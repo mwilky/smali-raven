@@ -34,8 +34,6 @@
 
 .field private mIsAodEnabled:Z
 
-.field private mLongPressHelper:Lcom/google/android/systemui/smartspace/CheckLongPressHelper;
-
 .field private final mOnPageChangeListener:Landroidx/viewpager/widget/ViewPager$OnPageChangeListener;
 
 .field private mPageIndicator:Lcom/google/android/systemui/smartspace/PageIndicator;
@@ -556,18 +554,6 @@
 
 
 # virtual methods
-.method public cancelLongPress()V
-    .locals 0
-
-    invoke-super {p0}, Landroid/widget/FrameLayout;->cancelLongPress()V
-
-    iget-object p0, p0, Lcom/google/android/systemui/smartspace/BcSmartspaceView;->mLongPressHelper:Lcom/google/android/systemui/smartspace/CheckLongPressHelper;
-
-    invoke-virtual {p0}, Lcom/google/android/systemui/smartspace/CheckLongPressHelper;->cancelLongPress()V
-
-    return-void
-.end method
-
 .method public logCurrentDisplayedCardSeen()V
     .locals 4
 
@@ -726,20 +712,27 @@
     goto :goto_0
 
     :catch_0
-    move-exception p0
+    move-exception v0
 
-    const-string v0, "BcSmartspaceView"
+    const-string v1, "BcSmartspaceView"
 
-    const-string v1, "Unable to register Doze Always on content observer."
+    const-string v2, "Unable to register Doze Always on content observer."
 
-    invoke-static {v0, v1, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :goto_0
+    iget-object v0, p0, Lcom/google/android/systemui/smartspace/BcSmartspaceView;->mDataProvider:Lcom/android/systemui/plugins/BcSmartspaceDataPlugin;
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0, v0}, Lcom/google/android/systemui/smartspace/BcSmartspaceView;->registerDataProvider(Lcom/android/systemui/plugins/BcSmartspaceDataPlugin;)V
+
+    :cond_0
     return-void
 .end method
 
 .method protected onDetachedFromWindow()V
-    .locals 1
+    .locals 2
 
     invoke-super {p0}, Landroid/widget/FrameLayout;->onDetachedFromWindow()V
 
@@ -751,15 +744,22 @@
 
     move-result-object v0
 
-    iget-object p0, p0, Lcom/google/android/systemui/smartspace/BcSmartspaceView;->mAodObserver:Landroid/database/ContentObserver;
+    iget-object v1, p0, Lcom/google/android/systemui/smartspace/BcSmartspaceView;->mAodObserver:Landroid/database/ContentObserver;
 
-    invoke-virtual {v0, p0}, Landroid/content/ContentResolver;->unregisterContentObserver(Landroid/database/ContentObserver;)V
+    invoke-virtual {v0, v1}, Landroid/content/ContentResolver;->unregisterContentObserver(Landroid/database/ContentObserver;)V
 
+    iget-object v0, p0, Lcom/google/android/systemui/smartspace/BcSmartspaceView;->mDataProvider:Lcom/android/systemui/plugins/BcSmartspaceDataPlugin;
+
+    if-eqz v0, :cond_0
+
+    invoke-interface {v0, p0}, Lcom/android/systemui/plugins/BcSmartspaceDataPlugin;->unregisterListener(Lcom/android/systemui/plugins/BcSmartspaceDataPlugin$SmartspaceTargetListener;)V
+
+    :cond_0
     return-void
 .end method
 
 .method protected onFinishInflate()V
-    .locals 2
+    .locals 1
 
     invoke-super {p0}, Landroid/widget/FrameLayout;->onFinishInflate()V
 
@@ -783,61 +783,7 @@
 
     iput-object v0, p0, Lcom/google/android/systemui/smartspace/BcSmartspaceView;->mPageIndicator:Lcom/google/android/systemui/smartspace/PageIndicator;
 
-    new-instance v0, Lcom/google/android/systemui/smartspace/CheckLongPressHelper;
-
-    iget-object v1, p0, Lcom/google/android/systemui/smartspace/BcSmartspaceView;->mViewPager:Landroidx/viewpager/widget/ViewPager;
-
-    invoke-direct {v0, v1}, Lcom/google/android/systemui/smartspace/CheckLongPressHelper;-><init>(Landroid/view/View;)V
-
-    iput-object v0, p0, Lcom/google/android/systemui/smartspace/BcSmartspaceView;->mLongPressHelper:Lcom/google/android/systemui/smartspace/CheckLongPressHelper;
-
     return-void
-.end method
-
-.method public onInterceptTouchEvent(Landroid/view/MotionEvent;)Z
-    .locals 2
-
-    iget-object v0, p0, Lcom/google/android/systemui/smartspace/BcSmartspaceView;->mLongPressHelper:Lcom/google/android/systemui/smartspace/CheckLongPressHelper;
-
-    invoke-virtual {v0, p1}, Lcom/google/android/systemui/smartspace/CheckLongPressHelper;->onTouchEvent(Landroid/view/MotionEvent;)V
-
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
-
-    move-result v0
-
-    const/4 v1, 0x1
-
-    if-nez v0, :cond_0
-
-    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getParent()Landroid/view/ViewParent;
-
-    move-result-object v0
-
-    invoke-interface {v0, v1}, Landroid/view/ViewParent;->requestDisallowInterceptTouchEvent(Z)V
-
-    :cond_0
-    invoke-super {p0, p1}, Landroid/widget/FrameLayout;->onInterceptTouchEvent(Landroid/view/MotionEvent;)Z
-
-    move-result p1
-
-    if-nez p1, :cond_2
-
-    iget-object p0, p0, Lcom/google/android/systemui/smartspace/BcSmartspaceView;->mLongPressHelper:Lcom/google/android/systemui/smartspace/CheckLongPressHelper;
-
-    invoke-virtual {p0}, Lcom/google/android/systemui/smartspace/CheckLongPressHelper;->hasPerformedLongPress()Z
-
-    move-result p0
-
-    if-eqz p0, :cond_1
-
-    goto :goto_0
-
-    :cond_1
-    const/4 v1, 0x0
-
-    :cond_2
-    :goto_0
-    return v1
 .end method
 
 .method protected onMeasure(II)V
@@ -1051,7 +997,7 @@
 
     :cond_5
     :goto_2
-    if-ge v2, p1, :cond_7
+    if-ge v2, p1, :cond_8
 
     iget-object v0, p0, Lcom/google/android/systemui/smartspace/BcSmartspaceView;->mAdapter:Lcom/google/android/systemui/smartspace/CardPagerAdapter;
 
@@ -1069,18 +1015,47 @@
 
     move-result v1
 
-    if-nez v1, :cond_6
+    if-nez v1, :cond_7
 
     sget-object v1, Lcom/google/android/systemui/smartspace/BcSmartspaceEvent;->SMARTSPACE_CARD_RECEIVED:Lcom/google/android/systemui/smartspace/BcSmartspaceEvent;
 
     invoke-direct {p0, v0, v2, v1}, Lcom/google/android/systemui/smartspace/BcSmartspaceView;->logSmartspaceEvent(Landroid/app/smartspace/SmartspaceTarget;ILcom/google/android/systemui/smartspace/BcSmartspaceEvent;)V
 
+    new-instance v1, Landroid/app/smartspace/SmartspaceTargetEvent$Builder;
+
+    const/16 v3, 0x8
+
+    invoke-direct {v1, v3}, Landroid/app/smartspace/SmartspaceTargetEvent$Builder;-><init>(I)V
+
+    invoke-virtual {v1, v0}, Landroid/app/smartspace/SmartspaceTargetEvent$Builder;->setSmartspaceTarget(Landroid/app/smartspace/SmartspaceTarget;)Landroid/app/smartspace/SmartspaceTargetEvent$Builder;
+
+    invoke-virtual {v0}, Landroid/app/smartspace/SmartspaceTarget;->getBaseAction()Landroid/app/smartspace/SmartspaceAction;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_6
+
+    invoke-virtual {v0}, Landroid/app/smartspace/SmartspaceAction;->getId()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v1, v0}, Landroid/app/smartspace/SmartspaceTargetEvent$Builder;->setSmartspaceActionId(Ljava/lang/String;)Landroid/app/smartspace/SmartspaceTargetEvent$Builder;
+
     :cond_6
+    iget-object v0, p0, Lcom/google/android/systemui/smartspace/BcSmartspaceView;->mDataProvider:Lcom/android/systemui/plugins/BcSmartspaceDataPlugin;
+
+    invoke-virtual {v1}, Landroid/app/smartspace/SmartspaceTargetEvent$Builder;->build()Landroid/app/smartspace/SmartspaceTargetEvent;
+
+    move-result-object v1
+
+    invoke-interface {v0, v1}, Lcom/android/systemui/plugins/BcSmartspaceDataPlugin;->notifySmartspaceEvent(Landroid/app/smartspace/SmartspaceTargetEvent;)V
+
+    :cond_7
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_2
 
-    :cond_7
+    :cond_8
     sget-object p1, Lcom/google/android/systemui/smartspace/BcSmartspaceView;->mLastReceivedTargets:Landroid/util/ArraySet;
 
     invoke-virtual {p1}, Landroid/util/ArraySet;->clear()V
@@ -1122,33 +1097,6 @@
     return-void
 .end method
 
-.method public onTouchEvent(Landroid/view/MotionEvent;)Z
-    .locals 1
-
-    invoke-virtual {p0}, Landroid/widget/FrameLayout;->isLongClickable()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    invoke-super {p0, p1}, Landroid/widget/FrameLayout;->onTouchEvent(Landroid/view/MotionEvent;)Z
-
-    iget-object p0, p0, Lcom/google/android/systemui/smartspace/BcSmartspaceView;->mLongPressHelper:Lcom/google/android/systemui/smartspace/CheckLongPressHelper;
-
-    invoke-virtual {p0, p1}, Lcom/google/android/systemui/smartspace/CheckLongPressHelper;->onTouchEvent(Landroid/view/MotionEvent;)V
-
-    const/4 p0, 0x1
-
-    return p0
-
-    :cond_0
-    invoke-super {p0, p1}, Landroid/widget/FrameLayout;->onTouchEvent(Landroid/view/MotionEvent;)Z
-
-    move-result p0
-
-    return p0
-.end method
-
 .method public onVisibilityAggregated(Z)V
     .locals 1
 
@@ -1183,26 +1131,8 @@
 .end method
 
 .method public registerDataProvider(Lcom/android/systemui/plugins/BcSmartspaceDataPlugin;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/google/android/systemui/smartspace/BcSmartspaceView;->mDataProvider:Lcom/android/systemui/plugins/BcSmartspaceDataPlugin;
-
-    invoke-static {p1, v0}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    return-void
-
-    :cond_0
-    iget-object v0, p0, Lcom/google/android/systemui/smartspace/BcSmartspaceView;->mDataProvider:Lcom/android/systemui/plugins/BcSmartspaceDataPlugin;
-
-    if-eqz v0, :cond_1
-
-    invoke-interface {v0, p0}, Lcom/android/systemui/plugins/BcSmartspaceDataPlugin;->unregisterListener(Lcom/android/systemui/plugins/BcSmartspaceDataPlugin$SmartspaceTargetListener;)V
-
-    :cond_1
     iput-object p1, p0, Lcom/google/android/systemui/smartspace/BcSmartspaceView;->mDataProvider:Lcom/android/systemui/plugins/BcSmartspaceDataPlugin;
 
     invoke-interface {p1, p0}, Lcom/android/systemui/plugins/BcSmartspaceDataPlugin;->registerListener(Lcom/android/systemui/plugins/BcSmartspaceDataPlugin$SmartspaceTargetListener;)V
@@ -1212,21 +1142,6 @@
     iget-object p0, p0, Lcom/google/android/systemui/smartspace/BcSmartspaceView;->mDataProvider:Lcom/android/systemui/plugins/BcSmartspaceDataPlugin;
 
     invoke-virtual {p1, p0}, Lcom/google/android/systemui/smartspace/CardPagerAdapter;->setDataProvider(Lcom/android/systemui/plugins/BcSmartspaceDataPlugin;)V
-
-    return-void
-.end method
-
-.method public requestDisallowInterceptTouchEvent(Z)V
-    .locals 1
-
-    if-eqz p1, :cond_0
-
-    iget-object v0, p0, Lcom/google/android/systemui/smartspace/BcSmartspaceView;->mLongPressHelper:Lcom/google/android/systemui/smartspace/CheckLongPressHelper;
-
-    invoke-virtual {v0}, Lcom/google/android/systemui/smartspace/CheckLongPressHelper;->cancelLongPress()V
-
-    :cond_0
-    invoke-super {p0, p1}, Landroid/widget/FrameLayout;->requestDisallowInterceptTouchEvent(Z)V
 
     return-void
 .end method

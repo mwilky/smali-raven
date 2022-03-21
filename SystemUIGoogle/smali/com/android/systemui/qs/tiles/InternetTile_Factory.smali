@@ -22,7 +22,7 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/policy/NetworkController$AccessPointController;",
+            "Lcom/android/systemui/statusbar/connectivity/AccessPointController;",
             ">;"
         }
     .end annotation
@@ -102,7 +102,7 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/policy/NetworkController;",
+            "Lcom/android/systemui/statusbar/connectivity/NetworkController;",
             ">;"
         }
     .end annotation
@@ -160,10 +160,10 @@
             "Lcom/android/systemui/qs/logging/QSLogger;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/policy/NetworkController;",
+            "Lcom/android/systemui/statusbar/connectivity/NetworkController;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/policy/NetworkController$AccessPointController;",
+            "Lcom/android/systemui/statusbar/connectivity/AccessPointController;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;",
@@ -228,10 +228,10 @@
             "Lcom/android/systemui/qs/logging/QSLogger;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/policy/NetworkController;",
+            "Lcom/android/systemui/statusbar/connectivity/NetworkController;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/policy/NetworkController$AccessPointController;",
+            "Lcom/android/systemui/statusbar/connectivity/AccessPointController;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;",
@@ -271,7 +271,7 @@
     return-object v12
 .end method
 
-.method public static newInstance(Lcom/android/systemui/qs/QSHost;Landroid/os/Looper;Landroid/os/Handler;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/systemui/statusbar/policy/NetworkController;Lcom/android/systemui/statusbar/policy/NetworkController$AccessPointController;Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;)Lcom/android/systemui/qs/tiles/InternetTile;
+.method public static newInstance(Lcom/android/systemui/qs/QSHost;Landroid/os/Looper;Landroid/os/Handler;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/systemui/statusbar/connectivity/NetworkController;Lcom/android/systemui/statusbar/connectivity/AccessPointController;Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;)Lcom/android/systemui/qs/tiles/InternetTile;
     .locals 13
 
     new-instance v12, Lcom/android/systemui/qs/tiles/InternetTile;
@@ -300,7 +300,7 @@
 
     move-object/from16 v11, p10
 
-    invoke-direct/range {v0 .. v11}, Lcom/android/systemui/qs/tiles/InternetTile;-><init>(Lcom/android/systemui/qs/QSHost;Landroid/os/Looper;Landroid/os/Handler;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/systemui/statusbar/policy/NetworkController;Lcom/android/systemui/statusbar/policy/NetworkController$AccessPointController;Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;)V
+    invoke-direct/range {v0 .. v11}, Lcom/android/systemui/qs/tiles/InternetTile;-><init>(Lcom/android/systemui/qs/QSHost;Landroid/os/Looper;Landroid/os/Handler;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/systemui/statusbar/connectivity/NetworkController;Lcom/android/systemui/statusbar/connectivity/AccessPointController;Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;)V
 
     return-object v12
 .end method
@@ -398,7 +398,7 @@
 
     move-object v9, v0
 
-    check-cast v9, Lcom/android/systemui/statusbar/policy/NetworkController;
+    check-cast v9, Lcom/android/systemui/statusbar/connectivity/NetworkController;
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/InternetTile_Factory;->accessPointControllerProvider:Ljavax/inject/Provider;
 
@@ -408,7 +408,7 @@
 
     move-object v10, v0
 
-    check-cast v10, Lcom/android/systemui/statusbar/policy/NetworkController$AccessPointController;
+    check-cast v10, Lcom/android/systemui/statusbar/connectivity/AccessPointController;
 
     iget-object p0, p0, Lcom/android/systemui/qs/tiles/InternetTile_Factory;->internetDialogFactoryProvider:Ljavax/inject/Provider;
 
@@ -420,7 +420,7 @@
 
     check-cast v11, Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;
 
-    invoke-static/range {v1 .. v11}, Lcom/android/systemui/qs/tiles/InternetTile_Factory;->newInstance(Lcom/android/systemui/qs/QSHost;Landroid/os/Looper;Landroid/os/Handler;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/systemui/statusbar/policy/NetworkController;Lcom/android/systemui/statusbar/policy/NetworkController$AccessPointController;Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;)Lcom/android/systemui/qs/tiles/InternetTile;
+    invoke-static/range {v1 .. v11}, Lcom/android/systemui/qs/tiles/InternetTile_Factory;->newInstance(Lcom/android/systemui/qs/QSHost;Landroid/os/Looper;Landroid/os/Handler;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/systemui/statusbar/connectivity/NetworkController;Lcom/android/systemui/statusbar/connectivity/AccessPointController;Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;)Lcom/android/systemui/qs/tiles/InternetTile;
 
     move-result-object p0
 

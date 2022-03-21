@@ -114,7 +114,7 @@
 
     iput-object p0, v0, Lcom/android/internal/app/AlertController$AlertParams;->mOnItemSelectedListener:Landroid/widget/AdapterView$OnItemSelectedListener;
 
-    const p1, 0x10402f3
+    const p1, 0x10402f7
 
     invoke-virtual {p0, p1}, Lcom/android/internal/app/AlertActivity;->getString(I)Ljava/lang/String;
 

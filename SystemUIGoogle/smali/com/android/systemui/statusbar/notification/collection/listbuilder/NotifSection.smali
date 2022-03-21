@@ -4,6 +4,8 @@
 
 
 # instance fields
+.field private final bucket:I
+
 .field private final index:I
 
 .field private final sectioner:Lcom/android/systemui/statusbar/notification/collection/listbuilder/pluggable/NotifSectioner;
@@ -22,6 +24,12 @@
     iput-object p1, p0, Lcom/android/systemui/statusbar/notification/collection/listbuilder/NotifSection;->sectioner:Lcom/android/systemui/statusbar/notification/collection/listbuilder/pluggable/NotifSectioner;
 
     iput p2, p0, Lcom/android/systemui/statusbar/notification/collection/listbuilder/NotifSection;->index:I
+
+    invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/collection/listbuilder/pluggable/NotifSectioner;->getBucket()I
+
+    move-result p1
+
+    iput p1, p0, Lcom/android/systemui/statusbar/notification/collection/listbuilder/NotifSection;->bucket:I
 
     return-void
 .end method
@@ -74,6 +82,14 @@
     return v0
 .end method
 
+.method public final getBucket()I
+    .locals 0
+
+    iget p0, p0, Lcom/android/systemui/statusbar/notification/collection/listbuilder/NotifSection;->bucket:I
+
+    return p0
+.end method
+
 .method public final getHeaderController()Lcom/android/systemui/statusbar/notification/collection/render/NodeController;
     .locals 0
 
@@ -106,6 +122,14 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     iget v1, p0, Lcom/android/systemui/statusbar/notification/collection/listbuilder/NotifSection;->index:I
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v1, ", "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget v1, p0, Lcom/android/systemui/statusbar/notification/collection/listbuilder/NotifSection;->bucket:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 

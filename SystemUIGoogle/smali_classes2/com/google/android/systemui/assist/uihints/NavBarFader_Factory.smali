@@ -85,23 +85,12 @@
     return-object v0
 .end method
 
-.method public static newInstance(Ldagger/Lazy;Landroid/os/Handler;)Lcom/google/android/systemui/assist/uihints/NavBarFader;
+.method public static newInstance(Lcom/android/systemui/navigationbar/NavigationBarController;Landroid/os/Handler;)Lcom/google/android/systemui/assist/uihints/NavBarFader;
     .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ldagger/Lazy<",
-            "Lcom/android/systemui/navigationbar/NavigationBarController;",
-            ">;",
-            "Landroid/os/Handler;",
-            ")",
-            "Lcom/google/android/systemui/assist/uihints/NavBarFader;"
-        }
-    .end annotation
 
     new-instance v0, Lcom/google/android/systemui/assist/uihints/NavBarFader;
 
-    invoke-direct {v0, p0, p1}, Lcom/google/android/systemui/assist/uihints/NavBarFader;-><init>(Ldagger/Lazy;Landroid/os/Handler;)V
+    invoke-direct {v0, p0, p1}, Lcom/google/android/systemui/assist/uihints/NavBarFader;-><init>(Lcom/android/systemui/navigationbar/NavigationBarController;Landroid/os/Handler;)V
 
     return-object v0
 .end method
@@ -113,9 +102,11 @@
 
     iget-object v0, p0, Lcom/google/android/systemui/assist/uihints/NavBarFader_Factory;->navigationBarControllerProvider:Ljavax/inject/Provider;
 
-    invoke-static {v0}, Ldagger/internal/DoubleCheck;->lazy(Ljavax/inject/Provider;)Ldagger/Lazy;
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/navigationbar/NavigationBarController;
 
     iget-object p0, p0, Lcom/google/android/systemui/assist/uihints/NavBarFader_Factory;->handlerProvider:Ljavax/inject/Provider;
 
@@ -125,7 +116,7 @@
 
     check-cast p0, Landroid/os/Handler;
 
-    invoke-static {v0, p0}, Lcom/google/android/systemui/assist/uihints/NavBarFader_Factory;->newInstance(Ldagger/Lazy;Landroid/os/Handler;)Lcom/google/android/systemui/assist/uihints/NavBarFader;
+    invoke-static {v0, p0}, Lcom/google/android/systemui/assist/uihints/NavBarFader_Factory;->newInstance(Lcom/android/systemui/navigationbar/NavigationBarController;Landroid/os/Handler;)Lcom/google/android/systemui/assist/uihints/NavBarFader;
 
     move-result-object p0
 

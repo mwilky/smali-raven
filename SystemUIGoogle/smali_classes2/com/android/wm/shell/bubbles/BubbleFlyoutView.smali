@@ -60,6 +60,8 @@
 
 .field private final mPointerSize:I
 
+.field private mPositioner:Lcom/android/wm/shell/bubbles/BubblePositioner;
+
 .field private mRestingTranslationX:F
 
 .field private final mRightTriangleShape:Landroid/graphics/drawable/ShapeDrawable;
@@ -84,18 +86,18 @@
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$Gr5QmHG0RgoeIBs9psKpzh3e_RQ(Lcom/android/wm/shell/bubbles/BubbleFlyoutView;Lcom/android/wm/shell/bubbles/Bubble$FlyoutMessage;FLandroid/graphics/PointF;Z)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/wm/shell/bubbles/BubbleFlyoutView;->lambda$animateUpdate$2(Lcom/android/wm/shell/bubbles/Bubble$FlyoutMessage;FLandroid/graphics/PointF;Z)V
-
-    return-void
-.end method
-
 .method public static synthetic $r8$lambda$HQSFN6J5oiXnMkK_Npq3YXeYQ_k(Lcom/android/wm/shell/bubbles/BubbleFlyoutView;Landroid/graphics/PointF;Z)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/wm/shell/bubbles/BubbleFlyoutView;->lambda$animateUpdate$1(Landroid/graphics/PointF;Z)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$XsgRJMla5zadynoM4_P8fwFGtYE(Lcom/android/wm/shell/bubbles/BubbleFlyoutView;Lcom/android/wm/shell/bubbles/Bubble$FlyoutMessage;Landroid/graphics/PointF;Z)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/wm/shell/bubbles/BubbleFlyoutView;->lambda$animateUpdate$2(Lcom/android/wm/shell/bubbles/Bubble$FlyoutMessage;Landroid/graphics/PointF;Z)V
 
     return-void
 .end method
@@ -108,8 +110,8 @@
     return-void
 .end method
 
-.method public constructor <init>(Landroid/content/Context;)V
-    .locals 7
+.method public constructor <init>(Landroid/content/Context;Lcom/android/wm/shell/bubbles/BubblePositioner;)V
+    .locals 6
 
     invoke-direct {p0, p1}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V
 
@@ -163,13 +165,15 @@
 
     iput v3, p0, Lcom/android/wm/shell/bubbles/BubbleFlyoutView;->mRestingTranslationX:F
 
+    iput-object p2, p0, Lcom/android/wm/shell/bubbles/BubbleFlyoutView;->mPositioner:Lcom/android/wm/shell/bubbles/BubblePositioner;
+
     invoke-static {p1}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
     move-result-object p1
 
-    sget v3, Lcom/android/wm/shell/R$layout;->bubble_flyout:I
+    sget p2, Lcom/android/wm/shell/R$layout;->bubble_flyout:I
 
-    invoke-virtual {p1, v3, p0, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+    invoke-virtual {p1, p2, p0, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
     sget p1, Lcom/android/wm/shell/R$id;->bubble_flyout_text_container:I
 
@@ -181,29 +185,29 @@
 
     iput-object p1, p0, Lcom/android/wm/shell/bubbles/BubbleFlyoutView;->mFlyoutTextContainer:Landroid/view/ViewGroup;
 
-    sget v3, Lcom/android/wm/shell/R$id;->bubble_flyout_name:I
+    sget p2, Lcom/android/wm/shell/R$id;->bubble_flyout_name:I
 
-    invoke-virtual {p0, v3}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, p2}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
 
-    move-result-object v3
+    move-result-object p2
 
-    check-cast v3, Landroid/widget/TextView;
+    check-cast p2, Landroid/widget/TextView;
 
-    iput-object v3, p0, Lcom/android/wm/shell/bubbles/BubbleFlyoutView;->mSenderText:Landroid/widget/TextView;
+    iput-object p2, p0, Lcom/android/wm/shell/bubbles/BubbleFlyoutView;->mSenderText:Landroid/widget/TextView;
 
-    sget v3, Lcom/android/wm/shell/R$id;->bubble_flyout_avatar:I
+    sget p2, Lcom/android/wm/shell/R$id;->bubble_flyout_avatar:I
 
-    invoke-virtual {p0, v3}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, p2}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
 
-    move-result-object v3
+    move-result-object p2
 
-    check-cast v3, Landroid/widget/ImageView;
+    check-cast p2, Landroid/widget/ImageView;
 
-    iput-object v3, p0, Lcom/android/wm/shell/bubbles/BubbleFlyoutView;->mSenderAvatar:Landroid/widget/ImageView;
+    iput-object p2, p0, Lcom/android/wm/shell/bubbles/BubbleFlyoutView;->mSenderAvatar:Landroid/widget/ImageView;
 
-    sget v3, Lcom/android/wm/shell/R$id;->bubble_flyout_text:I
+    sget p2, Lcom/android/wm/shell/R$id;->bubble_flyout_text:I
 
-    invoke-virtual {p1, v3}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p1, p2}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
     move-result-object p1
 
@@ -215,75 +219,75 @@
 
     move-result-object p1
 
-    sget v3, Lcom/android/wm/shell/R$dimen;->bubble_flyout_padding_x:I
+    sget p2, Lcom/android/wm/shell/R$dimen;->bubble_flyout_padding_x:I
+
+    invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result p2
+
+    iput p2, p0, Lcom/android/wm/shell/bubbles/BubbleFlyoutView;->mFlyoutPadding:I
+
+    sget p2, Lcom/android/wm/shell/R$dimen;->bubble_flyout_space_from_bubble:I
+
+    invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result p2
+
+    iput p2, p0, Lcom/android/wm/shell/bubbles/BubbleFlyoutView;->mFlyoutSpaceFromBubble:I
+
+    const/4 p2, 0x0
+
+    iput p2, p0, Lcom/android/wm/shell/bubbles/BubbleFlyoutView;->mPointerSize:I
+
+    sget v3, Lcom/android/wm/shell/R$dimen;->bubble_elevation:I
 
     invoke-virtual {p1, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v3
 
-    iput v3, p0, Lcom/android/wm/shell/bubbles/BubbleFlyoutView;->mFlyoutPadding:I
+    iput v3, p0, Lcom/android/wm/shell/bubbles/BubbleFlyoutView;->mBubbleElevation:I
 
-    sget v3, Lcom/android/wm/shell/R$dimen;->bubble_flyout_space_from_bubble:I
+    sget v3, Lcom/android/wm/shell/R$dimen;->bubble_flyout_elevation:I
 
     invoke-virtual {p1, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v3
-
-    iput v3, p0, Lcom/android/wm/shell/bubbles/BubbleFlyoutView;->mFlyoutSpaceFromBubble:I
-
-    const/4 v3, 0x0
-
-    iput v3, p0, Lcom/android/wm/shell/bubbles/BubbleFlyoutView;->mPointerSize:I
-
-    sget v4, Lcom/android/wm/shell/R$dimen;->bubble_elevation:I
-
-    invoke-virtual {p1, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v4
-
-    iput v4, p0, Lcom/android/wm/shell/bubbles/BubbleFlyoutView;->mBubbleElevation:I
-
-    sget v4, Lcom/android/wm/shell/R$dimen;->bubble_flyout_elevation:I
-
-    invoke-virtual {p1, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result p1
 
     iput p1, p0, Lcom/android/wm/shell/bubbles/BubbleFlyoutView;->mFlyoutElevation:I
 
-    iget-object v4, p0, Landroid/widget/FrameLayout;->mContext:Landroid/content/Context;
+    iget-object v3, p0, Landroid/widget/FrameLayout;->mContext:Landroid/content/Context;
 
-    const/4 v5, 0x2
+    const/4 v4, 0x2
 
-    new-array v5, v5, [I
+    new-array v4, v4, [I
 
-    fill-array-data v5, :array_0
+    fill-array-data v4, :array_0
 
-    invoke-virtual {v4, v5}, Landroid/content/Context;->obtainStyledAttributes([I)Landroid/content/res/TypedArray;
+    invoke-virtual {v3, v4}, Landroid/content/Context;->obtainStyledAttributes([I)Landroid/content/res/TypedArray;
 
-    move-result-object v4
+    move-result-object v3
 
-    const/4 v5, -0x1
+    const/4 v4, -0x1
 
-    invoke-virtual {v4, v3, v5}, Landroid/content/res/TypedArray;->getColor(II)I
+    invoke-virtual {v3, p2, v4}, Landroid/content/res/TypedArray;->getColor(II)I
+
+    move-result v4
+
+    iput v4, p0, Lcom/android/wm/shell/bubbles/BubbleFlyoutView;->mFloatingBackgroundColor:I
+
+    invoke-virtual {v3, v2, p2}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
 
     move-result v5
 
-    iput v5, p0, Lcom/android/wm/shell/bubbles/BubbleFlyoutView;->mFloatingBackgroundColor:I
+    int-to-float v5, v5
 
-    invoke-virtual {v4, v2, v3}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
+    iput v5, p0, Lcom/android/wm/shell/bubbles/BubbleFlyoutView;->mCornerRadius:F
 
-    move-result v6
+    invoke-virtual {v3}, Landroid/content/res/TypedArray;->recycle()V
 
-    int-to-float v6, v6
+    invoke-virtual {p0, p2, p2, p2, p2}, Landroid/widget/FrameLayout;->setPadding(IIII)V
 
-    iput v6, p0, Lcom/android/wm/shell/bubbles/BubbleFlyoutView;->mCornerRadius:F
-
-    invoke-virtual {v4}, Landroid/content/res/TypedArray;->recycle()V
-
-    invoke-virtual {p0, v3, v3, v3, v3}, Landroid/widget/FrameLayout;->setPadding(IIII)V
-
-    invoke-virtual {p0, v3}, Landroid/widget/FrameLayout;->setWillNotDraw(Z)V
+    invoke-virtual {p0, p2}, Landroid/widget/FrameLayout;->setWillNotDraw(Z)V
 
     invoke-virtual {p0, v2}, Landroid/widget/FrameLayout;->setClipChildren(Z)V
 
@@ -299,13 +303,13 @@
 
     invoke-virtual {p0, v1}, Landroid/widget/FrameLayout;->setLayoutDirection(I)V
 
-    invoke-virtual {v0, v5}, Landroid/graphics/Paint;->setColor(I)V
+    invoke-virtual {v0, v4}, Landroid/graphics/Paint;->setColor(I)V
 
     new-instance p1, Landroid/graphics/drawable/ShapeDrawable;
 
-    int-to-float v0, v3
+    int-to-float v0, p2
 
-    int-to-float v1, v3
+    int-to-float v1, p2
 
     invoke-static {v0, v1, v2}, Lcom/android/wm/shell/common/TriangleShape;->createHorizontal(FFZ)Lcom/android/wm/shell/common/TriangleShape;
 
@@ -315,21 +319,21 @@
 
     iput-object p1, p0, Lcom/android/wm/shell/bubbles/BubbleFlyoutView;->mLeftTriangleShape:Landroid/graphics/drawable/ShapeDrawable;
 
-    invoke-virtual {p1, v3, v3, v3, v3}, Landroid/graphics/drawable/ShapeDrawable;->setBounds(IIII)V
+    invoke-virtual {p1, p2, p2, p2, p2}, Landroid/graphics/drawable/ShapeDrawable;->setBounds(IIII)V
 
     invoke-virtual {p1}, Landroid/graphics/drawable/ShapeDrawable;->getPaint()Landroid/graphics/Paint;
 
     move-result-object p1
 
-    invoke-virtual {p1, v5}, Landroid/graphics/Paint;->setColor(I)V
+    invoke-virtual {p1, v4}, Landroid/graphics/Paint;->setColor(I)V
 
     new-instance p1, Landroid/graphics/drawable/ShapeDrawable;
 
-    int-to-float v0, v3
+    int-to-float v0, p2
 
-    int-to-float v1, v3
+    int-to-float v1, p2
 
-    invoke-static {v0, v1, v3}, Lcom/android/wm/shell/common/TriangleShape;->createHorizontal(FFZ)Lcom/android/wm/shell/common/TriangleShape;
+    invoke-static {v0, v1, p2}, Lcom/android/wm/shell/common/TriangleShape;->createHorizontal(FFZ)Lcom/android/wm/shell/common/TriangleShape;
 
     move-result-object v0
 
@@ -337,13 +341,13 @@
 
     iput-object p1, p0, Lcom/android/wm/shell/bubbles/BubbleFlyoutView;->mRightTriangleShape:Landroid/graphics/drawable/ShapeDrawable;
 
-    invoke-virtual {p1, v3, v3, v3, v3}, Landroid/graphics/drawable/ShapeDrawable;->setBounds(IIII)V
+    invoke-virtual {p1, p2, p2, p2, p2}, Landroid/graphics/drawable/ShapeDrawable;->setBounds(IIII)V
 
     invoke-virtual {p1}, Landroid/graphics/drawable/ShapeDrawable;->getPaint()Landroid/graphics/Paint;
 
     move-result-object p0
 
-    invoke-virtual {p0, v5}, Landroid/graphics/Paint;->setColor(I)V
+    invoke-virtual {p0, v4}, Landroid/graphics/Paint;->setColor(I)V
 
     return-void
 
@@ -661,14 +665,14 @@
     return-void
 .end method
 
-.method private synthetic lambda$animateUpdate$2(Lcom/android/wm/shell/bubbles/Bubble$FlyoutMessage;FLandroid/graphics/PointF;Z)V
+.method private synthetic lambda$animateUpdate$2(Lcom/android/wm/shell/bubbles/Bubble$FlyoutMessage;Landroid/graphics/PointF;Z)V
     .locals 0
 
-    invoke-direct {p0, p1, p2}, Lcom/android/wm/shell/bubbles/BubbleFlyoutView;->updateFlyoutMessage(Lcom/android/wm/shell/bubbles/Bubble$FlyoutMessage;F)V
+    invoke-direct {p0, p1}, Lcom/android/wm/shell/bubbles/BubbleFlyoutView;->updateFlyoutMessage(Lcom/android/wm/shell/bubbles/Bubble$FlyoutMessage;)V
 
     new-instance p1, Lcom/android/wm/shell/bubbles/BubbleFlyoutView$$ExternalSyntheticLambda0;
 
-    invoke-direct {p1, p0, p3, p4}, Lcom/android/wm/shell/bubbles/BubbleFlyoutView$$ExternalSyntheticLambda0;-><init>(Lcom/android/wm/shell/bubbles/BubbleFlyoutView;Landroid/graphics/PointF;Z)V
+    invoke-direct {p1, p0, p2, p3}, Lcom/android/wm/shell/bubbles/BubbleFlyoutView$$ExternalSyntheticLambda0;-><init>(Lcom/android/wm/shell/bubbles/BubbleFlyoutView;Landroid/graphics/PointF;Z)V
 
     invoke-virtual {p0, p1}, Landroid/widget/FrameLayout;->post(Ljava/lang/Runnable;)Z
 
@@ -842,7 +846,7 @@
     return-void
 .end method
 
-.method private updateFlyoutMessage(Lcom/android/wm/shell/bubbles/Bubble$FlyoutMessage;F)V
+.method private updateFlyoutMessage(Lcom/android/wm/shell/bubbles/Bubble$FlyoutMessage;)V
     .locals 4
 
     iget-object v0, p1, Lcom/android/wm/shell/bubbles/Bubble$FlyoutMessage;->senderAvatar:Landroid/graphics/drawable/Drawable;
@@ -887,51 +891,53 @@
     invoke-virtual {v0, v3}, Landroid/widget/TextView;->setTranslationX(F)V
 
     :goto_0
-    const v0, 0x3f19999a    # 0.6f
+    iget-object v0, p0, Lcom/android/wm/shell/bubbles/BubbleFlyoutView;->mPositioner:Lcom/android/wm/shell/bubbles/BubblePositioner;
 
-    mul-float/2addr p2, v0
-
-    float-to-int p2, p2
-
-    iget v0, p0, Lcom/android/wm/shell/bubbles/BubbleFlyoutView;->mFlyoutPadding:I
-
-    mul-int/lit8 v0, v0, 0x2
-
-    sub-int/2addr p2, v0
-
-    iget-object v0, p1, Lcom/android/wm/shell/bubbles/Bubble$FlyoutMessage;->senderName:Ljava/lang/CharSequence;
-
-    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-virtual {v0}, Lcom/android/wm/shell/bubbles/BubblePositioner;->getMaxFlyoutSize()F
 
     move-result v0
 
-    if-nez v0, :cond_1
+    float-to-int v0, v0
 
-    iget-object v0, p0, Lcom/android/wm/shell/bubbles/BubbleFlyoutView;->mSenderText:Landroid/widget/TextView;
+    iget v3, p0, Lcom/android/wm/shell/bubbles/BubbleFlyoutView;->mFlyoutPadding:I
 
-    invoke-virtual {v0, p2}, Landroid/widget/TextView;->setMaxWidth(I)V
+    mul-int/lit8 v3, v3, 0x2
 
-    iget-object v0, p0, Lcom/android/wm/shell/bubbles/BubbleFlyoutView;->mSenderText:Landroid/widget/TextView;
+    sub-int/2addr v0, v3
 
-    iget-object v2, p1, Lcom/android/wm/shell/bubbles/Bubble$FlyoutMessage;->senderName:Ljava/lang/CharSequence;
+    iget-object v3, p1, Lcom/android/wm/shell/bubbles/Bubble$FlyoutMessage;->senderName:Ljava/lang/CharSequence;
 
-    invoke-virtual {v0, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    iget-object v0, p0, Lcom/android/wm/shell/bubbles/BubbleFlyoutView;->mSenderText:Landroid/widget/TextView;
+    move-result v3
 
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
+    if-nez v3, :cond_1
+
+    iget-object v2, p0, Lcom/android/wm/shell/bubbles/BubbleFlyoutView;->mSenderText:Landroid/widget/TextView;
+
+    invoke-virtual {v2, v0}, Landroid/widget/TextView;->setMaxWidth(I)V
+
+    iget-object v2, p0, Lcom/android/wm/shell/bubbles/BubbleFlyoutView;->mSenderText:Landroid/widget/TextView;
+
+    iget-object v3, p1, Lcom/android/wm/shell/bubbles/Bubble$FlyoutMessage;->senderName:Ljava/lang/CharSequence;
+
+    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    iget-object v2, p0, Lcom/android/wm/shell/bubbles/BubbleFlyoutView;->mSenderText:Landroid/widget/TextView;
+
+    invoke-virtual {v2, v1}, Landroid/widget/TextView;->setVisibility(I)V
 
     goto :goto_1
 
     :cond_1
-    iget-object v0, p0, Lcom/android/wm/shell/bubbles/BubbleFlyoutView;->mSenderText:Landroid/widget/TextView;
+    iget-object v1, p0, Lcom/android/wm/shell/bubbles/BubbleFlyoutView;->mSenderText:Landroid/widget/TextView;
 
-    invoke-virtual {v0, v2}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setVisibility(I)V
 
     :goto_1
-    iget-object v0, p0, Lcom/android/wm/shell/bubbles/BubbleFlyoutView;->mMessageText:Landroid/widget/TextView;
+    iget-object v1, p0, Lcom/android/wm/shell/bubbles/BubbleFlyoutView;->mMessageText:Landroid/widget/TextView;
 
-    invoke-virtual {v0, p2}, Landroid/widget/TextView;->setMaxWidth(I)V
+    invoke-virtual {v1, v0}, Landroid/widget/TextView;->setMaxWidth(I)V
 
     iget-object p0, p0, Lcom/android/wm/shell/bubbles/BubbleFlyoutView;->mMessageText:Landroid/widget/TextView;
 
@@ -944,30 +950,20 @@
 
 
 # virtual methods
-.method animateUpdate(Lcom/android/wm/shell/bubbles/Bubble$FlyoutMessage;FLandroid/graphics/PointF;ZLjava/lang/Runnable;)V
-    .locals 6
+.method animateUpdate(Lcom/android/wm/shell/bubbles/Bubble$FlyoutMessage;Landroid/graphics/PointF;Z[FLjava/lang/Runnable;)V
+    .locals 0
 
     iput-object p5, p0, Lcom/android/wm/shell/bubbles/BubbleFlyoutView;->mOnHide:Ljava/lang/Runnable;
 
-    new-instance p5, Lcom/android/wm/shell/bubbles/BubbleFlyoutView$$ExternalSyntheticLambda2;
+    iput-object p4, p0, Lcom/android/wm/shell/bubbles/BubbleFlyoutView;->mDotCenter:[F
 
-    move-object v0, p5
+    new-instance p4, Lcom/android/wm/shell/bubbles/BubbleFlyoutView$$ExternalSyntheticLambda2;
 
-    move-object v1, p0
-
-    move-object v2, p1
-
-    move v3, p2
-
-    move-object v4, p3
-
-    move v5, p4
-
-    invoke-direct/range {v0 .. v5}, Lcom/android/wm/shell/bubbles/BubbleFlyoutView$$ExternalSyntheticLambda2;-><init>(Lcom/android/wm/shell/bubbles/BubbleFlyoutView;Lcom/android/wm/shell/bubbles/Bubble$FlyoutMessage;FLandroid/graphics/PointF;Z)V
+    invoke-direct {p4, p0, p1, p2, p3}, Lcom/android/wm/shell/bubbles/BubbleFlyoutView$$ExternalSyntheticLambda2;-><init>(Lcom/android/wm/shell/bubbles/BubbleFlyoutView;Lcom/android/wm/shell/bubbles/Bubble$FlyoutMessage;Landroid/graphics/PointF;Z)V
 
     const/4 p1, 0x0
 
-    invoke-direct {p0, p1, p3, p4, p5}, Lcom/android/wm/shell/bubbles/BubbleFlyoutView;->fade(ZLandroid/graphics/PointF;ZLjava/lang/Runnable;)V
+    invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/wm/shell/bubbles/BubbleFlyoutView;->fade(ZLandroid/graphics/PointF;ZLjava/lang/Runnable;)V
 
     return-void
 .end method
@@ -1126,52 +1122,54 @@
     return-void
 .end method
 
-.method setupFlyoutStartingAsDot(Lcom/android/wm/shell/bubbles/Bubble$FlyoutMessage;Landroid/graphics/PointF;FZILjava/lang/Runnable;Ljava/lang/Runnable;[FZLcom/android/wm/shell/bubbles/BubblePositioner;)V
-    .locals 2
+.method setupFlyoutStartingAsDot(Lcom/android/wm/shell/bubbles/Bubble$FlyoutMessage;Landroid/graphics/PointF;ZILjava/lang/Runnable;Ljava/lang/Runnable;[FZ)V
+    .locals 3
 
-    invoke-virtual {p10}, Lcom/android/wm/shell/bubbles/BubblePositioner;->getBubbleSize()I
+    iget-object v0, p0, Lcom/android/wm/shell/bubbles/BubbleFlyoutView;->mPositioner:Lcom/android/wm/shell/bubbles/BubblePositioner;
 
-    move-result p10
+    invoke-virtual {v0}, Lcom/android/wm/shell/bubbles/BubblePositioner;->getBubbleSize()I
 
-    iput p10, p0, Lcom/android/wm/shell/bubbles/BubbleFlyoutView;->mBubbleSize:I
+    move-result v0
 
-    int-to-float p10, p10
+    iput v0, p0, Lcom/android/wm/shell/bubbles/BubbleFlyoutView;->mBubbleSize:I
 
-    const v0, 0x3e6978d5    # 0.228f
+    int-to-float v0, v0
 
-    mul-float/2addr p10, v0
+    const v1, 0x3e6978d5    # 0.228f
 
-    iput p10, p0, Lcom/android/wm/shell/bubbles/BubbleFlyoutView;->mOriginalDotSize:F
+    mul-float/2addr v0, v1
 
-    const/high16 v0, 0x3f800000    # 1.0f
+    iput v0, p0, Lcom/android/wm/shell/bubbles/BubbleFlyoutView;->mOriginalDotSize:F
 
-    mul-float/2addr p10, v0
+    const/high16 v1, 0x3f800000    # 1.0f
 
-    const/high16 v1, 0x40000000    # 2.0f
+    mul-float/2addr v0, v1
 
-    div-float/2addr p10, v1
+    const/high16 v2, 0x40000000    # 2.0f
 
-    iput p10, p0, Lcom/android/wm/shell/bubbles/BubbleFlyoutView;->mNewDotRadius:F
+    div-float/2addr v0, v2
 
-    mul-float/2addr p10, v1
+    iput v0, p0, Lcom/android/wm/shell/bubbles/BubbleFlyoutView;->mNewDotRadius:F
 
-    iput p10, p0, Lcom/android/wm/shell/bubbles/BubbleFlyoutView;->mNewDotSize:F
+    mul-float/2addr v0, v2
 
-    invoke-direct {p0, p1, p3}, Lcom/android/wm/shell/bubbles/BubbleFlyoutView;->updateFlyoutMessage(Lcom/android/wm/shell/bubbles/Bubble$FlyoutMessage;F)V
+    iput v0, p0, Lcom/android/wm/shell/bubbles/BubbleFlyoutView;->mNewDotSize:F
 
-    iput-boolean p4, p0, Lcom/android/wm/shell/bubbles/BubbleFlyoutView;->mArrowPointingLeft:Z
+    invoke-direct {p0, p1}, Lcom/android/wm/shell/bubbles/BubbleFlyoutView;->updateFlyoutMessage(Lcom/android/wm/shell/bubbles/Bubble$FlyoutMessage;)V
 
-    iput p5, p0, Lcom/android/wm/shell/bubbles/BubbleFlyoutView;->mDotColor:I
+    iput-boolean p3, p0, Lcom/android/wm/shell/bubbles/BubbleFlyoutView;->mArrowPointingLeft:Z
 
-    iput-object p7, p0, Lcom/android/wm/shell/bubbles/BubbleFlyoutView;->mOnHide:Ljava/lang/Runnable;
+    iput p4, p0, Lcom/android/wm/shell/bubbles/BubbleFlyoutView;->mDotColor:I
 
-    iput-object p8, p0, Lcom/android/wm/shell/bubbles/BubbleFlyoutView;->mDotCenter:[F
+    iput-object p6, p0, Lcom/android/wm/shell/bubbles/BubbleFlyoutView;->mOnHide:Ljava/lang/Runnable;
 
-    invoke-virtual {p0, v0}, Lcom/android/wm/shell/bubbles/BubbleFlyoutView;->setCollapsePercent(F)V
+    iput-object p7, p0, Lcom/android/wm/shell/bubbles/BubbleFlyoutView;->mDotCenter:[F
+
+    invoke-virtual {p0, v1}, Lcom/android/wm/shell/bubbles/BubbleFlyoutView;->setCollapsePercent(F)V
 
     new-instance p1, Lcom/android/wm/shell/bubbles/BubbleFlyoutView$$ExternalSyntheticLambda1;
 
-    invoke-direct {p1, p0, p2, p9, p6}, Lcom/android/wm/shell/bubbles/BubbleFlyoutView$$ExternalSyntheticLambda1;-><init>(Lcom/android/wm/shell/bubbles/BubbleFlyoutView;Landroid/graphics/PointF;ZLjava/lang/Runnable;)V
+    invoke-direct {p1, p0, p2, p8, p5}, Lcom/android/wm/shell/bubbles/BubbleFlyoutView$$ExternalSyntheticLambda1;-><init>(Lcom/android/wm/shell/bubbles/BubbleFlyoutView;Landroid/graphics/PointF;ZLjava/lang/Runnable;)V
 
     invoke-virtual {p0, p1}, Landroid/widget/FrameLayout;->post(Ljava/lang/Runnable;)Z
 
@@ -1317,7 +1315,7 @@
 
     move-result-object v0
 
-    const v1, 0x1050287
+    const v1, 0x1050294
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

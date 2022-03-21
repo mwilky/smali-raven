@@ -9,7 +9,7 @@
         value = {
             "Ljava/util/Map<",
             "Ljava/lang/String;",
-            "Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRowController;",
+            "Lcom/android/systemui/statusbar/notification/collection/render/NodeController;",
             ">;"
         }
     .end annotation
@@ -33,7 +33,7 @@
 
 
 # virtual methods
-.method public final registerViewForEntry(Lcom/android/systemui/statusbar/notification/collection/ListEntry;Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRowController;)V
+.method public final registerViewForEntry(Lcom/android/systemui/statusbar/notification/collection/ListEntry;Lcom/android/systemui/statusbar/notification/collection/render/NodeController;)V
     .locals 1
 
     const-string v0, "entry"
@@ -77,7 +77,7 @@
     return-void
 .end method
 
-.method public final requireView(Lcom/android/systemui/statusbar/notification/collection/ListEntry;)Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRowController;
+.method public final requireView(Lcom/android/systemui/statusbar/notification/collection/ListEntry;)Lcom/android/systemui/statusbar/notification/collection/render/NodeController;
     .locals 1
 
     const-string v0, "forEntry"
@@ -94,7 +94,7 @@
 
     move-result-object p0
 
-    check-cast p0, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRowController;
+    check-cast p0, Lcom/android/systemui/statusbar/notification/collection/render/NodeController;
 
     if-eqz p0, :cond_0
 

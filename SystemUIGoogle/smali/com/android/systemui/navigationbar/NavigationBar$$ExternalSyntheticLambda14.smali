@@ -27,7 +27,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/navigationbar/NavigationBar$$ExternalSyntheticLambda14;->f$0:Lcom/android/systemui/navigationbar/NavigationBar;
 
-    invoke-static {p0}, Lcom/android/systemui/navigationbar/NavigationBar;->$r8$lambda$51uSrByCGmAv1mf5SuHfy8PrEF4(Lcom/android/systemui/navigationbar/NavigationBar;)V
+    invoke-static {p0}, Lcom/android/systemui/navigationbar/NavigationBar;->$r8$lambda$T2khzvKue7NVudfy9B8kqnm8JdU(Lcom/android/systemui/navigationbar/NavigationBar;)V
 
     return-void
 .end method

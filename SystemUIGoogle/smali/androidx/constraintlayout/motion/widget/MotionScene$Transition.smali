@@ -358,6 +358,14 @@
     return-object p1
 .end method
 
+.method static synthetic access$300(Landroidx/constraintlayout/motion/widget/MotionScene$Transition;)I
+    .locals 0
+
+    iget p0, p0, Landroidx/constraintlayout/motion/widget/MotionScene$Transition;->mId:I
+
+    return p0
+.end method
+
 .method static synthetic access$400(Landroidx/constraintlayout/motion/widget/MotionScene$Transition;)Ljava/util/ArrayList;
     .locals 0
 

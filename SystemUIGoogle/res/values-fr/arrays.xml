@@ -322,8 +322,8 @@
     </string-array>
     <string-array name="tile_states_rotation">
         <item>Indisponible</item>
-        <item>Désactivé</item>
-        <item>Activé</item>
+        <item>Désactivée</item>
+        <item>Activée</item>
     </string-array>
     <string-array name="tile_states_saver">
         <item>Indisponible</item>

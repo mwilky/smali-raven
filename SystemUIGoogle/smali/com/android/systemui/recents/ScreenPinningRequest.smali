@@ -26,11 +26,11 @@
 
 .field private mRequestWindow:Lcom/android/systemui/recents/ScreenPinningRequest$RequestWindowView;
 
-.field private final mStatusBarOptionalLazy:Ljava/util/Optional;
+.field private final mStatusBarOptionalLazy:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/Optional<",
             "Ldagger/Lazy<",
+            "Ljava/util/Optional<",
             "Lcom/android/systemui/statusbar/phone/StatusBar;",
             ">;>;"
         }
@@ -43,14 +43,14 @@
 
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;Ljava/util/Optional;)V
+.method public constructor <init>(Landroid/content/Context;Ldagger/Lazy;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Landroid/content/Context;",
-            "Ljava/util/Optional<",
             "Ldagger/Lazy<",
+            "Ljava/util/Optional<",
             "Lcom/android/systemui/statusbar/phone/StatusBar;",
             ">;>;)V"
         }
@@ -60,7 +60,7 @@
 
     iput-object p1, p0, Lcom/android/systemui/recents/ScreenPinningRequest;->mContext:Landroid/content/Context;
 
-    iput-object p2, p0, Lcom/android/systemui/recents/ScreenPinningRequest;->mStatusBarOptionalLazy:Ljava/util/Optional;
+    iput-object p2, p0, Lcom/android/systemui/recents/ScreenPinningRequest;->mStatusBarOptionalLazy:Ldagger/Lazy;
 
     const-string p2, "accessibility"
 
@@ -125,10 +125,10 @@
     return p0
 .end method
 
-.method static synthetic access$300(Lcom/android/systemui/recents/ScreenPinningRequest;)Ljava/util/Optional;
+.method static synthetic access$300(Lcom/android/systemui/recents/ScreenPinningRequest;)Ldagger/Lazy;
     .locals 0
 
-    iget-object p0, p0, Lcom/android/systemui/recents/ScreenPinningRequest;->mStatusBarOptionalLazy:Ljava/util/Optional;
+    iget-object p0, p0, Lcom/android/systemui/recents/ScreenPinningRequest;->mStatusBarOptionalLazy:Ldagger/Lazy;
 
     return-object p0
 .end method

@@ -1,11 +1,23 @@
 {
   "version": "1.0.0",
   "messages": {
+    "-2117150342": {
+      "message": "Fullscreen Task Vanished: #%d",
+      "level": "VERBOSE",
+      "group": "WM_SHELL_TASK_ORG",
+      "at": "com\/android\/wm\/shell\/fullscreen\/FullscreenTaskListener.java"
+    },
     "-2076257741": {
       "message": "Transition requested: %s %s",
       "level": "VERBOSE",
       "group": "WM_SHELL_TRANSITIONS",
       "at": "com\/android\/wm\/shell\/transition\/Transitions.java"
+    },
+    "-1934680564": {
+      "message": "  splitTransition  deduced Dismiss from request. toTop=%s",
+      "level": "VERBOSE",
+      "group": "WM_SHELL_TRANSITIONS",
+      "at": "com\/android\/wm\/shell\/stagesplit\/StageCoordinator.java"
     },
     "-1683614271": {
       "message": "Existing task: id=%d component=%s",
@@ -19,11 +31,11 @@
       "group": "WM_SHELL_TRANSITIONS",
       "at": "com\/android\/wm\/shell\/transition\/RemoteTransitionHandler.java"
     },
-    "-1501874464": {
-      "message": "Fullscreen Task Appeared: #%d",
+    "-1533341034": {
+      "message": "Transition was merged (abort=%b: %s",
       "level": "VERBOSE",
-      "group": "WM_SHELL_TASK_ORG",
-      "at": "com\/android\/wm\/shell\/FullscreenTaskListener.java"
+      "group": "WM_SHELL_TRANSITIONS",
+      "at": "com\/android\/wm\/shell\/transition\/Transitions.java"
     },
     "-1382704050": {
       "message": "Display removed: %d",
@@ -72,6 +84,12 @@
       "level": "VERBOSE",
       "group": "WM_SHELL_TRANSITIONS",
       "at": "com\/android\/wm\/shell\/transition\/RemoteTransitionHandler.java"
+    },
+    "-1167654715": {
+      "message": "  nav bar changes sides, so not seamless.",
+      "level": "VERBOSE",
+      "group": "WM_SHELL_TRANSITIONS",
+      "at": "com\/android\/wm\/shell\/transition\/DefaultTransitionHandler.java"
     },
     "-1006733970": {
       "message": "Display added: %d",
@@ -127,11 +145,23 @@
       "group": "WM_SHELL_TASK_ORG",
       "at": "com\/android\/wm\/shell\/legacysplitscreen\/LegacySplitScreenTaskListener.java"
     },
+    "-272049475": {
+      "message": "Freeform Task Info Changed: #%d",
+      "level": "VERBOSE",
+      "group": "WM_SHELL_TASK_ORG",
+      "at": "com\/android\/wm\/shell\/freeform\/FreeformTaskListener.java"
+    },
     "-234284913": {
       "message": "unpair taskId=%d pair=%s",
       "level": "VERBOSE",
       "group": "WM_SHELL_TASK_ORG",
       "at": "com\/android\/wm\/shell\/apppairs\/AppPairsController.java"
+    },
+    "-166960725": {
+      "message": "Freeform Task Appeared: #%d",
+      "level": "VERBOSE",
+      "group": "WM_SHELL_TASK_ORG",
+      "at": "com\/android\/wm\/shell\/freeform\/FreeformTaskListener.java"
     },
     "-146110597": {
       "message": "start default transition animation, info = %s",
@@ -144,6 +174,18 @@
       "level": "VERBOSE",
       "group": "WM_SHELL_TRANSITIONS",
       "at": "com\/android\/wm\/shell\/transition\/RemoteTransitionHandler.java"
+    },
+    "42311280": {
+      "message": "  display has system alert windows, so not seamless.",
+      "level": "VERBOSE",
+      "group": "WM_SHELL_TRANSITIONS",
+      "at": "com\/android\/wm\/shell\/transition\/DefaultTransitionHandler.java"
+    },
+    "111706912": {
+      "message": "Fullscreen Task Appeared: #%d",
+      "level": "VERBOSE",
+      "group": "WM_SHELL_TASK_ORG",
+      "at": "com\/android\/wm\/shell\/fullscreen\/FullscreenTaskListener.java"
     },
     "138343607": {
       "message": " try firstHandler %s",
@@ -217,17 +259,17 @@
       "group": "WM_SHELL_TRANSITIONS",
       "at": "com\/android\/wm\/shell\/transition\/Transitions.java"
     },
-    "564235578": {
-      "message": "Fullscreen Task Vanished: #%d",
-      "level": "VERBOSE",
-      "group": "WM_SHELL_TASK_ORG",
-      "at": "com\/android\/wm\/shell\/FullscreenTaskListener.java"
-    },
     "580605218": {
       "message": "Registering organizer",
       "level": "VERBOSE",
       "group": "WM_SHELL_TASK_ORG",
       "at": "com\/android\/wm\/shell\/ShellTaskOrganizer.java"
+    },
+    "649960056": {
+      "message": "Display is changing, check if it should be seamless.",
+      "level": "VERBOSE",
+      "group": "WM_SHELL_TRANSITIONS",
+      "at": "com\/android\/wm\/shell\/transition\/DefaultTransitionHandler.java"
     },
     "707170340": {
       "message": " animated by firstHandler",
@@ -247,12 +289,6 @@
       "group": "WM_SHELL_TRANSITIONS",
       "at": "com\/android\/wm\/shell\/transition\/OneShotRemoteHandler.java"
     },
-    "977740158": {
-      "message": "Transition animation aborted due to no-op, notifying core %s",
-      "level": "VERBOSE",
-      "group": "WM_SHELL_TRANSITIONS",
-      "at": "com\/android\/wm\/shell\/transition\/Transitions.java"
-    },
     "980952660": {
       "message": "Task root back pressed taskId=%d",
       "level": "VERBOSE",
@@ -271,6 +307,12 @@
       "group": "WM_SHELL_TRANSITIONS",
       "at": "com\/android\/wm\/shell\/transition\/RemoteTransitionHandler.java"
     },
+    "1015274864": {
+      "message": "  wallpaper is participating but isn't seamless.",
+      "level": "VERBOSE",
+      "group": "WM_SHELL_TRANSITIONS",
+      "at": "com\/android\/wm\/shell\/transition\/DefaultTransitionHandler.java"
+    },
     "1070270131": {
       "message": "onTransitionReady %s: %s",
       "level": "VERBOSE",
@@ -283,11 +325,23 @@
       "group": "WM_SHELL_TASK_ORG",
       "at": "com\/android\/wm\/shell\/apppairs\/AppPairsPool.java"
     },
+    "1167817788": {
+      "message": "  rotation involves upside-down portrait, so not seamless.",
+      "level": "VERBOSE",
+      "group": "WM_SHELL_TRANSITIONS",
+      "at": "com\/android\/wm\/shell\/transition\/DefaultTransitionHandler.java"
+    },
     "1184615936": {
       "message": "Set drop target window visibility: displayId=%d visibility=%d",
       "level": "VERBOSE",
       "group": "WM_SHELL_DRAG_AND_DROP",
       "at": "com\/android\/wm\/shell\/draganddrop\/DragAndDropController.java"
+    },
+    "1215677233": {
+      "message": "  Rotation IS seamless.",
+      "level": "VERBOSE",
+      "group": "WM_SHELL_TRANSITIONS",
+      "at": "com\/android\/wm\/shell\/transition\/DefaultTransitionHandler.java"
     },
     "1373022370": {
       "message": "  splitTransition  deduced Dismiss from request. toTop=%s",
@@ -301,14 +355,20 @@
       "group": "WM_SHELL_DRAG_AND_DROP",
       "at": "com\/android\/wm\/shell\/draganddrop\/DragLayout.java"
     },
+    "1636248050": {
+      "message": "  split is active so using splitTransition to handle request. triggerTask=%d type=%s mainChildren=%d sideChildren=%d",
+      "level": "VERBOSE",
+      "group": "WM_SHELL_TRANSITIONS",
+      "at": "com\/android\/wm\/shell\/stagesplit\/StageCoordinator.java"
+    },
     "1649273831": {
       "message": "Using registered One-shot remote transition %s for %s.",
       "level": "VERBOSE",
       "group": "WM_SHELL_TRANSITIONS",
       "at": "com\/android\/wm\/shell\/transition\/OneShotRemoteHandler.java"
     },
-    "1739415176": {
-      "message": "Transition was merged: %s",
+    "1799955124": {
+      "message": "Transition animation finished (abort=%b), notifying core %s",
       "level": "VERBOSE",
       "group": "WM_SHELL_TRANSITIONS",
       "at": "com\/android\/wm\/shell\/transition\/Transitions.java"
@@ -325,11 +385,17 @@
       "group": "WM_SHELL_TASK_ORG",
       "at": "com\/android\/wm\/shell\/apppairs\/AppPairsPool.java"
     },
-    "1917419979": {
-      "message": "Transition animation finished, notifying core %s",
+    "1899149317": {
+      "message": "Freeform Task Vanished: #%d",
+      "level": "VERBOSE",
+      "group": "WM_SHELL_TASK_ORG",
+      "at": "com\/android\/wm\/shell\/freeform\/FreeformTaskListener.java"
+    },
+    "1915000700": {
+      "message": "  task %s isn't requesting seamless, so not seamless.",
       "level": "VERBOSE",
       "group": "WM_SHELL_TRANSITIONS",
-      "at": "com\/android\/wm\/shell\/transition\/Transitions.java"
+      "at": "com\/android\/wm\/shell\/transition\/DefaultTransitionHandler.java"
     },
     "1990759023": {
       "message": "addListenerForType types=%s listener=%s",

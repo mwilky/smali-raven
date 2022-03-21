@@ -48,24 +48,6 @@
         <item quantity="few">Nieprawidłowy kod PUK karty SIM. Masz jeszcze %d próby, zanim karta SIM zostanie trwale zablokowana.</item>
         <item quantity="many">Nieprawidłowy kod PUK karty SIM. Masz jeszcze %d prób, zanim karta SIM zostanie trwale zablokowana.</item>
     </plurals>
-    <plurals name="kg_prompt_reason_time_password">
-        <item quantity="other">Urządzenie nie zostało odblokowane od %d godziny. Potwierdź hasło.</item>
-        <item quantity="one">Urządzenie nie zostało odblokowane od %d godziny. Potwierdź hasło.</item>
-        <item quantity="few">Urządzenie nie zostało odblokowane od %d godzin. Potwierdź hasło.</item>
-        <item quantity="many">Urządzenie nie zostało odblokowane od %d godzin. Potwierdź hasło.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pattern">
-        <item quantity="other">Urządzenie nie zostało odblokowane od %d godziny. Potwierdź wzór.</item>
-        <item quantity="one">Urządzenie nie zostało odblokowane od %d godziny. Potwierdź wzór.</item>
-        <item quantity="few">Urządzenie nie zostało odblokowane od %d godzin. Potwierdź wzór.</item>
-        <item quantity="many">Urządzenie nie zostało odblokowane od %d godzin. Potwierdź wzór.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pin">
-        <item quantity="other">Urządzenie nie zostało odblokowane od %d godziny. Potwierdź kod PIN.</item>
-        <item quantity="one">Urządzenie nie zostało odblokowane od %d godziny. Potwierdź kod PIN.</item>
-        <item quantity="few">Urządzenie nie zostało odblokowane od %d godzin. Potwierdź kod PIN.</item>
-        <item quantity="many">Urządzenie nie zostało odblokowane od %d godzin. Potwierdź kod PIN.</item>
-    </plurals>
     <plurals name="kg_too_many_failed_attempts_countdown">
         <item quantity="other">Spróbuj ponownie za %d sekundy.</item>
         <item quantity="one">Spróbuj ponownie za sekundę</item>

@@ -3926,7 +3926,7 @@
 .method private getExifAttribute(Ljava/lang/String;)Landroidx/exifinterface/media/ExifInterface$ExifAttribute;
     .locals 2
 
-    const-string/jumbo v0, "tag shouldn\'t be null"
+    const-string v0, "tag shouldn\'t be null"
 
     invoke-static {p1, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
@@ -8291,7 +8291,7 @@
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v6, "tagName: "
+    const-string v6, "tagName: "
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -12261,7 +12261,7 @@
 .method public getAttribute(Ljava/lang/String;)Ljava/lang/String;
     .locals 4
 
-    const-string/jumbo v0, "tag shouldn\'t be null"
+    const-string v0, "tag shouldn\'t be null"
 
     invoke-static {p1, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
@@ -12836,9 +12836,9 @@
     const/4 v1, 0x0
 
     :try_start_0
-    const-string/jumbo v2, "temp"
+    const-string v2, "temp"
 
-    const-string/jumbo v3, "tmp"
+    const-string v3, "tmp"
 
     invoke-static {v2, v3}, Ljava/io/File;->createTempFile(Ljava/lang/String;Ljava/lang/String;)Ljava/io/File;
 
@@ -13323,7 +13323,7 @@
 
     move-object/from16 v2, p2
 
-    const-string/jumbo v3, "tag shouldn\'t be null"
+    const-string v3, "tag shouldn\'t be null"
 
     invoke-static {v1, v3}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
@@ -14263,6 +14263,8 @@
 
     :cond_1b
     return-void
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x1

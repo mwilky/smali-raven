@@ -1,5 +1,5 @@
 .class public Lcom/android/wm/shell/draganddrop/DragLayout;
-.super Landroid/view/View;
+.super Landroid/widget/LinearLayout;
 .source "DragLayout.java"
 
 
@@ -8,9 +8,15 @@
 
 .field private mDisplayMargin:I
 
-.field private mDropOutline:Lcom/android/wm/shell/draganddrop/DropOutlineDrawable;
+.field private mDividerSize:I
+
+.field private mDropZoneView1:Lcom/android/wm/shell/draganddrop/DropZoneView;
+
+.field private mDropZoneView2:Lcom/android/wm/shell/draganddrop/DropZoneView;
 
 .field private mHasDropped:Z
+
+.field private final mIconProvider:Lcom/android/launcher3/icons/IconProvider;
 
 .field private mInsets:Landroid/graphics/Insets;
 
@@ -18,12 +24,21 @@
 
 .field private final mPolicy:Lcom/android/wm/shell/draganddrop/DragAndDropPolicy;
 
+.field private final mSplitScreenController:Lcom/android/wm/shell/splitscreen/SplitScreenController;
+
+.field private final mStatusBarManager:Landroid/app/StatusBarManager;
+
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;Lcom/android/wm/shell/splitscreen/SplitScreenController;)V
+.method public constructor <init>(Landroid/content/Context;Lcom/android/wm/shell/splitscreen/SplitScreenController;Lcom/android/launcher3/icons/IconProvider;)V
     .locals 1
+    .annotation build Landroid/annotation/SuppressLint;
+        value = {
+            "WrongConstant"
+        }
+    .end annotation
 
-    invoke-direct {p0, p1}, Landroid/view/View;-><init>(Landroid/content/Context;)V
+    invoke-direct {p0, p1}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
 
     const/4 v0, 0x0
 
@@ -33,37 +48,251 @@
 
     iput-object v0, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mInsets:Landroid/graphics/Insets;
 
-    new-instance v0, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy;
+    iput-object p2, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mSplitScreenController:Lcom/android/wm/shell/splitscreen/SplitScreenController;
 
-    invoke-direct {v0, p1, p2}, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy;-><init>(Landroid/content/Context;Lcom/android/wm/shell/splitscreen/SplitScreenController;)V
+    iput-object p3, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mIconProvider:Lcom/android/launcher3/icons/IconProvider;
 
-    iput-object v0, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mPolicy:Lcom/android/wm/shell/draganddrop/DragAndDropPolicy;
+    new-instance p3, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy;
+
+    invoke-direct {p3, p1, p2}, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy;-><init>(Landroid/content/Context;Lcom/android/wm/shell/splitscreen/SplitScreenController;)V
+
+    iput-object p3, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mPolicy:Lcom/android/wm/shell/draganddrop/DragAndDropPolicy;
+
+    const-class p2, Landroid/app/StatusBarManager;
+
+    invoke-virtual {p1, p2}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object p2
+
+    check-cast p2, Landroid/app/StatusBarManager;
+
+    iput-object p2, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mStatusBarManager:Landroid/app/StatusBarManager;
 
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object p2
 
-    sget v0, Lcom/android/wm/shell/R$dimen;->drop_layout_display_margin:I
+    sget p3, Lcom/android/wm/shell/R$dimen;->drop_layout_display_margin:I
 
-    invoke-virtual {p2, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    invoke-virtual {p2, p3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result p2
 
     iput p2, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mDisplayMargin:I
 
-    new-instance p2, Lcom/android/wm/shell/draganddrop/DropOutlineDrawable;
+    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    invoke-direct {p2, p1}, Lcom/android/wm/shell/draganddrop/DropOutlineDrawable;-><init>(Landroid/content/Context;)V
+    move-result-object p2
 
-    iput-object p2, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mDropOutline:Lcom/android/wm/shell/draganddrop/DropOutlineDrawable;
+    sget p3, Lcom/android/wm/shell/R$dimen;->split_divider_bar_width:I
 
-    invoke-virtual {p0, p2}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {p2, p3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
-    const/4 p1, 0x0
+    move-result p2
 
-    invoke-virtual {p0, p1}, Landroid/view/View;->setWillNotDraw(Z)V
+    iput p2, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mDividerSize:I
+
+    new-instance p2, Lcom/android/wm/shell/draganddrop/DropZoneView;
+
+    invoke-direct {p2, p1}, Lcom/android/wm/shell/draganddrop/DropZoneView;-><init>(Landroid/content/Context;)V
+
+    iput-object p2, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mDropZoneView1:Lcom/android/wm/shell/draganddrop/DropZoneView;
+
+    new-instance p2, Lcom/android/wm/shell/draganddrop/DropZoneView;
+
+    invoke-direct {p2, p1}, Lcom/android/wm/shell/draganddrop/DropZoneView;-><init>(Landroid/content/Context;)V
+
+    iput-object p2, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mDropZoneView2:Lcom/android/wm/shell/draganddrop/DropZoneView;
+
+    iget-object p1, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mDropZoneView1:Lcom/android/wm/shell/draganddrop/DropZoneView;
+
+    new-instance p2, Landroid/widget/LinearLayout$LayoutParams;
+
+    const/4 p3, -0x1
+
+    invoke-direct {p2, p3, p3}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
+
+    invoke-virtual {p0, p1, p2}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+
+    iget-object p1, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mDropZoneView2:Lcom/android/wm/shell/draganddrop/DropZoneView;
+
+    new-instance p2, Landroid/widget/LinearLayout$LayoutParams;
+
+    invoke-direct {p2, p3, p3}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
+
+    invoke-virtual {p0, p1, p2}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+
+    iget-object p1, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mDropZoneView1:Lcom/android/wm/shell/draganddrop/DropZoneView;
+
+    invoke-virtual {p1}, Landroid/widget/FrameLayout;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object p1
+
+    check-cast p1, Landroid/widget/LinearLayout$LayoutParams;
+
+    const/high16 p2, 0x3f800000    # 1.0f
+
+    iput p2, p1, Landroid/widget/LinearLayout$LayoutParams;->weight:F
+
+    iget-object p1, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mDropZoneView2:Lcom/android/wm/shell/draganddrop/DropZoneView;
+
+    invoke-virtual {p1}, Landroid/widget/FrameLayout;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object p1
+
+    check-cast p1, Landroid/widget/LinearLayout$LayoutParams;
+
+    iput p2, p1, Landroid/widget/LinearLayout$LayoutParams;->weight:F
+
+    invoke-direct {p0}, Lcom/android/wm/shell/draganddrop/DragLayout;->updateContainerMargins()V
 
     return-void
+.end method
+
+.method private animateHighlight(Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$Target;)V
+    .locals 3
+
+    iget p1, p1, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$Target;->type:I
+
+    const/4 v0, 0x0
+
+    const/4 v1, 0x1
+
+    if-eq p1, v1, :cond_2
+
+    const/4 v2, 0x2
+
+    if-ne p1, v2, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v2, 0x3
+
+    if-eq p1, v2, :cond_1
+
+    const/4 v2, 0x4
+
+    if-ne p1, v2, :cond_3
+
+    :cond_1
+    iget-object p1, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mDropZoneView1:Lcom/android/wm/shell/draganddrop/DropZoneView;
+
+    invoke-virtual {p1, v0}, Lcom/android/wm/shell/draganddrop/DropZoneView;->setShowingHighlight(Z)V
+
+    iget-object p1, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mDropZoneView1:Lcom/android/wm/shell/draganddrop/DropZoneView;
+
+    invoke-virtual {p1, v1}, Lcom/android/wm/shell/draganddrop/DropZoneView;->setShowingSplash(Z)V
+
+    iget-object p1, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mDropZoneView2:Lcom/android/wm/shell/draganddrop/DropZoneView;
+
+    invoke-virtual {p1, v1}, Lcom/android/wm/shell/draganddrop/DropZoneView;->setShowingHighlight(Z)V
+
+    iget-object p0, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mDropZoneView2:Lcom/android/wm/shell/draganddrop/DropZoneView;
+
+    invoke-virtual {p0, v0}, Lcom/android/wm/shell/draganddrop/DropZoneView;->setShowingSplash(Z)V
+
+    goto :goto_1
+
+    :cond_2
+    :goto_0
+    iget-object p1, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mDropZoneView1:Lcom/android/wm/shell/draganddrop/DropZoneView;
+
+    invoke-virtual {p1, v1}, Lcom/android/wm/shell/draganddrop/DropZoneView;->setShowingHighlight(Z)V
+
+    iget-object p1, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mDropZoneView1:Lcom/android/wm/shell/draganddrop/DropZoneView;
+
+    invoke-virtual {p1, v0}, Lcom/android/wm/shell/draganddrop/DropZoneView;->setShowingSplash(Z)V
+
+    iget-object p1, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mDropZoneView2:Lcom/android/wm/shell/draganddrop/DropZoneView;
+
+    invoke-virtual {p1, v0}, Lcom/android/wm/shell/draganddrop/DropZoneView;->setShowingHighlight(Z)V
+
+    iget-object p0, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mDropZoneView2:Lcom/android/wm/shell/draganddrop/DropZoneView;
+
+    invoke-virtual {p0, v1}, Lcom/android/wm/shell/draganddrop/DropZoneView;->setShowingSplash(Z)V
+
+    :cond_3
+    :goto_1
+    return-void
+.end method
+
+.method private animateSplitContainers(ZLjava/lang/Runnable;)V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mStatusBarManager:Landroid/app/StatusBarManager;
+
+    if-eqz p1, :cond_0
+
+    const/high16 v1, 0x960000
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v1, 0x0
+
+    :goto_0
+    invoke-virtual {v0, v1}, Landroid/app/StatusBarManager;->disable(I)V
+
+    iget-object v0, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mDropZoneView1:Lcom/android/wm/shell/draganddrop/DropZoneView;
+
+    invoke-virtual {v0, p1}, Lcom/android/wm/shell/draganddrop/DropZoneView;->setShowingMargin(Z)V
+
+    iget-object v0, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mDropZoneView2:Lcom/android/wm/shell/draganddrop/DropZoneView;
+
+    invoke-virtual {v0, p1}, Lcom/android/wm/shell/draganddrop/DropZoneView;->setShowingMargin(Z)V
+
+    iget-object p1, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mDropZoneView1:Lcom/android/wm/shell/draganddrop/DropZoneView;
+
+    invoke-virtual {p1}, Lcom/android/wm/shell/draganddrop/DropZoneView;->getAnimator()Landroid/animation/ObjectAnimator;
+
+    move-result-object p1
+
+    if-eqz p2, :cond_2
+
+    if-eqz p1, :cond_1
+
+    new-instance v0, Lcom/android/wm/shell/draganddrop/DragLayout$1;
+
+    invoke-direct {v0, p0, p2}, Lcom/android/wm/shell/draganddrop/DragLayout$1;-><init>(Lcom/android/wm/shell/draganddrop/DragLayout;Ljava/lang/Runnable;)V
+
+    invoke-virtual {p1, v0}, Landroid/animation/ObjectAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
+
+    goto :goto_1
+
+    :cond_1
+    invoke-interface {p2}, Ljava/lang/Runnable;->run()V
+
+    :cond_2
+    :goto_1
+    return-void
+.end method
+
+.method private static getResizingBackgroundColor(Landroid/app/ActivityManager$RunningTaskInfo;)I
+    .locals 1
+
+    iget-object p0, p0, Landroid/app/ActivityManager$RunningTaskInfo;->taskDescription:Landroid/app/ActivityManager$TaskDescription;
+
+    invoke-virtual {p0}, Landroid/app/ActivityManager$TaskDescription;->getBackgroundColor()I
+
+    move-result p0
+
+    const/4 v0, -0x1
+
+    if-ne p0, v0, :cond_0
+
+    move p0, v0
+
+    :cond_0
+    invoke-static {p0}, Landroid/graphics/Color;->valueOf(I)Landroid/graphics/Color;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Landroid/graphics/Color;->toArgb()I
+
+    move-result p0
+
+    return p0
 .end method
 
 .method private recomputeDropTargets()V
@@ -138,6 +367,242 @@
     return-void
 .end method
 
+.method private updateContainerMargins()V
+    .locals 5
+
+    invoke-virtual {p0}, Landroid/widget/LinearLayout;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+
+    move-result-object v0
+
+    iget v0, v0, Landroid/content/res/Configuration;->orientation:I
+
+    iget v1, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mDisplayMargin:I
+
+    int-to-float v2, v1
+
+    const/high16 v3, 0x40000000    # 2.0f
+
+    div-float/2addr v2, v3
+
+    const/4 v3, 0x2
+
+    if-ne v0, v3, :cond_0
+
+    iget-object v0, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mDropZoneView1:Lcom/android/wm/shell/draganddrop/DropZoneView;
+
+    int-to-float v3, v1
+
+    int-to-float v4, v1
+
+    int-to-float v1, v1
+
+    invoke-virtual {v0, v3, v4, v2, v1}, Lcom/android/wm/shell/draganddrop/DropZoneView;->setContainerMargin(FFFF)V
+
+    iget-object v0, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mDropZoneView2:Lcom/android/wm/shell/draganddrop/DropZoneView;
+
+    iget p0, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mDisplayMargin:I
+
+    int-to-float v1, p0
+
+    int-to-float v3, p0
+
+    int-to-float p0, p0
+
+    invoke-virtual {v0, v2, v1, v3, p0}, Lcom/android/wm/shell/draganddrop/DropZoneView;->setContainerMargin(FFFF)V
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v3, 0x1
+
+    if-ne v0, v3, :cond_1
+
+    iget-object v0, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mDropZoneView1:Lcom/android/wm/shell/draganddrop/DropZoneView;
+
+    int-to-float v3, v1
+
+    int-to-float v4, v1
+
+    int-to-float v1, v1
+
+    invoke-virtual {v0, v3, v4, v1, v2}, Lcom/android/wm/shell/draganddrop/DropZoneView;->setContainerMargin(FFFF)V
+
+    iget-object v0, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mDropZoneView2:Lcom/android/wm/shell/draganddrop/DropZoneView;
+
+    iget p0, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mDisplayMargin:I
+
+    int-to-float v1, p0
+
+    int-to-float v3, p0
+
+    int-to-float p0, p0
+
+    invoke-virtual {v0, v1, v2, v3, p0}, Lcom/android/wm/shell/draganddrop/DropZoneView;->setContainerMargin(FFFF)V
+
+    :cond_1
+    :goto_0
+    return-void
+.end method
+
+.method private updateDropZoneSizes(Landroid/graphics/Rect;Landroid/graphics/Rect;)V
+    .locals 5
+
+    invoke-virtual {p0}, Landroid/widget/LinearLayout;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+
+    move-result-object v0
+
+    iget v0, v0, Landroid/content/res/Configuration;->orientation:I
+
+    const/4 v1, 0x1
+
+    if-ne v0, v1, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v1, 0x0
+
+    :goto_0
+    iget v0, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mDividerSize:I
+
+    div-int/lit8 v0, v0, 0x2
+
+    iget-object v2, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mDropZoneView1:Lcom/android/wm/shell/draganddrop/DropZoneView;
+
+    invoke-virtual {v2}, Landroid/widget/FrameLayout;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/widget/LinearLayout$LayoutParams;
+
+    iget-object v3, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mDropZoneView2:Lcom/android/wm/shell/draganddrop/DropZoneView;
+
+    invoke-virtual {v3}, Landroid/widget/FrameLayout;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/widget/LinearLayout$LayoutParams;
+
+    const/4 v4, -0x1
+
+    if-eqz v1, :cond_3
+
+    iput v4, v2, Landroid/widget/LinearLayout$LayoutParams;->width:I
+
+    iput v4, v3, Landroid/widget/LinearLayout$LayoutParams;->width:I
+
+    if-eqz p1, :cond_1
+
+    invoke-virtual {p1}, Landroid/graphics/Rect;->height()I
+
+    move-result v1
+
+    add-int/2addr v1, v0
+
+    goto :goto_1
+
+    :cond_1
+    move v1, v4
+
+    :goto_1
+    iput v1, v2, Landroid/widget/LinearLayout$LayoutParams;->height:I
+
+    if-eqz p2, :cond_2
+
+    invoke-virtual {p2}, Landroid/graphics/Rect;->height()I
+
+    move-result v1
+
+    add-int v4, v1, v0
+
+    :cond_2
+    iput v4, v3, Landroid/widget/LinearLayout$LayoutParams;->height:I
+
+    goto :goto_4
+
+    :cond_3
+    if-eqz p1, :cond_4
+
+    invoke-virtual {p1}, Landroid/graphics/Rect;->width()I
+
+    move-result v1
+
+    add-int/2addr v1, v0
+
+    goto :goto_2
+
+    :cond_4
+    move v1, v4
+
+    :goto_2
+    iput v1, v2, Landroid/widget/LinearLayout$LayoutParams;->width:I
+
+    if-eqz p2, :cond_5
+
+    invoke-virtual {p2}, Landroid/graphics/Rect;->width()I
+
+    move-result v1
+
+    add-int/2addr v1, v0
+
+    goto :goto_3
+
+    :cond_5
+    move v1, v4
+
+    :goto_3
+    iput v1, v3, Landroid/widget/LinearLayout$LayoutParams;->width:I
+
+    iput v4, v2, Landroid/widget/LinearLayout$LayoutParams;->height:I
+
+    iput v4, v3, Landroid/widget/LinearLayout$LayoutParams;->height:I
+
+    :goto_4
+    const/4 v0, 0x0
+
+    const/high16 v1, 0x3f800000    # 1.0f
+
+    if-eqz p1, :cond_6
+
+    move p1, v0
+
+    goto :goto_5
+
+    :cond_6
+    move p1, v1
+
+    :goto_5
+    iput p1, v2, Landroid/widget/LinearLayout$LayoutParams;->weight:F
+
+    if-eqz p2, :cond_7
+
+    goto :goto_6
+
+    :cond_7
+    move v0, v1
+
+    :goto_6
+    iput v0, v3, Landroid/widget/LinearLayout$LayoutParams;->weight:F
+
+    iget-object p1, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mDropZoneView1:Lcom/android/wm/shell/draganddrop/DropZoneView;
+
+    invoke-virtual {p1, v2}, Landroid/widget/FrameLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    iget-object p0, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mDropZoneView2:Lcom/android/wm/shell/draganddrop/DropZoneView;
+
+    invoke-virtual {p0, v3}, Landroid/widget/FrameLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    return-void
+.end method
+
 
 # virtual methods
 .method public drop(Landroid/view/DragEvent;Landroid/view/SurfaceControl;Ljava/lang/Runnable;)Z
@@ -181,67 +646,17 @@
 .end method
 
 .method public hide(Landroid/view/DragEvent;Ljava/lang/Runnable;)V
-    .locals 4
+    .locals 0
 
     const/4 p1, 0x0
 
     iput-boolean p1, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mIsShowing:Z
 
-    iget-object v0, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mDropOutline:Lcom/android/wm/shell/draganddrop/DropOutlineDrawable;
+    invoke-direct {p0, p1, p2}, Lcom/android/wm/shell/draganddrop/DragLayout;->animateSplitContainers(ZLjava/lang/Runnable;)V
 
-    sget-object v1, Lcom/android/wm/shell/animation/Interpolators;->LINEAR:Landroid/view/animation/Interpolator;
+    const/4 p1, 0x0
 
-    invoke-virtual {v0, p1, v1}, Lcom/android/wm/shell/draganddrop/DropOutlineDrawable;->startVisibilityAnimation(ZLandroid/view/animation/Interpolator;)Landroid/animation/ObjectAnimator;
-
-    move-result-object p1
-
-    iget-object v0, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mCurrentTarget:Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$Target;
-
-    const/4 v1, 0x0
-
-    if-eqz v0, :cond_0
-
-    new-instance v0, Landroid/graphics/Rect;
-
-    iget-object v2, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mCurrentTarget:Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$Target;
-
-    iget-object v2, v2, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$Target;->drawRegion:Landroid/graphics/Rect;
-
-    invoke-direct {v0, v2}, Landroid/graphics/Rect;-><init>(Landroid/graphics/Rect;)V
-
-    iget v2, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mDisplayMargin:I
-
-    invoke-virtual {v0, v2, v2}, Landroid/graphics/Rect;->inset(II)V
-
-    iget-object v2, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mDropOutline:Lcom/android/wm/shell/draganddrop/DropOutlineDrawable;
-
-    sget-object v3, Lcom/android/wm/shell/animation/Interpolators;->FAST_OUT_LINEAR_IN:Landroid/view/animation/Interpolator;
-
-    invoke-virtual {v2, v0, v3}, Lcom/android/wm/shell/draganddrop/DropOutlineDrawable;->startBoundsAnimation(Landroid/graphics/Rect;Landroid/view/animation/Interpolator;)Landroid/animation/ObjectAnimator;
-
-    move-result-object v0
-
-    goto :goto_0
-
-    :cond_0
-    move-object v0, v1
-
-    :goto_0
-    if-eqz p2, :cond_2
-
-    if-eqz v0, :cond_1
-
-    move-object p1, v0
-
-    :cond_1
-    new-instance v0, Lcom/android/wm/shell/draganddrop/DragLayout$1;
-
-    invoke-direct {v0, p0, p2}, Lcom/android/wm/shell/draganddrop/DragLayout$1;-><init>(Lcom/android/wm/shell/draganddrop/DragLayout;Ljava/lang/Runnable;)V
-
-    invoke-virtual {p1, v0}, Landroid/animation/ObjectAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
-
-    :cond_2
-    iput-object v1, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mCurrentTarget:Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$Target;
+    iput-object p1, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mCurrentTarget:Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$Target;
 
     return-void
 .end method
@@ -267,43 +682,295 @@
 
     invoke-direct {p0}, Lcom/android/wm/shell/draganddrop/DragLayout;->recomputeDropTargets()V
 
-    invoke-super {p0, p1}, Landroid/view/View;->onApplyWindowInsets(Landroid/view/WindowInsets;)Landroid/view/WindowInsets;
+    invoke-virtual {p0}, Landroid/widget/LinearLayout;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+
+    move-result-object v0
+
+    iget v0, v0, Landroid/content/res/Configuration;->orientation:I
+
+    const/4 v1, 0x2
+
+    if-ne v0, v1, :cond_0
+
+    iget-object v0, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mDropZoneView1:Lcom/android/wm/shell/draganddrop/DropZoneView;
+
+    iget-object v1, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mInsets:Landroid/graphics/Insets;
+
+    iget v1, v1, Landroid/graphics/Insets;->bottom:I
+
+    int-to-float v1, v1
+
+    invoke-virtual {v0, v1}, Lcom/android/wm/shell/draganddrop/DropZoneView;->setBottomInset(F)V
+
+    iget-object v0, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mDropZoneView2:Lcom/android/wm/shell/draganddrop/DropZoneView;
+
+    iget-object v1, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mInsets:Landroid/graphics/Insets;
+
+    iget v1, v1, Landroid/graphics/Insets;->bottom:I
+
+    int-to-float v1, v1
+
+    invoke-virtual {v0, v1}, Lcom/android/wm/shell/draganddrop/DropZoneView;->setBottomInset(F)V
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v1, 0x1
+
+    if-ne v0, v1, :cond_1
+
+    iget-object v0, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mDropZoneView1:Lcom/android/wm/shell/draganddrop/DropZoneView;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Lcom/android/wm/shell/draganddrop/DropZoneView;->setBottomInset(F)V
+
+    iget-object v0, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mDropZoneView2:Lcom/android/wm/shell/draganddrop/DropZoneView;
+
+    iget-object v1, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mInsets:Landroid/graphics/Insets;
+
+    iget v1, v1, Landroid/graphics/Insets;->bottom:I
+
+    int-to-float v1, v1
+
+    invoke-virtual {v0, v1}, Lcom/android/wm/shell/draganddrop/DropZoneView;->setBottomInset(F)V
+
+    :cond_1
+    :goto_0
+    invoke-super {p0, p1}, Landroid/widget/LinearLayout;->onApplyWindowInsets(Landroid/view/WindowInsets;)Landroid/view/WindowInsets;
 
     move-result-object p0
 
     return-object p0
 .end method
 
-.method protected onDraw(Landroid/graphics/Canvas;)V
+.method public onConfigChanged(Landroid/content/res/Configuration;)V
     .locals 1
 
-    iget-object v0, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mCurrentTarget:Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$Target;
+    invoke-virtual {p0}, Landroid/widget/LinearLayout;->getResources()Landroid/content/res/Resources;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+
+    move-result-object p1
+
+    iget p1, p1, Landroid/content/res/Configuration;->orientation:I
+
+    const/4 v0, 0x2
+
+    if-ne p1, v0, :cond_0
+
+    invoke-virtual {p0}, Landroid/widget/LinearLayout;->getOrientation()I
+
+    move-result v0
 
     if-eqz v0, :cond_0
 
-    iget-object p0, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mDropOutline:Lcom/android/wm/shell/draganddrop/DropOutlineDrawable;
+    const/4 p1, 0x0
 
-    invoke-virtual {p0, p1}, Lcom/android/wm/shell/draganddrop/DropOutlineDrawable;->draw(Landroid/graphics/Canvas;)V
+    invoke-virtual {p0, p1}, Landroid/widget/LinearLayout;->setOrientation(I)V
+
+    invoke-direct {p0}, Lcom/android/wm/shell/draganddrop/DragLayout;->updateContainerMargins()V
+
+    goto :goto_0
 
     :cond_0
+    const/4 v0, 0x1
+
+    if-ne p1, v0, :cond_1
+
+    invoke-virtual {p0}, Landroid/widget/LinearLayout;->getOrientation()I
+
+    move-result p1
+
+    if-eq p1, v0, :cond_1
+
+    invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->setOrientation(I)V
+
+    invoke-direct {p0}, Lcom/android/wm/shell/draganddrop/DragLayout;->updateContainerMargins()V
+
+    :cond_1
+    :goto_0
     return-void
 .end method
 
-.method public prepare(Lcom/android/wm/shell/common/DisplayLayout;Landroid/content/ClipData;)V
+.method public onThemeChange()V
     .locals 1
+
+    iget-object v0, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mDropZoneView1:Lcom/android/wm/shell/draganddrop/DropZoneView;
+
+    invoke-virtual {v0}, Lcom/android/wm/shell/draganddrop/DropZoneView;->onThemeChange()V
+
+    iget-object p0, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mDropZoneView2:Lcom/android/wm/shell/draganddrop/DropZoneView;
+
+    invoke-virtual {p0}, Lcom/android/wm/shell/draganddrop/DropZoneView;->onThemeChange()V
+
+    return-void
+.end method
+
+.method public prepare(Lcom/android/wm/shell/common/DisplayLayout;Landroid/content/ClipData;Lcom/android/internal/logging/InstanceId;)V
+    .locals 2
 
     iget-object v0, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mPolicy:Lcom/android/wm/shell/draganddrop/DragAndDropPolicy;
 
-    invoke-virtual {v0, p1, p2}, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy;->start(Lcom/android/wm/shell/common/DisplayLayout;Landroid/content/ClipData;)V
+    invoke-virtual {v0, p1, p2, p3}, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy;->start(Lcom/android/wm/shell/common/DisplayLayout;Landroid/content/ClipData;Lcom/android/internal/logging/InstanceId;)V
 
     const/4 p1, 0x0
 
     iput-boolean p1, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mHasDropped:Z
 
-    const/4 p1, 0x0
+    const/4 p2, 0x0
 
-    iput-object p1, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mCurrentTarget:Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$Target;
+    iput-object p2, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mCurrentTarget:Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$Target;
 
+    iget-object p3, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mSplitScreenController:Lcom/android/wm/shell/splitscreen/SplitScreenController;
+
+    const/4 v0, 0x1
+
+    if-eqz p3, :cond_0
+
+    invoke-virtual {p3}, Lcom/android/wm/shell/splitscreen/SplitScreenController;->isSplitScreenVisible()Z
+
+    move-result p3
+
+    if-eqz p3, :cond_0
+
+    move p3, v0
+
+    goto :goto_0
+
+    :cond_0
+    move p3, p1
+
+    :goto_0
+    if-nez p3, :cond_1
+
+    :try_start_0
+    invoke-static {}, Landroid/app/ActivityTaskManager;->getService()Landroid/app/IActivityTaskManager;
+
+    move-result-object p3
+
+    invoke-interface {p3, v0, p1, p1}, Landroid/app/IActivityTaskManager;->getTasks(IZZ)Ljava/util/List;
+
+    move-result-object p3
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_1
+
+    :catch_0
+    move-object p3, p2
+
+    :goto_1
+    if-eqz p3, :cond_3
+
+    invoke-interface {p3}, Ljava/util/List;->isEmpty()Z
+
+    move-result v0
+
+    if-nez v0, :cond_3
+
+    invoke-interface {p3, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Landroid/app/ActivityManager$RunningTaskInfo;
+
+    iget-object p3, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mIconProvider:Lcom/android/launcher3/icons/IconProvider;
+
+    iget-object v0, p1, Landroid/app/ActivityManager$RunningTaskInfo;->topActivityInfo:Landroid/content/pm/ActivityInfo;
+
+    invoke-virtual {p3, v0}, Lcom/android/launcher3/icons/IconProvider;->getIcon(Landroid/content/pm/ActivityInfo;)Landroid/graphics/drawable/Drawable;
+
+    move-result-object p3
+
+    invoke-static {p1}, Lcom/android/wm/shell/draganddrop/DragLayout;->getResizingBackgroundColor(Landroid/app/ActivityManager$RunningTaskInfo;)I
+
+    move-result p1
+
+    iget-object v0, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mDropZoneView1:Lcom/android/wm/shell/draganddrop/DropZoneView;
+
+    invoke-virtual {v0, p1, p3}, Lcom/android/wm/shell/draganddrop/DropZoneView;->setAppInfo(ILandroid/graphics/drawable/Drawable;)V
+
+    iget-object v0, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mDropZoneView2:Lcom/android/wm/shell/draganddrop/DropZoneView;
+
+    invoke-virtual {v0, p1, p3}, Lcom/android/wm/shell/draganddrop/DropZoneView;->setAppInfo(ILandroid/graphics/drawable/Drawable;)V
+
+    invoke-direct {p0, p2, p2}, Lcom/android/wm/shell/draganddrop/DragLayout;->updateDropZoneSizes(Landroid/graphics/Rect;Landroid/graphics/Rect;)V
+
+    goto :goto_2
+
+    :cond_1
+    iget-object p2, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mSplitScreenController:Lcom/android/wm/shell/splitscreen/SplitScreenController;
+
+    invoke-virtual {p2, p1}, Lcom/android/wm/shell/splitscreen/SplitScreenController;->getTaskInfo(I)Landroid/app/ActivityManager$RunningTaskInfo;
+
+    move-result-object p1
+
+    iget-object p2, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mSplitScreenController:Lcom/android/wm/shell/splitscreen/SplitScreenController;
+
+    invoke-virtual {p2, v0}, Lcom/android/wm/shell/splitscreen/SplitScreenController;->getTaskInfo(I)Landroid/app/ActivityManager$RunningTaskInfo;
+
+    move-result-object p2
+
+    if-eqz p1, :cond_2
+
+    if-eqz p2, :cond_2
+
+    iget-object p3, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mIconProvider:Lcom/android/launcher3/icons/IconProvider;
+
+    iget-object v0, p1, Landroid/app/ActivityManager$RunningTaskInfo;->topActivityInfo:Landroid/content/pm/ActivityInfo;
+
+    invoke-virtual {p3, v0}, Lcom/android/launcher3/icons/IconProvider;->getIcon(Landroid/content/pm/ActivityInfo;)Landroid/graphics/drawable/Drawable;
+
+    move-result-object p3
+
+    invoke-static {p1}, Lcom/android/wm/shell/draganddrop/DragLayout;->getResizingBackgroundColor(Landroid/app/ActivityManager$RunningTaskInfo;)I
+
+    move-result p1
+
+    iget-object v0, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mIconProvider:Lcom/android/launcher3/icons/IconProvider;
+
+    iget-object v1, p2, Landroid/app/ActivityManager$RunningTaskInfo;->topActivityInfo:Landroid/content/pm/ActivityInfo;
+
+    invoke-virtual {v0, v1}, Lcom/android/launcher3/icons/IconProvider;->getIcon(Landroid/content/pm/ActivityInfo;)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v0
+
+    invoke-static {p2}, Lcom/android/wm/shell/draganddrop/DragLayout;->getResizingBackgroundColor(Landroid/app/ActivityManager$RunningTaskInfo;)I
+
+    move-result p2
+
+    iget-object v1, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mDropZoneView1:Lcom/android/wm/shell/draganddrop/DropZoneView;
+
+    invoke-virtual {v1, p1, p3}, Lcom/android/wm/shell/draganddrop/DropZoneView;->setAppInfo(ILandroid/graphics/drawable/Drawable;)V
+
+    iget-object p1, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mDropZoneView2:Lcom/android/wm/shell/draganddrop/DropZoneView;
+
+    invoke-virtual {p1, p2, v0}, Lcom/android/wm/shell/draganddrop/DropZoneView;->setAppInfo(ILandroid/graphics/drawable/Drawable;)V
+
+    :cond_2
+    new-instance p1, Landroid/graphics/Rect;
+
+    invoke-direct {p1}, Landroid/graphics/Rect;-><init>()V
+
+    new-instance p2, Landroid/graphics/Rect;
+
+    invoke-direct {p2}, Landroid/graphics/Rect;-><init>()V
+
+    iget-object p3, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mSplitScreenController:Lcom/android/wm/shell/splitscreen/SplitScreenController;
+
+    invoke-virtual {p3, p1, p2}, Lcom/android/wm/shell/splitscreen/SplitScreenController;->getStageBounds(Landroid/graphics/Rect;Landroid/graphics/Rect;)V
+
+    invoke-direct {p0, p1, p2}, Lcom/android/wm/shell/draganddrop/DragLayout;->updateDropZoneSizes(Landroid/graphics/Rect;Landroid/graphics/Rect;)V
+
+    :cond_3
+    :goto_2
     return-void
 .end method
 
@@ -350,50 +1017,28 @@
 
     const/4 v2, 0x0
 
+    const/4 v3, 0x0
+
     if-eqz v0, :cond_0
 
     invoke-static {p1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
-    sget-object v3, Lcom/android/wm/shell/protolog/ShellProtoLogGroup;->WM_SHELL_DRAG_AND_DROP:Lcom/android/wm/shell/protolog/ShellProtoLogGroup;
+    sget-object v4, Lcom/android/wm/shell/protolog/ShellProtoLogGroup;->WM_SHELL_DRAG_AND_DROP:Lcom/android/wm/shell/protolog/ShellProtoLogGroup;
 
-    const v4, 0x58520c75
-
-    const/4 v5, 0x0
+    const v5, 0x58520c75
 
     new-array v6, v1, [Ljava/lang/Object;
 
-    aput-object v0, v6, v2
+    aput-object v0, v6, v3
 
-    invoke-static {v3, v4, v2, v5, v6}, Lcom/android/wm/shell/protolog/ShellProtoLogImpl;->v(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v4, v5, v3, v2, v6}, Lcom/android/wm/shell/protolog/ShellProtoLogImpl;->v(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
 
     :cond_0
     if-nez p1, :cond_1
 
-    iget-object v0, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mDropOutline:Lcom/android/wm/shell/draganddrop/DropOutlineDrawable;
-
-    sget-object v1, Lcom/android/wm/shell/animation/Interpolators;->LINEAR:Landroid/view/animation/Interpolator;
-
-    invoke-virtual {v0, v2, v1}, Lcom/android/wm/shell/draganddrop/DropOutlineDrawable;->startVisibilityAnimation(ZLandroid/view/animation/Interpolator;)Landroid/animation/ObjectAnimator;
-
-    new-instance v0, Landroid/graphics/Rect;
-
-    iget-object v1, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mCurrentTarget:Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$Target;
-
-    iget-object v1, v1, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$Target;->drawRegion:Landroid/graphics/Rect;
-
-    invoke-direct {v0, v1}, Landroid/graphics/Rect;-><init>(Landroid/graphics/Rect;)V
-
-    iget v1, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mDisplayMargin:I
-
-    invoke-virtual {v0, v1, v1}, Landroid/graphics/Rect;->inset(II)V
-
-    iget-object v1, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mDropOutline:Lcom/android/wm/shell/draganddrop/DropOutlineDrawable;
-
-    sget-object v2, Lcom/android/wm/shell/animation/Interpolators;->FAST_OUT_LINEAR_IN:Landroid/view/animation/Interpolator;
-
-    invoke-virtual {v1, v0, v2}, Lcom/android/wm/shell/draganddrop/DropOutlineDrawable;->startBoundsAnimation(Landroid/graphics/Rect;Landroid/view/animation/Interpolator;)Landroid/animation/ObjectAnimator;
+    invoke-direct {p0, v3, v2}, Lcom/android/wm/shell/draganddrop/DragLayout;->animateSplitContainers(ZLjava/lang/Runnable;)V
 
     goto :goto_0
 
@@ -402,76 +1047,18 @@
 
     if-nez v0, :cond_2
 
-    iget-object v0, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mDropOutline:Lcom/android/wm/shell/draganddrop/DropOutlineDrawable;
+    invoke-direct {p0, v1, v2}, Lcom/android/wm/shell/draganddrop/DragLayout;->animateSplitContainers(ZLjava/lang/Runnable;)V
 
-    sget-object v2, Lcom/android/wm/shell/animation/Interpolators;->LINEAR:Landroid/view/animation/Interpolator;
-
-    invoke-virtual {v0, v1, v2}, Lcom/android/wm/shell/draganddrop/DropOutlineDrawable;->startVisibilityAnimation(ZLandroid/view/animation/Interpolator;)Landroid/animation/ObjectAnimator;
-
-    new-instance v0, Landroid/graphics/Rect;
-
-    iget-object v1, p1, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$Target;->drawRegion:Landroid/graphics/Rect;
-
-    invoke-direct {v0, v1}, Landroid/graphics/Rect;-><init>(Landroid/graphics/Rect;)V
-
-    iget v1, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mDisplayMargin:I
-
-    invoke-virtual {v0, v1, v1}, Landroid/graphics/Rect;->inset(II)V
-
-    iget-object v1, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mDropOutline:Lcom/android/wm/shell/draganddrop/DropOutlineDrawable;
-
-    invoke-virtual {v1, v0}, Lcom/android/wm/shell/draganddrop/DropOutlineDrawable;->setRegionBounds(Landroid/graphics/Rect;)V
-
-    iget-object v0, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mDropOutline:Lcom/android/wm/shell/draganddrop/DropOutlineDrawable;
-
-    iget-object v1, p1, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$Target;->drawRegion:Landroid/graphics/Rect;
-
-    sget-object v2, Lcom/android/wm/shell/animation/Interpolators;->LINEAR_OUT_SLOW_IN:Landroid/view/animation/Interpolator;
-
-    invoke-virtual {v0, v1, v2}, Lcom/android/wm/shell/draganddrop/DropOutlineDrawable;->startBoundsAnimation(Landroid/graphics/Rect;Landroid/view/animation/Interpolator;)Landroid/animation/ObjectAnimator;
+    invoke-direct {p0, p1}, Lcom/android/wm/shell/draganddrop/DragLayout;->animateHighlight(Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$Target;)V
 
     goto :goto_0
 
     :cond_2
-    iget-object v0, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mDropOutline:Lcom/android/wm/shell/draganddrop/DropOutlineDrawable;
-
-    iget-object v1, p1, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$Target;->drawRegion:Landroid/graphics/Rect;
-
-    sget-object v2, Lcom/android/wm/shell/animation/Interpolators;->FAST_OUT_SLOW_IN:Landroid/view/animation/Interpolator;
-
-    invoke-virtual {v0, v1, v2}, Lcom/android/wm/shell/draganddrop/DropOutlineDrawable;->startBoundsAnimation(Landroid/graphics/Rect;Landroid/view/animation/Interpolator;)Landroid/animation/ObjectAnimator;
+    invoke-direct {p0, p1}, Lcom/android/wm/shell/draganddrop/DragLayout;->animateHighlight(Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$Target;)V
 
     :goto_0
     iput-object p1, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mCurrentTarget:Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$Target;
 
     :cond_3
     return-void
-.end method
-
-.method protected verifyDrawable(Landroid/graphics/drawable/Drawable;)Z
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/wm/shell/draganddrop/DragLayout;->mDropOutline:Lcom/android/wm/shell/draganddrop/DropOutlineDrawable;
-
-    if-eq p1, v0, :cond_1
-
-    invoke-super {p0, p1}, Landroid/view/View;->verifyDrawable(Landroid/graphics/drawable/Drawable;)Z
-
-    move-result p0
-
-    if-eqz p0, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    goto :goto_1
-
-    :cond_1
-    :goto_0
-    const/4 p0, 0x1
-
-    :goto_1
-    return p0
 .end method

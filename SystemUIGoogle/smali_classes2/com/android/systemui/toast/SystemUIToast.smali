@@ -493,9 +493,40 @@
     :cond_2
     invoke-virtual {v4, v2}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
+    if-nez v3, :cond_3
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "No appInfo for pkg="
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v3, p0, Lcom/android/systemui/toast/SystemUIToast;->mPackageName:Ljava/lang/String;
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v3, " usr="
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget p0, p0, Lcom/android/systemui/toast/SystemUIToast;->mUserId:I
+
+    invoke-virtual {v2, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-static {v0, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_1
+
+    :cond_3
     iget v2, v3, Landroid/content/pm/ApplicationInfo;->labelRes:I
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_4
 
     :try_start_1
     iget-object v2, p0, Lcom/android/systemui/toast/SystemUIToast;->mContext:Landroid/content/Context;
@@ -539,7 +570,7 @@
 
     invoke-static {v0, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_3
+    :cond_4
     :goto_1
     return-object v1
 .end method
@@ -852,7 +883,7 @@
 
     move-result-object p1
 
-    const v0, 0x10502b2
+    const v0, 0x10502bf
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -866,7 +897,7 @@
 
     move-result-object p1
 
-    const v0, 0x10e00d4
+    const v0, 0x10e00d8
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getInteger(I)I
 

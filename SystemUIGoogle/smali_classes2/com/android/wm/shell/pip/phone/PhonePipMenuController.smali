@@ -67,6 +67,16 @@
 
 .field private mPipMenuView:Lcom/android/wm/shell/pip/phone/PipMenuView;
 
+.field private final mSplitScreenController:Ljava/util/Optional;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/Optional<",
+            "Lcom/android/wm/shell/splitscreen/SplitScreenController;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private final mSystemWindows:Lcom/android/wm/shell/common/SystemWindows;
 
 .field private final mTmpDestinationRectF:Landroid/graphics/RectF;
@@ -105,8 +115,23 @@
     return-void
 .end method
 
-.method public constructor <init>(Landroid/content/Context;Lcom/android/wm/shell/pip/PipBoundsState;Lcom/android/wm/shell/pip/PipMediaController;Lcom/android/wm/shell/common/SystemWindows;Lcom/android/wm/shell/common/ShellExecutor;Landroid/os/Handler;)V
+.method public constructor <init>(Landroid/content/Context;Lcom/android/wm/shell/pip/PipBoundsState;Lcom/android/wm/shell/pip/PipMediaController;Lcom/android/wm/shell/common/SystemWindows;Ljava/util/Optional;Lcom/android/wm/shell/common/ShellExecutor;Landroid/os/Handler;)V
     .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/content/Context;",
+            "Lcom/android/wm/shell/pip/PipBoundsState;",
+            "Lcom/android/wm/shell/pip/PipMediaController;",
+            "Lcom/android/wm/shell/common/SystemWindows;",
+            "Ljava/util/Optional<",
+            "Lcom/android/wm/shell/splitscreen/SplitScreenController;",
+            ">;",
+            "Lcom/android/wm/shell/common/ShellExecutor;",
+            "Landroid/os/Handler;",
+            ")V"
+        }
+    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -166,9 +191,11 @@
 
     iput-object p4, p0, Lcom/android/wm/shell/pip/phone/PhonePipMenuController;->mSystemWindows:Lcom/android/wm/shell/common/SystemWindows;
 
-    iput-object p5, p0, Lcom/android/wm/shell/pip/phone/PhonePipMenuController;->mMainExecutor:Lcom/android/wm/shell/common/ShellExecutor;
+    iput-object p6, p0, Lcom/android/wm/shell/pip/phone/PhonePipMenuController;->mMainExecutor:Lcom/android/wm/shell/common/ShellExecutor;
 
-    iput-object p6, p0, Lcom/android/wm/shell/pip/phone/PhonePipMenuController;->mMainHandler:Landroid/os/Handler;
+    iput-object p7, p0, Lcom/android/wm/shell/pip/phone/PhonePipMenuController;->mMainHandler:Landroid/os/Handler;
+
+    iput-object p5, p0, Lcom/android/wm/shell/pip/phone/PhonePipMenuController;->mSplitScreenController:Ljava/util/Optional;
 
     return-void
 .end method
@@ -190,7 +217,7 @@
 .end method
 
 .method private attachPipMenuView()V
-    .locals 4
+    .locals 7
 
     iget-object v0, p0, Lcom/android/wm/shell/pip/phone/PhonePipMenuController;->mPipMenuView:Lcom/android/wm/shell/pip/phone/PipMenuView;
 
@@ -201,13 +228,19 @@
     :cond_0
     new-instance v0, Lcom/android/wm/shell/pip/phone/PipMenuView;
 
-    iget-object v1, p0, Lcom/android/wm/shell/pip/phone/PhonePipMenuController;->mContext:Landroid/content/Context;
+    iget-object v2, p0, Lcom/android/wm/shell/pip/phone/PhonePipMenuController;->mContext:Landroid/content/Context;
 
-    iget-object v2, p0, Lcom/android/wm/shell/pip/phone/PhonePipMenuController;->mMainExecutor:Lcom/android/wm/shell/common/ShellExecutor;
+    iget-object v4, p0, Lcom/android/wm/shell/pip/phone/PhonePipMenuController;->mMainExecutor:Lcom/android/wm/shell/common/ShellExecutor;
 
-    iget-object v3, p0, Lcom/android/wm/shell/pip/phone/PhonePipMenuController;->mMainHandler:Landroid/os/Handler;
+    iget-object v5, p0, Lcom/android/wm/shell/pip/phone/PhonePipMenuController;->mMainHandler:Landroid/os/Handler;
 
-    invoke-direct {v0, v1, p0, v2, v3}, Lcom/android/wm/shell/pip/phone/PipMenuView;-><init>(Landroid/content/Context;Lcom/android/wm/shell/pip/phone/PhonePipMenuController;Lcom/android/wm/shell/common/ShellExecutor;Landroid/os/Handler;)V
+    iget-object v6, p0, Lcom/android/wm/shell/pip/phone/PhonePipMenuController;->mSplitScreenController:Ljava/util/Optional;
+
+    move-object v1, v0
+
+    move-object v3, p0
+
+    invoke-direct/range {v1 .. v6}, Lcom/android/wm/shell/pip/phone/PipMenuView;-><init>(Landroid/content/Context;Lcom/android/wm/shell/pip/phone/PhonePipMenuController;Lcom/android/wm/shell/common/ShellExecutor;Landroid/os/Handler;Ljava/util/Optional;)V
 
     iput-object v0, p0, Lcom/android/wm/shell/pip/phone/PhonePipMenuController;->mPipMenuView:Lcom/android/wm/shell/pip/phone/PipMenuView;
 
@@ -219,11 +252,13 @@
 
     invoke-interface {p0, v2, v3, v3}, Lcom/android/wm/shell/pip/PipMenuController;->getPipMenuLayoutParams(Ljava/lang/String;II)Landroid/view/WindowManager$LayoutParams;
 
-    move-result-object p0
+    move-result-object v2
 
-    const/4 v2, 0x1
+    const/4 v4, 0x1
 
-    invoke-virtual {v1, v0, p0, v3, v2}, Lcom/android/wm/shell/common/SystemWindows;->addView(Landroid/view/View;Landroid/view/WindowManager$LayoutParams;II)V
+    invoke-virtual {v1, v0, v2, v3, v4}, Lcom/android/wm/shell/common/SystemWindows;->addView(Landroid/view/View;Landroid/view/WindowManager$LayoutParams;II)V
+
+    invoke-direct {p0}, Lcom/android/wm/shell/pip/phone/PhonePipMenuController;->setShellRootAccessibilityWindow()V
 
     return-void
 .end method
@@ -454,6 +489,36 @@
     iget-object p0, p0, Lcom/android/wm/shell/pip/phone/PhonePipMenuController;->mMediaActions:Landroid/content/pm/ParceledListSlice;
 
     return-object p0
+.end method
+
+.method private setShellRootAccessibilityWindow()V
+    .locals 3
+
+    iget v0, p0, Lcom/android/wm/shell/pip/phone/PhonePipMenuController;->mMenuState:I
+
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/wm/shell/pip/phone/PhonePipMenuController;->mSystemWindows:Lcom/android/wm/shell/common/SystemWindows;
+
+    iget-object p0, p0, Lcom/android/wm/shell/pip/phone/PhonePipMenuController;->mPipMenuView:Lcom/android/wm/shell/pip/phone/PipMenuView;
+
+    invoke-virtual {v0, v2, v1, p0}, Lcom/android/wm/shell/common/SystemWindows;->setShellRootAccessibilityWindow(IILandroid/view/View;)V
+
+    goto :goto_0
+
+    :cond_0
+    iget-object p0, p0, Lcom/android/wm/shell/pip/phone/PhonePipMenuController;->mSystemWindows:Lcom/android/wm/shell/common/SystemWindows;
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, v2, v1, v0}, Lcom/android/wm/shell/common/SystemWindows;->setShellRootAccessibilityWindow(IILandroid/view/View;)V
+
+    :goto_0
+    return-void
 .end method
 
 .method private showMenuInternal(ILandroid/graphics/Rect;ZZZZ)V
@@ -967,6 +1032,31 @@
     return-void
 .end method
 
+.method onEnterSplit()V
+    .locals 1
+
+    iget-object p0, p0, Lcom/android/wm/shell/pip/phone/PhonePipMenuController;->mListeners:Ljava/util/ArrayList;
+
+    sget-object v0, Lcom/android/wm/shell/pip/phone/PhonePipMenuController$$ExternalSyntheticLambda3;->INSTANCE:Lcom/android/wm/shell/pip/phone/PhonePipMenuController$$ExternalSyntheticLambda3;
+
+    invoke-virtual {p0, v0}, Ljava/util/ArrayList;->forEach(Ljava/util/function/Consumer;)V
+
+    return-void
+.end method
+
+.method public onFocusTaskChanged(Landroid/app/ActivityManager$RunningTaskInfo;)V
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/wm/shell/pip/phone/PhonePipMenuController;->mPipMenuView:Lcom/android/wm/shell/pip/phone/PipMenuView;
+
+    if-eqz p0, :cond_0
+
+    invoke-virtual {p0, p1}, Lcom/android/wm/shell/pip/phone/PipMenuView;->onFocusTaskChanged(Landroid/app/ActivityManager$RunningTaskInfo;)V
+
+    :cond_0
+    return-void
+.end method
+
 .method onMenuStateChangeFinish(I)V
     .locals 2
 
@@ -985,28 +1075,8 @@
     :cond_0
     iput p1, p0, Lcom/android/wm/shell/pip/phone/PhonePipMenuController;->mMenuState:I
 
-    const/4 v0, 0x1
+    invoke-direct {p0}, Lcom/android/wm/shell/pip/phone/PhonePipMenuController;->setShellRootAccessibilityWindow()V
 
-    const/4 v1, 0x0
-
-    if-eqz p1, :cond_1
-
-    iget-object p1, p0, Lcom/android/wm/shell/pip/phone/PhonePipMenuController;->mSystemWindows:Lcom/android/wm/shell/common/SystemWindows;
-
-    iget-object p0, p0, Lcom/android/wm/shell/pip/phone/PhonePipMenuController;->mPipMenuView:Lcom/android/wm/shell/pip/phone/PipMenuView;
-
-    invoke-virtual {p1, v1, v0, p0}, Lcom/android/wm/shell/common/SystemWindows;->setShellRootAccessibilityWindow(IILandroid/view/View;)V
-
-    goto :goto_0
-
-    :cond_1
-    iget-object p0, p0, Lcom/android/wm/shell/pip/phone/PhonePipMenuController;->mSystemWindows:Lcom/android/wm/shell/common/SystemWindows;
-
-    const/4 p1, 0x0
-
-    invoke-virtual {p0, v1, v0, p1}, Lcom/android/wm/shell/common/SystemWindows;->setShellRootAccessibilityWindow(IILandroid/view/View;)V
-
-    :goto_0
     return-void
 .end method
 
@@ -1025,46 +1095,44 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->forEach(Ljava/util/function/Consumer;)V
 
-    const/4 p2, 0x2
+    const/4 p2, 0x1
 
     if-ne p1, p2, :cond_0
 
-    iget-object p2, p0, Lcom/android/wm/shell/pip/phone/PhonePipMenuController;->mMediaController:Lcom/android/wm/shell/pip/PipMediaController;
+    iget-object p3, p0, Lcom/android/wm/shell/pip/phone/PhonePipMenuController;->mMediaController:Lcom/android/wm/shell/pip/PipMediaController;
 
-    iget-object p3, p0, Lcom/android/wm/shell/pip/phone/PhonePipMenuController;->mMediaActionListener:Lcom/android/wm/shell/pip/PipMediaController$ActionListener;
+    iget-object v0, p0, Lcom/android/wm/shell/pip/phone/PhonePipMenuController;->mMediaActionListener:Lcom/android/wm/shell/pip/PipMediaController$ActionListener;
 
-    invoke-virtual {p2, p3}, Lcom/android/wm/shell/pip/PipMediaController;->addActionListener(Lcom/android/wm/shell/pip/PipMediaController$ActionListener;)V
+    invoke-virtual {p3, v0}, Lcom/android/wm/shell/pip/PipMediaController;->addActionListener(Lcom/android/wm/shell/pip/PipMediaController$ActionListener;)V
 
     goto :goto_0
 
     :cond_0
-    iget-object p2, p0, Lcom/android/wm/shell/pip/phone/PhonePipMenuController;->mMediaController:Lcom/android/wm/shell/pip/PipMediaController;
+    iget-object p3, p0, Lcom/android/wm/shell/pip/phone/PhonePipMenuController;->mMediaController:Lcom/android/wm/shell/pip/PipMediaController;
 
-    iget-object p3, p0, Lcom/android/wm/shell/pip/phone/PhonePipMenuController;->mMediaActionListener:Lcom/android/wm/shell/pip/PipMediaController$ActionListener;
+    iget-object v0, p0, Lcom/android/wm/shell/pip/phone/PhonePipMenuController;->mMediaActionListener:Lcom/android/wm/shell/pip/PipMediaController$ActionListener;
 
-    invoke-virtual {p2, p3}, Lcom/android/wm/shell/pip/PipMediaController;->removeActionListener(Lcom/android/wm/shell/pip/PipMediaController$ActionListener;)V
+    invoke-virtual {p3, v0}, Lcom/android/wm/shell/pip/PipMediaController;->removeActionListener(Lcom/android/wm/shell/pip/PipMediaController$ActionListener;)V
 
     :goto_0
     :try_start_0
     invoke-static {}, Landroid/view/WindowManagerGlobal;->getWindowSession()Landroid/view/IWindowSession;
 
-    move-result-object p2
+    move-result-object p3
 
-    const/4 p3, 0x0
+    const/4 v0, 0x0
 
     iget-object p0, p0, Lcom/android/wm/shell/pip/phone/PhonePipMenuController;->mPipMenuInputToken:Landroid/os/IBinder;
 
     if-eqz p1, :cond_1
 
-    const/4 p1, 0x1
-
     goto :goto_1
 
     :cond_1
-    const/4 p1, 0x0
+    const/4 p2, 0x0
 
     :goto_1
-    invoke-interface {p2, p3, p0, p1}, Landroid/view/IWindowSession;->grantEmbeddedWindowFocus(Landroid/view/IWindow;Landroid/os/IBinder;Z)V
+    invoke-interface {p3, v0, p0, p2}, Landroid/view/IWindowSession;->grantEmbeddedWindowFocus(Landroid/view/IWindow;Landroid/os/IBinder;Z)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -1089,7 +1157,7 @@
 
     iget-object p0, p0, Lcom/android/wm/shell/pip/phone/PhonePipMenuController;->mListeners:Ljava/util/ArrayList;
 
-    sget-object v0, Lcom/android/wm/shell/pip/phone/PhonePipMenuController$$ExternalSyntheticLambda3;->INSTANCE:Lcom/android/wm/shell/pip/phone/PhonePipMenuController$$ExternalSyntheticLambda3;
+    sget-object v0, Lcom/android/wm/shell/pip/phone/PhonePipMenuController$$ExternalSyntheticLambda4;->INSTANCE:Lcom/android/wm/shell/pip/phone/PhonePipMenuController$$ExternalSyntheticLambda4;
 
     invoke-virtual {p0, v0}, Ljava/util/ArrayList;->forEach(Ljava/util/function/Consumer;)V
 
@@ -1101,7 +1169,7 @@
 
     iget-object p0, p0, Lcom/android/wm/shell/pip/phone/PhonePipMenuController;->mListeners:Ljava/util/ArrayList;
 
-    sget-object v0, Lcom/android/wm/shell/pip/phone/PhonePipMenuController$$ExternalSyntheticLambda4;->INSTANCE:Lcom/android/wm/shell/pip/phone/PhonePipMenuController$$ExternalSyntheticLambda4;
+    sget-object v0, Lcom/android/wm/shell/pip/phone/PhonePipMenuController$$ExternalSyntheticLambda5;->INSTANCE:Lcom/android/wm/shell/pip/phone/PhonePipMenuController$$ExternalSyntheticLambda5;
 
     invoke-virtual {p0, v0}, Ljava/util/ArrayList;->forEach(Ljava/util/function/Consumer;)V
 
@@ -1232,7 +1300,7 @@
 
     iget-object p0, p0, Lcom/android/wm/shell/pip/phone/PhonePipMenuController;->mListeners:Ljava/util/ArrayList;
 
-    sget-object v0, Lcom/android/wm/shell/pip/phone/PhonePipMenuController$$ExternalSyntheticLambda5;->INSTANCE:Lcom/android/wm/shell/pip/phone/PhonePipMenuController$$ExternalSyntheticLambda5;
+    sget-object v0, Lcom/android/wm/shell/pip/phone/PhonePipMenuController$$ExternalSyntheticLambda6;->INSTANCE:Lcom/android/wm/shell/pip/phone/PhonePipMenuController$$ExternalSyntheticLambda6;
 
     invoke-virtual {p0, v0}, Ljava/util/ArrayList;->forEach(Ljava/util/function/Consumer;)V
 

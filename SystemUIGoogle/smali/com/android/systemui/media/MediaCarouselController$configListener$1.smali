@@ -77,7 +77,7 @@
     return-void
 .end method
 
-.method public onOverlayChanged()V
+.method public onThemeChanged()V
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/media/MediaCarouselController$configListener$1;->this$0:Lcom/android/systemui/media/MediaCarouselController;

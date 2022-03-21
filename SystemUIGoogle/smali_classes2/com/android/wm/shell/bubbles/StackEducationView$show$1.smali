@@ -39,7 +39,11 @@
 
 # virtual methods
 .method public final run()V
-    .locals 4
+    .locals 7
+
+    iget-object v0, p0, Lcom/android/wm/shell/bubbles/StackEducationView$show$1;->this$0:Lcom/android/wm/shell/bubbles/StackEducationView;
+
+    invoke-virtual {v0}, Landroid/widget/LinearLayout;->requestFocus()Z
 
     iget-object v0, p0, Lcom/android/wm/shell/bubbles/StackEducationView$show$1;->this$0:Lcom/android/wm/shell/bubbles/StackEducationView;
 
@@ -47,41 +51,111 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/android/wm/shell/bubbles/StackEducationView$show$1;->$stackPosition:Landroid/graphics/PointF;
+    iget-object v1, p0, Lcom/android/wm/shell/bubbles/StackEducationView$show$1;->this$0:Lcom/android/wm/shell/bubbles/StackEducationView;
 
-    invoke-virtual {v0}, Landroid/view/View;->getContext()Landroid/content/Context;
+    iget-object v2, p0, Lcom/android/wm/shell/bubbles/StackEducationView$show$1;->$stackPosition:Landroid/graphics/PointF;
 
-    move-result-object v2
+    invoke-virtual {v0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
-    invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    move-result-object v3
 
-    move-result-object v2
+    invoke-virtual {v3}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
 
-    sget v3, Lcom/android/wm/shell/R$dimen;->bubble_size:I
+    move-result-object v3
 
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    invoke-virtual {v3}, Landroid/content/res/Configuration;->getLayoutDirection()I
 
-    move-result v2
+    move-result v3
 
-    iget v1, v1, Landroid/graphics/PointF;->y:F
+    if-nez v3, :cond_0
 
-    div-int/lit8 v2, v2, 0x2
+    invoke-static {v1}, Lcom/android/wm/shell/bubbles/StackEducationView;->access$getPositioner$p(Lcom/android/wm/shell/bubbles/StackEducationView;)Lcom/android/wm/shell/bubbles/BubblePositioner;
 
-    int-to-float v2, v2
+    move-result-object v3
 
-    add-float/2addr v1, v2
+    invoke-virtual {v3}, Lcom/android/wm/shell/bubbles/BubblePositioner;->getBubbleSize()I
+
+    move-result v3
+
+    invoke-virtual {v0}, Landroid/view/View;->getPaddingRight()I
+
+    move-result v4
+
+    add-int/2addr v3, v4
+
+    invoke-virtual {v0}, Landroid/view/View;->getPaddingTop()I
+
+    move-result v4
+
+    invoke-virtual {v0}, Landroid/view/View;->getPaddingRight()I
+
+    move-result v5
+
+    invoke-virtual {v0}, Landroid/view/View;->getPaddingBottom()I
+
+    move-result v6
+
+    invoke-virtual {v0, v3, v4, v5, v6}, Landroid/view/View;->setPadding(IIII)V
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {v0}, Landroid/view/View;->getPaddingLeft()I
+
+    move-result v3
+
+    invoke-virtual {v0}, Landroid/view/View;->getPaddingTop()I
+
+    move-result v4
+
+    invoke-static {v1}, Lcom/android/wm/shell/bubbles/StackEducationView;->access$getPositioner$p(Lcom/android/wm/shell/bubbles/StackEducationView;)Lcom/android/wm/shell/bubbles/BubblePositioner;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Lcom/android/wm/shell/bubbles/BubblePositioner;->getBubbleSize()I
+
+    move-result v5
+
+    invoke-virtual {v0}, Landroid/view/View;->getPaddingLeft()I
+
+    move-result v6
+
+    add-int/2addr v5, v6
+
+    invoke-virtual {v0}, Landroid/view/View;->getPaddingBottom()I
+
+    move-result v6
+
+    invoke-virtual {v0, v3, v4, v5, v6}, Landroid/view/View;->setPadding(IIII)V
+
+    :goto_0
+    iget v2, v2, Landroid/graphics/PointF;->y:F
+
+    invoke-static {v1}, Lcom/android/wm/shell/bubbles/StackEducationView;->access$getPositioner$p(Lcom/android/wm/shell/bubbles/StackEducationView;)Lcom/android/wm/shell/bubbles/BubblePositioner;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/android/wm/shell/bubbles/BubblePositioner;->getBubbleSize()I
+
+    move-result v1
+
+    div-int/lit8 v1, v1, 0x2
+
+    int-to-float v1, v1
+
+    add-float/2addr v2, v1
 
     invoke-virtual {v0}, Landroid/view/View;->getHeight()I
 
-    move-result v2
+    move-result v1
 
-    div-int/lit8 v2, v2, 0x2
+    div-int/lit8 v1, v1, 0x2
 
-    int-to-float v2, v2
+    int-to-float v1, v1
 
-    sub-float/2addr v1, v2
+    sub-float/2addr v2, v1
 
-    invoke-virtual {v0, v1}, Landroid/view/View;->setTranslationY(F)V
+    invoke-virtual {v0, v2}, Landroid/view/View;->setTranslationY(F)V
 
     iget-object v0, p0, Lcom/android/wm/shell/bubbles/StackEducationView$show$1;->this$0:Lcom/android/wm/shell/bubbles/StackEducationView;
 

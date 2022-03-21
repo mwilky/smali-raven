@@ -35,8 +35,21 @@
 
 # virtual methods
 .method public onScreenTurnedOff()V
-    .locals 1
+    .locals 2
 
+    invoke-static {}, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;->access$000()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const-string v0, "KeyguardUserSwitcherController"
+
+    const-string v1, "onScreenTurnedOff"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
     iget-object p0, p0, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController$2;->this$0:Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;
 
     const/4 v0, 0x0

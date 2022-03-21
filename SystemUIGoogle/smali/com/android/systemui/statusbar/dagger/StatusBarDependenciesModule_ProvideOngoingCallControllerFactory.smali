@@ -28,11 +28,21 @@
     .end annotation
 .end field
 
+.field private final dumpManagerProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/dump/DumpManager;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private final featureFlagsProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
+            "Lcom/android/systemui/flags/FeatureFlags;",
             ">;"
         }
     .end annotation
@@ -78,6 +88,36 @@
     .end annotation
 .end field
 
+.field private final statusBarStateControllerProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/plugins/statusbar/StatusBarStateController;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private final statusBarWindowControllerProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/window/StatusBarWindowController;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private final swipeStatusBarAwayGestureHandlerProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/gesture/SwipeStatusBarAwayGestureHandler;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private final systemClockProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -90,7 +130,7 @@
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -99,7 +139,7 @@
             "Lcom/android/systemui/statusbar/notification/collection/notifcollection/CommonNotifCollection;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
+            "Lcom/android/systemui/flags/FeatureFlags;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/util/time/SystemClock;",
@@ -115,6 +155,18 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/phone/ongoingcall/OngoingCallLogger;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/dump/DumpManager;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/window/StatusBarWindowController;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/gesture/SwipeStatusBarAwayGestureHandler;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/plugins/statusbar/StatusBarStateController;",
             ">;)V"
         }
     .end annotation
@@ -135,11 +187,19 @@
 
     iput-object p7, p0, Lcom/android/systemui/statusbar/dagger/StatusBarDependenciesModule_ProvideOngoingCallControllerFactory;->loggerProvider:Ljavax/inject/Provider;
 
+    iput-object p8, p0, Lcom/android/systemui/statusbar/dagger/StatusBarDependenciesModule_ProvideOngoingCallControllerFactory;->dumpManagerProvider:Ljavax/inject/Provider;
+
+    iput-object p9, p0, Lcom/android/systemui/statusbar/dagger/StatusBarDependenciesModule_ProvideOngoingCallControllerFactory;->statusBarWindowControllerProvider:Ljavax/inject/Provider;
+
+    iput-object p10, p0, Lcom/android/systemui/statusbar/dagger/StatusBarDependenciesModule_ProvideOngoingCallControllerFactory;->swipeStatusBarAwayGestureHandlerProvider:Ljavax/inject/Provider;
+
+    iput-object p11, p0, Lcom/android/systemui/statusbar/dagger/StatusBarDependenciesModule_ProvideOngoingCallControllerFactory;->statusBarStateControllerProvider:Ljavax/inject/Provider;
+
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/statusbar/dagger/StatusBarDependenciesModule_ProvideOngoingCallControllerFactory;
-    .locals 9
+.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/statusbar/dagger/StatusBarDependenciesModule_ProvideOngoingCallControllerFactory;
+    .locals 13
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -147,7 +207,7 @@
             "Lcom/android/systemui/statusbar/notification/collection/notifcollection/CommonNotifCollection;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
+            "Lcom/android/systemui/flags/FeatureFlags;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/util/time/SystemClock;",
@@ -163,14 +223,26 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/phone/ongoingcall/OngoingCallLogger;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/dump/DumpManager;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/window/StatusBarWindowController;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/gesture/SwipeStatusBarAwayGestureHandler;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/plugins/statusbar/StatusBarStateController;",
             ">;)",
             "Lcom/android/systemui/statusbar/dagger/StatusBarDependenciesModule_ProvideOngoingCallControllerFactory;"
         }
     .end annotation
 
-    new-instance v8, Lcom/android/systemui/statusbar/dagger/StatusBarDependenciesModule_ProvideOngoingCallControllerFactory;
+    new-instance v12, Lcom/android/systemui/statusbar/dagger/StatusBarDependenciesModule_ProvideOngoingCallControllerFactory;
 
-    move-object v0, v8
+    move-object v0, v12
 
     move-object v1, p0
 
@@ -178,23 +250,31 @@
 
     move-object v3, p2
 
-    move-object v4, p3
+    move-object/from16 v4, p3
 
-    move-object v5, p4
+    move-object/from16 v5, p4
 
-    move-object v6, p5
+    move-object/from16 v6, p5
 
-    move-object v7, p6
+    move-object/from16 v7, p6
 
-    invoke-direct/range {v0 .. v7}, Lcom/android/systemui/statusbar/dagger/StatusBarDependenciesModule_ProvideOngoingCallControllerFactory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+    move-object/from16 v8, p7
 
-    return-object v8
+    move-object/from16 v9, p8
+
+    move-object/from16 v10, p9
+
+    move-object/from16 v11, p10
+
+    invoke-direct/range {v0 .. v11}, Lcom/android/systemui/statusbar/dagger/StatusBarDependenciesModule_ProvideOngoingCallControllerFactory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+
+    return-object v12
 .end method
 
-.method public static provideOngoingCallController(Lcom/android/systemui/statusbar/notification/collection/notifcollection/CommonNotifCollection;Lcom/android/systemui/statusbar/FeatureFlags;Lcom/android/systemui/util/time/SystemClock;Lcom/android/systemui/plugins/ActivityStarter;Ljava/util/concurrent/Executor;Landroid/app/IActivityManager;Lcom/android/systemui/statusbar/phone/ongoingcall/OngoingCallLogger;)Lcom/android/systemui/statusbar/phone/ongoingcall/OngoingCallController;
+.method public static provideOngoingCallController(Lcom/android/systemui/statusbar/notification/collection/notifcollection/CommonNotifCollection;Lcom/android/systemui/flags/FeatureFlags;Lcom/android/systemui/util/time/SystemClock;Lcom/android/systemui/plugins/ActivityStarter;Ljava/util/concurrent/Executor;Landroid/app/IActivityManager;Lcom/android/systemui/statusbar/phone/ongoingcall/OngoingCallLogger;Lcom/android/systemui/dump/DumpManager;Lcom/android/systemui/statusbar/window/StatusBarWindowController;Lcom/android/systemui/statusbar/gesture/SwipeStatusBarAwayGestureHandler;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;)Lcom/android/systemui/statusbar/phone/ongoingcall/OngoingCallController;
     .locals 0
 
-    invoke-static/range {p0 .. p6}, Lcom/android/systemui/statusbar/dagger/StatusBarDependenciesModule;->provideOngoingCallController(Lcom/android/systemui/statusbar/notification/collection/notifcollection/CommonNotifCollection;Lcom/android/systemui/statusbar/FeatureFlags;Lcom/android/systemui/util/time/SystemClock;Lcom/android/systemui/plugins/ActivityStarter;Ljava/util/concurrent/Executor;Landroid/app/IActivityManager;Lcom/android/systemui/statusbar/phone/ongoingcall/OngoingCallLogger;)Lcom/android/systemui/statusbar/phone/ongoingcall/OngoingCallController;
+    invoke-static/range {p0 .. p10}, Lcom/android/systemui/statusbar/dagger/StatusBarDependenciesModule;->provideOngoingCallController(Lcom/android/systemui/statusbar/notification/collection/notifcollection/CommonNotifCollection;Lcom/android/systemui/flags/FeatureFlags;Lcom/android/systemui/util/time/SystemClock;Lcom/android/systemui/plugins/ActivityStarter;Ljava/util/concurrent/Executor;Landroid/app/IActivityManager;Lcom/android/systemui/statusbar/phone/ongoingcall/OngoingCallLogger;Lcom/android/systemui/dump/DumpManager;Lcom/android/systemui/statusbar/window/StatusBarWindowController;Lcom/android/systemui/statusbar/gesture/SwipeStatusBarAwayGestureHandler;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;)Lcom/android/systemui/statusbar/phone/ongoingcall/OngoingCallController;
 
     move-result-object p0
 
@@ -210,7 +290,7 @@
 
 # virtual methods
 .method public get()Lcom/android/systemui/statusbar/phone/ongoingcall/OngoingCallController;
-    .locals 8
+    .locals 12
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/dagger/StatusBarDependenciesModule_ProvideOngoingCallControllerFactory;->notifCollectionProvider:Ljavax/inject/Provider;
 
@@ -230,7 +310,7 @@
 
     move-object v2, v0
 
-    check-cast v2, Lcom/android/systemui/statusbar/FeatureFlags;
+    check-cast v2, Lcom/android/systemui/flags/FeatureFlags;
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/dagger/StatusBarDependenciesModule_ProvideOngoingCallControllerFactory;->systemClockProvider:Ljavax/inject/Provider;
 
@@ -272,17 +352,57 @@
 
     check-cast v6, Landroid/app/IActivityManager;
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/dagger/StatusBarDependenciesModule_ProvideOngoingCallControllerFactory;->loggerProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/dagger/StatusBarDependenciesModule_ProvideOngoingCallControllerFactory;->loggerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v7, v0
+
+    check-cast v7, Lcom/android/systemui/statusbar/phone/ongoingcall/OngoingCallLogger;
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/dagger/StatusBarDependenciesModule_ProvideOngoingCallControllerFactory;->dumpManagerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v8, v0
+
+    check-cast v8, Lcom/android/systemui/dump/DumpManager;
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/dagger/StatusBarDependenciesModule_ProvideOngoingCallControllerFactory;->statusBarWindowControllerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v9, v0
+
+    check-cast v9, Lcom/android/systemui/statusbar/window/StatusBarWindowController;
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/dagger/StatusBarDependenciesModule_ProvideOngoingCallControllerFactory;->swipeStatusBarAwayGestureHandlerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v10, v0
+
+    check-cast v10, Lcom/android/systemui/statusbar/gesture/SwipeStatusBarAwayGestureHandler;
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/dagger/StatusBarDependenciesModule_ProvideOngoingCallControllerFactory;->statusBarStateControllerProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object p0
 
-    move-object v7, p0
+    move-object v11, p0
 
-    check-cast v7, Lcom/android/systemui/statusbar/phone/ongoingcall/OngoingCallLogger;
+    check-cast v11, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
 
-    invoke-static/range {v1 .. v7}, Lcom/android/systemui/statusbar/dagger/StatusBarDependenciesModule_ProvideOngoingCallControllerFactory;->provideOngoingCallController(Lcom/android/systemui/statusbar/notification/collection/notifcollection/CommonNotifCollection;Lcom/android/systemui/statusbar/FeatureFlags;Lcom/android/systemui/util/time/SystemClock;Lcom/android/systemui/plugins/ActivityStarter;Ljava/util/concurrent/Executor;Landroid/app/IActivityManager;Lcom/android/systemui/statusbar/phone/ongoingcall/OngoingCallLogger;)Lcom/android/systemui/statusbar/phone/ongoingcall/OngoingCallController;
+    invoke-static/range {v1 .. v11}, Lcom/android/systemui/statusbar/dagger/StatusBarDependenciesModule_ProvideOngoingCallControllerFactory;->provideOngoingCallController(Lcom/android/systemui/statusbar/notification/collection/notifcollection/CommonNotifCollection;Lcom/android/systemui/flags/FeatureFlags;Lcom/android/systemui/util/time/SystemClock;Lcom/android/systemui/plugins/ActivityStarter;Ljava/util/concurrent/Executor;Landroid/app/IActivityManager;Lcom/android/systemui/statusbar/phone/ongoingcall/OngoingCallLogger;Lcom/android/systemui/dump/DumpManager;Lcom/android/systemui/statusbar/window/StatusBarWindowController;Lcom/android/systemui/statusbar/gesture/SwipeStatusBarAwayGestureHandler;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;)Lcom/android/systemui/statusbar/phone/ongoingcall/OngoingCallController;
 
     move-result-object p0
 

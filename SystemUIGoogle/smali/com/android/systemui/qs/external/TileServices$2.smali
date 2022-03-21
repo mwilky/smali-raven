@@ -46,8 +46,7 @@
 
     if-eqz p1, :cond_0
 
-    iget-object p0, p0, Lcom/android/systemui/qs/external/TileServices$2;->this$0:Lcom/android/systemui/qs/external/TileServices;
-
+    :try_start_0
     const-string p1, "android.intent.extra.COMPONENT_NAME"
 
     invoke-virtual {p2, p1}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
@@ -56,8 +55,24 @@
 
     check-cast p1, Landroid/content/ComponentName;
 
+    iget-object p0, p0, Lcom/android/systemui/qs/external/TileServices$2;->this$0:Lcom/android/systemui/qs/external/TileServices;
+
     invoke-static {p0, p1}, Lcom/android/systemui/qs/external/TileServices;->access$100(Lcom/android/systemui/qs/external/TileServices;Landroid/content/ComponentName;)V
+    :try_end_0
+    .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception p0
+
+    const-string p1, "TileServices"
+
+    const-string p2, "Bad component name"
+
+    invoke-static {p1, p2, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :cond_0
+    :goto_0
     return-void
 .end method

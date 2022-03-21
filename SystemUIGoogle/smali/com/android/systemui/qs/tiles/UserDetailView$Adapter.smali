@@ -24,6 +24,8 @@
 
 .field private mCurrentUserView:Landroid/view/View;
 
+.field private mDialogShower:Lcom/android/systemui/qs/user/UserSwitchDialogController$DialogShower;
+
 .field private final mFalsingManager:Lcom/android/systemui/plugins/FalsingManager;
 
 .field private final mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
@@ -286,6 +288,22 @@
     return-object p0
 .end method
 
+.method public injectDialogShower(Lcom/android/systemui/qs/user/UserSwitchDialogController$DialogShower;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/systemui/qs/tiles/UserDetailView$Adapter;->mDialogShower:Lcom/android/systemui/qs/user/UserSwitchDialogController$DialogShower;
+
+    return-void
+.end method
+
+.method public linkToViewGroup(Landroid/view/ViewGroup;)V
+    .locals 0
+
+    invoke-static {p1, p0}, Lcom/android/systemui/qs/PseudoGridView$ViewGroupAdapterBridge;->link(Landroid/view/ViewGroup;Landroid/widget/BaseAdapter;)V
+
+    return-void
+.end method
+
 .method public onClick(Landroid/view/View;)V
     .locals 4
 
@@ -367,7 +385,9 @@
     invoke-virtual {p1, v1}, Landroid/view/View;->setActivated(Z)V
 
     :cond_3
-    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/policy/UserSwitcherController$BaseUserAdapter;->onUserListItemClicked(Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;)V
+    iget-object p1, p0, Lcom/android/systemui/qs/tiles/UserDetailView$Adapter;->mDialogShower:Lcom/android/systemui/qs/user/UserSwitchDialogController$DialogShower;
+
+    invoke-virtual {p0, v0, p1}, Lcom/android/systemui/statusbar/policy/UserSwitcherController$BaseUserAdapter;->onUserListItemClicked(Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;Lcom/android/systemui/qs/user/UserSwitchDialogController$DialogShower;)V
 
     :cond_4
     :goto_0

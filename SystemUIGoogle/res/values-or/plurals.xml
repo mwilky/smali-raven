@@ -32,18 +32,6 @@
         <item quantity="other">ଭୁଲ SIM PUK କୋଡ୍‍, SIMଟି ଆଉ %dଟି ପ୍ରୟାସ ପରେ ସ୍ଥାୟୀ ଭାବେ ବ୍ୟବହାର କରାଯାଇରିବ ନାହିଁ।</item>
         <item quantity="one">ଭୁଲ SIM PUK କୋଡ୍‍, SIMଟି ଆଉ %dଟି ପ୍ରୟାସ ପରେ ସ୍ଥାୟୀ ଭାବେ ବ୍ୟବହାର କରାଯାଇରିବ ନାହିଁ।</item>
     </plurals>
-    <plurals name="kg_prompt_reason_time_password">
-        <item quantity="other">%d ଘଣ୍ଟା ପାଇଁ ଡିଭାଇସ୍‍ ଅନଲକ୍‍ କରାଯାଇ ନାହିଁ। ପାସୱର୍ଡ ସୁନିଶ୍ଚିତ କରନ୍ତୁ</item>
-        <item quantity="one">%d ଘଣ୍ଟା ପାଇଁ ଡିଭାଇସ୍‍ ଅନଲକ୍‍ କରାଯାଇ ନାହିଁ। ପାସୱର୍ଡ ସୁନିଶ୍ଚିତ କରନ୍ତୁ</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pattern">
-        <item quantity="other">%d ଘଣ୍ଟା ପାଇଁ ଡିଭାଇସ୍‍ ଅନଲକ୍‍ କରାଯାଇନାହିଁ। ପାଟର୍ନ ସୁନିଶ୍ଚିତ କରନ୍ତୁ</item>
-        <item quantity="one">%d ଘଣ୍ଟା ପାଇଁ ଡିଭାଇସ୍‍ ଅନଲକ୍‍ କରାଯାଇନାହିଁ। ପାଟର୍ନ ସୁନିଶ୍ଚିତ କରନ୍ତୁ</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pin">
-        <item quantity="other">%d ଘଣ୍ଟା ପାଇଁ ଡିଭାଇସ୍‍ ଅନଲକ୍‍ କରାଯାଇ ନାହିଁ। PIN ନିଶ୍ଚିତ କରନ୍ତୁ</item>
-        <item quantity="one">%d ଘଣ୍ଟା ପାଇଁ ଡିଭାଇସ୍‍ ଅନଲକ୍‍ କରାଯାଇ ନାହିଁ। PIN ନିଶ୍ଚିତ କରନ୍ତୁ</item>
-    </plurals>
     <plurals name="kg_too_many_failed_attempts_countdown">
         <item quantity="other">%d ସେକେଣ୍ଡ ପରେ ପୁଣି ଚେଷ୍ଟା କରନ୍ତୁ।</item>
         <item quantity="one">1 ସେକେଣ୍ଡ ପରେ ପୁଣି ଚେଷ୍ଟା କରନ୍ତୁ।</item>

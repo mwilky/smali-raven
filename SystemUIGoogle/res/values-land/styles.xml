@@ -5,11 +5,12 @@
     </style>
     <style name="DockedDividerBackground">
         <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:background">@color/split_divider_background</item>
         <item name="android:layout_width">10.0dip</item>
         <item name="android:layout_height">fill_parent</item>
     </style>
     <style name="DockedDividerHandle">
-        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_gravity">center</item>
         <item name="android:layout_width">48.0dip</item>
         <item name="android:layout_height">96.0dip</item>
     </style>

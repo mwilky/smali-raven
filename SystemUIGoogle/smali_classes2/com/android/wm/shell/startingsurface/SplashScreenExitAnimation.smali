@@ -32,6 +32,8 @@
 
 .field private final mAppRevealDuration:I
 
+.field private final mBrandingStartAlpha:F
+
 .field private mFinishCallback:Ljava/lang/Runnable;
 
 .field private final mFirstWindowFrame:Landroid/graphics/Rect;
@@ -101,7 +103,7 @@
 .end method
 
 .method constructor <init>(Landroid/content/Context;Landroid/window/SplashScreenView;Landroid/view/SurfaceControl;Landroid/graphics/Rect;ILcom/android/wm/shell/common/TransactionPool;Ljava/lang/Runnable;)V
-    .locals 1
+    .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -122,80 +124,100 @@
     :cond_0
     invoke-virtual {p2}, Landroid/window/SplashScreenView;->getIconView()Landroid/view/View;
 
-    move-result-object p2
-
-    if-eqz p2, :cond_2
-
-    invoke-virtual {p2}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
-
     move-result-object p3
-
-    iget p3, p3, Landroid/view/ViewGroup$LayoutParams;->width:I
-
-    if-eqz p3, :cond_2
-
-    invoke-virtual {p2}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
-
-    move-result-object p3
-
-    iget p3, p3, Landroid/view/ViewGroup$LayoutParams;->height:I
-
-    if-nez p3, :cond_1
-
-    goto :goto_0
-
-    :cond_1
-    const/4 p3, 0x2
 
     const/4 p4, 0x0
 
-    invoke-virtual {p2, p3, p4}, Landroid/view/View;->setLayerType(ILandroid/graphics/Paint;)V
+    if-eqz p3, :cond_3
 
-    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p3}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
-    move-result-object p3
+    move-result-object v0
 
-    sget p4, Lcom/android/wm/shell/R$integer;->starting_window_app_reveal_icon_fade_out_duration:I
+    iget v0, v0, Landroid/view/ViewGroup$LayoutParams;->width:I
 
-    invoke-virtual {p3, p4}, Landroid/content/res/Resources;->getInteger(I)I
+    if-eqz v0, :cond_3
 
-    move-result p3
+    invoke-virtual {p3}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
-    iput p3, p0, Lcom/android/wm/shell/startingsurface/SplashScreenExitAnimation;->mIconFadeOutDuration:I
+    move-result-object v0
 
-    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    iget v0, v0, Landroid/view/ViewGroup$LayoutParams;->height:I
 
-    move-result-object p3
+    if-nez v0, :cond_1
 
-    sget p4, Lcom/android/wm/shell/R$integer;->starting_window_app_reveal_anim_delay:I
+    goto :goto_1
 
-    invoke-virtual {p3, p4}, Landroid/content/res/Resources;->getInteger(I)I
+    :cond_1
+    const/4 v0, 0x2
 
-    move-result p3
+    const/4 v1, 0x0
 
-    iput p3, p0, Lcom/android/wm/shell/startingsurface/SplashScreenExitAnimation;->mAppRevealDelay:I
+    invoke-virtual {p3, v0, v1}, Landroid/view/View;->setLayerType(ILandroid/graphics/Paint;)V
+
+    invoke-virtual {p2}, Landroid/window/SplashScreenView;->getBrandingView()Landroid/view/View;
+
+    move-result-object p2
+
+    if-eqz p2, :cond_2
 
     invoke-virtual {p2}, Landroid/view/View;->getAlpha()F
 
     move-result p2
 
-    iput p2, p0, Lcom/android/wm/shell/startingsurface/SplashScreenExitAnimation;->mIconStartAlpha:F
+    iput p2, p0, Lcom/android/wm/shell/startingsurface/SplashScreenExitAnimation;->mBrandingStartAlpha:F
 
-    goto :goto_1
+    goto :goto_0
 
     :cond_2
+    iput p4, p0, Lcom/android/wm/shell/startingsurface/SplashScreenExitAnimation;->mBrandingStartAlpha:F
+
     :goto_0
+    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object p2
+
+    sget p4, Lcom/android/wm/shell/R$integer;->starting_window_app_reveal_icon_fade_out_duration:I
+
+    invoke-virtual {p2, p4}, Landroid/content/res/Resources;->getInteger(I)I
+
+    move-result p2
+
+    iput p2, p0, Lcom/android/wm/shell/startingsurface/SplashScreenExitAnimation;->mIconFadeOutDuration:I
+
+    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object p2
+
+    sget p4, Lcom/android/wm/shell/R$integer;->starting_window_app_reveal_anim_delay:I
+
+    invoke-virtual {p2, p4}, Landroid/content/res/Resources;->getInteger(I)I
+
+    move-result p2
+
+    iput p2, p0, Lcom/android/wm/shell/startingsurface/SplashScreenExitAnimation;->mAppRevealDelay:I
+
+    invoke-virtual {p3}, Landroid/view/View;->getAlpha()F
+
+    move-result p2
+
+    iput p2, p0, Lcom/android/wm/shell/startingsurface/SplashScreenExitAnimation;->mIconStartAlpha:F
+
+    goto :goto_2
+
+    :cond_3
+    :goto_1
     const/4 p2, 0x0
 
     iput p2, p0, Lcom/android/wm/shell/startingsurface/SplashScreenExitAnimation;->mIconFadeOutDuration:I
 
-    const/4 p3, 0x0
+    iput p4, p0, Lcom/android/wm/shell/startingsurface/SplashScreenExitAnimation;->mIconStartAlpha:F
 
-    iput p3, p0, Lcom/android/wm/shell/startingsurface/SplashScreenExitAnimation;->mIconStartAlpha:F
+    iput p4, p0, Lcom/android/wm/shell/startingsurface/SplashScreenExitAnimation;->mBrandingStartAlpha:F
 
     iput p2, p0, Lcom/android/wm/shell/startingsurface/SplashScreenExitAnimation;->mAppRevealDelay:I
 
-    :goto_1
+    :goto_2
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object p1
@@ -517,47 +539,10 @@
 .end method
 
 .method private onAnimationProgress(F)V
-    .locals 8
+    .locals 7
 
-    iget-object v0, p0, Lcom/android/wm/shell/startingsurface/SplashScreenExitAnimation;->mSplashScreenView:Landroid/window/SplashScreenView;
+    invoke-direct {p0, p1}, Lcom/android/wm/shell/startingsurface/SplashScreenExitAnimation;->onFadeOutProgress(F)V
 
-    invoke-virtual {v0}, Landroid/window/SplashScreenView;->getIconView()Landroid/view/View;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    sget-object v1, Lcom/android/wm/shell/startingsurface/SplashScreenExitAnimation;->ICON_INTERPOLATOR:Landroid/view/animation/Interpolator;
-
-    const-wide/16 v4, 0x0
-
-    iget v2, p0, Lcom/android/wm/shell/startingsurface/SplashScreenExitAnimation;->mIconFadeOutDuration:I
-
-    int-to-long v6, v2
-
-    move-object v2, p0
-
-    move v3, p1
-
-    invoke-direct/range {v2 .. v7}, Lcom/android/wm/shell/startingsurface/SplashScreenExitAnimation;->getProgress(FJJ)F
-
-    move-result v2
-
-    invoke-interface {v1, v2}, Landroid/view/animation/Interpolator;->getInterpolation(F)F
-
-    move-result v1
-
-    iget v2, p0, Lcom/android/wm/shell/startingsurface/SplashScreenExitAnimation;->mIconStartAlpha:F
-
-    const/high16 v3, 0x3f800000    # 1.0f
-
-    sub-float/2addr v3, v1
-
-    mul-float/2addr v2, v3
-
-    invoke-virtual {v0, v2}, Landroid/view/View;->setAlpha(F)V
-
-    :cond_0
     iget v0, p0, Lcom/android/wm/shell/startingsurface/SplashScreenExitAnimation;->mAppRevealDelay:I
 
     int-to-long v3, v0
@@ -576,18 +561,80 @@
 
     iget-object v0, p0, Lcom/android/wm/shell/startingsurface/SplashScreenExitAnimation;->mRadialVanishAnimation:Lcom/android/wm/shell/startingsurface/SplashScreenExitAnimation$RadialVanishAnimation;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
     invoke-virtual {v0, p1}, Lcom/android/wm/shell/startingsurface/SplashScreenExitAnimation$RadialVanishAnimation;->onAnimationProgress(F)V
 
-    :cond_1
+    :cond_0
     iget-object p0, p0, Lcom/android/wm/shell/startingsurface/SplashScreenExitAnimation;->mShiftUpAnimation:Lcom/android/wm/shell/startingsurface/SplashScreenExitAnimation$ShiftUpAnimation;
 
-    if-eqz p0, :cond_2
+    if-eqz p0, :cond_1
 
     invoke-virtual {p0, p1}, Lcom/android/wm/shell/startingsurface/SplashScreenExitAnimation$ShiftUpAnimation;->onAnimationProgress(F)V
 
-    :cond_2
+    :cond_1
+    return-void
+.end method
+
+.method private onFadeOutProgress(F)V
+    .locals 8
+
+    sget-object v0, Lcom/android/wm/shell/startingsurface/SplashScreenExitAnimation;->ICON_INTERPOLATOR:Landroid/view/animation/Interpolator;
+
+    iget v1, p0, Lcom/android/wm/shell/startingsurface/SplashScreenExitAnimation;->mIconFadeOutDuration:I
+
+    int-to-long v6, v1
+
+    const-wide/16 v4, 0x0
+
+    move-object v2, p0
+
+    move v3, p1
+
+    invoke-direct/range {v2 .. v7}, Lcom/android/wm/shell/startingsurface/SplashScreenExitAnimation;->getProgress(FJJ)F
+
+    move-result p1
+
+    invoke-interface {v0, p1}, Landroid/view/animation/Interpolator;->getInterpolation(F)F
+
+    move-result p1
+
+    iget-object v0, p0, Lcom/android/wm/shell/startingsurface/SplashScreenExitAnimation;->mSplashScreenView:Landroid/window/SplashScreenView;
+
+    invoke-virtual {v0}, Landroid/window/SplashScreenView;->getIconView()Landroid/view/View;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/wm/shell/startingsurface/SplashScreenExitAnimation;->mSplashScreenView:Landroid/window/SplashScreenView;
+
+    invoke-virtual {v1}, Landroid/window/SplashScreenView;->getBrandingView()Landroid/view/View;
+
+    move-result-object v1
+
+    const/high16 v2, 0x3f800000    # 1.0f
+
+    if-eqz v0, :cond_0
+
+    iget v3, p0, Lcom/android/wm/shell/startingsurface/SplashScreenExitAnimation;->mIconStartAlpha:F
+
+    sub-float v4, v2, p1
+
+    mul-float/2addr v3, v4
+
+    invoke-virtual {v0, v3}, Landroid/view/View;->setAlpha(F)V
+
+    :cond_0
+    if-eqz v1, :cond_1
+
+    iget p0, p0, Lcom/android/wm/shell/startingsurface/SplashScreenExitAnimation;->mBrandingStartAlpha:F
+
+    sub-float/2addr v2, p1
+
+    mul-float/2addr p0, v2
+
+    invoke-virtual {v1, p0}, Landroid/view/View;->setAlpha(F)V
+
+    :cond_1
     return-void
 .end method
 
@@ -636,6 +683,14 @@
 
     invoke-direct {p0}, Lcom/android/wm/shell/startingsurface/SplashScreenExitAnimation;->reset()V
 
+    invoke-static {}, Lcom/android/internal/jank/InteractionJankMonitor;->getInstance()Lcom/android/internal/jank/InteractionJankMonitor;
+
+    move-result-object p0
+
+    const/16 p1, 0x27
+
+    invoke-virtual {p0, p1}, Lcom/android/internal/jank/InteractionJankMonitor;->cancel(I)Z
+
     return-void
 .end method
 
@@ -643,6 +698,14 @@
     .locals 0
 
     invoke-direct {p0}, Lcom/android/wm/shell/startingsurface/SplashScreenExitAnimation;->reset()V
+
+    invoke-static {}, Lcom/android/internal/jank/InteractionJankMonitor;->getInstance()Lcom/android/internal/jank/InteractionJankMonitor;
+
+    move-result-object p0
+
+    const/16 p1, 0x27
+
+    invoke-virtual {p0, p1}, Lcom/android/internal/jank/InteractionJankMonitor;->end(I)Z
 
     return-void
 .end method
@@ -654,7 +717,17 @@
 .end method
 
 .method public onAnimationStart(Landroid/animation/Animator;)V
-    .locals 0
+    .locals 1
+
+    invoke-static {}, Lcom/android/internal/jank/InteractionJankMonitor;->getInstance()Lcom/android/internal/jank/InteractionJankMonitor;
+
+    move-result-object p1
+
+    iget-object p0, p0, Lcom/android/wm/shell/startingsurface/SplashScreenExitAnimation;->mSplashScreenView:Landroid/window/SplashScreenView;
+
+    const/16 v0, 0x27
+
+    invoke-virtual {p1, p0, v0}, Lcom/android/internal/jank/InteractionJankMonitor;->begin(Landroid/view/View;I)Z
 
     return-void
 .end method

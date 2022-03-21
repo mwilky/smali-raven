@@ -27,6 +27,8 @@
 
 .field protected final mPipMenuController:Lcom/android/wm/shell/pip/PipMenuController;
 
+.field protected mPipOrganizer:Lcom/android/wm/shell/pip/PipTaskOrganizer;
+
 .field private final mPipTransitionCallbacks:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -38,6 +40,8 @@
 .end field
 
 .field protected final mShellTaskOrganizer:Lcom/android/wm/shell/ShellTaskOrganizer;
+
+.field protected final mTransitions:Lcom/android/wm/shell/transition/Transitions;
 
 
 # direct methods
@@ -68,6 +72,8 @@
 
     iput-object p4, p0, Lcom/android/wm/shell/pip/PipTransitionController;->mPipAnimationController:Lcom/android/wm/shell/pip/PipAnimationController;
 
+    iput-object p5, p0, Lcom/android/wm/shell/pip/PipTransitionController;->mTransitions:Lcom/android/wm/shell/transition/Transitions;
+
     new-instance p1, Landroid/os/Handler;
 
     invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
@@ -90,6 +96,12 @@
 
 
 # virtual methods
+.method public forceFinishTransition()V
+    .locals 0
+
+    return-void
+.end method
+
 .method public getOutPipWindowingMode()I
     .locals 0
 
@@ -234,6 +246,26 @@
     move-result-object p0
 
     invoke-virtual {v0, p1, p2, p0}, Lcom/android/wm/shell/pip/PipBoundsState;->setBoundsStateForEntry(Landroid/content/ComponentName;FLandroid/util/Size;)V
+
+    return-void
+.end method
+
+.method public setIsFullAnimation(Z)V
+    .locals 0
+
+    return-void
+.end method
+
+.method setPipOrganizer(Lcom/android/wm/shell/pip/PipTaskOrganizer;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/wm/shell/pip/PipTransitionController;->mPipOrganizer:Lcom/android/wm/shell/pip/PipTaskOrganizer;
+
+    return-void
+.end method
+
+.method public startTransition(Landroid/graphics/Rect;Landroid/window/WindowContainerTransaction;)V
+    .locals 0
 
     return-void
 .end method

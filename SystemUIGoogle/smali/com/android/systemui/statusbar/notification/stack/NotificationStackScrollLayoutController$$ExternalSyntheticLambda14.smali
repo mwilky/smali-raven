@@ -2,36 +2,44 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Lkotlin/jvm/functions/Function1;
+.implements Ljava/util/function/BiConsumer;
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;
+.field public final synthetic f$0:Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;)V
+.method public synthetic constructor <init>(Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController$$ExternalSyntheticLambda14;->f$0:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;
+    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController$$ExternalSyntheticLambda14;->f$0:Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final invoke(Ljava/lang/Object;)Ljava/lang/Object;
+.method public final accept(Ljava/lang/Object;Ljava/lang/Object;)V
     .locals 0
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController$$ExternalSyntheticLambda14;->f$0:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController$$ExternalSyntheticLambda14;->f$0:Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;
 
-    check-cast p1, Ljava/lang/Boolean;
+    check-cast p1, Ljava/lang/Float;
 
-    invoke-static {p0, p1}, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;->$r8$lambda$juQmZC5IqmSPNdW74GmUfFmSPdE(Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;Ljava/lang/Boolean;)Lkotlin/Unit;
+    invoke-virtual {p1}, Ljava/lang/Float;->floatValue()F
 
-    move-result-object p0
+    move-result p1
 
-    return-object p0
+    check-cast p2, Ljava/lang/Float;
+
+    invoke-virtual {p2}, Ljava/lang/Float;->floatValue()F
+
+    move-result p2
+
+    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->setExpanded(FF)V
+
+    return-void
 .end method

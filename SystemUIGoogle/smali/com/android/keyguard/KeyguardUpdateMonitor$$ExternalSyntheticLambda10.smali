@@ -2,40 +2,36 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Ljava/util/function/Supplier;
+.implements Ljava/util/function/Predicate;
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-.field public final synthetic f$1:I
+.field public final synthetic f$0:Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/keyguard/KeyguardUpdateMonitor;I)V
+.method public synthetic constructor <init>(Lcom/android/keyguard/KeyguardUpdateMonitorCallback;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$$ExternalSyntheticLambda10;->f$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    iput p2, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$$ExternalSyntheticLambda10;->f$1:I
+    iput-object p1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$$ExternalSyntheticLambda10;->f$0:Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final get()Ljava/lang/Object;
-    .locals 1
+.method public final test(Ljava/lang/Object;)Z
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$$ExternalSyntheticLambda10;->f$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
+    iget-object p0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$$ExternalSyntheticLambda10;->f$0:Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
 
-    iget p0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$$ExternalSyntheticLambda10;->f$1:I
+    check-cast p1, Ljava/lang/ref/WeakReference;
 
-    invoke-static {v0, p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->$r8$lambda$Lb0rEKnA9sqNeg4wEfKYw-BagYs(Lcom/android/keyguard/KeyguardUpdateMonitor;I)Ljava/lang/Boolean;
+    invoke-static {p0, p1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->$r8$lambda$T49MKzabbosDxCKYc8-bGVTR0dQ(Lcom/android/keyguard/KeyguardUpdateMonitorCallback;Ljava/lang/ref/WeakReference;)Z
 
-    move-result-object p0
+    move-result p0
 
-    return-object p0
+    return p0
 .end method

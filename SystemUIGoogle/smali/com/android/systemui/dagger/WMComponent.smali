@@ -34,6 +34,23 @@
     .end annotation
 .end method
 
+.method public abstract getCompatUI()Lcom/android/wm/shell/compatui/CompatUI;
+.end method
+
+.method public abstract getDisplayAreaHelper()Ljava/util/Optional;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/Optional<",
+            "Lcom/android/wm/shell/displayareahelper/DisplayAreaHelper;",
+            ">;"
+        }
+    .end annotation
+.end method
+
+.method public abstract getDragAndDrop()Lcom/android/wm/shell/draganddrop/DragAndDrop;
+.end method
+
 .method public abstract getHideDisplayCutout()Ljava/util/Optional;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -73,6 +90,17 @@
             "()",
             "Ljava/util/Optional<",
             "Lcom/android/wm/shell/pip/Pip;",
+            ">;"
+        }
+    .end annotation
+.end method
+
+.method public abstract getRecentTasks()Ljava/util/Optional;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/Optional<",
+            "Lcom/android/wm/shell/recents/RecentTasks;",
             ">;"
         }
     .end annotation

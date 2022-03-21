@@ -28,7 +28,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nComparisons.kt\nKotlin\n*S Kotlin\n*F\n+ 1 Comparisons.kt\nkotlin/comparisons/ComparisonsKt__ComparisonsKt$thenByDescending$1\n+ 2 MediaCarouselController.kt\ncom/android/systemui/media/MediaPlayerData\n*L\n1#1,319:1\n840#2:320\n*E\n"
+    value = "SMAP\nComparisons.kt\nKotlin\n*S Kotlin\n*F\n+ 1 Comparisons.kt\nkotlin/comparisons/ComparisonsKt__ComparisonsKt$thenByDescending$1\n+ 2 MediaCarouselController.kt\ncom/android/systemui/media/MediaPlayerData\n*L\n1#1,319:1\n887#2:320\n*E\n"
 .end annotation
 
 
@@ -65,26 +65,58 @@
 
     if-eqz p0, :cond_0
 
-    goto :goto_0
+    goto :goto_2
 
     :cond_0
     check-cast p2, Lcom/android/systemui/media/MediaPlayerData$MediaSortKey;
 
-    invoke-virtual {p2}, Lcom/android/systemui/media/MediaPlayerData$MediaSortKey;->getUpdateTime()J
+    invoke-virtual {p2}, Lcom/android/systemui/media/MediaPlayerData$MediaSortKey;->getData()Lcom/android/systemui/media/MediaData;
 
-    move-result-wide v0
+    move-result-object p0
 
-    invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+    invoke-virtual {p0}, Lcom/android/systemui/media/MediaData;->getPlaybackLocation()I
+
+    move-result p0
+
+    const/4 p2, 0x1
+
+    const/4 v0, 0x0
+
+    const/4 v1, 0x2
+
+    if-eq p0, v1, :cond_1
+
+    move p0, p2
+
+    goto :goto_0
+
+    :cond_1
+    move p0, v0
+
+    :goto_0
+    invoke-static {p0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object p0
 
     check-cast p1, Lcom/android/systemui/media/MediaPlayerData$MediaSortKey;
 
-    invoke-virtual {p1}, Lcom/android/systemui/media/MediaPlayerData$MediaSortKey;->getUpdateTime()J
+    invoke-virtual {p1}, Lcom/android/systemui/media/MediaPlayerData$MediaSortKey;->getData()Lcom/android/systemui/media/MediaData;
 
-    move-result-wide p1
+    move-result-object p1
 
-    invoke-static {p1, p2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+    invoke-virtual {p1}, Lcom/android/systemui/media/MediaData;->getPlaybackLocation()I
+
+    move-result p1
+
+    if-eq p1, v1, :cond_2
+
+    goto :goto_1
+
+    :cond_2
+    move p2, v0
+
+    :goto_1
+    invoke-static {p2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object p1
 
@@ -92,6 +124,6 @@
 
     move-result p0
 
-    :goto_0
+    :goto_2
     return p0
 .end method

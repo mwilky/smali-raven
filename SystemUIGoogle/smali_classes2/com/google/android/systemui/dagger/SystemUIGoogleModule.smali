@@ -4,6 +4,50 @@
 
 
 # direct methods
+.method public static synthetic $r8$lambda$HseBhS77XMSGuIQBeRNwDMTGHaA(Ljava/lang/Runnable;)V
+    .locals 0
+
+    invoke-static {p0}, Lcom/google/android/systemui/dagger/SystemUIGoogleModule;->lambda$provideUdfpsHbmProvider$0(Ljava/lang/Runnable;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$lGO3JWSW8Ystc8Gch8gjUX0Qvp4(Ljava/lang/Runnable;)Ljava/lang/Thread;
+    .locals 0
+
+    invoke-static {p0}, Lcom/google/android/systemui/dagger/SystemUIGoogleModule;->lambda$provideUdfpsHbmProvider$1(Ljava/lang/Runnable;)Ljava/lang/Thread;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method private static synthetic lambda$provideUdfpsHbmProvider$0(Ljava/lang/Runnable;)V
+    .locals 1
+
+    const/4 v0, -0x4
+
+    invoke-static {v0}, Landroid/os/Process;->setThreadPriority(I)V
+
+    invoke-interface {p0}, Ljava/lang/Runnable;->run()V
+
+    return-void
+.end method
+
+.method private static synthetic lambda$provideUdfpsHbmProvider$1(Ljava/lang/Runnable;)Ljava/lang/Thread;
+    .locals 2
+
+    new-instance v0, Ljava/lang/Thread;
+
+    new-instance v1, Lcom/google/android/systemui/dagger/SystemUIGoogleModule$$ExternalSyntheticLambda0;
+
+    invoke-direct {v1, p0}, Lcom/google/android/systemui/dagger/SystemUIGoogleModule$$ExternalSyntheticLambda0;-><init>(Ljava/lang/Runnable;)V
+
+    invoke-direct {v0, v1}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V
+
+    return-object v0
+.end method
+
 .method static provideAllowNotificationLongPress()Z
     .locals 1
 
@@ -52,6 +96,14 @@
     invoke-direct {v0}, Lcom/google/android/systemui/smartspace/BcSmartspaceDataProvider;-><init>()V
 
     return-object v0
+.end method
+
+.method static provideDeviceProvisionedController(Lcom/android/systemui/statusbar/policy/DeviceProvisionedControllerImpl;)Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;
+    .locals 0
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/DeviceProvisionedControllerImpl;->init()V
+
+    return-object p0
 .end method
 
 .method static provideDockManager(Landroid/content/Context;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptStateProvider;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/util/concurrency/DelayableExecutor;)Lcom/android/systemui/dock/DockManager;
@@ -220,30 +272,34 @@
     return-object v0
 .end method
 
-.method static provideUdfpsHbmProvider(Landroid/content/Context;Landroid/os/Handler;Ljava/util/concurrent/Executor;Lcom/google/android/systemui/fingerprint/UdfpsGhbmProvider;Lcom/google/android/systemui/fingerprint/UdfpsLhbmProvider;Lcom/android/systemui/biometrics/AuthController;Landroid/hardware/display/DisplayManager;)Lcom/android/systemui/biometrics/UdfpsHbmProvider;
+.method static provideUdfpsHbmProvider(Landroid/content/Context;Landroid/os/Handler;Lcom/google/android/systemui/fingerprint/UdfpsGhbmProvider;Lcom/google/android/systemui/fingerprint/UdfpsLhbmProvider;Lcom/android/systemui/biometrics/AuthController;Landroid/hardware/display/DisplayManager;)Lcom/android/systemui/biometrics/UdfpsHbmProvider;
     .locals 9
 
-    new-instance v8, Lcom/google/android/systemui/fingerprint/UdfpsHbmController;
+    sget-object v0, Lcom/google/android/systemui/dagger/SystemUIGoogleModule$$ExternalSyntheticLambda1;->INSTANCE:Lcom/google/android/systemui/dagger/SystemUIGoogleModule$$ExternalSyntheticLambda1;
 
-    move-object v0, v8
+    invoke-static {v0}, Ljava/util/concurrent/Executors;->newSingleThreadExecutor(Ljava/util/concurrent/ThreadFactory;)Ljava/util/concurrent/ExecutorService;
 
-    move-object v1, p0
+    move-result-object v4
 
-    move-object v2, p1
+    new-instance v0, Lcom/google/android/systemui/fingerprint/UdfpsHbmController;
 
-    move-object v3, p2
+    move-object v1, v0
 
-    move-object v4, p3
+    move-object v2, p0
 
-    move-object v5, p4
+    move-object v3, p1
 
-    move-object v6, p5
+    move-object v5, p2
 
-    move-object v7, p6
+    move-object v6, p3
 
-    invoke-direct/range {v0 .. v7}, Lcom/google/android/systemui/fingerprint/UdfpsHbmController;-><init>(Landroid/content/Context;Landroid/os/Handler;Ljava/util/concurrent/Executor;Lcom/google/android/systemui/fingerprint/UdfpsGhbmProvider;Lcom/google/android/systemui/fingerprint/UdfpsLhbmProvider;Lcom/android/systemui/biometrics/AuthController;Landroid/hardware/display/DisplayManager;)V
+    move-object v7, p4
 
-    return-object v8
+    move-object v8, p5
+
+    invoke-direct/range {v1 .. v8}, Lcom/google/android/systemui/fingerprint/UdfpsHbmController;-><init>(Landroid/content/Context;Landroid/os/Handler;Ljava/util/concurrent/Executor;Lcom/google/android/systemui/fingerprint/UdfpsGhbmProvider;Lcom/google/android/systemui/fingerprint/UdfpsLhbmProvider;Lcom/android/systemui/biometrics/AuthController;Landroid/hardware/display/DisplayManager;)V
+
+    return-object v0
 .end method
 
 .method static provideUsbManager(Landroid/content/Context;)Ljava/util/Optional;
@@ -272,36 +328,4 @@
     move-result-object p0
 
     return-object p0
-.end method
-
-.method static provideVoiceReplyCtaContainerId()I
-    .locals 1
-
-    sget v0, Lcom/android/systemui/R$id;->voice_reply_cta_container:I
-
-    return v0
-.end method
-
-.method static provideVoiceReplyCtaIconId()I
-    .locals 1
-
-    sget v0, Lcom/android/systemui/R$id;->voice_reply_cta_icon:I
-
-    return v0
-.end method
-
-.method static provideVoiceReplyCtaLayout()I
-    .locals 1
-
-    sget v0, Lcom/android/systemui/R$layout;->assist_voice_reply_cta:I
-
-    return v0
-.end method
-
-.method static provideVoiceReplyCtaTextId()I
-    .locals 1
-
-    sget v0, Lcom/android/systemui/R$id;->voice_reply_cta_text:I
-
-    return v0
 .end method

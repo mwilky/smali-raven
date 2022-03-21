@@ -3,7 +3,7 @@
 .source "NotificationStackScrollLayoutController.java"
 
 # interfaces
-.implements Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifCollectionListener;
+.implements Lcom/android/systemui/statusbar/RemoteInputController$Callback;
 
 
 # annotations
@@ -34,7 +34,7 @@
 
 
 # virtual methods
-.method public onEntryUpdated(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
+.method public onRemoteInputActive(Z)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController$11;->this$0:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;
@@ -43,7 +43,7 @@
 
     move-result-object p0
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;->onEntryUpdated(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
+    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;->setIsRemoteInputActive(Z)V
 
     return-void
 .end method

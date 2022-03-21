@@ -32,18 +32,6 @@
         <item quantity="other">PUK-u i kartës SIM është i pasaktë. Të kanë mbetur edhe %d tentativa para se karta SIM të bëhet e papërdorshme përgjithmonë.</item>
         <item quantity="one">PUK-u i kartës SIM është i pasaktë. Të ka mbetur edhe %d tentativë para se karta SIM të bëhet e papërdorshme përgjithmonë.</item>
     </plurals>
-    <plurals name="kg_prompt_reason_time_password">
-        <item quantity="other">Pajisja nuk është shkyçur për %d orë. Konfirmo fjalëkalimin.</item>
-        <item quantity="one">Pajisja nuk është shkyçur për %d orë. Konfirmo fjalëkalimin.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pattern">
-        <item quantity="other">Pajisja nuk është shkyçur për %d orë. Konfirmo motivin.</item>
-        <item quantity="one">Pajisja nuk është shkyçur për %d orë. Konfirmo motivin.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pin">
-        <item quantity="other">Pajisja nuk është shkyçur për %d orë. Konfirmo kodin PIN.</item>
-        <item quantity="one">Pajisja nuk është shkyçur për %d orë. Konfirmo kodin PIN.</item>
-    </plurals>
     <plurals name="kg_too_many_failed_attempts_countdown">
         <item quantity="other">Provo sërish për %d sekonda.</item>
         <item quantity="one">Provo sërish për 1 sekondë.</item>

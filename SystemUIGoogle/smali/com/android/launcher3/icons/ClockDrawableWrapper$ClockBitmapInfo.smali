@@ -68,7 +68,7 @@
 
     int-to-float p1, p1
 
-    const/high16 p2, 0x3d000000    # 0.03125f
+    const p2, 0x3d0f5c29    # 0.035f
 
     mul-float/2addr p1, p2
 

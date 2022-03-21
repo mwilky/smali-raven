@@ -28,6 +28,8 @@
 
 .field mTiles:Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreenTaskListener;
 
+.field final mTmpBounds:Landroid/graphics/Rect;
+
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Lcom/android/wm/shell/common/DisplayLayout;Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreenTaskListener;)V
@@ -52,6 +54,12 @@
     iput-object v0, p0, Lcom/android/wm/shell/legacysplitscreen/LegacySplitDisplayLayout;->mAdjustedPrimary:Landroid/graphics/Rect;
 
     iput-object v0, p0, Lcom/android/wm/shell/legacysplitscreen/LegacySplitDisplayLayout;->mAdjustedSecondary:Landroid/graphics/Rect;
+
+    new-instance v0, Landroid/graphics/Rect;
+
+    invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
+
+    iput-object v0, p0, Lcom/android/wm/shell/legacysplitscreen/LegacySplitDisplayLayout;->mTmpBounds:Landroid/graphics/Rect;
 
     iput-object p3, p0, Lcom/android/wm/shell/legacysplitscreen/LegacySplitDisplayLayout;->mTiles:Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreenTaskListener;
 
@@ -638,64 +646,6 @@
     return-object v7
 .end method
 
-.method calcSplitBounds(ILandroid/graphics/Rect;Landroid/graphics/Rect;)V
-    .locals 14
-
-    move-object v0, p0
-
-    invoke-virtual {p0}, Lcom/android/wm/shell/legacysplitscreen/LegacySplitDisplayLayout;->getPrimarySplitSide()I
-
-    move-result v7
-
-    iget-object v1, v0, Lcom/android/wm/shell/legacysplitscreen/LegacySplitDisplayLayout;->mDisplayLayout:Lcom/android/wm/shell/common/DisplayLayout;
-
-    invoke-virtual {v1}, Lcom/android/wm/shell/common/DisplayLayout;->width()I
-
-    move-result v4
-
-    iget-object v1, v0, Lcom/android/wm/shell/legacysplitscreen/LegacySplitDisplayLayout;->mDisplayLayout:Lcom/android/wm/shell/common/DisplayLayout;
-
-    invoke-virtual {v1}, Lcom/android/wm/shell/common/DisplayLayout;->height()I
-
-    move-result v5
-
-    iget v6, v0, Lcom/android/wm/shell/legacysplitscreen/LegacySplitDisplayLayout;->mDividerSize:I
-
-    move v1, p1
-
-    move v2, v7
-
-    move-object/from16 v3, p2
-
-    invoke-static/range {v1 .. v6}, Lcom/android/internal/policy/DockedDividerUtils;->calculateBoundsForPosition(IILandroid/graphics/Rect;III)V
-
-    invoke-static {v7}, Lcom/android/internal/policy/DockedDividerUtils;->invertDockSide(I)I
-
-    move-result v9
-
-    iget-object v1, v0, Lcom/android/wm/shell/legacysplitscreen/LegacySplitDisplayLayout;->mDisplayLayout:Lcom/android/wm/shell/common/DisplayLayout;
-
-    invoke-virtual {v1}, Lcom/android/wm/shell/common/DisplayLayout;->width()I
-
-    move-result v11
-
-    iget-object v1, v0, Lcom/android/wm/shell/legacysplitscreen/LegacySplitDisplayLayout;->mDisplayLayout:Lcom/android/wm/shell/common/DisplayLayout;
-
-    invoke-virtual {v1}, Lcom/android/wm/shell/common/DisplayLayout;->height()I
-
-    move-result v12
-
-    iget v13, v0, Lcom/android/wm/shell/legacysplitscreen/LegacySplitDisplayLayout;->mDividerSize:I
-
-    move v8, p1
-
-    move-object/from16 v10, p3
-
-    invoke-static/range {v8 .. v13}, Lcom/android/internal/policy/DockedDividerUtils;->calculateBoundsForPosition(IILandroid/graphics/Rect;III)V
-
-    return-void
-.end method
-
 .method getMinimizedSnapAlgorithm(Z)Lcom/android/internal/policy/DividerSnapAlgorithm;
     .locals 11
 
@@ -877,42 +827,14 @@
     return-object p0
 .end method
 
-.method resizeSplits(I)V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/wm/shell/legacysplitscreen/LegacySplitDisplayLayout;->mPrimary:Landroid/graphics/Rect;
-
-    if-nez v0, :cond_0
-
-    new-instance v0, Landroid/graphics/Rect;
-
-    invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
-
-    :cond_0
-    iput-object v0, p0, Lcom/android/wm/shell/legacysplitscreen/LegacySplitDisplayLayout;->mPrimary:Landroid/graphics/Rect;
-
-    iget-object v0, p0, Lcom/android/wm/shell/legacysplitscreen/LegacySplitDisplayLayout;->mSecondary:Landroid/graphics/Rect;
-
-    if-nez v0, :cond_1
-
-    new-instance v0, Landroid/graphics/Rect;
-
-    invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
-
-    :cond_1
-    iput-object v0, p0, Lcom/android/wm/shell/legacysplitscreen/LegacySplitDisplayLayout;->mSecondary:Landroid/graphics/Rect;
-
-    iget-object v1, p0, Lcom/android/wm/shell/legacysplitscreen/LegacySplitDisplayLayout;->mPrimary:Landroid/graphics/Rect;
-
-    invoke-virtual {p0, p1, v1, v0}, Lcom/android/wm/shell/legacysplitscreen/LegacySplitDisplayLayout;->calcSplitBounds(ILandroid/graphics/Rect;Landroid/graphics/Rect;)V
-
-    return-void
-.end method
-
 .method resizeSplits(ILandroid/window/WindowContainerTransaction;)V
     .locals 3
 
-    invoke-virtual {p0, p1}, Lcom/android/wm/shell/legacysplitscreen/LegacySplitDisplayLayout;->resizeSplits(I)V
+    invoke-virtual {p0, p1}, Lcom/android/wm/shell/legacysplitscreen/LegacySplitDisplayLayout;->resizeSplits(I)Z
+
+    move-result p1
+
+    if-eqz p1, :cond_0
 
     iget-object p1, p0, Lcom/android/wm/shell/legacysplitscreen/LegacySplitDisplayLayout;->mTiles:Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreenTaskListener;
 
@@ -970,7 +892,120 @@
 
     invoke-virtual {p2, p1, p0}, Landroid/window/WindowContainerTransaction;->setSmallestScreenWidthDp(Landroid/window/WindowContainerToken;I)Landroid/window/WindowContainerTransaction;
 
+    :cond_0
     return-void
+.end method
+
+.method resizeSplits(I)Z
+    .locals 10
+
+    iget-object v0, p0, Lcom/android/wm/shell/legacysplitscreen/LegacySplitDisplayLayout;->mPrimary:Landroid/graphics/Rect;
+
+    if-nez v0, :cond_0
+
+    new-instance v0, Landroid/graphics/Rect;
+
+    invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
+
+    :cond_0
+    iput-object v0, p0, Lcom/android/wm/shell/legacysplitscreen/LegacySplitDisplayLayout;->mPrimary:Landroid/graphics/Rect;
+
+    iget-object v0, p0, Lcom/android/wm/shell/legacysplitscreen/LegacySplitDisplayLayout;->mSecondary:Landroid/graphics/Rect;
+
+    if-nez v0, :cond_1
+
+    new-instance v0, Landroid/graphics/Rect;
+
+    invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
+
+    :cond_1
+    iput-object v0, p0, Lcom/android/wm/shell/legacysplitscreen/LegacySplitDisplayLayout;->mSecondary:Landroid/graphics/Rect;
+
+    invoke-virtual {p0}, Lcom/android/wm/shell/legacysplitscreen/LegacySplitDisplayLayout;->getPrimarySplitSide()I
+
+    move-result v0
+
+    iget-object v1, p0, Lcom/android/wm/shell/legacysplitscreen/LegacySplitDisplayLayout;->mTmpBounds:Landroid/graphics/Rect;
+
+    iget-object v2, p0, Lcom/android/wm/shell/legacysplitscreen/LegacySplitDisplayLayout;->mPrimary:Landroid/graphics/Rect;
+
+    invoke-virtual {v1, v2}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
+
+    iget-object v3, p0, Lcom/android/wm/shell/legacysplitscreen/LegacySplitDisplayLayout;->mPrimary:Landroid/graphics/Rect;
+
+    iget-object v1, p0, Lcom/android/wm/shell/legacysplitscreen/LegacySplitDisplayLayout;->mDisplayLayout:Lcom/android/wm/shell/common/DisplayLayout;
+
+    invoke-virtual {v1}, Lcom/android/wm/shell/common/DisplayLayout;->width()I
+
+    move-result v4
+
+    iget-object v1, p0, Lcom/android/wm/shell/legacysplitscreen/LegacySplitDisplayLayout;->mDisplayLayout:Lcom/android/wm/shell/common/DisplayLayout;
+
+    invoke-virtual {v1}, Lcom/android/wm/shell/common/DisplayLayout;->height()I
+
+    move-result v5
+
+    iget v6, p0, Lcom/android/wm/shell/legacysplitscreen/LegacySplitDisplayLayout;->mDividerSize:I
+
+    move v1, p1
+
+    move v2, v0
+
+    invoke-static/range {v1 .. v6}, Lcom/android/internal/policy/DockedDividerUtils;->calculateBoundsForPosition(IILandroid/graphics/Rect;III)V
+
+    iget-object v1, p0, Lcom/android/wm/shell/legacysplitscreen/LegacySplitDisplayLayout;->mPrimary:Landroid/graphics/Rect;
+
+    iget-object v2, p0, Lcom/android/wm/shell/legacysplitscreen/LegacySplitDisplayLayout;->mTmpBounds:Landroid/graphics/Rect;
+
+    invoke-virtual {v1, v2}, Landroid/graphics/Rect;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    xor-int/lit8 v1, v1, 0x1
+
+    iget-object v2, p0, Lcom/android/wm/shell/legacysplitscreen/LegacySplitDisplayLayout;->mTmpBounds:Landroid/graphics/Rect;
+
+    iget-object v3, p0, Lcom/android/wm/shell/legacysplitscreen/LegacySplitDisplayLayout;->mSecondary:Landroid/graphics/Rect;
+
+    invoke-virtual {v2, v3}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
+
+    invoke-static {v0}, Lcom/android/internal/policy/DockedDividerUtils;->invertDockSide(I)I
+
+    move-result v5
+
+    iget-object v6, p0, Lcom/android/wm/shell/legacysplitscreen/LegacySplitDisplayLayout;->mSecondary:Landroid/graphics/Rect;
+
+    iget-object v0, p0, Lcom/android/wm/shell/legacysplitscreen/LegacySplitDisplayLayout;->mDisplayLayout:Lcom/android/wm/shell/common/DisplayLayout;
+
+    invoke-virtual {v0}, Lcom/android/wm/shell/common/DisplayLayout;->width()I
+
+    move-result v7
+
+    iget-object v0, p0, Lcom/android/wm/shell/legacysplitscreen/LegacySplitDisplayLayout;->mDisplayLayout:Lcom/android/wm/shell/common/DisplayLayout;
+
+    invoke-virtual {v0}, Lcom/android/wm/shell/common/DisplayLayout;->height()I
+
+    move-result v8
+
+    iget v9, p0, Lcom/android/wm/shell/legacysplitscreen/LegacySplitDisplayLayout;->mDividerSize:I
+
+    move v4, p1
+
+    invoke-static/range {v4 .. v9}, Lcom/android/internal/policy/DockedDividerUtils;->calculateBoundsForPosition(IILandroid/graphics/Rect;III)V
+
+    iget-object p1, p0, Lcom/android/wm/shell/legacysplitscreen/LegacySplitDisplayLayout;->mSecondary:Landroid/graphics/Rect;
+
+    iget-object p0, p0, Lcom/android/wm/shell/legacysplitscreen/LegacySplitDisplayLayout;->mTmpBounds:Landroid/graphics/Rect;
+
+    invoke-virtual {p1, p0}, Landroid/graphics/Rect;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    xor-int/lit8 p0, p0, 0x1
+
+    or-int/2addr p0, v1
+
+    return p0
 .end method
 
 .method rotateTo(I)V

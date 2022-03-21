@@ -2,7 +2,7 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Landroid/app/WallpaperManager$OnColorsChangedListener;
+.implements Ljava/lang/Runnable;
 
 
 # instance fields
@@ -22,12 +22,12 @@
 
 
 # virtual methods
-.method public final onColorsChanged(Landroid/app/WallpaperColors;I)V
+.method public final run()V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/theme/ThemeOverlayController$$ExternalSyntheticLambda0;->f$0:Lcom/android/systemui/theme/ThemeOverlayController;
 
-    invoke-static {p0, p1, p2}, Lcom/android/systemui/theme/ThemeOverlayController;->$r8$lambda$nMkDxo4SIYEfpZmxAxmJUUp-Fls(Lcom/android/systemui/theme/ThemeOverlayController;Landroid/app/WallpaperColors;I)V
+    invoke-static {p0}, Lcom/android/systemui/theme/ThemeOverlayController;->$r8$lambda$FmDXY7q5wdow4beruMjg4970KUk(Lcom/android/systemui/theme/ThemeOverlayController;)V
 
     return-void
 .end method

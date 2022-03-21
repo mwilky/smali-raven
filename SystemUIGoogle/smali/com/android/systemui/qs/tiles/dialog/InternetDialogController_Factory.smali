@@ -22,7 +22,7 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/policy/NetworkController$AccessPointController;",
+            "Lcom/android/systemui/statusbar/connectivity/AccessPointController;",
             ">;"
         }
     .end annotation
@@ -63,6 +63,16 @@
         value = {
             "Ljavax/inject/Provider<",
             "Landroid/content/Context;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private final dialogLaunchAnimatorProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/animation/DialogLaunchAnimator;",
             ">;"
         }
     .end annotation
@@ -210,7 +220,7 @@
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -225,7 +235,7 @@
             "Lcom/android/systemui/plugins/ActivityStarter;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/policy/NetworkController$AccessPointController;",
+            "Lcom/android/systemui/statusbar/connectivity/AccessPointController;",
             ">;",
             "Ljavax/inject/Provider<",
             "Landroid/telephony/SubscriptionManager;",
@@ -271,6 +281,9 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/policy/LocationController;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/animation/DialogLaunchAnimator;",
             ">;)V"
         }
     .end annotation
@@ -355,11 +368,15 @@
 
     iput-object v1, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController_Factory;->locationControllerProvider:Ljavax/inject/Provider;
 
+    move-object/from16 v1, p20
+
+    iput-object v1, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController_Factory;->dialogLaunchAnimatorProvider:Ljavax/inject/Provider;
+
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/qs/tiles/dialog/InternetDialogController_Factory;
-    .locals 21
+.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/qs/tiles/dialog/InternetDialogController_Factory;
+    .locals 22
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -373,7 +390,7 @@
             "Lcom/android/systemui/plugins/ActivityStarter;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/policy/NetworkController$AccessPointController;",
+            "Lcom/android/systemui/statusbar/connectivity/AccessPointController;",
             ">;",
             "Ljavax/inject/Provider<",
             "Landroid/telephony/SubscriptionManager;",
@@ -419,6 +436,9 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/policy/LocationController;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/animation/DialogLaunchAnimator;",
             ">;)",
             "Lcom/android/systemui/qs/tiles/dialog/InternetDialogController_Factory;"
         }
@@ -462,17 +482,19 @@
 
     move-object/from16 v19, p18
 
-    new-instance v20, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController_Factory;
+    move-object/from16 v20, p19
 
-    move-object/from16 v0, v20
+    new-instance v21, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController_Factory;
 
-    invoke-direct/range {v0 .. v19}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+    move-object/from16 v0, v21
 
-    return-object v20
+    invoke-direct/range {v0 .. v20}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+
+    return-object v21
 .end method
 
-.method public static newInstance(Landroid/content/Context;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/statusbar/policy/NetworkController$AccessPointController;Landroid/telephony/SubscriptionManager;Landroid/telephony/TelephonyManager;Landroid/net/wifi/WifiManager;Landroid/net/ConnectivityManager;Landroid/os/Handler;Ljava/util/concurrent/Executor;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/util/settings/GlobalSettings;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Landroid/view/WindowManager;Lcom/android/systemui/toast/ToastFactory;Landroid/os/Handler;Lcom/android/systemui/util/CarrierConfigTracker;Lcom/android/systemui/statusbar/policy/LocationController;)Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
-    .locals 21
+.method public static newInstance(Landroid/content/Context;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/statusbar/connectivity/AccessPointController;Landroid/telephony/SubscriptionManager;Landroid/telephony/TelephonyManager;Landroid/net/wifi/WifiManager;Landroid/net/ConnectivityManager;Landroid/os/Handler;Ljava/util/concurrent/Executor;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/util/settings/GlobalSettings;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Landroid/view/WindowManager;Lcom/android/systemui/toast/ToastFactory;Landroid/os/Handler;Lcom/android/systemui/util/CarrierConfigTracker;Lcom/android/systemui/statusbar/policy/LocationController;Lcom/android/systemui/animation/DialogLaunchAnimator;)Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
+    .locals 22
 
     move-object/from16 v1, p0
 
@@ -512,19 +534,21 @@
 
     move-object/from16 v19, p18
 
-    new-instance v20, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
+    move-object/from16 v20, p19
 
-    move-object/from16 v0, v20
+    new-instance v21, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
 
-    invoke-direct/range {v0 .. v19}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;-><init>(Landroid/content/Context;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/statusbar/policy/NetworkController$AccessPointController;Landroid/telephony/SubscriptionManager;Landroid/telephony/TelephonyManager;Landroid/net/wifi/WifiManager;Landroid/net/ConnectivityManager;Landroid/os/Handler;Ljava/util/concurrent/Executor;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/util/settings/GlobalSettings;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Landroid/view/WindowManager;Lcom/android/systemui/toast/ToastFactory;Landroid/os/Handler;Lcom/android/systemui/util/CarrierConfigTracker;Lcom/android/systemui/statusbar/policy/LocationController;)V
+    move-object/from16 v0, v21
 
-    return-object v20
+    invoke-direct/range {v0 .. v20}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;-><init>(Landroid/content/Context;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/statusbar/connectivity/AccessPointController;Landroid/telephony/SubscriptionManager;Landroid/telephony/TelephonyManager;Landroid/net/wifi/WifiManager;Landroid/net/ConnectivityManager;Landroid/os/Handler;Ljava/util/concurrent/Executor;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/util/settings/GlobalSettings;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Landroid/view/WindowManager;Lcom/android/systemui/toast/ToastFactory;Landroid/os/Handler;Lcom/android/systemui/util/CarrierConfigTracker;Lcom/android/systemui/statusbar/policy/LocationController;Lcom/android/systemui/animation/DialogLaunchAnimator;)V
+
+    return-object v21
 .end method
 
 
 # virtual methods
 .method public get()Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
-    .locals 21
+    .locals 22
 
     move-object/from16 v0, p0
 
@@ -566,7 +590,7 @@
 
     move-object v5, v1
 
-    check-cast v5, Lcom/android/systemui/statusbar/policy/NetworkController$AccessPointController;
+    check-cast v5, Lcom/android/systemui/statusbar/connectivity/AccessPointController;
 
     iget-object v1, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController_Factory;->subscriptionManagerProvider:Ljavax/inject/Provider;
 
@@ -708,17 +732,27 @@
 
     check-cast v19, Lcom/android/systemui/util/CarrierConfigTracker;
 
-    iget-object v0, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController_Factory;->locationControllerProvider:Ljavax/inject/Provider;
+    iget-object v1, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController_Factory;->locationControllerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object/from16 v20, v1
+
+    check-cast v20, Lcom/android/systemui/statusbar/policy/LocationController;
+
+    iget-object v0, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController_Factory;->dialogLaunchAnimatorProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object v0
 
-    move-object/from16 v20, v0
+    move-object/from16 v21, v0
 
-    check-cast v20, Lcom/android/systemui/statusbar/policy/LocationController;
+    check-cast v21, Lcom/android/systemui/animation/DialogLaunchAnimator;
 
-    invoke-static/range {v2 .. v20}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController_Factory;->newInstance(Landroid/content/Context;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/statusbar/policy/NetworkController$AccessPointController;Landroid/telephony/SubscriptionManager;Landroid/telephony/TelephonyManager;Landroid/net/wifi/WifiManager;Landroid/net/ConnectivityManager;Landroid/os/Handler;Ljava/util/concurrent/Executor;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/util/settings/GlobalSettings;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Landroid/view/WindowManager;Lcom/android/systemui/toast/ToastFactory;Landroid/os/Handler;Lcom/android/systemui/util/CarrierConfigTracker;Lcom/android/systemui/statusbar/policy/LocationController;)Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
+    invoke-static/range {v2 .. v21}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController_Factory;->newInstance(Landroid/content/Context;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/statusbar/connectivity/AccessPointController;Landroid/telephony/SubscriptionManager;Landroid/telephony/TelephonyManager;Landroid/net/wifi/WifiManager;Landroid/net/ConnectivityManager;Landroid/os/Handler;Ljava/util/concurrent/Executor;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/util/settings/GlobalSettings;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Landroid/view/WindowManager;Lcom/android/systemui/toast/ToastFactory;Landroid/os/Handler;Lcom/android/systemui/util/CarrierConfigTracker;Lcom/android/systemui/statusbar/policy/LocationController;Lcom/android/systemui/animation/DialogLaunchAnimator;)Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
 
     move-result-object v0
 

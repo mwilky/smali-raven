@@ -34,7 +34,7 @@
 
 
 # virtual methods
-.method public startIntent(Landroid/app/PendingIntent;Landroid/content/Intent;IILandroid/os/Bundle;)V
+.method public startIntent(Landroid/app/PendingIntent;Landroid/content/Intent;ILandroid/os/Bundle;)V
     .locals 8
 
     :try_start_0
@@ -52,7 +52,7 @@
 
     move-object v3, p2
 
-    move-object v7, p5
+    move-object v7, p4
 
     invoke-virtual/range {v0 .. v7}, Landroid/app/PendingIntent;->send(Landroid/content/Context;ILandroid/content/Intent;Landroid/app/PendingIntent$OnFinished;Landroid/os/Handler;Ljava/lang/String;Landroid/os/Bundle;)V
     :try_end_0
@@ -75,7 +75,7 @@
     return-void
 .end method
 
-.method public startShortcut(Ljava/lang/String;Ljava/lang/String;IILandroid/os/Bundle;Landroid/os/UserHandle;)V
+.method public startShortcut(Ljava/lang/String;Ljava/lang/String;ILandroid/os/Bundle;Landroid/os/UserHandle;)V
     .locals 6
 
     :try_start_0
@@ -97,9 +97,9 @@
 
     move-object v2, p2
 
-    move-object v4, p5
+    move-object v4, p4
 
-    move-object v5, p6
+    move-object v5, p5
 
     invoke-virtual/range {v0 .. v5}, Landroid/content/pm/LauncherApps;->startShortcut(Ljava/lang/String;Ljava/lang/String;Landroid/graphics/Rect;Landroid/os/Bundle;Landroid/os/UserHandle;)V
     :try_end_0
@@ -122,7 +122,7 @@
     return-void
 .end method
 
-.method public startTask(IIILandroid/os/Bundle;)V
+.method public startTask(IILandroid/os/Bundle;)V
     .locals 0
 
     :try_start_0
@@ -130,7 +130,7 @@
 
     move-result-object p0
 
-    invoke-interface {p0, p1, p4}, Landroid/app/IActivityTaskManager;->startActivityFromRecents(ILandroid/os/Bundle;)I
+    invoke-interface {p0, p1, p3}, Landroid/app/IActivityTaskManager;->startActivityFromRecents(ILandroid/os/Bundle;)I
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 

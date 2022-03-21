@@ -167,6 +167,10 @@
 
     check-cast v0, Lcom/android/internal/util/ScreenshotHelper$ScreenshotRequest;
 
+    invoke-virtual {v0}, Lcom/android/internal/util/ScreenshotHelper$ScreenshotRequest;->getTopComponent()Landroid/content/ComponentName;
+
+    move-result-object v7
+
     iget-object v1, p0, Lcom/android/systemui/screenshot/TakeScreenshotService;->mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
 
     invoke-virtual {v0}, Lcom/android/internal/util/ScreenshotHelper$ScreenshotRequest;->getSource()I
@@ -177,19 +181,33 @@
 
     move-result-object v2
 
-    invoke-interface {v1, v2}, Lcom/android/internal/logging/UiEventLogger;->log(Lcom/android/internal/logging/UiEventLogger$UiEventEnum;)V
+    if-nez v7, :cond_1
+
+    const-string v3, ""
+
+    goto :goto_0
+
+    :cond_1
+    invoke-virtual {v7}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+
+    move-result-object v3
+
+    :goto_0
+    const/4 v4, 0x0
+
+    invoke-interface {v1, v2, v4, v3}, Lcom/android/internal/logging/UiEventLogger;->log(Lcom/android/internal/logging/UiEventLogger$UiEventEnum;ILjava/lang/String;)V
 
     iget v1, p1, Landroid/os/Message;->what:I
 
-    if-eq v1, v10, :cond_4
+    if-eq v1, v10, :cond_5
 
     const/4 v2, 0x2
 
-    if-eq v1, v2, :cond_3
+    if-eq v1, v2, :cond_4
 
     const/4 v2, 0x3
 
-    if-eq v1, v2, :cond_1
+    if-eq v1, v2, :cond_2
 
     sget-object p0, Lcom/android/systemui/screenshot/TakeScreenshotService;->TAG:Ljava/lang/String;
 
@@ -211,11 +229,9 @@
 
     invoke-static {p0, p1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/4 p0, 0x0
+    return v4
 
-    return p0
-
-    :cond_1
+    :cond_2
     invoke-virtual {v0}, Lcom/android/internal/util/ScreenshotHelper$ScreenshotRequest;->getBitmapBundle()Landroid/os/Bundle;
 
     move-result-object p1
@@ -240,11 +256,7 @@
 
     move-result v6
 
-    invoke-virtual {v0}, Lcom/android/internal/util/ScreenshotHelper$ScreenshotRequest;->getTopComponent()Landroid/content/ComponentName;
-
-    move-result-object v7
-
-    if-nez v2, :cond_2
+    if-nez v2, :cond_3
 
     sget-object p1, Lcom/android/systemui/screenshot/TakeScreenshotService;->TAG:Ljava/lang/String;
 
@@ -260,28 +272,28 @@
 
     invoke-interface {v9}, Lcom/android/systemui/screenshot/TakeScreenshotService$RequestCallback;->reportError()V
 
-    goto :goto_0
+    goto :goto_1
 
-    :cond_2
+    :cond_3
     iget-object v1, p0, Lcom/android/systemui/screenshot/TakeScreenshotService;->mScreenshot:Lcom/android/systemui/screenshot/ScreenshotController;
 
     invoke-virtual/range {v1 .. v9}, Lcom/android/systemui/screenshot/ScreenshotController;->handleImageAsScreenshot(Landroid/graphics/Bitmap;Landroid/graphics/Rect;Landroid/graphics/Insets;IILandroid/content/ComponentName;Ljava/util/function/Consumer;Lcom/android/systemui/screenshot/TakeScreenshotService$RequestCallback;)V
 
-    goto :goto_0
-
-    :cond_3
-    iget-object p0, p0, Lcom/android/systemui/screenshot/TakeScreenshotService;->mScreenshot:Lcom/android/systemui/screenshot/ScreenshotController;
-
-    invoke-virtual {p0, v8, v9}, Lcom/android/systemui/screenshot/ScreenshotController;->takeScreenshotPartial(Ljava/util/function/Consumer;Lcom/android/systemui/screenshot/TakeScreenshotService$RequestCallback;)V
-
-    goto :goto_0
+    goto :goto_1
 
     :cond_4
     iget-object p0, p0, Lcom/android/systemui/screenshot/TakeScreenshotService;->mScreenshot:Lcom/android/systemui/screenshot/ScreenshotController;
 
-    invoke-virtual {p0, v8, v9}, Lcom/android/systemui/screenshot/ScreenshotController;->takeScreenshotFullscreen(Ljava/util/function/Consumer;Lcom/android/systemui/screenshot/TakeScreenshotService$RequestCallback;)V
+    invoke-virtual {p0, v7, v8, v9}, Lcom/android/systemui/screenshot/ScreenshotController;->takeScreenshotPartial(Landroid/content/ComponentName;Ljava/util/function/Consumer;Lcom/android/systemui/screenshot/TakeScreenshotService$RequestCallback;)V
 
-    :goto_0
+    goto :goto_1
+
+    :cond_5
+    iget-object p0, p0, Lcom/android/systemui/screenshot/TakeScreenshotService;->mScreenshot:Lcom/android/systemui/screenshot/ScreenshotController;
+
+    invoke-virtual {p0, v7, v8, v9}, Lcom/android/systemui/screenshot/ScreenshotController;->takeScreenshotFullscreen(Landroid/content/ComponentName;Ljava/util/function/Consumer;Lcom/android/systemui/screenshot/TakeScreenshotService$RequestCallback;)V
+
+    :goto_1
     return v10
 .end method
 

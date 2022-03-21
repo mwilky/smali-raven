@@ -63,7 +63,7 @@
 
     move-result p0
 
-    invoke-static {p0}, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer$DrawableColorTester;->access$1900(I)Z
+    invoke-static {p0}, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer$DrawableColorTester;->access$1700(I)Z
 
     move-result p0
 

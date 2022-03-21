@@ -27,7 +27,7 @@
 
     iget-object p0, p0, Lcom/android/wm/shell/bubbles/BubbleStackView$$ExternalSyntheticLambda4;->f$0:Lcom/android/wm/shell/bubbles/BubbleStackView;
 
-    invoke-static {p0, p1}, Lcom/android/wm/shell/bubbles/BubbleStackView;->$r8$lambda$VRRlSoOy6XdJCiRiE6ME0w93vig(Lcom/android/wm/shell/bubbles/BubbleStackView;Landroid/view/View;)V
+    invoke-static {p0, p1}, Lcom/android/wm/shell/bubbles/BubbleStackView;->$r8$lambda$NQwG2KKArr1Zxe0AOrlFFlv5Lok(Lcom/android/wm/shell/bubbles/BubbleStackView;Landroid/view/View;)V
 
     return-void
 .end method

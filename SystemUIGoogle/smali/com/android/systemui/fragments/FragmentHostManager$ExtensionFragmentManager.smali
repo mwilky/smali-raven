@@ -47,44 +47,36 @@
 .end method
 
 .method private instantiateWithInjections(Landroid/content/Context;Ljava/lang/String;Landroid/os/Bundle;)Landroid/app/Fragment;
-    .locals 2
+    .locals 1
 
-    const-string v0, "Unable to instantiate "
-
-    iget-object v1, p0, Lcom/android/systemui/fragments/FragmentHostManager$ExtensionFragmentManager;->this$0:Lcom/android/systemui/fragments/FragmentHostManager;
-
-    invoke-static {v1}, Lcom/android/systemui/fragments/FragmentHostManager;->access$700(Lcom/android/systemui/fragments/FragmentHostManager;)Lcom/android/systemui/fragments/FragmentService;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/android/systemui/fragments/FragmentService;->getInjectionMap()Landroid/util/ArrayMap;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p2}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Ljava/lang/reflect/Method;
-
-    if-eqz v1, :cond_1
-
-    :try_start_0
     iget-object p0, p0, Lcom/android/systemui/fragments/FragmentHostManager$ExtensionFragmentManager;->this$0:Lcom/android/systemui/fragments/FragmentHostManager;
 
     invoke-static {p0}, Lcom/android/systemui/fragments/FragmentHostManager;->access$700(Lcom/android/systemui/fragments/FragmentHostManager;)Lcom/android/systemui/fragments/FragmentService;
 
     move-result-object p0
 
-    invoke-virtual {p0}, Lcom/android/systemui/fragments/FragmentService;->getFragmentCreator()Lcom/android/systemui/fragments/FragmentService$FragmentCreator;
+    invoke-virtual {p0}, Lcom/android/systemui/fragments/FragmentService;->getInjectionMap()Landroid/util/ArrayMap;
 
     move-result-object p0
 
-    const/4 p1, 0x0
+    invoke-virtual {p0, p2}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    new-array p1, p1, [Ljava/lang/Object;
+    move-result-object p0
 
-    invoke-virtual {v1, p0, p1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    check-cast p0, Lcom/android/systemui/fragments/FragmentService$FragmentInstantiationInfo;
+
+    if-eqz p0, :cond_1
+
+    :try_start_0
+    iget-object p1, p0, Lcom/android/systemui/fragments/FragmentService$FragmentInstantiationInfo;->mMethod:Ljava/lang/reflect/Method;
+
+    iget-object p0, p0, Lcom/android/systemui/fragments/FragmentService$FragmentInstantiationInfo;->mDaggerComponent:Ljava/lang/Object;
+
+    const/4 v0, 0x0
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    invoke-virtual {p1, p0, v0}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p0
 
@@ -104,7 +96,7 @@
 
     invoke-virtual {p0, p3}, Landroid/app/Fragment;->setArguments(Landroid/os/Bundle;)V
     :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
 
     :cond_0
@@ -119,26 +111,7 @@
 
     invoke-direct {p3}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {p3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p3, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p2
-
-    invoke-direct {p1, p2, p0}, Landroid/app/Fragment$InstantiationException;-><init>(Ljava/lang/String;Ljava/lang/Exception;)V
-
-    throw p1
-
-    :catch_1
-    move-exception p0
-
-    new-instance p1, Landroid/app/Fragment$InstantiationException;
-
-    new-instance p3, Ljava/lang/StringBuilder;
-
-    invoke-direct {p3}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v0, "Unable to instantiate "
 
     invoke-virtual {p3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

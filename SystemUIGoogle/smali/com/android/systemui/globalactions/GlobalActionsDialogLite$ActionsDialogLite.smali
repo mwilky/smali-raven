@@ -1,5 +1,5 @@
 .class Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;
-.super Landroid/app/Dialog;
+.super Lcom/android/systemui/statusbar/phone/SystemUIDialog;
 .source "GlobalActionsDialogLite.java"
 
 # interfaces
@@ -40,8 +40,6 @@
 
 .field protected mGlobalActionsLayout:Lcom/android/systemui/MultiListLayout;
 
-.field private mInfoProvider:Lcom/android/systemui/globalactions/GlobalActionsInfoProvider;
-
 .field private mKeyguardShowing:Z
 
 .field private mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
@@ -50,7 +48,7 @@
 
 .field protected final mNotificationShadeWindowController:Lcom/android/systemui/statusbar/NotificationShadeWindowController;
 
-.field protected final mOnRotateCallback:Ljava/lang/Runnable;
+.field protected final mOnRefreshCallback:Ljava/lang/Runnable;
 
 .field protected final mOverflowAdapter:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$MyOverflowAdapter;
 
@@ -62,9 +60,15 @@
 
 .field protected mScrimAlpha:F
 
-.field protected mShowing:Z
-
-.field private mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
+.field private mStatusBarOptional:Ljava/util/Optional;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/Optional<",
+            "Lcom/android/systemui/statusbar/phone/StatusBar;",
+            ">;"
+        }
+    .end annotation
+.end field
 
 .field protected final mStatusBarService:Lcom/android/internal/statusbar/IStatusBarService;
 
@@ -76,92 +80,96 @@
 
 
 # direct methods
-.method public static synthetic $r8$lambda$2abIJnOKX5ZDprGqt3CqWPIEHRY(Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;Landroid/view/View;)V
+.method public static synthetic $r8$lambda$OYraFvuRg6ngyNPYU2hW1NWnqfY(Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;Landroid/widget/AdapterView;Landroid/view/View;IJ)Z
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->lambda$initializeLayout$3(Landroid/view/View;)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$4zthjbg1LrZOBafvtFOwjzoRAjY(Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;Landroid/animation/ValueAnimator;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->lambda$dismissInternal$8(Landroid/animation/ValueAnimator;)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$9dTSQtptlGg8hvEziq-6N7_I8AU(Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;Landroid/widget/AdapterView;Landroid/view/View;IJ)Z
-    .locals 0
-
-    invoke-direct/range {p0 .. p5}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->lambda$createPowerOverflowPopup$1(Landroid/widget/AdapterView;Landroid/view/View;IJ)Z
+    invoke-direct/range {p0 .. p5}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->lambda$createPowerOverflowPopup$3(Landroid/widget/AdapterView;Landroid/view/View;IJ)Z
 
     move-result p0
 
     return p0
 .end method
 
-.method public static synthetic $r8$lambda$KfikkCVJFolOjbbB-j9aq-3iR0Q(Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;Landroid/animation/ValueAnimator;)V
+.method public static synthetic $r8$lambda$iQ40xKkBR2kvc0Ze-8S_-vTcJig(Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;Landroid/view/View;Landroid/view/MotionEvent;)Z
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->lambda$showDialog$6(Landroid/animation/ValueAnimator;)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$M7I6wVdnA2UTNWgFjonX7F9xV8Q(Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;Landroid/view/View;Landroid/view/MotionEvent;)Z
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->lambda$initializeLayout$2(Landroid/view/View;Landroid/view/MotionEvent;)Z
+    invoke-direct {p0, p1, p2}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->lambda$initializeLayout$4(Landroid/view/View;Landroid/view/MotionEvent;)Z
 
     move-result p0
 
     return p0
 .end method
 
-.method public static synthetic $r8$lambda$NkdKZIXq3fkKXt1ZFvy9Nizf9ro(Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;)V
+.method public static synthetic $r8$lambda$uBrYTQvsk-Br-e4z22x4rFb9RWc(Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;Landroid/widget/AdapterView;Landroid/view/View;IJ)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->lambda$initializeLayout$4()V
+    invoke-direct/range {p0 .. p5}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->lambda$createPowerOverflowPopup$2(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
 
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$RI_O0XHHrDh_lKgizmhww9amIck(Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;)V
+.method public static synthetic $r8$lambda$ud1KtcDU4PRaMZVAZVSN5jU1BqI(Lcom/android/systemui/statusbar/phone/StatusBar;)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->lambda$dismiss$7()V
+    invoke-static {p0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->lambda$openShadeAndDismiss$1(Lcom/android/systemui/statusbar/phone/StatusBar;)V
 
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$iJWo9b6feMeXnL2FFaJ_k4uWzF8(Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;Landroid/widget/AdapterView;Landroid/view/View;IJ)V
+.method public static synthetic $r8$lambda$wNPZMccMFzuWIiQd3aKf0eO_6eg(Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;Landroid/view/View;)V
     .locals 0
 
-    invoke-direct/range {p0 .. p5}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->lambda$createPowerOverflowPopup$0(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
+    invoke-direct {p0, p1}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->lambda$initializeLayout$5(Landroid/view/View;)V
 
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$t_CMcCo3J6L4qH7F0H7Fyk4xnng(Landroid/view/ViewGroup;Landroid/view/View;Landroid/view/WindowInsets;)Landroid/view/WindowInsets;
+.method public static synthetic $r8$lambda$zqs_pdx8Rz-WMZ7WLgkywZwmq7w(Lcom/android/systemui/statusbar/phone/StatusBar;)V
     .locals 0
 
-    invoke-static {p0, p1, p2}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->lambda$showDialog$5(Landroid/view/ViewGroup;Landroid/view/View;Landroid/view/WindowInsets;)Landroid/view/WindowInsets;
+    invoke-static {p0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->lambda$openShadeAndDismiss$0(Lcom/android/systemui/statusbar/phone/StatusBar;)V
 
-    move-result-object p0
-
-    return-object p0
+    return-void
 .end method
 
-.method constructor <init>(Landroid/content/Context;ILcom/android/systemui/globalactions/GlobalActionsDialogLite$MyAdapter;Lcom/android/systemui/globalactions/GlobalActionsDialogLite$MyOverflowAdapter;Lcom/android/systemui/colorextraction/SysuiColorExtractor;Lcom/android/internal/statusbar/IStatusBarService;Lcom/android/systemui/statusbar/NotificationShadeWindowController;Lcom/android/systemui/model/SysUiState;Ljava/lang/Runnable;ZLcom/android/systemui/globalactions/GlobalActionsDialogLite$MyPowerOptionsAdapter;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/globalactions/GlobalActionsInfoProvider;Lcom/android/systemui/statusbar/phone/StatusBar;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/internal/widget/LockPatternUtils;)V
-    .locals 4
+.method constructor <init>(Landroid/content/Context;ILcom/android/systemui/globalactions/GlobalActionsDialogLite$MyAdapter;Lcom/android/systemui/globalactions/GlobalActionsDialogLite$MyOverflowAdapter;Lcom/android/systemui/colorextraction/SysuiColorExtractor;Lcom/android/internal/statusbar/IStatusBarService;Lcom/android/systemui/statusbar/NotificationShadeWindowController;Lcom/android/systemui/model/SysUiState;Ljava/lang/Runnable;ZLcom/android/systemui/globalactions/GlobalActionsDialogLite$MyPowerOptionsAdapter;Lcom/android/internal/logging/UiEventLogger;Ljava/util/Optional;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/internal/widget/LockPatternUtils;Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/content/Context;",
+            "I",
+            "Lcom/android/systemui/globalactions/GlobalActionsDialogLite$MyAdapter;",
+            "Lcom/android/systemui/globalactions/GlobalActionsDialogLite$MyOverflowAdapter;",
+            "Lcom/android/systemui/colorextraction/SysuiColorExtractor;",
+            "Lcom/android/internal/statusbar/IStatusBarService;",
+            "Lcom/android/systemui/statusbar/NotificationShadeWindowController;",
+            "Lcom/android/systemui/model/SysUiState;",
+            "Ljava/lang/Runnable;",
+            "Z",
+            "Lcom/android/systemui/globalactions/GlobalActionsDialogLite$MyPowerOptionsAdapter;",
+            "Lcom/android/internal/logging/UiEventLogger;",
+            "Ljava/util/Optional<",
+            "Lcom/android/systemui/statusbar/phone/StatusBar;",
+            ">;",
+            "Lcom/android/keyguard/KeyguardUpdateMonitor;",
+            "Lcom/android/internal/widget/LockPatternUtils;",
+            "Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;",
+            ")V"
+        }
+    .end annotation
 
     move-object v0, p0
 
     move-object v1, p1
 
-    invoke-direct {p0, p1, p2}, Landroid/app/Dialog;-><init>(Landroid/content/Context;I)V
+    const/4 v2, 0x0
+
+    move v3, p2
+
+    move-object/from16 v4, p16
+
+    invoke-direct {p0, p1, p2, v2, v4}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;-><init>(Landroid/content/Context;IZLcom/android/systemui/statusbar/phone/SystemUIDialogManager;)V
 
     new-instance v2, Landroid/os/Binder;
 
@@ -185,7 +193,7 @@
 
     iput-object v2, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mOverflowAdapter:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$MyOverflowAdapter;
 
-    move-object v2, p11
+    move-object/from16 v2, p11
 
     iput-object v2, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mPowerOptionsAdapter:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$MyPowerOptionsAdapter;
 
@@ -207,7 +215,7 @@
 
     move-object v2, p9
 
-    iput-object v2, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mOnRotateCallback:Ljava/lang/Runnable;
+    iput-object v2, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mOnRefreshCallback:Ljava/lang/Runnable;
 
     move v2, p10
 
@@ -219,17 +227,13 @@
 
     move-object/from16 v2, p13
 
-    iput-object v2, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mInfoProvider:Lcom/android/systemui/globalactions/GlobalActionsInfoProvider;
+    iput-object v2, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mStatusBarOptional:Ljava/util/Optional;
 
     move-object/from16 v2, p14
 
-    iput-object v2, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
-
-    move-object/from16 v2, p15
-
     iput-object v2, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    move-object/from16 v2, p16
+    move-object/from16 v2, p15
 
     iput-object v2, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
@@ -241,56 +245,10 @@
 
     iput-object v2, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mGestureDetector:Landroid/view/GestureDetector;
 
-    invoke-virtual {p0}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
-
-    move-result-object v1
-
-    const/4 v2, 0x1
-
-    invoke-virtual {v1, v2}, Landroid/view/Window;->requestFeature(I)Z
-
-    invoke-virtual {v1}, Landroid/view/Window;->getDecorView()Landroid/view/View;
-
-    invoke-virtual {v1}, Landroid/view/Window;->getAttributes()Landroid/view/WindowManager$LayoutParams;
-
-    move-result-object v2
-
-    iget v3, v2, Landroid/view/WindowManager$LayoutParams;->systemUiVisibility:I
-
-    or-int/lit16 v3, v3, 0x300
-
-    iput v3, v2, Landroid/view/WindowManager$LayoutParams;->systemUiVisibility:I
-
-    const/4 v2, -0x1
-
-    invoke-virtual {v1, v2, v2}, Landroid/view/Window;->setLayout(II)V
-
-    const v2, 0x1090100
-
-    invoke-virtual {v1, v2}, Landroid/view/Window;->addFlags(I)V
-
-    const/16 v2, 0x7e4
-
-    invoke-virtual {v1, v2}, Landroid/view/Window;->setType(I)V
-
-    invoke-virtual {v1}, Landroid/view/Window;->getAttributes()Landroid/view/WindowManager$LayoutParams;
-
-    move-result-object v1
-
-    const/4 v2, 0x0
-
-    invoke-virtual {v1, v2}, Landroid/view/WindowManager$LayoutParams;->setFitInsetsTypes(I)V
-
-    const v1, 0x10403cf
-
-    invoke-virtual {p0, v1}, Landroid/app/Dialog;->setTitle(I)V
-
-    invoke-virtual {p0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->initializeLayout()V
-
     return-void
 .end method
 
-.method static synthetic access$3000(Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;)Lcom/android/internal/logging/UiEventLogger;
+.method static synthetic access$3100(Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;)Lcom/android/internal/logging/UiEventLogger;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
@@ -298,15 +256,15 @@
     return-object p0
 .end method
 
-.method static synthetic access$3100(Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;)Lcom/android/systemui/statusbar/phone/StatusBar;
+.method static synthetic access$3200(Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;)Ljava/util/Optional;
     .locals 0
 
-    iget-object p0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
+    iget-object p0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mStatusBarOptional:Ljava/util/Optional;
 
     return-object p0
 .end method
 
-.method static synthetic access$3200(Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;)V
+.method static synthetic access$3300(Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->openShadeAndDismiss()V
@@ -331,21 +289,21 @@
 
     invoke-direct {v0, v1, v2}, Lcom/android/systemui/globalactions/GlobalActionsPopupMenu;-><init>(Landroid/content/Context;Z)V
 
-    new-instance v1, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite$$ExternalSyntheticLambda5;
+    new-instance v1, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite$$ExternalSyntheticLambda2;
 
-    invoke-direct {v1, p0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite$$ExternalSyntheticLambda5;-><init>(Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;)V
+    invoke-direct {v1, p0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite$$ExternalSyntheticLambda2;-><init>(Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;)V
 
     invoke-virtual {v0, v1}, Landroid/widget/ListPopupWindow;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
 
-    new-instance v1, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite$$ExternalSyntheticLambda6;
+    new-instance v1, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite$$ExternalSyntheticLambda3;
 
-    invoke-direct {v1, p0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite$$ExternalSyntheticLambda6;-><init>(Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;)V
+    invoke-direct {v1, p0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite$$ExternalSyntheticLambda3;-><init>(Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;)V
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/globalactions/GlobalActionsPopupMenu;->setOnItemLongClickListener(Landroid/widget/AdapterView$OnItemLongClickListener;)V
 
     sget v1, Lcom/android/systemui/R$id;->global_actions_overflow_button:I
 
-    invoke-virtual {p0, v1}, Landroid/app/Dialog;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v1}, Landroid/app/AlertDialog;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
@@ -358,7 +316,7 @@
     return-object v0
 .end method
 
-.method private synthetic lambda$createPowerOverflowPopup$0(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
+.method private synthetic lambda$createPowerOverflowPopup$2(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mOverflowAdapter:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$MyOverflowAdapter;
@@ -368,7 +326,7 @@
     return-void
 .end method
 
-.method private synthetic lambda$createPowerOverflowPopup$1(Landroid/widget/AdapterView;Landroid/view/View;IJ)Z
+.method private synthetic lambda$createPowerOverflowPopup$3(Landroid/widget/AdapterView;Landroid/view/View;IJ)Z
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mOverflowAdapter:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$MyOverflowAdapter;
@@ -380,43 +338,7 @@
     return p0
 .end method
 
-.method private synthetic lambda$dismiss$7()V
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->dismissInternal()V
-
-    return-void
-.end method
-
-.method private synthetic lambda$dismissInternal$8(Landroid/animation/ValueAnimator;)V
-    .locals 1
-
-    invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedFraction()F
-
-    move-result p1
-
-    const/high16 v0, 0x3f800000    # 1.0f
-
-    sub-float/2addr v0, p1
-
-    iget p1, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mScrimAlpha:F
-
-    mul-float/2addr v0, p1
-
-    const/high16 p1, 0x437f0000    # 255.0f
-
-    mul-float/2addr v0, p1
-
-    float-to-int p1, v0
-
-    iget-object p0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mBackgroundDrawable:Landroid/graphics/drawable/Drawable;
-
-    invoke-virtual {p0, p1}, Landroid/graphics/drawable/Drawable;->setAlpha(I)V
-
-    return-void
-.end method
-
-.method private synthetic lambda$initializeLayout$2(Landroid/view/View;Landroid/view/MotionEvent;)Z
+.method private synthetic lambda$initializeLayout$4(Landroid/view/View;Landroid/view/MotionEvent;)Z
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mGestureDetector:Landroid/view/GestureDetector;
@@ -430,7 +352,7 @@
     return p0
 .end method
 
-.method private synthetic lambda$initializeLayout$3(Landroid/view/View;)V
+.method private synthetic lambda$initializeLayout$5(Landroid/view/View;)V
     .locals 0
 
     invoke-virtual {p0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->showPowerOverflowMenu()V
@@ -438,60 +360,20 @@
     return-void
 .end method
 
-.method private synthetic lambda$initializeLayout$4()V
-    .locals 0
+.method private static synthetic lambda$openShadeAndDismiss$0(Lcom/android/systemui/statusbar/phone/StatusBar;)V
+    .locals 1
 
-    invoke-virtual {p0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->dismiss()V
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/StatusBar;->animateExpandSettingsPanel(Ljava/lang/String;)V
 
     return-void
 .end method
 
-.method private static synthetic lambda$showDialog$5(Landroid/view/ViewGroup;Landroid/view/View;Landroid/view/WindowInsets;)Landroid/view/WindowInsets;
-    .locals 2
+.method private static synthetic lambda$openShadeAndDismiss$1(Lcom/android/systemui/statusbar/phone/StatusBar;)V
+    .locals 0
 
-    invoke-virtual {p2}, Landroid/view/WindowInsets;->getStableInsetLeft()I
-
-    move-result p1
-
-    invoke-virtual {p2}, Landroid/view/WindowInsets;->getStableInsetTop()I
-
-    move-result v0
-
-    invoke-virtual {p2}, Landroid/view/WindowInsets;->getStableInsetRight()I
-
-    move-result v1
-
-    invoke-virtual {p2}, Landroid/view/WindowInsets;->getStableInsetBottom()I
-
-    move-result p2
-
-    invoke-virtual {p0, p1, v0, v1, p2}, Landroid/view/ViewGroup;->setPadding(IIII)V
-
-    sget-object p0, Landroid/view/WindowInsets;->CONSUMED:Landroid/view/WindowInsets;
-
-    return-object p0
-.end method
-
-.method private synthetic lambda$showDialog$6(Landroid/animation/ValueAnimator;)V
-    .locals 1
-
-    invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedFraction()F
-
-    move-result p1
-
-    iget v0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mScrimAlpha:F
-
-    mul-float/2addr p1, v0
-
-    const/high16 v0, 0x437f0000    # 255.0f
-
-    mul-float/2addr p1, v0
-
-    float-to-int p1, p1
-
-    iget-object p0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mBackgroundDrawable:Landroid/graphics/drawable/Drawable;
-
-    invoke-virtual {p0, p1}, Landroid/graphics/drawable/Drawable;->setAlpha(I)V
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->animateExpandNotificationsPanel()V
 
     return-void
 .end method
@@ -505,26 +387,42 @@
 
     invoke-interface {v0, v1}, Lcom/android/internal/logging/UiEventLogger;->log(Lcom/android/internal/logging/UiEventLogger$UiEventEnum;)V
 
-    iget-object v0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
+    iget-object v0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mStatusBarOptional:Ljava/util/Optional;
 
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/StatusBar;->isKeyguardShowing()Z
+    sget-object v1, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite$$ExternalSyntheticLambda7;->INSTANCE:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite$$ExternalSyntheticLambda7;
+
+    invoke-virtual {v0, v1}, Ljava/util/Optional;->map(Ljava/util/function/Function;)Ljava/util/Optional;
+
+    move-result-object v0
+
+    sget-object v1, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
+
+    invoke-virtual {v0, v1}, Ljava/util/Optional;->orElse(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/Boolean;
+
+    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
+    iget-object v0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mStatusBarOptional:Ljava/util/Optional;
 
-    const/4 v1, 0x0
+    sget-object v1, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite$$ExternalSyntheticLambda6;->INSTANCE:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite$$ExternalSyntheticLambda6;
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/StatusBar;->animateExpandSettingsPanel(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Ljava/util/Optional;->ifPresent(Ljava/util/function/Consumer;)V
 
     goto :goto_0
 
     :cond_0
-    iget-object v0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
+    iget-object v0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mStatusBarOptional:Ljava/util/Optional;
 
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/StatusBar;->animateExpandNotificationsPanel()V
+    sget-object v1, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite$$ExternalSyntheticLambda5;->INSTANCE:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite$$ExternalSyntheticLambda5;
+
+    invoke-virtual {v0, v1}, Ljava/util/Optional;->ifPresent(Ljava/util/function/Consumer;)V
 
     :goto_0
     invoke-virtual {p0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->dismiss()V
@@ -551,7 +449,7 @@
 
     move-result-object v0
 
-    invoke-virtual {p0}, Landroid/app/Dialog;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/app/AlertDialog;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
@@ -624,7 +522,7 @@
 
     invoke-virtual {v0, v1, p2}, Lcom/android/systemui/scrim/ScrimDrawable;->setColor(IZ)V
 
-    invoke-virtual {p0}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
+    invoke-virtual {p0}, Landroid/app/AlertDialog;->getWindow()Landroid/view/Window;
 
     move-result-object p0
 
@@ -655,30 +553,26 @@
 
 
 # virtual methods
-.method protected completeDismiss()V
+.method public dismiss()V
     .locals 3
 
-    const/4 v0, 0x0
+    invoke-virtual {p0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->dismissOverflow()V
 
-    iput-boolean v0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mShowing:Z
+    invoke-virtual {p0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->dismissPowerOptions()V
 
-    const/4 v1, 0x1
+    iget-object v0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mNotificationShadeWindowController:Lcom/android/systemui/statusbar/NotificationShadeWindowController;
 
-    invoke-virtual {p0, v1}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->dismissOverflow(Z)V
-
-    invoke-virtual {p0, v1}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->dismissPowerOptions(Z)V
-
-    iget-object v1, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mNotificationShadeWindowController:Lcom/android/systemui/statusbar/NotificationShadeWindowController;
+    const/4 v1, 0x0
 
     const-string v2, "GlobalActionsDialogLite"
 
-    invoke-interface {v1, v0, v2}, Lcom/android/systemui/statusbar/NotificationShadeWindowController;->setRequestTopUi(ZLjava/lang/String;)V
+    invoke-interface {v0, v1, v2}, Lcom/android/systemui/statusbar/NotificationShadeWindowController;->setRequestTopUi(ZLjava/lang/String;)V
 
-    iget-object v1, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mSysUiState:Lcom/android/systemui/model/SysUiState;
+    iget-object v0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mSysUiState:Lcom/android/systemui/model/SysUiState;
 
     const v2, 0x8000
 
-    invoke-virtual {v1, v2, v0}, Lcom/android/systemui/model/SysUiState;->setFlag(IZ)Lcom/android/systemui/model/SysUiState;
+    invoke-virtual {v0, v2, v1}, Lcom/android/systemui/model/SysUiState;->setFlag(IZ)Lcom/android/systemui/model/SysUiState;
 
     move-result-object v0
 
@@ -690,183 +584,34 @@
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/model/SysUiState;->commitUpdate(I)V
 
-    invoke-super {p0}, Landroid/app/Dialog;->dismiss()V
+    invoke-super {p0}, Landroid/app/AlertDialog;->dismiss()V
 
     return-void
 .end method
 
-.method public dismiss()V
-    .locals 1
-
-    new-instance v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite$$ExternalSyntheticLambda9;
-
-    invoke-direct {v0, p0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite$$ExternalSyntheticLambda9;-><init>(Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;)V
-
-    invoke-virtual {p0, v0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->dismissWithAnimation(Ljava/lang/Runnable;)V
-
-    return-void
-.end method
-
-.method protected dismissInternal()V
-    .locals 8
-
-    iget-object v0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mContainer:Landroid/view/ViewGroup;
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->setTranslationX(F)V
-
-    iget-object v0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mContainer:Landroid/view/ViewGroup;
-
-    const/4 v2, 0x2
-
-    new-array v3, v2, [F
-
-    fill-array-data v3, :array_0
-
-    const-string v4, "alpha"
-
-    invoke-static {v0, v4, v3}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
-
-    move-result-object v0
-
-    sget-object v3, Lcom/android/systemui/animation/Interpolators;->FAST_OUT_LINEAR_IN:Landroid/view/animation/Interpolator;
-
-    invoke-virtual {v0, v3}, Landroid/animation/ObjectAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
-
-    const-wide/16 v4, 0xe9
-
-    invoke-virtual {v0, v4, v5}, Landroid/animation/ObjectAnimator;->setDuration(J)Landroid/animation/ObjectAnimator;
-
-    new-instance v4, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite$$ExternalSyntheticLambda0;
-
-    invoke-direct {v4, p0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;)V
-
-    invoke-virtual {v0, v4}, Landroid/animation/ObjectAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
-
-    iget-object v4, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mGlobalActionsLayout:Lcom/android/systemui/MultiListLayout;
-
-    invoke-virtual {v4}, Lcom/android/systemui/MultiListLayout;->getAnimationOffsetX()F
-
-    move-result v4
-
-    iget-object v5, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mContainer:Landroid/view/ViewGroup;
-
-    new-array v6, v2, [F
-
-    const/4 v7, 0x0
-
-    aput v1, v6, v7
-
-    const/4 v1, 0x1
-
-    aput v4, v6, v1
-
-    const-string/jumbo v4, "translationX"
-
-    invoke-static {v5, v4, v6}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v3}, Landroid/animation/ObjectAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
-
-    const-wide/16 v5, 0x15e
-
-    invoke-virtual {v4, v5, v6}, Landroid/animation/ObjectAnimator;->setDuration(J)Landroid/animation/ObjectAnimator;
-
-    new-instance v3, Landroid/animation/AnimatorSet;
-
-    invoke-direct {v3}, Landroid/animation/AnimatorSet;-><init>()V
-
-    new-array v2, v2, [Landroid/animation/Animator;
-
-    aput-object v0, v2, v7
-
-    aput-object v4, v2, v1
-
-    invoke-virtual {v3, v2}, Landroid/animation/AnimatorSet;->playTogether([Landroid/animation/Animator;)V
-
-    new-instance v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite$4;
-
-    invoke-direct {v0, p0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite$4;-><init>(Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;)V
-
-    invoke-virtual {v3, v0}, Landroid/animation/AnimatorSet;->addListener(Landroid/animation/Animator$AnimatorListener;)V
-
-    invoke-virtual {v3}, Landroid/animation/AnimatorSet;->start()V
-
-    invoke-virtual {p0, v7}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->dismissOverflow(Z)V
-
-    invoke-virtual {p0, v7}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->dismissPowerOptions(Z)V
-
-    return-void
-
-    nop
-
-    :array_0
-    .array-data 4
-        0x3f800000    # 1.0f
-        0x0
-    .end array-data
-.end method
-
-.method protected final dismissOverflow(Z)V
+.method protected final dismissOverflow()V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mOverflowPopup:Landroid/widget/ListPopupWindow;
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_0
 
-    if-eqz p1, :cond_0
-
-    invoke-virtual {p0}, Landroid/widget/ListPopupWindow;->dismissImmediate()V
-
-    goto :goto_0
-
-    :cond_0
     invoke-virtual {p0}, Landroid/widget/ListPopupWindow;->dismiss()V
 
-    :cond_1
-    :goto_0
+    :cond_0
     return-void
 .end method
 
-.method protected final dismissPowerOptions(Z)V
+.method protected final dismissPowerOptions()V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mPowerOptionsDialog:Landroid/app/Dialog;
 
-    if-eqz p0, :cond_1
-
-    if-eqz p1, :cond_0
+    if-eqz p0, :cond_0
 
     invoke-virtual {p0}, Landroid/app/Dialog;->dismiss()V
 
-    goto :goto_0
-
     :cond_0
-    invoke-virtual {p0}, Landroid/app/Dialog;->dismiss()V
-
-    :cond_1
-    :goto_0
-    return-void
-.end method
-
-.method dismissWithAnimation(Ljava/lang/Runnable;)V
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mShowing:Z
-
-    if-nez v0, :cond_0
-
-    return-void
-
-    :cond_0
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mShowing:Z
-
-    invoke-interface {p1}, Ljava/lang/Runnable;->run()V
-
     return-void
 .end method
 
@@ -875,7 +620,7 @@
 
     const v0, 0x1020002
 
-    invoke-virtual {p0, v0}, Landroid/app/Dialog;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Landroid/app/AlertDialog;->findViewById(I)Landroid/view/View;
 
     move-result-object p0
 
@@ -900,6 +645,14 @@
     return-void
 .end method
 
+.method protected getHeight()I
+    .locals 0
+
+    const/4 p0, -0x1
+
+    return p0
+.end method
+
 .method protected getLayoutResource()I
     .locals 0
 
@@ -908,20 +661,28 @@
     return p0
 .end method
 
+.method protected getWidth()I
+    .locals 0
+
+    const/4 p0, -0x1
+
+    return p0
+.end method
+
 .method protected initializeLayout()V
-    .locals 5
+    .locals 3
 
     invoke-virtual {p0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->getLayoutResource()I
 
     move-result v0
 
-    invoke-virtual {p0, v0}, Landroid/app/Dialog;->setContentView(I)V
+    invoke-virtual {p0, v0}, Landroid/app/AlertDialog;->setContentView(I)V
 
     invoke-virtual {p0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->fixNavBarClipping()V
 
     sget v0, Lcom/android/systemui/R$id;->global_actions_view:I
 
-    invoke-virtual {p0, v0}, Landroid/app/Dialog;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Landroid/app/AlertDialog;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -937,9 +698,9 @@
 
     iget-object v0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mGlobalActionsLayout:Lcom/android/systemui/MultiListLayout;
 
-    new-instance v1, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite$$ExternalSyntheticLambda7;
+    new-instance v1, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite$$ExternalSyntheticLambda4;
 
-    invoke-direct {v1, p0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite$$ExternalSyntheticLambda7;-><init>(Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;)V
+    invoke-direct {v1, p0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite$$ExternalSyntheticLambda4;-><init>(Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;)V
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/MultiListLayout;->setRotationListener(Lcom/android/systemui/MultiListLayout$RotationListener;)V
 
@@ -951,7 +712,7 @@
 
     sget v0, Lcom/android/systemui/R$id;->global_actions_container:I
 
-    invoke-virtual {p0, v0}, Landroid/app/Dialog;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Landroid/app/AlertDialog;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -959,15 +720,15 @@
 
     iput-object v0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mContainer:Landroid/view/ViewGroup;
 
-    new-instance v1, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite$$ExternalSyntheticLambda4;
+    new-instance v1, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite$$ExternalSyntheticLambda1;
 
-    invoke-direct {v1, p0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite$$ExternalSyntheticLambda4;-><init>(Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;)V
+    invoke-direct {v1, p0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite$$ExternalSyntheticLambda1;-><init>(Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;)V
 
     invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
 
     sget v0, Lcom/android/systemui/R$id;->global_actions_overflow_button:I
 
-    invoke-virtual {p0, v0}, Landroid/app/Dialog;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Landroid/app/AlertDialog;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -981,9 +742,9 @@
 
     if-lez v1, :cond_0
 
-    new-instance v1, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite$$ExternalSyntheticLambda3;
+    new-instance v1, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite$$ExternalSyntheticLambda0;
 
-    invoke-direct {v1, p0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite$$ExternalSyntheticLambda3;-><init>(Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;)V
+    invoke-direct {v1, p0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;)V
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
@@ -1053,35 +814,6 @@
     iput v0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mScrimAlpha:F
 
     :cond_2
-    iget-object v0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mInfoProvider:Lcom/android/systemui/globalactions/GlobalActionsInfoProvider;
-
-    if-eqz v0, :cond_3
-
-    invoke-virtual {v0}, Lcom/android/systemui/globalactions/GlobalActionsInfoProvider;->shouldShowMessage()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_3
-
-    iget-object v0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mInfoProvider:Lcom/android/systemui/globalactions/GlobalActionsInfoProvider;
-
-    iget-object v1, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mContext:Landroid/content/Context;
-
-    iget-object v2, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mContainer:Landroid/view/ViewGroup;
-
-    iget-object v3, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mAdapter:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$MyAdapter;
-
-    invoke-virtual {v3}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$MyAdapter;->getCount()I
-
-    move-result v3
-
-    new-instance v4, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite$$ExternalSyntheticLambda8;
-
-    invoke-direct {v4, p0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite$$ExternalSyntheticLambda8;-><init>(Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;)V
-
-    invoke-virtual {v0, v1, v2, v3, v4}, Lcom/android/systemui/globalactions/GlobalActionsInfoProvider;->addPanel(Landroid/content/Context;Landroid/view/ViewGroup;ILjava/lang/Runnable;)V
-
-    :cond_3
     invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getCurrentUser()I
 
     move-result v0
@@ -1094,9 +826,9 @@
 
     iget-boolean v1, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mKeyguardShowing:Z
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_3
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_3
 
     iget-object v0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
@@ -1108,14 +840,14 @@
 
     invoke-direct {p0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->showSmartLockDisabledMessage()V
 
-    :cond_4
+    :cond_3
     return-void
 .end method
 
 .method public onBackPressed()V
     .locals 1
 
-    invoke-super {p0}, Landroid/app/Dialog;->onBackPressed()V
+    invoke-super {p0}, Landroid/app/AlertDialog;->onBackPressed()V
 
     iget-object p0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
 
@@ -1165,27 +897,28 @@
     return-void
 .end method
 
+.method protected onCreate(Landroid/os/Bundle;)V
+    .locals 0
+
+    invoke-super {p0, p1}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->onCreate(Landroid/os/Bundle;)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->initializeLayout()V
+
+    return-void
+.end method
+
 .method public onRotate(II)V
     .locals 0
 
-    iget-boolean p1, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mShowing:Z
-
-    if-eqz p1, :cond_0
-
-    iget-object p1, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mOnRotateCallback:Ljava/lang/Runnable;
-
-    invoke-interface {p1}, Ljava/lang/Runnable;->run()V
-
     invoke-virtual {p0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->refreshDialog()V
 
-    :cond_0
     return-void
 .end method
 
 .method protected onStart()V
     .locals 2
 
-    invoke-super {p0}, Landroid/app/Dialog;->onStart()V
+    invoke-super {p0}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->onStart()V
 
     iget-object v0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mGlobalActionsLayout:Lcom/android/systemui/MultiListLayout;
 
@@ -1218,7 +951,7 @@
 .method protected onStop()V
     .locals 1
 
-    invoke-super {p0}, Landroid/app/Dialog;->onStop()V
+    invoke-super {p0}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->onStop()V
 
     iget-object v0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mColorExtractor:Lcom/android/systemui/colorextraction/SysuiColorExtractor;
 
@@ -1238,7 +971,7 @@
 
     if-nez v0, :cond_1
 
-    invoke-super {p0, p1}, Landroid/app/Dialog;->onTouchEvent(Landroid/view/MotionEvent;)Z
+    invoke-super {p0, p1}, Landroid/app/AlertDialog;->onTouchEvent(Landroid/view/MotionEvent;)Z
 
     move-result p0
 
@@ -1262,13 +995,13 @@
 .method public refreshDialog()V
     .locals 1
 
-    const/4 v0, 0x1
+    iget-object v0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mOnRefreshCallback:Ljava/lang/Runnable;
 
-    invoke-virtual {p0, v0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->dismissOverflow(Z)V
+    invoke-interface {v0}, Ljava/lang/Runnable;->run()V
 
-    invoke-virtual {p0, v0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->dismissPowerOptions(Z)V
+    invoke-virtual {p0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->dismissOverflow()V
 
-    invoke-virtual {p0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->initializeLayout()V
+    invoke-virtual {p0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->dismissPowerOptions()V
 
     iget-object p0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mGlobalActionsLayout:Lcom/android/systemui/MultiListLayout;
 
@@ -1277,190 +1010,36 @@
     return-void
 .end method
 
-.method protected final setRotationSuggestionsEnabled(Z)V
+.method public show()V
     .locals 3
 
-    :try_start_0
-    invoke-static {}, Landroid/os/Binder;->getCallingUserHandle()Landroid/os/UserHandle;
+    invoke-super {p0}, Landroid/app/AlertDialog;->show()V
 
-    move-result-object v0
+    iget-object v0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mNotificationShadeWindowController:Lcom/android/systemui/statusbar/NotificationShadeWindowController;
 
-    invoke-virtual {v0}, Landroid/os/UserHandle;->getIdentifier()I
-
-    move-result v0
-
-    if-eqz p1, :cond_0
-
-    const/4 p1, 0x0
-
-    goto :goto_0
-
-    :cond_0
-    const/16 p1, 0x10
-
-    :goto_0
-    iget-object v1, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mStatusBarService:Lcom/android/internal/statusbar/IStatusBarService;
-
-    iget-object v2, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mToken:Landroid/os/IBinder;
-
-    iget-object p0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mContext:Landroid/content/Context;
-
-    invoke-virtual {p0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
-
-    move-result-object p0
-
-    invoke-interface {v1, p1, v2, p0, v0}, Lcom/android/internal/statusbar/IStatusBarService;->disable2ForUser(ILandroid/os/IBinder;Ljava/lang/String;I)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    return-void
-
-    :catch_0
-    move-exception p0
-
-    invoke-virtual {p0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
-
-    move-result-object p0
-
-    throw p0
-.end method
-
-.method public show()V
-    .locals 0
-
-    invoke-super {p0}, Landroid/app/Dialog;->show()V
-
-    invoke-virtual {p0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->showDialog()V
-
-    return-void
-.end method
-
-.method protected showDialog()V
-    .locals 8
-
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mShowing:Z
-
-    iget-object v1, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mNotificationShadeWindowController:Lcom/android/systemui/statusbar/NotificationShadeWindowController;
+    const/4 v1, 0x1
 
     const-string v2, "GlobalActionsDialogLite"
 
-    invoke-interface {v1, v0, v2}, Lcom/android/systemui/statusbar/NotificationShadeWindowController;->setRequestTopUi(ZLjava/lang/String;)V
+    invoke-interface {v0, v1, v2}, Lcom/android/systemui/statusbar/NotificationShadeWindowController;->setRequestTopUi(ZLjava/lang/String;)V
 
-    iget-object v1, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mSysUiState:Lcom/android/systemui/model/SysUiState;
+    iget-object v0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mSysUiState:Lcom/android/systemui/model/SysUiState;
 
     const v2, 0x8000
 
-    invoke-virtual {v1, v2, v0}, Lcom/android/systemui/model/SysUiState;->setFlag(IZ)Lcom/android/systemui/model/SysUiState;
+    invoke-virtual {v0, v2, v1}, Lcom/android/systemui/model/SysUiState;->setFlag(IZ)Lcom/android/systemui/model/SysUiState;
 
-    move-result-object v1
+    move-result-object v0
 
-    iget-object v2, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mContext:Landroid/content/Context;
+    iget-object p0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v2}, Landroid/content/Context;->getDisplayId()I
+    invoke-virtual {p0}, Landroid/content/Context;->getDisplayId()I
 
-    move-result v2
+    move-result p0
 
-    invoke-virtual {v1, v2}, Lcom/android/systemui/model/SysUiState;->commitUpdate(I)V
-
-    iget-object v1, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mGlobalActionsLayout:Lcom/android/systemui/MultiListLayout;
-
-    invoke-virtual {v1}, Landroid/widget/LinearLayout;->getRootView()Landroid/view/View;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/view/ViewGroup;
-
-    new-instance v2, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite$$ExternalSyntheticLambda2;
-
-    invoke-direct {v2, v1}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite$$ExternalSyntheticLambda2;-><init>(Landroid/view/ViewGroup;)V
-
-    invoke-virtual {v1, v2}, Landroid/view/ViewGroup;->setOnApplyWindowInsetsListener(Landroid/view/View$OnApplyWindowInsetsListener;)V
-
-    iget-object v1, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mBackgroundDrawable:Landroid/graphics/drawable/Drawable;
-
-    const/4 v2, 0x0
-
-    invoke-virtual {v1, v2}, Landroid/graphics/drawable/Drawable;->setAlpha(I)V
-
-    iget-object v1, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mGlobalActionsLayout:Lcom/android/systemui/MultiListLayout;
-
-    invoke-virtual {v1}, Lcom/android/systemui/MultiListLayout;->getAnimationOffsetX()F
-
-    move-result v1
-
-    iget-object v3, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mContainer:Landroid/view/ViewGroup;
-
-    const/4 v4, 0x2
-
-    new-array v5, v4, [F
-
-    fill-array-data v5, :array_0
-
-    const-string v6, "alpha"
-
-    invoke-static {v3, v6, v5}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
-
-    move-result-object v3
-
-    sget-object v5, Lcom/android/systemui/animation/Interpolators;->LINEAR_OUT_SLOW_IN:Landroid/view/animation/Interpolator;
-
-    invoke-virtual {v3, v5}, Landroid/animation/ObjectAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
-
-    const-wide/16 v6, 0xb7
-
-    invoke-virtual {v3, v6, v7}, Landroid/animation/ObjectAnimator;->setDuration(J)Landroid/animation/ObjectAnimator;
-
-    new-instance v6, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite$$ExternalSyntheticLambda1;
-
-    invoke-direct {v6, p0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite$$ExternalSyntheticLambda1;-><init>(Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;)V
-
-    invoke-virtual {v3, v6}, Landroid/animation/ObjectAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
-
-    iget-object p0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mContainer:Landroid/view/ViewGroup;
-
-    new-array v6, v4, [F
-
-    aput v1, v6, v2
-
-    const/4 v1, 0x0
-
-    aput v1, v6, v0
-
-    const-string/jumbo v1, "translationX"
-
-    invoke-static {p0, v1, v6}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
-
-    move-result-object p0
-
-    invoke-virtual {p0, v5}, Landroid/animation/ObjectAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
-
-    const-wide/16 v5, 0x15e
-
-    invoke-virtual {p0, v5, v6}, Landroid/animation/ObjectAnimator;->setDuration(J)Landroid/animation/ObjectAnimator;
-
-    new-instance v1, Landroid/animation/AnimatorSet;
-
-    invoke-direct {v1}, Landroid/animation/AnimatorSet;-><init>()V
-
-    new-array v4, v4, [Landroid/animation/Animator;
-
-    aput-object v3, v4, v2
-
-    aput-object p0, v4, v0
-
-    invoke-virtual {v1, v4}, Landroid/animation/AnimatorSet;->playTogether([Landroid/animation/Animator;)V
-
-    invoke-virtual {v1}, Landroid/animation/AnimatorSet;->start()V
+    invoke-virtual {v0, p0}, Lcom/android/systemui/model/SysUiState;->commitUpdate(I)V
 
     return-void
-
-    :array_0
-    .array-data 4
-        0x0
-        0x3f800000    # 1.0f
-    .end array-data
 .end method
 
 .method public showPowerOptionsMenu()V

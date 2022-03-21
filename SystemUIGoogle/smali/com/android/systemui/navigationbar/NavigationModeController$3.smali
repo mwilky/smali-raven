@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/navigationbar/NavigationModeController;-><init>(Landroid/content/Context;Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Lcom/android/systemui/statusbar/policy/ConfigurationController;Ljava/util/concurrent/Executor;)V
+    value = Lcom/android/systemui/navigationbar/NavigationModeController;-><init>(Landroid/content/Context;Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Lcom/android/systemui/statusbar/policy/ConfigurationController;Ljava/util/concurrent/Executor;Lcom/android/systemui/dump/DumpManager;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -34,7 +34,7 @@
 
 
 # virtual methods
-.method public onOverlayChanged()V
+.method public onThemeChanged()V
     .locals 2
 
     invoke-static {}, Lcom/android/systemui/navigationbar/NavigationModeController;->access$000()Ljava/lang/String;

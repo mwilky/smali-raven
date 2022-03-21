@@ -34,6 +34,8 @@
 
 .field private final mActivityManager:Landroid/app/ActivityManager;
 
+.field private final mActivityStarter:Lcom/android/systemui/plugins/ActivityStarter;
+
 .field private final mAnimateUpBackgroundToMatchDrawer:Landroid/animation/ValueAnimator;
 
 .field private mAutomute:Z
@@ -43,6 +45,8 @@
 .field private mConfigChanged:Z
 
 .field private mConfigurableTexts:Lcom/android/systemui/volume/ConfigurableTexts;
+
+.field private final mConfigurationController:Lcom/android/systemui/statusbar/policy/ConfigurationController;
 
 .field private final mContext:Landroid/content/Context;
 
@@ -93,6 +97,8 @@
 .field private mIsRingerDrawerOpen:Z
 
 .field private final mKeyguard:Landroid/app/KeyguardManager;
+
+.field private final mMediaOutputDialogFactory:Lcom/android/systemui/media/dialog/MediaOutputDialogFactory;
 
 .field private mODICaptionsIcon:Lcom/android/systemui/volume/CaptionsToggleImageButton;
 
@@ -398,7 +404,7 @@
     return-void
 .end method
 
-.method public constructor <init>(Landroid/content/Context;)V
+.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/plugins/VolumeDialogController;Lcom/android/systemui/statusbar/policy/AccessibilityManagerWrapper;Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/media/dialog/MediaOutputDialogFactory;Lcom/android/systemui/plugins/ActivityStarter;)V
     .locals 3
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -499,65 +505,47 @@
 
     iput-object v1, p0, Lcom/android/systemui/volume/VolumeDialogImpl;->mContext:Landroid/content/Context;
 
-    const-class v2, Lcom/android/systemui/plugins/VolumeDialogController;
+    iput-object p2, p0, Lcom/android/systemui/volume/VolumeDialogImpl;->mController:Lcom/android/systemui/plugins/VolumeDialogController;
 
-    invoke-static {v2}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    const-string p2, "keyguard"
 
-    move-result-object v2
+    invoke-virtual {v1, p2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    check-cast v2, Lcom/android/systemui/plugins/VolumeDialogController;
+    move-result-object p2
 
-    iput-object v2, p0, Lcom/android/systemui/volume/VolumeDialogImpl;->mController:Lcom/android/systemui/plugins/VolumeDialogController;
+    check-cast p2, Landroid/app/KeyguardManager;
 
-    const-string v2, "keyguard"
+    iput-object p2, p0, Lcom/android/systemui/volume/VolumeDialogImpl;->mKeyguard:Landroid/app/KeyguardManager;
 
-    invoke-virtual {v1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    const-string p2, "activity"
 
-    move-result-object v2
+    invoke-virtual {v1, p2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    check-cast v2, Landroid/app/KeyguardManager;
+    move-result-object p2
 
-    iput-object v2, p0, Lcom/android/systemui/volume/VolumeDialogImpl;->mKeyguard:Landroid/app/KeyguardManager;
+    check-cast p2, Landroid/app/ActivityManager;
 
-    const-string v2, "activity"
+    iput-object p2, p0, Lcom/android/systemui/volume/VolumeDialogImpl;->mActivityManager:Landroid/app/ActivityManager;
 
-    invoke-virtual {v1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    iput-object p3, p0, Lcom/android/systemui/volume/VolumeDialogImpl;->mAccessibilityMgr:Lcom/android/systemui/statusbar/policy/AccessibilityManagerWrapper;
 
-    move-result-object v2
+    iput-object p4, p0, Lcom/android/systemui/volume/VolumeDialogImpl;->mDeviceProvisionedController:Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;
 
-    check-cast v2, Landroid/app/ActivityManager;
+    iput-object p5, p0, Lcom/android/systemui/volume/VolumeDialogImpl;->mConfigurationController:Lcom/android/systemui/statusbar/policy/ConfigurationController;
 
-    iput-object v2, p0, Lcom/android/systemui/volume/VolumeDialogImpl;->mActivityManager:Landroid/app/ActivityManager;
+    iput-object p6, p0, Lcom/android/systemui/volume/VolumeDialogImpl;->mMediaOutputDialogFactory:Lcom/android/systemui/media/dialog/MediaOutputDialogFactory;
 
-    const-class v2, Lcom/android/systemui/statusbar/policy/AccessibilityManagerWrapper;
-
-    invoke-static {v2}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/android/systemui/statusbar/policy/AccessibilityManagerWrapper;
-
-    iput-object v2, p0, Lcom/android/systemui/volume/VolumeDialogImpl;->mAccessibilityMgr:Lcom/android/systemui/statusbar/policy/AccessibilityManagerWrapper;
-
-    const-class v2, Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;
-
-    invoke-static {v2}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;
-
-    iput-object v2, p0, Lcom/android/systemui/volume/VolumeDialogImpl;->mDeviceProvisionedController:Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;
+    iput-object p7, p0, Lcom/android/systemui/volume/VolumeDialogImpl;->mActivityStarter:Lcom/android/systemui/plugins/ActivityStarter;
 
     invoke-direct {p0}, Lcom/android/systemui/volume/VolumeDialogImpl;->showActiveStreamOnly()Z
 
-    move-result v2
+    move-result p2
 
-    iput-boolean v2, p0, Lcom/android/systemui/volume/VolumeDialogImpl;->mShowActiveStreamOnly:Z
+    iput-boolean p2, p0, Lcom/android/systemui/volume/VolumeDialogImpl;->mShowActiveStreamOnly:Z
 
-    const-string v2, "HasSeenODICaptionsTooltip"
+    const-string p2, "HasSeenODICaptionsTooltip"
 
-    invoke-static {p1, v2, v0}, Lcom/android/systemui/Prefs;->getBoolean(Landroid/content/Context;Ljava/lang/String;Z)Z
+    invoke-static {p1, p2, v0}, Lcom/android/systemui/Prefs;->getBoolean(Landroid/content/Context;Ljava/lang/String;Z)Z
 
     move-result p1
 
@@ -567,9 +555,9 @@
 
     move-result-object p1
 
-    sget v0, Lcom/android/systemui/R$bool;->config_showLowMediaVolumeIcon:I
+    sget p2, Lcom/android/systemui/R$bool;->config_showLowMediaVolumeIcon:I
 
-    invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
+    invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getBoolean(I)Z
 
     move-result p1
 
@@ -579,9 +567,9 @@
 
     move-result-object p1
 
-    sget v0, Lcom/android/systemui/R$bool;->config_changeVolumeRowTintWhenInactive:I
+    sget p2, Lcom/android/systemui/R$bool;->config_changeVolumeRowTintWhenInactive:I
 
-    invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
+    invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getBoolean(I)Z
 
     move-result p1
 
@@ -591,9 +579,9 @@
 
     move-result-object p1
 
-    sget v0, Lcom/android/systemui/R$integer;->config_dialogShowAnimationDurationMs:I
+    sget p2, Lcom/android/systemui/R$integer;->config_dialogShowAnimationDurationMs:I
 
-    invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getInteger(I)I
+    invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getInteger(I)I
 
     move-result p1
 
@@ -603,9 +591,9 @@
 
     move-result-object p1
 
-    sget v0, Lcom/android/systemui/R$integer;->config_dialogHideAnimationDurationMs:I
+    sget p2, Lcom/android/systemui/R$integer;->config_dialogHideAnimationDurationMs:I
 
-    invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getInteger(I)I
+    invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getInteger(I)I
 
     move-result p1
 
@@ -615,9 +603,9 @@
 
     move-result-object p1
 
-    sget v0, Lcom/android/systemui/R$bool;->config_volumeDialogUseBackgroundBlur:I
+    sget p2, Lcom/android/systemui/R$bool;->config_volumeDialogUseBackgroundBlur:I
 
-    invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
+    invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getBoolean(I)Z
 
     move-result p1
 
@@ -631,17 +619,17 @@
 
     move-result p1
 
-    sget v0, Lcom/android/systemui/R$color;->volume_dialog_background_color:I
+    sget p2, Lcom/android/systemui/R$color;->volume_dialog_background_color:I
 
-    invoke-virtual {v1, v0}, Landroid/content/Context;->getColor(I)I
+    invoke-virtual {v1, p2}, Landroid/content/Context;->getColor(I)I
 
-    move-result v0
+    move-result p2
 
-    new-instance v1, Lcom/android/systemui/volume/VolumeDialogImpl$$ExternalSyntheticLambda23;
+    new-instance p3, Lcom/android/systemui/volume/VolumeDialogImpl$$ExternalSyntheticLambda23;
 
-    invoke-direct {v1, p0, p1, v0}, Lcom/android/systemui/volume/VolumeDialogImpl$$ExternalSyntheticLambda23;-><init>(Lcom/android/systemui/volume/VolumeDialogImpl;II)V
+    invoke-direct {p3, p0, p1, p2}, Lcom/android/systemui/volume/VolumeDialogImpl$$ExternalSyntheticLambda23;-><init>(Lcom/android/systemui/volume/VolumeDialogImpl;II)V
 
-    iput-object v1, p0, Lcom/android/systemui/volume/VolumeDialogImpl;->mCrossWindowBlurEnabledListener:Ljava/util/function/Consumer;
+    iput-object p3, p0, Lcom/android/systemui/volume/VolumeDialogImpl;->mCrossWindowBlurEnabledListener:Ljava/util/function/Consumer;
 
     :cond_0
     invoke-direct {p0}, Lcom/android/systemui/volume/VolumeDialogImpl;->initDimens()V
@@ -3180,7 +3168,7 @@
 
     invoke-virtual {p1, p0}, Landroid/view/ViewTreeObserver;->addOnComputeInternalInsetsListener(Landroid/view/ViewTreeObserver$OnComputeInternalInsetsListener;)V
 
-    invoke-direct {p0}, Lcom/android/systemui/volume/VolumeDialogImpl;->isLandscape()Z
+    invoke-direct {p0}, Lcom/android/systemui/volume/VolumeDialogImpl;->shouldSlideInVolumeTray()Z
 
     move-result p1
 
@@ -3609,23 +3597,11 @@
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/volume/VolumeDialogImpl;->dismissH(I)V
 
-    const-class p0, Lcom/android/systemui/media/dialog/MediaOutputDialogFactory;
+    iget-object v0, p0, Lcom/android/systemui/volume/VolumeDialogImpl;->mMediaOutputDialogFactory:Lcom/android/systemui/media/dialog/MediaOutputDialogFactory;
 
-    invoke-static {p0}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-virtual {v0}, Lcom/android/systemui/media/dialog/MediaOutputDialogFactory;->dismiss()V
 
-    move-result-object p0
-
-    check-cast p0, Lcom/android/systemui/media/dialog/MediaOutputDialogFactory;
-
-    invoke-virtual {p0}, Lcom/android/systemui/media/dialog/MediaOutputDialogFactory;->dismiss()V
-
-    const-class p0, Lcom/android/systemui/plugins/ActivityStarter;
-
-    invoke-static {p0}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
-
-    move-result-object p0
-
-    check-cast p0, Lcom/android/systemui/plugins/ActivityStarter;
+    iget-object p0, p0, Lcom/android/systemui/volume/VolumeDialogImpl;->mActivityStarter:Lcom/android/systemui/plugins/ActivityStarter;
 
     const/4 v0, 0x1
 
@@ -3964,7 +3940,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/volume/VolumeDialogImpl;->mContext:Landroid/content/Context;
 
-    const v3, 0x104089e
+    const v3, 0x10408a3
 
     invoke-virtual {p1, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -4014,7 +3990,7 @@
     :cond_2
     iget-object p1, p0, Lcom/android/systemui/volume/VolumeDialogImpl;->mContext:Landroid/content/Context;
 
-    const v3, 0x104089d
+    const v3, 0x10408a2
 
     invoke-virtual {p1, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -4691,6 +4667,32 @@
 
     :cond_5
     return v2
+.end method
+
+.method private shouldSlideInVolumeTray()Z
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/volume/VolumeDialogImpl;->mContext:Landroid/content/Context;
+
+    invoke-virtual {p0}, Landroid/content/Context;->getDisplay()Landroid/view/Display;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Landroid/view/Display;->getRotation()I
+
+    move-result p0
+
+    if-eqz p0, :cond_0
+
+    const/4 p0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    :goto_0
+    return p0
 .end method
 
 .method private showActiveStreamOnly()Z
@@ -6982,7 +6984,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v2, v0}, Landroid/graphics/drawable/InsetDrawable;->setTintList(Landroid/content/res/ColorStateList;)V
+    invoke-virtual {v2, v0}, Lcom/android/systemui/util/AlphaTintDrawableWrapper;->setTintList(Landroid/content/res/ColorStateList;)V
 
     :cond_5
     invoke-static {p1}, Lcom/android/systemui/volume/VolumeDialogImpl$VolumeRow;->access$3000(Lcom/android/systemui/volume/VolumeDialogImpl$VolumeRow;)Landroid/graphics/drawable/Drawable;
@@ -7008,7 +7010,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v2, v1}, Landroid/graphics/drawable/InsetDrawable;->setTintList(Landroid/content/res/ColorStateList;)V
+    invoke-virtual {v2, v1}, Lcom/android/systemui/util/AlphaTintDrawableWrapper;->setTintList(Landroid/content/res/ColorStateList;)V
 
     :cond_7
     invoke-static {p1}, Lcom/android/systemui/volume/VolumeDialogImpl$VolumeRow;->access$2100(Lcom/android/systemui/volume/VolumeDialogImpl$VolumeRow;)Landroid/widget/ImageButton;
@@ -7105,13 +7107,7 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacksAndMessages(Ljava/lang/Object;)V
 
-    const-class v0, Lcom/android/systemui/statusbar/policy/ConfigurationController;
-
-    invoke-static {v0}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/systemui/statusbar/policy/ConfigurationController;
+    iget-object v0, p0, Lcom/android/systemui/volume/VolumeDialogImpl;->mConfigurationController:Lcom/android/systemui/statusbar/policy/ConfigurationController;
 
     invoke-interface {v0, p0}, Lcom/android/systemui/statusbar/policy/CallbackController;->removeCallback(Ljava/lang/Object;)V
 
@@ -7252,7 +7248,7 @@
 
     move-result-object p1
 
-    invoke-direct {p0}, Lcom/android/systemui/volume/VolumeDialogImpl;->isLandscape()Z
+    invoke-direct {p0}, Lcom/android/systemui/volume/VolumeDialogImpl;->shouldSlideInVolumeTray()Z
 
     move-result v0
 
@@ -7341,13 +7337,7 @@
 
     invoke-interface {p1}, Lcom/android/systemui/plugins/VolumeDialogController;->getState()V
 
-    const-class p1, Lcom/android/systemui/statusbar/policy/ConfigurationController;
-
-    invoke-static {p1}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
-
-    move-result-object p1
-
-    check-cast p1, Lcom/android/systemui/statusbar/policy/ConfigurationController;
+    iget-object p1, p0, Lcom/android/systemui/volume/VolumeDialogImpl;->mConfigurationController:Lcom/android/systemui/statusbar/policy/ConfigurationController;
 
     invoke-interface {p1, p0}, Lcom/android/systemui/statusbar/policy/CallbackController;->addCallback(Ljava/lang/Object;)V
 

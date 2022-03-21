@@ -2,44 +2,38 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Ljava/util/function/Function;
+.implements Ljava/lang/Runnable;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda17;
+# instance fields
+.field public final synthetic f$0:Lcom/android/systemui/recents/OverviewProxyService$1;
+
+.field public final synthetic f$1:Z
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda17;
-
-    invoke-direct {v0}, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda17;-><init>()V
-
-    sput-object v0, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda17;->INSTANCE:Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda17;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Lcom/android/systemui/recents/OverviewProxyService$1;Z)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda17;->f$0:Lcom/android/systemui/recents/OverviewProxyService$1;
+
+    iput-boolean p2, p0, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda17;->f$1:Z
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+.method public final run()V
+    .locals 1
 
-    check-cast p1, Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreen;
+    iget-object v0, p0, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda17;->f$0:Lcom/android/systemui/recents/OverviewProxyService$1;
 
-    invoke-static {p1}, Lcom/android/systemui/recents/OverviewProxyService$1;->$r8$lambda$l-emq-RSIDewH5E81y63uL8Hjhk(Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreen;)Landroid/graphics/Rect;
+    iget-boolean p0, p0, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda17;->f$1:Z
 
-    move-result-object p0
+    invoke-static {v0, p0}, Lcom/android/systemui/recents/OverviewProxyService$1;->$r8$lambda$tAJ1cIROgAYzbS4RqeO9XeCpY-E(Lcom/android/systemui/recents/OverviewProxyService$1;Z)V
 
-    return-object p0
+    return-void
 .end method

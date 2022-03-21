@@ -54,15 +54,7 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter;)I
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter;->mMargin:I
-
-    return p0
-.end method
-
-.method static synthetic access$102(Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter;Z)Z
+.method static synthetic access$002(Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter;Z)Z
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter;->mIsAnimating:Z

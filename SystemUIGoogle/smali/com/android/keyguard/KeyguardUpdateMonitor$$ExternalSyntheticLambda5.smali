@@ -27,7 +27,7 @@
 
     iget-object p0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$$ExternalSyntheticLambda5;->f$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    invoke-static {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->$r8$lambda$SmcskrJsftCnAPht4MUwNuUJsyM(Lcom/android/keyguard/KeyguardUpdateMonitor;)V
+    invoke-static {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->$r8$lambda$6lT4f6JcVvl3z_tv5zbzGPXFYLM(Lcom/android/keyguard/KeyguardUpdateMonitor;)V
 
     return-void
 .end method

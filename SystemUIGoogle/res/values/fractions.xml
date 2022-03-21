@@ -8,7 +8,6 @@
     <fraction name="bt_battery_scale_fraction">75.0%</fraction>
     <fraction name="config_one_handed_offset">39.999996%</fraction>
     <fraction name="config_pipShortestEdgePercent">39.999996%</fraction>
-    <fraction name="controls_dimmed_alpha">39.999996%</fraction>
     <fraction name="controls_toggle_bg_intensity">4.999995%</fraction>
     <fraction name="lb_browse_header_unselect_alpha">50.0%</fraction>
     <fraction name="lb_browse_rows_scale">79.99999%</fraction>

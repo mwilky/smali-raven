@@ -3,7 +3,7 @@
 .source "QSCarrierGroupController.java"
 
 # interfaces
-.implements Lcom/android/systemui/statusbar/policy/NetworkController$SignalCallback;
+.implements Lcom/android/systemui/statusbar/connectivity/SignalCallback;
 
 
 # annotations
@@ -34,7 +34,7 @@
 
 
 # virtual methods
-.method public setCallIndicator(Lcom/android/systemui/statusbar/policy/NetworkController$IconState;I)V
+.method public setCallIndicator(Lcom/android/systemui/statusbar/connectivity/IconState;I)V
     .locals 11
 
     iget-object v0, p0, Lcom/android/systemui/qs/carrier/QSCarrierGroupController$1;->this$0:Lcom/android/systemui/qs/carrier/QSCarrierGroupController;
@@ -112,7 +112,7 @@
 
     move-result p2
 
-    iget v1, p1, Lcom/android/systemui/statusbar/policy/NetworkController$IconState;->icon:I
+    iget v1, p1, Lcom/android/systemui/statusbar/connectivity/IconState;->icon:I
 
     sget v2, Lcom/android/systemui/R$drawable;->ic_qs_no_calling_sms:I
 
@@ -120,7 +120,7 @@
 
     if-ne v1, v2, :cond_5
 
-    iget-boolean v1, p1, Lcom/android/systemui/statusbar/policy/NetworkController$IconState;->visible:Z
+    iget-boolean v1, p1, Lcom/android/systemui/statusbar/connectivity/IconState;->visible:Z
 
     if-eqz v1, :cond_3
 
@@ -134,9 +134,9 @@
 
     const/4 v5, 0x1
 
-    iget v6, p1, Lcom/android/systemui/statusbar/policy/NetworkController$IconState;->icon:I
+    iget v6, p1, Lcom/android/systemui/statusbar/connectivity/IconState;->icon:I
 
-    iget-object v7, p1, Lcom/android/systemui/statusbar/policy/NetworkController$IconState;->contentDescription:Ljava/lang/String;
+    iget-object v7, p1, Lcom/android/systemui/statusbar/connectivity/IconState;->contentDescription:Ljava/lang/String;
 
     const/4 v9, 0x0
 
@@ -256,7 +256,7 @@
 
     move-result-object v1
 
-    iget v4, p1, Lcom/android/systemui/statusbar/policy/NetworkController$IconState;->icon:I
+    iget v4, p1, Lcom/android/systemui/statusbar/connectivity/IconState;->icon:I
 
     aput v4, v1, v0
 
@@ -266,7 +266,7 @@
 
     move-result-object v1
 
-    iget-object v4, p1, Lcom/android/systemui/statusbar/policy/NetworkController$IconState;->contentDescription:Ljava/lang/String;
+    iget-object v4, p1, Lcom/android/systemui/statusbar/connectivity/IconState;->contentDescription:Ljava/lang/String;
 
     aput-object v4, v1, v0
 
@@ -294,9 +294,9 @@
 
     const/4 v5, 0x1
 
-    iget v6, p1, Lcom/android/systemui/statusbar/policy/NetworkController$IconState;->icon:I
+    iget v6, p1, Lcom/android/systemui/statusbar/connectivity/IconState;->icon:I
 
-    iget-object v7, p1, Lcom/android/systemui/statusbar/policy/NetworkController$IconState;->contentDescription:Ljava/lang/String;
+    iget-object v7, p1, Lcom/android/systemui/statusbar/connectivity/IconState;->contentDescription:Ljava/lang/String;
 
     const/4 v9, 0x0
 
@@ -365,7 +365,7 @@
     return-void
 .end method
 
-.method public setMobileDataIndicators(Lcom/android/systemui/statusbar/policy/NetworkController$MobileDataIndicators;)V
+.method public setMobileDataIndicators(Lcom/android/systemui/statusbar/connectivity/MobileDataIndicators;)V
     .locals 10
 
     iget-object v0, p0, Lcom/android/systemui/qs/carrier/QSCarrierGroupController$1;->this$0:Lcom/android/systemui/qs/carrier/QSCarrierGroupController;
@@ -381,7 +381,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/qs/carrier/QSCarrierGroupController$1;->this$0:Lcom/android/systemui/qs/carrier/QSCarrierGroupController;
 
-    iget v1, p1, Lcom/android/systemui/statusbar/policy/NetworkController$MobileDataIndicators;->subId:I
+    iget v1, p1, Lcom/android/systemui/statusbar/connectivity/MobileDataIndicators;->subId:I
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/qs/carrier/QSCarrierGroupController;->getSlotIndex(I)I
 
@@ -424,7 +424,7 @@
 
     invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget p1, p1, Lcom/android/systemui/statusbar/policy/NetworkController$MobileDataIndicators;->subId:I
+    iget p1, p1, Lcom/android/systemui/statusbar/connectivity/MobileDataIndicators;->subId:I
 
     invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -445,21 +445,21 @@
 
     new-instance v9, Lcom/android/systemui/qs/carrier/CellSignalState;
 
-    iget-object v2, p1, Lcom/android/systemui/statusbar/policy/NetworkController$MobileDataIndicators;->statusIcon:Lcom/android/systemui/statusbar/policy/NetworkController$IconState;
+    iget-object v2, p1, Lcom/android/systemui/statusbar/connectivity/MobileDataIndicators;->statusIcon:Lcom/android/systemui/statusbar/connectivity/IconState;
 
-    iget-boolean v3, v2, Lcom/android/systemui/statusbar/policy/NetworkController$IconState;->visible:Z
+    iget-boolean v3, v2, Lcom/android/systemui/statusbar/connectivity/IconState;->visible:Z
 
-    iget v4, v2, Lcom/android/systemui/statusbar/policy/NetworkController$IconState;->icon:I
+    iget v4, v2, Lcom/android/systemui/statusbar/connectivity/IconState;->icon:I
 
-    iget-object v5, v2, Lcom/android/systemui/statusbar/policy/NetworkController$IconState;->contentDescription:Ljava/lang/String;
+    iget-object v5, v2, Lcom/android/systemui/statusbar/connectivity/IconState;->contentDescription:Ljava/lang/String;
 
-    iget-object v2, p1, Lcom/android/systemui/statusbar/policy/NetworkController$MobileDataIndicators;->typeContentDescription:Ljava/lang/CharSequence;
+    iget-object v2, p1, Lcom/android/systemui/statusbar/connectivity/MobileDataIndicators;->typeContentDescription:Ljava/lang/CharSequence;
 
     invoke-interface {v2}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
     move-result-object v6
 
-    iget-boolean v7, p1, Lcom/android/systemui/statusbar/policy/NetworkController$MobileDataIndicators;->roaming:Z
+    iget-boolean v7, p1, Lcom/android/systemui/statusbar/connectivity/MobileDataIndicators;->roaming:Z
 
     iget-object p1, p0, Lcom/android/systemui/qs/carrier/QSCarrierGroupController$1;->this$0:Lcom/android/systemui/qs/carrier/QSCarrierGroupController;
 

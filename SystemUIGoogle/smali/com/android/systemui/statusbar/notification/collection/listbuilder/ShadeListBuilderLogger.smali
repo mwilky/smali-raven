@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nShadeListBuilderLogger.kt\nKotlin\n*S Kotlin\n*F\n+ 1 ShadeListBuilderLogger.kt\ncom/android/systemui/statusbar/notification/collection/listbuilder/ShadeListBuilderLogger\n+ 2 LogBuffer.kt\ncom/android/systemui/log/LogBuffer\n*L\n1#1,288:1\n113#2,6:289\n113#2,6:295\n113#2,6:301\n113#2,6:307\n113#2,6:313\n113#2,6:319\n113#2,6:325\n113#2,6:331\n113#2,6:337\n113#2,6:343\n113#2,6:349\n113#2,6:355\n113#2,6:361\n113#2,6:367\n113#2,6:373\n113#2,6:379\n113#2,6:385\n113#2,6:391\n113#2,6:397\n113#2,6:403\n113#2,6:409\n113#2,6:415\n*E\n*S KotlinDebug\n*F\n+ 1 ShadeListBuilderLogger.kt\ncom/android/systemui/statusbar/notification/collection/listbuilder/ShadeListBuilderLogger\n*L\n34#1,6:289\n41#1,6:295\n51#1,6:301\n60#1,6:307\n69#1,6:313\n78#1,6:319\n87#1,6:325\n96#1,6:331\n105#1,6:337\n116#1,6:343\n130#1,6:349\n152#1,6:355\n172#1,6:361\n185#1,6:367\n198#1,6:373\n212#1,6:379\n226#1,6:385\n244#1,6:391\n255#1,6:397\n259#1,6:403\n268#1,6:409\n276#1,6:415\n*E\n"
+    value = "SMAP\nShadeListBuilderLogger.kt\nKotlin\n*S Kotlin\n*F\n+ 1 ShadeListBuilderLogger.kt\ncom/android/systemui/statusbar/notification/collection/listbuilder/ShadeListBuilderLogger\n+ 2 LogBuffer.kt\ncom/android/systemui/log/LogBuffer\n*L\n1#1,297:1\n120#2,6:298\n120#2,6:304\n120#2,6:310\n120#2,6:316\n120#2,6:322\n120#2,6:328\n120#2,6:334\n120#2,6:340\n120#2,6:346\n120#2,6:352\n120#2,6:358\n120#2,6:364\n120#2,6:370\n120#2,6:376\n120#2,6:382\n120#2,6:388\n120#2,6:394\n120#2,6:400\n120#2,6:406\n120#2,6:412\n120#2,6:418\n120#2,6:424\n120#2,6:430\n*E\n*S KotlinDebug\n*F\n+ 1 ShadeListBuilderLogger.kt\ncom/android/systemui/statusbar/notification/collection/listbuilder/ShadeListBuilderLogger\n*L\n34#1,6:298\n41#1,6:304\n51#1,6:310\n60#1,6:316\n69#1,6:322\n78#1,6:328\n87#1,6:334\n96#1,6:340\n105#1,6:346\n114#1,6:352\n125#1,6:358\n139#1,6:364\n161#1,6:370\n181#1,6:376\n194#1,6:382\n207#1,6:388\n221#1,6:394\n235#1,6:400\n253#1,6:406\n264#1,6:412\n268#1,6:418\n277#1,6:424\n285#1,6:430\n*E\n"
 .end annotation
 
 
@@ -80,7 +80,7 @@
 .method public final logDuplicateTopLevelKey(ILjava/lang/String;)V
     .locals 3
 
-    const-string/jumbo v0, "topLevelKey"
+    const-string v0, "topLevelKey"
 
     invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -742,6 +742,41 @@
     sget-object v0, Lcom/android/systemui/log/LogLevel;->DEBUG:Lcom/android/systemui/log/LogLevel;
 
     sget-object v1, Lcom/android/systemui/statusbar/notification/collection/listbuilder/ShadeListBuilderLogger$logPreGroupFilterInvalidated$2;->INSTANCE:Lcom/android/systemui/statusbar/notification/collection/listbuilder/ShadeListBuilderLogger$logPreGroupFilterInvalidated$2;
+
+    invoke-virtual {p0}, Lcom/android/systemui/log/LogBuffer;->getFrozen()Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    const-string v2, "ShadeListBuilder"
+
+    invoke-virtual {p0, v2, v0, v1}, Lcom/android/systemui/log/LogBuffer;->obtain(Ljava/lang/String;Lcom/android/systemui/log/LogLevel;Lkotlin/jvm/functions/Function1;)Lcom/android/systemui/log/LogMessageImpl;
+
+    move-result-object v0
+
+    invoke-interface {v0, p1}, Lcom/android/systemui/log/LogMessage;->setStr1(Ljava/lang/String;)V
+
+    invoke-interface {v0, p2}, Lcom/android/systemui/log/LogMessage;->setInt1(I)V
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/log/LogBuffer;->push(Lcom/android/systemui/log/LogMessage;)V
+
+    :cond_0
+    return-void
+.end method
+
+.method public final logPreRenderInvalidated(Ljava/lang/String;I)V
+    .locals 3
+
+    const-string v0, "filterName"
+
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/listbuilder/ShadeListBuilderLogger;->buffer:Lcom/android/systemui/log/LogBuffer;
+
+    sget-object v0, Lcom/android/systemui/log/LogLevel;->DEBUG:Lcom/android/systemui/log/LogLevel;
+
+    sget-object v1, Lcom/android/systemui/statusbar/notification/collection/listbuilder/ShadeListBuilderLogger$logPreRenderInvalidated$2;->INSTANCE:Lcom/android/systemui/statusbar/notification/collection/listbuilder/ShadeListBuilderLogger$logPreRenderInvalidated$2;
 
     invoke-virtual {p0}, Lcom/android/systemui/log/LogBuffer;->getFrozen()Z
 

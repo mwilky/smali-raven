@@ -152,7 +152,7 @@
     :catch_0
     new-instance p0, Ljava/lang/InterruptedException;
 
-    const-string/jumbo p1, "timeout"
+    const-string p1, "timeout"
 
     invoke-direct {p0, p1}, Ljava/lang/InterruptedException;-><init>(Ljava/lang/String;)V
 

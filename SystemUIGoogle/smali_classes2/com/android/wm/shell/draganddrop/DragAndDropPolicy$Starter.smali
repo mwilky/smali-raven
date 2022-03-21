@@ -15,11 +15,11 @@
 
 
 # virtual methods
-.method public abstract startIntent(Landroid/app/PendingIntent;Landroid/content/Intent;IILandroid/os/Bundle;)V
+.method public abstract startIntent(Landroid/app/PendingIntent;Landroid/content/Intent;ILandroid/os/Bundle;)V
 .end method
 
-.method public abstract startShortcut(Ljava/lang/String;Ljava/lang/String;IILandroid/os/Bundle;Landroid/os/UserHandle;)V
+.method public abstract startShortcut(Ljava/lang/String;Ljava/lang/String;ILandroid/os/Bundle;Landroid/os/UserHandle;)V
 .end method
 
-.method public abstract startTask(IIILandroid/os/Bundle;)V
+.method public abstract startTask(IILandroid/os/Bundle;)V
 .end method

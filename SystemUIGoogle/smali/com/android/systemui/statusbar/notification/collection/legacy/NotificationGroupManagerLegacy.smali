@@ -94,7 +94,7 @@
 
 
 # direct methods
-.method public constructor <init>(Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Ldagger/Lazy;Ljava/util/Optional;)V
+.method public constructor <init>(Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Ldagger/Lazy;Ljava/util/Optional;Lcom/android/systemui/dump/DumpManager;)V
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -105,7 +105,9 @@
             ">;",
             "Ljava/util/Optional<",
             "Lcom/android/wm/shell/bubbles/Bubbles;",
-            ">;)V"
+            ">;",
+            "Lcom/android/systemui/dump/DumpManager;",
+            ")V"
         }
     .end annotation
 
@@ -152,6 +154,8 @@
     iput-object p2, p0, Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;->mPeopleNotificationIdentifier:Ldagger/Lazy;
 
     iput-object p3, p0, Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;->mBubblesOptional:Ljava/util/Optional;
+
+    invoke-virtual {p4, p0}, Lcom/android/systemui/dump/DumpManager;->registerDumpable(Lcom/android/systemui/Dumpable;)V
 
     return-void
 .end method
@@ -436,9 +440,9 @@
 
     move-result v1
 
-    const/4 v2, 0x1
+    const/4 v2, 0x2
 
-    if-eq v1, v2, :cond_2
+    if-ne v1, v2, :cond_2
 
     return-object v0
 
@@ -451,70 +455,72 @@
 
     invoke-virtual {v1}, Ljava/util/HashMap;->isEmpty()Z
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_3
+    if-eqz v2, :cond_3
 
     goto/16 :goto_3
 
     :cond_3
-    new-instance v3, Ljava/util/HashSet;
+    new-instance v2, Ljava/util/HashSet;
 
     invoke-virtual {v1}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
 
-    move-result-object v4
+    move-result-object v3
 
-    invoke-direct {v3, v4}, Ljava/util/HashSet;-><init>(Ljava/util/Collection;)V
+    invoke-direct {v2, v3}, Ljava/util/HashSet;-><init>(Ljava/util/Collection;)V
 
-    iget-object v4, p1, Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy$NotificationGroup;->children:Ljava/util/HashMap;
+    iget-object v3, p1, Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy$NotificationGroup;->children:Ljava/util/HashMap;
 
-    invoke-virtual {v1, v4}, Ljava/util/HashMap;->putAll(Ljava/util/Map;)V
+    invoke-virtual {v1, v3}, Ljava/util/HashMap;->putAll(Ljava/util/Map;)V
 
     invoke-virtual {v1}, Ljava/util/HashMap;->values()Ljava/util/Collection;
 
-    move-result-object v4
+    move-result-object v3
 
-    invoke-interface {v4}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+    invoke-interface {v3}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
-    move-result-object v4
+    move-result-object v3
 
     :cond_4
-    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v5
+    move-result v4
 
-    if-eqz v5, :cond_5
+    if-eqz v4, :cond_5
 
-    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object v4
 
-    check-cast v5, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
+    check-cast v4, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
 
-    invoke-virtual {v5}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getSbn()Landroid/service/notification/StatusBarNotification;
+    invoke-virtual {v4}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getSbn()Landroid/service/notification/StatusBarNotification;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-virtual {v5}, Landroid/service/notification/StatusBarNotification;->getNotification()Landroid/app/Notification;
+    invoke-virtual {v4}, Landroid/service/notification/StatusBarNotification;->getNotification()Landroid/app/Notification;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-virtual {v5}, Landroid/app/Notification;->getGroupAlertBehavior()I
+    invoke-virtual {v4}, Landroid/app/Notification;->getGroupAlertBehavior()I
 
-    move-result v5
+    move-result v4
 
-    if-eq v5, v2, :cond_4
+    const/4 v5, 0x1
+
+    if-eq v4, v5, :cond_4
 
     return-object v0
 
     :cond_5
-    new-instance v2, Ljava/util/TreeSet;
+    new-instance v3, Ljava/util/TreeSet;
 
     iget-object p1, p1, Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy$NotificationGroup;->postBatchHistory:Ljava/util/TreeSet;
 
-    invoke-direct {v2, p1}, Ljava/util/TreeSet;-><init>(Ljava/util/SortedSet;)V
+    invoke-direct {v3, p1}, Ljava/util/TreeSet;-><init>(Ljava/util/SortedSet;)V
 
-    invoke-virtual {v3}, Ljava/util/HashSet;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v2}, Ljava/util/HashSet;->iterator()Ljava/util/Iterator;
 
     move-result-object p1
 
@@ -541,12 +547,12 @@
 
     iget-object v4, v4, Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy$NotificationGroup;->postBatchHistory:Ljava/util/TreeSet;
 
-    invoke-virtual {v2, v4}, Ljava/util/TreeSet;->addAll(Ljava/util/Collection;)Z
+    invoke-virtual {v3, v4}, Ljava/util/TreeSet;->addAll(Ljava/util/Collection;)Z
 
     goto :goto_0
 
     :cond_6
-    invoke-direct {p0, v2}, Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;->trimPostBatchHistory(Ljava/util/TreeSet;)V
+    invoke-direct {p0, v3}, Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;->trimPostBatchHistory(Ljava/util/TreeSet;)V
 
     new-instance p0, Ljava/util/HashSet;
 
@@ -554,7 +560,7 @@
 
     const-wide/16 v4, -0x1
 
-    invoke-virtual {v2}, Ljava/util/TreeSet;->descendingSet()Ljava/util/NavigableSet;
+    invoke-virtual {v3}, Ljava/util/TreeSet;->descendingSet()Ljava/util/NavigableSet;
 
     move-result-object p1
 
@@ -562,7 +568,7 @@
 
     move-result-object p1
 
-    move-object v2, v0
+    move-object v3, v0
 
     :cond_7
     :goto_1
@@ -613,14 +619,14 @@
 
     iget-wide v7, v7, Landroid/app/Notification;->when:J
 
-    if-eqz v2, :cond_9
+    if-eqz v3, :cond_9
 
     cmp-long v9, v7, v4
 
     if-lez v9, :cond_7
 
     :cond_9
-    move-object v2, v6
+    move-object v3, v6
 
     move-wide v4, v7
 
@@ -628,19 +634,19 @@
 
     :cond_a
     :goto_2
-    if-eqz v2, :cond_b
+    if-eqz v3, :cond_b
 
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getKey()Ljava/lang/String;
+    invoke-virtual {v3}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getKey()Ljava/lang/String;
 
     move-result-object p0
 
-    invoke-virtual {v3, p0}, Ljava/util/HashSet;->contains(Ljava/lang/Object;)Z
+    invoke-virtual {v2, p0}, Ljava/util/HashSet;->contains(Ljava/lang/Object;)Z
 
     move-result p0
 
     if-eqz p0, :cond_b
 
-    return-object v2
+    return-object v3
 
     :cond_b
     :goto_3
@@ -2717,7 +2723,7 @@
 
     move-result p3
 
-    if-eqz p3, :cond_2
+    if-eqz p3, :cond_3
 
     iget-object p3, p0, Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;->mIsolatedEntries:Ljava/util/HashMap;
 
@@ -2731,7 +2737,7 @@
 
     invoke-virtual {p3, p4, p1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_2
 
     iget-object p1, p0, Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;->mGroupMap:Ljava/util/HashMap;
 
@@ -2743,6 +2749,7 @@
 
     invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;->updateSuppression(Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy$NotificationGroup;)V
 
+    :cond_2
     iget-object p1, p0, Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;->mGroupMap:Ljava/util/HashMap;
 
     invoke-virtual {p1, v0}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -2755,14 +2762,14 @@
 
     goto :goto_1
 
-    :cond_2
-    if-nez v3, :cond_3
+    :cond_3
+    if-nez v3, :cond_4
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_4
 
     invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;->onEntryBecomingChild(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
 
-    :cond_3
+    :cond_4
     :goto_1
     return-void
 .end method

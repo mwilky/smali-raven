@@ -1129,7 +1129,7 @@
     :goto_2
     const/4 v0, 0x5
 
-    const-string/jumbo v2, "true"
+    const-string v2, "true"
 
     const-string v3, "TRUE"
 

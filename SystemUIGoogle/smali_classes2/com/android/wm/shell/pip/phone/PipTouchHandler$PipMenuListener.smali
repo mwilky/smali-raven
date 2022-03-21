@@ -42,6 +42,20 @@
 
 
 # virtual methods
+.method public onEnterSplit()V
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/wm/shell/pip/phone/PipTouchHandler$PipMenuListener;->this$0:Lcom/android/wm/shell/pip/phone/PipTouchHandler;
+
+    invoke-static {p0}, Lcom/android/wm/shell/pip/phone/PipTouchHandler;->access$200(Lcom/android/wm/shell/pip/phone/PipTouchHandler;)Lcom/android/wm/shell/pip/phone/PipMotionHelper;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Lcom/android/wm/shell/pip/phone/PipMotionHelper;->expandIntoSplit()V
+
+    return-void
+.end method
+
 .method public onPipDismiss()V
     .locals 2
 
@@ -75,7 +89,7 @@
 .end method
 
 .method public onPipExpand()V
-    .locals 0
+    .locals 1
 
     iget-object p0, p0, Lcom/android/wm/shell/pip/phone/PipTouchHandler$PipMenuListener;->this$0:Lcom/android/wm/shell/pip/phone/PipTouchHandler;
 
@@ -83,7 +97,9 @@
 
     move-result-object p0
 
-    invoke-virtual {p0}, Lcom/android/wm/shell/pip/phone/PipMotionHelper;->expandLeavePip()V
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, v0}, Lcom/android/wm/shell/pip/phone/PipMotionHelper;->expandLeavePip(Z)V
 
     return-void
 .end method
@@ -139,7 +155,7 @@
 
     move-result v6
 
-    const/4 v2, 0x2
+    const/4 v2, 0x1
 
     const/4 v4, 0x1
 

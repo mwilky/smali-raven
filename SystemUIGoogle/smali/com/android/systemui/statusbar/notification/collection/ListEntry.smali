@@ -16,7 +16,7 @@
 
 
 # direct methods
-.method constructor <init>(Ljava/lang/String;J)V
+.method protected constructor <init>(Ljava/lang/String;J)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -119,6 +119,36 @@
     move-result-object p0
 
     return-object p0
+.end method
+
+.method public getSectionIndex()I
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/ListEntry;->mAttachState:Lcom/android/systemui/statusbar/notification/collection/ListAttachState;
+
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/notification/collection/ListAttachState;->getSection()Lcom/android/systemui/statusbar/notification/collection/listbuilder/NotifSection;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/ListEntry;->mAttachState:Lcom/android/systemui/statusbar/notification/collection/ListAttachState;
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/collection/ListAttachState;->getSection()Lcom/android/systemui/statusbar/notification/collection/listbuilder/NotifSection;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/collection/listbuilder/NotifSection;->getIndex()I
+
+    move-result p0
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p0, -0x1
+
+    :goto_0
+    return p0
 .end method
 
 .method public hasBeenAttachedBefore()Z

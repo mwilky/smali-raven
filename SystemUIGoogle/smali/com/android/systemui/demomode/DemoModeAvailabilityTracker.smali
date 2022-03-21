@@ -99,7 +99,7 @@
 
     move-result-object p0
 
-    const-string/jumbo v0, "sysui_demo_allowed"
+    const-string v0, "sysui_demo_allowed"
 
     const/4 v1, 0x0
 
@@ -124,7 +124,7 @@
 
     move-result-object p0
 
-    const-string/jumbo v0, "sysui_tuner_demo_on"
+    const-string v0, "sysui_tuner_demo_on"
 
     const/4 v1, 0x0
 
@@ -192,7 +192,7 @@
 
     move-result-object v0
 
-    const-string/jumbo v1, "sysui_demo_allowed"
+    const-string v1, "sysui_demo_allowed"
 
     invoke-static {v1}, Landroid/provider/Settings$Global;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 
@@ -204,7 +204,7 @@
 
     invoke-virtual {v0, v1, v3, v2}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    const-string/jumbo v1, "sysui_tuner_demo_on"
+    const-string v1, "sysui_tuner_demo_on"
 
     invoke-static {v1}, Landroid/provider/Settings$Global;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 

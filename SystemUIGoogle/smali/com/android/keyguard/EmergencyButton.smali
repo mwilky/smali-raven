@@ -49,7 +49,7 @@
 
     move-result-object p2
 
-    const v0, 0x11100e1
+    const v0, 0x11100e2
 
     invoke-virtual {p2, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -295,12 +295,12 @@
 
     if-eqz p1, :cond_3
 
-    const p1, 0x10404a7
+    const p1, 0x10404ac
 
     goto :goto_1
 
     :cond_3
-    const p1, 0x104048c
+    const p1, 0x1040491
 
     :goto_1
     invoke-virtual {p0, p1}, Landroid/widget/Button;->setText(I)V

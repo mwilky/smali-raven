@@ -14,8 +14,6 @@
 
 .field public static SCREENSHOTS_HEADSUP:Ljava/lang/String; = "SCN_HEADSUP"
 
-.field public static SCREENSHOTS_LEGACY:Ljava/lang/String; = "SCN"
-
 .field public static STORAGE:Ljava/lang/String; = "DSK"
 
 .field public static TVPIP:Ljava/lang/String; = "TVPIP"
@@ -199,13 +197,7 @@
 
     move-result-object v2
 
-    sget-object v3, Lcom/android/systemui/util/NotificationChannels;->SCREENSHOTS_LEGACY:Ljava/lang/String;
-
-    invoke-virtual {v0, v3}, Landroid/app/NotificationManager;->getNotificationChannel(Ljava/lang/String;)Landroid/app/NotificationChannel;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Lcom/android/systemui/util/NotificationChannels;->createScreenshotChannel(Ljava/lang/String;Landroid/app/NotificationChannel;)Landroid/app/NotificationChannel;
+    invoke-static {v2}, Lcom/android/systemui/util/NotificationChannels;->createScreenshotChannel(Ljava/lang/String;)Landroid/app/NotificationChannel;
 
     move-result-object v2
 
@@ -220,10 +212,6 @@
     move-result-object v1
 
     invoke-virtual {v0, v1}, Landroid/app/NotificationManager;->createNotificationChannels(Ljava/util/List;)V
-
-    sget-object v1, Lcom/android/systemui/util/NotificationChannels;->SCREENSHOTS_LEGACY:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Landroid/app/NotificationManager;->deleteNotificationChannel(Ljava/lang/String;)V
 
     invoke-static {p0}, Lcom/android/systemui/util/NotificationChannels;->isTv(Landroid/content/Context;)Z
 
@@ -249,7 +237,7 @@
     return-void
 .end method
 
-.method static createScreenshotChannel(Ljava/lang/String;Landroid/app/NotificationChannel;)Landroid/app/NotificationChannel;
+.method static createScreenshotChannel(Ljava/lang/String;)Landroid/app/NotificationChannel;
     .locals 3
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
@@ -284,60 +272,6 @@
 
     invoke-virtual {v0, p0}, Landroid/app/NotificationChannel;->setBlockable(Z)V
 
-    if-eqz p1, :cond_3
-
-    invoke-virtual {p1}, Landroid/app/NotificationChannel;->getUserLockedFields()I
-
-    move-result p0
-
-    and-int/lit8 v1, p0, 0x4
-
-    if-eqz v1, :cond_0
-
-    invoke-virtual {p1}, Landroid/app/NotificationChannel;->getImportance()I
-
-    move-result v1
-
-    invoke-virtual {v0, v1}, Landroid/app/NotificationChannel;->setImportance(I)V
-
-    :cond_0
-    and-int/lit8 v1, p0, 0x20
-
-    if-eqz v1, :cond_1
-
-    invoke-virtual {p1}, Landroid/app/NotificationChannel;->getSound()Landroid/net/Uri;
-
-    move-result-object v1
-
-    invoke-virtual {p1}, Landroid/app/NotificationChannel;->getAudioAttributes()Landroid/media/AudioAttributes;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v1, v2}, Landroid/app/NotificationChannel;->setSound(Landroid/net/Uri;Landroid/media/AudioAttributes;)V
-
-    :cond_1
-    and-int/lit8 v1, p0, 0x10
-
-    if-eqz v1, :cond_2
-
-    invoke-virtual {p1}, Landroid/app/NotificationChannel;->getVibrationPattern()[J
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/app/NotificationChannel;->setVibrationPattern([J)V
-
-    :cond_2
-    and-int/lit8 p0, p0, 0x8
-
-    if-eqz p0, :cond_3
-
-    invoke-virtual {p1}, Landroid/app/NotificationChannel;->getLightColor()I
-
-    move-result p0
-
-    invoke-virtual {v0, p0}, Landroid/app/NotificationChannel;->setLightColor(I)V
-
-    :cond_3
     return-object v0
 .end method
 

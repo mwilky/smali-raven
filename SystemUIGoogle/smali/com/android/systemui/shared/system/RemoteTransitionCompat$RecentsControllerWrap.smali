@@ -33,9 +33,31 @@
     .end annotation
 .end field
 
-.field private mOpeningLeash:Landroid/view/SurfaceControl;
+.field private mOpeningLeashes:Ljava/util/ArrayList;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/ArrayList<",
+            "Landroid/view/SurfaceControl;",
+            ">;"
+        }
+    .end annotation
+.end field
 
-.field private mPausingTask:Landroid/window/WindowContainerToken;
+.field private mPausingTasks:Ljava/util/ArrayList;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/ArrayList<",
+            "Landroid/window/WindowContainerToken;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private mPipTask:Landroid/window/WindowContainerToken;
+
+.field private mPipTransaction:Landroid/window/PictureInPictureSurfaceTransaction;
+
+.field private mTransition:Landroid/os/IBinder;
 
 .field private mWrapped:Lcom/android/systemui/shared/system/RecentsAnimationControllerCompat;
 
@@ -52,13 +74,19 @@
 
     iput-object v0, p0, Lcom/android/systemui/shared/system/RemoteTransitionCompat$RecentsControllerWrap;->mFinishCB:Landroid/window/IRemoteTransitionFinishedCallback;
 
-    iput-object v0, p0, Lcom/android/systemui/shared/system/RemoteTransitionCompat$RecentsControllerWrap;->mPausingTask:Landroid/window/WindowContainerToken;
+    iput-object v0, p0, Lcom/android/systemui/shared/system/RemoteTransitionCompat$RecentsControllerWrap;->mPausingTasks:Ljava/util/ArrayList;
+
+    iput-object v0, p0, Lcom/android/systemui/shared/system/RemoteTransitionCompat$RecentsControllerWrap;->mPipTask:Landroid/window/WindowContainerToken;
 
     iput-object v0, p0, Lcom/android/systemui/shared/system/RemoteTransitionCompat$RecentsControllerWrap;->mInfo:Landroid/window/TransitionInfo;
 
-    iput-object v0, p0, Lcom/android/systemui/shared/system/RemoteTransitionCompat$RecentsControllerWrap;->mOpeningLeash:Landroid/view/SurfaceControl;
+    iput-object v0, p0, Lcom/android/systemui/shared/system/RemoteTransitionCompat$RecentsControllerWrap;->mOpeningLeashes:Ljava/util/ArrayList;
 
     iput-object v0, p0, Lcom/android/systemui/shared/system/RemoteTransitionCompat$RecentsControllerWrap;->mLeashMap:Landroid/util/ArrayMap;
+
+    iput-object v0, p0, Lcom/android/systemui/shared/system/RemoteTransitionCompat$RecentsControllerWrap;->mPipTransaction:Landroid/window/PictureInPictureSurfaceTransaction;
+
+    iput-object v0, p0, Lcom/android/systemui/shared/system/RemoteTransitionCompat$RecentsControllerWrap;->mTransition:Landroid/os/IBinder;
 
     return-void
 .end method

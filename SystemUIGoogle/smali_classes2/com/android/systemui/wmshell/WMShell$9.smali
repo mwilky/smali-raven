@@ -1,9 +1,6 @@
 .class Lcom/android/systemui/wmshell/WMShell$9;
-.super Ljava/lang/Object;
+.super Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
 .source "WMShell.java"
-
-# interfaces
-.implements Lcom/android/systemui/keyguard/ScreenLifecycle$Observer;
 
 
 # annotations
@@ -31,21 +28,33 @@
 
     iput-object p2, p0, Lcom/android/systemui/wmshell/WMShell$9;->val$oneHanded:Lcom/android/wm/shell/onehanded/OneHanded;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Lcom/android/keyguard/KeyguardUpdateMonitorCallback;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onScreenTurningOff()V
+.method public onKeyguardVisibilityChanged(Z)V
     .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/wmshell/WMShell$9;->val$oneHanded:Lcom/android/wm/shell/onehanded/OneHanded;
+
+    invoke-interface {v0, p1}, Lcom/android/wm/shell/onehanded/OneHanded;->onKeyguardVisibilityChanged(Z)V
 
     iget-object p0, p0, Lcom/android/systemui/wmshell/WMShell$9;->val$oneHanded:Lcom/android/wm/shell/onehanded/OneHanded;
 
-    const/4 v0, 0x7
+    invoke-interface {p0}, Lcom/android/wm/shell/onehanded/OneHanded;->stopOneHanded()V
 
-    invoke-interface {p0, v0}, Lcom/android/wm/shell/onehanded/OneHanded;->stopOneHanded(I)V
+    return-void
+.end method
+
+.method public onUserSwitchComplete(I)V
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/wmshell/WMShell$9;->val$oneHanded:Lcom/android/wm/shell/onehanded/OneHanded;
+
+    invoke-interface {p0, p1}, Lcom/android/wm/shell/onehanded/OneHanded;->onUserSwitch(I)V
 
     return-void
 .end method

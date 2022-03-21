@@ -65,5 +65,8 @@
 .method public abstract onDragCancelled(Landroid/view/View;)V
 .end method
 
+.method public abstract onLongPressSent(Landroid/view/View;)V
+.end method
+
 .method public abstract updateSwipeProgress(Landroid/view/View;ZF)Z
 .end method

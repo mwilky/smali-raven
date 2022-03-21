@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/biometrics/AuthRippleController$authControllerCallback$1;
+.class public final Lcom/android/systemui/biometrics/AuthRippleController$authControllerCallback$1;
 .super Ljava/lang/Object;
 .source "AuthRippleController.kt"
 
@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = null
 .end annotation
 
@@ -34,16 +34,22 @@
 
 
 # virtual methods
-.method public final onAllAuthenticatorsRegistered()V
+.method public onAllAuthenticatorsRegistered()V
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/biometrics/AuthRippleController$authControllerCallback$1;->this$0:Lcom/android/systemui/biometrics/AuthRippleController;
 
-    invoke-virtual {v0}, Lcom/android/systemui/biometrics/AuthRippleController;->updateSensorLocation()V
+    invoke-static {v0}, Lcom/android/systemui/biometrics/AuthRippleController;->access$updateUdfpsDependentParams(Lcom/android/systemui/biometrics/AuthRippleController;)V
 
     iget-object p0, p0, Lcom/android/systemui/biometrics/AuthRippleController$authControllerCallback$1;->this$0:Lcom/android/systemui/biometrics/AuthRippleController;
 
-    invoke-static {p0}, Lcom/android/systemui/biometrics/AuthRippleController;->access$updateUdfpsDependentParams(Lcom/android/systemui/biometrics/AuthRippleController;)V
+    invoke-virtual {p0}, Lcom/android/systemui/biometrics/AuthRippleController;->updateSensorLocation()V
+
+    return-void
+.end method
+
+.method public onEnrollmentsChanged()V
+    .locals 0
 
     return-void
 .end method

@@ -16,13 +16,11 @@
 # instance fields
 .field private final mBrightnessController:Lcom/android/systemui/settings/brightness/BrightnessController;
 
-.field private mBrightnessMirrorController:Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;
+.field private final mBrightnessMirrorHandler:Lcom/android/systemui/settings/brightness/BrightnessMirrorHandler;
 
-.field private final mBrightnessMirrorListener:Lcom/android/systemui/statusbar/policy/BrightnessMirrorController$BrightnessMirrorListener;
+.field private final mBrightnessSliderController:Lcom/android/systemui/settings/brightness/BrightnessSliderController;
 
-.field private final mBrightnessSlider:Lcom/android/systemui/settings/brightness/BrightnessSlider;
-
-.field private final mBrightnessSliderFactory:Lcom/android/systemui/settings/brightness/BrightnessSlider$Factory;
+.field private final mCommandQueue:Lcom/android/systemui/statusbar/CommandQueue;
 
 .field private final mFalsingManager:Lcom/android/systemui/plugins/FalsingManager;
 
@@ -42,30 +40,20 @@
 
 
 # direct methods
-.method public static synthetic $r8$lambda$2ReEqaFn2L-4Ssi2HELzDJIE-IQ(Lcom/android/systemui/qs/QSPanelController;Landroid/view/View;)V
+.method public static synthetic $r8$lambda$pWrm8hTd7tMymTXvMd1IrptMZgU(Lcom/android/systemui/qs/QSPanelController;Landroid/view/View;)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/qs/QSPanelController;->lambda$showEdit$1(Landroid/view/View;)V
+    invoke-direct {p0, p1}, Lcom/android/systemui/qs/QSPanelController;->lambda$showEdit$0(Landroid/view/View;)V
 
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$b7o1hV7DIioJIhjRTbriVPLS_2Q(Lcom/android/systemui/qs/QSPanelController;Landroid/view/View;)V
-    .locals 0
+.method constructor <init>(Lcom/android/systemui/qs/QSPanel;Lcom/android/systemui/qs/QSSecurityFooter;Lcom/android/systemui/tuner/TunerService;Lcom/android/systemui/qs/QSTileHost;Lcom/android/systemui/qs/customize/QSCustomizerController;ZLcom/android/systemui/media/MediaHost;Lcom/android/systemui/qs/QSTileRevealController$Factory;Lcom/android/systemui/dump/DumpManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/systemui/settings/brightness/BrightnessController$Factory;Lcom/android/systemui/settings/brightness/BrightnessSliderController$Factory;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/statusbar/CommandQueue;)V
+    .locals 12
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/qs/QSPanelController;->lambda$new$0(Landroid/view/View;)V
+    move-object v10, p0
 
-    return-void
-.end method
-
-.method constructor <init>(Lcom/android/systemui/qs/QSPanel;Lcom/android/systemui/qs/QSSecurityFooter;Lcom/android/systemui/tuner/TunerService;Lcom/android/systemui/qs/QSTileHost;Lcom/android/systemui/qs/customize/QSCustomizerController;ZLcom/android/systemui/media/MediaHost;Lcom/android/systemui/qs/QSTileRevealController$Factory;Lcom/android/systemui/dump/DumpManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/systemui/settings/brightness/BrightnessController$Factory;Lcom/android/systemui/settings/brightness/BrightnessSlider$Factory;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/statusbar/FeatureFlags;)V
-    .locals 14
-
-    move-object v11, p0
-
-    move-object/from16 v12, p2
-
-    move-object/from16 v13, p14
+    move-object v11, p2
 
     move-object v0, p0
 
@@ -87,75 +75,71 @@
 
     move-object/from16 v9, p9
 
-    move-object/from16 v10, p16
-
-    invoke-direct/range {v0 .. v10}, Lcom/android/systemui/qs/QSPanelControllerBase;-><init>(Lcom/android/systemui/qs/QSPanel;Lcom/android/systemui/qs/QSTileHost;Lcom/android/systemui/qs/customize/QSCustomizerController;ZLcom/android/systemui/media/MediaHost;Lcom/android/internal/logging/MetricsLogger;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/systemui/dump/DumpManager;Lcom/android/systemui/statusbar/FeatureFlags;)V
+    invoke-direct/range {v0 .. v9}, Lcom/android/systemui/qs/QSPanelControllerBase;-><init>(Lcom/android/systemui/qs/QSPanel;Lcom/android/systemui/qs/QSTileHost;Lcom/android/systemui/qs/customize/QSCustomizerController;ZLcom/android/systemui/media/MediaHost;Lcom/android/internal/logging/MetricsLogger;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/systemui/dump/DumpManager;)V
 
     const/4 v0, 0x1
 
-    iput-boolean v0, v11, Lcom/android/systemui/qs/QSPanelController;->mGridContentVisible:Z
+    iput-boolean v0, v10, Lcom/android/systemui/qs/QSPanelController;->mGridContentVisible:Z
 
     new-instance v0, Lcom/android/systemui/qs/QSPanelController$1;
 
     invoke-direct {v0, p0}, Lcom/android/systemui/qs/QSPanelController$1;-><init>(Lcom/android/systemui/qs/QSPanelController;)V
 
-    iput-object v0, v11, Lcom/android/systemui/qs/QSPanelController;->mOnConfigurationChangedListener:Lcom/android/systemui/qs/QSPanel$OnConfigurationChangedListener;
-
-    new-instance v0, Lcom/android/systemui/qs/QSPanelController$$ExternalSyntheticLambda0;
-
-    invoke-direct {v0, p0}, Lcom/android/systemui/qs/QSPanelController$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/qs/QSPanelController;)V
-
-    iput-object v0, v11, Lcom/android/systemui/qs/QSPanelController;->mBrightnessMirrorListener:Lcom/android/systemui/statusbar/policy/BrightnessMirrorController$BrightnessMirrorListener;
+    iput-object v0, v10, Lcom/android/systemui/qs/QSPanelController;->mOnConfigurationChangedListener:Lcom/android/systemui/qs/QSPanel$OnConfigurationChangedListener;
 
     new-instance v0, Lcom/android/systemui/qs/QSPanelController$2;
 
     invoke-direct {v0, p0}, Lcom/android/systemui/qs/QSPanelController$2;-><init>(Lcom/android/systemui/qs/QSPanelController;)V
 
-    iput-object v0, v11, Lcom/android/systemui/qs/QSPanelController;->mTileLayoutTouchListener:Landroid/view/View$OnTouchListener;
+    iput-object v0, v10, Lcom/android/systemui/qs/QSPanelController;->mTileLayoutTouchListener:Landroid/view/View$OnTouchListener;
 
-    iput-object v12, v11, Lcom/android/systemui/qs/QSPanelController;->mQsSecurityFooter:Lcom/android/systemui/qs/QSSecurityFooter;
+    iput-object v11, v10, Lcom/android/systemui/qs/QSPanelController;->mQsSecurityFooter:Lcom/android/systemui/qs/QSSecurityFooter;
 
-    move-object/from16 v0, p3
+    move-object v0, p3
 
-    iput-object v0, v11, Lcom/android/systemui/qs/QSPanelController;->mTunerService:Lcom/android/systemui/tuner/TunerService;
+    iput-object v0, v10, Lcom/android/systemui/qs/QSPanelController;->mTunerService:Lcom/android/systemui/tuner/TunerService;
 
     move-object/from16 v0, p5
 
-    iput-object v0, v11, Lcom/android/systemui/qs/QSPanelController;->mQsCustomizerController:Lcom/android/systemui/qs/customize/QSCustomizerController;
+    iput-object v0, v10, Lcom/android/systemui/qs/QSPanelController;->mQsCustomizerController:Lcom/android/systemui/qs/customize/QSCustomizerController;
 
     move-object/from16 v0, p8
 
-    iput-object v0, v11, Lcom/android/systemui/qs/QSPanelController;->mQsTileRevealControllerFactory:Lcom/android/systemui/qs/QSTileRevealController$Factory;
+    iput-object v0, v10, Lcom/android/systemui/qs/QSPanelController;->mQsTileRevealControllerFactory:Lcom/android/systemui/qs/QSTileRevealController$Factory;
 
     move-object/from16 v0, p15
 
-    iput-object v0, v11, Lcom/android/systemui/qs/QSPanelController;->mFalsingManager:Lcom/android/systemui/plugins/FalsingManager;
+    iput-object v0, v10, Lcom/android/systemui/qs/QSPanelController;->mFalsingManager:Lcom/android/systemui/plugins/FalsingManager;
+
+    move-object/from16 v0, p16
+
+    iput-object v0, v10, Lcom/android/systemui/qs/QSPanelController;->mCommandQueue:Lcom/android/systemui/statusbar/CommandQueue;
 
     move-object/from16 v0, p4
 
-    invoke-virtual {v12, v0}, Lcom/android/systemui/qs/QSSecurityFooter;->setHostEnvironment(Lcom/android/systemui/qs/QSTileHost;)V
-
-    iput-object v13, v11, Lcom/android/systemui/qs/QSPanelController;->mBrightnessSliderFactory:Lcom/android/systemui/settings/brightness/BrightnessSlider$Factory;
+    invoke-virtual {p2, v0}, Lcom/android/systemui/qs/QSSecurityFooter;->setHostEnvironment(Lcom/android/systemui/qs/QSTileHost;)V
 
     invoke-virtual {p0}, Lcom/android/systemui/util/ViewController;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
-    iget-object v1, v11, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
+    iget-object v1, v10, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
 
     check-cast v1, Landroid/view/ViewGroup;
 
-    invoke-virtual {v13, v0, v1}, Lcom/android/systemui/settings/brightness/BrightnessSlider$Factory;->create(Landroid/content/Context;Landroid/view/ViewGroup;)Lcom/android/systemui/settings/brightness/BrightnessSlider;
+    move-object/from16 v2, p14
+
+    invoke-virtual {v2, v0, v1}, Lcom/android/systemui/settings/brightness/BrightnessSliderController$Factory;->create(Landroid/content/Context;Landroid/view/ViewGroup;)Lcom/android/systemui/settings/brightness/BrightnessSliderController;
 
     move-result-object v0
 
-    iput-object v0, v11, Lcom/android/systemui/qs/QSPanelController;->mBrightnessSlider:Lcom/android/systemui/settings/brightness/BrightnessSlider;
+    iput-object v0, v10, Lcom/android/systemui/qs/QSPanelController;->mBrightnessSliderController:Lcom/android/systemui/settings/brightness/BrightnessSliderController;
 
-    iget-object v1, v11, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
+    iget-object v1, v10, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
 
     check-cast v1, Lcom/android/systemui/qs/QSPanel;
 
-    invoke-virtual {v0}, Lcom/android/systemui/settings/brightness/BrightnessSlider;->getRootView()Landroid/view/View;
+    invoke-virtual {v0}, Lcom/android/systemui/settings/brightness/BrightnessSliderController;->getRootView()Landroid/view/View;
 
     move-result-object v2
 
@@ -167,12 +151,26 @@
 
     move-result-object v0
 
-    iput-object v0, v11, Lcom/android/systemui/qs/QSPanelController;->mBrightnessController:Lcom/android/systemui/settings/brightness/BrightnessController;
+    iput-object v0, v10, Lcom/android/systemui/qs/QSPanelController;->mBrightnessController:Lcom/android/systemui/settings/brightness/BrightnessController;
+
+    new-instance v1, Lcom/android/systemui/settings/brightness/BrightnessMirrorHandler;
+
+    invoke-direct {v1, v0}, Lcom/android/systemui/settings/brightness/BrightnessMirrorHandler;-><init>(Lcom/android/systemui/settings/brightness/MirroredBrightnessController;)V
+
+    iput-object v1, v10, Lcom/android/systemui/qs/QSPanelController;->mBrightnessMirrorHandler:Lcom/android/systemui/settings/brightness/BrightnessMirrorHandler;
 
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/systemui/qs/QSPanelController;)Landroid/view/View;
+.method static synthetic access$000(Lcom/android/systemui/qs/QSPanelController;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/systemui/qs/QSPanelController;->updateMediaExpansion()V
+
+    return-void
+.end method
+
+.method static synthetic access$100(Lcom/android/systemui/qs/QSPanelController;)Landroid/view/View;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
@@ -180,7 +178,7 @@
     return-object p0
 .end method
 
-.method static synthetic access$100(Lcom/android/systemui/qs/QSPanelController;)Lcom/android/systemui/qs/QSSecurityFooter;
+.method static synthetic access$200(Lcom/android/systemui/qs/QSPanelController;)Lcom/android/systemui/qs/QSSecurityFooter;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/qs/QSPanelController;->mQsSecurityFooter:Lcom/android/systemui/qs/QSSecurityFooter;
@@ -188,7 +186,7 @@
     return-object p0
 .end method
 
-.method static synthetic access$200(Lcom/android/systemui/qs/QSPanelController;)Landroid/view/View;
+.method static synthetic access$300(Lcom/android/systemui/qs/QSPanelController;)Landroid/view/View;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
@@ -196,15 +194,15 @@
     return-object p0
 .end method
 
-.method static synthetic access$300(Lcom/android/systemui/qs/QSPanelController;)V
+.method static synthetic access$400(Lcom/android/systemui/qs/QSPanelController;)Landroid/view/View;
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/systemui/qs/QSPanelController;->updateBrightnessMirror()V
+    iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
 
-    return-void
+    return-object p0
 .end method
 
-.method static synthetic access$400(Lcom/android/systemui/qs/QSPanelController;)Lcom/android/systemui/plugins/FalsingManager;
+.method static synthetic access$500(Lcom/android/systemui/qs/QSPanelController;)Lcom/android/systemui/plugins/FalsingManager;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/qs/QSPanelController;->mFalsingManager:Lcom/android/systemui/plugins/FalsingManager;
@@ -212,15 +210,7 @@
     return-object p0
 .end method
 
-.method private synthetic lambda$new$0(Landroid/view/View;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/qs/QSPanelController;->updateBrightnessMirror()V
-
-    return-void
-.end method
-
-.method private synthetic lambda$showEdit$1(Landroid/view/View;)V
+.method private synthetic lambda$showEdit$0(Landroid/view/View;)V
     .locals 4
 
     iget-object v0, p0, Lcom/android/systemui/qs/QSPanelController;->mQsCustomizerController:Lcom/android/systemui/qs/customize/QSCustomizerController;
@@ -267,18 +257,31 @@
     return-void
 .end method
 
-.method private updateBrightnessMirror()V
+.method private updateMediaExpansion()V
     .locals 1
 
-    iget-object v0, p0, Lcom/android/systemui/qs/QSPanelController;->mBrightnessMirrorController:Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;
+    iget-object v0, p0, Lcom/android/systemui/qs/QSPanelControllerBase;->mMediaHost:Lcom/android/systemui/media/MediaHost;
 
-    if-eqz v0, :cond_0
+    invoke-virtual {p0}, Lcom/android/systemui/util/ViewController;->getResources()Landroid/content/res/Resources;
 
-    iget-object p0, p0, Lcom/android/systemui/qs/QSPanelController;->mBrightnessSlider:Lcom/android/systemui/settings/brightness/BrightnessSlider;
+    move-result-object p0
 
-    invoke-virtual {p0, v0}, Lcom/android/systemui/settings/brightness/BrightnessSlider;->setMirrorControllerAndMirror(Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;)V
+    invoke-static {p0}, Lcom/android/systemui/util/Utils;->shouldUseSplitNotificationShade(Landroid/content/res/Resources;)Z
+
+    move-result p0
+
+    if-eqz p0, :cond_0
+
+    const/4 p0, 0x0
+
+    goto :goto_0
 
     :cond_0
+    const/high16 p0, 0x3f800000    # 1.0f
+
+    :goto_0
+    invoke-virtual {v0, p0}, Lcom/android/systemui/media/MediaHost;->setExpansion(F)V
+
     return-void
 .end method
 
@@ -300,20 +303,6 @@
     check-cast v1, Lcom/android/systemui/qs/PagedTileLayout;
 
     invoke-virtual {v0, p0, v1}, Lcom/android/systemui/qs/QSTileRevealController$Factory;->create(Lcom/android/systemui/qs/QSPanelController;Lcom/android/systemui/qs/PagedTileLayout;)Lcom/android/systemui/qs/QSTileRevealController;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public getBrightnessView()Landroid/view/View;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
-
-    check-cast p0, Lcom/android/systemui/qs/QSPanel;
-
-    invoke-virtual {p0}, Lcom/android/systemui/qs/QSPanel;->getBrightnessView()Landroid/view/View;
 
     move-result-object p0
 
@@ -347,11 +336,7 @@
 
     invoke-super {p0}, Lcom/android/systemui/qs/QSPanelControllerBase;->onInit()V
 
-    iget-object v0, p0, Lcom/android/systemui/qs/QSPanelControllerBase;->mMediaHost:Lcom/android/systemui/media/MediaHost;
-
-    const/high16 v1, 0x3f800000    # 1.0f
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/media/MediaHost;->setExpansion(F)V
+    invoke-direct {p0}, Lcom/android/systemui/qs/QSPanelController;->updateMediaExpansion()V
 
     iget-object v0, p0, Lcom/android/systemui/qs/QSPanelControllerBase;->mMediaHost:Lcom/android/systemui/media/MediaHost;
 
@@ -367,7 +352,7 @@
 
     invoke-virtual {v0}, Lcom/android/systemui/util/ViewController;->init()V
 
-    iget-object p0, p0, Lcom/android/systemui/qs/QSPanelController;->mBrightnessSlider:Lcom/android/systemui/settings/brightness/BrightnessSlider;
+    iget-object p0, p0, Lcom/android/systemui/qs/QSPanelController;->mBrightnessSliderController:Lcom/android/systemui/settings/brightness/BrightnessSliderController;
 
     invoke-virtual {p0}, Lcom/android/systemui/util/ViewController;->init()V
 
@@ -432,21 +417,18 @@
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/qs/QSPanel;->setSecurityFooter(Landroid/view/View;)V
+    iget-boolean v2, p0, Lcom/android/systemui/qs/QSPanelControllerBase;->mShouldUseSplitNotificationShade:Z
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/systemui/qs/QSPanel;->setSecurityFooter(Landroid/view/View;Z)V
 
     const/4 v0, 0x1
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/qs/QSPanelControllerBase;->switchTileLayout(Z)Z
 
-    iget-object v0, p0, Lcom/android/systemui/qs/QSPanelController;->mBrightnessMirrorController:Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;
+    iget-object v0, p0, Lcom/android/systemui/qs/QSPanelController;->mBrightnessMirrorHandler:Lcom/android/systemui/settings/brightness/BrightnessMirrorHandler;
 
-    if-eqz v0, :cond_1
+    invoke-virtual {v0}, Lcom/android/systemui/settings/brightness/BrightnessMirrorHandler;->onQsPanelAttached()V
 
-    iget-object v1, p0, Lcom/android/systemui/qs/QSPanelController;->mBrightnessMirrorListener:Lcom/android/systemui/statusbar/policy/BrightnessMirrorController$BrightnessMirrorListener;
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;->addCallback(Lcom/android/systemui/statusbar/policy/BrightnessMirrorController$BrightnessMirrorListener;)V
-
-    :cond_1
     iget-object v0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
 
     check-cast v0, Lcom/android/systemui/qs/QSPanel;
@@ -483,15 +465,10 @@
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/qs/QSPanel;->removeOnConfigurationChangedListener(Lcom/android/systemui/qs/QSPanel$OnConfigurationChangedListener;)V
 
-    iget-object v0, p0, Lcom/android/systemui/qs/QSPanelController;->mBrightnessMirrorController:Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;
+    iget-object v0, p0, Lcom/android/systemui/qs/QSPanelController;->mBrightnessMirrorHandler:Lcom/android/systemui/settings/brightness/BrightnessMirrorHandler;
 
-    if-eqz v0, :cond_0
+    invoke-virtual {v0}, Lcom/android/systemui/settings/brightness/BrightnessMirrorHandler;->onQsPanelDettached()V
 
-    iget-object v1, p0, Lcom/android/systemui/qs/QSPanelController;->mBrightnessMirrorListener:Lcom/android/systemui/statusbar/policy/BrightnessMirrorController$BrightnessMirrorListener;
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;->removeCallback(Lcom/android/systemui/statusbar/policy/BrightnessMirrorController$BrightnessMirrorListener;)V
-
-    :cond_0
     invoke-super {p0}, Lcom/android/systemui/qs/QSPanelControllerBase;->onViewDetached()V
 
     return-void
@@ -533,27 +510,11 @@
 .end method
 
 .method public setBrightnessMirror(Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;)V
-    .locals 1
+    .locals 0
 
-    iput-object p1, p0, Lcom/android/systemui/qs/QSPanelController;->mBrightnessMirrorController:Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;
+    iget-object p0, p0, Lcom/android/systemui/qs/QSPanelController;->mBrightnessMirrorHandler:Lcom/android/systemui/settings/brightness/BrightnessMirrorHandler;
 
-    if-eqz p1, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/qs/QSPanelController;->mBrightnessMirrorListener:Lcom/android/systemui/statusbar/policy/BrightnessMirrorController$BrightnessMirrorListener;
-
-    invoke-virtual {p1, v0}, Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;->removeCallback(Lcom/android/systemui/statusbar/policy/BrightnessMirrorController$BrightnessMirrorListener;)V
-
-    :cond_0
-    iput-object p1, p0, Lcom/android/systemui/qs/QSPanelController;->mBrightnessMirrorController:Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;
-
-    if-eqz p1, :cond_1
-
-    iget-object v0, p0, Lcom/android/systemui/qs/QSPanelController;->mBrightnessMirrorListener:Lcom/android/systemui/statusbar/policy/BrightnessMirrorController$BrightnessMirrorListener;
-
-    invoke-virtual {p1, v0}, Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;->addCallback(Lcom/android/systemui/statusbar/policy/BrightnessMirrorController$BrightnessMirrorListener;)V
-
-    :cond_1
-    invoke-direct {p0}, Lcom/android/systemui/qs/QSPanelController;->updateBrightnessMirror()V
+    invoke-virtual {p0, p1}, Lcom/android/systemui/settings/brightness/BrightnessMirrorHandler;->setController(Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;)V
 
     return-void
 .end method
@@ -733,6 +694,19 @@
 .method public showDetailAdapter(Lcom/android/systemui/plugins/qs/DetailAdapter;II)V
     .locals 2
 
+    invoke-virtual {p0}, Lcom/android/systemui/qs/QSPanelController;->isExpanded()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/qs/QSPanelController;->mCommandQueue:Lcom/android/systemui/statusbar/CommandQueue;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/CommandQueue;->animateExpandSettingsPanel(Ljava/lang/String;)V
+
+    :cond_0
     iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
 
     check-cast p0, Lcom/android/systemui/qs/QSPanel;
@@ -767,9 +741,9 @@
 .method public showEdit(Landroid/view/View;)V
     .locals 1
 
-    new-instance v0, Lcom/android/systemui/qs/QSPanelController$$ExternalSyntheticLambda1;
+    new-instance v0, Lcom/android/systemui/qs/QSPanelController$$ExternalSyntheticLambda0;
 
-    invoke-direct {v0, p0, p1}, Lcom/android/systemui/qs/QSPanelController$$ExternalSyntheticLambda1;-><init>(Lcom/android/systemui/qs/QSPanelController;Landroid/view/View;)V
+    invoke-direct {v0, p0, p1}, Lcom/android/systemui/qs/QSPanelController$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/qs/QSPanelController;Landroid/view/View;)V
 
     invoke-virtual {p1, v0}, Landroid/view/View;->post(Ljava/lang/Runnable;)Z
 
@@ -797,7 +771,7 @@
 
     invoke-virtual {v0}, Lcom/android/systemui/qs/QSPanel;->updateBrightnessSliderPosition()V
 
-    invoke-static {p0}, Lcom/android/systemui/qs/QSPanelController;->access$300(Lcom/android/systemui/qs/QSPanelController;)V
+    #invoke-static {p0}, Lcom/android/systemui/qs/QSPanelController;->access$300(Lcom/android/systemui/qs/QSPanelController;)V
 
     return-void
 .end method

@@ -40,7 +40,7 @@
 
     iget-object p2, p0, Lcom/android/systemui/ScreenDecorations$5;->this$0:Lcom/android/systemui/ScreenDecorations;
 
-    invoke-static {p2}, Lcom/android/systemui/ScreenDecorations;->access$600(Lcom/android/systemui/ScreenDecorations;)Lcom/android/systemui/qs/SecureSetting;
+    invoke-static {p2}, Lcom/android/systemui/ScreenDecorations;->access$1000(Lcom/android/systemui/ScreenDecorations;)Lcom/android/systemui/qs/SecureSetting;
 
     move-result-object p2
 
@@ -48,7 +48,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/ScreenDecorations$5;->this$0:Lcom/android/systemui/ScreenDecorations;
 
-    invoke-static {p0}, Lcom/android/systemui/ScreenDecorations;->access$600(Lcom/android/systemui/ScreenDecorations;)Lcom/android/systemui/qs/SecureSetting;
+    invoke-static {p0}, Lcom/android/systemui/ScreenDecorations;->access$1000(Lcom/android/systemui/ScreenDecorations;)Lcom/android/systemui/qs/SecureSetting;
 
     move-result-object p1
 
@@ -56,7 +56,7 @@
 
     move-result p1
 
-    invoke-static {p0, p1}, Lcom/android/systemui/ScreenDecorations;->access$500(Lcom/android/systemui/ScreenDecorations;I)V
+    invoke-static {p0, p1}, Lcom/android/systemui/ScreenDecorations;->access$900(Lcom/android/systemui/ScreenDecorations;I)V
 
     return-void
 .end method

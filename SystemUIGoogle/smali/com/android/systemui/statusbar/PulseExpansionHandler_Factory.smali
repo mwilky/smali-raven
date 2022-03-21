@@ -48,6 +48,16 @@
     .end annotation
 .end field
 
+.field private final dumpManagerProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/dump/DumpManager;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private final falsingCollectorProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -120,7 +130,7 @@
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -154,6 +164,9 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/classifier/FalsingCollector;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/dump/DumpManager;",
             ">;)V"
         }
     .end annotation
@@ -180,11 +193,13 @@
 
     iput-object p10, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler_Factory;->falsingCollectorProvider:Ljavax/inject/Provider;
 
+    iput-object p11, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler_Factory;->dumpManagerProvider:Ljavax/inject/Provider;
+
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/statusbar/PulseExpansionHandler_Factory;
-    .locals 12
+.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/statusbar/PulseExpansionHandler_Factory;
+    .locals 13
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -217,14 +232,17 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/classifier/FalsingCollector;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/dump/DumpManager;",
             ">;)",
             "Lcom/android/systemui/statusbar/PulseExpansionHandler_Factory;"
         }
     .end annotation
 
-    new-instance v11, Lcom/android/systemui/statusbar/PulseExpansionHandler_Factory;
+    new-instance v12, Lcom/android/systemui/statusbar/PulseExpansionHandler_Factory;
 
-    move-object v0, v11
+    move-object v0, v12
 
     move-object v1, p0
 
@@ -232,7 +250,7 @@
 
     move-object v3, p2
 
-    move-object v4, p3
+    move-object/from16 v4, p3
 
     move-object/from16 v5, p4
 
@@ -246,17 +264,19 @@
 
     move-object/from16 v10, p9
 
-    invoke-direct/range {v0 .. v10}, Lcom/android/systemui/statusbar/PulseExpansionHandler_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+    move-object/from16 v11, p10
 
-    return-object v11
+    invoke-direct/range {v0 .. v11}, Lcom/android/systemui/statusbar/PulseExpansionHandler_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+
+    return-object v12
 .end method
 
-.method public static newInstance(Landroid/content/Context;Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/statusbar/phone/HeadsUpManagerPhone;Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;Lcom/android/systemui/classifier/FalsingCollector;)Lcom/android/systemui/statusbar/PulseExpansionHandler;
-    .locals 12
+.method public static newInstance(Landroid/content/Context;Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/statusbar/phone/HeadsUpManagerPhone;Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;Lcom/android/systemui/classifier/FalsingCollector;Lcom/android/systemui/dump/DumpManager;)Lcom/android/systemui/statusbar/PulseExpansionHandler;
+    .locals 13
 
-    new-instance v11, Lcom/android/systemui/statusbar/PulseExpansionHandler;
+    new-instance v12, Lcom/android/systemui/statusbar/PulseExpansionHandler;
 
-    move-object v0, v11
+    move-object v0, v12
 
     move-object v1, p0
 
@@ -264,7 +284,7 @@
 
     move-object v3, p2
 
-    move-object v4, p3
+    move-object/from16 v4, p3
 
     move-object/from16 v5, p4
 
@@ -278,15 +298,17 @@
 
     move-object/from16 v10, p9
 
-    invoke-direct/range {v0 .. v10}, Lcom/android/systemui/statusbar/PulseExpansionHandler;-><init>(Landroid/content/Context;Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/statusbar/phone/HeadsUpManagerPhone;Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;Lcom/android/systemui/classifier/FalsingCollector;)V
+    move-object/from16 v11, p10
 
-    return-object v11
+    invoke-direct/range {v0 .. v11}, Lcom/android/systemui/statusbar/PulseExpansionHandler;-><init>(Landroid/content/Context;Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/statusbar/phone/HeadsUpManagerPhone;Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;Lcom/android/systemui/classifier/FalsingCollector;Lcom/android/systemui/dump/DumpManager;)V
+
+    return-object v12
 .end method
 
 
 # virtual methods
 .method public get()Lcom/android/systemui/statusbar/PulseExpansionHandler;
-    .locals 11
+    .locals 12
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler_Factory;->contextProvider:Ljavax/inject/Provider;
 
@@ -378,17 +400,27 @@
 
     check-cast v9, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler_Factory;->falsingCollectorProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler_Factory;->falsingCollectorProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v10, v0
+
+    check-cast v10, Lcom/android/systemui/classifier/FalsingCollector;
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler_Factory;->dumpManagerProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object p0
 
-    move-object v10, p0
+    move-object v11, p0
 
-    check-cast v10, Lcom/android/systemui/classifier/FalsingCollector;
+    check-cast v11, Lcom/android/systemui/dump/DumpManager;
 
-    invoke-static/range {v1 .. v10}, Lcom/android/systemui/statusbar/PulseExpansionHandler_Factory;->newInstance(Landroid/content/Context;Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/statusbar/phone/HeadsUpManagerPhone;Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;Lcom/android/systemui/classifier/FalsingCollector;)Lcom/android/systemui/statusbar/PulseExpansionHandler;
+    invoke-static/range {v1 .. v11}, Lcom/android/systemui/statusbar/PulseExpansionHandler_Factory;->newInstance(Landroid/content/Context;Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/statusbar/phone/HeadsUpManagerPhone;Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;Lcom/android/systemui/classifier/FalsingCollector;Lcom/android/systemui/dump/DumpManager;)Lcom/android/systemui/statusbar/PulseExpansionHandler;
 
     move-result-object p0
 

@@ -22,8 +22,8 @@
 
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/broadcast/BroadcastDispatcher;Landroid/app/admin/DevicePolicyManager;Landroid/os/UserManager;Lcom/android/systemui/statusbar/NotificationClickNotifier;Landroid/app/KeyguardManager;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Landroid/os/Handler;Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Ldagger/Lazy;Lcom/google/android/systemui/smartspace/SmartSpaceController;)V
-    .locals 0
+.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/broadcast/BroadcastDispatcher;Landroid/app/admin/DevicePolicyManager;Landroid/os/UserManager;Lcom/android/systemui/statusbar/NotificationClickNotifier;Landroid/app/KeyguardManager;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Landroid/os/Handler;Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Ldagger/Lazy;Lcom/google/android/systemui/smartspace/SmartSpaceController;Lcom/android/systemui/dump/DumpManager;)V
+    .locals 14
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -41,25 +41,58 @@
             "Lcom/android/systemui/statusbar/phone/KeyguardBypassController;",
             ">;",
             "Lcom/google/android/systemui/smartspace/SmartSpaceController;",
+            "Lcom/android/systemui/dump/DumpManager;",
             ")V"
         }
     .end annotation
 
-    invoke-direct/range {p0 .. p10}, Lcom/android/systemui/statusbar/NotificationLockscreenUserManagerImpl;-><init>(Landroid/content/Context;Lcom/android/systemui/broadcast/BroadcastDispatcher;Landroid/app/admin/DevicePolicyManager;Landroid/os/UserManager;Lcom/android/systemui/statusbar/NotificationClickNotifier;Landroid/app/KeyguardManager;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Landroid/os/Handler;Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;)V
+    move-object v12, p0
 
-    new-instance p1, Lcom/google/android/systemui/NotificationLockscreenUserManagerGoogle$1;
+    move-object/from16 v13, p10
 
-    invoke-direct {p1, p0}, Lcom/google/android/systemui/NotificationLockscreenUserManagerGoogle$1;-><init>(Lcom/google/android/systemui/NotificationLockscreenUserManagerGoogle;)V
+    move-object v0, p0
 
-    iput-object p1, p0, Lcom/google/android/systemui/NotificationLockscreenUserManagerGoogle;->mKeyguardVisibilityCallback:Lcom/android/systemui/statusbar/policy/KeyguardStateController$Callback;
+    move-object v1, p1
 
-    iput-object p11, p0, Lcom/google/android/systemui/NotificationLockscreenUserManagerGoogle;->mKeyguardBypassControllerLazy:Ldagger/Lazy;
+    move-object/from16 v2, p2
 
-    iput-object p12, p0, Lcom/google/android/systemui/NotificationLockscreenUserManagerGoogle;->mSmartSpaceController:Lcom/google/android/systemui/smartspace/SmartSpaceController;
+    move-object/from16 v3, p3
 
-    iput-object p10, p0, Lcom/google/android/systemui/NotificationLockscreenUserManagerGoogle;->mKeyguardStateController:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
+    move-object/from16 v4, p4
 
-    invoke-interface {p10, p1}, Lcom/android/systemui/statusbar/policy/CallbackController;->addCallback(Ljava/lang/Object;)V
+    move-object/from16 v5, p5
+
+    move-object/from16 v6, p6
+
+    move-object/from16 v7, p7
+
+    move-object/from16 v8, p8
+
+    move-object/from16 v9, p9
+
+    move-object/from16 v10, p10
+
+    move-object/from16 v11, p13
+
+    invoke-direct/range {v0 .. v11}, Lcom/android/systemui/statusbar/NotificationLockscreenUserManagerImpl;-><init>(Landroid/content/Context;Lcom/android/systemui/broadcast/BroadcastDispatcher;Landroid/app/admin/DevicePolicyManager;Landroid/os/UserManager;Lcom/android/systemui/statusbar/NotificationClickNotifier;Landroid/app/KeyguardManager;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Landroid/os/Handler;Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/dump/DumpManager;)V
+
+    new-instance v0, Lcom/google/android/systemui/NotificationLockscreenUserManagerGoogle$1;
+
+    invoke-direct {v0, p0}, Lcom/google/android/systemui/NotificationLockscreenUserManagerGoogle$1;-><init>(Lcom/google/android/systemui/NotificationLockscreenUserManagerGoogle;)V
+
+    iput-object v0, v12, Lcom/google/android/systemui/NotificationLockscreenUserManagerGoogle;->mKeyguardVisibilityCallback:Lcom/android/systemui/statusbar/policy/KeyguardStateController$Callback;
+
+    move-object/from16 v1, p11
+
+    iput-object v1, v12, Lcom/google/android/systemui/NotificationLockscreenUserManagerGoogle;->mKeyguardBypassControllerLazy:Ldagger/Lazy;
+
+    move-object/from16 v1, p12
+
+    iput-object v1, v12, Lcom/google/android/systemui/NotificationLockscreenUserManagerGoogle;->mSmartSpaceController:Lcom/google/android/systemui/smartspace/SmartSpaceController;
+
+    iput-object v13, v12, Lcom/google/android/systemui/NotificationLockscreenUserManagerGoogle;->mKeyguardStateController:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
+
+    invoke-interface {v13, v0}, Lcom/android/systemui/statusbar/policy/CallbackController;->addCallback(Ljava/lang/Object;)V
 
     return-void
 .end method

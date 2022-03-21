@@ -29,7 +29,7 @@
 
     sget v0, Lcom/android/systemui/R$drawable;->ic_emergency_star:I
 
-    const v1, 0x10403c2
+    const v1, 0x10403c7
 
     invoke-direct {p0, p1, v0, v1}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$EmergencyAction;-><init>(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;II)V
 
@@ -79,11 +79,13 @@
 
     iget-object v0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$EmergencyDialerAction;->this$0:Lcom/android/systemui/globalactions/GlobalActionsDialogLite;
 
-    invoke-static {v0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->access$1000(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;)Lcom/android/systemui/statusbar/phone/StatusBar;
+    invoke-static {v0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->access$1000(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;)Ljava/util/Optional;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/StatusBar;->collapseShade()V
+    sget-object v1, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$BugReportAction$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$BugReportAction$$ExternalSyntheticLambda0;
+
+    invoke-virtual {v0, v1}, Ljava/util/Optional;->ifPresent(Ljava/util/function/Consumer;)V
 
     iget-object v0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$EmergencyDialerAction;->this$0:Lcom/android/systemui/globalactions/GlobalActionsDialogLite;
 

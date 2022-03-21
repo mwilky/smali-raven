@@ -27,7 +27,7 @@
 
     iget-object p0, p0, Lcom/android/wm/shell/splitscreen/StageTaskListener$$ExternalSyntheticLambda1;->f$0:Lcom/android/wm/shell/splitscreen/StageTaskListener;
 
-    invoke-static {p0, p1}, Lcom/android/wm/shell/splitscreen/StageTaskListener;->$r8$lambda$f9QbSsxXB_uQ-Ed6DgIMrJsuYFc(Lcom/android/wm/shell/splitscreen/StageTaskListener;Landroid/view/SurfaceControl$Transaction;)V
+    invoke-static {p0, p1}, Lcom/android/wm/shell/splitscreen/StageTaskListener;->$r8$lambda$K8vDb-EbjAAhu1_xnBPhH34taXk(Lcom/android/wm/shell/splitscreen/StageTaskListener;Landroid/view/SurfaceControl$Transaction;)V
 
     return-void
 .end method

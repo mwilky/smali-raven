@@ -32,18 +32,6 @@
         <item quantity="other">O código PUK da SIM é incorrecto. Quédanche %d intentos antes de que a SIM quede inutilizable para sempre.</item>
         <item quantity="one">O código PUK da SIM non é correcto. Quédache %d intento antes de que a SIM quede inutilizable para sempre.</item>
     </plurals>
-    <plurals name="kg_prompt_reason_time_password">
-        <item quantity="other">O dispositivo non se desbloqueou durante %d horas. Confirma o contrasinal.</item>
-        <item quantity="one">O dispositivo non se desbloqueou durante %d hora. Confirma o contrasinal.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pattern">
-        <item quantity="other">O dispositivo non se desbloqueou durante %d horas. Confirma o padrón.</item>
-        <item quantity="one">O dispositivo non se desbloqueou durante %d hora. Confirma o padrón.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pin">
-        <item quantity="other">O dispositivo non se desbloqueou durante %d horas. Confirma o PIN.</item>
-        <item quantity="one">O dispositivo non se desbloqueou durante %d hora. Confirma o PIN.</item>
-    </plurals>
     <plurals name="kg_too_many_failed_attempts_countdown">
         <item quantity="other">Téntao de novo dentro de %d segundos.</item>
         <item quantity="one">Téntao de novo dentro de 1 segundo.</item>

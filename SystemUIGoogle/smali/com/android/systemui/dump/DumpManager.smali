@@ -336,7 +336,7 @@
     monitor-enter p0
 
     :try_start_0
-    const-string/jumbo v0, "target"
+    const-string v0, "target"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -682,6 +682,44 @@
     throw p2
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    :catchall_0
+    move-exception p1
+
+    monitor-exit p0
+
+    throw p1
+.end method
+
+.method public final declared-synchronized registerDumpable(Lcom/android/systemui/Dumpable;)V
+    .locals 2
+
+    monitor-enter p0
+
+    :try_start_0
+    const-string v0, "module"
+
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "module::class.java.simpleName"
+
+    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+
+    invoke-virtual {p0, v0, p1}, Lcom/android/systemui/dump/DumpManager;->registerDumpable(Ljava/lang/String;Lcom/android/systemui/Dumpable;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit p0
+
+    return-void
 
     :catchall_0
     move-exception p1

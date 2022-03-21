@@ -47,13 +47,13 @@
 .method public captureEndValues(Landroid/transition/TransitionValues;)V
     .locals 1
 
-    const-string/jumbo p0, "tv"
+    const-string p0, "tv"
 
     invoke-static {p1, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     iget-object p0, p1, Landroid/transition/TransitionValues;->values:Ljava/util/Map;
 
-    const-string/jumbo p1, "tv.values"
+    const-string p1, "tv.values"
 
     invoke-static {p0, p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -73,13 +73,13 @@
 .method public captureStartValues(Landroid/transition/TransitionValues;)V
     .locals 1
 
-    const-string/jumbo p0, "tv"
+    const-string p0, "tv"
 
     invoke-static {p1, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     iget-object p0, p1, Landroid/transition/TransitionValues;->values:Ljava/util/Map;
 
-    const-string/jumbo p1, "tv.values"
+    const-string p1, "tv.values"
 
     invoke-static {p0, p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 

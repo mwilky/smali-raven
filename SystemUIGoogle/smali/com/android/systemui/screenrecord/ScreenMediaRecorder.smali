@@ -400,7 +400,7 @@
 
     invoke-virtual {v1}, Ljava/io/File;->mkdirs()Z
 
-    const-string/jumbo v2, "temp"
+    const-string v2, "temp"
 
     const-string v3, ".mp4"
 
@@ -845,7 +845,7 @@
 
     invoke-static {v3, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string/jumbo v2, "temp"
+    const-string v2, "temp"
 
     const-string v4, ".mp4"
 

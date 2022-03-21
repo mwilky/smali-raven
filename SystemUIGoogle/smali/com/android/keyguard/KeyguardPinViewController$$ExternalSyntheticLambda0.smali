@@ -27,7 +27,7 @@
 
     iget-object p0, p0, Lcom/android/keyguard/KeyguardPinViewController$$ExternalSyntheticLambda0;->f$0:Lcom/android/keyguard/KeyguardPinViewController;
 
-    invoke-static {p0, p1}, Lcom/android/keyguard/KeyguardPinViewController;->$r8$lambda$diDiHdUp4vSQLIxLymlN25M94X8(Lcom/android/keyguard/KeyguardPinViewController;Landroid/view/View;)V
+    invoke-static {p0, p1}, Lcom/android/keyguard/KeyguardPinViewController;->$r8$lambda$2bDHH20eFLR9VylhwTp8EepRQaQ(Lcom/android/keyguard/KeyguardPinViewController;Landroid/view/View;)V
 
     return-void
 .end method

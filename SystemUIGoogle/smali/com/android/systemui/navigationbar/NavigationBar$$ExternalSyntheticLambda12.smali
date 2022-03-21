@@ -2,7 +2,7 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Lcom/android/systemui/navigationbar/NavigationBarView$OnVerticalChangedListener;
+.implements Ljava/lang/Runnable;
 
 
 # instance fields
@@ -22,12 +22,12 @@
 
 
 # virtual methods
-.method public final onVerticalChanged(Z)V
+.method public final run()V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/navigationbar/NavigationBar$$ExternalSyntheticLambda12;->f$0:Lcom/android/systemui/navigationbar/NavigationBar;
 
-    invoke-static {p0, p1}, Lcom/android/systemui/navigationbar/NavigationBar;->$r8$lambda$57P4EYjTmWpaqBJPIG1lCPB_CAQ(Lcom/android/systemui/navigationbar/NavigationBar;Z)V
+    invoke-static {p0}, Lcom/android/systemui/navigationbar/NavigationBar;->$r8$lambda$-2dOL7JH8PTcwu4od8_x9VF3EiQ(Lcom/android/systemui/navigationbar/NavigationBar;)V
 
     return-void
 .end method

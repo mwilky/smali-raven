@@ -22,6 +22,22 @@
 
 
 # direct methods
+.method public static synthetic $r8$lambda$SB7_8mHIu8wRDTAYYWUPXjAqz_o(IILcom/android/wm/shell/splitscreen/ISplitScreenListener;)V
+    .locals 0
+
+    invoke-static {p0, p1, p2}, Lcom/android/wm/shell/splitscreen/SplitScreenController$ISplitScreenImpl$1;->lambda$onStagePositionChanged$0(IILcom/android/wm/shell/splitscreen/ISplitScreenListener;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$T8Tq4j1vm_MKsPQBtnEjYY8pYnk(IIZLcom/android/wm/shell/splitscreen/ISplitScreenListener;)V
+    .locals 0
+
+    invoke-static {p0, p1, p2, p3}, Lcom/android/wm/shell/splitscreen/SplitScreenController$ISplitScreenImpl$1;->lambda$onTaskStageChanged$1(IIZLcom/android/wm/shell/splitscreen/ISplitScreenListener;)V
+
+    return-void
+.end method
+
 .method constructor <init>(Lcom/android/wm/shell/splitscreen/SplitScreenController$ISplitScreenImpl;)V
     .locals 0
 
@@ -32,84 +48,66 @@
     return-void
 .end method
 
+.method private static synthetic lambda$onStagePositionChanged$0(IILcom/android/wm/shell/splitscreen/ISplitScreenListener;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    invoke-interface {p2, p0, p1}, Lcom/android/wm/shell/splitscreen/ISplitScreenListener;->onStagePositionChanged(II)V
+
+    return-void
+.end method
+
+.method private static synthetic lambda$onTaskStageChanged$1(IIZLcom/android/wm/shell/splitscreen/ISplitScreenListener;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    invoke-interface {p3, p0, p1, p2}, Lcom/android/wm/shell/splitscreen/ISplitScreenListener;->onTaskStageChanged(IIZ)V
+
+    return-void
+.end method
+
 
 # virtual methods
 .method public onStagePositionChanged(II)V
     .locals 1
 
-    :try_start_0
-    iget-object v0, p0, Lcom/android/wm/shell/splitscreen/SplitScreenController$ISplitScreenImpl$1;->this$0:Lcom/android/wm/shell/splitscreen/SplitScreenController$ISplitScreenImpl;
-
-    invoke-static {v0}, Lcom/android/wm/shell/splitscreen/SplitScreenController$ISplitScreenImpl;->access$100(Lcom/android/wm/shell/splitscreen/SplitScreenController$ISplitScreenImpl;)Lcom/android/wm/shell/splitscreen/ISplitScreenListener;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
     iget-object p0, p0, Lcom/android/wm/shell/splitscreen/SplitScreenController$ISplitScreenImpl$1;->this$0:Lcom/android/wm/shell/splitscreen/SplitScreenController$ISplitScreenImpl;
 
-    invoke-static {p0}, Lcom/android/wm/shell/splitscreen/SplitScreenController$ISplitScreenImpl;->access$100(Lcom/android/wm/shell/splitscreen/SplitScreenController$ISplitScreenImpl;)Lcom/android/wm/shell/splitscreen/ISplitScreenListener;
+    invoke-static {p0}, Lcom/android/wm/shell/splitscreen/SplitScreenController$ISplitScreenImpl;->access$600(Lcom/android/wm/shell/splitscreen/SplitScreenController$ISplitScreenImpl;)Lcom/android/wm/shell/common/SingleInstanceRemoteListener;
 
     move-result-object p0
 
-    invoke-interface {p0, p1, p2}, Lcom/android/wm/shell/splitscreen/ISplitScreenListener;->onStagePositionChanged(II)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    new-instance v0, Lcom/android/wm/shell/splitscreen/SplitScreenController$ISplitScreenImpl$1$$ExternalSyntheticLambda0;
 
-    goto :goto_0
+    invoke-direct {v0, p1, p2}, Lcom/android/wm/shell/splitscreen/SplitScreenController$ISplitScreenImpl$1$$ExternalSyntheticLambda0;-><init>(II)V
 
-    :catch_0
-    move-exception p0
+    invoke-virtual {p0, v0}, Lcom/android/wm/shell/common/SingleInstanceRemoteListener;->call(Lcom/android/wm/shell/common/SingleInstanceRemoteListener$RemoteCall;)V
 
-    invoke-static {}, Lcom/android/wm/shell/splitscreen/SplitScreenController;->access$200()Ljava/lang/String;
-
-    move-result-object p1
-
-    const-string p2, "onStagePositionChanged"
-
-    invoke-static {p1, p2, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    :cond_0
-    :goto_0
     return-void
 .end method
 
 .method public onTaskStageChanged(IIZ)V
     .locals 1
 
-    :try_start_0
-    iget-object v0, p0, Lcom/android/wm/shell/splitscreen/SplitScreenController$ISplitScreenImpl$1;->this$0:Lcom/android/wm/shell/splitscreen/SplitScreenController$ISplitScreenImpl;
-
-    invoke-static {v0}, Lcom/android/wm/shell/splitscreen/SplitScreenController$ISplitScreenImpl;->access$100(Lcom/android/wm/shell/splitscreen/SplitScreenController$ISplitScreenImpl;)Lcom/android/wm/shell/splitscreen/ISplitScreenListener;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
     iget-object p0, p0, Lcom/android/wm/shell/splitscreen/SplitScreenController$ISplitScreenImpl$1;->this$0:Lcom/android/wm/shell/splitscreen/SplitScreenController$ISplitScreenImpl;
 
-    invoke-static {p0}, Lcom/android/wm/shell/splitscreen/SplitScreenController$ISplitScreenImpl;->access$100(Lcom/android/wm/shell/splitscreen/SplitScreenController$ISplitScreenImpl;)Lcom/android/wm/shell/splitscreen/ISplitScreenListener;
+    invoke-static {p0}, Lcom/android/wm/shell/splitscreen/SplitScreenController$ISplitScreenImpl;->access$600(Lcom/android/wm/shell/splitscreen/SplitScreenController$ISplitScreenImpl;)Lcom/android/wm/shell/common/SingleInstanceRemoteListener;
 
     move-result-object p0
 
-    invoke-interface {p0, p1, p2, p3}, Lcom/android/wm/shell/splitscreen/ISplitScreenListener;->onTaskStageChanged(IIZ)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    new-instance v0, Lcom/android/wm/shell/splitscreen/SplitScreenController$ISplitScreenImpl$1$$ExternalSyntheticLambda1;
 
-    goto :goto_0
+    invoke-direct {v0, p1, p2, p3}, Lcom/android/wm/shell/splitscreen/SplitScreenController$ISplitScreenImpl$1$$ExternalSyntheticLambda1;-><init>(IIZ)V
 
-    :catch_0
-    move-exception p0
+    invoke-virtual {p0, v0}, Lcom/android/wm/shell/common/SingleInstanceRemoteListener;->call(Lcom/android/wm/shell/common/SingleInstanceRemoteListener$RemoteCall;)V
 
-    invoke-static {}, Lcom/android/wm/shell/splitscreen/SplitScreenController;->access$200()Ljava/lang/String;
-
-    move-result-object p1
-
-    const-string p2, "onTaskStageChanged"
-
-    invoke-static {p1, p2, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    :cond_0
-    :goto_0
     return-void
 .end method

@@ -33,7 +33,7 @@
 
     iget p0, p0, Lcom/android/wm/shell/startingsurface/StartingWindowController$$ExternalSyntheticLambda1;->f$1:I
 
-    invoke-static {v0, p0}, Lcom/android/wm/shell/startingsurface/StartingWindowController;->$r8$lambda$Nsve7j-qdEujmRJ49hHw0qVTWtY(Lcom/android/wm/shell/startingsurface/StartingWindowController;I)V
+    invoke-static {v0, p0}, Lcom/android/wm/shell/startingsurface/StartingWindowController;->$r8$lambda$7FfxGnEGaLdDOLshmru8meZfhdg(Lcom/android/wm/shell/startingsurface/StartingWindowController;I)V
 
     return-void
 .end method

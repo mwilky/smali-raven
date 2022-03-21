@@ -39,7 +39,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$6;->this$0:Lcom/android/systemui/globalactions/GlobalActionsDialogLite;
 
-    invoke-static {v0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->access$2200(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;)Z
+    invoke-static {v0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->access$2300(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;)Z
 
     move-result v0
 
@@ -50,7 +50,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$6;->this$0:Lcom/android/systemui/globalactions/GlobalActionsDialogLite;
 
-    invoke-static {v0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->access$2700(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;)Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ToggleAction;
+    invoke-static {v0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->access$2800(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;)Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ToggleAction;
 
     move-result-object v0
 
@@ -93,17 +93,17 @@
     sget-object p1, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ToggleState;->Off:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ToggleState;
 
     :goto_1
-    invoke-static {v0, p1}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->access$2502(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ToggleState;)Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ToggleState;
+    invoke-static {v0, p1}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->access$2602(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ToggleState;)Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ToggleState;
 
     iget-object p1, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$6;->this$0:Lcom/android/systemui/globalactions/GlobalActionsDialogLite;
 
-    invoke-static {p1}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->access$2700(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;)Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ToggleAction;
+    invoke-static {p1}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->access$2800(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;)Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ToggleAction;
 
     move-result-object p1
 
     iget-object v0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$6;->this$0:Lcom/android/systemui/globalactions/GlobalActionsDialogLite;
 
-    invoke-static {v0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->access$2500(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;)Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ToggleState;
+    invoke-static {v0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->access$2600(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;)Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ToggleState;
 
     move-result-object v0
 

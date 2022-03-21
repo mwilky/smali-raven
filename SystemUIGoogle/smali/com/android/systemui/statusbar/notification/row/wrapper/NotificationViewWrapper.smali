@@ -48,7 +48,7 @@
 
     move-result v0
 
-    const v1, 0x10204b8
+    const v1, 0x10204bb
 
     if-ne v0, v1, :cond_9
 
@@ -784,6 +784,24 @@
 
 .method public setLegacy(Z)V
     .locals 0
+
+    return-void
+.end method
+
+.method public setNotificationFaded(Z)V
+    .locals 1
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationViewWrapper;->getIcon()Lcom/android/internal/widget/CachingIconView;
+
+    move-result-object v0
+
+    invoke-static {v0, p1}, Lcom/android/systemui/statusbar/notification/NotificationFadeAware;->setLayerTypeForFaded(Landroid/view/View;Z)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationViewWrapper;->getExpandButton()Landroid/view/View;
+
+    move-result-object p0
+
+    invoke-static {p0, p1}, Lcom/android/systemui/statusbar/notification/NotificationFadeAware;->setLayerTypeForFaded(Landroid/view/View;Z)V
 
     return-void
 .end method

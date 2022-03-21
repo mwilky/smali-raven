@@ -48,24 +48,6 @@
         <item quantity="two">Napačna koda PUK kartice SIM. Na voljo imate še %d poskusa. Potem bo kartica SIM postala trajno neuporabna.</item>
         <item quantity="few">Napačna koda PUK kartice SIM. Na voljo imate še %d poskuse. Potem bo kartica SIM postala trajno neuporabna.</item>
     </plurals>
-    <plurals name="kg_prompt_reason_time_password">
-        <item quantity="other">Naprava ni bila odklenjena %d ur. Potrdite geslo.</item>
-        <item quantity="one">Naprava ni bila odklenjena %d uro. Potrdite geslo.</item>
-        <item quantity="two">Naprava ni bila odklenjena %d uri. Potrdite geslo.</item>
-        <item quantity="few">Naprava ni bila odklenjena %d ure. Potrdite geslo.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pattern">
-        <item quantity="other">Naprava ni bila odklenjena %d ur. Potrdite vzorec.</item>
-        <item quantity="one">Naprava ni bila odklenjena %d uro. Potrdite vzorec.</item>
-        <item quantity="two">Naprava ni bila odklenjena %d uri. Potrdite vzorec.</item>
-        <item quantity="few">Naprava ni bila odklenjena %d ure. Potrdite vzorec.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pin">
-        <item quantity="other">Naprava ni bila odklenjena %d ur. Potrdite kodo PIN.</item>
-        <item quantity="one">Naprava ni bila odklenjena %d uro. Potrdite kodo PIN.</item>
-        <item quantity="two">Naprava ni bila odklenjena %d uri. Potrdite kodo PIN.</item>
-        <item quantity="few">Naprava ni bila odklenjena %d ure. Potrdite kodo PIN.</item>
-    </plurals>
     <plurals name="kg_too_many_failed_attempts_countdown">
         <item quantity="other">Poskusite znova čez %d sekund.</item>
         <item quantity="one">Poskusite znova čez %d sekundo.</item>

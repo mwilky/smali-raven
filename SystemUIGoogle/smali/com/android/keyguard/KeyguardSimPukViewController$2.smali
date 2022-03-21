@@ -77,13 +77,13 @@
 
     move-result v1
 
-    invoke-static {v0, v1}, Lcom/android/keyguard/KeyguardSimPukViewController;->access$102(Lcom/android/keyguard/KeyguardSimPukViewController;I)I
+    invoke-static {v0, v1}, Lcom/android/keyguard/KeyguardSimPukViewController;->access$202(Lcom/android/keyguard/KeyguardSimPukViewController;I)I
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardSimPukViewController$2;->this$0:Lcom/android/keyguard/KeyguardSimPukViewController;
 
     iget-object v1, v0, Lcom/android/keyguard/KeyguardAbsKeyInputViewController;->mMessageAreaController:Lcom/android/keyguard/KeyguardMessageAreaController;
 
-    invoke-static {v0}, Lcom/android/keyguard/KeyguardSimPukViewController;->access$1500(Lcom/android/keyguard/KeyguardSimPukViewController;)Landroid/view/View;
+    invoke-static {v0}, Lcom/android/keyguard/KeyguardSimPukViewController;->access$1600(Lcom/android/keyguard/KeyguardSimPukViewController;)Landroid/view/View;
 
     move-result-object v0
 
@@ -97,7 +97,7 @@
 
     iget-object v3, p0, Lcom/android/keyguard/KeyguardSimPukViewController$2;->this$0:Lcom/android/keyguard/KeyguardSimPukViewController;
 
-    invoke-static {v3}, Lcom/android/keyguard/KeyguardSimPukViewController;->access$1400(Lcom/android/keyguard/KeyguardSimPukViewController;)Landroid/view/View;
+    invoke-static {v3}, Lcom/android/keyguard/KeyguardSimPukViewController;->access$1500(Lcom/android/keyguard/KeyguardSimPukViewController;)Landroid/view/View;
 
     move-result-object v3
 
@@ -109,7 +109,7 @@
 
     iget-object p0, p0, Lcom/android/keyguard/KeyguardSimPukViewController$2;->this$0:Lcom/android/keyguard/KeyguardSimPukViewController;
 
-    invoke-static {p0}, Lcom/android/keyguard/KeyguardSimPukViewController;->access$1200(Lcom/android/keyguard/KeyguardSimPukViewController;)I
+    invoke-static {p0}, Lcom/android/keyguard/KeyguardSimPukViewController;->access$1300(Lcom/android/keyguard/KeyguardSimPukViewController;)I
 
     move-result p0
 

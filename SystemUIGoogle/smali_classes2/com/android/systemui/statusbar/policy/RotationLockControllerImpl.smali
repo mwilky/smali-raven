@@ -17,16 +17,18 @@
     .end annotation
 .end field
 
-.field private final mContext:Landroid/content/Context;
+.field private final mDeviceStateRotationLockSettingController:Lcom/android/systemui/statusbar/policy/DeviceStateRotationLockSettingController;
+
+.field private final mIsPerDeviceStateRotationLockEnabled:Z
+
+.field private final mRotationPolicy:Lcom/android/systemui/util/wrapper/RotationPolicyWrapper;
 
 .field private final mRotationPolicyListener:Lcom/android/internal/view/RotationPolicy$RotationPolicyListener;
 
-.field private final mSecureSettings:Lcom/android/systemui/util/settings/SecureSettings;
-
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/util/settings/SecureSettings;)V
-    .locals 1
+.method public constructor <init>(Lcom/android/systemui/util/wrapper/RotationPolicyWrapper;Lcom/android/systemui/statusbar/policy/DeviceStateRotationLockSettingController;[Ljava/lang/String;)V
+    .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -36,19 +38,40 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/policy/RotationLockControllerImpl;->mCallbacks:Ljava/util/concurrent/CopyOnWriteArrayList;
 
-    new-instance v0, Lcom/android/systemui/statusbar/policy/RotationLockControllerImpl$1;
+    new-instance v1, Lcom/android/systemui/statusbar/policy/RotationLockControllerImpl$1;
 
-    invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/policy/RotationLockControllerImpl$1;-><init>(Lcom/android/systemui/statusbar/policy/RotationLockControllerImpl;)V
+    invoke-direct {v1, p0}, Lcom/android/systemui/statusbar/policy/RotationLockControllerImpl$1;-><init>(Lcom/android/systemui/statusbar/policy/RotationLockControllerImpl;)V
 
-    iput-object v0, p0, Lcom/android/systemui/statusbar/policy/RotationLockControllerImpl;->mRotationPolicyListener:Lcom/android/internal/view/RotationPolicy$RotationPolicyListener;
+    iput-object v1, p0, Lcom/android/systemui/statusbar/policy/RotationLockControllerImpl;->mRotationPolicyListener:Lcom/android/internal/view/RotationPolicy$RotationPolicyListener;
 
-    iput-object p1, p0, Lcom/android/systemui/statusbar/policy/RotationLockControllerImpl;->mContext:Landroid/content/Context;
+    iput-object p1, p0, Lcom/android/systemui/statusbar/policy/RotationLockControllerImpl;->mRotationPolicy:Lcom/android/systemui/util/wrapper/RotationPolicyWrapper;
 
-    iput-object p2, p0, Lcom/android/systemui/statusbar/policy/RotationLockControllerImpl;->mSecureSettings:Lcom/android/systemui/util/settings/SecureSettings;
+    iput-object p2, p0, Lcom/android/systemui/statusbar/policy/RotationLockControllerImpl;->mDeviceStateRotationLockSettingController:Lcom/android/systemui/statusbar/policy/DeviceStateRotationLockSettingController;
 
-    const/4 p1, 0x1
+    array-length p1, p3
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/policy/RotationLockControllerImpl;->setListening(Z)V
+    const/4 p3, 0x1
+
+    if-lez p1, :cond_0
+
+    move p1, p3
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p1, 0x0
+
+    :goto_0
+    iput-boolean p1, p0, Lcom/android/systemui/statusbar/policy/RotationLockControllerImpl;->mIsPerDeviceStateRotationLockEnabled:Z
+
+    if-eqz p1, :cond_1
+
+    invoke-virtual {p2}, Lcom/android/systemui/statusbar/policy/DeviceStateRotationLockSettingController;->initialize()V
+
+    invoke-virtual {v0, p2}, Ljava/util/concurrent/CopyOnWriteArrayList;->add(Ljava/lang/Object;)Z
+
+    :cond_1
+    invoke-virtual {p0, p3}, Lcom/android/systemui/statusbar/policy/RotationLockControllerImpl;->setListening(Z)V
 
     return-void
 .end method
@@ -94,15 +117,15 @@
 .method private notifyChanged(Lcom/android/systemui/statusbar/policy/RotationLockController$RotationLockControllerCallback;)V
     .locals 1
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/RotationLockControllerImpl;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/RotationLockControllerImpl;->mRotationPolicy:Lcom/android/systemui/util/wrapper/RotationPolicyWrapper;
 
-    invoke-static {v0}, Lcom/android/internal/view/RotationPolicy;->isRotationLocked(Landroid/content/Context;)Z
+    invoke-interface {v0}, Lcom/android/systemui/util/wrapper/RotationPolicyWrapper;->isRotationLocked()Z
 
     move-result v0
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/policy/RotationLockControllerImpl;->mContext:Landroid/content/Context;
+    iget-object p0, p0, Lcom/android/systemui/statusbar/policy/RotationLockControllerImpl;->mRotationPolicy:Lcom/android/systemui/util/wrapper/RotationPolicyWrapper;
 
-    invoke-static {p0}, Lcom/android/internal/view/RotationPolicy;->isRotationLockToggleVisible(Landroid/content/Context;)Z
+    invoke-interface {p0}, Lcom/android/systemui/util/wrapper/RotationPolicyWrapper;->isRotationLockToggleVisible()Z
 
     move-result p0
 
@@ -138,46 +161,21 @@
 .method public getRotationLockOrientation()I
     .locals 0
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/policy/RotationLockControllerImpl;->mContext:Landroid/content/Context;
+    iget-object p0, p0, Lcom/android/systemui/statusbar/policy/RotationLockControllerImpl;->mRotationPolicy:Lcom/android/systemui/util/wrapper/RotationPolicyWrapper;
 
-    invoke-static {p0}, Lcom/android/internal/view/RotationPolicy;->getRotationLockOrientation(Landroid/content/Context;)I
+    invoke-interface {p0}, Lcom/android/systemui/util/wrapper/RotationPolicyWrapper;->getRotationLockOrientation()I
 
     move-result p0
 
     return p0
 .end method
 
-.method public isCameraRotationEnabled()Z
-    .locals 3
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/policy/RotationLockControllerImpl;->mSecureSettings:Lcom/android/systemui/util/settings/SecureSettings;
-
-    const-string v0, "camera_autorotate"
-
-    const/4 v1, 0x0
-
-    const/4 v2, -0x2
-
-    invoke-interface {p0, v0, v1, v2}, Lcom/android/systemui/util/settings/SettingsProxy;->getIntForUser(Ljava/lang/String;II)I
-
-    move-result p0
-
-    const/4 v0, 0x1
-
-    if-ne p0, v0, :cond_0
-
-    move v1, v0
-
-    :cond_0
-    return v1
-.end method
-
 .method public isRotationLocked()Z
     .locals 0
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/policy/RotationLockControllerImpl;->mContext:Landroid/content/Context;
+    iget-object p0, p0, Lcom/android/systemui/statusbar/policy/RotationLockControllerImpl;->mRotationPolicy:Lcom/android/systemui/util/wrapper/RotationPolicyWrapper;
 
-    invoke-static {p0}, Lcom/android/internal/view/RotationPolicy;->isRotationLocked(Landroid/content/Context;)Z
+    invoke-interface {p0}, Lcom/android/systemui/util/wrapper/RotationPolicyWrapper;->isRotationLocked()Z
 
     move-result p0
 
@@ -205,47 +203,46 @@
 .end method
 
 .method public setListening(Z)V
-    .locals 1
+    .locals 3
 
     if-eqz p1, :cond_0
 
-    iget-object p1, p0, Lcom/android/systemui/statusbar/policy/RotationLockControllerImpl;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/RotationLockControllerImpl;->mRotationPolicy:Lcom/android/systemui/util/wrapper/RotationPolicyWrapper;
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/policy/RotationLockControllerImpl;->mRotationPolicyListener:Lcom/android/internal/view/RotationPolicy$RotationPolicyListener;
+    iget-object v1, p0, Lcom/android/systemui/statusbar/policy/RotationLockControllerImpl;->mRotationPolicyListener:Lcom/android/internal/view/RotationPolicy$RotationPolicyListener;
 
-    const/4 v0, -0x1
+    const/4 v2, -0x1
 
-    invoke-static {p1, p0, v0}, Lcom/android/internal/view/RotationPolicy;->registerRotationPolicyListener(Landroid/content/Context;Lcom/android/internal/view/RotationPolicy$RotationPolicyListener;I)V
+    invoke-interface {v0, v1, v2}, Lcom/android/systemui/util/wrapper/RotationPolicyWrapper;->registerRotationPolicyListener(Lcom/android/internal/view/RotationPolicy$RotationPolicyListener;I)V
 
     goto :goto_0
 
     :cond_0
-    iget-object p1, p0, Lcom/android/systemui/statusbar/policy/RotationLockControllerImpl;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/RotationLockControllerImpl;->mRotationPolicy:Lcom/android/systemui/util/wrapper/RotationPolicyWrapper;
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/policy/RotationLockControllerImpl;->mRotationPolicyListener:Lcom/android/internal/view/RotationPolicy$RotationPolicyListener;
+    iget-object v1, p0, Lcom/android/systemui/statusbar/policy/RotationLockControllerImpl;->mRotationPolicyListener:Lcom/android/internal/view/RotationPolicy$RotationPolicyListener;
 
-    invoke-static {p1, p0}, Lcom/android/internal/view/RotationPolicy;->unregisterRotationPolicyListener(Landroid/content/Context;Lcom/android/internal/view/RotationPolicy$RotationPolicyListener;)V
+    invoke-interface {v0, v1}, Lcom/android/systemui/util/wrapper/RotationPolicyWrapper;->unregisterRotationPolicyListener(Lcom/android/internal/view/RotationPolicy$RotationPolicyListener;)V
 
     :goto_0
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/policy/RotationLockControllerImpl;->mIsPerDeviceStateRotationLockEnabled:Z
+
+    if-eqz v0, :cond_1
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/policy/RotationLockControllerImpl;->mDeviceStateRotationLockSettingController:Lcom/android/systemui/statusbar/policy/DeviceStateRotationLockSettingController;
+
+    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/policy/DeviceStateRotationLockSettingController;->setListening(Z)V
+
+    :cond_1
     return-void
 .end method
 
 .method public setRotationLocked(Z)V
     .locals 0
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/policy/RotationLockControllerImpl;->mContext:Landroid/content/Context;
+    iget-object p0, p0, Lcom/android/systemui/statusbar/policy/RotationLockControllerImpl;->mRotationPolicy:Lcom/android/systemui/util/wrapper/RotationPolicyWrapper;
 
-    invoke-static {p0, p1}, Lcom/android/internal/view/RotationPolicy;->setRotationLock(Landroid/content/Context;Z)V
-
-    return-void
-.end method
-
-.method public setRotationLockedAtAngle(ZI)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/policy/RotationLockControllerImpl;->mContext:Landroid/content/Context;
-
-    invoke-static {p0, p1, p2}, Lcom/android/internal/view/RotationPolicy;->setRotationLockAtAngle(Landroid/content/Context;ZI)V
+    invoke-interface {p0, p1}, Lcom/android/systemui/util/wrapper/RotationPolicyWrapper;->setRotationLock(Z)V
 
     return-void
 .end method

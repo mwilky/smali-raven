@@ -2,7 +2,7 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Ljava/util/Comparator;
+.implements Lcom/android/systemui/statusbar/notification/collection/listbuilder/pluggable/Pluggable$PluggableListener;
 
 
 # instance fields
@@ -22,18 +22,14 @@
 
 
 # virtual methods
-.method public final compare(Ljava/lang/Object;Ljava/lang/Object;)I
+.method public final onPluggableInvalidated(Ljava/lang/Object;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder$$ExternalSyntheticLambda5;->f$0:Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;
 
-    check-cast p1, Lcom/android/systemui/statusbar/notification/collection/ListEntry;
+    check-cast p1, Lcom/android/systemui/statusbar/notification/collection/listbuilder/pluggable/NotifStabilityManager;
 
-    check-cast p2, Lcom/android/systemui/statusbar/notification/collection/ListEntry;
+    invoke-static {p0, p1}, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;->$r8$lambda$nuETr0xs6bap4SRBlVGjQoMjdew(Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;Lcom/android/systemui/statusbar/notification/collection/listbuilder/pluggable/NotifStabilityManager;)V
 
-    invoke-static {p0, p1, p2}, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;->$r8$lambda$6y-h0MGRmorBQbpnknUJmRL8QSU(Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;Lcom/android/systemui/statusbar/notification/collection/ListEntry;Lcom/android/systemui/statusbar/notification/collection/ListEntry;)I
-
-    move-result p0
-
-    return p0
+    return-void
 .end method

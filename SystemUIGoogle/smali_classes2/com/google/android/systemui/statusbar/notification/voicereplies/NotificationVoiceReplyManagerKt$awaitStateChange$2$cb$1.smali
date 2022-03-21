@@ -17,7 +17,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nNotificationVoiceReplyManager.kt\nKotlin\n*S Kotlin\n*F\n+ 1 NotificationVoiceReplyManager.kt\ncom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyManagerKt$awaitStateChange$2$cb$1\n+ 2 NotificationVoiceReplyManager.kt\ncom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyManagerKt\n*L\n1#1,1013:1\n906#2,3:1014\n*E\n*S KotlinDebug\n*F\n+ 1 NotificationVoiceReplyManager.kt\ncom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyManagerKt$awaitStateChange$2$cb$1\n*L\n808#1,3:1014\n*E\n"
+    value = "SMAP\nNotificationVoiceReplyManager.kt\nKotlin\n*S Kotlin\n*F\n+ 1 NotificationVoiceReplyManager.kt\ncom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyManagerKt$awaitStateChange$2$cb$1\n+ 2 NotificationVoiceReplyManager.kt\ncom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyManagerKt\n*L\n1#1,1168:1\n1079#2,3:1169\n*E\n*S KotlinDebug\n*F\n+ 1 NotificationVoiceReplyManager.kt\ncom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyManagerKt$awaitStateChange$2$cb$1\n*L\n962#1,3:1169\n*E\n"
 .end annotation
 
 
@@ -65,24 +65,24 @@
 
 
 # virtual methods
-.method public onStateChanged(ZZZ)V
-    .locals 4
+.method public onStateChanged(ZZZZ)V
+    .locals 3
 
-    iget-object v0, p0, Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyManagerKt$awaitStateChange$2$cb$1;->$latch:Ljava/util/concurrent/atomic/AtomicBoolean;
+    iget-object p4, p0, Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyManagerKt$awaitStateChange$2$cb$1;->$latch:Ljava/util/concurrent/atomic/AtomicBoolean;
 
-    iget-object v1, p0, Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyManagerKt$awaitStateChange$2$cb$1;->$this_awaitStateChange:Lcom/android/systemui/statusbar/NotificationShadeWindowController;
+    iget-object v0, p0, Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyManagerKt$awaitStateChange$2$cb$1;->$this_awaitStateChange:Lcom/android/systemui/statusbar/NotificationShadeWindowController;
 
-    iget-object v2, p0, Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyManagerKt$awaitStateChange$2$cb$1;->$k:Lkotlinx/coroutines/CancellableContinuation;
+    iget-object v1, p0, Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyManagerKt$awaitStateChange$2$cb$1;->$k:Lkotlinx/coroutines/CancellableContinuation;
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    invoke-virtual {v0, v3}, Ljava/util/concurrent/atomic/AtomicBoolean;->getAndSet(Z)Z
+    invoke-virtual {p4, v2}, Ljava/util/concurrent/atomic/AtomicBoolean;->getAndSet(Z)Z
 
-    move-result v0
+    move-result p4
 
-    if-eqz v0, :cond_0
+    if-eqz p4, :cond_0
 
-    invoke-interface {v1, p0}, Lcom/android/systemui/statusbar/NotificationShadeWindowController;->unregisterCallback(Lcom/android/systemui/statusbar/phone/StatusBarWindowCallback;)V
+    invoke-interface {v0, p0}, Lcom/android/systemui/statusbar/NotificationShadeWindowController;->unregisterCallback(Lcom/android/systemui/statusbar/phone/StatusBarWindowCallback;)V
 
     new-instance p0, Lcom/google/android/systemui/statusbar/notification/voicereplies/StatusBarWindowState;
 
@@ -94,7 +94,7 @@
 
     move-result-object p0
 
-    invoke-interface {v2, p0}, Lkotlin/coroutines/Continuation;->resumeWith(Ljava/lang/Object;)V
+    invoke-interface {v1, p0}, Lkotlin/coroutines/Continuation;->resumeWith(Ljava/lang/Object;)V
 
     :cond_0
     return-void

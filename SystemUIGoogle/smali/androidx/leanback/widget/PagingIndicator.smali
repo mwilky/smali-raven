@@ -132,7 +132,7 @@
 
     new-instance v1, Landroidx/leanback/widget/PagingIndicator$3;
 
-    const-string/jumbo v2, "translation_x"
+    const-string v2, "translation_x"
 
     invoke-direct {v1, v0, v2}, Landroidx/leanback/widget/PagingIndicator$3;-><init>(Ljava/lang/Class;Ljava/lang/String;)V
 

@@ -8,14 +8,18 @@
 # instance fields
 .field public final synthetic f$0:Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer;
 
+.field public final synthetic f$1:I
+
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer;)V
+.method public synthetic constructor <init>(Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer;I)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer$$ExternalSyntheticLambda2;->f$0:Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer;
+
+    iput p2, p0, Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer$$ExternalSyntheticLambda2;->f$1:I
 
     return-void
 .end method
@@ -23,11 +27,13 @@
 
 # virtual methods
 .method public final run()V
-    .locals 0
+    .locals 1
 
-    iget-object p0, p0, Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer$$ExternalSyntheticLambda2;->f$0:Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer;
+    iget-object v0, p0, Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer$$ExternalSyntheticLambda2;->f$0:Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer;
 
-    invoke-static {p0}, Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer;->$r8$lambda$BUh4N9u-3QVN8KeM4TsMsyU4mMo(Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer;)V
+    iget p0, p0, Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer$$ExternalSyntheticLambda2;->f$1:I
+
+    invoke-static {v0, p0}, Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer;->$r8$lambda$6w5svbhRTuK67gXq5sXqkW5cDf4(Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer;I)V
 
     return-void
 .end method

@@ -7,6 +7,140 @@
 .field protected mCurrentNetworkInfo:Landroid/net/NetworkInfo;
 
 
+# direct methods
+.method constructor <init>(Lcom/android/wifitrackerlib/WifiTrackerInjector;Landroidx/lifecycle/Lifecycle;Landroid/content/Context;Landroid/net/wifi/WifiManager;Landroid/net/ConnectivityManager;Landroid/net/NetworkScoreManager;Landroid/os/Handler;Landroid/os/Handler;Ljava/time/Clock;JJLjava/lang/String;)V
+    .locals 16
+
+    const/4 v14, 0x0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p1
+
+    move-object/from16 v2, p2
+
+    move-object/from16 v3, p3
+
+    move-object/from16 v4, p4
+
+    move-object/from16 v5, p5
+
+    move-object/from16 v6, p6
+
+    move-object/from16 v7, p7
+
+    move-object/from16 v8, p8
+
+    move-object/from16 v9, p9
+
+    move-wide/from16 v10, p10
+
+    move-wide/from16 v12, p12
+
+    move-object/from16 v15, p14
+
+    invoke-direct/range {v0 .. v15}, Lcom/android/wifitrackerlib/BaseWifiTracker;-><init>(Lcom/android/wifitrackerlib/WifiTrackerInjector;Landroidx/lifecycle/Lifecycle;Landroid/content/Context;Landroid/net/wifi/WifiManager;Landroid/net/ConnectivityManager;Landroid/net/NetworkScoreManager;Landroid/os/Handler;Landroid/os/Handler;Ljava/time/Clock;JJLcom/android/wifitrackerlib/BaseWifiTracker$BaseWifiTrackerCallback;Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method static createNetworkDetailsTracker(Lcom/android/wifitrackerlib/WifiTrackerInjector;Landroidx/lifecycle/Lifecycle;Landroid/content/Context;Landroid/net/wifi/WifiManager;Landroid/net/ConnectivityManager;Landroid/net/NetworkScoreManager;Landroid/os/Handler;Landroid/os/Handler;Ljava/time/Clock;JJLjava/lang/String;)Lcom/android/wifitrackerlib/NetworkDetailsTracker;
+    .locals 16
+
+    move-object/from16 v14, p13
+
+    const-string v0, "StandardWifiEntry:"
+
+    invoke-virtual {v14, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    new-instance v15, Lcom/android/wifitrackerlib/StandardNetworkDetailsTracker;
+
+    move-object v0, v15
+
+    move-object/from16 v1, p0
+
+    move-object/from16 v2, p1
+
+    move-object/from16 v3, p2
+
+    move-object/from16 v4, p3
+
+    move-object/from16 v5, p4
+
+    move-object/from16 v6, p5
+
+    move-object/from16 v7, p6
+
+    move-object/from16 v8, p7
+
+    move-object/from16 v9, p8
+
+    move-wide/from16 v10, p9
+
+    move-wide/from16 v12, p11
+
+    move-object/from16 v14, p13
+
+    invoke-direct/range {v0 .. v14}, Lcom/android/wifitrackerlib/StandardNetworkDetailsTracker;-><init>(Lcom/android/wifitrackerlib/WifiTrackerInjector;Landroidx/lifecycle/Lifecycle;Landroid/content/Context;Landroid/net/wifi/WifiManager;Landroid/net/ConnectivityManager;Landroid/net/NetworkScoreManager;Landroid/os/Handler;Landroid/os/Handler;Ljava/time/Clock;JJLjava/lang/String;)V
+
+    return-object v15
+
+    :cond_0
+    const-string v0, "PasspointWifiEntry:"
+
+    invoke-virtual {v14, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    new-instance v15, Lcom/android/wifitrackerlib/PasspointNetworkDetailsTracker;
+
+    move-object v0, v15
+
+    move-object/from16 v1, p0
+
+    move-object/from16 v2, p1
+
+    move-object/from16 v3, p2
+
+    move-object/from16 v4, p3
+
+    move-object/from16 v5, p4
+
+    move-object/from16 v6, p5
+
+    move-object/from16 v7, p6
+
+    move-object/from16 v8, p7
+
+    move-object/from16 v9, p8
+
+    move-wide/from16 v10, p9
+
+    move-wide/from16 v12, p11
+
+    move-object/from16 v14, p13
+
+    invoke-direct/range {v0 .. v14}, Lcom/android/wifitrackerlib/PasspointNetworkDetailsTracker;-><init>(Lcom/android/wifitrackerlib/WifiTrackerInjector;Landroidx/lifecycle/Lifecycle;Landroid/content/Context;Landroid/net/wifi/WifiManager;Landroid/net/ConnectivityManager;Landroid/net/NetworkScoreManager;Landroid/os/Handler;Landroid/os/Handler;Ljava/time/Clock;JJLjava/lang/String;)V
+
+    return-object v15
+
+    :cond_1
+    new-instance v0, Ljava/lang/IllegalArgumentException;
+
+    const-string v1, "Key does not contain valid key prefix!"
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+.end method
+
+
 # virtual methods
 .method public abstract getWifiEntry()Lcom/android/wifitrackerlib/WifiEntry;
 .end method

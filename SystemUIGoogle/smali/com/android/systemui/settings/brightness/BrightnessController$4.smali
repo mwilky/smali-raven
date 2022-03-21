@@ -39,7 +39,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/settings/brightness/BrightnessController$4;->this$0:Lcom/android/systemui/settings/brightness/BrightnessController;
 
-    invoke-static {v0}, Lcom/android/systemui/settings/brightness/BrightnessController;->access$600(Lcom/android/systemui/settings/brightness/BrightnessController;)Landroid/content/Context;
+    invoke-static {v0}, Lcom/android/systemui/settings/brightness/BrightnessController;->access$500(Lcom/android/systemui/settings/brightness/BrightnessController;)Landroid/content/Context;
 
     move-result-object v0
 
@@ -64,7 +64,7 @@
     const/4 v2, 0x1
 
     :cond_0
-    invoke-static {p0, v2}, Lcom/android/systemui/settings/brightness/BrightnessController;->access$1602(Lcom/android/systemui/settings/brightness/BrightnessController;Z)Z
+    invoke-static {p0, v2}, Lcom/android/systemui/settings/brightness/BrightnessController;->access$1502(Lcom/android/systemui/settings/brightness/BrightnessController;Z)Z
 
     return-void
 .end method

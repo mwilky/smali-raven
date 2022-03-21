@@ -4,6 +4,8 @@
 
 
 # instance fields
+.field private mAllowSeamlessRotationDespiteNavBarMoving:Z
+
 .field private mCutout:Landroid/view/DisplayCutout;
 
 .field private mDensityDpi:I
@@ -14,9 +16,15 @@
 
 .field private mHeight:I
 
+.field private mInsetsState:Landroid/view/InsetsState;
+
 .field private mNavBarFrameHeight:I
 
+.field private mNavigationBarCanMove:Z
+
 .field private final mNonDecorInsets:Landroid/graphics/Rect;
+
+.field private mReverseDefaultRotation:Z
 
 .field private mRotation:I
 
@@ -53,6 +61,18 @@
 
     iput v0, p0, Lcom/android/wm/shell/common/DisplayLayout;->mNavBarFrameHeight:I
 
+    iput-boolean v0, p0, Lcom/android/wm/shell/common/DisplayLayout;->mAllowSeamlessRotationDespiteNavBarMoving:Z
+
+    iput-boolean v0, p0, Lcom/android/wm/shell/common/DisplayLayout;->mNavigationBarCanMove:Z
+
+    iput-boolean v0, p0, Lcom/android/wm/shell/common/DisplayLayout;->mReverseDefaultRotation:Z
+
+    new-instance v0, Landroid/view/InsetsState;
+
+    invoke-direct {v0}, Landroid/view/InsetsState;-><init>()V
+
+    iput-object v0, p0, Lcom/android/wm/shell/common/DisplayLayout;->mInsetsState:Landroid/view/InsetsState;
+
     return-void
 .end method
 
@@ -80,6 +100,18 @@
     iput-boolean v0, p0, Lcom/android/wm/shell/common/DisplayLayout;->mHasStatusBar:Z
 
     iput v0, p0, Lcom/android/wm/shell/common/DisplayLayout;->mNavBarFrameHeight:I
+
+    iput-boolean v0, p0, Lcom/android/wm/shell/common/DisplayLayout;->mAllowSeamlessRotationDespiteNavBarMoving:Z
+
+    iput-boolean v0, p0, Lcom/android/wm/shell/common/DisplayLayout;->mNavigationBarCanMove:Z
+
+    iput-boolean v0, p0, Lcom/android/wm/shell/common/DisplayLayout;->mReverseDefaultRotation:Z
+
+    new-instance v0, Landroid/view/InsetsState;
+
+    invoke-direct {v0}, Landroid/view/InsetsState;-><init>()V
+
+    iput-object v0, p0, Lcom/android/wm/shell/common/DisplayLayout;->mInsetsState:Landroid/view/InsetsState;
 
     invoke-virtual {p2}, Landroid/view/Display;->getDisplayId()I
 
@@ -132,6 +164,18 @@
     iput-boolean v0, p0, Lcom/android/wm/shell/common/DisplayLayout;->mHasStatusBar:Z
 
     iput v0, p0, Lcom/android/wm/shell/common/DisplayLayout;->mNavBarFrameHeight:I
+
+    iput-boolean v0, p0, Lcom/android/wm/shell/common/DisplayLayout;->mAllowSeamlessRotationDespiteNavBarMoving:Z
+
+    iput-boolean v0, p0, Lcom/android/wm/shell/common/DisplayLayout;->mNavigationBarCanMove:Z
+
+    iput-boolean v0, p0, Lcom/android/wm/shell/common/DisplayLayout;->mReverseDefaultRotation:Z
+
+    new-instance v0, Landroid/view/InsetsState;
+
+    invoke-direct {v0}, Landroid/view/InsetsState;-><init>()V
+
+    iput-object v0, p0, Lcom/android/wm/shell/common/DisplayLayout;->mInsetsState:Landroid/view/InsetsState;
 
     invoke-virtual {p0, p1}, Lcom/android/wm/shell/common/DisplayLayout;->set(Lcom/android/wm/shell/common/DisplayLayout;)V
 
@@ -294,60 +338,124 @@
     return-object p0
 .end method
 
-.method static computeNonDecorInsets(Landroid/content/res/Resources;IIILandroid/view/DisplayCutout;ILandroid/graphics/Rect;Z)V
-    .locals 0
+.method static computeNonDecorInsets(Landroid/content/res/Resources;IIILandroid/view/DisplayCutout;Landroid/view/InsetsState;ILandroid/graphics/Rect;Z)V
+    .locals 2
 
-    invoke-virtual {p6}, Landroid/graphics/Rect;->setEmpty()V
+    invoke-virtual {p7}, Landroid/graphics/Rect;->setEmpty()V
 
-    if-eqz p7, :cond_3
+    if-eqz p8, :cond_7
 
-    invoke-static {p0, p2, p3, p1}, Lcom/android/wm/shell/common/DisplayLayout;->navigationBarPosition(Landroid/content/res/Resources;III)I
+    const/16 p8, 0x15
 
-    move-result p1
+    invoke-virtual {p5, p8}, Landroid/view/InsetsState;->getSource(I)Landroid/view/InsetsSource;
 
-    const/4 p7, 0x1
+    move-result-object p5
 
-    if-le p2, p3, :cond_0
+    const/4 p8, 0x0
 
-    move p2, p7
+    const/4 v0, 0x1
+
+    if-eqz p5, :cond_0
+
+    invoke-virtual {p5}, Landroid/view/InsetsSource;->isVisible()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    move v1, v0
 
     goto :goto_0
 
     :cond_0
-    const/4 p2, 0x0
+    move v1, p8
 
     :goto_0
-    invoke-static {p0, p1, p2, p5}, Lcom/android/wm/shell/common/DisplayLayout;->getNavigationBarSize(Landroid/content/res/Resources;IZI)I
+    invoke-static {p0, p2, p3, p1}, Lcom/android/wm/shell/common/DisplayLayout;->navigationBarPosition(Landroid/content/res/Resources;III)I
+
+    move-result p1
+
+    if-le p2, p3, :cond_1
+
+    move p8, v0
+
+    :cond_1
+    invoke-static {p0, p1, p8, p6}, Lcom/android/wm/shell/common/DisplayLayout;->getNavigationBarSize(Landroid/content/res/Resources;IZI)I
 
     move-result p0
 
     const/4 p2, 0x4
 
-    if-ne p1, p2, :cond_1
+    if-ne p1, p2, :cond_3
 
-    iput p0, p6, Landroid/graphics/Rect;->bottom:I
+    if-eqz v1, :cond_2
 
-    goto :goto_1
+    invoke-virtual {p5}, Landroid/view/InsetsSource;->getFrame()Landroid/graphics/Rect;
 
-    :cond_1
-    const/4 p2, 0x2
+    move-result-object p1
 
-    if-ne p1, p2, :cond_2
+    invoke-virtual {p1}, Landroid/graphics/Rect;->height()I
 
-    iput p0, p6, Landroid/graphics/Rect;->right:I
+    move-result p1
 
-    goto :goto_1
+    invoke-static {p0, p1}, Ljava/lang/Math;->max(II)I
+
+    move-result p0
 
     :cond_2
-    if-ne p1, p7, :cond_3
+    iput p0, p7, Landroid/graphics/Rect;->bottom:I
 
-    iput p0, p6, Landroid/graphics/Rect;->left:I
+    goto :goto_1
 
     :cond_3
-    :goto_1
-    if-eqz p4, :cond_4
+    const/4 p2, 0x2
 
-    iget p0, p6, Landroid/graphics/Rect;->left:I
+    if-ne p1, p2, :cond_5
+
+    if-eqz v1, :cond_4
+
+    invoke-virtual {p5}, Landroid/view/InsetsSource;->getFrame()Landroid/graphics/Rect;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Landroid/graphics/Rect;->width()I
+
+    move-result p1
+
+    invoke-static {p0, p1}, Ljava/lang/Math;->max(II)I
+
+    move-result p0
+
+    :cond_4
+    iput p0, p7, Landroid/graphics/Rect;->right:I
+
+    goto :goto_1
+
+    :cond_5
+    if-ne p1, v0, :cond_7
+
+    if-eqz v1, :cond_6
+
+    invoke-virtual {p5}, Landroid/view/InsetsSource;->getFrame()Landroid/graphics/Rect;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Landroid/graphics/Rect;->width()I
+
+    move-result p1
+
+    invoke-static {p0, p1}, Ljava/lang/Math;->max(II)I
+
+    move-result p0
+
+    :cond_6
+    iput p0, p7, Landroid/graphics/Rect;->left:I
+
+    :cond_7
+    :goto_1
+    if-eqz p4, :cond_8
+
+    iget p0, p7, Landroid/graphics/Rect;->left:I
 
     invoke-virtual {p4}, Landroid/view/DisplayCutout;->getSafeInsetLeft()I
 
@@ -355,9 +463,9 @@
 
     add-int/2addr p0, p1
 
-    iput p0, p6, Landroid/graphics/Rect;->left:I
+    iput p0, p7, Landroid/graphics/Rect;->left:I
 
-    iget p0, p6, Landroid/graphics/Rect;->top:I
+    iget p0, p7, Landroid/graphics/Rect;->top:I
 
     invoke-virtual {p4}, Landroid/view/DisplayCutout;->getSafeInsetTop()I
 
@@ -365,9 +473,9 @@
 
     add-int/2addr p0, p1
 
-    iput p0, p6, Landroid/graphics/Rect;->top:I
+    iput p0, p7, Landroid/graphics/Rect;->top:I
 
-    iget p0, p6, Landroid/graphics/Rect;->right:I
+    iget p0, p7, Landroid/graphics/Rect;->right:I
 
     invoke-virtual {p4}, Landroid/view/DisplayCutout;->getSafeInsetRight()I
 
@@ -375,9 +483,9 @@
 
     add-int/2addr p0, p1
 
-    iput p0, p6, Landroid/graphics/Rect;->right:I
+    iput p0, p7, Landroid/graphics/Rect;->right:I
 
-    iget p0, p6, Landroid/graphics/Rect;->bottom:I
+    iget p0, p7, Landroid/graphics/Rect;->bottom:I
 
     invoke-virtual {p4}, Landroid/view/DisplayCutout;->getSafeInsetBottom()I
 
@@ -385,9 +493,9 @@
 
     add-int/2addr p0, p1
 
-    iput p0, p6, Landroid/graphics/Rect;->bottom:I
+    iput p0, p7, Landroid/graphics/Rect;->bottom:I
 
-    :cond_4
+    :cond_8
     return-void
 .end method
 
@@ -545,7 +653,7 @@
     return-object p0
 .end method
 
-.method private static convertNonDecorInsetsToStableInsets(Landroid/content/res/Resources;Landroid/graphics/Rect;IIZ)V
+.method private convertNonDecorInsetsToStableInsets(Landroid/content/res/Resources;Landroid/graphics/Rect;Landroid/view/DisplayCutout;Z)V
     .locals 0
 
     if-nez p4, :cond_0
@@ -553,27 +661,17 @@
     return-void
 
     :cond_0
-    if-le p2, p3, :cond_1
-
-    const/4 p2, 0x1
-
-    goto :goto_0
-
-    :cond_1
-    const/4 p2, 0x0
-
-    :goto_0
-    invoke-static {p2, p0}, Lcom/android/wm/shell/common/DisplayLayout;->getStatusBarHeight(ZLandroid/content/res/Resources;)I
+    invoke-static {p1, p3}, Lcom/android/internal/policy/SystemBarUtils;->getStatusBarHeight(Landroid/content/res/Resources;Landroid/view/DisplayCutout;)I
 
     move-result p0
 
-    iget p2, p1, Landroid/graphics/Rect;->top:I
+    iget p1, p2, Landroid/graphics/Rect;->top:I
 
-    invoke-static {p2, p0}, Ljava/lang/Math;->max(II)I
+    invoke-static {p1, p0}, Ljava/lang/Math;->max(II)I
 
     move-result p0
 
-    iput p0, p1, Landroid/graphics/Rect;->top:I
+    iput p0, p2, Landroid/graphics/Rect;->top:I
 
     return-void
 .end method
@@ -695,12 +793,12 @@
 
     if-eqz p1, :cond_0
 
-    const p1, 0x10501c7
+    const p1, 0x10501c9
 
     goto :goto_0
 
     :cond_0
-    const p1, 0x10501c6
+    const p1, 0x10501c8
 
     :goto_0
     invoke-virtual {p0, p1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
@@ -735,12 +833,12 @@
 
     if-eqz p2, :cond_1
 
-    const p1, 0x10501cd
+    const p1, 0x10501cf
 
     goto :goto_1
 
     :cond_1
-    const p1, 0x10501cb
+    const p1, 0x10501cd
 
     :goto_1
     invoke-virtual {p0, p1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
@@ -750,7 +848,7 @@
     return p0
 
     :cond_2
-    const p1, 0x10501d0
+    const p1, 0x10501d2
 
     invoke-virtual {p0, p1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -763,12 +861,12 @@
 
     if-eqz p2, :cond_4
 
-    const p1, 0x10501cc
+    const p1, 0x10501ce
 
     goto :goto_2
 
     :cond_4
-    const p1, 0x10501ca
+    const p1, 0x10501cc
 
     :goto_2
     invoke-virtual {p0, p1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
@@ -778,36 +876,12 @@
     return p0
 
     :cond_5
-    const p1, 0x10501cf
+    const p1, 0x10501d1
 
     invoke-virtual {p0, p1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result p0
 
-    return p0
-.end method
-
-.method static getStatusBarHeight(ZLandroid/content/res/Resources;)I
-    .locals 0
-
-    if-eqz p0, :cond_0
-
-    const p0, 0x1050277
-
-    invoke-virtual {p1, p0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result p0
-
-    goto :goto_0
-
-    :cond_0
-    const p0, 0x1050278
-
-    invoke-virtual {p1, p0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result p0
-
-    :goto_0
     return p0
 .end method
 
@@ -852,7 +926,7 @@
 
     move-result-object p0
 
-    const p1, 0x111012e
+    const p1, 0x1110133
 
     invoke-virtual {p0, p1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -972,7 +1046,31 @@
 
     iput-boolean p4, p0, Lcom/android/wm/shell/common/DisplayLayout;->mHasStatusBar:Z
 
-    invoke-direct {p0, p2}, Lcom/android/wm/shell/common/DisplayLayout;->recalcInsets(Landroid/content/res/Resources;)V
+    const p1, 0x1110015
+
+    invoke-virtual {p2, p1}, Landroid/content/res/Resources;->getBoolean(I)Z
+
+    move-result p1
+
+    iput-boolean p1, p0, Lcom/android/wm/shell/common/DisplayLayout;->mAllowSeamlessRotationDespiteNavBarMoving:Z
+
+    const p1, 0x111010f
+
+    invoke-virtual {p2, p1}, Landroid/content/res/Resources;->getBoolean(I)Z
+
+    move-result p1
+
+    iput-boolean p1, p0, Lcom/android/wm/shell/common/DisplayLayout;->mNavigationBarCanMove:Z
+
+    const p1, 0x1110126
+
+    invoke-virtual {p2, p1}, Landroid/content/res/Resources;->getBoolean(I)Z
+
+    move-result p1
+
+    iput-boolean p1, p0, Lcom/android/wm/shell/common/DisplayLayout;->mReverseDefaultRotation:Z
+
+    invoke-virtual {p0, p2}, Lcom/android/wm/shell/common/DisplayLayout;->recalcInsets(Landroid/content/res/Resources;)V
 
     return-void
 .end method
@@ -984,7 +1082,7 @@
 
     if-eq p1, p2, :cond_0
 
-    const v1, 0x111010b
+    const v1, 0x111010f
 
     invoke-virtual {p0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -1019,71 +1117,16 @@
     return p0
 .end method
 
-.method private recalcInsets(Landroid/content/res/Resources;)V
-    .locals 8
-
-    iget v1, p0, Lcom/android/wm/shell/common/DisplayLayout;->mRotation:I
-
-    iget v2, p0, Lcom/android/wm/shell/common/DisplayLayout;->mWidth:I
-
-    iget v3, p0, Lcom/android/wm/shell/common/DisplayLayout;->mHeight:I
-
-    iget-object v4, p0, Lcom/android/wm/shell/common/DisplayLayout;->mCutout:Landroid/view/DisplayCutout;
-
-    iget v5, p0, Lcom/android/wm/shell/common/DisplayLayout;->mUiMode:I
-
-    iget-object v6, p0, Lcom/android/wm/shell/common/DisplayLayout;->mNonDecorInsets:Landroid/graphics/Rect;
-
-    iget-boolean v7, p0, Lcom/android/wm/shell/common/DisplayLayout;->mHasNavigationBar:Z
-
-    move-object v0, p1
-
-    invoke-static/range {v0 .. v7}, Lcom/android/wm/shell/common/DisplayLayout;->computeNonDecorInsets(Landroid/content/res/Resources;IIILandroid/view/DisplayCutout;ILandroid/graphics/Rect;Z)V
-
-    iget-object v0, p0, Lcom/android/wm/shell/common/DisplayLayout;->mStableInsets:Landroid/graphics/Rect;
-
-    iget-object v1, p0, Lcom/android/wm/shell/common/DisplayLayout;->mNonDecorInsets:Landroid/graphics/Rect;
-
-    invoke-virtual {v0, v1}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
-
-    iget-boolean v0, p0, Lcom/android/wm/shell/common/DisplayLayout;->mHasStatusBar:Z
-
-    if-eqz v0, :cond_0
-
-    iget-object v1, p0, Lcom/android/wm/shell/common/DisplayLayout;->mStableInsets:Landroid/graphics/Rect;
-
-    iget v2, p0, Lcom/android/wm/shell/common/DisplayLayout;->mWidth:I
-
-    iget v3, p0, Lcom/android/wm/shell/common/DisplayLayout;->mHeight:I
-
-    invoke-static {p1, v1, v2, v3, v0}, Lcom/android/wm/shell/common/DisplayLayout;->convertNonDecorInsetsToStableInsets(Landroid/content/res/Resources;Landroid/graphics/Rect;IIZ)V
-
-    :cond_0
-    iget v0, p0, Lcom/android/wm/shell/common/DisplayLayout;->mWidth:I
-
-    iget v1, p0, Lcom/android/wm/shell/common/DisplayLayout;->mHeight:I
-
-    if-le v0, v1, :cond_1
-
-    const/4 v0, 0x1
-
-    goto :goto_0
-
-    :cond_1
-    const/4 v0, 0x0
-
-    :goto_0
-    invoke-static {p1, v0}, Lcom/android/wm/shell/common/DisplayLayout;->getNavigationBarFrameHeight(Landroid/content/res/Resources;Z)I
-
-    move-result p1
-
-    iput p1, p0, Lcom/android/wm/shell/common/DisplayLayout;->mNavBarFrameHeight:I
-
-    return-void
-.end method
-
 
 # virtual methods
+.method public allowSeamlessRotationDespiteNavBarMoving()Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/wm/shell/common/DisplayLayout;->mAllowSeamlessRotationDespiteNavBarMoving:Z
+
+    return p0
+.end method
+
 .method public density()F
     .locals 1
 
@@ -1191,11 +1234,39 @@
 
     if-ne v1, v3, :cond_2
 
-    iget p0, p0, Lcom/android/wm/shell/common/DisplayLayout;->mNavBarFrameHeight:I
+    iget-boolean v1, p0, Lcom/android/wm/shell/common/DisplayLayout;->mAllowSeamlessRotationDespiteNavBarMoving:Z
 
-    iget p1, p1, Lcom/android/wm/shell/common/DisplayLayout;->mNavBarFrameHeight:I
+    iget-boolean v3, p1, Lcom/android/wm/shell/common/DisplayLayout;->mAllowSeamlessRotationDespiteNavBarMoving:Z
 
-    if-ne p0, p1, :cond_2
+    if-ne v1, v3, :cond_2
+
+    iget-boolean v1, p0, Lcom/android/wm/shell/common/DisplayLayout;->mNavigationBarCanMove:Z
+
+    iget-boolean v3, p1, Lcom/android/wm/shell/common/DisplayLayout;->mNavigationBarCanMove:Z
+
+    if-ne v1, v3, :cond_2
+
+    iget-boolean v1, p0, Lcom/android/wm/shell/common/DisplayLayout;->mReverseDefaultRotation:Z
+
+    iget-boolean v3, p1, Lcom/android/wm/shell/common/DisplayLayout;->mReverseDefaultRotation:Z
+
+    if-ne v1, v3, :cond_2
+
+    iget v1, p0, Lcom/android/wm/shell/common/DisplayLayout;->mNavBarFrameHeight:I
+
+    iget v3, p1, Lcom/android/wm/shell/common/DisplayLayout;->mNavBarFrameHeight:I
+
+    if-ne v1, v3, :cond_2
+
+    iget-object p0, p0, Lcom/android/wm/shell/common/DisplayLayout;->mInsetsState:Landroid/view/InsetsState;
+
+    iget-object p1, p1, Lcom/android/wm/shell/common/DisplayLayout;->mInsetsState:Landroid/view/InsetsState;
+
+    invoke-static {p0, p1}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-eqz p0, :cond_2
 
     goto :goto_0
 
@@ -1260,10 +1331,55 @@
     return-void
 .end method
 
+.method public getUpsideDownRotation()I
+    .locals 4
+
+    iget v0, p0, Lcom/android/wm/shell/common/DisplayLayout;->mWidth:I
+
+    iget v1, p0, Lcom/android/wm/shell/common/DisplayLayout;->mHeight:I
+
+    const/4 v2, 0x1
+
+    if-le v0, v1, :cond_0
+
+    move v0, v2
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    iget v1, p0, Lcom/android/wm/shell/common/DisplayLayout;->mRotation:I
+
+    const/4 v3, 0x2
+
+    rem-int/2addr v1, v3
+
+    if-eqz v1, :cond_1
+
+    xor-int/lit8 v0, v0, 0x1
+
+    :cond_1
+    if-eqz v0, :cond_3
+
+    iget-boolean p0, p0, Lcom/android/wm/shell/common/DisplayLayout;->mReverseDefaultRotation:Z
+
+    if-eqz p0, :cond_2
+
+    const/4 v2, 0x3
+
+    :cond_2
+    return v2
+
+    :cond_3
+    return v3
+.end method
+
 .method public hashCode()I
     .locals 3
 
-    const/16 v0, 0xb
+    const/16 v0, 0xf
 
     new-array v0, v0, [Ljava/lang/Object;
 
@@ -1355,13 +1471,49 @@
 
     aput-object v1, v0, v2
 
-    iget p0, p0, Lcom/android/wm/shell/common/DisplayLayout;->mNavBarFrameHeight:I
+    iget v1, p0, Lcom/android/wm/shell/common/DisplayLayout;->mNavBarFrameHeight:I
 
-    invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object p0
+    move-result-object v1
 
-    const/16 v1, 0xa
+    const/16 v2, 0xa
+
+    aput-object v1, v0, v2
+
+    iget-boolean v1, p0, Lcom/android/wm/shell/common/DisplayLayout;->mAllowSeamlessRotationDespiteNavBarMoving:Z
+
+    invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v1
+
+    const/16 v2, 0xb
+
+    aput-object v1, v0, v2
+
+    iget-boolean v1, p0, Lcom/android/wm/shell/common/DisplayLayout;->mNavigationBarCanMove:Z
+
+    invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v1
+
+    const/16 v2, 0xc
+
+    aput-object v1, v0, v2
+
+    iget-boolean v1, p0, Lcom/android/wm/shell/common/DisplayLayout;->mReverseDefaultRotation:Z
+
+    invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v1
+
+    const/16 v2, 0xd
+
+    aput-object v1, v0, v2
+
+    iget-object p0, p0, Lcom/android/wm/shell/common/DisplayLayout;->mInsetsState:Landroid/view/InsetsState;
+
+    const/16 v1, 0xe
 
     aput-object p0, v0, v1
 
@@ -1456,12 +1608,83 @@
     return p0
 .end method
 
+.method public navigationBarCanMove()Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/wm/shell/common/DisplayLayout;->mNavigationBarCanMove:Z
+
+    return p0
+.end method
+
 .method public nonDecorInsets()Landroid/graphics/Rect;
     .locals 0
 
     iget-object p0, p0, Lcom/android/wm/shell/common/DisplayLayout;->mNonDecorInsets:Landroid/graphics/Rect;
 
     return-object p0
+.end method
+
+.method recalcInsets(Landroid/content/res/Resources;)V
+    .locals 9
+
+    iget v1, p0, Lcom/android/wm/shell/common/DisplayLayout;->mRotation:I
+
+    iget v2, p0, Lcom/android/wm/shell/common/DisplayLayout;->mWidth:I
+
+    iget v3, p0, Lcom/android/wm/shell/common/DisplayLayout;->mHeight:I
+
+    iget-object v4, p0, Lcom/android/wm/shell/common/DisplayLayout;->mCutout:Landroid/view/DisplayCutout;
+
+    iget-object v5, p0, Lcom/android/wm/shell/common/DisplayLayout;->mInsetsState:Landroid/view/InsetsState;
+
+    iget v6, p0, Lcom/android/wm/shell/common/DisplayLayout;->mUiMode:I
+
+    iget-object v7, p0, Lcom/android/wm/shell/common/DisplayLayout;->mNonDecorInsets:Landroid/graphics/Rect;
+
+    iget-boolean v8, p0, Lcom/android/wm/shell/common/DisplayLayout;->mHasNavigationBar:Z
+
+    move-object v0, p1
+
+    invoke-static/range {v0 .. v8}, Lcom/android/wm/shell/common/DisplayLayout;->computeNonDecorInsets(Landroid/content/res/Resources;IIILandroid/view/DisplayCutout;Landroid/view/InsetsState;ILandroid/graphics/Rect;Z)V
+
+    iget-object v0, p0, Lcom/android/wm/shell/common/DisplayLayout;->mStableInsets:Landroid/graphics/Rect;
+
+    iget-object v1, p0, Lcom/android/wm/shell/common/DisplayLayout;->mNonDecorInsets:Landroid/graphics/Rect;
+
+    invoke-virtual {v0, v1}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
+
+    iget-boolean v0, p0, Lcom/android/wm/shell/common/DisplayLayout;->mHasStatusBar:Z
+
+    if-eqz v0, :cond_0
+
+    iget-object v1, p0, Lcom/android/wm/shell/common/DisplayLayout;->mStableInsets:Landroid/graphics/Rect;
+
+    iget-object v2, p0, Lcom/android/wm/shell/common/DisplayLayout;->mCutout:Landroid/view/DisplayCutout;
+
+    invoke-direct {p0, p1, v1, v2, v0}, Lcom/android/wm/shell/common/DisplayLayout;->convertNonDecorInsetsToStableInsets(Landroid/content/res/Resources;Landroid/graphics/Rect;Landroid/view/DisplayCutout;Z)V
+
+    :cond_0
+    iget v0, p0, Lcom/android/wm/shell/common/DisplayLayout;->mWidth:I
+
+    iget v1, p0, Lcom/android/wm/shell/common/DisplayLayout;->mHeight:I
+
+    if-le v0, v1, :cond_1
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    const/4 v0, 0x0
+
+    :goto_0
+    invoke-static {p1, v0}, Lcom/android/wm/shell/common/DisplayLayout;->getNavigationBarFrameHeight(Landroid/content/res/Resources;Z)I
+
+    move-result p1
+
+    iput p1, p0, Lcom/android/wm/shell/common/DisplayLayout;->mNavBarFrameHeight:I
+
+    return-void
 .end method
 
 .method public rotateTo(Landroid/content/res/Resources;I)V
@@ -1519,7 +1742,7 @@
     iput-object p2, p0, Lcom/android/wm/shell/common/DisplayLayout;->mCutout:Landroid/view/DisplayCutout;
 
     :cond_2
-    invoke-direct {p0, p1}, Lcom/android/wm/shell/common/DisplayLayout;->recalcInsets(Landroid/content/res/Resources;)V
+    invoke-virtual {p0, p1}, Lcom/android/wm/shell/common/DisplayLayout;->recalcInsets(Landroid/content/res/Resources;)V
 
     return-void
 .end method
@@ -1567,6 +1790,18 @@
 
     iput-boolean v0, p0, Lcom/android/wm/shell/common/DisplayLayout;->mHasStatusBar:Z
 
+    iget-boolean v0, p1, Lcom/android/wm/shell/common/DisplayLayout;->mAllowSeamlessRotationDespiteNavBarMoving:Z
+
+    iput-boolean v0, p0, Lcom/android/wm/shell/common/DisplayLayout;->mAllowSeamlessRotationDespiteNavBarMoving:Z
+
+    iget-boolean v0, p1, Lcom/android/wm/shell/common/DisplayLayout;->mNavigationBarCanMove:Z
+
+    iput-boolean v0, p0, Lcom/android/wm/shell/common/DisplayLayout;->mNavigationBarCanMove:Z
+
+    iget-boolean v0, p1, Lcom/android/wm/shell/common/DisplayLayout;->mReverseDefaultRotation:Z
+
+    iput-boolean v0, p0, Lcom/android/wm/shell/common/DisplayLayout;->mReverseDefaultRotation:Z
+
     iget v0, p1, Lcom/android/wm/shell/common/DisplayLayout;->mNavBarFrameHeight:I
 
     iput v0, p0, Lcom/android/wm/shell/common/DisplayLayout;->mNavBarFrameHeight:I
@@ -1577,11 +1812,29 @@
 
     invoke-virtual {v0, v1}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
 
-    iget-object p0, p0, Lcom/android/wm/shell/common/DisplayLayout;->mStableInsets:Landroid/graphics/Rect;
+    iget-object v0, p0, Lcom/android/wm/shell/common/DisplayLayout;->mStableInsets:Landroid/graphics/Rect;
 
-    iget-object p1, p1, Lcom/android/wm/shell/common/DisplayLayout;->mStableInsets:Landroid/graphics/Rect;
+    iget-object v1, p1, Lcom/android/wm/shell/common/DisplayLayout;->mStableInsets:Landroid/graphics/Rect;
 
-    invoke-virtual {p0, p1}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
+    invoke-virtual {v0, v1}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
+
+    iget-object p0, p0, Lcom/android/wm/shell/common/DisplayLayout;->mInsetsState:Landroid/view/InsetsState;
+
+    iget-object p1, p1, Lcom/android/wm/shell/common/DisplayLayout;->mInsetsState:Landroid/view/InsetsState;
+
+    const/4 v0, 0x1
+
+    invoke-virtual {p0, p1, v0}, Landroid/view/InsetsState;->set(Landroid/view/InsetsState;Z)V
+
+    return-void
+.end method
+
+.method public setInsets(Landroid/content/res/Resources;Landroid/view/InsetsState;)V
+    .locals 0
+
+    iput-object p2, p0, Lcom/android/wm/shell/common/DisplayLayout;->mInsetsState:Landroid/view/InsetsState;
+
+    invoke-virtual {p0, p1}, Lcom/android/wm/shell/common/DisplayLayout;->recalcInsets(Landroid/content/res/Resources;)V
 
     return-void
 .end method

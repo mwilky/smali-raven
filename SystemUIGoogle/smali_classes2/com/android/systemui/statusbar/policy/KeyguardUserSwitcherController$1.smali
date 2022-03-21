@@ -32,17 +32,44 @@
 
 # virtual methods
 .method public onKeyguardVisibilityChanged(Z)V
-    .locals 0
+    .locals 3
 
-    if-nez p1, :cond_0
+    invoke-static {}, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;->access$000()Z
+
+    move-result v0
+
+    const/4 v1, 0x0
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v2
+
+    aput-object v2, v0, v1
+
+    const-string v2, "onKeyguardVisibilityChanged %b"
+
+    invoke-static {v2, v0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v2, "KeyguardUserSwitcherController"
+
+    invoke-static {v2, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    if-nez p1, :cond_1
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController$1;->this$0:Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;
 
-    const/4 p1, 0x0
+    invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;->closeSwitcherIfOpenAndNotSimple(Z)Z
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;->closeSwitcherIfOpenAndNotSimple(Z)Z
-
-    :cond_0
+    :cond_1
     return-void
 .end method
 

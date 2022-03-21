@@ -111,6 +111,11 @@
     .end annotation
 .end field
 
+.field static final PERMISSION_WIRELESS_CHARGER_STATUS:Ljava/lang/String; = "com.google.android.systemui.permission.WIRELESS_CHARGER_STATUS"
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+.end field
+
 .field static final RESULT_NOT_FOUND:I = 0x1
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
@@ -180,7 +185,7 @@
 
 .field private mFanLevel:I
 
-.field private mIndicationController:Lcom/google/android/systemui/dreamliner/DockIndicationController;
+.field mIndicationController:Lcom/google/android/systemui/dreamliner/DockIndicationController;
 
 .field private final mInterruptSuppressor:Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptSuppressor;
 
@@ -329,7 +334,11 @@
 
     move-result-object p3
 
-    invoke-virtual {p1, p0, p3}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+    const-string p4, "com.google.android.systemui.permission.WIRELESS_CHARGER_STATUS"
+
+    const/4 p7, 0x0
+
+    invoke-virtual {p1, p0, p3, p4, p7}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
 
     new-instance p1, Lcom/google/android/systemui/dreamliner/DockAlignmentController;
 
@@ -341,9 +350,7 @@
 
     iput-object p6, p0, Lcom/google/android/systemui/dreamliner/DockObserver;->mConfigurationController:Lcom/android/systemui/statusbar/policy/ConfigurationController;
 
-    const/4 p1, 0x0
-
-    invoke-direct {p0, p1}, Lcom/google/android/systemui/dreamliner/DockObserver;->refreshFanLevel(Ljava/lang/Runnable;)V
+    invoke-direct {p0, p7}, Lcom/google/android/systemui/dreamliner/DockObserver;->refreshFanLevel(Ljava/lang/Runnable;)V
 
     return-void
 .end method
@@ -442,12 +449,12 @@
     return-void
 .end method
 
-.method static synthetic access$1900(Lcom/google/android/systemui/dreamliner/DockObserver;)Lcom/google/android/systemui/dreamliner/DockIndicationController;
+.method static synthetic access$1900(Lcom/google/android/systemui/dreamliner/DockObserver;Landroid/content/Intent;)V
     .locals 0
 
-    iget-object p0, p0, Lcom/google/android/systemui/dreamliner/DockObserver;->mIndicationController:Lcom/google/android/systemui/dreamliner/DockIndicationController;
+    invoke-direct {p0, p1}, Lcom/google/android/systemui/dreamliner/DockObserver;->configPhotoAction(Landroid/content/Intent;)V
 
-    return-object p0
+    return-void
 .end method
 
 .method static synthetic access$200(Lcom/google/android/systemui/dreamliner/DockObserver;Landroid/content/Context;)V
@@ -458,15 +465,7 @@
     return-void
 .end method
 
-.method static synthetic access$2000(Lcom/google/android/systemui/dreamliner/DockObserver;Landroid/content/Intent;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/google/android/systemui/dreamliner/DockObserver;->configPhotoAction(Landroid/content/Intent;)V
-
-    return-void
-.end method
-
-.method static synthetic access$2100(Lcom/google/android/systemui/dreamliner/DockObserver;)V
+.method static synthetic access$2000(Lcom/google/android/systemui/dreamliner/DockObserver;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/google/android/systemui/dreamliner/DockObserver;->runPhotoAction()V
@@ -474,7 +473,7 @@
     return-void
 .end method
 
-.method static synthetic access$2200(Lcom/google/android/systemui/dreamliner/DockObserver;)V
+.method static synthetic access$2100(Lcom/google/android/systemui/dreamliner/DockObserver;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/google/android/systemui/dreamliner/DockObserver;->handlePhotoFailure()V
@@ -482,7 +481,7 @@
     return-void
 .end method
 
-.method static synthetic access$2300(Lcom/google/android/systemui/dreamliner/DockObserver;Ljava/lang/Runnable;)V
+.method static synthetic access$2200(Lcom/google/android/systemui/dreamliner/DockObserver;Ljava/lang/Runnable;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/google/android/systemui/dreamliner/DockObserver;->refreshFanLevel(Ljava/lang/Runnable;)V
@@ -490,7 +489,7 @@
     return-void
 .end method
 
-.method static synthetic access$2400(Lcom/google/android/systemui/dreamliner/DockObserver;)V
+.method static synthetic access$2300(Lcom/google/android/systemui/dreamliner/DockObserver;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/google/android/systemui/dreamliner/DockObserver;->notifyDreamlinerLatestFanLevel()V
@@ -1827,7 +1826,7 @@
 .end method
 
 .method private declared-synchronized startDreamlinerService(Landroid/content/Context;III)V
-    .locals 9
+    .locals 10
 
     monitor-enter p0
 
@@ -1858,7 +1857,9 @@
 
     check-cast v6, Landroid/view/View;
 
-    iget-object v7, p0, Lcom/google/android/systemui/dreamliner/DockObserver;->mStatusBarStateController:Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
+    iget-object v7, p0, Lcom/google/android/systemui/dreamliner/DockObserver;->mIndicationController:Lcom/google/android/systemui/dreamliner/DockIndicationController;
+
+    iget-object v8, p0, Lcom/google/android/systemui/dreamliner/DockObserver;->mStatusBarStateController:Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
 
     const-class v2, Lcom/android/systemui/statusbar/policy/KeyguardStateController;
 
@@ -1866,15 +1867,15 @@
 
     move-result-object v2
 
-    move-object v8, v2
+    move-object v9, v2
 
-    check-cast v8, Lcom/android/systemui/statusbar/policy/KeyguardStateController;
+    check-cast v9, Lcom/android/systemui/statusbar/policy/KeyguardStateController;
 
     move-object v2, v1
 
     move-object v3, p1
 
-    invoke-direct/range {v2 .. v8}, Lcom/google/android/systemui/dreamliner/DockGestureController;-><init>(Landroid/content/Context;Landroid/widget/ImageView;Landroid/widget/FrameLayout;Landroid/view/View;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;)V
+    invoke-direct/range {v2 .. v9}, Lcom/google/android/systemui/dreamliner/DockGestureController;-><init>(Landroid/content/Context;Landroid/widget/ImageView;Landroid/widget/FrameLayout;Landroid/view/View;Lcom/google/android/systemui/dreamliner/DockIndicationController;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;)V
 
     iput-object v1, p0, Lcom/google/android/systemui/dreamliner/DockObserver;->mDockGestureController:Lcom/google/android/systemui/dreamliner/DockGestureController;
 

@@ -27,9 +27,9 @@
 
     iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService$3$$ExternalSyntheticLambda3;->f$0:Landroid/os/Bundle;
 
-    check-cast p1, Lcom/android/wm/shell/startingsurface/StartingSurface;
+    check-cast p1, Lcom/android/wm/shell/splitscreen/SplitScreen;
 
-    invoke-static {p0, p1}, Lcom/android/systemui/recents/OverviewProxyService$3;->$r8$lambda$lK9_FRvhZxCwKpXcG6Mz3PJjpB8(Landroid/os/Bundle;Lcom/android/wm/shell/startingsurface/StartingSurface;)V
+    invoke-static {p0, p1}, Lcom/android/systemui/recents/OverviewProxyService$3;->$r8$lambda$D7k0SdZE7Jm1jghiZ8MKES35aak(Landroid/os/Bundle;Lcom/android/wm/shell/splitscreen/SplitScreen;)V
 
     return-void
 .end method

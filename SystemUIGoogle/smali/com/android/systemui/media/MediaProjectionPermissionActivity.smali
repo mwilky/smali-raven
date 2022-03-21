@@ -472,7 +472,7 @@
 
     move-result-object p1
 
-    const/16 v0, 0x7d3
+    const/16 v0, 0x7d9
 
     invoke-virtual {p1, v0}, Landroid/view/Window;->setType(I)V
 
@@ -500,7 +500,7 @@
     :catch_1
     move-exception p1
 
-    const-string/jumbo v1, "unable to look up package name"
+    const-string v1, "unable to look up package name"
 
     invoke-static {v0, v1, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 

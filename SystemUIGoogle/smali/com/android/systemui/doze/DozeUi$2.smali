@@ -43,7 +43,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/doze/DozeUi$2;->this$0:Lcom/android/systemui/doze/DozeUi;
 
-    invoke-static {p0}, Lcom/android/systemui/doze/DozeUi;->access$200(Lcom/android/systemui/doze/DozeUi;)Lcom/android/systemui/doze/DozeMachine;
+    invoke-static {p0}, Lcom/android/systemui/doze/DozeUi;->access$000(Lcom/android/systemui/doze/DozeUi;)Lcom/android/systemui/doze/DozeMachine;
 
     move-result-object p0
 
@@ -60,7 +60,7 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/systemui/doze/DozeUi$2;->this$0:Lcom/android/systemui/doze/DozeUi;
 
-    invoke-static {v0}, Lcom/android/systemui/doze/DozeUi;->access$200(Lcom/android/systemui/doze/DozeUi;)Lcom/android/systemui/doze/DozeMachine;
+    invoke-static {v0}, Lcom/android/systemui/doze/DozeUi;->access$000(Lcom/android/systemui/doze/DozeUi;)Lcom/android/systemui/doze/DozeMachine;
 
     move-result-object v0
 

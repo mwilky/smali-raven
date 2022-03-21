@@ -34,26 +34,6 @@
 
 
 # virtual methods
-.method public onConfigChanged(Landroid/content/res/Configuration;)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/biometrics/AuthRippleController$configurationChangedListener$1;->this$0:Lcom/android/systemui/biometrics/AuthRippleController;
-
-    invoke-virtual {p0}, Lcom/android/systemui/biometrics/AuthRippleController;->updateSensorLocation()V
-
-    return-void
-.end method
-
-.method public onOverlayChanged()V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/biometrics/AuthRippleController$configurationChangedListener$1;->this$0:Lcom/android/systemui/biometrics/AuthRippleController;
-
-    invoke-static {p0}, Lcom/android/systemui/biometrics/AuthRippleController;->access$updateRippleColor(Lcom/android/systemui/biometrics/AuthRippleController;)V
-
-    return-void
-.end method
-
 .method public onThemeChanged()V
     .locals 0
 

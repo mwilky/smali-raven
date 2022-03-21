@@ -18,11 +18,11 @@
 
 
 # instance fields
-.field private final featureFlagsProvider:Ljavax/inject/Provider;
+.field private final dumpManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
+            "Lcom/android/systemui/dump/DumpManager;",
             ">;"
         }
     .end annotation
@@ -76,9 +76,6 @@
         value = {
             "(",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
-            ">;",
-            "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/notification/NotificationEntryManager;",
             ">;",
             "Ljavax/inject/Provider<",
@@ -89,21 +86,24 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/keyguard/WakefulnessLifecycle;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/dump/DumpManager;",
             ">;)V"
         }
     .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideVisualStabilityManagerFactory;->featureFlagsProvider:Ljavax/inject/Provider;
+    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideVisualStabilityManagerFactory;->notificationEntryManagerProvider:Ljavax/inject/Provider;
 
-    iput-object p2, p0, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideVisualStabilityManagerFactory;->notificationEntryManagerProvider:Ljavax/inject/Provider;
+    iput-object p2, p0, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideVisualStabilityManagerFactory;->handlerProvider:Ljavax/inject/Provider;
 
-    iput-object p3, p0, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideVisualStabilityManagerFactory;->handlerProvider:Ljavax/inject/Provider;
+    iput-object p3, p0, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideVisualStabilityManagerFactory;->statusBarStateControllerProvider:Ljavax/inject/Provider;
 
-    iput-object p4, p0, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideVisualStabilityManagerFactory;->statusBarStateControllerProvider:Ljavax/inject/Provider;
+    iput-object p4, p0, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideVisualStabilityManagerFactory;->wakefulnessLifecycleProvider:Ljavax/inject/Provider;
 
-    iput-object p5, p0, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideVisualStabilityManagerFactory;->wakefulnessLifecycleProvider:Ljavax/inject/Provider;
+    iput-object p5, p0, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideVisualStabilityManagerFactory;->dumpManagerProvider:Ljavax/inject/Provider;
 
     return-void
 .end method
@@ -114,9 +114,6 @@
         value = {
             "(",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
-            ">;",
-            "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/notification/NotificationEntryManager;",
             ">;",
             "Ljavax/inject/Provider<",
@@ -127,6 +124,9 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/keyguard/WakefulnessLifecycle;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/dump/DumpManager;",
             ">;)",
             "Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideVisualStabilityManagerFactory;"
         }
@@ -151,10 +151,10 @@
     return-object v6
 .end method
 
-.method public static provideVisualStabilityManager(Lcom/android/systemui/statusbar/FeatureFlags;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Landroid/os/Handler;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/keyguard/WakefulnessLifecycle;)Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;
+.method public static provideVisualStabilityManager(Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Landroid/os/Handler;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/keyguard/WakefulnessLifecycle;Lcom/android/systemui/dump/DumpManager;)Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;
     .locals 0
 
-    invoke-static {p0, p1, p2, p3, p4}, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule;->provideVisualStabilityManager(Lcom/android/systemui/statusbar/FeatureFlags;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Landroid/os/Handler;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/keyguard/WakefulnessLifecycle;)Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;
+    invoke-static {p0, p1, p2, p3, p4}, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule;->provideVisualStabilityManager(Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Landroid/os/Handler;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/keyguard/WakefulnessLifecycle;Lcom/android/systemui/dump/DumpManager;)Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;
 
     move-result-object p0
 
@@ -172,47 +172,47 @@
 .method public get()Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;
     .locals 4
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideVisualStabilityManagerFactory;->featureFlagsProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideVisualStabilityManagerFactory;->notificationEntryManagerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object v0
 
-    check-cast v0, Lcom/android/systemui/statusbar/FeatureFlags;
+    check-cast v0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideVisualStabilityManagerFactory;->notificationEntryManagerProvider:Ljavax/inject/Provider;
+    iget-object v1, p0, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideVisualStabilityManagerFactory;->handlerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object v1
 
-    check-cast v1, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;
+    check-cast v1, Landroid/os/Handler;
 
-    iget-object v2, p0, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideVisualStabilityManagerFactory;->handlerProvider:Ljavax/inject/Provider;
+    iget-object v2, p0, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideVisualStabilityManagerFactory;->statusBarStateControllerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v2}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object v2
 
-    check-cast v2, Landroid/os/Handler;
+    check-cast v2, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
 
-    iget-object v3, p0, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideVisualStabilityManagerFactory;->statusBarStateControllerProvider:Ljavax/inject/Provider;
+    iget-object v3, p0, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideVisualStabilityManagerFactory;->wakefulnessLifecycleProvider:Ljavax/inject/Provider;
 
     invoke-interface {v3}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object v3
 
-    check-cast v3, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
+    check-cast v3, Lcom/android/systemui/keyguard/WakefulnessLifecycle;
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideVisualStabilityManagerFactory;->wakefulnessLifecycleProvider:Ljavax/inject/Provider;
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideVisualStabilityManagerFactory;->dumpManagerProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object p0
 
-    check-cast p0, Lcom/android/systemui/keyguard/WakefulnessLifecycle;
+    check-cast p0, Lcom/android/systemui/dump/DumpManager;
 
-    invoke-static {v0, v1, v2, v3, p0}, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideVisualStabilityManagerFactory;->provideVisualStabilityManager(Lcom/android/systemui/statusbar/FeatureFlags;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Landroid/os/Handler;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/keyguard/WakefulnessLifecycle;)Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;
+    invoke-static {v0, v1, v2, v3, p0}, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideVisualStabilityManagerFactory;->provideVisualStabilityManager(Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Landroid/os/Handler;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/keyguard/WakefulnessLifecycle;Lcom/android/systemui/dump/DumpManager;)Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;
 
     move-result-object p0
 

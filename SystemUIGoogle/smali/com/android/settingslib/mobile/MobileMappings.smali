@@ -61,7 +61,7 @@
 .end method
 
 .method public static mapIconSets(Lcom/android/settingslib/mobile/MobileMappings$Config;)Ljava/util/Map;
-    .locals 9
+    .locals 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -154,6 +154,8 @@
 
     const/4 v8, 0x2
 
+    const/4 v9, 0x1
+
     if-nez v2, :cond_1
 
     invoke-static {v7}, Lcom/android/settingslib/mobile/MobileMappings;->toIconKey(I)Ljava/lang/String;
@@ -169,6 +171,14 @@
     move-result-object v2
 
     sget-object v7, Lcom/android/settingslib/mobile/TelephonyIcons;->E:Lcom/android/settingslib/SignalIcon$MobileIconGroup;
+
+    invoke-interface {v0, v2, v7}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    invoke-static {v9}, Lcom/android/settingslib/mobile/MobileMappings;->toIconKey(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    sget-object v7, Lcom/android/settingslib/mobile/TelephonyIcons;->G:Lcom/android/settingslib/SignalIcon$MobileIconGroup;
 
     invoke-interface {v0, v2, v7}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -196,6 +206,12 @@
     invoke-interface {v0, v2, v3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     invoke-static {v8}, Lcom/android/settingslib/mobile/MobileMappings;->toIconKey(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-interface {v0, v2, v3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    invoke-static {v9}, Lcom/android/settingslib/mobile/MobileMappings;->toIconKey(I)Ljava/lang/String;
 
     move-result-object v2
 
@@ -274,8 +290,6 @@
 
     const/16 v3, 0xd
 
-    const/4 v5, 0x1
-
     if-eqz v2, :cond_5
 
     invoke-static {v3}, Lcom/android/settingslib/mobile/MobileMappings;->toIconKey(I)Ljava/lang/String;
@@ -290,7 +304,7 @@
 
     if-eqz p0, :cond_4
 
-    invoke-static {v5}, Lcom/android/settingslib/mobile/MobileMappings;->toDisplayIconKey(I)Ljava/lang/String;
+    invoke-static {v9}, Lcom/android/settingslib/mobile/MobileMappings;->toDisplayIconKey(I)Ljava/lang/String;
 
     move-result-object p0
 
@@ -299,7 +313,7 @@
     goto :goto_4
 
     :cond_4
-    invoke-static {v5}, Lcom/android/settingslib/mobile/MobileMappings;->toDisplayIconKey(I)Ljava/lang/String;
+    invoke-static {v9}, Lcom/android/settingslib/mobile/MobileMappings;->toDisplayIconKey(I)Ljava/lang/String;
 
     move-result-object p0
 
@@ -322,7 +336,7 @@
 
     if-eqz p0, :cond_6
 
-    invoke-static {v5}, Lcom/android/settingslib/mobile/MobileMappings;->toDisplayIconKey(I)Ljava/lang/String;
+    invoke-static {v9}, Lcom/android/settingslib/mobile/MobileMappings;->toDisplayIconKey(I)Ljava/lang/String;
 
     move-result-object p0
 
@@ -331,7 +345,7 @@
     goto :goto_4
 
     :cond_6
-    invoke-static {v5}, Lcom/android/settingslib/mobile/MobileMappings;->toDisplayIconKey(I)Ljava/lang/String;
+    invoke-static {v9}, Lcom/android/settingslib/mobile/MobileMappings;->toDisplayIconKey(I)Ljava/lang/String;
 
     move-result-object p0
 
@@ -408,7 +422,7 @@
 
     if-eq p0, v0, :cond_0
 
-    const-string/jumbo p0, "unsupported"
+    const-string p0, "unsupported"
 
     return-object p0
 

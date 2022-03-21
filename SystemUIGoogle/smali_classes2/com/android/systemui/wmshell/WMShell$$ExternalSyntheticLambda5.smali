@@ -27,9 +27,9 @@
 
     iget-object p0, p0, Lcom/android/systemui/wmshell/WMShell$$ExternalSyntheticLambda5;->f$0:Lcom/android/systemui/wmshell/WMShell;
 
-    check-cast p1, Lcom/android/wm/shell/pip/Pip;
+    check-cast p1, Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreen;
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/wmshell/WMShell;->initPip(Lcom/android/wm/shell/pip/Pip;)V
+    invoke-virtual {p0, p1}, Lcom/android/systemui/wmshell/WMShell;->initLegacySplitScreen(Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreen;)V
 
     return-void
 .end method

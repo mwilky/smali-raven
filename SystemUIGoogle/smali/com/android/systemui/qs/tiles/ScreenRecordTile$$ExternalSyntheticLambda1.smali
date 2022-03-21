@@ -27,7 +27,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/qs/tiles/ScreenRecordTile$$ExternalSyntheticLambda1;->f$0:Lcom/android/systemui/qs/tiles/ScreenRecordTile;
 
-    invoke-static {p0}, Lcom/android/systemui/qs/tiles/ScreenRecordTile;->$r8$lambda$HQnMjUPiv9JUzH6Tcag67dkDfn8(Lcom/android/systemui/qs/tiles/ScreenRecordTile;)V
+    invoke-static {p0}, Lcom/android/systemui/qs/tiles/ScreenRecordTile;->$r8$lambda$YQta6JmBzcBXUibziegVimDtjfw(Lcom/android/systemui/qs/tiles/ScreenRecordTile;)V
 
     return-void
 .end method

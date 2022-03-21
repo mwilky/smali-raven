@@ -15,6 +15,19 @@
 
 
 # virtual methods
+.method public abstract cancel(Ljava/util/concurrent/CancellationException;)V
+.end method
+
+.method public abstract getOnReceiveOrNull()Lkotlinx/coroutines/selects/SelectClause1;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Lkotlinx/coroutines/selects/SelectClause1<",
+            "TE;>;"
+        }
+    .end annotation
+.end method
+
 .method public abstract iterator()Lkotlinx/coroutines/channels/ChannelIterator;
     .annotation system Ldalvik/annotation/Signature;
         value = {

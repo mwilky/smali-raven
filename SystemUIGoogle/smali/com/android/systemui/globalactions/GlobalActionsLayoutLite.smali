@@ -96,16 +96,6 @@
     return p0
 .end method
 
-.method public getAnimationOffsetX()F
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/globalactions/GlobalActionsLayoutLite;->getAnimationDistance()F
-
-    move-result p0
-
-    return p0
-.end method
-
 .method protected getBackgroundDrawable(I)Lcom/android/systemui/HardwareBgDrawable;
     .locals 0
 

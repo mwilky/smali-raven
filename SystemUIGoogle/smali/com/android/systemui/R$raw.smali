@@ -9,3 +9,7 @@
 .field public static final image_wallpaper_fragment_shader:I = 0x7f120001
 
 .field public static final image_wallpaper_vertex_shader:I = 0x7f120002
+
+.field public static final sfps_pulse:I = 0x7f120007
+
+.field public static final sfps_pulse_landscape:I = 0x7f120008

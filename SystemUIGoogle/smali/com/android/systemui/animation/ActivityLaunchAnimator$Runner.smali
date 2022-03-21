@@ -17,12 +17,12 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nActivityLaunchAnimator.kt\nKotlin\n*S Kotlin\n*F\n+ 1 ActivityLaunchAnimator.kt\ncom/android/systemui/animation/ActivityLaunchAnimator$Runner\n+ 2 _Arrays.kt\nkotlin/collections/ArraysKt___ArraysKt\n*L\n1#1,721:1\n1245#2,2:722\n1245#2,2:724\n*E\n*S KotlinDebug\n*F\n+ 1 ActivityLaunchAnimator.kt\ncom/android/systemui/animation/ActivityLaunchAnimator$Runner\n*L\n428#1,2:722\n440#1,2:724\n*E\n"
+    value = "SMAP\nActivityLaunchAnimator.kt\nKotlin\n*S Kotlin\n*F\n+ 1 ActivityLaunchAnimator.kt\ncom/android/systemui/animation/ActivityLaunchAnimator$Runner\n+ 2 _Arrays.kt\nkotlin/collections/ArraysKt___ArraysKt\n*L\n1#1,539:1\n1245#2,2:540\n1245#2,2:542\n*E\n*S KotlinDebug\n*F\n+ 1 ActivityLaunchAnimator.kt\ncom/android/systemui/animation/ActivityLaunchAnimator$Runner\n*L\n353#1,2:540\n365#1,2:542\n*E\n"
 .end annotation
 
 
 # instance fields
-.field private animator:Landroid/animation/ValueAnimator;
+.field private animation:Lcom/android/systemui/animation/LaunchAnimator$Animation;
 
 .field private cancelled:Z
 
@@ -60,7 +60,7 @@
         }
     .end annotation
 
-    const-string/jumbo v0, "this$0"
+    const-string v0, "this$0"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -74,7 +74,7 @@
 
     iput-object p2, p0, Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;->controller:Lcom/android/systemui/animation/ActivityLaunchAnimator$Controller;
 
-    invoke-interface {p2}, Lcom/android/systemui/animation/ActivityLaunchAnimator$Controller;->getLaunchContainer()Landroid/view/ViewGroup;
+    invoke-interface {p2}, Lcom/android/systemui/animation/LaunchAnimator$Controller;->getLaunchContainer()Landroid/view/ViewGroup;
 
     move-result-object p1
 
@@ -125,44 +125,28 @@
     return-void
 .end method
 
-.method public static final synthetic access$applyStateToNavigationBar(Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;Landroid/view/RemoteAnimationTarget;Lcom/android/systemui/animation/ActivityLaunchAnimator$State;F)V
+.method public static final synthetic access$applyStateToNavigationBar(Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;Landroid/view/RemoteAnimationTarget;Lcom/android/systemui/animation/LaunchAnimator$State;F)V
     .locals 0
 
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;->applyStateToNavigationBar(Landroid/view/RemoteAnimationTarget;Lcom/android/systemui/animation/ActivityLaunchAnimator$State;F)V
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;->applyStateToNavigationBar(Landroid/view/RemoteAnimationTarget;Lcom/android/systemui/animation/LaunchAnimator$State;F)V
 
     return-void
 .end method
 
-.method public static final synthetic access$applyStateToWindow(Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;Landroid/view/RemoteAnimationTarget;Lcom/android/systemui/animation/ActivityLaunchAnimator$State;)V
+.method public static final synthetic access$applyStateToWindow(Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;Landroid/view/RemoteAnimationTarget;Lcom/android/systemui/animation/LaunchAnimator$State;)V
     .locals 0
 
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;->applyStateToWindow(Landroid/view/RemoteAnimationTarget;Lcom/android/systemui/animation/ActivityLaunchAnimator$State;)V
+    invoke-direct {p0, p1, p2}, Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;->applyStateToWindow(Landroid/view/RemoteAnimationTarget;Lcom/android/systemui/animation/LaunchAnimator$State;)V
 
     return-void
 .end method
 
-.method public static final synthetic access$applyStateToWindowBackgroundLayer(Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;Landroid/graphics/drawable/GradientDrawable;Lcom/android/systemui/animation/ActivityLaunchAnimator$State;F)V
+.method public static final synthetic access$getAnimation$p(Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;)Lcom/android/systemui/animation/LaunchAnimator$Animation;
     .locals 0
 
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;->applyStateToWindowBackgroundLayer(Landroid/graphics/drawable/GradientDrawable;Lcom/android/systemui/animation/ActivityLaunchAnimator$State;F)V
-
-    return-void
-.end method
-
-.method public static final synthetic access$getAnimator$p(Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;)Landroid/animation/ValueAnimator;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;->animator:Landroid/animation/ValueAnimator;
+    iget-object p0, p0, Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;->animation:Lcom/android/systemui/animation/LaunchAnimator$Animation;
 
     return-object p0
-.end method
-
-.method public static final synthetic access$getCancelled$p(Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;)Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;->cancelled:Z
-
-    return p0
 .end method
 
 .method public static final synthetic access$getController$p(Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;)Lcom/android/systemui/animation/ActivityLaunchAnimator$Controller;
@@ -181,16 +165,6 @@
     return-void
 .end method
 
-.method public static final synthetic access$lerp(Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;IIF)F
-    .locals 0
-
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;->lerp(IIF)F
-
-    move-result p0
-
-    return p0
-.end method
-
 .method public static final synthetic access$onAnimationTimedOut(Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;)V
     .locals 0
 
@@ -207,36 +181,42 @@
     return-void
 .end method
 
-.method private final applyStateToNavigationBar(Landroid/view/RemoteAnimationTarget;Lcom/android/systemui/animation/ActivityLaunchAnimator$State;F)V
-    .locals 10
+.method private final applyStateToNavigationBar(Landroid/view/RemoteAnimationTarget;Lcom/android/systemui/animation/LaunchAnimator$State;F)V
+    .locals 12
 
-    sget-object v6, Lcom/android/systemui/animation/ActivityLaunchAnimator;->Companion:Lcom/android/systemui/animation/ActivityLaunchAnimator$Companion;
+    sget-object v7, Lcom/android/systemui/animation/LaunchAnimator;->Companion:Lcom/android/systemui/animation/LaunchAnimator$Companion;
 
-    const-wide/16 v2, 0xea
+    sget-object v8, Lcom/android/systemui/animation/ActivityLaunchAnimator;->TIMINGS:Lcom/android/systemui/animation/LaunchAnimator$Timings;
 
-    const-wide/16 v4, 0x85
+    invoke-static {}, Lcom/android/systemui/animation/ActivityLaunchAnimator;->access$getANIMATION_DELAY_NAV_FADE_IN$cp()J
 
-    move-object v0, v6
+    move-result-wide v3
 
-    move v1, p3
+    const-wide/16 v5, 0x85
 
-    invoke-virtual/range {v0 .. v5}, Lcom/android/systemui/animation/ActivityLaunchAnimator$Companion;->getProgress(FJJ)F
+    move-object v0, v7
+
+    move-object v1, v8
+
+    move v2, p3
+
+    invoke-virtual/range {v0 .. v6}, Lcom/android/systemui/animation/LaunchAnimator$Companion;->getProgress(Lcom/android/systemui/animation/LaunchAnimator$Timings;FJJ)F
 
     move-result v0
 
-    new-instance v7, Landroid/view/SyncRtSurfaceTransactionApplier$SurfaceParams$Builder;
+    new-instance v9, Landroid/view/SyncRtSurfaceTransactionApplier$SurfaceParams$Builder;
 
     iget-object v1, p1, Landroid/view/RemoteAnimationTarget;->leash:Landroid/view/SurfaceControl;
 
-    invoke-direct {v7, v1}, Landroid/view/SyncRtSurfaceTransactionApplier$SurfaceParams$Builder;-><init>(Landroid/view/SurfaceControl;)V
+    invoke-direct {v9, v1}, Landroid/view/SyncRtSurfaceTransactionApplier$SurfaceParams$Builder;-><init>(Landroid/view/SurfaceControl;)V
 
     const/4 v1, 0x0
 
     cmpl-float v2, v0, v1
 
-    const/4 v8, 0x1
+    const/4 v10, 0x1
 
-    const/4 v9, 0x0
+    const/4 v11, 0x0
 
     if-lez v2, :cond_0
 
@@ -246,7 +226,7 @@
 
     iget-object p3, p0, Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;->matrix:Landroid/graphics/Matrix;
 
-    invoke-virtual {p2}, Lcom/android/systemui/animation/ActivityLaunchAnimator$State;->getTop()I
+    invoke-virtual {p2}, Lcom/android/systemui/animation/LaunchAnimator$State;->getTop()I
 
     move-result v2
 
@@ -262,29 +242,29 @@
 
     iget-object p1, p0, Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;->windowCrop:Landroid/graphics/Rect;
 
-    invoke-virtual {p2}, Lcom/android/systemui/animation/ActivityLaunchAnimator$State;->getLeft()I
+    invoke-virtual {p2}, Lcom/android/systemui/animation/LaunchAnimator$State;->getLeft()I
 
     move-result p3
 
-    invoke-virtual {p2}, Lcom/android/systemui/animation/ActivityLaunchAnimator$State;->getRight()I
+    invoke-virtual {p2}, Lcom/android/systemui/animation/LaunchAnimator$State;->getRight()I
 
     move-result v1
 
-    invoke-virtual {p2}, Lcom/android/systemui/animation/ActivityLaunchAnimator$State;->getHeight()I
+    invoke-virtual {p2}, Lcom/android/systemui/animation/LaunchAnimator$State;->getHeight()I
 
     move-result p2
 
-    invoke-virtual {p1, p3, v9, v1, p2}, Landroid/graphics/Rect;->set(IIII)V
+    invoke-virtual {p1, p3, v11, v1, p2}, Landroid/graphics/Rect;->set(IIII)V
 
-    invoke-static {}, Lcom/android/systemui/animation/ActivityLaunchAnimator;->access$getNAV_FADE_IN_INTERPOLATOR$cp()Landroid/view/animation/PathInterpolator;
+    invoke-static {}, Lcom/android/systemui/animation/ActivityLaunchAnimator;->access$getNAV_FADE_IN_INTERPOLATOR$cp()Landroid/view/animation/Interpolator;
 
     move-result-object p1
 
-    invoke-virtual {p1, v0}, Landroid/view/animation/PathInterpolator;->getInterpolation(F)F
+    invoke-interface {p1, v0}, Landroid/view/animation/Interpolator;->getInterpolation(F)F
 
     move-result p1
 
-    invoke-virtual {v7, p1}, Landroid/view/SyncRtSurfaceTransactionApplier$SurfaceParams$Builder;->withAlpha(F)Landroid/view/SyncRtSurfaceTransactionApplier$SurfaceParams$Builder;
+    invoke-virtual {v9, p1}, Landroid/view/SyncRtSurfaceTransactionApplier$SurfaceParams$Builder;->withAlpha(F)Landroid/view/SyncRtSurfaceTransactionApplier$SurfaceParams$Builder;
 
     move-result-object p1
 
@@ -300,20 +280,22 @@
 
     move-result-object p1
 
-    invoke-virtual {p1, v8}, Landroid/view/SyncRtSurfaceTransactionApplier$SurfaceParams$Builder;->withVisibility(Z)Landroid/view/SyncRtSurfaceTransactionApplier$SurfaceParams$Builder;
+    invoke-virtual {p1, v10}, Landroid/view/SyncRtSurfaceTransactionApplier$SurfaceParams$Builder;->withVisibility(Z)Landroid/view/SyncRtSurfaceTransactionApplier$SurfaceParams$Builder;
 
     goto :goto_0
 
     :cond_0
-    const-wide/16 v2, 0x0
+    const-wide/16 v3, 0x0
 
-    const-wide/16 v4, 0x85
+    const-wide/16 v5, 0x85
 
-    move-object v0, v6
+    move-object v0, v7
 
-    move v1, p3
+    move-object v1, v8
 
-    invoke-virtual/range {v0 .. v5}, Lcom/android/systemui/animation/ActivityLaunchAnimator$Companion;->getProgress(FJJ)F
+    move v2, p3
+
+    invoke-virtual/range {v0 .. v6}, Lcom/android/systemui/animation/LaunchAnimator$Companion;->getProgress(Lcom/android/systemui/animation/LaunchAnimator$Timings;FJJ)F
 
     move-result p1
 
@@ -329,25 +311,25 @@
 
     sub-float/2addr p2, p1
 
-    invoke-virtual {v7, p2}, Landroid/view/SyncRtSurfaceTransactionApplier$SurfaceParams$Builder;->withAlpha(F)Landroid/view/SyncRtSurfaceTransactionApplier$SurfaceParams$Builder;
+    invoke-virtual {v9, p2}, Landroid/view/SyncRtSurfaceTransactionApplier$SurfaceParams$Builder;->withAlpha(F)Landroid/view/SyncRtSurfaceTransactionApplier$SurfaceParams$Builder;
 
     :goto_0
     iget-object p0, p0, Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;->transactionApplier:Landroid/view/SyncRtSurfaceTransactionApplier;
 
-    new-array p1, v8, [Landroid/view/SyncRtSurfaceTransactionApplier$SurfaceParams;
+    new-array p1, v10, [Landroid/view/SyncRtSurfaceTransactionApplier$SurfaceParams;
 
-    invoke-virtual {v7}, Landroid/view/SyncRtSurfaceTransactionApplier$SurfaceParams$Builder;->build()Landroid/view/SyncRtSurfaceTransactionApplier$SurfaceParams;
+    invoke-virtual {v9}, Landroid/view/SyncRtSurfaceTransactionApplier$SurfaceParams$Builder;->build()Landroid/view/SyncRtSurfaceTransactionApplier$SurfaceParams;
 
     move-result-object p2
 
-    aput-object p2, p1, v9
+    aput-object p2, p1, v11
 
     invoke-virtual {p0, p1}, Landroid/view/SyncRtSurfaceTransactionApplier;->scheduleApply([Landroid/view/SyncRtSurfaceTransactionApplier$SurfaceParams;)V
 
     return-void
 .end method
 
-.method private final applyStateToWindow(Landroid/view/RemoteAnimationTarget;Lcom/android/systemui/animation/ActivityLaunchAnimator$State;)V
+.method private final applyStateToWindow(Landroid/view/RemoteAnimationTarget;Lcom/android/systemui/animation/LaunchAnimator$State;)V
     .locals 8
 
     iget-object v0, p1, Landroid/view/RemoteAnimationTarget;->screenSpaceBounds:Landroid/graphics/Rect;
@@ -378,7 +360,7 @@
 
     sub-int/2addr v6, v5
 
-    invoke-virtual {p2}, Lcom/android/systemui/animation/ActivityLaunchAnimator$State;->getWidth()I
+    invoke-virtual {p2}, Lcom/android/systemui/animation/LaunchAnimator$State;->getWidth()I
 
     move-result v1
 
@@ -388,7 +370,7 @@
 
     div-float/2addr v1, v2
 
-    invoke-virtual {p2}, Lcom/android/systemui/animation/ActivityLaunchAnimator$State;->getHeight()I
+    invoke-virtual {p2}, Lcom/android/systemui/animation/LaunchAnimator$State;->getHeight()I
 
     move-result v2
 
@@ -414,13 +396,13 @@
 
     sub-float/2addr v2, v5
 
-    invoke-virtual {p2}, Lcom/android/systemui/animation/ActivityLaunchAnimator$State;->getCenterX()F
+    invoke-virtual {p2}, Lcom/android/systemui/animation/LaunchAnimator$State;->getCenterX()F
 
     move-result v5
 
     sub-float/2addr v5, v3
 
-    invoke-virtual {p2}, Lcom/android/systemui/animation/ActivityLaunchAnimator$State;->getTop()I
+    invoke-virtual {p2}, Lcom/android/systemui/animation/LaunchAnimator$State;->getTop()I
 
     move-result v3
 
@@ -438,7 +420,7 @@
 
     invoke-virtual {v2, v5, v3}, Landroid/graphics/Matrix;->postTranslate(FF)Z
 
-    invoke-virtual {p2}, Lcom/android/systemui/animation/ActivityLaunchAnimator$State;->getLeft()I
+    invoke-virtual {p2}, Lcom/android/systemui/animation/LaunchAnimator$State;->getLeft()I
 
     move-result v2
 
@@ -450,7 +432,7 @@
 
     sub-float/2addr v2, v3
 
-    invoke-virtual {p2}, Lcom/android/systemui/animation/ActivityLaunchAnimator$State;->getTop()I
+    invoke-virtual {p2}, Lcom/android/systemui/animation/LaunchAnimator$State;->getTop()I
 
     move-result v3
 
@@ -464,7 +446,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;->windowCropF:Landroid/graphics/RectF;
 
-    invoke-virtual {p2}, Lcom/android/systemui/animation/ActivityLaunchAnimator$State;->getWidth()I
+    invoke-virtual {p2}, Lcom/android/systemui/animation/LaunchAnimator$State;->getWidth()I
 
     move-result v4
 
@@ -472,7 +454,7 @@
 
     add-float/2addr v4, v2
 
-    invoke-virtual {p2}, Lcom/android/systemui/animation/ActivityLaunchAnimator$State;->getHeight()I
+    invoke-virtual {p2}, Lcom/android/systemui/animation/LaunchAnimator$State;->getHeight()I
 
     move-result v5
 
@@ -530,11 +512,11 @@
 
     invoke-virtual {v0, v2, v3, v4, v5}, Landroid/graphics/Rect;->set(IIII)V
 
-    invoke-virtual {p2}, Lcom/android/systemui/animation/ActivityLaunchAnimator$State;->getTopCornerRadius()F
+    invoke-virtual {p2}, Lcom/android/systemui/animation/LaunchAnimator$State;->getTopCornerRadius()F
 
     move-result v0
 
-    invoke-virtual {p2}, Lcom/android/systemui/animation/ActivityLaunchAnimator$State;->getBottomCornerRadius()F
+    invoke-virtual {p2}, Lcom/android/systemui/animation/LaunchAnimator$State;->getBottomCornerRadius()F
 
     move-result p2
 
@@ -546,31 +528,25 @@
 
     new-instance v0, Landroid/view/SyncRtSurfaceTransactionApplier$SurfaceParams$Builder;
 
-    iget-object v1, p1, Landroid/view/RemoteAnimationTarget;->leash:Landroid/view/SurfaceControl;
+    iget-object p1, p1, Landroid/view/RemoteAnimationTarget;->leash:Landroid/view/SurfaceControl;
 
-    invoke-direct {v0, v1}, Landroid/view/SyncRtSurfaceTransactionApplier$SurfaceParams$Builder;-><init>(Landroid/view/SurfaceControl;)V
+    invoke-direct {v0, p1}, Landroid/view/SyncRtSurfaceTransactionApplier$SurfaceParams$Builder;-><init>(Landroid/view/SurfaceControl;)V
 
-    const/high16 v1, 0x3f800000    # 1.0f
+    const/high16 p1, 0x3f800000    # 1.0f
 
-    invoke-virtual {v0, v1}, Landroid/view/SyncRtSurfaceTransactionApplier$SurfaceParams$Builder;->withAlpha(F)Landroid/view/SyncRtSurfaceTransactionApplier$SurfaceParams$Builder;
+    invoke-virtual {v0, p1}, Landroid/view/SyncRtSurfaceTransactionApplier$SurfaceParams$Builder;->withAlpha(F)Landroid/view/SyncRtSurfaceTransactionApplier$SurfaceParams$Builder;
 
-    move-result-object v0
+    move-result-object p1
 
-    iget-object v1, p0, Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;->matrix:Landroid/graphics/Matrix;
+    iget-object v0, p0, Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;->matrix:Landroid/graphics/Matrix;
 
-    invoke-virtual {v0, v1}, Landroid/view/SyncRtSurfaceTransactionApplier$SurfaceParams$Builder;->withMatrix(Landroid/graphics/Matrix;)Landroid/view/SyncRtSurfaceTransactionApplier$SurfaceParams$Builder;
+    invoke-virtual {p1, v0}, Landroid/view/SyncRtSurfaceTransactionApplier$SurfaceParams$Builder;->withMatrix(Landroid/graphics/Matrix;)Landroid/view/SyncRtSurfaceTransactionApplier$SurfaceParams$Builder;
 
-    move-result-object v0
+    move-result-object p1
 
-    iget-object v1, p0, Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;->windowCrop:Landroid/graphics/Rect;
+    iget-object v0, p0, Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;->windowCrop:Landroid/graphics/Rect;
 
-    invoke-virtual {v0, v1}, Landroid/view/SyncRtSurfaceTransactionApplier$SurfaceParams$Builder;->withWindowCrop(Landroid/graphics/Rect;)Landroid/view/SyncRtSurfaceTransactionApplier$SurfaceParams$Builder;
-
-    move-result-object v0
-
-    iget p1, p1, Landroid/view/RemoteAnimationTarget;->prefixOrderIndex:I
-
-    invoke-virtual {v0, p1}, Landroid/view/SyncRtSurfaceTransactionApplier$SurfaceParams$Builder;->withLayer(I)Landroid/view/SyncRtSurfaceTransactionApplier$SurfaceParams$Builder;
+    invoke-virtual {p1, v0}, Landroid/view/SyncRtSurfaceTransactionApplier$SurfaceParams$Builder;->withWindowCrop(Landroid/graphics/Rect;)Landroid/view/SyncRtSurfaceTransactionApplier$SurfaceParams$Builder;
 
     move-result-object p1
 
@@ -601,236 +577,6 @@
     return-void
 .end method
 
-.method private final applyStateToWindowBackgroundLayer(Landroid/graphics/drawable/GradientDrawable;Lcom/android/systemui/animation/ActivityLaunchAnimator$State;F)V
-    .locals 9
-
-    invoke-virtual {p2}, Lcom/android/systemui/animation/ActivityLaunchAnimator$State;->getLeft()I
-
-    move-result v0
-
-    invoke-virtual {p2}, Lcom/android/systemui/animation/ActivityLaunchAnimator$State;->getTop()I
-
-    move-result v1
-
-    invoke-virtual {p2}, Lcom/android/systemui/animation/ActivityLaunchAnimator$State;->getRight()I
-
-    move-result v2
-
-    invoke-virtual {p2}, Lcom/android/systemui/animation/ActivityLaunchAnimator$State;->getBottom()I
-
-    move-result v3
-
-    invoke-virtual {p1, v0, v1, v2, v3}, Landroid/graphics/drawable/GradientDrawable;->setBounds(IIII)V
-
-    iget-object v0, p0, Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;->this$0:Lcom/android/systemui/animation/ActivityLaunchAnimator;
-
-    invoke-static {v0}, Lcom/android/systemui/animation/ActivityLaunchAnimator;->access$getCornerRadii$p(Lcom/android/systemui/animation/ActivityLaunchAnimator;)[F
-
-    move-result-object v0
-
-    invoke-virtual {p2}, Lcom/android/systemui/animation/ActivityLaunchAnimator$State;->getTopCornerRadius()F
-
-    move-result v1
-
-    const/4 v2, 0x0
-
-    aput v1, v0, v2
-
-    iget-object v0, p0, Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;->this$0:Lcom/android/systemui/animation/ActivityLaunchAnimator;
-
-    invoke-static {v0}, Lcom/android/systemui/animation/ActivityLaunchAnimator;->access$getCornerRadii$p(Lcom/android/systemui/animation/ActivityLaunchAnimator;)[F
-
-    move-result-object v0
-
-    invoke-virtual {p2}, Lcom/android/systemui/animation/ActivityLaunchAnimator$State;->getTopCornerRadius()F
-
-    move-result v1
-
-    const/4 v2, 0x1
-
-    aput v1, v0, v2
-
-    iget-object v0, p0, Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;->this$0:Lcom/android/systemui/animation/ActivityLaunchAnimator;
-
-    invoke-static {v0}, Lcom/android/systemui/animation/ActivityLaunchAnimator;->access$getCornerRadii$p(Lcom/android/systemui/animation/ActivityLaunchAnimator;)[F
-
-    move-result-object v0
-
-    invoke-virtual {p2}, Lcom/android/systemui/animation/ActivityLaunchAnimator$State;->getTopCornerRadius()F
-
-    move-result v1
-
-    const/4 v3, 0x2
-
-    aput v1, v0, v3
-
-    iget-object v0, p0, Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;->this$0:Lcom/android/systemui/animation/ActivityLaunchAnimator;
-
-    invoke-static {v0}, Lcom/android/systemui/animation/ActivityLaunchAnimator;->access$getCornerRadii$p(Lcom/android/systemui/animation/ActivityLaunchAnimator;)[F
-
-    move-result-object v0
-
-    invoke-virtual {p2}, Lcom/android/systemui/animation/ActivityLaunchAnimator$State;->getTopCornerRadius()F
-
-    move-result v1
-
-    const/4 v3, 0x3
-
-    aput v1, v0, v3
-
-    iget-object v0, p0, Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;->this$0:Lcom/android/systemui/animation/ActivityLaunchAnimator;
-
-    invoke-static {v0}, Lcom/android/systemui/animation/ActivityLaunchAnimator;->access$getCornerRadii$p(Lcom/android/systemui/animation/ActivityLaunchAnimator;)[F
-
-    move-result-object v0
-
-    invoke-virtual {p2}, Lcom/android/systemui/animation/ActivityLaunchAnimator$State;->getBottomCornerRadius()F
-
-    move-result v1
-
-    const/4 v3, 0x4
-
-    aput v1, v0, v3
-
-    iget-object v0, p0, Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;->this$0:Lcom/android/systemui/animation/ActivityLaunchAnimator;
-
-    invoke-static {v0}, Lcom/android/systemui/animation/ActivityLaunchAnimator;->access$getCornerRadii$p(Lcom/android/systemui/animation/ActivityLaunchAnimator;)[F
-
-    move-result-object v0
-
-    invoke-virtual {p2}, Lcom/android/systemui/animation/ActivityLaunchAnimator$State;->getBottomCornerRadius()F
-
-    move-result v1
-
-    const/4 v3, 0x5
-
-    aput v1, v0, v3
-
-    iget-object v0, p0, Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;->this$0:Lcom/android/systemui/animation/ActivityLaunchAnimator;
-
-    invoke-static {v0}, Lcom/android/systemui/animation/ActivityLaunchAnimator;->access$getCornerRadii$p(Lcom/android/systemui/animation/ActivityLaunchAnimator;)[F
-
-    move-result-object v0
-
-    invoke-virtual {p2}, Lcom/android/systemui/animation/ActivityLaunchAnimator$State;->getBottomCornerRadius()F
-
-    move-result v1
-
-    const/4 v3, 0x6
-
-    aput v1, v0, v3
-
-    iget-object v0, p0, Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;->this$0:Lcom/android/systemui/animation/ActivityLaunchAnimator;
-
-    invoke-static {v0}, Lcom/android/systemui/animation/ActivityLaunchAnimator;->access$getCornerRadii$p(Lcom/android/systemui/animation/ActivityLaunchAnimator;)[F
-
-    move-result-object v0
-
-    invoke-virtual {p2}, Lcom/android/systemui/animation/ActivityLaunchAnimator$State;->getBottomCornerRadius()F
-
-    move-result p2
-
-    const/4 v1, 0x7
-
-    aput p2, v0, v1
-
-    iget-object p0, p0, Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;->this$0:Lcom/android/systemui/animation/ActivityLaunchAnimator;
-
-    invoke-static {p0}, Lcom/android/systemui/animation/ActivityLaunchAnimator;->access$getCornerRadii$p(Lcom/android/systemui/animation/ActivityLaunchAnimator;)[F
-
-    move-result-object p0
-
-    invoke-virtual {p1, p0}, Landroid/graphics/drawable/GradientDrawable;->setCornerRadii([F)V
-
-    sget-object p0, Lcom/android/systemui/animation/ActivityLaunchAnimator;->Companion:Lcom/android/systemui/animation/ActivityLaunchAnimator$Companion;
-
-    const-wide/16 v5, 0x0
-
-    const-wide/16 v7, 0x96
-
-    move-object v3, p0
-
-    move v4, p3
-
-    invoke-virtual/range {v3 .. v8}, Lcom/android/systemui/animation/ActivityLaunchAnimator$Companion;->getProgress(FJJ)F
-
-    move-result p2
-
-    const/high16 v0, 0x3f800000    # 1.0f
-
-    cmpg-float v0, p2, v0
-
-    const/16 v1, 0xff
-
-    if-gez v0, :cond_0
-
-    sget-object p0, Lcom/android/systemui/animation/ActivityLaunchAnimator;->CONTENT_FADE_OUT_INTERPOLATOR:Landroid/view/animation/PathInterpolator;
-
-    invoke-virtual {p0, p2}, Landroid/view/animation/PathInterpolator;->getInterpolation(F)F
-
-    move-result p0
-
-    int-to-float p2, v1
-
-    mul-float/2addr p0, p2
-
-    invoke-static {p0}, Lkotlin/math/MathKt;->roundToInt(F)I
-
-    move-result p0
-
-    invoke-virtual {p1, p0}, Landroid/graphics/drawable/GradientDrawable;->setAlpha(I)V
-
-    const/4 p0, 0x0
-
-    invoke-virtual {p1, p0}, Landroid/graphics/drawable/GradientDrawable;->setXfermode(Landroid/graphics/Xfermode;)V
-
-    goto :goto_0
-
-    :cond_0
-    const-wide/16 v5, 0x96
-
-    const-wide/16 v7, 0xb7
-
-    move-object v3, p0
-
-    move v4, p3
-
-    invoke-virtual/range {v3 .. v8}, Lcom/android/systemui/animation/ActivityLaunchAnimator$Companion;->getProgress(FJJ)F
-
-    move-result p0
-
-    int-to-float p2, v2
-
-    invoke-static {}, Lcom/android/systemui/animation/ActivityLaunchAnimator;->access$getWINDOW_FADE_IN_INTERPOLATOR$cp()Landroid/view/animation/PathInterpolator;
-
-    move-result-object p3
-
-    invoke-virtual {p3, p0}, Landroid/view/animation/PathInterpolator;->getInterpolation(F)F
-
-    move-result p0
-
-    sub-float/2addr p2, p0
-
-    int-to-float p0, v1
-
-    mul-float/2addr p2, p0
-
-    invoke-static {p2}, Lkotlin/math/MathKt;->roundToInt(F)I
-
-    move-result p0
-
-    invoke-virtual {p1, p0}, Landroid/graphics/drawable/GradientDrawable;->setAlpha(I)V
-
-    invoke-static {}, Lcom/android/systemui/animation/ActivityLaunchAnimator;->access$getSRC_MODE$cp()Landroid/graphics/PorterDuffXfermode;
-
-    move-result-object p0
-
-    invoke-virtual {p1, p0}, Landroid/graphics/drawable/GradientDrawable;->setXfermode(Landroid/graphics/Xfermode;)V
-
-    :goto_0
-    return-void
-.end method
-
 .method private final invoke(Landroid/view/IRemoteAnimationFinishedCallback;)V
     .locals 0
 
@@ -850,20 +596,6 @@
     return-void
 .end method
 
-.method private final lerp(IIF)F
-    .locals 0
-
-    int-to-float p0, p1
-
-    int-to-float p1, p2
-
-    invoke-static {p0, p1, p3}, Landroid/util/MathUtils;->lerp(FFF)F
-
-    move-result p0
-
-    return p0
-.end method
-
 .method private final onAnimationTimedOut()V
     .locals 2
 
@@ -878,7 +610,7 @@
 
     const-string v1, "Remote animation timed out"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     const/4 v0, 0x1
 
@@ -904,86 +636,82 @@
 .end method
 
 .method private final startAnimation([Landroid/view/RemoteAnimationTarget;[Landroid/view/RemoteAnimationTarget;Landroid/view/IRemoteAnimationFinishedCallback;)V
-    .locals 27
+    .locals 18
 
-    move-object/from16 v8, p0
+    move-object/from16 v7, p0
 
     move-object/from16 v0, p1
 
     move-object/from16 v1, p2
 
-    move-object/from16 v6, p3
+    move-object/from16 v3, p3
 
-    const-string v2, "ActivityLaunchAnimator"
+    const/4 v2, 0x0
 
-    const-string v3, "Remote animation started"
+    const/4 v4, 0x0
 
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v3, 0x0
-
-    const/4 v4, 0x1
-
-    const/4 v5, 0x0
+    const/4 v8, 0x1
 
     if-nez v0, :cond_1
 
     :cond_0
-    move-object v15, v3
+    move-object v5, v2
 
     goto :goto_2
 
     :cond_1
-    array-length v7, v0
+    array-length v5, v0
 
-    move v9, v5
+    move v6, v4
 
     :goto_0
-    if-ge v9, v7, :cond_0
+    if-ge v6, v5, :cond_0
 
-    aget-object v10, v0, v9
+    aget-object v9, v0, v6
 
-    iget v11, v10, Landroid/view/RemoteAnimationTarget;->mode:I
+    iget v10, v9, Landroid/view/RemoteAnimationTarget;->mode:I
 
-    if-nez v11, :cond_2
+    if-nez v10, :cond_2
 
-    move v11, v4
+    move v10, v8
 
     goto :goto_1
 
     :cond_2
-    move v11, v5
+    move v10, v4
 
     :goto_1
-    if-eqz v11, :cond_3
+    if-eqz v10, :cond_3
 
-    move-object v15, v10
+    move-object v5, v9
 
     goto :goto_2
 
     :cond_3
-    add-int/lit8 v9, v9, 0x1
+    add-int/lit8 v6, v6, 0x1
 
     goto :goto_0
 
     :goto_2
-    if-nez v15, :cond_5
+    if-nez v5, :cond_5
 
-    const-string v0, "Aborting the animation as no window is opening"
+    const-string v0, "ActivityLaunchAnimator"
 
-    invoke-static {v2, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    const-string v1, "Aborting the animation as no window is opening"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-direct/range {p0 .. p0}, Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;->removeTimeout()V
 
-    if-nez v6, :cond_4
+    if-nez v3, :cond_4
 
     goto :goto_3
 
     :cond_4
-    invoke-direct {v8, v6}, Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;->invoke(Landroid/view/IRemoteAnimationFinishedCallback;)V
+    invoke-direct {v7, v3}, Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;->invoke(Landroid/view/IRemoteAnimationFinishedCallback;)V
 
     :goto_3
-    iget-object v0, v8, Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;->controller:Lcom/android/systemui/animation/ActivityLaunchAnimator$Controller;
+    iget-object v0, v7, Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;->controller:Lcom/android/systemui/animation/ActivityLaunchAnimator$Controller;
 
     invoke-interface {v0}, Lcom/android/systemui/animation/ActivityLaunchAnimator$Controller;->onLaunchAnimationCancelled()V
 
@@ -993,287 +721,149 @@
     if-nez v1, :cond_7
 
     :cond_6
-    move-object/from16 v24, v3
+    move-object v6, v2
 
     goto :goto_6
 
     :cond_7
     array-length v0, v1
 
-    move v2, v5
+    move v6, v4
 
     :goto_4
-    if-ge v2, v0, :cond_6
+    if-ge v6, v0, :cond_6
 
-    aget-object v7, v1, v2
+    aget-object v9, v1, v6
 
-    iget v9, v7, Landroid/view/RemoteAnimationTarget;->windowType:I
+    iget v10, v9, Landroid/view/RemoteAnimationTarget;->windowType:I
 
-    const/16 v10, 0x7e3
+    const/16 v11, 0x7e3
 
-    if-ne v9, v10, :cond_8
+    if-ne v10, v11, :cond_8
 
-    move v9, v4
+    move v10, v8
 
     goto :goto_5
 
     :cond_8
-    move v9, v5
+    move v10, v4
 
     :goto_5
-    if-eqz v9, :cond_9
+    if-eqz v10, :cond_9
 
-    move-object/from16 v24, v7
+    move-object v6, v9
 
     goto :goto_6
 
     :cond_9
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v6, v6, 0x1
 
     goto :goto_4
 
     :goto_6
-    iget-object v0, v8, Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;->controller:Lcom/android/systemui/animation/ActivityLaunchAnimator$Controller;
+    iget-object v0, v5, Landroid/view/RemoteAnimationTarget;->screenSpaceBounds:Landroid/graphics/Rect;
 
-    invoke-interface {v0}, Lcom/android/systemui/animation/ActivityLaunchAnimator$Controller;->createAnimatorState()Lcom/android/systemui/animation/ActivityLaunchAnimator$State;
+    new-instance v4, Lcom/android/systemui/animation/LaunchAnimator$State;
 
-    move-result-object v14
-
-    invoke-virtual {v14}, Lcom/android/systemui/animation/ActivityLaunchAnimator$State;->getTop()I
-
-    move-result v16
-
-    invoke-virtual {v14}, Lcom/android/systemui/animation/ActivityLaunchAnimator$State;->getBottom()I
-
-    move-result v17
-
-    invoke-virtual {v14}, Lcom/android/systemui/animation/ActivityLaunchAnimator$State;->getLeft()I
-
-    move-result v25
-
-    invoke-virtual {v14}, Lcom/android/systemui/animation/ActivityLaunchAnimator$State;->getRight()I
-
-    move-result v26
-
-    add-int v0, v25, v26
-
-    int-to-float v0, v0
-
-    const/high16 v1, 0x40000000    # 2.0f
-
-    div-float v10, v0, v1
-
-    sub-int v12, v26, v25
-
-    invoke-virtual {v14}, Lcom/android/systemui/animation/ActivityLaunchAnimator$State;->getTopCornerRadius()F
-
-    move-result v19
-
-    invoke-virtual {v14}, Lcom/android/systemui/animation/ActivityLaunchAnimator$State;->getBottomCornerRadius()F
-
-    move-result v21
-
-    iget-object v0, v15, Landroid/view/RemoteAnimationTarget;->screenSpaceBounds:Landroid/graphics/Rect;
-
-    iget v13, v0, Landroid/graphics/Rect;->top:I
+    iget v10, v0, Landroid/graphics/Rect;->top:I
 
     iget v11, v0, Landroid/graphics/Rect;->bottom:I
 
-    iget v2, v0, Landroid/graphics/Rect;->left:I
+    iget v12, v0, Landroid/graphics/Rect;->left:I
 
-    iget v0, v0, Landroid/graphics/Rect;->right:I
+    iget v13, v0, Landroid/graphics/Rect;->right:I
 
-    add-int v3, v2, v0
+    const/4 v14, 0x0
 
-    int-to-float v3, v3
+    const/4 v15, 0x0
 
-    div-float v18, v3, v1
+    const/16 v16, 0x30
 
-    sub-int v20, v0, v2
+    const/16 v17, 0x0
 
-    iget-object v1, v8, Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;->launchContainer:Landroid/view/ViewGroup;
+    move-object v9, v4
 
-    invoke-virtual {v1}, Landroid/view/ViewGroup;->getLocationOnScreen()[I
+    invoke-direct/range {v9 .. v17}, Lcom/android/systemui/animation/LaunchAnimator$State;-><init>(IIIIFFILkotlin/jvm/internal/DefaultConstructorMarker;)V
+
+    iget-object v0, v7, Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;->this$0:Lcom/android/systemui/animation/ActivityLaunchAnimator;
+
+    invoke-virtual {v0}, Lcom/android/systemui/animation/ActivityLaunchAnimator;->getCallback()Lcom/android/systemui/animation/ActivityLaunchAnimator$Callback;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
+
+    iget-object v0, v5, Landroid/view/RemoteAnimationTarget;->taskInfo:Landroid/app/ActivityManager$RunningTaskInfo;
+
+    const-string/jumbo v1, "window.taskInfo"
+
+    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+
+    invoke-interface {v2, v0}, Lcom/android/systemui/animation/ActivityLaunchAnimator$Callback;->getBackgroundColor(Landroid/app/TaskInfo;)I
+
+    move-result v9
+
+    iget-object v0, v7, Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;->this$0:Lcom/android/systemui/animation/ActivityLaunchAnimator;
+
+    invoke-static {v0}, Lcom/android/systemui/animation/ActivityLaunchAnimator;->access$getLaunchAnimator$p(Lcom/android/systemui/animation/ActivityLaunchAnimator;)Lcom/android/systemui/animation/LaunchAnimator;
+
+    move-result-object v0
+
+    iget-object v1, v7, Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;->controller:Lcom/android/systemui/animation/ActivityLaunchAnimator$Controller;
+
+    invoke-interface {v1}, Lcom/android/systemui/animation/LaunchAnimator$Controller;->getLaunchContainer()Landroid/view/ViewGroup;
 
     move-result-object v1
 
-    aget v3, v1, v4
+    invoke-virtual {v0, v1, v4}, Lcom/android/systemui/animation/LaunchAnimator;->isExpandingFullyAbove$frameworks__base__packages__SystemUI__animation__android_common__SystemUIAnimationLib(Landroid/view/View;Lcom/android/systemui/animation/LaunchAnimator$State;)Z
 
-    if-gt v13, v3, :cond_a
+    move-result v0
 
-    aget v3, v1, v4
+    if-eqz v0, :cond_a
 
-    iget-object v7, v8, Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;->launchContainer:Landroid/view/ViewGroup;
+    iget-object v0, v7, Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;->context:Landroid/content/Context;
 
-    invoke-virtual {v7}, Landroid/view/ViewGroup;->getHeight()I
+    invoke-static {v0}, Lcom/android/internal/policy/ScreenDecorationsUtils;->getWindowCornerRadius(Landroid/content/Context;)F
 
-    move-result v7
-
-    add-int/2addr v3, v7
-
-    if-lt v11, v3, :cond_a
-
-    aget v3, v1, v5
-
-    if-gt v2, v3, :cond_a
-
-    aget v1, v1, v5
-
-    iget-object v2, v8, Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;->launchContainer:Landroid/view/ViewGroup;
-
-    invoke-virtual {v2}, Landroid/view/ViewGroup;->getWidth()I
-
-    move-result v2
-
-    add-int/2addr v1, v2
-
-    if-lt v0, v1, :cond_a
-
-    move v3, v4
+    move-result v0
 
     goto :goto_7
 
     :cond_a
-    move v3, v5
-
-    :goto_7
-    if-eqz v3, :cond_b
-
-    iget-object v0, v8, Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;->context:Landroid/content/Context;
-
-    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/android/internal/policy/ScreenDecorationsUtils;->getWindowCornerRadius(Landroid/content/res/Resources;)F
-
-    move-result v0
-
-    goto :goto_8
-
-    :cond_b
     const/4 v0, 0x0
 
-    :goto_8
-    move/from16 v22, v0
+    :goto_7
+    invoke-virtual {v4, v0}, Lcom/android/systemui/animation/LaunchAnimator$State;->setTopCornerRadius(F)V
 
-    iget-object v0, v8, Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;->this$0:Lcom/android/systemui/animation/ActivityLaunchAnimator;
+    invoke-virtual {v4, v0}, Lcom/android/systemui/animation/LaunchAnimator$State;->setBottomCornerRadius(F)V
 
-    invoke-static {v0}, Lcom/android/systemui/animation/ActivityLaunchAnimator;->access$getCallback$p(Lcom/android/systemui/animation/ActivityLaunchAnimator;)Lcom/android/systemui/animation/ActivityLaunchAnimator$Callback;
+    iget-object v1, v7, Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;->controller:Lcom/android/systemui/animation/ActivityLaunchAnimator$Controller;
+
+    new-instance v10, Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner$startAnimation$controller$1;
+
+    move-object v0, v10
+
+    move-object/from16 v3, p3
+
+    move-object v11, v4
+
+    move-object/from16 v4, p0
+
+    invoke-direct/range {v0 .. v6}, Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner$startAnimation$controller$1;-><init>(Lcom/android/systemui/animation/ActivityLaunchAnimator$Controller;Lcom/android/systemui/animation/ActivityLaunchAnimator$Callback;Landroid/view/IRemoteAnimationFinishedCallback;Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;Landroid/view/RemoteAnimationTarget;Landroid/view/RemoteAnimationTarget;)V
+
+    iget-object v0, v7, Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;->this$0:Lcom/android/systemui/animation/ActivityLaunchAnimator;
+
+    invoke-static {v0}, Lcom/android/systemui/animation/ActivityLaunchAnimator;->access$getLaunchAnimator$p(Lcom/android/systemui/animation/ActivityLaunchAnimator;)Lcom/android/systemui/animation/LaunchAnimator;
 
     move-result-object v0
 
-    iget-object v1, v15, Landroid/view/RemoteAnimationTarget;->taskInfo:Landroid/app/ActivityManager$RunningTaskInfo;
+    invoke-virtual {v0, v10, v11, v9, v8}, Lcom/android/systemui/animation/LaunchAnimator;->startAnimation(Lcom/android/systemui/animation/LaunchAnimator$Controller;Lcom/android/systemui/animation/LaunchAnimator$State;IZ)Lcom/android/systemui/animation/LaunchAnimator$Animation;
 
-    const-string/jumbo v2, "window.taskInfo"
+    move-result-object v0
 
-    invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
-    invoke-interface {v0, v1}, Lcom/android/systemui/animation/ActivityLaunchAnimator$Callback;->getBackgroundColor(Landroid/app/TaskInfo;)I
-
-    move-result v0
-
-    new-instance v7, Landroid/graphics/drawable/GradientDrawable;
-
-    move-object/from16 v23, v7
-
-    invoke-direct {v7}, Landroid/graphics/drawable/GradientDrawable;-><init>()V
-
-    invoke-virtual {v7, v0}, Landroid/graphics/drawable/GradientDrawable;->setColor(I)V
-
-    invoke-virtual {v7, v5}, Landroid/graphics/drawable/GradientDrawable;->setAlpha(I)V
-
-    const/4 v0, 0x2
-
-    new-array v0, v0, [F
-
-    fill-array-data v0, :array_0
-
-    invoke-static {v0}, Landroid/animation/ValueAnimator;->ofFloat([F)Landroid/animation/ValueAnimator;
-
-    move-result-object v9
-
-    iput-object v9, v8, Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;->animator:Landroid/animation/ValueAnimator;
-
-    const-wide/16 v0, 0x1f4
-
-    invoke-virtual {v9, v0, v1}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
-
-    sget-object v0, Lcom/android/systemui/animation/Interpolators;->LINEAR:Landroid/view/animation/Interpolator;
-
-    invoke-virtual {v9, v0}, Landroid/animation/ValueAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
-
-    iget-object v0, v8, Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;->launchContainer:Landroid/view/ViewGroup;
-
-    invoke-virtual {v0}, Landroid/view/ViewGroup;->getOverlay()Landroid/view/ViewGroupOverlay;
-
-    move-result-object v4
-
-    new-instance v5, Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner$startAnimation$1;
-
-    iget-object v1, v8, Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;->this$0:Lcom/android/systemui/animation/ActivityLaunchAnimator;
-
-    move-object v0, v5
-
-    move-object/from16 v2, p0
-
-    move/from16 p1, v11
-
-    move-object v11, v5
-
-    move-object v5, v7
-
-    move-object/from16 v6, p3
-
-    invoke-direct/range {v0 .. v6}, Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner$startAnimation$1;-><init>(Lcom/android/systemui/animation/ActivityLaunchAnimator;Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;ZLandroid/view/ViewGroupOverlay;Landroid/graphics/drawable/GradientDrawable;Landroid/view/IRemoteAnimationFinishedCallback;)V
-
-    invoke-virtual {v9, v11}, Landroid/animation/ValueAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
-
-    new-instance v0, Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner$startAnimation$2;
-
-    move-object v7, v0
-
-    iget-object v1, v8, Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;->this$0:Lcom/android/systemui/animation/ActivityLaunchAnimator;
-
-    move-object v2, v9
-
-    move-object v9, v1
-
-    move-object/from16 v8, p0
-
-    move/from16 v1, p1
-
-    move/from16 v11, v18
-
-    move v3, v13
-
-    move/from16 v13, v20
-
-    move-object v4, v15
-
-    move/from16 v15, v16
-
-    move/from16 v16, v3
-
-    move/from16 v18, v1
-
-    move/from16 v20, v22
-
-    move-object/from16 v22, v4
-
-    invoke-direct/range {v7 .. v26}, Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner$startAnimation$2;-><init>(Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;Lcom/android/systemui/animation/ActivityLaunchAnimator;FFIILcom/android/systemui/animation/ActivityLaunchAnimator$State;IIIIFFFLandroid/view/RemoteAnimationTarget;Landroid/graphics/drawable/GradientDrawable;Landroid/view/RemoteAnimationTarget;II)V
-
-    invoke-virtual {v2, v0}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
-
-    invoke-virtual {v2}, Landroid/animation/ValueAnimator;->start()V
+    iput-object v0, v7, Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;->animation:Lcom/android/systemui/animation/LaunchAnimator$Animation;
 
     return-void
-
-    :array_0
-    .array-data 4
-        0x0
-        0x3f800000    # 1.0f
-    .end array-data
 .end method
 
 
@@ -1292,7 +882,7 @@
 
     const-string v1, "Remote animation was cancelled"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     const/4 v0, 0x1
 

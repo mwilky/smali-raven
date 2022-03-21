@@ -39,7 +39,7 @@
 
 
 # direct methods
-.method public constructor <init>(Lcom/android/systemui/statusbar/commandline/CommandRegistry;Lcom/android/systemui/statusbar/policy/BatteryController;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/statusbar/FeatureFlags;Landroid/content/Context;Landroid/view/WindowManager;Lcom/android/systemui/util/time/SystemClock;Lcom/android/internal/logging/UiEventLogger;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/commandline/CommandRegistry;Lcom/android/systemui/statusbar/policy/BatteryController;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/flags/FeatureFlags;Landroid/content/Context;Landroid/view/WindowManager;Lcom/android/systemui/util/time/SystemClock;Lcom/android/internal/logging/UiEventLogger;)V
     .locals 1
 
     const-string v0, "commandRegistry"
@@ -66,11 +66,11 @@
 
     invoke-static {p6, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    const-string/jumbo v0, "systemClock"
+    const-string v0, "systemClock"
 
     invoke-static {p7, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    const-string/jumbo v0, "uiEventLogger"
+    const-string v0, "uiEventLogger"
 
     invoke-static {p8, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -84,7 +84,7 @@
 
     iput-object p8, p0, Lcom/android/systemui/statusbar/charging/WiredChargingRippleController;->uiEventLogger:Lcom/android/internal/logging/UiEventLogger;
 
-    invoke-virtual {p4}, Lcom/android/systemui/statusbar/FeatureFlags;->isChargingRippleEnabled()Z
+    invoke-virtual {p4}, Lcom/android/systemui/flags/FeatureFlags;->isChargingRippleEnabled()Z
 
     move-result p4
 
@@ -192,7 +192,7 @@
 
     new-instance p4, Lcom/android/systemui/statusbar/charging/WiredChargingRippleController$batteryStateChangeCallback$1;
 
-    invoke-direct {p4, p0, p2}, Lcom/android/systemui/statusbar/charging/WiredChargingRippleController$batteryStateChangeCallback$1;-><init>(Lcom/android/systemui/statusbar/charging/WiredChargingRippleController;Lcom/android/systemui/statusbar/policy/BatteryController;)V
+    invoke-direct {p4, p2, p0}, Lcom/android/systemui/statusbar/charging/WiredChargingRippleController$batteryStateChangeCallback$1;-><init>(Lcom/android/systemui/statusbar/policy/BatteryController;Lcom/android/systemui/statusbar/charging/WiredChargingRippleController;)V
 
     invoke-interface {p2, p4}, Lcom/android/systemui/statusbar/policy/CallbackController;->addCallback(Ljava/lang/Object;)V
 
@@ -229,14 +229,6 @@
     iget-object p0, p0, Lcom/android/systemui/statusbar/charging/WiredChargingRippleController;->pluggedIn:Ljava/lang/Boolean;
 
     return-object p0
-.end method
-
-.method public static final synthetic access$getRippleEnabled$p(Lcom/android/systemui/statusbar/charging/WiredChargingRippleController;)Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/systemui/statusbar/charging/WiredChargingRippleController;->rippleEnabled:Z
-
-    return p0
 .end method
 
 .method public static final synthetic access$getWindowManager$p(Lcom/android/systemui/statusbar/charging/WiredChargingRippleController;)Landroid/view/WindowManager;
@@ -471,10 +463,6 @@
 
 .method public final startRipple()V
     .locals 3
-
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/charging/WiredChargingRippleController;->rippleEnabled:Z
-
-    if-eqz v0, :cond_1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/charging/WiredChargingRippleController;->rippleView:Lcom/android/systemui/statusbar/charging/ChargingRippleView;
 

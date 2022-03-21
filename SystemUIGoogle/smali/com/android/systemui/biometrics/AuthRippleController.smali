@@ -31,13 +31,9 @@
 
 
 # instance fields
-.field private aodDwellScale:F
-
-.field private aodExpandedDwellScale:F
-
 .field private final authController:Lcom/android/systemui/biometrics/AuthController;
 
-.field private final authControllerCallback:Lcom/android/systemui/biometrics/AuthController$Callback;
+.field private final authControllerCallback:Lcom/android/systemui/biometrics/AuthRippleController$authControllerCallback$1;
 
 .field private final biometricUnlockController:Lcom/android/systemui/statusbar/phone/BiometricUnlockController;
 
@@ -50,10 +46,6 @@
 .field private final configurationChangedListener:Lcom/android/systemui/biometrics/AuthRippleController$configurationChangedListener$1;
 
 .field private final configurationController:Lcom/android/systemui/statusbar/policy/ConfigurationController;
-
-.field private dwellScale:F
-
-.field private expandedDwellScale:F
 
 .field private faceSensorLocation:Landroid/graphics/PointF;
 
@@ -138,7 +130,7 @@
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    const-string/jumbo v0, "sysuiContext"
+    const-string v0, "sysuiContext"
 
     invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -178,7 +170,7 @@
 
     invoke-static {p11, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    const-string/jumbo v0, "udfpsControllerProvider"
+    const-string v0, "udfpsControllerProvider"
 
     invoke-static {p12, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -214,22 +206,6 @@
 
     iput-object p13, p0, Lcom/android/systemui/biometrics/AuthRippleController;->statusBarStateController:Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
 
-    const/high16 p1, 0x40000000    # 2.0f
-
-    iput p1, p0, Lcom/android/systemui/biometrics/AuthRippleController;->dwellScale:F
-
-    const/high16 p1, 0x40200000    # 2.5f
-
-    iput p1, p0, Lcom/android/systemui/biometrics/AuthRippleController;->expandedDwellScale:F
-
-    const p1, 0x3ff33333    # 1.9f
-
-    iput p1, p0, Lcom/android/systemui/biometrics/AuthRippleController;->aodDwellScale:F
-
-    const p1, 0x40133333    # 2.3f
-
-    iput p1, p0, Lcom/android/systemui/biometrics/AuthRippleController;->aodExpandedDwellScale:F
-
     const/high16 p1, -0x40800000    # -1.0f
 
     iput p1, p0, Lcom/android/systemui/biometrics/AuthRippleController;->udfpsRadius:F
@@ -256,25 +232,9 @@
 
     invoke-direct {p1, p0}, Lcom/android/systemui/biometrics/AuthRippleController$authControllerCallback$1;-><init>(Lcom/android/systemui/biometrics/AuthRippleController;)V
 
-    iput-object p1, p0, Lcom/android/systemui/biometrics/AuthRippleController;->authControllerCallback:Lcom/android/systemui/biometrics/AuthController$Callback;
+    iput-object p1, p0, Lcom/android/systemui/biometrics/AuthRippleController;->authControllerCallback:Lcom/android/systemui/biometrics/AuthRippleController$authControllerCallback$1;
 
     return-void
-.end method
-
-.method public static final synthetic access$getAodDwellScale$p(Lcom/android/systemui/biometrics/AuthRippleController;)F
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/biometrics/AuthRippleController;->aodDwellScale:F
-
-    return p0
-.end method
-
-.method public static final synthetic access$getAodExpandedDwellScale$p(Lcom/android/systemui/biometrics/AuthRippleController;)F
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/biometrics/AuthRippleController;->aodExpandedDwellScale:F
-
-    return p0
 .end method
 
 .method public static final synthetic access$getCircleReveal$p(Lcom/android/systemui/biometrics/AuthRippleController;)Lcom/android/systemui/statusbar/LightRevealEffect;
@@ -283,22 +243,6 @@
     iget-object p0, p0, Lcom/android/systemui/biometrics/AuthRippleController;->circleReveal:Lcom/android/systemui/statusbar/LightRevealEffect;
 
     return-object p0
-.end method
-
-.method public static final synthetic access$getDwellScale$p(Lcom/android/systemui/biometrics/AuthRippleController;)F
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/biometrics/AuthRippleController;->dwellScale:F
-
-    return p0
-.end method
-
-.method public static final synthetic access$getExpandedDwellScale$p(Lcom/android/systemui/biometrics/AuthRippleController;)F
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/biometrics/AuthRippleController;->expandedDwellScale:F
-
-    return p0
 .end method
 
 .method public static final synthetic access$getFaceSensorLocation$p(Lcom/android/systemui/biometrics/AuthRippleController;)Landroid/graphics/PointF;
@@ -325,12 +269,12 @@
     return-object p0
 .end method
 
-.method public static final synthetic access$getStatusBarStateController$p(Lcom/android/systemui/biometrics/AuthRippleController;)Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
+.method public static final synthetic access$getUdfpsRadius$p(Lcom/android/systemui/biometrics/AuthRippleController;)F
     .locals 0
 
-    iget-object p0, p0, Lcom/android/systemui/biometrics/AuthRippleController;->statusBarStateController:Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
+    iget p0, p0, Lcom/android/systemui/biometrics/AuthRippleController;->udfpsRadius:F
 
-    return-object p0
+    return p0
 .end method
 
 .method public static final synthetic access$showDwellRipple(Lcom/android/systemui/biometrics/AuthRippleController;)V
@@ -372,56 +316,20 @@
 .end method
 
 .method private final showDwellRipple()V
-    .locals 4
-
-    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthRippleController;->statusBarStateController:Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
-
-    invoke-interface {v0}, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;->isDozing()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
+    .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
 
     check-cast v0, Lcom/android/systemui/biometrics/AuthRippleView;
 
-    iget v1, p0, Lcom/android/systemui/biometrics/AuthRippleController;->udfpsRadius:F
+    iget-object p0, p0, Lcom/android/systemui/biometrics/AuthRippleController;->statusBarStateController:Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
 
-    iget v2, p0, Lcom/android/systemui/biometrics/AuthRippleController;->aodDwellScale:F
+    invoke-interface {p0}, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;->isDozing()Z
 
-    mul-float/2addr v2, v1
+    move-result p0
 
-    iget p0, p0, Lcom/android/systemui/biometrics/AuthRippleController;->aodExpandedDwellScale:F
+    invoke-virtual {v0, p0}, Lcom/android/systemui/biometrics/AuthRippleView;->startDwellRipple(Z)V
 
-    mul-float/2addr p0, v1
-
-    const/4 v3, 0x1
-
-    invoke-virtual {v0, v1, v2, p0, v3}, Lcom/android/systemui/biometrics/AuthRippleView;->startDwellRipple(FFFZ)V
-
-    goto :goto_0
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
-
-    check-cast v0, Lcom/android/systemui/biometrics/AuthRippleView;
-
-    iget v1, p0, Lcom/android/systemui/biometrics/AuthRippleController;->udfpsRadius:F
-
-    iget v2, p0, Lcom/android/systemui/biometrics/AuthRippleController;->dwellScale:F
-
-    mul-float/2addr v2, v1
-
-    iget p0, p0, Lcom/android/systemui/biometrics/AuthRippleController;->expandedDwellScale:F
-
-    mul-float/2addr p0, v1
-
-    const/4 v3, 0x0
-
-    invoke-virtual {v0, v1, v2, p0, v3}, Lcom/android/systemui/biometrics/AuthRippleView;->startDwellRipple(FFFZ)V
-
-    :goto_0
     return-void
 .end method
 
@@ -434,59 +342,205 @@
 
     invoke-interface {v0, v1, p0}, Lcom/android/systemui/statusbar/NotificationShadeWindowController;->setForcePluginOpen(ZLjava/lang/Object;)V
 
-    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthRippleController;->circleReveal:Lcom/android/systemui/statusbar/LightRevealEffect;
+    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthRippleController;->statusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
 
-    if-eqz v0, :cond_0
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/StatusBar;->getLightRevealScrim()Lcom/android/systemui/statusbar/LightRevealScrim;
 
-    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthRippleController;->biometricUnlockController:Lcom/android/systemui/statusbar/phone/BiometricUnlockController;
+    move-result-object v0
 
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/BiometricUnlockController;->isWakeAndUnlock()Z
+    iget-object v2, p0, Lcom/android/systemui/biometrics/AuthRippleController;->statusBarStateController:Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
 
-    move-result v0
+    invoke-interface {v2}, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;->isDozing()Z
 
-    if-eqz v0, :cond_0
+    move-result v2
 
-    move v0, v1
+    if-nez v2, :cond_0
 
-    goto :goto_0
+    iget-object v2, p0, Lcom/android/systemui/biometrics/AuthRippleController;->biometricUnlockController:Lcom/android/systemui/statusbar/phone/BiometricUnlockController;
+
+    invoke-virtual {v2}, Lcom/android/systemui/statusbar/phone/BiometricUnlockController;->isWakeAndUnlock()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_3
 
     :cond_0
-    const/4 v0, 0x0
-
-    :goto_0
-    iget-object v2, p0, Lcom/android/systemui/biometrics/AuthRippleController;->statusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
-
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/phone/StatusBar;->getLightRevealScrim()Lcom/android/systemui/statusbar/LightRevealScrim;
-
-    move-result-object v2
-
-    if-eqz v0, :cond_2
+    iget-object v2, p0, Lcom/android/systemui/biometrics/AuthRippleController;->circleReveal:Lcom/android/systemui/statusbar/LightRevealEffect;
 
     if-nez v2, :cond_1
 
     goto :goto_1
 
     :cond_1
-    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthRippleController;->circleReveal:Lcom/android/systemui/statusbar/LightRevealEffect;
+    if-nez v0, :cond_2
 
-    invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
-
-    invoke-virtual {v2, v0}, Lcom/android/systemui/statusbar/LightRevealScrim;->setRevealEffect(Lcom/android/systemui/statusbar/LightRevealEffect;)V
-
-    :goto_1
-    iput-boolean v1, p0, Lcom/android/systemui/biometrics/AuthRippleController;->startLightRevealScrimOnKeyguardFadingAway:Z
+    goto :goto_0
 
     :cond_2
+    invoke-virtual {v0, v2}, Lcom/android/systemui/statusbar/LightRevealScrim;->setRevealEffect(Lcom/android/systemui/statusbar/LightRevealEffect;)V
+
+    :goto_0
+    invoke-virtual {p0, v1}, Lcom/android/systemui/biometrics/AuthRippleController;->setStartLightRevealScrimOnKeyguardFadingAway$frameworks__base__packages__SystemUI__android_common__SystemUI_core(Z)V
+
+    :cond_3
+    :goto_1
     iget-object v0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
 
     check-cast v0, Lcom/android/systemui/biometrics/AuthRippleView;
 
-    new-instance v1, Lcom/android/systemui/biometrics/AuthRippleController$showUnlockedRipple$1;
+    new-instance v1, Lcom/android/systemui/biometrics/AuthRippleController$showUnlockedRipple$2;
 
-    invoke-direct {v1, p0}, Lcom/android/systemui/biometrics/AuthRippleController$showUnlockedRipple$1;-><init>(Lcom/android/systemui/biometrics/AuthRippleController;)V
+    invoke-direct {v1, p0}, Lcom/android/systemui/biometrics/AuthRippleController$showUnlockedRipple$2;-><init>(Lcom/android/systemui/biometrics/AuthRippleController;)V
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/biometrics/AuthRippleView;->startUnlockedRipple(Ljava/lang/Runnable;)V
 
+    return-void
+.end method
+
+.method private final updateFingerprintLocation()V
+    .locals 6
+
+    new-instance v0, Landroid/util/DisplayMetrics;
+
+    invoke-direct {v0}, Landroid/util/DisplayMetrics;-><init>()V
+
+    iget-object v1, p0, Lcom/android/systemui/biometrics/AuthRippleController;->sysuiContext:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getDisplay()Landroid/view/Display;
+
+    move-result-object v1
+
+    if-nez v1, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {v1, v0}, Landroid/view/Display;->getRealMetrics(Landroid/util/DisplayMetrics;)V
+
+    :goto_0
+    iget v1, v0, Landroid/util/DisplayMetrics;->widthPixels:I
+
+    iget v0, v0, Landroid/util/DisplayMetrics;->heightPixels:I
+
+    iget-object v2, p0, Lcom/android/systemui/biometrics/AuthRippleController;->authController:Lcom/android/systemui/biometrics/AuthController;
+
+    invoke-virtual {v2}, Lcom/android/systemui/biometrics/AuthController;->getFingerprintSensorLocation()Landroid/graphics/PointF;
+
+    move-result-object v2
+
+    if-nez v2, :cond_1
+
+    goto :goto_3
+
+    :cond_1
+    iget-object v3, p0, Lcom/android/systemui/biometrics/AuthRippleController;->sysuiContext:Landroid/content/Context;
+
+    invoke-static {v3}, Lcom/android/systemui/util/leak/RotationUtils;->getRotation(Landroid/content/Context;)I
+
+    move-result v3
+
+    const/4 v4, 0x1
+
+    if-eq v3, v4, :cond_4
+
+    const/4 v5, 0x2
+
+    if-eq v3, v5, :cond_3
+
+    const/4 v5, 0x3
+
+    if-eq v3, v5, :cond_2
+
+    new-instance v0, Landroid/graphics/PointF;
+
+    iget v1, v2, Landroid/graphics/PointF;->x:F
+
+    iget v2, v2, Landroid/graphics/PointF;->y:F
+
+    invoke-direct {v0, v1, v2}, Landroid/graphics/PointF;-><init>(FF)V
+
+    goto :goto_2
+
+    :cond_2
+    iget v3, v2, Landroid/graphics/PointF;->y:F
+
+    int-to-float v1, v1
+
+    div-float/2addr v3, v1
+
+    iget v2, v2, Landroid/graphics/PointF;->x:F
+
+    int-to-float v0, v0
+
+    div-float/2addr v2, v0
+
+    new-instance v5, Landroid/graphics/PointF;
+
+    int-to-float v4, v4
+
+    sub-float/2addr v4, v3
+
+    mul-float/2addr v1, v4
+
+    mul-float/2addr v0, v2
+
+    invoke-direct {v5, v1, v0}, Landroid/graphics/PointF;-><init>(FF)V
+
+    goto :goto_1
+
+    :cond_3
+    new-instance v3, Landroid/graphics/PointF;
+
+    int-to-float v1, v1
+
+    iget v4, v2, Landroid/graphics/PointF;->x:F
+
+    sub-float/2addr v1, v4
+
+    int-to-float v0, v0
+
+    iget v2, v2, Landroid/graphics/PointF;->y:F
+
+    sub-float/2addr v0, v2
+
+    invoke-direct {v3, v1, v0}, Landroid/graphics/PointF;-><init>(FF)V
+
+    move-object v0, v3
+
+    goto :goto_2
+
+    :cond_4
+    iget v3, v2, Landroid/graphics/PointF;->y:F
+
+    int-to-float v1, v1
+
+    div-float/2addr v3, v1
+
+    iget v2, v2, Landroid/graphics/PointF;->x:F
+
+    int-to-float v0, v0
+
+    div-float/2addr v2, v0
+
+    new-instance v5, Landroid/graphics/PointF;
+
+    mul-float/2addr v1, v3
+
+    int-to-float v3, v4
+
+    sub-float/2addr v3, v2
+
+    mul-float/2addr v0, v3
+
+    invoke-direct {v5, v1, v0}, Landroid/graphics/PointF;-><init>(FF)V
+
+    :goto_1
+    move-object v0, v5
+
+    :goto_2
+    invoke-virtual {p0, v0}, Lcom/android/systemui/biometrics/AuthRippleController;->setFingerprintSensorLocation(Landroid/graphics/PointF;)V
+
+    :goto_3
     return-void
 .end method
 
@@ -499,17 +553,13 @@
 
     iget-object p0, p0, Lcom/android/systemui/biometrics/AuthRippleController;->sysuiContext:Landroid/content/Context;
 
-    const v1, 0x1010435
+    sget v1, Lcom/android/systemui/R$attr;->wallpaperTextColorAccent:I
 
-    invoke-static {p0, v1}, Lcom/android/settingslib/Utils;->getColorAttr(Landroid/content/Context;I)Landroid/content/res/ColorStateList;
-
-    move-result-object p0
-
-    invoke-virtual {p0}, Landroid/content/res/ColorStateList;->getDefaultColor()I
+    invoke-static {p0, v1}, Lcom/android/settingslib/Utils;->getColorAttrDefaultColor(Landroid/content/Context;I)I
 
     move-result p0
 
-    invoke-virtual {v0, p0}, Lcom/android/systemui/biometrics/AuthRippleView;->setColor(I)V
+    invoke-virtual {v0, p0}, Lcom/android/systemui/biometrics/AuthRippleView;->setLockScreenColor(I)V
 
     return-void
 .end method
@@ -542,7 +592,11 @@
 
     check-cast v0, Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;
 
-    iget v0, v0, Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;->sensorRadius:I
+    invoke-virtual {v0}, Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;->getLocation()Landroid/hardware/biometrics/SensorLocationInternal;
+
+    move-result-object v0
+
+    iget v0, v0, Landroid/hardware/biometrics/SensorLocationInternal;->sensorRadius:I
 
     int-to-float v0, v0
 
@@ -669,11 +723,17 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/animation/ValueAnimator;->setStartDelay(J)V
 
-    new-instance v2, Lcom/android/systemui/biometrics/AuthRippleController$onKeyguardFadingAwayChanged$revealAnimator$1$1;
+    new-instance v2, Lcom/android/systemui/biometrics/AuthRippleController$onKeyguardFadingAwayChanged$1$1;
 
-    invoke-direct {v2, v0, p0}, Lcom/android/systemui/biometrics/AuthRippleController$onKeyguardFadingAwayChanged$revealAnimator$1$1;-><init>(Lcom/android/systemui/statusbar/LightRevealScrim;Lcom/android/systemui/biometrics/AuthRippleController;)V
+    invoke-direct {v2, v0, p0}, Lcom/android/systemui/biometrics/AuthRippleController$onKeyguardFadingAwayChanged$1$1;-><init>(Lcom/android/systemui/statusbar/LightRevealScrim;Lcom/android/systemui/biometrics/AuthRippleController;)V
 
     invoke-virtual {v1, v2}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
+
+    new-instance v2, Lcom/android/systemui/biometrics/AuthRippleController$onKeyguardFadingAwayChanged$1$2;
+
+    invoke-direct {v2, v0, p0}, Lcom/android/systemui/biometrics/AuthRippleController$onKeyguardFadingAwayChanged$1$2;-><init>(Lcom/android/systemui/statusbar/LightRevealScrim;Lcom/android/systemui/biometrics/AuthRippleController;)V
+
+    invoke-virtual {v1, v2}, Landroid/animation/ValueAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
     invoke-virtual {v1}, Landroid/animation/ValueAnimator;->start()V
 
@@ -706,7 +766,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/biometrics/AuthRippleController;->authController:Lcom/android/systemui/biometrics/AuthController;
 
-    iget-object v1, p0, Lcom/android/systemui/biometrics/AuthRippleController;->authControllerCallback:Lcom/android/systemui/biometrics/AuthController$Callback;
+    iget-object v1, p0, Lcom/android/systemui/biometrics/AuthRippleController;->authControllerCallback:Lcom/android/systemui/biometrics/AuthRippleController$authControllerCallback$1;
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/biometrics/AuthController;->addCallback(Lcom/android/systemui/biometrics/AuthController$Callback;)V
 
@@ -778,7 +838,7 @@
     :goto_0
     iget-object v0, p0, Lcom/android/systemui/biometrics/AuthRippleController;->authController:Lcom/android/systemui/biometrics/AuthController;
 
-    iget-object v1, p0, Lcom/android/systemui/biometrics/AuthRippleController;->authControllerCallback:Lcom/android/systemui/biometrics/AuthController$Callback;
+    iget-object v1, p0, Lcom/android/systemui/biometrics/AuthRippleController;->authControllerCallback:Lcom/android/systemui/biometrics/AuthRippleController$authControllerCallback$1;
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/biometrics/AuthController;->removeCallback(Lcom/android/systemui/biometrics/AuthController$Callback;)V
 
@@ -817,8 +877,24 @@
     return-void
 .end method
 
+.method public final setFingerprintSensorLocation(Landroid/graphics/PointF;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/systemui/biometrics/AuthRippleController;->fingerprintSensorLocation:Landroid/graphics/PointF;
+
+    return-void
+.end method
+
+.method public final setStartLightRevealScrimOnKeyguardFadingAway$frameworks__base__packages__SystemUI__android_common__SystemUI_core(Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/systemui/biometrics/AuthRippleController;->startLightRevealScrimOnKeyguardFadingAway:Z
+
+    return-void
+.end method
+
 .method public final showRipple(Landroid/hardware/biometrics/BiometricSourceType;)V
-    .locals 1
+    .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/biometrics/AuthRippleController;->keyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
@@ -839,6 +915,8 @@
     goto :goto_0
 
     :cond_0
+    invoke-virtual {p0}, Lcom/android/systemui/biometrics/AuthRippleController;->updateSensorLocation()V
+
     sget-object v0, Landroid/hardware/biometrics/BiometricSourceType;->FINGERPRINT:Landroid/hardware/biometrics/BiometricSourceType;
 
     if-ne p1, v0, :cond_1
@@ -853,7 +931,9 @@
 
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
 
-    invoke-virtual {p1, v0}, Lcom/android/systemui/biometrics/AuthRippleView;->setSensorLocation(Landroid/graphics/PointF;)V
+    iget v1, p0, Lcom/android/systemui/biometrics/AuthRippleController;->udfpsRadius:F
+
+    invoke-virtual {p1, v0, v1}, Lcom/android/systemui/biometrics/AuthRippleView;->setFingerprintSensorLocation(Landroid/graphics/PointF;F)V
 
     invoke-direct {p0}, Lcom/android/systemui/biometrics/AuthRippleController;->showUnlockedRipple()V
 
@@ -899,13 +979,7 @@
 .method public final updateSensorLocation()V
     .locals 8
 
-    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthRippleController;->authController:Lcom/android/systemui/biometrics/AuthController;
-
-    invoke-virtual {v0}, Lcom/android/systemui/biometrics/AuthController;->getFingerprintSensorLocation()Landroid/graphics/PointF;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/systemui/biometrics/AuthRippleController;->fingerprintSensorLocation:Landroid/graphics/PointF;
+    invoke-direct {p0}, Lcom/android/systemui/biometrics/AuthRippleController;->updateFingerprintLocation()V
 
     iget-object v0, p0, Lcom/android/systemui/biometrics/AuthRippleController;->authController:Lcom/android/systemui/biometrics/AuthController;
 

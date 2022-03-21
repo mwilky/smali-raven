@@ -572,6 +572,95 @@
     return-void
 .end method
 
+.method isDockedTopIconTouched(Landroid/view/MotionEvent;)Z
+    .locals 7
+
+    const/4 v0, 0x0
+
+    if-nez p1, :cond_0
+
+    return v0
+
+    :cond_0
+    const/4 v1, 0x2
+
+    new-array v1, v1, [I
+
+    iget-object v2, p0, Lcom/google/android/systemui/dreamliner/DockIndicationController;->mDockedTopIcon:Landroid/widget/ImageView;
+
+    invoke-virtual {v2, v1}, Landroid/widget/ImageView;->getLocationOnScreen([I)V
+
+    new-instance v2, Landroid/graphics/RectF;
+
+    aget v3, v1, v0
+
+    int-to-float v3, v3
+
+    const/4 v4, 0x1
+
+    aget v5, v1, v4
+
+    int-to-float v5, v5
+
+    aget v0, v1, v0
+
+    iget-object v6, p0, Lcom/google/android/systemui/dreamliner/DockIndicationController;->mDockedTopIcon:Landroid/widget/ImageView;
+
+    invoke-virtual {v6}, Landroid/widget/ImageView;->getWidth()I
+
+    move-result v6
+
+    add-int/2addr v0, v6
+
+    int-to-float v0, v0
+
+    aget v1, v1, v4
+
+    iget-object p0, p0, Lcom/google/android/systemui/dreamliner/DockIndicationController;->mDockedTopIcon:Landroid/widget/ImageView;
+
+    invoke-virtual {p0}, Landroid/widget/ImageView;->getHeight()I
+
+    move-result p0
+
+    add-int/2addr v1, p0
+
+    int-to-float p0, v1
+
+    invoke-direct {v2, v3, v5, v0, p0}, Landroid/graphics/RectF;-><init>(FFFF)V
+
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getRawX()F
+
+    move-result p0
+
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getRawY()F
+
+    move-result p1
+
+    invoke-virtual {v2, p0, p1}, Landroid/graphics/RectF;->contains(FF)Z
+
+    move-result p0
+
+    new-instance p1, Ljava/lang/StringBuilder;
+
+    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v0, "dockedTopIcon touched="
+
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    const-string v0, "DLIndicator"
+
+    invoke-static {v0, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return p0
+.end method
+
 .method public isPromoShowing()Z
     .locals 0
 

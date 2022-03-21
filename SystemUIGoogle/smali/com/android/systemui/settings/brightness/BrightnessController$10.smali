@@ -39,19 +39,19 @@
 
     iget-object v0, p0, Lcom/android/systemui/settings/brightness/BrightnessController$10;->this$0:Lcom/android/systemui/settings/brightness/BrightnessController;
 
-    invoke-static {v0}, Lcom/android/systemui/settings/brightness/BrightnessController;->access$2100(Lcom/android/systemui/settings/brightness/BrightnessController;)Lcom/android/systemui/settings/brightness/ToggleSlider;
+    invoke-static {v0}, Lcom/android/systemui/settings/brightness/BrightnessController;->access$2000(Lcom/android/systemui/settings/brightness/BrightnessController;)Lcom/android/systemui/settings/brightness/ToggleSlider;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/systemui/settings/brightness/BrightnessController$10;->this$0:Lcom/android/systemui/settings/brightness/BrightnessController;
 
-    invoke-static {v1}, Lcom/android/systemui/settings/brightness/BrightnessController;->access$600(Lcom/android/systemui/settings/brightness/BrightnessController;)Landroid/content/Context;
+    invoke-static {v1}, Lcom/android/systemui/settings/brightness/BrightnessController;->access$500(Lcom/android/systemui/settings/brightness/BrightnessController;)Landroid/content/Context;
 
     move-result-object v1
 
     iget-object p0, p0, Lcom/android/systemui/settings/brightness/BrightnessController$10;->this$0:Lcom/android/systemui/settings/brightness/BrightnessController;
 
-    invoke-static {p0}, Lcom/android/systemui/settings/brightness/BrightnessController;->access$1500(Lcom/android/systemui/settings/brightness/BrightnessController;)Lcom/android/systemui/settings/CurrentUserTracker;
+    invoke-static {p0}, Lcom/android/systemui/settings/brightness/BrightnessController;->access$1400(Lcom/android/systemui/settings/brightness/BrightnessController;)Lcom/android/systemui/settings/CurrentUserTracker;
 
     move-result-object p0
 

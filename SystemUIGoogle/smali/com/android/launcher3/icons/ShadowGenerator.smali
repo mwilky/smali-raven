@@ -47,7 +47,7 @@
 
     int-to-float p1, p1
 
-    const/high16 v1, 0x3d000000    # 0.03125f
+    const v1, 0x3d0f5c29    # 0.035f
 
     mul-float/2addr p1, v1
 
@@ -77,7 +77,7 @@
 
     move-result v0
 
-    const/high16 v1, 0x3d000000    # 0.03125f
+    const v1, 0x3d0f5c29    # 0.035f
 
     cmpg-float v1, v0, v1
 
@@ -85,7 +85,7 @@
 
     if-gez v1, :cond_0
 
-    const/high16 v1, 0x3ef00000    # 0.46875f
+    const v1, 0x3eee147b    # 0.465f
 
     sub-float v0, v2, v0
 
@@ -97,7 +97,7 @@
     const/high16 v1, 0x3f800000    # 1.0f
 
     :goto_0
-    const v0, 0x3d555556
+    const v0, 0x3d64b17e
 
     iget p0, p0, Landroid/graphics/RectF;->bottom:F
 
@@ -105,7 +105,7 @@
 
     if-gez v0, :cond_1
 
-    const v0, 0x3ee55555
+    const v0, 0x3ee369d0
 
     sub-float/2addr v2, p0
 
@@ -221,9 +221,9 @@
     :try_start_0
     iget-object v2, p0, Lcom/android/launcher3/icons/ShadowGenerator;->mDefaultBlurMaskFilter:Landroid/graphics/BlurMaskFilter;
 
-    const/4 v3, 0x7
+    const/16 v3, 0x19
 
-    const/16 v4, 0xa
+    const/4 v4, 0x7
 
     move-object v0, p0
 

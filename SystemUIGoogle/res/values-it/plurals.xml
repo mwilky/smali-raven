@@ -14,39 +14,27 @@
     </plurals>
     <plurals name="controls_number_of_favorites">
         <item quantity="other">%s controlli aggiunti.</item>
-        <item quantity="one">%s controllo aggiunto.</item>
+        <item quantity="one">%s controlli aggiunti.</item>
     </plurals>
     <plurals name="kg_password_default_pin_message">
         <item quantity="other">Inserisci il codice PIN della SIM. Hai ancora %d tentativi a disposizione.</item>
-        <item quantity="one">"Inserisci il codice PIN della SIM. Hai ancora %d tentativo a disposizione, dopodiché dovrai contattare l'operatore per sbloccare il dispositivo."</item>
+        <item quantity="one">Enter SIM PIN. You have %d remaining attempts.</item>
     </plurals>
     <plurals name="kg_password_default_puk_message">
         <item quantity="other">"La scheda SIM è ora disattivata. Inserisci il codice PUK per continuare. Hai ancora %d tentativi a disposizione prima che la SIM diventi definitivamente inutilizzabile. Per informazioni dettagliate, contatta l'operatore."</item>
-        <item quantity="one">"La scheda SIM è ora disattivata. Inserisci il codice PUK per continuare. Hai ancora %d tentativo a disposizione prima che la SIM diventi definitivamente inutilizzabile. Per informazioni dettagliate, contatta l'operatore."</item>
+        <item quantity="one">SIM is now disabled. Enter PUK code to continue. You have %d remaining attempts before SIM becomes permanently unusable. Contact carrier for details.</item>
     </plurals>
     <plurals name="kg_password_wrong_pin_code">
         <item quantity="other">Codice PIN della SIM errato. Hai ancora %d tentativi a disposizione.</item>
-        <item quantity="one">"Codice PIN della SIM errato. Hai ancora %d tentativo a disposizione, dopodiché dovrai contattare l'operatore per sbloccare il dispositivo."</item>
+        <item quantity="one">Incorrect SIM PIN code, you have %d remaining attempts.</item>
     </plurals>
     <plurals name="kg_password_wrong_puk_code">
         <item quantity="other">Codice PUK della SIM errato. Hai ancora %d tentativi a disposizione prima che la SIM diventi definitivamente inutilizzabile.</item>
-        <item quantity="one">Codice PUK della SIM errato. Hai ancora %d tentativo a disposizione prima che la SIM diventi definitivamente inutilizzabile.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_password">
-        <item quantity="other">Il dispositivo non viene sbloccato da %d ore. Conferma la password.</item>
-        <item quantity="one">Il dispositivo non viene sbloccato da %d ora. Conferma la password.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pattern">
-        <item quantity="other">Il dispositivo non viene sbloccato da %d ore. Conferma la sequenza.</item>
-        <item quantity="one">Il dispositivo non viene sbloccato da %d ora. Conferma la sequenza.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pin">
-        <item quantity="other">Il dispositivo non viene sbloccato da %d ore. Conferma il PIN.</item>
-        <item quantity="one">Il dispositivo non viene sbloccato da %d ora. Conferma il PIN.</item>
+        <item quantity="one">Incorrect SIM PUK code, you have %d remaining attempts before SIM becomes permanently unusable.</item>
     </plurals>
     <plurals name="kg_too_many_failed_attempts_countdown">
         <item quantity="other">Riprova fra %d secondi.</item>
-        <item quantity="one">Riprova fra 1 secondo.</item>
+        <item quantity="one">Try again in %d seconds.</item>
     </plurals>
     <plurals name="mtrl_badge_content_description">
         <item quantity="other">%d nuove notifiche</item>
@@ -54,15 +42,15 @@
     </plurals>
     <plurals name="notification_group_overflow_description">
         <item quantity="other">Altre %s notifiche nel gruppo.</item>
-        <item quantity="one">%s altra notifica nel gruppo.</item>
+        <item quantity="one">%s more notifications inside.</item>
     </plurals>
     <plurals name="quick_settings_hotspot_secondary_label_num_devices">
         <item quantity="other">%d dispositivi</item>
-        <item quantity="one">%d dispositivo</item>
+        <item quantity="one">%d devices</item>
     </plurals>
     <plurals name="smartspace_hours">
         <item quantity="other">%d h</item>
-        <item quantity="one">%d h</item>
+        <item quantity="one">%d hr</item>
     </plurals>
     <plurals name="smartspace_minutes">
         <item quantity="other">%d min</item>
@@ -70,18 +58,18 @@
     </plurals>
     <plurals name="snoozeHourOptions">
         <item quantity="other">%d ore</item>
-        <item quantity="one">%d ora</item>
+        <item quantity="one">%d hours</item>
     </plurals>
     <plurals name="snoozeMinuteOptions">
         <item quantity="other">%d minuti</item>
-        <item quantity="one">%d minuto</item>
+        <item quantity="one">%d minutes</item>
     </plurals>
     <plurals name="user_limit_reached_message">
         <item quantity="other">Puoi aggiungere fino a %d utenti.</item>
-        <item quantity="one">È possibile creare un solo utente.</item>
+        <item quantity="one">You can add up to %d users.</item>
     </plurals>
     <plurals name="wifi_tether_connected_summary">
         <item quantity="other">%1$d dispositivi connessi</item>
-        <item quantity="one">%1$d dispositivo connesso</item>
+        <item quantity="one">%1$d devices connected</item>
     </plurals>
 </resources>

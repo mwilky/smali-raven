@@ -35,6 +35,16 @@
 
 .field private mThemeColor:I
 
+.field private mUiThreadInitTask:Ljava/util/function/Consumer;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/function/Consumer<",
+            "Ljava/lang/Runnable;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field final synthetic this$0:Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;
 
 
@@ -94,7 +104,7 @@
 
     iget-object v1, p0, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer$StartingWindowViewBuilder;->this$0:Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;
 
-    invoke-static {v1}, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;->access$1300(Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;)Landroid/os/Handler;
+    invoke-static {v1}, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;->access$1100(Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;)Landroid/os/Handler;
 
     move-result-object v1
 
@@ -129,7 +139,7 @@
 
     iget-object p2, p0, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer$StartingWindowViewBuilder;->this$0:Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;
 
-    invoke-static {p2}, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;->access$1300(Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;)Landroid/os/Handler;
+    invoke-static {p2}, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;->access$1100(Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;)Landroid/os/Handler;
 
     move-result-object v5
 
@@ -145,8 +155,19 @@
     return-void
 .end method
 
-.method private fillViewWithIcon(I[Landroid/graphics/drawable/Drawable;I)Landroid/window/SplashScreenView;
+.method private fillViewWithIcon(I[Landroid/graphics/drawable/Drawable;ILjava/util/function/Consumer;)Landroid/window/SplashScreenView;
     .locals 6
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(I[",
+            "Landroid/graphics/drawable/Drawable;",
+            "I",
+            "Ljava/util/function/Consumer<",
+            "Ljava/lang/Runnable;",
+            ">;)",
+            "Landroid/window/SplashScreenView;"
+        }
+    .end annotation
 
     const/4 v0, 0x1
 
@@ -229,6 +250,10 @@
 
     move-result-object p1
 
+    invoke-virtual {p1, p4}, Landroid/window/SplashScreenView$Builder;->setUiThreadInitConsumer(Ljava/util/function/Consumer;)Landroid/window/SplashScreenView$Builder;
+
+    move-result-object p1
+
     iget p2, p0, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer$StartingWindowViewBuilder;->mSuggestType:I
 
     if-ne p2, v0, :cond_3
@@ -257,55 +282,28 @@
 
     iget-object p3, p0, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer$StartingWindowViewBuilder;->this$0:Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;
 
-    invoke-static {p3}, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;->access$1600(Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;)I
+    invoke-static {p3}, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;->access$1400(Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;)I
 
     move-result p3
 
-    iget-object v0, p0, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer$StartingWindowViewBuilder;->this$0:Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;
+    iget-object p4, p0, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer$StartingWindowViewBuilder;->this$0:Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;
 
-    invoke-static {v0}, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;->access$1700(Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;)I
+    invoke-static {p4}, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;->access$1500(Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;)I
 
-    move-result v0
+    move-result p4
 
-    invoke-virtual {p1, p2, p3, v0}, Landroid/window/SplashScreenView$Builder;->setBrandingDrawable(Landroid/graphics/drawable/Drawable;II)Landroid/window/SplashScreenView$Builder;
+    invoke-virtual {p1, p2, p3, p4}, Landroid/window/SplashScreenView$Builder;->setBrandingDrawable(Landroid/graphics/drawable/Drawable;II)Landroid/window/SplashScreenView$Builder;
 
     :cond_3
     invoke-virtual {p1}, Landroid/window/SplashScreenView$Builder;->build()Landroid/window/SplashScreenView;
 
     move-result-object p1
 
-    invoke-static {}, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;->access$1000()Z
-
-    move-result p2
-
-    if-eqz p2, :cond_4
-
-    invoke-static {}, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;->access$1100()Ljava/lang/String;
-
-    move-result-object p2
-
-    new-instance p3, Ljava/lang/StringBuilder;
-
-    invoke-direct {p3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v0, "fillViewWithIcon surfaceWindowView "
-
-    invoke-virtual {p3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p3
-
-    invoke-static {p2, p3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_4
     iget p2, p0, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer$StartingWindowViewBuilder;->mSuggestType:I
 
     const/4 p3, 0x4
 
-    if-eq p2, p3, :cond_5
+    if-eq p2, p3, :cond_4
 
     new-instance p2, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer$StartingWindowViewBuilder$1;
 
@@ -313,7 +311,7 @@
 
     invoke-virtual {p1, p2}, Landroid/window/SplashScreenView;->addOnAttachStateChangeListener(Landroid/view/View$OnAttachStateChangeListener;)V
 
-    :cond_5
+    :cond_4
     invoke-static {v3, v4}, Landroid/os/Trace;->traceEnd(J)V
 
     return-object p1
@@ -385,7 +383,7 @@
 
     iget-object v5, p0, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer$StartingWindowViewBuilder;->this$0:Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;
 
-    invoke-static {v5}, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;->access$1400(Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;)I
+    invoke-static {v5}, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;->access$1200(Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;)I
 
     move-result v9
 
@@ -401,94 +399,9 @@
 
     move-result-object v0
 
-    invoke-static {}, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;->access$1000()Z
-
-    move-result v5
-
-    const/4 v6, 0x1
-
-    if-eqz v5, :cond_2
-
-    invoke-static {}, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;->access$1100()Ljava/lang/String;
-
-    move-result-object v5
-
-    new-instance v7, Ljava/lang/StringBuilder;
-
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v8, "FgMainColor="
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget v8, v0, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer$ColorCache$IconColor;->mFgColor:I
-
-    invoke-static {v8}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v8, " BgMainColor="
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget v8, v0, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer$ColorCache$IconColor;->mBgColor:I
-
-    invoke-static {v8}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v8, " IsBgComplex="
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-boolean v8, v0, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer$ColorCache$IconColor;->mIsBgComplex:Z
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    const-string v8, " FromCache="
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget v8, v0, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer$ColorCache$Cache;->mReuseCount:I
-
-    if-lez v8, :cond_1
-
-    move v8, v6
-
-    goto :goto_0
-
-    :cond_1
-    move v8, v1
-
-    :goto_0
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    const-string v8, " ThemeColor="
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget v8, p0, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer$StartingWindowViewBuilder;->mThemeColor:I
-
-    invoke-static {v8}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-static {v5, v7}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_2
     iget-boolean v5, v0, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer$ColorCache$IconColor;->mIsBgComplex:Z
 
-    if-nez v5, :cond_6
+    if-nez v5, :cond_3
 
     iget-object v5, p0, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer$StartingWindowViewBuilder;->this$0:Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;
 
@@ -500,64 +413,49 @@
 
     move-result v5
 
-    if-nez v5, :cond_6
+    if-nez v5, :cond_3
 
     iget v5, p0, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer$StartingWindowViewBuilder;->mThemeColor:I
 
-    iget v7, v0, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer$ColorCache$IconColor;->mBgColor:I
+    iget v6, v0, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer$ColorCache$IconColor;->mBgColor:I
 
-    invoke-static {v5, v7}, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;->access$1500(II)Z
+    invoke-static {v5, v6}, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;->access$1300(II)Z
+
+    move-result v5
+
+    if-nez v5, :cond_1
+
+    iget-boolean v5, v0, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer$ColorCache$IconColor;->mIsBgGrayscale:Z
+
+    if-eqz v5, :cond_3
+
+    iget v5, p0, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer$StartingWindowViewBuilder;->mThemeColor:I
+
+    iget v6, v0, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer$ColorCache$IconColor;->mFgColor:I
+
+    invoke-static {v5, v6}, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;->access$1300(II)Z
 
     move-result v5
 
     if-nez v5, :cond_3
 
-    iget-boolean v5, v0, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer$ColorCache$IconColor;->mIsBgGrayscale:Z
-
-    if-eqz v5, :cond_6
-
-    iget v5, p0, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer$StartingWindowViewBuilder;->mThemeColor:I
-
-    iget v7, v0, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer$ColorCache$IconColor;->mFgColor:I
-
-    invoke-static {v5, v7}, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;->access$1500(II)Z
-
-    move-result v5
-
-    if-nez v5, :cond_6
-
-    :cond_3
-    invoke-static {}, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;->access$1000()Z
-
-    move-result p1
-
-    if-eqz p1, :cond_4
-
-    invoke-static {}, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;->access$1100()Ljava/lang/String;
-
-    move-result-object p1
-
-    const-string v5, "makeSplashScreenContentView: choose fg icon"
-
-    invoke-static {p1, v5}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_4
+    :cond_1
     iget p1, v0, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer$ColorCache$IconColor;->mFgNonTranslucentRatio:F
 
     const v0, 0x3ee38e39
 
     cmpg-float p1, p1, v0
 
-    if-gez p1, :cond_5
+    if-gez p1, :cond_2
 
     const p1, 0x3f99999a    # 1.2f
 
-    goto :goto_1
+    goto :goto_0
 
-    :cond_5
+    :cond_2
     const/high16 p1, 0x3f800000    # 1.0f
 
-    :goto_1
+    :goto_0
     const/high16 v0, 0x3f000000    # 0.5f
 
     iget-object v5, p0, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer$StartingWindowViewBuilder;->this$0:Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;
@@ -578,30 +476,17 @@
 
     invoke-direct {p0, v4, v1}, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer$StartingWindowViewBuilder;->createIconDrawable(Landroid/graphics/drawable/Drawable;Z)V
 
-    goto :goto_2
+    goto :goto_1
 
-    :cond_6
-    invoke-static {}, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;->access$1000()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_7
-
-    invoke-static {}, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;->access$1100()Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string v4, "makeSplashScreenContentView: draw whole icon"
-
-    invoke-static {v0, v4}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_7
+    :cond_3
     invoke-direct {p0, p1, v1}, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer$StartingWindowViewBuilder;->createIconDrawable(Landroid/graphics/drawable/Drawable;Z)V
 
-    :goto_2
+    :goto_1
     invoke-static {v2, v3}, Landroid/os/Trace;->traceEnd(J)V
 
-    return v6
+    const/4 p0, 0x1
+
+    return p0
 .end method
 
 
@@ -615,7 +500,7 @@
 
     const/4 v2, 0x3
 
-    if-eq v0, v2, :cond_6
+    if-eq v0, v2, :cond_5
 
     const/4 v2, 0x4
 
@@ -700,7 +585,7 @@
 
     move v1, v3
 
-    goto/16 :goto_1
+    goto :goto_1
 
     :cond_3
     iget-object v0, p0, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer$StartingWindowViewBuilder;->this$0:Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;
@@ -727,11 +612,11 @@
 
     move-result-object v3
 
-    invoke-virtual {v3}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+    invoke-virtual {v3}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
 
     move-result-object v3
 
-    iget v3, v3, Landroid/util/DisplayMetrics;->densityDpi:I
+    iget v3, v3, Landroid/content/res/Configuration;->densityDpi:I
 
     const/high16 v4, 0x3f000000    # 0.5f
 
@@ -782,23 +667,8 @@
 
     move-result v5
 
-    if-nez v5, :cond_7
+    if-nez v5, :cond_6
 
-    invoke-static {}, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;->access$1000()Z
-
-    move-result v5
-
-    if-eqz v5, :cond_5
-
-    invoke-static {}, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;->access$1100()Ljava/lang/String;
-
-    move-result-object v5
-
-    const-string v6, "The icon is not an AdaptiveIconDrawable"
-
-    invoke-static {v5, v6}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_5
     const-string v5, "legacy_icon_factory"
 
     invoke-static {v2, v3, v5}, Landroid/os/Trace;->traceBegin(JLjava/lang/String;)V
@@ -807,7 +677,7 @@
 
     iget-object v6, p0, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer$StartingWindowViewBuilder;->this$0:Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;
 
-    invoke-static {v6}, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;->access$1200(Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;)Landroid/content/Context;
+    invoke-static {v6}, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;->access$1000(Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;)Landroid/content/Context;
 
     move-result-object v6
 
@@ -831,17 +701,19 @@
 
     goto :goto_1
 
-    :cond_6
+    :cond_5
     :goto_0
     iput v1, p0, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer$StartingWindowViewBuilder;->mFinalIconSize:I
 
-    :cond_7
+    :cond_6
     :goto_1
     iget v0, p0, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer$StartingWindowViewBuilder;->mFinalIconSize:I
 
     iget-object v2, p0, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer$StartingWindowViewBuilder;->mFinalIconDrawables:[Landroid/graphics/drawable/Drawable;
 
-    invoke-direct {p0, v0, v2, v1}, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer$StartingWindowViewBuilder;->fillViewWithIcon(I[Landroid/graphics/drawable/Drawable;I)Landroid/window/SplashScreenView;
+    iget-object v3, p0, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer$StartingWindowViewBuilder;->mUiThreadInitTask:Ljava/util/function/Consumer;
+
+    invoke-direct {p0, v0, v2, v1, v3}, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer$StartingWindowViewBuilder;->fillViewWithIcon(I[Landroid/graphics/drawable/Drawable;ILjava/util/function/Consumer;)Landroid/window/SplashScreenView;
 
     move-result-object p0
 
@@ -860,6 +732,23 @@
     .locals 0
 
     iput-object p1, p0, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer$StartingWindowViewBuilder;->mOverlayDrawable:Landroid/graphics/drawable/Drawable;
+
+    return-object p0
+.end method
+
+.method setUiThreadInitConsumer(Ljava/util/function/Consumer;)Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer$StartingWindowViewBuilder;
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/function/Consumer<",
+            "Ljava/lang/Runnable;",
+            ">;)",
+            "Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer$StartingWindowViewBuilder;"
+        }
+    .end annotation
+
+    iput-object p1, p0, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer$StartingWindowViewBuilder;->mUiThreadInitTask:Ljava/util/function/Consumer;
 
     return-object p0
 .end method

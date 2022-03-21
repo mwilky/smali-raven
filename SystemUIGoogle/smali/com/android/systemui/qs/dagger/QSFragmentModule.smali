@@ -48,16 +48,64 @@
     return-object p0
 .end method
 
-.method public static providesMultiUserSWitch(Lcom/android/systemui/qs/QSFooterView;)Lcom/android/systemui/statusbar/phone/MultiUserSwitch;
+.method public static providesBatteryMeterView(Lcom/android/systemui/qs/QuickStatusBarHeader;)Lcom/android/systemui/battery/BatteryMeterView;
     .locals 1
 
-    sget v0, Lcom/android/systemui/R$id;->multi_user_switch:I
+    sget v0, Lcom/android/systemui/R$id;->batteryRemainingIcon:I
 
     invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
 
     move-result-object p0
 
-    check-cast p0, Lcom/android/systemui/statusbar/phone/MultiUserSwitch;
+    check-cast p0, Lcom/android/systemui/battery/BatteryMeterView;
+
+    return-object p0
+.end method
+
+.method public static providesPrivacyChip(Lcom/android/systemui/qs/QuickStatusBarHeader;)Lcom/android/systemui/privacy/OngoingPrivacyChip;
+    .locals 1
+
+    sget v0, Lcom/android/systemui/R$id;->privacy_chip:I
+
+    invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
+
+    move-result-object p0
+
+    check-cast p0, Lcom/android/systemui/privacy/OngoingPrivacyChip;
+
+    return-object p0
+.end method
+
+.method public static providesQQSFooterActionsController(Lcom/android/systemui/qs/FooterActionsControllerBuilder;Lcom/android/systemui/qs/FooterActionsView;)Lcom/android/systemui/qs/FooterActionsController;
+    .locals 0
+
+    invoke-virtual {p0, p1}, Lcom/android/systemui/qs/FooterActionsControllerBuilder;->withView(Lcom/android/systemui/qs/FooterActionsView;)Lcom/android/systemui/qs/FooterActionsControllerBuilder;
+
+    move-result-object p0
+
+    sget-object p1, Lcom/android/systemui/qs/FooterActionsController$ExpansionState;->COLLAPSED:Lcom/android/systemui/qs/FooterActionsController$ExpansionState;
+
+    invoke-virtual {p0, p1}, Lcom/android/systemui/qs/FooterActionsControllerBuilder;->withButtonsVisibleWhen(Lcom/android/systemui/qs/FooterActionsController$ExpansionState;)Lcom/android/systemui/qs/FooterActionsControllerBuilder;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/FooterActionsControllerBuilder;->build()Lcom/android/systemui/qs/FooterActionsController;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static providesQQSFooterActionsView(Landroid/view/View;)Lcom/android/systemui/qs/FooterActionsView;
+    .locals 1
+
+    sget v0, Lcom/android/systemui/R$id;->qqs_footer_actions:I
+
+    invoke-virtual {p0, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object p0
+
+    check-cast p0, Lcom/android/systemui/qs/FooterActionsView;
 
     return-object p0
 .end method
@@ -94,6 +142,40 @@
     .locals 0
 
     invoke-virtual {p0}, Lcom/android/systemui/util/ViewController;->init()V
+
+    return-object p0
+.end method
+
+.method public static providesQSFooterActionsController(Lcom/android/systemui/qs/FooterActionsControllerBuilder;Lcom/android/systemui/qs/FooterActionsView;)Lcom/android/systemui/qs/FooterActionsController;
+    .locals 0
+
+    invoke-virtual {p0, p1}, Lcom/android/systemui/qs/FooterActionsControllerBuilder;->withView(Lcom/android/systemui/qs/FooterActionsView;)Lcom/android/systemui/qs/FooterActionsControllerBuilder;
+
+    move-result-object p0
+
+    sget-object p1, Lcom/android/systemui/qs/FooterActionsController$ExpansionState;->EXPANDED:Lcom/android/systemui/qs/FooterActionsController$ExpansionState;
+
+    invoke-virtual {p0, p1}, Lcom/android/systemui/qs/FooterActionsControllerBuilder;->withButtonsVisibleWhen(Lcom/android/systemui/qs/FooterActionsController$ExpansionState;)Lcom/android/systemui/qs/FooterActionsControllerBuilder;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/FooterActionsControllerBuilder;->build()Lcom/android/systemui/qs/FooterActionsController;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static providesQSFooterActionsView(Landroid/view/View;)Lcom/android/systemui/qs/FooterActionsView;
+    .locals 1
+
+    sget v0, Lcom/android/systemui/R$id;->qs_footer_actions:I
+
+    invoke-virtual {p0, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object p0
+
+    check-cast p0, Lcom/android/systemui/qs/FooterActionsView;
 
     return-object p0
 .end method
@@ -160,6 +242,20 @@
     move-result-object p0
 
     check-cast p0, Lcom/android/systemui/qs/QuickStatusBarHeader;
+
+    return-object p0
+.end method
+
+.method public static providesStatusIconContainer(Lcom/android/systemui/qs/QuickStatusBarHeader;)Lcom/android/systemui/statusbar/phone/StatusIconContainer;
+    .locals 1
+
+    sget v0, Lcom/android/systemui/R$id;->statusIcons:I
+
+    invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
+
+    move-result-object p0
+
+    check-cast p0, Lcom/android/systemui/statusbar/phone/StatusIconContainer;
 
     return-object p0
 .end method

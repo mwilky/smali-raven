@@ -29,7 +29,7 @@
 
     check-cast p1, Lcom/android/wm/shell/pip/Pip;
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/navigationbar/NavigationBarView;->registerPipExclusionBoundsChangeListener(Lcom/android/wm/shell/pip/Pip;)V
+    invoke-virtual {p0, p1}, Lcom/android/systemui/navigationbar/NavigationBarView;->removePipExclusionBoundsChangeListener(Lcom/android/wm/shell/pip/Pip;)V
 
     return-void
 .end method

@@ -206,7 +206,9 @@
 
     new-instance p2, Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;
 
-    invoke-direct {p2, p1, p0}, Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;-><init>(Landroid/content/Context;Landroid/view/View;)V
+    sget p3, Lcom/android/systemui/R$dimen;->key_button_ripple_max_width:I
+
+    invoke-direct {p2, p1, p0, p3}, Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;-><init>(Landroid/content/Context;Landroid/view/View;I)V
 
     iput-object p2, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->mRipple:Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;
 

@@ -18,7 +18,7 @@
 .method public static onIntentStarted(Lcom/android/systemui/animation/ActivityLaunchAnimator$Controller;Z)V
     .locals 0
 
-    const-string/jumbo p1, "this"
+    const-string p1, "this"
 
     invoke-static {p0, p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -28,7 +28,7 @@
 .method public static onLaunchAnimationCancelled(Lcom/android/systemui/animation/ActivityLaunchAnimator$Controller;)V
     .locals 1
 
-    const-string/jumbo v0, "this"
+    const-string v0, "this"
 
     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 

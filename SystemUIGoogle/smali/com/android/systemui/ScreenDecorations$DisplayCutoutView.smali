@@ -151,7 +151,7 @@
     return-void
 .end method
 
-.method static synthetic access$702(Lcom/android/systemui/ScreenDecorations$DisplayCutoutView;Landroid/animation/ValueAnimator;)Landroid/animation/ValueAnimator;
+.method static synthetic access$1102(Lcom/android/systemui/ScreenDecorations$DisplayCutoutView;Landroid/animation/ValueAnimator;)Landroid/animation/ValueAnimator;
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/ScreenDecorations$DisplayCutoutView;->mCameraProtectionAnimator:Landroid/animation/ValueAnimator;
@@ -159,7 +159,7 @@
     return-object p1
 .end method
 
-.method static synthetic access$800(Lcom/android/systemui/ScreenDecorations$DisplayCutoutView;)Z
+.method static synthetic access$1200(Lcom/android/systemui/ScreenDecorations$DisplayCutoutView;)Z
     .locals 0
 
     iget-boolean p0, p0, Lcom/android/systemui/ScreenDecorations$DisplayCutoutView;->mShowProtection:Z
@@ -589,7 +589,7 @@
 
     iget v1, p0, Lcom/android/systemui/ScreenDecorations$DisplayCutoutView;->mRotation:I
 
-    invoke-static {v0, v1}, Lcom/android/systemui/ScreenDecorations;->access$900(II)I
+    invoke-static {v0, v1}, Lcom/android/systemui/ScreenDecorations;->getBoundPositionFromRotation(II)I
 
     move-result v0
 
@@ -724,7 +724,15 @@
 
     move-result-object v2
 
-    invoke-static {v2, v0, v1}, Landroid/view/DisplayCutout;->pathFromResources(Landroid/content/res/Resources;II)Landroid/graphics/Path;
+    invoke-virtual {p0}, Landroid/view/View;->getDisplay()Landroid/view/Display;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/view/Display;->getUniqueId()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3, v0, v1}, Landroid/view/DisplayCutout;->pathFromResources(Landroid/content/res/Resources;Ljava/lang/String;II)Landroid/graphics/Path;
 
     move-result-object v2
 

@@ -390,13 +390,13 @@
     move-result v1
 
     :goto_0
-    invoke-virtual {p0}, Landroid/view/MotionEvent;->getX()F
+    invoke-virtual {p0}, Landroid/view/MotionEvent;->getRawX()F
 
     move-result v2
 
     float-to-int v2, v2
 
-    invoke-virtual {p0}, Landroid/view/MotionEvent;->getY()F
+    invoke-virtual {p0}, Landroid/view/MotionEvent;->getRawY()F
 
     move-result p0
 

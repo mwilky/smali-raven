@@ -81,7 +81,7 @@
 
     invoke-direct {p0}, Lcom/android/systemui/classifier/FalsingManagerProxy;->setupFalsingManager()V
 
-    const-string/jumbo p5, "systemui"
+    const-string p5, "systemui"
 
     invoke-virtual {p3, p5, p2, v0}, Lcom/android/systemui/util/DeviceConfigProxy;->addOnPropertiesChangedListener(Ljava/lang/String;Ljava/util/concurrent/Executor;Landroid/provider/DeviceConfig$OnPropertiesChangedListener;)V
 
@@ -141,7 +141,7 @@
 .method private onDeviceConfigPropertiesChanged(Ljava/lang/String;)V
     .locals 1
 
-    const-string/jumbo v0, "systemui"
+    const-string v0, "systemui"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 

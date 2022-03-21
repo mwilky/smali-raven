@@ -23,8 +23,6 @@
 
 .field private mHeightOverride:I
 
-.field private mNavBarInset:I
-
 .field private mQSCustomizer:Lcom/android/systemui/qs/customize/QSCustomizer;
 
 .field private mQSDetail:Landroid/view/View;
@@ -72,13 +70,7 @@
 
     iput p1, p0, Lcom/android/systemui/qs/QSContainerImpl;->mContentPadding:I
 
-    const/4 p1, 0x0
-
-    iput p1, p0, Lcom/android/systemui/qs/QSContainerImpl;->mNavBarInset:I
-
     return-void
-
-    nop
 
     :array_0
     .array-data 4
@@ -91,31 +83,6 @@
         0x0
         0x0
     .end array-data
-.end method
-
-.method private getDisplayHeight()I
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/systemui/qs/QSContainerImpl;->mSizePoint:Landroid/graphics/Point;
-
-    iget v0, v0, Landroid/graphics/Point;->y:I
-
-    if-nez v0, :cond_0
-
-    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getDisplay()Landroid/view/Display;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/systemui/qs/QSContainerImpl;->mSizePoint:Landroid/graphics/Point;
-
-    invoke-virtual {v0, v1}, Landroid/view/Display;->getRealSize(Landroid/graphics/Point;)V
-
-    :cond_0
-    iget-object p0, p0, Lcom/android/systemui/qs/QSContainerImpl;->mSizePoint:Landroid/graphics/Point;
-
-    iget p0, p0, Landroid/graphics/Point;->y:I
-
-    return p0
 .end method
 
 .method private updateClippingPath()V
@@ -565,50 +532,6 @@
     return-void
 .end method
 
-.method public onApplyWindowInsets(Landroid/view/WindowInsets;)Landroid/view/WindowInsets;
-    .locals 5
-
-    invoke-static {}, Landroid/view/WindowInsets$Type;->navigationBars()I
-
-    move-result v0
-
-    invoke-virtual {p1, v0}, Landroid/view/WindowInsets;->getInsets(I)Landroid/graphics/Insets;
-
-    move-result-object v0
-
-    iget v0, v0, Landroid/graphics/Insets;->bottom:I
-
-    iput v0, p0, Lcom/android/systemui/qs/QSContainerImpl;->mNavBarInset:I
-
-    iget-object v0, p0, Lcom/android/systemui/qs/QSContainerImpl;->mQSPanelContainer:Lcom/android/systemui/qs/NonInterceptingScrollView;
-
-    invoke-virtual {v0}, Landroid/widget/ScrollView;->getPaddingStart()I
-
-    move-result v1
-
-    iget-object v2, p0, Lcom/android/systemui/qs/QSContainerImpl;->mQSPanelContainer:Lcom/android/systemui/qs/NonInterceptingScrollView;
-
-    invoke-virtual {v2}, Landroid/widget/ScrollView;->getPaddingTop()I
-
-    move-result v2
-
-    iget-object v3, p0, Lcom/android/systemui/qs/QSContainerImpl;->mQSPanelContainer:Lcom/android/systemui/qs/NonInterceptingScrollView;
-
-    invoke-virtual {v3}, Landroid/widget/ScrollView;->getPaddingEnd()I
-
-    move-result v3
-
-    iget v4, p0, Lcom/android/systemui/qs/QSContainerImpl;->mNavBarInset:I
-
-    invoke-virtual {v0, v1, v2, v3, v4}, Landroid/widget/ScrollView;->setPaddingRelative(IIII)V
-
-    invoke-super {p0, p1}, Landroid/widget/FrameLayout;->onApplyWindowInsets(Landroid/view/WindowInsets;)Landroid/view/WindowInsets;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
 .method protected onConfigurationChanged(Landroid/content/res/Configuration;)V
     .locals 0
 
@@ -686,99 +609,91 @@
 .end method
 
 .method protected onMeasure(II)V
-    .locals 4
+    .locals 5
 
-    iget-object p2, p0, Lcom/android/systemui/qs/QSContainerImpl;->mQSPanelContainer:Lcom/android/systemui/qs/NonInterceptingScrollView;
+    iget-object v0, p0, Lcom/android/systemui/qs/QSContainerImpl;->mQSPanelContainer:Lcom/android/systemui/qs/NonInterceptingScrollView;
 
-    invoke-virtual {p2}, Landroid/widget/ScrollView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+    invoke-virtual {v0}, Landroid/widget/ScrollView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
-    move-result-object p2
+    move-result-object v0
 
-    check-cast p2, Landroid/view/ViewGroup$MarginLayoutParams;
+    check-cast v0, Landroid/view/ViewGroup$MarginLayoutParams;
 
-    invoke-direct {p0}, Lcom/android/systemui/qs/QSContainerImpl;->getDisplayHeight()I
+    invoke-static {p2}, Landroid/view/View$MeasureSpec;->getSize(I)I
 
-    move-result v0
+    move-result p2
 
-    iget v1, p2, Landroid/view/ViewGroup$MarginLayoutParams;->topMargin:I
+    iget v1, v0, Landroid/view/ViewGroup$MarginLayoutParams;->topMargin:I
 
-    sub-int/2addr v0, v1
+    sub-int v1, p2, v1
 
-    iget v1, p2, Landroid/view/ViewGroup$MarginLayoutParams;->bottomMargin:I
+    iget v2, v0, Landroid/view/ViewGroup$MarginLayoutParams;->bottomMargin:I
 
-    sub-int/2addr v0, v1
+    sub-int/2addr v1, v2
 
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->getPaddingBottom()I
 
-    move-result v1
+    move-result v2
 
-    sub-int/2addr v0, v1
+    sub-int/2addr v1, v2
 
-    iget v1, p0, Landroid/widget/FrameLayout;->mPaddingLeft:I
+    iget v2, p0, Landroid/widget/FrameLayout;->mPaddingLeft:I
 
-    iget v2, p0, Landroid/widget/FrameLayout;->mPaddingRight:I
+    iget v3, p0, Landroid/widget/FrameLayout;->mPaddingRight:I
 
-    add-int/2addr v1, v2
+    add-int/2addr v2, v3
 
-    iget v2, p2, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
+    iget v3, v0, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
 
-    add-int/2addr v1, v2
+    add-int/2addr v2, v3
 
-    iget v2, p2, Landroid/view/ViewGroup$MarginLayoutParams;->rightMargin:I
+    iget v3, v0, Landroid/view/ViewGroup$MarginLayoutParams;->rightMargin:I
 
-    add-int/2addr v1, v2
+    add-int/2addr v2, v3
 
-    iget p2, p2, Landroid/view/ViewGroup$MarginLayoutParams;->width:I
+    iget v0, v0, Landroid/view/ViewGroup$MarginLayoutParams;->width:I
 
-    invoke-static {p1, v1, p2}, Landroid/widget/FrameLayout;->getChildMeasureSpec(III)I
-
-    move-result p2
-
-    iget-object v2, p0, Lcom/android/systemui/qs/QSContainerImpl;->mQSPanelContainer:Lcom/android/systemui/qs/NonInterceptingScrollView;
-
-    const/high16 v3, -0x80000000
-
-    invoke-static {v0, v3}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
+    invoke-static {p1, v2, v0}, Landroid/widget/FrameLayout;->getChildMeasureSpec(III)I
 
     move-result v0
 
-    invoke-virtual {v2, p2, v0}, Landroid/widget/ScrollView;->measure(II)V
+    iget-object v3, p0, Lcom/android/systemui/qs/QSContainerImpl;->mQSPanelContainer:Lcom/android/systemui/qs/NonInterceptingScrollView;
 
-    iget-object p2, p0, Lcom/android/systemui/qs/QSContainerImpl;->mQSPanelContainer:Lcom/android/systemui/qs/NonInterceptingScrollView;
+    const/high16 v4, -0x80000000
 
-    invoke-virtual {p2}, Landroid/widget/ScrollView;->getMeasuredWidth()I
-
-    move-result p2
-
-    add-int/2addr p2, v1
-
-    const/high16 v0, 0x40000000    # 2.0f
-
-    invoke-static {p2, v0}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
-
-    move-result p2
-
-    invoke-direct {p0}, Lcom/android/systemui/qs/QSContainerImpl;->getDisplayHeight()I
+    invoke-static {v1, v4}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
 
     move-result v1
 
-    invoke-static {v1, v0}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
+    invoke-virtual {v3, v0, v1}, Landroid/widget/ScrollView;->measure(II)V
 
-    move-result v1
+    iget-object v0, p0, Lcom/android/systemui/qs/QSContainerImpl;->mQSPanelContainer:Lcom/android/systemui/qs/NonInterceptingScrollView;
 
-    invoke-super {p0, p2, v1}, Landroid/widget/FrameLayout;->onMeasure(II)V
+    invoke-virtual {v0}, Landroid/widget/ScrollView;->getMeasuredWidth()I
 
-    iget-object p2, p0, Lcom/android/systemui/qs/QSContainerImpl;->mQSCustomizer:Lcom/android/systemui/qs/customize/QSCustomizer;
+    move-result v0
 
-    invoke-direct {p0}, Lcom/android/systemui/qs/QSContainerImpl;->getDisplayHeight()I
+    add-int/2addr v0, v2
 
-    move-result p0
+    const/high16 v1, 0x40000000    # 2.0f
 
-    invoke-static {p0, v0}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
+    invoke-static {v0, v1}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
 
-    move-result p0
+    move-result v0
 
-    invoke-virtual {p2, p1, p0}, Landroid/widget/LinearLayout;->measure(II)V
+    invoke-static {p2, v1}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
+
+    move-result v2
+
+    invoke-super {p0, v0, v2}, Landroid/widget/FrameLayout;->onMeasure(II)V
+
+    iget-object p0, p0, Lcom/android/systemui/qs/QSContainerImpl;->mQSCustomizer:Lcom/android/systemui/qs/customize/QSCustomizer;
+
+    invoke-static {p2, v1}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
+
+    move-result p2
+
+    invoke-virtual {p0, p1, p2}, Landroid/widget/LinearLayout;->measure(II)V
 
     return-void
 .end method
@@ -964,13 +879,7 @@
 
     iget-object v2, p0, Landroid/widget/FrameLayout;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v2
-
-    const v3, 0x1050244
-
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    invoke-static {v2}, Lcom/android/systemui/util/Utils;->getQsHeaderSystemIconsAreaHeight(Landroid/content/Context;)I
 
     move-result v2
 

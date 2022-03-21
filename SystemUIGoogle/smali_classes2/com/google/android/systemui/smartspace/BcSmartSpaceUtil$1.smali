@@ -34,7 +34,7 @@
 
 
 # virtual methods
-.method public startIntent(Landroid/view/View;Landroid/content/Intent;)V
+.method public startIntent(Landroid/view/View;Landroid/content/Intent;Z)V
     .locals 0
 
     :try_start_0
@@ -63,8 +63,8 @@
     return-void
 .end method
 
-.method public startPendingIntent(Landroid/app/PendingIntent;)V
-    .locals 1
+.method public startPendingIntent(Landroid/app/PendingIntent;Z)V
+    .locals 0
 
     :try_start_0
     invoke-virtual {p1}, Landroid/app/PendingIntent;->send()V
@@ -78,9 +78,9 @@
 
     iget-object p0, p0, Lcom/google/android/systemui/smartspace/BcSmartSpaceUtil$1;->val$tag:Ljava/lang/String;
 
-    const-string v0, "Cannot invoke canceled smartspace intent"
+    const-string p2, "Cannot invoke canceled smartspace intent"
 
-    invoke-static {p0, v0, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {p0, p2, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :goto_0
     return-void

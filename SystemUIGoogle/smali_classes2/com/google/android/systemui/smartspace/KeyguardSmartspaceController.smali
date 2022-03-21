@@ -6,7 +6,7 @@
 # instance fields
 .field private final context:Landroid/content/Context;
 
-.field private final featureFlags:Lcom/android/systemui/statusbar/FeatureFlags;
+.field private final featureFlags:Lcom/android/systemui/flags/FeatureFlags;
 
 .field private final mediaController:Lcom/google/android/systemui/smartspace/KeyguardMediaViewController;
 
@@ -14,7 +14,7 @@
 
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/statusbar/FeatureFlags;Lcom/google/android/systemui/smartspace/KeyguardZenAlarmViewController;Lcom/google/android/systemui/smartspace/KeyguardMediaViewController;)V
+.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/flags/FeatureFlags;Lcom/google/android/systemui/smartspace/KeyguardZenAlarmViewController;Lcom/google/android/systemui/smartspace/KeyguardMediaViewController;)V
     .locals 1
 
     const-string v0, "context"
@@ -37,13 +37,13 @@
 
     iput-object p1, p0, Lcom/google/android/systemui/smartspace/KeyguardSmartspaceController;->context:Landroid/content/Context;
 
-    iput-object p2, p0, Lcom/google/android/systemui/smartspace/KeyguardSmartspaceController;->featureFlags:Lcom/android/systemui/statusbar/FeatureFlags;
+    iput-object p2, p0, Lcom/google/android/systemui/smartspace/KeyguardSmartspaceController;->featureFlags:Lcom/android/systemui/flags/FeatureFlags;
 
     iput-object p3, p0, Lcom/google/android/systemui/smartspace/KeyguardSmartspaceController;->zenController:Lcom/google/android/systemui/smartspace/KeyguardZenAlarmViewController;
 
     iput-object p4, p0, Lcom/google/android/systemui/smartspace/KeyguardSmartspaceController;->mediaController:Lcom/google/android/systemui/smartspace/KeyguardMediaViewController;
 
-    invoke-virtual {p2}, Lcom/android/systemui/statusbar/FeatureFlags;->isSmartspaceEnabled()Z
+    invoke-virtual {p2}, Lcom/android/systemui/flags/FeatureFlags;->isSmartspaceEnabled()Z
 
     move-result p0
 

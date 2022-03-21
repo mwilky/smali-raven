@@ -455,7 +455,7 @@
 .end method
 
 .method private synthetic lambda$showInput$4()V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
 
@@ -471,13 +471,17 @@
 
     invoke-virtual {v0}, Landroid/widget/EditText;->requestFocus()Z
 
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardPasswordViewController;->mInputMethodManager:Landroid/view/inputmethod/InputMethodManager;
-
     iget-object p0, p0, Lcom/android/keyguard/KeyguardPasswordViewController;->mPasswordEntry:Landroid/widget/EditText;
 
-    const/4 v1, 0x1
+    invoke-virtual {p0}, Landroid/widget/EditText;->getWindowInsetsController()Landroid/view/WindowInsetsController;
 
-    invoke-virtual {v0, p0, v1}, Landroid/view/inputmethod/InputMethodManager;->showSoftInput(Landroid/view/View;I)Z
+    move-result-object p0
+
+    invoke-static {}, Landroid/view/WindowInsets$Type;->ime()I
+
+    move-result v0
+
+    invoke-interface {p0, v0}, Landroid/view/WindowInsetsController;->show(I)V
 
     :cond_0
     return-void

@@ -90,7 +90,7 @@
 
     check-cast p0, Ljava/lang/Iterable;
 
-    invoke-static {p0}, Lkotlin/collections/CollectionsKt;->min(Ljava/lang/Iterable;)Ljava/lang/Comparable;
+    invoke-static {p0}, Lkotlin/collections/CollectionsKt;->minOrNull(Ljava/lang/Iterable;)Ljava/lang/Comparable;
 
     move-result-object p0
 

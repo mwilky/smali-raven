@@ -34,57 +34,56 @@
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 1
 
+    if-eqz p2, :cond_1
+
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object p1
 
-    const-string v0, "android.intent.action.BATTERY_CHANGED"
-
-    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object p0, p0, Lcom/google/android/systemui/power/PowerNotificationWarningsGoogleImpl$1;->this$0:Lcom/google/android/systemui/power/PowerNotificationWarningsGoogleImpl;
-
-    invoke-static {p0, p2}, Lcom/google/android/systemui/power/PowerNotificationWarningsGoogleImpl;->access$000(Lcom/google/android/systemui/power/PowerNotificationWarningsGoogleImpl;Landroid/content/Intent;)V
+    if-nez p1, :cond_0
 
     goto :goto_0
 
     :cond_0
-    const-string p2, "PNW.defenderResumeCharging"
+    new-instance p1, Ljava/lang/StringBuilder;
 
-    invoke-virtual {p2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result p2
+    const-string v0, "onReceive: "
 
-    if-eqz p2, :cond_1
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    const-string v0, "PowerNotificationWarningsGoogleImpl"
+
+    invoke-static {v0, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object p1, p0, Lcom/google/android/systemui/power/PowerNotificationWarningsGoogleImpl$1;->this$0:Lcom/google/android/systemui/power/PowerNotificationWarningsGoogleImpl;
+
+    invoke-static {p1}, Lcom/google/android/systemui/power/PowerNotificationWarningsGoogleImpl;->access$000(Lcom/google/android/systemui/power/PowerNotificationWarningsGoogleImpl;)Lcom/google/android/systemui/power/BatteryInfoBroadcast;
+
+    move-result-object p1
+
+    invoke-virtual {p1, p2}, Lcom/google/android/systemui/power/BatteryInfoBroadcast;->notifyBatteryStatusChanged(Landroid/content/Intent;)V
 
     iget-object p0, p0, Lcom/google/android/systemui/power/PowerNotificationWarningsGoogleImpl$1;->this$0:Lcom/google/android/systemui/power/PowerNotificationWarningsGoogleImpl;
 
-    sget-object p1, Lcom/google/android/systemui/power/PowerNotificationWarningsGoogleImpl$BatteryDefenderEvent;->BATTERY_DEFENDER_BYPASS_LIMIT:Lcom/google/android/systemui/power/PowerNotificationWarningsGoogleImpl$BatteryDefenderEvent;
+    invoke-static {p0}, Lcom/google/android/systemui/power/PowerNotificationWarningsGoogleImpl;->access$100(Lcom/google/android/systemui/power/PowerNotificationWarningsGoogleImpl;)Lcom/google/android/systemui/power/BatteryDefenderNotification;
 
-    invoke-static {p0, p1}, Lcom/google/android/systemui/power/PowerNotificationWarningsGoogleImpl;->access$100(Lcom/google/android/systemui/power/PowerNotificationWarningsGoogleImpl;Lcom/google/android/systemui/power/PowerNotificationWarningsGoogleImpl$BatteryDefenderEvent;)V
+    move-result-object p0
 
-    goto :goto_0
+    invoke-virtual {p0, p2}, Lcom/google/android/systemui/power/BatteryDefenderNotification;->dispatchIntent(Landroid/content/Intent;)V
 
     :cond_1
-    const-string p2, "PNW.defenderResumeCharging.settings"
-
-    invoke-virtual {p2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p1
-
-    if-eqz p1, :cond_2
-
-    iget-object p0, p0, Lcom/google/android/systemui/power/PowerNotificationWarningsGoogleImpl$1;->this$0:Lcom/google/android/systemui/power/PowerNotificationWarningsGoogleImpl;
-
-    sget-object p1, Lcom/google/android/systemui/power/PowerNotificationWarningsGoogleImpl$BatteryDefenderEvent;->BATTERY_DEFENDER_BYPASS_LIMIT_FOR_TIPS:Lcom/google/android/systemui/power/PowerNotificationWarningsGoogleImpl$BatteryDefenderEvent;
-
-    invoke-static {p0, p1}, Lcom/google/android/systemui/power/PowerNotificationWarningsGoogleImpl;->access$100(Lcom/google/android/systemui/power/PowerNotificationWarningsGoogleImpl;Lcom/google/android/systemui/power/PowerNotificationWarningsGoogleImpl$BatteryDefenderEvent;)V
-
-    :cond_2
     :goto_0
     return-void
 .end method

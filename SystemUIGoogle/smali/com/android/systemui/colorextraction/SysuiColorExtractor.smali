@@ -18,16 +18,16 @@
 
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;Lcom/android/internal/colorextraction/types/ExtractionType;Lcom/android/systemui/statusbar/policy/ConfigurationController;Landroid/app/WallpaperManager;Z)V
+.method public constructor <init>(Landroid/content/Context;Lcom/android/internal/colorextraction/types/ExtractionType;Lcom/android/systemui/statusbar/policy/ConfigurationController;Landroid/app/WallpaperManager;Lcom/android/systemui/dump/DumpManager;Z)V
     .locals 0
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
 
-    invoke-direct {p0, p1, p2, p5, p4}, Lcom/android/internal/colorextraction/ColorExtractor;-><init>(Landroid/content/Context;Lcom/android/internal/colorextraction/types/ExtractionType;ZLandroid/app/WallpaperManager;)V
+    invoke-direct {p0, p1, p2, p6, p4}, Lcom/android/internal/colorextraction/ColorExtractor;-><init>(Landroid/content/Context;Lcom/android/internal/colorextraction/types/ExtractionType;ZLandroid/app/WallpaperManager;)V
 
-    instance-of p5, p2, Lcom/android/internal/colorextraction/types/Tonal;
+    instance-of p6, p2, Lcom/android/internal/colorextraction/types/Tonal;
 
-    if-eqz p5, :cond_0
+    if-eqz p6, :cond_0
 
     check-cast p2, Lcom/android/internal/colorextraction/types/Tonal;
 
@@ -48,6 +48,14 @@
     iput-object p1, p0, Lcom/android/systemui/colorextraction/SysuiColorExtractor;->mNeutralColorsLock:Lcom/android/internal/colorextraction/ColorExtractor$GradientColors;
 
     invoke-interface {p3, p0}, Lcom/android/systemui/statusbar/policy/CallbackController;->addCallback(Ljava/lang/Object;)V
+
+    const-class p1, Lcom/android/systemui/colorextraction/SysuiColorExtractor;
+
+    invoke-virtual {p1}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-virtual {p5, p1, p0}, Lcom/android/systemui/dump/DumpManager;->registerDumpable(Ljava/lang/String;Lcom/android/systemui/Dumpable;)V
 
     new-instance p1, Lcom/android/internal/colorextraction/ColorExtractor$GradientColors;
 
@@ -77,8 +85,8 @@
     return-void
 .end method
 
-.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/statusbar/policy/ConfigurationController;)V
-    .locals 6
+.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/dump/DumpManager;)V
+    .locals 7
 
     new-instance v2, Lcom/android/internal/colorextraction/types/Tonal;
 
@@ -94,7 +102,7 @@
 
     check-cast v4, Landroid/app/WallpaperManager;
 
-    const/4 v5, 0x0
+    const/4 v6, 0x0
 
     move-object v0, p0
 
@@ -102,7 +110,9 @@
 
     move-object v3, p2
 
-    invoke-direct/range {v0 .. v5}, Lcom/android/systemui/colorextraction/SysuiColorExtractor;-><init>(Landroid/content/Context;Lcom/android/internal/colorextraction/types/ExtractionType;Lcom/android/systemui/statusbar/policy/ConfigurationController;Landroid/app/WallpaperManager;Z)V
+    move-object v5, p3
+
+    invoke-direct/range {v0 .. v6}, Lcom/android/systemui/colorextraction/SysuiColorExtractor;-><init>(Landroid/content/Context;Lcom/android/internal/colorextraction/types/ExtractionType;Lcom/android/systemui/statusbar/policy/ConfigurationController;Landroid/app/WallpaperManager;Lcom/android/systemui/dump/DumpManager;Z)V
 
     return-void
 .end method

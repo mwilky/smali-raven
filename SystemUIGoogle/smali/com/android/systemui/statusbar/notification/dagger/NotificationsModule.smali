@@ -4,12 +4,12 @@
 
 
 # direct methods
-.method public static provideCommonNotifCollection(Lcom/android/systemui/statusbar/FeatureFlags;Ldagger/Lazy;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;)Lcom/android/systemui/statusbar/notification/collection/notifcollection/CommonNotifCollection;
+.method public static provideCommonNotifCollection(Lcom/android/systemui/flags/FeatureFlags;Ldagger/Lazy;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;)Lcom/android/systemui/statusbar/notification/collection/notifcollection/CommonNotifCollection;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
+            "Lcom/android/systemui/flags/FeatureFlags;",
             "Ldagger/Lazy<",
             "Lcom/android/systemui/statusbar/notification/collection/NotifPipeline;",
             ">;",
@@ -19,7 +19,7 @@
         }
     .end annotation
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/FeatureFlags;->isNewNotifPipelineRenderingEnabled()Z
+    invoke-virtual {p0}, Lcom/android/systemui/flags/FeatureFlags;->isNewNotifPipelineRenderingEnabled()Z
 
     move-result p0
 
@@ -37,12 +37,12 @@
     return-object p2
 .end method
 
-.method public static provideGroupExpansionManager(Lcom/android/systemui/statusbar/FeatureFlags;Ldagger/Lazy;Ldagger/Lazy;)Lcom/android/systemui/statusbar/notification/collection/render/GroupExpansionManager;
+.method public static provideGroupExpansionManager(Lcom/android/systemui/flags/FeatureFlags;Ldagger/Lazy;Ldagger/Lazy;)Lcom/android/systemui/statusbar/notification/collection/render/GroupExpansionManager;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
+            "Lcom/android/systemui/flags/FeatureFlags;",
             "Ldagger/Lazy<",
             "Lcom/android/systemui/statusbar/notification/collection/render/GroupMembershipManager;",
             ">;",
@@ -53,7 +53,7 @@
         }
     .end annotation
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/FeatureFlags;->isNewNotifPipelineRenderingEnabled()Z
+    invoke-virtual {p0}, Lcom/android/systemui/flags/FeatureFlags;->isNewNotifPipelineRenderingEnabled()Z
 
     move-result p0
 
@@ -82,12 +82,12 @@
     return-object p0
 .end method
 
-.method public static provideGroupMembershipManager(Lcom/android/systemui/statusbar/FeatureFlags;Ldagger/Lazy;)Lcom/android/systemui/statusbar/notification/collection/render/GroupMembershipManager;
+.method public static provideGroupMembershipManager(Lcom/android/systemui/flags/FeatureFlags;Ldagger/Lazy;)Lcom/android/systemui/statusbar/notification/collection/render/GroupMembershipManager;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
+            "Lcom/android/systemui/flags/FeatureFlags;",
             "Ldagger/Lazy<",
             "Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;",
             ">;)",
@@ -95,7 +95,7 @@
         }
     .end annotation
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/FeatureFlags;->isNewNotifPipelineRenderingEnabled()Z
+    invoke-virtual {p0}, Lcom/android/systemui/flags/FeatureFlags;->isNewNotifPipelineRenderingEnabled()Z
 
     move-result p0
 
@@ -118,14 +118,61 @@
     return-object p0
 .end method
 
-.method public static provideNotificationEntryManager(Lcom/android/systemui/statusbar/notification/NotificationEntryManagerLogger;Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;Lcom/android/systemui/statusbar/FeatureFlags;Ldagger/Lazy;Ldagger/Lazy;Lcom/android/systemui/util/leak/LeakDetector;Lcom/android/systemui/statusbar/notification/ForegroundServiceDismissalFeatureController;Lcom/android/internal/statusbar/IStatusBarService;)Lcom/android/systemui/statusbar/notification/NotificationEntryManager;
-    .locals 10
+.method public static provideNotifGutsViewManager(Lcom/android/systemui/statusbar/notification/row/NotificationGutsManager;)Lcom/android/systemui/statusbar/notification/collection/render/NotifGutsViewManager;
+    .locals 0
+
+    return-object p0
+.end method
+
+.method public static provideNotifShadeEventSource(Lcom/android/systemui/flags/FeatureFlags;Ldagger/Lazy;Ldagger/Lazy;)Lcom/android/systemui/statusbar/notification/collection/render/NotifShadeEventSource;
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/android/systemui/flags/FeatureFlags;",
+            "Ldagger/Lazy<",
+            "Lcom/android/systemui/statusbar/notification/collection/coordinator/ShadeEventCoordinator;",
+            ">;",
+            "Ldagger/Lazy<",
+            "Lcom/android/systemui/statusbar/notification/collection/legacy/LegacyNotificationPresenterExtensions;",
+            ">;)",
+            "Lcom/android/systemui/statusbar/notification/collection/render/NotifShadeEventSource;"
+        }
+    .end annotation
+
+    invoke-virtual {p0}, Lcom/android/systemui/flags/FeatureFlags;->isNewNotifPipelineRenderingEnabled()Z
+
+    move-result p0
+
+    if-eqz p0, :cond_0
+
+    invoke-interface {p1}, Ldagger/Lazy;->get()Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Lcom/android/systemui/statusbar/notification/collection/render/NotifShadeEventSource;
+
+    goto :goto_0
+
+    :cond_0
+    invoke-interface {p2}, Ldagger/Lazy;->get()Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Lcom/android/systemui/statusbar/notification/collection/render/NotifShadeEventSource;
+
+    :goto_0
+    return-object p0
+.end method
+
+.method public static provideNotificationEntryManager(Lcom/android/systemui/statusbar/notification/NotificationEntryManagerLogger;Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;Lcom/android/systemui/flags/FeatureFlags;Ldagger/Lazy;Ldagger/Lazy;Lcom/android/systemui/util/leak/LeakDetector;Lcom/android/systemui/statusbar/notification/ForegroundServiceDismissalFeatureController;Lcom/android/internal/statusbar/IStatusBarService;Lcom/android/systemui/dump/DumpManager;)Lcom/android/systemui/statusbar/notification/NotificationEntryManager;
+    .locals 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Lcom/android/systemui/statusbar/notification/NotificationEntryManagerLogger;",
             "Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
+            "Lcom/android/systemui/flags/FeatureFlags;",
             "Ldagger/Lazy<",
             "Lcom/android/systemui/statusbar/notification/collection/inflation/NotificationRowBinder;",
             ">;",
@@ -135,14 +182,15 @@
             "Lcom/android/systemui/util/leak/LeakDetector;",
             "Lcom/android/systemui/statusbar/notification/ForegroundServiceDismissalFeatureController;",
             "Lcom/android/internal/statusbar/IStatusBarService;",
+            "Lcom/android/systemui/dump/DumpManager;",
             ")",
             "Lcom/android/systemui/statusbar/notification/NotificationEntryManager;"
         }
     .end annotation
 
-    new-instance v9, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;
+    new-instance v10, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;
 
-    move-object v0, v9
+    move-object v0, v10
 
     move-object v1, p0
 
@@ -154,26 +202,29 @@
 
     move-object v5, p4
 
-    move-object v6, p5
+    move-object/from16 v6, p5
 
     move-object/from16 v7, p6
 
     move-object/from16 v8, p7
 
-    invoke-direct/range {v0 .. v8}, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;-><init>(Lcom/android/systemui/statusbar/notification/NotificationEntryManagerLogger;Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;Lcom/android/systemui/statusbar/FeatureFlags;Ldagger/Lazy;Ldagger/Lazy;Lcom/android/systemui/util/leak/LeakDetector;Lcom/android/systemui/statusbar/notification/ForegroundServiceDismissalFeatureController;Lcom/android/internal/statusbar/IStatusBarService;)V
+    move-object/from16 v9, p8
 
-    return-object v9
+    invoke-direct/range {v0 .. v9}, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;-><init>(Lcom/android/systemui/statusbar/notification/NotificationEntryManagerLogger;Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;Lcom/android/systemui/flags/FeatureFlags;Ldagger/Lazy;Ldagger/Lazy;Lcom/android/systemui/util/leak/LeakDetector;Lcom/android/systemui/statusbar/notification/ForegroundServiceDismissalFeatureController;Lcom/android/internal/statusbar/IStatusBarService;Lcom/android/systemui/dump/DumpManager;)V
+
+    return-object v10
 .end method
 
-.method public static provideNotificationGutsManager(Landroid/content/Context;Ldagger/Lazy;Landroid/os/Handler;Landroid/os/Handler;Landroid/view/accessibility/AccessibilityManager;Lcom/android/systemui/statusbar/notification/collection/provider/HighPriorityProvider;Landroid/app/INotificationManager;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager;Landroid/content/pm/LauncherApps;Landroid/content/pm/ShortcutManager;Lcom/android/systemui/statusbar/notification/row/ChannelEditorDialogController;Lcom/android/systemui/settings/UserContextProvider;Lcom/android/systemui/statusbar/notification/AssistantFeedbackController;Ljava/util/Optional;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/statusbar/notification/row/OnUserInteractionCallback;Lcom/android/systemui/statusbar/phone/ShadeController;)Lcom/android/systemui/statusbar/notification/row/NotificationGutsManager;
-    .locals 20
+.method public static provideNotificationGutsManager(Landroid/content/Context;Ldagger/Lazy;Landroid/os/Handler;Landroid/os/Handler;Landroid/view/accessibility/AccessibilityManager;Lcom/android/systemui/statusbar/notification/collection/provider/HighPriorityProvider;Landroid/app/INotificationManager;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager;Landroid/content/pm/LauncherApps;Landroid/content/pm/ShortcutManager;Lcom/android/systemui/statusbar/notification/row/ChannelEditorDialogController;Lcom/android/systemui/settings/UserContextProvider;Lcom/android/systemui/statusbar/notification/AssistantFeedbackController;Ljava/util/Optional;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/statusbar/notification/row/OnUserInteractionCallback;Lcom/android/systemui/statusbar/phone/ShadeController;Lcom/android/systemui/dump/DumpManager;)Lcom/android/systemui/statusbar/notification/row/NotificationGutsManager;
+    .locals 21
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Landroid/content/Context;",
             "Ldagger/Lazy<",
+            "Ljava/util/Optional<",
             "Lcom/android/systemui/statusbar/phone/StatusBar;",
-            ">;",
+            ">;>;",
             "Landroid/os/Handler;",
             "Landroid/os/Handler;",
             "Landroid/view/accessibility/AccessibilityManager;",
@@ -192,6 +243,7 @@
             "Lcom/android/internal/logging/UiEventLogger;",
             "Lcom/android/systemui/statusbar/notification/row/OnUserInteractionCallback;",
             "Lcom/android/systemui/statusbar/phone/ShadeController;",
+            "Lcom/android/systemui/dump/DumpManager;",
             ")",
             "Lcom/android/systemui/statusbar/notification/row/NotificationGutsManager;"
         }
@@ -233,13 +285,15 @@
 
     move-object/from16 v18, p17
 
-    new-instance v19, Lcom/android/systemui/statusbar/notification/row/NotificationGutsManager;
+    move-object/from16 v19, p18
 
-    move-object/from16 v0, v19
+    new-instance v20, Lcom/android/systemui/statusbar/notification/row/NotificationGutsManager;
 
-    invoke-direct/range {v0 .. v18}, Lcom/android/systemui/statusbar/notification/row/NotificationGutsManager;-><init>(Landroid/content/Context;Ldagger/Lazy;Landroid/os/Handler;Landroid/os/Handler;Landroid/view/accessibility/AccessibilityManager;Lcom/android/systemui/statusbar/notification/collection/provider/HighPriorityProvider;Landroid/app/INotificationManager;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager;Landroid/content/pm/LauncherApps;Landroid/content/pm/ShortcutManager;Lcom/android/systemui/statusbar/notification/row/ChannelEditorDialogController;Lcom/android/systemui/settings/UserContextProvider;Lcom/android/systemui/statusbar/notification/AssistantFeedbackController;Ljava/util/Optional;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/statusbar/notification/row/OnUserInteractionCallback;Lcom/android/systemui/statusbar/phone/ShadeController;)V
+    move-object/from16 v0, v20
 
-    return-object v19
+    invoke-direct/range {v0 .. v19}, Lcom/android/systemui/statusbar/notification/row/NotificationGutsManager;-><init>(Landroid/content/Context;Ldagger/Lazy;Landroid/os/Handler;Landroid/os/Handler;Landroid/view/accessibility/AccessibilityManager;Lcom/android/systemui/statusbar/notification/collection/provider/HighPriorityProvider;Landroid/app/INotificationManager;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager;Landroid/content/pm/LauncherApps;Landroid/content/pm/ShortcutManager;Lcom/android/systemui/statusbar/notification/row/ChannelEditorDialogController;Lcom/android/systemui/settings/UserContextProvider;Lcom/android/systemui/statusbar/notification/AssistantFeedbackController;Ljava/util/Optional;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/statusbar/notification/row/OnUserInteractionCallback;Lcom/android/systemui/statusbar/phone/ShadeController;Lcom/android/systemui/dump/DumpManager;)V
+
+    return-object v20
 .end method
 
 .method public static provideNotificationLogger(Lcom/android/systemui/statusbar/NotificationListener;Ljava/util/concurrent/Executor;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/notification/logging/NotificationLogger$ExpansionStateLogger;Lcom/android/systemui/statusbar/notification/logging/NotificationPanelLogger;)Lcom/android/systemui/statusbar/notification/logging/NotificationLogger;
@@ -322,12 +376,12 @@
     return-object p0
 .end method
 
-.method public static provideOnUserInteractionCallback(Lcom/android/systemui/statusbar/FeatureFlags;Lcom/android/systemui/statusbar/policy/HeadsUpManager;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Ldagger/Lazy;Ldagger/Lazy;Ldagger/Lazy;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;Ldagger/Lazy;)Lcom/android/systemui/statusbar/notification/row/OnUserInteractionCallback;
+.method public static provideOnUserInteractionCallback(Lcom/android/systemui/flags/FeatureFlags;Lcom/android/systemui/statusbar/policy/HeadsUpManager;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Ldagger/Lazy;Ldagger/Lazy;Ldagger/Lazy;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;Ldagger/Lazy;)Lcom/android/systemui/statusbar/notification/row/OnUserInteractionCallback;
     .locals 14
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
+            "Lcom/android/systemui/flags/FeatureFlags;",
             "Lcom/android/systemui/statusbar/policy/HeadsUpManager;",
             "Lcom/android/systemui/plugins/statusbar/StatusBarStateController;",
             "Ldagger/Lazy<",
@@ -348,7 +402,7 @@
         }
     .end annotation
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/FeatureFlags;->isNewNotifPipelineRenderingEnabled()Z
+    invoke-virtual {p0}, Lcom/android/systemui/flags/FeatureFlags;->isNewNotifPipelineRenderingEnabled()Z
 
     move-result v0
 
@@ -425,12 +479,24 @@
     return-object v0
 .end method
 
-.method public static provideVisualStabilityManager(Lcom/android/systemui/statusbar/FeatureFlags;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Landroid/os/Handler;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/keyguard/WakefulnessLifecycle;)Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;
-    .locals 0
+.method public static provideVisualStabilityManager(Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Landroid/os/Handler;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/keyguard/WakefulnessLifecycle;Lcom/android/systemui/dump/DumpManager;)Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;
+    .locals 7
 
-    new-instance p0, Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;
+    new-instance v6, Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;
 
-    invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;-><init>(Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Landroid/os/Handler;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/keyguard/WakefulnessLifecycle;)V
+    move-object v0, v6
 
-    return-object p0
+    move-object v1, p0
+
+    move-object v2, p1
+
+    move-object v3, p2
+
+    move-object v4, p3
+
+    move-object v5, p4
+
+    invoke-direct/range {v0 .. v5}, Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;-><init>(Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Landroid/os/Handler;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/keyguard/WakefulnessLifecycle;Lcom/android/systemui/dump/DumpManager;)V
+
+    return-object v6
 .end method

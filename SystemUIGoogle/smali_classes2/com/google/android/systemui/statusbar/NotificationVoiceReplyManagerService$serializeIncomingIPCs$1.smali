@@ -17,8 +17,8 @@
     c = "com.google.android.systemui.statusbar.NotificationVoiceReplyManagerService"
     f = "NotificationVoiceReplyManagerService.kt"
     l = {
-        0xb4,
-        0xb5
+        0xba,
+        0xbb
     }
     m = "serializeIncomingIPCs"
 .end annotation

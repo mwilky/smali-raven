@@ -62,6 +62,9 @@
 .method public abstract notifyRemoveNotification(Ljava/lang/String;I)V
 .end method
 
+.method public abstract onManageMenuExpandChanged(Z)V
+.end method
+
 .method public abstract onStackExpandChanged(Z)V
 .end method
 

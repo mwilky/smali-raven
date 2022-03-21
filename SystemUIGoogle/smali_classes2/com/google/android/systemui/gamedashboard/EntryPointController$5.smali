@@ -36,7 +36,7 @@
 
     iget-object p0, p0, Lcom/google/android/systemui/gamedashboard/EntryPointController$5;->this$0:Lcom/google/android/systemui/gamedashboard/EntryPointController;
 
-    invoke-static {p0}, Lcom/google/android/systemui/gamedashboard/EntryPointController;->access$1200(Lcom/google/android/systemui/gamedashboard/EntryPointController;)Lcom/google/android/systemui/gamedashboard/FloatingEntryButton;
+    invoke-static {p0}, Lcom/google/android/systemui/gamedashboard/EntryPointController;->access$1300(Lcom/google/android/systemui/gamedashboard/EntryPointController;)Lcom/google/android/systemui/gamedashboard/FloatingEntryButton;
 
     move-result-object p0
 

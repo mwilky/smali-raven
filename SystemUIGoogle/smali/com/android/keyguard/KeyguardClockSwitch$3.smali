@@ -38,7 +38,7 @@
 
     const/4 p1, 0x0
 
-    invoke-static {p0, p1}, Lcom/android/keyguard/KeyguardClockSwitch;->access$202(Lcom/android/keyguard/KeyguardClockSwitch;Landroid/animation/ObjectAnimator;)Landroid/animation/ObjectAnimator;
+    invoke-static {p0, p1}, Lcom/android/keyguard/KeyguardClockSwitch;->access$002(Lcom/android/keyguard/KeyguardClockSwitch;Landroid/animation/ObjectAnimator;)Landroid/animation/ObjectAnimator;
 
     return-void
 .end method

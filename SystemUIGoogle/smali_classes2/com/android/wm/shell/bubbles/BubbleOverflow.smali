@@ -541,22 +541,6 @@
     return-void
 .end method
 
-.method public setExpandedContentAlpha(F)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/wm/shell/bubbles/BubbleOverflow;->expandedView:Lcom/android/wm/shell/bubbles/BubbleExpandedView;
-
-    if-nez p0, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    invoke-virtual {p0, p1}, Landroid/widget/LinearLayout;->setAlpha(F)V
-
-    :goto_0
-    return-void
-.end method
-
 .method public final setShowDot(Z)V
     .locals 0
 

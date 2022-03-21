@@ -647,7 +647,7 @@
     goto/16 :goto_1
 
     :sswitch_2
-    const-string/jumbo v5, "transitionPathRotate"
+    const-string v5, "transitionPathRotate"
 
     invoke-virtual {v1, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -743,7 +743,7 @@
     goto :goto_1
 
     :sswitch_8
-    const-string/jumbo v5, "translationZ"
+    const-string v5, "translationZ"
 
     invoke-virtual {v1, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -759,7 +759,7 @@
     goto :goto_1
 
     :sswitch_9
-    const-string/jumbo v5, "translationY"
+    const-string v5, "translationY"
 
     invoke-virtual {v1, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -775,7 +775,7 @@
     goto :goto_1
 
     :sswitch_a
-    const-string/jumbo v5, "translationX"
+    const-string v5, "translationX"
 
     invoke-virtual {v1, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1108,7 +1108,7 @@
 
     if-nez v0, :cond_7
 
-    const-string/jumbo v0, "transitionPathRotate"
+    const-string v0, "transitionPathRotate"
 
     invoke-virtual {p1, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
@@ -1121,7 +1121,7 @@
 
     if-nez v0, :cond_8
 
-    const-string/jumbo v0, "translationX"
+    const-string v0, "translationX"
 
     invoke-virtual {p1, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
@@ -1134,7 +1134,7 @@
 
     if-nez v0, :cond_9
 
-    const-string/jumbo v0, "translationY"
+    const-string v0, "translationY"
 
     invoke-virtual {p1, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
@@ -1147,7 +1147,7 @@
 
     if-nez v0, :cond_a
 
-    const-string/jumbo v0, "translationZ"
+    const-string v0, "translationZ"
 
     invoke-virtual {p1, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
@@ -1253,7 +1253,7 @@
     goto/16 :goto_0
 
     :sswitch_2
-    const-string/jumbo v0, "transitionPathRotate"
+    const-string v0, "transitionPathRotate"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1349,7 +1349,7 @@
     goto :goto_0
 
     :sswitch_8
-    const-string/jumbo v0, "translationZ"
+    const-string v0, "translationZ"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1365,7 +1365,7 @@
     goto :goto_0
 
     :sswitch_9
-    const-string/jumbo v0, "translationY"
+    const-string v0, "translationY"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1381,7 +1381,7 @@
     goto :goto_0
 
     :sswitch_a
-    const-string/jumbo v0, "translationX"
+    const-string v0, "translationX"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 

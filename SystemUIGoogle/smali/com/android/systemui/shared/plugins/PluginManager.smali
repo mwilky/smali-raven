@@ -21,7 +21,7 @@
             "Lcom/android/systemui/plugins/PluginListener<",
             "TT;>;",
             "Ljava/lang/Class<",
-            "*>;)V"
+            "TT;>;)V"
         }
     .end annotation
 .end method
@@ -35,7 +35,7 @@
             "Lcom/android/systemui/plugins/PluginListener<",
             "TT;>;",
             "Ljava/lang/Class<",
-            "*>;Z)V"
+            "TT;>;Z)V"
         }
     .end annotation
 .end method
@@ -50,7 +50,7 @@
             "Lcom/android/systemui/plugins/PluginListener<",
             "TT;>;",
             "Ljava/lang/Class<",
-            "*>;)V"
+            "TT;>;)V"
         }
     .end annotation
 .end method
@@ -68,7 +68,7 @@
     .end annotation
 .end method
 
-.method public abstract getWhitelistedPlugins()[Ljava/lang/String;
+.method public abstract getPrivilegedPlugins()[Ljava/lang/String;
 .end method
 
 .method public abstract removePluginListener(Lcom/android/systemui/plugins/PluginListener;)V

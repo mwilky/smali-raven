@@ -213,46 +213,34 @@
 
 
 # virtual methods
-.method getWifiDrawable(Lcom/android/wifitrackerlib/WifiEntry;)Landroid/graphics/drawable/Drawable;
-    .locals 3
+.method getWifiDrawable(IZ)Landroid/graphics/drawable/Drawable;
+    .locals 2
 
-    invoke-virtual {p1}, Lcom/android/wifitrackerlib/WifiEntry;->getLevel()I
+    const/4 v0, 0x0
 
-    move-result v0
+    const/4 v1, -0x1
 
-    const/4 v1, 0x0
+    if-ne p1, v1, :cond_0
 
-    const/4 v2, -0x1
-
-    if-ne v0, v2, :cond_0
-
-    return-object v1
+    return-object v0
 
     :cond_0
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetAdapter$InternetViewHolder;->mWifiIconInjector:Lcom/android/settingslib/wifi/WifiUtils$InternetIconInjector;
+    iget-object v1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetAdapter$InternetViewHolder;->mWifiIconInjector:Lcom/android/settingslib/wifi/WifiUtils$InternetIconInjector;
 
-    invoke-virtual {p1}, Lcom/android/wifitrackerlib/WifiEntry;->shouldShowXLevelIcon()Z
-
-    move-result v2
-
-    invoke-virtual {p1}, Lcom/android/wifitrackerlib/WifiEntry;->getLevel()I
-
-    move-result p1
-
-    invoke-virtual {v0, v2, p1}, Lcom/android/settingslib/wifi/WifiUtils$InternetIconInjector;->getIcon(ZI)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v1, p2, p1}, Lcom/android/settingslib/wifi/WifiUtils$InternetIconInjector;->getIcon(ZI)Landroid/graphics/drawable/Drawable;
 
     move-result-object p1
 
     if-nez p1, :cond_1
 
-    return-object v1
+    return-object v0
 
     :cond_1
     iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetAdapter$InternetViewHolder;->mContext:Landroid/content/Context;
 
-    const v0, 0x1010212
+    const p2, 0x1010212
 
-    invoke-static {p0, v0}, Lcom/android/settingslib/Utils;->getColorAttrDefaultColor(Landroid/content/Context;I)I
+    invoke-static {p0, p2}, Lcom/android/settingslib/Utils;->getColorAttrDefaultColor(Landroid/content/Context;I)I
 
     move-result p0
 
@@ -278,7 +266,15 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetAdapter$InternetViewHolder;->mWifiIcon:Landroid/widget/ImageView;
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/qs/tiles/dialog/InternetAdapter$InternetViewHolder;->getWifiDrawable(Lcom/android/wifitrackerlib/WifiEntry;)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {p1}, Lcom/android/wifitrackerlib/WifiEntry;->getLevel()I
+
+    move-result v1
+
+    invoke-virtual {p1}, Lcom/android/wifitrackerlib/WifiEntry;->shouldShowXLevelIcon()Z
+
+    move-result v2
+
+    invoke-virtual {p0, v1, v2}, Lcom/android/systemui/qs/tiles/dialog/InternetAdapter$InternetViewHolder;->getWifiDrawable(IZ)Landroid/graphics/drawable/Drawable;
 
     move-result-object v1
 

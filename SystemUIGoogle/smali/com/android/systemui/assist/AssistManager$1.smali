@@ -1,11 +1,14 @@
 .class Lcom/android/systemui/assist/AssistManager$1;
-.super Lcom/android/internal/app/IVoiceInteractionSessionShowCallback$Stub;
+.super Ljava/lang/Object;
 .source "AssistManager.java"
+
+# interfaces
+.implements Lcom/android/systemui/recents/OverviewProxyService$OverviewProxyListener;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/android/systemui/assist/AssistManager;
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/android/systemui/assist/AssistManager;-><init>(Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Landroid/content/Context;Lcom/android/internal/app/AssistUtils;Lcom/android/systemui/statusbar/CommandQueue;Lcom/android/systemui/assist/PhoneStateMonitor;Lcom/android/systemui/recents/OverviewProxyService;Ldagger/Lazy;Lcom/android/systemui/assist/ui/DefaultUiController;Lcom/android/systemui/assist/AssistLogger;Landroid/os/Handler;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -24,47 +27,31 @@
 
     iput-object p1, p0, Lcom/android/systemui/assist/AssistManager$1;->this$0:Lcom/android/systemui/assist/AssistManager;
 
-    invoke-direct {p0}, Lcom/android/internal/app/IVoiceInteractionSessionShowCallback$Stub;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onFailed()V
+.method public onAssistantGestureCompletion(F)V
     .locals 0
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
 
     iget-object p0, p0, Lcom/android/systemui/assist/AssistManager$1;->this$0:Lcom/android/systemui/assist/AssistManager;
 
-    invoke-static {p0}, Lcom/android/systemui/assist/AssistManager;->access$000(Lcom/android/systemui/assist/AssistManager;)Lcom/android/systemui/assist/AssistOrbController;
-
-    move-result-object p0
-
-    invoke-virtual {p0}, Lcom/android/systemui/assist/AssistOrbController;->postHide()V
+    invoke-virtual {p0, p1}, Lcom/android/systemui/assist/AssistManager;->onGestureCompletion(F)V
 
     return-void
 .end method
 
-.method public onShown()V
-    .locals 0
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
+.method public onAssistantProgress(F)V
+    .locals 1
 
     iget-object p0, p0, Lcom/android/systemui/assist/AssistManager$1;->this$0:Lcom/android/systemui/assist/AssistManager;
 
-    invoke-static {p0}, Lcom/android/systemui/assist/AssistManager;->access$000(Lcom/android/systemui/assist/AssistManager;)Lcom/android/systemui/assist/AssistOrbController;
+    const/4 v0, 0x1
 
-    move-result-object p0
-
-    invoke-virtual {p0}, Lcom/android/systemui/assist/AssistOrbController;->postHide()V
+    invoke-virtual {p0, v0, p1}, Lcom/android/systemui/assist/AssistManager;->onInvocationProgress(IF)V
 
     return-void
 .end method

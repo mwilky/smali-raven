@@ -16,11 +16,15 @@
     name = "Entry"
 .end annotation
 
+.annotation system Ldalvik/annotation/SourceDebugExtension;
+    value = "SMAP\nMediaDeviceManager.kt\nKotlin\n*S Kotlin\n*F\n+ 1 MediaDeviceManager.kt\ncom/android/systemui/media/MediaDeviceManager$Entry\n+ 2 fake.kt\nkotlin/jvm/internal/FakeKt\n*L\n1#1,212:1\n1#2:213\n*E\n"
+.end annotation
+
 
 # instance fields
 .field private final controller:Landroid/media/session/MediaController;
 
-.field private current:Lcom/android/settingslib/media/MediaDevice;
+.field private current:Lcom/android/systemui/media/MediaDeviceData;
 
 .field private final key:Ljava/lang/String;
 
@@ -49,7 +53,7 @@
         }
     .end annotation
 
-    const-string/jumbo v0, "this$0"
+    const-string v0, "this$0"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -100,14 +104,14 @@
     return-void
 .end method
 
-.method private final setCurrent(Lcom/android/settingslib/media/MediaDevice;)V
+.method private final setCurrent(Lcom/android/systemui/media/MediaDeviceData;)V
     .locals 3
 
     iget-boolean v0, p0, Lcom/android/systemui/media/MediaDeviceManager$Entry;->started:Z
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/systemui/media/MediaDeviceManager$Entry;->current:Lcom/android/settingslib/media/MediaDevice;
+    iget-object v0, p0, Lcom/android/systemui/media/MediaDeviceManager$Entry;->current:Lcom/android/systemui/media/MediaDeviceData;
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
@@ -116,7 +120,7 @@
     if-nez v0, :cond_1
 
     :cond_0
-    iput-object p1, p0, Lcom/android/systemui/media/MediaDeviceManager$Entry;->current:Lcom/android/settingslib/media/MediaDevice;
+    iput-object p1, p0, Lcom/android/systemui/media/MediaDeviceManager$Entry;->current:Lcom/android/systemui/media/MediaDeviceData;
 
     iget-object v0, p0, Lcom/android/systemui/media/MediaDeviceManager$Entry;->this$0:Lcom/android/systemui/media/MediaDeviceManager;
 
@@ -128,7 +132,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/media/MediaDeviceManager$Entry;->this$0:Lcom/android/systemui/media/MediaDeviceManager;
 
-    invoke-direct {v1, v2, p0, p1}, Lcom/android/systemui/media/MediaDeviceManager$Entry$current$1;-><init>(Lcom/android/systemui/media/MediaDeviceManager;Lcom/android/systemui/media/MediaDeviceManager$Entry;Lcom/android/settingslib/media/MediaDevice;)V
+    invoke-direct {v1, v2, p0, p1}, Lcom/android/systemui/media/MediaDeviceManager$Entry$current$1;-><init>(Lcom/android/systemui/media/MediaDeviceManager;Lcom/android/systemui/media/MediaDeviceManager$Entry;Lcom/android/systemui/media/MediaDeviceData;)V
 
     invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
@@ -137,7 +141,7 @@
 .end method
 
 .method private final updateCurrent()V
-    .locals 4
+    .locals 5
 
     iget-object v0, p0, Lcom/android/systemui/media/MediaDeviceManager$Entry;->localMediaManager:Lcom/android/settingslib/media/LocalMediaManager;
 
@@ -150,6 +154,8 @@
     const/4 v2, 0x0
 
     if-nez v1, :cond_0
+
+    move-object v1, v2
 
     goto :goto_0
 
@@ -164,21 +170,77 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_1
+    :goto_0
+    if-eqz v0, :cond_2
 
-    move-object v2, v0
+    iget-object v3, p0, Lcom/android/systemui/media/MediaDeviceManager$Entry;->controller:Landroid/media/session/MediaController;
+
+    if-eqz v3, :cond_1
+
+    if-eqz v1, :cond_2
 
     :cond_1
-    invoke-direct {p0, v2}, Lcom/android/systemui/media/MediaDeviceManager$Entry;->setCurrent(Lcom/android/settingslib/media/MediaDevice;)V
+    const/4 v3, 0x1
 
-    sget-object v2, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-
-    :goto_0
-    if-nez v2, :cond_2
-
-    invoke-direct {p0, v0}, Lcom/android/systemui/media/MediaDeviceManager$Entry;->setCurrent(Lcom/android/settingslib/media/MediaDevice;)V
+    goto :goto_1
 
     :cond_2
+    const/4 v3, 0x0
+
+    :goto_1
+    if-nez v1, :cond_3
+
+    :goto_2
+    move-object v1, v2
+
+    goto :goto_3
+
+    :cond_3
+    invoke-virtual {v1}, Landroid/media/RoutingSessionInfo;->getName()Ljava/lang/CharSequence;
+
+    move-result-object v1
+
+    if-nez v1, :cond_4
+
+    goto :goto_2
+
+    :cond_4
+    invoke-virtual {v1}, Ljava/lang/Object;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    :goto_3
+    if-nez v1, :cond_6
+
+    if-nez v0, :cond_5
+
+    move-object v1, v2
+
+    goto :goto_4
+
+    :cond_5
+    invoke-virtual {v0}, Lcom/android/settingslib/media/MediaDevice;->getName()Ljava/lang/String;
+
+    move-result-object v1
+
+    :cond_6
+    :goto_4
+    new-instance v4, Lcom/android/systemui/media/MediaDeviceData;
+
+    if-nez v0, :cond_7
+
+    goto :goto_5
+
+    :cond_7
+    invoke-virtual {v0}, Lcom/android/settingslib/media/MediaDevice;->getIconWithoutBackground()Landroid/graphics/drawable/Drawable;
+
+    move-result-object v2
+
+    :goto_5
+    invoke-direct {v4, v3, v2, v1}, Lcom/android/systemui/media/MediaDeviceData;-><init>(ZLandroid/graphics/drawable/Drawable;Ljava/lang/String;)V
+
+    invoke-direct {p0, v4}, Lcom/android/systemui/media/MediaDeviceManager$Entry;->setCurrent(Lcom/android/systemui/media/MediaDeviceData;)V
+
     return-void
 .end method
 
@@ -239,7 +301,7 @@
     move-result-object v0
 
     :goto_1
-    iget-object v1, p0, Lcom/android/systemui/media/MediaDeviceManager$Entry;->current:Lcom/android/settingslib/media/MediaDevice;
+    iget-object v1, p0, Lcom/android/systemui/media/MediaDeviceManager$Entry;->current:Lcom/android/systemui/media/MediaDeviceData;
 
     if-nez v1, :cond_2
 
@@ -248,7 +310,7 @@
     goto :goto_2
 
     :cond_2
-    invoke-virtual {v1}, Lcom/android/settingslib/media/MediaDevice;->getName()Ljava/lang/String;
+    invoke-virtual {v1}, Lcom/android/systemui/media/MediaDeviceData;->getName()Ljava/lang/String;
 
     move-result-object v1
 

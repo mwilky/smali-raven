@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/util/sensors/ThresholdSensorImpl;
+.class public Lcom/android/systemui/util/sensors/ThresholdSensorImpl;
 .super Ljava/lang/Object;
 .source "ThresholdSensorImpl.java"
 
@@ -9,6 +9,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Lcom/android/systemui/util/sensors/ThresholdSensorImpl$BuilderFactory;,
         Lcom/android/systemui/util/sensors/ThresholdSensorImpl$Builder;
     }
 .end annotation
@@ -170,11 +171,11 @@
 .method private static synthetic lambda$alertListenersInternal$0(ZJLcom/android/systemui/util/sensors/ThresholdSensor$Listener;)V
     .locals 1
 
-    new-instance v0, Lcom/android/systemui/util/sensors/ThresholdSensor$ThresholdSensorEvent;
+    new-instance v0, Lcom/android/systemui/util/sensors/ThresholdSensorEvent;
 
-    invoke-direct {v0, p0, p1, p2}, Lcom/android/systemui/util/sensors/ThresholdSensor$ThresholdSensorEvent;-><init>(ZJ)V
+    invoke-direct {v0, p0, p1, p2}, Lcom/android/systemui/util/sensors/ThresholdSensorEvent;-><init>(ZJ)V
 
-    invoke-interface {p3, v0}, Lcom/android/systemui/util/sensors/ThresholdSensor$Listener;->onThresholdCrossed(Lcom/android/systemui/util/sensors/ThresholdSensor$ThresholdSensorEvent;)V
+    invoke-interface {p3, v0}, Lcom/android/systemui/util/sensors/ThresholdSensor$Listener;->onThresholdCrossed(Lcom/android/systemui/util/sensors/ThresholdSensorEvent;)V
 
     return-void
 .end method
@@ -572,4 +573,20 @@
     move-result-object p0
 
     return-object p0
+.end method
+
+.method public unregister(Lcom/android/systemui/util/sensors/ThresholdSensor$Listener;)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/util/sensors/ThresholdSensorImpl;->mExecution:Lcom/android/systemui/util/concurrency/Execution;
+
+    invoke-interface {v0}, Lcom/android/systemui/util/concurrency/Execution;->assertIsMainThread()V
+
+    iget-object v0, p0, Lcom/android/systemui/util/sensors/ThresholdSensorImpl;->mListeners:Ljava/util/List;
+
+    invoke-interface {v0, p1}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
+
+    invoke-direct {p0}, Lcom/android/systemui/util/sensors/ThresholdSensorImpl;->unregisterInternal()V
+
+    return-void
 .end method

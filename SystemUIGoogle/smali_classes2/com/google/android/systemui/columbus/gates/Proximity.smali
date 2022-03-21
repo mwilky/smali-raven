@@ -63,7 +63,7 @@
 
     const-string p0, "Columbus/Proximity"
 
-    invoke-virtual {p2, p0}, Lcom/android/systemui/util/sensors/ProximitySensor;->setTag(Ljava/lang/String;)V
+    invoke-interface {p2, p0}, Lcom/android/systemui/util/sensors/ThresholdSensor;->setTag(Ljava/lang/String;)V
 
     return-void
 .end method
@@ -81,7 +81,7 @@
 
     iget-object v0, p0, Lcom/google/android/systemui/columbus/gates/Proximity;->proximitySensor:Lcom/android/systemui/util/sensors/ProximitySensor;
 
-    invoke-virtual {v0}, Lcom/android/systemui/util/sensors/ProximitySensor;->isNear()Ljava/lang/Boolean;
+    invoke-interface {v0}, Lcom/android/systemui/util/sensors/ProximitySensor;->isNear()Ljava/lang/Boolean;
 
     move-result-object v0
 
@@ -107,7 +107,7 @@
 
     iget-object v1, p0, Lcom/google/android/systemui/columbus/gates/Proximity;->proximityListener:Lcom/google/android/systemui/columbus/gates/Proximity$proximityListener$1;
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/util/sensors/ProximitySensor;->register(Lcom/android/systemui/util/sensors/ThresholdSensor$Listener;)V
+    invoke-interface {v0, v1}, Lcom/android/systemui/util/sensors/ThresholdSensor;->register(Lcom/android/systemui/util/sensors/ThresholdSensor$Listener;)V
 
     invoke-direct {p0}, Lcom/google/android/systemui/columbus/gates/Proximity;->updateBlocking()V
 
@@ -121,7 +121,7 @@
 
     iget-object p0, p0, Lcom/google/android/systemui/columbus/gates/Proximity;->proximityListener:Lcom/google/android/systemui/columbus/gates/Proximity$proximityListener$1;
 
-    invoke-virtual {v0, p0}, Lcom/android/systemui/util/sensors/ProximitySensor;->unregister(Lcom/android/systemui/util/sensors/ThresholdSensor$Listener;)V
+    invoke-interface {v0, p0}, Lcom/android/systemui/util/sensors/ThresholdSensor;->unregister(Lcom/android/systemui/util/sensors/ThresholdSensor$Listener;)V
 
     return-void
 .end method

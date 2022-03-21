@@ -37,6 +37,35 @@
 .method public onStateChanged(I)V
     .locals 4
 
+    invoke-static {}, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;->access$000()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    const/4 v1, 0x0
+
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    aput-object v2, v0, v1
+
+    const-string v1, "onStateChanged: newState=%d"
+
+    invoke-static {v1, v0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "KeyguardQsUserSwitchController"
+
+    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController$1;->this$0:Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;
 
     iget-object v0, v0, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;->mStatusBarStateController:Lcom/android/systemui/statusbar/SysuiStatusBarStateController;
@@ -47,7 +76,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController$1;->this$0:Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;
 
-    invoke-static {v1}, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;->access$000(Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;)Lcom/android/systemui/statusbar/policy/KeyguardStateController;
+    invoke-static {v1}, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;->access$100(Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;)Lcom/android/systemui/statusbar/policy/KeyguardStateController;
 
     move-result-object v1
 
@@ -57,13 +86,13 @@
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController$1;->this$0:Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;
 
-    invoke-static {v2}, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;->access$100(Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;)I
+    invoke-static {v2}, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;->access$200(Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;)I
 
     move-result v2
 
     iget-object v3, p0, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController$1;->this$0:Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;
 
-    invoke-static {v3, p1}, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;->access$102(Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;I)I
+    invoke-static {v3, p1}, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;->access$202(Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;I)I
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController$1;->this$0:Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;
 

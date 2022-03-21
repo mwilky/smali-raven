@@ -58,16 +58,6 @@
     .end annotation
 .end field
 
-.field private final configurationControllerProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/policy/ConfigurationController;",
-            ">;"
-        }
-    .end annotation
-.end field
-
 .field private final contextProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -220,7 +210,7 @@
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -257,9 +247,6 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/navigationbar/NavigationModeController;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/policy/ConfigurationController;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/google/android/systemui/assist/uihints/AssistantPresenceHandler;",
@@ -338,45 +325,41 @@
 
     move-object v1, p12
 
-    iput-object v1, v0, Lcom/google/android/systemui/assist/AssistManagerGoogle_Factory;->configurationControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/google/android/systemui/assist/AssistManagerGoogle_Factory;->assistantPresenceHandlerProvider:Ljavax/inject/Provider;
 
     move-object v1, p13
 
-    iput-object v1, v0, Lcom/google/android/systemui/assist/AssistManagerGoogle_Factory;->assistantPresenceHandlerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/google/android/systemui/assist/AssistManagerGoogle_Factory;->ngaMessageHandlerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p14
 
-    iput-object v1, v0, Lcom/google/android/systemui/assist/AssistManagerGoogle_Factory;->ngaMessageHandlerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/google/android/systemui/assist/AssistManagerGoogle_Factory;->sysUiStateProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p15
 
-    iput-object v1, v0, Lcom/google/android/systemui/assist/AssistManagerGoogle_Factory;->sysUiStateProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/google/android/systemui/assist/AssistManagerGoogle_Factory;->uiHandlerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p16
 
-    iput-object v1, v0, Lcom/google/android/systemui/assist/AssistManagerGoogle_Factory;->uiHandlerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/google/android/systemui/assist/AssistManagerGoogle_Factory;->defaultUiControllerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p17
 
-    iput-object v1, v0, Lcom/google/android/systemui/assist/AssistManagerGoogle_Factory;->defaultUiControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/google/android/systemui/assist/AssistManagerGoogle_Factory;->googleDefaultUiControllerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p18
 
-    iput-object v1, v0, Lcom/google/android/systemui/assist/AssistManagerGoogle_Factory;->googleDefaultUiControllerProvider:Ljavax/inject/Provider;
-
-    move-object/from16 v1, p19
-
     iput-object v1, v0, Lcom/google/android/systemui/assist/AssistManagerGoogle_Factory;->windowManagerServiceProvider:Ljavax/inject/Provider;
 
-    move-object/from16 v1, p20
+    move-object/from16 v1, p19
 
     iput-object v1, v0, Lcom/google/android/systemui/assist/AssistManagerGoogle_Factory;->assistLoggerProvider:Ljavax/inject/Provider;
 
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/google/android/systemui/assist/AssistManagerGoogle_Factory;
-    .locals 22
+.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/google/android/systemui/assist/AssistManagerGoogle_Factory;
+    .locals 21
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -412,9 +395,6 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/navigationbar/NavigationModeController;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/policy/ConfigurationController;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/google/android/systemui/assist/uihints/AssistantPresenceHandler;",
@@ -482,19 +462,17 @@
 
     move-object/from16 v19, p18
 
-    move-object/from16 v20, p19
+    new-instance v20, Lcom/google/android/systemui/assist/AssistManagerGoogle_Factory;
 
-    new-instance v21, Lcom/google/android/systemui/assist/AssistManagerGoogle_Factory;
+    move-object/from16 v0, v20
 
-    move-object/from16 v0, v21
+    invoke-direct/range {v0 .. v19}, Lcom/google/android/systemui/assist/AssistManagerGoogle_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
 
-    invoke-direct/range {v0 .. v20}, Lcom/google/android/systemui/assist/AssistManagerGoogle_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
-
-    return-object v21
+    return-object v20
 .end method
 
-.method public static newInstance(Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Landroid/content/Context;Lcom/android/internal/app/AssistUtils;Lcom/google/android/systemui/assist/uihints/NgaUiController;Lcom/android/systemui/statusbar/CommandQueue;Lcom/google/android/systemui/assist/OpaEnabledReceiver;Lcom/android/systemui/assist/PhoneStateMonitor;Lcom/android/systemui/recents/OverviewProxyService;Lcom/google/android/systemui/assist/OpaEnabledDispatcher;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/navigationbar/NavigationModeController;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/google/android/systemui/assist/uihints/AssistantPresenceHandler;Lcom/google/android/systemui/assist/uihints/NgaMessageHandler;Ldagger/Lazy;Landroid/os/Handler;Lcom/android/systemui/assist/ui/DefaultUiController;Lcom/google/android/systemui/assist/uihints/GoogleDefaultUiController;Landroid/view/IWindowManager;Lcom/android/systemui/assist/AssistLogger;)Lcom/google/android/systemui/assist/AssistManagerGoogle;
-    .locals 22
+.method public static newInstance(Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Landroid/content/Context;Lcom/android/internal/app/AssistUtils;Lcom/google/android/systemui/assist/uihints/NgaUiController;Lcom/android/systemui/statusbar/CommandQueue;Lcom/google/android/systemui/assist/OpaEnabledReceiver;Lcom/android/systemui/assist/PhoneStateMonitor;Lcom/android/systemui/recents/OverviewProxyService;Lcom/google/android/systemui/assist/OpaEnabledDispatcher;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/navigationbar/NavigationModeController;Lcom/google/android/systemui/assist/uihints/AssistantPresenceHandler;Lcom/google/android/systemui/assist/uihints/NgaMessageHandler;Ldagger/Lazy;Landroid/os/Handler;Lcom/android/systemui/assist/ui/DefaultUiController;Lcom/google/android/systemui/assist/uihints/GoogleDefaultUiController;Landroid/view/IWindowManager;Lcom/android/systemui/assist/AssistLogger;)Lcom/google/android/systemui/assist/AssistManagerGoogle;
+    .locals 21
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -509,7 +487,6 @@
             "Lcom/google/android/systemui/assist/OpaEnabledDispatcher;",
             "Lcom/android/keyguard/KeyguardUpdateMonitor;",
             "Lcom/android/systemui/navigationbar/NavigationModeController;",
-            "Lcom/android/systemui/statusbar/policy/ConfigurationController;",
             "Lcom/google/android/systemui/assist/uihints/AssistantPresenceHandler;",
             "Lcom/google/android/systemui/assist/uihints/NgaMessageHandler;",
             "Ldagger/Lazy<",
@@ -563,21 +540,19 @@
 
     move-object/from16 v19, p18
 
-    move-object/from16 v20, p19
+    new-instance v20, Lcom/google/android/systemui/assist/AssistManagerGoogle;
 
-    new-instance v21, Lcom/google/android/systemui/assist/AssistManagerGoogle;
+    move-object/from16 v0, v20
 
-    move-object/from16 v0, v21
+    invoke-direct/range {v0 .. v19}, Lcom/google/android/systemui/assist/AssistManagerGoogle;-><init>(Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Landroid/content/Context;Lcom/android/internal/app/AssistUtils;Lcom/google/android/systemui/assist/uihints/NgaUiController;Lcom/android/systemui/statusbar/CommandQueue;Lcom/google/android/systemui/assist/OpaEnabledReceiver;Lcom/android/systemui/assist/PhoneStateMonitor;Lcom/android/systemui/recents/OverviewProxyService;Lcom/google/android/systemui/assist/OpaEnabledDispatcher;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/navigationbar/NavigationModeController;Lcom/google/android/systemui/assist/uihints/AssistantPresenceHandler;Lcom/google/android/systemui/assist/uihints/NgaMessageHandler;Ldagger/Lazy;Landroid/os/Handler;Lcom/android/systemui/assist/ui/DefaultUiController;Lcom/google/android/systemui/assist/uihints/GoogleDefaultUiController;Landroid/view/IWindowManager;Lcom/android/systemui/assist/AssistLogger;)V
 
-    invoke-direct/range {v0 .. v20}, Lcom/google/android/systemui/assist/AssistManagerGoogle;-><init>(Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Landroid/content/Context;Lcom/android/internal/app/AssistUtils;Lcom/google/android/systemui/assist/uihints/NgaUiController;Lcom/android/systemui/statusbar/CommandQueue;Lcom/google/android/systemui/assist/OpaEnabledReceiver;Lcom/android/systemui/assist/PhoneStateMonitor;Lcom/android/systemui/recents/OverviewProxyService;Lcom/google/android/systemui/assist/OpaEnabledDispatcher;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/navigationbar/NavigationModeController;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/google/android/systemui/assist/uihints/AssistantPresenceHandler;Lcom/google/android/systemui/assist/uihints/NgaMessageHandler;Ldagger/Lazy;Landroid/os/Handler;Lcom/android/systemui/assist/ui/DefaultUiController;Lcom/google/android/systemui/assist/uihints/GoogleDefaultUiController;Landroid/view/IWindowManager;Lcom/android/systemui/assist/AssistLogger;)V
-
-    return-object v21
+    return-object v20
 .end method
 
 
 # virtual methods
 .method public get()Lcom/google/android/systemui/assist/AssistManagerGoogle;
-    .locals 22
+    .locals 21
 
     move-object/from16 v0, p0
 
@@ -691,7 +666,7 @@
 
     check-cast v12, Lcom/android/systemui/navigationbar/NavigationModeController;
 
-    iget-object v1, v0, Lcom/google/android/systemui/assist/AssistManagerGoogle_Factory;->configurationControllerProvider:Ljavax/inject/Provider;
+    iget-object v1, v0, Lcom/google/android/systemui/assist/AssistManagerGoogle_Factory;->assistantPresenceHandlerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -699,17 +674,7 @@
 
     move-object v13, v1
 
-    check-cast v13, Lcom/android/systemui/statusbar/policy/ConfigurationController;
-
-    iget-object v1, v0, Lcom/google/android/systemui/assist/AssistManagerGoogle_Factory;->assistantPresenceHandlerProvider:Ljavax/inject/Provider;
-
-    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
-
-    move-result-object v1
-
-    move-object v14, v1
-
-    check-cast v14, Lcom/google/android/systemui/assist/uihints/AssistantPresenceHandler;
+    check-cast v13, Lcom/google/android/systemui/assist/uihints/AssistantPresenceHandler;
 
     iget-object v1, v0, Lcom/google/android/systemui/assist/AssistManagerGoogle_Factory;->ngaMessageHandlerProvider:Ljavax/inject/Provider;
 
@@ -717,15 +682,15 @@
 
     move-result-object v1
 
-    move-object v15, v1
+    move-object v14, v1
 
-    check-cast v15, Lcom/google/android/systemui/assist/uihints/NgaMessageHandler;
+    check-cast v14, Lcom/google/android/systemui/assist/uihints/NgaMessageHandler;
 
     iget-object v1, v0, Lcom/google/android/systemui/assist/AssistManagerGoogle_Factory;->sysUiStateProvider:Ljavax/inject/Provider;
 
     invoke-static {v1}, Ldagger/internal/DoubleCheck;->lazy(Ljavax/inject/Provider;)Ldagger/Lazy;
 
-    move-result-object v16
+    move-result-object v15
 
     iget-object v1, v0, Lcom/google/android/systemui/assist/AssistManagerGoogle_Factory;->uiHandlerProvider:Ljavax/inject/Provider;
 
@@ -733,9 +698,9 @@
 
     move-result-object v1
 
-    move-object/from16 v17, v1
+    move-object/from16 v16, v1
 
-    check-cast v17, Landroid/os/Handler;
+    check-cast v16, Landroid/os/Handler;
 
     iget-object v1, v0, Lcom/google/android/systemui/assist/AssistManagerGoogle_Factory;->defaultUiControllerProvider:Ljavax/inject/Provider;
 
@@ -743,9 +708,9 @@
 
     move-result-object v1
 
-    move-object/from16 v18, v1
+    move-object/from16 v17, v1
 
-    check-cast v18, Lcom/android/systemui/assist/ui/DefaultUiController;
+    check-cast v17, Lcom/android/systemui/assist/ui/DefaultUiController;
 
     iget-object v1, v0, Lcom/google/android/systemui/assist/AssistManagerGoogle_Factory;->googleDefaultUiControllerProvider:Ljavax/inject/Provider;
 
@@ -753,9 +718,9 @@
 
     move-result-object v1
 
-    move-object/from16 v19, v1
+    move-object/from16 v18, v1
 
-    check-cast v19, Lcom/google/android/systemui/assist/uihints/GoogleDefaultUiController;
+    check-cast v18, Lcom/google/android/systemui/assist/uihints/GoogleDefaultUiController;
 
     iget-object v1, v0, Lcom/google/android/systemui/assist/AssistManagerGoogle_Factory;->windowManagerServiceProvider:Ljavax/inject/Provider;
 
@@ -763,9 +728,9 @@
 
     move-result-object v1
 
-    move-object/from16 v20, v1
+    move-object/from16 v19, v1
 
-    check-cast v20, Landroid/view/IWindowManager;
+    check-cast v19, Landroid/view/IWindowManager;
 
     iget-object v0, v0, Lcom/google/android/systemui/assist/AssistManagerGoogle_Factory;->assistLoggerProvider:Ljavax/inject/Provider;
 
@@ -773,11 +738,11 @@
 
     move-result-object v0
 
-    move-object/from16 v21, v0
+    move-object/from16 v20, v0
 
-    check-cast v21, Lcom/android/systemui/assist/AssistLogger;
+    check-cast v20, Lcom/android/systemui/assist/AssistLogger;
 
-    invoke-static/range {v2 .. v21}, Lcom/google/android/systemui/assist/AssistManagerGoogle_Factory;->newInstance(Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Landroid/content/Context;Lcom/android/internal/app/AssistUtils;Lcom/google/android/systemui/assist/uihints/NgaUiController;Lcom/android/systemui/statusbar/CommandQueue;Lcom/google/android/systemui/assist/OpaEnabledReceiver;Lcom/android/systemui/assist/PhoneStateMonitor;Lcom/android/systemui/recents/OverviewProxyService;Lcom/google/android/systemui/assist/OpaEnabledDispatcher;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/navigationbar/NavigationModeController;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/google/android/systemui/assist/uihints/AssistantPresenceHandler;Lcom/google/android/systemui/assist/uihints/NgaMessageHandler;Ldagger/Lazy;Landroid/os/Handler;Lcom/android/systemui/assist/ui/DefaultUiController;Lcom/google/android/systemui/assist/uihints/GoogleDefaultUiController;Landroid/view/IWindowManager;Lcom/android/systemui/assist/AssistLogger;)Lcom/google/android/systemui/assist/AssistManagerGoogle;
+    invoke-static/range {v2 .. v20}, Lcom/google/android/systemui/assist/AssistManagerGoogle_Factory;->newInstance(Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Landroid/content/Context;Lcom/android/internal/app/AssistUtils;Lcom/google/android/systemui/assist/uihints/NgaUiController;Lcom/android/systemui/statusbar/CommandQueue;Lcom/google/android/systemui/assist/OpaEnabledReceiver;Lcom/android/systemui/assist/PhoneStateMonitor;Lcom/android/systemui/recents/OverviewProxyService;Lcom/google/android/systemui/assist/OpaEnabledDispatcher;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/navigationbar/NavigationModeController;Lcom/google/android/systemui/assist/uihints/AssistantPresenceHandler;Lcom/google/android/systemui/assist/uihints/NgaMessageHandler;Ldagger/Lazy;Landroid/os/Handler;Lcom/android/systemui/assist/ui/DefaultUiController;Lcom/google/android/systemui/assist/uihints/GoogleDefaultUiController;Landroid/view/IWindowManager;Lcom/android/systemui/assist/AssistLogger;)Lcom/google/android/systemui/assist/AssistManagerGoogle;
 
     move-result-object v0
 

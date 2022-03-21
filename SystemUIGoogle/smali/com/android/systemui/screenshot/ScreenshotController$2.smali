@@ -32,7 +32,7 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 1
+    .locals 3
 
     iget p1, p1, Landroid/os/Message;->what:I
 
@@ -45,19 +45,25 @@
     :cond_0
     iget-object p1, p0, Lcom/android/systemui/screenshot/ScreenshotController$2;->this$0:Lcom/android/systemui/screenshot/ScreenshotController;
 
-    invoke-static {p1}, Lcom/android/systemui/screenshot/ScreenshotController;->access$100(Lcom/android/systemui/screenshot/ScreenshotController;)Lcom/android/internal/logging/UiEventLogger;
+    invoke-static {p1}, Lcom/android/systemui/screenshot/ScreenshotController;->access$200(Lcom/android/systemui/screenshot/ScreenshotController;)Lcom/android/internal/logging/UiEventLogger;
 
     move-result-object p1
 
     sget-object v0, Lcom/android/systemui/screenshot/ScreenshotEvent;->SCREENSHOT_INTERACTION_TIMEOUT:Lcom/android/systemui/screenshot/ScreenshotEvent;
 
-    invoke-interface {p1, v0}, Lcom/android/internal/logging/UiEventLogger;->log(Lcom/android/internal/logging/UiEventLogger$UiEventEnum;)V
+    iget-object v1, p0, Lcom/android/systemui/screenshot/ScreenshotController$2;->this$0:Lcom/android/systemui/screenshot/ScreenshotController;
+
+    invoke-static {v1}, Lcom/android/systemui/screenshot/ScreenshotController;->access$100(Lcom/android/systemui/screenshot/ScreenshotController;)Ljava/lang/String;
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    invoke-interface {p1, v0, v2, v1}, Lcom/android/internal/logging/UiEventLogger;->log(Lcom/android/internal/logging/UiEventLogger$UiEventEnum;ILjava/lang/String;)V
 
     iget-object p0, p0, Lcom/android/systemui/screenshot/ScreenshotController$2;->this$0:Lcom/android/systemui/screenshot/ScreenshotController;
 
-    const/4 p1, 0x0
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/screenshot/ScreenshotController;->dismissScreenshot(Z)V
+    invoke-virtual {p0, v2}, Lcom/android/systemui/screenshot/ScreenshotController;->dismissScreenshot(Z)V
 
     :goto_0
     return-void

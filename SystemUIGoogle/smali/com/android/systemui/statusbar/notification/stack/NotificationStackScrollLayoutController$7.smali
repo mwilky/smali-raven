@@ -517,6 +517,16 @@
     return-void
 .end method
 
+.method public onLongPressSent(Landroid/view/View;)V
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController$7;->this$0:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;
+
+    invoke-static {p0, p1}, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;->access$1902(Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;Landroid/view/View;)Landroid/view/View;
+
+    return-void
+.end method
+
 .method public onSnooze(Landroid/service/notification/StatusBarNotification;Lcom/android/systemui/plugins/statusbar/NotificationSwipeActionHelper$SnoozeOption;)V
     .locals 0
 
@@ -574,7 +584,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController$7;->this$0:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;
 
-    invoke-static {p0}, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;->access$1900(Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;)Z
+    invoke-static {p0}, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;->access$2000(Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;)Z
 
     move-result p0
 

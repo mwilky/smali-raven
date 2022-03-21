@@ -77,15 +77,15 @@
 
     if-ne p2, v0, :cond_0
 
-    const-class p0, Lcom/android/systemui/recents/Recents;
+    iget-object p0, p0, Lcom/android/systemui/navigationbar/NavigationBarView$1;->this$0:Lcom/android/systemui/navigationbar/NavigationBarView;
 
-    invoke-static {p0}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-static {p0}, Lcom/android/systemui/navigationbar/NavigationBarView;->access$100(Lcom/android/systemui/navigationbar/NavigationBarView;)Ljava/util/Optional;
 
     move-result-object p0
 
-    check-cast p0, Lcom/android/systemui/recents/Recents;
+    sget-object p1, Lcom/android/systemui/accessibility/SystemActions$$ExternalSyntheticLambda1;->INSTANCE:Lcom/android/systemui/accessibility/SystemActions$$ExternalSyntheticLambda1;
 
-    invoke-virtual {p0}, Lcom/android/systemui/recents/Recents;->toggleRecentApps()V
+    invoke-virtual {p0, p1}, Ljava/util/Optional;->ifPresent(Ljava/util/function/Consumer;)V
 
     const/4 p0, 0x1
 
