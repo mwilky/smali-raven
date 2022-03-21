@@ -16,7 +16,7 @@
 # static fields
 .field private static final DEBUG:Z
 
-.field private static sInstance:Lcom/google/android/settings/fuelgauge/reversecharging/ReverseChargingManager;
+.field static sInstance:Lcom/google/android/settings/fuelgauge/reversecharging/ReverseChargingManager;
 
 
 # instance fields
@@ -146,7 +146,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090045
+    const v1, 0x7f090046
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 

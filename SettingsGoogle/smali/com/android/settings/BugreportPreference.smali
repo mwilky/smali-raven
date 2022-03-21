@@ -168,7 +168,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f060071
+    const v1, 0x7f060073
 
     const/4 v2, 0x0
 
@@ -176,7 +176,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d011e
+    const v1, 0x7f0d0122
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -186,7 +186,7 @@
 
     iput-object v1, p0, Lcom/android/settings/BugreportPreference;->mInteractiveTitle:Landroid/widget/CheckedTextView;
 
-    const v1, 0x7f0d011d
+    const v1, 0x7f0d0121
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -196,7 +196,7 @@
 
     iput-object v1, p0, Lcom/android/settings/BugreportPreference;->mInteractiveSummary:Landroid/widget/TextView;
 
-    const v1, 0x7f0d011c
+    const v1, 0x7f0d0120
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -206,7 +206,7 @@
 
     iput-object v1, p0, Lcom/android/settings/BugreportPreference;->mFullTitle:Landroid/widget/CheckedTextView;
 
-    const v1, 0x7f0d011b
+    const v1, 0x7f0d011f
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -236,7 +236,7 @@
 
     invoke-virtual {p0, v1}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const p0, 0x1040772
+    const p0, 0x1040777
 
     invoke-virtual {p1, p0, p2}, Landroidx/appcompat/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
 

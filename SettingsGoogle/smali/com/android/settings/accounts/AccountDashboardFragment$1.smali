@@ -68,7 +68,7 @@
 
     invoke-direct {p0}, Ljava/util/ArrayList;-><init>()V
 
-    const-string p2, "user"
+    const-string/jumbo p2, "user"
 
     invoke-virtual {p1, p2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 

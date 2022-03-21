@@ -21,33 +21,33 @@
 
     const-string v2, "refId"
 
-    const-string v3, "ty"
+    const-string/jumbo v3, "ty"
 
     const-string v4, "parent"
 
-    const-string v5, "sw"
+    const-string/jumbo v5, "sw"
 
-    const-string v6, "sh"
+    const-string/jumbo v6, "sh"
 
     const-string v7, "sc"
 
     const-string v8, "ks"
 
-    const-string v9, "tt"
+    const-string/jumbo v9, "tt"
 
     const-string v10, "masksProperties"
 
-    const-string v11, "shapes"
+    const-string/jumbo v11, "shapes"
 
-    const-string v12, "t"
+    const-string/jumbo v12, "t"
 
     const-string v13, "ef"
 
-    const-string v14, "sr"
+    const-string/jumbo v14, "sr"
 
-    const-string v15, "st"
+    const-string/jumbo v15, "st"
 
-    const-string v16, "w"
+    const-string/jumbo v16, "w"
 
     const-string v17, "h"
 
@@ -55,7 +55,7 @@
 
     const-string v19, "op"
 
-    const-string v20, "tm"
+    const-string/jumbo v20, "tm"
 
     const-string v21, "cl"
 

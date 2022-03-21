@@ -37,7 +37,7 @@
 
     iput v0, p0, Lcom/android/settings/security/ChangeScreenLockPreferenceController;->mUserId:I
 
-    const-string v1, "user"
+    const-string/jumbo v1, "user"
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -156,7 +156,7 @@
 .method public getPreferenceKey()Ljava/lang/String;
     .locals 0
 
-    const-string p0, "unlock_set_or_change"
+    const-string/jumbo p0, "unlock_set_or_change"
 
     return-object p0
 .end method
@@ -268,7 +268,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f090056
+    const v0, 0x7f090057
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -432,7 +432,7 @@
     goto :goto_0
 
     :cond_0
-    const p2, 0x7f041447
+    const p2, 0x7f04146c
 
     invoke-virtual {p1, p2}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -440,7 +440,7 @@
 
     :cond_1
     :goto_0
-    const p2, 0x7f041448
+    const p2, 0x7f04146d
 
     invoke-virtual {p1, p2}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -484,21 +484,21 @@
     goto :goto_1
 
     :cond_3
-    const p2, 0x7f041449
+    const p2, 0x7f04146e
 
     invoke-virtual {p1, p2}, Landroidx/preference/Preference;->setSummary(I)V
 
     goto :goto_1
 
     :cond_4
-    const p2, 0x7f04144b
+    const p2, 0x7f041470
 
     invoke-virtual {p1, p2}, Landroidx/preference/Preference;->setSummary(I)V
 
     goto :goto_1
 
     :cond_5
-    const p2, 0x7f04144a
+    const p2, 0x7f04146f
 
     invoke-virtual {p1, p2}, Landroidx/preference/Preference;->setSummary(I)V
 

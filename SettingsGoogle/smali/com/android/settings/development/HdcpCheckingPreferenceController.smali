@@ -133,7 +133,7 @@
 
     move-result-object p0
 
-    const-string v0, "user"
+    const-string/jumbo v0, "user"
 
     invoke-static {v0, p0}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
 

@@ -35,6 +35,7 @@
     <dimen name="screen_margin_sides">40.0dip</dimen>
     <dimen name="screen_margin_top">48.0dip</dimen>
     <dimen name="search_bar_height">64.0dip</dimen>
+    <dimen name="settings_panel_width">560.0dip</dimen>
     <dimen name="settingslib_switchbar_subsettings_margin_start">80.0dip</dimen>
     <dimen name="sud_decor_padding_top">256.0dip</dimen>
     <dimen name="sud_glif_button_margin_end">36.0dip</dimen>
@@ -52,6 +53,7 @@
     <dimen name="crypt_keeper_pattern_separator">100.0dip</dimen>
     <dimen name="datetime_margin_bottom">40.0dip</dimen>
     <dimen name="datetime_margin_top">40.0dip</dimen>
+    <dimen name="font_size_preview_padding_start">32.0dip</dimen>
     <dimen name="screen_pinning_padding_end">40.0dip</dimen>
     <dimen name="screen_pinning_padding_start">40.0dip</dimen>
     <dimen name="search_bar_half_height">32.0dip</dimen>

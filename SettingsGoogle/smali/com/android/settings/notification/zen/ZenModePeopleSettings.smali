@@ -13,7 +13,7 @@
 
     new-instance v0, Lcom/android/settings/notification/zen/ZenModePeopleSettings$1;
 
-    const v1, 0x7f150125
+    const v1, 0x7f15012a
 
     invoke-direct {v0, v1}, Lcom/android/settings/notification/zen/ZenModePeopleSettings$1;-><init>(I)V
 
@@ -64,7 +64,7 @@
 
     new-instance p3, Lcom/android/settings/notification/zen/ZenModeConversationsImagePreferenceController;
 
-    const-string v0, "zen_mode_conversations_image"
+    const-string/jumbo v0, "zen_mode_conversations_image"
 
     invoke-direct {p3, p0, v0, p1, p5}, Lcom/android/settings/notification/zen/ZenModeConversationsImagePreferenceController;-><init>(Landroid/content/Context;Ljava/lang/String;Lcom/android/settingslib/core/lifecycle/Lifecycle;Lcom/android/settings/notification/NotificationBackend;)V
 
@@ -72,7 +72,7 @@
 
     new-instance p3, Lcom/android/settings/notification/zen/ZenModeConversationsPreferenceController;
 
-    const-string p5, "zen_mode_conversations"
+    const-string/jumbo p5, "zen_mode_conversations"
 
     invoke-direct {p3, p0, p5, p1}, Lcom/android/settings/notification/zen/ZenModeConversationsPreferenceController;-><init>(Landroid/content/Context;Ljava/lang/String;Lcom/android/settingslib/core/lifecycle/Lifecycle;)V
 
@@ -80,7 +80,7 @@
 
     new-instance p3, Lcom/android/settings/notification/zen/ZenModeCallsPreferenceController;
 
-    const-string p5, "zen_mode_people_calls"
+    const-string/jumbo p5, "zen_mode_people_calls"
 
     invoke-direct {p3, p0, p1, p5}, Lcom/android/settings/notification/zen/ZenModeCallsPreferenceController;-><init>(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;Ljava/lang/String;)V
 
@@ -88,7 +88,7 @@
 
     new-instance p3, Lcom/android/settings/notification/zen/ZenModeMessagesPreferenceController;
 
-    const-string p5, "zen_mode_people_messages"
+    const-string/jumbo p5, "zen_mode_people_messages"
 
     invoke-direct {p3, p0, p1, p5}, Lcom/android/settings/notification/zen/ZenModeMessagesPreferenceController;-><init>(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;Ljava/lang/String;)V
 
@@ -170,7 +170,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f150125
+    const p0, 0x7f15012a
 
     return p0
 .end method

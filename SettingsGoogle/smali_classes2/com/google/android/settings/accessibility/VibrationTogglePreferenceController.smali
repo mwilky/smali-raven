@@ -539,6 +539,14 @@
     return p0
 .end method
 
+.method public getSliceHighlightMenuRes()I
+    .locals 0
+
+    const p0, 0x7f040d02
+
+    return p0
+.end method
+
 .method protected abstract getVibrationEnabledSetting()Ljava/lang/String;
 .end method
 

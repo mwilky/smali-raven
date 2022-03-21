@@ -96,6 +96,7 @@
     <string name="peak_refresh_rate_title">Onyesho Laini</string>
     <string name="peak_refresh_rate_summary">Huinua kiotomatiki kiwango cha kuonyesha upya kutoka Hz 60 hadi 90 kwa baadhi ya maudhui. Huongeza matumizi ya betri.</string>
     <string name="accessibility_vibration_settings_title">Mtetemo na kuhisi</string>
+    <string name="columbus_title">Kugusa Haraka ili kuanzisha vitendo</string>
     <string name="emergency_gesture_screen_title">Simu ya dharura</string>
     <string name="abc_action_mode_done">Nimemaliza</string>
     <string name="vibrate_for_calls_category_title">Simu</string>
@@ -103,6 +104,8 @@
     <string name="lockscreen_privacy_controls_setting_toggle">Onyesha vidhibiti vya vifaa</string>
     <string name="lockscreen_privacy_wallet_summary">Ruhusu kipochi kifikiwe kwenye skrini iliyofungwa na mipangilio ya haraka</string>
     <string name="lockscreen_privacy_controls_summary">Fikia vidhibiti wakati skrini imefungwa</string>
+    <string name="lockscreen_double_line_clock_summary">Onyesha saa yenye mistari miwili inapopatikana</string>
+    <string name="lockscreen_double_line_clock_setting_toggle">Saa yenye mistari miwili</string>
     <string name="abc_activity_chooser_view_see_all">Angalia zote</string>
     <string name="abc_activitychooserview_choose_application">Chagua programu</string>
     <string name="abc_capital_off">IMEZIMWA</string>
@@ -147,9 +150,11 @@
     <string name="accessibility_alarm_vibration_title">Mtetemo wa kengele</string>
     <string name="accessibility_assist_gesture_complete_or_keep_adjusting">Mipangilio ya Active Edge. Nenda kwenye skrini inayofuata au endelea kurekebisha.</string>
     <string name="accessibility_audio_adjustment_title">Marekebisho ya sauti</string>
+    <string name="accessibility_autoclick_about_title">Kuhusu kubofya kiotomatiki (kuchukua hatua baada ya kiteuzi kusimama)</string>
     <string name="accessibility_autoclick_custom_title">Maalum</string>
     <string name="accessibility_autoclick_default_title">Kimezimwa</string>
     <string name="accessibility_autoclick_description">Kubofya kiotomatiki hufanya kazi na kipanya kilichounganishwa. Unaweza kuweka mipangilio ili kiteuzi cha kipanya kibofye kiotomatiki kiteuzi kinaposimama kwa muda fulani.</string>
+    <string name="accessibility_autoclick_footer_learn_more_content_description">Pata maelezo zaidi kuhusu kubofya kiotomatiki (kuchukua hatua baada ya kiteuzi kusimama)</string>
     <string name="accessibility_autoclick_long_summary">Sekunde 1</string>
     <string name="accessibility_autoclick_long_title">Kirefu</string>
     <string name="accessibility_autoclick_longer_desc">Mrefu zaidi</string>
@@ -161,16 +166,17 @@
     <string name="accessibility_autoclick_short_title">Kifupi</string>
     <string name="accessibility_autoclick_shorter_desc">Mfupi zaidi</string>
     <string name="accessibility_banner_message_dismiss">Ondoa</string>
-    <string name="accessibility_button_description">"Fikia vipengele vya ufikivu haraka kwenye skrini yoyote. 
+    <string name="accessibility_button_about_title">Kuhusu kitufe cha zana za ufikivu</string>
+    <string name="accessibility_button_description">"Fikia vipengele vya ufikivu haraka kwenye skrini yoyote.
 
 Ili uanze, nenda kwenye mipangilio ya ufikivu na uchague kipengele. Gusa njia ya mkato na uchague kitufe cha zana za ufikivu."</string>
     <string name="accessibility_button_fade_summary">Hufifia baada ya sekunde chache na kuifanya iwe rahisi kuona skrini yako</string>
     <string name="accessibility_button_fade_title">Fifia wakati hakitumiki</string>
+    <string name="accessibility_button_gesture_about_title">Kuhusu ishara na kitufe cha zana za ufikivu</string>
     <string name="accessibility_button_gesture_description">"Fikia vipengele vya ufikivu haraka kwenye skrini yoyote.
 
-Ili uanze, nenda kwenye mipangilio ya ufikivu na uchague kipengele. Gusa njia ya mkato na uchague kitufe cha zana za ufikivu.
-
-Ili utumie kitufe cha zana za ufikivu katika sehemu ya viungo muhimu badala yake, badili ili utumie usogezaji kwa kutumia vitufe 2 au usogezaji kwa kutumia vitufe 3."</string>
+Ili uanze, nenda kwenye mipangilio ya ufikivu na uchague kipengele. Gusa njia ya mkato na uchague kitufe cha zana za ufikivu au ishara."</string>
+    <string name="accessibility_button_gesture_footer_learn_more_content_description">Pata maelezo zaidi kuhusu ishara na kitufe cha zana za ufikivu</string>
     <string name="accessibility_button_gesture_title">Ishara na kitufe cha zana za ufikivu</string>
     <string name="accessibility_button_high_label">Kutopenyeza mwangaza</string>
     <string name="accessibility_button_intro">Kutumia kitufe cha zana za ufikivu. Ishara haipatikani kwenye usogezaji kwa kutumia vitufe 3.</string>
@@ -184,14 +190,23 @@ Ili utumie kitufe cha zana za ufikivu katika sehemu ya viungo muhimu badala yake
     <string name="accessibility_caption_preference_summary">Baadhi ya programu hazitumii mapendeleo haya ya manukuu</string>
     <string name="accessibility_caption_primary_switch_summary">Kwa ajili ya programu zinazotumika pekee</string>
     <string name="accessibility_caption_primary_switch_title">Onyesha manukuu</string>
+    <string name="accessibility_captioning_about_title">Kuhusu mapendeleo ya manukuu</string>
+    <string name="accessibility_captioning_footer_learn_more_content_description">Pata maelezo zaidi kuhusu mapendeleo ya manukuu</string>
     <string name="accessibility_captioning_title">Mapendeleo ya manukuu</string>
     <string name="accessibility_category_personal">Akaunti za wasifu wa binafsi</string>
     <string name="accessibility_category_work">Akaunti za wasifu wa kazini - %s</string>
+    <string name="accessibility_color_inversion_about_title">Kuhusu ugeuzaji rangi</string>
+    <string name="accessibility_color_inversion_footer_learn_more_content_description">Pata maelezo zaidi kuhusu ugeuzaji rangi</string>
+    <string name="accessibility_control_timeout_about_title">Kuhusu muda wa kuchukua hatua (Kuisha kwa muda wa ufikivu)</string>
+    <string name="accessibility_control_timeout_footer_learn_more_content_description">Pata maelezo zaidi kuhusu muda wa kuchukua hatua (Kuisha kwa muda wa ufikivu)</string>
     <string name="accessibility_control_timeout_preference_summary">"Chagua muda ambao ungependa kuonyesha ujumbe unaokuomba uchukue hatua, unaoonekana kwa muda mfupi.
 
 Baadhi ya programu hazitumii mipangilio hii."</string>
     <string name="accessibility_control_timeout_preference_title">Wakati wa kuchukua hatua</string>
+    <string name="accessibility_daltonizer_about_title">Kuhusu usahihishaji wa rangi</string>
+    <string name="accessibility_daltonizer_footer_learn_more_content_description">Pata maelezo zaidi kuhusu usahihishaji wa rangi</string>
     <string name="accessibility_daltonizer_primary_switch_title">Tumia kipengele cha usahihishaji wa rangi</string>
+    <string name="accessibility_daltonizer_shortcut_title">Njia ya mkato ya usahihishaji wa rangi</string>
     <string name="accessibility_data_one_bar">Upapi mmoja wa habari</string>
     <string name="accessibility_data_signal_full">Ishara ya data imejaa.</string>
     <string name="accessibility_data_three_bars">Fito tatu za habari.</string>
@@ -206,6 +221,7 @@ Baadhi ya programu hazitumii mipangilio hii."</string>
     <string name="accessibility_display_daltonizer_preference_title">Usahihishaji wa rangi</string>
     <string name="accessibility_display_inversion_preference_subtitle">Ugeuzaji rangi hubadilisha skrini zenye mwangaza kuwa nyeusi.&lt;br/>&lt;br/> Kumbuka: &lt;ol> &lt;li> Ugeuzaji rangi pia hubadilisha skrini nyeusi kuwa za mwangaza.&lt;/li> &lt;li> Rangi zitabadilika kwenye maudhui na picha.&lt;/li> &lt;li> Mandhari meusi yanaweza kutumika kuonyesha mandharinyuma meusi. Mandhari meusi hufanya kazi kwenye programu zinazotumika. Ugeuzaji rangi hufanya kazi kwenye programu zote.&lt;/li> &lt;/ol></string>
     <string name="accessibility_display_inversion_preference_title">Ugeuzaji rangi</string>
+    <string name="accessibility_display_inversion_shortcut_title">Njia ya mkato ya ugeuzaji rangi</string>
     <string name="accessibility_display_inversion_switch_title">Tumia ugeuzaji rangi</string>
     <string name="accessibility_ethernet_connected">Ethaneti.</string>
     <string name="accessibility_ethernet_disconnected">Ethaneti imeondolewa.</string>
@@ -255,6 +271,8 @@ Kitufe cha zana za ufikivu huelea juu ya programu zingine kwenye skrini yako. Ki
     <string name="accessibility_phone_two_bars">Miambaa miwili ya simu</string>
     <string name="accessibility_power_button_ends_call_prerefence_title">Kata simu kwa kitufe cha kuwasha/kuzima</string>
     <string name="accessibility_preference_magnification_summary">Vuta karibu kwenye skrini</string>
+    <string name="accessibility_screen_magnification_about_title">Kuhusu ukuzaji</string>
+    <string name="accessibility_screen_magnification_footer_learn_more_content_description">Pata maelezo zaidi kuhusu ukuzaji</string>
     <string name="accessibility_screen_magnification_gesture_navigation_warning">Ishara ya zana za walio na matatizo ya kuona au kusikia imewekwa kwenye %1$s. Ili utumie ukuzaji, telezesha vidole viwili kutoka chini kwenda juu kwenye skrini na ushikilie. Kisha uchague ukuzaji.</string>
     <string name="accessibility_screen_magnification_gestures_title">Kuza kwa kugusa mara tatu</string>
     <string name="accessibility_screen_magnification_navbar_configuration_warning">Kitufe cha zana za walio na matatizo ya kuona au kusikia kimewekwa kuwa %1$s. Gusa na ushikilie Kitufe cha zana za walio na matatizo ya kuona au kusikia, kisha uchague ukuzaji ili utumie kipengele cha ukuzaji.</string>
@@ -272,6 +290,7 @@ Kitufe cha zana za ufikivu huelea juu ya programu zingine kwenye skrini yako. Ki
 Huwezi kuvuta karibu kwenye kibodi au sehemu ya viungo muhimu."</string>
     <string name="accessibility_screen_magnification_navbar_title">Kuza kwa njia ya mkato</string>
     <string name="accessibility_screen_magnification_short_summary">Gusa mara 3 ili ukuze</string>
+    <string name="accessibility_screen_magnification_shortcut_title">Njia ya mkato ya ukuzaji</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">Kuza ukitumia njia ya mkato na kugonga mara tatu</string>
     <string name="accessibility_screen_magnification_summary">Vuta karibu haraka kwenye skrini ili uongeze ukubwa wa maudhui.&lt;br/>&lt;br/> &lt;b>Ili uvute karibu:&lt;/b>&lt;br/> {0,number,integer}. Tumia njia ya mkato ili uanzishe ukuzaji&lt;br/> {1,number,integer}. Gusa skrini&lt;br/> {2,number,integer}. Buruta vidole viwili ili usogeze kwenye skrini&lt;br/> {3,number,integer}. Bana kwa vidole viwili ili ubadilishe ukuzaji&lt;br/> {4,number,integer}. Tumia njia ya mkato ili uache kukuza&lt;br/>&lt;br/>&lt;b>Ili uvute karibu kwa muda:&lt;/b>&lt;br/> {0,number,integer}. Tumia njia ya mkato ili uanzishe ukuzaji&lt;br/> {1,number,integer}. Gusa na ushikilie mahali popote kwenye skrini&lt;br/> {2,number,integer}. Buruta kidole ili usogeze kwenye skrini&lt;br/> {3,number,integer}. Inua kidole ili uache kukuza</string>
     <string name="accessibility_screen_magnification_title">Ukuzaji</string>
@@ -370,7 +389,7 @@ Ili ubadilishe kati ya vipengele, telezesha vidole vitatu juu na ushikilie."</st
     <string name="accessibility_tutorial_dialog_message_volume">Ili utumie kipengele hiki, bonyeza na ushikilie vitufe vyote viwili vya sauti.</string>
     <string name="accessibility_tutorial_dialog_title_button">Tumia kitufe cha ufikivu kufungua</string>
     <string name="accessibility_tutorial_dialog_title_gesture">Tumia ishara ili ufungue</string>
-    <string name="accessibility_tutorial_dialog_title_gesture_settings">Tumia ishara mpya ya ufikivu</string>
+    <string name="accessibility_tutorial_dialog_title_gesture_settings">Tumia ishara ya ufikivu</string>
     <string name="accessibility_tutorial_dialog_title_triple">Gusa skrini mara tatu ili ufungue</string>
     <string name="accessibility_tutorial_dialog_title_volume">Shikilia vitufe vya sauti ili ufungue</string>
     <string name="accessibility_tutorial_pager">Ukurasa wa %1$d kati ya %2$d</string>
@@ -493,7 +512,7 @@ Msimamizi wako ana uwezo wa kufuatilia na kudhibiti mipangilio, kufikia programu
     <string name="advanced_battery_graph_subtext">Kadirio la chaji ya betri iliyosalia linategemea matumizi ya kifaa chako</string>
     <string name="advanced_battery_preference_summary">Angalia matumizi tangu mwisho ilipojazwa chaji</string>
     <string name="advanced_battery_preference_summary_with_hours">Angalia matumizi katika saa 24 zilizopita</string>
-    <string name="advanced_battery_preference_title">Matumizi ya Betri</string>
+    <string name="advanced_battery_preference_title">Matumizi ya betri</string>
     <string name="advanced_battery_title">Matumizi ya betri</string>
     <string name="advanced_section_header">Jumla</string>
     <string name="advanced_security_title">Mipangilio Ya Kina</string>
@@ -936,6 +955,7 @@ Baada ya kubadilisha mipangilio, kagua mchakato wa kuweka mipangilio na uchague 
     <string name="battery_level_title">Kiwango cha betri</string>
     <string name="battery_manager_off">Imezimwa</string>
     <string name="battery_manager_summary">Ongeza muda wa matumizi ya betri na uboreshe hali ya kuchaji</string>
+    <string name="battery_manager_summary_unsupported">Ongeza muda wa matumizi ya betri</string>
     <string name="battery_missing_link_a11y_message">Gusa ili upate maelezo zaidi kuhusu hitilafu hii</string>
     <string name="battery_missing_link_message">Pata maelezo zaidi</string>
     <string name="battery_missing_message">Tatizo la kusoma mita ya betri.</string>
@@ -1010,11 +1030,11 @@ Unaweza kuwasha Kiokoa Betri wakati wowote, kama chaji ya betri yako inakaribia 
     <string name="battery_tip_early_heads_up_title">Washa Kiokoa Betri</string>
     <string name="battery_tip_high_usage_summary">Angalia programu zinazotumia betri zaidi</string>
     <string name="battery_tip_high_usage_title">Matumizi ya betri ya kiwango cha juu</string>
-    <string name="battery_tip_limited_temporarily_dialog_msg">"Katika hali fulani, kama vile halijoto za kiwango cha juu na vipindi virefu vya kuchaji, huenda isichaji zaidi ya%1$s ili kusaidia kuboresha muda wa matumizi ya betri. 
+    <string name="battery_tip_limited_temporarily_dialog_msg">"Katika hali fulani, kama vile halijoto za kiwango cha juu na vipindi virefu vya kuchaji, huenda isichaji zaidi ya %1$s ili kusaidia kudumisha muda wa matumizi ya betri. 
 
 Hali hizo zitakapoisha, simu yako itachaji kiotomatiki kwa njia ya kawaida."</string>
     <string name="battery_tip_limited_temporarily_dialog_resume_charge">Endelea kuchaji</string>
-    <string name="battery_tip_limited_temporarily_summary">Ili kuokoa betri yako. Pata maelezo zaidi.</string>
+    <string name="battery_tip_limited_temporarily_summary">Ili kudumisha betri yako. Pata maelezo zaidi.</string>
     <string name="battery_tip_limited_temporarily_title">Kuchaji kumedhibitiwa kwa muda</string>
     <string name="battery_tip_low_battery_summary">Washa Kiokoa Betri ili uongeze muda wa matumizi ya betri</string>
     <string name="battery_tip_low_battery_title">Chaji ya betri imepungua</string>
@@ -1061,6 +1081,7 @@ katika ^2"</string>
     <string name="battery_usage_screen_footer">Data ya matumizi ya betri imekadiriwa na haipimi matumizi simu inapochaji</string>
     <string name="battery_usage_screen_footer_empty">Data ya matumizi ya betri itapatikana baada ya kutumia simu yako kwa saa chache</string>
     <string name="battery_usage_total_less_than_one_minute">Jumla: chini ya dakika moja</string>
+    <string name="battery_usage_without_time" />
     <string name="battery_used_by">%1$s imetumiwa na %2$s</string>
     <string name="battery_used_for">Imetumika kwa ^1</string>
     <string name="bearer">Mwenye</string>
@@ -1069,12 +1090,14 @@ katika ^2"</string>
     <string name="billing_cycle_less_than_one_day_left">Imesalia chini ya siku 1</string>
     <string name="billing_cycle_none_left">Hakuna muda unaosalia</string>
     <string name="biometric_settings_category_ways_to_unlock">Mbinu za kufungua</string>
-    <string name="biometric_settings_category_ways_to_use">Tumia uso au alama ya kidole ili</string>
     <string name="biometric_settings_hand_back_to_guardian">Mrejeshee mzazi wako simu</string>
     <string name="biometric_settings_hand_back_to_guardian_ok">Sawa</string>
     <string name="biometric_settings_intro">Unapoweka mbinu ya Kufungua kwa uso na Kufungua kwa alama ya kidole, simu yako itakuomba alama ya kidole chako unapovaa barakoa au unapokuwa katika eneo lenye giza</string>
-    <string name="biometric_settings_use_biometric_for_apps">Uthibitishaji katika programu</string>
-    <string name="biometric_settings_use_biometric_unlock_phone">Kufungua simu yako</string>
+    <string name="biometric_settings_use_biometric_for_apps">Thibitisha ni wewe katika programu</string>
+    <string name="biometric_settings_use_biometric_unlock_phone">Fungua simu yako</string>
+    <string name="biometric_settings_use_face_or_fingerprint_preference_summary">Kutumia uso au alama ya kidole</string>
+    <string name="biometric_settings_use_face_preference_summary">Kutumia uso</string>
+    <string name="biometric_settings_use_fingerprint_preference_summary">Kutumia alama ya kidole</string>
     <string name="biometrics_unlock_set_unlock_password">Nenosiri • Uso • Alama ya kidole</string>
     <string name="biometrics_unlock_set_unlock_pattern">Mchoro • Uso • Alama ya kidole</string>
     <string name="biometrics_unlock_set_unlock_pin">PIN • Uso • Alama ya kidole</string>
@@ -1332,7 +1355,6 @@ Uteuzi"</string>
     <string name="bluetooth_settings_title">Bluetooth</string>
     <string name="bluetooth_show_devices_without_names">Onyesha vifaa vya Bluetooth visivyo na majina</string>
     <string name="bluetooth_show_devices_without_names_summary">Itaonyesha vifaa vya Bluetooth bila majina (anwani za MAC pekee)</string>
-    <string name="bluetooth_show_files_received_via_bluetooth">Faili ulizopokea kupitia Bluetooth</string>
     <string name="bluetooth_show_received_files">Faili zilizopokewa</string>
     <string name="bluetooth_sim_card_access_dialog_content">"Kifaa chenye Bluetooth, %1$s, kinataka kufikia data iliyo kwenye SIM kadi yako. Hii ni pamoja na anwani zako.
 
@@ -1426,6 +1448,7 @@ Ukisakinisha cheti cha CA, mmiliki wa cheti anaweza kufikia data yako, kama vile
     <string name="calls_sms_temp_unavailable">Haipatikani kwa muda</string>
     <string name="calls_sms_unavailable">haipatikani</string>
     <string name="calls_sms_wfc_summary">Piga na upokee simu kupitia Wi‑Fi</string>
+    <string name="cam_toggle_description">Kwenye programu na huduma</string>
     <string name="camera_double_tap_power_gesture_desc">Fungua kamera kwa haraka bila kufungua skrini yako</string>
     <string name="camera_double_tap_power_gesture_title">Bonyeza kitufe cha kuwasha/kuzima mara mbili ili utumie kamera</string>
     <string name="camera_laser_sensor_switch">Kitambuzi cha Leza cha Kamera</string>
@@ -2957,7 +2980,7 @@ Unaweza kubadilisha hali hii baadaye katika Mipangilio > Programu na arifa."</st
     <string name="lock_screen_notifs_redact_work">Arifa nyeti za wasifu wa kazini</string>
     <string name="lock_screen_notifs_redact_work_summary">Onyesha maudhui nyeti ya wasifu wa kazini wakati skrini imefungwa</string>
     <string name="lock_screen_notifs_show_alerting">Ficha mazungumzo na arifa zisizo na sauti</string>
-    <string name="lock_screen_notifs_show_all">Onyesha mazungumzo, chaguomsingi na zisizo na sauti</string>
+    <string name="lock_screen_notifs_show_all">Onyesha mazungumzo, arifa chaguomsingi na zisizo na sauti</string>
     <string name="lock_screen_notifs_show_none">Usionyeshe arifa zozote</string>
     <string name="lock_screen_notifs_title">Arifa kwenye skrini iliyofungwa</string>
     <string name="lock_screen_password_skip_biometrics_message">"Nenosiri linahitajika ili kuweka mipangilio ya Kufungua kwa uso na Kufungua kwa alama ya kidole.
@@ -3302,6 +3325,7 @@ Kuna watumiaji wengine waliopo kwenye kifaa hiki.
     <string name="menu_stats_total">Jumla ya utumiaji</string>
     <string name="menu_stats_unplugged">%1$s tangu ilipoondolewa</string>
     <string name="menu_use_uss">Tumia USS</string>
+    <string name="mic_toggle_description">Kwenye programu na huduma. Mipangilio hii ikizimwa, huenda bado data ya maikrofoni ikashirikiwa unapopigia nambari ya dharura.</string>
     <string name="mic_toggle_title">Ufikiaji wa maikrofoni</string>
     <string name="misc_files">Faili Nyinginezo</string>
     <string name="misc_files_selected_count">Imechaguliwa %1$d juu ya %2$d</string>
@@ -3728,6 +3752,7 @@ Hatua hii pia itaipa programu uwezo wa kuwasha au kuzima kipengele cha Usinisumb
     <string name="one_handed_action_show_notification_title">Onyesha arifa</string>
     <string name="one_handed_mode_enabled">Tumia hali ya kutumia kwa mkono mmoja</string>
     <string name="one_handed_mode_intro_text">Ili utumie kwa mkono mmoja, telezesha kidole chini kuanzia ukingo wa chini wa skrini. Ili utumie kipengele hiki, hakikisha kuwa umewasha usogezaji kwa kutumia ishara katika mipangilio ya usogezaji kwenye mfumo.</string>
+    <string name="one_handed_mode_shortcut_title">Njia ya mkato ya hali ya kutumia kwa mkono mmoja</string>
     <string name="one_handed_mode_swipe_down_category">Telezesha kidole chini ili</string>
     <string name="one_handed_mode_use_shortcut_category">Tumia njia ya mkato kutekeleza</string>
     <string name="one_usercrt">cheti cha mtumiaji mmoja</string>
@@ -3803,7 +3828,7 @@ Hatua hii pia itaipa programu uwezo wa kuwasha au kuzima kipengele cha Usinisumb
     <string name="post_dsds_reboot_notification_title_with_carrier">Unatumia %1$s</string>
     <string name="power_bluetooth">Bluetooth</string>
     <string name="power_camera">Kamera</string>
-    <string name="power_cell">Mtandao wa simu ambao hautumiki kwa sasa</string>
+    <string name="power_cell">Mtandao wa simu</string>
     <string name="power_charge_remaining">%1$s chaji ijae</string>
     <string name="power_charging">%1$s - %2$s</string>
     <string name="power_charging_duration">%1$s - %2$s zimesalia ijae chaji</string>
@@ -4037,6 +4062,7 @@ Bonyeza Kuongeza Sauti na Kuzima/Kuwasha kwa wakati mmoja."</string>
     <string name="recent_notifications">Zilizotumwa hivi majuzi</string>
     <string name="recent_notifications_see_all_title">Angalia zilizotumika katika siku 7 zilizopita</string>
     <string name="recompute_size">Kiwango cha kukadiria upya</string>
+    <string name="reduce_bright_colors_about_title">Kuhusu kipunguza mwangaza zaidi</string>
     <string name="reduce_bright_colors_intensity_end_label">"Ung'aavu zaidi"</string>
     <string name="reduce_bright_colors_intensity_preference_title">Ukolezaji</string>
     <string name="reduce_bright_colors_intensity_start_label">"Punguza ung'aavu"</string>
@@ -4044,6 +4070,7 @@ Bonyeza Kuongeza Sauti na Kuzima/Kuwasha kwa wakati mmoja."</string>
     <string name="reduce_bright_colors_preference_subtitle">"Punguza mwangaza wa skrini yako zaidi ili uweze kusoma bila tatizo.&lt;br/>&lt;br/> Hali hii inaweza kukusaidia wakati: &lt;ol> &lt;li> Ung'aavu chaguomsingi wa kiwango cha chini kwenye simu yako bado una mwangaza mkubwa&lt;/li> &lt;li> Unatumia simu yako katika hali zenye giza, kama vile usiku au katika chumba chenye giza kabla ya kulala&lt;/li> &lt;/ol>"</string>
     <string name="reduce_bright_colors_preference_summary">"Punguza mwangaza wa skrini zaidi ya kiwango cha chini cha ung'aavu wa simu yako"</string>
     <string name="reduce_bright_colors_preference_title">Kipunguza mwangaza zaidi</string>
+    <string name="reduce_bright_colors_shortcut_title">Njia ya mkato ya kupunguza mwangaza zaidi</string>
     <string name="reduce_bright_colors_switch_title">Punguza mwangaza wa skrini zaidi</string>
     <string name="register_automatically">Usajili wa kiotomatiki…</string>
     <string name="register_on_network">Inasajili kwenye %s…</string>
@@ -4249,7 +4276,6 @@ Ili utumie kipengele cha kubandika programu:
     <string name="screen_pinning_unlock_pattern">Omba mchoro wa kufungua kabla hujabandua</string>
     <string name="screen_pinning_unlock_pin">Itisha PIN kabla hujabandua</string>
     <string name="screen_reader_category_title">Kisoma skrini</string>
-    <string name="screen_saver_main_switch_title">Tumia taswira ya skrini</string>
     <string name="screen_time_summary_usage_today">%1$s leo</string>
     <string name="screen_timeout_summary">Baada ya %1$s za kutokuwa na shughuli</string>
     <string name="screen_timeout_title">Skrini huzima</string>
@@ -4279,6 +4305,7 @@ Ili utumie kipengele cha kubandika programu:
     <string name="screensaver_settings_button">Mipangilio</string>
     <string name="screensaver_settings_current">Taswira ya skrini ya sasa</string>
     <string name="screensaver_settings_disabled_prompt">Ili udhibiti kinachotendeka wakati simu imeambatishwa na/au iko katika hali tuli, washa taswira ya skrini.</string>
+    <string name="screensaver_settings_dream_start">Anza sasa</string>
     <string name="screensaver_settings_summary_dock">Wakati imeunganishwa na kifaa kingine</string>
     <string name="screensaver_settings_summary_either_long">Wakati imeunganishwa na kifaa kingine au inapochaji</string>
     <string name="screensaver_settings_summary_either_short">Yoyote kati ya hizi mbili</string>
@@ -4329,15 +4356,6 @@ Ili utumie kipengele cha kubandika programu:
     <string name="security_settings_biometric_preference_summary_both_fp_single">Uso na alama ya kidole imeongezwa</string>
     <string name="security_settings_biometric_preference_summary_none_enrolled">Gusa ili uweke mipangilio</string>
     <string name="security_settings_biometric_preference_title">Kufungua kwa Alama ya Kidole na Uso</string>
-    <string name="security_settings_biometrics_description">Ukiweka mbinu ya kufungua kwa uso na alama ya kidole, simu yako itakuomba alama ya kidole chako unapovaa barakoa au unapokuwa katika eneo lenye giza</string>
-    <string name="security_settings_biometrics_preference_use_with_apps">Uthibitishaji katika programu</string>
-    <string name="security_settings_biometrics_preferences_category">Tumia uso au alama ya kidole ili</string>
-    <string name="security_settings_biometrics_summary_both">Uso na alama ya kidole</string>
-    <string name="security_settings_biometrics_summary_face">Uso pekee</string>
-    <string name="security_settings_biometrics_summary_fingerprint">Alama ya kidole pekee</string>
-    <string name="security_settings_biometrics_summary_none">Gusa ili uweke mipangilio</string>
-    <string name="security_settings_biometrics_title">Kufungua kwa uso na alama ya kidole</string>
-    <string name="security_settings_biometrics_types_category">Mbinu za kufungua</string>
     <string name="security_settings_face_enroll_consent_introduction_title">Ruhusu kipengele cha Kufungua kwa Uso</string>
     <string name="security_settings_face_enroll_dialog_ok">Sawa</string>
     <string name="security_settings_face_enroll_done">Nimemaliza</string>
@@ -4385,16 +4403,17 @@ Pata maelezo zaidi kwenye g.co/pixel/faceunlock."</string>
     <string name="security_settings_face_enroll_introduction_control_title">Uamuzi ni wako</string>
     <string name="security_settings_face_enroll_introduction_how_consent_message">"Kipengele cha Kufungua kwa Uso huunda muundo wa kipekee wa uso wa mtoto wako ili kuthibitisha kuwa ni yeye. Ili kuunda muundo huu wa uso wakati wa kuweka mipangilio, mtoto wako atapiga picha za uso wake kutoka pembe tofauti.
 
-Anapotumia kipengele cha Kufungua kwa Uso, picha zinatumiwa ili kusasisha muundo wa uso wake. Picha zinazotumiwa kuunda muundo wa uso wake hazihifadhiwi, ila muundo wa uso wake unahifadhiwa kwa njia salama na husalia kwenye simu. Mchakato wote hufanyika kwenye simu kwa njia salama."</string>
+Anapotumia kipengele cha Kufungua kwa Uso, picha zinatumiwa ili kusasisha muundo wa uso wake. Picha zinazotumiwa kuunda muundo wa uso wake hazihifadhiwi, ila muundo wa uso unahifadhiwa kwa njia salama na husalia kwenye simu. Mchakato wote hufanyika kwenye simu kwa njia salama."</string>
     <string name="security_settings_face_enroll_introduction_how_message">"Kipengele cha Kufungua kwa Uso huunda muundo wa kipekee wa uso wako ili kuthibitisha kuwa ni wewe. Ili uunde muundo huu wa uso wakati wa kuweka mipangilio, utapiga picha za uso wako kutoka pembe tofauti.
 
-Unapotumia kipengele cha Kufungua kwa Uso, picha zinatumiwa ili kusasisha muundo wa uso wako. Picha zinazotumiwa kuunda muundo wa uso wako hazihifadhiwi, ila muundo wa uso wako unahifadhiwa kwa njia na kusalia kwenye simu yako. Mchakato wote hufanyika kwenye simu yako kwa njia salama."</string>
+Unapotumia kipengele cha Kufungua kwa Uso, picha zinatumiwa ili kusasisha muundo wa uso wako. Picha zinazotumiwa kuunda muundo wa uso wako hazihifadhiwi, ila muundo wa uso unahifadhiwa kwa njia salama na kusalia kwenye simu yako. Mchakato wote hufanyika kwenye simu yako kwa njia salama."</string>
     <string name="security_settings_face_enroll_introduction_how_title">Jinsi kinavyofanya kazi</string>
     <string name="security_settings_face_enroll_introduction_info_consent_gaze">Kipengele cha kufungua kwa uso kinaweza kuhitaji mtoto wako afungue macho ili kufungua simu au kuthibitisha kuwa ni yeye. Wewe na mtoto wako mnaweza kuwasha chaguo hili katika Mipangilio wakati wowote.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_glasses">Ikiwa kwa kawaida mtoto wako anavaa miwani, anaweza kuivaa wakati wa kuweka mipangilio.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_looking">Kuangalia simu kunaweza kuifungua hata ikiwa hana lengo la kufanya hivyo. Simu yake inaweza pia kufunguliwa na mtu ambaye anamfanana, kama vile ndugu anayemfanana sana au mtu mwingine akiishikilia mbele ya uso wake.</string>
     <string name="security_settings_face_enroll_introduction_info_gaze">Kipengele cha kufungua kwa uso kinaweza kuhitaji ufungue macho ili kufungua simu au kuthibitisha kuwa ni wewe. Unaweza kuwasha chaguo hili katika Mipangilio wakati wowote.</string>
     <string name="security_settings_face_enroll_introduction_info_glasses">Miwani au miwani ya jua iliyowekwa rangi maalum kidogo ni sawa.</string>
+    <string name="security_settings_face_enroll_introduction_info_less_secure">Huenda PIN au mchoro thabiti ukawa salama zaidi kuliko kutumia uso kufungua simu.</string>
     <string name="security_settings_face_enroll_introduction_info_looking">Kuangalia simu kunaweza kuifungua hata ikiwa huna lengo la kufanya hivyo. Simu yako inaweza pia kufunguliwa na mtu ambaye anakufanana, kama vile ndugu anayekufanana sana au mtu mwingine akiishikilia mbele ya uso wako.</string>
     <string name="security_settings_face_enroll_introduction_info_title">Kumbuka</string>
     <string name="security_settings_face_enroll_introduction_message">Tumia uso wako kufungua simu yako au kuthibitisha kuwa ni wewe, kama vile unapoingia katika akaunti kwenye programu au unapoidhinisha ununuzi.</string>
@@ -4452,13 +4471,14 @@ Simu yako inaweza kufunguliwa na mtu mwingine akiiweka mbele ya uso wako, hata u
 
 Simu yako inaweza kufunguliwa na mtu mnayefanana, kama vile ndugu mnayefanana sana."</string>
     <string name="security_settings_face_settings_preferences_category">Unapotumia kipengele cha Kufungua kwa uso</string>
-    <string name="security_settings_face_settings_remove_dialog_details">Muundo wa uso wako utafutwa kabisa kwa njia salama. Baada ya kufuta, utahitaji PIN, mchoro au nenosiri lako ili ufungue simu yako au uthibitishe katika programu.</string>
+    <string name="security_settings_face_settings_remove_dialog_details">"Muundo wa uso wako utafutwa kabisa kwa njia salama.
+
+Baada ya kufuta, utahitaji PIN, mchoro au nenosiri lako ili ufungue simu yako au uthibitishe katika programu."</string>
+    <string name="security_settings_face_settings_remove_dialog_details_convenience">"Muundo wa uso wako utafutwa kabisa kwa njia salama.
+
+Baada ya kufuta, utahitaji PIN, mchoro au nenosiri lako ili ufungue simu yako."</string>
     <string name="security_settings_face_settings_remove_dialog_title">Ungependa kufuta muundo wa uso?</string>
     <string name="security_settings_face_settings_remove_face_model">Futa muundo wa uso</string>
-    <string name="security_settings_face_settings_remove_model_dialog_details">"Muundo wa uso wako utafutwa kabisa kwa njia salama.
-
-Baada ya kufuta, utahitaji alama ya kidole chako, PIN, mchoro au nenosiri ili ufungue simu yako au uthibitishe katika programu."</string>
-    <string name="security_settings_face_settings_remove_model_dialog_title">Ungependa kufuta muundo wa uso?</string>
     <string name="security_settings_face_settings_require_attention">Inahitaji uwe umefungua macho</string>
     <string name="security_settings_face_settings_require_attention_details">Ili ufungue simu, lazima uwe umefungua macho yako</string>
     <string name="security_settings_face_settings_require_confirmation">Omba uthibitishaji kila wakati</string>
@@ -4541,7 +4561,7 @@ Kumbuka: Huwezi kutumia alama ya kidole chako kufungua kifaa hiki. Wasiliana na 
     <string name="security_settings_title">Usalama</string>
     <string name="security_settings_udfps_enroll_a11y">Sogeza kidole chako kwenye skrini ili ukipate. Gusa na ushikilie kitambua alama ya kidole.</string>
     <string name="security_settings_udfps_enroll_edge_message">Weka upande mmoja wa alama ya kidole chako kwenye kitambuzi na ushikilie, kisha ubadili upande mwingine</string>
-    <string name="security_settings_udfps_enroll_edge_title">Mwishowe, weka kingo za kidole chako</string>
+    <string name="security_settings_udfps_enroll_edge_title">Hatimaye, tumia kingo za kidole chako</string>
     <string name="security_settings_udfps_enroll_find_sensor_message">Kitambua alama ya kidole kiko kwenye skrini yako. Utanasa alama ya kidole chako kwenye skrini inayofuata.</string>
     <string name="security_settings_udfps_enroll_find_sensor_start_button">Anza</string>
     <string name="security_settings_udfps_enroll_find_sensor_title">Jinsi ya kuweka mipangilio ya alama ya kidole chako</string>
@@ -4550,7 +4570,7 @@ Kumbuka: Huwezi kutumia alama ya kidole chako kufungua kifaa hiki. Wasiliana na 
     <string name="security_settings_udfps_enroll_repeat_a11y_message">Hatua hii husaidia kunasa sehemu nyingi za alama ya kidole chako</string>
     <string name="security_settings_udfps_enroll_repeat_message">Gusa na ushikilie kila mara aikoni ya alama ya kidole inaposogea. Hatua hii husaidia kunasa sehemu nyingi za alama ya kidole chako.</string>
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">Fuata aikoni ya alama ya kidole</string>
-    <string name="security_settings_udfps_enroll_start_message">Usiondoe kidole chako kwenye kitambuzi hadi utakapohisi mtetemo</string>
+    <string name="security_settings_udfps_enroll_start_message">Usiinue kidole chako kwenye kitambuzi hadi utakapohisi mtetemo</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">Gusa mara nyingine</string>
     <string name="security_settings_work_fingerprint_preference_title">Pixel Imprint kwenye wasifu wa kazini</string>
     <string name="security_status_title">Hali ya usalama</string>
@@ -4576,7 +4596,6 @@ Kumbuka: Huwezi kutumia alama ya kidole chako kufungua kifaa hiki. Wasiliana na 
     <string name="select_webview_provider_dialog_title">Weka utekelezaji wa WebView</string>
     <string name="select_webview_provider_title">Utekelezaji wa WebView</string>
     <string name="select_webview_provider_toast_text">Chaguo hili halipo tena. Jaribu tena.</string>
-    <string name="sensor_toggle_description">Kwa ajili ya programu na huduma zote</string>
     <string name="sensors_off_quick_settings_title">Vitambuzi Vimezimwa</string>
     <string name="service_background_processes">Hujatumia %1$s</string>
     <string name="service_foreground_processes">Umetumia %1$s</string>
@@ -4808,6 +4827,7 @@ Kubadili SIM hakutaghairi huduma yako ya %1$s."</string>
     <string name="sound_settings_summary_silent">Programu inayotoa milio ya simu imewekwa katika hali ya kimya</string>
     <string name="sound_settings_summary_vibrate">Programu inayotoa milio ya simu imewekwa katika hali ya kutetema</string>
     <string name="sound_work_settings">Sauti za wasifu wa kazini</string>
+    <string name="spatial_audio_title">Sauti bora</string>
     <string name="special_access">Idhini maalum za programu</string>
     <string name="special_access_more">Angalia zaidi</string>
     <string name="speed_label_fast">Haraka</string>
@@ -5618,7 +5638,7 @@ Simu ya sauti inapoendelea, huwezi kutumia intaneti na huenda baadhi ya programu
     <string name="vpn_turn_on">Washa</string>
     <string name="vpn_type">Aina</string>
     <string name="vpn_username">Jina la mtumiaji</string>
-    <string name="vpn_version">Toleo la %s</string>
+    <string name="vpn_version">Toleo</string>
     <string name="vr_listener_security_warning_summary">%1$s kitaweza kutekeleza unapotumia programu katika hali ya uhalisia pepe.</string>
     <string name="vr_listener_security_warning_title">Ungependa kuruhusu huduma za Uhalisia Pepe katika %1$s?</string>
     <string name="vr_listeners_title">Huduma za kisaidizi cha Uhalisia Pepe</string>
@@ -5888,7 +5908,7 @@ Hatua ya kuweka mtandao kuwa katika hali iliyofichwa haitabadilisha mipangilio y
     <string name="wifi_not_in_range">Haiko karibu</string>
     <string name="wifi_not_in_range_message">Mtandao hauko karibu</string>
     <string name="wifi_notify_open_networks">Niarifu mitandao ya umma inapokuwa karibu</string>
-    <string name="wifi_notify_open_networks_summary">Wakati muunganisho wa kiotomatiki haupatikani</string>
+    <string name="wifi_notify_open_networks_summary">Tuma arifa wakati mtandao wenye ubora wa juu unapatikana</string>
     <string name="wifi_on_time">Wi-Fia kwa wakati unaofaa</string>
     <string name="wifi_p2p_cancel_connect_message">Je, unataka kughairi mwaliko wa kuungana na %1$s?</string>
     <string name="wifi_p2p_cancel_connect_title">Ghairi mwaliko?</string>
@@ -5976,7 +5996,6 @@ Je, ungependa kuruhusu programu zote ambazo zingependa kukagua ziweza kufanya hi
     <string name="wifi_suspend_optimizations">Uboreshaji wa Wi-Fi</string>
     <string name="wifi_suspend_optimizations_summary">Punguza matumizi ya betri wakati Wi-Fi imewashwa</string>
     <string name="wifi_switch_away_when_unvalidated">Tumia data ya mtandao wa simu wakati muunganisho wa Wi-Fi umekatika.</string>
-    <string name="wifi_switch_summary">Tafuta na uunganishe kwenye mitandao ya Wi-Fi</string>
     <string name="wifi_tap_to_sign_in">Gusa hapa ili uingie katika akaunti ya mtandao</string>
     <string name="wifi_tether_configure_ap_text">Weka intaneti ya Wi-Fi ya kusambazwa</string>
     <string name="wifi_tether_configure_ssid_default">AndroidHotspot</string>

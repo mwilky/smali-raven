@@ -283,7 +283,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f040ff0
+    const v2, 0x7f04101e
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -575,10 +575,19 @@
 
     iget-object v2, p0, Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController;->mSwitchPreference:Landroidx/preference/SwitchPreference;
 
+    if-eqz v2, :cond_0
+
+    const/4 v3, 0x0
+
+    invoke-virtual {v2, v3}, Landroidx/preference/Preference;->setIntent(Landroid/content/Intent;)V
+
+    iget-object v2, p0, Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController;->mSwitchPreference:Landroidx/preference/SwitchPreference;
+
     const/4 v3, 0x0
 
     invoke-virtual {v2, v3}, Landroidx/preference/Preference;->setEnabled(Z)V
 
+    :cond_0
     new-instance v2, Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController$$ExternalSyntheticLambda2;
 
     invoke-direct {v2, p0, v0, v1}, Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController;J)V
@@ -591,62 +600,44 @@
 .end method
 
 .method public setChecked(Z)Z
-    .locals 3
-
-    const/4 v0, 0x0
+    .locals 2
 
     if-eqz p1, :cond_0
 
     invoke-virtual {p0}, Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController;->setAutomaticSelectionMode()Ljava/util/concurrent/Future;
 
-    return v0
+    goto :goto_0
 
     :cond_0
-    new-instance p1, Landroid/os/Bundle;
+    iget-object p1, p0, Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController;->mSwitchPreference:Landroidx/preference/SwitchPreference;
 
-    invoke-direct {p1}, Landroid/os/Bundle;-><init>()V
+    if-eqz p1, :cond_1
 
-    iget v1, p0, Lcom/android/settings/network/telephony/TelephonyTogglePreferenceController;->mSubId:I
+    new-instance p1, Landroid/content/Intent;
 
-    const-string v2, "android.provider.extra.SUB_ID"
+    invoke-direct {p1}, Landroid/content/Intent;-><init>()V
 
-    invoke-virtual {p1, v2, v1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
+    const-string v0, "com.android.settings"
 
-    new-instance v1, Lcom/android/settings/core/SubSettingLauncher;
+    const-string v1, "com.android.settings.Settings$NetworkSelectActivity"
 
-    iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+    invoke-virtual {p1, v0, v1}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    invoke-direct {v1, p0}, Lcom/android/settings/core/SubSettingLauncher;-><init>(Landroid/content/Context;)V
+    iget v0, p0, Lcom/android/settings/network/telephony/TelephonyTogglePreferenceController;->mSubId:I
 
-    const-class p0, Lcom/android/settings/network/telephony/NetworkSelectSettings;
+    const-string v1, "android.provider.extra.SUB_ID"
 
-    invoke-virtual {p0}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    invoke-virtual {p1, v1, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController;->mSwitchPreference:Landroidx/preference/SwitchPreference;
 
-    invoke-virtual {v1, p0}, Lcom/android/settings/core/SubSettingLauncher;->setDestination(Ljava/lang/String;)Lcom/android/settings/core/SubSettingLauncher;
+    invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setIntent(Landroid/content/Intent;)V
 
-    move-result-object p0
+    :cond_1
+    :goto_0
+    const/4 p0, 0x0
 
-    const/16 v1, 0x62d
-
-    invoke-virtual {p0, v1}, Lcom/android/settings/core/SubSettingLauncher;->setSourceMetricsCategory(I)Lcom/android/settings/core/SubSettingLauncher;
-
-    move-result-object p0
-
-    const v1, 0x7f0405a8
-
-    invoke-virtual {p0, v1}, Lcom/android/settings/core/SubSettingLauncher;->setTitleRes(I)Lcom/android/settings/core/SubSettingLauncher;
-
-    move-result-object p0
-
-    invoke-virtual {p0, p1}, Lcom/android/settings/core/SubSettingLauncher;->setArguments(Landroid/os/Bundle;)Lcom/android/settings/core/SubSettingLauncher;
-
-    move-result-object p0
-
-    invoke-virtual {p0}, Lcom/android/settings/core/SubSettingLauncher;->launch()V
-
-    return v0
+    return p0
 .end method
 
 .method public updateState(Landroidx/preference/Preference;)V
@@ -698,7 +689,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f040c8d
+    const v3, 0x7f040ca5
 
     new-array v2, v2, [Ljava/lang/Object;
 

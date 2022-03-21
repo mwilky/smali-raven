@@ -139,7 +139,7 @@
 
     if-nez p1, :cond_0
 
-    const p1, 0x7f04129f
+    const p1, 0x7f0412c4
 
     invoke-virtual {p0, p1}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -150,7 +150,7 @@
     :cond_0
     if-nez p2, :cond_1
 
-    const p1, 0x7f0414ac
+    const p1, 0x7f0414d1
 
     invoke-virtual {p0, p1}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -193,7 +193,7 @@
 
     invoke-direct {v0, v1, v2}, Lcom/android/settings/inputmethod/SpellCheckerPreference;-><init>(Landroid/content/Context;[Landroid/view/textservice/SpellCheckerInfo;)V
 
-    const v1, 0x7f0407a4
+    const v1, 0x7f0407bc
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setTitle(I)V
 
@@ -218,7 +218,7 @@
     goto :goto_1
 
     :cond_1
-    const v1, 0x7f04129f
+    const v1, 0x7f0412c4
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -283,7 +283,7 @@
 
     invoke-direct {v3, v4}, Landroidx/appcompat/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v4, 0x7f040edd
+    const v4, 0x7f040f09
 
     invoke-virtual {v3, v4}, Landroidx/appcompat/app/AlertDialog$Builder;->setTitle(I)Landroidx/appcompat/app/AlertDialog$Builder;
 
@@ -383,7 +383,7 @@
 
     invoke-virtual {v0, v1}, Landroidx/appcompat/app/AlertDialog$Builder;->setTitle(I)Landroidx/appcompat/app/AlertDialog$Builder;
 
-    const v1, 0x7f0412a3
+    const v1, 0x7f0412c8
 
     const/4 v2, 0x1
 
@@ -551,11 +551,11 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    const p1, 0x7f1500e1
+    const p1, 0x7f1500e6
 
     invoke-virtual {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->addPreferencesFromResource(I)V
 
-    const-string p1, "spellchecker_language"
+    const-string/jumbo p1, "spellchecker_language"
 
     invoke-virtual {p0, p1}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
@@ -563,7 +563,7 @@
 
     iput-object p1, p0, Lcom/android/settings/inputmethod/SpellCheckersSettings;->mSpellCheckerLanaguagePref:Landroidx/preference/Preference;
 
-    const-string p1, "textservices"
+    const-string/jumbo p1, "textservices"
 
     invoke-virtual {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -652,7 +652,7 @@
 
     move-result-object v0
 
-    const-string v1, "spellchecker_language"
+    const-string/jumbo v1, "spellchecker_language"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -697,7 +697,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0412a0
+    const v2, 0x7f0412c5
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -725,7 +725,7 @@
 
     move-result-object p1
 
-    const-string v0, "spell_checker_enabled"
+    const-string/jumbo v0, "spell_checker_enabled"
 
     invoke-static {p1, v0, p2}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 

@@ -129,7 +129,7 @@
 
     iget-object p0, p0, Lcom/android/settings/panel/VolumePanel;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f041291
+    const v0, 0x7f0412b5
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 

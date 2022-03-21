@@ -1274,7 +1274,7 @@
 
     move-result-object p0
 
-    const v2, 0x7f04063d
+    const v2, 0x7f040655
 
     invoke-virtual {p0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1373,7 +1373,7 @@
 
     move-result-object v2
 
-    const-string v3, "slice_uri"
+    const-string/jumbo v3, "slice_uri"
 
     invoke-virtual {v2, v3, v0}, Landroid/database/MatrixCursor$RowBuilder;->add(Ljava/lang/String;Ljava/lang/Object;)Landroid/database/MatrixCursor$RowBuilder;
 

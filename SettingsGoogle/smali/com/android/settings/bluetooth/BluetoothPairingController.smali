@@ -381,12 +381,12 @@
     return p0
 
     :cond_0
-    const p0, 0x7f0404ae
+    const p0, 0x7f0404c6
 
     return p0
 
     :cond_1
-    const p0, 0x7f0404ad
+    const p0, 0x7f0404c5
 
     return p0
 .end method
@@ -411,12 +411,12 @@
     return p0
 
     :cond_0
-    const p0, 0x7f040463
+    const p0, 0x7f04047b
 
     return p0
 
     :cond_1
-    const p0, 0x7f040464
+    const p0, 0x7f04047c
 
     return p0
 .end method

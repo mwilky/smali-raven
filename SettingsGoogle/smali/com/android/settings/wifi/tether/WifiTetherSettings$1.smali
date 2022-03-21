@@ -70,24 +70,24 @@
 
     if-nez p1, :cond_0
 
-    const-string p1, "wifi_tether_network_name"
+    const-string/jumbo p1, "wifi_tether_network_name"
 
     invoke-interface {p0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    const-string p1, "wifi_tether_network_password"
+    const-string/jumbo p1, "wifi_tether_network_password"
 
     invoke-interface {p0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    const-string p1, "wifi_tether_auto_turn_off"
+    const-string/jumbo p1, "wifi_tether_auto_turn_off"
 
     invoke-interface {p0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    const-string p1, "wifi_tether_maximize_compatibility"
+    const-string/jumbo p1, "wifi_tether_maximize_compatibility"
 
     invoke-interface {p0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     :cond_0
-    const-string p1, "wifi_tether_settings_screen"
+    const-string/jumbo p1, "wifi_tether_settings_screen"
 
     invoke-interface {p0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
@@ -97,7 +97,7 @@
 .method protected isPageSearchEnabled(Landroid/content/Context;)Z
     .locals 0
 
-    const-string p0, "settings_tether_all_in_one"
+    const-string/jumbo p0, "settings_tether_all_in_one"
 
     invoke-static {p1, p0}, Landroid/util/FeatureFlagUtils;->isEnabled(Landroid/content/Context;Ljava/lang/String;)Z
 

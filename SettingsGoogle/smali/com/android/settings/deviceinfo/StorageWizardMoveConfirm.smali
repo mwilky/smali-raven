@@ -67,7 +67,7 @@
     return-void
 
     :cond_0
-    const p1, 0x7f060220
+    const p1, 0x7f060228
 
     invoke-virtual {p0, p1}, Lcom/android/settings/deviceinfo/StorageWizardBase;->setContentView(I)V
 
@@ -140,11 +140,11 @@
 
     move-result-object v0
 
-    const v2, 0x7f02037d
+    const v2, 0x7f020384
 
     invoke-virtual {p0, v2}, Lcom/android/settings/deviceinfo/StorageWizardBase;->setIcon(I)V
 
-    const v2, 0x7f04133d
+    const v2, 0x7f041362
 
     const/4 v3, 0x1
 
@@ -154,7 +154,7 @@
 
     invoke-virtual {p0, v2, v4}, Lcom/android/settings/deviceinfo/StorageWizardBase;->setHeaderText(I[Ljava/lang/CharSequence;)V
 
-    const v2, 0x7f04133c
+    const v2, 0x7f041361
 
     const/4 v4, 0x2
 
@@ -166,7 +166,7 @@
 
     invoke-virtual {p0, v2, v4}, Lcom/android/settings/deviceinfo/StorageWizardBase;->setBodyText(I[Ljava/lang/CharSequence;)V
 
-    const p1, 0x7f040d31
+    const p1, 0x7f040d5c
 
     new-array v0, v1, [Ljava/lang/CharSequence;
 
@@ -254,7 +254,7 @@
 
     invoke-static {v1, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const p1, 0x7f041341
+    const p1, 0x7f041366
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->getText(I)Ljava/lang/CharSequence;
 

@@ -615,7 +615,7 @@
     goto/16 :goto_1
 
     :sswitch_0
-    const-string v5, "waveOffset"
+    const-string/jumbo v5, "waveOffset"
 
     invoke-virtual {v1, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -647,7 +647,7 @@
     goto/16 :goto_1
 
     :sswitch_2
-    const-string v5, "transitionPathRotate"
+    const-string/jumbo v5, "transitionPathRotate"
 
     invoke-virtual {v1, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -743,7 +743,7 @@
     goto :goto_1
 
     :sswitch_8
-    const-string v5, "translationZ"
+    const-string/jumbo v5, "translationZ"
 
     invoke-virtual {v1, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -759,7 +759,7 @@
     goto :goto_1
 
     :sswitch_9
-    const-string v5, "translationY"
+    const-string/jumbo v5, "translationY"
 
     invoke-virtual {v1, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -775,7 +775,7 @@
     goto :goto_1
 
     :sswitch_a
-    const-string v5, "translationX"
+    const-string/jumbo v5, "translationX"
 
     invoke-virtual {v1, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -963,8 +963,6 @@
     :cond_d
     return-void
 
-    nop
-
     :sswitch_data_0
     .sparse-switch
         -0x4a771f66 -> :sswitch_c
@@ -1110,7 +1108,7 @@
 
     if-nez v0, :cond_7
 
-    const-string v0, "transitionPathRotate"
+    const-string/jumbo v0, "transitionPathRotate"
 
     invoke-virtual {p1, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
@@ -1123,7 +1121,7 @@
 
     if-nez v0, :cond_8
 
-    const-string v0, "translationX"
+    const-string/jumbo v0, "translationX"
 
     invoke-virtual {p1, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
@@ -1136,7 +1134,7 @@
 
     if-nez v0, :cond_9
 
-    const-string v0, "translationY"
+    const-string/jumbo v0, "translationY"
 
     invoke-virtual {p1, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
@@ -1149,7 +1147,7 @@
 
     if-nez v0, :cond_a
 
-    const-string v0, "translationZ"
+    const-string/jumbo v0, "translationZ"
 
     invoke-virtual {p1, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
@@ -1223,7 +1221,7 @@
     goto/16 :goto_0
 
     :sswitch_0
-    const-string v0, "waveOffset"
+    const-string/jumbo v0, "waveOffset"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1255,7 +1253,7 @@
     goto/16 :goto_0
 
     :sswitch_2
-    const-string v0, "transitionPathRotate"
+    const-string/jumbo v0, "transitionPathRotate"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1351,7 +1349,7 @@
     goto :goto_0
 
     :sswitch_8
-    const-string v0, "translationZ"
+    const-string/jumbo v0, "translationZ"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1367,7 +1365,7 @@
     goto :goto_0
 
     :sswitch_9
-    const-string v0, "translationY"
+    const-string/jumbo v0, "translationY"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1383,7 +1381,7 @@
     goto :goto_0
 
     :sswitch_a
-    const-string v0, "translationX"
+    const-string/jumbo v0, "translationX"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1517,8 +1515,6 @@
     iget p0, p0, Landroidx/constraintlayout/motion/widget/KeyCycle;->mRotationX:F
 
     return p0
-
-    nop
 
     :sswitch_data_0
     .sparse-switch

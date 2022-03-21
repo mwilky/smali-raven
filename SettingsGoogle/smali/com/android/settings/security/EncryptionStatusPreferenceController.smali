@@ -19,7 +19,7 @@
 
     invoke-direct {p0, p1, p2}, Lcom/android/settings/core/BasePreferenceController;-><init>(Landroid/content/Context;Ljava/lang/String;)V
 
-    const-string p2, "user"
+    const-string/jumbo p2, "user"
 
     invoke-virtual {p1, p2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -63,7 +63,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090034
+    const v1, 0x7f090035
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -122,6 +122,16 @@
     move-result-object p0
 
     return-object p0
+.end method
+
+.method public bridge synthetic getSliceHighlightMenuRes()I
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getSliceHighlightMenuRes()I
+
+    move-result p0
+
+    return p0
 .end method
 
 .method public bridge synthetic hasAsyncUpdate()Z
@@ -190,7 +200,7 @@
     invoke-virtual {p1, p0}, Landroidx/preference/Preference;->setFragment(Ljava/lang/String;)V
 
     :cond_0
-    const p0, 0x7f0406b1
+    const p0, 0x7f0406c9
 
     invoke-virtual {p1, p0}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -216,7 +226,7 @@
     invoke-virtual {p1, p0}, Landroidx/preference/Preference;->setFragment(Ljava/lang/String;)V
 
     :cond_2
-    const p0, 0x7f04078a
+    const p0, 0x7f0407a2
 
     invoke-virtual {p1, p0}, Landroidx/preference/Preference;->setSummary(I)V
 

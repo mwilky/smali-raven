@@ -101,6 +101,8 @@
 
 .field private mSubDevice:Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
 
+.field private mUnpairing:Z
+
 
 # direct methods
 .method public static synthetic $r8$lambda$-0-xnN0IkijBrHYwoB9nz3zjHpk(Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;)V
@@ -161,6 +163,8 @@
     iput-boolean v0, p0, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->mIsHeadsetProfileConnectedFail:Z
 
     iput-boolean v0, p0, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->mIsHearingAidProfileConnectedFail:Z
+
+    iput-boolean v0, p0, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->mUnpairing:Z
 
     new-instance v0, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice$1;
 
@@ -932,7 +936,7 @@
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "updating profiles for "
+    const-string/jumbo v3, "updating profiles for "
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1978,6 +1982,14 @@
     iget-object p0, p0, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->mSubDevice:Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
 
     return-object p0
+.end method
+
+.method getUnpairing()Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->mUnpairing:Z
+
+    return p0
 .end method
 
 .method public hasHumanReadableName()Z
@@ -3190,7 +3202,7 @@
 
     invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string p2, "setProfileConnectedStatus(): unknown profile id : "
+    const-string/jumbo p2, "setProfileConnectedStatus(): unknown profile id : "
 
     invoke-virtual {p0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -3349,6 +3361,10 @@
     iget-object v0, p0, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->mDevice:Landroid/bluetooth/BluetoothDevice;
 
     if-eqz v0, :cond_1
+
+    const/4 v1, 0x1
+
+    iput-boolean v1, p0, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->mUnpairing:Z
 
     invoke-virtual {v0}, Landroid/bluetooth/BluetoothDevice;->removeBond()Z
 

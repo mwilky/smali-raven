@@ -188,22 +188,22 @@
 
     :array_0
     .array-data 4
-        0x7f040602
-        0x7f0405f5
-        0x7f040600
-        0x7f0405fe
-        0x7f0405fb
-        0x7f0405f9
+        0x7f04061a
+        0x7f04060d
+        0x7f040618
+        0x7f040616
+        0x7f040613
+        0x7f040611
     .end array-data
 
     :array_1
     .array-data 4
-        0x7f040601
-        0x7f0405f4
-        0x7f0405ff
-        0x7f0405fd
-        0x7f0405fa
-        0x7f0405f8
+        0x7f040619
+        0x7f04060c
+        0x7f040617
+        0x7f040615
+        0x7f040612
+        0x7f040610
     .end array-data
 
     :array_2
@@ -412,7 +412,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0405f6
+    const v1, 0x7f04060e
 
     if-eqz v0, :cond_2
 
@@ -460,7 +460,7 @@
     return-object p0
 
     :catch_0
-    const v0, 0x7f0405f7
+    const v0, 0x7f04060f
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -742,6 +742,16 @@
     move-result-object p0
 
     return-object p0
+.end method
+
+.method public bridge synthetic getSliceHighlightMenuRes()I
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getSliceHighlightMenuRes()I
+
+    move-result p0
+
+    return p0
 .end method
 
 .method public bridge synthetic hasAsyncUpdate()Z

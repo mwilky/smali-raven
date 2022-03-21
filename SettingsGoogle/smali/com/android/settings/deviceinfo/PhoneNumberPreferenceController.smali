@@ -102,7 +102,7 @@
     :goto_0
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f0407c4
+    const v0, 0x7f0407dc
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -122,7 +122,7 @@
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const p1, 0x7f0407c4
+    const p1, 0x7f0407dc
 
     invoke-virtual {p0, p1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -153,7 +153,7 @@
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f0412bb
+    const v0, 0x7f0412e0    # 1.755561E38f
 
     new-array v2, v1, [Ljava/lang/Object;
 
@@ -176,7 +176,7 @@
     :cond_0
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const p1, 0x7f0412ba
+    const p1, 0x7f0412df
 
     invoke-virtual {p0, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -205,7 +205,7 @@
 
     move-result-object v1
 
-    const-string v2, "text"
+    const-string/jumbo v2, "text"
 
     invoke-static {v2, v1}, Landroid/content/ClipData;->newPlainText(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Landroid/content/ClipData;
 
@@ -219,7 +219,7 @@
 
     new-array v1, v1, [Ljava/lang/Object;
 
-    const v2, 0x7f0412ba
+    const v2, 0x7f0412df
 
     invoke-virtual {v0, v2}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -229,7 +229,7 @@
 
     aput-object v2, v1, v3
 
-    const v2, 0x7f040697
+    const v2, 0x7f0406af
 
     invoke-virtual {v0, v2, v1}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -246,12 +246,12 @@
     return-void
 .end method
 
-.method createNewPreference(Landroid/content/Context;)Landroidx/preference/Preference;
+.method protected createNewPreference(Landroid/content/Context;)Landroidx/preference/Preference;
     .locals 0
 
-    new-instance p0, Landroidx/preference/Preference;
+    new-instance p0, Lcom/android/settings/deviceinfo/PhoneNumberSummaryPreference;
 
-    invoke-direct {p0, p1}, Landroidx/preference/Preference;-><init>(Landroid/content/Context;)V
+    invoke-direct {p0, p1}, Lcom/android/settings/deviceinfo/PhoneNumberSummaryPreference;-><init>(Landroid/content/Context;)V
 
     return-object p0
 .end method
@@ -400,7 +400,7 @@
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const p1, 0x7f0407c4
+    const p1, 0x7f0407dc
 
     invoke-virtual {p0, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -418,6 +418,16 @@
     move-result-object p0
 
     return-object p0
+.end method
+
+.method public bridge synthetic getSliceHighlightMenuRes()I
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getSliceHighlightMenuRes()I
+
+    move-result p0
+
+    return p0
 .end method
 
 .method getSubscriptionInfo(I)Landroid/telephony/SubscriptionInfo;

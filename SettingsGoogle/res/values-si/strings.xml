@@ -96,6 +96,7 @@
     <string name="peak_refresh_rate_title">සුමට සංදර්ශකය</string>
     <string name="peak_refresh_rate_summary">සමහර අන්තර්ගත සඳහා නැවුම් කිරීමේ අනුපාතය හර්ට්ස් 60 සිට 90 දක්වා ස්වයංක්‍රියව ඉහළ නංවයි. බැටරි භාවිතය වැඩි කරයි.</string>
     <string name="accessibility_vibration_settings_title">කම්පන &amp; ස්පර්ශ</string>
+    <string name="columbus_title">ක්‍රියා ආරම්භ කිරීමට ඉක්මන් තට්ටු කිරීම</string>
     <string name="emergency_gesture_screen_title">හදිසි SOS</string>
     <string name="abc_action_mode_done">කළා</string>
     <string name="vibrate_for_calls_category_title">ඇමතුම්</string>
@@ -103,6 +104,8 @@
     <string name="lockscreen_privacy_controls_setting_toggle">උපාංග පාලන පෙන්වන්න</string>
     <string name="lockscreen_privacy_wallet_summary">තිර අගුල සහ ඉක්මන් සැකසීම් වෙතින් පසුම්බිය වෙත ප්‍රවේශය ඉඩ දෙන්න</string>
     <string name="lockscreen_privacy_controls_summary">අගුලු දැමූ විට ප්‍රවේශ පාලන</string>
+    <string name="lockscreen_double_line_clock_summary">ලබා ගත හැකි විට ද්විත්ව රේඛා ඔරලෝසුව පෙන්වන්න</string>
+    <string name="lockscreen_double_line_clock_setting_toggle">ද්විත්ව රේඛා ඔරලෝසුව</string>
     <string name="abc_activity_chooser_view_see_all">සියල්ල බලන්න</string>
     <string name="abc_activitychooserview_choose_application">යෙදුමක් තෝරන්න</string>
     <string name="abc_capital_off">ක්‍රියාවිරහිතයි</string>
@@ -147,9 +150,11 @@
     <string name="accessibility_alarm_vibration_title">එලාම කම්පනය</string>
     <string name="accessibility_assist_gesture_complete_or_keep_adjusting">Active Edge පිහිටුවීම. ඊළඟ තිරය වෙත යන්න නැතහොත් සීරුමාරු කිරීම දිගටම කරගෙන යන්න.</string>
     <string name="accessibility_audio_adjustment_title">ශ්‍රව්‍ය ගැළපුම</string>
+    <string name="accessibility_autoclick_about_title">ස්වයං ක්ලික් ගැන (රැඳී සිටින කාලය)</string>
     <string name="accessibility_autoclick_custom_title">අභිරුචි</string>
     <string name="accessibility_autoclick_default_title">ක්‍රියාවිරහිතයි</string>
     <string name="accessibility_autoclick_description">ස්වයං ක්ලික් කිරීම සම්බන්ධිත මූසිකයක් සමග ක්‍රියා කරයි. කර්සරය යම් නිශ්චිත කාලයක් සඳහා චලනය වීම නතර වන විට ස්වයංක්‍රියව ක්ලික් කිරීමට ඔබට මූසික කර්සරය සැකසිය හැකිය.</string>
+    <string name="accessibility_autoclick_footer_learn_more_content_description">ස්වයං ක්ලික් කිරීම ගැන තව දැන ගන්න (රැඳී සිටින කාල නිර්ණය)</string>
     <string name="accessibility_autoclick_long_summary">තත්පර 1</string>
     <string name="accessibility_autoclick_long_title">දීර්ඝ</string>
     <string name="accessibility_autoclick_longer_desc">වඩාත් දිග</string>
@@ -161,16 +166,17 @@
     <string name="accessibility_autoclick_short_title">කෙටි</string>
     <string name="accessibility_autoclick_shorter_desc">වඩාත් කෙටි</string>
     <string name="accessibility_banner_message_dismiss">ඉවත ලන්න</string>
-    <string name="accessibility_button_description">"ඕනෑම තිරයකින් ප්‍රවේශ්‍යතා විශේෂාංගවලට ඉක්මනින් ප්‍රවේශ වන්න 
+    <string name="accessibility_button_about_title">ප්‍රවේශ්‍යතා බොත්තම ගැන</string>
+    <string name="accessibility_button_description">"ඕනෑම තිරයකින් ප්‍රවේශ්‍යතා විශේෂාංගවලට ඉක්මනින් ප්‍රවේශ වන්න.
 
 ආරම්භ කිරීම සඳහා, ප්‍රවේශ්‍යතා සැකසීම් වෙත ගොස් විශේෂාංගයක් තෝරන්න. කෙටි මඟ මත තට්ටු කර ප්‍රවේශ්‍යතා බොත්තම තෝරන්න."</string>
     <string name="accessibility_button_fade_summary">තත්පර කිහිපයකට පසු මැකී යන බැවින් ඔබගේ තිරය බැලීමට පහසු වේ</string>
     <string name="accessibility_button_fade_title">භාවිතයේ නොමැති විට මැකී යයි</string>
+    <string name="accessibility_button_gesture_about_title">ප්‍රවේශ්‍යතා බොත්තම &amp; ඉංගිතය ගැන තව දැන ගන්න</string>
     <string name="accessibility_button_gesture_description">"ඕනෑම තිරයකින් ප්‍රවේශ්‍යතා විශේෂාංගවලට ඉක්මනින් ප්‍රවේශ වන්න.
 
-ආරම්භ කිරීම සඳහා, ප්‍රවේශ්‍යතා සැකසීම් වෙත ගොස් විශේෂාංගයක් තෝරන්න. කෙටි මඟ මත තට්ටු කර ප්‍රවේශ්‍යතා බොත්තම හෝ ඉංගිතය තෝරන්න.
-
-ඒ වෙනුවට සංචාලන තීරුවේ ප්‍රවේශ්‍යතා බොත්තම භාවිතා්‍ කිරීමට, බොත්තම්-2 සංචාලනයට හෝ බොත්තම්-3 සංචාලනයට මාරු වන්න."</string>
+ආරම්භ කිරීම සඳහා, ප්‍රවේශ්‍යතා සැකසීම් වෙත ගොස් විශේෂාංගයක් තෝරන්න. කෙටි මඟ මත තට්ටු කර ප්‍රවේශ්‍යතා බොත්තම හෝ ඉංගිතය තෝරන්න."</string>
+    <string name="accessibility_button_gesture_footer_learn_more_content_description">ප්‍රවේශ්‍යතා බොත්තම &amp; ඉංගිතය ගැන තව දැන ගන්න</string>
     <string name="accessibility_button_gesture_title">සජීවී සිරස්තල &amp; ඉංගිතය</string>
     <string name="accessibility_button_high_label">පාරදෘශ්‍ය නොවන</string>
     <string name="accessibility_button_intro">ප්‍රවේශ්‍යතා බොත්තම භාවිත කිරීම. ඉංගිතය 3-බොත්තම් සංචාලනය සමඟ ලබා ගත නොහැකිය.</string>
@@ -184,14 +190,23 @@
     <string name="accessibility_caption_preference_summary">සියලු යෙදුම් මෙම සිරස්තල මනාපවලට සහාය නොදක්වයි</string>
     <string name="accessibility_caption_primary_switch_summary">සහාය දක්වන යෙදුම සඳහා පමණයි</string>
     <string name="accessibility_caption_primary_switch_title">සිරස්තල පෙන්වන්න</string>
+    <string name="accessibility_captioning_about_title">සිරස්තල මනාප ගැන</string>
+    <string name="accessibility_captioning_footer_learn_more_content_description">සිරස්තල මනාප ගැන තව දැන ගන්න</string>
     <string name="accessibility_captioning_title">සිරස්තල මනාප</string>
     <string name="accessibility_category_personal">පුද්ගලික පැතිකඩ ගිණුම්</string>
     <string name="accessibility_category_work">කාර්යාල පැතිකඩ ගිණුම් - %s</string>
+    <string name="accessibility_color_inversion_about_title">වර්ණ අපවර්තනය ගැන</string>
+    <string name="accessibility_color_inversion_footer_learn_more_content_description">වර්ණ අපවර්තනය ගැන තව දැන ගන්න</string>
+    <string name="accessibility_control_timeout_about_title">ක්‍රියාමාර්ගය ගැනීමට කාලය ගැන (ප්‍රවේශ්‍යතා කාල නිමාව)</string>
+    <string name="accessibility_control_timeout_footer_learn_more_content_description">ක්‍රියාමාර්ගය ගැනීමට කාලය ගැන තව දැන ගන්න (ප්‍රවේශ්‍යතා කාල නිමාව)</string>
     <string name="accessibility_control_timeout_preference_summary">"ක්‍රියා කිරීමට ඔබගෙන් ඉල්ලා සිටින, නමුත් තාවකාලිකව පමණක් දිස් වන, පණිවිඩ කොතරම් කාලයක් දිස් වන්නේද යන්න තෝරන්න.
 
 සියලු යෙදුම් මෙම සැකසීමට සහාය නොදක්වයි."</string>
     <string name="accessibility_control_timeout_preference_title">ක්‍රියා කිරීමට කාලය</string>
+    <string name="accessibility_daltonizer_about_title">වර්ණ නිවැරදි කිරීම ගැන</string>
+    <string name="accessibility_daltonizer_footer_learn_more_content_description">වර්ණ නිවැරදි කිරීම ගැන තව දැන ගන්න</string>
     <string name="accessibility_daltonizer_primary_switch_title">වර්ණ නිවැරදි කිරීම භාවිත කරන්න</string>
+    <string name="accessibility_daltonizer_shortcut_title">වර්ණ නිවැරදි කිරීමේ කෙටි මග</string>
     <string name="accessibility_data_one_bar">දත්ත තීරු එකයි.</string>
     <string name="accessibility_data_signal_full">දත්ත සංඥාව පිරී ඇත.</string>
     <string name="accessibility_data_three_bars">දත්ත තීරු 3.</string>
@@ -206,6 +221,7 @@
     <string name="accessibility_display_daltonizer_preference_title">වර්ණ නිවැරදි කිරීම</string>
     <string name="accessibility_display_inversion_preference_subtitle">වර්ණ අපවර්තනය ළා තිර අඳුරු බවට හරවයි.&lt;br/>&lt;br/> සටහන: &lt;ol> &lt;li> වර්ණ අපවර්තනය අඳුරු තිර ළා බවටද හරවයි.&lt;/li> &lt;li> වර්ණ මාධ්‍යවල සහ රූපවල වෙනස් වනු ඇත.&lt;/li> &lt;li> අඳුරු තේමා අඳුරු පසුබිමක් සංදර්ශනය කිරීමටද භාවිත කළ හැකිය. අඳුරු තේමාව සහාය දක්වන යෙදුම් සමග ක්‍රියා කරයි. වර්ණ අපවර්තනය සියලු යෙදුම්වල ක්‍රියා කරයි.&lt;/li> &lt;/ol></string>
     <string name="accessibility_display_inversion_preference_title">වර්ණ අපවර්තනය</string>
+    <string name="accessibility_display_inversion_shortcut_title">වර්ණ අපවර්තනය කිරීමේ කෙටි මග</string>
     <string name="accessibility_display_inversion_switch_title">වර්ණ අපවර්තනය භාවිත කරන්න</string>
     <string name="accessibility_ethernet_connected">ඊතර්නෙට්.</string>
     <string name="accessibility_ethernet_disconnected">ඊතර්නෙට් විසන්ධි කරන ලදී.</string>
@@ -255,6 +271,8 @@
     <string name="accessibility_phone_two_bars">දුරකථනය තීරු දෙකයි.</string>
     <string name="accessibility_power_button_ends_call_prerefence_title">බල බොත්තම ඇමතුම අවසන් කරයි</string>
     <string name="accessibility_preference_magnification_summary">තිරය මත විශාලනය කරන්න</string>
+    <string name="accessibility_screen_magnification_about_title">විශාලනය කිරීම ගැන</string>
+    <string name="accessibility_screen_magnification_footer_learn_more_content_description">විශාලනය කිරීම ගැන තව දැන ගන්න</string>
     <string name="accessibility_screen_magnification_gesture_navigation_warning">ප්‍රවේශ්‍යතා ඉංගිතය %1$s ලෙස සකසා ඇත. විශාලනය භාවිත කිරීමට, ඔබේ තිරයේ පහළ සිට ඇඟිලලි දෙකකින් උඩට ස්වයිප් කර අල්ලා ගෙන සිටින්න. අනතුරුව විශාලනය තෝරන්න.</string>
     <string name="accessibility_screen_magnification_gestures_title">තට්ටු-තුනක් සමඟ විශාලනය කරන්න</string>
     <string name="accessibility_screen_magnification_navbar_configuration_warning">ප්‍රවේශ්‍යතා බොත්තම %1$s වෙත සකසා ඇත. විශාලනය භාවිතා කිරීමට ප්‍රවේශ්‍යතා බොත්තම ස්පර්ශ කරගෙන විශාලනය තෝරන්න.</string>
@@ -272,6 +290,7 @@
 ඔබට යතුරු පුවරුවේ හෝ සංචාලන තීරුවේ දී විශාලනය වැඩි කළ නොහැකිය."</string>
     <string name="accessibility_screen_magnification_navbar_title">කෙටිමඟ සමඟ විශාලන කරන්න</string>
     <string name="accessibility_screen_magnification_short_summary">විශාලනය කිරීමට 3 වරක් තට්ටු කරන්න</string>
+    <string name="accessibility_screen_magnification_shortcut_title">විශාලනය කිරීමේ කෙටි මග</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">කෙටිමඟ සහ තට්ටු කිරීම් තුනක් සමඟ විශාලන කරන්න</string>
     <string name="accessibility_screen_magnification_summary">අන්තර්ගතය වඩාත් විශාල කිරීමට තිරය මත ඉක්මනින් විශාලනය වැඩි කරන්න.&lt;br/>&lt;br/> &lt;b>විශාලනය වැඩි කිරීමට:&lt;/b>&lt;br/> {0,number,integer}. විශාලනය කිරීම ආරම්භ කිරීමට කෙටිමග භාවිත කරන්න&lt;br/> {1,number,integer}. තිරය තට්ටු කරන්න&lt;br/> {2,number,integer}. තිරය වටා යාමට ඇඟිලි 2කින් අදින්න&lt;br/> {3,number,integer}. විශාලනය සීරුමාරු කිරීමට ඇඟිලි 2කින් පින්ච් කරන්න&lt;br/> {4,number,integer}. විශාලනය කිරීම නතර කිරීමට කෙටි මග භාවිත කරන්න&lt;br/>&lt;br/> &lt;b>තාවකාලිකව විශාලනය වැඩි කිරීමට:&lt;/b>&lt;br/> {0,number,integer}. විශාලනය කිරීම ආරම්භ කිරීමට කෙටිමග භාවිත කරන්න&lt;br/> {1,number,integer}. තිර‍යේ ඕනෑම තැනක ස්පර්ශ කර අල්ලා ගන්න&lt;br/> {2,number,integer}. තිරය වටා යාමට ඇඟිල්ල අදින්න&lt;br/> {3,number,integer}. විශාලනය කිරීම නතර කිරීමට ඇඟිල්ල ඔසවන්න</string>
     <string name="accessibility_screen_magnification_title">විශාලනය</string>
@@ -370,7 +389,7 @@
     <string name="accessibility_tutorial_dialog_message_volume">මෙම විශේෂාංගය භාවිත කිරීමට, හඬ පරිමා යතුරු දෙකම ඔබා අල්ලාගෙන සිටින්න</string>
     <string name="accessibility_tutorial_dialog_title_button">විවෘත කිරීමට ප්‍රවේශ්‍යතා බොත්තම භාවිත කරන්න</string>
     <string name="accessibility_tutorial_dialog_title_gesture">විවෘත කිරීමට ඉංගිතය භාවිත කරන්න</string>
-    <string name="accessibility_tutorial_dialog_title_gesture_settings">නව ප්‍රවේශ්‍යතා ඉංගිතය භාවිත කරන්න</string>
+    <string name="accessibility_tutorial_dialog_title_gesture_settings">ප්‍රවේශ්‍යතා ඉංගිතය භාවිත කරන්න</string>
     <string name="accessibility_tutorial_dialog_title_triple">විවෘත කිරීමට තිරය තෙවරක් තට්ටු කරන්න</string>
     <string name="accessibility_tutorial_dialog_title_volume">විවෘත කිරීමට හඬ පරිමා යතුරු අල්ලාගෙන සිටින්න</string>
     <string name="accessibility_tutorial_pager">%2$d න් %1$d පිටුව</string>
@@ -936,6 +955,7 @@
     <string name="battery_level_title">බැටරි මට්ටම</string>
     <string name="battery_manager_off">ක්‍රියාවිරහිතයි</string>
     <string name="battery_manager_summary">බැටරි ආයු කාලය දිගු කරන්න සහ ආරෝපණය ප්‍රශස්ත කරන්න</string>
+    <string name="battery_manager_summary_unsupported">බැටරි ආයු කාලය දිගු කරන්න</string>
     <string name="battery_missing_link_a11y_message">මෙම දෝෂය ගැන තව දැන ගැනීමට තට්ටු කරන්න</string>
     <string name="battery_missing_link_message">තව දැන ගන්න</string>
     <string name="battery_missing_message">බැටරි මීටරය කියවීමේ දෝෂයකි.</string>
@@ -1061,6 +1081,7 @@
     <string name="battery_usage_screen_footer">බැටරි භාවිත දත්ත දළ අගයක් වන අතර දුරකථනය ආරෝපණය වන විට මනින්නේ නැත</string>
     <string name="battery_usage_screen_footer_empty">ඔබ පැය කිහිපයක් ඔබගේ දුරකථනය භාවිත කිරීමෙන් පසු බැටරි භාවිත දත්ත ලබා ගත හැකි වනු ඇත</string>
     <string name="battery_usage_total_less_than_one_minute">මුළු: මිනිත්තුවකට වඩා අඩුය</string>
+    <string name="battery_usage_without_time" />
     <string name="battery_used_by">%2$s වෙතින් %1$sක් භාවිතා කර ඇත</string>
     <string name="battery_used_for">^1ක් භාවිත කරන ලදී</string>
     <string name="bearer">ජාල සැපයුම්කරු</string>
@@ -1069,12 +1090,14 @@
     <string name="billing_cycle_less_than_one_day_left">දින 1කට වඩා අඩුවෙන් ඉතිරිව ඇත</string>
     <string name="billing_cycle_none_left">කාලය ඉතිරිව නැත</string>
     <string name="biometric_settings_category_ways_to_unlock">අගුලු හැරීමට ක්‍රම</string>
-    <string name="biometric_settings_category_ways_to_use">මුහුණ සහ ඇඟිලි සලකුණ භාවිත කරන්න</string>
     <string name="biometric_settings_hand_back_to_guardian">දුරකථනය ආපසු ඔබගේ මාපියන්ගෙන් කෙනෙකුට භාර දෙන්න</string>
     <string name="biometric_settings_hand_back_to_guardian_ok">හරි</string>
     <string name="biometric_settings_intro">ඔබ මුහුණෙන් අගුළු හැරීම සහ ඇඟිලි සලකුණු අගුලු හැරීම පිහිටවූ විට, ඔබ මුහුණු ආවරණයක් පැළඳ සිටින විට හෝ අඳුරු ප්‍රදේශයක සිටින විට ඔබගේ දුරකථනය ඔබගේ ඇඟිලි සලකුණ ඉල්ලනු ඇත</string>
-    <string name="biometric_settings_use_biometric_for_apps">යෙදුම් තුළ සත්‍යාපනය</string>
-    <string name="biometric_settings_use_biometric_unlock_phone">ඔබේ දුරකථ. අගුලු හැ.</string>
+    <string name="biometric_settings_use_biometric_for_apps">යෙදුම් තුළ ඒ ඔබ බව තහවුරු කරන්න</string>
+    <string name="biometric_settings_use_biometric_unlock_phone">ඔබගේ දුරකථනය අගුලු හරින්න</string>
+    <string name="biometric_settings_use_face_or_fingerprint_preference_summary">මුහුණ හෝ ඇඟිලි සලකුණ භාවිතය</string>
+    <string name="biometric_settings_use_face_preference_summary">මුහුණ භාවිතය</string>
+    <string name="biometric_settings_use_fingerprint_preference_summary">ඇඟිලි සලකුණ භාවිතය</string>
     <string name="biometrics_unlock_set_unlock_password">මුරපදය • මුහුණ • ඇඟිලි සලකුණ</string>
     <string name="biometrics_unlock_set_unlock_pattern">රටාව • මුහුණ • ඇඟිලි සලකුණ</string>
     <string name="biometrics_unlock_set_unlock_pin">PIN • මුහුණ • ඇඟිලි සලකුණ</string>
@@ -1332,7 +1355,6 @@ Codec තේරීම: පසුධාවන ගුණත්වය"</string>
     <string name="bluetooth_settings_title">බ්ලූටූත්</string>
     <string name="bluetooth_show_devices_without_names">නම් නොමැති බ්ලූටූත් උපාංග පෙන්වන්න</string>
     <string name="bluetooth_show_devices_without_names_summary">නම් නොමැති බ්ලූටූත් උපාංග (MAC ලිපින පමණි) සංදර්ශනය කරනු ඇත</string>
-    <string name="bluetooth_show_files_received_via_bluetooth">බ්ලූටූත් හරහා ලැබුණ ගොනු</string>
     <string name="bluetooth_show_received_files">ලැබුණ ගොනු</string>
     <string name="bluetooth_sim_card_access_dialog_content">"බ්ලූටූත් උපාංගයකට, %1$s, ඔබගේ SIM කාඩ්පතෙහි දත්තවලට ප්‍රවේශ වීමට අවශ්‍යයි. මෙයට ඔබගේ සම්බන්ධතා ඇතුළත් වේ.
 
@@ -1426,6 +1448,7 @@ Codec තේරීම: පසුධාවන ගුණත්වය"</string>
     <string name="calls_sms_temp_unavailable">තාවකාලිකව ලබා ගත නොහැකිය</string>
     <string name="calls_sms_unavailable">ලබා ගත නොහැකිය</string>
     <string name="calls_sms_wfc_summary">Wi‑Fi හරහා ඇමතුම් සිදු කරන්න සහ ලබා ගන්න</string>
+    <string name="cam_toggle_description">යෙදුම් සහ සේවා සඳහා</string>
     <string name="camera_double_tap_power_gesture_desc">ඔබගේ තිරය අගුලු හැරීමෙන් තොරව ඉක්මනින් කැමරාව විවෘත කරන්න</string>
     <string name="camera_double_tap_power_gesture_title">කැමරාව සඳහා බල බොත්තම දෙවරක් ඔබන්න</string>
     <string name="camera_laser_sensor_switch">කැමරා ලේසර් සංවේදකය</string>
@@ -3302,6 +3325,7 @@ PIN එකක් දුරකථනය නැති වුවහොත් හෝ
     <string name="menu_stats_total">භාවිත එකතු</string>
     <string name="menu_stats_unplugged">පේනු ඉවත් කිරීමේ සිට %1$s</string>
     <string name="menu_use_uss">Uss භාවිතා කරන්න</string>
+    <string name="mic_toggle_description">යෙදුම් සහ සේවා සඳහා. මෙම සැකසීම ක්‍රියාවිරහිත නම්, ඔබ හදිසි ඇමතුම් අංකයක් අමතන විට මයික්‍රෆෝනයේ දත්ත තවම බෙදා ගත හැකිය.</string>
     <string name="mic_toggle_title">මයික්‍රෆෝන ප්‍රවේශය</string>
     <string name="misc_files">විවිධ ගොනු</string>
     <string name="misc_files_selected_count">%2$d වලින් තෝරා ගත් %1$d</string>
@@ -3728,6 +3752,7 @@ PIN එකක් දුරකථනය නැති වුවහොත් හෝ
     <string name="one_handed_action_show_notification_title">දැනුම්දීම් පෙන්වන්න</string>
     <string name="one_handed_mode_enabled">තනි අත් ප්‍රකාරය භාවිත කරන්න</string>
     <string name="one_handed_mode_intro_text">තනි අත් ප්‍රකාරය භාවිත කිරීමට, තිරයේ පහළම දාරයේ සිට පහළට ස්වයිප් කරන්න. මෙම විශේෂාංගය භාවිත කිරීම සඳහා, පද්ධති සංචාලන සැකසීම් තුළ ඉංගිත සංචාලනය ක්‍රියාත්මක කර ඇති බවට සහතික කර ගන්න.</string>
+    <string name="one_handed_mode_shortcut_title">තනි අත් ප්‍රකාර කෙටි මග</string>
     <string name="one_handed_mode_swipe_down_category">පහළට ස්වයිප් කරන්න</string>
     <string name="one_handed_mode_use_shortcut_category">කෙටි මග භාවිත කරන්න</string>
     <string name="one_usercrt">පරිශීලක සහතික එකක්</string>
@@ -3803,7 +3828,7 @@ PIN එකක් දුරකථනය නැති වුවහොත් හෝ
     <string name="post_dsds_reboot_notification_title_with_carrier">%1$s සක්‍රියයි</string>
     <string name="power_bluetooth">බ්ලූටූත්</string>
     <string name="power_camera">කැමරාව</string>
-    <string name="power_cell">ජංගම ජාලය පොරොත්තු</string>
+    <string name="power_cell">ජංගම ජාලය</string>
     <string name="power_charge_remaining">%1$s වෙත වෙනස් කරන්න</string>
     <string name="power_charging">%1$s - %2$s</string>
     <string name="power_charging_duration">%1$s - සම්පූර්ණ වීමට %2$sක් ඉතිරියි</string>
@@ -4037,6 +4062,7 @@ PIN එකක් දුරකථනය නැති වුවහොත් හෝ
     <string name="recent_notifications">මෑතකදී එවන ලද</string>
     <string name="recent_notifications_see_all_title">පසුගිය දින 7 වෙතින් සියල්ල බලන්න</string>
     <string name="recompute_size">විශාලත්වය නැවත ගණනය කරමින්…</string>
+    <string name="reduce_bright_colors_about_title">තවත් අඳුරු ගැන</string>
     <string name="reduce_bright_colors_intensity_end_label">වඩා දීප්තිමත්</string>
     <string name="reduce_bright_colors_intensity_preference_title">තීව්‍රතාව</string>
     <string name="reduce_bright_colors_intensity_start_label">වඩා අඳුරු</string>
@@ -4044,6 +4070,7 @@ PIN එකක් දුරකථනය නැති වුවහොත් හෝ
     <string name="reduce_bright_colors_preference_subtitle">කියවීමට වඩාත් පහසු වන ලෙස ඔබගේ තිරය වඩා අඳුරු කරන්න.&lt;br/>&lt;br/> මෙය පහත අවස්ථාවලදී ප්‍රයෝජනවත් විය හැකිය: &lt;ol> &lt;li> ඔබගේ දුරකථනයේ පෙරනිමි අවම දීප්තිය තවම ඉතාම දීප්තිමත්ය&lt;/li> &lt;li> ඔබ ඔබගේ දුරකථනය, රාත්‍රියේ හෝ නින්දට යාමට පෙර අඳුරු කාමරයක වැනි අඳුරු අවස්ථාවලදී භාවිත කරයි&lt;/li> &lt;/ol></string>
     <string name="reduce_bright_colors_preference_summary">ඔබගේ දුරකථනයේ අවම දීප්තියෙන් ඔබ්බට තිරය අඳුරු කරන්න</string>
     <string name="reduce_bright_colors_preference_title">තවත් අඳුරු</string>
+    <string name="reduce_bright_colors_shortcut_title">තවත් අඳුරු කිරීමේ කෙටි මග</string>
     <string name="reduce_bright_colors_switch_title">තිරය ​​තවත් අඳුරු කරන්න</string>
     <string name="register_automatically">ස්වයංක්‍රීය ලියාපදිංචිය…</string>
     <string name="register_on_network">%s මත ලියාපදිංචි වෙමින්…</string>
@@ -4249,7 +4276,6 @@ PIN එකක් දුරකථනය නැති වුවහොත් හෝ
     <string name="screen_pinning_unlock_pattern">ගැලවීමට පෙර අගුළු අරින රටාව සඳහා අසන්න</string>
     <string name="screen_pinning_unlock_pin">ගැලවීමට පෙර PIN විමසන්න</string>
     <string name="screen_reader_category_title">තිර කියවනය</string>
-    <string name="screen_saver_main_switch_title">තිර සුරැකුම භාවිත කරන්න</string>
     <string name="screen_time_summary_usage_today">අද %1$s</string>
     <string name="screen_timeout_summary">අක්‍රියතාවයෙන් %1$s පසු</string>
     <string name="screen_timeout_title">තිරය අක්‍රිය කරන්න</string>
@@ -4279,6 +4305,7 @@ PIN එකක් දුරකථනය නැති වුවහොත් හෝ
     <string name="screensaver_settings_button">සැකසීම්</string>
     <string name="screensaver_settings_current">වර්තමාන තිර සුරැකුම</string>
     <string name="screensaver_settings_disabled_prompt">දුරකථනය රඳවා ඇති විට සහ/හෝ නිද්‍රාවේ ඇති විට සිදු වන දේ පාලනය කිරීමට, තිර සුරැකුම ක්‍රියාත්මක කරන්න.</string>
+    <string name="screensaver_settings_dream_start">දැන් අරඹන්න</string>
     <string name="screensaver_settings_summary_dock">ඩොක් කර ඇති විට</string>
     <string name="screensaver_settings_summary_either_long">ආරෝපණය හෝ ඩොක් කර ඇති විට</string>
     <string name="screensaver_settings_summary_either_short">දෙකෙන් එකක්</string>
@@ -4329,15 +4356,6 @@ PIN එකක් දුරකථනය නැති වුවහොත් හෝ
     <string name="security_settings_biometric_preference_summary_both_fp_single">මුහුණ සහ ඇඟිලි සලකුණ එක් කරන ලදි</string>
     <string name="security_settings_biometric_preference_summary_none_enrolled">පිහිටුවීමට තට්ටු කරන්න</string>
     <string name="security_settings_biometric_preference_title">මුහුණ සහ ඇඟිලි සලකුණු අගුළු හැරීම</string>
-    <string name="security_settings_biometrics_description">ඔබ මුහුණු සහ ඇඟිලි සලකුණු අගුළු හැරීම පිහිටවූ විට, ඔබ මුහුණු ආවරණයක් පැළඳ සිටින විට හෝ අඳුරු ප්‍රදේශයක සිටින විට ඔබගේ දුරකථනය ඔබගේ ඇඟිලි සලකුණ ඉල්ලනු ඇත</string>
-    <string name="security_settings_biometrics_preference_use_with_apps">යෙදුම් තුළ සත්‍යාපනය</string>
-    <string name="security_settings_biometrics_preferences_category">මුහුණ හෝ ඇඟිලි සලකුණ භාවිත කරන්න</string>
-    <string name="security_settings_biometrics_summary_both">මුහුණ සහ ඇඟිලි සලකුණ</string>
-    <string name="security_settings_biometrics_summary_face">මුහුණ පමණි</string>
-    <string name="security_settings_biometrics_summary_fingerprint">ඇඟිලි සලකුණ පමණි</string>
-    <string name="security_settings_biometrics_summary_none">පිහිටුවීමට තට්ටු කරන්න</string>
-    <string name="security_settings_biometrics_title">මුහුණ සහ ඇඟිලි සලකුණු අගුළු හැරීම</string>
-    <string name="security_settings_biometrics_types_category">අගුලු හැරීමට ක්‍රම</string>
     <string name="security_settings_face_enroll_consent_introduction_title">මුහුණෙන් අගුලු හැරීම ඉඩ දෙන්න</string>
     <string name="security_settings_face_enroll_dialog_ok">හරි</string>
     <string name="security_settings_face_enroll_done">කළා</string>
@@ -4385,16 +4403,17 @@ g.co/pixel/faceunlock හිදී තව දැන ගන්න"</string>
     <string name="security_settings_face_enroll_introduction_control_title">ඔබ සිටින්නේ පාලනයේය</string>
     <string name="security_settings_face_enroll_introduction_how_consent_message">"ඒ ඔවුන් බව සත්‍යාපනය කිරීමට මුහුණෙන් අගුලු හැරීම ඔබගේ දරුවාගේ මුහුණෙහි අනන්‍ය ආකෘතියක් තනයි. පිහිටුවීම අතරතුර මෙම මුහුණු ආකෘතිය තැනීම සඳහා, ඔබගේ දරුවා විවිධ පිහිටීම්වලින් ඔවුන්ගේ මුහුණේ රූප ගනු ඇත.
 
-ඔවුන් මුහුණෙන් අගුලු හැරීම භාවිත කරන විට, ඔවුන්ගේ මුහුණු ආකෘතිය යාවත්කාලීන කිරීමට රූප භාවිත කෙරේ. ඔවුන්ගේ මුහුණු ආකෘතිය තැනීමට භාවිත කරන රූප කිසි විටක ගබඩා නොකරනු ඇත, නමුත් මුහුණු ආකෘතිය ඔවුන්ගේ දුරකථනයේ ආරක්ෂිතව ගබඩා කර ඇති අතර කිසි විටක දුරකථනය හැර නොයයි. සියලු සැකසීම් දුරකථනයේ ආරක්ෂිතව සිදු වේ."</string>
+ඔවුන් මුහුණෙන් අගුලු හැරීම භාවිත කරන විට, ඔවුන්ගේ මුහුණු ආකෘතිය යාවත්කාලීන කිරීමට රූප භාවිත කෙරේ. ඔවුන්ගේ මුහුණු ආකෘතිය තැනීමට භාවිත කරන රූප ගබඩා නොකරනු ඇත, නමුත් මුහුණු ආකෘතිය ඔවුන්ගේ දුරකථනයේ ආරක්ෂිතව ගබඩා කර ඇති අතර කිසි විටක දුරකථනය හැර නොයයි. සියලු සැකසීම් දුරකථනයේ ආරක්ෂිතව සිදු වේ."</string>
     <string name="security_settings_face_enroll_introduction_how_message">"ඒ ඔබ බව සත්‍යාපනය කිරීමට මුහුණෙන් අගුලු හැරීම ඔබගේ මුහුණේ අනන්‍ය ආකෘතියක් තනයි. පිහිටුවීම අතරතුර මෙම මුහුණු ආකෘතිය තැනීම සඳහා, ඔබ විවිධ කෝණවලින් ඔබගේ මුහුණේ රූප ගනු ඇත.
 
-ඔබ මුහුණෙන් අගුලු හැරීම භාවිත කරන විට, ඔබගේ මුහුණු ආකෘතිය යාවත්කාලීන කිරීමට රූප භාවිත කෙරේ. ඔබගේ මුහුණු ආකෘතිය තැනීමට භාවිත කරන රූප කිසි විටක ගබඩා නොකරනු ඇත, නමුත් මුහුණු ආකෘතිය ඔබගේ දුරකථනයේ ආරක්ෂිතව ගබඩා කර ඇති අතර කිසි විටක දුරකථනය හැර නොයයි. සියලු සැකසීම් ඔබගේ දුරකථනයේ ආරක්ෂිතව සිදු වේ."</string>
+ඔබ මුහුණෙන් අගුලු හැරීම භාවිත කරන විට, ඔබගේ මුහුණු ආකෘතිය යාවත්කාලීන කිරීමට රූප භාවිත කෙරේ. ඔබගේ මුහුණු ආකෘතිය තැනීමට භාවිත කරන රූප ගබඩා නොකරනු ඇත, නමුත් මුහුණු ආකෘතිය ඔබගේ දුරකථනයේ ආරක්ෂිතව ගබඩා කර ඇති අතර කිසි විටක දුරකථනය හැර නොයයි. සියලු සැකසීම් ඔබගේ දුරකථනයේ ආරක්ෂිතව සිදු වේ."</string>
     <string name="security_settings_face_enroll_introduction_how_title">එය ක්‍රියා කරන ආකාරය</string>
     <string name="security_settings_face_enroll_introduction_info_consent_gaze">මුහුණෙන් අගුළු ඇරීමට දුරකථනය අගුළු ඇරීමට හෝ ඒවා සත්‍යාපනය කිරීමට ඔබගේ දරුවාගේ දෑස් විවෘතව තිබීම අවශ්‍යය. ඔබට සහ ඔබගේ දරුවාට ඕනෑම වේලාවක සැකසීම් තුළ මෙම විකල්පය ක්‍රියාත්මක කළ හැකිය.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_glasses">ඔබගේ දරුවා සාමාන්‍යයෙන් ඇස් කණ්ණාඩි පළඳින්නේ නම්, පිහිටුවීම අතරතුර ඔවුන්ට ඒවා පැළඳිය හැකිය.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_looking">දුරකථනය දෙස බැලීම ඔවුන් අදහස් නොකරන නමුත් අගුලු හැරිය හැකිය. ඔවුන්ගේ දුරකථනය බොහෝ දුරට පෙනුමෙන් ඔවුන්ට සමාන, සර්වසම සහෝදර සහෝදරියක් වැනි යමෙකු විසින්, හෝ එය යම් කෙනෙක් ඔවුන්ගේ මුහුණට අල්ලාගෙන සිටියහොත් අගුලු හැරිය හැකිය.</string>
     <string name="security_settings_face_enroll_introduction_info_gaze">මුහුණෙන් අගුළු ඇරීමට දුරකථනය අගුළු ඇරීමට හෝ ඒ ඔබ බව සත්‍යාපනය කිරීමට ඔබගේ දෑස් විවෘතව තිබීම අවශ්‍යය. ඔබට ඕනෑම වේලාවක සැකසීම් තුළ මෙම විකල්පය ක්‍රියාත්මක කළ හැකිය.</string>
     <string name="security_settings_face_enroll_introduction_info_glasses">කණ්ණාඩි හෝ සුළු වශයෙන් වර්ණ ගැන්වූ අවු කණ්ණාඩි කමක් නැත.</string>
+    <string name="security_settings_face_enroll_introduction_info_less_secure">දුරකථනය අගුලු හැරීමට මුහුණක් භාවිත කිරීම ප්‍රබල රටාවකට හෝ PIN අංකයකට වඩා ආරක්ෂාව අඩු විය හැකිය.</string>
     <string name="security_settings_face_enroll_introduction_info_looking">දුරකථනය දෙස බැලීම ඔබ අදහස් නොකරන නමුත් අගුලු හැරිය හැකිය. ඔබගේ දුරකථනය බොහෝ දුරට පෙනුමෙන් ඔබට සමාන, සර්වසම සහෝදර සහෝදරියක් වැනි යමෙකු විසින්, හෝ එය යම් කෙනෙක් ඔබගේ මුහුණට අල්ලාගෙන සිටියහොත් අගුලු හැරිය හැකිය.</string>
     <string name="security_settings_face_enroll_introduction_info_title">මතක තබා ගන්න</string>
     <string name="security_settings_face_enroll_introduction_message">ඔබගේ දුරකථනය අගුලු හැරීමට හෝ ඔබ යෙදුම්වලට පුරන විට හෝ මිලදී ගැනීමක් අනුමත කරන විට වැනි අවස්ථාවල, ඒ ඔබ බව තහවුරු කිරීමට ඔබගේ මුහුණ භාවිත කරන්න.</string>
@@ -4452,13 +4471,14 @@ g.co/pixel/faceunlock හිදී තව දැන ගන්න"</string>
 
 ඔබගේ දුරකථනය බොහෝ දුරට ඔබ මෙන් පෙනෙන, එනම් සර්වසම සහෝදර සහෝදරියක් වැනි කෙනෙකු විසින් අගුලු හැරිය හැකිය."</string>
     <string name="security_settings_face_settings_preferences_category">මුහුණෙන් අගුළු හැරීම භාවිත කරන විට</string>
-    <string name="security_settings_face_settings_remove_dialog_details">ඔබගේ මුහුණු ආකෘතිය ස්ථිරව හා ආරක්ෂිතව මකනු ඇත. මැකීමෙන් පසුව, ඔබගේ දුරකථනය අගුලු හැරීමට හෝ යෙදුම්වල සත්‍යාපනය සඳහා ඔබගේ PIN, රටාව හෝ මුරපදය අවශ්‍ය වේ.</string>
+    <string name="security_settings_face_settings_remove_dialog_details">"ඔබගේ මුහුණු ආකෘතිය ස්ථිරව හා ආරක්ෂිතව මකනු ඇත.
+
+මැකීමෙන් පසුව, ඔබගේ දුරකථනය අගුලු හැරීමට හෝ යෙදුම්වල සත්‍යාපනය සඳහා ඔබගේ PIN, රටාව හෝ මුරපදය අවශ්‍ය වේ."</string>
+    <string name="security_settings_face_settings_remove_dialog_details_convenience">"ඔබගේ මුහුණු ආකෘතිය ස්ථිරව සහ ආරක්ෂිතව මකනු ඇත.
+
+මැකීමෙන් පසුව, ඔබගේ දුරකථනය අගුලු හැරීමට ඔබට ඔබගේ PIN, රටාව හෝ මුරපදය අවශ්‍ය වනු ඇත."</string>
     <string name="security_settings_face_settings_remove_dialog_title">මුහුණු ආකෘතිය මකන්නද?</string>
     <string name="security_settings_face_settings_remove_face_model">මුහුණු ආකෘතිය මකන්න</string>
-    <string name="security_settings_face_settings_remove_model_dialog_details">"ඔබගේ මුහුණු ආකෘතිය ස්ථිරව හා ආරක්ෂිතව මකනු ඇත.
-
-මැකීමෙන් පසුව, ඔබගේ දුරකථනය අගුලු හැරීමට හෝ යෙදුම්වල සත්‍යාපනය සඳහා ඔබගේ ඇඟිලි සලකුණ, PIN, රටාව හෝ මුරපදය අවශ්‍ය වේ."</string>
-    <string name="security_settings_face_settings_remove_model_dialog_title">මුහුණු ආකෘතිය මකන්නද?</string>
     <string name="security_settings_face_settings_require_attention">ඇස් විවෘතව තිබීම අවශ්‍යයි</string>
     <string name="security_settings_face_settings_require_attention_details">දුරකථනය අඟුලු ඇරීමට, ඔබේ ඇස් විවෘත විය යුතුමයි</string>
     <string name="security_settings_face_settings_require_confirmation">සැම විට තහවුරු කිරීම අවශ්‍යයි</string>
@@ -4541,7 +4561,7 @@ g.co/pixel/faceunlock හිදී තව දැන ගන්න"</string>
     <string name="security_settings_title">ආරක්ෂාව</string>
     <string name="security_settings_udfps_enroll_a11y">එය සොයා ගැනීමට ඔබගේ ඇඟිල්ල සංවේදකය හරහා ගෙන යන්න. ඇඟිලි සලකුණු සංවේදකය ස්පර්ශ කර අල්ලාගෙන සිටින්න.</string>
     <string name="security_settings_udfps_enroll_edge_message">ඔබගේ ඇඟිලි සලකුණුණෙහි පැත්ත සංවේදකය මත තබා අල්ලාගෙන සිටින්න, අනතුරුව අනෙක් පැත්තට මාරු වන්න</string>
-    <string name="security_settings_udfps_enroll_edge_title">අවසානයේදී, ඔබගේ ඇඟිල්ලේ දාර තබන්න</string>
+    <string name="security_settings_udfps_enroll_edge_title">අවසානයේදී, ඔබගේ ඇඟිල්ලේ දාර භාවිත කරන්න</string>
     <string name="security_settings_udfps_enroll_find_sensor_message">ඇඟිලි සලකුණු සංවේදකය ඔබගේ තිරයේ ඇත. ඔබ ඔබගේ ඇඟිලි සලකුණ ඊළඟ තිරයේ ග්‍රහණය කර ගනු ඇත.</string>
     <string name="security_settings_udfps_enroll_find_sensor_start_button">අරඹන්න</string>
     <string name="security_settings_udfps_enroll_find_sensor_title">ඔබගේ ඇඟිලි සලකුණ පිහිටුවන ආකාරය</string>
@@ -4550,7 +4570,7 @@ g.co/pixel/faceunlock හිදී තව දැන ගන්න"</string>
     <string name="security_settings_udfps_enroll_repeat_a11y_message">මෙය ඔබගේ ඇඟිලි සලකුණෙහි වැඩි ප්‍රමාණයක් ග්‍රහණය කර ගැනීමට උපකාරී වේ</string>
     <string name="security_settings_udfps_enroll_repeat_message">ඇඟිලි සලකුණු නිරූපකය චලනය වන එක් එක් අවස්ථාවේ ස්පර්ශ කර අල්ලාගෙන සිටින්න. මෙය ඔබගේ ඇඟිලි සලකුණෙහි වැඩි ප්‍රමාණයක් ග්‍රහණය කර ගැනීමට උපකාරී වේ.</string>
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">ඇඟිලි සලකුණු නිරූපකය අනුගමනය කරන්න</string>
-    <string name="security_settings_udfps_enroll_start_message">ඔබට කම්පනයක් දැනෙන තුරු සංවේදකය මත ඔබගේ ඇඟිල්ල තබා ගන්න</string>
+    <string name="security_settings_udfps_enroll_start_message">ඔබට කම්පනයක් දැනෙන තුරු සංවේදකය මත ඔබගේ ඇඟිලි සලකුණ තබන්න</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">තව එක් වරක්</string>
     <string name="security_settings_work_fingerprint_preference_title">කාර්යාලය සඳහා Pixel Imprint</string>
     <string name="security_status_title">ආරක්ෂක තත්ත්වය</string>
@@ -4576,7 +4596,6 @@ g.co/pixel/faceunlock හිදී තව දැන ගන්න"</string>
     <string name="select_webview_provider_dialog_title">WebView ක්‍රියාත්මක කිරීම සකසන්න</string>
     <string name="select_webview_provider_title">WebView ක්‍රියාත්මක කිරීම</string>
     <string name="select_webview_provider_toast_text">මෙම තෝරා ගැනීම තව දුරටත් වලංගු නැත. නැවත උත්සාහ කරන්න.</string>
-    <string name="sensor_toggle_description">සියලු යෙදුම් සහ සේවා සඳහා</string>
     <string name="sensors_off_quick_settings_title">සංවේදක අක්‍රියයි</string>
     <string name="service_background_processes">%1$s හිස්</string>
     <string name="service_foreground_processes">%1$s භාවිත කර ඇත</string>
@@ -4808,6 +4827,7 @@ g.co/pixel/faceunlock හිදී තව දැන ගන්න"</string>
     <string name="sound_settings_summary_silent">හඬ නඟනය නිහඬ වන ලෙස සකසා ඇත</string>
     <string name="sound_settings_summary_vibrate">හඬ නඟනය කම්පනය වන ලෙස සකසා ඇත</string>
     <string name="sound_work_settings">කාර්යාල පැතිකඩ හඬවල්</string>
+    <string name="spatial_audio_title">අවකාශීය ශ්‍රව්‍ය</string>
     <string name="special_access">විශේෂ යෙදුම් ප්‍රවේශය</string>
     <string name="special_access_more">තවත් බලන්න</string>
     <string name="speed_label_fast">වේගවත්</string>
@@ -5619,7 +5639,7 @@ g.co/pixel/faceunlock හිදී තව දැන ගන්න"</string>
     <string name="vpn_turn_on">ක්‍රියාත්මක කරන්න</string>
     <string name="vpn_type">වර්ගය</string>
     <string name="vpn_username">පරිශීලක නාමය</string>
-    <string name="vpn_version">අනුවාදය %s</string>
+    <string name="vpn_version">අනුවාදය</string>
     <string name="vr_listener_security_warning_summary">%1$s හට ඔබ අතථ්‍ය තථ්‍ය ප්‍රකාරය තුළ යෙදුම් භාවිත කරන විට ධාවනය කිරීමට හැකි වනු ඇත.</string>
     <string name="vr_listener_security_warning_title">%1$s සඳහා VR සේවා ප්‍රවේශය ඉඩ දෙන්නද?</string>
     <string name="vr_listeners_title">VR උදවුකරු සේවා</string>
@@ -5889,7 +5909,7 @@ g.co/pixel/faceunlock හිදී තව දැන ගන්න"</string>
     <string name="wifi_not_in_range">පරාසයේ නැත</string>
     <string name="wifi_not_in_range_message">ජාලය පරාසය තුළ නැත</string>
     <string name="wifi_notify_open_networks">පොදු ජාල සඳහා දැනුම් දෙන්න</string>
-    <string name="wifi_notify_open_networks_summary">ස්වයංක්‍රිය සම්බන්ධතාවය ලබාගැනීමට නොහැකි විට</string>
+    <string name="wifi_notify_open_networks_summary">ඉහළ ගුණත්වයේ විවෘත ජාලයක් ලබා ගත හැකි විට දැනුම් දෙන්න</string>
     <string name="wifi_on_time">Wi‑Fi සක්‍රිය කාලය</string>
     <string name="wifi_p2p_cancel_connect_message">%1$s සමඟ සම්බන්ධ වීමට ඇති ආරාධනාව අවලංගු කිරීමට ඔබට අවශ්‍යද?</string>
     <string name="wifi_p2p_cancel_connect_title">ආරාධනාව අවලංගු කරන්නද?</string>
@@ -5977,7 +5997,6 @@ g.co/pixel/faceunlock හිදී තව දැන ගන්න"</string>
     <string name="wifi_suspend_optimizations">Wi-Fi ප්‍රශස්තකරණය</string>
     <string name="wifi_suspend_optimizations_summary">Wi-Fi සක්‍රිය විට බැටරි භාවිතය අවම කරන්න</string>
     <string name="wifi_switch_away_when_unvalidated">Wi-Fi සඳහා අන්තර්ජාල ප්‍රවේශය නැති වුවහොත් ජංගම දත්තවලට මාරු වෙන්න.</string>
-    <string name="wifi_switch_summary">Wi-Fi ජාල සොයා ගෙන සම්බන්ධ වන්න</string>
     <string name="wifi_tap_to_sign_in">ජාලයට පිරීමට මෙහි තට්ටු කරන්න</string>
     <string name="wifi_tether_configure_ap_text">Wi-Fi හොට්ස්පොට් එක සකසන්න</string>
     <string name="wifi_tether_configure_ssid_default">AndroidHotspot</string>

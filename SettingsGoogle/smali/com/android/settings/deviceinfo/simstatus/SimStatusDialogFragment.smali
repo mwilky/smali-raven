@@ -3,6 +3,10 @@
 .source "SimStatusDialogFragment.java"
 
 
+# static fields
+.field private static final sViewIdsInDigitFormat:[I
+
+
 # instance fields
 .field private mController:Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;
 
@@ -10,6 +14,41 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    const/4 v0, 0x3
+
+    new-array v0, v0, [I
+
+    fill-array-data v0, :array_0
+
+    invoke-static {v0}, Ljava/util/stream/IntStream;->of([I)Ljava/util/stream/IntStream;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/util/stream/IntStream;->sorted()Ljava/util/stream/IntStream;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/util/stream/IntStream;->toArray()[I
+
+    move-result-object v0
+
+    sput-object v0, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogFragment;->sViewIdsInDigitFormat:[I
+
+    return-void
+
+    nop
+
+    :array_0
+    .array-data 4
+        0x7f0d02b0
+        0x7f0d03f7
+        0x7f0d0215
+    .end array-data
+.end method
+
 .method public constructor <init>()V
     .locals 0
 
@@ -122,7 +161,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f0600cf
+    const v2, 0x7f0600d1
 
     invoke-virtual {v0, v2, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -179,37 +218,55 @@
 .end method
 
 .method public setText(ILjava/lang/CharSequence;)V
-    .locals 1
+    .locals 2
 
     iget-object v0, p0, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogFragment;->mRootView:Landroid/view/View;
 
     invoke-virtual {v0, p1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Landroid/widget/TextView;
+    check-cast v0, Landroid/widget/TextView;
 
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
     invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_1
 
     invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object p0
 
-    const p2, 0x7f0407c4
+    const p1, 0x7f0407dc
 
-    invoke-virtual {p0, p2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, p1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object p2
 
-    :cond_0
-    if-eqz p1, :cond_1
-
-    invoke-virtual {p1, p2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    goto :goto_0
 
     :cond_1
+    sget-object p0, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogFragment;->sViewIdsInDigitFormat:[I
+
+    invoke-static {p0, p1}, Ljava/util/Arrays;->binarySearch([II)I
+
+    move-result p0
+
+    if-ltz p0, :cond_2
+
+    invoke-static {p2}, Lcom/android/settings/deviceinfo/PhoneNumberUtil;->expandByTts(Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+
+    move-result-object p2
+
+    :cond_2
+    :goto_0
+    invoke-virtual {v0, p2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
     return-void
 .end method

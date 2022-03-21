@@ -343,7 +343,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0415d7
+    const v1, 0x7f0415fc
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -423,7 +423,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f0409fa
+    const p0, 0x7f040a12
 
     return p0
 .end method
@@ -530,7 +530,7 @@
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 1
 
-    const p3, 0x7f0602a9
+    const p3, 0x7f0602b5
 
     const/4 v0, 0x0
 
@@ -538,7 +538,7 @@
 
     move-result-object p1
 
-    const p2, 0x7f0d0507
+    const p2, 0x7f0d0516
 
     invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -548,7 +548,7 @@
 
     iput-object p2, p0, Lcom/android/settings/wifi/calling/WifiCallingSettings;->mTabLayout:Lcom/android/settings/widget/SlidingTabLayout;
 
-    const p2, 0x7f0d0619
+    const p2, 0x7f0d0629
 
     invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

@@ -65,7 +65,7 @@
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 1
+    .locals 2
 
     invoke-virtual {p0}, Lcom/android/settings/password/ChooseLockGeneric;->getIntent()Landroid/content/Intent;
 
@@ -105,16 +105,18 @@
 
     if-nez v0, :cond_0
 
-    const-string v0, "Must have permission android.permission.REQUEST_PASSWORD_COMPLEXITY to use extra android.app.extra.PASSWORD_COMPLEXITY"
+    const/4 v0, 0x5
 
-    invoke-static {p1, v0}, Lcom/android/settings/password/PasswordUtils;->crashCallingApplication(Landroid/os/IBinder;Ljava/lang/String;)V
+    const-string v1, "Must have permission android.permission.REQUEST_PASSWORD_COMPLEXITY to use extra android.app.extra.PASSWORD_COMPLEXITY"
+
+    invoke-static {p1, v1, v0}, Lcom/android/settings/password/PasswordUtils;->crashCallingApplication(Landroid/os/IBinder;Ljava/lang/String;I)V
 
     invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
     return-void
 
     :cond_0
-    const p1, 0x7f0d0176
+    const p1, 0x7f0d017a
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 

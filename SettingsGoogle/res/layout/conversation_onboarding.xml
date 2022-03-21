@@ -2,6 +2,6 @@
 <LinearLayout android:gravity="center" android:layout_gravity="center" android:orientation="vertical" android:id="@id/onboarding" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent"
   xmlns:android="http://schemas.android.com/apk/res/android">
     <ImageView android:layout_width="80.0dip" android:layout_height="80.0dip" android:layout_marginTop="143.0dip" android:src="@drawable/ic_promote_conversation" />
-    <TextView android:textAppearance="?android:textAppearanceMedium" android:gravity="center" android:layout_width="316.0dip" android:layout_height="wrap_content" android:layout_marginTop="47.0dip" android:text="@string/conversation_onboarding_title" android:fontFamily="@*android:string/config_headlineFontFamilyMedium" />
+    <TextView android:textAppearance="?android:textAppearanceMedium" android:gravity="center" android:layout_width="316.0dip" android:layout_height="wrap_content" android:layout_marginTop="47.0dip" android:text="@string/conversation_onboarding_title" android:fontFamily="@android:string/config_headlineFontFamilyMedium" />
     <TextView android:textAppearance="?android:textAppearanceSmall" android:textColor="?android:textColorSecondary" android:gravity="center" android:layout_width="316.0dip" android:layout_height="wrap_content" android:layout_marginTop="24.0dip" android:text="@string/conversation_onboarding_summary" />
 </LinearLayout>

@@ -84,7 +84,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f040a31
+    const p0, 0x7f040a49
 
     return p0
 .end method
@@ -108,7 +108,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f1500ec
+    const p0, 0x7f1500f1
 
     return p0
 .end method
@@ -155,7 +155,7 @@
 
     const/4 v1, 0x0
 
-    const-string v2, "show_aware_dialog_disabled"
+    const-string/jumbo v2, "show_aware_dialog_disabled"
 
     invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z
 

@@ -122,6 +122,48 @@
     return v1
 .end method
 
+.method public static getDisplayBounds(Landroid/content/Context;)Landroid/graphics/Rect;
+    .locals 3
+
+    const-class v0, Landroid/view/WindowManager;
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Landroid/view/WindowManager;
+
+    invoke-interface {p0}, Landroid/view/WindowManager;->getCurrentWindowMetrics()Landroid/view/WindowMetrics;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Landroid/view/WindowMetrics;->getBounds()Landroid/graphics/Rect;
+
+    move-result-object v0
+
+    invoke-virtual {p0}, Landroid/view/WindowMetrics;->getWindowInsets()Landroid/view/WindowInsets;
+
+    move-result-object p0
+
+    invoke-static {}, Landroid/view/WindowInsets$Type;->systemBars()I
+
+    move-result v1
+
+    invoke-static {}, Landroid/view/WindowInsets$Type;->displayCutout()I
+
+    move-result v2
+
+    or-int/2addr v1, v2
+
+    invoke-virtual {p0, v1}, Landroid/view/WindowInsets;->getInsetsIgnoringVisibility(I)Landroid/graphics/Insets;
+
+    move-result-object p0
+
+    invoke-virtual {v0, p0}, Landroid/graphics/Rect;->inset(Landroid/graphics/Insets;)V
+
+    return-object v0
+.end method
+
 .method public static getScreenHeightPixels(Landroid/content/Context;)I
     .locals 2
 
@@ -208,12 +250,12 @@
     :cond_0
     if-eqz v1, :cond_1
 
-    const p1, 0x7f0400d1
+    const p1, 0x7f0400e2
 
     goto :goto_0
 
     :cond_1
-    const p1, 0x7f0400d0
+    const p1, 0x7f0400e1
 
     :goto_0
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -381,7 +423,7 @@
 
     move-result-object p0
 
-    const v0, 0x10e0091
+    const v0, 0x10e0095
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getInteger(I)I
 

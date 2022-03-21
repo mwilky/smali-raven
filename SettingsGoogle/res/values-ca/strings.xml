@@ -96,6 +96,7 @@
     <string name="peak_refresh_rate_title">Smooth Display</string>
     <string name="peak_refresh_rate_summary">"Augmenta automàticament la freqüència d'actualització de 60 a 90 Hz en alguns continguts. Augmenta l'ús de la bateria."</string>
     <string name="accessibility_vibration_settings_title">Vibració i tecnologia hàptica</string>
+    <string name="columbus_title">Toc ràpid per iniciar accions</string>
     <string name="emergency_gesture_screen_title">Emergència SOS</string>
     <string name="abc_action_mode_done">Fet</string>
     <string name="vibrate_for_calls_category_title">Trucades</string>
@@ -103,6 +104,8 @@
     <string name="lockscreen_privacy_controls_setting_toggle">Mostra el control de dispositius</string>
     <string name="lockscreen_privacy_wallet_summary">"Permet l'accés a la cartera des de la pantalla de bloqueig i la configuració ràpida"</string>
     <string name="lockscreen_privacy_controls_summary">Accedeix als controls quan estigui bloquejat</string>
+    <string name="lockscreen_double_line_clock_summary">Mostra el rellotge de doble línia quan estigui disponible</string>
+    <string name="lockscreen_double_line_clock_setting_toggle">Rellotge de doble línia</string>
     <string name="abc_activity_chooser_view_see_all">Mostra-ho tot</string>
     <string name="abc_activitychooserview_choose_application">Selecciona una aplicació</string>
     <string name="abc_capital_off">DESACTIVA</string>
@@ -147,9 +150,11 @@
     <string name="accessibility_alarm_vibration_title">"Vibració de l'alarma"</string>
     <string name="accessibility_assist_gesture_complete_or_keep_adjusting">"Configuració d'Active Edge. Ves a la pantalla següent o continua ajustant."</string>
     <string name="accessibility_audio_adjustment_title">"Ajust d'àudio"</string>
+    <string name="accessibility_autoclick_about_title">Clic aut. (temps de permanència)</string>
     <string name="accessibility_autoclick_custom_title">Personalitzat</string>
     <string name="accessibility_autoclick_default_title">Desactivat</string>
     <string name="accessibility_autoclick_description">"El clic automàtic funciona amb un ratolí connectat. Pots configurar el cursor del ratolí perquè faci clic automàticament quan deixi de moure's durant cert temps."</string>
+    <string name="accessibility_autoclick_footer_learn_more_content_description">Més informació sobre el clic automàtic (temps de permanència)</string>
     <string name="accessibility_autoclick_long_summary">1 segon</string>
     <string name="accessibility_autoclick_long_title">Llarg</string>
     <string name="accessibility_autoclick_longer_desc">Més llarg</string>
@@ -161,16 +166,17 @@
     <string name="accessibility_autoclick_short_title">Curt</string>
     <string name="accessibility_autoclick_shorter_desc">Més curt</string>
     <string name="accessibility_banner_message_dismiss">Ignora</string>
-    <string name="accessibility_button_description">"Accedeix ràpidament a les funcions d'accessibilitat des de qualsevol pantalla. 
+    <string name="accessibility_button_about_title">"Sobre el botó d'accessibilitat"</string>
+    <string name="accessibility_button_description">"Accedeix ràpidament a les funcions d'accessibilitat des de qualsevol pantalla.
 
 Per començar, ves a la configuració d'accessibilitat i selecciona una funció. Toca la drecera i selecciona el botó d'accessibilitat."</string>
     <string name="accessibility_button_fade_summary">"S'atenua al cap d'uns segons perquè sigui més fàcil veure la pantalla"</string>
     <string name="accessibility_button_fade_title">"Atenua quan no s'utilitzi"</string>
+    <string name="accessibility_button_gesture_about_title">"Sobre els gestos i el botó d'accessibilitat"</string>
     <string name="accessibility_button_gesture_description">"Accedeix ràpidament a les funcions d'accessibilitat des de qualsevol pantalla.
 
-Per començar, ves a la configuració d'accessibilitat i selecciona una funció. Toca la drecera i selecciona el botó d'accessibilitat.
-
-Per utilitzar el botó d'accessibilitat de la barra de navegació, canvia a la navegació amb 2 o 3 botons."</string>
+Per començar, ves a la configuració d'accessibilitat i selecciona una funció. Toca la drecera i selecciona el botó o el gest d'accessibilitat."</string>
+    <string name="accessibility_button_gesture_footer_learn_more_content_description">"Més informació sobre els gestos i el botó d'accessibilitat"</string>
     <string name="accessibility_button_gesture_title">"Botó i gest d'accessibilitat"</string>
     <string name="accessibility_button_high_label">No transparent</string>
     <string name="accessibility_button_intro">"S'està utilitzant el botó d'accessibilitat. El gest no està disponible amb la navegació amb 3 botons."</string>
@@ -184,14 +190,23 @@ Per utilitzar el botó d'accessibilitat de la barra de navegació, canvia a la n
     <string name="accessibility_caption_preference_summary">No totes les aplicacions són compatibles amb aquestes preferències de subtítols</string>
     <string name="accessibility_caption_primary_switch_summary">Només per a aplicacions compatibles</string>
     <string name="accessibility_caption_primary_switch_title">Mostra els subtítols</string>
+    <string name="accessibility_captioning_about_title">Sobre les preferències de subtítols</string>
+    <string name="accessibility_captioning_footer_learn_more_content_description">Més informació sobre les preferències de subtítols</string>
     <string name="accessibility_captioning_title">Preferències dels subtítols</string>
     <string name="accessibility_category_personal">Comptes del perfil personal</string>
     <string name="accessibility_category_work">Comptes del perfil de treball: %s</string>
+    <string name="accessibility_color_inversion_about_title">Sobre la inversió de colors</string>
+    <string name="accessibility_color_inversion_footer_learn_more_content_description">Més informació sobre la inversió de colors</string>
+    <string name="accessibility_control_timeout_about_title">"Sobre el temps per fer l'acció (temps d'espera d'Accessibilitat)"</string>
+    <string name="accessibility_control_timeout_footer_learn_more_content_description">"Més informació sobre el temps per fer l'acció (temps d'espera d'Accessibilitat)"</string>
     <string name="accessibility_control_timeout_preference_summary">"Selecciona el temps que vols tenir per llegir els missatges que es mostren temporalment i et demanen que duguis a terme una acció.
 
 Aquesta opció no és compatible amb totes les aplicacions."</string>
     <string name="accessibility_control_timeout_preference_title">"Temps per fer l'acció"</string>
+    <string name="accessibility_daltonizer_about_title">Sobre la correcció de color</string>
+    <string name="accessibility_daltonizer_footer_learn_more_content_description">Més informació sobre la correcció de color</string>
     <string name="accessibility_daltonizer_primary_switch_title">Utilitza la correcció de color</string>
+    <string name="accessibility_daltonizer_shortcut_title">Drecera de la correcció de color</string>
     <string name="accessibility_data_one_bar">Senyal de dades: una barra.</string>
     <string name="accessibility_data_signal_full">Senyal de dades: complet.</string>
     <string name="accessibility_data_three_bars">Senyal de dades: tres barres.</string>
@@ -206,6 +221,7 @@ Aquesta opció no és compatible amb totes les aplicacions."</string>
     <string name="accessibility_display_daltonizer_preference_title">Correcció de color</string>
     <string name="accessibility_display_inversion_preference_subtitle">La inversió de colors converteix les pantalles clares en fosques.&lt;br/>&lt;br/> Nota:&lt;ol> &lt;li> La inversió de colors també converteix les pantalles fosques en clares.&lt;/li> &lt;li> Els colors canviaran al contingut multimèdia i a les imatges.&lt;/li> &lt;li> El tema fosc permet mostrar un fons fosc i tan sols funciona amb les aplicacions compatibles. En canvi, la inversió de colors funciona en totes les aplicacions.&lt;/li> &lt;/ol></string>
     <string name="accessibility_display_inversion_preference_title">Inversió de colors</string>
+    <string name="accessibility_display_inversion_shortcut_title">Drecera de la inversió de colors</string>
     <string name="accessibility_display_inversion_switch_title">Utilitza la inversió de colors</string>
     <string name="accessibility_ethernet_connected">Ethernet.</string>
     <string name="accessibility_ethernet_disconnected">"S'ha desconnectat l'Ethernet."</string>
@@ -255,6 +271,8 @@ El botó d'accessibilitat flota sobre altres aplicacions a la pantalla. Toca'l p
     <string name="accessibility_phone_two_bars">Senyal de telèfon: dues barres.</string>
     <string name="accessibility_power_button_ends_call_prerefence_title">"El botó d'engegada penja"</string>
     <string name="accessibility_preference_magnification_summary">Amplia la pantalla</string>
+    <string name="accessibility_screen_magnification_about_title">"Sobre l'ampliació"</string>
+    <string name="accessibility_screen_magnification_footer_learn_more_content_description">"Més informació sobre l'ampliació"</string>
     <string name="accessibility_screen_magnification_gesture_navigation_warning">"El gest d'accessibilitat està definit per a la funció %1$s. Per utilitzar l'ampliació, fes lliscar els dos dits cap amunt des de la part inferior de la pantalla i mantén premut. A continuació, selecciona l'amplificació."</string>
     <string name="accessibility_screen_magnification_gestures_title">Amplia amb tres tocs</string>
     <string name="accessibility_screen_magnification_navbar_configuration_warning">"El botó d'accessibilitat està configurat per a %1$s. Per utilitzar la funció d'ampliació, toca i mantén premut el botó d'accessibilitat i, a continuació, selecciona l'ampliació."</string>
@@ -272,6 +290,7 @@ El botó d'accessibilitat flota sobre altres aplicacions a la pantalla. Toca'l p
 No es pot ampliar el teclat ni la barra de navegació."</string>
     <string name="accessibility_screen_magnification_navbar_title">Amplia amb una drecera</string>
     <string name="accessibility_screen_magnification_short_summary">Toca tres cops per fer zoom</string>
+    <string name="accessibility_screen_magnification_shortcut_title">"Drecera de l'ampliació"</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">Amplia amb una drecera i tres tocs</string>
     <string name="accessibility_screen_magnification_summary">"Amplia la pantalla ràpidament per fer el contingut més gran.&lt;br/>&lt;br/> &lt;b>Per ampliar-la&lt;/b>:&lt;br/> {0,number,integer}. Utilitza la drecera per iniciar l'ampliació.&lt;br/> {1,number,integer}. Toca la pantalla.&lt;br/> {2,number,integer}. Arrossega 2 dits per moure't per la pantalla.&lt;br/> {3,number,integer}. Pinça amb 2 dits per ajustar el zoom.&lt;br/> {4,number,integer}. Utilitza la drecera per aturar l'ampliació.&lt;br/>&lt;br/> &lt;b>Per ampliar-la temporalment&lt;/b>:&lt;br/> {0,number,integer}. Utilitza la drecera per iniciar l'ampliació.&lt;br/> {1,number,integer}. Mantén premut qualsevol punt de la pantalla.&lt;br/> {2,number,integer}. Arrossega un dit per moure't per la pantalla.&lt;br/> {3,number,integer}. Aixeca el dit per aturar l'ampliació."</string>
     <string name="accessibility_screen_magnification_title">Ampliació</string>
@@ -370,7 +389,7 @@ Per canviar entre funcions, llisca cap amunt amb 3 dits i mantén premut."</str
     <string name="accessibility_tutorial_dialog_message_volume">Per utilitzar aquesta funció, mantén premudes les dues tecles de volum.</string>
     <string name="accessibility_tutorial_dialog_title_button">"Utilitza el botó d'accessibilitat per obrir"</string>
     <string name="accessibility_tutorial_dialog_title_gesture">Utilitza un gest per obrir</string>
-    <string name="accessibility_tutorial_dialog_title_gesture_settings">"Utilitza un nou gest d'accessibilitat"</string>
+    <string name="accessibility_tutorial_dialog_title_gesture_settings">"Utilitza el gest d'accessibilitat"</string>
     <string name="accessibility_tutorial_dialog_title_triple">Per obrir, fes tres tocs a la pantalla</string>
     <string name="accessibility_tutorial_dialog_title_volume">Per obrir, mantén premudes les tecles de volum</string>
     <string name="accessibility_tutorial_pager">Pàgina %1$d de %2$d</string>
@@ -727,7 +746,7 @@ Col·loca els dispositius a prop (normalment encarant-los per la part posterior)
     <string name="asst_importance_reset_summary">"Restableix la configuració d'importància que l'usuari ha canviat i permet que es prioritzi l'assistent de notificació"</string>
     <string name="asst_importance_reset_title">Restableix la importància de les notificacions</string>
     <string name="audio_category_title">Àudio</string>
-    <string name="audio_record_proc_title">Reducció del soroll</string>
+    <string name="audio_record_proc_title">Cancel·lació de soroll</string>
     <string name="auto_brightness_default_title">Predeterminada</string>
     <string name="auto_brightness_description">"La brillantor de la pantalla s'ajustarà automàticament al teu entorn i a la teva activitat. Pots moure el control lliscant manualment perquè la brillantor adaptativa aprengui les teves preferències."</string>
     <string name="auto_brightness_disclaimer">Optimitza la brillantor segons la llum. Quan aquesta funció està activada, pots ajustar la brillantor temporalment.</string>
@@ -936,6 +955,7 @@ Quan s'hagi restablert, completa el procés de configuració i tria copiar les d
     <string name="battery_level_title">Nivell de la bateria</string>
     <string name="battery_manager_off">Desactivat</string>
     <string name="battery_manager_summary">Allarga la durada de la bateria i optimitza la càrrega</string>
+    <string name="battery_manager_summary_unsupported">Allarga la durada de la bateria</string>
     <string name="battery_missing_link_a11y_message">Toca per obtenir més informació sobre aquest error</string>
     <string name="battery_missing_link_message">Més informació</string>
     <string name="battery_missing_message">Hi ha hagut un problema en llegir el mesurador de la bateria.</string>
@@ -1061,6 +1081,7 @@ entre ^2"</string>
     <string name="battery_usage_screen_footer">"Les dades d'ús de la bateria són aproximades i no es mesuren mentre el telèfon s'està carregant."</string>
     <string name="battery_usage_screen_footer_empty">"Les dades d'ús de la bateria estaran disponibles quan hagis fet servir el telèfon durant unes hores."</string>
     <string name="battery_usage_total_less_than_one_minute">"Total: menys d'un minut"</string>
+    <string name="battery_usage_without_time" />
     <string name="battery_used_by">%1$s utilitzat per %2$s</string>
     <string name="battery_used_for">En ús durant ^1</string>
     <string name="bearer">Portador</string>
@@ -1069,12 +1090,14 @@ entre ^2"</string>
     <string name="billing_cycle_less_than_one_day_left">"Queda menys d'1 dia"</string>
     <string name="billing_cycle_none_left">"S'ha acabat el temps"</string>
     <string name="biometric_settings_category_ways_to_unlock">Formes de desbloqueig</string>
-    <string name="biometric_settings_category_ways_to_use">"Utilitza la cara i l'empremta digital per"</string>
     <string name="biometric_settings_hand_back_to_guardian">Torna el telèfon als pares</string>
     <string name="biometric_settings_hand_back_to_guardian_ok">"D'acord"</string>
     <string name="biometric_settings_intro">Si configures Desbloqueig facial i Desbloqueig amb empremta digital, el telèfon et demanarà la teva empremta digital quan portis mascareta o quan estiguis en una zona fosca</string>
-    <string name="biometric_settings_use_biometric_for_apps">Autenticació en aplicacions</string>
+    <string name="biometric_settings_use_biometric_for_apps">Verifica que ets tu a les aplicacions</string>
     <string name="biometric_settings_use_biometric_unlock_phone">Desbloqueja el telèfon</string>
+    <string name="biometric_settings_use_face_or_fingerprint_preference_summary">"Amb la cara o l'empremta digital"</string>
+    <string name="biometric_settings_use_face_preference_summary">Amb la cara</string>
+    <string name="biometric_settings_use_fingerprint_preference_summary">"Amb l'empremta digital"</string>
     <string name="biometrics_unlock_set_unlock_password">Contrasenya • Cara • Empremta digital</string>
     <string name="biometrics_unlock_set_unlock_pattern">Patró • Cara • Empremta digital</string>
     <string name="biometrics_unlock_set_unlock_pin">PIN • Cara • Empremta digital</string>
@@ -1332,7 +1355,6 @@ Selecció"</string>
     <string name="bluetooth_settings_title">Bluetooth</string>
     <string name="bluetooth_show_devices_without_names">Mostra els dispositius Bluetooth sense el nom</string>
     <string name="bluetooth_show_devices_without_names_summary">"Es mostraran els dispositius Bluetooth sense el nom (només l'adreça MAC)"</string>
-    <string name="bluetooth_show_files_received_via_bluetooth">Fitxers rebuts per Bluetooth</string>
     <string name="bluetooth_show_received_files">Fitxers rebuts</string>
     <string name="bluetooth_sim_card_access_dialog_content">"Un dispositiu Bluetooth, %1$s, vol accedir a les dades de la teva targeta SIM. Això inclou els teus contactes.
 
@@ -1426,6 +1448,7 @@ Si instal·les un certificat de CA, el propietari del certificat pot accedir a l
     <string name="calls_sms_temp_unavailable">No disponible temporalment</string>
     <string name="calls_sms_unavailable">no disponible</string>
     <string name="calls_sms_wfc_summary">Fes i rep trucades per Wi‑Fi</string>
+    <string name="cam_toggle_description">Per a aplicacions i serveis</string>
     <string name="camera_double_tap_power_gesture_desc">Obre ràpidament la càmera sense haver de desbloquejar la pantalla</string>
     <string name="camera_double_tap_power_gesture_title">"Botó d'engegada dos cops per obrir càmera"</string>
     <string name="camera_laser_sensor_switch">Sensor làser de la càmera</string>
@@ -2680,7 +2703,7 @@ Pots canviar-ho més tard a Configuració > Aplicacions i notificacions."</strin
     <string name="interact_across_profiles_summary_1">Les aplicacions connectades comparteixen els permisos i poden accedir a les dades entre si.</string>
     <string name="interact_across_profiles_summary_2">Connecta aplicacions només si confies que no compartiran dades personals amb el teu administrador de TI.</string>
     <string name="interact_across_profiles_summary_3">Pots desconnectar aplicacions en qualsevol moment a la configuració de privadesa del dispositiu.</string>
-    <string name="interact_across_profiles_summary_allowed">Connectada</string>
+    <string name="interact_across_profiles_summary_allowed">Connectats</string>
     <string name="interact_across_profiles_summary_not_allowed">No connectada</string>
     <string name="interact_across_profiles_switch_disabled">Connecta aquestes aplicacions</string>
     <string name="interact_across_profiles_switch_enabled">Connectades</string>
@@ -3302,6 +3325,7 @@ En aquest dispositiu hi ha altres usuaris.
     <string name="menu_stats_total">"Totals d'ús"</string>
     <string name="menu_stats_unplugged">%1$s des de la desconnexió</string>
     <string name="menu_use_uss">Fes servir Uss</string>
+    <string name="mic_toggle_description">"Per a aplicacions i serveis. Si aquesta opció de configuració està desactivada, és possible que les dades del micròfon es continuïn compartint quan truquis a un número d'emergència."</string>
     <string name="mic_toggle_title">Accés al micròfon</string>
     <string name="misc_files">Fitxers diversos</string>
     <string name="misc_files_selected_count">"s'han seleccionat %1$d de %2$d"</string>
@@ -3559,7 +3583,7 @@ Això substitueix %2$s com a aplicació de pagaments predeterminada."</string>
     <string name="no_sim_card">No hi ha cap SIM</string>
     <string name="no_trust_agents">No hi ha agents de confiança disponibles.</string>
     <string name="no_vr_listeners">"Cap aplicació instal·lada no ha sol·licitat que s'executi com un servei d'ajuda per a RV."</string>
-    <string name="non_carrier_data_usage">Ús de dades de xarxes sense operador</string>
+    <string name="non_carrier_data_usage">Ús de dades sense xarxa mòbil</string>
     <string name="non_carrier_data_usage_warning">"No inclou les dades que utilitzen les xarxes d'operadors"</string>
     <string name="non_carrier_network_unavailable">No hi ha cap altra xarxa disponible</string>
     <string name="not_allowed">La targeta SIM no et permet connectar-te a aquesta xarxa.</string>
@@ -3728,6 +3752,7 @@ L'aplicació també podrà activar i desactivar el mode No molestis i canviar la
     <string name="one_handed_action_show_notification_title">Mostra notificacions</string>
     <string name="one_handed_mode_enabled">"Utilitza el mode d'una mà"</string>
     <string name="one_handed_mode_intro_text">"Per utilitzar el mode d'una mà, llisca cap avall des de la vora inferior de la pantalla. Per fer servir aquesta funció, assegura't que la navegació amb gestos estigui activada a la configuració de navegació del sistema."</string>
+    <string name="one_handed_mode_shortcut_title">"Drecera del mode d'una mà"</string>
     <string name="one_handed_mode_swipe_down_category">Llisca cap avall per</string>
     <string name="one_handed_mode_use_shortcut_category">Utilitza la drecera per</string>
     <string name="one_usercrt">"un certificat d'usuari"</string>
@@ -3803,7 +3828,7 @@ L'aplicació també podrà activar i desactivar el mode No molestis i canviar la
     <string name="post_dsds_reboot_notification_title_with_carrier">%1$s està actiu</string>
     <string name="power_bluetooth">Bluetooth</string>
     <string name="power_camera">Càmera</string>
-    <string name="power_cell">Xarxa mòbil en espera</string>
+    <string name="power_cell">Xarxa mòbil</string>
     <string name="power_charge_remaining">%1$s per completar la càrrega</string>
     <string name="power_charging">%1$s: %2$s</string>
     <string name="power_charging_duration">%1$s: %2$s per completar la càrrega</string>
@@ -4021,7 +4046,7 @@ Prem els botons d'engegada i d'apujar el volum al mateix temps."</string>
     <string name="radioInfo_service_emergency">"Només trucades d'emergència"</string>
     <string name="radioInfo_service_in">En servei</string>
     <string name="radioInfo_service_off">Senyal mòbil desactivat</string>
-    <string name="radioInfo_service_out">Sense servei</string>
+    <string name="radioInfo_service_out">Fora de servei</string>
     <string name="radioInfo_unknown">Desconegut</string>
     <string name="radio_controls_summary">"Gestiona la Wi-Fi, el Bluetooth, el mode d'avió, les xarxes mòbils i les VPN"</string>
     <string name="radio_info_http_client_test">Prova de client HTTP:</string>
@@ -4037,6 +4062,7 @@ Prem els botons d'engegada i d'apujar el volum al mateix temps."</string>
     <string name="recent_notifications">Enviades fa poc</string>
     <string name="recent_notifications_see_all_title">Mostra totes les dels 7 darrers dies</string>
     <string name="recompute_size">"S'està tornant a calcular la mida..."</string>
+    <string name="reduce_bright_colors_about_title">"Sobre l'atenuació extra"</string>
     <string name="reduce_bright_colors_intensity_end_label">Més brillant</string>
     <string name="reduce_bright_colors_intensity_preference_title">Intensitat</string>
     <string name="reduce_bright_colors_intensity_start_label">Més tènue</string>
@@ -4044,6 +4070,7 @@ Prem els botons d'engegada i d'apujar el volum al mateix temps."</string>
     <string name="reduce_bright_colors_preference_subtitle">"Atenua la pantalla per llegir més còmodament.&lt;br/>&lt;br/> Això pot ser útil quan: &lt;ol> &lt;li> La brillantor mínima predeterminada del telèfon encara és massa clara.&lt;/li> &lt;li> Utilitzes el telèfon en situacions de poca llum, com ara a la nit o en una habitació fosca abans d'anar a dormir.&lt;/li> &lt;/ol>"</string>
     <string name="reduce_bright_colors_preference_summary">Atenua la pantalla per sota de la brillantor mínima del telèfon</string>
     <string name="reduce_bright_colors_preference_title">Atenuació extra</string>
+    <string name="reduce_bright_colors_shortcut_title">"Drecera de l'atenuació extra"</string>
     <string name="reduce_bright_colors_switch_title">Atenuació extra de la pantalla</string>
     <string name="register_automatically">Registre automàtic…</string>
     <string name="register_on_network">"S'està registrant a %s…"</string>
@@ -4249,7 +4276,6 @@ Per utilitzar la fixació d'aplicacions: \u0009
     <string name="screen_pinning_unlock_pattern">Sol·licita el patró de desbloqueig per deixar de fixar</string>
     <string name="screen_pinning_unlock_pin">Demana el PIN per deixar de fixar</string>
     <string name="screen_reader_category_title">Lector de pantalla</string>
-    <string name="screen_saver_main_switch_title">"Utilitza l'estalvi de pantalla"</string>
     <string name="screen_time_summary_usage_today">%1$s avui</string>
     <string name="screen_timeout_summary">"%1$s d'inactivitat"</string>
     <string name="screen_timeout_title">"La pantalla s'apaga"</string>
@@ -4279,6 +4305,7 @@ Per utilitzar la fixació d'aplicacions: \u0009
     <string name="screensaver_settings_button">Configuració</string>
     <string name="screensaver_settings_current">Estalvi de pantalla actual</string>
     <string name="screensaver_settings_disabled_prompt">"Per controlar què passa quan el telèfon està acoblat a una base o en mode de repòs, activa l'estalvi de pantalla."</string>
+    <string name="screensaver_settings_dream_start">Comença ara</string>
     <string name="screensaver_settings_summary_dock">Mentre està acoblat a la base</string>
     <string name="screensaver_settings_summary_either_long">Mentre es carrega o està acoblat a la base</string>
     <string name="screensaver_settings_summary_either_short">Els dos casos</string>
@@ -4329,15 +4356,6 @@ Per utilitzar la fixació d'aplicacions: \u0009
     <string name="security_settings_biometric_preference_summary_both_fp_single">Cara i empremta digital afegida</string>
     <string name="security_settings_biometric_preference_summary_none_enrolled">Toca per configurar</string>
     <string name="security_settings_biometric_preference_title">Desbloqueig facial i amb empremta digital</string>
-    <string name="security_settings_biometrics_description">Si configures el desbloqueig facial i amb empremta digital, el telèfon et demanarà la teva empremta digital quan portis mascareta o quan estiguis en una zona fosca</string>
-    <string name="security_settings_biometrics_preference_use_with_apps">Autenticació en aplicacions</string>
-    <string name="security_settings_biometrics_preferences_category">"Utilitza la cara o l'empremta digital per"</string>
-    <string name="security_settings_biometrics_summary_both">Cara i empremta digital</string>
-    <string name="security_settings_biometrics_summary_face">Només cara</string>
-    <string name="security_settings_biometrics_summary_fingerprint">Només empremta digital</string>
-    <string name="security_settings_biometrics_summary_none">Toca per configurar</string>
-    <string name="security_settings_biometrics_title">Desbloqueig facial i amb empremta digital</string>
-    <string name="security_settings_biometrics_types_category">Formes de desbloqueig</string>
     <string name="security_settings_face_enroll_consent_introduction_title">Permet Desbloqueig facial</string>
     <string name="security_settings_face_enroll_dialog_ok">"D'acord"</string>
     <string name="security_settings_face_enroll_done">Fet</string>
@@ -4383,18 +4401,19 @@ Obtén més informació a g.co/pixel/faceunlock."</string>
 
 Obtén més informació a g.co/pixel/faceunlock."</string>
     <string name="security_settings_face_enroll_introduction_control_title">Ets tu qui té el control</string>
-    <string name="security_settings_face_enroll_introduction_how_consent_message">"Desbloqueig facial crea un model únic de la cara del teu fill per verificar la seva identitat. Per crear-lo durant la configuració, es farà fotos de la cara des de diversos angles.
+    <string name="security_settings_face_enroll_introduction_how_consent_message">"Desbloqueig facial crea un model únic de la cara del teu fill o filla per verificar la seva identitat. Per crear-lo durant la configuració, es farà fotos de la cara des de diversos angles.
 
-Quan fa servir Desbloqueig facial, les imatges s'utilitzen per actualitzar el seu model facial. Les imatges utilitzades per crear-lo no s'emmagatzemen mai, però el model facial sí que s'emmagatzema de manera segura i no surt del telèfon. Tot el procés es fa de manera segura al telèfon."</string>
+Quan fa servir Desbloqueig facial, les imatges s'utilitzen per actualitzar el seu model facial. Les imatges utilitzades per crear-lo no s'emmagatzemen, però el model facial sí que s'emmagatzema de manera segura i no surt del telèfon. Tot el procés es fa de manera segura al telèfon."</string>
     <string name="security_settings_face_enroll_introduction_how_message">"Desbloqueig facial crea un model únic de la teva cara per verificar la teva identitat. Per crear-lo durant la configuració, et faràs fotos de la cara des de diversos angles.
 
-Quan fas servir Desbloqueig facial, les imatges s'utilitzen per actualitzar el teu model facial. Les imatges utilitzades per crear-lo no s'emmagatzemen mai, però el model facial sí que s'emmagatzema de manera segura i no surt del telèfon. Tot el procés es fa de manera segura al teu telèfon."</string>
+Quan fas servir Desbloqueig facial, les imatges s'utilitzen per actualitzar el teu model facial. Les imatges utilitzades per crear-lo no s'emmagatzemen, però el model facial sí que s'emmagatzema de manera segura i no surt del telèfon. Tot el procés es fa de manera segura al teu telèfon."</string>
     <string name="security_settings_face_enroll_introduction_how_title">Com funciona</string>
     <string name="security_settings_face_enroll_introduction_info_consent_gaze">Desbloqueig facial pot requerir que el teu fill tingui els ulls oberts per desbloquejar el telèfon o verificar la seva identitat. Tu i el teu fill podeu activar aquesta opció en qualsevol moment a Configuració.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_glasses">Si el teu fill normalment porta ulleres, pot dur-les posades durant la configuració.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_looking">"Si mira el telèfon, es pot desbloquejar sense voler. També pot desbloquejar el telèfon una persona que s'assembli molt a ell (per exemple, un bessó idèntic), o algú que li apropi el telèfon a la cara."</string>
     <string name="security_settings_face_enroll_introduction_info_gaze">Desbloqueig facial pot requerir que tinguis els ulls oberts per desbloquejar el telèfon o verificar la teva identitat. Pots activar aquesta opció en qualsevol moment a Configuració.</string>
     <string name="security_settings_face_enroll_introduction_info_glasses">Pots utilitzar ulleres o ulleres de sol amb els vidres clars.</string>
+    <string name="security_settings_face_enroll_introduction_info_less_secure">Utilitzar la cara per desbloquejar el telèfon pot ser menys segur que un bon patró o PIN.</string>
     <string name="security_settings_face_enroll_introduction_info_looking">"Si mires el telèfon, es pot desbloquejar sense voler. També pot desbloquejar el telèfon una persona que s'assembli molt a tu (per exemple, un bessó idèntic), o algú que t'apropi el telèfon a la cara."</string>
     <string name="security_settings_face_enroll_introduction_info_title">Nota important</string>
     <string name="security_settings_face_enroll_introduction_message">Utilitza la cara per desbloquejar el telèfon o verificar la teva identitat, com ara quan inicies la sessió en aplicacions o aproves una compra.</string>
@@ -4452,13 +4471,14 @@ Una altra persona pot desbloquejar el telèfon si te'l posa davant de la cara, e
 
 És possible que algú que s'assembli molt a tu, com ara un bessó idèntic, pugui desbloquejar el telèfon."</string>
     <string name="security_settings_face_settings_preferences_category">Quan utilitzes Desbloqueig facial</string>
-    <string name="security_settings_face_settings_remove_dialog_details">"Se suprimirà el teu model facial de manera permanent i segura. Després de suprimir-lo, necessitaràs un PIN, un patró o una contrasenya per desbloquejar el teu telèfon o per a l'autenticació en aplicacions."</string>
+    <string name="security_settings_face_settings_remove_dialog_details">"Se suprimirà el teu model facial de manera permanent i segura.
+
+Després de suprimir-lo, necessitaràs un PIN, un patró o una contrasenya per desbloquejar el teu telèfon o per a l'autenticació en aplicacions."</string>
+    <string name="security_settings_face_settings_remove_dialog_details_convenience">"Se suprimirà el teu model facial de manera permanent i segura.
+
+Després de suprimir-lo, necessitaràs un PIN, un patró o una contrasenya per desbloquejar el teu telèfon."</string>
     <string name="security_settings_face_settings_remove_dialog_title">Vols suprimir el model facial?</string>
     <string name="security_settings_face_settings_remove_face_model">Suprimeix el model facial</string>
-    <string name="security_settings_face_settings_remove_model_dialog_details">"Se suprimirà el teu model facial de manera permanent i segura.
-
-Després de suprimir-lo, necessitaràs l'empremta digital, un PIN, un patró o una contrasenya per desbloquejar el teu telèfon o per a l'autenticació en aplicacions."</string>
-    <string name="security_settings_face_settings_remove_model_dialog_title">Vols suprimir el model facial?</string>
     <string name="security_settings_face_settings_require_attention">"Els ulls han d'estar oberts"</string>
     <string name="security_settings_face_settings_require_attention_details">Per desbloquejar el telèfon, has de tenir els ulls oberts</string>
     <string name="security_settings_face_settings_require_confirmation">Requereix sempre confirmació</string>
@@ -4541,7 +4561,7 @@ Nota: no pots fer servir l'empremta digital per desbloquejar el dispositiu. Per 
     <string name="security_settings_title">Seguretat</string>
     <string name="security_settings_udfps_enroll_a11y">"Mou el dit per la pantalla per trobar el sensor d'empremtes digitals. Mantén-lo premut."</string>
     <string name="security_settings_udfps_enroll_edge_message">"Col·loca un costat del dit al sensor i espera; a continuació, canvia a l'altre costat"</string>
-    <string name="security_settings_udfps_enroll_edge_title">Per acabar, col·loca les vores del dit</string>
+    <string name="security_settings_udfps_enroll_edge_title">Per acabar, utilitza les vores del dit</string>
     <string name="security_settings_udfps_enroll_find_sensor_message">"El sensor d'empremtes digitals es troba a la pantalla. Capturaràs l'empremta digital a la pantalla següent."</string>
     <string name="security_settings_udfps_enroll_find_sensor_start_button">Comença</string>
     <string name="security_settings_udfps_enroll_find_sensor_title">"Com pots configurar l'empremta digital"</string>
@@ -4550,7 +4570,7 @@ Nota: no pots fer servir l'empremta digital per desbloquejar el dispositiu. Per 
     <string name="security_settings_udfps_enroll_repeat_a11y_message">"Això ajuda a capturar millor l'empremta digital"</string>
     <string name="security_settings_udfps_enroll_repeat_message">"Mantén premuda la icona d'empremta digital cada vegada que es mogui. Això ajuda a capturar millor l'empremta digital."</string>
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">"Segueix la icona de l'empremta digital"</string>
-    <string name="security_settings_udfps_enroll_start_message">Mantén el dit sobre el sensor fins que notis una vibració</string>
+    <string name="security_settings_udfps_enroll_start_message">"Mantén tota l'empremta digital sobre el sensor fins que notis una vibració"</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">Un cop més</string>
     <string name="security_settings_work_fingerprint_preference_title">Pixel Imprint per a la feina</string>
     <string name="security_status_title">Estat de seguretat</string>
@@ -4576,7 +4596,6 @@ Nota: no pots fer servir l'empremta digital per desbloquejar el dispositiu. Per 
     <string name="select_webview_provider_dialog_title">Estableix implementació de WebView</string>
     <string name="select_webview_provider_title">Implementació de WebView</string>
     <string name="select_webview_provider_toast_text">Aquesta opció ja no és vàlida. Torna-ho a provar.</string>
-    <string name="sensor_toggle_description">Per a tots els serveis i aplicacions</string>
     <string name="sensors_off_quick_settings_title">Sensors desactivats</string>
     <string name="service_background_processes">%1$s lliure</string>
     <string name="service_foreground_processes">%1$s utilitzat</string>
@@ -4808,6 +4827,7 @@ Si canvies de SIM, el teu servei amb %1$s no es cancel·larà."</string>
     <string name="sound_settings_summary_silent">Timbre en silenci</string>
     <string name="sound_settings_summary_vibrate">Timbre en vibració</string>
     <string name="sound_work_settings">Sons del perfil de treball</string>
+    <string name="spatial_audio_title">Àudio espacial</string>
     <string name="special_access">"Accés especial d'aplicacions"</string>
     <string name="special_access_more">"Mostra'n més"</string>
     <string name="speed_label_fast">Ràpida</string>
@@ -5619,7 +5639,7 @@ Durant una trucada de veu, no podràs utilitzar Internet i és possible que algu
     <string name="vpn_turn_on">Activa</string>
     <string name="vpn_type">Tipus</string>
     <string name="vpn_username">"Nom d'usuari"</string>
-    <string name="vpn_version">Versió %s</string>
+    <string name="vpn_version">Versió</string>
     <string name="vr_listener_security_warning_summary">%1$s es podrà executar quan utilitzis aplicacions en el mode de realitat virtual.</string>
     <string name="vr_listener_security_warning_title">Vols permetre que %1$s accedeixi al servei RV?</string>
     <string name="vr_listeners_title">"Serveis d'ajuda per a RV"</string>
@@ -5889,7 +5909,7 @@ Configurar la xarxa com a oculta no canviarà la configuració del teu encaminad
     <string name="wifi_not_in_range">"Fora de l'abast"</string>
     <string name="wifi_not_in_range_message">"La xarxa està fora de l'abast"</string>
     <string name="wifi_notify_open_networks">Notifica quan es detectin xarxes públiques</string>
-    <string name="wifi_notify_open_networks_summary">Quan la connexió automàtica no estigui disponible</string>
+    <string name="wifi_notify_open_networks_summary">"Notifica'm quan hi hagi una xarxa pública d'alta qualitat"</string>
     <string name="wifi_on_time">Wi-Fi a temps</string>
     <string name="wifi_p2p_cancel_connect_message">Vols cancel·lar la invitació per connectar amb %1$s?</string>
     <string name="wifi_p2p_cancel_connect_title">Vols cancel·lar la invitació?</string>
@@ -5977,7 +5997,6 @@ Vols permetre-ho per a totes les aplicacions que vulguin cercar xarxes?"</string
     <string name="wifi_suspend_optimizations">Optimització de Wi-Fi</string>
     <string name="wifi_suspend_optimizations_summary">"Minimitza l'ús de la bateria amb Wi-Fi activada"</string>
     <string name="wifi_switch_away_when_unvalidated">"Utilitza dades mòbils si la Wi-Fi perd l'accés a Internet."</string>
-    <string name="wifi_switch_summary">"Cerca xarxes Wi‑Fi i connecta-t'hi"</string>
     <string name="wifi_tap_to_sign_in">Toca aquí per iniciar la sessió a la xarxa</string>
     <string name="wifi_tether_configure_ap_text">"Configura el punt d'accés Wi-Fi"</string>
     <string name="wifi_tether_configure_ssid_default">AndroidHotspot</string>

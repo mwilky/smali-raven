@@ -384,7 +384,7 @@
 
     aput-object v1, v3, v4
 
-    const v1, 0x7f0412a9
+    const v1, 0x7f0412ce
 
     invoke-virtual {v0, v1, v3}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -449,7 +449,7 @@
 
     iput-object p1, p0, Lcom/android/settings/fuelgauge/InactiveApps;->mUsageStats:Landroid/app/usage/UsageStatsManager;
 
-    const p1, 0x7f1500b0
+    const p1, 0x7f1500b5
 
     invoke-virtual {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->addPreferencesFromResource(I)V
 
@@ -457,7 +457,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f040a6d
+    const p1, 0x7f040a85
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->setTitle(I)V
 

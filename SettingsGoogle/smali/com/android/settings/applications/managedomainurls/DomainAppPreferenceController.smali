@@ -198,7 +198,7 @@
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v6, "|"
+    const-string/jumbo v6, "|"
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -351,6 +351,16 @@
     return-object p0
 .end method
 
+.method public bridge synthetic getSliceHighlightMenuRes()I
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getSliceHighlightMenuRes()I
+
+    move-result p0
+
+    return p0
+.end method
+
 .method public handlePreferenceTreeClick(Landroidx/preference/Preference;)Z
     .locals 7
 
@@ -366,7 +376,7 @@
 
     const-class v0, Lcom/android/settings/applications/intentpicker/AppLaunchSettings;
 
-    const v1, 0x7f0402cd
+    const v1, 0x7f0402e1
 
     iget-object p1, p1, Lcom/android/settingslib/applications/ApplicationsState$AppEntry;->info:Landroid/content/pm/ApplicationInfo;
 

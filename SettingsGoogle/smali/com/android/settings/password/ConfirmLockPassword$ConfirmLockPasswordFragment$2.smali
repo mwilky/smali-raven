@@ -84,7 +84,7 @@
 
     aput-object p1, p2, v0
 
-    const p1, 0x7f040c4c
+    const p1, 0x7f040c64
 
     invoke-virtual {p0, p1, p2}, Landroidx/fragment/app/Fragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

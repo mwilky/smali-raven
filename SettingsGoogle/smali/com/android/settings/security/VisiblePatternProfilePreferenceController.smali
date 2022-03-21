@@ -49,7 +49,7 @@
 .method public constructor <init>(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;)V
     .locals 1
 
-    const-string v0, "visiblepattern_profile"
+    const-string/jumbo v0, "visiblepattern_profile"
 
     invoke-direct {p0, p1, p2, v0}, Lcom/android/settings/security/VisiblePatternProfilePreferenceController;-><init>(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;Ljava/lang/String;)V
 
@@ -67,7 +67,7 @@
 
     iput p3, p0, Lcom/android/settings/security/VisiblePatternProfilePreferenceController;->mUserId:I
 
-    const-string v0, "user"
+    const-string/jumbo v0, "user"
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -259,6 +259,14 @@
     move-result-object p0
 
     return-object p0
+.end method
+
+.method public getSliceHighlightMenuRes()I
+    .locals 0
+
+    const p0, 0x7f040d0d
+
+    return p0
 .end method
 
 .method public bridge synthetic hasAsyncUpdate()Z

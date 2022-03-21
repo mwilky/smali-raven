@@ -69,7 +69,7 @@
 
     const/4 v1, 0x4
 
-    const-string v2, "status"
+    const-string/jumbo v2, "status"
 
     if-eqz v0, :cond_2
 

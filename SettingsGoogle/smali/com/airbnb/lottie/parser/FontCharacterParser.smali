@@ -15,11 +15,11 @@
 
     const-string v0, "ch"
 
-    const-string v1, "size"
+    const-string/jumbo v1, "size"
 
-    const-string v2, "w"
+    const-string/jumbo v2, "w"
 
-    const-string v3, "style"
+    const-string/jumbo v3, "style"
 
     const-string v4, "fFamily"
 
@@ -35,7 +35,7 @@
 
     sput-object v0, Lcom/airbnb/lottie/parser/FontCharacterParser;->NAMES:Lcom/airbnb/lottie/parser/moshi/JsonReader$Options;
 
-    const-string v0, "shapes"
+    const-string/jumbo v0, "shapes"
 
     filled-new-array {v0}, [Ljava/lang/String;
 

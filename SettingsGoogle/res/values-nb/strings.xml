@@ -96,6 +96,7 @@
     <string name="peak_refresh_rate_title">Smooth Display</string>
     <string name="peak_refresh_rate_summary">Øker oppdateringsfrekvensen automatisk fra 60 til 90 Hz for noe innhold. Øker batteribruken.</string>
     <string name="accessibility_vibration_settings_title">Vibrering og fysiske tilbakemeldinger</string>
+    <string name="columbus_title">Hurtigtrykk for å starte handlinger</string>
     <string name="emergency_gesture_screen_title">SOS-alarm</string>
     <string name="abc_action_mode_done">Ferdig</string>
     <string name="vibrate_for_calls_category_title">Anrop</string>
@@ -103,6 +104,8 @@
     <string name="lockscreen_privacy_controls_setting_toggle">Vis enhetsstyring</string>
     <string name="lockscreen_privacy_wallet_summary">Gi tilgang til Wallet fra låseskjermen og hurtiginnstillingene</string>
     <string name="lockscreen_privacy_controls_summary">Få tilgang til kontroller når enheten er låst</string>
+    <string name="lockscreen_double_line_clock_summary">Vis klokken på to linjer når det er tilgjengelig</string>
+    <string name="lockscreen_double_line_clock_setting_toggle">Klokke på to linjer</string>
     <string name="abc_activity_chooser_view_see_all">Se alle</string>
     <string name="abc_activitychooserview_choose_application">Velg en app</string>
     <string name="abc_capital_off">AV</string>
@@ -147,9 +150,11 @@
     <string name="accessibility_alarm_vibration_title">Alarmvibrering</string>
     <string name="accessibility_assist_gesture_complete_or_keep_adjusting">Active Edge er konfigurert. Gå til neste skjerm eller fortsett å justere.</string>
     <string name="accessibility_audio_adjustment_title">Lydjustering</string>
+    <string name="accessibility_autoclick_about_title">Om autoklikk (holdetid)</string>
     <string name="accessibility_autoclick_custom_title">Tilpasset</string>
     <string name="accessibility_autoclick_default_title">Av</string>
     <string name="accessibility_autoclick_description">Autoklikk fungerer med en tilkoblet mus. Du kan angi at musemarkøren skal klikke automatisk etter at den har stått i ro en viss tid.</string>
+    <string name="accessibility_autoclick_footer_learn_more_content_description">Finn ut mer om autoklikk (holdetid)</string>
     <string name="accessibility_autoclick_long_summary">1 sekund</string>
     <string name="accessibility_autoclick_long_title">Lang</string>
     <string name="accessibility_autoclick_longer_desc">Lengre</string>
@@ -161,16 +166,17 @@
     <string name="accessibility_autoclick_short_title">Kort</string>
     <string name="accessibility_autoclick_shorter_desc">Kortere</string>
     <string name="accessibility_banner_message_dismiss">Lukk</string>
-    <string name="accessibility_button_description">"Få rask tilgang til tilgjengelighetsfunksjoner fra hvilken som helst skjerm. 
+    <string name="accessibility_button_about_title">Om Tilgjengelighet-knappen</string>
+    <string name="accessibility_button_description">"Få rask tilgang til tilgjengelighetsfunksjoner fra hvilken som helst skjerm.
 
 For å komme i gang, gå til tilgjengelighetsinnstillingene og velg en funksjon. Trykk på snarveien og velg Tilgjengelighet-knappen."</string>
     <string name="accessibility_button_fade_summary">Tones ut etter noen sekunder, slik at det er enklere å se skjermen.</string>
     <string name="accessibility_button_fade_title">Tones ut når den ikke er i bruk</string>
+    <string name="accessibility_button_gesture_about_title">Om Tilgjengelighet-knappen og -bevegelsen</string>
     <string name="accessibility_button_gesture_description">"Få rask tilgang til tilgjengelighetsfunksjoner fra hvilken som helst skjerm.
 
-For å komme i gang, gå til tilgjengelighetsinnstillingene og velg en funksjon. Trykk på snarveien og velg Tilgjengelighet-knappen.
-
-For å bruke Tilgjengelighet-knappen i navigasjonsraden i stedet, bytt til navigasjon med to knapper eller navigasjon med tre knapper."</string>
+For å komme i gang, gå til tilgjengelighetsinnstillingene og velg en funksjon. Trykk på snarveien og velg Tilgjengelighet-knappen eller -bevegelsen."</string>
+    <string name="accessibility_button_gesture_footer_learn_more_content_description">Finn ut mer om Tilgjengelighet-knappen og -bevegelsen</string>
     <string name="accessibility_button_gesture_title">Tilgjengelighet-knapp og bevegelse</string>
     <string name="accessibility_button_high_label">Ikke-gjennomsiktig</string>
     <string name="accessibility_button_intro">Bruk av Tilgjengelighet-knappen. Bevegelsen er ikke tilgjengelig med navigasjon med tre knapper.</string>
@@ -184,14 +190,23 @@ For å bruke Tilgjengelighet-knappen i navigasjonsraden i stedet, bytt til navig
     <string name="accessibility_caption_preference_summary">Ikke alle apper støtter disse tekstingsinnstillingene</string>
     <string name="accessibility_caption_primary_switch_summary">Bare for apper som støttes</string>
     <string name="accessibility_caption_primary_switch_title">Vis teksting</string>
+    <string name="accessibility_captioning_about_title">Om innstillinger for teksting</string>
+    <string name="accessibility_captioning_footer_learn_more_content_description">Finn ut mer om innstillinger for teksting</string>
     <string name="accessibility_captioning_title">Valg for teksting</string>
     <string name="accessibility_category_personal">Personlig profil-kontoer</string>
     <string name="accessibility_category_work">Joobprofil-kontoer – %s</string>
+    <string name="accessibility_color_inversion_about_title">Om fargeinvertering</string>
+    <string name="accessibility_color_inversion_footer_learn_more_content_description">Finn ut mer om fargeinvertering</string>
+    <string name="accessibility_control_timeout_about_title">Om tidsperiode for handling (ventetid)</string>
+    <string name="accessibility_control_timeout_footer_learn_more_content_description">Finn ut mer om tidsperiode for handling (ventetid)</string>
     <string name="accessibility_control_timeout_preference_summary">"Velg hvor lenge du vil se meldinger som ber deg gjøre noe, men som bare vises midlertidig.
 
 Ikke alle apper støtter denne innstillingen."</string>
     <string name="accessibility_control_timeout_preference_title">Tidsperiode for handling</string>
+    <string name="accessibility_daltonizer_about_title">Om fargekorrigering</string>
+    <string name="accessibility_daltonizer_footer_learn_more_content_description">Finn ut mer om fargekorrigering</string>
     <string name="accessibility_daltonizer_primary_switch_title">Bruk fargekorrigering</string>
+    <string name="accessibility_daltonizer_shortcut_title">Snarvei til fargekorrigering</string>
     <string name="accessibility_data_one_bar">Data – én stolpe</string>
     <string name="accessibility_data_signal_full">Datasignal er fullt.</string>
     <string name="accessibility_data_three_bars">Data – tre stolper.</string>
@@ -206,6 +221,7 @@ Ikke alle apper støtter denne innstillingen."</string>
     <string name="accessibility_display_daltonizer_preference_title">Fargekorrigering</string>
     <string name="accessibility_display_inversion_preference_subtitle">Med fargeinvertering blir skjermen mørk.&lt;br/>&lt;br/> Merk: &lt;ol> &lt;li> Fargeinvertering gjør også mørke skjermer lyse.&lt;/li> &lt;li> Farger endres i medier og bilder.&lt;/li> &lt;li> Mørkt tema kan brukes for å vise en mørk bakgrunn. Mørkt tema fungerer med støttede apper. Fargeinvertering fungerer på alle apper.&lt;/li> &lt;/ol></string>
     <string name="accessibility_display_inversion_preference_title">Fargeinvertering</string>
+    <string name="accessibility_display_inversion_shortcut_title">Snarvei til fargeinvertering</string>
     <string name="accessibility_display_inversion_switch_title">Bruk fargeinvertering</string>
     <string name="accessibility_ethernet_connected">Ethernet.</string>
     <string name="accessibility_ethernet_disconnected">Ethernet er frakoblet.</string>
@@ -255,6 +271,8 @@ Tilgjengelighet-knappen flyter over andre apper på skjermen. Trykk på den for 
     <string name="accessibility_phone_two_bars">Telefon – to stolper.</string>
     <string name="accessibility_power_button_ends_call_prerefence_title">Legg på med av/på-knappen</string>
     <string name="accessibility_preference_magnification_summary">Zoom inn på skjermen</string>
+    <string name="accessibility_screen_magnification_about_title">Om forstørring</string>
+    <string name="accessibility_screen_magnification_footer_learn_more_content_description">Finn ut mer om forstørring</string>
     <string name="accessibility_screen_magnification_gesture_navigation_warning">Tilgjengelighetsbevegelsen er satt til %1$s. For å bruke forstørring, sveip opp med to fingre fra bunnen av skjermen og hold. Deretter velger du forstørring.</string>
     <string name="accessibility_screen_magnification_gestures_title">Forstørr med trippeltrykk</string>
     <string name="accessibility_screen_magnification_navbar_configuration_warning">Tilgjengelighet-knappen er satt til %1$s. For å bruke forstørrelse, trykk på og hold inne Tilgjengelighet-knappen, og velg deretter forstørrelse.</string>
@@ -272,6 +290,7 @@ Tilgjengelighet-knappen flyter over andre apper på skjermen. Trykk på den for 
 Du kan ikke zoome inn på tastaturet eller navigasjonsraden."</string>
     <string name="accessibility_screen_magnification_navbar_title">Forstørr med snarvei</string>
     <string name="accessibility_screen_magnification_short_summary">Trykk tre ganger for å zoome</string>
+    <string name="accessibility_screen_magnification_shortcut_title">Forstørringssnarvei</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">Forstørr med snarvei og trippeltrykk</string>
     <string name="accessibility_screen_magnification_summary">Zoom raskt inn på skjermen for å gjøre innhold større.&lt;br/>&lt;br/> &lt;b>Slik zoomer du inn:&lt;/b>&lt;br/> {0,number,integer}. Bruk snarveien for å starte forstørring.&lt;br/> {1,number,integer}. Trykk på skjermen.&lt;br/> {2,number,integer}. Dra to fingre for å bevege deg rundt på skjermen.&lt;br/> {3,number,integer}. Klyp med to fingre for å justere zoomen.&lt;br/> {4,number,integer}. Bruk snarveien for å stoppe forstørring.&lt;br/>&lt;br/> &lt;b>Slik zoomer du inn midlertidig:&lt;/b>&lt;br/> {0,number,integer}. Bruk snarveien for å starte forstørring.&lt;br/> {1,number,integer}. Trykk og hold hvor som helst på skjermen.&lt;br/> {2,number,integer}. Dra en finger for å bevege deg rundt på skjermen.&lt;br/> {3,number,integer}. Løft fingeren for å stoppe forstørring.</string>
     <string name="accessibility_screen_magnification_title">Forstørring</string>
@@ -370,7 +389,7 @@ For å bytte mellom funksjoner, sveip opp med tre fingre og hold."</string>
     <string name="accessibility_tutorial_dialog_message_volume">For å bruke denne funksjonen, trykk og hold inne begge volumtastene.</string>
     <string name="accessibility_tutorial_dialog_title_button">Bruk Tilgjengelighet-knappen for å åpne</string>
     <string name="accessibility_tutorial_dialog_title_gesture">Bruk bevegelse for å åpne</string>
-    <string name="accessibility_tutorial_dialog_title_gesture_settings">Bruk den nye tilgjengelighetsbevegelsen</string>
+    <string name="accessibility_tutorial_dialog_title_gesture_settings">Bruk tilgjengelighetsbevegelse</string>
     <string name="accessibility_tutorial_dialog_title_triple">Trippeltrykk på skjermen for å åpne</string>
     <string name="accessibility_tutorial_dialog_title_volume">Hold inne volumtastene for å åpne</string>
     <string name="accessibility_tutorial_pager">Side %1$d av %2$d</string>
@@ -936,6 +955,7 @@ Når den er tilbakestilt, går du gjennom konfigureringsprosessen og velger å k
     <string name="battery_level_title">Batterinivå</string>
     <string name="battery_manager_off">Av</string>
     <string name="battery_manager_summary">Forleng batterilevetiden og optimaliser ladingen</string>
+    <string name="battery_manager_summary_unsupported">Forleng batterilevetiden</string>
     <string name="battery_missing_link_a11y_message">Trykk for å finne ut mer om denne feilen</string>
     <string name="battery_missing_link_message">Finn ut mer</string>
     <string name="battery_missing_message">Kunne ikke lese batterimåleren.</string>
@@ -1010,9 +1030,9 @@ Du kan når som helst slå på batterisparing hvis du har lite batteri."</string
     <string name="battery_tip_early_heads_up_title">Slå på batterisparing</string>
     <string name="battery_tip_high_usage_summary">Se appene med høyest batteribruk</string>
     <string name="battery_tip_high_usage_title">Høyere batteribruk</string>
-    <string name="battery_tip_limited_temporarily_dialog_msg">"Under visse omstendigheter, for eksempel høye temperaturer og lange ladetider, kan lading begrenses til %1$s for å bevare batteritilstanden.
+    <string name="battery_tip_limited_temporarily_dialog_msg">"Under visse omstendigheter, for eksempel høye temperaturer og lange ladetider, kan ladingen begrenses til %1$s for å bevare batteriet.
 
-Når disse omstendighetene avsluttes, lader telefonen automatisk som normalt."</string>
+Når slike omstendigheter er over, gjenopptar telefonen automatisk normal lading."</string>
     <string name="battery_tip_limited_temporarily_dialog_resume_charge">Gjenoppta ladingen</string>
     <string name="battery_tip_limited_temporarily_summary">For å forlenge batterilevetiden. Finn ut mer.</string>
     <string name="battery_tip_limited_temporarily_title">Lading er midlertidig begrenset</string>
@@ -1061,6 +1081,7 @@ i perioden ^2"</string>
     <string name="battery_usage_screen_footer">Data om batteribruk er omtrentlig og måler ikke bruk når telefonen lader</string>
     <string name="battery_usage_screen_footer_empty">Data om batteribruk blir tilgjengelig etter at du har brukt telefonen i noen timer</string>
     <string name="battery_usage_total_less_than_one_minute">Totalt: mindre enn ett minutt</string>
+    <string name="battery_usage_without_time" />
     <string name="battery_used_by">%1$s brukt av %2$s</string>
     <string name="battery_used_for">Brukt i ^1</string>
     <string name="bearer">Bærer</string>
@@ -1069,12 +1090,14 @@ i perioden ^2"</string>
     <string name="billing_cycle_less_than_one_day_left">Mindre enn én dag igjen</string>
     <string name="billing_cycle_none_left">Ingen tid gjenstår</string>
     <string name="biometric_settings_category_ways_to_unlock">Måter å låse opp på</string>
-    <string name="biometric_settings_category_ways_to_use">Bruk ansikt og fingeravtrykk for</string>
     <string name="biometric_settings_hand_back_to_guardian">Gi telefonen tilbake til forelderen din</string>
     <string name="biometric_settings_hand_back_to_guardian_ok">OK</string>
     <string name="biometric_settings_intro">Når du konfigurerer ansiktslås og opplåsing med fingeravtrykk, blir du bedt om å bruke fingeravtrykk når du bruker munnbind eller er i et dårlig belyst område.</string>
-    <string name="biometric_settings_use_biometric_for_apps">Autentisering i apper</string>
-    <string name="biometric_settings_use_biometric_unlock_phone">Låse opp telefonen</string>
+    <string name="biometric_settings_use_biometric_for_apps">Bekreft at det er deg, i apper</string>
+    <string name="biometric_settings_use_biometric_unlock_phone">Lås opp telefonen</string>
+    <string name="biometric_settings_use_face_or_fingerprint_preference_summary">Med ansiktet eller fingeravtrykket</string>
+    <string name="biometric_settings_use_face_preference_summary">Med ansiktet</string>
+    <string name="biometric_settings_use_fingerprint_preference_summary">Med fingeravtrykket</string>
     <string name="biometrics_unlock_set_unlock_password">Passord • Ansikt • Fingeravtrykk</string>
     <string name="biometrics_unlock_set_unlock_pattern">Mønster • Ansikt • Fingeravtrykk</string>
     <string name="biometrics_unlock_set_unlock_pin">PIN-kode • Ansikt • Fingeravtrykk</string>
@@ -1332,7 +1355,6 @@ Valg"</string>
     <string name="bluetooth_settings_title">Bluetooth</string>
     <string name="bluetooth_show_devices_without_names">Vis Bluetooth-enheter uten navn</string>
     <string name="bluetooth_show_devices_without_names_summary">Bluetooth-enheter uten navn (bare MAC-adresser) vises</string>
-    <string name="bluetooth_show_files_received_via_bluetooth">Filer mottatt via Bluetooth</string>
     <string name="bluetooth_show_received_files">Mottatte filer</string>
     <string name="bluetooth_sim_card_access_dialog_content">"En Bluetooth-enhet, %1$s, vil ha tilgang til dataene på SIM-kortet ditt. Dette inkluderer kontaktene dine.
 
@@ -1426,6 +1448,7 @@ Hvis du installerer et CA-sertifikat, kan sertifikateieren få tilgang til datae
     <string name="calls_sms_temp_unavailable">Midlertidig utilgjengelig</string>
     <string name="calls_sms_unavailable">utilgjengelig</string>
     <string name="calls_sms_wfc_summary">Ring og motta anrop via Wi‑Fi</string>
+    <string name="cam_toggle_description">For apper og tjenester</string>
     <string name="camera_double_tap_power_gesture_desc">Åpne kameraet raskt uten å låse opp skjermen</string>
     <string name="camera_double_tap_power_gesture_title">Tykk på av/på-knappen to ganger for kamera</string>
     <string name="camera_laser_sensor_switch">Kameraets lasersensor</string>
@@ -3302,6 +3325,7 @@ Det er andre brukere til stede på denne enheten.
     <string name="menu_stats_total">Total bruk</string>
     <string name="menu_stats_unplugged">%1$s siden strømmen ble frakoblet</string>
     <string name="menu_use_uss">Bruk Uss</string>
+    <string name="mic_toggle_description">For apper og tjenester. Hvis denne innstillingen er av, kan mikrofondata fremdeles deles når du ringer et nødnummer.</string>
     <string name="mic_toggle_title">Mikrofontilgang</string>
     <string name="misc_files">Diverse filer</string>
     <string name="misc_files_selected_count">du har valgt %1$d av %2$d</string>
@@ -3728,6 +3752,7 @@ Dette gir også appen muligheten til å slå Ikke forstyrr av eller på samt end
     <string name="one_handed_action_show_notification_title">Vis varsler</string>
     <string name="one_handed_mode_enabled">Bruk enhåndsmodus</string>
     <string name="one_handed_mode_intro_text">For å bruke enhåndsmodus, sveip ned fra den nederste kanten av skjermen. Du må sørge for at navigasjon med bevegelser er slått på i innstillingene for systemnavigasjon for å bruke denne funksjonen.</string>
+    <string name="one_handed_mode_shortcut_title">Snarvei for enhåndsmodus</string>
     <string name="one_handed_mode_swipe_down_category">Sveip ned-handling</string>
     <string name="one_handed_mode_use_shortcut_category">Bruk snarveien til å</string>
     <string name="one_usercrt">ett brukersertifikat</string>
@@ -3803,7 +3828,7 @@ Dette gir også appen muligheten til å slå Ikke forstyrr av eller på samt end
     <string name="post_dsds_reboot_notification_title_with_carrier">%1$s er aktiv</string>
     <string name="power_bluetooth">Bluetooth</string>
     <string name="power_camera">Kamera</string>
-    <string name="power_cell">Mobilnettverk i ventemodus</string>
+    <string name="power_cell">Mobilnettverk</string>
     <string name="power_charge_remaining">Batteriet er fulladet om %1$s</string>
     <string name="power_charging">%1$s – %2$s</string>
     <string name="power_charging_duration">%1$s – Fulladet om %2$s</string>
@@ -4037,6 +4062,7 @@ Trykk på av/på og volum opp samtidig."</string>
     <string name="recent_notifications">Nylig sendt</string>
     <string name="recent_notifications_see_all_title">Se alt fra de siste 7 dagene</string>
     <string name="recompute_size">Beregner størrelse på nytt…</string>
+    <string name="reduce_bright_colors_about_title">Om ekstra dimmet</string>
     <string name="reduce_bright_colors_intensity_end_label">Lysere</string>
     <string name="reduce_bright_colors_intensity_preference_title">Intensitet</string>
     <string name="reduce_bright_colors_intensity_start_label">Mørkere</string>
@@ -4044,6 +4070,7 @@ Trykk på av/på og volum opp samtidig."</string>
     <string name="reduce_bright_colors_preference_subtitle">Gjør skjermen mørkere, slik at det er mer komfortabelt å lese.&lt;br/>&lt;br/> Dette kan være nyttig når &lt;ol> &lt;li> den laveste vanlige lysstyrken på telefonen er for lys&lt;/li> &lt;li> du bruker telefonen i mørke omgivelser, for eksempel om natten eller i et mørkt rom før leggetid&lt;/li> &lt;/ol></string>
     <string name="reduce_bright_colors_preference_summary">Gjør skjermen mørkere enn den laveste lysstyrken på telefonen</string>
     <string name="reduce_bright_colors_preference_title">Ekstra dimmet</string>
+    <string name="reduce_bright_colors_shortcut_title">Snarvei til ekstra dimmet</string>
     <string name="reduce_bright_colors_switch_title">Ekstra dimmet skjerm</string>
     <string name="register_automatically">Automatisk registrering</string>
     <string name="register_on_network">Registrerer på %s …</string>
@@ -4249,7 +4276,6 @@ Slik bruker du festing av apper: \u0009
     <string name="screen_pinning_unlock_pattern">Krev opplåsingsmønster for å løsne apper</string>
     <string name="screen_pinning_unlock_pin">Krev PIN-kode for å løsne app</string>
     <string name="screen_reader_category_title">Skjermleser</string>
-    <string name="screen_saver_main_switch_title">Bruk skjermsparer</string>
     <string name="screen_time_summary_usage_today">%1$s i dag</string>
     <string name="screen_timeout_summary">Etter %1$s med inaktivitet</string>
     <string name="screen_timeout_title">Skjermen slås av</string>
@@ -4279,6 +4305,7 @@ Slik bruker du festing av apper: \u0009
     <string name="screensaver_settings_button">Innstillinger</string>
     <string name="screensaver_settings_current">Aktiv skjermsparer</string>
     <string name="screensaver_settings_disabled_prompt">For å kontrollere hva som skjer når telefonen er plassert i dokken og/eller i hvilemodus, slå på skjermspareren.</string>
+    <string name="screensaver_settings_dream_start">Start nå</string>
     <string name="screensaver_settings_summary_dock">Når enheten er i dokken</string>
     <string name="screensaver_settings_summary_either_long">Når enheten lades / er i dokken</string>
     <string name="screensaver_settings_summary_either_short">Begge</string>
@@ -4329,15 +4356,6 @@ Slik bruker du festing av apper: \u0009
     <string name="security_settings_biometric_preference_summary_both_fp_single">Ansikt og fingeravtrykk er lagt til</string>
     <string name="security_settings_biometric_preference_summary_none_enrolled">Trykk for å konfigurere</string>
     <string name="security_settings_biometric_preference_title">Opplåsing med ansikt og fingeravtrykk</string>
-    <string name="security_settings_biometrics_description">Når du konfigurerer opplåsing med ansikt og fingeravtrykk, blir du bedt om å bruke fingeravtrykk når du bruker munnbind eller er i et dårlig belyst område</string>
-    <string name="security_settings_biometrics_preference_use_with_apps">Autentisering i apper</string>
-    <string name="security_settings_biometrics_preferences_category">Bruk ansikt eller fingeravtrykk for</string>
-    <string name="security_settings_biometrics_summary_both">Ansikt og fingeravtrykk</string>
-    <string name="security_settings_biometrics_summary_face">Bare ansikt</string>
-    <string name="security_settings_biometrics_summary_fingerprint">Bare fingeravtrykk</string>
-    <string name="security_settings_biometrics_summary_none">Trykk for å konfigurere</string>
-    <string name="security_settings_biometrics_title">Opplåsing med ansikt og fingeravtrykk</string>
-    <string name="security_settings_biometrics_types_category">Måter å låse opp på</string>
     <string name="security_settings_face_enroll_consent_introduction_title">Tillat ansiktslås</string>
     <string name="security_settings_face_enroll_dialog_ok">Ok</string>
     <string name="security_settings_face_enroll_done">Ferdig</string>
@@ -4385,16 +4403,17 @@ Finn ut mer på g.co/pixel/faceunlock."</string>
     <string name="security_settings_face_enroll_introduction_control_title">Du har kontrollen</string>
     <string name="security_settings_face_enroll_introduction_how_consent_message">"Ansiktslås lager en unik modell av ansiktet til barnet for å bekrefte barnets identitet. For å lage denne ansiktsmodellen under konfigureringen tar barnet bilder av ansiktet sitt fra forskjellige vinkler.
 
-Når hen bruker ansiktslås, brukes bilder til å oppdatere ansiktsmodellen. Bildene som brukes til å lage ansiktsmodellen, lagres aldri, men ansiktsmodellen lagres på en sikker måte på telefonen og forlater aldri telefonen. All behandling skjer på en sikker måte på telefonen."</string>
+Når hen bruker ansiktslås, brukes bilder til å oppdatere ansiktsmodellen. Bildene som brukes til å lage ansiktsmodellen, lagres ikke, men ansiktsmodellen lagres på en sikker måte på telefonen og forlater aldri telefonen. All behandling skjer på en sikker måte på telefonen."</string>
     <string name="security_settings_face_enroll_introduction_how_message">"Ansiktslås lager en unik modell av ansiktet ditt for å bekrefte identiteten din. For å opprette denne ansiktsmodellen under konfigureringen tar du bilder av ansiktet ditt fra forskjellige vinkler.
 
-Når du bruker ansiktslås, brukes bilder til å oppdatere ansiktsmodellen. Bildene som brukes til å lage ansiktsmodellen, lagres aldri, men ansiktsmodellen lagres på en sikker måte på telefonen og forlater aldri telefonen. All behandling skjer på en sikker måte på telefonen."</string>
+Når du bruker ansiktslås, brukes bilder til å oppdatere ansiktsmodellen. Bildene som brukes til å lage ansiktsmodellen, lagres ikke, men ansiktsmodellen lagres på en sikker måte på telefonen og forlater aldri telefonen. All behandling skjer på en sikker måte på telefonen."</string>
     <string name="security_settings_face_enroll_introduction_how_title">Slik fungerer det</string>
     <string name="security_settings_face_enroll_introduction_info_consent_gaze">Ansiktslås kan kreve at barnet ditt har øynene åpne for å låse opp telefonen eller bekrefte at det er hen. Du og barnet ditt kan når som helst slå på dette alternativet i innstillingene.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_glasses">Hvis barnet ditt vanligvis bruker briller, kan hen bruke dem under konfigureringen.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_looking">Hvis hen ser på telefonen, kan hen låse den opp selv om det ikke er meningen. Telefonen til barnet kan også låses opp av noen som ligner veldig, for eksempel en tvilling, eller hvis noen holder den mot barnets ansikt.</string>
     <string name="security_settings_face_enroll_introduction_info_gaze">Ansiktslås kan kreve at du har øynene åpne for å låse opp telefonen eller bekrefte at det er deg. Du kan når som helst slå på dette alternativet i innstillingene.</string>
     <string name="security_settings_face_enroll_introduction_info_glasses">Briller eller lyse solbriller går bra.</string>
+    <string name="security_settings_face_enroll_introduction_info_less_secure">Bruk av ansiktet for å låse opp telefonen kan være mindre sikkert enn et sterkt passord eller en sterk PIN-kode.</string>
     <string name="security_settings_face_enroll_introduction_info_looking">Hvis du ser på telefonen, kan du låse den opp selv om det ikke er meningen. Telefonen kan også låses opp av noen som ligner veldig på deg, for eksempel en tvilling, eller hvis noen holder den mot ansiktet ditt.</string>
     <string name="security_settings_face_enroll_introduction_info_title">Vær obs på dette</string>
     <string name="security_settings_face_enroll_introduction_message">Bruk ansiktet til å låse opp telefonen eller bekrefte at det er deg, for eksempel når du logger på apper eller godkjenner kjøp.</string>
@@ -4452,13 +4471,14 @@ Telefonen kan låses opp av noen andre hvis den holdes mot ansiktet ditt, selv o
 
 Telefonen kan låses opp av noen som ser veldig ut som deg, for eksempel en tvilling."</string>
     <string name="security_settings_face_settings_preferences_category">Når du bruker ansiktslås</string>
-    <string name="security_settings_face_settings_remove_dialog_details">Ansiktsmodellen din blir slettet permanent og sikkert. Etter slettingen trenger du PIN-kode, mønster eller passord når du skal låse opp telefonen eller autentisere i apper.</string>
+    <string name="security_settings_face_settings_remove_dialog_details">"Ansiktsmodellen din blir slettet permanent og sikkert.
+
+Etter slettingen trenger du PIN-kode, mønster eller passord når du skal låse opp telefonen eller autentisere i apper."</string>
+    <string name="security_settings_face_settings_remove_dialog_details_convenience">"Ansiktsmodellen din blir slettet permanent og sikkert.
+
+Etter slettingen trenger du PIN-kode, mønster eller passord når du skal låse opp telefonen."</string>
     <string name="security_settings_face_settings_remove_dialog_title">Vil du slette ansiktsmodellen?</string>
     <string name="security_settings_face_settings_remove_face_model">Slett ansiktsmodellen</string>
-    <string name="security_settings_face_settings_remove_model_dialog_details">"Ansiktsmodellen din blir slettet permanent og sikkert.
-
-Etter slettingen trenger du fingeravtrykk, PIN-kode, mønster eller passord når du skal låse opp telefonen eller autentisere i apper."</string>
-    <string name="security_settings_face_settings_remove_model_dialog_title">Vil du slette ansiktsmodellen?</string>
     <string name="security_settings_face_settings_require_attention">Krever at øynene er åpne</string>
     <string name="security_settings_face_settings_require_attention_details">Øynene dine må være åpne for å låse opp telefonen</string>
     <string name="security_settings_face_settings_require_confirmation">Krev alltid bekreftelse</string>
@@ -4541,7 +4561,7 @@ Merk: Du kan ikke bruke fingeravtrykket ditt til å låse opp dette enheten. For
     <string name="security_settings_title">Sikkerhet</string>
     <string name="security_settings_udfps_enroll_a11y">Beveg fingeren over skjermen for å finne sensoren. Trykk og hold på fingeravtrykks-sensoren.</string>
     <string name="security_settings_udfps_enroll_edge_message">Plassér siden av fingeravtrykket på sensoren og hold. Bytt deretter til den andre siden</string>
-    <string name="security_settings_udfps_enroll_edge_title">Plassér til slutt kantene av fingeren</string>
+    <string name="security_settings_udfps_enroll_edge_title">Bruk til slutt kantene av fingeren</string>
     <string name="security_settings_udfps_enroll_find_sensor_message">Fingeravtrykkssensoren er på skjermen. Du registrerer fingeravtrykket på den neste skjermen.</string>
     <string name="security_settings_udfps_enroll_find_sensor_start_button">Start</string>
     <string name="security_settings_udfps_enroll_find_sensor_title">Slik konfigurerer du fingeravtrykket ditt</string>
@@ -4550,7 +4570,7 @@ Merk: Du kan ikke bruke fingeravtrykket ditt til å låse opp dette enheten. For
     <string name="security_settings_udfps_enroll_repeat_a11y_message">Dette bidrar til å registrere mer av fingeravtrykket</string>
     <string name="security_settings_udfps_enroll_repeat_message">Trykk og hold hver gang fingeravtrykkikonet beveger seg. Dette bidrar til å registrere mer av fingeravtrykket.</string>
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">Følg fingeravtrykkikonet</string>
-    <string name="security_settings_udfps_enroll_start_message">Hold fingeren på sensoren til du føler en vibrering</string>
+    <string name="security_settings_udfps_enroll_start_message">Hold fingeravtrykket flatt på sensoren til du føler en vibrering</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">En gang til</string>
     <string name="security_settings_work_fingerprint_preference_title">Pixel Imprint for jobb</string>
     <string name="security_status_title">Sikkerhetsstatus</string>
@@ -4576,7 +4596,6 @@ Merk: Du kan ikke bruke fingeravtrykket ditt til å låse opp dette enheten. For
     <string name="select_webview_provider_dialog_title">Angi WebView-implementering</string>
     <string name="select_webview_provider_title">WebView-implementering</string>
     <string name="select_webview_provider_toast_text">Dette valget er ikke gyldig lenger. Prøv på nytt.</string>
-    <string name="sensor_toggle_description">For alle apper og tjenester</string>
     <string name="sensors_off_quick_settings_title">Sensorene er av</string>
     <string name="service_background_processes">%1$s ledig</string>
     <string name="service_foreground_processes">%1$s brukt</string>
@@ -4808,6 +4827,7 @@ Muligens feil PIN-kode."</string>
     <string name="sound_settings_summary_silent">Ringeprogrammet er satt til stille</string>
     <string name="sound_settings_summary_vibrate">Ringeprogrammet er satt til vibrering</string>
     <string name="sound_work_settings">Lyder i jobbprofilen</string>
+    <string name="spatial_audio_title">Romlig lyd</string>
     <string name="special_access">Spesiell apptilgang</string>
     <string name="special_access_more">Se mer</string>
     <string name="speed_label_fast">Rask</string>
@@ -5526,7 +5546,7 @@ Alle brukere kan oppdatere apper for alle andre brukere."</string>
     <string name="virtual_keyboard_category">Skjermtastatur</string>
     <string name="virtual_keyboards_for_work_title">Skjermtastatur for jobb</string>
     <string name="vision_settings_description">Du kan tilpasse denne enheten etter egne behov. Tilgjengelighetsfunksjonene kan du endre senere i Innstillinger.</string>
-    <string name="vision_settings_suggestion_title">Endre skriftstørrelse</string>
+    <string name="vision_settings_suggestion_title">Endre skrift­­størrelse</string>
     <string name="vision_settings_title">Synsinnstillinger</string>
     <string name="voice_input_output_settings">Tale (inn/ut)</string>
     <string name="voice_input_output_settings_title">Innstillinger for talekommando og -styring</string>
@@ -5619,7 +5639,7 @@ Under taleanrop kan du ikke bruke internett, og noen apper fungerer muligens ikk
     <string name="vpn_turn_on">Slå på</string>
     <string name="vpn_type">Type</string>
     <string name="vpn_username">Brukernavn</string>
-    <string name="vpn_version">Versjon %s</string>
+    <string name="vpn_version">Versjon</string>
     <string name="vr_listener_security_warning_summary">%1$s kan kjøres når du bruker apper i virtuell virkelighet-modus.</string>
     <string name="vr_listener_security_warning_title">Vil du tillate tjenestetilgang for VR for %1$s?</string>
     <string name="vr_listeners_title">Hjelpetjenester for VR</string>
@@ -5889,7 +5909,7 @@ Ruterinnstillingene dine endres ikke hvis du setter nettverket til å være skju
     <string name="wifi_not_in_range">Utenfor område</string>
     <string name="wifi_not_in_range_message">Nettverket er ikke innen rekkevidde</string>
     <string name="wifi_notify_open_networks">Varsle om offentlige nettverk</string>
-    <string name="wifi_notify_open_networks_summary">Når automatisk tilkobling ikke er tilgjengelig</string>
+    <string name="wifi_notify_open_networks_summary">Varsle når et offentlig nettverk av høy kvalitet er tilgjengelig</string>
     <string name="wifi_on_time">Wi-Fi – aktivt i</string>
     <string name="wifi_p2p_cancel_connect_message">Vil du avbryte invitasjonen til å koble til %1$s?</string>
     <string name="wifi_p2p_cancel_connect_title">Vil du avbryte invitasjonen?</string>
@@ -5977,7 +5997,6 @@ Vil du tillate dette for alle apper som prøver å skanne?"</string>
     <string name="wifi_suspend_optimizations">Optimalisering av Wi-Fi</string>
     <string name="wifi_suspend_optimizations_summary">Minimer batteribruk når Wi-Fi er på</string>
     <string name="wifi_switch_away_when_unvalidated">Bytt til mobildata hvis Wi‑Fi mister Internett-tilgangen.</string>
-    <string name="wifi_switch_summary">Finn og koble til Wi-Fi-nettverk</string>
     <string name="wifi_tap_to_sign_in">Trykk her for å logge på nettverket</string>
     <string name="wifi_tether_configure_ap_text">Konfigurer Wi-Fi-sone</string>
     <string name="wifi_tether_configure_ssid_default">AndroidHotspot</string>

@@ -94,7 +94,7 @@
 
     move-result-object p1
 
-    const p2, 0x11100d7
+    const p2, 0x11100d8
 
     invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -259,7 +259,7 @@
 
     if-eqz v0, :cond_0
 
-    const p0, 0x7f020421
+    const p0, 0x7f02042a
 
     return p0
 
@@ -268,7 +268,7 @@
 
     if-eqz v0, :cond_1
 
-    const p0, 0x7f02041e
+    const p0, 0x7f020427
 
     return p0
 
@@ -292,12 +292,12 @@
 
     if-eqz p0, :cond_3
 
-    const p0, 0x7f020361
+    const p0, 0x7f020368
 
     goto :goto_0
 
     :cond_3
-    const p0, 0x7f020422
+    const p0, 0x7f02042b
 
     :goto_0
     return p0
@@ -307,7 +307,7 @@
 
     if-eqz p0, :cond_5
 
-    const p0, 0x7f020420
+    const p0, 0x7f020429
 
     return p0
 
@@ -318,7 +318,7 @@
 
     :cond_6
     :goto_1
-    const p0, 0x7f02041f
+    const p0, 0x7f020428
 
     return p0
 .end method
@@ -609,7 +609,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f040951
+    const v2, 0x7f040969
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

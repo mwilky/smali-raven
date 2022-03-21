@@ -58,12 +58,12 @@
 
     if-eqz p0, :cond_0
 
-    const p0, 0x7f04025c
+    const p0, 0x7f040270
 
     goto :goto_0
 
     :cond_0
-    const p0, 0x7f04025d
+    const p0, 0x7f040271
 
     :goto_0
     return p0
@@ -168,7 +168,7 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/applications/AppInfoBase;->onCreate(Landroid/os/Bundle;)V
 
-    const p1, 0x7f1500ae
+    const p1, 0x7f1500b3
 
     invoke-virtual {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->addPreferencesFromResource(I)V
 
@@ -182,7 +182,7 @@
 
     iput-object p1, p0, Lcom/android/settings/applications/specialaccess/pictureinpicture/PictureInPictureDetails;->mSwitchPref:Landroidx/preference/SwitchPreference;
 
-    const v0, 0x7f040ee3
+    const v0, 0x7f040f0f
 
     invoke-virtual {p1, v0}, Landroidx/preference/Preference;->setTitle(I)V
 

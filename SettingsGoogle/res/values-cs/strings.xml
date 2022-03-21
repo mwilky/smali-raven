@@ -96,6 +96,7 @@
     <string name="peak_refresh_rate_title">Plynulé zobrazení</string>
     <string name="peak_refresh_rate_summary">U některého obsahu automaticky zvýší obnovovací frekvenci z 60 na 90 Hz. Zvyšuje využití baterie.</string>
     <string name="accessibility_vibration_settings_title">Vibrace a hmatová odezva</string>
+    <string name="columbus_title">Rychlým klepnutím zahajte akci</string>
     <string name="emergency_gesture_screen_title">Tísňové volání</string>
     <string name="abc_action_mode_done">Hotovo</string>
     <string name="vibrate_for_calls_category_title">Volání</string>
@@ -103,6 +104,8 @@
     <string name="lockscreen_privacy_controls_setting_toggle">Zobrazit ovládací prvky zařízení</string>
     <string name="lockscreen_privacy_wallet_summary">Povolit přístup k peněžence z obrazovky uzamčení a rychlého nastavení</string>
     <string name="lockscreen_privacy_controls_summary">Přístup k ovládání při uzamčení</string>
+    <string name="lockscreen_double_line_clock_summary">Zobrazovat hodiny na dva řádky, je-li to možné</string>
+    <string name="lockscreen_double_line_clock_setting_toggle">Hodiny na dva řádky</string>
     <string name="abc_activity_chooser_view_see_all">Zobrazit vše</string>
     <string name="abc_activitychooserview_choose_application">Vybrat aplikaci</string>
     <string name="abc_capital_off">VYP</string>
@@ -147,9 +150,11 @@
     <string name="accessibility_alarm_vibration_title">Vibrace budíku</string>
     <string name="accessibility_assist_gesture_complete_or_keep_adjusting">Nastavení funkce Active Edge. Přejděte na další obrazovku nebo pokračujte v úpravách.</string>
     <string name="accessibility_audio_adjustment_title">Úprava zvuku</string>
+    <string name="accessibility_autoclick_about_title">Automatické klikání (doba setrvání)</string>
     <string name="accessibility_autoclick_custom_title">Vlastní</string>
     <string name="accessibility_autoclick_default_title">Vypnuto</string>
     <string name="accessibility_autoclick_description">Automatické klikání funguje s připojenou myší. Můžete nastavit, aby kurzor myši automaticky klikl, jakmile se na určitou dobu zastaví.</string>
+    <string name="accessibility_autoclick_footer_learn_more_content_description">Další informace o automatickém klikání (doba setrvání)</string>
     <string name="accessibility_autoclick_long_summary">1 sekunda</string>
     <string name="accessibility_autoclick_long_title">Dlouhá</string>
     <string name="accessibility_autoclick_longer_desc">Delší</string>
@@ -161,16 +166,17 @@
     <string name="accessibility_autoclick_short_title">Krátká</string>
     <string name="accessibility_autoclick_shorter_desc">Kratší</string>
     <string name="accessibility_banner_message_dismiss">Zavřít</string>
+    <string name="accessibility_button_about_title">Tlačítko přístupnosti</string>
     <string name="accessibility_button_description">"Funkce pro usnadnění přístupu lze snadno používat na libovolné obrazovce. 
 
-Pokud chcete začít, přejděte do nastavení funkcí pro usnadnění přístupu a vyberte funkci. Klepněte na zkratku a vyberte tlačítko přístupnosti."</string>
+Pokud chcete začít, přejděte do nastavení funkcí pro usnadnění přístupu a vyberte funkci. Klepněte na zástupce a vyberte tlačítko přístupnosti."</string>
     <string name="accessibility_button_fade_summary">Zmizí po několika sekundách, takže je obrazovka lépe vidět</string>
     <string name="accessibility_button_fade_title">Vybledne, když se nepoužívá</string>
-    <string name="accessibility_button_gesture_description">"Funkce pro usnadnění přístupu lze snadno používat na libovolné obrazovce. 
+    <string name="accessibility_button_gesture_about_title">Tlačítko a gesto přístupnosti</string>
+    <string name="accessibility_button_gesture_description">"Funkce pro usnadnění přístupu lze snadno používat na libovolné obrazovce.
 
-Pokud chcete začít, přejděte do nastavení funkcí pro usnadnění přístupu a vyberte funkci. Klepněte na zástupce a vyberte tlačítko přístupnosti.
-
-Pokud chcete použít tlačítko přístupnosti na navigačním panelu, přepněte na navigaci dvěma nebo třemi tlačítky."</string>
+Pokud chcete začít, přejděte do nastavení funkcí pro usnadnění přístupu a vyberte funkci. Klepněte na zkratku a vyberte tlačítko přístupnosti nebo gesto."</string>
+    <string name="accessibility_button_gesture_footer_learn_more_content_description">Další informace o tlačítku a gestu přístupnosti</string>
     <string name="accessibility_button_gesture_title">Tlačítko a gesto přístupnosti.</string>
     <string name="accessibility_button_high_label">Neprůhledné</string>
     <string name="accessibility_button_intro">Použije se tlačítko přístupnosti. Toto gesto není k dispozici u navigace třemi tlačítky.</string>
@@ -184,14 +190,23 @@ Pokud chcete použít tlačítko přístupnosti na navigačním panelu, přepně
     <string name="accessibility_caption_preference_summary">Tyto předvolby titulků podporují jen některé aplikace.</string>
     <string name="accessibility_caption_primary_switch_summary">Jen pro podporovanou aplikaci</string>
     <string name="accessibility_caption_primary_switch_title">Zobrazovat titulky</string>
+    <string name="accessibility_captioning_about_title">Předvolby titulků</string>
+    <string name="accessibility_captioning_footer_learn_more_content_description">Další informace o předvolbách titulků</string>
     <string name="accessibility_captioning_title">Předvolby titulků</string>
     <string name="accessibility_category_personal">Účty s osobním profilem</string>
     <string name="accessibility_category_work">Účty s pracovním profilem – %s</string>
+    <string name="accessibility_color_inversion_about_title">Převrácení barev</string>
+    <string name="accessibility_color_inversion_footer_learn_more_content_description">Další informace o převrácení barev</string>
+    <string name="accessibility_control_timeout_about_title">Čas na provedení akce (vypršení platnosti)</string>
+    <string name="accessibility_control_timeout_footer_learn_more_content_description">Další informace o čase na provedení akce (vypršení platnosti)</string>
     <string name="accessibility_control_timeout_preference_summary">"Určete, jak dlouho se mají zobrazovat zprávy s výzvami k akci, které jsou viditelné jen po omezenou dobu.
 
 Toto nastavení podporují jen některé aplikace."</string>
     <string name="accessibility_control_timeout_preference_title">Čas na akci</string>
+    <string name="accessibility_daltonizer_about_title">Korekce barev</string>
+    <string name="accessibility_daltonizer_footer_learn_more_content_description">Další informace o korekci barev</string>
     <string name="accessibility_daltonizer_primary_switch_title">Používat korekci barev</string>
+    <string name="accessibility_daltonizer_shortcut_title">Zkratka pro korekci barev</string>
     <string name="accessibility_data_one_bar">Jedna čárka signálu datové sítě.</string>
     <string name="accessibility_data_signal_full">Plný signál datové sítě.</string>
     <string name="accessibility_data_three_bars">Tři čárky signálu datové sítě.</string>
@@ -206,6 +221,7 @@ Toto nastavení podporují jen některé aplikace."</string>
     <string name="accessibility_display_daltonizer_preference_title">Korekce barev</string>
     <string name="accessibility_display_inversion_preference_subtitle">Převrácení barev změní světlou obrazovku na tmavou.&lt;br/>&lt;br/> Poznámka: &lt;ol> &lt;li> Převrácení barev také změní tmavou obrazovku na světlou.&lt;/li> &lt;li> Změní se barvy v médiích a obrázcích.&lt;/li> &lt;li> K zobrazení tmavého pozadí můžete použít tmavý motiv. Tmavý motiv funguje jen v podporovaných aplikacích. Převrácení barev funguje ve všech aplikacích.&lt;/li> &lt;/ol></string>
     <string name="accessibility_display_inversion_preference_title">Převrácení barev</string>
+    <string name="accessibility_display_inversion_shortcut_title">Zkratka pro převrácení barev</string>
     <string name="accessibility_display_inversion_switch_title">Použít převrácení barev</string>
     <string name="accessibility_ethernet_connected">Ethernet.</string>
     <string name="accessibility_ethernet_disconnected">Síť ethernet je odpojena.</string>
@@ -255,6 +271,8 @@ Tlačítko přístupnosti pluje na obrazovce nad ostatními aplikacemi. Když na
     <string name="accessibility_phone_two_bars">Dvě čárky signálu telefonní sítě.</string>
     <string name="accessibility_power_button_ends_call_prerefence_title">Vypínač ukončí hovor</string>
     <string name="accessibility_preference_magnification_summary">Přiblížení obrazovky</string>
+    <string name="accessibility_screen_magnification_about_title">Zvětšení</string>
+    <string name="accessibility_screen_magnification_footer_learn_more_content_description">Další informace o zvětšení</string>
     <string name="accessibility_screen_magnification_gesture_navigation_warning">Gesto usnadnění přístupu je nastaveno na funkci %1$s. Chcete-li použít zvětšení, přejeďte dvěma prsty ze spodní části obrazovky nahoru a podržte obrazovku. Potom vyberte zvětšení.</string>
     <string name="accessibility_screen_magnification_gestures_title">Zvětšení trojitým klepnutím</string>
     <string name="accessibility_screen_magnification_navbar_configuration_warning">Tlačítko Přístupnost je nastaveno na službu %1$s. Chcete-li použít zvětšení, klepněte na tlačítko Přístupnost, podržte jej a vyberte zvětšení.</string>
@@ -272,6 +290,7 @@ Tlačítko přístupnosti pluje na obrazovce nad ostatními aplikacemi. Když na
 Na klávesnici a navigačním panelu přiblížení není k dispozici."</string>
     <string name="accessibility_screen_magnification_navbar_title">Zvětšení zkratkou</string>
     <string name="accessibility_screen_magnification_short_summary">Trojitým klepnutím aktivujete přiblížení</string>
+    <string name="accessibility_screen_magnification_shortcut_title">Zkratka pro zvětšení</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">Zvětšení zkratkou a trojitým klepnutím</string>
     <string name="accessibility_screen_magnification_summary">Obrazovku si můžete rychle přiblížit, aby byl obsah větší.&lt;br/>&lt;br/> &lt;b>Přiblížení:&lt;/b>&lt;br/> {0,number,integer}. Ke zvětšení použijte zkratku&lt;br/> {1,number,integer}. Klepněte na obrazovku.&lt;br/> {2,number,integer}. Přetažením dvěma prsty se pohybujte po obrazovce.&lt;br/> {3,number,integer}. Stažením a roztažením dvou prstů upravte přiblížení.&lt;br/> {4,number,integer}. Pomocí zkratky zvětšení ukončete.&lt;br/>&lt;br/> &lt;b>Dočasně zvětšení:&lt;/b>&lt;br/> {0,number,integer}. Ke zvětšení použijte zkratku&lt;br/> {1,number,integer}. Podržte jakékoli místo na obrazovce.&lt;br/> {2,number,integer}. Přetažením prstu se pohybujte po obrazovce.&lt;br/> {3,number,integer}. Zvednutím prstu ukončete zvětšení</string>
     <string name="accessibility_screen_magnification_title">Zvětšení</string>
@@ -370,7 +389,7 @@ Chcete-li přepnout mezi funkcemi, přejeďte třemi prsty nahoru a podržte je
     <string name="accessibility_tutorial_dialog_message_volume">Tuto funkci použijete tak, že stisknete a podržíte obě tlačítka hlasitosti.</string>
     <string name="accessibility_tutorial_dialog_title_button">Otevření pomocí tlačítka přístupnosti</string>
     <string name="accessibility_tutorial_dialog_title_gesture">Otevření gestem</string>
-    <string name="accessibility_tutorial_dialog_title_gesture_settings">Použití nového gesta pro usnadnění přístupu</string>
+    <string name="accessibility_tutorial_dialog_title_gesture_settings">Použití gesta přístupnosti</string>
     <string name="accessibility_tutorial_dialog_title_triple">Otevřete trojitým klepnutím na obrazovku</string>
     <string name="accessibility_tutorial_dialog_title_volume">Otevřete podržením tlačítek hlasitosti</string>
     <string name="accessibility_tutorial_pager">Strana %1$d z %2$d</string>
@@ -936,6 +955,7 @@ Po resetování zopakujte proces úvodního nastavení a zkopírujte data z p�
     <string name="battery_level_title">Nabití baterie</string>
     <string name="battery_manager_off">Vypnuto</string>
     <string name="battery_manager_summary">Prodlužuje výdrž baterie a optimalizuje nabíjení</string>
+    <string name="battery_manager_summary_unsupported">Prodloužení výdrže baterie</string>
     <string name="battery_missing_link_a11y_message">Klepnutím zobrazíte další informace o této chybě</string>
     <string name="battery_missing_link_message">Další informace</string>
     <string name="battery_missing_message">Při čtení měřiče baterie se vyskytl problém.</string>
@@ -1061,6 +1081,7 @@ méně než minutu"</string>
     <string name="battery_usage_screen_footer">Údaje o využití baterie jsou přibližné a během nabíjení telefonu se využití neměří.</string>
     <string name="battery_usage_screen_footer_empty">Údaje o využití baterie budou k dispozici, až budete telefon používat několik hodin.</string>
     <string name="battery_usage_total_less_than_one_minute">Celkem: méně než minuta</string>
+    <string name="battery_usage_without_time" />
     <string name="battery_used_by">%1$s bylo použito aplikací %2$s</string>
     <string name="battery_used_for">Využíváno ^1</string>
     <string name="bearer">Nositel</string>
@@ -1069,12 +1090,14 @@ méně než minutu"</string>
     <string name="billing_cycle_less_than_one_day_left">Zbývá méně než 1 den</string>
     <string name="billing_cycle_none_left">Nezbývá žádný čas</string>
     <string name="biometric_settings_category_ways_to_unlock">Způsoby odemykání</string>
-    <string name="biometric_settings_category_ways_to_use">Používat obličej a otisk prstu k</string>
     <string name="biometric_settings_hand_back_to_guardian">Dejte telefon znovu rodiči</string>
     <string name="biometric_settings_hand_back_to_guardian_ok">OK</string>
     <string name="biometric_settings_intro">Když nastavíte odemknutí obličejem a otiskem prstu, telefon bude žádat o zadání otisku prstu, pokud budete mít zakrytou tvář nebo bude vaše okolí tmavé</string>
-    <string name="biometric_settings_use_biometric_for_apps">Ověřování v aplikacích</string>
-    <string name="biometric_settings_use_biometric_unlock_phone">Odemykání telefonu</string>
+    <string name="biometric_settings_use_biometric_for_apps">Ověřovat v aplikacích vaši totožnost</string>
+    <string name="biometric_settings_use_biometric_unlock_phone">Odemknutí telefonu</string>
+    <string name="biometric_settings_use_face_or_fingerprint_preference_summary">Pomocí obličeje nebo otisku prstu</string>
+    <string name="biometric_settings_use_face_preference_summary">Pomocí obličeje</string>
+    <string name="biometric_settings_use_fingerprint_preference_summary">Pomocí otisku prstu</string>
     <string name="biometrics_unlock_set_unlock_password">Heslo • obličej • otisk prstu</string>
     <string name="biometrics_unlock_set_unlock_pattern">Gesto • obličej • otisk prstu</string>
     <string name="biometrics_unlock_set_unlock_pin">PIN • obličej • otisk prstu</string>
@@ -1332,7 +1355,6 @@ Výběr"</string>
     <string name="bluetooth_settings_title">Bluetooth</string>
     <string name="bluetooth_show_devices_without_names">Zobrazovat zařízení Bluetooth bez názvů</string>
     <string name="bluetooth_show_devices_without_names_summary">Zařízení Bluetooth se budou zobrazovat bez názvů (pouze adresy MAC)</string>
-    <string name="bluetooth_show_files_received_via_bluetooth">Soubory přijaté přes Bluetooth</string>
     <string name="bluetooth_show_received_files">Přijaté soubory</string>
     <string name="bluetooth_sim_card_access_dialog_content">"Zařízení Bluetooth %1$s žádá o přístup k datům na vaší SIM kartě. Tato data zahrnují i vaše kontakty.
 
@@ -1426,6 +1448,7 @@ Pokud nainstalujete certifikát CA, jeho vlastník může získat přístup k v
     <string name="calls_sms_temp_unavailable">Dočasně nedostupné</string>
     <string name="calls_sms_unavailable">není k dispozici</string>
     <string name="calls_sms_wfc_summary">Uskutečňujte a přijímejte hovory přes Wi-Fi</string>
+    <string name="cam_toggle_description">Aplikace a služby</string>
     <string name="camera_double_tap_power_gesture_desc">Rychle otevře fotoaparát bez odemknutí obrazovky</string>
     <string name="camera_double_tap_power_gesture_title">Fotoaparát dvojitým stisknutím vypínače</string>
     <string name="camera_laser_sensor_switch">Laserový senzor fotoaparátu</string>
@@ -3302,6 +3325,7 @@ V tomto zařízení jsou přítomni další uživatelé.
     <string name="menu_stats_total">Využití baterie celkem</string>
     <string name="menu_stats_unplugged">%1$s od odpojení</string>
     <string name="menu_use_uss">Použít USS</string>
+    <string name="mic_toggle_description">Aplikace a služby. Pokud je toto nastavení vypnuté a zavoláte na číslo tísňového volání, mohou být nadále sdílena data z mikrofonu.</string>
     <string name="mic_toggle_title">Přístup k mikrofonu</string>
     <string name="misc_files">Různé soubory</string>
     <string name="misc_files_selected_count">vybráno: %1$d z %2$d</string>
@@ -3728,6 +3752,7 @@ Tímto také aplikaci umožníte zapínat nebo vypínat režim Nerušit a měni
     <string name="one_handed_action_show_notification_title">Zobrazit oznámení</string>
     <string name="one_handed_mode_enabled">Používat režim jedné ruky</string>
     <string name="one_handed_mode_intro_text">Pokud chcete používat režim jedné ruky, přejeďte prstem ze spodního okraje obrazovky dolů. Tato funkce vyžaduje, aby byla v nastavení systémové navigace zapnutá navigace gesty.</string>
+    <string name="one_handed_mode_shortcut_title">Zkratka pro režim jedné ruky</string>
     <string name="one_handed_mode_swipe_down_category">Přejetím dolů</string>
     <string name="one_handed_mode_use_shortcut_category">Použití této zkratky</string>
     <string name="one_usercrt">jeden certifikát uživatele</string>
@@ -3803,7 +3828,7 @@ Tímto také aplikaci umožníte zapínat nebo vypínat režim Nerušit a měni
     <string name="post_dsds_reboot_notification_title_with_carrier">Číslo %1$s je aktivní</string>
     <string name="power_bluetooth">Bluetooth</string>
     <string name="power_camera">Fotoaparát</string>
-    <string name="power_cell">Pohotovostní režim mobilní sítě</string>
+    <string name="power_cell">Mobilní síť</string>
     <string name="power_charge_remaining">%1$s do nabití</string>
     <string name="power_charging">%1$s – %2$s</string>
     <string name="power_charging_duration">%1$s – %2$s do úplného nabití</string>
@@ -4037,6 +4062,7 @@ Stiskněte současně vypínač a tlačítko zvýšení hlasitosti."</string>
     <string name="recent_notifications">Nedávno odeslaná oznámení</string>
     <string name="recent_notifications_see_all_title">Zobrazit vše za posledních 7 dní</string>
     <string name="recompute_size">Přepočítávání velikosti...</string>
+    <string name="reduce_bright_colors_about_title">Velmi tmavé</string>
     <string name="reduce_bright_colors_intensity_end_label">Zvýšit jas</string>
     <string name="reduce_bright_colors_intensity_preference_title">Intenzita</string>
     <string name="reduce_bright_colors_intensity_start_label">Snížit jas</string>
@@ -4044,6 +4070,7 @@ Stiskněte současně vypínač a tlačítko zvýšení hlasitosti."</string>
     <string name="reduce_bright_colors_preference_subtitle">Ztmavte si obrazovku, aby se vám lépe četlo.&lt;br/>&lt;br/> To se může hodit, když: &lt;ol> &lt;li> minimální nastavení jasu na telefonu je stále příliš vysoké&lt;/li> &lt;li> používáte telefon v tmavém prostředí, například v noci nebo v tmavém pokoji před spaním&lt;/li> &lt;/ol></string>
     <string name="reduce_bright_colors_preference_summary">Ztmavit obrazovku více, než je minimální nastavení jasu na telefonu</string>
     <string name="reduce_bright_colors_preference_title">Velmi tmavé</string>
+    <string name="reduce_bright_colors_shortcut_title">Zkratka pro snížení jasu</string>
     <string name="reduce_bright_colors_switch_title">Nastavit velmi tmavou obrazovku</string>
     <string name="register_automatically">Automatická registrace…</string>
     <string name="register_on_network">Probíhá registrace v síti %s…</string>
@@ -4249,7 +4276,6 @@ Použití připnutí aplikace: \u0009
     <string name="screen_pinning_unlock_pattern">Před uvolněním požádat o bezpečnostní gesto</string>
     <string name="screen_pinning_unlock_pin">Před uvolněním požádat o PIN</string>
     <string name="screen_reader_category_title">Čtečka obrazovky</string>
-    <string name="screen_saver_main_switch_title">Používat spořič obrazovky</string>
     <string name="screen_time_summary_usage_today">Dnes %1$s</string>
     <string name="screen_timeout_summary">%1$s nečinnosti</string>
     <string name="screen_timeout_title">Vypnutí obrazovky</string>
@@ -4279,6 +4305,7 @@ Použití připnutí aplikace: \u0009
     <string name="screensaver_settings_button">Nastavení</string>
     <string name="screensaver_settings_current">Aktuální spořič obrazovky</string>
     <string name="screensaver_settings_disabled_prompt">Chcete-li nastavit, co se stane, když je telefon vložen do doku nebo je v režimu spánku, zapněte spořič obrazovky.</string>
+    <string name="screensaver_settings_dream_start">Spustit</string>
     <string name="screensaver_settings_summary_dock">Při vložení do doku</string>
     <string name="screensaver_settings_summary_either_long">Při nabíjení nebo v doku</string>
     <string name="screensaver_settings_summary_either_short">V obou případech</string>
@@ -4329,15 +4356,6 @@ Použití připnutí aplikace: \u0009
     <string name="security_settings_biometric_preference_summary_both_fp_single">Byl přidán obličej a otisk prstu</string>
     <string name="security_settings_biometric_preference_summary_none_enrolled">Nastavíte klepnutím</string>
     <string name="security_settings_biometric_preference_title">Odemknutí obličejem a otiskem prstu</string>
-    <string name="security_settings_biometrics_description">Když nastavíte odemknutí obličejem a otiskem prstu, telefon bude žádat o zadání otisku prstu, pokud budete mít zakrytou tvář nebo bude vaše okolí tmavé</string>
-    <string name="security_settings_biometrics_preference_use_with_apps">Ověřování v aplikacích</string>
-    <string name="security_settings_biometrics_preferences_category">Používat obličej nebo otisk prstu k</string>
-    <string name="security_settings_biometrics_summary_both">Obličej a otisk prstu</string>
-    <string name="security_settings_biometrics_summary_face">Pouze obličej</string>
-    <string name="security_settings_biometrics_summary_fingerprint">Pouze otisk prstu</string>
-    <string name="security_settings_biometrics_summary_none">Nastavíte klepnutím</string>
-    <string name="security_settings_biometrics_title">Odemknutí obličejem a otiskem prstu</string>
-    <string name="security_settings_biometrics_types_category">Způsoby odemykání</string>
     <string name="security_settings_face_enroll_consent_introduction_title">Povolit odemknutí obličejem</string>
     <string name="security_settings_face_enroll_dialog_ok">OK</string>
     <string name="security_settings_face_enroll_done">Hotovo</string>
@@ -4385,16 +4403,17 @@ Další informace: g.co/pixel/faceunlock."</string>
     <string name="security_settings_face_enroll_introduction_control_title">Vše máte ve svých rukou</string>
     <string name="security_settings_face_enroll_introduction_how_consent_message">"Odemknutí obličejem vytváří jedinečný model obličeje dítěte, podle kterého ho při ověření poznáme. Model obličeje vytvoříme při nastavování na základě snímků obličeje dítěte z různých úhlů.
 
-Když dítě používá odemknutí obličejem, snímky slouží k aktualizaci modelu jeho obličeje. Snímky použité k vytvoření modelu obličeje se nikdy neukládají, ale model obličeje je bezpečně uložen v telefonu (a nikdy ho neopouští). Ke zpracování dochází bezpečně v telefonu."</string>
+Když dítě používá odemknutí obličejem, snímky slouží k aktualizaci modelu jeho obličeje. Snímky použité k vytvoření modelu obličeje se neukládají, ale model obličeje je bezpečně uložen v telefonu (a nikdy ho neopouští). Ke zpracování dochází bezpečně v telefonu."</string>
     <string name="security_settings_face_enroll_introduction_how_message">"Odemknutí obličejem vytváří jedinečný model vašeho obličeje k ověření vaší totožnosti. Model obličeje vytvoříme při nastavování na základě snímků vašeho obličeje z různých úhlů.
 
-Když používáte odemknutí obličejem, snímky slouží k aktualizaci modelu vašeho obličeje. Snímky použité k vytvoření modelu obličeje se nikdy neukládají, ale model obličeje je bezpečně uložen v telefonu (a nikdy ho neopouští). Ke zpracování dochází bezpečně v telefonu."</string>
+Když používáte odemknutí obličejem, snímky slouží k aktualizaci modelu vašeho obličeje. Snímky použité k vytvoření modelu obličeje se neukládají, ale model obličeje je bezpečně uložen v telefonu (a nikdy ho neopouští). Ke zpracování dochází bezpečně v telefonu."</string>
     <string name="security_settings_face_enroll_introduction_how_title">Princip</string>
     <string name="security_settings_face_enroll_introduction_info_consent_gaze">K odemknutí telefonu nebo ověření totožnosti může funkce odemknutí obličejem vyžadovat, aby dítě mělo otevřené oči. Tuto možnost můžete vy nebo vaše dítě kdykoliv zapnout v Nastavení.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_glasses">Pokud dítě běžně nosí brýle, může je mít i při nastavování.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_looking">Dítě telefon může odemknout pohledem, i když zrovna nechce. Telefon bude moci odemknout také někdo, kdo je dítěti hodně podobný, například jeho identické dvojče, nebo někdo, kdo mu telefon podrží před obličejem.</string>
     <string name="security_settings_face_enroll_introduction_info_gaze">K odemknutí telefonu nebo ověření totožnosti může funkce odemknutí obličejem vyžadovat, abyste měli otevřené oči. Tuto možnost můžete kdykoliv zapnout v Nastavení.</string>
     <string name="security_settings_face_enroll_introduction_info_glasses">Brýle nebo lehce zabarvené sluneční brýle jsou v pořádku.</string>
+    <string name="security_settings_face_enroll_introduction_info_less_secure">Odemykání telefonu obličejem může být méně bezpečné než silné gesto nebo PIN.</string>
     <string name="security_settings_face_enroll_introduction_info_looking">Telefon můžete odemknout pohledem, i když zrovna nechcete. Telefon bude moci odemknout také někdo, kdo je vám hodně podobný, například vaše identické dvojče, nebo někdo, kdo vám telefon podrží před obličejem.</string>
     <string name="security_settings_face_enroll_introduction_info_title">Upozornění</string>
     <string name="security_settings_face_enroll_introduction_message">Odemykejte telefon a ověřujte svou totožnost v aplikacích (např. při přihlašování nebo schvalování nákupů) pomocí obličeje.</string>
@@ -4452,13 +4471,14 @@ Telefon může odemknout i někdo jiný, když ho namíří na váš obličej (
 
 Váš telefon bude moci odemknout někdo, kdo je vám hodně podobný, například vaše identické dvojče."</string>
     <string name="security_settings_face_settings_preferences_category">Při odemykání obličejem</string>
-    <string name="security_settings_face_settings_remove_dialog_details">Model obličeje bude trvale a bezpečně smazán. Po smazání budete k odemykání telefonu a ověřování v aplikacích používat PIN, gesto nebo heslo.</string>
+    <string name="security_settings_face_settings_remove_dialog_details">"Model obličeje bude trvale a bezpečně smazán.
+
+Po smazání budete k odemykání telefonu a ověřování v aplikacích používat PIN, gesto nebo heslo."</string>
+    <string name="security_settings_face_settings_remove_dialog_details_convenience">"Model obličeje bude trvale a bezpečně smazán.
+
+Po smazání budete k odemknutí telefonu potřebovat PIN, gesto nebo heslo."</string>
     <string name="security_settings_face_settings_remove_dialog_title">Smazat model obličeje?</string>
     <string name="security_settings_face_settings_remove_face_model">Smazat model obličeje</string>
-    <string name="security_settings_face_settings_remove_model_dialog_details">"Model obličeje bude trvale a bezpečně smazán.
-
-Po smazání budete k odemykání telefonu a ověřování v aplikacích používat otisk prstu, PIN, gesto nebo heslo."</string>
-    <string name="security_settings_face_settings_remove_model_dialog_title">Smazat model obličeje?</string>
     <string name="security_settings_face_settings_require_attention">Požadovat otevřené oči</string>
     <string name="security_settings_face_settings_require_attention_details">K odemknutí telefonu musíte mít otevřené oči</string>
     <string name="security_settings_face_settings_require_confirmation">Vždy vyžadovat potvrzení</string>
@@ -4550,7 +4570,7 @@ Poznámka: Otisk prstu nelze použít k odemykání tohoto zařízení. Další
     <string name="security_settings_udfps_enroll_repeat_a11y_message">Bude tak zachycena větší část otisku prstu</string>
     <string name="security_settings_udfps_enroll_repeat_message">Podržte snímač pokaždé, když se ikona otisku prstu pohne. Bude tak zachycena větší část otisku prstu.</string>
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">Sledujte ikonu otisku prstu</string>
-    <string name="security_settings_udfps_enroll_start_message">Držte prst na snímači, dokud neucítíte vibraci</string>
+    <string name="security_settings_udfps_enroll_start_message">Držte prst rovně na snímači, dokud neucítíte vibraci</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">Ještě jednou</string>
     <string name="security_settings_work_fingerprint_preference_title">Pixel Imprint pro práci</string>
     <string name="security_status_title">Stav zabezpečení</string>
@@ -4576,7 +4596,6 @@ Poznámka: Otisk prstu nelze použít k odemykání tohoto zařízení. Další
     <string name="select_webview_provider_dialog_title">Nastavte implementaci WebView</string>
     <string name="select_webview_provider_title">Implementace WebView</string>
     <string name="select_webview_provider_toast_text">Tato volba již není platná. Zkuste to znovu.</string>
-    <string name="sensor_toggle_description">Pro všechny aplikace a služby</string>
     <string name="sensors_off_quick_settings_title">Senzory jsou vypnuty</string>
     <string name="service_background_processes">Volno: %1$s</string>
     <string name="service_foreground_processes">Využito: %1$s</string>
@@ -4808,6 +4827,7 @@ Zřejmě jste zadali nesprávný kód PIN."</string>
     <string name="sound_settings_summary_silent">Vyzvánění bylo ztlumeno</string>
     <string name="sound_settings_summary_vibrate">Vyzvánění bylo nastaveno na vibrace</string>
     <string name="sound_work_settings">Zvuky pracovního profilu</string>
+    <string name="spatial_audio_title">Prostorový zvuk</string>
     <string name="special_access">Přístupy pro aplikace</string>
     <string name="special_access_more">Zobrazit více</string>
     <string name="speed_label_fast">Rychlá</string>
@@ -5619,7 +5639,7 @@ Během hlasového hovoru nemůžete používat internet a některé aplikace ne
     <string name="vpn_turn_on">Zapnout</string>
     <string name="vpn_type">Typ</string>
     <string name="vpn_username">Uživatelské jméno</string>
-    <string name="vpn_version">Verze %s</string>
+    <string name="vpn_version">Verze</string>
     <string name="vr_listener_security_warning_summary">Aplikaci %1$s bude možné spustit, i když budete používat aplikace v režimu virtuální reality.</string>
     <string name="vr_listener_security_warning_title">Povolit přístup k VR službě pro %1$s?</string>
     <string name="vr_listeners_title">Pomocné služby VR</string>
@@ -5889,7 +5909,7 @@ Pokud tuto síť nastavíte jako skrytou, nastavení routeru tím nezměníte."<
     <string name="wifi_not_in_range">Mimo dosah</string>
     <string name="wifi_not_in_range_message">Síť není v dosahu</string>
     <string name="wifi_notify_open_networks">Oznamovat veřejné sítě</string>
-    <string name="wifi_notify_open_networks_summary">Když není k dispozici automatické připojení</string>
+    <string name="wifi_notify_open_networks_summary">Zobrazit oznámení, když je dostupná kvalitní veřejná síť</string>
     <string name="wifi_on_time">Doba provozu Wi-Fi</string>
     <string name="wifi_p2p_cancel_connect_message">Chcete zrušit pozvánku ke spojení s klientem %1$s?</string>
     <string name="wifi_p2p_cancel_connect_title">Zrušit pozvánku?</string>
@@ -5977,7 +5997,6 @@ Chcete tuto možnost povolit všem aplikacím, které chtějí vyhledávat sít�
     <string name="wifi_suspend_optimizations">Optimalizace Wi-Fi</string>
     <string name="wifi_suspend_optimizations_summary">Minimalizovat využívání baterie při zapnuté síti Wi-Fi</string>
     <string name="wifi_switch_away_when_unvalidated">Pokud síť Wi‑Fi ztratí přístup k internetu, přepnout na mobilní data</string>
-    <string name="wifi_switch_summary">Vyhledávat sítě Wi‑Fi a připojovat se k nim</string>
     <string name="wifi_tap_to_sign_in">Klepnutím sem se přihlásíte do sítě</string>
     <string name="wifi_tether_configure_ap_text">Nastavit hotspot sítě Wi-Fi</string>
     <string name="wifi_tether_configure_ssid_default">AndroidHotspot</string>

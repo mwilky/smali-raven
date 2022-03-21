@@ -321,8 +321,8 @@
         <item quantity="one">सुनने में मददगार %1$d डिवाइस सेव किए गए</item>
     </plurals>
     <plurals name="special_access_summary">
-        <item quantity="other">%d ऐप्लिकेशन बिना पाबंदी के डेटा का उपयोग कर सकते हैं</item>
-        <item quantity="one">%d ऐप्लिकेशन बिना पाबंदी के डेटा का उपयोग कर सकता है</item>
+        <item quantity="other">%d ऐप्लिकेशन बिना पाबंदी के डेटा का इस्तेमाल कर सकते हैं</item>
+        <item quantity="one">%d ऐप्लिकेशन बिना पाबंदी के डेटा का इस्तेमाल कर सकता है</item>
     </plurals>
     <plurals name="ssl_ca_cert_dialog_title">
         <item quantity="other">प्रमाणपत्रों पर विश्वास करें या निकालें</item>

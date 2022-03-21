@@ -87,7 +87,7 @@
 
     new-instance v0, Lcom/android/settings/AllInOneTetherSettings$3;
 
-    const v1, 0x7f15001e
+    const v1, 0x7f15001f
 
     invoke-direct {v0, v1}, Lcom/android/settings/AllInOneTetherSettings$3;-><init>(I)V
 
@@ -285,7 +285,7 @@
 
     new-instance p1, Lcom/android/settings/wifi/tether/WifiTetherAutoOffPreferenceController;
 
-    const-string v1, "wifi_tether_auto_turn_off_2"
+    const-string/jumbo v1, "wifi_tether_auto_turn_off_2"
 
     invoke-direct {p1, p0, v1}, Lcom/android/settings/wifi/tether/WifiTetherAutoOffPreferenceController;-><init>(Landroid/content/Context;Ljava/lang/String;)V
 
@@ -385,7 +385,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f040a32
+    const p0, 0x7f040a4a
 
     return p0
 .end method
@@ -454,7 +454,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f15001e
+    const p0, 0x7f15001f
 
     return p0
 .end method
@@ -582,7 +582,7 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/dashboard/DashboardFragment;->onAttach(Landroid/content/Context;)V
 
-    const-string v0, "wifi"
+    const-string/jumbo v0, "wifi"
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -720,7 +720,7 @@
 
     iput-object p1, p0, Lcom/android/settings/AllInOneTetherSettings;->mDataSaverFooter:Landroidx/preference/Preference;
 
-    const-string p1, "wifi_tether_settings_group"
+    const-string/jumbo p1, "wifi_tether_settings_group"
 
     invoke-virtual {p0, p1}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
@@ -869,7 +869,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0413c4
+    const v1, 0x7f0413e9
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 

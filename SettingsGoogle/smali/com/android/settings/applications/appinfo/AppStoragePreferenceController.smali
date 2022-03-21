@@ -92,6 +92,16 @@
     return-object p0
 .end method
 
+.method public bridge synthetic getSliceHighlightMenuRes()I
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getSliceHighlightMenuRes()I
+
+    move-result p0
+
+    return p0
+.end method
+
 .method getStorageSummary(Lcom/android/settingslib/applications/StorageStatsSource$AppStorageStats;Z)Ljava/lang/CharSequence;
     .locals 5
 
@@ -99,7 +109,7 @@
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const p1, 0x7f04060a
+    const p1, 0x7f040622
 
     invoke-virtual {p0, p1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -112,12 +122,12 @@
 
     if-eqz p2, :cond_1
 
-    const p2, 0x7f041308
+    const p2, 0x7f04132d
 
     goto :goto_0
 
     :cond_1
-    const p2, 0x7f041309
+    const p2, 0x7f04132e
 
     :goto_0
     invoke-virtual {v0, p2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
@@ -126,7 +136,7 @@
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f0412fe
+    const v0, 0x7f041323
 
     const/4 v1, 0x2
 

@@ -17,16 +17,26 @@
 
 
 # instance fields
+.field private mAccessibilityPreviewDrawable:Lcom/android/settings/accessibility/AccessibilityLayerDrawable;
+
 .field final mContentObserver:Landroid/database/ContentObserver;
 
 .field private final mContentResolver:Landroid/content/ContentResolver;
 
-.field private mFloatingMenuPreviewDrawable:Lcom/android/settings/accessibility/FloatingMenuLayerDrawable;
+.field mIllustrationPreference:Lcom/android/settingslib/widget/IllustrationPreference;
 
-.field mPreview:Landroid/widget/ImageView;
+.field private mTouchExplorationStateChangeListener:Landroid/view/accessibility/AccessibilityManager$TouchExplorationStateChangeListener;
 
 
 # direct methods
+.method public static synthetic $r8$lambda$OYPGF7cdBDb97iMh6ElKW_OGwMc(Lcom/android/settings/accessibility/AccessibilityButtonPreviewPreferenceController;Z)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/accessibility/AccessibilityButtonPreviewPreferenceController;->lambda$new$0(Z)V
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/String;)V
     .locals 1
 
@@ -52,6 +62,12 @@
 
     iput-object p1, p0, Lcom/android/settings/accessibility/AccessibilityButtonPreviewPreferenceController;->mContentObserver:Landroid/database/ContentObserver;
 
+    new-instance p1, Lcom/android/settings/accessibility/AccessibilityButtonPreviewPreferenceController$$ExternalSyntheticLambda0;
+
+    invoke-direct {p1, p0}, Lcom/android/settings/accessibility/AccessibilityButtonPreviewPreferenceController$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/accessibility/AccessibilityButtonPreviewPreferenceController;)V
+
+    iput-object p1, p0, Lcom/android/settings/accessibility/AccessibilityButtonPreviewPreferenceController;->mTouchExplorationStateChangeListener:Landroid/view/accessibility/AccessibilityManager$TouchExplorationStateChangeListener;
+
     return-void
 .end method
 
@@ -63,32 +79,44 @@
     return-void
 .end method
 
-.method private getFloatingMenuPreviewDrawable(II)Landroid/graphics/drawable/Drawable;
+.method private getAccessibilityPreviewDrawable(II)Landroid/graphics/drawable/Drawable;
     .locals 2
 
-    iget-object v0, p0, Lcom/android/settings/accessibility/AccessibilityButtonPreviewPreferenceController;->mFloatingMenuPreviewDrawable:Lcom/android/settings/accessibility/FloatingMenuLayerDrawable;
+    iget-object v0, p0, Lcom/android/settings/accessibility/AccessibilityButtonPreviewPreferenceController;->mAccessibilityPreviewDrawable:Lcom/android/settings/accessibility/AccessibilityLayerDrawable;
 
     if-nez v0, :cond_0
 
     iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    invoke-static {v0, p1, p2}, Lcom/android/settings/accessibility/FloatingMenuLayerDrawable;->createLayerDrawable(Landroid/content/Context;II)Lcom/android/settings/accessibility/FloatingMenuLayerDrawable;
+    invoke-static {v0, p1, p2}, Lcom/android/settings/accessibility/AccessibilityLayerDrawable;->createLayerDrawable(Landroid/content/Context;II)Lcom/android/settings/accessibility/AccessibilityLayerDrawable;
 
     move-result-object p1
 
-    iput-object p1, p0, Lcom/android/settings/accessibility/AccessibilityButtonPreviewPreferenceController;->mFloatingMenuPreviewDrawable:Lcom/android/settings/accessibility/FloatingMenuLayerDrawable;
+    iput-object p1, p0, Lcom/android/settings/accessibility/AccessibilityButtonPreviewPreferenceController;->mAccessibilityPreviewDrawable:Lcom/android/settings/accessibility/AccessibilityLayerDrawable;
 
     goto :goto_0
 
     :cond_0
     iget-object v1, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v0, v1, p1, p2}, Lcom/android/settings/accessibility/FloatingMenuLayerDrawable;->updateLayerDrawable(Landroid/content/Context;II)V
+    invoke-virtual {v0, v1, p1, p2}, Lcom/android/settings/accessibility/AccessibilityLayerDrawable;->updateLayerDrawable(Landroid/content/Context;II)V
+
+    iget-object p1, p0, Lcom/android/settings/accessibility/AccessibilityButtonPreviewPreferenceController;->mAccessibilityPreviewDrawable:Lcom/android/settings/accessibility/AccessibilityLayerDrawable;
+
+    invoke-virtual {p1}, Landroid/graphics/drawable/LayerDrawable;->invalidateSelf()V
 
     :goto_0
-    iget-object p0, p0, Lcom/android/settings/accessibility/AccessibilityButtonPreviewPreferenceController;->mFloatingMenuPreviewDrawable:Lcom/android/settings/accessibility/FloatingMenuLayerDrawable;
+    iget-object p0, p0, Lcom/android/settings/accessibility/AccessibilityButtonPreviewPreferenceController;->mAccessibilityPreviewDrawable:Lcom/android/settings/accessibility/AccessibilityLayerDrawable;
 
     return-object p0
+.end method
+
+.method private synthetic lambda$new$0(Z)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/accessibility/AccessibilityButtonPreviewPreferenceController;->updatePreviewPreference()V
+
+    return-void
 .end method
 
 .method private updatePreviewPreference()V
@@ -130,42 +158,73 @@
 
     if-nez v0, :cond_0
 
-    const v0, 0x7f0200ed
+    const v0, 0x7f0200f2
 
     goto :goto_0
 
     :cond_0
-    const v0, 0x7f0200ec
+    const v0, 0x7f0200f1
 
     :goto_0
-    iget-object v2, p0, Lcom/android/settings/accessibility/AccessibilityButtonPreviewPreferenceController;->mPreview:Landroid/widget/ImageView;
+    iget-object v2, p0, Lcom/android/settings/accessibility/AccessibilityButtonPreviewPreferenceController;->mIllustrationPreference:Lcom/android/settingslib/widget/IllustrationPreference;
 
-    invoke-direct {p0, v0, v1}, Lcom/android/settings/accessibility/AccessibilityButtonPreviewPreferenceController;->getFloatingMenuPreviewDrawable(II)Landroid/graphics/drawable/Drawable;
+    invoke-direct {p0, v0, v1}, Lcom/android/settings/accessibility/AccessibilityButtonPreviewPreferenceController;->getAccessibilityPreviewDrawable(II)Landroid/graphics/drawable/Drawable;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v2, v0}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {v2, p0}, Lcom/android/settingslib/widget/IllustrationPreference;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    iget-object p0, p0, Lcom/android/settings/accessibility/AccessibilityButtonPreviewPreferenceController;->mPreview:Landroid/widget/ImageView;
-
-    invoke-virtual {p0}, Landroid/widget/ImageView;->invalidate()V
-
-    goto :goto_1
+    goto :goto_2
 
     :cond_1
-    iget-object v0, p0, Lcom/android/settings/accessibility/AccessibilityButtonPreviewPreferenceController;->mPreview:Landroid/widget/ImageView;
+    iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/settings/accessibility/AccessibilityUtil;->isGestureNavigateEnabled(Landroid/content/Context;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    iget-object v0, p0, Lcom/android/settings/accessibility/AccessibilityButtonPreviewPreferenceController;->mIllustrationPreference:Lcom/android/settingslib/widget/IllustrationPreference;
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0200ea
+    invoke-static {p0}, Lcom/android/settings/accessibility/AccessibilityUtil;->isTouchExploreEnabled(Landroid/content/Context;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_2
+
+    const v1, 0x7f0200f3
+
+    goto :goto_1
+
+    :cond_2
+    const v1, 0x7f0200f4
+
+    :goto_1
+    invoke-virtual {p0, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+
+    move-result-object p0
+
+    invoke-virtual {v0, p0}, Lcom/android/settingslib/widget/IllustrationPreference;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+
+    goto :goto_2
+
+    :cond_3
+    iget-object v0, p0, Lcom/android/settings/accessibility/AccessibilityButtonPreviewPreferenceController;->mIllustrationPreference:Lcom/android/settingslib/widget/IllustrationPreference;
+
+    iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+
+    const v1, 0x7f0200ef
 
     invoke-virtual {p0, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object p0
 
-    invoke-virtual {v0, p0}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {v0, p0}, Lcom/android/settingslib/widget/IllustrationPreference;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    :goto_1
+    :goto_2
     return-void
 .end method
 
@@ -192,17 +251,9 @@
 
     move-result-object p1
 
-    check-cast p1, Lcom/android/settingslib/widget/LayoutPreference;
+    check-cast p1, Lcom/android/settingslib/widget/IllustrationPreference;
 
-    const v0, 0x7f0d0444
-
-    invoke-virtual {p1, v0}, Lcom/android/settingslib/widget/LayoutPreference;->findViewById(I)Landroid/view/View;
-
-    move-result-object p1
-
-    check-cast p1, Landroid/widget/ImageView;
-
-    iput-object p1, p0, Lcom/android/settings/accessibility/AccessibilityButtonPreviewPreferenceController;->mPreview:Landroid/widget/ImageView;
+    iput-object p1, p0, Lcom/android/settings/accessibility/AccessibilityButtonPreviewPreferenceController;->mIllustrationPreference:Lcom/android/settingslib/widget/IllustrationPreference;
 
     invoke-direct {p0}, Lcom/android/settings/accessibility/AccessibilityButtonPreviewPreferenceController;->updatePreviewPreference()V
 
@@ -246,6 +297,16 @@
     return-object p0
 .end method
 
+.method public bridge synthetic getSliceHighlightMenuRes()I
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getSliceHighlightMenuRes()I
+
+    move-result p0
+
+    return p0
+.end method
+
 .method public bridge synthetic hasAsyncUpdate()Z
     .locals 0
 
@@ -287,7 +348,21 @@
 .end method
 
 .method public onPause()V
-    .locals 1
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+
+    const-class v1, Landroid/view/accessibility/AccessibilityManager;
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/view/accessibility/AccessibilityManager;
+
+    iget-object v1, p0, Lcom/android/settings/accessibility/AccessibilityButtonPreviewPreferenceController;->mTouchExplorationStateChangeListener:Landroid/view/accessibility/AccessibilityManager$TouchExplorationStateChangeListener;
+
+    invoke-virtual {v0, v1}, Landroid/view/accessibility/AccessibilityManager;->removeTouchExplorationStateChangeListener(Landroid/view/accessibility/AccessibilityManager$TouchExplorationStateChangeListener;)Z
 
     iget-object v0, p0, Lcom/android/settings/accessibility/AccessibilityButtonPreviewPreferenceController;->mContentResolver:Landroid/content/ContentResolver;
 
@@ -300,6 +375,20 @@
 
 .method public onResume()V
     .locals 4
+
+    iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+
+    const-class v1, Landroid/view/accessibility/AccessibilityManager;
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/view/accessibility/AccessibilityManager;
+
+    iget-object v1, p0, Lcom/android/settings/accessibility/AccessibilityButtonPreviewPreferenceController;->mTouchExplorationStateChangeListener:Landroid/view/accessibility/AccessibilityManager$TouchExplorationStateChangeListener;
+
+    invoke-virtual {v0, v1}, Landroid/view/accessibility/AccessibilityManager;->addTouchExplorationStateChangeListener(Landroid/view/accessibility/AccessibilityManager$TouchExplorationStateChangeListener;)Z
 
     iget-object v0, p0, Lcom/android/settings/accessibility/AccessibilityButtonPreviewPreferenceController;->mContentResolver:Landroid/content/ContentResolver;
 

@@ -46,13 +46,13 @@
 
     move-result-object p0
 
-    const v0, 0x7f040a69
+    const v0, 0x7f040a81
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object p0
 
-    const v0, 0x7f0d02cc
+    const v0, 0x7f0d02d6
 
     invoke-virtual {p1, v0, p0}, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogFragment;->setText(ILjava/lang/CharSequence;)V
 
@@ -74,13 +74,13 @@
 
     move-result-object p0
 
-    const v0, 0x7f040a68
+    const v0, 0x7f040a80
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object p0
 
-    const v0, 0x7f0d02cc
+    const v0, 0x7f0d02d6
 
     invoke-virtual {p1, v0, p0}, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogFragment;->setText(ILjava/lang/CharSequence;)V
 
@@ -102,13 +102,13 @@
 
     move-result-object p0
 
-    const p2, 0x7f040a68
+    const p2, 0x7f040a80
 
     invoke-virtual {p0, p2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object p0
 
-    const p2, 0x7f0d02cc
+    const p2, 0x7f0d02d6
 
     invoke-virtual {p1, p2, p0}, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogFragment;->setText(ILjava/lang/CharSequence;)V
 
@@ -130,13 +130,13 @@
 
     move-result-object p0
 
-    const v0, 0x7f040a68
+    const v0, 0x7f040a80
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object p0
 
-    const v0, 0x7f0d02cc
+    const v0, 0x7f0d02d6
 
     invoke-virtual {p1, v0, p0}, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogFragment;->setText(ILjava/lang/CharSequence;)V
 

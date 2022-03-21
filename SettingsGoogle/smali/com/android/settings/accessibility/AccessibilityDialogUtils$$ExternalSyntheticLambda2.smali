@@ -33,7 +33,7 @@
 
     iget-object p0, p0, Lcom/android/settings/accessibility/AccessibilityDialogUtils$$ExternalSyntheticLambda2;->f$1:Landroid/view/View;
 
-    invoke-static {v0, p0, p1}, Lcom/android/settings/accessibility/AccessibilityDialogUtils;->$r8$lambda$P9t-vu-Sg_wToNlRG5YrdF0OiiY(Landroid/widget/LinearLayout;Landroid/view/View;Landroid/view/View;)V
+    invoke-static {v0, p0, p1}, Lcom/android/settings/accessibility/AccessibilityDialogUtils;->$r8$lambda$BOkU21lt4XycGuZhEuySgyn3hbg(Landroid/widget/LinearLayout;Landroid/view/View;Landroid/view/View;)V
 
     return-void
 .end method

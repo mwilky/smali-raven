@@ -65,7 +65,7 @@
 .method private getDescriptionString(Landroid/app/blob/LeaseInfo;)Ljava/lang/String;
     .locals 4
 
-    const v0, 0x7f04016f
+    const v0, 0x7f040183
 
     const/4 v1, 0x0
 
@@ -232,7 +232,7 @@
 
     iget-object p0, p0, Lcom/android/settings/development/storage/LeaseInfoListView$LeaseListAdapter;->this$0:Lcom/android/settings/development/storage/LeaseInfoListView;
 
-    const v1, 0x7f04016d
+    const v1, 0x7f040181
 
     const/4 v2, 0x1
 

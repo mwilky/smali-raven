@@ -62,7 +62,7 @@
 .method protected getSecondTargetResId()I
     .locals 0
 
-    const p0, 0x7f0601b1
+    const p0, 0x7f0601b5
 
     return p0
 .end method
@@ -84,7 +84,7 @@
 
     iput-object p1, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintSettings$FingerprintPreference;->mView:Landroid/view/View;
 
-    const v0, 0x7f0d01ad
+    const v0, 0x7f0d01b1
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

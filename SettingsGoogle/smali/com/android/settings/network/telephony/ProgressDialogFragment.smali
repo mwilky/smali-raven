@@ -90,7 +90,7 @@
 
     check-cast v1, Lcom/android/settings/network/telephony/ProgressDialogFragment;
 
-    const-string v2, "title"
+    const-string/jumbo v2, "title"
 
     if-eqz v1, :cond_0
 
@@ -162,7 +162,7 @@
 
     move-result-object p0
 
-    const-string v0, "title"
+    const-string/jumbo v0, "title"
 
     invoke-virtual {p0, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 

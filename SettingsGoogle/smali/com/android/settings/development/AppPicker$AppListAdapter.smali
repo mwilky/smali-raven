@@ -110,7 +110,7 @@
 
     sget-object v4, Landroid/os/Build;->TYPE:Ljava/lang/String;
 
-    const-string v5, "user"
+    const-string/jumbo v5, "user"
 
     invoke-virtual {v5, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -250,7 +250,7 @@
 
     invoke-direct {v1, p1}, Lcom/android/settings/development/AppPicker$MyApplicationInfo;-><init>(Lcom/android/settings/development/AppPicker;)V
 
-    const p1, 0x7f040de9
+    const p1, 0x7f040e14
 
     invoke-virtual {p2, p1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 

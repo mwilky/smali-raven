@@ -7,7 +7,7 @@
 .method public static isDevelopmentSettingsEnabled(Landroid/content/Context;)Z
     .locals 4
 
-    const-string v0, "user"
+    const-string/jumbo v0, "user"
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 

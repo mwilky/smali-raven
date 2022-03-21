@@ -151,7 +151,7 @@
     goto :goto_1
 
     :cond_3
-    const-string v5, "synthetic_password_"
+    const-string/jumbo v5, "synthetic_password_"
 
     invoke-virtual {v3, v5}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
@@ -439,7 +439,7 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    const v1, 0x7f0414c3
+    const v1, 0x7f0414e8
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 

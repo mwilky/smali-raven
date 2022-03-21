@@ -42,38 +42,19 @@
 .end method
 
 .method public handlePreferenceTreeClick(Landroidx/preference/Preference;)Z
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/settings/fuelgauge/RestrictedPreferenceController;->KEY_RESTRICTED_PREF:Ljava/lang/String;
+    invoke-virtual {p0}, Lcom/android/settings/fuelgauge/RestrictedPreferenceController;->getPreferenceKey()Ljava/lang/String;
+
+    move-result-object p0
 
     invoke-virtual {p1}, Landroidx/preference/Preference;->getKey()Ljava/lang/String;
 
     move-result-object p1
 
-    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result p1
-
-    if-nez p1, :cond_0
-
-    const/4 p0, 0x0
-
-    return p0
-
-    :cond_0
-    iget-object p0, p0, Lcom/android/settings/fuelgauge/RestrictedPreferenceController;->mBatteryOptimizeUtils:Lcom/android/settings/fuelgauge/BatteryOptimizeUtils;
-
-    sget-object p1, Lcom/android/settings/fuelgauge/BatteryOptimizeUtils$AppUsageState;->RESTRICTED:Lcom/android/settings/fuelgauge/BatteryOptimizeUtils$AppUsageState;
-
-    invoke-virtual {p0, p1}, Lcom/android/settings/fuelgauge/BatteryOptimizeUtils;->setAppUsageState(Lcom/android/settings/fuelgauge/BatteryOptimizeUtils$AppUsageState;)V
-
-    const-string p0, "RESTRICTED_PREF"
-
-    const-string p1, "Set restricted"
-
-    invoke-static {p0, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 p0, 0x1
+    move-result p0
 
     return p0
 .end method
@@ -139,13 +120,11 @@
     :cond_1
     iget-object p0, p0, Lcom/android/settings/fuelgauge/RestrictedPreferenceController;->mBatteryOptimizeUtils:Lcom/android/settings/fuelgauge/BatteryOptimizeUtils;
 
-    invoke-virtual {p0}, Lcom/android/settings/fuelgauge/BatteryOptimizeUtils;->getAppUsageState()Lcom/android/settings/fuelgauge/BatteryOptimizeUtils$AppUsageState;
+    invoke-virtual {p0}, Lcom/android/settings/fuelgauge/BatteryOptimizeUtils;->getAppOptimizationMode()I
 
-    move-result-object p0
+    move-result p0
 
-    sget-object v3, Lcom/android/settings/fuelgauge/BatteryOptimizeUtils$AppUsageState;->RESTRICTED:Lcom/android/settings/fuelgauge/BatteryOptimizeUtils$AppUsageState;
-
-    if-ne p0, v3, :cond_2
+    if-ne p0, v0, :cond_2
 
     const-string p0, "is restricted states"
 

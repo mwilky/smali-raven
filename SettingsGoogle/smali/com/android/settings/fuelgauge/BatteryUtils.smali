@@ -538,7 +538,7 @@
 
     const-string v3, "BatteryUtils"
 
-    const-string v4, "getBatteryInfo() error for getBatteryUsageStats()"
+    const-string v4, "getBatteryInfo() error from getBatteryUsageStats()"
 
     invoke-static {v3, v4, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 

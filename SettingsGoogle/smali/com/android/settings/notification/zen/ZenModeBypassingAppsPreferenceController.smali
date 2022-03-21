@@ -42,7 +42,7 @@
 .method private constructor <init>(Landroid/content/Context;Lcom/android/settingslib/applications/ApplicationsState;Landroidx/fragment/app/Fragment;Lcom/android/settingslib/core/lifecycle/Lifecycle;)V
     .locals 1
 
-    const-string v0, "zen_mode_behavior_apps"
+    const-string/jumbo v0, "zen_mode_behavior_apps"
 
     invoke-direct {p0, p1, v0, p4}, Lcom/android/settings/notification/zen/AbstractZenModePreferenceController;-><init>(Landroid/content/Context;Ljava/lang/String;Lcom/android/settingslib/core/lifecycle/Lifecycle;)V
 
@@ -112,7 +112,7 @@
 .method public displayPreference(Landroidx/preference/PreferenceScreen;)V
     .locals 1
 
-    const-string v0, "zen_mode_behavior_apps"
+    const-string/jumbo v0, "zen_mode_behavior_apps"
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceGroup;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
@@ -130,7 +130,7 @@
 .method public getPreferenceKey()Ljava/lang/String;
     .locals 0
 
-    const-string p0, "zen_mode_behavior_apps"
+    const-string/jumbo p0, "zen_mode_behavior_apps"
 
     return-object p0
 .end method
@@ -304,7 +304,7 @@
 
     iget-object v6, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v7, 0x7f0417df
+    const v7, 0x7f041804
 
     invoke-virtual {v6, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -376,7 +376,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f0417e0
+    const v0, 0x7f041805
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

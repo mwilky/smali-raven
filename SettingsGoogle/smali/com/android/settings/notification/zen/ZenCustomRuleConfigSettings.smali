@@ -97,7 +97,7 @@
 
     move-result-object v3
 
-    const-string v4, "zen_rule_alarms"
+    const-string/jumbo v4, "zen_rule_alarms"
 
     const/4 v5, 0x5
 
@@ -119,7 +119,7 @@
 
     move-result-object v3
 
-    const-string v4, "zen_rule_media"
+    const-string/jumbo v4, "zen_rule_media"
 
     const/4 v5, 0x6
 
@@ -139,7 +139,7 @@
 
     move-result-object v3
 
-    const-string v4, "zen_rule_system"
+    const-string/jumbo v4, "zen_rule_system"
 
     const/4 v5, 0x7
 
@@ -159,7 +159,7 @@
 
     move-result-object v3
 
-    const-string v4, "zen_rule_reminders"
+    const-string/jumbo v4, "zen_rule_reminders"
 
     const/4 v5, 0x0
 
@@ -179,7 +179,7 @@
 
     move-result-object v3
 
-    const-string v4, "zen_rule_events"
+    const-string/jumbo v4, "zen_rule_events"
 
     const/4 v5, 0x1
 
@@ -217,7 +217,7 @@
 .method getPreferenceCategoryKey()Ljava/lang/String;
     .locals 0
 
-    const-string p0, "zen_custom_rule_configuration_category"
+    const-string/jumbo p0, "zen_custom_rule_configuration_category"
 
     return-object p0
 .end method
@@ -225,7 +225,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f150120
+    const p0, 0x7f150125
 
     return p0
 .end method
@@ -255,7 +255,7 @@
 
     move-result-object p1
 
-    const-string v0, "zen_rule_calls_settings"
+    const-string/jumbo v0, "zen_rule_calls_settings"
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceGroup;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
@@ -273,7 +273,7 @@
 
     move-result-object p1
 
-    const-string v0, "zen_rule_messages_settings"
+    const-string/jumbo v0, "zen_rule_messages_settings"
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceGroup;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
@@ -291,7 +291,7 @@
 
     move-result-object p1
 
-    const-string v0, "zen_rule_notifications"
+    const-string/jumbo v0, "zen_rule_notifications"
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceGroup;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 

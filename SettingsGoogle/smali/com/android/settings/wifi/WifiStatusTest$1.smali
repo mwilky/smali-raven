@@ -50,7 +50,7 @@
 
     const/4 p1, 0x4
 
-    const-string v0, "wifi_state"
+    const-string/jumbo v0, "wifi_state"
 
     invoke-virtual {p2, v0, p1}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
@@ -146,7 +146,7 @@
 
     check-cast p1, Landroid/net/wifi/SupplicantState;
 
-    const-string v1, "supplicantError"
+    const-string/jumbo v1, "supplicantError"
 
     invoke-virtual {p2, v1}, Landroid/content/Intent;->hasExtra(Ljava/lang/String;)Z
 

@@ -214,7 +214,7 @@
 
     if-eqz v0, :cond_1
 
-    const-string v2, "uid"
+    const-string/jumbo v2, "uid"
 
     invoke-virtual {v0, v2}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
@@ -260,7 +260,7 @@
 
     if-eqz v2, :cond_3
 
-    const-string v2, "uId"
+    const-string/jumbo v2, "uId"
 
     invoke-virtual {v0, v2, v1}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
@@ -358,7 +358,7 @@
 
     iget p4, p4, Landroid/content/pm/ApplicationInfo;->uid:I
 
-    const-string v0, "uid"
+    const-string/jumbo v0, "uid"
 
     invoke-virtual {p2, v0, p4}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
@@ -858,7 +858,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f150024
+    const p0, 0x7f150025
 
     return p0
 .end method
@@ -1229,7 +1229,7 @@
 
     iput-object v0, p0, Lcom/android/settings/applications/appinfo/AppInfoDashboardFragment;->mDpm:Landroid/app/admin/DevicePolicyManager;
 
-    const-string v0, "user"
+    const-string/jumbo v0, "user"
 
     invoke-virtual {p1, v0}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -1281,7 +1281,7 @@
 
     const/4 p2, 0x2
 
-    const v0, 0x7f040229
+    const v0, 0x7f04023d
 
     invoke-interface {p1, p0, p2, p0, v0}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -1291,7 +1291,7 @@
 
     const/4 p2, 0x1
 
-    const v0, 0x7f04141c
+    const v0, 0x7f041441
 
     invoke-interface {p1, p0, p2, p2, v0}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 

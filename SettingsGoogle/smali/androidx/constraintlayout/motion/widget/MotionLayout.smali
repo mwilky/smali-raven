@@ -2825,7 +2825,7 @@
 
     if-ne v1, v4, :cond_3
 
-    const-string v1, "undefined"
+    const-string/jumbo v1, "undefined"
 
     goto :goto_1
 

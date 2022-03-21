@@ -41,7 +41,7 @@
 
     invoke-static {p0, v0, v1, v2}, Lcom/android/settings/password/ChooseLockTypeDialogFragment;->access$000(Landroid/content/Intent;Landroid/content/Intent;Ljava/lang/String;Z)V
 
-    const-string v1, "show_options_button"
+    const-string/jumbo v1, "show_options_button"
 
     invoke-static {p0, v0, v1, v2}, Lcom/android/settings/password/ChooseLockTypeDialogFragment;->access$000(Landroid/content/Intent;Landroid/content/Intent;Ljava/lang/String;Z)V
 

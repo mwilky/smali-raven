@@ -234,7 +234,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d032c
+    const v1, 0x7f0d0338
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -511,7 +511,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f1500e7
+    const p0, 0x7f1500ec
 
     return p0
 .end method
@@ -786,6 +786,10 @@
     const-string v1, "android.os.storage.action.MANAGE_STORAGE"
 
     invoke-direct {p1, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    const/high16 v1, 0x10000000
+
+    invoke-virtual {p1, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
     new-instance v1, Landroid/os/UserHandle;
 

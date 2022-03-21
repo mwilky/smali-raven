@@ -13,6 +13,7 @@
     <bool name="config_enable_extra_screen_zoom_preview">true</bool>
     <bool name="config_face_education_use_lottie">false</bool>
     <bool name="config_face_enroll_use_traffic_light">false</bool>
+    <bool name="config_face_intro_show_less_secure">false</bool>
     <bool name="config_face_intro_show_require_eyes">true</bool>
     <bool name="config_face_settings_attention_supported">true</bool>
     <bool name="config_face_settings_should_manage_preview">true</bool>
@@ -97,6 +98,8 @@
     <bool name="config_storage_manager_settings_enabled">true</bool>
     <bool name="config_suc_use_partner_resource">true</bool>
     <bool name="config_support_enabled">true</bool>
+    <bool name="config_supported_large_screen">false</bool>
+    <bool name="config_suw_supported_two_panes">false</bool>
     <bool name="config_use_legacy_suggestion">false</bool>
     <bool name="config_vibration_supports_multiple_intensities">false</bool>
     <bool name="has_boot_sounds">false</bool>

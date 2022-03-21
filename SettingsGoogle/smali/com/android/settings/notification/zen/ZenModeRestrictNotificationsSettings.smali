@@ -13,7 +13,7 @@
 
     new-instance v0, Lcom/android/settings/notification/zen/ZenModeRestrictNotificationsSettings$1;
 
-    const v1, 0x7f150126
+    const v1, 0x7f15012b
 
     invoke-direct {v0, v1}, Lcom/android/settings/notification/zen/ZenModeRestrictNotificationsSettings$1;-><init>(I)V
 
@@ -60,7 +60,7 @@
 
     new-instance v1, Lcom/android/settings/notification/zen/ZenModeVisEffectsNonePreferenceController;
 
-    const-string v2, "zen_mute_notifications"
+    const-string/jumbo v2, "zen_mute_notifications"
 
     invoke-direct {v1, p0, p1, v2}, Lcom/android/settings/notification/zen/ZenModeVisEffectsNonePreferenceController;-><init>(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;Ljava/lang/String;)V
 
@@ -68,7 +68,7 @@
 
     new-instance v1, Lcom/android/settings/notification/zen/ZenModeVisEffectsAllPreferenceController;
 
-    const-string v2, "zen_hide_notifications"
+    const-string/jumbo v2, "zen_hide_notifications"
 
     invoke-direct {v1, p0, p1, v2}, Lcom/android/settings/notification/zen/ZenModeVisEffectsAllPreferenceController;-><init>(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;Ljava/lang/String;)V
 
@@ -76,7 +76,7 @@
 
     new-instance v1, Lcom/android/settings/notification/zen/ZenModeVisEffectsCustomPreferenceController;
 
-    const-string v2, "zen_custom"
+    const-string/jumbo v2, "zen_custom"
 
     invoke-direct {v1, p0, p1, v2}, Lcom/android/settings/notification/zen/ZenModeVisEffectsCustomPreferenceController;-><init>(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;Ljava/lang/String;)V
 
@@ -122,7 +122,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f0409e9
+    const p0, 0x7f040a01
 
     return p0
 .end method
@@ -138,7 +138,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f150126
+    const p0, 0x7f15012b
 
     return p0
 .end method

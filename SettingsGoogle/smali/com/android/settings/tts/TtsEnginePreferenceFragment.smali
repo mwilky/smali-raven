@@ -52,7 +52,7 @@
 
     new-instance v0, Lcom/android/settings/search/BaseSearchIndexProvider;
 
-    const v1, 0x7f1500f8
+    const v1, 0x7f1500fd
 
     invoke-direct {v0, v1}, Lcom/android/settings/search/BaseSearchIndexProvider;-><init>(I)V
 
@@ -134,7 +134,7 @@
 
     aput-object p1, v2, v3
 
-    const p1, 0x7f0413f9
+    const p1, 0x7f04141e
 
     invoke-virtual {p0, p1, v2}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -375,7 +375,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f1500f8
+    const p0, 0x7f1500fd
 
     return p0
 .end method
@@ -514,7 +514,7 @@
 
     move-result-object p0
 
-    const-string v0, "tts_default_synth"
+    const-string/jumbo v0, "tts_default_synth"
 
     invoke-static {p1, v0, p0}, Landroid/provider/Settings$Secure;->putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
 

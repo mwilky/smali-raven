@@ -272,15 +272,15 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/biometrics/BiometricEnrollBase;->onCreate(Landroid/os/Bundle;)V
 
-    const p1, 0x7f0600e0
+    const p1, 0x7f0600e3
 
     invoke-virtual {p0, p1}, Landroidx/activity/ComponentActivity;->setContentView(I)V
 
-    const p1, 0x7f0410fd
+    const p1, 0x7f041122
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->setTitle(I)V
 
-    const p1, 0x7f0410fa
+    const p1, 0x7f04111f
 
     invoke-virtual {p0, p1}, Lcom/android/settings/biometrics/BiometricEnrollBase;->setDescriptionText(I)V
 
@@ -290,7 +290,7 @@
 
     iput-object p1, p0, Lcom/android/settings/biometrics/face/FaceEnrollEducation;->mFaceManager:Landroid/hardware/face/FaceManager;
 
-    const p1, 0x7f0d02c0
+    const p1, 0x7f0d02c8
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -300,7 +300,7 @@
 
     iput-object p1, p0, Lcom/android/settings/biometrics/face/FaceEnrollEducation;->mIllustrationDefault:Lcom/google/android/setupdesign/view/IllustrationVideoView;
 
-    const p1, 0x7f0d02c2
+    const p1, 0x7f0d02ca
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -310,7 +310,7 @@
 
     iput-object p1, p0, Lcom/android/settings/biometrics/face/FaceEnrollEducation;->mIllustrationLottie:Lcom/airbnb/lottie/LottieAnimationView;
 
-    const p1, 0x7f0d02bf
+    const p1, 0x7f0d02c7
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -346,7 +346,7 @@
 
     iget-object p1, p0, Lcom/android/settings/biometrics/face/FaceEnrollEducation;->mIllustrationLottie:Lcom/airbnb/lottie/LottieAnimationView;
 
-    const v1, 0x7f030011
+    const v1, 0x7f030012
 
     invoke-virtual {p1, v1}, Lcom/airbnb/lottie/LottieAnimationView;->setAnimation(I)V
 
@@ -381,7 +381,7 @@
 
     move-result p1
 
-    const v1, 0x7f13021b
+    const v1, 0x7f13021d
 
     if-eqz p1, :cond_1
 
@@ -391,7 +391,7 @@
 
     invoke-direct {v2, p0}, Lcom/google/android/setupcompat/template/FooterButton$Builder;-><init>(Landroid/content/Context;)V
 
-    const v3, 0x7f04126b
+    const v3, 0x7f04128f
 
     invoke-virtual {v2, v3}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setText(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -430,7 +430,7 @@
 
     invoke-direct {v2, p0}, Lcom/google/android/setupcompat/template/FooterButton$Builder;-><init>(Landroid/content/Context;)V
 
-    const v3, 0x7f04110f
+    const v3, 0x7f041134
 
     invoke-virtual {v2, v3}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setText(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -465,7 +465,7 @@
 
     invoke-direct {p1, p0}, Lcom/google/android/setupcompat/template/FooterButton$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f0410fc
+    const v1, 0x7f041121
 
     invoke-virtual {p1, v1}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setText(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -485,7 +485,7 @@
 
     move-result-object p1
 
-    const v1, 0x7f13021a
+    const v1, 0x7f13021c
 
     invoke-virtual {p1, v1}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setTheme(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -545,7 +545,7 @@
 
     invoke-virtual {p1, v0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v0, 0x7f0d05ca
+    const v0, 0x7f0d05d9
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -628,7 +628,7 @@
 
     invoke-static {v0, p1}, Lcom/android/settings/biometrics/BiometricUtils;->copyMultiBiometricExtras(Landroid/content/Intent;Landroid/content/Intent;)V
 
-    const v0, 0x7f040636
+    const v0, 0x7f04064e
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -753,7 +753,7 @@
 
     move-result-object v0
 
-    const v1, 0x10e0063
+    const v1, 0x10e0066
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 

@@ -27,7 +27,7 @@
 .method public getPreferenceKey()Ljava/lang/String;
     .locals 0
 
-    const-string p0, "show_touches"
+    const-string/jumbo p0, "show_touches"
 
     return-object p0
 .end method
@@ -43,7 +43,7 @@
 
     move-result-object v0
 
-    const-string v1, "show_touches"
+    const-string/jumbo v1, "show_touches"
 
     const/4 v2, 0x0
 
@@ -73,7 +73,7 @@
 
     move-result-object p0
 
-    const-string p2, "show_touches"
+    const-string/jumbo p2, "show_touches"
 
     invoke-static {p0, p2, p1}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
@@ -91,7 +91,7 @@
 
     move-result-object p1
 
-    const-string v0, "show_touches"
+    const-string/jumbo v0, "show_touches"
 
     const/4 v1, 0x0
 

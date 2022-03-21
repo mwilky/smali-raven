@@ -57,3 +57,11 @@
 
     return-object p0
 .end method
+
+.method protected getPreferenceScreenResId()I
+    .locals 0
+
+    const p0, 0x7f15008d
+
+    return p0
+.end method

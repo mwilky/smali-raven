@@ -220,7 +220,7 @@
 .method protected getTitleResId()I
     .locals 0
 
-    const p0, 0x7f04068f
+    const p0, 0x7f0406a7
 
     return p0
 .end method
@@ -385,7 +385,7 @@
 
     iget-object v0, p0, Lcom/android/settings/notification/app/NotificationPreferenceController;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f040e2e
+    const v1, 0x7f040e59
 
     const/4 v3, 0x2
 
@@ -470,7 +470,7 @@
 
     iget v1, v1, Lcom/android/settings/notification/NotificationBackend$AppRow;->uid:I
 
-    const-string v2, "uid"
+    const-string/jumbo v2, "uid"
 
     invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 

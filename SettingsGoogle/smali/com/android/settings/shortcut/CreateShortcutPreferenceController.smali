@@ -268,7 +268,7 @@
 
     invoke-static {p2, p1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    const p1, 0x7f020230
+    const p1, 0x7f020237
 
     invoke-static {p0, p1}, Landroid/graphics/drawable/Icon;->createWithResource(Landroid/content/Context;I)Landroid/graphics/drawable/Icon;
 
@@ -313,13 +313,13 @@
 
     if-eqz p2, :cond_0
 
-    const v1, 0x7f060212
+    const v1, 0x7f06021a
 
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
-    const v3, 0x7f0b0327
+    const v3, 0x7f0b0330
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -336,7 +336,7 @@
     goto :goto_0
 
     :cond_0
-    const p2, 0x7f020230
+    const p2, 0x7f020237
 
     invoke-static {p0, p2}, Landroid/graphics/drawable/Icon;->createWithResource(Landroid/content/Context;I)Landroid/graphics/drawable/Icon;
 
@@ -628,13 +628,13 @@
 
     iget-object p1, p1, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
-    const p3, 0x7f060211
+    const p3, 0x7f060219
 
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    const v2, 0x7f0b0326
+    const v2, 0x7f0b032f
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -687,6 +687,16 @@
     move-result-object p0
 
     return-object p0
+.end method
+
+.method public bridge synthetic getSliceHighlightMenuRes()I
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getSliceHighlightMenuRes()I
+
+    move-result p0
+
+    return p0
 .end method
 
 .method public bridge synthetic hasAsyncUpdate()Z

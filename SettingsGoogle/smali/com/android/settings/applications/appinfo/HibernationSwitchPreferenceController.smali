@@ -138,6 +138,16 @@
     return-object p0
 .end method
 
+.method public bridge synthetic getSliceHighlightMenuRes()I
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getSliceHighlightMenuRes()I
+
+    move-result p0
+
+    return p0
+.end method
+
 .method public bridge synthetic hasAsyncUpdate()Z
     .locals 0
 
@@ -263,40 +273,61 @@
 .end method
 
 .method public onPreferenceChange(Landroidx/preference/Preference;Ljava/lang/Object;)Z
-    .locals 3
+    .locals 5
 
     const/4 p1, 0x0
 
     :try_start_0
-    iget-object v0, p0, Lcom/android/settings/applications/appinfo/HibernationSwitchPreferenceController;->mAppOpsManager:Landroid/app/AppOpsManager;
-
-    const-string v1, "android:auto_revoke_permissions_if_unused"
-
-    iget p0, p0, Lcom/android/settings/applications/appinfo/HibernationSwitchPreferenceController;->mPackageUid:I
-
     check-cast p2, Ljava/lang/Boolean;
 
     invoke-virtual {p2}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result p2
 
-    const/4 v2, 0x1
+    iget-object v0, p0, Lcom/android/settings/applications/appinfo/HibernationSwitchPreferenceController;->mAppOpsManager:Landroid/app/AppOpsManager;
+
+    const-string v1, "android:auto_revoke_permissions_if_unused"
+
+    iget v2, p0, Lcom/android/settings/applications/appinfo/HibernationSwitchPreferenceController;->mPackageUid:I
+
+    const/4 v3, 0x1
 
     if-eqz p2, :cond_0
 
-    move p2, p1
+    move v4, p1
 
     goto :goto_0
 
     :cond_0
-    move p2, v2
+    move v4, v3
 
     :goto_0
-    invoke-virtual {v0, v1, p0, p2}, Landroid/app/AppOpsManager;->setUidMode(Ljava/lang/String;II)V
+    invoke-virtual {v0, v1, v2, v4}, Landroid/app/AppOpsManager;->setUidMode(Ljava/lang/String;II)V
+
+    if-nez p2, :cond_1
+
+    iget-object p2, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+
+    const-class v0, Landroid/apphibernation/AppHibernationManager;
+
+    invoke-virtual {p2, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object p2
+
+    check-cast p2, Landroid/apphibernation/AppHibernationManager;
+
+    iget-object v0, p0, Lcom/android/settings/applications/appinfo/HibernationSwitchPreferenceController;->mPackageName:Ljava/lang/String;
+
+    invoke-virtual {p2, v0, p1}, Landroid/apphibernation/AppHibernationManager;->setHibernatingForUser(Ljava/lang/String;Z)V
+
+    iget-object p0, p0, Lcom/android/settings/applications/appinfo/HibernationSwitchPreferenceController;->mPackageName:Ljava/lang/String;
+
+    invoke-virtual {p2, p0, p1}, Landroid/apphibernation/AppHibernationManager;->setHibernatingGlobally(Ljava/lang/String;Z)V
     :try_end_0
     .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return v2
+    :cond_1
+    return v3
 
     :catch_0
     return p1

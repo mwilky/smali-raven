@@ -81,7 +81,7 @@
 .method protected getActivityLayoutResId()I
     .locals 0
 
-    const p0, 0x7f0601ed
+    const p0, 0x7f0601f1
 
     return p0
 .end method
@@ -89,7 +89,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f040a15
+    const p0, 0x7f040a2d
 
     return p0
 .end method
@@ -136,7 +136,7 @@
 
     const/4 v0, 0x0
 
-    const v1, 0x7f0601ee
+    const v1, 0x7f0601f2
 
     aput v1, p0, v0
 
@@ -145,9 +145,9 @@
 
     :array_0
     .array-data 4
-        0x7f0601ee
-        0x7f0601ef
-        0x7f0601f1
+        0x7f0601f2
+        0x7f0601f3
+        0x7f0601f5
     .end array-data
 .end method
 

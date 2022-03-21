@@ -13,7 +13,7 @@
 
     new-instance v0, Lcom/android/settings/dream/DreamSettings$1;
 
-    const v1, 0x7f150069
+    const v1, 0x7f15006a
 
     invoke-direct {v0, v1}, Lcom/android/settings/dream/DreamSettings$1;-><init>(I)V
 
@@ -79,22 +79,22 @@
 
     if-eq p0, v0, :cond_0
 
-    const p0, 0x7f0410bb
+    const p0, 0x7f0410e9
 
     return p0
 
     :cond_0
-    const p0, 0x7f0410b9
+    const p0, 0x7f0410e7
 
     return p0
 
     :cond_1
-    const p0, 0x7f0410b8
+    const p0, 0x7f0410e6
 
     return p0
 
     :cond_2
-    const p0, 0x7f0410bd
+    const p0, 0x7f0410eb
 
     return p0
 .end method
@@ -122,12 +122,12 @@
     return-object p0
 
     :cond_1
-    const-string p0, "while_docked_only"
+    const-string/jumbo p0, "while_docked_only"
 
     return-object p0
 
     :cond_2
-    const-string p0, "while_charging_only"
+    const-string/jumbo p0, "while_charging_only"
 
     return-object p0
 .end method
@@ -152,7 +152,7 @@
     goto :goto_0
 
     :sswitch_0
-    const-string v0, "while_charging_only"
+    const-string/jumbo v0, "while_charging_only"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -191,7 +191,7 @@
     goto :goto_1
 
     :sswitch_3
-    const-string v0, "while_docked_only"
+    const-string/jumbo v0, "while_docked_only"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -245,7 +245,7 @@
 
     if-nez v0, :cond_0
 
-    const p0, 0x7f0410bc
+    const p0, 0x7f0410ea
 
     invoke-virtual {p1, p0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -300,7 +300,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f040a2d
+    const p0, 0x7f040a45
 
     return p0
 .end method
@@ -324,7 +324,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f150069
+    const p0, 0x7f15006a
 
     return p0
 .end method

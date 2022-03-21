@@ -50,7 +50,7 @@
 
     invoke-virtual {v0, p1}, Landroid/widget/LinearLayout;->setGravity(I)V
 
-    const p1, 0x7f060215
+    const p1, 0x7f06021d
 
     const/4 v1, 0x0
 
@@ -248,7 +248,7 @@
 
     iget-object v3, p0, Lcom/android/settings/widget/SlidingTabLayout;->mLayoutInflater:Landroid/view/LayoutInflater;
 
-    const v4, 0x7f060216
+    const v4, 0x7f06021e
 
     iget-object v5, p0, Lcom/android/settings/widget/SlidingTabLayout;->mTitleView:Landroid/widget/LinearLayout;
 

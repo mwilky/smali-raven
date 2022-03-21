@@ -91,7 +91,7 @@
 
     new-instance v0, Lcom/android/settings/biometrics/face/FaceSettings$1;
 
-    const v1, 0x7f1500d1
+    const v1, 0x7f1500d6
 
     invoke-direct {v0, v1}, Lcom/android/settings/biometrics/face/FaceSettings$1;-><init>(I)V
 
@@ -454,7 +454,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f040a19
+    const p0, 0x7f040a31
 
     return p0
 .end method
@@ -478,7 +478,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f1500d1
+    const p0, 0x7f1500d6
 
     return p0
 .end method
@@ -696,7 +696,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f04113a
+    const v4, 0x7f041160
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -933,7 +933,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f041139
+    const v1, 0x7f04115f
 
     invoke-virtual {p0, v1}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 

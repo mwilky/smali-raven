@@ -28,7 +28,7 @@
 .method private addEthernetSection()V
     .locals 3
 
-    const v0, 0x7f150056
+    const v0, 0x7f150057
 
     invoke-direct {p0, v0}, Lcom/android/settings/datausage/DataUsageSummary;->inflatePreferences(I)Landroidx/preference/Preference;
 
@@ -52,7 +52,7 @@
 .method private addMobileSection(ILandroid/telephony/SubscriptionInfo;)V
     .locals 3
 
-    const v0, 0x7f150055
+    const v0, 0x7f150056
 
     invoke-direct {p0, v0}, Lcom/android/settings/datausage/DataUsageSummary;->inflatePreferences(I)Landroidx/preference/Preference;
 
@@ -159,7 +159,7 @@
 
     new-instance p4, Landroid/text/SpannableString;
 
-    const v0, 0x104037d
+    const v0, 0x1040382
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -330,7 +330,7 @@
 .method addWifiSection()V
     .locals 3
 
-    const v0, 0x7f150059
+    const v0, 0x7f15005a
 
     invoke-direct {p0, v0}, Lcom/android/settings/datausage/DataUsageSummary;->inflatePreferences(I)Landroidx/preference/Preference;
 
@@ -424,7 +424,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f040a14
+    const p0, 0x7f040a2c
 
     return p0
 .end method
@@ -466,7 +466,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f150054
+    const p0, 0x7f150055
 
     return p0
 .end method
@@ -531,7 +531,7 @@
 
     iput-object v2, p0, Lcom/android/settings/datausage/DataUsageSummary;->mDefaultTemplate:Landroid/net/NetworkTemplate;
 
-    const-string v2, "status_header"
+    const-string/jumbo v2, "status_header"
 
     invoke-virtual {p0, v2}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
@@ -601,7 +601,7 @@
 .method public onPreferenceTreeClick(Landroidx/preference/Preference;)Z
     .locals 1
 
-    const-string v0, "status_header"
+    const-string/jumbo v0, "status_header"
 
     invoke-virtual {p0, v0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 

@@ -4,4 +4,4 @@
 
 
 # static fields
-.field public static final sudUseTabletLayout:I = 0x7f090070
+.field public static final sudUseTabletLayout:I = 0x7f090073

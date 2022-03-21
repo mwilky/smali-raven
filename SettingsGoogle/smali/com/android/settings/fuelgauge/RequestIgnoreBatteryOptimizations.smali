@@ -54,6 +54,14 @@
 
     invoke-super {p0, p1}, Lcom/android/internal/app/AlertActivity;->onCreate(Landroid/os/Bundle;)V
 
+    invoke-virtual {p0}, Lcom/android/internal/app/AlertActivity;->getWindow()Landroid/view/Window;
+
+    move-result-object p1
+
+    const/high16 v0, 0x80000
+
+    invoke-virtual {p1, v0}, Landroid/view/Window;->addSystemFlags(I)V
+
     const-class p1, Landroid/os/PowerWhitelistManager;
 
     invoke-virtual {p0, p1}, Lcom/android/internal/app/AlertActivity;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
@@ -229,7 +237,19 @@
     :cond_3
     iget-object v0, p0, Lcom/android/internal/app/AlertActivity;->mAlertParams:Lcom/android/internal/app/AlertController$AlertParams;
 
-    const v2, 0x7f040a4a
+    invoke-virtual {p0}, Lcom/android/internal/app/AlertActivity;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v2
+
+    const/high16 v3, 0x447a0000    # 1000.0f
+
+    const/4 v4, 0x5
+
+    invoke-virtual {p1, v2, v3, v4}, Landroid/content/pm/ApplicationInfo;->loadSafeLabel(Landroid/content/pm/PackageManager;FI)Ljava/lang/CharSequence;
+
+    move-result-object p1
+
+    const v2, 0x7f040a62
 
     invoke-virtual {p0, v2}, Lcom/android/internal/app/AlertActivity;->getText(I)Ljava/lang/CharSequence;
 
@@ -237,19 +257,11 @@
 
     iput-object v2, v0, Lcom/android/internal/app/AlertController$AlertParams;->mTitle:Ljava/lang/CharSequence;
 
-    const v2, 0x7f040a49
+    const v2, 0x7f040a61
 
     const/4 v3, 0x1
 
     new-array v3, v3, [Ljava/lang/Object;
-
-    invoke-virtual {p0}, Lcom/android/internal/app/AlertActivity;->getPackageManager()Landroid/content/pm/PackageManager;
-
-    move-result-object v4
-
-    invoke-virtual {p1, v4}, Landroid/content/pm/ApplicationInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
-
-    move-result-object p1
 
     aput-object p1, v3, v1
 
@@ -259,7 +271,7 @@
 
     iput-object p1, v0, Lcom/android/internal/app/AlertController$AlertParams;->mMessage:Ljava/lang/CharSequence;
 
-    const p1, 0x7f0401e5
+    const p1, 0x7f0401f9
 
     invoke-virtual {p0, p1}, Lcom/android/internal/app/AlertActivity;->getText(I)Ljava/lang/CharSequence;
 
@@ -267,7 +279,7 @@
 
     iput-object p1, v0, Lcom/android/internal/app/AlertController$AlertParams;->mPositiveButtonText:Ljava/lang/CharSequence;
 
-    const p1, 0x7f0407b0
+    const p1, 0x7f0407c8
 
     invoke-virtual {p0, p1}, Lcom/android/internal/app/AlertActivity;->getText(I)Ljava/lang/CharSequence;
 
@@ -303,22 +315,6 @@
     invoke-static {p1}, Lcom/android/settings/fuelgauge/RequestIgnoreBatteryOptimizations;->debugLog(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Lcom/android/internal/app/AlertActivity;->finish()V
-
-    return-void
-.end method
-
-.method protected onStart()V
-    .locals 1
-
-    invoke-super {p0}, Lcom/android/internal/app/AlertActivity;->onStart()V
-
-    invoke-virtual {p0}, Lcom/android/internal/app/AlertActivity;->getWindow()Landroid/view/Window;
-
-    move-result-object p0
-
-    const/high16 v0, 0x80000
-
-    invoke-virtual {p0, v0}, Landroid/view/Window;->addSystemFlags(I)V
 
     return-void
 .end method

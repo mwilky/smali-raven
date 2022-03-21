@@ -96,6 +96,7 @@
     <string name="peak_refresh_rate_title">Ekrani me butësi</string>
     <string name="peak_refresh_rate_summary">Rrit automatikisht shpejtësinë e rifreskimit nga 60 në 90 Hz për disa përmbajtje. Rrit përdorimin e baterisë.</string>
     <string name="accessibility_vibration_settings_title">Dridhja dhe prekja</string>
+    <string name="columbus_title">\"Trokit shpejt\" për të filluar veprimet</string>
     <string name="emergency_gesture_screen_title">Thirrja e urgjencës</string>
     <string name="abc_action_mode_done">U krye</string>
     <string name="vibrate_for_calls_category_title">Telefonatat</string>
@@ -103,6 +104,8 @@
     <string name="lockscreen_privacy_controls_setting_toggle">Shfaq kontrollet e pajisjes</string>
     <string name="lockscreen_privacy_wallet_summary">Lejo qasjen te portofoli nga ekrani i kyçjes dhe cilësimet e shpejta</string>
     <string name="lockscreen_privacy_controls_summary">Qasu te kontrollet kur kyçet</string>
+    <string name="lockscreen_double_line_clock_summary">Shfaq orën analoge kur ofrohet</string>
+    <string name="lockscreen_double_line_clock_setting_toggle">Orë analoge</string>
     <string name="abc_activity_chooser_view_see_all">Shfaq çdo gjë</string>
     <string name="abc_activitychooserview_choose_application">Zgjidh një aplikacion</string>
     <string name="abc_capital_off">JOAKTIV</string>
@@ -147,9 +150,11 @@
     <string name="accessibility_alarm_vibration_title">Dridhja e alarmit</string>
     <string name="accessibility_assist_gesture_complete_or_keep_adjusting">Konfigurimi i Active Edge. Shko tek ekrani tjetër ose vazhdo me rregullimin.</string>
     <string name="accessibility_audio_adjustment_title">Rregullimi i audios</string>
+    <string name="accessibility_autoclick_about_title">Rreth klikimit automatik (koha e qëndrimit pa lëvizur)</string>
     <string name="accessibility_autoclick_custom_title">Personalizo</string>
     <string name="accessibility_autoclick_default_title">Joaktiv</string>
     <string name="accessibility_autoclick_description">Klikimi automatik funksionon me një mi të lidhur. Kursorin e miut mund ta caktosh që të klikojë automatikisht kur kursori të ndalojë lëvizjen për një kohë të caktuar.</string>
+    <string name="accessibility_autoclick_footer_learn_more_content_description">Mëso më shumë rreth klikimit automatik (koha qëndrimit pa lëvizur)</string>
     <string name="accessibility_autoclick_long_summary">1 sekondë</string>
     <string name="accessibility_autoclick_long_title">I gjatë</string>
     <string name="accessibility_autoclick_longer_desc">Më e gjatë</string>
@@ -161,16 +166,17 @@
     <string name="accessibility_autoclick_short_title">I shkurtër</string>
     <string name="accessibility_autoclick_shorter_desc">Më e shkurtër</string>
     <string name="accessibility_banner_message_dismiss">Hiq</string>
-    <string name="accessibility_button_description">"Qasu me shpejtësi në veçoritë e qasshmërisë nga çdo ekran. 
+    <string name="accessibility_button_about_title">Rreth butonit të qasshmërisë</string>
+    <string name="accessibility_button_description">"Qasu me shpejtësi në veçoritë e qasshmërisë nga çdo ekran.
 
 Për të filluar, shko te cilësimet e qasshmërisë dhe zgjidh një veçori. Trokit te shkurtorja dhe zgjidh butonin e qasshmërisë."</string>
     <string name="accessibility_button_fade_summary">Zbehet pas pak sekondash për ta bërë më të lehtë shikimin e ekranit</string>
     <string name="accessibility_button_fade_title">Zbehe kur nuk është në përdorim</string>
-    <string name="accessibility_button_gesture_description">"Qasu shpejt te veçoritë e qasshmërisë nga cilido ekran.
+    <string name="accessibility_button_gesture_about_title">Rreth butonin dhe gjestit të qasshmërisë</string>
+    <string name="accessibility_button_gesture_description">"Qasu me shpejtësi në veçoritë e qasshmërisë nga çdo ekran.
 
-Për të filluar, shko te cilësimet e qasshmërisë dhe zgjidh një veçori. Trokit te shkurtorja dhe zgjidh butonin e qasshmërisë.
-
-Për të përdorur më mirë butonin e qasshmërisë në shiritin e navigimit, kalo në navigimin me 2 butona ose 3 butona."</string>
+Për të filluar, shko te cilësimet e qasshmërisë dhe zgjidh një veçori. Trokit te shkurtorja dhe zgjidh gjestin ose butonin e qasshmërisë."</string>
+    <string name="accessibility_button_gesture_footer_learn_more_content_description">Mëso më shumë rreth butonit dhe gjestit të qasshmërisë</string>
     <string name="accessibility_button_gesture_title">Butoni dhe gjesti i qasshmërisë</string>
     <string name="accessibility_button_high_label">Jotransparente</string>
     <string name="accessibility_button_intro">Përdorimi i butonit të qasshmërisë. Gjesti nuk ofrohet me navigimin me 3 butona.</string>
@@ -184,14 +190,23 @@ Për të përdorur më mirë butonin e qasshmërisë në shiritin e navigimit, k
     <string name="accessibility_caption_preference_summary">Jo të gjitha aplikacionet i mbështesin këto preferenca titrash</string>
     <string name="accessibility_caption_primary_switch_summary">Vetëm për aplikacionet e mbështetura</string>
     <string name="accessibility_caption_primary_switch_title">Shfaq titrat</string>
+    <string name="accessibility_captioning_about_title">Rreth preferencave për titrat</string>
+    <string name="accessibility_captioning_footer_learn_more_content_description">Mëso më shumë rreth preferencave për titrat</string>
     <string name="accessibility_captioning_title">Preferencat e titrave</string>
     <string name="accessibility_category_personal">Llogaritë e profilit personal</string>
     <string name="accessibility_category_work">Llogaritë e profilit të punës - %s</string>
+    <string name="accessibility_color_inversion_about_title">Rreth anasjelljes së ngjyrës</string>
+    <string name="accessibility_color_inversion_footer_learn_more_content_description">Mëso më shumë rreth anasjelljes së ngjyrës</string>
+    <string name="accessibility_control_timeout_about_title">Rreth kohës për të kryer veprim (koha e pritjes e \"Qasshmërisë\")</string>
+    <string name="accessibility_control_timeout_footer_learn_more_content_description">Mëso më shumë rreth kohës për të kryer veprim (koha e pritjes e \"Qasshmërisë\")</string>
     <string name="accessibility_control_timeout_preference_summary">"Zgjidh se për sa kohë të shfaqen mesazhet që të kërkojnë të kryesh një veprim, por që janë të dukshme vetëm përkohësisht.
 
 Ky cilësim nuk mbështetet nga të gjitha aplikacionet."</string>
     <string name="accessibility_control_timeout_preference_title">Koha për të kryer veprime</string>
+    <string name="accessibility_daltonizer_about_title">Rreth korrigjimit të ngjyrës</string>
+    <string name="accessibility_daltonizer_footer_learn_more_content_description">Mëso më shumë rreth korrigjimit të ngjyrës</string>
     <string name="accessibility_daltonizer_primary_switch_title">Përdor korrigjimin e ngjyrave</string>
+    <string name="accessibility_daltonizer_shortcut_title">Shkurtorja e korrigjimit të ngjyrës</string>
     <string name="accessibility_data_one_bar">Sinjali është vetëm një vijë.</string>
     <string name="accessibility_data_signal_full">Sinjali i të dhënave është i plotë.</string>
     <string name="accessibility_data_three_bars">Sinjali është me tre vija.</string>
@@ -206,6 +221,7 @@ Ky cilësim nuk mbështetet nga të gjitha aplikacionet."</string>
     <string name="accessibility_display_daltonizer_preference_title">Korrigjimi i ngjyrës</string>
     <string name="accessibility_display_inversion_preference_subtitle">Anasjellja e ngjyrës i bën të errëta ekranet e çelura.&lt;br/>&lt;br/> Shënim. &lt;ol> &lt;li> Anasjellja e ngjyrës gjithashtu i bën të ndriçuara ekranet e errëta.&lt;/li> &lt;li> Ngjyrat do të ndryshojnë në media dhe imazhe.&lt;/li> &lt;li> \"Tema e errët\" mund të përdoret për të shfaqur një sfond të errët. \"Tema e errët\" funksionon me aplikacionet e mbështetura. Anasjellja e ngjyrës funksionon në të gjitha aplikacionet.&lt;/li> &lt;/ol></string>
     <string name="accessibility_display_inversion_preference_title">Anasjellja e ngjyrës</string>
+    <string name="accessibility_display_inversion_shortcut_title">Shkurtorja e anasjelljes së ngjyrës</string>
     <string name="accessibility_display_inversion_switch_title">Përdor anasjelljen e ngjyrës</string>
     <string name="accessibility_ethernet_connected">Eternet.</string>
     <string name="accessibility_ethernet_disconnected">Lidhja e eternetit u shkëput.</string>
@@ -255,6 +271,8 @@ Butoni i qasshmërisë pluskon në ekranin tënd mbi aplikacionet e tjera. Troki
     <string name="accessibility_phone_two_bars">Telefoni ka dy vija.</string>
     <string name="accessibility_power_button_ends_call_prerefence_title">Butoni i fikjes mbyll telefonatën</string>
     <string name="accessibility_preference_magnification_summary">Zmadho ekranin</string>
+    <string name="accessibility_screen_magnification_about_title">Rreth zmadhimit</string>
+    <string name="accessibility_screen_magnification_footer_learn_more_content_description">Mëso më shumë rreth zmadhimit</string>
     <string name="accessibility_screen_magnification_gesture_navigation_warning">Gjesti i qasshmërisë është caktuar në %1$s. Për të përdorur zmadhimin, rrëshqit lart me dy gishta nga fundi i ekranit dhe mbaje. Më pas zgjidh zmadhimin.</string>
     <string name="accessibility_screen_magnification_gestures_title">Zmadho me tre trokitje</string>
     <string name="accessibility_screen_magnification_navbar_configuration_warning">Butoni i \"Qasshmërisë\" është caktuar te %1$s. Për të përdorur zmadhimin, prek dhe mbaj butonin e \"Qasshmërisë\" dhe më pas zgjidh zmadhimin.</string>
@@ -272,6 +290,7 @@ Butoni i qasshmërisë pluskon në ekranin tënd mbi aplikacionet e tjera. Troki
 Nuk mund të zmadhosh te tastiera ose shiriti i navigimit."</string>
     <string name="accessibility_screen_magnification_navbar_title">Zmadho me shkurtore</string>
     <string name="accessibility_screen_magnification_short_summary">Trokit 3 herë për ta zmadhuar</string>
+    <string name="accessibility_screen_magnification_shortcut_title">Shkurtorja e zmadhimit</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">Zmadho me shkurtore dhe tri trokitje</string>
     <string name="accessibility_screen_magnification_summary">Zmadho me shpejtësi në ekran për ta bërë përmbajtjen më të madhe.&lt;br/>&lt;br/>&lt;b>Për ta zmadhuar:&lt;/b>&lt;br/> {0,number,integer}. Përdor shkurtoren për të filluar zmadhimin&lt;br/> {1,number,integer}. Trokit në ekran&lt;br/> {2,number,integer}. Zvarrit 2 gishta për të lëvizur nëpër ekran&lt;br/> {3,number,integer}. Bashko 2 gishta për të rregulluar zmadhimin&lt;br/> {4,number,integer}. Përdor shkurtoren për të ndaluar zmadhimin&lt;br/>&lt;br/>&lt;b>Për ta zmadhuar përkohësisht:&lt;/b>&lt;br/> {0,number,integer}. Përdor shkurtoren për të filluar zmadhimin&lt;br/> {1,number,integer}. Prek dhe mbaj prekur diku në ekran&lt;br/> {2,number,integer}. Zvarrit gishtin për të lëvizur nëpër ekran&lt;br/> {3,number,integer}. Ngrije gishtin për të ndaluar zmadhimin</string>
     <string name="accessibility_screen_magnification_title">Zmadhimi</string>
@@ -370,7 +389,7 @@ Për të ndërruar mes veçorive, rrëshqit shpejt lart me 3 gishta dhe mbaje t�
     <string name="accessibility_tutorial_dialog_message_volume">Për ta përdorur këtë veçori, mbaj shtypur të dyja tastet e volumit.</string>
     <string name="accessibility_tutorial_dialog_title_button">Përdor butonin e qasshmërisë për të hapur</string>
     <string name="accessibility_tutorial_dialog_title_gesture">Përdor gjestin për të hapur</string>
-    <string name="accessibility_tutorial_dialog_title_gesture_settings">Përdor gjestin e ri të qasshmërisë</string>
+    <string name="accessibility_tutorial_dialog_title_gesture_settings">Përdor gjestin e qasshmërisë</string>
     <string name="accessibility_tutorial_dialog_title_triple">Trokit tri herë në ekran për ta hapur</string>
     <string name="accessibility_tutorial_dialog_title_volume">Mbaj shtypur tastet e volumit për ta hapur</string>
     <string name="accessibility_tutorial_pager">Faqja %1$d nga %2$d</string>
@@ -936,6 +955,7 @@ Pasi të rivendoset, kryej procesin e konfigurimit dhe zgjidh t'i kopjosh të dh
     <string name="battery_level_title">Niveli i baterisë</string>
     <string name="battery_manager_off">Joaktiv</string>
     <string name="battery_manager_summary">Rrit kohëzgjatjen e baterisë dhe optimizo karikimin</string>
+    <string name="battery_manager_summary_unsupported">Zgjat kohëzgjatjen e baterisë</string>
     <string name="battery_missing_link_a11y_message">Trokit për të mësuar më shumë rreth këtij gabimi</string>
     <string name="battery_missing_link_message">Mëso më shumë</string>
     <string name="battery_missing_message">Problem me leximin e matësit të baterisë.</string>
@@ -1010,7 +1030,7 @@ Mund të aktivizosh gjithmonë \"Kursyesin e baterisë\" nëse bateria është n
     <string name="battery_tip_early_heads_up_title">Aktivizo \"Kursyesin e baterisë\"</string>
     <string name="battery_tip_high_usage_summary">Shiko aplikacionet me përdorimin më të lartë</string>
     <string name="battery_tip_high_usage_title">Përdorim më i lartë i baterisë</string>
-    <string name="battery_tip_limited_temporarily_dialog_msg">"Në kushte të caktuara, si p.sh. në temperatura të larta dhe periudha të gjata, karikimi mund të kufizohet në %1$s për të ndihmuar në ruajtjen e gjendjes së baterisë.
+    <string name="battery_tip_limited_temporarily_dialog_msg">"Karikimi mund të kufizohet në %1$s për të ndihmuar në ruajtjen e gjendjes së baterisë në kushte të caktuara, si p.sh. në temperatura të larta dhe periudha të gjata karikimi.
 
 Kur këto kushte përfundojnë, telefoni yt do të karikohet automatikisht si zakonisht."</string>
     <string name="battery_tip_limited_temporarily_dialog_resume_charge">Vazhdo karikimin</string>
@@ -1061,6 +1081,7 @@ për ^2"</string>
     <string name="battery_usage_screen_footer">Të dhënat e përdorimit të baterisë janë të përafërta dhe nuk masin përdorimin gjatë karikimit të telefonit</string>
     <string name="battery_usage_screen_footer_empty">Të dhënat e përdorimit të baterisë do të ofrohen pasi të përdorësh telefonin për disa orë</string>
     <string name="battery_usage_total_less_than_one_minute">Në total: më pak se një minutë</string>
+    <string name="battery_usage_without_time" />
     <string name="battery_used_by">%1$s përdorur nga %2$s</string>
     <string name="battery_used_for">Përdorur për ^1</string>
     <string name="bearer">Bartësi</string>
@@ -1069,12 +1090,14 @@ për ^2"</string>
     <string name="billing_cycle_less_than_one_day_left">Mbetet më pak se 1 ditë</string>
     <string name="billing_cycle_none_left">Nuk ka më kohë të mbetur</string>
     <string name="biometric_settings_category_ways_to_unlock">Mënyrat për ta shkyçur</string>
-    <string name="biometric_settings_category_ways_to_use">Përdor fytyrën dhe gjurmën e gishtit për</string>
     <string name="biometric_settings_hand_back_to_guardian">Jepja telefonin përsëri prindit</string>
     <string name="biometric_settings_hand_back_to_guardian_ok">Në rregull</string>
     <string name="biometric_settings_intro">Kur të konfigurosh \"Shkyçjen me fytyrë\" dhe \"Shkyçjen me gjurmën e gishtit\", telefoni yt do të kërkojë gjurmën tënde të gishtit kur të mbash maskë apo kur të jesh në një zonë të errët</string>
-    <string name="biometric_settings_use_biometric_for_apps">Vërtetimi në aplikacione</string>
-    <string name="biometric_settings_use_biometric_unlock_phone">Shkyçja e telefonit</string>
+    <string name="biometric_settings_use_biometric_for_apps">Verifiko që je ti në aplikacione</string>
+    <string name="biometric_settings_use_biometric_unlock_phone">Shkyç telefonin</string>
+    <string name="biometric_settings_use_face_or_fingerprint_preference_summary">Me anë të fytyrës ose gjurmës së gishtit</string>
+    <string name="biometric_settings_use_face_preference_summary">Me anë të fytyrës</string>
+    <string name="biometric_settings_use_fingerprint_preference_summary">Me anë të gjurmës së gishtit</string>
     <string name="biometrics_unlock_set_unlock_password">Fjalëkalimet • Fytyra • Gjurma e gishtit</string>
     <string name="biometrics_unlock_set_unlock_pattern">Motivi • Fytyra • Gjurma e gishtit</string>
     <string name="biometrics_unlock_set_unlock_pin">PIN • Fytyra • Gjurma e gishtit</string>
@@ -1332,7 +1355,6 @@ Zgjedhja"</string>
     <string name="bluetooth_settings_title">Bluetooth-i</string>
     <string name="bluetooth_show_devices_without_names">Shfaq pajisjet me Bluetooth pa emra</string>
     <string name="bluetooth_show_devices_without_names_summary">Pajisjet me Bluetooth do të shfaqen pa emra (vetëm adresat MAC)</string>
-    <string name="bluetooth_show_files_received_via_bluetooth">Skedarët e marrë me Bluetooth</string>
     <string name="bluetooth_show_received_files">Skedarët e marrë</string>
     <string name="bluetooth_sim_card_access_dialog_content">"Një pajisje me Bluetooth, %1$s, dëshiron të ketë qasje te të dhënat në kartën tënde SIM. Kjo përfshin kontaktet e tua.
 
@@ -1426,6 +1448,7 @@ Nëse instalon një certifikatë CA, zotëruesi i certifikatës mund të qaset t
     <string name="calls_sms_temp_unavailable">Nuk ofrohet për momentin</string>
     <string name="calls_sms_unavailable">e padisponueshme</string>
     <string name="calls_sms_wfc_summary">Kryej dhe merr telefonata përmes Wi‑Fi</string>
+    <string name="cam_toggle_description">Për aplikacionet dhe shërbimet</string>
     <string name="camera_double_tap_power_gesture_desc">Hap me shpejtësi kamerën pa e shkyçur ekranin</string>
     <string name="camera_double_tap_power_gesture_title">Shtyp butonin e energjisë dy herë për kamerën</string>
     <string name="camera_laser_sensor_switch">Sensori me laser i kamerës</string>
@@ -3302,6 +3325,7 @@ Ka përdorues të tjerë të pranishëm në këtë pajisje.
     <string name="menu_stats_total">Totalet e përdorimit</string>
     <string name="menu_stats_unplugged">%1$s që kur ka qenë në prizë</string>
     <string name="menu_use_uss">Përdor Uss-në</string>
+    <string name="mic_toggle_description">Për aplikacionet dhe shërbimet. Nëse ky cilësim është joaktiv, të dhënat e mikrofonit mund të vazhdojnë të ndahen kur telefonon një numër urgjence.</string>
     <string name="mic_toggle_title">Qasja te mikrofoni</string>
     <string name="misc_files">Skedarë të ndryshëm</string>
     <string name="misc_files_selected_count">u zgjodhën %1$d nga %2$d në total</string>
@@ -3728,6 +3752,7 @@ Kjo do t'i japë aplikacionit aftësinë për të aktivizuar ose çaktivizuar \"
     <string name="one_handed_action_show_notification_title">Shfaq njoftimet</string>
     <string name="one_handed_mode_enabled">Përdor modalitetin e përdorimit me një dorë</string>
     <string name="one_handed_mode_intro_text">Për të përdorur modalitetin e përdorimit me një dorë, rrëshqit shpejt poshtë nga buza e poshtme e ekranit. Për ta përdorur këtë veçori, sigurohu që të jetë aktivizuar navigimi me gjeste në cilësimet e navigimit të sistemit.</string>
+    <string name="one_handed_mode_shortcut_title">Shkurtorja e modalitetit të përdorimit me një dorë</string>
     <string name="one_handed_mode_swipe_down_category">Rrëshqit shpejt poshtë te</string>
     <string name="one_handed_mode_use_shortcut_category">Përdor shkurtoren për</string>
     <string name="one_usercrt">certifikatë për një përdorues</string>
@@ -3803,7 +3828,7 @@ Kjo do t'i japë aplikacionit aftësinë për të aktivizuar ose çaktivizuar \"
     <string name="post_dsds_reboot_notification_title_with_carrier">%1$s është aktiv</string>
     <string name="power_bluetooth">Bluetooth-i</string>
     <string name="power_camera">Kamera</string>
-    <string name="power_cell">Rrjeti celular në gatishmëri</string>
+    <string name="power_cell">Rrjeti celular</string>
     <string name="power_charge_remaining">%1$s për të karikuar</string>
     <string name="power_charging">%1$s - %2$s</string>
     <string name="power_charging_duration">%1$s - %2$s derisa të mbushet</string>
@@ -4037,6 +4062,7 @@ Shtyp njëherësh \"Energjinë\" dhe \"Volumin lart\"."</string>
     <string name="recent_notifications">Dërguar së fundi</string>
     <string name="recent_notifications_see_all_title">Shih të gjithë apl. në 7 ditët e fundit</string>
     <string name="recompute_size">Po llogarit përsëri madhësinë…</string>
+    <string name="reduce_bright_colors_about_title">Rreth shumë më të zbehtës</string>
     <string name="reduce_bright_colors_intensity_end_label">Më i ndritshëm</string>
     <string name="reduce_bright_colors_intensity_preference_title">Intensiteti</string>
     <string name="reduce_bright_colors_intensity_start_label">Më i errët</string>
@@ -4044,6 +4070,7 @@ Shtyp njëherësh \"Energjinë\" dhe \"Volumin lart\"."</string>
     <string name="reduce_bright_colors_preference_subtitle">"Bëje ekranin më të zbehtë në mënyrë që të jetë më komod për t'u lexuar.&lt;br/>&lt;br/> Kjo mund të jetë e dobishme kur: &lt;ol> &lt;li> Ndriçimi minimal i parazgjedhur i telefonit tënd është përsëri tepër i ndritshëm&lt;/li> &lt;li> Po e përdor telefonin në situata të errëta, si natën ose në një dhomë të errët përpara gjumit&lt;/li> &lt;/ol>"</string>
     <string name="reduce_bright_colors_preference_summary">Errësoje ekranin përtej ndriçimit minimal të telefonit tënd</string>
     <string name="reduce_bright_colors_preference_title">Shumë më i zbehtë</string>
+    <string name="reduce_bright_colors_shortcut_title">Shkurtorja për veçorinë \"shumë më i zbehtë\"</string>
     <string name="reduce_bright_colors_switch_title">Bëje ekranin shumë më të zbehtë</string>
     <string name="register_automatically">Regjistrim automatik…</string>
     <string name="register_on_network">Po regjistron në %s…</string>
@@ -4249,7 +4276,6 @@ Për të përdorur gozhdimin e aplikacionit: \u0009
     <string name="screen_pinning_unlock_pattern">Kërko motivin e shkyçjes para heqjes së gozhdimit</string>
     <string name="screen_pinning_unlock_pin">Zhgozhdimi kërkon PIN-in</string>
     <string name="screen_reader_category_title">Lexuesi i ekranit</string>
-    <string name="screen_saver_main_switch_title">Përdor mbrojtësin e ekranit</string>
     <string name="screen_time_summary_usage_today">%1$s sot</string>
     <string name="screen_timeout_summary">Pas %1$s pa aktivitet</string>
     <string name="screen_timeout_title">Ekrani çaktivizohet</string>
@@ -4279,6 +4305,7 @@ Për të përdorur gozhdimin e aplikacionit: \u0009
     <string name="screensaver_settings_button">Cilësimet</string>
     <string name="screensaver_settings_current">Mbrojtësi aktual i ekranit</string>
     <string name="screensaver_settings_disabled_prompt">Për të kontrolluar se çfarë ndodh kur telefonin e vendos te stacioni dhe/ose në gjumë, aktivizo mbrojtësin e ekranit.</string>
+    <string name="screensaver_settings_dream_start">Fillo tani</string>
     <string name="screensaver_settings_summary_dock">Kur vendoset në stacion</string>
     <string name="screensaver_settings_summary_either_long">Gjatë karikimit ose lidhjes me stacionin</string>
     <string name="screensaver_settings_summary_either_short">Në të dyja rastet</string>
@@ -4329,15 +4356,6 @@ Për të përdorur gozhdimin e aplikacionit: \u0009
     <string name="security_settings_biometric_preference_summary_both_fp_single">Fytyra dhe gjurma e gishtit u shtuan</string>
     <string name="security_settings_biometric_preference_summary_none_enrolled">Trokit për të konfiguruar</string>
     <string name="security_settings_biometric_preference_title">Shkyçja me fytyrë dhe me gjurmën e gishtit</string>
-    <string name="security_settings_biometrics_description">Kur të konfigurosh shkyçjen me fytyrë dhe gjurmë gishti, telefoni yt do të kërkojë gjurmën tënde të gishtit kur të mbash maskë apo kur të jesh në një zonë të errët</string>
-    <string name="security_settings_biometrics_preference_use_with_apps">Vërtetimi në aplikacione</string>
-    <string name="security_settings_biometrics_preferences_category">Përdor fytyrën dhe gjurmën e gishtit për</string>
-    <string name="security_settings_biometrics_summary_both">Fytyra dhe gjurma e gishtit</string>
-    <string name="security_settings_biometrics_summary_face">Vetëm fytyra</string>
-    <string name="security_settings_biometrics_summary_fingerprint">Vetëm gjurma e gishtit</string>
-    <string name="security_settings_biometrics_summary_none">Trokit për ta konfiguruar</string>
-    <string name="security_settings_biometrics_title">Shkyçja me fytyrë dhe me gjurmën e gishtit</string>
-    <string name="security_settings_biometrics_types_category">Mënyrat për të shkyçur</string>
     <string name="security_settings_face_enroll_consent_introduction_title">Lejo \"Shkyçjen me fytyrë\"</string>
     <string name="security_settings_face_enroll_dialog_ok">Në rregull</string>
     <string name="security_settings_face_enroll_done">U krye</string>
@@ -4385,16 +4403,17 @@ Mëso më shumë te g.co/pixel/faceunlock."</string>
     <string name="security_settings_face_enroll_introduction_control_title">Kontrolli është në duart e tua</string>
     <string name="security_settings_face_enroll_introduction_how_consent_message">"\"Shkyçja me fytyrë\" krijon një model unik të fytyrës së fëmijës tënd për të verifikuar që është ai. Për ta krijuar këtë model të fytyrës gjatë konfigurimit, fëmija nxjerr imazhe të fytyrës së tij nga kënde të ndryshme.
 
-Kur të përdorë \"Shkyçjen me fytyrë\", imazhet përdoren për të përditësuar modelin e fytyrës së tij. Imazhet e përdorura për të krijuar modelin e fytyrës së tij nuk ruhen asnjëherë, por modeli i fytyrës ruhet në mënyrë të sigurt në telefon dhe nuk largohet kurrë nga telefoni. I gjithë përpunimi ndodh në mënyrë të sigurt në telefon."</string>
+Kur të përdorë \"Shkyçjen me fytyrë\", imazhet përdoren për të përditësuar modelin e fytyrës së tij. Imazhet e përdorura për të krijuar modelin e fytyrës së tij nuk ruhen, por modeli i fytyrës ruhet në mënyrë të sigurt në telefon dhe nuk largohet asnjëherë nga telefoni. I gjithë përpunimi ndodh në mënyrë të sigurt në telefon."</string>
     <string name="security_settings_face_enroll_introduction_how_message">"\"Shkyçja me fytyrë\" krijon një model unik të fytyrës tënde për të verifikuar që je ti. Për ta krijuar këtë model të fytyrës gjatë konfigurimit, do të nxjerrësh imazhe të fytyrës sate nga kënde të ndryshme.
 
-Kur të përdorësh \"Shkyçjen me fytyrë\", imazhet përdoren për të përditësuar modelin e fytyrës sate. Imazhet e përdorura për të krijuar modelin e fytyrës sate nuk ruhen asnjëherë, por modeli i fytyrës sate ruhet në mënyrë të sigurt në telefonin tënd dhe nuk largohet kurrë nga telefoni. I gjithë përpunimi ndodh në mënyrë të sigurt në telefonin tënd."</string>
+Kur të përdorësh \"Shkyçjen me fytyrë\", imazhet përdoren për të përditësuar modelin e fytyrës sate. Imazhet e përdorura për të krijuar modelin e fytyrës sate nuk ruhen, por modeli i fytyrës sate ruhet në mënyrë të sigurt në telefonin tënd dhe nuk largohet asnjëherë nga telefoni. I gjithë përpunimi ndodh në mënyrë të sigurt në telefonin tënd."</string>
     <string name="security_settings_face_enroll_introduction_how_title">Si funksionon</string>
     <string name="security_settings_face_enroll_introduction_info_consent_gaze">\"Shkyçja me fytyrë\" mund të kërkojë që sytë e fëmijës tënd të jenë të hapur për të shkyçur telefonin ose për të verifikuar që është ai fëmijë. Ti dhe fëmija yt mund ta aktivizoni këtë opsion në çdo kohë te \"Cilësimet\".</string>
     <string name="security_settings_face_enroll_introduction_info_consent_glasses">"Nëse fëmija yt normalisht mban syze, mund t'i mbajë dhe gjatë konfigurimit."</string>
     <string name="security_settings_face_enroll_introduction_info_consent_looking">Shikimi drejt telefonit mund ta shkyçë këtë edhe nëse nuk kishte për qëllim ta bënte. Telefoni i tij mund të shkyçet dhe nga dikush që i ngjan shumë, si p.sh. një binjak identik, ose nëse dikush ia mban telefonin në nivelin e fytyrës.</string>
     <string name="security_settings_face_enroll_introduction_info_gaze">\"Shkyçja me fytyrë\" mund të kërkojë që sytë e tu të jenë të hapur për të shkyçur telefonin ose për të verifikuar që je ti. Mund ta aktivizosh këtë opsion në çdo kohë te \"Cilësimet\".</string>
     <string name="security_settings_face_enroll_introduction_info_glasses">Syzet dhe syzet e diellit me nuancë të lehtë janë të pranueshme.</string>
+    <string name="security_settings_face_enroll_introduction_info_less_secure">Përdorimi i fytyrës për të shkyçur telefonin mund të jetë më pak i sigurt se një motiv ose kod PIN i fortë.</string>
     <string name="security_settings_face_enroll_introduction_info_looking">Shikimi te telefoni mund ta shkyçë atë edhe nëse nuk ke për qëllim ta bësh. Telefoni yt mund të shkyçet dhe nga dikush që të ngjan shumë, si p.sh. një binjak identik, ose nëse dikush e mban telefonin në nivelin e fytyrës sate.</string>
     <string name="security_settings_face_enroll_introduction_info_title">Mbaje mend</string>
     <string name="security_settings_face_enroll_introduction_message">Përdor fytyrën tënde për të shkyçur telefonin tënd ose për të verifikuar që je ti, si p.sh. kur identifikohesh në aplikacione ose kur miraton një blerje.</string>
@@ -4452,13 +4471,14 @@ Telefoni yt mund të shkyçet nga dikush tjetër nëse mbahet në nivelin e fyty
 
 Telefoni mund të shkyçet nga dikush që të ngjan shumë, si p.sh. një binjak identik."</string>
     <string name="security_settings_face_settings_preferences_category">Kur përdoret \"Shkyçja me fytyrë\"</string>
-    <string name="security_settings_face_settings_remove_dialog_details">Modeli yt i fytyrës do të fshihet përgjithmonë dhe në mënyrë të sigurt. Pas fshirjes, do të të duhet kodi yt PIN, motivi ose fjalëkalimi për të shkyçur telefonin ose për vërtetimin në aplikacione.</string>
+    <string name="security_settings_face_settings_remove_dialog_details">"Modeli yt i fytyrës do të fshihet përgjithmonë dhe në mënyrë të sigurt.
+
+Pas fshirjes, do të të duhet kodi yt PIN, motivi ose fjalëkalimi për të shkyçur telefonin ose për vërtetimin në aplikacione."</string>
+    <string name="security_settings_face_settings_remove_dialog_details_convenience">"Modeli yt i fytyrës do të fshihet përgjithmonë dhe në mënyrë të sigurt.
+
+Pas fshirjes, do të të duhet kodi yt PIN, motivi ose fjalëkalimi për të shkyçur telefonin."</string>
     <string name="security_settings_face_settings_remove_dialog_title">Të fshihet modeli i fytyrës?</string>
     <string name="security_settings_face_settings_remove_face_model">Fshi modelin e fytyrës</string>
-    <string name="security_settings_face_settings_remove_model_dialog_details">"Modeli yt i fytyrës do të fshihet përfundimisht dhe në mënyrë të sigurt.
-
-Pas fshirjes do të të duhet gjurma jote e gishtit, PIN, motivi apo fjalëkalimi për të shkyçur telefonin ose për vërtetimin në aplikacione."</string>
-    <string name="security_settings_face_settings_remove_model_dialog_title">Të fshihet modeli i fytyrës?</string>
     <string name="security_settings_face_settings_require_attention">Kërkon që sytë të jenë të hapur</string>
     <string name="security_settings_face_settings_require_attention_details">Për ta shkyçur telefonin, sytë e tu duhet të jenë të hapur</string>
     <string name="security_settings_face_settings_require_confirmation">Kërko gjithmonë konfirmimin</string>
@@ -4541,7 +4561,7 @@ Shënim. Nuk mund ta përdorësh gjurmën tënde të gishtit për ta shkyçur k�
     <string name="security_settings_title">Siguria</string>
     <string name="security_settings_udfps_enroll_a11y">Lëvize gishtin nëpër ekran për të gjetur sensorin. Prek dhe mbaj të shtypur sensorin e gjurmës së gishtit</string>
     <string name="security_settings_udfps_enroll_edge_message">Vendos anën e gjurmës së gishtit në sensor dhe mbaje, më pas kalo në anën tjetër</string>
-    <string name="security_settings_udfps_enroll_edge_title">Së fundi, vendos skajet e gishtit</string>
+    <string name="security_settings_udfps_enroll_edge_title">Së fundi, përdor skajet e gishtit</string>
     <string name="security_settings_udfps_enroll_find_sensor_message">Sensori i gjurmës së gishtit është në ekranin tënd. Do ta regjistrosh gjurmën e gishtit në ekranin tjetër.</string>
     <string name="security_settings_udfps_enroll_find_sensor_start_button">Nis</string>
     <string name="security_settings_udfps_enroll_find_sensor_title">Si të konfigurosh gjurmën e gishtit</string>
@@ -4550,7 +4570,7 @@ Shënim. Nuk mund ta përdorësh gjurmën tënde të gishtit për ta shkyçur k�
     <string name="security_settings_udfps_enroll_repeat_a11y_message">Kjo ndihmon për të regjistruar një pjesë më të madhe të gjurmës së gishtit tënd</string>
     <string name="security_settings_udfps_enroll_repeat_message">Prek dhe mbaj të shtypur sa herë që lëviz ikona e gjurmës së gishtit. Kjo ndihmon për të regjistruar një pjesë më të madhe të gjurmës së gishtit tënd.</string>
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">Ndiq ikonën e gjurmës së gishtit</string>
-    <string name="security_settings_udfps_enroll_start_message">Mbaje gishtin mbi sensor derisa të ndjesh një dridhje</string>
+    <string name="security_settings_udfps_enroll_start_message">Mbaje gjurmën e gishtit mbi sensor derisa të ndjesh një dridhje</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">Edhe një herë</string>
     <string name="security_settings_work_fingerprint_preference_title">Pixel Imprint për punën</string>
     <string name="security_status_title">Statusi i sigurisë</string>
@@ -4576,7 +4596,6 @@ Shënim. Nuk mund ta përdorësh gjurmën tënde të gishtit për ta shkyçur k�
     <string name="select_webview_provider_dialog_title">Cakto zbatimin e WebView</string>
     <string name="select_webview_provider_title">Zbatimi i WebView</string>
     <string name="select_webview_provider_toast_text">Kjo zgjedhje nuk është më e vlefshme. Provo përsëri.</string>
-    <string name="sensor_toggle_description">Për të gjitha aplikacionet dhe shërbimet</string>
     <string name="sensors_off_quick_settings_title">Sensorët joaktivë</string>
     <string name="service_background_processes">%1$s të lira</string>
     <string name="service_foreground_processes">%1$s përdorur</string>
@@ -4808,6 +4827,7 @@ Kod PIN i gabuar."</string>
     <string name="sound_settings_summary_silent">Zilja u vendos në heshtje</string>
     <string name="sound_settings_summary_vibrate">Zilja u caktua me dridhje</string>
     <string name="sound_work_settings">Tingujt e profilit të punës</string>
+    <string name="spatial_audio_title">Zë hapësinor</string>
     <string name="special_access">Qasja e veçantë e apl.</string>
     <string name="special_access_more">Shiko më shumë</string>
     <string name="speed_label_fast">E shpejtë</string>
@@ -5619,7 +5639,7 @@ Gjatë një telefonate zanore, nuk mund ta përdorësh internetin dhe disa aplik
     <string name="vpn_turn_on">Aktivizo</string>
     <string name="vpn_type">Lloji</string>
     <string name="vpn_username">Emri i përdoruesit</string>
-    <string name="vpn_version">Versioni %s</string>
+    <string name="vpn_version">Versioni</string>
     <string name="vr_listener_security_warning_summary">%1$s do të jetë në gjendje të ekzekutohet kur përdoren aplikacionet në modalitetin e realitetit virtual.</string>
     <string name="vr_listener_security_warning_title">Të lejohet qasja e shërbimit VR për %1$s?</string>
     <string name="vr_listeners_title">Shërbimet e ndihmësit VR</string>
@@ -5889,7 +5909,7 @@ Caktimi i rrjetit si të fshehur nuk do të ndryshojë cilësimet e router-it."<
     <string name="wifi_not_in_range">Nuk është brenda rrezes</string>
     <string name="wifi_not_in_range_message">Rrjeti nuk është brenda rrezes</string>
     <string name="wifi_notify_open_networks">Njofto për rrjetet publike</string>
-    <string name="wifi_notify_open_networks_summary">Kur lidhja automatike nuk është e disponueshme</string>
+    <string name="wifi_notify_open_networks_summary">Njofto kur ofrohet një rrjet publik me cilësi të lartë</string>
     <string name="wifi_on_time">Koha e aktivizimit të Wi‑Fi</string>
     <string name="wifi_p2p_cancel_connect_message">"Dëshiron të anulosh ftesën për t'u lidhur me %1$s?"</string>
     <string name="wifi_p2p_cancel_connect_title">Të anulohet ftesa?</string>
@@ -5977,7 +5997,6 @@ Të lejohet kjo për të gjitha aplikacionet që dëshirojnë të skanojnë?"</s
     <string name="wifi_suspend_optimizations">Optimizimi i Wi-Fi</string>
     <string name="wifi_suspend_optimizations_summary">Minimizo përdorimin e baterisë kur Wi‑Fi është aktiv</string>
     <string name="wifi_switch_away_when_unvalidated">Kalo te të dhënat celulare nëse Wi‑Fi humbet qasjen në internet.</string>
-    <string name="wifi_switch_summary">Gjej rrjetet Wi‑Fi dhe lidhu me to</string>
     <string name="wifi_tap_to_sign_in">"Trokit këtu për t'u identifikuar në rrjet"</string>
     <string name="wifi_tether_configure_ap_text">Konfiguro zonën e qasjes Wi‑Fi</string>
     <string name="wifi_tether_configure_ssid_default">Zona Android e qasjes së lirë për internet</string>

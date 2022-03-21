@@ -337,7 +337,7 @@
     goto :goto_0
 
     :cond_4
-    const v0, 0x7f040d85
+    const v0, 0x7f040db0
 
     invoke-virtual {v2, v0}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -570,12 +570,13 @@
 
     move-result-object p1
 
+    :cond_1
     :goto_0
     invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3
 
     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -611,20 +612,56 @@
 
     invoke-direct {v4, v1, v2}, Lcom/android/settings/network/telephony/NetworkSelectSettings$$ExternalSyntheticLambda1;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
 
-    invoke-interface {v3, v4}, Ljava/util/stream/Stream;->anyMatch(Ljava/util/function/Predicate;)Z
+    invoke-interface {v3, v4}, Ljava/util/stream/Stream;->filter(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
+
+    move-result-object v1
+
+    invoke-interface {v1}, Ljava/util/stream/Stream;->findFirst()Ljava/util/Optional;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/util/Optional;->isPresent()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    invoke-virtual {v0}, Landroid/telephony/CellInfo;->isRegistered()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    invoke-virtual {v1}, Ljava/util/Optional;->get()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/telephony/CellInfo;
+
+    invoke-virtual {v2}, Landroid/telephony/CellInfo;->isRegistered()Z
+
+    move-result v2
+
+    if-nez v2, :cond_1
+
+    invoke-virtual {v1}, Ljava/util/Optional;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    invoke-virtual {p0, v1}, Ljava/util/ArrayList;->indexOf(Ljava/lang/Object;)I
 
     move-result v1
 
-    if-eqz v1, :cond_1
-
-    goto :goto_0
-
-    :cond_1
-    invoke-virtual {p0, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p0, v1, v0}, Ljava/util/ArrayList;->set(ILjava/lang/Object;)Ljava/lang/Object;
 
     goto :goto_0
 
     :cond_2
+    invoke-virtual {p0, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto :goto_0
+
+    :cond_3
     return-object p0
 .end method
 
@@ -647,7 +684,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f150044
+    const p0, 0x7f150045
 
     return p0
 .end method
@@ -665,7 +702,7 @@
 
     move-result-object p1
 
-    const v0, 0x11100d7
+    const v0, 0x11100d8
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -673,18 +710,27 @@
 
     iput-boolean p1, p0, Lcom/android/settings/network/telephony/NetworkSelectSettings;->mUseNewApi:Z
 
-    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getArguments()Landroid/os/Bundle;
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getActivity()Landroidx/fragment/app/FragmentActivity;
 
     move-result-object p1
 
-    const-string v0, "android.provider.extra.SUB_ID"
+    invoke-virtual {p1}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
-    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
+    move-result-object p1
+
+    if-eqz p1, :cond_0
+
+    const/4 v0, -0x1
+
+    const-string v1, "android.provider.extra.SUB_ID"
+
+    invoke-virtual {p1, v1, v0}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result p1
 
     iput p1, p0, Lcom/android/settings/network/telephony/NetworkSelectSettings;->mSubId:I
 
+    :cond_0
     const-string p1, "network_operators_preference"
 
     invoke-virtual {p0, p1}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
@@ -761,9 +807,9 @@
 
     move-result-object p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1
 
-    const-string v0, "show_4g_for_lte_data_icon_bool"
+    const-string/jumbo v0, "show_4g_for_lte_data_icon_bool"
 
     invoke-virtual {p1, v0}, Landroid/os/PersistableBundle;->getBoolean(Ljava/lang/String;)Z
 
@@ -771,7 +817,7 @@
 
     iput-boolean p1, p0, Lcom/android/settings/network/telephony/NetworkSelectSettings;->mShow4GForLTE:Z
 
-    :cond_0
+    :cond_1
     invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
 
     move-result-object p1
@@ -794,7 +840,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f09001c
+    const v0, 0x7f09001d
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -818,9 +864,17 @@
 
     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-boolean p0, p0, Lcom/android/settings/network/telephony/NetworkSelectSettings;->mIsAggregationEnabled:Z
+    iget-boolean v0, p0, Lcom/android/settings/network/telephony/NetworkSelectSettings;->mIsAggregationEnabled:Z
 
-    invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    const-string v0, " ,mSubId:"
+
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget p0, p0, Lcom/android/settings/network/telephony/NetworkSelectSettings;->mSubId:I
+
+    invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -864,7 +918,7 @@
 
     if-eqz v0, :cond_0
 
-    const v2, 0x7f040d95
+    const v2, 0x7f040dc0
 
     invoke-virtual {v0, v2}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -873,7 +927,7 @@
 
     iput-object p1, p0, Lcom/android/settings/network/telephony/NetworkSelectSettings;->mSelectedPreference:Lcom/android/settings/network/telephony/NetworkOperatorPreference;
 
-    const v0, 0x7f040d86
+    const v0, 0x7f040db1
 
     invoke-virtual {p1, v0}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -985,13 +1039,13 @@
 
     if-eqz p1, :cond_0
 
-    const p1, 0x7f0601cd
+    const p1, 0x7f0601d1
 
     invoke-virtual {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->setPinnedHeaderView(I)Landroid/view/View;
 
     move-result-object p1
 
-    const p2, 0x7f0d045f
+    const p2, 0x7f0d046c
 
     invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1156,7 +1210,7 @@
 
     if-eqz v5, :cond_4
 
-    const v4, 0x7f040d85
+    const v4, 0x7f040db0
 
     invoke-virtual {v6, v4}, Landroidx/preference/Preference;->setSummary(I)V
 

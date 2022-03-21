@@ -1307,42 +1307,42 @@
 
     move-result-object v0
 
-    const-string v3, "DatabaseUtils"
+    const/4 v3, 0x0
+
+    const-string v4, "DatabaseUtils"
 
     if-nez v0, :cond_0
 
     const-string v0, "sendBatteryEntryData(): cannot fetch battery intent"
 
-    invoke-static {v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/4 v0, 0x0
-
-    return-object v0
+    return-object v3
 
     :cond_0
     invoke-static {v0}, Lcom/google/android/settings/fuelgauge/DatabaseUtils;->getBatteryLevel(Landroid/content/Intent;)I
 
-    move-result v14
+    move-result v15
 
-    const-string v4, "status"
+    const-string v5, "status"
 
-    const/4 v15, 0x1
+    const/4 v13, 0x1
 
-    invoke-virtual {v0, v4, v15}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    invoke-virtual {v0, v5, v13}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v16
 
-    const-string v4, "health"
+    const-string v5, "health"
 
-    invoke-virtual {v0, v4, v15}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    invoke-virtual {v0, v5, v13}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v0
 
     invoke-static {}, Ljava/time/Clock;->systemUTC()Ljava/time/Clock;
 
-    move-result-object v4
+    move-result-object v5
 
-    invoke-virtual {v4}, Ljava/time/Clock;->millis()J
+    invoke-virtual {v5}, Ljava/time/Clock;->millis()J
 
     move-result-wide v17
 
@@ -1350,58 +1350,62 @@
 
     move-result-wide v19
 
-    new-instance v12, Ljava/util/ArrayList;
+    new-instance v14, Ljava/util/ArrayList;
 
-    invoke-direct {v12}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v14}, Ljava/util/ArrayList;-><init>()V
 
     if-eqz p1, :cond_1
 
     invoke-interface/range {p1 .. p1}, Ljava/util/List;->stream()Ljava/util/stream/Stream;
 
-    move-result-object v4
+    move-result-object v5
 
-    sget-object v5, Lcom/google/android/settings/fuelgauge/DatabaseUtils$$ExternalSyntheticLambda1;->INSTANCE:Lcom/google/android/settings/fuelgauge/DatabaseUtils$$ExternalSyntheticLambda1;
+    sget-object v6, Lcom/google/android/settings/fuelgauge/DatabaseUtils$$ExternalSyntheticLambda1;->INSTANCE:Lcom/google/android/settings/fuelgauge/DatabaseUtils$$ExternalSyntheticLambda1;
 
-    invoke-interface {v4, v5}, Ljava/util/stream/Stream;->filter(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
+    invoke-interface {v5, v6}, Ljava/util/stream/Stream;->filter(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
 
-    move-result-object v13
+    move-result-object v11
 
-    new-instance v10, Lcom/google/android/settings/fuelgauge/DatabaseUtils$$ExternalSyntheticLambda0;
-
-    move-object v4, v10
+    new-instance v12, Lcom/google/android/settings/fuelgauge/DatabaseUtils$$ExternalSyntheticLambda0;
 
     move-object v5, v12
 
-    move-object/from16 v6, p2
+    move-object v6, v14
 
-    move v7, v14
+    move-object/from16 v7, p2
 
-    move/from16 v8, v16
+    move v8, v15
 
-    move v9, v0
+    move/from16 v9, v16
 
-    move-object v15, v10
-
-    move-wide/from16 v10, v19
+    move v10, v0
 
     move-wide/from16 v21, v1
 
-    move-object/from16 p1, v12
+    move-object v3, v11
 
-    move-object v1, v13
+    move-object v1, v12
 
-    move-wide/from16 v12, v17
+    move-wide/from16 v11, v19
 
-    invoke-direct/range {v4 .. v13}, Lcom/google/android/settings/fuelgauge/DatabaseUtils$$ExternalSyntheticLambda0;-><init>(Ljava/util/List;Landroid/os/BatteryUsageStats;IIIJJ)V
+    move v2, v13
 
-    invoke-interface {v1, v15}, Ljava/util/stream/Stream;->forEach(Ljava/util/function/Consumer;)V
+    move-object/from16 p1, v14
+
+    move-wide/from16 v13, v17
+
+    invoke-direct/range {v5 .. v14}, Lcom/google/android/settings/fuelgauge/DatabaseUtils$$ExternalSyntheticLambda0;-><init>(Ljava/util/List;Landroid/os/BatteryUsageStats;IIIJJ)V
+
+    invoke-interface {v3, v1}, Ljava/util/stream/Stream;->forEach(Ljava/util/function/Consumer;)V
 
     goto :goto_0
 
     :cond_1
     move-wide/from16 v21, v1
 
-    move-object/from16 p1, v12
+    move v2, v13
+
+    move-object/from16 p1, v14
 
     :goto_0
     invoke-virtual/range {p0 .. p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -1410,9 +1414,9 @@
 
     invoke-interface/range {p1 .. p1}, Ljava/util/List;->isEmpty()Z
 
-    move-result v2
+    move-result v3
 
-    if-nez v2, :cond_2
+    if-nez v3, :cond_2
 
     invoke-interface/range {p1 .. p1}, Ljava/util/List;->size()I
 
@@ -1420,16 +1424,16 @@
 
     new-array v0, v0, [Landroid/content/ContentValues;
 
-    move-object/from16 v2, p1
+    move-object/from16 v3, p1
 
-    invoke-interface {v2, v0}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+    invoke-interface {v3, v0}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
     :try_start_0
-    sget-object v4, Lcom/google/android/settings/fuelgauge/DatabaseUtils;->BATTERY_CONTENT_URI:Landroid/net/Uri;
+    sget-object v5, Lcom/google/android/settings/fuelgauge/DatabaseUtils;->BATTERY_CONTENT_URI:Landroid/net/Uri;
 
-    invoke-virtual {v1, v4, v0}, Landroid/content/ContentResolver;->bulkInsert(Landroid/net/Uri;[Landroid/content/ContentValues;)I
+    invoke-virtual {v1, v5, v0}, Landroid/content/ContentResolver;->bulkInsert(Landroid/net/Uri;[Landroid/content/ContentValues;)I
 
-    move-result v0
+    move-result v13
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -1438,49 +1442,49 @@
     :catch_0
     move-exception v0
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "bulkInsert() data into database error:\n"
+    const-string v6, "bulkInsert() data into database error:\n"
 
-    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-static {v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_2
 
     :cond_2
-    move-object/from16 v2, p1
-
-    const/4 v4, 0x0
+    move-object/from16 v3, p1
 
     const/4 v5, 0x0
 
-    move v6, v14
+    const/4 v6, 0x0
 
-    move/from16 v7, v16
+    move v7, v15
 
-    move v8, v0
+    move/from16 v8, v16
 
-    move-wide/from16 v9, v19
+    move v9, v0
 
-    move-wide/from16 v11, v17
+    move-wide/from16 v10, v19
 
-    invoke-static/range {v4 .. v12}, Lcom/android/settings/fuelgauge/ConvertUtils;->convert(Lcom/android/settings/fuelgauge/BatteryEntry;Landroid/os/BatteryUsageStats;IIIJJ)Landroid/content/ContentValues;
+    move-wide/from16 v12, v17
 
-    move-result-object v4
+    invoke-static/range {v5 .. v13}, Lcom/android/settings/fuelgauge/ConvertUtils;->convert(Lcom/android/settings/fuelgauge/BatteryEntry;Landroid/os/BatteryUsageStats;IIIJJ)Landroid/content/ContentValues;
+
+    move-result-object v5
 
     :try_start_1
     sget-object v0, Lcom/google/android/settings/fuelgauge/DatabaseUtils;->BATTERY_CONTENT_URI:Landroid/net/Uri;
 
-    invoke-virtual {v1, v0, v4}, Landroid/content/ContentResolver;->insert(Landroid/net/Uri;Landroid/content/ContentValues;)Landroid/net/Uri;
+    invoke-virtual {v1, v0, v5}, Landroid/content/ContentResolver;->insert(Landroid/net/Uri;Landroid/content/ContentValues;)Landroid/net/Uri;
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
 
@@ -1489,62 +1493,66 @@
     :catch_1
     move-exception v0
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "insert() data into database error:\n"
+    const-string v7, "insert() data into database error:\n"
 
-    invoke-virtual {v1, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-static {v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     :goto_1
-    invoke-interface {v2, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v3, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     :goto_2
-    const/4 v0, 0x1
+    move v13, v2
 
     :goto_3
-    const/4 v1, 0x2
+    sget-object v0, Lcom/google/android/settings/fuelgauge/DatabaseUtils;->BATTERY_CONTENT_URI:Landroid/net/Uri;
 
-    new-array v1, v1, [Ljava/lang/Object;
+    const/4 v5, 0x0
 
-    const/4 v4, 0x0
+    invoke-virtual {v1, v0, v5}, Landroid/content/ContentResolver;->notifyChange(Landroid/net/Uri;Landroid/database/ContentObserver;)V
 
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const/4 v0, 0x2
 
-    move-result-object v0
+    new-array v0, v0, [Ljava/lang/Object;
 
-    aput-object v0, v1, v4
+    const/4 v1, 0x0
+
+    invoke-static {v13}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v5
+
+    aput-object v5, v0, v1
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v4
+    move-result-wide v5
 
-    sub-long v4, v4, v21
+    sub-long v5, v5, v21
 
-    invoke-static {v4, v5}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+    invoke-static {v5, v6}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v0
+    move-result-object v1
 
-    const/4 v4, 0x1
+    aput-object v1, v0, v2
 
-    aput-object v0, v1, v4
+    const-string v1, "sendBatteryEntryData() size=%d in %d/ms"
 
-    const-string v0, "sendBatteryEntryData() size=%d in %d/ms"
-
-    invoke-static {v0, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1, v0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-static {v3, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    return-object v2
+    return-object v3
 .end method

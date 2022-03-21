@@ -149,7 +149,7 @@
 .method public getPreferenceKey()Ljava/lang/String;
     .locals 0
 
-    const-string p0, "toggle_adb_wireless"
+    const-string/jumbo p0, "toggle_adb_wireless"
 
     return-object p0
 .end method
@@ -255,7 +255,7 @@
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const p1, 0x7f0401b4
+    const p1, 0x7f0401c8
 
     invoke-static {p0, p1, p2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 

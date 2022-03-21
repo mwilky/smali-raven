@@ -96,6 +96,7 @@
     <string name="peak_refresh_rate_title">ସ୍ମୁଥ୍ ଡିସପ୍ଲେ</string>
     <string name="peak_refresh_rate_summary">କିଛି ବିଷୟବସ୍ତୁ ପାଇଁ ରିଫ୍ରେସ୍ ରେଟ୍ ସ୍ୱଚାଳିତ ଭାବରେ 60ରୁ 90 Hz ପର୍ଯ୍ୟନ୍ତ ବଢ଼ାଇଥାଏ। ବ୍ୟାଟେରୀର ବ୍ୟବହାର ବଢ଼ାଇଥାଏ।</string>
     <string name="accessibility_vibration_settings_title">ଭାଇବ୍ରେସନ୍ ଓ ହାପଟିକ୍ସ</string>
+    <string name="columbus_title">କାର୍ଯ୍ୟଗୁଡ଼ିକ ଆରମ୍ଭ କରିବାକୁ କୁଇକ ଟାପ ବ୍ୟବହାର କରନ୍ତୁ</string>
     <string name="emergency_gesture_screen_title">ଜରୁରୀକାଳୀନ SOS</string>
     <string name="abc_action_mode_done">ହୋଇଗଲା</string>
     <string name="vibrate_for_calls_category_title">କଲଗୁଡ଼ିକ</string>
@@ -103,6 +104,8 @@
     <string name="lockscreen_privacy_controls_setting_toggle">ଡିଭାଇସ୍ ନିୟନ୍ତ୍ରଣଗୁଡ଼ିକୁ ଦେଖାନ୍ତୁ</string>
     <string name="lockscreen_privacy_wallet_summary">ଲକ୍ ସ୍କ୍ରିନ୍ ଏବଂ କ୍ୱିକ୍ ସେଟିଂସରୁ ୱାଲେଟକୁ ଆକ୍ସେସ୍ କରିବା ପାଇଁ ଅନୁମତି ଦିଅନ୍ତୁ</string>
     <string name="lockscreen_privacy_controls_summary">ଲକ୍ ଥିବା ସମୟରେ ନିୟନ୍ତ୍ରଣଗୁଡ଼ିକୁ ଆକ୍ସେସ୍ କରନ୍ତୁ</string>
+    <string name="lockscreen_double_line_clock_summary">ଉପଲବ୍ଧ ହେଲେ ଡବଲ-ଲାଇନ ଘଣ୍ଟା ଦେଖାନ୍ତୁ</string>
+    <string name="lockscreen_double_line_clock_setting_toggle">ଡବଲ-ଲାଇନ ଘଣ୍ଟା</string>
     <string name="abc_activity_chooser_view_see_all">ସବୁ ଦେଖନ୍ତୁ</string>
     <string name="abc_activitychooserview_choose_application">ଗୋଟିଏ ଆପ୍‍ ବାଛନ୍ତୁ</string>
     <string name="abc_capital_off">ବନ୍ଦ</string>
@@ -147,9 +150,11 @@
     <string name="accessibility_alarm_vibration_title">ଆଲାରାମ୍ ଭାଇବ୍ରେସନ୍</string>
     <string name="accessibility_assist_gesture_complete_or_keep_adjusting">Active Edge ସେଟ୍ ଅପ୍। ପରବର୍ତ୍ତୀ ସ୍କ୍ରୀନ୍‌କୁ ଯାଆନ୍ତୁ କିମ୍ୱା ଆଡ୍‌ଜଷ୍ଟ କରୁଥା’ନ୍ତୁ।</string>
     <string name="accessibility_audio_adjustment_title">ଅଡିଓ ଆଡଜଷ୍ଟମେଣ୍ଟ</string>
+    <string name="accessibility_autoclick_about_title">ଅଟୋକ୍ଲିକ୍ ବିଷୟରେ (ଡ୍ୱେଲ୍ ଟାଇମିଂ)</string>
     <string name="accessibility_autoclick_custom_title">କଷ୍ଟମ୍</string>
     <string name="accessibility_autoclick_default_title">ବନ୍ଦ</string>
     <string name="accessibility_autoclick_description">ଅଟୋକ୍ଲିକ୍ ଏକ ସଂଯୁକ୍ତ ମାଉସ ସହ କାମ କରେ। ମାଉସ୍ କର୍ସର୍ କିଛି ସମୟ ସ୍ଥିର ହୋଇଯିବା ପରେ ସ୍ୱଚାଳିତ ଭାବେ କ୍ଲିକ୍ କରିବାକୁ, ଆପଣ କର୍ସରକୁ ସେଟ୍ କରିପାରିବେ।</string>
+    <string name="accessibility_autoclick_footer_learn_more_content_description">ଅଟୋକ୍ଲିକ୍ ବିଷୟରେ ଅଧିକ ଜାଣନ୍ତୁ (ଡ୍ୱେଲ୍ ଟାଇମିଂ)</string>
     <string name="accessibility_autoclick_long_summary">1 ସେକେଣ୍ଡ</string>
     <string name="accessibility_autoclick_long_title">ଲମ୍ଵା</string>
     <string name="accessibility_autoclick_longer_desc">ଅଧିକ</string>
@@ -161,16 +166,17 @@
     <string name="accessibility_autoclick_short_title">ଛୋଟ</string>
     <string name="accessibility_autoclick_shorter_desc">କମ୍</string>
     <string name="accessibility_banner_message_dismiss">ଖାରଜ କରନ୍ତୁ</string>
-    <string name="accessibility_button_description">"ଯେ କୌଣସି ସ୍କ୍ରିନରୁ ଆକ୍ସେସିବିଲିଟୀ ଫିଚରକୁ ଶୀଘ୍ର ଆକ୍ସେସ୍ କରନ୍ତୁ। 
+    <string name="accessibility_button_about_title">ଆକ୍ସେସିବିଲିଟୀ ବଟନ୍ ବିଷୟରେ</string>
+    <string name="accessibility_button_description">"ଯେ କୌଣସି ସ୍କ୍ରିନରୁ ଆକ୍ସେସିବିଲିଟୀ ଫିଚରଗୁଡ଼ିକୁ ଶୀଘ୍ର ଆକ୍ସେସ୍ କରନ୍ତୁ।
 
-ଆରମ୍ଭ କରିବାକୁ, ଆକ୍ସେସିବିଲିଟୀ ସେଟିଂସକୁ ଯାଇ ଗୋଟିଏ ଫିଚରକୁ ଚୟନ କରନ୍ତୁ। ସର୍ଟକଟରେ ଟାପ୍ କରି ଆକ୍ସେସିବିଲିଟୀ ବଟନକୁ ଚୟନ କରନ୍ତୁ।"</string>
+ଆରମ୍ଭ କରିବାକୁ, ଆକ୍ସେସିବିଲିଟୀ ସେଟିଂସକୁ ଯାଇ ଏକ ଫିଚର୍ ଚୟନ କରନ୍ତୁ। ସର୍ଟକଟରେ ଟାପ୍ କରି ଆକ୍ସେସିବିଲିଟୀ ବଟନକୁ ଚୟନ କରନ୍ତୁ।"</string>
     <string name="accessibility_button_fade_summary">କିଛି ସମୟ ପରେ ବଟନଟି ଫିକା ହୋଇଯିବା ଯୋଗୁଁ ଆପଣଙ୍କ ସ୍କ୍ରିନକୁ ଦେଖିବା ସହଜ ହୋଇଥାଏ</string>
     <string name="accessibility_button_fade_title">ବ୍ୟବହାରରେ ନଥିବା ବେଳେ ଫିକା ଦେଖାଯାଏ</string>
+    <string name="accessibility_button_gesture_about_title">ଆକ୍ସେସିବିଲିଟୀ ବଟନ୍ ଏବଂ ଜେଶ୍ଚର୍ ବିଷୟରେ</string>
     <string name="accessibility_button_gesture_description">"ଯେ କୌଣସି ସ୍କ୍ରିନରୁ ଆକ୍ସେସିବିଲିଟୀ ଫିଚରଗୁଡ଼ିକୁ ଶୀଘ୍ର ଆକ୍ସେସ୍ କରନ୍ତୁ।
 
-ଆରମ୍ଭ କରିବାକୁ, ଆକ୍ସେସିବିଲିଟୀ ସେଟିଂସକୁ ଯାଇ ଗୋଟିଏ ଫିଚରକୁ ଚୟନ କରନ୍ତୁ। ସର୍ଟକଟରେ ଟାପ୍ କରି ଆକ୍ସେସିବିଲିଟୀ ବଟନକୁ ଚୟନ କରନ୍ତୁ।
-
-ଏହା ପରିବର୍ତ୍ତେ ନାଭିଗେସନ୍ ବାରରେ ଆକ୍ସେସିବିଲିଟୀ ବଟନକୁ ବ୍ୟବହାର କରିବା ପାଇଁ 2-ବଟନ୍ ନାଭିଗେସନ୍ କିମ୍ବା 3-ବଟନ୍ ନାଭିଗେସନକୁ ସ୍ୱିଚ୍ କରନ୍ତୁ।"</string>
+ଆରମ୍ଭ କରିବାକୁ, ଆକ୍ସେସିବିଲିଟୀ ସେଟିଂସକୁ ଯାଇ ଏକ ଫିଚର୍ ଚୟନ କରନ୍ତୁ। ସର୍ଟକଟରେ ଟାପ୍ କରି ଆକ୍ସେସିବିଲିଟୀ ବଟନ କିମ୍ବା ଜେଶ୍ଚରକୁ ଚୟନ କରନ୍ତୁ।"</string>
+    <string name="accessibility_button_gesture_footer_learn_more_content_description">ଆକ୍ସେସିବିଲିଟୀ ବଟନ୍ ଏବଂ ଜେଶ୍ଚର୍ ବିଷୟରେ ଅଧିକ ଜାଣନ୍ତୁ</string>
     <string name="accessibility_button_gesture_title">ଆକ୍ସେସିବିଲିଟୀ ବଟନ୍ ଏବଂ ଜେଶ୍ଚର୍</string>
     <string name="accessibility_button_high_label">ନନ୍-ଟ୍ରାନ୍ସପେରେଣ୍ଟ</string>
     <string name="accessibility_button_intro">ଆକ୍ସେସିବିଲିଟୀ ବଟନ୍ ବ୍ୟବହାର କରାଯାଉଛି। 3-ବଟନ୍ ନାଭିଗେସନ୍ ମାଧ୍ୟମରେ ଜେଶ୍ଚର୍ ଉପଲବ୍ଧ ନାହିଁ।</string>
@@ -184,14 +190,23 @@
     <string name="accessibility_caption_preference_summary">ସବୁ ଆପ୍ସରେ ଏହି କ୍ୟାପସନ୍ ପସନ୍ଦଗୁଡ଼ିକ ସମର୍ଥିତ ନୁହେଁ</string>
     <string name="accessibility_caption_primary_switch_summary">କେବଳ ସମର୍ଥିତ ଆପ୍ ପାଇଁ</string>
     <string name="accessibility_caption_primary_switch_title">କ୍ୟାପ୍ସନଗୁଡ଼ିକୁ ଦେଖାନ୍ତୁ</string>
+    <string name="accessibility_captioning_about_title">କ୍ୟାପ୍ସନ୍ ପସନ୍ଦଗୁଡ଼ିକ ବିଷୟରେ</string>
+    <string name="accessibility_captioning_footer_learn_more_content_description">କ୍ୟାପ୍ସନ୍ ପସନ୍ଦଗୁଡ଼ିକ ବିଷୟରେ ଅଧିକ ଜାଣନ୍ତୁ</string>
     <string name="accessibility_captioning_title">କ୍ୟାପସନ୍ ପସନ୍ଦଗୁଡ଼ିକ</string>
     <string name="accessibility_category_personal">ବ୍ୟକ୍ତିଗତ ପ୍ରୋଫାଇଲ୍‌ ଆକାଉଣ୍ଟ</string>
     <string name="accessibility_category_work">କାର୍ଯ୍ୟ ପ୍ରୋଫାଇଲ ଆକାଉଣ୍ଟ - %s</string>
+    <string name="accessibility_color_inversion_about_title">ରଙ୍ଗ ଇନଭାର୍ସନ ବିଷୟରେ</string>
+    <string name="accessibility_color_inversion_footer_learn_more_content_description">ରଙ୍ଗ ଇନଭାର୍ସନ ବିଷୟରେ ଅଧିକ ଜାଣନ୍ତୁ</string>
+    <string name="accessibility_control_timeout_about_title">ପଦକ୍ଷେପ ନେବାର ସମୟ ବିଷୟରେ (ଆକ୍ସେସିବିଲିଟୀ ସମୟ ସମାପ୍ତ)</string>
+    <string name="accessibility_control_timeout_footer_learn_more_content_description">ପଦକ୍ଷେପ ନେବାର ସମୟ ବିଷୟରେ ଅଧିକ ଜାଣନ୍ତୁ (ଆକ୍ସେସିବିଲିଟୀ ସମୟ ସମାପ୍ତି)</string>
     <string name="accessibility_control_timeout_preference_summary">"ଯେଉଁ ମେସେଜ୍‍ ଆପଣଙ୍କୁ ପଦକ୍ଷେପ ନେବା ପାଇଁ କହେ, କିନ୍ତୁ ଅସ୍ଥାୟୀ ରୂପେ ଦେଖାଯାଏ, ତାହା କେତେ ସମୟ ଦେଖାଯିବ, ତାହା ବାଛନ୍ତୁ।
 
 ସମସ୍ତ ଆପ୍‍ ଏହି ସେଟିଂସ୍‍କୁ ସମର୍ଥନ କରେନାହିଁ।"</string>
     <string name="accessibility_control_timeout_preference_title">ପଦକ୍ଷେପ ନେବାର ସମୟ</string>
+    <string name="accessibility_daltonizer_about_title">ରଙ୍ଗ ସଂଶୋଧନ ବିଷୟରେ</string>
+    <string name="accessibility_daltonizer_footer_learn_more_content_description">ରଙ୍ଗ ସଂଶୋଧନ ବିଷୟରେ ଅଧିକ ଜାଣନ୍ତୁ</string>
     <string name="accessibility_daltonizer_primary_switch_title">ରଙ୍ଗ ସଂଶୋଧନ ବ୍ୟବହାର କରନ୍ତୁ</string>
+    <string name="accessibility_daltonizer_shortcut_title">ରଙ୍ଗ ସଂଶୋଧନ ପାଇଁ ସର୍ଟକଟ୍</string>
     <string name="accessibility_data_one_bar">ଡାଟାର ଗୋଟିଏ ବାର ଅଛି।</string>
     <string name="accessibility_data_signal_full">ଡାଟା ସିଗ୍ନାଲ୍ ପୂର୍ଣ୍ଣ ଅଛି।</string>
     <string name="accessibility_data_three_bars">ଡାଟାର ତିନୋଟି ବାର୍‍ ଅଛି।</string>
@@ -206,6 +221,7 @@
     <string name="accessibility_display_daltonizer_preference_title">ରଙ୍ଗ ସଂଶୋଧନ</string>
     <string name="accessibility_display_inversion_preference_subtitle">"'ରଙ୍ଗ ଇନଭାର୍ସନ’ ଫିକା ସ୍କ୍ରିନଗୁଡ଼ିକୁ ଗାଢ଼ କରିଥାଏ।&lt;br/>&lt;br/> ଧ୍ୟାନ ଦିଅନ୍ତୁ: &lt;ol> &lt;li> 'ରଙ୍ଗ ଇନଭାର୍ସନ’ ଗାଢ଼ ସ୍କ୍ରିନକୁ ମଧ୍ୟ ଫିକା କରିଥାଏ। &lt;/li> &lt;li> ମିଡିଆ ଏବଂ ଛବିଗୁଡ଼ିକରେ ରଙ୍ଗ ପରିବର୍ତ୍ତନ ହୁଏ। &lt;/li> &lt;li> ଗାଢ଼ ପୃଷ୍ଠପଟ ଡିସପ୍ଲେ କରିବାକୁ ଗାଢ଼ ଥିମ୍ ବ୍ୟବହାର କରାଯାଇପାରିବ। ଗାଢ଼ ଥିମ୍ ସମର୍ଥିତ ଆପଗୁଡ଼ିକ ସହିତ କାମ କରେ। ସମସ୍ତ ଆପରେ 'ରଙ୍ଗ ଇନଭାର୍ସନ’ କାମ କରେ।&lt;/li> &lt;/ol>"</string>
     <string name="accessibility_display_inversion_preference_title">ରଙ୍ଗ ଇନଭାର୍ସନ୍</string>
+    <string name="accessibility_display_inversion_shortcut_title">ରଙ୍ଗ ଇନଭାର୍ସନ୍ ପାଇଁ ସର୍ଟକଟ୍</string>
     <string name="accessibility_display_inversion_switch_title">ରଙ୍ଗ ଇନଭାର୍ସନ୍ ବ୍ୟବହାର କରନ୍ତୁ</string>
     <string name="accessibility_ethernet_connected">ଇଥରନେଟ୍।</string>
     <string name="accessibility_ethernet_disconnected">ଇଥରନେଟ୍‍ ବିଚ୍ଛିନ୍ନ ହୋଇଛି।</string>
@@ -255,6 +271,8 @@
     <string name="accessibility_phone_two_bars">ଫୋନର ଦୁଇଟି ବାର୍‌ ଅଛି।</string>
     <string name="accessibility_power_button_ends_call_prerefence_title">ପାୱର୍‌ ବଟନ୍‌ କଲ୍‌ ସମାପ୍ତ କରେ</string>
     <string name="accessibility_preference_magnification_summary">ସ୍କ୍ରିନ୍‌ ଉପରେ ଜୁମ୍‌ ଇନ୍‌ କରନ୍ତୁ</string>
+    <string name="accessibility_screen_magnification_about_title">ମ୍ୟାଗ୍ନିଫିକେସନ୍ ବିଷୟରେ</string>
+    <string name="accessibility_screen_magnification_footer_learn_more_content_description">ମ୍ୟାଗ୍ନିଫିକେସନ୍ ବିଷୟରେ ଅଧିକ ଜାଣନ୍ତୁ</string>
     <string name="accessibility_screen_magnification_gesture_navigation_warning">ଆକ୍ସେସିବିଲିଟୀ ଜେଶ୍ଚର୍ %1$sରେ ସେଟ୍ କରାଯାଇଛି। ମ୍ୟାଗ୍ନିଫିକେସନ୍ ବ୍ୟବହାର କରିବା ପାଇଁ, ଦୁଇଟି ଆଙ୍ଗୁଠିରେ ସ୍କ୍ରିନ୍‌ର ତଳୁ ଉପର ଆଡ଼କୁ ସ୍ୱାଇପ୍ କରି ଧରି ରଖନ୍ତୁ। ତା’ପରେ ମ୍ୟାଗ୍ନିଫିକେସନ୍ ଚୟନ କରନ୍ତୁ।</string>
     <string name="accessibility_screen_magnification_gestures_title">ଟ୍ରିପଲ୍‌-ଟାପ୍‌ ଦ୍ୱାରା ମାଗ୍ନିଫାଏ କରନ୍ତୁ</string>
     <string name="accessibility_screen_magnification_navbar_configuration_warning">%1$sକୁ ଆକ୍‌ସେସିବିଲିଟୀ ବଟନ୍‌ ସେଟ୍‌ କରାଯାଇଛି। ମାଗ୍ନିଫିକେଶନ୍‌କୁ ବ୍ୟବହାର କରିବା ପାଇଁ ଆକ୍ସେସିବିଲିଟୀ ବଟନ୍‌କୁ ଦାବି ଧରନ୍ତୁ, ତା’ପରେ ମାଗ୍ନିଫିକେଶନ୍‌କୁ ଚୟନ କରନ୍ତୁ।</string>
@@ -272,6 +290,7 @@
 ଆପଣ କୀବୋର୍ଡ ବା ନେଭିଗେସନ୍ ବାର୍ ଉପରେ ଜୁମ୍ ବଢ଼ାଇ ପାରିବେ ନାହିଁ।"</string>
     <string name="accessibility_screen_magnification_navbar_title">ସର୍ଟକଟ୍ ସାହାଯ୍ୟରେ ମାଗ୍ନିଫାଏ କରନ୍ତୁ</string>
     <string name="accessibility_screen_magnification_short_summary">ଜୁମ୍‌ କରିବାକୁ 3ଥର ଟାପ୍‌ କରନ୍ତୁ</string>
+    <string name="accessibility_screen_magnification_shortcut_title">ମ୍ୟାଗ୍ନିଫିକେସନ୍ ପାଇଁ ସର୍ଟକଟ୍</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">ତିନି ଥର ଟାପ୍ ଓ ସର୍ଟକଟ୍ ସାହାଯ୍ୟରେ ମାଗ୍ନିଫାଏ କରନ୍ତୁ</string>
     <string name="accessibility_screen_magnification_summary">ବିଷୟବସ୍ତୁକୁ ଅଧିକ ବଡ଼ କରିବା ପାଇଁ ସ୍କ୍ରିନରେ ଶୀଘ୍ର ଜୁମ୍ ଇନ୍ କରନ୍ତୁ।&lt;br/>&lt;br/> &lt;b>ଜୁମ୍ ଇନ୍ କରିବାକୁ:&lt;/b>&lt;br/> {0,number,integer}. ମ୍ୟାଗ୍ନିଫିକେସନ୍ ଆରମ୍ଭ କରିବାକୁ ସର୍ଟକଟ୍ ବ୍ୟବହାର କରନ୍ତୁ&lt;br/> {1,number,integer}. ସ୍କ୍ରିନରେ ଟାପ୍ କରନ୍ତୁ&lt;br/> {2,number,integer}. ସ୍କ୍ରିନର ଚାରିପଟେ ମୁଭ୍ କରିବାକୁ 2ଟି ଆଙ୍ଗୁଠିରେ ଟାଣନ୍ତୁ&lt;br/> {3,number,integer}. ଜୁମ୍ ଆଡଜଷ୍ଟ କରିବାକୁ 2ଟି ଆଙ୍ଗୁଠିରେ ପିଞ୍ଚ କରନ୍ତୁ&lt;br/> {4,number,integer}. ମ୍ୟାଗ୍ନିଫିକେସନ୍ ବନ୍ଦ କରିବାକୁ ସର୍ଟକଟ୍ ବ୍ୟବହାର କରନ୍ତୁ&lt;br/>&lt;br/> &lt;b>ଅସ୍ଥାୟୀ ଭାବେ ଜୁମ୍ ଇନ୍ କରିବାକୁ:&lt;/b>&lt;br/> {0,number,integer}. ମ୍ୟାଗ୍ନିଫିକେସନ୍ ଆରମ୍ଭ କରିବାକୁ ସର୍ଟକଟ୍ ବ୍ୟବହାର କରନ୍ତୁ&lt;br/> {1,number,integer}. ସ୍କ୍ରିନରେ ଯେ କୌଣସି ସ୍ଥାନରେ ସ୍ପର୍ଶ କରି ଧରି ରଖନ୍ତୁ&lt;br/> {2,number,integer}. ସ୍କ୍ରିନର ଚାରିପଟେ ମୁଭ୍ କରିବାକୁ ଆଙ୍ଗୁଠିରେ ଟାଣନ୍ତୁ&lt;br/> {3,number,integer}. ମ୍ୟାଗ୍ନିଫିକେସନ୍ ବନ୍ଦ କରିବାକୁ ଆଙ୍ଗୁଠିକୁ ଉଠାନ୍ତୁ</string>
     <string name="accessibility_screen_magnification_title">ମ୍ୟାଗ୍ନିଫିକେସନ୍</string>
@@ -370,7 +389,7 @@
     <string name="accessibility_tutorial_dialog_message_volume">ଏହି ଫିଚର୍ ବ୍ୟବହାର କରିବାକୁ, ଉଭୟ ଭଲ୍ୟୁମ୍ କୀ’କୁ ଦବାଇ ଧରନ୍ତୁ।</string>
     <string name="accessibility_tutorial_dialog_title_button">ଖୋଲିବା ପାଇଁ ଆକ୍ସେସିବିଲିଟୀ ବଟନ୍ ବ୍ୟବହାର କରନ୍ତୁ</string>
     <string name="accessibility_tutorial_dialog_title_gesture">ଖୋଲିବା ପାଇଁ ଜେଶ୍ଚର୍ ବ୍ୟବହାର କରନ୍ତୁ</string>
-    <string name="accessibility_tutorial_dialog_title_gesture_settings">ନୂଆ ଆକ୍ସେସିବିଲିଟୀ ଜେଶ୍ଚର୍ ବ୍ୟବହାର କରନ୍ତୁ</string>
+    <string name="accessibility_tutorial_dialog_title_gesture_settings">ଆକ୍ସେସିବିଲିଟୀ ଜେଶ୍ଚର ବ୍ୟବହାର କରନ୍ତୁ</string>
     <string name="accessibility_tutorial_dialog_title_triple">ଖୋଲିବାକୁ ସ୍କ୍ରିନରେ ତିନି ଥର ଟାପ୍ କରନ୍ତୁ</string>
     <string name="accessibility_tutorial_dialog_title_volume">"ଖୋଲିବାକୁ ଭଲ୍ୟୁମ୍ କୀ'ଗୁଡ଼ିକୁ ଧରି ରଖନ୍ତୁ"</string>
     <string name="accessibility_tutorial_pager">%2$d ମଧ୍ୟରୁ %1$d ପୃଷ୍ଠା</string>
@@ -936,6 +955,7 @@
     <string name="battery_level_title">ବ୍ୟାଟେରୀ ସ୍ତର</string>
     <string name="battery_manager_off">ବନ୍ଦ ଅଛି</string>
     <string name="battery_manager_summary">ବ୍ୟାଟେରୀର ଲାଇଫ୍ ବଢ଼ାନ୍ତୁ ଏବଂ ଚାର୍ଜିଂକୁ ଅପ୍ଟିମାଇଜ୍ କରନ୍ତୁ</string>
+    <string name="battery_manager_summary_unsupported">ବ୍ୟାଟେରୀ ଲାଇଫ ବଢ଼ାନ୍ତୁ</string>
     <string name="battery_missing_link_a11y_message">ଏହି ତ୍ରୁଟି ବିଷୟରେ ଅଧିକ ଜାଣିବାକୁ ଟାପ୍ କରନ୍ତୁ</string>
     <string name="battery_missing_link_message">ଅଧିକ ଜାଣନ୍ତୁ</string>
     <string name="battery_missing_message">ବ୍ୟାଟେରୀ ମିଟର୍ ପଢ଼ିବାରେ ସମସ୍ୟା ହେଉଛି।</string>
@@ -1061,6 +1081,7 @@
     <string name="battery_usage_screen_footer">ବ୍ୟାଟେରୀ ବ୍ୟବହାର ଡାଟା ଆନୁମାନିକ ଅଟେ ଏବଂ ଫୋନ୍ ଚାର୍ଜ ହେଉଥିବା ସମୟରେ ବ୍ୟବହାର ମାପ କରାଯାଏ ନାହିଁ</string>
     <string name="battery_usage_screen_footer_empty">ଆପଣ କିଛି ଘଣ୍ଟା ପାଇଁ ଆପଣଙ୍କ ଫୋନ୍ ବ୍ୟବହାର କରିବା ପରେ ବ୍ୟାଟେରୀ ବ୍ୟବହାର ଡାଟା ଉପଲବ୍ଧ ହେବ</string>
     <string name="battery_usage_total_less_than_one_minute">ମୋଟ: ଏକ ମିନିଟରୁ କମ୍</string>
+    <string name="battery_usage_without_time" />
     <string name="battery_used_by">%2$s ଦ୍ୱାରା %1$s ବ୍ୟବହୃତ</string>
     <string name="battery_used_for">^1 ବ୍ୟବହୃତ</string>
     <string name="bearer">ବାହକ</string>
@@ -1069,12 +1090,14 @@
     <string name="billing_cycle_less_than_one_day_left">1 ଦିନରୁ କମ୍‌ ଅବଶିଷ୍ଟ</string>
     <string name="billing_cycle_none_left">ବିଲିଙ୍ଗ ସମୟ ପୂରାହୋ‌ଇଛି</string>
     <string name="biometric_settings_category_ways_to_unlock">ଅନଲକ୍ କରିବାର ଉପାୟ</string>
-    <string name="biometric_settings_category_ways_to_use">ଏଥିପାଇଁ ଫେସ୍ ଏବଂ ଟିପଚିହ୍ନ ବ୍ୟବହାର କରନ୍ତୁ</string>
     <string name="biometric_settings_hand_back_to_guardian">ଫୋନଟି ତୁମ ବାପାମାଙ୍କୁ ଫେରାଇ ଦିଅ</string>
     <string name="biometric_settings_hand_back_to_guardian_ok">ଠିକ୍ ଅଛି</string>
     <string name="biometric_settings_intro">ଯେତେବେଳେ ଆପଣ ଫେସ୍ ଅନଲକ୍ ଏବଂ ଫିଙ୍ଗରପ୍ରିଣ୍ଟ ଅନଲକ୍ ସେଟ୍ ଅପ୍ କରନ୍ତି, ସେତେବେଳେ ଆପଣ ଏକ ମାସ୍କ ପିନ୍ଧିଥିଲେ ବା ଏକ ଅନ୍ଧାରୁଆ ସ୍ଥାନରେ ଥିଲେ ଆପଣଙ୍କ ଫୋନ୍ ଆପଣଙ୍କ ଟିପଚିହ୍ନ ପାଇଁ ପଚାରିବ</string>
-    <string name="biometric_settings_use_biometric_for_apps">ଆପଗୁଡ଼ିକରେ ପ୍ରମାଣୀକରଣ</string>
-    <string name="biometric_settings_use_biometric_unlock_phone">ଫୋନକୁ ଅନଲକ୍ କରାଯାଉଛି</string>
+    <string name="biometric_settings_use_biometric_for_apps">ଏହା ଆପଣ ଅଟନ୍ତି ବୋଲି ଆପଗୁଡ଼ିକରେ ଯାଞ୍ଚ କରନ୍ତୁ</string>
+    <string name="biometric_settings_use_biometric_unlock_phone">ଆପଣଙ୍କ ଫୋନ ଅନଲକ କରନ୍ତୁ</string>
+    <string name="biometric_settings_use_face_or_fingerprint_preference_summary">ଫେସ ବା ଟିପଚିହ୍ନ ବ୍ୟବହାର କରି</string>
+    <string name="biometric_settings_use_face_preference_summary">ଫେସ ବ୍ୟବହାର କରି</string>
+    <string name="biometric_settings_use_fingerprint_preference_summary">ଟିପଚିହ୍ନ ବ୍ୟବହାର କରି</string>
     <string name="biometrics_unlock_set_unlock_password">ପାସୱାର୍ଡ • ଫେସ୍ • ଟିପଚିହ୍ନ</string>
     <string name="biometrics_unlock_set_unlock_pattern">ପାଟର୍ନ • ଫେସ୍• ଟିପଚିହ୍ନ</string>
     <string name="biometrics_unlock_set_unlock_pin">PIN • ଫେସ୍ • ଟିପଚିହ୍ନ</string>
@@ -1332,7 +1355,6 @@
     <string name="bluetooth_settings_title">ବ୍ଲୁଟୁଥ</string>
     <string name="bluetooth_show_devices_without_names">ବ୍ଲୁଟୂଥ୍‍‌ ଡିଭାଇସ୍‌ଗୁଡ଼ିକୁ ନାମ ବିନା ଦେଖନ୍ତୁ</string>
     <string name="bluetooth_show_devices_without_names_summary">(କେବଳ MAC ଠିକଣା ଥାଇ) ନାମ ବିନା ବ୍ଲୁଟୂଥ ଡିଭାଇସଗୁଡ଼ିକ ପ୍ରଦର୍ଶିତ ହେବ</string>
-    <string name="bluetooth_show_files_received_via_bluetooth">ବ୍ଲୁଟୁଥ୍‍ ମାଧ୍ୟମରେ ପ୍ରାପ୍ତ ଫାଇଲ୍‍</string>
     <string name="bluetooth_show_received_files">ପାଇଥିବା ଫାଇଲ୍‌</string>
     <string name="bluetooth_sim_card_access_dialog_content">"ଏକ ବ୍ଲୁଟୁଥ୍ ଡିଭାଇସ୍, %1$s, ଆପଣଙ୍କ SIM କାର୍ଡରେ ଥିବା ଡାଟାକୁ ଆକ୍ସେସ୍ କରିବାକୁ ଚାହୁଁଛି। ଏଥିରେ ଆପଣଙ୍କ ଯୋଗାଯୋଗ ଅନ୍ତର୍ଭୁକ୍ତ ଅଛି।
 
@@ -1426,6 +1448,7 @@
     <string name="calls_sms_temp_unavailable">ଅସ୍ଥାୟୀ ଭାବେ ଅନୁପଲବ୍ଧ</string>
     <string name="calls_sms_unavailable">ଉପଲବ୍ଧ ନାହିଁ</string>
     <string name="calls_sms_wfc_summary">ୱାଇ-ଫାଇ ମାଧ୍ୟମରେ କଲ୍ କରନ୍ତୁ ଓ ପ୍ରାପ୍ତ କରନ୍ତୁ</string>
+    <string name="cam_toggle_description">ଆପ ଓ ସେବାଗୁଡ଼ିକ ପାଇଁ</string>
     <string name="camera_double_tap_power_gesture_desc">ନିଜ ଫୋନ୍‌କୁ ଅନ୍‌ଲକ୍‌ ନକରି ଶୀଘ୍ର କ୍ୟାମେରା ଖୋଲନ୍ତୁ</string>
     <string name="camera_double_tap_power_gesture_title">କ୍ୟାମେରା ପାଇଁ ପାୱର୍‌ ବଟନ୍‌କୁ ଦୁଇଥର ଦବାନ୍ତୁ</string>
     <string name="camera_laser_sensor_switch">କ୍ୟାମେରା ଲେଜର୍‌ ସେନ୍ସର୍‌</string>
@@ -3302,6 +3325,7 @@
     <string name="menu_stats_total">ସମୁଦାୟ ବ୍ୟବହାର</string>
     <string name="menu_stats_unplugged">%1$s ପ୍ଲଗ କଢାଯିବା ପରଠାରୁ</string>
     <string name="menu_use_uss">Uss ବ୍ୟବହାର କରନ୍ତୁ</string>
+    <string name="mic_toggle_description">ଆପ ଓ ସେବାଗୁଡ଼ିକ ପାଇଁ। ଯଦି ଏହି ସେଟିଂ ବନ୍ଦ ଥାଏ, ତେବେ ଆପଣ ଏକ ଜରୁରୀକାଳୀନ ନମ୍ବରକୁ କଲ କରିବା ସମୟରେ ମାଇକ୍ରୋଫୋନ ଡାଟା ଏବେ ବି ସେୟାର କରାଯାଇପାରେ।</string>
     <string name="mic_toggle_title">ମାଇକ୍ରୋଫୋନ୍ ଆକ୍ସେସ୍</string>
     <string name="misc_files">ଅନ୍ୟାନ୍ୟ ଫାଇଲ୍‌ଗୁଡ଼ିକ</string>
     <string name="misc_files_selected_count">%2$d ମଧ୍ୟରୁ %1$d ଚୟନିତ</string>
@@ -3728,6 +3752,7 @@
     <string name="one_handed_action_show_notification_title">ବିଜ୍ଞପ୍ତିଗୁଡ଼ିକ ଦେଖାନ୍ତୁ</string>
     <string name="one_handed_mode_enabled">ଏକ-ହାତ ମୋଡ୍ ବ୍ୟବହାର କରନ୍ତୁ</string>
     <string name="one_handed_mode_intro_text">ଏକ ହାତ ମୋଡ୍ ବ୍ୟବହାର କରିବା ପାଇଁ, ସ୍କ୍ରିନର ତଳ ପାର୍ଶ୍ୱରେ ତଳକୁ ସ୍ୱାଇପ୍ କରନ୍ତୁ। ଏହି ଫିଚରକୁ ବ୍ୟବହାର କରିବା ପାଇଁ, ସିଷ୍ଟମ୍ ନାଭିଗେସନ୍ ସେଟିଂସରେ ଜେଶ୍ଚର୍ ନାଭିଗେସନ୍ ଚାଲୁ ଥିବା ସୁନିଶ୍ଚିତ କରନ୍ତୁ।</string>
+    <string name="one_handed_mode_shortcut_title">ଏକ-ହାତ ମୋଡ୍ ସର୍ଟକଟ୍</string>
     <string name="one_handed_mode_swipe_down_category">ଏହା କରିବା ପାଇଁ ତଳକୁ ସ୍ୱାଇପ୍ କରନ୍ତୁ</string>
     <string name="one_handed_mode_use_shortcut_category">ଏଥିପାଇଁ ସର୍ଟକଟ୍ ବ୍ୟବହାର କରନ୍ତୁ</string>
     <string name="one_usercrt">ଜଣେ ଉପଯୋଗକର୍ତ୍ତାଙ୍କ ସର୍ଟିଫିକେଟ୍‌</string>
@@ -3803,7 +3828,7 @@
     <string name="post_dsds_reboot_notification_title_with_carrier">%1$s ସକ୍ରିୟ ଅଛି</string>
     <string name="power_bluetooth">ବ୍ଲୁଟୁଥ</string>
     <string name="power_camera">କ୍ୟାମେରା</string>
-    <string name="power_cell">ମୋବାଇଲ୍ ନେଟ୍‌ୱର୍କ ଷ୍ଟାଣ୍ଡବାଏ</string>
+    <string name="power_cell">ମୋବାଇଲ ନେଟୱାର୍କ</string>
     <string name="power_charge_remaining">ଚାର୍ଜ କରିବା ପାଇଁ %1$s ଲାଗିବ</string>
     <string name="power_charging">%1$s - %2$s</string>
     <string name="power_charging_duration">%1$s - ପୂର୍ଣ୍ଣ ହେବାକୁ ଆଉ %2$s ବାକି ଅଛି</string>
@@ -3945,7 +3970,7 @@
     <string name="print_settings_summary_no_service">ବନ୍ଦ</string>
     <string name="print_settings_title">ପ୍ରିଣ୍ଟ ସେବା</string>
     <string name="printer_info_desc">ଏହି ପ୍ରିଣ୍ଟର୍‌ ବିଷୟରେ ଅଧିକ ସୂଚନା</string>
-    <string name="priority_conversation_count_zero">କୌଣସି ପ୍ରାଥମିକତା ଥିବା ବାର୍ତ୍ତାଳାପ ନାହିଁ</string>
+    <string name="priority_conversation_count_zero">ପ୍ରାଥମିକତା ଥିବା କୌଣସି ବାର୍ତ୍ତାଳାପ ନାହିଁ</string>
     <string name="privacy_dashboard_summary">ଅନୁମତିଗୁଡ଼ିକ, ଆକାଉଣ୍ଟ କାର୍ଯ୍ୟକଳାପ, ବ୍ୟକ୍ତିଗତ ଡାଟା</string>
     <string name="privacy_dashboard_title">ଗୋପନୀୟତା</string>
     <string name="privacy_settings_title">ବ୍ୟାକଅପ୍‌</string>
@@ -4037,6 +4062,7 @@
     <string name="recent_notifications">ବର୍ତ୍ତମାନ ବିଜ୍ଞପ୍ତି ପଠାଇଥିବା ଆପ୍</string>
     <string name="recent_notifications_see_all_title">ବିଗତ 7 ଦିନର ସବୁକୁ ଦେଖନ୍ତୁ</string>
     <string name="recompute_size">ଆକାରକୁ ପୁଣି ଗଣୁଛି…</string>
+    <string name="reduce_bright_colors_about_title">ଅତିରିକ୍ତ ଡିମ୍ ବିଷୟରେ</string>
     <string name="reduce_bright_colors_intensity_end_label">ଉଜ୍ଜ୍ୱଳତର</string>
     <string name="reduce_bright_colors_intensity_preference_title">ତୀବ୍ରତା</string>
     <string name="reduce_bright_colors_intensity_start_label">ହାଲକା ଆଲୋକ</string>
@@ -4044,6 +4070,7 @@
     <string name="reduce_bright_colors_preference_subtitle">ଆପଣଙ୍କ ସ୍କ୍ରିନକୁ ଅଧିକ ଡିମ୍ କରନ୍ତୁ ଯାହା ଫଳରେ ପଢ଼ିବା ଅଧିକ ଆରାମଦାୟକ ହେବ।&lt;br/>&lt;br/> ଏହା ଉପଯୋଗୀ ହୋଇପାରେ, ଯେତେବେଳେ: &lt;ol> &lt;li> ଆପଣଙ୍କ ଫୋନର ଡିଫଲ୍ଟ ସର୍ବନିମ୍ନ ଉଜ୍ଜ୍ୱଳତା ଏବେ ବି ଅତ୍ୟଧିକ ଉଜ୍ଜ୍ୱଳ ଅଛି&lt;/li> &lt;li> ରାତିରେ କିମ୍ବା ଶୋଇବା ପୂର୍ବରୁ କୌଣସି ଅନ୍ଧାରୁଆ ରୁମ୍ ପରି ଅନ୍ଧକାର ସ୍ଥିତିରେ ଆପଣ ଆପଣଙ୍କ ଫୋନକୁ ବ୍ୟବହାର କରୁଛନ୍ତି&lt;/li> &lt;/ol></string>
     <string name="reduce_bright_colors_preference_summary">ସ୍କ୍ରିନକୁ ଆପଣଙ୍କ ଫୋନର ସର୍ବନିମ୍ନ ଉଜ୍ଜ୍ୱଳତାଠାରୁ ଅଧିକ ଡିମ୍ କରନ୍ତୁ</string>
     <string name="reduce_bright_colors_preference_title">ଅତିରିକ୍ତ ଡିମ୍</string>
+    <string name="reduce_bright_colors_shortcut_title">ଅତିରିକ୍ତ ଡିମ୍ ପାଇଁ ସର୍ଟକଟ୍</string>
     <string name="reduce_bright_colors_switch_title">ସ୍କ୍ରିନକୁ ଅତିରିକ୍ତ ଡିମ୍ କରନ୍ତୁ</string>
     <string name="register_automatically">ସ୍ଵଚାଳିତ ପଞ୍ଜିକରଣ…</string>
     <string name="register_on_network">%sରେ ପଞ୍ଜିକରଣ ହେଉଛି…</string>
@@ -4249,7 +4276,6 @@
     <string name="screen_pinning_unlock_pattern">ଅନ୍‌ପିନ୍‌ କରିବା ପୂର୍ବରୁ ଅନ୍‌ଲକ୍ ପାଟର୍ନ ପାଇଁ ପଚାରନ୍ତୁ</string>
     <string name="screen_pinning_unlock_pin">ଅନ୍‌ପିନ୍‌ କରିବା ପୂର୍ବରୁ PIN ମାଗନ୍ତୁ</string>
     <string name="screen_reader_category_title">ସ୍କ୍ରିନ୍ ରିଡର୍</string>
-    <string name="screen_saver_main_switch_title">ସ୍କ୍ରିନ୍ ସେଭର୍ ବ୍ୟବହାର କରନ୍ତୁ</string>
     <string name="screen_time_summary_usage_today">ଆଜି %1$s</string>
     <string name="screen_timeout_summary">ନିଷ୍କ୍ରିୟତାର %1$s ପରେ</string>
     <string name="screen_timeout_title">ସ୍କ୍ରୀନ୍‌ ବନ୍ଦ‌ ହୁଏ</string>
@@ -4279,6 +4305,7 @@
     <string name="screensaver_settings_button">ସେଟିଂସ୍</string>
     <string name="screensaver_settings_current">ବର୍ତ୍ତମାନର ସ୍କ୍ରିନ୍ ସେଭର୍</string>
     <string name="screensaver_settings_disabled_prompt">ଫୋନ୍‌ ଡକ୍‌ କରାଯାଇଥିଲେ ଏବଂ/କିମ୍ବା ସୁପ୍ତ ଥିବାବେଳେ ସେଥିରେ ହେଉଥିବା ଘଟଣାଗୁଡ଼ିକୁ ନିୟନ୍ତ୍ରଣ କରିବା ପାଇଁ ସ୍କ୍ରୀନ୍‌ ସେଭର୍‌ ଅନ୍‌ କରନ୍ତୁ।</string>
+    <string name="screensaver_settings_dream_start">ବର୍ତ୍ତମାନ ଆରମ୍ଭ କରନ୍ତୁ</string>
     <string name="screensaver_settings_summary_dock">ଡକ୍‌ ହୋଇଥିବାବେଳେ</string>
     <string name="screensaver_settings_summary_either_long">ଚାର୍ଜ ହେଉଥିବା କିମ୍ବା ଡକ୍‌ ହୋଇଥିବା ବେଳେ</string>
     <string name="screensaver_settings_summary_either_short">ଏହା କିମ୍ବା ତାହା</string>
@@ -4329,15 +4356,6 @@
     <string name="security_settings_biometric_preference_summary_both_fp_single">ଚେହେରା ଏବଂ ଟିପଚିହ୍ନ ଯୋଗ କରାଯାଇଛି</string>
     <string name="security_settings_biometric_preference_summary_none_enrolled">ସେଟ୍ ଅପ୍ କରିବାକୁ ଟାପ୍ କରନ୍ତୁ</string>
     <string name="security_settings_biometric_preference_title">ଫେସ୍ ଏବଂ ଫିଙ୍ଗରପ୍ରିଣ୍ଟ ଅନଲକ୍</string>
-    <string name="security_settings_biometrics_description">ଯେତେବେଳେ ଆପଣ ଫେସ୍ ଏବଂ ଫିଙ୍ଗରପ୍ରିଣ୍ଟ ଅନଲକ୍ ସେଟ୍ ଅପ୍ କରନ୍ତି, ଆପଣ ଏକ ମାସ୍କ ପିନ୍ଧିଥିଲେ ବା ଏକ ଅନ୍ଧାରୁଆ ସ୍ଥାନରେ ଥିଲେ ଆପଣଙ୍କ ଫୋନ୍ ଆପଣଙ୍କ ଟିପଚିହ୍ନ ପାଇଁ ପଚାରିବ</string>
-    <string name="security_settings_biometrics_preference_use_with_apps">ଆପଗୁଡ଼ିକରେ ପ୍ରମାଣୀକରଣ</string>
-    <string name="security_settings_biometrics_preferences_category">ଏଥିପାଇଁ ଫେସ୍ ବା ଟିପଚିହ୍ନ ବ୍ୟବହାର କରନ୍ତୁ</string>
-    <string name="security_settings_biometrics_summary_both">ଫେସ୍ ଏବଂ ଟିପଚିହ୍ନ</string>
-    <string name="security_settings_biometrics_summary_face">କେବଳ ଫେସ୍</string>
-    <string name="security_settings_biometrics_summary_fingerprint">କେବଳ ଟିପଚିହ୍ନ</string>
-    <string name="security_settings_biometrics_summary_none">ସେଟ୍ ଅପ୍ କରିବାକୁ ଟାପ୍ କରନ୍ତୁ</string>
-    <string name="security_settings_biometrics_title">ଫେସ୍ ଏବଂ ଫିଙ୍ଗରପ୍ରିଣ୍ଟ ଅନଲକ୍</string>
-    <string name="security_settings_biometrics_types_category">ଅନଲକ୍ କରିବାର ଉପାୟ</string>
     <string name="security_settings_face_enroll_consent_introduction_title">ଫେସ୍ ଅନଲକକୁ ଅନୁମତି ଦିଅନ୍ତୁ</string>
     <string name="security_settings_face_enroll_dialog_ok">ଠିକ ଅଛି</string>
     <string name="security_settings_face_enroll_done">ହୋଇଗଲା</string>
@@ -4383,18 +4401,19 @@ g.co/pixel/faceunlockରେ ଅଧିକ ଜାଣନ୍ତୁ।"</string>
 
 g.co/pixel/faceunlockରେ ଅଧିକ ଜାଣନ୍ତୁ।"</string>
     <string name="security_settings_face_enroll_introduction_control_title">ଆପଣଙ୍କ ନିୟନ୍ତ୍ରଣରେ ଅଛି</string>
-    <string name="security_settings_face_enroll_introduction_how_consent_message">"ଏହା ଆପଣଙ୍କ ପିଲା ଅଟେ ବୋଲି ଯାଞ୍ଚ କରିବା ପାଇଁ ଫେସ୍ ଅନଲକ୍ ତା'ର ଫେସର ଏକ ସ୍ୱତନ୍ତ୍ର ମଡେଲ୍ ତିଆରି କରିଥାଏ। ସେଟଅପ୍ ସମୟରେ ଏହି ଫେସ୍ ମଡେଲ୍ ତିଆରି କରିବା ପାଇଁ, ଆପଣଙ୍କ ପିଲା ବିଭିନ୍ନ ଆଙ୍ଗେଲରୁ ତା’ର ଫେସର ଛବି ନେବ।
+    <string name="security_settings_face_enroll_introduction_how_consent_message">"ଏହା ଆପଣଙ୍କ ପିଲା ଅଟେ ବୋଲି ଯାଞ୍ଚ କରିବାକୁ ଫେସ ଅନଲକ ତା'ର ଫେସର ଏକ ସ୍ୱତନ୍ତ୍ର ମଡେଲ ତିଆରି କରିଥାଏ। ସେଟଅପ ସମୟରେ ଏହି ଫେସ ମଡେଲ ତିଆରି କରିବାକୁ, ଆପଣଙ୍କ ପିଲା ବିଭିନ୍ନ ଆଙ୍ଗେଲରୁ ତା’ର ଫେସର ଇମେଜ ନେବ।
 
-ସେ ଫେସ୍ ଅନଲକ୍ ବ୍ୟବହାର କରିବା ସମୟରେ, ତା’ର ଫେସ୍ ମଡେଲକୁ ଅପଡେଟ୍ କରିବା ପାଇଁ ଛବିଗୁଡ଼ିକୁ ବ୍ୟବହାର କରାଯାଏ। ତା’ର ଫେସ୍ ମଡେଲ୍ ତିଆରି କରିବା ପାଇଁ ବ୍ୟବହୃତ ଛବିଗୁଡ଼ିକୁ କେବେ ବି ଷ୍ଟୋର୍ କରାଯାଏ ନାହିଁ, କିନ୍ତୁ ଫେସ୍ ମଡେଲକୁ ଫୋନରେ ସୁରକ୍ଷିତ ଭାବେ ଷ୍ଟୋର୍ କରାଯାଇଥାଏ ଏବଂ କେବେ ବି ଫୋନରୁ କାଢ଼ି ଦିଆଯାଏ ନାହିଁ। ସମସ୍ତ ପ୍ରକ୍ରିୟାକରଣ ସୁରକ୍ଷିତ ଭାବେ ଫୋନରେ କରାଯାଇଥାଏ।"</string>
-    <string name="security_settings_face_enroll_introduction_how_message">"ଏହା ଆପଣ ବୋଲି ଯାଞ୍ଚ କରିବା ପାଇଁ ଫେସ୍ ଅନଲକ୍ ଆପଣଙ୍କ ଫେସର ଏକ ସ୍ୱତନ୍ତ୍ର ମଡେଲ୍ ତିଆରି କରିଥାଏ। ସେଟଅପ୍ ସମୟରେ ଏହି ଫେସ୍ ମଡେଲ୍ ତିଆରି କରିବା ପାଇଁ, ଆପଣ ବିଭିନ୍ନ ଆଙ୍ଗେଲରୁ ଆପଣଙ୍କ ଫେସର ଛବି ନେବେ।
+ସେ ଫେସ ଅନଲକ ବ୍ୟବହାର କରିବା ସମୟରେ, ତା’ର ଫେସ ମଡେଲକୁ ଅପଡେଟ କରିବା ପାଇଁ ଇମେଜଗୁଡ଼ିକୁ ବ୍ୟବହାର କରାଯାଏ। ତା’ର ଫେସ ମଡେଲ ତିଆରି କରିବା ପାଇଁ ବ୍ୟବହୃତ ଇମେଜଗୁଡ଼ିକୁ ଷ୍ଟୋର କରାଯାଏ ନାହିଁ, କିନ୍ତୁ ଫେସ ମଡେଲକୁ ଫୋନରେ ସୁରକ୍ଷିତ ଭାବେ ଷ୍ଟୋର କରାଯାଇଥାଏ ଏବଂ କେବେ ବି ଫୋନରୁ କାଢ଼ି ଦିଆଯାଏ ନାହିଁ। ସମସ୍ତ ପ୍ରକ୍ରିୟାକରଣ ସୁରକ୍ଷିତ ଭାବେ ଫୋନରେ କରାଯାଇଥାଏ।"</string>
+    <string name="security_settings_face_enroll_introduction_how_message">"ଏହା ଆପଣ ବୋଲି ଯାଞ୍ଚ କରିବାକୁ ଫେସ ଅନଲକ ଆପଣଙ୍କ ଫେସର ଏକ ସ୍ୱତନ୍ତ୍ର ମଡେଲ ତିଆରି କରିଥାଏ। ସେଟଅପ୍ ସମୟରେ ଏହି ଫେସ ମଡେଲ ତିଆରି କରିବାକୁ, ଆପଣ ବିଭିନ୍ନ ଆଙ୍ଗେଲରୁ ଆପଣଙ୍କ ଫେସର ଇମେଜ ନେବେ।
 
-ଆପଣ ଫେସ୍ ଅନଲକ୍ ବ୍ୟବହାର କରିବା ସମୟରେ, ଆପଣଙ୍କ ଫେସ୍ ମଡେଲକୁ ଅପଡେଟ୍ କରିବା ପାଇଁ ଛବିଗୁଡ଼ିକୁ ବ୍ୟବହାର କରାଯାଏ। ଆପଣଙ୍କ ଫେସ୍ ମଡେଲ୍ ତିଆରି କରିବା ପାଇଁ ବ୍ୟବହୃତ ଛବିଗୁଡ଼ିକୁ କେବେ ବି ଷ୍ଟୋର୍ କରାଯାଏ ନାହିଁ, କିନ୍ତୁ ଫେସ୍ ମଡେଲ୍ ଆପଣଙ୍କ ଫୋନରେ ସୁରକ୍ଷିତ ଭାବେ ଷ୍ଟୋର୍ କରାଯାଇଥାଏ ଏବଂ କେବେ ବି ଫୋନରୁ କାଢ଼ି ଦିଆଯାଏ ନାହିଁ। ସମସ୍ତ ପ୍ରକ୍ରିୟାକରଣ ସୁରକ୍ଷିତ ଭାବେ ଆପଣଙ୍କ ଫୋନରେ କରାଯାଇଥାଏ।"</string>
+ଆପଣ ଫେସ ଅନଲକ ବ୍ୟବହାର କରିବା ସମୟରେ, ଆପଣଙ୍କ ଫେସ ମଡେଲକୁ ଅପଡେଟ କରିବା ପାଇଁ ଇମେଜଗୁଡ଼ିକୁ ବ୍ୟବହାର କରାଯାଏ। ଆପଣଙ୍କ ଫେସ୍ ମଡେଲ ତିଆରି କରିବା ପାଇଁ ବ୍ୟବହୃତ ଇମେଜଗୁଡ଼ିକୁ ଷ୍ଟୋର୍ କରାଯାଏ ନାହିଁ, କିନ୍ତୁ ଫେସ ମଡେଲ ଆପଣଙ୍କ ଫୋନରେ ସୁରକ୍ଷିତ ଭାବେ ଷ୍ଟୋର କରାଯାଇଥାଏ ଏବଂ କେବେ ବି ଫୋନରୁ କାଢ଼ି ଦିଆଯାଏ ନାହିଁ। ସମସ୍ତ ପ୍ରକ୍ରିୟାକରଣ ସୁରକ୍ଷିତ ଭାବେ ଆପଣଙ୍କ ଫୋନରେ କରାଯାଇଥାଏ।"</string>
     <string name="security_settings_face_enroll_introduction_how_title">ଏହା କିପରି କାମ କରେ</string>
     <string name="security_settings_face_enroll_introduction_info_consent_gaze">ଫୋନ୍ ଅନଲକ୍ କରିବାକୁ କିମ୍ବା ଆପଣଙ୍କ ପିଲାର ପରିଚୟ ଯାଞ୍ଚ କରିବା ପାଇଁ ଫେସ୍ ଅନଲକକୁ ଆପଣଙ୍କ ପିଲାର ଆଖିକୁ ଖୋଲା ରଖିବାର ଆବଶ୍ୟକତା ହୋଇପାରେ। ଆପଣ ଏବଂ ଆପଣଙ୍କ ପିଲା ଯେ କୌଣସି ସମୟରେ ସେଟିଂସରେ ଏହି ବିକଳ୍ପକୁ ବନ୍ଦ କରିପାରିବେ।</string>
     <string name="security_settings_face_enroll_introduction_info_consent_glasses">ଯଦି ଆପଣଙ୍କ ପିଲା ସାଧାରଣତଃ ଚଷମା ପିନ୍ଧେ, ତେବେ ସେଟଅପ୍ ସମୟରେ ସେ ତାହା ପିନ୍ଧିପାରିବ।</string>
     <string name="security_settings_face_enroll_introduction_info_consent_looking">ସେ ଅଜାଣତରେ ମଧ୍ୟ ତା’ର ଫୋନକୁ ଦେଖିଲେ ଏହା ଅନଲକ୍ ହୋଇପାରିବ। ତା ପରି ଦେଖାଯାଉଥିବା କେହି ଜଣେ ବ୍ୟକ୍ତି ଯେପରି ଯାଆଁଳା ଭାଇ/ଭଉଣୀଙ୍କ ଦ୍ୱାରା କିମ୍ବା କେହି ଜଣେ ତା’ର ଫୋନକୁ ତା’ର ଫେସ୍ ସାମ୍ନାରେ ରଖିଲେ ମଧ୍ୟ ଏହାକୁ ଅନଲକ୍ କରାଯାଇପାରିବ।</string>
     <string name="security_settings_face_enroll_introduction_info_gaze">ଫୋନ୍ ଅନଲକ୍ କରିବାକୁ କିମ୍ବା ଏହା ଆପଣ ଅଟନ୍ତି ବୋଲି ଯାଞ୍ଚ କରିବା ପାଇଁ ଫେସ୍ ଅନଲକକୁ ଆପଣଙ୍କର ଆଖିକୁ ଖୋଲା ରଖିବାର ଆବଶ୍ୟକତା ହୋଇପାରେ। ଆପଣ ଯେ କୌଣସି ସମୟରେ ସେଟିଂସରେ ଏହି ବିକଳ୍ପକୁ ବନ୍ଦ କରିପାରିବେ।</string>
     <string name="security_settings_face_enroll_introduction_info_glasses">ଚଷମା କିମ୍ବା ହାଲୁକା ରଙ୍ଗର ସନଗ୍ଲାସ୍ ଠିକ୍ ଅଟେ।</string>
+    <string name="security_settings_face_enroll_introduction_info_less_secure">ଫୋନକୁ ଅନଲକ କରିବା ପାଇଁ ଏକ ଫେସ ବ୍ୟବହାର କରିବା, ଏକ ଦୃଢ଼ ପାଟର୍ନ କିମ୍ବା PINଠାରୁ କମ୍ ସୁରକ୍ଷିତ ହୋଇପାରେ।</string>
     <string name="security_settings_face_enroll_introduction_info_looking">ଆପଣ ଅଜାଣତରେ ମଧ୍ୟ ଆପଣଙ୍କର ଫୋନକୁ ଦେଖିଲେ ଏହା ଅନଲକ୍ ହୋଇପାରିବ। ଆପଣଙ୍କ ପରି ଦେଖାଯାଉଥିବା କେହି ଜଣେ ଯେପରି ଯାଆଁଳା ଭାଇ/ଭଉଣୀ କିମ୍ବା କେହି ଜଣେ ଆପଣଙ୍କ ଫୋନକୁ ଆପଣଙ୍କ ଫେସ୍ ସାମ୍ନାରେ ରଖି ମଧ୍ୟ ଏହାକୁ ଅନଲକ୍ କରିପାରିବେ।</string>
     <string name="security_settings_face_enroll_introduction_info_title">ମନେ ରଖନ୍ତୁ</string>
     <string name="security_settings_face_enroll_introduction_message">ଆପଣ ଆପଗୁଡ଼ିକରେ ସାଇନ୍ ଇନ୍ କରିବା କିମ୍ବା ଏକ କ୍ରୟକୁ ଅନୁମୋଦନ ଦେବା ପରି କାର୍ଯ୍ୟ କରିବା ସମୟରେ, ଆପଣଙ୍କ ଫୋନକୁ ଅନଲକ୍ କରିବା କିମ୍ବା ଏହା ଆପଣ ବୋଲି ଯାଞ୍ଚ କରିବା ପାଇଁ ଆପଣଙ୍କ ଫେସ୍ ବ୍ୟବହାର କରନ୍ତୁ।</string>
@@ -4452,13 +4471,14 @@ g.co/pixel/faceunlockରେ ଅଧିକ ଜାଣନ୍ତୁ।"</string>
 
 ଆପଣଙ୍କ ପରି ଦେଖାଯାଉଥିବା କେହି ଜଣେ ବ୍ୟକ୍ତି ଯେପରି ଯାଆଁଳା ଭାଇ/ଭଉଣୀଙ୍କ ଦ୍ୱାରା ଆପଣଙ୍କ ଫୋନକୁ ଅନଲକ୍ କରାଯାଇପାରିବ।"</string>
     <string name="security_settings_face_settings_preferences_category">ଫେସ୍ ଅନଲକ୍ ବ୍ୟବହାର କରିବା ସମୟରେ</string>
-    <string name="security_settings_face_settings_remove_dialog_details">ଆପଣଙ୍କ ଫେସ୍ ମଡେଲକୁ ସ୍ଥାୟୀ ଏବଂ ସୁରକ୍ଷିତ ଭାବରେ ଡିଲିଟ୍ କରିଦିଆଯିବ। ଡିଲିଟ୍ କରିବା ପରେ ଆପଣଙ୍କ ଫୋନକୁ ଅନଲକ୍ କରିବା କିମ୍ବା ଆପଗୁଡ଼ିକରେ ପ୍ରମାଣୀକରଣ ପାଇଁ ଆପଣ ଆପଣଙ୍କର PIN, ପାଟର୍ନ କିମ୍ବା ପାସୱାର୍ଡ ଆବଶ୍ୟକ କରିବେ।</string>
+    <string name="security_settings_face_settings_remove_dialog_details">"ଆପଣଙ୍କ ଫେସ ମଡେଲକୁ ସ୍ଥାୟୀ ଏବଂ ସୁରକ୍ଷିତ ଭାବରେ ଡିଲିଟ କରିଦିଆଯିବ।
+
+ଡିଲିଟ କରିବା ପରେ ଆପଣଙ୍କ ଫୋନକୁ ଅନଲକ କରିବା କିମ୍ବା ଆପଗୁଡ଼ିକରେ ପ୍ରମାଣୀକରଣ ପାଇଁ ଆପଣ ଆପଣଙ୍କର PIN, ପାଟର୍ନ କିମ୍ବା ପାସୱାର୍ଡ ଆବଶ୍ୟକ କରିବେ।"</string>
+    <string name="security_settings_face_settings_remove_dialog_details_convenience">"ଆପଣଙ୍କ ଫେସ ମଡେଲକୁ ସ୍ଥାୟୀ ଏବଂ ସୁରକ୍ଷିତ ଭାବରେ ଡିଲିଟ କରିଦିଆଯିବ।
+
+ଡିଲିଟ କରିବା ପରେ ଆପଣଙ୍କ ଫୋନକୁ ଅନଲକ କରିବା ପାଇଁ ଆପଣ ଆପଣଙ୍କର PIN, ପାଟର୍ନ କିମ୍ବା ପାସୱାର୍ଡ ଆବଶ୍ୟକ କରିବେ।"</string>
     <string name="security_settings_face_settings_remove_dialog_title">ଫେସ୍ ମଡେଲ୍ ଡିଲିଟ୍ କରିବେ?</string>
     <string name="security_settings_face_settings_remove_face_model">ଫେସ୍ ମଡେଲ୍ ଡିଲିଟ୍ କରନ୍ତୁ</string>
-    <string name="security_settings_face_settings_remove_model_dialog_details">"ଆପଣଙ୍କ ଫେସ୍ ମଡେଲକୁ ସ୍ଥାୟୀ ଏବଂ ସୁରକ୍ଷିତ ଭାବରେ ଡିଲିଟ୍ କରିଦିଆଯିବ।
-
-ଡିଲିଟ୍ କରିବା ପରେ ଆପଣଙ୍କ ଫୋନକୁ ଅନଲକ୍ କରିବା କିମ୍ବା ଆପଗୁଡ଼ିକରେ ପ୍ରମାଣୀକରଣ ପାଇଁ ଆପଣ ଆପଣଙ୍କର ଟିପଚିହ୍ନ, PIN, ପାଟର୍ନ କିମ୍ବା ପାସୱାର୍ଡ ଆବଶ୍ୟକ କରିବେ।"</string>
-    <string name="security_settings_face_settings_remove_model_dialog_title">ଫେସ୍ ମଡେଲ୍ ଡିଲିଟ୍ କରିବେ?</string>
     <string name="security_settings_face_settings_require_attention">ଆଖି ଖୋଲା ରଖିବା ଆବଶ୍ୟକ ହୋଇଥାଏ</string>
     <string name="security_settings_face_settings_require_attention_details">ଫୋନ୍ ଅନ୍‌ଲକ୍ କରିବା ପାଇଁ, ଆପଣଙ୍କ ଆଖି ଖୋଲା ରହିବା ଉଚିତ</string>
     <string name="security_settings_face_settings_require_confirmation">ସବୁବେଳେ ସୁନିଶ୍ଚିତକରଣ ଆବଶ୍ୟକ ହୋଇଥାଏ</string>
@@ -4541,7 +4561,7 @@ g.co/pixel/faceunlockରେ ଅଧିକ ଜାଣନ୍ତୁ।"</string>
     <string name="security_settings_title">ସୁରକ୍ଷା</string>
     <string name="security_settings_udfps_enroll_a11y">ସେନ୍ସର୍ ଖୋଜିବା ପାଇଁ ସ୍କ୍ରିନ୍ ଉପରେ ଆପଣଙ୍କ ଆଙ୍ଗୁଠିକୁ ମୁଭ୍ କରନ୍ତୁ। ଟିପଚିହ୍ନ ସେନ୍ସରକୁ ସ୍ପର୍ଶ କରି ଧରି ରଖନ୍ତୁ।</string>
     <string name="security_settings_udfps_enroll_edge_message">"ଆପଣଙ୍କ ଟିପଚିହ୍ନର ଗୋଟିଏ ପାର୍ଶ୍ୱକୁ ସେନ୍ସର୍ ଉପରେ ଧରି ରଖନ୍ତୁ, ତା'ପରେ ଅନ୍ୟ ପାର୍ଶ୍ୱକୁ ସ୍ୱିଚ୍ କରନ୍ତୁ"</string>
-    <string name="security_settings_udfps_enroll_edge_title">ଶେଷରେ, ଆପଣଙ୍କ ଆଙ୍ଗୁଠିର ଧାର ରଖନ୍ତୁ</string>
+    <string name="security_settings_udfps_enroll_edge_title">ଶେଷରେ, ଆପଣଙ୍କ ଆଙ୍ଗୁଠିର ଧାର ବ୍ୟବହାର କରନ୍ତୁ</string>
     <string name="security_settings_udfps_enroll_find_sensor_message">ଟିପଚିହ୍ନ ସେନ୍ସର୍ ଆପଣଙ୍କ ସ୍କ୍ରିନରେ ଅଛି। ପରବର୍ତ୍ତୀ ସ୍କ୍ରିନରେ ଆପଣ ଆପଣଙ୍କର ଟିପଚିହ୍ନକୁ କ୍ୟାପଚର୍ କରିବେ।</string>
     <string name="security_settings_udfps_enroll_find_sensor_start_button">ଆରମ୍ଭ କର</string>
     <string name="security_settings_udfps_enroll_find_sensor_title">ଆପଣଙ୍କ ଟିପଚିହ୍ନ କିପରି ସେଟ୍ ଅପ୍ କରିବେ</string>
@@ -4550,7 +4570,7 @@ g.co/pixel/faceunlockରେ ଅଧିକ ଜାଣନ୍ତୁ।"</string>
     <string name="security_settings_udfps_enroll_repeat_a11y_message">ଏହା ଆପଣଙ୍କ ଚିପଚିହ୍ନର ଅଧିକାଂଶ କ୍ୟାପଚର୍ କରିବାରେ ସାହାଯ୍ୟ କରେ</string>
     <string name="security_settings_udfps_enroll_repeat_message">ପ୍ରତ୍ୟେକ ଥର ଟିପଚିହ୍ନ ଆଇକନ୍ ମୁଭ୍ ହେଲେ ସ୍ପର୍ଶ କରି ଧରି ରଖନ୍ତୁ। ଏହା ଆପଣଙ୍କ ଚିପଚିହ୍ନର ଅଧିକାଂଶ କ୍ୟାପଚର୍ କରିବାରେ ସାହାଯ୍ୟ କରେ।</string>
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">ଟିପଚିହ୍ନ ଆଇକନକୁ ଅନୁସରଣ କରନ୍ତୁ</string>
-    <string name="security_settings_udfps_enroll_start_message">ଆପଣ ଏକ ଭାଇବ୍ରେସନ୍ ଅନୁଭବ ନ କରିବା ପର୍ଯ୍ୟନ୍ତ ଆପଣଙ୍କ ଆଙ୍ଗୁଠିକୁ ସେନ୍ସର୍ ଉପରେ ରଖନ୍ତୁ</string>
+    <string name="security_settings_udfps_enroll_start_message">ଆପଣ ଭାଇବ୍ରେସନ ଅନୁଭବ ନକରିବା ପର୍ଯ୍ୟନ୍ତ ଆପଣଙ୍କ ଟିପଚିହ୍ନକୁ ସେନ୍ସର ଉପରେ ଦବାଇ ଧରି ରଖନ୍ତୁ</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">ଆଉ ଥରେ</string>
     <string name="security_settings_work_fingerprint_preference_title">କାର୍ଯ୍ୟ ପାଇଁ Pixel ଇମପ୍ରିଣ୍ଟ</string>
     <string name="security_status_title">ସୁରକ୍ଷା ସ୍ଥିତି</string>
@@ -4576,7 +4596,6 @@ g.co/pixel/faceunlockରେ ଅଧିକ ଜାଣନ୍ତୁ।"</string>
     <string name="select_webview_provider_dialog_title">WebView କାର୍ଯ୍ୟକାରିତାକୁ ସେଟ୍‍ କରନ୍ତୁ</string>
     <string name="select_webview_provider_title">ୱେବ୍‌ଭ୍ୟୁ ପ୍ରୟୋଗ</string>
     <string name="select_webview_provider_toast_text">ଏହି ପସନ୍ଦ ଆଉ ମାନ୍ୟ ନାହିଁ। ପୁଣିଥରେ ଚେଷ୍ଟା କରନ୍ତୁ।</string>
-    <string name="sensor_toggle_description">ସମସ୍ତ ଆପ୍ ଓ ସେବା ପାଇଁ</string>
     <string name="sensors_off_quick_settings_title">ସେନ୍ସର୍‍ଗୁଡ଼ିକ ବନ୍ଦ ଅଛି</string>
     <string name="service_background_processes">%1$s ଖାଲି</string>
     <string name="service_foreground_processes">%1$s ବ୍ୟବହୃତ</string>
@@ -4808,6 +4827,7 @@ g.co/pixel/faceunlockରେ ଅଧିକ ଜାଣନ୍ତୁ।"</string>
     <string name="sound_settings_summary_silent">ରିଙ୍ଗର୍‌, ସାଇଲେଣ୍ଟକୁ ସେଟ୍‌ କରାଯାଇଛି</string>
     <string name="sound_settings_summary_vibrate">ରିଙ୍ଗର୍‌କୁ ବଦଳାଯାଇ କମ୍ପନ କରାଯାଇଛି</string>
     <string name="sound_work_settings">ୱାର୍କ୍ ପ୍ରୋଫାଇଲ୍‌ ସାଉଣ୍ଡ</string>
+    <string name="spatial_audio_title">ସ୍ପାଟିଆଲ ଅଡିଓ</string>
     <string name="special_access">ସ୍ୱତନ୍ତ୍ର ଆପ୍‌ ଆକ୍ସେସ୍‌</string>
     <string name="special_access_more">ଅଧିକ ଦେଖନ୍ତୁ</string>
     <string name="speed_label_fast">ଦ୍ରୁତ</string>
@@ -5619,7 +5639,7 @@ g.co/pixel/faceunlockରେ ଅଧିକ ଜାଣନ୍ତୁ।"</string>
     <string name="vpn_turn_on">ଚାଲୁ କରନ୍ତୁ</string>
     <string name="vpn_type">ପ୍ରକାର</string>
     <string name="vpn_username">ଉପଯୋଗକର୍ତ୍ତାଙ୍କ ନାମ</string>
-    <string name="vpn_version">ସଂସ୍କରଣ %s</string>
+    <string name="vpn_version">ସଂସ୍କରଣ</string>
     <string name="vr_listener_security_warning_summary">ଭର୍ଚୁଅଲ୍‌ ରିଅଲିଟୀ ମୋଡ୍‌ରେ ଆପଣ ଆପ୍ଲିକେଶନ୍‌ଗୁଡ଼ିକୁ ବ୍ୟବହାର କରୁଥିବାବେଳେ %1$s ଚାଲିବ।</string>
     <string name="vr_listener_security_warning_title">%1$s ପାଇଁ VR ସେବା ଆକ୍ସେସକୁ ଅନୁମତି ଦେବେ?</string>
     <string name="vr_listeners_title">VR ସାହାଯ୍ୟକାରୀ ସେବା</string>
@@ -5725,7 +5745,7 @@ g.co/pixel/faceunlockରେ ଅଧିକ ଜାଣନ୍ତୁ।"</string>
     <string name="wifi_certificate">Wi‑Fi ସାର୍ଟିଫିକେଟ୍</string>
     <string name="wifi_check_password_try_again">ପାସ୍‌ୱର୍ଡ ଯାଞ୍ଚ କରନ୍ତୁ ଏବଂ ପୁଣି ଚେଷ୍ଟା କରନ୍ତୁ</string>
     <string name="wifi_configure_settings_preference_summary_wakeup_off">ସ୍ୱଚାଳିତ ଭାବେ ୱାଇ-ଫାଇ ପୁଣି ଚାଲୁ ହେବନାହିଁ</string>
-    <string name="wifi_configure_settings_preference_summary_wakeup_on">ୱାଇ-ଫାଇ ସ୍ୱଚାଳିତ ଭାବେ ଅନ୍‌ ହୋଇଯାଉ</string>
+    <string name="wifi_configure_settings_preference_summary_wakeup_on">ୱାଇ-ଫାଇ ସ୍ୱଚାଳିତ ଭାବେ ପୁଣି ଚାଲୁ ହୋଇଯାଏ</string>
     <string name="wifi_configure_settings_preference_title">ୱାଇ-ଫାଇ ପସନ୍ଦ</string>
     <string name="wifi_connect">ସଂଯୋଗ କରନ୍ତୁ</string>
     <string name="wifi_connected_low_quality">ନିମ୍ନ ଗୁଣବତ୍ତା</string>
@@ -5889,7 +5909,7 @@ g.co/pixel/faceunlockରେ ଅଧିକ ଜାଣନ୍ତୁ।"</string>
     <string name="wifi_not_in_range">ପରିସୀମାରେ ନାହିଁ</string>
     <string name="wifi_not_in_range_message">ନେଟ୍‌ୱର୍କ ପରିସୀମା ମଧ୍ୟରେ ନାହିଁ</string>
     <string name="wifi_notify_open_networks">ସାର୍ବଜନୀନ ନେଟୱାର୍କ ପାଇଁ ସୂଚିତ କରନ୍ତୁ</string>
-    <string name="wifi_notify_open_networks_summary">ସ୍ୱଚାଳିତ ସଂଯୋଗ ଉପଲବ୍ଧ ନଥିବା ସମୟରେ</string>
+    <string name="wifi_notify_open_networks_summary">ଏକ ଉଚ୍ଚ-ଗୁଣବତ୍ତା ବିଶିଷ୍ଟ ପବ୍ଲିକ୍‌ ନେଟ୍‌ୱର୍କ ଉପଲବ୍ଧ ଥିବାବେଳେ ସୂଚିତ କରନ୍ତୁ</string>
     <string name="wifi_on_time">ୱାଇ-ଫାଇ ଅନ୍‌ ହେବାର ସମୟ</string>
     <string name="wifi_p2p_cancel_connect_message">%1$s ସହ ସଂଯୋଗ କରିବାକୁ ନିମନ୍ତ୍ରଣକୁ ଆପଣ ବାତିଲ୍‌ କରିବାକୁ ଚାହାଁନ୍ତି କି?</string>
     <string name="wifi_p2p_cancel_connect_title">ନିମନ୍ତ୍ରଣକୁ ବାତିଲ୍‌ କରିବେ?</string>
@@ -5977,7 +5997,6 @@ g.co/pixel/faceunlockରେ ଅଧିକ ଜାଣନ୍ତୁ।"</string>
     <string name="wifi_suspend_optimizations">ୱାଇ-ଫାଇ ଅନୁକୂଳତା</string>
     <string name="wifi_suspend_optimizations_summary">ୱାଇ-ଫାଇ ଅନ୍‌ ଥିବାବେଳେ ବ୍ୟାଟେରୀ ବ୍ୟବହାର କମ୍ କର</string>
     <string name="wifi_switch_away_when_unvalidated">ଯଦି ୱାଇ-ଫାଇ ଇଣ୍ଟରନେଟ୍‌ ଆକସେସ୍‌ ହରାଏ ମୋବାଇଲ୍‌ ଡାଟାକୁ ବଦଳାନ୍ତୁ।</string>
-    <string name="wifi_switch_summary">ୱାଇ-ଫାଇ ନେଟୱାର୍କ ଖୋଜି ସେଥିରେ ସଂଯୋଗ କରନ୍ତୁ</string>
     <string name="wifi_tap_to_sign_in">ନେଟୱର୍କରେ ସାଇନ୍‌-ଇନ୍‌ କରିବାକୁ ଏଠାରେ ଟ୍ୟାପ୍‌ କରନ୍ତୁ</string>
     <string name="wifi_tether_configure_ap_text">ୱାଇ-ଫାଇ ହଟସ୍ପଟ୍‌ ସେଟ୍ ଅପ୍‌ କରନ୍ତୁ</string>
     <string name="wifi_tether_configure_ssid_default">Android ହଟ୍‌ସ୍ପଟ୍‌</string>

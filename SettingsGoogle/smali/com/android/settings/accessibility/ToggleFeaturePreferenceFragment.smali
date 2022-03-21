@@ -12,6 +12,10 @@
 
 .field private mDescription:Ljava/lang/CharSequence;
 
+.field protected mDialog:Landroid/app/Dialog;
+
+.field protected mFooterPreferenceController:Lcom/android/settings/accessibility/AccessibilityFooterPreferenceController;
+
 .field private mHardwareTypeCheckBox:Landroid/widget/CheckBox;
 
 .field protected mHtmlDescription:Ljava/lang/CharSequence;
@@ -25,6 +29,8 @@
 .field protected mPackageName:Ljava/lang/CharSequence;
 
 .field protected mPreferenceKey:Ljava/lang/String;
+
+.field private mSavedAccessibilityFloatingMenuEnabled:Z
 
 .field protected mSavedCheckBoxValue:I
 
@@ -46,18 +52,10 @@
 
 
 # direct methods
-.method public static synthetic $r8$lambda$3MiinpBrCJ4Psz317DDOfonr7BQ(Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;Landroid/view/View;)V
+.method public static synthetic $r8$lambda$Qn29PFxP1Y9MdbAHocjz-kg8Khg(Landroid/widget/CheckBox;Landroid/view/View;)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->lambda$createFooterPreference$3(Landroid/view/View;)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$8CAdNzcvMeancObkFHNQPiqcBdM(Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;Landroid/view/View;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->lambda$initHtmlTextPreference$2(Landroid/view/View;)V
+    invoke-static {p0, p1}, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->lambda$setDialogTextAreaClickListener$2(Landroid/widget/CheckBox;Landroid/view/View;)V
 
     return-void
 .end method
@@ -80,14 +78,6 @@
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$d6cOU3XF9GCMFOa077_91iaky3Y(Landroid/widget/CheckBox;Landroid/view/View;)V
-    .locals 0
-
-    invoke-static {p0, p1}, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->lambda$setDialogTextAreaClickListener$4(Landroid/widget/CheckBox;Landroid/view/View;)V
-
-    return-void
-.end method
-
 .method public constructor <init>()V
     .locals 1
 
@@ -104,44 +94,6 @@
     iput-object v0, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mImageGetter:Landroid/text/Html$ImageGetter;
 
     return-void
-.end method
-
-.method private generateFooterContentDescription(Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
-    .locals 4
-
-    new-instance v0, Ljava/lang/StringBuffer;
-
-    invoke-direct {v0}, Ljava/lang/StringBuffer;-><init>()V
-
-    invoke-virtual {p0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->getPrefContext()Landroid/content/Context;
-
-    move-result-object v1
-
-    const/4 v2, 0x1
-
-    new-array v2, v2, [Ljava/lang/Object;
-
-    iget-object p0, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mPackageName:Ljava/lang/CharSequence;
-
-    const/4 v3, 0x0
-
-    aput-object p0, v2, v3
-
-    const p0, 0x7f0400d9
-
-    invoke-virtual {v1, p0, v2}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object p0
-
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    const-string p0, "\n\n"
-
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuffer;->append(Ljava/lang/CharSequence;)Ljava/lang/StringBuffer;
-
-    return-object v0
 .end method
 
 .method private getDrawableFromUri(Landroid/net/Uri;)Landroid/graphics/drawable/Drawable;
@@ -259,6 +211,37 @@
     return-object v0
 .end method
 
+.method private static getSoftwareShortcutTypeSummary(Landroid/content/Context;)Ljava/lang/CharSequence;
+    .locals 2
+
+    invoke-static {p0}, Lcom/android/settings/accessibility/AccessibilityUtil;->isFloatingMenuEnabled(Landroid/content/Context;)Z
+
+    move-result v0
+
+    const v1, 0x7f040136
+
+    if-eqz v0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    invoke-static {p0}, Lcom/android/settings/accessibility/AccessibilityUtil;->isGestureNavigateEnabled(Landroid/content/Context;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    const v1, 0x7f040137
+
+    :cond_1
+    :goto_0
+    invoke-virtual {p0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method private hasShortcutType(II)Z
     .locals 0
 
@@ -278,7 +261,7 @@
 .end method
 
 .method private initAnimatedImagePreference()V
-    .locals 2
+    .locals 3
 
     iget-object v0, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mImageUri:Landroid/net/Uri;
 
@@ -287,31 +270,47 @@
     return-void
 
     :cond_0
-    new-instance v0, Lcom/android/settingslib/widget/IllustrationPreference;
+    invoke-virtual {p0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->getPrefContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/android/settings/accessibility/AccessibilityUtil;->getDisplayBounds(Landroid/content/Context;)Landroid/graphics/Rect;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/graphics/Rect;->height()I
+
+    move-result v0
+
+    div-int/lit8 v0, v0, 0x2
+
+    new-instance v1, Lcom/android/settingslib/widget/IllustrationPreference;
 
     invoke-virtual {p0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->getPrefContext()Landroid/content/Context;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-direct {v0, v1}, Lcom/android/settingslib/widget/IllustrationPreference;-><init>(Landroid/content/Context;)V
+    invoke-direct {v1, v2}, Lcom/android/settingslib/widget/IllustrationPreference;-><init>(Landroid/content/Context;)V
 
-    iget-object v1, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mImageUri:Landroid/net/Uri;
+    iget-object v2, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mImageUri:Landroid/net/Uri;
 
-    invoke-virtual {v0, v1}, Lcom/android/settingslib/widget/IllustrationPreference;->setImageUri(Landroid/net/Uri;)V
+    invoke-virtual {v1, v2}, Lcom/android/settingslib/widget/IllustrationPreference;->setImageUri(Landroid/net/Uri;)V
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setSelectable(Z)V
+    invoke-virtual {v1, v2}, Landroidx/preference/Preference;->setSelectable(Z)V
 
-    const-string v1, "animated_image"
+    invoke-virtual {v1, v0}, Lcom/android/settingslib/widget/IllustrationPreference;->setMaxHeight(I)V
 
-    invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setKey(Ljava/lang/String;)V
+    const-string v0, "animated_image"
+
+    invoke-virtual {v1, v0}, Landroidx/preference/Preference;->setKey(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Landroidx/preference/PreferenceFragmentCompat;->getPreferenceScreen()Landroidx/preference/PreferenceScreen;
 
     move-result-object p0
 
-    invoke-virtual {p0, v0}, Landroidx/preference/PreferenceGroup;->addPreference(Landroidx/preference/Preference;)Z
+    invoke-virtual {p0, v1}, Landroidx/preference/PreferenceGroup;->addPreference(Landroidx/preference/Preference;)Z
 
     return-void
 .end method
@@ -329,7 +328,7 @@
 
     const/4 v2, 0x1
 
-    const v3, 0x7f0400d9
+    const v3, 0x7f0400ea
 
     if-nez v0, :cond_0
 
@@ -368,7 +367,7 @@
 
     if-eqz v0, :cond_1
 
-    const v0, 0x7f040109
+    const v0, 0x7f04011d
 
     invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
@@ -409,7 +408,7 @@
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setKey(Ljava/lang/String;)V
 
-    const v1, 0x7f040106
+    const v1, 0x7f04011a
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setTitle(I)V
 
@@ -423,7 +422,7 @@
 .end method
 
 .method private initHtmlTextPreference()V
-    .locals 7
+    .locals 6
 
     iget-object v0, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mHtmlDescription:Ljava/lang/CharSequence;
 
@@ -456,79 +455,57 @@
 
     move-result-object v1
 
-    const v2, 0x7f0400d9
+    new-instance v2, Lcom/android/settings/accessibility/AccessibilityFooterPreference;
+
+    invoke-virtual {v0}, Landroidx/preference/Preference;->getContext()Landroid/content/Context;
+
+    move-result-object v3
+
+    invoke-direct {v2, v3}, Lcom/android/settings/accessibility/AccessibilityFooterPreference;-><init>(Landroid/content/Context;)V
+
+    const-string v3, "html_description"
+
+    invoke-virtual {v2, v3}, Landroidx/preference/Preference;->setKey(Ljava/lang/String;)V
+
+    invoke-virtual {v2, v1}, Lcom/android/settingslib/widget/FooterPreference;->setSummary(Ljava/lang/CharSequence;)V
+
+    invoke-virtual {v0, v2}, Landroidx/preference/PreferenceGroup;->addPreference(Landroidx/preference/Preference;)Z
+
+    const v1, 0x7f0400ea
 
     const/4 v3, 0x1
 
-    new-array v4, v3, [Ljava/lang/Object;
+    new-array v3, v3, [Ljava/lang/Object;
+
+    const/4 v4, 0x0
 
     iget-object v5, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mPackageName:Ljava/lang/CharSequence;
 
-    const/4 v6, 0x0
+    aput-object v5, v3, v4
 
-    aput-object v5, v4, v6
+    invoke-virtual {p0, v1, v3}, Landroidx/fragment/app/Fragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
-    invoke-virtual {p0, v2, v4}, Landroidx/fragment/app/Fragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    move-result-object v1
 
-    new-instance v2, Lcom/android/settings/accessibility/AccessibilityFooterPreference;
+    new-instance v3, Lcom/android/settings/accessibility/AccessibilityFooterPreferenceController;
 
     invoke-virtual {v0}, Landroidx/preference/Preference;->getContext()Landroid/content/Context;
 
     move-result-object v4
 
-    invoke-direct {v2, v4}, Lcom/android/settings/accessibility/AccessibilityFooterPreference;-><init>(Landroid/content/Context;)V
+    invoke-virtual {v2}, Landroidx/preference/Preference;->getKey()Ljava/lang/String;
 
-    const-string v4, "html_description"
+    move-result-object v2
 
-    invoke-virtual {v2, v4}, Landroidx/preference/Preference;->setKey(Ljava/lang/String;)V
+    invoke-direct {v3, v4, v2}, Lcom/android/settings/accessibility/AccessibilityFooterPreferenceController;-><init>(Landroid/content/Context;Ljava/lang/String;)V
 
-    invoke-virtual {v2, v1}, Lcom/android/settingslib/widget/FooterPreference;->setSummary(Ljava/lang/CharSequence;)V
+    iput-object v3, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mFooterPreferenceController:Lcom/android/settings/accessibility/AccessibilityFooterPreferenceController;
 
-    invoke-direct {p0, v1}, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->generateFooterContentDescription(Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+    invoke-virtual {v3, v1}, Lcom/android/settings/accessibility/AccessibilityFooterPreferenceController;->setIntroductionTitle(Ljava/lang/String;)V
 
-    move-result-object v1
+    iget-object p0, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mFooterPreferenceController:Lcom/android/settings/accessibility/AccessibilityFooterPreferenceController;
 
-    invoke-virtual {v2, v1}, Lcom/android/settingslib/widget/FooterPreference;->setContentDescription(Ljava/lang/CharSequence;)V
-
-    invoke-virtual {p0}, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->getHelpResource()I
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    new-instance v1, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment$$ExternalSyntheticLambda4;
-
-    invoke-direct {v1, p0}, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment$$ExternalSyntheticLambda4;-><init>(Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;)V
-
-    invoke-virtual {v2, v1}, Lcom/android/settingslib/widget/FooterPreference;->setLearnMoreAction(Landroid/view/View$OnClickListener;)V
-
-    invoke-virtual {p0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->getPrefContext()Landroid/content/Context;
-
-    move-result-object v1
-
-    const v4, 0x7f040950
-
-    new-array v5, v3, [Ljava/lang/Object;
-
-    iget-object p0, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mPackageName:Ljava/lang/CharSequence;
-
-    aput-object p0, v5, v6
-
-    invoke-virtual {v1, v4, v5}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object p0
-
-    invoke-virtual {v2, p0}, Lcom/android/settingslib/widget/FooterPreference;->setLearnMoreContentDescription(Ljava/lang/CharSequence;)V
-
-    invoke-virtual {v2, v3}, Lcom/android/settings/accessibility/AccessibilityFooterPreference;->setLinkEnabled(Z)V
-
-    goto :goto_0
-
-    :cond_1
-    invoke-virtual {v2, v6}, Lcom/android/settings/accessibility/AccessibilityFooterPreference;->setLinkEnabled(Z)V
-
-    :goto_0
-    invoke-virtual {v0, v2}, Landroidx/preference/PreferenceGroup;->addPreference(Landroidx/preference/Preference;)Z
+    invoke-virtual {p0, v0}, Lcom/android/settings/accessibility/AccessibilityFooterPreferenceController;->displayPreference(Landroidx/preference/PreferenceScreen;)V
 
     return-void
 .end method
@@ -546,7 +523,7 @@
 
     iput-object v0, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mToggleServiceSwitchPreference:Lcom/android/settings/widget/SettingsMainSwitchPreference;
 
-    const-string v1, "use_service"
+    const-string/jumbo v1, "use_service"
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setKey(Ljava/lang/String;)V
 
@@ -590,90 +567,6 @@
     .locals 0
 
     invoke-virtual {p0}, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->onInstallSwitchPreferenceToggleSwitch()V
-
-    return-void
-.end method
-
-.method private synthetic lambda$createFooterPreference$3(Landroid/view/View;)V
-    .locals 3
-
-    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
-
-    move-result-object v0
-
-    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
-
-    move-result-object v1
-
-    invoke-virtual {p0}, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->getHelpResource()I
-
-    move-result v2
-
-    invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
-
-    move-result-object p0
-
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
-
-    move-result-object p0
-
-    invoke-virtual {p0}, Ljava/lang/Class;->getName()Ljava/lang/String;
-
-    move-result-object p0
-
-    invoke-static {v0, v1, p0}, Lcom/android/settingslib/HelpUtils;->getHelpIntent(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-
-    move-result-object p0
-
-    const/4 v0, 0x0
-
-    invoke-virtual {p1, p0, v0}, Landroid/view/View;->startActivityForResult(Landroid/content/Intent;I)V
-
-    return-void
-.end method
-
-.method private synthetic lambda$initHtmlTextPreference$2(Landroid/view/View;)V
-    .locals 3
-
-    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
-
-    move-result-object v0
-
-    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
-
-    move-result-object v1
-
-    invoke-virtual {p0}, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->getHelpResource()I
-
-    move-result v2
-
-    invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
-
-    move-result-object p0
-
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
-
-    move-result-object p0
-
-    invoke-virtual {p0}, Ljava/lang/Class;->getName()Ljava/lang/String;
-
-    move-result-object p0
-
-    invoke-static {v0, v1, p0}, Lcom/android/settingslib/HelpUtils;->getHelpIntent(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-
-    move-result-object p0
-
-    const/4 v0, 0x0
-
-    invoke-virtual {p1, p0, v0}, Landroid/view/View;->startActivityForResult(Landroid/content/Intent;I)V
 
     return-void
 .end method
@@ -767,7 +660,7 @@
     return-void
 .end method
 
-.method private static synthetic lambda$setDialogTextAreaClickListener$4(Landroid/widget/CheckBox;Landroid/view/View;)V
+.method private static synthetic lambda$setDialogTextAreaClickListener$2(Landroid/widget/CheckBox;Landroid/view/View;)V
     .locals 0
 
     invoke-virtual {p0}, Landroid/widget/CheckBox;->toggle()V
@@ -804,7 +697,7 @@
 .method private setDialogTextAreaClickListener(Landroid/view/View;Landroid/widget/CheckBox;)V
     .locals 0
 
-    const p0, 0x7f0d016f
+    const p0, 0x7f0d0173
 
     invoke-virtual {p1, p0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -941,6 +834,57 @@
     return-void
 .end method
 
+.method private updateEditShortcutDialogIfNeeded()V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mDialog:Landroid/app/Dialog;
+
+    if-eqz v0, :cond_2
+
+    invoke-virtual {v0}, Landroid/app/Dialog;->isShowing()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    goto :goto_1
+
+    :cond_0
+    iget-boolean v0, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mSavedAccessibilityFloatingMenuEnabled:Z
+
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/android/settings/accessibility/AccessibilityUtil;->isFloatingMenuEnabled(Landroid/content/Context;)Z
+
+    move-result v1
+
+    if-eq v0, v1, :cond_1
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    const/4 v0, 0x0
+
+    :goto_0
+    if-eqz v0, :cond_2
+
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    iget-object p0, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mDialog:Landroid/app/Dialog;
+
+    invoke-static {v0, p0}, Lcom/android/settings/accessibility/AccessibilityDialogUtils;->updateSoftwareShortcutInDialog(Landroid/content/Context;Landroid/app/Dialog;)Z
+
+    :cond_2
+    :goto_1
+    return-void
+.end method
+
 .method private updatePreferenceOrder()V
     .locals 4
 
@@ -1052,60 +996,39 @@
 .end method
 
 .method createFooterPreference(Landroidx/preference/PreferenceScreen;Ljava/lang/CharSequence;Ljava/lang/String;)V
-    .locals 3
+    .locals 2
 
-    new-instance p3, Lcom/android/settings/accessibility/AccessibilityFooterPreference;
+    new-instance v0, Lcom/android/settings/accessibility/AccessibilityFooterPreference;
 
     invoke-virtual {p1}, Landroidx/preference/Preference;->getContext()Landroid/content/Context;
 
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Lcom/android/settings/accessibility/AccessibilityFooterPreference;-><init>(Landroid/content/Context;)V
+
+    invoke-virtual {v0, p2}, Lcom/android/settingslib/widget/FooterPreference;->setSummary(Ljava/lang/CharSequence;)V
+
+    invoke-virtual {p1, v0}, Landroidx/preference/PreferenceGroup;->addPreference(Landroidx/preference/Preference;)Z
+
+    new-instance p2, Lcom/android/settings/accessibility/AccessibilityFooterPreferenceController;
+
+    invoke-virtual {p1}, Landroidx/preference/Preference;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-virtual {v0}, Landroidx/preference/Preference;->getKey()Ljava/lang/String;
+
     move-result-object v0
 
-    invoke-direct {p3, v0}, Lcom/android/settings/accessibility/AccessibilityFooterPreference;-><init>(Landroid/content/Context;)V
+    invoke-direct {p2, v1, v0}, Lcom/android/settings/accessibility/AccessibilityFooterPreferenceController;-><init>(Landroid/content/Context;Ljava/lang/String;)V
 
-    invoke-virtual {p3, p2}, Lcom/android/settingslib/widget/FooterPreference;->setSummary(Ljava/lang/CharSequence;)V
+    iput-object p2, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mFooterPreferenceController:Lcom/android/settings/accessibility/AccessibilityFooterPreferenceController;
 
-    invoke-direct {p0, p2}, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->generateFooterContentDescription(Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+    invoke-virtual {p2, p3}, Lcom/android/settings/accessibility/AccessibilityFooterPreferenceController;->setIntroductionTitle(Ljava/lang/String;)V
 
-    move-result-object p2
+    iget-object p0, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mFooterPreferenceController:Lcom/android/settings/accessibility/AccessibilityFooterPreferenceController;
 
-    invoke-virtual {p3, p2}, Lcom/android/settingslib/widget/FooterPreference;->setContentDescription(Ljava/lang/CharSequence;)V
-
-    invoke-virtual {p0}, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->getHelpResource()I
-
-    move-result p2
-
-    if-eqz p2, :cond_0
-
-    new-instance p2, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment$$ExternalSyntheticLambda3;
-
-    invoke-direct {p2, p0}, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment$$ExternalSyntheticLambda3;-><init>(Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;)V
-
-    invoke-virtual {p3, p2}, Lcom/android/settingslib/widget/FooterPreference;->setLearnMoreAction(Landroid/view/View$OnClickListener;)V
-
-    invoke-virtual {p0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->getPrefContext()Landroid/content/Context;
-
-    move-result-object p2
-
-    const v0, 0x7f040950
-
-    const/4 v1, 0x1
-
-    new-array v1, v1, [Ljava/lang/Object;
-
-    const/4 v2, 0x0
-
-    iget-object p0, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mPackageName:Ljava/lang/CharSequence;
-
-    aput-object p0, v1, v2
-
-    invoke-virtual {p2, v0, v1}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object p0
-
-    invoke-virtual {p3, p0}, Lcom/android/settingslib/widget/FooterPreference;->setLearnMoreContentDescription(Ljava/lang/CharSequence;)V
-
-    :cond_0
-    invoke-virtual {p1, p3}, Landroidx/preference/PreferenceGroup;->addPreference(Landroidx/preference/Preference;)Z
+    invoke-virtual {p0, p1}, Lcom/android/settings/accessibility/AccessibilityFooterPreferenceController;->displayPreference(Landroidx/preference/PreferenceScreen;)V
 
     return-void
 .end method
@@ -1134,6 +1057,32 @@
     const/16 p0, 0x714
 
     return p0
+.end method
+
+.method protected getFeatureSettingsKeys()Ljava/util/List;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+
+    new-instance p0, Ljava/util/ArrayList;
+
+    invoke-direct {p0}, Ljava/util/ArrayList;-><init>()V
+
+    const-string v0, "accessibility_button_targets"
+
+    invoke-interface {p0, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    const-string v0, "accessibility_shortcut_target_service"
+
+    invoke-interface {p0, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    return-object p0
 .end method
 
 .method public getHelpResource()I
@@ -1171,7 +1120,7 @@
 
     invoke-interface {p0, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    const-string v0, "use_service"
+    const-string/jumbo v0, "use_service"
 
     invoke-interface {p0, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
@@ -1189,7 +1138,7 @@
 .method protected getShortcutPreferenceKey()Ljava/lang/String;
     .locals 0
 
-    const-string p0, "shortcut_preference"
+    const-string/jumbo p0, "shortcut_preference"
 
     return-object p0
 .end method
@@ -1233,7 +1182,7 @@
 .end method
 
 .method protected getShortcutTypeSummary(Landroid/content/Context;)Ljava/lang/CharSequence;
-    .locals 4
+    .locals 3
 
     iget-object v0, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mShortcutPreference:Lcom/android/settings/accessibility/ShortcutPreference;
 
@@ -1243,7 +1192,7 @@
 
     if-nez v0, :cond_0
 
-    const p0, 0x7f04011c
+    const p0, 0x7f040130
 
     invoke-virtual {p1, p0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -1260,7 +1209,7 @@
 
     if-nez v0, :cond_1
 
-    const p0, 0x7f041378
+    const p0, 0x7f04139d
 
     invoke-virtual {p1, p0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -1285,19 +1234,17 @@
 
     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
-    const v3, 0x7f040122
-
-    invoke-virtual {p1, v3}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
-
-    move-result-object v3
-
     invoke-direct {p0, v0, v1}, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->hasShortcutType(II)Z
 
     move-result v1
 
     if-eqz v1, :cond_2
 
-    invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-static {p1}, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->getSoftwareShortcutTypeSummary(Landroid/content/Context;)Ljava/lang/CharSequence;
+
+    move-result-object v1
+
+    invoke-interface {v2, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     :cond_2
     const/4 v1, 0x2
@@ -1308,7 +1255,7 @@
 
     if-eqz p0, :cond_3
 
-    const p0, 0x7f040124
+    const p0, 0x7f040138
 
     invoke-virtual {p1, p0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -1323,7 +1270,11 @@
 
     if-eqz p0, :cond_4
 
-    invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-static {p1}, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->getSoftwareShortcutTypeSummary(Landroid/content/Context;)Ljava/lang/CharSequence;
+
+    move-result-object p0
+
+    invoke-interface {v2, p0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     :cond_4
     invoke-static {}, Landroid/icu/text/CaseMap;->toTitle()Landroid/icu/text/CaseMap$Title;
@@ -1438,31 +1389,17 @@
 
     invoke-virtual {p0}, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->getShortcutPreferenceKey()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v0, v2}, Landroidx/preference/Preference;->setKey(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setKey(Ljava/lang/String;)V
 
     iget-object v0, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mShortcutPreference:Lcom/android/settings/accessibility/ShortcutPreference;
 
     invoke-virtual {v0, p0}, Lcom/android/settings/accessibility/ShortcutPreference;->setOnClickCallback(Lcom/android/settings/accessibility/ShortcutPreference$OnClickCallback;)V
 
-    const/4 v0, 0x1
+    iget-object v0, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mShortcutPreference:Lcom/android/settings/accessibility/ShortcutPreference;
 
-    new-array v0, v0, [Ljava/lang/Object;
-
-    iget-object v2, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mPackageName:Ljava/lang/CharSequence;
-
-    aput-object v2, v0, v1
-
-    const v1, 0x7f040128
-
-    invoke-virtual {p0, v1, v0}, Landroidx/fragment/app/Fragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mShortcutPreference:Lcom/android/settings/accessibility/ShortcutPreference;
-
-    invoke-virtual {v1, v0}, Landroidx/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
+    invoke-virtual {p0, v0}, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->updateShortcutTitle(Lcom/android/settings/accessibility/ShortcutPreference;)V
 
     const-string v0, "general_categories"
 
@@ -1486,7 +1423,7 @@
 
     if-eqz p1, :cond_0
 
-    const-string v0, "shortcut_type"
+    const-string/jumbo v0, "shortcut_type"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
 
@@ -1530,17 +1467,9 @@
     invoke-virtual {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->setPreferenceScreen(Landroidx/preference/PreferenceScreen;)V
 
     :cond_1
-    new-instance p1, Ljava/util/ArrayList;
+    invoke-virtual {p0}, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->getFeatureSettingsKeys()Ljava/util/List;
 
-    invoke-direct {p1}, Ljava/util/ArrayList;-><init>()V
-
-    const-string v0, "accessibility_button_targets"
-
-    invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    const-string v0, "accessibility_shortcut_target_service"
-
-    invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    move-result-object p1
 
     new-instance v0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment$1;
 
@@ -1574,13 +1503,17 @@
 
     invoke-virtual {p0}, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->getUserShortcutTypes()I
 
-    move-result p0
+    move-result v1
 
-    invoke-static {p1, p0}, Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial;->createAccessibilityTutorialDialog(Landroid/content/Context;I)Landroidx/appcompat/app/AlertDialog;
+    invoke-static {p1, v1}, Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial;->createAccessibilityTutorialDialog(Landroid/content/Context;I)Landroidx/appcompat/app/AlertDialog;
 
-    move-result-object p0
+    move-result-object p1
 
-    invoke-virtual {p0, v0}, Landroid/app/Dialog;->setCanceledOnTouchOutside(Z)V
+    iput-object p1, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mDialog:Landroid/app/Dialog;
+
+    invoke-virtual {p1, v0}, Landroid/app/Dialog;->setCanceledOnTouchOutside(Z)V
+
+    iget-object p0, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mDialog:Landroid/app/Dialog;
 
     return-object p0
 
@@ -1610,7 +1543,7 @@
 
     move-result-object p1
 
-    const v2, 0x7f040128
+    const v2, 0x7f04013c
 
     new-array v1, v1, [Ljava/lang/Object;
 
@@ -1642,9 +1575,13 @@
 
     move-result-object p1
 
+    iput-object p1, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mDialog:Landroid/app/Dialog;
+
     invoke-virtual {p0, p1}, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->setupEditShortcutDialog(Landroid/app/Dialog;)V
 
-    return-object p1
+    iget-object p0, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mDialog:Landroid/app/Dialog;
+
+    return-object p0
 .end method
 
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
@@ -1676,9 +1613,9 @@
 
     invoke-virtual {p0, v0}, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->updateToggleServiceTitle(Lcom/android/settings/widget/SettingsMainSwitchPreference;)V
 
-    new-instance v0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment$$ExternalSyntheticLambda5;
+    new-instance v0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment$$ExternalSyntheticLambda3;
 
-    invoke-direct {v0, p0}, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment$$ExternalSyntheticLambda5;-><init>(Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;)V
+    invoke-direct {v0, p0}, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment$$ExternalSyntheticLambda3;-><init>(Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;)V
 
     iput-object v0, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mTouchExplorationStateChangeListener:Landroid/view/accessibility/AccessibilityManager$TouchExplorationStateChangeListener;
 
@@ -1738,6 +1675,16 @@
 
     invoke-virtual {v0, v1}, Lcom/android/settings/accessibility/SettingsContentObserver;->unregister(Landroid/content/ContentResolver;)V
 
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/android/settings/accessibility/AccessibilityUtil;->isFloatingMenuEnabled(Landroid/content/Context;)Z
+
+    move-result v0
+
+    iput-boolean v0, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mSavedAccessibilityFloatingMenuEnabled:Z
+
     invoke-super {p0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->onPause()V
 
     return-void
@@ -1792,7 +1739,7 @@
     goto :goto_0
 
     :cond_0
-    const-string v0, "title"
+    const-string/jumbo v0, "title"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
 
@@ -1808,7 +1755,7 @@
 
     :cond_1
     :goto_0
-    const-string v0, "summary"
+    const-string/jumbo v0, "summary"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
 
@@ -1880,6 +1827,8 @@
 
     invoke-virtual {p0}, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->updateShortcutPreference()V
 
+    invoke-direct {p0}, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->updateEditShortcutDialogIfNeeded()V
+
     return-void
 .end method
 
@@ -1894,7 +1843,7 @@
 
     if-eq v0, v1, :cond_0
 
-    const-string v1, "shortcut_type"
+    const-string/jumbo v1, "shortcut_type"
 
     invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
@@ -2059,13 +2008,13 @@
 .method setupEditShortcutDialog(Landroid/app/Dialog;)V
     .locals 3
 
-    const v0, 0x7f0d0510
+    const v0, 0x7f0d051f
 
     invoke-virtual {p1, v0}, Landroid/app/Dialog;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
-    const v1, 0x7f0d0146
+    const v1, 0x7f0d014a
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2077,7 +2026,7 @@
 
     invoke-direct {p0, v0, v2}, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->setDialogTextAreaClickListener(Landroid/view/View;Landroid/widget/CheckBox;)V
 
-    const v0, 0x7f0d0263
+    const v0, 0x7f0d0268
 
     invoke-virtual {p1, v0}, Landroid/app/Dialog;->findViewById(I)Landroid/view/View;
 
@@ -2195,6 +2144,30 @@
     return-void
 .end method
 
+.method protected updateShortcutTitle(Lcom/android/settings/accessibility/ShortcutPreference;)V
+    .locals 3
+
+    const/4 v0, 0x1
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    iget-object v1, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mPackageName:Ljava/lang/CharSequence;
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const v1, 0x7f04013c
+
+    invoke-virtual {p0, v1, v0}, Landroidx/fragment/app/Fragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-virtual {p1, p0}, Landroidx/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
+
+    return-void
+.end method
+
 .method protected updateSwitchBarToggleSwitch()V
     .locals 0
 
@@ -2202,11 +2175,25 @@
 .end method
 
 .method protected updateToggleServiceTitle(Lcom/android/settings/widget/SettingsMainSwitchPreference;)V
-    .locals 0
+    .locals 3
 
-    const p0, 0x7f04010b
+    const/4 v0, 0x1
 
-    invoke-virtual {p1, p0}, Landroidx/preference/Preference;->setTitle(I)V
+    new-array v0, v0, [Ljava/lang/Object;
+
+    iget-object v1, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mPackageName:Ljava/lang/CharSequence;
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const v1, 0x7f04011f
+
+    invoke-virtual {p0, v1, v0}, Landroidx/fragment/app/Fragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-virtual {p1, p0}, Lcom/android/settings/widget/SettingsMainSwitchPreference;->setTitle(Ljava/lang/CharSequence;)V
 
     return-void
 .end method

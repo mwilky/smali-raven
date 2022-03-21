@@ -152,7 +152,7 @@
 .method private initButtons(Landroid/view/View;)V
     .locals 4
 
-    const v0, 0x7f0d02d9
+    const v0, 0x7f0d02e5
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -160,7 +160,7 @@
 
     check-cast v0, Landroid/widget/Button;
 
-    const v1, 0x7f0d0157
+    const v1, 0x7f0d015b
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -168,7 +168,7 @@
 
     check-cast v1, Landroid/widget/Button;
 
-    const v2, 0x7f0d0316
+    const v2, 0x7f0d0322
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -339,7 +339,7 @@
 
     iput-object p1, p0, Lcom/android/settings/applications/appinfo/InstantAppButtonsPreferenceController;->mPreference:Lcom/android/settingslib/widget/LayoutPreference;
 
-    const v0, 0x7f0d02db
+    const v0, 0x7f0d02e7
 
     invoke-virtual {p1, v0}, Lcom/android/settingslib/widget/LayoutPreference;->findViewById(I)Landroid/view/View;
 
@@ -407,6 +407,16 @@
     return-object p0
 .end method
 
+.method public bridge synthetic getSliceHighlightMenuRes()I
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getSliceHighlightMenuRes()I
+
+    move-result p0
+
+    return p0
+.end method
+
 .method public bridge synthetic hasAsyncUpdate()Z
     .locals 0
 
@@ -462,7 +472,7 @@
 
     const/4 p2, 0x2
 
-    const v0, 0x7f040a84
+    const v0, 0x7f040a9c
 
     const/4 v1, 0x0
 

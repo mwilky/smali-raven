@@ -109,7 +109,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b016d
+    const v3, 0x7f0b016e
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -271,15 +271,15 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/biometrics/BiometricEnrollBase;->onCreate(Landroid/os/Bundle;)V
 
-    const p1, 0x7f0600e1
+    const p1, 0x7f0600e4
 
     invoke-virtual {p0, p1}, Landroidx/activity/ComponentActivity;->setContentView(I)V
 
-    const p1, 0x7f04112c
+    const p1, 0x7f041152
 
     invoke-virtual {p0, p1}, Lcom/android/settings/biometrics/BiometricEnrollBase;->setHeaderText(I)V
 
-    const p1, 0x7f0d020e
+    const p1, 0x7f0d0213
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -315,7 +315,7 @@
 
     invoke-direct {v0, p0}, Lcom/google/android/setupcompat/template/FooterButton$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f041100
+    const v1, 0x7f041125
 
     invoke-virtual {v0, v1}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setText(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -335,7 +335,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f13021b
+    const v1, 0x7f13021d
 
     invoke-virtual {v0, v1}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setTheme(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -405,12 +405,12 @@
 
     if-eq p1, v0, :cond_0
 
-    const v0, 0x7f041102
+    const v0, 0x7f041127
 
     goto :goto_0
 
     :cond_0
-    const v0, 0x7f041103
+    const v0, 0x7f041128
 
     :goto_0
     iget-object v1, p0, Lcom/android/settings/biometrics/face/FaceEnrollEnrolling;->mPreviewFragment:Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment;
@@ -515,7 +515,7 @@
 
     move-result-object v0
 
-    const-string v1, "tag_preview"
+    const-string/jumbo v1, "tag_preview"
 
     invoke-virtual {v0, v1}, Landroidx/fragment/app/FragmentManager;->findFragmentByTag(Ljava/lang/String;)Landroidx/fragment/app/Fragment;
 

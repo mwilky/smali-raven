@@ -19,7 +19,7 @@
 
     move-result-object p0
 
-    const v0, 0x11100de
+    const v0, 0x11100df
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -51,7 +51,7 @@
 
     new-instance v1, Lcom/android/settings/display/WallpaperPreferenceController;
 
-    const-string v2, "unused key"
+    const-string/jumbo v2, "unused key"
 
     invoke-direct {v1, p0, v2}, Lcom/android/settings/display/WallpaperPreferenceController;-><init>(Landroid/content/Context;Ljava/lang/String;)V
 
@@ -115,7 +115,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f041590
+    const v0, 0x7f0415b5
 
     invoke-virtual {p0, v0}, Lcom/android/settings/core/SubSettingLauncher;->setTitleRes(I)Lcom/android/settings/core/SubSettingLauncher;
 

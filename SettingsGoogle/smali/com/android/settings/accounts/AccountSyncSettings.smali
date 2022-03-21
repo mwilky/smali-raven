@@ -641,7 +641,7 @@
 .method private setAccessibilityTitle()V
     .locals 4
 
-    const-string v0, "user"
+    const-string/jumbo v0, "user"
 
     invoke-virtual {p0, v0}, Lcom/android/settings/SettingsPreferenceFragment;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -683,12 +683,12 @@
 
     if-eqz v0, :cond_1
 
-    const v0, 0x7f04016b
+    const v0, 0x7f04017f
 
     goto :goto_1
 
     :cond_1
-    const v0, 0x7f0400f5
+    const v0, 0x7f040106
 
     :goto_1
     const/4 v3, 0x1
@@ -925,7 +925,7 @@
     :goto_5
     if-nez v12, :cond_8
 
-    const v3, 0x7f041384
+    const v3, 0x7f0413a9
 
     invoke-virtual {v8, v3}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -939,7 +939,7 @@
     :cond_8
     if-eqz v15, :cond_9
 
-    const v3, 0x7f041389
+    const v3, 0x7f0413ae
 
     invoke-virtual {v8, v3}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -964,7 +964,7 @@
 
     move-result-object v4
 
-    const v6, 0x7f040b48
+    const v6, 0x7f040b60
 
     move/from16 v16, v0
 
@@ -1086,7 +1086,7 @@
 
     invoke-direct {v1, v2}, Lcom/android/settingslib/widget/FooterPreference$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f04138a
+    const v2, 0x7f0413af
 
     invoke-virtual {v1, v2}, Lcom/android/settingslib/widget/FooterPreference$Builder;->setTitle(I)Lcom/android/settingslib/widget/FooterPreference$Builder;
 
@@ -1188,7 +1188,7 @@
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v8, "updateAccountSwitches: added authority "
+    const-string/jumbo v8, "updateAccountSwitches: added authority "
 
     invoke-virtual {v5, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1475,7 +1475,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f0409fe
+    const p0, 0x7f040a16
 
     return p0
 .end method
@@ -1675,7 +1675,7 @@
 
     if-eqz p1, :cond_3
 
-    const-string v0, "uid_request_code"
+    const-string/jumbo v0, "uid_request_code"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
 
@@ -1791,13 +1791,13 @@
 
     invoke-direct {p1, p0}, Landroidx/appcompat/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const p0, 0x7f040550
+    const p0, 0x7f040568
 
     invoke-virtual {p1, p0}, Landroidx/appcompat/app/AlertDialog$Builder;->setTitle(I)Landroidx/appcompat/app/AlertDialog$Builder;
 
     move-result-object p0
 
-    const p1, 0x7f04054f
+    const p1, 0x7f040567
 
     invoke-virtual {p0, p1}, Landroidx/appcompat/app/AlertDialog$Builder;->setMessage(I)Landroidx/appcompat/app/AlertDialog$Builder;
 
@@ -1820,7 +1820,7 @@
 .method public onCreateOptionsMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V
     .locals 4
 
-    const v0, 0x7f04138c
+    const v0, 0x7f0413b1
 
     invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -1834,7 +1834,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f04138b
+    const v2, 0x7f0413b0
 
     invoke-virtual {p0, v2}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -2101,7 +2101,7 @@
 
     iget-object p0, p0, Lcom/android/settings/accounts/AccountSyncSettings;->mUidRequestCodeMap:Ljava/util/HashMap;
 
-    const-string v0, "uid_request_code"
+    const-string/jumbo v0, "uid_request_code"
 
     invoke-virtual {p1, v0, p0}, Landroid/os/Bundle;->putSerializable(Ljava/lang/String;Ljava/io/Serializable;)V
 

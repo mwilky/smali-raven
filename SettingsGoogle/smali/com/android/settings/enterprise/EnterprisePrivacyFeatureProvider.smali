@@ -61,5 +61,5 @@
 .method public abstract showParentalControls()Z
 .end method
 
-.method public abstract showWorkPolicyInfo()Z
+.method public abstract showWorkPolicyInfo(Landroid/content/Context;)Z
 .end method

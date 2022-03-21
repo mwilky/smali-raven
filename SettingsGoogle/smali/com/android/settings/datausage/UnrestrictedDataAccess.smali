@@ -19,7 +19,7 @@
 
     new-instance v0, Lcom/android/settings/search/BaseSearchIndexProvider;
 
-    const v1, 0x7f1500fa
+    const v1, 0x7f1500ff
 
     invoke-direct {v0, v1}, Lcom/android/settings/search/BaseSearchIndexProvider;-><init>(I)V
 
@@ -41,7 +41,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f040a35
+    const p0, 0x7f040a4d
 
     return p0
 .end method
@@ -65,7 +65,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f1500fa
+    const p0, 0x7f1500ff
 
     return p0
 .end method
@@ -123,7 +123,7 @@
 
     if-eqz p1, :cond_0
 
-    const-string v0, "show_system"
+    const-string/jumbo v0, "show_system"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
 
@@ -161,12 +161,12 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f040ce8
+    const v0, 0x7f040d00
 
     goto :goto_0
 
     :cond_0
-    const v0, 0x7f040cf2
+    const v0, 0x7f040d1c
 
     :goto_0
     const/4 v1, 0x0
@@ -204,12 +204,12 @@
 
     if-eqz v1, :cond_1
 
-    const v1, 0x7f040ce8
+    const v1, 0x7f040d00
 
     goto :goto_0
 
     :cond_1
-    const v1, 0x7f040cf2
+    const v1, 0x7f040d1c
 
     :goto_0
     invoke-interface {p1, v1}, Landroid/view/MenuItem;->setTitle(I)Landroid/view/MenuItem;
@@ -261,7 +261,7 @@
 
     iget-boolean p0, p0, Lcom/android/settings/datausage/UnrestrictedDataAccess;->mShowSystem:Z
 
-    const-string v0, "show_system"
+    const-string/jumbo v0, "show_system"
 
     invoke-virtual {p1, v0, p0}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 

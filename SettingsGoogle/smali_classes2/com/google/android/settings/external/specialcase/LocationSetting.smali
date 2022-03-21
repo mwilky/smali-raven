@@ -72,7 +72,7 @@
 .method private getScreenTitle(Landroid/content/Context;)Ljava/lang/String;
     .locals 0
 
-    const p0, 0x7f040b87
+    const p0, 0x7f040b9f
 
     invoke-virtual {p1, p0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -175,7 +175,7 @@
 
 # virtual methods
 .method public getAccessCursor(Landroid/content/Context;Lcom/android/settings/slices/SliceData;)Landroid/database/Cursor;
-    .locals 4
+    .locals 7
 
     invoke-direct {p0, p1}, Lcom/google/android/settings/external/specialcase/LocationSetting;->getCurrentValue(Landroid/content/Context;)I
 
@@ -185,15 +185,21 @@
 
     move-result v0
 
-    const-class v1, Lcom/android/settings/location/LocationSettings;
+    const-class v4, Lcom/android/settings/location/LocationSettings;
 
     invoke-direct {p0, p1}, Lcom/google/android/settings/external/specialcase/LocationSetting;->getScreenTitle(Landroid/content/Context;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v5
 
     const-string v3, "location"
 
-    invoke-interface {p0, p1, v3, v1, v2}, Lcom/google/android/settings/external/Queryable;->getIntentString(Landroid/content/Context;Ljava/lang/String;Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/String;
+    const v6, 0x7f040d09
+
+    move-object v1, p0
+
+    move-object v2, p1
+
+    invoke-interface/range {v1 .. v6}, Lcom/google/android/settings/external/Queryable;->getIntentString(Landroid/content/Context;Ljava/lang/String;Ljava/lang/Class;Ljava/lang/String;I)Ljava/lang/String;
 
     move-result-object p1
 
@@ -249,7 +255,7 @@
 .end method
 
 .method public getUpdateCursor(Landroid/content/Context;Lcom/android/settings/slices/SliceData;I)Landroid/database/Cursor;
-    .locals 4
+    .locals 7
 
     invoke-direct {p0, p3}, Lcom/google/android/settings/external/specialcase/LocationSetting;->validateInput(I)V
 
@@ -261,15 +267,21 @@
 
     move-result v0
 
-    const-class v1, Lcom/android/settings/location/LocationSettings;
+    const-class v4, Lcom/android/settings/location/LocationSettings;
 
     invoke-direct {p0, p1}, Lcom/google/android/settings/external/specialcase/LocationSetting;->getScreenTitle(Landroid/content/Context;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v5
 
     const-string v3, "location"
 
-    invoke-interface {p0, p1, v3, v1, v2}, Lcom/google/android/settings/external/Queryable;->getIntentString(Landroid/content/Context;Ljava/lang/String;Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/String;
+    const v6, 0x7f040d09
+
+    move-object v1, p0
+
+    move-object v2, p1
+
+    invoke-interface/range {v1 .. v6}, Lcom/google/android/settings/external/Queryable;->getIntentString(Landroid/content/Context;Ljava/lang/String;Ljava/lang/Class;Ljava/lang/String;I)Ljava/lang/String;
 
     move-result-object v1
 

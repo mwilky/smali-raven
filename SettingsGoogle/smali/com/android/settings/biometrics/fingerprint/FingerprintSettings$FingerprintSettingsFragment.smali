@@ -252,7 +252,7 @@
 
     invoke-virtual {v5, v2}, Landroidx/preference/Preference;->setPersistent(Z)V
 
-    const v6, 0x7f0201d0
+    const v6, 0x7f0201d7
 
     invoke-virtual {v5, v6}, Landroidx/preference/Preference;->setIcon(I)V
 
@@ -327,11 +327,11 @@
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setKey(Ljava/lang/String;)V
 
-    const v1, 0x7f04092f
+    const v1, 0x7f040947
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setTitle(I)V
 
-    const v1, 0x7f02016a
+    const v1, 0x7f020171
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setIcon(I)V
 
@@ -389,7 +389,7 @@
     invoke-virtual {v0}, Landroidx/preference/PreferenceGroup;->removeAll()V
 
     :cond_0
-    const v0, 0x7f1500d2
+    const v0, 0x7f1500d7
 
     invoke-virtual {p0, v0}, Lcom/android/settings/SettingsPreferenceFragment;->addPreferencesFromResource(I)V
 
@@ -455,7 +455,7 @@
 
     if-eqz v0, :cond_0
 
-    const v1, 0x7f0203fa
+    const v1, 0x7f020403
 
     invoke-virtual {v0, v1}, Landroid/app/Activity;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -644,7 +644,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f041173
+    const v2, 0x7f041198
 
     invoke-virtual {p0, v2}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -948,7 +948,7 @@
 
     move-result-object v1
 
-    const v2, 0x10e0064
+    const v2, 0x10e0067
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -992,7 +992,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f04092e
+    const v7, 0x7f040946
 
     new-array v8, v3, [Ljava/lang/Object;
 
@@ -1081,7 +1081,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f040a1a
+    const p0, 0x7f040a32
 
     return p0
 .end method
@@ -1547,18 +1547,18 @@
 
     new-instance v5, Lcom/android/settings/utils/AnnotationSpan$LinkInfo;
 
-    const-string v6, "url"
+    const-string/jumbo v6, "url"
 
     invoke-direct {v5, v0, v6, v4}, Lcom/android/settings/utils/AnnotationSpan$LinkInfo;-><init>(Landroid/content/Context;Ljava/lang/String;Landroid/content/Intent;)V
 
     if-eqz p1, :cond_5
 
-    const p1, 0x7f041150
+    const p1, 0x7f041175
 
     goto :goto_0
 
     :cond_5
-    const p1, 0x7f041188
+    const p1, 0x7f0411ad
 
     :goto_0
     invoke-virtual {p0, p1}, Landroidx/fragment/app/Fragment;->getText(I)Ljava/lang/CharSequence;

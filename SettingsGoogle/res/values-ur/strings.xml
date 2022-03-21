@@ -96,6 +96,7 @@
     <string name="peak_refresh_rate_title">ہموار ڈسپلے</string>
     <string name="peak_refresh_rate_summary">‏کچھ مواد کے لیے 60 سے 90 Hz تک ریفریش کی شرح خودکار طور پر بڑھ جاتی ہے۔ بیٹری کے استعمال میں اضافہ کرتا ہے۔</string>
     <string name="accessibility_vibration_settings_title">وائبریشن اور ہیپٹکس</string>
+    <string name="columbus_title">کارروائیاں شروع کرنے کے لیے فوری تھپتھپاہٹ</string>
     <string name="emergency_gesture_screen_title">‏ایمرجنسی SOS</string>
     <string name="abc_action_mode_done">ہو گیا</string>
     <string name="vibrate_for_calls_category_title">کالز</string>
@@ -103,6 +104,8 @@
     <string name="lockscreen_privacy_controls_setting_toggle">آلے کے کنٹرولز دکھائیں</string>
     <string name="lockscreen_privacy_wallet_summary">مقفل اسکرین اور فوری ترتیبات سے بٹوے تک رسائی کی اجازت دیں</string>
     <string name="lockscreen_privacy_controls_summary">مقفل ہونے پر کنٹرولز تک رسائی حاصل کریں</string>
+    <string name="lockscreen_double_line_clock_summary">دستیاب ہونے پر دو لائن والی گھڑی دکھائیں</string>
+    <string name="lockscreen_double_line_clock_setting_toggle">دو لائن والی گھڑی</string>
     <string name="abc_activity_chooser_view_see_all">سبھی دیکھیں</string>
     <string name="abc_activitychooserview_choose_application">ایک ایپ منتخب کریں</string>
     <string name="abc_capital_off">آف</string>
@@ -147,9 +150,11 @@
     <string name="accessibility_alarm_vibration_title">الارم وائبریشن</string>
     <string name="accessibility_assist_gesture_complete_or_keep_adjusting">‏Active Edge سیٹ اپ۔ اگلی اسکرین پر جائيں یا ایڈجسٹ کرتے رہیں۔</string>
     <string name="accessibility_audio_adjustment_title">آڈیو ایڈجسٹمنٹ</string>
+    <string name="accessibility_autoclick_about_title">خودکار کلک کے بارے میں (پسنے کا وقت)</string>
     <string name="accessibility_autoclick_custom_title">حسب ضرورت</string>
     <string name="accessibility_autoclick_default_title">آف</string>
     <string name="accessibility_autoclick_description">خودکار کلک ایک منسلک کردہ ماؤس کے ساتھ کام کرتا ہے۔ ایک مخصوص وقت تک کرسر کی حرکت موقوف ہونے پر آپ خودکار طور پر کلک کرنے کے لیے ماؤس کے کرسر کو سیٹ کر سکتے ہیں۔</string>
+    <string name="accessibility_autoclick_footer_learn_more_content_description">خود کار کلک کے بارے میں مزید جانیں (پسنے کا وقت)</string>
     <string name="accessibility_autoclick_long_summary">1 سیکنڈ</string>
     <string name="accessibility_autoclick_long_title">طویل</string>
     <string name="accessibility_autoclick_longer_desc">خودکار کلک کا طویل تر وقت</string>
@@ -161,16 +166,17 @@
     <string name="accessibility_autoclick_short_title">مختصر</string>
     <string name="accessibility_autoclick_shorter_desc">خودکار کلک کا محتصر تر وقت</string>
     <string name="accessibility_banner_message_dismiss">برخاست کریں</string>
-    <string name="accessibility_button_description">"کسی بھی اسکرین سے تیزی سے ایکسیسبیلٹی خصوصیات تک رسائی حاصل کریں۔ 
+    <string name="accessibility_button_about_title">ایکسیسبیلٹی بٹن کے بارے میں</string>
+    <string name="accessibility_button_description">"کسی بھی اسکرین سے تیزی سے ایکسیسبیلٹی خصوصیات تک رسائی حاصل کریں۔
 
-شروع کرنے کے لئے، ایکسیسبیلٹی کی ترتیبات پر جائیں اور خصوصیت منتخب کریں۔ شارٹ کٹ پر تھپتھپائیں اور ایکسیسبیلٹی بٹن منتخب کریں۔"</string>
+شروع کرنے کے لیے، ایکسیسبیلٹی کی ترتیبات پر جائیں اور کوئی خصوصیت منتخب کریں۔ شارٹ کٹ پر تھپتھپائیں اور ایکسیسبیلٹی بٹن منتخب کریں۔"</string>
     <string name="accessibility_button_fade_summary">یہ کچھ سیکنڈ کے بعد فیڈ ہو جاتا ہے تاکہ آپ کی اسکرین زیادہ آسانی سے دیکھی جا سکے</string>
     <string name="accessibility_button_fade_title">استعمال نہ ہونے پر فیڈ ہو جاتا ہے</string>
+    <string name="accessibility_button_gesture_about_title">ایکسیسبیلٹی بٹن اور اشارہ کے بارے میں</string>
     <string name="accessibility_button_gesture_description">"کسی بھی اسکرین سے تیزی سے ایکسیسبیلٹی خصوصیات تک رسائی حاصل کریں۔
 
-شروع کرنے کے لیے، ایکسیسبیلٹی کی ترتیبات پر جائیں اور خصوصیت منتخب کریں۔ شارٹ کٹ پر تھپتھپائیں اور ایکسیسبیلٹی بٹن منتخب کریں۔
-
-اس کے بجائے نیویگیشن بار میں ایکسیسبیلٹی بٹن کا استعمال کرنے کے لئے، 2 بٹن والی نیویگیشن یا 3 بٹن والی نیویگیشن پر سوئچ کریں۔"</string>
+شروع کرنے کے لیے، ایکسیسبیلٹی کی ترتیبات پر جائیں اور کوئی خصوصیت منتخب کریں۔ شارٹ کٹ پر تھپتھپائیں اور ایکسیسبیلٹی بٹن یا اشارہ منتخب کریں۔"</string>
+    <string name="accessibility_button_gesture_footer_learn_more_content_description">ایکسیسبیلٹی بٹن اور اشارہ کے بارے میں مزید جانیں</string>
     <string name="accessibility_button_gesture_title">ایکسیسبیلٹی بٹن اور اشارہ</string>
     <string name="accessibility_button_high_label">غیر شفاف</string>
     <string name="accessibility_button_intro">ایکسیسبیلٹی بٹن کا استعمال کرنا۔ 3 بٹن والی نیویگیشن کے ساتھ اشارہ دستیاب نہیں ہوتا ہے۔</string>
@@ -184,14 +190,23 @@
     <string name="accessibility_caption_preference_summary">ان کیپشن کی ترجیحات کو سبھی ایپس سپورٹ نہیں کرتی ہیں</string>
     <string name="accessibility_caption_primary_switch_summary">صرف تعاون یافتہ ایپ کے لیے</string>
     <string name="accessibility_caption_primary_switch_title">کیپشنز دکھائیں</string>
+    <string name="accessibility_captioning_about_title">کیپشن کی ترجیحات کے بارے میں</string>
+    <string name="accessibility_captioning_footer_learn_more_content_description">کیپشن کی ترجیحات کے بارے میں مزید جانیں</string>
     <string name="accessibility_captioning_title">کیپشن کی ترجیحات</string>
     <string name="accessibility_category_personal">ذاتی پروفائل اکاؤنٹس</string>
     <string name="accessibility_category_work">دفتری پروفائل اکاؤنٹس - %s</string>
+    <string name="accessibility_color_inversion_about_title">رنگوں کی تقلیب کے بارے میں</string>
+    <string name="accessibility_color_inversion_footer_learn_more_content_description">رنگوں کی تقلیب کے بارے میں مزید جانیں</string>
+    <string name="accessibility_control_timeout_about_title">کارروائی کرنے کے وقت کے بارے میں (ایکسیسبیلٹی ٹائم آؤٹ)</string>
+    <string name="accessibility_control_timeout_footer_learn_more_content_description">کارروائی کرنے کے وقت کے بارے میں مزید جانیں (ایکسیسبیلٹی ٹائم آؤٹ)</string>
     <string name="accessibility_control_timeout_preference_summary">"ان پیغامات کو دکھانے کی مدت منتخب کریں جو آپ سے کارروائی کرنے کا مطالبہ کرتے ہیں، لیکن عارضی طور پر دکھائی دیتے ہیں۔
 
 سبھی ایپس اس ترتیب کا تعاون نہیں کرتی ہیں۔"</string>
     <string name="accessibility_control_timeout_preference_title">کارروائی کرنے کا وقت</string>
+    <string name="accessibility_daltonizer_about_title">رنگ کی اصلاح کے بارے میں</string>
+    <string name="accessibility_daltonizer_footer_learn_more_content_description">رنگ کی اصلاح کے بارے میں مزید جانیں</string>
     <string name="accessibility_daltonizer_primary_switch_title">رنگ کی اصلاح استعمال کریں</string>
+    <string name="accessibility_daltonizer_shortcut_title">رنگ کی اصلاح کا شارٹ کٹ</string>
     <string name="accessibility_data_one_bar">ڈیٹا کا ایک بار۔</string>
     <string name="accessibility_data_signal_full">ڈیٹا سگنل بھرا ہوا ہے۔</string>
     <string name="accessibility_data_three_bars">ڈیٹا کے تین بارز۔</string>
@@ -206,6 +221,7 @@
     <string name="accessibility_display_daltonizer_preference_title">رنگ کی اصلاح</string>
     <string name="accessibility_display_inversion_preference_subtitle">"‏رنگوں کی تقلیب سے اسکرینز کا ہلکا رنگ گہرا ہو جاتا ہے۔&lt;br/>&lt;br/> نوٹ:&lt;ol> &lt;li> رنگوں کی تقلیب سے اسکرینز کا گہرا رنگ ہلکا بھی ہوجاتا ہے۔&lt;/li> &lt;li> میڈیا اور تصاویر میں رنگ تبدیل ہو جائیں گے۔&lt;/li> &lt;li> گہری تھیم کو گہرے پس منظر ظاہر کرنے کے لیے استعمال کیا جاسکتا ہے۔ گہری تھیم تعاون یافتہ ایپس کے ساتھ کام کرتی ہے۔ رنگوں کی تقلیب  سبھی ایپس پر کام کرتی ہے۔&lt;/li> &lt;/ol>"</string>
     <string name="accessibility_display_inversion_preference_title">رنگوں کی تقلیب</string>
+    <string name="accessibility_display_inversion_shortcut_title">رنگوں کی تقلیب کا شارٹ کٹ</string>
     <string name="accessibility_display_inversion_switch_title">رنگوں کی تقلیب استعمال کریں</string>
     <string name="accessibility_ethernet_connected">ایتھرنیٹ۔</string>
     <string name="accessibility_ethernet_disconnected">ایتھرنیٹ منقطع ہے۔</string>
@@ -255,6 +271,8 @@
     <string name="accessibility_phone_two_bars">فون کے دو بارز۔</string>
     <string name="accessibility_power_button_ends_call_prerefence_title">پاور بٹن سے کال ختم ہو جاتی ہے</string>
     <string name="accessibility_preference_magnification_summary">اسکرین پر زوم ان کریں</string>
+    <string name="accessibility_screen_magnification_about_title">میگنیفکیشن کے بارے میں</string>
+    <string name="accessibility_screen_magnification_footer_learn_more_content_description">میگنیفکیشن کے بارے میں مزید جانیں</string>
     <string name="accessibility_screen_magnification_gesture_navigation_warning">ایکسیسبیلٹی اشارے کو %1$s پر سیٹ کر دیا گیا۔ میگنیفکیشن استعمال کرنے کے لیے، اسکرین کے نیچے سے دو انگلیوں سے اوپر سوائپ اور ہولڈ کریں۔ پھر میگنیفکیشن منتخب کریں۔</string>
     <string name="accessibility_screen_magnification_gestures_title">تین بار تھپتھپا کر بڑا کریں</string>
     <string name="accessibility_screen_magnification_navbar_configuration_warning">ایکسیسبیلٹی بٹن %1$s پر سیٹ ہے۔ میگنیفکیشن استعمال کرنے کیلئے، ایکسیسبیلٹی بٹن ٹچ کریں اور دبائے رکھیں، پھر میگنیفکیشن منتخب کریں۔</string>
@@ -272,6 +290,7 @@
 آپ کی بورڈ یا نیویگیشن بار پر زوم ان نہیں کرسکتے۔"</string>
     <string name="accessibility_screen_magnification_navbar_title">شارٹ کٹ سے بڑا کریں</string>
     <string name="accessibility_screen_magnification_short_summary">زوم کرنے کیلئے 3 بار تھپتھپائیں</string>
+    <string name="accessibility_screen_magnification_shortcut_title">میگنیفکیشن شارٹ کٹ</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">شارٹ کٹ اور تین بار تھپتھپانے سے بڑا کریں</string>
     <string name="accessibility_screen_magnification_summary">‏مواد کو بڑا کرنے کے لیے اسکرین پر فوری طور پر زوم ان کریں۔‎&lt;br/>&lt;br/> &lt;b>‎زوم ان کرنے کے لیے:‎&lt;/b>&lt;br/>‎ ‏{‎0,number,integer}۔ میگنیفکیشن شروع کرنے کے لیے شارٹ کٹ کا استعمال کریں‎&lt;br/>‎ ‏{‎1,number,integer}۔ اسکرین پر تھپتھپائیں‎&lt;br/>‎ ‏{‎2,number,integer}۔ اسکرین پر اِدھر اُدھر حرکت کرنے کے لیے 2 انگلیوں سے گھسیٹیں‎&lt;br/>‎ ‏{‎3,number,integer}۔ زوم ایڈجسٹ کرنے کے لیے 2 انگلیوں سے چٹکی بھریں‎&lt;br/>‎ ‏{‎4,number,integer}۔ میگنیفکیشن بند کرنے کے لیے شارٹ کٹ کا استعمال کریں‎&lt;br/>&lt;br/> &lt;b>‎عارضی طور پر زوم ان کرنے کے لیے:‎&lt;/b>‎‏‎&lt;br/>‎ ‏{‎0,number,integer}۔ میگنیفکیشن شروع کرنے کے لیے شارٹ کٹ کا استعمال کریں‎&lt;br/>‎ ‏{‎1,number,integer}۔ اسکرین پر کسی بھی جگہ پر ٹچ کریں اور دبائیں رکھیں‎&lt;br/>‎ ‏{‎2,number,integer}۔ اسکرین پر اِدھر اُدھر حرکت کرنے کے لیے انگلی کو گھسیٹیں‎&lt;br/>‎ ‏{‎3,number,integer}۔ میگنیفکیشن بند کرنے کے لیے انگلی اٹھائيں</string>
     <string name="accessibility_screen_magnification_title">میگنیفکیشن</string>
@@ -370,7 +389,7 @@
     <string name="accessibility_tutorial_dialog_message_volume">یہ خصوصیت استعمال کرنے کیلئے، والیوم کی دونوں کلیدوں کو دبائے رکھیں۔</string>
     <string name="accessibility_tutorial_dialog_title_button">کھولنے کے لیے ایکسیسبیلٹی بٹن کا استعمال کریں</string>
     <string name="accessibility_tutorial_dialog_title_gesture">کھولنے کے لیے اشارہ استعمال کریں</string>
-    <string name="accessibility_tutorial_dialog_title_gesture_settings">نیا رسائی اشارہ استعمال کریں</string>
+    <string name="accessibility_tutorial_dialog_title_gesture_settings">ایکسیسبیلٹی اشارے کا استعمال کریں</string>
     <string name="accessibility_tutorial_dialog_title_triple">کھولنے کے لیے اسکرین پر تین بار تھپتھپائیں</string>
     <string name="accessibility_tutorial_dialog_title_volume">کھولنے کے لیے والیوم کی کلیدوں کو دبائیں رکھیں</string>
     <string name="accessibility_tutorial_pager">صفحہ %1$d از %2$d</string>
@@ -936,6 +955,7 @@
     <string name="battery_level_title">بیٹری کی سطح</string>
     <string name="battery_manager_off">آف</string>
     <string name="battery_manager_summary">بیٹری لائف کو بڑھائیں اور چارجنگ کو بہترین بنائیں</string>
+    <string name="battery_manager_summary_unsupported">بیٹری لائف میں توسیع کریں</string>
     <string name="battery_missing_link_a11y_message">اس خرابی کے بارے میں مزید جاننے کے لیے، تھپتھپائیں</string>
     <string name="battery_missing_link_message">مزید جانیں</string>
     <string name="battery_missing_message">بیٹری میٹر کو پڑھنے میں دشواری۔</string>
@@ -1010,9 +1030,9 @@
     <string name="battery_tip_early_heads_up_title">بیٹری سیور آن کریں</string>
     <string name="battery_tip_high_usage_summary">سب سے زیادہ بیٹری استعمال کرنے والی ایپس دیکھیں</string>
     <string name="battery_tip_high_usage_title">بیٹری کا بہت زیادہ استعمال</string>
-    <string name="battery_tip_limited_temporarily_dialog_msg">"اعلی درجہ حرارت اور چارجنگ کی طویل مدتوں جیسی مخصوص شرائط میں، چارجنگ بیٹری کی صحت کی حفاظت میں مدد کے لیے %1$s تک محدود ہو سکتی ہے۔
+    <string name="battery_tip_limited_temporarily_dialog_msg">"بہت زیادہ درجہ حرارت اور چارجنگ کی طویل مدتوں جیسے مخصوص حالات میں، چارجنگ بیٹری کی صحت کی حفاظت میں مدد کے لیے %1$s تک محدود ہو سکتی ہے۔
 
-ان شرائط کے ختم ہونے پر آپ کا فون عام طور پر خودکار طور پر چارج ہوگا۔"</string>
+ان حالات کے ختم ہونے پر آپ کا فون نارمل طریقے سے خودکار طور پر چارج ہوگا۔"</string>
     <string name="battery_tip_limited_temporarily_dialog_resume_charge">چارج کرنا دوبارہ شروع کریں</string>
     <string name="battery_tip_limited_temporarily_summary">آپ کی بیٹری کو محفوظ رکھنے کے لیے۔ مزید جانیں۔</string>
     <string name="battery_tip_limited_temporarily_title">چارجنگ عارضی طور پر محدود ہے</string>
@@ -1061,6 +1081,7 @@
     <string name="battery_usage_screen_footer">بیٹری کے استعمال کا ڈیٹا تخمینی ہے اور فون چارج ہوتے وقت بیٹری کے استعمال کی پیمائش نہیں کرتا ہے</string>
     <string name="battery_usage_screen_footer_empty">آپ کے اپنے فون کو کچھ گھنٹوں تک استعمال کرنے کے بعد بیٹری کے استعمال کا ڈیٹا دستیاب ہوگا</string>
     <string name="battery_usage_total_less_than_one_minute">کُل: ایک منٹ سے کم</string>
+    <string name="battery_usage_without_time" />
     <string name="battery_used_by">%2$s کے ذریعے %1$s استعمال کیا گیا</string>
     <string name="battery_used_for">^1 کیلئے استعمال کیا گیا</string>
     <string name="bearer">بیئرر</string>
@@ -1069,12 +1090,14 @@
     <string name="billing_cycle_less_than_one_day_left">1 دن سے کم وقت باقی ہے</string>
     <string name="billing_cycle_none_left">کوئی وقت باقی نہیں ہے</string>
     <string name="biometric_settings_category_ways_to_unlock">غیر مقفل کرنے کے طریقے</string>
-    <string name="biometric_settings_category_ways_to_use">اس کے لیے فیس اور فنگر پرنٹ کا استعمال کریں</string>
     <string name="biometric_settings_hand_back_to_guardian">فون کو واپس اپنے والدین کے حوالے کر دیں</string>
     <string name="biometric_settings_hand_back_to_guardian_ok">ٹھیک ہے</string>
     <string name="biometric_settings_intro">جب آپ فیس اَنلاک اور فنگر پرنٹ اَن لاک کی خصوصیت سیٹ اپ کرتے ہیں تو آپ کے ماسک پہننے یا کسی تاریک جگہ پر موجود ہونے کی صورت میں آپ کا فون آپ کے فنگر پرنٹ کے لیے پوچھے گا</string>
-    <string name="biometric_settings_use_biometric_for_apps">ایپس میں تصدیق کے لیے</string>
-    <string name="biometric_settings_use_biometric_unlock_phone">فون ان لاک کرنے کیلئے</string>
+    <string name="biometric_settings_use_biometric_for_apps">تصدیق کریں کہ آپ ایپس میں ہیں</string>
+    <string name="biometric_settings_use_biometric_unlock_phone">اپنا فون غیر مقفل کریں</string>
+    <string name="biometric_settings_use_face_or_fingerprint_preference_summary">چہرہ یا فنگر پرنٹ کا استعمال کر کے</string>
+    <string name="biometric_settings_use_face_preference_summary">چہرہ استعمال کر کے</string>
+    <string name="biometric_settings_use_fingerprint_preference_summary">فنگر پرنٹ استعمال کر کے</string>
     <string name="biometrics_unlock_set_unlock_password">پاس ورڈ • چہرہ • فنگر پرنٹ</string>
     <string name="biometrics_unlock_set_unlock_pattern">پیٹرن • چہرہ • فنگر پرنٹ</string>
     <string name="biometrics_unlock_set_unlock_pin">‏PIN • چہرہ • فنگر پرنٹ</string>
@@ -1332,7 +1355,6 @@
     <string name="bluetooth_settings_title">بلوٹوتھ</string>
     <string name="bluetooth_show_devices_without_names">بغیر نام والے بلوٹوتھ آلات دکھائیں</string>
     <string name="bluetooth_show_devices_without_names_summary">‏بغیر نام والے بلوٹوتھ آلات (صرف MAC پتے) ڈسپلے کئے جائیں گے</string>
-    <string name="bluetooth_show_files_received_via_bluetooth">بذریعہ بلوٹوتھ موصول شدہ فائلیں</string>
     <string name="bluetooth_show_received_files">موصولہ فائلیں</string>
     <string name="bluetooth_sim_card_access_dialog_content">"‏ایک بلوٹوتھ آلہ، %1$s، آپ کے SIM کارڈ پر ڈیٹا تک رسائی حاصل کرنا چاہتا ہے۔ اس میں آپ کے رابطے شامل ہیں۔
 
@@ -1426,6 +1448,7 @@
     <string name="calls_sms_temp_unavailable">عارضی طور پر دستیاب نہیں ہے</string>
     <string name="calls_sms_unavailable">دستیاب نہیں</string>
     <string name="calls_sms_wfc_summary">‏Wi-Fi پر کالز کریں اور موصول کریں</string>
+    <string name="cam_toggle_description">ایپس اور سروسز کے لیے</string>
     <string name="camera_double_tap_power_gesture_desc">اپنی اسکرین غیر مقفل کئے بغیر تیزی سے کیمرا کھولیں</string>
     <string name="camera_double_tap_power_gesture_title">کیمرا کیلئے پاور بٹن دو بار دبائیں</string>
     <string name="camera_laser_sensor_switch">کیمرا لیزر سینسر</string>
@@ -3302,6 +3325,7 @@
     <string name="menu_stats_total">مجموعی استعمال</string>
     <string name="menu_stats_unplugged">پلگ ہٹائے جانے کے بعد سے %1$s</string>
     <string name="menu_use_uss">‏Uss کا استعمال کریں</string>
+    <string name="mic_toggle_description">ایپس اور سروسز کے لیے۔ اگر یہ ترتیب آف ہو تو آپ کے ایمرجنسی نمبر پر کال کرتے وقت بھی مائیکروفون کے ڈیٹا کا اشتراک کیا جا سکتا ہے۔</string>
     <string name="mic_toggle_title">مائیکروفون تک رسائی</string>
     <string name="misc_files">متفرق فائلیں</string>
     <string name="misc_files_selected_count">%1$d از %2$d کو منتخب کیا گیا</string>
@@ -3728,6 +3752,7 @@
     <string name="one_handed_action_show_notification_title">اطلاعات دکھائیں</string>
     <string name="one_handed_mode_enabled">ایک ہاتھ کی وضع استعمال کریں</string>
     <string name="one_handed_mode_intro_text">ایک ہاتھ کی وضع استعمال کرنے کے لئے، اسکرین کے نچلے کنارے سے نیچے کی طرف سوائپ کریں۔ اس خصوصیت کو استعمال کرنے کے لیے، یقینی بنائیں کہ سسٹم نیویگیشن کی ترتیبات میں اشاروں والی نیویگیشن آن ہے۔</string>
+    <string name="one_handed_mode_shortcut_title">ایک ہاتھ کی وضع کا شارٹ کٹ</string>
     <string name="one_handed_mode_swipe_down_category">درج ذیل کیلئے نیچے کی طرف سوائپ کریں</string>
     <string name="one_handed_mode_use_shortcut_category">اس کیلئے شارٹ کٹ استعمال کریں</string>
     <string name="one_usercrt">ایک صارف سرٹیفیکیٹ</string>
@@ -3803,7 +3828,7 @@
     <string name="post_dsds_reboot_notification_title_with_carrier">%1$s فعال ہے</string>
     <string name="power_bluetooth">بلوٹوتھ</string>
     <string name="power_camera">کیمرا</string>
-    <string name="power_cell">موبائل نیٹ ورک اسٹینڈ بائی</string>
+    <string name="power_cell">موبائل نیٹ ورک</string>
     <string name="power_charge_remaining">%1$s چارج کرنے کیلئے</string>
     <string name="power_charging">‎%1$s - %2$s‎</string>
     <string name="power_charging_duration">مکمل چارج ہونے میں %1$s - %2$s باقی ہے</string>
@@ -4037,6 +4062,7 @@
     <string name="recent_notifications">حال ہی میں اطلاعات بھیجنے والی ایپس</string>
     <string name="recent_notifications_see_all_title">گزشتہ 7 دنوں کی تمام ملاحظہ کریں</string>
     <string name="recompute_size">سائز کو دوبارہ شمار کر رہا ہے…</string>
+    <string name="reduce_bright_colors_about_title">اضافی دھندلا کے بارے میں</string>
     <string name="reduce_bright_colors_intensity_end_label">زیادہ روشن</string>
     <string name="reduce_bright_colors_intensity_preference_title">شدت</string>
     <string name="reduce_bright_colors_intensity_start_label">زيادہ مدھم</string>
@@ -4044,6 +4070,7 @@
     <string name="reduce_bright_colors_preference_subtitle">‏اپنی اسکرین کو زیادہ مدھم کریں تاکہ اس کو پڑھنے میں مزید سہولت ہو۔&lt;br/>&lt;br/> یہ اس صورت میں مددگار ثابت ہو سکتی ہے جب: &lt;ol> &lt;li> آپ کے فون کی ڈیفالٹ کم سے کم چمک ابھی بھی بہت روشن ہو&lt;/li> &lt;li> آپ اپنا فون تاریک حالات میں استعمال کر رہے ہیں جیسے رات میں یا سونے سے پہلے کسی تاریک کمرے میں&lt;/li> &lt;/ol></string>
     <string name="reduce_bright_colors_preference_summary">اپنے فون کی کم سے کم چمک سے پَرے اسکرین کو مدھم کریں</string>
     <string name="reduce_bright_colors_preference_title">اضافی دھندلا</string>
+    <string name="reduce_bright_colors_shortcut_title">"'اضافی دھندلا' شارٹ کٹ"</string>
     <string name="reduce_bright_colors_switch_title">اسکرین کو اضافی دھندلا بنائیں</string>
     <string name="register_automatically">خود کار رجسٹریشن…</string>
     <string name="register_on_network">%s پر رجسٹر کیا جا رہا ہے…</string>
@@ -4249,7 +4276,6 @@
     <string name="screen_pinning_unlock_pattern">پن ہٹانے سے پہلے غیر مقفل کرنے کا پیٹرن طلب کریں</string>
     <string name="screen_pinning_unlock_pin">‏پن ہٹانے سے پہلے PIN طلب کریں</string>
     <string name="screen_reader_category_title">اسکرین قاری</string>
-    <string name="screen_saver_main_switch_title">اسکرین سیور کا استعمال کریں</string>
     <string name="screen_time_summary_usage_today">%1$s آج</string>
     <string name="screen_timeout_summary">غیر فعالیت کے %1$s بعد</string>
     <string name="screen_timeout_title">اسکرین آف ہوجاتی ہے</string>
@@ -4279,6 +4305,7 @@
     <string name="screensaver_settings_button">ترتیبات</string>
     <string name="screensaver_settings_current">موجودہ اسکرین سیور</string>
     <string name="screensaver_settings_disabled_prompt">فون ڈاک کیے ہونے اور/یا سوئے ہوئے ہونے کے دوران کیا ہو اسے کنٹرول کرنے کیلئے، اسکرین سیور آن کریں۔</string>
+    <string name="screensaver_settings_dream_start">ابھی شروع کریں</string>
     <string name="screensaver_settings_summary_dock">ڈاک کیے ہونے پر</string>
     <string name="screensaver_settings_summary_either_long">ڈاک سے منسلک یا چارج ہونے کے دوران</string>
     <string name="screensaver_settings_summary_either_short">دونوں صورتوں میں</string>
@@ -4329,15 +4356,6 @@
     <string name="security_settings_biometric_preference_summary_both_fp_single">چہرے اور فنگر پرنٹ کو شامل کیا گیا</string>
     <string name="security_settings_biometric_preference_summary_none_enrolled">سیٹ اپ کرنے کے لیے تھپتھپائیں</string>
     <string name="security_settings_biometric_preference_title">فیس اور فنگر پرنٹ اَن لاک</string>
-    <string name="security_settings_biometrics_description">جب آپ فیس اور فنگر پرنٹ اَن لاک سیٹ اپ کرتے ہیں تو ماسک پہننے یا کسی تاریک جگہ پر ہونے کی صورت میں آپ کا فون آپ کے فنگر پرنٹ کیلئے پوچھے گا</string>
-    <string name="security_settings_biometrics_preference_use_with_apps">ایپس میں تصدیق</string>
-    <string name="security_settings_biometrics_preferences_category">اس کیلئے چہرہ یا فنگر پرنٹ استعمال کریں</string>
-    <string name="security_settings_biometrics_summary_both">چہرہ اور فنگر پرنٹ</string>
-    <string name="security_settings_biometrics_summary_face">صرف چہرہ</string>
-    <string name="security_settings_biometrics_summary_fingerprint">صرف فنگر پرنٹ</string>
-    <string name="security_settings_biometrics_summary_none">سیٹ اپ کرنے کیلئے تھپتھپائیں</string>
-    <string name="security_settings_biometrics_title">فیس اور فنگر پرنٹ اَنلاک</string>
-    <string name="security_settings_biometrics_types_category">غیر مقفل کرنے کے طریقے</string>
     <string name="security_settings_face_enroll_consent_introduction_title">فیس اَنلاک کی اجازت دیں</string>
     <string name="security_settings_face_enroll_dialog_ok">ٹھیک ہے</string>
     <string name="security_settings_face_enroll_done">ہو گیا</string>
@@ -4385,16 +4403,17 @@ g.co/pixel/faceunlock پر مزید جانیں۔"</string>
     <string name="security_settings_face_enroll_introduction_control_title">سب کچھ آپ کے اختیار میں ہے</string>
     <string name="security_settings_face_enroll_introduction_how_consent_message">"فیس اَنلاک کی خصوصیت آپ کے بچے کے چہرے کا ایک منفرد ماڈل تخلیق کرتی ہے تاکہ یہ توثیق کی جا سکے کہ یہ وہی بچہ ہے۔ سیٹ اپ کے دوران یہ چہرے کا ماڈل تخلیق کرنے کے لیے آپ کا بچہ اپنے چہرے کی تصاویر مختلف زاویوں سے لے گا۔
 
-جب وہ فیس اَنلاک کی خصوصیت کا استعمال کرتا ہے تو تصاویر اس کے چہرے کا ماڈل اپ ڈیٹ کرنے کے لیے استعمال کی جاتی ہیں۔ اس کے چہرے کا ماڈل تخلیق کرنے کے لیے استعمال کی جانے والی تصاویر کو کبھی بھی اسٹور نہیں کیا جاتا ہے لیکن چہرے کا ماڈل فون پر محفوظ طریقے سے اسٹور کیا جاتا ہے اور یہ کبھی بھی فون سے باہر نہیں جاتا ہے۔ فون پر سبھی کارروائیاں محفوظ طریقے سے ہوتی ہیں۔"</string>
+جب وہ فیس اَنلاک کی خصوصیت کا استعمال کرتا ہے تو تصاویر اس کے چہرے کا ماڈل اپ ڈیٹ کرنے کے لیے استعمال کی جاتی ہیں۔ اس کے چہرے کا ماڈل تخلیق کرنے کے لیے استعمال کی جانے والی تصاویر کو اسٹور نہیں کیا جاتا ہے لیکن چہرے کا ماڈل فون پر محفوظ طریقے سے اسٹور کیا جاتا ہے اور یہ کبھی بھی فون سے باہر نہیں جاتا ہے۔ فون پر سبھی کارروائیاں محفوظ طریقے سے ہوتی ہیں۔"</string>
     <string name="security_settings_face_enroll_introduction_how_message">"فیس اَنلاک کی خصوصیت آپ کے چہرے کا ایک منفرد ماڈل تخلیق کرتی ہے تاکہ یہ توثیق کی جا سکے کہ یہ آپ ہی ہیں۔ سیٹ اپ کے دوران یہ چہرے کا ماڈل تخلیق کرنے کے لیے آپ اپنے چہرے کی تصاویر مختلف زاویوں سے لیں گے۔
 
-جب آپ فیس اَنلاک کی خصوصیت استعمال کرتے ہیں تو تصاویر آپ کے چہرے کا ماڈل اپ ڈیٹ کرنے کے لیے استعمال کی جاتی ہیں۔ آپ کے چہرے کا ماڈل تخلیق کرنے کے لیے استعمال کی جانے والی تصاویر کو کبھی بھی اسٹور نہیں کیا جاتا ہے لیکن چہرے کا ماڈل آپ کے فون پر محفوظ طریقے سے اسٹور کیا جاتا ہے اور یہ کبھی بھی فون سے باہر نہیں جاتا ہے۔ آپ کے فون پر سبھی کارروائیاں محفوظ طریقے سے ہوتی ہیں۔"</string>
+جب آپ فیس اَنلاک کی خصوصیت استعمال کرتے ہیں تو تصاویر آپ کے چہرے کا ماڈل اپ ڈیٹ کرنے کے لیے استعمال کی جاتی ہیں۔ آپ کے چہرے کا ماڈل تخلیق کرنے کے لیے استعمال کی جانے والی تصاویر کو اسٹور نہیں کیا جاتا ہے لیکن چہرے کا ماڈل آپ کے فون پر محفوظ طریقے سے اسٹور کیا جاتا ہے اور یہ کبھی بھی فون سے باہر نہیں جاتا ہے۔ آپ کے فون پر سبھی کاروائیاں محفوظ طریقے سے ہوتی ہیں۔"</string>
     <string name="security_settings_face_enroll_introduction_how_title">یہ کیسے کام کرتا ہے</string>
     <string name="security_settings_face_enroll_introduction_info_consent_gaze">فون کو غیر مقفل کرنے یا اس کی توثیق کرنے کے لیے کہ یہ وہی بچہ ہے، فیس اَنلاک کا آپ کے بچے کی آنکھیں کھلی رکھنے کا تقاضہ ہو سکتا ہے۔ آپ اور آپ کا بچہ ترتیبات میں کسی بھی وقت اس اختیار کو تبدیل کر سکتے ہیں۔</string>
     <string name="security_settings_face_enroll_introduction_info_consent_glasses">اگر آپ کا بچہ عام طور پر عینک پہنتا ہے تو وہ سیٹ اپ کے دوران انہیں پہن سکتا ہے۔</string>
     <string name="security_settings_face_enroll_introduction_info_consent_looking">غیر ارادتاً طور پر بھی فون کو دیکھنا اس کو غیر فعال کر سکتا ہے۔ اس کے فون کو اس سے بہت زیادہ مشابہ کسی شخص کے ذریعے بھی غیر مقفل کیا جا سکتا ہے جیسے کوئی ہم شکل بھائی بہن یا اگر کوئی اسے اس کے چہرے کے سامنے رکھ دے تو بھی غیر مقفل ہو سکتا ہے۔</string>
     <string name="security_settings_face_enroll_introduction_info_gaze">فون کو غیر مقفل کرنے یا یہ توثیق کرنے کے لیے کہ یہ آپ ہی ہیں فیس اَنلاک کا آپ کی آنکھیں کھلی رکھنے کا تقاضہ ہو سکتا ہے۔ آپ ترتیبات میں کسی بھی وقت اس اختیار کو تبدیل کر سکتے ہیں۔</string>
     <string name="security_settings_face_enroll_introduction_info_glasses">چشمے یا ہلکے ٹِنٹ ایڈجسٹ کردہ دھوپ چشمے ٹھیک ہیں۔</string>
+    <string name="security_settings_face_enroll_introduction_info_less_secure">‏فون اَن لاک کرنے کے لیے چہرے کا استعمال کرنا مضبوط پیٹرن یا PIN سے کم محفوظ ہو سکتا ہے۔</string>
     <string name="security_settings_face_enroll_introduction_info_looking">غیر ارادتاً طور پر بھی فون کو دیکھنا اس کو غیر فعال کر سکتا ہے۔ آپ کے فون کو آپ سے بہت زیادہ مشابہ کسی شخص کے ذریعے بھی غیر مقفل کیا جا سکتا ہے جیسے کوئی ہم شکل بھائی بہن یا اگر کوئی اسے آپ کے چہرے کے سامنے رکھ دے تو بھی غیر مقفل ہو سکتا ہے۔</string>
     <string name="security_settings_face_enroll_introduction_info_title">یاد رکھیں</string>
     <string name="security_settings_face_enroll_introduction_message">اپنا فون غیر مقفل کرنے یا یہ توثیق کرنے کے لیے اپنے چہرے کا استعمال کریں کہ یہ آپ ہی ہیں کے لیے جیسے جب آپ ایپس میں سائن ان کرتے ہیں یا خریداری کرتے ہیں۔</string>
@@ -4452,13 +4471,14 @@ g.co/pixel/faceunlock پر مزید جانیں۔"</string>
 
 آپ کی طرح بہت زيادہ نظر آنے والے کسی بھی شخص، جیسے، آپ کے بھائی بہن کے ذریعے آپ کا فون غیر مقفل کیا جا سکتا ہے۔"</string>
     <string name="security_settings_face_settings_preferences_category">فیس اَنلاک کا استعمال کرتے وقت</string>
-    <string name="security_settings_face_settings_remove_dialog_details">‏آپ کے چہرے کے ماڈل کو مستقل اور محفوظ طریقے سے حذف کر دیا جائے گا۔ حذف کرنے کے بعد آپ کو اپنے فون کو غیر مقفل کرنے یا ایپس میں تصدیق کے لیے آپ کو اپنا PIN، پیٹرن یا پاس ورڈ درکار ہوگا۔</string>
+    <string name="security_settings_face_settings_remove_dialog_details">"‏آپ کے چہرے کے ماڈل کو مستقل اور محفوظ طریقے سے حذف کر دیا جائے گا۔
+
+حذف کرنے کے بعد، آپ کو اپنے فون کو غیر مقفل کرنے یا ایپس میں تصدیق کے لیے آپ کو اپنا PIN، پیٹرن یا پاس ورڈ درکار ہوگا۔"</string>
+    <string name="security_settings_face_settings_remove_dialog_details_convenience">"‏آپ کے چہرے کے ماڈل کو مستقل اور محفوظ طریقے سے حذف کر دیا جائے گا۔
+
+حذف کرنے کے بعد، آپ کو اپنے فون کو غیر مقفل کرنے کے لیے آپ کو اپنا PIN، پیٹرن یا پاس ورڈ درکار ہوگا۔"</string>
     <string name="security_settings_face_settings_remove_dialog_title">چہرے کا ماڈل حذف کریں؟</string>
     <string name="security_settings_face_settings_remove_face_model">چہرے کا ماڈل حذف کریں</string>
-    <string name="security_settings_face_settings_remove_model_dialog_details">"‏آپ کے چہرہ کے ماڈل کو مستقل اور محفوظ طور پر حذف کر دیا جائے گا۔
-
-حذف کرنے کے بعد آپ کو اپنے فون کو غیر مقفل کرنے یا ایپس میں تصدیق کیلئے آپ کو اپنا فنگر پرنٹ، PIN، پیٹرن یا پاس ورڈ درکار ہوگا۔"</string>
-    <string name="security_settings_face_settings_remove_model_dialog_title">چہرے کا ماڈل حذف کریں؟</string>
     <string name="security_settings_face_settings_require_attention">آنکھیں کھلی ہونی چاہئیں</string>
     <string name="security_settings_face_settings_require_attention_details">غیر مقفل کرنے کے لیے، آپ کی آنکھیں کھلی ہونی چاہئیں</string>
     <string name="security_settings_face_settings_require_confirmation">ہمیشہ تصدیق طلب کریں</string>
@@ -4541,7 +4561,7 @@ g.co/pixel/faceunlock پر مزید جانیں۔"</string>
     <string name="security_settings_title">سیکیورٹی</string>
     <string name="security_settings_udfps_enroll_a11y">سینسر کو تلاش کرنے کے لئے اپنی انگلی کو اسکرین پر گھمائیں۔ فنگر پرنٹ سینسر کو ٹچ کریں اور دبائے رکھیں۔</string>
     <string name="security_settings_udfps_enroll_edge_message">اپنے فنگر پرنٹ کے حصے کو سینسر پر رکھیں اور دبائے رکھیں پھر، دوسرے حصے پر سوئچ کریں</string>
-    <string name="security_settings_udfps_enroll_edge_title">بالآخر، اپنی انگلی کے کناروں کو رکھیں</string>
+    <string name="security_settings_udfps_enroll_edge_title">بالآخر، اپنی انگلی کے کناروں کا استعمال کریں</string>
     <string name="security_settings_udfps_enroll_find_sensor_message">فنگر پرنٹ سینسر آپ کی اسکرین پر ہے۔ آپ اگلی اسکرین پر اپنے فنگر پرنٹ کو کیپچر کریں گے۔</string>
     <string name="security_settings_udfps_enroll_find_sensor_start_button">شروع کریں</string>
     <string name="security_settings_udfps_enroll_find_sensor_title">اپنے فنگر پرنٹ کو کیسے سیٹ اپ کریں</string>
@@ -4550,7 +4570,7 @@ g.co/pixel/faceunlock پر مزید جانیں۔"</string>
     <string name="security_settings_udfps_enroll_repeat_a11y_message">اس سے آپ کے فنگر پرنٹ کے مزید حصوں کو کیپچر کرنے میں مدد ملے گی</string>
     <string name="security_settings_udfps_enroll_repeat_message">ہر بار جب فنگر پرنٹ کا آئیکن حرکت کرتا ہے تو اسے ٹچ کریں اور دبائے رکھیں۔ اس سے آپ کے فنگر پرنٹ کے مزید حصوں کو کیپچر کرنے میں مدد ملے گی۔</string>
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">فنگر پرنٹ آئیکن کی پیروی کریں</string>
-    <string name="security_settings_udfps_enroll_start_message">اپنی انگلی سینسر پر تب تک رکھیں جب تک آپ کو وائبریشن محسوس نہ ہو</string>
+    <string name="security_settings_udfps_enroll_start_message">اپنے فنگر پرنٹ کو سینسر پر تب تک سیدھا رکھیں جب تک آپ کو وائبریشن محسوس نہ ہو</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">ایک بار اور چھوئیں</string>
     <string name="security_settings_work_fingerprint_preference_title">‏کام کیلئےPixel Imprint</string>
     <string name="security_status_title">سیکیورٹی کی صورتحال</string>
@@ -4576,7 +4596,6 @@ g.co/pixel/faceunlock پر مزید جانیں۔"</string>
     <string name="select_webview_provider_dialog_title">‏WebView کا نفاذ سیٹ کریں</string>
     <string name="select_webview_provider_title">‏WebView کا نفاذ</string>
     <string name="select_webview_provider_toast_text">یہ انتخاب اب درست نہیں رہا۔ دوبارہ کوشش کریں۔</string>
-    <string name="sensor_toggle_description">تمام ایپس اور سروسز کے لیے</string>
     <string name="sensors_off_quick_settings_title">سینسرز آف ہیں</string>
     <string name="service_background_processes">%1$s خالی</string>
     <string name="service_foreground_processes">%1$s استعمال کردہ</string>
@@ -4808,6 +4827,7 @@ g.co/pixel/faceunlock پر مزید جانیں۔"</string>
     <string name="sound_settings_summary_silent">رنگر خاموش پر سیٹ ہو گیا</string>
     <string name="sound_settings_summary_vibrate">رنگر ارتعاش پر سیٹ ہو گیا</string>
     <string name="sound_work_settings">دفتری پروفائل کی آوازیں</string>
+    <string name="spatial_audio_title">اسپیشیئل آڈیو</string>
     <string name="special_access">ایپ کی خاص رسائی</string>
     <string name="special_access_more">مزید دیکھیں</string>
     <string name="speed_label_fast">تیز</string>
@@ -5619,7 +5639,7 @@ g.co/pixel/faceunlock پر مزید جانیں۔"</string>
     <string name="vpn_turn_on">آن کریں</string>
     <string name="vpn_type">قسم</string>
     <string name="vpn_username">صارف نام</string>
-    <string name="vpn_version">ورژن %s</string>
+    <string name="vpn_version">ورژن</string>
     <string name="vr_listener_security_warning_summary">%1$s اس صورت میں چلنے کے قابل ہو گا جب آپ اطلاقات کو ورچوئل رئیلٹی وضع میں استعمال کر رہے ہوں۔</string>
     <string name="vr_listener_security_warning_title">‏%1$s کیلئے VR سروس کی رسائی کی اجازت دیں؟</string>
     <string name="vr_listeners_title">‏VR مددگار سروسز</string>
@@ -5889,7 +5909,7 @@ g.co/pixel/faceunlock پر مزید جانیں۔"</string>
     <string name="wifi_not_in_range">رینج میں نہیں ہے</string>
     <string name="wifi_not_in_range_message">نیٹ ورک رینج میں نہیں ہے</string>
     <string name="wifi_notify_open_networks">عوامی نیٹ ورکس کیلئے مطلع کریں</string>
-    <string name="wifi_notify_open_networks_summary">خودکار کنکشن دستیاب نہ ہونے پر</string>
+    <string name="wifi_notify_open_networks_summary">جب اعلی معیاری عوامی نیٹ ورک دستیاب ہو مطلع کریں</string>
     <string name="wifi_on_time">‏وقت پر Wi‑Fi</string>
     <string name="wifi_p2p_cancel_connect_message">کیا آپ %1$s کے ساتھ مربوط ہونے کی دعوت منسوخ کرنا چاہتے ہیں؟</string>
     <string name="wifi_p2p_cancel_connect_title">دعوت منسوخ کریں؟</string>
@@ -5977,7 +5997,6 @@ g.co/pixel/faceunlock پر مزید جانیں۔"</string>
     <string name="wifi_suspend_optimizations">‏Wi‑Fi بیش کارکردگی</string>
     <string name="wifi_suspend_optimizations_summary">‏Wi‑Fi آن ہونے پر بیٹری کے استعمال کو کم کریں</string>
     <string name="wifi_switch_away_when_unvalidated">‏Wi‑Fi پر انٹرنیٹ رسائی ختم ہونے پر موبائل ڈیٹا میں سوئچ کریں۔</string>
-    <string name="wifi_switch_summary">‏Wi-Fi نیٹ ورکس تلاش کریں اور ان سے منسلک ہوں</string>
     <string name="wifi_tap_to_sign_in">نیٹ ورک میں سائن ان کرنے کے لیے یہاں تھپتھپائیں</string>
     <string name="wifi_tether_configure_ap_text">‏Wi‑Fi ہاٹ اسپاٹ کو ترتیب دیں</string>
     <string name="wifi_tether_configure_ssid_default">AndroidHotspot</string>

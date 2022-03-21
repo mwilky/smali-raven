@@ -112,7 +112,7 @@
 
     check-cast p1, Lcom/android/settingslib/widget/BannerMessagePreference;
 
-    const v0, 0x7f0401e5
+    const v0, 0x7f0401f9
 
     invoke-virtual {p1, v0}, Lcom/android/settingslib/widget/BannerMessagePreference;->setPositiveButtonText(I)Lcom/android/settingslib/widget/BannerMessagePreference;
 
@@ -182,6 +182,16 @@
     move-result-object p0
 
     return-object p0
+.end method
+
+.method public bridge synthetic getSliceHighlightMenuRes()I
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getSliceHighlightMenuRes()I
+
+    move-result p0
+
+    return p0
 .end method
 
 .method public bridge synthetic hasAsyncUpdate()Z

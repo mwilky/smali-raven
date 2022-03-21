@@ -49,7 +49,7 @@
 
     iput-object v0, p0, Lcom/android/settings/accessibility/TextAndDisplayFragment;->mDisplayDaltonizerPreferenceScreen:Landroidx/preference/Preference;
 
-    const-string v0, "toggle_disable_animations"
+    const-string/jumbo v0, "toggle_disable_animations"
 
     invoke-virtual {p0, v0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
@@ -59,7 +59,7 @@
 
     iput-object v0, p0, Lcom/android/settings/accessibility/TextAndDisplayFragment;->mToggleDisableAnimationsPreference:Landroidx/preference/SwitchPreference;
 
-    const-string v0, "toggle_large_pointer_icon"
+    const-string/jumbo v0, "toggle_large_pointer_icon"
 
     invoke-virtual {p0, v0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 

@@ -122,7 +122,7 @@
 
     if-eq v1, v2, :cond_1
 
-    const v1, 0x7f0404fc
+    const v1, 0x7f040513
 
     invoke-virtual {p0, v1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -133,7 +133,7 @@
     goto :goto_0
 
     :cond_1
-    const v1, 0x7f0404fd
+    const v1, 0x7f040514
 
     invoke-virtual {p0, v1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -155,7 +155,7 @@
 
     if-eqz v1, :cond_3
 
-    const v2, 0x7f040410
+    const v2, 0x7f040428
 
     new-array v4, v4, [Ljava/lang/Object;
 
@@ -168,7 +168,7 @@
     goto :goto_1
 
     :cond_3
-    const v1, 0x7f040411
+    const v1, 0x7f040429
 
     invoke-virtual {p0, v1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -184,7 +184,7 @@
 
     if-eqz v5, :cond_5
 
-    const v6, 0x7f040408
+    const v6, 0x7f040420
 
     new-array v2, v2, [Ljava/lang/Object;
 
@@ -203,7 +203,7 @@
     goto :goto_2
 
     :cond_5
-    const v2, 0x7f040409
+    const v2, 0x7f040421
 
     new-array v4, v4, [Ljava/lang/Object;
 
@@ -221,7 +221,7 @@
     invoke-virtual {v0, v1}, Landroidx/appcompat/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroidx/appcompat/app/AlertDialog$Builder;
 
     :goto_3
-    const v1, 0x7f0401e5
+    const v1, 0x7f0401f9
 
     invoke-virtual {p0, v1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -229,7 +229,7 @@
 
     invoke-virtual {v0, v1, p0}, Landroidx/appcompat/app/AlertDialog$Builder;->setPositiveButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
 
-    const v1, 0x7f0407b0
+    const v1, 0x7f0407c8
 
     invoke-virtual {p0, v1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 

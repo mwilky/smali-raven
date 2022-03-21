@@ -57,7 +57,7 @@
         }
     .end annotation
 
-    const-string v0, "view == null"
+    const-string/jumbo v0, "view == null"
 
     invoke-static {p0, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 

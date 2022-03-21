@@ -89,7 +89,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0601fc
+    const v2, 0x7f060201
 
     const/4 v3, 0x0
 
@@ -97,7 +97,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d04db
+    const v2, 0x7f0d04ea
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -105,7 +105,7 @@
 
     check-cast v2, Landroid/widget/ImageView;
 
-    const v3, 0x7f020119
+    const v3, 0x7f02011f
 
     invoke-virtual {p1, v3}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -113,7 +113,7 @@
 
     invoke-virtual {v2, p1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    const p1, 0x7f0d04dc
+    const p1, 0x7f0d04eb
 
     invoke-virtual {v1, p1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -129,13 +129,13 @@
 
     move-result-object p1
 
-    const v1, 0x7f0406e4
+    const v1, 0x7f0406fc
 
     invoke-virtual {p1, v1}, Landroidx/appcompat/app/AlertDialog$Builder;->setMessage(I)Landroidx/appcompat/app/AlertDialog$Builder;
 
     move-result-object p1
 
-    const v1, 0x7f0406e5
+    const v1, 0x7f0406fd
 
     invoke-virtual {p1, v1, p0}, Landroidx/appcompat/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
 

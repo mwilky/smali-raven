@@ -27,7 +27,7 @@
     <string name="display_white_balance_summary" />
     <string name="display_white_balance_title">Balance de brancos da pantalla</string>
     <string name="double_tap_power_for_camera_title">Abrir cámara rapidamente</string>
-    <string name="double_twist_for_camera_mode_title">Xirar para cambiar á cámara frontal</string>
+    <string name="double_twist_for_camera_mode_title">Xirar para cambiar á cámara dianteira</string>
     <string name="doze_always_on_summary">Maior uso da batería</string>
     <string name="doze_always_on_title">Mostrar sempre a hora e datos</string>
     <string name="doze_summary">Cando a pantalla está escura, actívase para notificacións novas</string>
@@ -96,6 +96,7 @@
     <string name="peak_refresh_rate_title">Pantalla fluída</string>
     <string name="peak_refresh_rate_summary">Incrementa automaticamente a frecuencia de actualización de 60 a 90 Hz en determinados tipos de contido. Aumenta o uso da batería.</string>
     <string name="accessibility_vibration_settings_title">Vibración e tecnoloxía táctil</string>
+    <string name="columbus_title">Usa Toque rápido para iniciar accións</string>
     <string name="emergency_gesture_screen_title">Emerxencia SOS</string>
     <string name="abc_action_mode_done">Feito</string>
     <string name="vibrate_for_calls_category_title">Chamadas</string>
@@ -103,6 +104,8 @@
     <string name="lockscreen_privacy_controls_setting_toggle">Mostrar control de dispositivos</string>
     <string name="lockscreen_privacy_wallet_summary">Permite o acceso ao moedeiro desde a pantalla de bloqueo e o menú Configuración rápida</string>
     <string name="lockscreen_privacy_controls_summary">Accede aos controis cando a pantalla estea bloqueada</string>
+    <string name="lockscreen_double_line_clock_summary">Mostra o reloxo en dúas liñas se está dispoñible</string>
+    <string name="lockscreen_double_line_clock_setting_toggle">Reloxo en dúas liñas</string>
     <string name="abc_activity_chooser_view_see_all">Ver todo</string>
     <string name="abc_activitychooserview_choose_application">Selecciona unha aplicación</string>
     <string name="abc_capital_off">DESACTIVAR</string>
@@ -147,9 +150,11 @@
     <string name="accessibility_alarm_vibration_title">Vibración das alarmas</string>
     <string name="accessibility_assist_gesture_complete_or_keep_adjusting">Configurouse Active Edge. Vai á seguinte pantalla ou sigue axustándoo.</string>
     <string name="accessibility_audio_adjustment_title">Axuste de audio</string>
+    <string name="accessibility_autoclick_about_title">Clic automático (tempo permanencia)</string>
     <string name="accessibility_autoclick_custom_title">Personalizado</string>
     <string name="accessibility_autoclick_default_title">Desactivado</string>
     <string name="accessibility_autoclick_description">Para utilizar a función de clic automático, é necesario ter un rato conectado. Podes configurar o cursor do rato para que faga clic automaticamente cando pare de moverse durante un período de tempo concreto.</string>
+    <string name="accessibility_autoclick_footer_learn_more_content_description">Máis información acerca do clic automático (tempo de permanencia do cursor)</string>
     <string name="accessibility_autoclick_long_summary">1 segundo</string>
     <string name="accessibility_autoclick_long_title">Longo</string>
     <string name="accessibility_autoclick_longer_desc">Máis longo</string>
@@ -161,16 +166,17 @@
     <string name="accessibility_autoclick_short_title">Curto</string>
     <string name="accessibility_autoclick_shorter_desc">Máis curto</string>
     <string name="accessibility_banner_message_dismiss">Ignorar</string>
-    <string name="accessibility_button_description">"Accede rapidamente ás funcións de accesibilidade desde calquera pantalla. 
+    <string name="accessibility_button_about_title">Acerca do botón Accesibilidade</string>
+    <string name="accessibility_button_description">"Accede rapidamente ás funcións de accesibilidade desde calquera pantalla.
 
 Para comezar, selecciona unha función en Configuración de accesibilidade. Toca o atallo e selecciona o botón de accesibilidade."</string>
     <string name="accessibility_button_fade_summary">Atenúase ao cabo duns segundos para que che resulte máis fácil ver a pantalla</string>
     <string name="accessibility_button_fade_title">Atenuar cando non se estea usando</string>
+    <string name="accessibility_button_gesture_about_title">Acerca do botón e do xesto de accesibilidade</string>
     <string name="accessibility_button_gesture_description">"Accede rapidamente ás funcións de accesibilidade desde calquera pantalla.
 
-Para comezar, selecciona unha función en Configuración de accesibilidade. Toca o atallo e selecciona o botón Accesibilidade.
-
-Se prefires utilizar este botón na barra de navegación, cambia á navegación con 2 ou con 3 botóns."</string>
+Para comezar, selecciona unha función en Configuración de accesibilidade. Toca o atallo e selecciona o botón ou o xesto de accesibilidade."</string>
+    <string name="accessibility_button_gesture_footer_learn_more_content_description">Máis información acerca do botón e do xesto de accesibilidade</string>
     <string name="accessibility_button_gesture_title">Botón e xesto de accesibilidade</string>
     <string name="accessibility_button_high_label">Non transparente</string>
     <string name="accessibility_button_intro">Estás utilizando o botón Accesibilidade. O xesto non pode usarse coa navegación con 3 botóns.</string>
@@ -184,14 +190,23 @@ Se prefires utilizar este botón na barra de navegación, cambia á navegación 
     <string name="accessibility_caption_preference_summary">Non todas as aplicacións admiten estas preferencias de subtítulos.</string>
     <string name="accessibility_caption_primary_switch_summary">Só para aplicacións compatibles</string>
     <string name="accessibility_caption_primary_switch_title">Mostrar subtítulos</string>
+    <string name="accessibility_captioning_about_title">Acerca das preferencias dos subtítulos</string>
+    <string name="accessibility_captioning_footer_learn_more_content_description">Máis información acerca das preferencias dos subtítulos</string>
     <string name="accessibility_captioning_title">Preferencias dos subtítulos</string>
     <string name="accessibility_category_personal">Contas do perfil persoal</string>
     <string name="accessibility_category_work">Contas do perfil de traballo (%s)</string>
+    <string name="accessibility_color_inversion_about_title">Acerca da inversión da cor</string>
+    <string name="accessibility_color_inversion_footer_learn_more_content_description">Máis información acerca da inversión da cor</string>
+    <string name="accessibility_control_timeout_about_title">Acerca do tempo para actuar (tempo de espera de accesibilidade)</string>
+    <string name="accessibility_control_timeout_footer_learn_more_content_description">Máis información acerca do tempo para actuar (tempo de espera de accesibilidade)</string>
     <string name="accessibility_control_timeout_preference_summary">"Escolle o tempo durante o que se mostran as mensaxes que che piden que realices algunha acción e que só son visibles temporalmente.
 
 Non todas as aplicacións son compatibles con esta opción de configuración."</string>
     <string name="accessibility_control_timeout_preference_title">Tempo para actuar</string>
+    <string name="accessibility_daltonizer_about_title">Acerca da corrección da cor</string>
+    <string name="accessibility_daltonizer_footer_learn_more_content_description">Máis información acerca da corrección da cor</string>
     <string name="accessibility_daltonizer_primary_switch_title">Usar corrección da cor</string>
+    <string name="accessibility_daltonizer_shortcut_title">Atallo de corrección da cor</string>
     <string name="accessibility_data_one_bar">Unha barra de sinal de datos</string>
     <string name="accessibility_data_signal_full">Sinal de datos: completo</string>
     <string name="accessibility_data_three_bars">Tres barras de sinal de datos</string>
@@ -206,6 +221,7 @@ Non todas as aplicacións son compatibles con esta opción de configuración."</
     <string name="accessibility_display_daltonizer_preference_title">Corrección da cor</string>
     <string name="accessibility_display_inversion_preference_subtitle">A inversión da cor escurece as pantallas claras.&lt;br/>&lt;br/> Nota: &lt;ol> &lt;li> A inversión da cor tamén aclarea as pantallas escuras.&lt;/li> &lt;li> Cambiarán as cores do contido multimedia e das imaxes.&lt;/li> &lt;li> Pódese utilizar o tema escuro para mostrar un fondo escuro. O tema escuro funciona coas aplicacións que o admiten, mentres que a inversión da cor funciona en todas as aplicacións.&lt;/li> &lt;/ol></string>
     <string name="accessibility_display_inversion_preference_title">Inversión da cor</string>
+    <string name="accessibility_display_inversion_shortcut_title">Atallo de inversión da cor</string>
     <string name="accessibility_display_inversion_switch_title">Usar a inversión da cor</string>
     <string name="accessibility_ethernet_connected">Ethernet.</string>
     <string name="accessibility_ethernet_disconnected">Desconectouse a Ethernet.</string>
@@ -255,6 +271,8 @@ O botón Accesibilidade aparece na pantalla superposto a outras aplicacións. T�
     <string name="accessibility_phone_two_bars">Dúas barras de cobertura</string>
     <string name="accessibility_power_button_ends_call_prerefence_title">Botón de acendido para colgar</string>
     <string name="accessibility_preference_magnification_summary">Aumenta o zoom na pantalla</string>
+    <string name="accessibility_screen_magnification_about_title">Acerca da ampliación</string>
+    <string name="accessibility_screen_magnification_footer_learn_more_content_description">Máis información acerca da ampliación</string>
     <string name="accessibility_screen_magnification_gesture_navigation_warning">O xesto de accesibilidade definiuse para o servizo %1$s. Para utilizar a ampliación, pasa dous dedos cara arriba desde a parte inferior da pantalla e mantena premida. Despois selecciona a ampliación.</string>
     <string name="accessibility_screen_magnification_gestures_title">Ampliar ao tocar tres veces</string>
     <string name="accessibility_screen_magnification_navbar_configuration_warning">O botón Accesibilidade está configurado en %1$s. Para utilizar a ampliación, mantén tocado o botón Accesibilidade e, a continuación, selecciona a ampliación.</string>
@@ -272,6 +290,7 @@ O botón Accesibilidade aparece na pantalla superposto a outras aplicacións. T�
 Ten en conta que non se pode ampliar o teclado nin a barra de navegación."</string>
     <string name="accessibility_screen_magnification_navbar_title">Ampliar con atallo</string>
     <string name="accessibility_screen_magnification_short_summary">Toca 3 veces para achegar o zoom</string>
+    <string name="accessibility_screen_magnification_shortcut_title">Atallo de ampliación</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">Ampliar con atallo e tres toques</string>
     <string name="accessibility_screen_magnification_summary">Achega rapidamente o contido da pantalla para que se mostre máis grande.&lt;br/>&lt;br/> &lt;b>Se queres achegar o contido usando o zoom, sigue estes pasos:&lt;/b>&lt;br/> {0,number,integer}. Utiliza o atallo cando queiras iniciar a ampliación&lt;br/> {1,number,integer}. Toca a pantalla&lt;br/> {2,number,integer}. Para moverte pola pantalla, arrastra 2 dedos&lt;br/> {3,number,integer}. Cando queiras axustar o zoom, belisca a pantalla con 2 dedos&lt;br/> {4,number,integer}. Utiliza o atallo para deter a ampliación&lt;br/>&lt;br/> &lt;b>Para achegar o contido temporalmente usando o zoom, sigue estes pasos:&lt;/b>&lt;br/> {0,number,integer}. Utiliza o atallo cando queiras iniciar a ampliación&lt;br/> {1,number,integer}. Mantén premido calquera punto da pantalla&lt;br/> {2,number,integer}. Para moverte pola pantalla, arrastra o dedo&lt;br/> {3,number,integer}. Cando queiras deter a ampliación, levanta o dedo</string>
     <string name="accessibility_screen_magnification_title">Ampliación</string>
@@ -370,7 +389,7 @@ Para cambiar de función, pasa 3 dedos cara arriba e mantén premida a pantalla.
     <string name="accessibility_tutorial_dialog_message_volume">Mantén premidas as dúas teclas de volume para utilizar esta función.</string>
     <string name="accessibility_tutorial_dialog_title_button">Utilizar o botón de accesibilidade para abrir</string>
     <string name="accessibility_tutorial_dialog_title_gesture">Utilizar un xesto para abrir</string>
-    <string name="accessibility_tutorial_dialog_title_gesture_settings">Usar novo xesto de accesibilidade</string>
+    <string name="accessibility_tutorial_dialog_title_gesture_settings">Usa o xesto de accesibilidade</string>
     <string name="accessibility_tutorial_dialog_title_triple">Toca tres veces a pantalla para abrir</string>
     <string name="accessibility_tutorial_dialog_title_volume">Mantén premidas as teclas de volume para abrir</string>
     <string name="accessibility_tutorial_pager">Páxina %1$d de %2$d</string>
@@ -936,6 +955,7 @@ En canto se restableza, inicia o proceso de configuración e escolle a opción d
     <string name="battery_level_title">Nivel de batería</string>
     <string name="battery_manager_off">Desactivado</string>
     <string name="battery_manager_summary">Amplía a duración da batería e optimiza a carga</string>
+    <string name="battery_manager_summary_unsupported">Aumenta a duración da batería</string>
     <string name="battery_missing_link_a11y_message">Tocar para obter máis información acerca deste erro</string>
     <string name="battery_missing_link_message">Máis información</string>
     <string name="battery_missing_message">Produciuse un problema ao ler o medidor da batería.</string>
@@ -1014,7 +1034,7 @@ Se tes pouca batería, sempre podes activar a función Aforro de batería."</str
 
 Cando esas condicións rematen, o teléfono volverá cargar con normalidade."</string>
     <string name="battery_tip_limited_temporarily_dialog_resume_charge">Retomar carga</string>
-    <string name="battery_tip_limited_temporarily_summary">Para aforrar batería. Máis información.</string>
+    <string name="battery_tip_limited_temporarily_summary">Para protexer a batería. Máis información.</string>
     <string name="battery_tip_limited_temporarily_title">Carga limitada temporalmente</string>
     <string name="battery_tip_low_battery_summary">Para que a batería dure máis, activa a función Aforro de batería</string>
     <string name="battery_tip_low_battery_title">Queda pouca batería</string>
@@ -1061,6 +1081,7 @@ entre ^2"</string>
     <string name="battery_usage_screen_footer">Os datos de uso da batería son aproximados e non miden a utilización durante a carga do teléfono</string>
     <string name="battery_usage_screen_footer_empty">Os datos de uso da batería estarán dispoñibles unha vez que uses o teléfono durante unhas poucas horas</string>
     <string name="battery_usage_total_less_than_one_minute">Total: menos dun minuto</string>
+    <string name="battery_usage_without_time" />
     <string name="battery_used_by">%1$s utilizado por %2$s</string>
     <string name="battery_used_for">En uso durante ^1</string>
     <string name="bearer">Portador</string>
@@ -1069,12 +1090,14 @@ entre ^2"</string>
     <string name="billing_cycle_less_than_one_day_left">Queda menos de 1 día</string>
     <string name="billing_cycle_none_left">Non queda tempo</string>
     <string name="biometric_settings_category_ways_to_unlock">Maneiras de desbloquear o dispositivo</string>
-    <string name="biometric_settings_category_ways_to_use">Usar a cara e a impresión dixital para o seguinte</string>
     <string name="biometric_settings_hand_back_to_guardian">Devólvelle o teléfono a teu pai ou túa nai</string>
     <string name="biometric_settings_hand_back_to_guardian_ok">Aceptar</string>
     <string name="biometric_settings_intro">Se configuras o desbloqueo facial e mediante impresión dixital, o teléfono pedirache a impresión dixital no caso de que leves máscara ou esteas nun espazo escuro</string>
-    <string name="biometric_settings_use_biometric_for_apps">Autenticación nas aplicacións</string>
+    <string name="biometric_settings_use_biometric_for_apps">Verificar identidade nas aplicacións</string>
     <string name="biometric_settings_use_biometric_unlock_phone">Desbloquear teléfono</string>
+    <string name="biometric_settings_use_face_or_fingerprint_preference_summary">Coa cara ou coa impresión dixital</string>
+    <string name="biometric_settings_use_face_preference_summary">Coa cara</string>
+    <string name="biometric_settings_use_fingerprint_preference_summary">Coa impresión dixital</string>
     <string name="biometrics_unlock_set_unlock_password">Contrasinal • Cara • Impresión dixital</string>
     <string name="biometrics_unlock_set_unlock_pattern">Padrón • Cara • Impresión dixital</string>
     <string name="biometrics_unlock_set_unlock_pin">PIN • Cara • Impresión dixital</string>
@@ -1332,7 +1355,6 @@ Selección"</string>
     <string name="bluetooth_settings_title">Bluetooth</string>
     <string name="bluetooth_show_devices_without_names">Mostrar dispositivos Bluetooth sen nomes</string>
     <string name="bluetooth_show_devices_without_names_summary">Mostraranse dispositivos Bluetooth sen nomes (só enderezos MAC)</string>
-    <string name="bluetooth_show_files_received_via_bluetooth">Ficheiros recibidos (Bluetooth)</string>
     <string name="bluetooth_show_received_files">Ficheiros recibidos</string>
     <string name="bluetooth_sim_card_access_dialog_content">"Un dispositivo Bluetooth, %1$s, quere acceder aos datos da túa tarxeta SIM, entre os que se inclúen os teus contactos.
 
@@ -1426,6 +1448,7 @@ Se instalas un certificado de CA, o seu propietario podería acceder aos teus da
     <string name="calls_sms_temp_unavailable">Non dispoñible temporalmente</string>
     <string name="calls_sms_unavailable">non dispoñible</string>
     <string name="calls_sms_wfc_summary">Fai e recibe chamadas a través de redes wifi</string>
+    <string name="cam_toggle_description">Para aplicacións e servizos</string>
     <string name="camera_double_tap_power_gesture_desc">Abre a cámara rapidamente sen desbloquear a pantalla</string>
     <string name="camera_double_tap_power_gesture_title">Botón de acendido dúas veces para cámara</string>
     <string name="camera_laser_sensor_switch">Sensor láser da cámara</string>
@@ -3302,6 +3325,7 @@ Hai outros usuarios presentes neste dispositivo.
     <string name="menu_stats_total">Cifras totais de uso</string>
     <string name="menu_stats_unplugged">%1$s desde que se desconectou</string>
     <string name="menu_use_uss">Usar Uss</string>
+    <string name="mic_toggle_description">Para aplicacións e servizos. Aínda que esta opción de configuración se atope desactivada, poderán compartirse datos do micrófono se chamas a un número de emerxencias.</string>
     <string name="mic_toggle_title">Acceso ao micrófono</string>
     <string name="misc_files">Ficheiros variados</string>
     <string name="misc_files_selected_count">seleccionáronse %1$d de %2$d</string>
@@ -3728,6 +3752,7 @@ Ademais, poderá activar ou desactivar o modo Non molestar e cambiar a configura
     <string name="one_handed_action_show_notification_title">Mostrar notificacións</string>
     <string name="one_handed_mode_enabled">Usar modo dunha soa man</string>
     <string name="one_handed_mode_intro_text">Para usar o modo dunha soa man, pasa o dedo cara abaixo desde o bordo inferior da pantalla. Se queres usar esta función, asegúrate de que estea activada a navegación con xestos na configuración da navegación do sistema.</string>
+    <string name="one_handed_mode_shortcut_title">Atallo do modo dunha soa man</string>
     <string name="one_handed_mode_swipe_down_category">Pasar o dedo cara abaixo para facer o seguinte</string>
     <string name="one_handed_mode_use_shortcut_category">Utilizar o atallo para</string>
     <string name="one_usercrt">un certificado de usuario</string>
@@ -3803,7 +3828,7 @@ Ademais, poderá activar ou desactivar o modo Non molestar e cambiar a configura
     <string name="post_dsds_reboot_notification_title_with_carrier">Operador activo: %1$s</string>
     <string name="power_bluetooth">Bluetooth</string>
     <string name="power_camera">Cámara</string>
-    <string name="power_cell">Rede de telefonía móbil en modo de espera</string>
+    <string name="power_cell">Rede de telefonía móbil</string>
     <string name="power_charge_remaining">%1$s para completar a carga</string>
     <string name="power_charging">%1$s - %2$s</string>
     <string name="power_charging_duration">%1$s (%2$s para completar a carga)</string>
@@ -4037,6 +4062,7 @@ Preme as teclas de acendido e de subir volume ao mesmo tempo."</string>
     <string name="recent_notifications">Enviadas recentemente</string>
     <string name="recent_notifications_see_all_title">Ver todas as dos últimos 7 días</string>
     <string name="recompute_size">Recalculando o tamaño…</string>
+    <string name="reduce_bright_colors_about_title">Acerca da atenuación extra</string>
     <string name="reduce_bright_colors_intensity_end_label">Máis brillante</string>
     <string name="reduce_bright_colors_intensity_preference_title">Intensidade</string>
     <string name="reduce_bright_colors_intensity_start_label">Máis tenue</string>
@@ -4044,6 +4070,7 @@ Preme as teclas de acendido e de subir volume ao mesmo tempo."</string>
     <string name="reduce_bright_colors_preference_subtitle">Atenúa a pantalla para que che resulte máis cómoda a lectura.&lt;br/>&lt;br/> Esta opción de configuración pode serche útil nestas situacións: &lt;ol> &lt;li> O brillo mínimo predeterminado do teléfono é demasiado intenso&lt;/li> &lt;li> Utilizas o teléfono en espazos con pouca luz (por exemplo, pola noite ou nunha estancia ás escuras antes de deitarte)&lt;/li> &lt;/ol></string>
     <string name="reduce_bright_colors_preference_summary">Atenúa a pantalla máis do que permite o brillo mínimo do teu teléfono</string>
     <string name="reduce_bright_colors_preference_title">Atenuación extra</string>
+    <string name="reduce_bright_colors_shortcut_title">Atallo de atenuación extra</string>
     <string name="reduce_bright_colors_switch_title">Usar atenuación extra da pantalla</string>
     <string name="register_automatically">Rexistro automático…</string>
     <string name="register_on_network">Rexistrando en %s…</string>
@@ -4249,7 +4276,6 @@ Para fixar unha aplicación, sigue estes pasos: \u0009
     <string name="screen_pinning_unlock_pattern">Pedir padrón de desbloqueo antes de soltar a fixación</string>
     <string name="screen_pinning_unlock_pin">Pedir PIN antes de soltar a fixación</string>
     <string name="screen_reader_category_title">Lector de pantalla</string>
-    <string name="screen_saver_main_switch_title">Usar protector de pantalla</string>
     <string name="screen_time_summary_usage_today">%1$s hoxe</string>
     <string name="screen_timeout_summary">%1$s de inactividade</string>
     <string name="screen_timeout_title">A pantalla apágase</string>
@@ -4279,6 +4305,7 @@ Para fixar unha aplicación, sigue estes pasos: \u0009
     <string name="screensaver_settings_button">Configuración</string>
     <string name="screensaver_settings_current">Protector de pantalla actual</string>
     <string name="screensaver_settings_disabled_prompt">Para controlar o que sucederá cando o teléfono estea ancorado ou en modo de suspensión, activa o protector de pantalla.</string>
+    <string name="screensaver_settings_dream_start">Iniciar agora</string>
     <string name="screensaver_settings_summary_dock">Ao estar na base</string>
     <string name="screensaver_settings_summary_either_long">Ao estar cargando ou na base</string>
     <string name="screensaver_settings_summary_either_short">As dúas opcións</string>
@@ -4329,15 +4356,6 @@ Para fixar unha aplicación, sigue estes pasos: \u0009
     <string name="security_settings_biometric_preference_summary_both_fp_single">Engadíronse a cara e a impresión dixital</string>
     <string name="security_settings_biometric_preference_summary_none_enrolled">Toca para configurar</string>
     <string name="security_settings_biometric_preference_title">Desbloqueo facial e mediante impresión dixital</string>
-    <string name="security_settings_biometrics_description">Se configuras o desbloqueo facial e mediante impresión dixital, o teléfono pedirache a impresión dixital no caso de que leves máscara ou esteas nun espazo escuro</string>
-    <string name="security_settings_biometrics_preference_use_with_apps">Autenticación nas aplicacións</string>
-    <string name="security_settings_biometrics_preferences_category">Utilizar a cara ou a impresión dixital para</string>
-    <string name="security_settings_biometrics_summary_both">Cara e impresión dixital</string>
-    <string name="security_settings_biometrics_summary_face">Só cara</string>
-    <string name="security_settings_biometrics_summary_fingerprint">Só impresión dixital</string>
-    <string name="security_settings_biometrics_summary_none">Toca para configurar</string>
-    <string name="security_settings_biometrics_title">Desbloqueo facial e de impresión dixital</string>
-    <string name="security_settings_biometrics_types_category">Maneiras de desbloquear o dispositivo</string>
     <string name="security_settings_face_enroll_consent_introduction_title">Permitir desbloqueo facial</string>
     <string name="security_settings_face_enroll_dialog_ok">Aceptar</string>
     <string name="security_settings_face_enroll_done">Feito</string>
@@ -4385,16 +4403,17 @@ Obtén máis información en g.co/pixel/faceunlock."</string>
     <string name="security_settings_face_enroll_introduction_control_title">Ti tes o control</string>
     <string name="security_settings_face_enroll_introduction_how_consent_message">"Co desbloqueo facial, créase un modelo único da cara da túa filla ou fillo para verificar a súa identidade. Para crear este modelo facial durante a configuración, a túa filla ou fillo deberá facer fotos da cara desde distintos ángulos.
 
-Cando usa o desbloqueo facial, utilízanse imaxes para actualizar o seu modelo facial. As imaxes que se utilizan para crear o modelo facial non se almacenan en ningún caso, pero este gárdase de maneira segura no teléfono e nunca sae del. Todo o procesamento ten lugar de maneira fiable no teléfono."</string>
+Cando usa o desbloqueo facial, utilízanse imaxes para actualizar o seu modelo facial. As imaxes que se utilizan para crear o modelo facial non se almacenan, pero este gárdase de maneira segura no teléfono e nunca sae del. Todo o procesamento ten lugar de maneira fiable no teléfono."</string>
     <string name="security_settings_face_enroll_introduction_how_message">"Co desbloqueo facial, créase un modelo único da túa cara para verificar a túa identidade. Para crear este modelo facial durante a configuración, deberás facer fotos da cara desde distintos ángulos.
 
-Cando usas o desbloqueo facial, utilízanse imaxes para actualizar o teu modelo facial. As imaxes que se utilizan para crear o modelo facial non se almacenan en ningún caso, pero este gárdase de maneira segura no teu teléfono e nunca sae del. Todo o procesamento ten lugar de maneira fiable no teléfono."</string>
+Cando usas o desbloqueo facial, utilízanse imaxes para actualizar o teu modelo facial. As imaxes que se utilizan para crear o modelo facial non se almacenan, pero este gárdase de maneira segura no teu teléfono e nunca sae del. Todo o procesamento ten lugar de maneira fiable no teu teléfono."</string>
     <string name="security_settings_face_enroll_introduction_how_title">Como funciona?</string>
     <string name="security_settings_face_enroll_introduction_info_consent_gaze">Para usar o desbloqueo facial, é posible que o teu fillo ou filla deba ter os ollos abertos a fin de desbloquear o teléfono ou verificar a súa identidade. A túa filla ou fillo e mais ti podedes activar esta opción en calquera momento en Configuración.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_glasses">Se a túa filla ou fillo adoita levar lentes, pode poñelas durante a configuración.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_looking">Ao mirar o teléfono, pode desbloquealo sen querer. Tamén poderán desbloquealo outras persoas se se parecen moito a el ou ela (por exemplo, un xemelgo) ou se lle poñen o teléfono diante da cara.</string>
     <string name="security_settings_face_enroll_introduction_info_gaze">Para usar o desbloqueo facial, é posible que debas ter os ollos abertos a fin de desbloquear o teléfono ou verificar a túa identidade. Podes activar esta opción en calquera momento en Configuración.</string>
     <string name="security_settings_face_enroll_introduction_info_glasses">As lentes e as lentes de sol que non sexan moi escuras non supoñen ningún problema.</string>
+    <string name="security_settings_face_enroll_introduction_info_less_secure">O desbloqueo facial do teléfono pode ser menos fiable que o uso dun PIN ou dun padrón seguro.</string>
     <string name="security_settings_face_enroll_introduction_info_looking">Ao mirar o teléfono, podes desbloquealo sen querer. Tamén poderán desbloquealo outras persoas se se parecen moito a ti (por exemplo, un xemelgo) ou se che poñen o teléfono diante da cara.</string>
     <string name="security_settings_face_enroll_introduction_info_title">Importante</string>
     <string name="security_settings_face_enroll_introduction_message">Utiliza a autenticación facial para desbloquear o teléfono ou verificar a túa identidade (por exemplo, cando queiras iniciar sesión nunha aplicación ou aprobar unha compra).</string>
@@ -4452,13 +4471,14 @@ Outra persoa pode desbloquealo se che pon o teléfono diante da cara, aínda que
 
 Tamén pode desbloquealo alguén que se pareza moito a ti, como un xemelgo."</string>
     <string name="security_settings_face_settings_preferences_category">Cando se utilice o desbloqueo facial</string>
-    <string name="security_settings_face_settings_remove_dialog_details">O teu modelo facial eliminarase de xeito seguro e permanente. Unha vez eliminado, terás que usar o PIN, o padrón ou o contrasinal para desbloquear o teléfono ou para autenticarte nas aplicacións.</string>
+    <string name="security_settings_face_settings_remove_dialog_details">"O teu modelo facial eliminarase de xeito seguro e permanente.
+
+Unha vez eliminado, terás que usar o PIN, o padrón ou o contrasinal para desbloquear o teléfono ou para autenticarte nas aplicacións."</string>
+    <string name="security_settings_face_settings_remove_dialog_details_convenience">"O teu modelo facial eliminarase de xeito seguro e permanente.
+
+Unha vez eliminado, terás que usar o PIN, o padrón ou o contrasinal para desbloquear o teléfono."</string>
     <string name="security_settings_face_settings_remove_dialog_title">Queres eliminar o modelo facial?</string>
     <string name="security_settings_face_settings_remove_face_model">Eliminar modelo facial</string>
-    <string name="security_settings_face_settings_remove_model_dialog_details">"O teu modelo facial eliminarase de maneira permanente e segura.
-
-Unha vez eliminado, terás que usar a impresión dixital, o PIN, o padrón ou o contrasinal para desbloquear o teléfono ou para autenticarte nas aplicacións."</string>
-    <string name="security_settings_face_settings_remove_model_dialog_title">Queres eliminar o modelo facial?</string>
     <string name="security_settings_face_settings_require_attention">Os ollos deben estar abertos</string>
     <string name="security_settings_face_settings_require_attention_details">Para desbloquear o teléfono, debes ter os ollos abertos</string>
     <string name="security_settings_face_settings_require_confirmation">Pedir sempre confirmación</string>
@@ -4541,7 +4561,7 @@ Nota: Non podes usar a túa impresión dixital para desbloquear este dispositivo
     <string name="security_settings_title">Seguranza</string>
     <string name="security_settings_udfps_enroll_a11y">Move o dedo pola pantalla para atopar o sensor. Mantén premido o sensor de impresión dixital.</string>
     <string name="security_settings_udfps_enroll_edge_message">Mantén a parte lateral da túa impresión dixital no sensor e, despois, cambia ao outro lado</string>
-    <string name="security_settings_udfps_enroll_edge_title">Por último, coloca os bordos do dedo</string>
+    <string name="security_settings_udfps_enroll_edge_title">Por último, utiliza os bordos do dedo</string>
     <string name="security_settings_udfps_enroll_find_sensor_message">O sensor de impresión dixital está na pantalla. Rexistrarás a túa impresión dixital na seguinte pantalla.</string>
     <string name="security_settings_udfps_enroll_find_sensor_start_button">Comezar</string>
     <string name="security_settings_udfps_enroll_find_sensor_title">Como configurar a túa impresión dixital?</string>
@@ -4550,7 +4570,7 @@ Nota: Non podes usar a túa impresión dixital para desbloquear este dispositivo
     <string name="security_settings_udfps_enroll_repeat_a11y_message">Ao facelo, axudas a capturar unha parte máis ampla da túa impresión dixital</string>
     <string name="security_settings_udfps_enroll_repeat_message">Mantén o sensor premido cada vez que se mova a icona da impresión dixital. Ao facelo, axudas a capturar unha parte máis ampla da túa impresión dixital.</string>
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">Sigue a icona da impresión dixital</string>
-    <string name="security_settings_udfps_enroll_start_message">Mantén o dedo no sensor ata que notes unha vibración</string>
+    <string name="security_settings_udfps_enroll_start_message">Mantén a impresión dixital en horizontal sobre o sensor ata que notes unha vibración</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">Unha vez máis</string>
     <string name="security_settings_work_fingerprint_preference_title">Pixel Imprint para o traballo</string>
     <string name="security_status_title">Estado de seguranza</string>
@@ -4576,7 +4596,6 @@ Nota: Non podes usar a túa impresión dixital para desbloquear este dispositivo
     <string name="select_webview_provider_dialog_title">Definir implementación de WebView</string>
     <string name="select_webview_provider_title">Implementación de WebView</string>
     <string name="select_webview_provider_toast_text">Esta opción xa non é válida. Téntao de novo.</string>
-    <string name="sensor_toggle_description">Para todas as aplicacións e servizos</string>
     <string name="sensors_off_quick_settings_title">Desactivar sensores</string>
     <string name="service_background_processes">%1$s libres</string>
     <string name="service_foreground_processes">%1$s en uso</string>
@@ -4784,7 +4803,7 @@ Ao cambiar, non se cancelará o teu servizo de %1$s."</string>
     <string name="smart_forwarding_summary_enabled">O reenvío intelixente está activado</string>
     <string name="smart_forwarding_title">Reenvío intelixente</string>
     <string name="smart_notifications_title">Notificacións intelixentes</string>
-    <string name="smart_rotate_text_headline">A función Detección facial utiliza a cámara frontal para mellorar a precisión da opción Xirar automaticamente. As imaxes nunca se almacenan nin se envían a Google.</string>
+    <string name="smart_rotate_text_headline">A función Detección facial utiliza a cámara dianteira para mellorar a precisión da opción Xirar automaticamente. As imaxes nunca se almacenan nin se envían a Google.</string>
     <string name="sms_application_title">Aplicación de SMS</string>
     <string name="sms_change_default_dialog_text">Queres utilizar %1$s en lugar de %2$s como a túa aplicación de SMS?</string>
     <string name="sms_change_default_dialog_title">Queres cambiar a aplicación de SMS?</string>
@@ -4808,6 +4827,7 @@ Ao cambiar, non se cancelará o teu servizo de %1$s."</string>
     <string name="sound_settings_summary_silent">Timbre en modo silencio</string>
     <string name="sound_settings_summary_vibrate">Timbre en modo vibración</string>
     <string name="sound_work_settings">Sons do perfil de traballo</string>
+    <string name="spatial_audio_title">Audio espacial</string>
     <string name="special_access">Acceso especial das aplicacións</string>
     <string name="special_access_more">Ver máis</string>
     <string name="speed_label_fast">Rápida</string>
@@ -5619,7 +5639,7 @@ Durante as chamadas de voz, non poderás utilizar Internet e quizais non funcion
     <string name="vpn_turn_on">Activar</string>
     <string name="vpn_type">Tipo</string>
     <string name="vpn_username">Nome de usuario</string>
-    <string name="vpn_version">Versión %s</string>
+    <string name="vpn_version">Versión</string>
     <string name="vr_listener_security_warning_summary">%1$s poderá executarse cando utilices aplicacións no modo de realidade virtual.</string>
     <string name="vr_listener_security_warning_title">Queres permitir o acceso do servizo de RV para %1$s?</string>
     <string name="vr_listeners_title">Servizos do asistente de RV</string>
@@ -5889,7 +5909,7 @@ Ao establecer a rede como oculta, non se modificará a configuración do router.
     <string name="wifi_not_in_range">Non está dentro da zona de cobertura</string>
     <string name="wifi_not_in_range_message">Estás fóra da zona de cobertura da rede</string>
     <string name="wifi_notify_open_networks">Recibir notificacións cando haxa redes públicas</string>
-    <string name="wifi_notify_open_networks_summary">Cando a conexión automática non estea dispoñible</string>
+    <string name="wifi_notify_open_networks_summary">Notifica cando unha rede pública de alta calidade estea dispoñible</string>
     <string name="wifi_on_time">Tempo de conexión wifi</string>
     <string name="wifi_p2p_cancel_connect_message">Queres cancelar a invitación para conectar con %1$s?</string>
     <string name="wifi_p2p_cancel_connect_title">Cancelar invitación?</string>
@@ -5977,7 +5997,6 @@ Queres permitilo para todas as aplicacións que queren buscar redes?"</string>
     <string name="wifi_suspend_optimizations">Optimización da wifi</string>
     <string name="wifi_suspend_optimizations_summary">Minimizar o uso da batería cando a wifi está activada</string>
     <string name="wifi_switch_away_when_unvalidated">Cambiar aos datos móbiles se a wifi perde o acceso a Internet.</string>
-    <string name="wifi_switch_summary">Busca redes wifi e conecta o dispositivo a elas</string>
     <string name="wifi_tap_to_sign_in">Toca aquí para iniciar sesión na rede</string>
     <string name="wifi_tether_configure_ap_text">Configurar zona wifi</string>
     <string name="wifi_tether_configure_ssid_default">AndroidHotspot</string>

@@ -59,7 +59,7 @@
 
     check-cast v0, Landroid/view/LayoutInflater;
 
-    const v1, 0x7f0600cb
+    const v1, 0x7f0600cd
 
     const/4 v2, 0x0
 
@@ -67,7 +67,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d01ed
+    const v1, 0x7f0d01f2
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -294,7 +294,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f0404c9
+    const v0, 0x7f0404e1
 
     new-instance v1, Lcom/android/settings/bluetooth/BluetoothNameDialogFragment$$ExternalSyntheticLambda0;
 

@@ -65,11 +65,11 @@
 
     iput-boolean p1, p0, Lcom/android/settings/applications/intentpicker/VerifiedLinksPreference;->mShowCheckBox:Z
 
-    const p1, 0x7f06018f
+    const p1, 0x7f060193
 
     invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setLayoutResource(I)V
 
-    const p1, 0x7f06029d
+    const p1, 0x7f0602a9
 
     invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setWidgetLayoutResource(I)V
 
@@ -89,7 +89,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d05e3
+    const v1, 0x7f0d05f3
 
     invoke-virtual {p1, v1}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
@@ -108,7 +108,7 @@
     invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     :cond_0
-    const v0, 0x7f0d0148
+    const v0, 0x7f0d014c
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 

@@ -134,7 +134,7 @@
 
     iget-object p0, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment$EasyConnectEnrolleeStatusCallback;->this$0:Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;
 
-    const p1, 0x7f04161f
+    const p1, 0x7f041644
 
     invoke-static {p0, p1}, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->access$1000(Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;I)V
 
@@ -162,7 +162,7 @@
 
     invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v0, 0x7f041627
+    const v0, 0x7f04164c
 
     packed-switch p1, :pswitch_data_0
 
@@ -175,12 +175,12 @@
     throw p0
 
     :pswitch_0
-    const v0, 0x7f041631
+    const v0, 0x7f041656
 
     goto :goto_0
 
     :pswitch_1
-    const v0, 0x7f04162c
+    const v0, 0x7f041651
 
     goto :goto_0
 
@@ -226,19 +226,19 @@
     :cond_0
     new-instance p0, Ljava/lang/IllegalStateException;
 
-    const-string p1, "stopEasyConnectSession and try again forEASY_CONNECT_EVENT_FAILURE_BUSY but still failed"
+    const-string/jumbo p1, "stopEasyConnectSession and try again forEASY_CONNECT_EVENT_FAILURE_BUSY but still failed"
 
     invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
     throw p0
 
     :pswitch_3
-    const v0, 0x7f04162e
+    const v0, 0x7f041653
 
     goto :goto_0
 
     :pswitch_4
-    const v0, 0x7f04162b
+    const v0, 0x7f041650
 
     :goto_0
     :pswitch_5
@@ -273,8 +273,6 @@
     invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
     throw p0
-
-    nop
 
     :pswitch_data_0
     .packed-switch -0x9

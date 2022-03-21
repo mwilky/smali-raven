@@ -31,7 +31,7 @@
 
     aget-object v0, v0, v1
 
-    const v1, 0x7f040629
+    const v1, 0x7f040641
 
     invoke-virtual {p0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -102,7 +102,7 @@
 
     const/4 v2, 0x0
 
-    const-string v3, "tel"
+    const-string/jumbo v3, "tel"
 
     invoke-static {v3, p0, v2}, Landroid/net/Uri;->fromParts(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri;
 

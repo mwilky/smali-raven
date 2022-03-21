@@ -96,6 +96,7 @@
     <string name="peak_refresh_rate_title">Isibonisi esibushelelezi</string>
     <string name="peak_refresh_rate_summary">Iphakamisa ngokuzenzakalela isilinganiso sokuvuselela kusukela kokungu-60 ukuya kokungu-90 Hz kokunye okuqukethwe. Ikhuphula ukusetshenziswa kwebhethri.</string>
     <string name="accessibility_vibration_settings_title">Ukudlidliza nama-haptic</string>
+    <string name="columbus_title">Thepha Ngokushesha ukuze uqalise izenzo</string>
     <string name="emergency_gesture_screen_title">Isimo esiphuthumayo se-SOS</string>
     <string name="abc_action_mode_done">Kwenziwe</string>
     <string name="vibrate_for_calls_category_title">Amakholi</string>
@@ -103,6 +104,8 @@
     <string name="lockscreen_privacy_controls_setting_toggle">Bonisa izilawuli zensiza</string>
     <string name="lockscreen_privacy_wallet_summary">Vumela ukufinyelela ku-wallet kusikrini sokukhiya namasethingi asheshayo</string>
     <string name="lockscreen_privacy_controls_summary">Izilawuli zokufinyelela uma kukhiyiwe</string>
+    <string name="lockscreen_double_line_clock_summary">Bonisa iwashi lolayini okabili uma litholakala</string>
+    <string name="lockscreen_double_line_clock_setting_toggle">Iwashi lolayini okabili</string>
     <string name="abc_activity_chooser_view_see_all">Buka konke</string>
     <string name="abc_activitychooserview_choose_application">Khetha insiza</string>
     <string name="abc_capital_off">VALA</string>
@@ -147,9 +150,11 @@
     <string name="accessibility_alarm_vibration_title">Ukudlidliza kwe-alamu</string>
     <string name="accessibility_assist_gesture_complete_or_keep_adjusting">Ukusetha kwe-Active Edge. Iya esikrinini esilandelayo noma qhubeka nokulungisa.</string>
     <string name="accessibility_audio_adjustment_title">Ukulungiswa komsindo</string>
+    <string name="accessibility_autoclick_about_title">Mayelana nokuchofoza okuzenzekelayo (okunqunyelwe isikhathi kwe-dwell)</string>
     <string name="accessibility_autoclick_custom_title">Ngokwezifiso</string>
     <string name="accessibility_autoclick_default_title">Valiwe</string>
     <string name="accessibility_autoclick_description">Ukuchofoza ngokuzenzekelayo kusebenza ngemawuzi exhunyiwe. Ungasetha i-cursor yemawuzi ukuchofoza ngokuzenzekelayo lapho i-cursor iyeka ukuhamba isikhathi esithile.</string>
+    <string name="accessibility_autoclick_footer_learn_more_content_description">Funda kabanzi ngokuchfoza okuzenzekelayo (okunqunyelwe isikhathi kwe-dwell)</string>
     <string name="accessibility_autoclick_long_summary">1 umzuzu</string>
     <string name="accessibility_autoclick_long_title">Kude</string>
     <string name="accessibility_autoclick_longer_desc">Okude nakakhulu</string>
@@ -161,16 +166,17 @@
     <string name="accessibility_autoclick_short_title">Kufushane</string>
     <string name="accessibility_autoclick_shorter_desc">Okufushane</string>
     <string name="accessibility_banner_message_dismiss">Cashisa</string>
-    <string name="accessibility_button_description">"Finyelela ngokushesha izakhi zokufinyelela ezivela kunoma yisiphi isikrini. 
+    <string name="accessibility_button_about_title">Mayelana nenkinobho yokufinyeleleka</string>
+    <string name="accessibility_button_description">"Finyelela ngokushesha kwizakhi zokufinyelela kusuka kunoma yisiphi isikrini.
 
-Ukuze uqalise, iya kumasethinig wokufinyelela bese ukhetha isakhi. Thepha isinqamuleli bese ukhetha inkinobho yokufinyelela."</string>
+Ukuze uqalise, iya kumasethingi wokufinyeleleka bese ukhetha isakhi. Thepha isinqamuleli bese ukhetha inkinobho yokufinyelela."</string>
     <string name="accessibility_button_fade_summary">Iyafiphala ngemva kwamasekhondi ambalwa ukuze kube lula ukubona isikrini sakho</string>
     <string name="accessibility_button_fade_title">Iyafiphala uma ingasetshenziswa</string>
+    <string name="accessibility_button_gesture_about_title">Mayelana nenkinobho yokufinyeleleka nokuthinta</string>
     <string name="accessibility_button_gesture_description">"Finyelela ngokushesha kwizakhi zokufinyelela kusuka kunoma yisiphi isikrini.
 
-Ukuze uqalise, iya kumasethingi wokufinyeleleka bese ukhetha isakhi. Thepha isinqamuleli bese ukhetha inkinobho yokufinyeleleka.
-
-Ukuze usebenzise inkinobho yokufinyeleleka kwibha yokuzulazula, shintshela kwinkinobho yokuzula engu-2 noma kwinkinobho yokuzula engu-3."</string>
+Ukuze uqalise, iya kumasethingi wokufinyeleleka bese ukhetha isakhi. Thepha isinqamuleli bese ukhetha inkinobho yokufinyelela noma ngokuthinta."</string>
+    <string name="accessibility_button_gesture_footer_learn_more_content_description">Funda kabanzi ngenkinobho yokufinyeleleka nokuthinta</string>
     <string name="accessibility_button_gesture_title">Inkinobho yokufinyeleleka nokuthinta</string>
     <string name="accessibility_button_high_label">Ayibonisi ngale</string>
     <string name="accessibility_button_intro">Ukusebenzisa inkinobho yokufinyeleleka. Ukuthinta akutholakali ngokuzulazula kwezinkinobho ezi-3.</string>
@@ -184,14 +190,23 @@ Ukuze usebenzise inkinobho yokufinyeleleka kwibha yokuzulazula, shintshela kwink
     <string name="accessibility_caption_preference_summary">Akuzona zonke izinhlelo zokusebenza ezisekela lokhu okuncanyelwayo kwegama-ngcazo</string>
     <string name="accessibility_caption_primary_switch_summary">Okohlelo lokusebenza olusekelwe kuphela</string>
     <string name="accessibility_caption_primary_switch_title">Bonisa amagama-ncazo</string>
+    <string name="accessibility_captioning_about_title">Mayelana nezincomo zegama-ncazo</string>
+    <string name="accessibility_captioning_footer_learn_more_content_description">Funda kabanzi ngokuncanyelwayo kwegama-ncazo</string>
     <string name="accessibility_captioning_title">Okuncanyelwayo kwamagama-ngcazo</string>
     <string name="accessibility_category_personal">Ama-akhawunti wephrofayela yomuntu siqu</string>
     <string name="accessibility_category_work">Ama-akhawunti wephrofayela yomsebenzi - %s</string>
+    <string name="accessibility_color_inversion_about_title">Mayelana nokuguqulwa kombala</string>
+    <string name="accessibility_color_inversion_footer_learn_more_content_description">Funda kabanzi ngokuguqulwa kombala</string>
+    <string name="accessibility_control_timeout_about_title">Isikhathi sokwenza okuthile (Ukuphelelwa isikhathi sokufinyeleleka)</string>
+    <string name="accessibility_control_timeout_footer_learn_more_content_description">Funda kabanzi mayelana nesikhathi sokwenza okuthile (Ukuphelelwa isikhathi sokufinyeleleka)</string>
     <string name="accessibility_control_timeout_preference_summary">"Khetha ukuthi imilayezo izoboniswa isikhathi esingakanani ekucela ukuthi wenze isenzo, kodwa ebonakala kuphela okwesikhashana.
 
 Akuzona zonke izinhlelo zokusebenza ezisekela lesi silungiselelo."</string>
     <string name="accessibility_control_timeout_preference_title">Isikhathi sokwenza isenzo</string>
+    <string name="accessibility_daltonizer_about_title">Mayelana nokulungiswa kombala</string>
+    <string name="accessibility_daltonizer_footer_learn_more_content_description">Funda kabanzi mayelana nokulungiswa kombala</string>
     <string name="accessibility_daltonizer_primary_switch_title">Sebenzisa ukulungisa kombala</string>
+    <string name="accessibility_daltonizer_shortcut_title">Isinqamuleli sokulungiswa kombala</string>
     <string name="accessibility_data_one_bar">Idatha enye yebha</string>
     <string name="accessibility_data_signal_full">Igcwele i-signal yedatha</string>
     <string name="accessibility_data_three_bars">Amabha amathathu edatha</string>
@@ -206,6 +221,7 @@ Akuzona zonke izinhlelo zokusebenza ezisekela lesi silungiselelo."</string>
     <string name="accessibility_display_daltonizer_preference_title">Ukulungiswa kombala</string>
     <string name="accessibility_display_inversion_preference_subtitle">Ukuguqulwa kombala kushintsha izikrini ezikhanyayo zibe mnyama.&lt;br/>&lt;br/> Qaphela: &lt;ol> &lt;li> Ukuguqulwa kombala kushintsha futhi izikrini ezimnyama zibe ezikhanyayo.&lt;/li> &lt;li> Imibala izoshintsha kumidiya nakuzithombe.&lt;/li> &lt;li> Itimu emnyama ingase isetshenziswe ukubonisa ingemuva elimnyama. Itimu emnyama isebenza nezinhlelo ezisebenzayo ezisekelwayo. Ukuguqulwa kombala kusebenza kuzo zonke izinhlelo zokusebenza.&lt;/li> &lt;/ol></string>
     <string name="accessibility_display_inversion_preference_title">Ukuguqulwa kombala</string>
+    <string name="accessibility_display_inversion_shortcut_title">Isinqamuleli sokuguqulwa kombala</string>
     <string name="accessibility_display_inversion_switch_title">Sebenzisa ukuguqulwa kombala</string>
     <string name="accessibility_ethernet_connected">I-Ethernet.</string>
     <string name="accessibility_ethernet_disconnected">I-Ethernet inqanyuliwe.</string>
@@ -255,6 +271,8 @@ Inkinobho yokufinyeleleka intanta kusikrini ngaphezu kwama-app wakho. Thepha uku
     <string name="accessibility_phone_two_bars">Amabha amabilil efoni.</string>
     <string name="accessibility_power_button_ends_call_prerefence_title">Inkinobho yamandla ivala ikholi</string>
     <string name="accessibility_preference_magnification_summary">Sondeza isithombe kusikrini</string>
+    <string name="accessibility_screen_magnification_about_title">Mayelana nokukhuliswa</string>
+    <string name="accessibility_screen_magnification_footer_learn_more_content_description">Funda kabanzi mayelana nokukhuliswa</string>
     <string name="accessibility_screen_magnification_gesture_navigation_warning">Ukuthinta kokufinyelela kusethelwe ku-%1$s. Ukuze usebenzise ukushintsha usayizi, swayiphela phezulu ngeminwe emibili kusuka phansi kwesikrini futhi ubambe. Bese khetha ukulungisa.</string>
     <string name="accessibility_screen_magnification_gestures_title">Shintsha ngokuthepha kathathu</string>
     <string name="accessibility_screen_magnification_navbar_configuration_warning">Inkinobho yokufinyelela isethelwe ku-%1$s. Ukuze usebenzise ukushintsha, thinta futhi ubambe inkinobho yokufinyelela, bese ukhethe ukushintsha.</string>
@@ -272,6 +290,7 @@ Inkinobho yokufinyeleleka intanta kusikrini ngaphezu kwama-app wakho. Thepha uku
 Awukwazi ukusondeza kwikhibhodi noma kwibha yokuzula."</string>
     <string name="accessibility_screen_magnification_navbar_title">Khulisa ngesinqamuleli</string>
     <string name="accessibility_screen_magnification_short_summary">Thepha izikhathi ezingu-3 ukuze usondeze</string>
+    <string name="accessibility_screen_magnification_shortcut_title">Isinqamuleli sokukhuliswa</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">Khulisa ngenkinobho futhi uthephe kathathu</string>
     <string name="accessibility_screen_magnification_summary">Sondeza isithombe ngokushesha kusikrini ukwenza okuqukethwe kube kukhulu nakakhulu.&lt;br/>&lt;br/> &lt;b>Ukuze usondeze isithombe:&lt;/b>&lt;br/> {0,number,integer}. Sebenzisa isinqamuleli ukuqalisa ukukhuliswa&lt;/b>&lt;br/> {1,number,integer}. Thepha isikrini&lt;/b>&lt;br/> {2,number,integer}. Hudula iminwe emi-2 ukuhamba kusikrini&lt;/b>&lt;br/> {3,number,integer}. Ncinza ngeminwe emi-2 ukulungisa ukusondeza&lt;/b>&lt;br/> {4,number,integer}. Sebenzisa isinqamuleli ukuze umise ukukhuliswa&lt;br/>&lt;br/> &lt;b>Ukuze usondeze isithombe okwesikhashana:&lt;/b>&lt;br/> {0,number,integer}. Sebenzisa isinqamuleli ukuqalisa ukukhuliswa&lt;/b>&lt;br/> {1,number,integer}. Thinta futhi ubambe noma kuphi kusikrini&lt;/b>&lt;br/> {2,number,integer}. Hudula umunwe ukuhamba kusikrini&lt;/b>&lt;br/>{3,number,integer}. Phakamisa umunwe ukuze umise ukukhuliswa</string>
     <string name="accessibility_screen_magnification_title">Ukukhuliswa</string>
@@ -370,7 +389,7 @@ Ukuze ushintshe phakathi kwezici, swayiphela phezulu ngeminwe emi-3 bese ubambe.
     <string name="accessibility_tutorial_dialog_message_volume">Ukuze usebenzise lesi sici, cindezela futhi ubambe bobabili okhiye bevolumu.</string>
     <string name="accessibility_tutorial_dialog_title_button">Sebenzisa inkinobho yokufinyelela ukuze uvule</string>
     <string name="accessibility_tutorial_dialog_title_gesture">Sebenzisa ukuthinta ukuze uvule</string>
-    <string name="accessibility_tutorial_dialog_title_gesture_settings">Sebenzisa ukuthinta kokufinyelela okusha</string>
+    <string name="accessibility_tutorial_dialog_title_gesture_settings">Sebenzisa ukufinyeleleka kokuthinta</string>
     <string name="accessibility_tutorial_dialog_title_triple">Thepha kathathu isikrini ukuvula</string>
     <string name="accessibility_tutorial_dialog_title_volume">Bamba okhiye bevolumu ukuze uvule</string>
     <string name="accessibility_tutorial_pager">Ikhasi elingu-%1$d kwangu-%2$d</string>
@@ -936,6 +955,7 @@ Uma isetha kabusha, dlula kunqubo yokusetha uphinde ukhethe ukuletha idatha yakh
     <string name="battery_level_title">Izinga lebhethri</string>
     <string name="battery_manager_off">Valiwe</string>
     <string name="battery_manager_summary">Nweba impilo yebhethri futhi ulungiselele ukushaja</string>
+    <string name="battery_manager_summary_unsupported">Nweba impilo yebhethri</string>
     <string name="battery_missing_link_a11y_message">Thepha ukuze ufunde kabanzi ngaleli phutha</string>
     <string name="battery_missing_link_message">Funda kabanzi</string>
     <string name="battery_missing_message">Inkinga yokufunda imitha yebhethri.</string>
@@ -1061,6 +1081,7 @@ ku-^2"</string>
     <string name="battery_usage_screen_footer">Idatha yokusetshenziswa kwebhethri iyalinganiselwa futhi ayilingani nokusetshenziswa kwefoni lapho ishaja</string>
     <string name="battery_usage_screen_footer_empty">Ukusetshenziswa kwebhethri kuzotholakala ngemva kokusebenzisa ifoni yakho amahora ambalwa</string>
     <string name="battery_usage_total_less_than_one_minute">Ingqikithi: ngaphansi komzuzu</string>
+    <string name="battery_usage_without_time" />
     <string name="battery_used_by">%1$s kusetshenziswe yi-%2$s</string>
     <string name="battery_used_for">Kusetshenziswe nge-^1</string>
     <string name="bearer">Umthwali</string>
@@ -1069,12 +1090,14 @@ ku-^2"</string>
     <string name="billing_cycle_less_than_one_day_left">Kusele ngaphansi kosuku olungu-1</string>
     <string name="billing_cycle_none_left">Asikho isikhathi esisele</string>
     <string name="biometric_settings_category_ways_to_unlock">Izindlela zokuvula</string>
-    <string name="biometric_settings_category_ways_to_use">Sebenzisa ubuso nezigxivizo zeminwe ze-</string>
     <string name="biometric_settings_hand_back_to_guardian">Buyisela ifoni kumzali wakho</string>
     <string name="biometric_settings_hand_back_to_guardian_ok">KULUNGILE</string>
     <string name="biometric_settings_intro">Uma usetha Ukuvula Ngobuso kanye Nokuvula Ngesigxivizo somunwe, ifoni yakho izocela isigxivizo somunwe uma ugqoke imaski noma usendaweni emnyama</string>
-    <string name="biometric_settings_use_biometric_for_apps">Ukufakazela ubuqiniso kuma-app</string>
-    <string name="biometric_settings_use_biometric_unlock_phone">Ivula ifoni yakho</string>
+    <string name="biometric_settings_use_biometric_for_apps">Qinisekisa ukuthi kukuma-app wakho</string>
+    <string name="biometric_settings_use_biometric_unlock_phone">Vula ifoni yakho</string>
+    <string name="biometric_settings_use_face_or_fingerprint_preference_summary">Uksuebenzisa ubuso noma isigxivizo somunwe</string>
+    <string name="biometric_settings_use_face_preference_summary">Ukusebenzisa ubuso</string>
+    <string name="biometric_settings_use_fingerprint_preference_summary">Ukusebenzisa isigxiviso somunwe</string>
     <string name="biometrics_unlock_set_unlock_password">Iphasiwedi • Ubuso • Izigxivizo zeminwe</string>
     <string name="biometrics_unlock_set_unlock_pattern">Iphethini • Ubuso • Izigxivizo zeminwe</string>
     <string name="biometrics_unlock_set_unlock_pin">Iphinikhodi • Ubuso • Izigxivizo zeminwe</string>
@@ -1332,7 +1355,6 @@ Ukukhethwa"</string>
     <string name="bluetooth_settings_title">Bluetooth</string>
     <string name="bluetooth_show_devices_without_names">Bonisa amadivayisi e-Bluetooth ngaphandle kwamagama</string>
     <string name="bluetooth_show_devices_without_names_summary">Amadivayisi e-Bluetooth anganawo amagama (Amakheli e-MAC kuphela) azoboniswa</string>
-    <string name="bluetooth_show_files_received_via_bluetooth">Amafayela amukelwe nge-Bluetooth</string>
     <string name="bluetooth_show_received_files">Amafayela atholiwe</string>
     <string name="bluetooth_sim_card_access_dialog_content">"Idivayisi ye-Bluetooth, %1$s, ifuna ukufinyelela idatha ku-SIM card yakho. Lokhu kubandakanya oxhumana nabo.
 
@@ -1426,6 +1448,7 @@ Uma ufaka isitifiketi se-CA, umnikazi wesitifiketi angase afinyelele kudatha yak
     <string name="calls_sms_temp_unavailable">Akutholakali okwesikhashana</string>
     <string name="calls_sms_unavailable">ayitholakali</string>
     <string name="calls_sms_wfc_summary">Yenza futhi yamukela amakholi nge-Wi‑Fi</string>
+    <string name="cam_toggle_description">Okwama-app namasevisi</string>
     <string name="camera_double_tap_power_gesture_desc">Vula ngokushesha ikhamera ngaphandle kokuvula isikrini sakho</string>
     <string name="camera_double_tap_power_gesture_title">Cindezela inkinobho yamandla kabili ukuthola ikhamera</string>
     <string name="camera_laser_sensor_switch">Inzwa ye-Laser yekhamera</string>
@@ -3302,6 +3325,7 @@ Kukhona abanye abasebenzisi abakhona kule divayisi.
     <string name="menu_stats_total">Inani lokusetshenziswa</string>
     <string name="menu_stats_unplugged">%1$s kusukelwa kungaxhunyiwe</string>
     <string name="menu_use_uss">Sebenzisa i-Uss</string>
+    <string name="mic_toggle_description">Okwama-app namasevisi. Uma leli sethingi livaliwe, idatha yemakrofoni ingabiwa uma ushayela inombolo yezimo eziphuthumayo.</string>
     <string name="mic_toggle_title">Ukufinyelela kwemakrofoni</string>
     <string name="misc_files">Amafayela axubene</string>
     <string name="misc_files_selected_count">kukhethwe %1$d kokuyi %2$d</string>
@@ -3728,6 +3752,7 @@ Lokhu kuzonikeza futhi uhlelo lokusebenza ikhono lokuvula noma ukuvala okuthi Un
     <string name="one_handed_action_show_notification_title">Bonisa izaziso</string>
     <string name="one_handed_mode_enabled">Sebenzisa imodi yesandla esisodwa</string>
     <string name="one_handed_mode_intro_text">Ukuze usebenzise imodi yesandla esisodwa, swayiphela phansi kusuka phezulu onqenqemeni lwesikrini. Ukuze usebenzise lesi sici, qiniseka ukuthi ukuzula kokuthinta kuvuliwe kumasethingi wesistimu yokuzulazula.</string>
+    <string name="one_handed_mode_shortcut_title">Isinqamuleli semodi yesandla esisodwa</string>
     <string name="one_handed_mode_swipe_down_category">Swayiphela phansi ukuze</string>
     <string name="one_handed_mode_use_shortcut_category">Sebenzisa isinqamuleli esiya kokuthi</string>
     <string name="one_usercrt">isitifiketi esisodwa somsebenzisi</string>
@@ -3803,7 +3828,7 @@ Lokhu kuzonikeza futhi uhlelo lokusebenza ikhono lokuvula noma ukuvala okuthi Un
     <string name="post_dsds_reboot_notification_title_with_carrier">I-%1$s iyasebenza</string>
     <string name="power_bluetooth">I-Bluetooth</string>
     <string name="power_camera">Ikhamera</string>
-    <string name="power_cell">Ukulinda kwenethiwekhi yeselula</string>
+    <string name="power_cell">Inethiwekhi yeselula</string>
     <string name="power_charge_remaining">%1$s ukuze lishajiwe</string>
     <string name="power_charging">%1$s - %2$s</string>
     <string name="power_charging_duration">%1$s - %2$s okusele kuze kugcwale</string>
@@ -4037,6 +4062,7 @@ Cindezela Amandla Nevolumu Phezulu ngesikhathi esifanayo."</string>
     <string name="recent_notifications">Kuthunyelwe kamuva nje</string>
     <string name="recent_notifications_see_all_title">Bona kone kusuka ezinsukwini ezingu-7 zokugcina</string>
     <string name="recompute_size">Ilungisa kabusha usayizi...</string>
+    <string name="reduce_bright_colors_about_title">Mayelana nokufiphaza okwengeziwe</string>
     <string name="reduce_bright_colors_intensity_end_label">Ukukhanya</string>
     <string name="reduce_bright_colors_intensity_preference_title">Ukuqina</string>
     <string name="reduce_bright_colors_intensity_start_label">Ukufiphala</string>
@@ -4044,6 +4070,7 @@ Cindezela Amandla Nevolumu Phezulu ngesikhathi esifanayo."</string>
     <string name="reduce_bright_colors_preference_subtitle">Yenza uuthi isikrini sakho simnyama ukuze kube lula ukufunda.&lt;br/>&lt;br/> Lokhu kungaba usizo lapho: &lt;ol> &lt;li> Ukukhanya okuphansi okuzenzakalelayo kwefoni yakho kusakhanya kakhulu&lt;/li> &lt;li> Usebenzisa ifoni yakho lapho kumnyama khona njengasebusuku noma egumbini elimnyama ngaphambi kokuyolala&lt;/li> &lt;ol></string>
     <string name="reduce_bright_colors_preference_summary">Fiphalisa isikrini sedlule ukukhanya okuphansi kwefoni yakho</string>
     <string name="reduce_bright_colors_preference_title">Ukufiphaza okwengeziwe</string>
+    <string name="reduce_bright_colors_shortcut_title">Isinqamuleli sokufiphaza okwengeziwe</string>
     <string name="reduce_bright_colors_switch_title">Fiphaza isikrini sakho ngokwengeziwe</string>
     <string name="register_automatically">Ukubhalisa okuzenzakalelayo…</string>
     <string name="register_on_network">Ibhalisa ku-%s…</string>
@@ -4249,7 +4276,6 @@ Ukuze usebenzise ukuphina uhlelo lokusebenza: \u0009
     <string name="screen_pinning_unlock_pattern">Cela iphethini yokuvula ngaphambi kokususa ukuphina</string>
     <string name="screen_pinning_unlock_pin">Cela iphinikhodi ngaphambi kokuphina</string>
     <string name="screen_reader_category_title">Isifundi sesikrini</string>
-    <string name="screen_saver_main_switch_title">Sebenzisa isilondolozi sesikrini</string>
     <string name="screen_time_summary_usage_today">%1$s namuhla</string>
     <string name="screen_timeout_summary">Emva %1$s okungasebenzi</string>
     <string name="screen_timeout_title">Isikrini siyavaleka</string>
@@ -4279,6 +4305,7 @@ Ukuze usebenzise ukuphina uhlelo lokusebenza: \u0009
     <string name="screensaver_settings_button">Izilungiselelo</string>
     <string name="screensaver_settings_current">Isithombe-skrini samanje</string>
     <string name="screensaver_settings_disabled_prompt">Ukuze ulawule ukuthi kwenzakale ini uma ifoni idokhiwe kanye/noma ilele, vula isilondolozi sikrini.</string>
+    <string name="screensaver_settings_dream_start">Qala manje</string>
     <string name="screensaver_settings_summary_dock">Ngenkathi idokhiwe</string>
     <string name="screensaver_settings_summary_either_long">Ngenkathi ishaja noma idokhiwe</string>
     <string name="screensaver_settings_summary_either_short">Noma</string>
@@ -4329,15 +4356,6 @@ Ukuze usebenzise ukuphina uhlelo lokusebenza: \u0009
     <string name="security_settings_biometric_preference_summary_both_fp_single">Ubuso nezigxivizo zeminwe zingeziwe</string>
     <string name="security_settings_biometric_preference_summary_none_enrolled">Thepha ukuze usethe</string>
     <string name="security_settings_biometric_preference_title">Ukuvula ngobuso nangesigxivizo somunwe</string>
-    <string name="security_settings_biometrics_description">Lapho usetha ukuvula ngobuso nesigxivizo somunwe, ifoni yakho izocela isigxivizo somunwe wakho uma ugqoke imaksi noma usendaweni emnyama</string>
-    <string name="security_settings_biometrics_preference_use_with_apps">Ukufakazela ubuqiniso kuma-app</string>
-    <string name="security_settings_biometrics_preferences_category">Sebenzisa ubuso noma isigxivizo somunwe mayelana</string>
-    <string name="security_settings_biometrics_summary_both">Ubuso nesigxivizo somunwe</string>
-    <string name="security_settings_biometrics_summary_face">Ubuso kuphela</string>
-    <string name="security_settings_biometrics_summary_fingerprint">Izigxivizo zeminwe kuphela</string>
-    <string name="security_settings_biometrics_summary_none">Thepha ukuze usethe</string>
-    <string name="security_settings_biometrics_title">Ukuvula ngobuso nesigxivizo somunwe</string>
-    <string name="security_settings_biometrics_types_category">Izindlela zokuvula</string>
     <string name="security_settings_face_enroll_consent_introduction_title">Vumela i-Face Unlock</string>
     <string name="security_settings_face_enroll_dialog_ok">KULUNGILE</string>
     <string name="security_settings_face_enroll_done">Kwenziwe</string>
@@ -4383,18 +4401,19 @@ Funda kabanzi ku-g.co/pixel/faceunlock."</string>
 
 Funda kabanzi ku- g.co/pixel/faceunlock."</string>
     <string name="security_settings_face_enroll_introduction_control_title">Uwena olawulayo</string>
-    <string name="security_settings_face_enroll_introduction_how_consent_message">"Ukuvula ngobuso kudala imodeli ehlukile yobuso bengane yakho ukuqinisekisa ukuthi yiyona. Ukuze idale le modeli yobuso ngesikhathi sokusetha, ingane yakho izothatha izithombe zobuso bayo ngezindlela ezihlukile.
+    <string name="security_settings_face_enroll_introduction_how_consent_message">"Ukuvula ngobuso kudala imodeli ehlukile yobuso bengane yakho ukuqinisekisa ukuthi yiyona. Ukuze yenze le modeli yobuso ngesikhathi sokusetha, ingane yakho izothatha izithombe zobuso bayo ngezindlela ezihlukile.
 
-Lapho isebenzisa Ukuvula ngobuso, izithombe zisetshenziselwa ukuvuselela imodeli yayo yobuso. Izithombe ezisetshenziselwe ukudala imodeli yobuso bayo azilokothi zigcinwe, kodwa imodeli yobuso igcinwa ngokuphephile kwifoni yayo futhi ayilokothi ishiye ifoni. Konke ukucubungula kwenzeka ngokuphepha kwifoni."</string>
+Lapho isebenzisa Ukuvula ngobuso, izithombe zisetshenziselwa ukuvuselela imodeli yayo yobuso. Imifanekiso esetshenziselwe ukudala imodeli yobuso bayo azigcinwa, kodwa imodeli yobuso igcinwa ngokuphephile kwifoni yayo futhi ayilokothi ishiye ifoni. Konke ukucubungula kwenzeka ngokuphepha kwifoni."</string>
     <string name="security_settings_face_enroll_introduction_how_message">"Ukuvula ngobuso kudala imodeli ehlukile yobuso bakho ukuqinisekisa ukuthi nguwe. Ukuze udale le modeli yobuso phakathi nokusetha, uzothatha izithombe zobuso bakho kuma engeli ahlukile.
 
-Uma usebenzisa Ukuvula ngobuso, izithombe zisetshenziselwa ukuvuselela imodeli yakho yobuso. Izithombe ezisetshenziselwe ukudala imodeli yobuso bakho azilokothi zigcinwe, kodwa imodeli yobuso igcinwa ngokuphephile kwifoni yakho futhi ayilokothi ishiye ifoni. Konke ukucubungula kwenzeka ngokuphepha kwifoni yakho."</string>
+Uma usebenzisa Ukuvula ngobuso, izithombe zisetshenziselwa ukuvuselela imodeli yakho yobuso. Imifanekiso esetshenziselwe ukwenza imodeli yobuso bakho azigcinwa, kodwa imodeli yobuso igcinwa ngokuphephile kwifoni yakho futhi ayilokothi ishiye ifoni. Konke ukucubungula kwenzeka ngokuphepha kwifoni yakho."</string>
     <string name="security_settings_face_enroll_introduction_how_title">Isebenza kanjani</string>
     <string name="security_settings_face_enroll_introduction_info_consent_gaze">Ukuvula Ngobuso kungadinga ukuthi amehlo engane yakho avuleke ukuze ivule ifoni noma iqinisekise ukuthi yiyo. Wena nengane yakho ningavula le nketho noma kunini Kumasethingi.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_glasses">Uma ingane yakho ifaka izibuko zamehlo ngokuvamile, ingazigqoka ngesikhathi sokusetha.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_looking">Ukubheka efonini kungayivula ngisho noma ingahlosile. Ifoni yayo ingaphinda ivulwe ngomunye umuntu ofana ncamashi nayo, njengowakubo onjengayo, noma uma othile eyibambela ebusweni bayo.</string>
     <string name="security_settings_face_enroll_introduction_info_gaze">Ukuvula Ngobuso kungadinga ukuthi amehlo akho avuleke ukuze uvule ifoni noma uqinisekise ukuthi nguwe. Ungavula le nketho nganoma yisiphi isikhathi Kumasethingi.</string>
     <string name="security_settings_face_enroll_introduction_info_glasses">Izibuko noma izibuko zelanga ezenziwe mnyama kancane ZILUNGILE.</string>
+    <string name="security_settings_face_enroll_introduction_info_less_secure">Ukusebenzisa ubuso ukuvula ifoni kungahle kuvikele kancane kunephethini eqinile noma Iphinikhodi.</string>
     <string name="security_settings_face_enroll_introduction_info_looking">Ukubheka efonini kungayivula ngisho noma ungahlosile. Ifoni yakho ingaphinda ivulwe ngomunye umuntu ofana ncamashi nawe, njengowakini oyiwele, noma uma othile eyibambela ebusweni bakho.</string>
     <string name="security_settings_face_enroll_introduction_info_title">Khumbula</string>
     <string name="security_settings_face_enroll_introduction_message">Sebenzisa ubuso bakho ukuze uvule ifoni yakho noma uqinisekise ukuthi nguwe, njengalapho ungena ngemvume kuma-app noma ukugunyaza ukuthenga.</string>
@@ -4452,13 +4471,14 @@ Ifoni yakho ingavulwa ngothile uma ibhekiswe ebusweni bakho, ngisho noma amehlo 
 
 Ifoni yakho ingavulwa ngothile ofana kakhulu nawe, njengolamana naye ofana nawe."</string>
     <string name="security_settings_face_settings_preferences_category">Uma usebenzisa Ukuvula ngobuso</string>
-    <string name="security_settings_face_settings_remove_dialog_details">Imodeli yobuso bakho izosulwa ngokuphelele nangokuphephile.Ngemva kokusulwa, uzodinga Iphinikhodi, iphethini, noma amaphasiwedi ukuvula ifoni yakho noma ukufakazelwa kobuqiniso kuma-app wakho.</string>
+    <string name="security_settings_face_settings_remove_dialog_details">"Imodeli yakho yobuso izosulwa ingunaphakade nangokuphephile.
+
+Ngemuva kokusulwa, uzodinga iphinikhodi yakho, iphethini, noma iphasiwedi ukuze uvule ifoni yakho noma ukufakazela ubuqiniso kuma-app."</string>
+    <string name="security_settings_face_settings_remove_dialog_details_convenience">"Imodeli yakho yobuso izosulwa ingunaphakade nangokuphephile.
+
+Ngemuva kokusulwa, uzodinga iphinikhodi yakho, iphethini, noma iphasiwedi ukuze uvule ifoni yakho."</string>
     <string name="security_settings_face_settings_remove_dialog_title">Susa imodeli yobuso?</string>
     <string name="security_settings_face_settings_remove_face_model">Susa imodeli yobuso</string>
-    <string name="security_settings_face_settings_remove_model_dialog_details">"Imodeli yobuso bakho izosulwa ngokuphelele nangokuphephile.
-
-Ngemva kokusulwa, uzodinga isigxivizo somunwe, Iphinikhodi, iphethini, noma amaphasiwedi ukuvula ifoni yakho noma ukufakazelwa kobuqiniso kuma-app wakho."</string>
-    <string name="security_settings_face_settings_remove_model_dialog_title">Susa imodeli yobuso?</string>
     <string name="security_settings_face_settings_require_attention">Idinga amehlo ukuthi avulwe</string>
     <string name="security_settings_face_settings_require_attention_details">Ukuze uvule ifoni yakho, amehlo akho kumele avuleke</string>
     <string name="security_settings_face_settings_require_confirmation">Hlala ufuna ukuqinisekiswa</string>
@@ -4541,7 +4561,7 @@ Yazi: Awukwazi ukusebenzisa izigxivizo zakho zeminwe ukuze uvule le divayisi. Uk
     <string name="security_settings_title">Ukuphepha</string>
     <string name="security_settings_udfps_enroll_a11y">Hambisa umunwe wakho esikrinini ukuze uthole inzwa. Thinta futhi ubambe inzwa yezigxivizo zeminwe.</string>
     <string name="security_settings_udfps_enroll_edge_message">Beka uhlangothi lwesigxivizo sakho somunwe kunzwa uphinde ubambe, bese ushintshela kolunye uhlangothi</string>
-    <string name="security_settings_udfps_enroll_edge_title">Ekugcineni, beka imiphetho yomunwe wakho</string>
+    <string name="security_settings_udfps_enroll_edge_title">Ekugcineni, sebenzisa imiphetho yomunwe wakho</string>
     <string name="security_settings_udfps_enroll_find_sensor_message">Inzwa yesigxivizo seminwe isesikrinini sakho. Uzothatha izigxivizo zakho zeminwe kusikrini esilandelayo</string>
     <string name="security_settings_udfps_enroll_find_sensor_start_button">Qala</string>
     <string name="security_settings_udfps_enroll_find_sensor_title">Indlela yokusetha izigxivizo zakho zeminwe</string>
@@ -4550,7 +4570,7 @@ Yazi: Awukwazi ukusebenzisa izigxivizo zakho zeminwe ukuze uvule le divayisi. Uk
     <string name="security_settings_udfps_enroll_repeat_a11y_message">Lokhu kusiza ukuthatha iningi lwesigxivizo sakho somunwe</string>
     <string name="security_settings_udfps_enroll_repeat_message">Thinta uphinde ubambe isikhathi lapho isithonjana sesigxivizo somunwe sinyakaza khona. Lokhu kusiza ukuthatha iningi lesigxivizo sakho somunwe.</string>
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">Landela isithonjana sezigxivizo zeminwe</string>
-    <string name="security_settings_udfps_enroll_start_message">Gcina umunwe wakho kwinzwa kuze kube yilapho uzwa ukudlidliza</string>
+    <string name="security_settings_udfps_enroll_start_message">Gcina isigxivizo somunwe wakho siphansi kunzwa kuze kube yilapho uzwa ukudlidliza</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">Kanye futhi</string>
     <string name="security_settings_work_fingerprint_preference_title">I-Pixel Imprint yomsebenzi</string>
     <string name="security_status_title">Isimo sokuphepha</string>
@@ -4576,7 +4596,6 @@ Yazi: Awukwazi ukusebenzisa izigxivizo zakho zeminwe ukuze uvule le divayisi. Uk
     <string name="select_webview_provider_dialog_title">Sesba ukufakwa kwe-WebView</string>
     <string name="select_webview_provider_title">Ukufakwa ke-WebView</string>
     <string name="select_webview_provider_toast_text">Lokhu kukhetha akusavumelekile. Zama futhi.</string>
-    <string name="sensor_toggle_description">Kwawo wonke ama-app namasevisi</string>
     <string name="sensors_off_quick_settings_title">Izinzwa zivaliwe</string>
     <string name="service_background_processes">%1$s vulekile</string>
     <string name="service_foreground_processes">%1$s sebenzile</string>
@@ -4808,6 +4827,7 @@ Kungenzeka i-PIN engalungile."</string>
     <string name="sound_settings_summary_silent">Ukukhala kusethelwe ukuthula</string>
     <string name="sound_settings_summary_vibrate">Ukukhala kusethelwe ukudlidliza</string>
     <string name="sound_work_settings">Imisindo yephrofayela yomsebenzi</string>
+    <string name="spatial_audio_title">Umsindo wokulalelwayo</string>
     <string name="special_access">Ukufinyelela kwi-app okukhethekile</string>
     <string name="special_access_more">Bona okwengeziwe</string>
     <string name="speed_label_fast">Sheshayo</string>
@@ -5619,7 +5639,7 @@ Ngesikhathi sekholi yezwi, awukwazi ukusebenzisa i-inthanethi futhi ezinye izinh
     <string name="vpn_turn_on">Vula</string>
     <string name="vpn_type">Uhlobo</string>
     <string name="vpn_username">Igama lomsebenzisi</string>
-    <string name="vpn_version">Inguqulo engu-%s</string>
+    <string name="vpn_version">Uhlobo</string>
     <string name="vr_listener_security_warning_summary">I-%1$s izokwazi ukusebenza uma usebenzisa izinhlelo zokusebenza kumodi yokubonakalayo kwangempela.</string>
     <string name="vr_listener_security_warning_title">Vumela isevisi ye-VR ukufinyelela i-%1$s?</string>
     <string name="vr_listeners_title">Amasevisi omsizi we-VR</string>
@@ -5889,7 +5909,7 @@ Ukusetha inethiwekhi njengefihliwe ngeke kushintshe izilungiselelo zerutha yakho
     <string name="wifi_not_in_range">Ayikho ebubanzini</string>
     <string name="wifi_not_in_range_message">Inethiwekhi ayikho kubanga</string>
     <string name="wifi_notify_open_networks">Yazisa ngamanethiwekhi asesidlangalaleni</string>
-    <string name="wifi_notify_open_networks_summary">Uma ukuxhumeka okuzenzakalelayo kungatholakali</string>
+    <string name="wifi_notify_open_networks_summary">Yazisa uma inethiwekhi yompahakthi enekhwalithi ephezulu itholakala</string>
     <string name="wifi_on_time">I-Wi-Fi isesikhathini</string>
     <string name="wifi_p2p_cancel_connect_message">Ingabe ufuna ukukhansela isimemo ukuze uxhume ne-%1$s?</string>
     <string name="wifi_p2p_cancel_connect_title">Khansela isimemo?</string>
@@ -5977,7 +5997,6 @@ Vumela lokhu ngazo zonke izinhlelo zokusebenza ezifuna ukuskena?"</string>
     <string name="wifi_suspend_optimizations">Ukuthuthukiswa kwe-Wi-Fi</string>
     <string name="wifi_suspend_optimizations_summary">Nciphisa ukusetshenziswa kwebhethri uma i-Wi-Fi ivuliwe</string>
     <string name="wifi_switch_away_when_unvalidated">Shintshela kudatha yeselula uma i-Wi-Fi ilahlekelwa ukufinyelela kwe-inthanethi.</string>
-    <string name="wifi_switch_summary">Funa futhi uxhume kumanethiwekhi we-Wi‑Fi</string>
     <string name="wifi_tap_to_sign_in">Thepha lapha ukuze ungene ngemvume kunethiwekhi</string>
     <string name="wifi_tether_configure_ap_text">Setha i-Wi-Fi hotspot</string>
     <string name="wifi_tether_configure_ssid_default">Indawo ye-Android</string>
@@ -6233,7 +6252,7 @@ Vumela lokhu ngazo zonke izinhlelo zokusebenza ezifuna ukuskena?"</string>
     <string name="zen_mode_no_exceptions">Lutho</string>
     <string name="zen_mode_none_calls">Lutho</string>
     <string name="zen_mode_none_messages">Lutho</string>
-    <string name="zen_mode_other_options">ezinye izinketho</string>
+    <string name="zen_mode_other_options">okunye okungakhethwa</string>
     <string name="zen_mode_other_sounds_summary">{count,plural,offset:2 =0{Akukho okungaphazamisa}=1{I-{sound_category_1} ingaphazamisa}=2{I-{sound_category_1} ne-{sound_category_2} zingaphazamisa}=3{I-{sound_category_1}, i-{sound_category_2}, ne-{sound_category_3} zingaphazamisa}one{I-{sound_category_1}, i-{sound_category_2}, kanye nezingu-# ezengeziwe zingaphazamisa}other{I-{sound_category_1}, i-{sound_category_2}, kanye nezingu-# ezengeziwe zingaphazamisa}}</string>
     <string name="zen_mode_people_all">Bonke abantu bangaphazamisa</string>
     <string name="zen_mode_people_calls_messages_section_title">Labo abangaphazamisa</string>

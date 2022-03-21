@@ -49,7 +49,7 @@
 
     if-gtz p3, :cond_0
 
-    const p1, 0x7f040714
+    const p1, 0x7f04072c
 
     invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setSummary(I)V
 

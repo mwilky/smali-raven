@@ -283,7 +283,7 @@
 
     iget-object v0, p0, Lcom/android/settings/display/AdaptiveSleepPreferenceController;->mPreference:Lcom/android/settingslib/RestrictedSwitchPreference;
 
-    const v1, 0x7f040195
+    const v1, 0x7f0401a9
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setSummary(I)V
 

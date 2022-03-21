@@ -29,13 +29,13 @@
 
     invoke-virtual {p0, v0, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string v0, "title_res"
+    const-string/jumbo v0, "title_res"
 
-    const v1, 0x7f0400fd
+    const v1, 0x7f040110
 
     invoke-virtual {p0, v0, v1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    const v0, 0x7f040104
+    const v0, 0x7f040118
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -93,7 +93,7 @@
 
     invoke-virtual {p0, v0, p1}, Landroid/os/Bundle;->putCharSequence(Ljava/lang/String;Ljava/lang/CharSequence;)V
 
-    const-string p1, "video_resource"
+    const-string/jumbo p1, "video_resource"
 
     const v0, 0x7f030004
 
@@ -149,6 +149,14 @@
     return-object p0
 .end method
 
+.method public getSliceHighlightMenuRes()I
+    .locals 0
+
+    const p0, 0x7f040d02
+
+    return p0
+.end method
+
 .method public getSummary()Ljava/lang/CharSequence;
     .locals 1
 
@@ -156,7 +164,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f040102
+    const v0, 0x7f040115
 
     goto :goto_0
 
@@ -167,12 +175,12 @@
 
     if-eqz v0, :cond_1
 
-    const v0, 0x7f0400d1
+    const v0, 0x7f0400e2
 
     goto :goto_0
 
     :cond_1
-    const v0, 0x7f0400d0
+    const v0, 0x7f0400e1
 
     :goto_0
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;

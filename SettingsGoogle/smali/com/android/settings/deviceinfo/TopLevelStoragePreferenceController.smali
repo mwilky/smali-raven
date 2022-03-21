@@ -87,7 +87,7 @@
 
     aput-object p0, v1, p2
 
-    const p0, 0x7f0412fd
+    const p0, 0x7f041322
 
     invoke-virtual {v0, p0, v1}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -181,6 +181,16 @@
     move-result-object p0
 
     return-object p0
+.end method
+
+.method public bridge synthetic getSliceHighlightMenuRes()I
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getSliceHighlightMenuRes()I
+
+    move-result p0
+
+    return p0
 .end method
 
 .method protected getStorageManagerVolumeProvider()Lcom/android/settingslib/deviceinfo/StorageManagerVolumeProvider;

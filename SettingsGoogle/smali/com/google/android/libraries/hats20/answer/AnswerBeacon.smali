@@ -625,7 +625,7 @@
 
     iget-object p0, p0, Lcom/google/android/libraries/hats20/answer/AnswerBeacon;->parameterBundle:Landroid/os/Bundle;
 
-    const-string v0, "t"
+    const-string/jumbo v0, "t"
 
     invoke-virtual {p0, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
@@ -649,7 +649,7 @@
 
     iget-object p0, p0, Lcom/google/android/libraries/hats20/answer/AnswerBeacon;->parameterBundle:Landroid/os/Bundle;
 
-    const-string v0, "t"
+    const-string/jumbo v0, "t"
 
     invoke-virtual {p0, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
@@ -669,7 +669,7 @@
 
     iget-object p0, p0, Lcom/google/android/libraries/hats20/answer/AnswerBeacon;->parameterBundle:Landroid/os/Bundle;
 
-    const-string v0, "t"
+    const-string/jumbo v0, "t"
 
     invoke-virtual {p0, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
@@ -707,7 +707,7 @@
 
     invoke-static {p1, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    const-string v0, "t"
+    const-string/jumbo v0, "t"
 
     invoke-direct {p0, v0, p1}, Lcom/google/android/libraries/hats20/answer/AnswerBeacon;->setStringParameter(Ljava/lang/String;Ljava/lang/String;)Lcom/google/android/libraries/hats20/answer/AnswerBeacon;
 
@@ -827,7 +827,7 @@
 
     invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string p0, "}"
+    const-string/jumbo p0, "}"
 
     invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

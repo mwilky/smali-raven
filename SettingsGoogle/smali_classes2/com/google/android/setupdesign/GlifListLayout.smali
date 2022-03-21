@@ -105,7 +105,7 @@
 
     if-eqz p1, :cond_1
 
-    invoke-static {p1}, Lcom/google/android/setupdesign/GlifLayout;->applyPartnerCustomizationContentPaddingTopStyle(Landroid/view/View;)V
+    invoke-virtual {p0, p1}, Lcom/google/android/setupdesign/GlifLayout;->tryApplyPartnerCustomizationContentPaddingTopStyle(Landroid/view/View;)V
 
     :cond_1
     invoke-virtual {p0}, Lcom/google/android/setupdesign/GlifLayout;->updateLandscapeMiddleHorizontalSpacing()V

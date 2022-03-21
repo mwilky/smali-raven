@@ -27,7 +27,7 @@
 
     iget-object p0, p0, Lcom/android/settings/biometrics/face/FaceEnrollIntroduction$$ExternalSyntheticLambda2;->f$0:Lcom/android/settings/biometrics/face/FaceEnrollIntroduction;
 
-    invoke-virtual {p0, p1}, Lcom/android/settings/biometrics/face/FaceEnrollIntroduction;->onSkipButtonClick(Landroid/view/View;)V
+    invoke-virtual {p0, p1}, Lcom/android/settings/biometrics/face/FaceEnrollIntroduction;->onNextButtonClick(Landroid/view/View;)V
 
     return-void
 .end method

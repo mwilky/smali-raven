@@ -45,7 +45,7 @@
 
     move-result-object v0
 
-    const-string v1, "string"
+    const-string/jumbo v1, "string"
 
     invoke-virtual {p0}, Landroid/app/Activity;->getPackageName()Ljava/lang/String;
 

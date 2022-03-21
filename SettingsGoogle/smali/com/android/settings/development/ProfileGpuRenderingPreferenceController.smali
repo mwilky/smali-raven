@@ -139,7 +139,7 @@
 .method public getPreferenceKey()Ljava/lang/String;
     .locals 0
 
-    const-string p0, "track_frame_time"
+    const-string/jumbo p0, "track_frame_time"
 
     return-object p0
 .end method

@@ -13,7 +13,7 @@
 
     new-instance v0, Lcom/android/settings/development/transcode/TranscodeSettingsFragment$1;
 
-    const v1, 0x7f1500f6
+    const v1, 0x7f1500fb
 
     invoke-direct {v0, v1}, Lcom/android/settings/development/transcode/TranscodeSettingsFragment$1;-><init>(I)V
 
@@ -51,7 +51,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f1500f6
+    const p0, 0x7f1500fb
 
     return p0
 .end method

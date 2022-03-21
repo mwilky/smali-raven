@@ -23,17 +23,17 @@
 
     if-eq p0, v0, :cond_0
 
-    const p0, 0x7f041154
+    const p0, 0x7f041179
 
     return p0
 
     :cond_0
-    const p0, 0x7f04114a
+    const p0, 0x7f04116f
 
     return p0
 
     :cond_1
-    const p0, 0x7f041155
+    const p0, 0x7f04117a
 
     return p0
 .end method
@@ -63,39 +63,50 @@
 .end method
 
 .method public static showErrorDialog(Lcom/android/settings/biometrics/BiometricEnrollBase;I)V
-    .locals 1
+    .locals 2
 
-    invoke-static {p1}, Lcom/android/settings/biometrics/fingerprint/FingerprintErrorDialog;->getErrorMessage(I)I
+    invoke-virtual {p0}, Landroid/app/Activity;->isFinishing()Z
 
     move-result v0
 
-    invoke-virtual {p0, v0}, Landroid/app/Activity;->getText(I)Ljava/lang/CharSequence;
+    if-eqz v0, :cond_0
+
+    return-void
+
+    :cond_0
+    invoke-virtual {p0}, Landroidx/fragment/app/FragmentActivity;->getSupportFragmentManager()Landroidx/fragment/app/FragmentManager;
 
     move-result-object v0
 
-    invoke-static {v0, p1}, Lcom/android/settings/biometrics/fingerprint/FingerprintErrorDialog;->newInstance(Ljava/lang/CharSequence;I)Lcom/android/settings/biometrics/fingerprint/FingerprintErrorDialog;
+    invoke-virtual {v0}, Landroidx/fragment/app/FragmentManager;->isDestroyed()Z
 
-    move-result-object p1
+    move-result v1
 
-    invoke-virtual {p0}, Landroidx/fragment/app/FragmentActivity;->getSupportFragmentManager()Landroidx/fragment/app/FragmentManager;
+    if-eqz v1, :cond_1
+
+    return-void
+
+    :cond_1
+    invoke-static {p1}, Lcom/android/settings/biometrics/fingerprint/FingerprintErrorDialog;->getErrorMessage(I)I
+
+    move-result v1
+
+    invoke-virtual {p0, v1}, Landroid/app/Activity;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object p0
 
-    invoke-virtual {p0}, Landroidx/fragment/app/FragmentManager;->isDestroyed()Z
+    invoke-static {p0, p1}, Lcom/android/settings/biometrics/fingerprint/FingerprintErrorDialog;->newInstance(Ljava/lang/CharSequence;I)Lcom/android/settings/biometrics/fingerprint/FingerprintErrorDialog;
 
-    move-result v0
+    move-result-object p0
 
-    if-nez v0, :cond_0
+    const-class p1, Lcom/android/settings/biometrics/fingerprint/FingerprintErrorDialog;
 
-    const-class v0, Lcom/android/settings/biometrics/fingerprint/FingerprintErrorDialog;
+    invoke-virtual {p1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    invoke-virtual {v0}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v0
+    invoke-virtual {p0, v0, p1}, Landroidx/fragment/app/DialogFragment;->show(Landroidx/fragment/app/FragmentManager;Ljava/lang/String;)V
 
-    invoke-virtual {p1, p0, v0}, Landroidx/fragment/app/DialogFragment;->show(Landroidx/fragment/app/FragmentManager;Ljava/lang/String;)V
-
-    :cond_0
     return-void
 .end method
 
@@ -112,7 +123,7 @@
 .method public getOkButtonTextResId()I
     .locals 0
 
-    const p0, 0x7f04114e
+    const p0, 0x7f041173
 
     return p0
 .end method
@@ -120,7 +131,7 @@
 .method public getTitleResId()I
     .locals 0
 
-    const p0, 0x7f041153
+    const p0, 0x7f041178
 
     return p0
 .end method

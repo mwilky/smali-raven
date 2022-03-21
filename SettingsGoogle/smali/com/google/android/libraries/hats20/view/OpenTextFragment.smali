@@ -141,7 +141,7 @@
 
     if-eqz v1, :cond_0
 
-    const-string p0, "skipped"
+    const-string/jumbo p0, "skipped"
 
     invoke-virtual {v0, p0}, Lcom/google/android/libraries/hats20/answer/QuestionResponse$Builder;->addResponse(Ljava/lang/String;)Lcom/google/android/libraries/hats20/answer/QuestionResponse$Builder;
 

@@ -239,7 +239,7 @@
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "unknown tag "
+    const-string/jumbo v5, "unknown tag "
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -306,6 +306,8 @@
     :cond_9
     :goto_4
     return-void
+
+    nop
 
     :sswitch_data_0
     .sparse-switch

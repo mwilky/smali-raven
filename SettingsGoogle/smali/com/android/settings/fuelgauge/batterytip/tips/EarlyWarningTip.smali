@@ -57,7 +57,7 @@
 .method public getIconId()I
     .locals 1
 
-    const v0, 0x7f020189
+    const v0, 0x7f020190
 
     iput v0, p0, Lcom/android/settings/fuelgauge/batterytip/tips/BatteryTip;->mState:I
 
@@ -77,7 +77,7 @@
 .method public getSummary(Landroid/content/Context;)Ljava/lang/CharSequence;
     .locals 1
 
-    const v0, 0x7f0403bf
+    const v0, 0x7f0403d4
 
     iput v0, p0, Lcom/android/settings/fuelgauge/batterytip/tips/BatteryTip;->mState:I
 
@@ -91,7 +91,7 @@
 .method public getTitle(Landroid/content/Context;)Ljava/lang/CharSequence;
     .locals 1
 
-    const v0, 0x7f0403c0
+    const v0, 0x7f0403d5
 
     iput v0, p0, Lcom/android/settings/fuelgauge/batterytip/tips/BatteryTip;->mState:I
 

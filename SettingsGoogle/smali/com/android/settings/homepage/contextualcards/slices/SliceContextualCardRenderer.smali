@@ -157,7 +157,7 @@
 
     move-result p0
 
-    const v0, 0x7f060099
+    const v0, 0x7f06009b
 
     if-ne p0, v0, :cond_0
 
@@ -180,7 +180,7 @@
 
     iget-object v0, p1, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
 
-    const v1, 0x7f0d02f6
+    const v1, 0x7f0d0302
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -196,7 +196,7 @@
 
     iget-object v0, p1, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
 
-    const v1, 0x7f0d0486
+    const v1, 0x7f0d0493
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -362,7 +362,7 @@
 
     move-result v0
 
-    const v1, 0x7f060099
+    const v1, 0x7f06009b
 
     if-ne v0, v1, :cond_2
 
@@ -455,7 +455,7 @@
 
     iget-object v0, p1, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
 
-    const v1, 0x7f0d01ce
+    const v1, 0x7f0d01d2
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -481,7 +481,7 @@
 
     iget-object v0, p1, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
 
-    const v1, 0x7f0d01ce
+    const v1, 0x7f0d01d2
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -548,7 +548,7 @@
 
     move-result v1
 
-    const v2, 0x7f060099
+    const v2, 0x7f06009b
 
     if-eq v1, v2, :cond_1
 
@@ -592,7 +592,7 @@
     :cond_2
     iget-object v0, p1, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
 
-    const v2, 0x7f0d01cd
+    const v2, 0x7f0d01d1
 
     invoke-virtual {v0, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -621,7 +621,7 @@
 
     move-result v0
 
-    const v1, 0x7f06009a
+    const v1, 0x7f06009c
 
     if-eq v0, v1, :cond_4
 
@@ -646,7 +646,7 @@
 .method public createViewHolder(Landroid/view/View;I)Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
     .locals 1
 
-    const v0, 0x7f060099
+    const v0, 0x7f06009b
 
     if-ne p2, v0, :cond_0
 

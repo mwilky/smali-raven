@@ -39,13 +39,13 @@
 
     new-instance p0, Landroid/app/NotificationChannel;
 
-    const v1, 0x7f041262
+    const v1, 0x7f041286
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
-    const-string v2, "sim_setup"
+    const-string/jumbo v2, "sim_setup"
 
     const/4 v3, 0x4
 
@@ -55,7 +55,7 @@
 
     new-instance p0, Landroid/app/NotificationChannel;
 
-    const v1, 0x7f041268
+    const v1, 0x7f04128c
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -185,7 +185,7 @@
 .method public static getShowSimSettingsNotification(Landroid/content/Context;)Z
     .locals 2
 
-    const-string v0, "sim_prefs"
+    const-string/jumbo v0, "sim_prefs"
 
     const/4 v1, 0x0
 
@@ -193,7 +193,7 @@
 
     move-result-object p0
 
-    const-string v0, "show_sim_settings_notification"
+    const-string/jumbo v0, "show_sim_settings_notification"
 
     invoke-interface {p0, v0, v1}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
 
@@ -217,7 +217,7 @@
 .method public static setShowSimSettingsNotification(Landroid/content/Context;Z)V
     .locals 2
 
-    const-string v0, "sim_prefs"
+    const-string/jumbo v0, "sim_prefs"
 
     const/4 v1, 0x0
 
@@ -229,7 +229,7 @@
 
     move-result-object p0
 
-    const-string v0, "show_sim_settings_notification"
+    const-string/jumbo v0, "show_sim_settings_notification"
 
     invoke-interface {p0, v0, p1}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
 
@@ -287,13 +287,13 @@
 
     iget-object v2, p0, Lcom/android/settings/sim/SimActivationNotifier;->mContext:Landroid/content/Context;
 
-    const-string v3, "sim_setup"
+    const-string/jumbo v3, "sim_setup"
 
     invoke-direct {v1, v2, v3}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;Ljava/lang/String;)V
 
     iget-object v2, p0, Lcom/android/settings/sim/SimActivationNotifier;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f04083f
+    const v3, 0x7f040857
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -305,7 +305,7 @@
 
     iget-object v2, p0, Lcom/android/settings/sim/SimActivationNotifier;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f04083e
+    const v3, 0x7f040856
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -319,7 +319,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f020364
+    const v1, 0x7f02036b
 
     invoke-virtual {v0, v1}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
 
@@ -374,7 +374,7 @@
 
     iget-object v0, p0, Lcom/android/settings/sim/SimActivationNotifier;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f041227
+    const v1, 0x7f04124b
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -390,7 +390,7 @@
     :goto_0
     iget-object v1, p0, Lcom/android/settings/sim/SimActivationNotifier;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f040ef7
+    const v2, 0x7f040f23
 
     const/4 v3, 0x1
 
@@ -406,7 +406,7 @@
 
     iget-object v1, p0, Lcom/android/settings/sim/SimActivationNotifier;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f040ef6
+    const v2, 0x7f040f22
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -440,7 +440,7 @@
 
     iget-object v5, p0, Lcom/android/settings/sim/SimActivationNotifier;->mContext:Landroid/content/Context;
 
-    const-string v6, "sim_setup"
+    const-string/jumbo v6, "sim_setup"
 
     invoke-direct {v4, v5, v6}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;Ljava/lang/String;)V
 
@@ -456,7 +456,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f020364
+    const v1, 0x7f02036b
 
     invoke-virtual {v0, v1}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
 
@@ -520,7 +520,7 @@
 
     iget-object v0, p0, Lcom/android/settings/sim/SimActivationNotifier;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f04137f
+    const v2, 0x7f0413a4
 
     invoke-virtual {v0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -531,7 +531,7 @@
     :cond_0
     iget-object v3, p0, Lcom/android/settings/sim/SimActivationNotifier;->mContext:Landroid/content/Context;
 
-    const v5, 0x7f04137e
+    const v5, 0x7f0413a3
 
     new-array v6, v4, [Ljava/lang/Object;
 
@@ -556,7 +556,7 @@
 
     iget-object v2, p0, Lcom/android/settings/sim/SimActivationNotifier;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f040d84
+    const v3, 0x7f040daf
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -570,7 +570,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f020364
+    const v1, 0x7f02036b
 
     invoke-virtual {v0, v1}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
 

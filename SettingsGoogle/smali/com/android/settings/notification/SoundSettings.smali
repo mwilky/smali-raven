@@ -48,7 +48,7 @@
 
     new-instance v0, Lcom/android/settings/notification/SoundSettings$2;
 
-    const v1, 0x7f1500de
+    const v1, 0x7f1500e3
 
     invoke-direct {v0, v1}, Lcom/android/settings/notification/SoundSettings$2;-><init>(I)V
 
@@ -78,7 +78,7 @@
 
     iput-object v0, p0, Lcom/android/settings/notification/SoundSettings;->mHandler:Landroid/os/Handler;
 
-    const-string v0, "vibration_preference_screen"
+    const-string/jumbo v0, "vibration_preference_screen"
 
     iput-object v0, p0, Lcom/android/settings/notification/SoundSettings;->mVibrationPreferencesKey:Ljava/lang/String;
 
@@ -295,7 +295,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f040a2f
+    const p0, 0x7f040a47
 
     return p0
 .end method
@@ -319,7 +319,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f1500de
+    const p0, 0x7f1500e3
 
     return p0
 .end method

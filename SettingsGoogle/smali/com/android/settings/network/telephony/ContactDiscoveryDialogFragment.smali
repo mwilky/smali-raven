@@ -54,7 +54,7 @@
 
     invoke-direct {v1}, Landroid/os/Bundle;-><init>()V
 
-    const-string v2, "sub_id_key"
+    const-string/jumbo v2, "sub_id_key"
 
     invoke-virtual {v1, v2, p0}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
@@ -100,7 +100,7 @@
 
     move-result-object v0
 
-    const-string v1, "sub_id_key"
+    const-string/jumbo v1, "sub_id_key"
 
     invoke-virtual {v0, v1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
@@ -167,7 +167,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f040677
+    const v1, 0x7f04068f
 
     const/4 v2, 0x1
 
@@ -187,7 +187,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f040675
+    const v3, 0x7f04068d
 
     new-array v2, v2, [Ljava/lang/Object;
 
@@ -206,7 +206,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f040678
+    const v1, 0x7f040690
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -216,7 +216,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f040676
+    const v2, 0x7f04068e
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -237,7 +237,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f040653
+    const v1, 0x7f04066b
 
     invoke-virtual {v0, v1, p0}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

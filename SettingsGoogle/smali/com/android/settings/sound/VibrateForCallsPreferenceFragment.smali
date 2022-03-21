@@ -56,7 +56,7 @@
 
     const-string v1, "never_vibrate"
 
-    const v2, 0x7f04151a
+    const v2, 0x7f04153f
 
     invoke-direct {v0, p0, v1, v2}, Lcom/android/settings/sound/VibrateForCallsPreferenceFragment$VibrateForCallsCandidateInfo;-><init>(Lcom/android/settings/sound/VibrateForCallsPreferenceFragment;Ljava/lang/String;I)V
 
@@ -68,7 +68,7 @@
 
     const-string v1, "always_vibrate"
 
-    const v2, 0x7f041519
+    const v2, 0x7f04153e
 
     invoke-direct {v0, p0, v1, v2}, Lcom/android/settings/sound/VibrateForCallsPreferenceFragment$VibrateForCallsCandidateInfo;-><init>(Lcom/android/settings/sound/VibrateForCallsPreferenceFragment;Ljava/lang/String;I)V
 
@@ -80,7 +80,7 @@
 
     const-string v1, "ramping_ringer"
 
-    const v2, 0x7f04151b
+    const v2, 0x7f041540
 
     invoke-direct {v0, p0, v1, v2}, Lcom/android/settings/sound/VibrateForCallsPreferenceFragment$VibrateForCallsCandidateInfo;-><init>(Lcom/android/settings/sound/VibrateForCallsPreferenceFragment;Ljava/lang/String;I)V
 
@@ -106,7 +106,7 @@
 
     const-string v2, "apply_ramping_ringer"
 
-    const-string v3, "vibrate_when_ringing"
+    const-string/jumbo v3, "vibrate_when_ringing"
 
     const/4 v4, 0x0
 
@@ -283,7 +283,7 @@
 
     move-result-object p0
 
-    const-string v0, "vibrate_when_ringing"
+    const-string/jumbo v0, "vibrate_when_ringing"
 
     invoke-static {p0, v0, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
@@ -312,7 +312,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f150101
+    const p0, 0x7f150106
 
     return p0
 .end method

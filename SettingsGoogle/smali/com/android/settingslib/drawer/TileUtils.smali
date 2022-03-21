@@ -250,7 +250,7 @@
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    const-string v1, "user"
+    const-string/jumbo v1, "user"
 
     invoke-virtual {p0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -802,7 +802,7 @@
 
     if-eqz p0, :cond_0
 
-    const-string p1, "switch_data"
+    const-string/jumbo p1, "switch_data"
 
     invoke-virtual {p0, p1}, Landroid/os/Bundle;->getParcelableArrayList(Ljava/lang/String;)Ljava/util/ArrayList;
 

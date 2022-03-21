@@ -119,7 +119,7 @@
 
     invoke-virtual {p1, p0}, Lcom/android/settings/widget/ValidatedEditTextPreference;->setIsSummaryPassword(Z)V
 
-    const v0, 0x7f041666
+    const v0, 0x7f04168b
 
     invoke-virtual {p1, v0}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -172,7 +172,7 @@
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const-string v0, "settings_tether_all_in_one"
+    const-string/jumbo v0, "settings_tether_all_in_one"
 
     invoke-static {p0, v0}, Landroid/util/FeatureFlagUtils;->isEnabled(Landroid/content/Context;Ljava/lang/String;)Z
 
@@ -180,12 +180,12 @@
 
     if-eqz p0, :cond_0
 
-    const-string p0, "wifi_tether_network_password_2"
+    const-string/jumbo p0, "wifi_tether_network_password_2"
 
     goto :goto_0
 
     :cond_0
-    const-string p0, "wifi_tether_network_password"
+    const-string/jumbo p0, "wifi_tether_network_password"
 
     :goto_0
     return-object p0

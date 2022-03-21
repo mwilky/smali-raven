@@ -57,10 +57,6 @@
 
     invoke-virtual {v0, p1}, Lcom/android/settingslib/location/SettingsInjector;->logPreferenceClick(Landroid/content/Intent;)V
 
-    const v0, 0x10008000
-
-    invoke-virtual {p1, v0}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
-
     iget-object v0, p0, Lcom/android/settingslib/location/SettingsInjector$ServiceSettingClickedListener;->this$0:Lcom/android/settingslib/location/SettingsInjector;
 
     invoke-static {v0}, Lcom/android/settingslib/location/SettingsInjector;->access$000(Lcom/android/settingslib/location/SettingsInjector;)Landroid/content/Context;

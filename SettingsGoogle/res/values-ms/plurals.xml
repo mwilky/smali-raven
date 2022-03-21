@@ -329,18 +329,18 @@
         <item quantity="one">Percayai atau alih keluar sijil</item>
     </plurals>
     <plurals name="ssl_ca_cert_info_message">
-        <item quantity="other">"%s telah memasang sijil kuasa untuk profil kerja anda yang mungkin membenarkan pemantauan aktiviti rangkaian kerja, termasuk e-mel, apl dan tapak web selamat.
+        <item quantity="other">"%s telah memasang sijil kuasa untuk profil kerja anda yang mungkin membenarkan pemantauan aktiviti rangkaian kerja, termasuk e-mel, apl dan laman web selamat.
 
 Hubungi pentadbir anda untuk mengetahui lebih lanjut tentang sijil ini."</item>
-        <item quantity="one">"%s telah memasang sijil kuasa untuk profil kerja anda yang mungkin membenarkan pemantauan aktiviti rangkaian kerja, termasuk e-mel, apl dan tapak web selamat.
+        <item quantity="one">"%s telah memasang sijil kuasa untuk profil kerja anda yang mungkin membenarkan pemantauan aktiviti rangkaian kerja, termasuk e-mel, apl dan laman web selamat.
 
 Hubungi pentadbir anda untuk mengetahui lebih lanjut tentang sijil ini."</item>
     </plurals>
     <plurals name="ssl_ca_cert_info_message_device_owner">
-        <item quantity="other">"%s telah memasang sijil kuasa pada peranti anda yang mungkin membenarkan pemantauan aktiviti rangkaian peranti anda, termasuk e-mel, apl dan tapak web selamat.
+        <item quantity="other">"%s telah memasang sijil kuasa pada peranti anda yang mungkin membenarkan pemantauan aktiviti rangkaian peranti anda, termasuk e-mel, apl dan laman web selamat.
 
 Hubungi pentadbir anda untuk mengetahui lebih lanjut tentang sijil ini."</item>
-        <item quantity="one">"%s telah memasang sijil kuasa pada peranti anda yang mungkin membenarkan pemantauan aktiviti rangkaian peranti anda, termasuk e-mel, apl dan tapak web selamat.
+        <item quantity="one">"%s telah memasang sijil kuasa pada peranti anda yang mungkin membenarkan pemantauan aktiviti rangkaian peranti anda, termasuk e-mel, apl dan laman web selamat.
 
 Hubungi pentadbir anda untuk mengetahui lebih lanjut tentang sijil ini."</item>
     </plurals>

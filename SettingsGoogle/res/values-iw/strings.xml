@@ -96,6 +96,7 @@
     <string name="peak_refresh_rate_title">תצוגה חלקה</string>
     <string name="peak_refresh_rate_summary">‏קצב הרענון עולה באופן אוטומטי מ-Hz‏60 ל-Hz‏90 לחלק מהתוכן. הפעולה הזו מגבירה את השימוש בסוללה.</string>
     <string name="accessibility_vibration_settings_title">רטט ומגע פיזי</string>
+    <string name="columbus_title">הקשה מהירה לביצוע פעולות</string>
     <string name="emergency_gesture_screen_title">מצב חירום</string>
     <string name="abc_action_mode_done">סיום</string>
     <string name="vibrate_for_calls_category_title">שיחות</string>
@@ -103,6 +104,8 @@
     <string name="lockscreen_privacy_controls_setting_toggle">הצגת פקדי המכשיר</string>
     <string name="lockscreen_privacy_wallet_summary">אישור גישה אל הארנק ממסך הנעילה ומההגדרות המהירות</string>
     <string name="lockscreen_privacy_controls_summary">גישה לפקדים כשהמכשיר נעול</string>
+    <string name="lockscreen_double_line_clock_summary">הצגת השעון עם שתי השורות כשאפשר</string>
+    <string name="lockscreen_double_line_clock_setting_toggle">שעון עם שתי שורות</string>
     <string name="abc_activity_chooser_view_see_all">הצגת הכול</string>
     <string name="abc_activitychooserview_choose_application">בחירת אפליקציה</string>
     <string name="abc_capital_off">כבוי</string>
@@ -147,9 +150,11 @@
     <string name="accessibility_alarm_vibration_title">רטט של התראה</string>
     <string name="accessibility_assist_gesture_complete_or_keep_adjusting">‏Active Edge מוגדר. אפשר לעבור למסך הבא או להמשיך בהתאמה.</string>
     <string name="accessibility_audio_adjustment_title">כוונון אודיו</string>
+    <string name="accessibility_autoclick_about_title">מידע על קליק אוטומטי (זמן שהות)</string>
     <string name="accessibility_autoclick_custom_title">התאמה אישית</string>
     <string name="accessibility_autoclick_default_title">כבוי</string>
     <string name="accessibility_autoclick_description">‏Autoclick פועל עם עכבר מחובר. אפשר להגדיר שסמן העכבר ילחץ באופן אוטומטי כשהסמן מפסיק לזוז למשך פרק זמן מסוים.</string>
+    <string name="accessibility_autoclick_footer_learn_more_content_description">מידע נוסף על קליק אוטומטי (זמן שהות)</string>
     <string name="accessibility_autoclick_long_summary">שנייה אחת</string>
     <string name="accessibility_autoclick_long_title">ארוך</string>
     <string name="accessibility_autoclick_longer_desc">ארוך יותר</string>
@@ -161,16 +166,17 @@
     <string name="accessibility_autoclick_short_title">קצר</string>
     <string name="accessibility_autoclick_shorter_desc">קצר יותר</string>
     <string name="accessibility_banner_message_dismiss">סגירה</string>
-    <string name="accessibility_button_description">"גישה מהירה לתכונות נגישות מכל מסך. 
+    <string name="accessibility_button_about_title">מידע על לחצן הנגישות</string>
+    <string name="accessibility_button_description">"גישה מהירה לתכונות הנגישות מכל מסך.
 
-כדי להתחיל, צריך לעבור להגדרות הנגישות ולבחור תכונה. יש להקיש על מקש הקיצור ולבחור את לחצן הנגישות."</string>
+כדי להתחיל, נכנסים להגדרות הנגישות ובוחרים תכונה. מקישים על מקש הקיצור ובוחרים את לחצן הנגישות."</string>
     <string name="accessibility_button_fade_summary">הופך לשקוף בהדרגה אחרי מספר שניות כך שיהיה קל יותר לראות את המסך</string>
     <string name="accessibility_button_fade_title">הופך לשקוף בהדרגה כשלא בשימוש</string>
-    <string name="accessibility_button_gesture_description">"גישה מהירה לתכונות נגישות מכל מסך.
+    <string name="accessibility_button_gesture_about_title">מידע על התנועות ולחצן הנגישות</string>
+    <string name="accessibility_button_gesture_description">"גישה מהירה לתכונות הנגישות מכל מסך.
 
-כדי להתחיל, נכנסים להגדרות הנגישות ובוחרים תכונה. מקישים על מקש הקיצור ובוחרים בלחצן הנגישות.
-
-כדי להשתמש בלחצן הנגישות שבסרגל הניווט במקום זאת, עוברים לניווט ב-2 לחצנים או לניווט ב-3 לחצנים."</string>
+כדי להתחיל, נכנסים להגדרות הנגישות ובוחרים תכונה. מקישים על מקש הקיצור ובוחרים בלחצן הנגישות או בתנועה."</string>
+    <string name="accessibility_button_gesture_footer_learn_more_content_description">מידע נוסף על התנועות ולחצן הנגישות</string>
     <string name="accessibility_button_gesture_title">לחצן הנגישות ותנועות</string>
     <string name="accessibility_button_high_label">לא שקוף</string>
     <string name="accessibility_button_intro">השימוש בלחצן הנגישות. התנועה אינה זמינה עם ניווט ב-3 לחצנים.</string>
@@ -184,14 +190,23 @@
     <string name="accessibility_caption_preference_summary">העדפות של כתוביות לא נתמכות על ידי כל האפליקציות</string>
     <string name="accessibility_caption_primary_switch_summary">רק לאפליקציה נתמכת</string>
     <string name="accessibility_caption_primary_switch_title">הצגת כתוביות</string>
+    <string name="accessibility_captioning_about_title">מידע על ההעדפות לגבי כתוביות</string>
+    <string name="accessibility_captioning_footer_learn_more_content_description">מידע נוסף על ההעדפות לגבי כתוביות</string>
     <string name="accessibility_captioning_title">כתוביות</string>
     <string name="accessibility_category_personal">חשבונות פרופיל אישי</string>
     <string name="accessibility_category_work">חשבונות פרופיל עבודה – %s</string>
+    <string name="accessibility_color_inversion_about_title">מידע על היפוך צבעים</string>
+    <string name="accessibility_color_inversion_footer_learn_more_content_description">מידע נוסף על היפוך צבעים</string>
+    <string name="accessibility_control_timeout_about_title">מידע על הזמן לביצוע פעולה (זמן תפוגה של הגדרת נגישות)</string>
+    <string name="accessibility_control_timeout_footer_learn_more_content_description">מידע נוסף על הזמן לביצוע פעולה (זמן תפוגה של הגדרת נגישות)</string>
     <string name="accessibility_control_timeout_preference_summary">"ניתן לבחור את משך הזמן להצגת הודעות שדורשות נקיטת פעולה כלשהי, אך גלויות באופן זמני בלבד.
 
 לא כל האפליקציות תומכות בהגדרה הזו."</string>
     <string name="accessibility_control_timeout_preference_title">זמן לביצוע פעולה</string>
+    <string name="accessibility_daltonizer_about_title">מידע על תיקון צבע</string>
+    <string name="accessibility_daltonizer_footer_learn_more_content_description">מידע נוסף על תיקון צבע</string>
     <string name="accessibility_daltonizer_primary_switch_title">שימוש בתיקון צבע</string>
+    <string name="accessibility_daltonizer_shortcut_title">מקש קיצור לתיקון צבע</string>
     <string name="accessibility_data_one_bar">פס אחד של נתונים.</string>
     <string name="accessibility_data_signal_full">אות הנתונים מלא.</string>
     <string name="accessibility_data_three_bars">שלושה פסים של נתונים.</string>
@@ -206,6 +221,7 @@
     <string name="accessibility_display_daltonizer_preference_title">תיקון צבע</string>
     <string name="accessibility_display_inversion_preference_subtitle">‏באמצעות היפוך צבעים, מסכים בהירים הופכים לכהים.&lt;br/>&lt;br/> הערות: &lt;ol> &lt;li> היפוך צבעים גם הופך מסכים כהים לבהירים.&lt;/li> &lt;li> הצבעים ישתנו במדיה ובתמונות.&lt;/li> &lt;li> אפשר להשתמש בעיצוב כהה כדי להציג רקע כהה. עיצוב כהה פועל עם אפליקציות נתמכות. היפוך צבעים פועל עם כל האפליקציות.&lt;/li> &lt;/ol></string>
     <string name="accessibility_display_inversion_preference_title">היפוך צבעים</string>
+    <string name="accessibility_display_inversion_shortcut_title">מקש קיצור להיפוך צבעים</string>
     <string name="accessibility_display_inversion_switch_title">שימוש בהיפוך צבעים</string>
     <string name="accessibility_ethernet_connected">אתרנט.</string>
     <string name="accessibility_ethernet_disconnected">אתרנט מנותק.</string>
@@ -255,6 +271,8 @@
     <string name="accessibility_phone_two_bars">שני פסים של טלפון.</string>
     <string name="accessibility_power_button_ends_call_prerefence_title">לחצן ההפעלה מסיים שיחה</string>
     <string name="accessibility_preference_magnification_summary">שינוי מרחק התצוגה (זום)</string>
+    <string name="accessibility_screen_magnification_about_title">מידע על הגדלה</string>
+    <string name="accessibility_screen_magnification_footer_learn_more_content_description">מידע נוסף על הגדלה</string>
     <string name="accessibility_screen_magnification_gesture_navigation_warning">"תנועת הנגישות מוגדרת לשירות %1$s. כדי להשתמש בהגדלה, יש להחליק מעלה מהחלק התחתון של המסך באמצעות שתי אצבעות ולהחזיק. לאחר מכן יש לבחור באפשרות 'הגדלה'."</string>
     <string name="accessibility_screen_magnification_gestures_title">הגדלה על-ידי הקשה שלוש פעמים</string>
     <string name="accessibility_screen_magnification_navbar_configuration_warning">"הלחצן 'נגישות' מוגדר לשירות %1$s. כדי להשתמש בהגדלה, יש ללחוץ לחיצה ארוכה על לחצן הנגישות ולאחר מכן לבחור בהגדלה."</string>
@@ -272,6 +290,7 @@
 לא ניתן להתקרב באמצעות המקלדת או סרגל הניווט."</string>
     <string name="accessibility_screen_magnification_navbar_title">הגדלה בעזרת קיצור דרך</string>
     <string name="accessibility_screen_magnification_short_summary">מקישים שלוש פעמים כדי לשנות את המרחק מהתצוגה</string>
+    <string name="accessibility_screen_magnification_shortcut_title">מקש קיצור להגדלה</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">הגדלה בעזרת קיצור דרך והקשה שלוש פעמים</string>
     <string name="accessibility_screen_magnification_summary">‏ניתן להתקרב בצורה מהירה למסך כדי להגדיל את התוכן.&lt;br/>&lt;br/> &lt;b>להתקרבות:&lt;/b>&lt;br/> {0,number,integer}. משתמשים במקש הקיצור כדי להתחיל בהגדלה&lt;br/> {1,number,integer}. מקישים על המסך&lt;br/> {2,number,integer}. גוררים שתי אצבעות כדי לנוע על פני המסך&lt;br/> {3,number,integer}. עושים תנועת צביטה באמצעות שתי אצבעות כדי לשנות את מרחק התצוגה&lt;br/> {4,number,integer}. משתמשים במקש הקיצור כדי להפסיק את ההגדלה&lt;br/>&lt;br/> &lt;b>כדי להתקרב באופן זמני:&lt;/b>&lt;br/> {0,number,integer}. משתמשים במקש הקיצור כדי להתחיל בהגדלה&lt;br/> {1,number,integer}. לוחצים לחיצה ארוכה במקום כלשהו במסך&lt;br/> {2,number,integer}. גוררים את האצבע כדי לנוע על פני המסך&lt;br/> {3,number,integer}. מרימים את האצבע כדי להפסיק את ההגדלה</string>
     <string name="accessibility_screen_magnification_title">הגדלה</string>
@@ -370,7 +389,7 @@
     <string name="accessibility_tutorial_dialog_message_volume">כדי להשתמש בתכונה זו, יש ללחוץ לחיצה ארוכה על שני הלחצנים של עוצמת הקול.</string>
     <string name="accessibility_tutorial_dialog_title_button">שימוש בלחצן נגישות לצורך פתיחה</string>
     <string name="accessibility_tutorial_dialog_title_gesture">שימוש בתנועה לצורך פתיחה</string>
-    <string name="accessibility_tutorial_dialog_title_gesture_settings">שימוש בתנועת נגישות חדשה</string>
+    <string name="accessibility_tutorial_dialog_title_gesture_settings">שימוש בתנועה להפעלת תכונות הנגישות</string>
     <string name="accessibility_tutorial_dialog_title_triple">יש להקיש שלוש פעמים על המסך כדי לפתוח</string>
     <string name="accessibility_tutorial_dialog_title_volume">יש ללחוץ לחיצה ארוכה על לחצני עוצמת הקול כדי לפתוח</string>
     <string name="accessibility_tutorial_pager">דף %1$d מתוך %2$d</string>
@@ -636,7 +655,7 @@
     <string name="app_notification_visibility_override_title">מסך נעילה</string>
     <string name="app_notifications_dialog_done">בוצע</string>
     <string name="app_notifications_off_desc">‏לבקשתך, מערכת Android לא מאפשרת להציג במכשיר הזה התראות מהאפליקציה הזו</string>
-    <string name="app_notifications_title">התראות מאפליקציות</string>
+    <string name="app_notifications_title">התראות מהאפליקציה</string>
     <string name="app_ops_never_used">(מעולם לא נעשה שימוש)</string>
     <string name="app_ops_running">פועל</string>
     <string name="app_permission_summary_allowed">יש הרשאה</string>
@@ -657,7 +676,7 @@
     <string name="application_restrictions">התרת אפליקציות ותוכן</string>
     <string name="application_size_label">גודל האפליקציה</string>
     <string name="applications_settings">פרטי אפליקציות</string>
-    <string name="applications_settings_header">הגדרות אפליקציה</string>
+    <string name="applications_settings_header">הגדרות של אפליקציות</string>
     <string name="applications_settings_summary">ניהול אפליקציות, הגדרת קיצורי דרך להפעלה מהירה</string>
     <string name="apply">אישור</string>
     <string name="apps_dashboard_title">אפליקציות</string>
@@ -936,6 +955,7 @@
     <string name="battery_level_title">טעינת סוללה:</string>
     <string name="battery_manager_off">כבוי</string>
     <string name="battery_manager_summary">הארכת חיי הסוללה וביצוע אופטימיזציה של הטעינה</string>
+    <string name="battery_manager_summary_unsupported">הארכת חיי הסוללה</string>
     <string name="battery_missing_link_a11y_message">יש להקיש לקבלת מידע נוסף על השגיאה הזו</string>
     <string name="battery_missing_link_message">מידע נוסף</string>
     <string name="battery_missing_message">אירעה בעיה בקריאת מדדי הסוללה.</string>
@@ -1010,11 +1030,11 @@
     <string name="battery_tip_early_heads_up_title">הפעלה של תכונת החיסכון בסוללה</string>
     <string name="battery_tip_high_usage_summary">הצגת האפליקציות המובילות במידת השימוש בסוללה</string>
     <string name="battery_tip_high_usage_title">שימוש מוגבר בסוללה</string>
-    <string name="battery_tip_limited_temporarily_dialog_msg">"במצבים מסוימים, כמו טמפרטורה גבוהה וטעינה במשך הרבה זמן, יכול להיות שתהיה הגבלה של %1$s על הטעינה כדי לשמור על תקינות הסוללה.
+    <string name="battery_tip_limited_temporarily_dialog_msg">"בתנאים מסוימים, למשל בטמפרטורה גבוהה או כשטעינה נמשכת הרבה זמן, יכול להיות שהיא תוגבל ל-%1$s כדי לשמור על תקינות הסוללה.
 
-כשמצבים כאלה מסתיימים, טעינת הטלפון תחזור למצב הרגיל באופן אוטומטי."</string>
+כשהתנאים ישתנו בחזרה, הטלפון יחזור להיטען כרגיל באופן אוטומטי."</string>
     <string name="battery_tip_limited_temporarily_dialog_resume_charge">המשך הטעינה</string>
-    <string name="battery_tip_limited_temporarily_summary">לשמירה על חיי הסוללה. מידע נוסף.</string>
+    <string name="battery_tip_limited_temporarily_summary">כדי לשמור על תקינות הסוללה. מידע נוסף.</string>
     <string name="battery_tip_limited_temporarily_title">הטעינה מוגבלת זמנית</string>
     <string name="battery_tip_low_battery_summary">"יש להפעיל את האפשרות 'חיסכון בסוללה' כדי להאריך את חיי הסוללה"</string>
     <string name="battery_tip_low_battery_title">הסוללה חלשה</string>
@@ -1061,6 +1081,7 @@
     <string name="battery_usage_screen_footer">נתוני השימוש בסוללה משוערים ולא כוללים מדדים של השימוש בסוללה כשהטלפון בטעינה</string>
     <string name="battery_usage_screen_footer_empty">נתוני השימוש בסוללה יהיו זמינים לאחר שייעשה שימוש בטלפון שלך במשך מספר שעות</string>
     <string name="battery_usage_total_less_than_one_minute">סה\"כ: פחות מדקה</string>
+    <string name="battery_usage_without_time" />
     <string name="battery_used_by">%1$s בשימוש על ידי %2$s</string>
     <string name="battery_used_for">משך השימוש: ^1</string>
     <string name="bearer">פרמטרים לרשת</string>
@@ -1069,12 +1090,14 @@
     <string name="billing_cycle_less_than_one_day_left">נותר פחות מיום אחד</string>
     <string name="billing_cycle_none_left">לא נשאר זמן</string>
     <string name="biometric_settings_category_ways_to_unlock">דרכים לביטול הנעילה</string>
-    <string name="biometric_settings_category_ways_to_use">שימוש בזיהוי פנים או בטביעת אצבע לצורך</string>
     <string name="biometric_settings_hand_back_to_guardian">צריך להחזיר את הטלפון לאחד ההורים</string>
     <string name="biometric_settings_hand_back_to_guardian_ok">אישור</string>
     <string name="biometric_settings_intro">לאחר הגדרה של פתיחה ע\"י זיהוי הפנים ושל ביטול הנעילה בטביעת אצבע, טביעת האצבע נדרשת בטלפון אם עוטים מסיכה או נמצאים באזור חשוך</string>
-    <string name="biometric_settings_use_biometric_for_apps">אימות באפליקציות</string>
-    <string name="biometric_settings_use_biometric_unlock_phone">ביטול נעילת הטלפון</string>
+    <string name="biometric_settings_use_biometric_for_apps">אימות הזהות שלך באפליקציות</string>
+    <string name="biometric_settings_use_biometric_unlock_phone">ביטול של נעילת הטלפון</string>
+    <string name="biometric_settings_use_face_or_fingerprint_preference_summary">שימוש בזיהוי פנים או בטביעת אצבע</string>
+    <string name="biometric_settings_use_face_preference_summary">שימוש בזיהוי פנים</string>
+    <string name="biometric_settings_use_fingerprint_preference_summary">שימוש בטביעת אצבע</string>
     <string name="biometrics_unlock_set_unlock_password">סיסמה • פנים • טביעת אצבע</string>
     <string name="biometrics_unlock_set_unlock_pattern">קו ביטול נעילה • פנים • טביעת אצבע</string>
     <string name="biometrics_unlock_set_unlock_pin">קוד אימות • פנים • טביעת אצבע</string>
@@ -1332,7 +1355,6 @@
     <string name="bluetooth_settings_title">Bluetooth</string>
     <string name="bluetooth_show_devices_without_names">‏הצגת מכשירי Bluetooth ללא שמות</string>
     <string name="bluetooth_show_devices_without_names_summary">‏יוצגו מכשירי Bluetooth ללא שמות (כתובות MAC בלבד)</string>
-    <string name="bluetooth_show_files_received_via_bluetooth">‏קבצים שהתקבלו באמצעות Bluetooth</string>
     <string name="bluetooth_show_received_files">קבצים שהתקבלו</string>
     <string name="bluetooth_sim_card_access_dialog_content">"‏מכשיר Bluetooth, %1$s, מבקש גישה לנתונים בכרטיס ה-SIM שלך. הנתונים האלה כוללים את אנשי הקשר שלך.
 
@@ -1426,6 +1448,7 @@
     <string name="calls_sms_temp_unavailable">לא זמין באופן זמני</string>
     <string name="calls_sms_unavailable">לא זמין</string>
     <string name="calls_sms_wfc_summary">‏התקשרות וקבלת שיחות באמצעות Wi‑Fi</string>
+    <string name="cam_toggle_description">לאפליקציות ולשירותים</string>
     <string name="camera_double_tap_power_gesture_desc">הפעלת המצלמה במהירות מבלי לבטל את נעילת הטלפון</string>
     <string name="camera_double_tap_power_gesture_title">לחיצה כפולה על לחצן ההפעלה</string>
     <string name="camera_laser_sensor_switch">חיישן הלייזר של המצלמה</string>
@@ -3245,7 +3268,7 @@
     <string name="media_output_switch_error_text">לא ניתן להחליף. יש להקיש כדי לנסות שוב.</string>
     <string name="media_output_switching">מתבצע מעבר…</string>
     <string name="media_output_title">הפעלת מדיה באמצעות</string>
-    <string name="media_transfer_this_device_name">רמקול של הטלפון</string>
+    <string name="media_transfer_this_device_name">הרמקול של הטלפון</string>
     <string name="media_transfer_this_phone">הטלפון הזה</string>
     <string name="media_transfer_wired_device_name">התקן אודיו חוטי</string>
     <string name="media_transfer_wired_usb_device_name">אוזניות חוטיות</string>
@@ -3302,6 +3325,7 @@
     <string name="menu_stats_total">נתוני שימוש כוללים</string>
     <string name="menu_stats_unplugged">%1$s מאז הניתוק</string>
     <string name="menu_use_uss">‏שימוש ב-Uss</string>
+    <string name="mic_toggle_description">לאפליקציות ולשירותים. אם ההגדרה מושבתת, נתוני המיקרופון ישותפו כשתתבצע שיחה למספר חירום.</string>
     <string name="mic_toggle_title">גישה למיקרופון</string>
     <string name="misc_files">"קובצי 'שונות'"</string>
     <string name="misc_files_selected_count">נבחרו %1$d מתוך %2$d</string>
@@ -3502,7 +3526,7 @@
 האפליקציה הזו מחליפה את %2$s כאפליקציית התשלומים שתשמש כברירת מחדל."</string>
     <string name="nfc_payment_set_default_label">הגדרה של אפליקציית התשלומים שתשמש כברירת המחדל</string>
     <string name="nfc_payment_settings_title">תשלומים ללא מגע</string>
-    <string name="nfc_payment_update_default_label">עדכון של אפליקציית התשלומים שתשמש כברירת המחדל</string>
+    <string name="nfc_payment_update_default_label">עדכון אפליקציית התשלום הראשית</string>
     <string name="nfc_payment_use_default">שימוש בברירת המחדל</string>
     <string name="nfc_quick_toggle_summary">‏הרשאה לחילופי נתונים כאשר הטלפון נוגע במכשיר NFC</string>
     <string name="nfc_quick_toggle_title">NFC</string>
@@ -3728,6 +3752,7 @@
     <string name="one_handed_action_show_notification_title">הצגת ההתראות</string>
     <string name="one_handed_mode_enabled">הפעלה של מצב שימוש ביד אחת</string>
     <string name="one_handed_mode_intro_text">"לשימוש בתכונה 'מצב שימוש ביד אחת', מחליקים למטה מהקצה התחתון של המסך. כדי להשתמש בתכונה הזו, צריך לוודא שהאפשרות לניווט באמצעות תנועות מופעלת בהגדרות הניווט של המערכת."</string>
+    <string name="one_handed_mode_shortcut_title">קיצור דרך למצב שימוש ביד אחת</string>
     <string name="one_handed_mode_swipe_down_category">החלקה למטה לצורך</string>
     <string name="one_handed_mode_use_shortcut_category">שימוש במקש הקיצור לצורך</string>
     <string name="one_usercrt">אישור למשתמש אחד</string>
@@ -3803,7 +3828,7 @@
     <string name="post_dsds_reboot_notification_title_with_carrier">%1$s פעיל</string>
     <string name="power_bluetooth">Bluetooth</string>
     <string name="power_camera">מצלמה</string>
-    <string name="power_cell">רשת סלולרית במצב המתנה</string>
+    <string name="power_cell">רשת סלולרית</string>
     <string name="power_charge_remaining">%1$s לסיום הטעינה</string>
     <string name="power_charging">%1$s‏ – %2$s</string>
     <string name="power_charging_duration">%1$s – הזמן הנותר לטעינה מלאה: %2$s</string>
@@ -4037,6 +4062,7 @@
     <string name="recent_notifications">נשלחו לאחרונה</string>
     <string name="recent_notifications_see_all_title">הצגת כל האפליקציות מ-7 הימים האחרונים</string>
     <string name="recompute_size">הגודל מחושב מחדש...</string>
+    <string name="reduce_bright_colors_about_title">מידע על מצב מעומעם במיוחד</string>
     <string name="reduce_bright_colors_intensity_end_label">הגברה</string>
     <string name="reduce_bright_colors_intensity_preference_title">עוצמה</string>
     <string name="reduce_bright_colors_intensity_start_label">עמעום</string>
@@ -4044,6 +4070,7 @@
     <string name="reduce_bright_colors_preference_subtitle">‏מסך מעומעם יותר מקל על הקריאה.&lt;br/>&lt;br/> ההגדרה הזו עשויה להיות שימושית במקרים הבאים: &lt;ol> &lt;li> כשעוצמת הבהירות המינימלית של הטלפון עדיין בהירה מדי&lt;/li> &lt;li> כשמשתמשים בטלפון כשאין אור בסביבה, למשל בלילה או בחדר חשוך לפני השינה&lt;/li> &lt;/ol></string>
     <string name="reduce_bright_colors_preference_summary">עמעום המסך לבהירות נמוכה מהרמה המינימלית של הטלפון</string>
     <string name="reduce_bright_colors_preference_title">מעומעם במיוחד</string>
+    <string name="reduce_bright_colors_shortcut_title">"מקש קיצור לתכונה 'מעומעם במיוחד'"</string>
     <string name="reduce_bright_colors_switch_title">הגדרת המסך כמעומעם במיוחד</string>
     <string name="register_automatically">רישום אוטומטי…</string>
     <string name="register_on_network">מתבצע רישום ב-%s…</string>
@@ -4249,7 +4276,6 @@
     <string name="screen_pinning_unlock_pattern">בקשת קו ביטול נעילה לפני ביטול הצמדה</string>
     <string name="screen_pinning_unlock_pin">בקשת קוד גישה לפני ביטול הצמדה</string>
     <string name="screen_reader_category_title">קורא מסך</string>
-    <string name="screen_saver_main_switch_title">שימוש בשומר מסך</string>
     <string name="screen_time_summary_usage_today">%1$s היום</string>
     <string name="screen_timeout_summary">לאחר %1$s של חוסר פעילות</string>
     <string name="screen_timeout_title">כיבוי מסך</string>
@@ -4279,6 +4305,7 @@
     <string name="screensaver_settings_button">הגדרות</string>
     <string name="screensaver_settings_current">שומר המסך הנוכחי</string>
     <string name="screensaver_settings_disabled_prompt">כדי לשלוט במה שקורה כאשר הטלפון בעגינה ו/או במצב שינה, הפעל את שומר המסך.</string>
+    <string name="screensaver_settings_dream_start">להתחיל עכשיו</string>
     <string name="screensaver_settings_summary_dock">במהלך עגינה</string>
     <string name="screensaver_settings_summary_either_long">במהלך טעינה או עגינה</string>
     <string name="screensaver_settings_summary_either_short">בשני המצבים</string>
@@ -4329,15 +4356,6 @@
     <string name="security_settings_biometric_preference_summary_both_fp_single">נוספו טביעת אצבע וזיהוי פנים</string>
     <string name="security_settings_biometric_preference_summary_none_enrolled">יש להקיש כדי להגדיר</string>
     <string name="security_settings_biometric_preference_title">פתיחה ע\"י זיהוי הפנים וביטול הנעילה בטביעת אצבע</string>
-    <string name="security_settings_biometrics_description">לאחר הגדרה של פתיחה ע\"י זיהוי הפנים וביטול הנעילה בטביעת אצבע, טביעת האצבע נדרשת בטלפון אם עוטים מסיכה או נמצאים באזור חשוך</string>
-    <string name="security_settings_biometrics_preference_use_with_apps">אימות באפליקציות</string>
-    <string name="security_settings_biometrics_preferences_category">שימוש בזיהוי פנים או בטביעת אצבע עבור</string>
-    <string name="security_settings_biometrics_summary_both">פנים וטביעת אצבע</string>
-    <string name="security_settings_biometrics_summary_face">זיהוי פנים בלבד</string>
-    <string name="security_settings_biometrics_summary_fingerprint">טביעת אצבע בלבד</string>
-    <string name="security_settings_biometrics_summary_none">יש להקיש כדי להגדיר</string>
-    <string name="security_settings_biometrics_title">פתיחה ע\"י זיהוי הפנים וביטול הנעילה בטביעת אצבע</string>
-    <string name="security_settings_biometrics_types_category">דרכים לביטול הנעילה</string>
     <string name="security_settings_face_enroll_consent_introduction_title">הרשאה לפתיחה ע\"י זיהוי הפנים</string>
     <string name="security_settings_face_enroll_dialog_ok">אישור</string>
     <string name="security_settings_face_enroll_done">סיום</string>
@@ -4385,16 +4403,17 @@
     <string name="security_settings_face_enroll_introduction_control_title">השליטה בידיים שלך</string>
     <string name="security_settings_face_enroll_introduction_how_consent_message">"הפיצ'ר 'פתיחה ע\"י זיהוי הפנים' יוצר תבנית ייחודית של הפנים של הילד או הילדה כדי לאמת את זהותם. כדי ליצור את התבנית הזו לזיהוי הפנים במהלך ההגדרה, יהיה על הילד או הילדה לצלם את פניהם מזוויות שונות.
 
-כשהם משתמשים בפיצ'ר 'פתיחה ע\"י זיהוי הפנים', נעשה שימוש בתמונות כדי לעדכן את התבנית שלהם לזיהוי הפנים. התמונות המשמשות ליצירת התבנית לזיהוי הפנים שלהם אף פעם לא נשמרות. התבנית לזיהוי הפנים נשמרת באופן מאובטח בטלפון ואף פעם לא נשלחת או מועברת ממנו. כל פעולות העיבוד מתבצעות בטלפון באופן מאובטח."</string>
+כשהם משתמשים בפיצ'ר 'פתיחה ע\"י זיהוי הפנים', נעשה שימוש בתמונות כדי לעדכן את התבנית שלהם לזיהוי הפנים. התמונות המשמשות ליצירת התבנית לזיהוי הפנים שלהם לא נשמרות. התבנית לזיהוי הפנים נשמרת באופן מאובטח בטלפון ואף פעם לא נשלחת או מועברת ממנו. כל פעולות העיבוד מתבצעות בטלפון באופן מאובטח."</string>
     <string name="security_settings_face_enroll_introduction_how_message">"הפיצ'ר 'פתיחה ע\"י זיהוי הפנים' יוצר תבנית ייחודית של הפנים שלך כדי לאמת את זהותך. כדי ליצור את התבנית הזו לזיהוי הפנים במהלך ההגדרה, יהיה עליך לצלם את פניך מזוויות שונות.
 
-כשמשתמשים בפיצ'ר 'פתיחה ע\"י זיהוי הפנים', נעשה שימוש בתמונות כדי לעדכן את התבנית לזיהוי הפנים. התמונות המשמשות ליצירת התבנית לזיהוי הפנים שלך אף פעם לא נשמרות. התבנית לזיהוי הפנים נשמרת באופן מאובטח בטלפון שלך ואף פעם לא נשלחת או מועברת ממנו. כל פעולות העיבוד מתבצעות בטלפון באופן מאובטח."</string>
+כשמשתמשים בפיצ'ר 'פתיחה ע\"י זיהוי הפנים', נעשה שימוש בתמונות כדי לעדכן את התבנית לזיהוי הפנים. התמונות המשמשות ליצירת התבנית לזיהוי הפנים שלך לא נשמרות. התבנית לזיהוי הפנים נשמרת באופן מאובטח בטלפון שלך ואף פעם לא נשלחת או מועברת ממנו. כל פעולות העיבוד מתבצעות בטלפון באופן מאובטח."</string>
     <string name="security_settings_face_enroll_introduction_how_title">איך זה עובד</string>
     <string name="security_settings_face_enroll_introduction_info_consent_gaze">"במסגרת 'פתיחה ע\"י זיהוי הפנים', אפשר לדרוש שהעיניים של הילד או הילדה יהיו פקוחות כדי לבטל את נעילת הטלפון או לאמת את זהותם. גם ההורה וגם הילד או הילדה יכולים להפעיל את האפשרות הזו בכל שלב ב'הגדרות'."</string>
     <string name="security_settings_face_enroll_introduction_info_consent_glasses">אם הילד או הילדה שלך מרכיבים בדרך כלל משקפיים, הם יכולים להרכיב אותם במהלך ההגדרה.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_looking">מבט לטלפון עשוי לבטל נעילה גם כשהם לא מתכוונים לכך. כמו כן, נעילת הטלפון שלהם עשויה להתבטל על ידי מישהו שדומה להם מאוד, כמו אח או אחות תאומים, או כשמחזיקים אותו מול הפנים שלהם.</string>
     <string name="security_settings_face_enroll_introduction_info_gaze">"במסגרת 'פתיחה ע\"י זיהוי הפנים', אפשר לדרוש שהעיניים שלך יהיו פקוחות כדי לבטל את נעילת הטלפון או לאמת את זהותך. ניתן להפעיל את האפשרות הזו בכל שלב ב'הגדרות'."</string>
     <string name="security_settings_face_enroll_introduction_info_glasses">אפשר להרכיב משקפיים או משקפי שמש בגוון בהיר.</string>
+    <string name="security_settings_face_enroll_introduction_info_less_secure">שימוש בזיהוי פנים לביטול נעילת הטלפון עלול להיות פחות מאובטח מקוד אימות או מקו ביטול נעילה חזקים.</string>
     <string name="security_settings_face_enroll_introduction_info_looking">מבט לטלפון עשוי לבטל נעילה בלי כוונה. כמו כן, נעילת הטלפון עשויה להתבטל על ידי מישהו שדומה לך מאוד, כמו אח או אחות תאומים, או כשמחזיקים אותו מול הפנים שלך.</string>
     <string name="security_settings_face_enroll_introduction_info_title">חשוב לזכור</string>
     <string name="security_settings_face_enroll_introduction_message">ניתן להשתמש בפנים כדי לבטל את הנעילה של הטלפון או לאמת את זהותך, למשל בכניסה לאפליקציות או באישור רכישה.</string>
@@ -4452,13 +4471,14 @@
 
 נעילת הטלפון עשויה להתבטל על ידי מישהו שדומה לך מאוד, כמו אח או אחות זהים."</string>
     <string name="security_settings_face_settings_preferences_category">"בעת שימוש בתכונה 'פתיחה ע\"י זיהוי הפנים'"</string>
-    <string name="security_settings_face_settings_remove_dialog_details">התבנית לזיהוי הפנים תימחק באופן סופי ומאובטח. לאחר המחיקה, יהיה צורך בקוד האימות, בקו ביטול הנעילה או בסיסמה שלך כדי לבטל את נעילת הטלפון או כדי לבצע אימות באפליקציות.</string>
+    <string name="security_settings_face_settings_remove_dialog_details">"התבנית לזיהוי הפנים תימחק באופן סופי ומאובטח.
+
+לאחר המחיקה, יהיה צורך בקוד האימות, בקו ביטול הנעילה או בסיסמה שלך כדי לבטל את נעילת הטלפון או כדי לבצע אימות באפליקציות."</string>
+    <string name="security_settings_face_settings_remove_dialog_details_convenience">"התבנית לזיהוי הפנים שלך תימחק באופן סופי ומאובטח.
+
+לאחר המחיקה, יהיה צורך בקוד האימות, בקו ביטול הנעילה או בסיסמה שלך כדי לבטל את נעילת הטלפון."</string>
     <string name="security_settings_face_settings_remove_dialog_title">למחוק את התבנית לזיהוי הפנים?</string>
     <string name="security_settings_face_settings_remove_face_model">מחיקת התבנית לזיהוי הפנים</string>
-    <string name="security_settings_face_settings_remove_model_dialog_details">"התבנית לזיהוי הפנים תימחק באופן סופי ומאובטח.
-
-לאחר המחיקה, יהיה צורך בטביעת האצבע, בקוד האימות, בקו ביטול הנעילה או בסיסמה שלך כדי לבטל את נעילת הטלפון או כדי לבצע אימות באפליקציות."</string>
-    <string name="security_settings_face_settings_remove_model_dialog_title">למחוק את התבנית לזיהוי הפנים?</string>
     <string name="security_settings_face_settings_require_attention">העיניים חייבות להיות פקוחות</string>
     <string name="security_settings_face_settings_require_attention_details">העיניים שלך חייבות להיות פקוחות כדי לבטל את נעילת הטלפון</string>
     <string name="security_settings_face_settings_require_confirmation">תמיד לדרוש אישור</string>
@@ -4541,7 +4561,7 @@
     <string name="security_settings_title">אבטחה</string>
     <string name="security_settings_udfps_enroll_a11y">מזיזים את האצבע לאורך המסך כדי לאתר את החיישן. לוחצים לחיצה ארוכה על חיישן טביעות האצבע.</string>
     <string name="security_settings_udfps_enroll_edge_message">מניחים צד אחד של האצבע על החיישן ומחזיקים. אחר כך עוברים לצד השני</string>
-    <string name="security_settings_udfps_enroll_edge_title">בסוף מניחים את קצוות האצבע</string>
+    <string name="security_settings_udfps_enroll_edge_title">לבסוף, משתמשים בקצוות האצבע</string>
     <string name="security_settings_udfps_enroll_find_sensor_message">חיישן טביעות האצבע מופיע במסך. נצלם את טביעת האצבע שלך במסך הבא.</string>
     <string name="security_settings_udfps_enroll_find_sensor_start_button">התחלה</string>
     <string name="security_settings_udfps_enroll_find_sensor_title">איך מגדירים טביעת אצבע?</string>
@@ -4549,7 +4569,7 @@
     <string name="security_settings_udfps_enroll_repeat_a11y_message">כך יתועד חלק גדול יותר מהאצבע</string>
     <string name="security_settings_udfps_enroll_repeat_message">לוחצים לחיצה ארוכה בכל פעם שסמל טביעת האצבע זז. כך יתועד חלק גדול יותר מהאצבע.</string>
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">עוקבים אחר הסמל של טביעת האצבע</string>
-    <string name="security_settings_udfps_enroll_start_message">ממשיכים לגעת בחיישן עם האצבע עד שמרגישים רטט</string>
+    <string name="security_settings_udfps_enroll_start_message">צריך לשמור שטביעת האצבע תהיה שטוחה על החיישן עד שמרגישים רטט</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">ושוב…</string>
     <string name="security_settings_work_fingerprint_preference_title">‏Pixel Imprint לעבודה</string>
     <string name="security_status_title">סטטוס אבטחה</string>
@@ -4575,7 +4595,6 @@
     <string name="select_webview_provider_dialog_title">‏הגדרת יישום WebView</string>
     <string name="select_webview_provider_title">‏יישום WebView</string>
     <string name="select_webview_provider_toast_text">אפשרות זו כבר אינה תקפה. אפשר לנסות שוב.</string>
-    <string name="sensor_toggle_description">לכל האפליקציות והשירותים</string>
     <string name="sensors_off_quick_settings_title">כיבוי חיישנים</string>
     <string name="service_background_processes">%1$s של שטח פנוי</string>
     <string name="service_foreground_processes">%1$s בשימוש</string>
@@ -4807,6 +4826,7 @@
     <string name="sound_settings_summary_silent">תוכנת הצלצול במצב שקט</string>
     <string name="sound_settings_summary_vibrate">תוכנת הצלצול במצב רטט</string>
     <string name="sound_work_settings">צלילי פרופיל עבודה</string>
+    <string name="spatial_audio_title">אודיו מרחבי</string>
     <string name="special_access">גישה מיוחדת</string>
     <string name="special_access_more">תכונות נוספות</string>
     <string name="speed_label_fast">מהירה</string>
@@ -5214,7 +5234,7 @@
     <string name="tts_lang_use_system">שימוש בשפת המערכת</string>
     <string name="tts_play">הפעלה</string>
     <string name="tts_play_example_summary">הפעלת הדגמה קצרה של סינתזת דיבור</string>
-    <string name="tts_play_example_title">דוגמה</string>
+    <string name="tts_play_example_title">האזנה לדוגמה</string>
     <string name="tts_reset">איפוס המכשיר</string>
     <string name="tts_reset_speech_pitch_summary">איפוס גובה הצליל שבו מושמע הטקסט לברירת המחדל.</string>
     <string name="tts_reset_speech_pitch_title">איפוס של גובה צליל הדיבור</string>
@@ -5618,7 +5638,7 @@
     <string name="vpn_turn_on">הפעלה</string>
     <string name="vpn_type">סוג</string>
     <string name="vpn_username">שם משתמש</string>
-    <string name="vpn_version">גרסה %s</string>
+    <string name="vpn_version">גרסה</string>
     <string name="vr_listener_security_warning_summary">%1$s יוכל לפעול אם משתמשים באפליקציות במצב של מציאות מדומה.</string>
     <string name="vr_listener_security_warning_title">‏האם לאפשר לשירות VR גישה אל %1$s?</string>
     <string name="vr_listeners_title">‏שירותי סיוע של VR</string>
@@ -5888,7 +5908,7 @@
     <string name="wifi_not_in_range">מחוץ לטווח</string>
     <string name="wifi_not_in_range_message">הרשת לא בטווח</string>
     <string name="wifi_notify_open_networks">קבלת התראות על רשתות ציבוריות</string>
-    <string name="wifi_notify_open_networks_summary">כאשר חיבור אוטומטי אינו זמין</string>
+    <string name="wifi_notify_open_networks_summary">הצגת התראה כאשר רשת ציבורית באיכות גבוהה זמינה</string>
     <string name="wifi_on_time">‏Wi-Fi בזמן</string>
     <string name="wifi_p2p_cancel_connect_message">האם ברצונך לבטל את ההזמנה ליצירת קשר עם %1$s?</string>
     <string name="wifi_p2p_cancel_connect_title">האם לבטל את ההזמנה?</string>
@@ -5976,7 +5996,6 @@
     <string name="wifi_suspend_optimizations">‏אופטימיזציה ל-Wi-Fi</string>
     <string name="wifi_suspend_optimizations_summary">‏צמצום השימוש בסוללה כאשר Wi-Fi פועל</string>
     <string name="wifi_switch_away_when_unvalidated">‏יש לעבור לשימוש בחבילת הגלישה אם ה-Wi‑Fi יתנתק מהאינטרנט.</string>
-    <string name="wifi_switch_summary">‏איתור של רשתות Wi-Fi וחיבור אליהן</string>
     <string name="wifi_tap_to_sign_in">יש להקיש כאן כדי להיכנס לרשת</string>
     <string name="wifi_tether_configure_ap_text">‏הגדרת נקודה לשיתוף אינטרנט דרך Wi-Fi</string>
     <string name="wifi_tether_configure_ssid_default">AndroidHotspot</string>

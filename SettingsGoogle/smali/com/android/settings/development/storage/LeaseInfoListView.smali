@@ -101,7 +101,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    const v1, 0x7f0407a8
+    const v1, 0x7f0407c0
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setText(I)V
 
@@ -119,7 +119,7 @@
 
     iget-object v0, p0, Lcom/android/settings/development/storage/LeaseInfoListView;->mInflater:Landroid/view/LayoutInflater;
 
-    const v1, 0x7f060063
+    const v1, 0x7f060065
 
     const/4 v2, 0x0
 
@@ -133,7 +133,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setEnabled(Z)V
 
-    const v2, 0x7f0d00df
+    const v2, 0x7f0d00e3
 
     invoke-virtual {v0, v2}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -141,7 +141,7 @@
 
     check-cast v2, Landroid/widget/TextView;
 
-    const v3, 0x7f0d00de
+    const v3, 0x7f0d00e2
 
     invoke-virtual {v0, v3}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -149,7 +149,7 @@
 
     check-cast v3, Landroid/widget/TextView;
 
-    const v4, 0x7f0d00dd
+    const v4, 0x7f0d00e1
 
     invoke-virtual {v0, v4}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -157,7 +157,7 @@
 
     check-cast v4, Landroid/widget/TextView;
 
-    const v5, 0x7f0d00e0
+    const v5, 0x7f0d00e4
 
     invoke-virtual {v0, v5}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -193,7 +193,7 @@
 
     aput-object v6, v2, v1
 
-    const v1, 0x7f0403fe
+    const v1, 0x7f040416
 
     invoke-virtual {p0, v1, v2}, Landroid/app/ListActivity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -229,7 +229,7 @@
 
     invoke-direct {p1, v0}, Landroidx/appcompat/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v0, 0x7f0407a7
+    const v0, 0x7f0407bf
 
     invoke-virtual {p1, v0}, Landroidx/appcompat/app/AlertDialog$Builder;->setMessage(I)Landroidx/appcompat/app/AlertDialog$Builder;
 

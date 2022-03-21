@@ -1,5 +1,5 @@
 .class public Lcom/android/settings/localepicker/LocalePickerWithRegionActivity;
-.super Landroid/app/Activity;
+.super Lcom/android/settings/core/SettingsBaseActivity;
 .source "LocalePickerWithRegionActivity.java"
 
 # interfaces
@@ -10,7 +10,7 @@
 .method public constructor <init>()V
     .locals 0
 
-    invoke-direct {p0}, Landroid/app/Activity;-><init>()V
+    invoke-direct {p0}, Lcom/android/settings/core/SettingsBaseActivity;-><init>()V
 
     return-void
 .end method
@@ -30,7 +30,7 @@
 
     if-le v0, v1, :cond_0
 
-    invoke-super {p0}, Landroid/app/Activity;->onBackPressed()V
+    invoke-super {p0}, Landroidx/activity/ComponentActivity;->onBackPressed()V
 
     goto :goto_0
 
@@ -58,7 +58,7 @@
 .method public onCreate(Landroid/os/Bundle;)V
     .locals 1
 
-    invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
+    invoke-super {p0, p1}, Lcom/android/settings/core/SettingsBaseActivity;->onCreate(Landroid/os/Bundle;)V
 
     invoke-virtual {p0}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
 
@@ -88,7 +88,7 @@
 
     move-result-object p0
 
-    const v0, 0x1020002
+    const v0, 0x7f0d0179
 
     invoke-virtual {p0, v0, p1}, Landroid/app/FragmentTransaction;->replace(ILandroid/app/Fragment;)Landroid/app/FragmentTransaction;
 

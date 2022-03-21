@@ -58,7 +58,7 @@
     :goto_0
     if-eqz p5, :cond_1
 
-    const-string p3, "user_handle"
+    const-string/jumbo p3, "user_handle"
 
     invoke-virtual {p5, p3}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
 
@@ -157,7 +157,7 @@
 
     iget-object v3, p0, Lcom/android/settings/accounts/AccountHeaderPreferenceController;->mHeaderPreference:Lcom/android/settingslib/widget/LayoutPreference;
 
-    const v4, 0x7f0d01fe
+    const v4, 0x7f0d0203
 
     invoke-virtual {v3, v4}, Lcom/android/settingslib/widget/LayoutPreference;->findViewById(I)Landroid/view/View;
 

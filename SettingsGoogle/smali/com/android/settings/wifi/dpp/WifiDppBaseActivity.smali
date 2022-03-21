@@ -32,7 +32,7 @@
 
     move-result p2
 
-    const v0, 0x7f1301cd
+    const v0, 0x7f1301cb
 
     const/4 v1, 0x1
 
@@ -48,7 +48,7 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/core/InstrumentedActivity;->onCreate(Landroid/os/Bundle;)V
 
-    const v0, 0x7f0602ae
+    const v0, 0x7f0602ba
 
     invoke-virtual {p0, v0}, Landroidx/activity/ComponentActivity;->setContentView(I)V
 

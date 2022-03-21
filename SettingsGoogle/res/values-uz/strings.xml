@@ -96,6 +96,7 @@
     <string name="peak_refresh_rate_title">Smooth Display</string>
     <string name="peak_refresh_rate_summary">Ayrim kontent uchun ekranning yangilanish chastotasi 60-90 Gs orasida almashib turadi. Batareya tezroq sarflanadi.</string>
     <string name="accessibility_vibration_settings_title">Tebranish va sezuvchanlik</string>
+    <string name="columbus_title">Amallarni bajarish uchun qisqa tegining</string>
     <string name="emergency_gesture_screen_title">Favqulodda holat</string>
     <string name="abc_action_mode_done">OK</string>
     <string name="vibrate_for_calls_category_title">Chaqiruvlar</string>
@@ -103,6 +104,8 @@
     <string name="lockscreen_privacy_controls_setting_toggle">Qurilma boshqaruv elementlarini chiqarish</string>
     <string name="lockscreen_privacy_wallet_summary">Ekran qulfi va tezkor sozlamalardan hamyonga kirish uchun ruxsat bering</string>
     <string name="lockscreen_privacy_controls_summary">Qulflanganda boshqaruv elementlaridan foydalanish</string>
+    <string name="lockscreen_double_line_clock_summary">Imkon boʻlganda ikki chiziqli soat chiqsin</string>
+    <string name="lockscreen_double_line_clock_setting_toggle">Ikki chiziqli soat</string>
     <string name="abc_activity_chooser_view_see_all">Hammasi</string>
     <string name="abc_activitychooserview_choose_application">Ilovani tanlang</string>
     <string name="abc_capital_off">YOQILMAGAN</string>
@@ -147,9 +150,11 @@
     <string name="accessibility_alarm_vibration_title">Bildirishnomalar kelganda vibratsiya</string>
     <string name="accessibility_assist_gesture_complete_or_keep_adjusting">Active Edge sozlandi. Keyingi ekranga o‘ting yoki sozlashni davom ettiring.</string>
     <string name="accessibility_audio_adjustment_title">Audioni tuzatish</string>
+    <string name="accessibility_autoclick_about_title">Avtobosish haqida (kechikish vaqti)</string>
     <string name="accessibility_autoclick_custom_title">Boshqa</string>
     <string name="accessibility_autoclick_default_title">Yoqilmagan</string>
     <string name="accessibility_autoclick_description">Avtoklik sichqoncha ulangandan keyin ishlaydi. Muayyan vaqtdan keyin kursor harakatlanishdan to‘xtaganda uning avtomatik ishlashini sozlashingiz mumkin.</string>
+    <string name="accessibility_autoclick_footer_learn_more_content_description">Avtomatik bosish haqida (kechikish vaqti)…</string>
     <string name="accessibility_autoclick_long_summary">1 soniya</string>
     <string name="accessibility_autoclick_long_title">Uzun</string>
     <string name="accessibility_autoclick_longer_desc">Uzoqroq</string>
@@ -161,16 +166,17 @@
     <string name="accessibility_autoclick_short_title">Qisqa</string>
     <string name="accessibility_autoclick_shorter_desc">Qisqaroq</string>
     <string name="accessibility_banner_message_dismiss">Yopish</string>
-    <string name="accessibility_button_description">"Maxsus imkoniyatlarni istalgan ekrandan tez oching. 
+    <string name="accessibility_button_about_title">Maxsus imkoniyatlar tugmasi haqida</string>
+    <string name="accessibility_button_description">"Maxsus imkoniyatlarni istalgan ekrandan tez oching.
 
 Boshlash uchun maxsus imkoniyatlar sozlamalari orqali kerakli funksiyani tanlang. Yorliq ustiga bosing yoki maxsus imkoniyat tugmasini tanlang."</string>
     <string name="accessibility_button_fade_summary">Ekranni oson koʻrish uchun bir necha soniyada shaffoflashadi</string>
     <string name="accessibility_button_fade_title">Ishlatilmagandagi shaffoflashuv</string>
+    <string name="accessibility_button_gesture_about_title">Maxsus imkoniyatlar tugmasi va ishoralar haqida</string>
     <string name="accessibility_button_gesture_description">"Maxsus imkoniyatlarni istalgan ekrandan tez oching.
 
-Boshlash uchun maxsus imkoniyatlar sozlamalari orqali kerakli funksiyani tanlang. Yorliq ustiga bosing yoki maxsus imkoniyat tugmasini tanlang.
-
-Navigatsiya panelida Maxsus imkoniyatlar tugmasidan foydalanish uchun 2 tugmali navigatsiya yoki 3 tugmali navigatsiyaga oʻting."</string>
+Boshlash uchun maxsus imkoniyatlar sozlamalari orqali kerakli funksiyani tanlang. Yorliq ustiga bosing va qulaylik tugmasi yoki ishorasini tanlang."</string>
+    <string name="accessibility_button_gesture_footer_learn_more_content_description">Maxsus imkoniyatlar tugmasi va ishoralar haqida batafsil</string>
     <string name="accessibility_button_gesture_title">Qulaylik tugmasi va ishoralar</string>
     <string name="accessibility_button_high_label">Noshaffof</string>
     <string name="accessibility_button_intro">Qulaylik tugmasidan foydalanish. 3 tugmali navigatsiya ishora orqali ishlamaydi.</string>
@@ -184,14 +190,23 @@ Navigatsiya panelida Maxsus imkoniyatlar tugmasidan foydalanish uchun 2 tugmali 
     <string name="accessibility_caption_preference_summary">Taglavhalarni sozlash funksiyasi barcha ilovalarda ishlamaydi.</string>
     <string name="accessibility_caption_primary_switch_summary">Faqat bu funksiya ishlaydigan ilova uchun</string>
     <string name="accessibility_caption_primary_switch_title">Taglavhalarni chiqarish</string>
+    <string name="accessibility_captioning_about_title">Taglavhalar parametrlari haqida</string>
+    <string name="accessibility_captioning_footer_learn_more_content_description">Taglavhalar parametrlari haqida batafsil</string>
     <string name="accessibility_captioning_title">Taglavha sozlamalari</string>
     <string name="accessibility_category_personal">Shaxsiy profil hisoblari</string>
     <string name="accessibility_category_work">Ish profili hisoblari – %s</string>
+    <string name="accessibility_color_inversion_about_title">Ranglarni akslantirish haqida</string>
+    <string name="accessibility_color_inversion_footer_learn_more_content_description">Ranglarni akslantirish haqida batafsil</string>
+    <string name="accessibility_control_timeout_about_title">Amalni bajarish vaqti haqida</string>
+    <string name="accessibility_control_timeout_footer_learn_more_content_description">Amalni bajarish vaqti haqida batafsil</string>
     <string name="accessibility_control_timeout_preference_summary">"Amal bajarishni talab qiladigan vaqtinchalik xabarlar qancha vaqt chiqishi kerakligini tanlang.
 
 Ayrim ilovalarda bu parametr ishlamasligi mumkin."</string>
     <string name="accessibility_control_timeout_preference_title">Amal bajarish uchun vaqt</string>
+    <string name="accessibility_daltonizer_about_title">Ranglarni tuzatish haqida</string>
+    <string name="accessibility_daltonizer_footer_learn_more_content_description">Ranglarni tuzatish haqida batafsil</string>
     <string name="accessibility_daltonizer_primary_switch_title">Rangni tuzatishdan foydalanish</string>
+    <string name="accessibility_daltonizer_shortcut_title">Ranglarni tuzatish yorligʻi</string>
     <string name="accessibility_data_one_bar">Ma’lumotlar bitta panelda.</string>
     <string name="accessibility_data_signal_full">Internet signali butun.</string>
     <string name="accessibility_data_three_bars">Ma’lumotlar uchta panelda.</string>
@@ -206,6 +221,7 @@ Ayrim ilovalarda bu parametr ishlamasligi mumkin."</string>
     <string name="accessibility_display_daltonizer_preference_title">Ranglarni tuzatish</string>
     <string name="accessibility_display_inversion_preference_subtitle">Ranglarni akslantirish yorqin ranglarni qora ranglarga almashtiradi.&lt;br/>&lt;br/> Eslatma: &lt;ol> &lt;li> Qora ranglar yorqin ranglarga almashadi.&lt;/li> &lt;li> Media va rasmlarda ranglar oʻzgaradi.&lt;/li> &lt;li> Qora fonni chiqarish uchun tungi mavzudan foydalanilishi mumkin. Tungi mavzu ayrim qurilmalarda ishlaydi. Ranglarni akslantirish esa barcha ilovalarda ishlaydi.&lt;/li> &lt;/ol></string>
     <string name="accessibility_display_inversion_preference_title">Ranglarni akslantirish</string>
+    <string name="accessibility_display_inversion_shortcut_title">Ranglarni akslantirish yorligʻi</string>
     <string name="accessibility_display_inversion_switch_title">Ranglarni akslantirishdan foydalanish</string>
     <string name="accessibility_ethernet_connected">Ethernet.</string>
     <string name="accessibility_ethernet_disconnected">Qurilma Ethernet tarmog‘idan uzildi.</string>
@@ -255,6 +271,8 @@ Maxsus imkoniyatlar tugmasi barcha ilovalar ustida joylashgan. Ekranni kattalash
     <string name="accessibility_phone_two_bars">Telefon ikkita panelda.</string>
     <string name="accessibility_power_button_ends_call_prerefence_title">Quvvat tugmasi chaqiruvni tugatadi</string>
     <string name="accessibility_preference_magnification_summary">Ekranda kattalashtirish</string>
+    <string name="accessibility_screen_magnification_about_title">Kattalashtirish haqida</string>
+    <string name="accessibility_screen_magnification_footer_learn_more_content_description">Kattalashtirish haqida batafsil</string>
     <string name="accessibility_screen_magnification_gesture_navigation_warning">Endi %1$s maxsus imkoniyatlar ishorasi bilan ishga tushadi. Lupadan foydalanish uchun 2 barmoq bilan ekranning pastidan tepaga suring va tortib turing. Keyin masshtabni tanlang.</string>
     <string name="accessibility_screen_magnification_gestures_title">Uch marta bosib kattalashtirish</string>
     <string name="accessibility_screen_magnification_navbar_configuration_warning">Maxsus imkoniyatlar tugmasi %1$s xizmatiga sozlangan. Kattalashtirish uchun Maxsus imkoniyatlar tugmasini bosib turib, keyin kattalashtirishni tanlang.</string>
@@ -272,6 +290,7 @@ Maxsus imkoniyatlar tugmasi barcha ilovalar ustida joylashgan. Ekranni kattalash
 Klaviatura yoki navigatsiya paneli orqali kattalashtirib boʻlmaydi."</string>
     <string name="accessibility_screen_magnification_navbar_title">Tugma yordamida kattalashtirish</string>
     <string name="accessibility_screen_magnification_short_summary">3 marta bosib masshtabni o‘zgartirish</string>
+    <string name="accessibility_screen_magnification_shortcut_title">Kattalashtirish yorligʻi</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">Tugma va uch marta bosish bilan kattalashtirish</string>
     <string name="accessibility_screen_magnification_summary">Ekrandagi kontentni kattalashtirish uchun uni tezkor usulda kattalashtiring.&lt;br/>&lt;br/>&lt;b>Kattalashtirish uchun:&lt;/b>&lt;br/> {0,number,integer}. Kattalashtirish tugmasini bosing&lt;br/> {1,number,integer}. Ekranga bosing&lt;br/> {2,number,integer}. Ekranni 2 ta barmoq bilan suring&lt;br/> {3,number,integer}. Moslash uchun 2 ta barmoq bilan chimding&lt;br/> {4,number,integer}. Yakunlash uchun kattalashtirish tugmasini bosing&lt;br/>&lt;br/>&lt;b>Vaqtincha kattalashtirish uchun:&lt;/b>&lt;br/> {0,number,integer}. Kattalashtirish tugmasini bosing&lt;br/> {1,number,integer}. Ekranning istalgan qismini bosib turing&lt;br/> {2,number,integer}. Ekranni barmoq bilan suring&lt;br/> {3,number,integer}. Yakunlash uchun barmoqni ekrandan oling</string>
     <string name="accessibility_screen_magnification_title">Kattalashtirish</string>
@@ -370,7 +389,7 @@ Funksiyalarni almashtirish uchun 3 ta barmoq bilan tepaga suring va ushlab turin
     <string name="accessibility_tutorial_dialog_message_volume">Bu funksiyadan foydalanish uchun ikkala tovush tugmasini bosib turing.</string>
     <string name="accessibility_tutorial_dialog_title_button">Maxsus imkoniyatlar tugmasi bilan oching</string>
     <string name="accessibility_tutorial_dialog_title_gesture">Imo-ishoralardan foydalaning</string>
-    <string name="accessibility_tutorial_dialog_title_gesture_settings">Maxsus imkoniyatlarga oid yangi ishora</string>
+    <string name="accessibility_tutorial_dialog_title_gesture_settings">Qulaylik ishorasidan foydalanish</string>
     <string name="accessibility_tutorial_dialog_title_triple">Ochish uchun ekranga uch marta bosing</string>
     <string name="accessibility_tutorial_dialog_title_volume">Ochish uchun ikkala tovush tugmasini bosib turing.</string>
     <string name="accessibility_tutorial_pager">Sahifa: %1$d / %2$d</string>
@@ -936,6 +955,7 @@ Asl holatiga qaytgach, ma’lumotlarni ko‘chirish uchun boshlang‘ich jarayon
     <string name="battery_level_title">Batareya quvvati darajasi</string>
     <string name="battery_manager_off">Yoqilmagan</string>
     <string name="battery_manager_summary">Batareya quvvatini oshirish va quvvatlashni optimallashtirish</string>
+    <string name="battery_manager_summary_unsupported">Batareya quvvati sarfini uzaytirish</string>
     <string name="battery_missing_link_a11y_message">Bu xato haqida batafsil bilish uchun tegining</string>
     <string name="battery_missing_link_message">Batafsil</string>
     <string name="battery_missing_message">Batareya quvvati aniqlanmadi.</string>
@@ -1013,7 +1033,7 @@ Agar batareya quvvati kamaysa, doim Quvvat tejash rejimini yoqishingiz mumkin."<
     <string name="battery_tip_limited_temporarily_dialog_msg">"Batareya quvvati yaroqlilik muddatini uzaytirishda yordam berish maqsadida yuqori harorat va uzoq quvvatlash davrlar kabi muayyan shartlarda quvvatlash %1$s gacha cheklanadi.
 
 Bu shartlar tugaganda telefoningiz avtomatik ravishda normal quvvat olishni boshlaydi."</string>
-    <string name="battery_tip_limited_temporarily_dialog_resume_charge">Toʻliq quvvatlansin</string>
+    <string name="battery_tip_limited_temporarily_dialog_resume_charge">Davom ettirish</string>
     <string name="battery_tip_limited_temporarily_summary">Batareyangizni asrash uchun. Batafsil.</string>
     <string name="battery_tip_limited_temporarily_title">Quvvatlash vaqtincha cheklangan</string>
     <string name="battery_tip_low_battery_summary">Batareya quvvatini tejash uchun Quvvat tejash funksiyasini yoqing</string>
@@ -1061,6 +1081,7 @@ Ilovalar:
     <string name="battery_usage_screen_footer">Batareyaning qolgan vaqti taxminiy va telefon quvvat olayotganda foydalanish statistikasi hisoblanmaydi</string>
     <string name="battery_usage_screen_footer_empty">Batareya sarfi haqidagi axborot telefon bir necha soat ishlatilganidan keyin chiqadi</string>
     <string name="battery_usage_total_less_than_one_minute">Jami: bir daqiqadan kam</string>
+    <string name="battery_usage_without_time" />
     <string name="battery_used_by">%2$s – %1$s</string>
     <string name="battery_used_for">Ishlatilgan vaqti: ^1</string>
     <string name="bearer">Kanal</string>
@@ -1069,12 +1090,14 @@ Ilovalar:
     <string name="billing_cycle_less_than_one_day_left">1 kundan kam vaqt qoldi</string>
     <string name="billing_cycle_none_left">Hech qanday vaqt qolmadi</string>
     <string name="biometric_settings_category_ways_to_unlock">Qulfni ochish usullari</string>
-    <string name="biometric_settings_category_ways_to_use">Yuz va barmoq izi tanitilishi:</string>
     <string name="biometric_settings_hand_back_to_guardian">Telefonni ota-onangizga bering</string>
     <string name="biometric_settings_hand_back_to_guardian_ok">OK</string>
     <string name="biometric_settings_intro">Yuz va barmoq izi bilan ochish sozlanganda, telefoningiz yuz niqobi taqqaningizda yoki qorongʻi joylarda barmoq izingizni soʻraydi</string>
-    <string name="biometric_settings_use_biometric_for_apps">Ilovalardagi autentifikatsiya</string>
-    <string name="biometric_settings_use_biometric_unlock_phone">Telefonni ochish</string>
+    <string name="biometric_settings_use_biometric_for_apps">Ilovalarda shaxsingizni tasdiqlash</string>
+    <string name="biometric_settings_use_biometric_unlock_phone">Telefonni qulfdan chiqarish</string>
+    <string name="biometric_settings_use_face_or_fingerprint_preference_summary">Yuz yoki barmoq izi orqali</string>
+    <string name="biometric_settings_use_face_preference_summary">Yuz orqali</string>
+    <string name="biometric_settings_use_fingerprint_preference_summary">Barmoq izi orqali</string>
     <string name="biometrics_unlock_set_unlock_password">Parol • Yuz • Barmoq izi</string>
     <string name="biometrics_unlock_set_unlock_pattern">Grafik kalit • Yuz • Barmoq izi</string>
     <string name="biometrics_unlock_set_unlock_pin">PIN kod • Yuz • Barmoq izi</string>
@@ -1332,7 +1355,6 @@ Tanlash"</string>
     <string name="bluetooth_settings_title">Bluetooth</string>
     <string name="bluetooth_show_devices_without_names">Bluetooth qurilmalarini nomlarisiz ko‘rsatish</string>
     <string name="bluetooth_show_devices_without_names_summary">Bluetooth qurilmalari nomsiz (faqat MAC manzillari) ko‘rsatiladi</string>
-    <string name="bluetooth_show_files_received_via_bluetooth">Bluetooth orqali olingan fayllar</string>
     <string name="bluetooth_show_received_files">Qabul qilingan fayllar</string>
     <string name="bluetooth_sim_card_access_dialog_content">"Bluetooth qurilmasi (%1$s) SIM kartangiz maʼlumotlariga ruxsat olmoqchi. Jumladan, kontaktlaringizga.
 
@@ -1426,6 +1448,7 @@ Bunda boshqa ilovalar yoki suhbatlar ham bulutchalarga olinishiga taʼsir qilini
     <string name="calls_sms_temp_unavailable">Vaqtinchalik mavjud emas</string>
     <string name="calls_sms_unavailable">mavjud emas</string>
     <string name="calls_sms_wfc_summary">Chaqiruvlarni Wi-Fi orqali bajarish va qabul qilish</string>
+    <string name="cam_toggle_description">Ilovalar va xizmatlar uchun</string>
     <string name="camera_double_tap_power_gesture_desc">Quvvat tugmasini ikki marta bosib kamerani ishga tushirish</string>
     <string name="camera_double_tap_power_gesture_title">Kamerani tezkor ishga tushirish</string>
     <string name="camera_laser_sensor_switch">Kameraning lazer sensori</string>
@@ -3302,6 +3325,7 @@ Bu qurilmada boshqa foydalanuvchilar ham bor.
     <string name="menu_stats_total">Jami</string>
     <string name="menu_stats_unplugged">Quvvat manbaidan uzilganiga %1$s bo‘ldi</string>
     <string name="menu_use_uss">USSdan foydalanish</string>
+    <string name="mic_toggle_description">Ilovalar va xizmatlar uchun. Bu sozlama yoqilmasa, favqulodda xizmat raqamiga telefon qilganingizda mikrofon maʼlumotlari hamon ulashilishi mumkin.</string>
     <string name="mic_toggle_title">Mikrofonga ruxsat</string>
     <string name="misc_files">Boshqa fayllar</string>
     <string name="misc_files_selected_count">Tanlandi: %1$d/%2$d</string>
@@ -3728,6 +3752,7 @@ Ilova Bezovta qilinmasin rejimini yoqish va oʻchirish hamda shunga aloqador soz
     <string name="one_handed_action_show_notification_title">Bildirishnomalarning chiqishi</string>
     <string name="one_handed_mode_enabled">Ixcham rejimni yoqish</string>
     <string name="one_handed_mode_intro_text">Ixcham rejimdan foydalanish uchun ekranning pastki qirrasidan pastga suring. Bu funksiyadan foydalanish uchun tizim navigatsiya sozlamalarida imo-ishorali navigatsiya yoniq ekanini tekshiring.</string>
+    <string name="one_handed_mode_shortcut_title">Ixcham rejimni tezkor ishga tushirish</string>
     <string name="one_handed_mode_swipe_down_category">Pastga surish</string>
     <string name="one_handed_mode_use_shortcut_category">Yorliqdan foydalanish</string>
     <string name="one_usercrt">bitta foydalanuvchi sertifikati</string>
@@ -3803,7 +3828,7 @@ Ilova Bezovta qilinmasin rejimini yoqish va oʻchirish hamda shunga aloqador soz
     <string name="post_dsds_reboot_notification_title_with_carrier">%1$s faol</string>
     <string name="power_bluetooth">Bluetooth</string>
     <string name="power_camera">Kamera</string>
-    <string name="power_cell">Kutish rejimidagi mobil tarmoq</string>
+    <string name="power_cell">Mobil tarmoq</string>
     <string name="power_charge_remaining">Batareya quvvati %1$sdan so‘ng to‘ladi</string>
     <string name="power_charging">%1$s – %2$s</string>
     <string name="power_charging_duration">%1$s – Toʻlishiga %2$s qoldi</string>
@@ -4037,6 +4062,7 @@ Bir vaqtda quvvat va tovushni balandlatish.tugmalarini bosib turing."</string>
     <string name="recent_notifications">Yaqinda yuborilgan</string>
     <string name="recent_notifications_see_all_title">Hammasi (oxirgi 7 kun)</string>
     <string name="recompute_size">Xajm qayta hisoblanmoqda…</string>
+    <string name="reduce_bright_colors_about_title">Juda xiralashtirish haqida</string>
     <string name="reduce_bright_colors_intensity_end_label">Yorqinroq</string>
     <string name="reduce_bright_colors_intensity_preference_title">Intensivlik</string>
     <string name="reduce_bright_colors_intensity_start_label">Xiraroq</string>
@@ -4044,6 +4070,7 @@ Bir vaqtda quvvat va tovushni balandlatish.tugmalarini bosib turing."</string>
     <string name="reduce_bright_colors_preference_subtitle">Qulayroq oʻqish uchun ekranni xiralashtiring.&lt;br>&lt;br>Qachon foydali:&lt;ol>&lt;li> Telefondagi standart minimal yorqinlik juda baland&lt;/li>&lt;li> Telefon tunda va uxlashdan oldin kabi qorongʻi muhitda ishlatilganda&lt;/li>&lt;/ol></string>
     <string name="reduce_bright_colors_preference_summary">Telefon ekranidagi minimal yorqinlikni yanada xiralashtirish</string>
     <string name="reduce_bright_colors_preference_title">Juda xira</string>
+    <string name="reduce_bright_colors_shortcut_title">Juda xiralashtirish yorligʻi</string>
     <string name="reduce_bright_colors_switch_title">Ekranni juda xira qilish</string>
     <string name="register_automatically">Avtomatik registratsiya…</string>
     <string name="register_on_network">%s tarmogʻiga qayd qilinmoqda…</string>
@@ -4249,7 +4276,6 @@ Bu funksiyadan foydalanish uchun quyidagilarni bajaring: \u0009
     <string name="screen_pinning_unlock_pattern">Yechishdan oldin grafik kalit so‘ralsin</string>
     <string name="screen_pinning_unlock_pin">Yechishda PIN kod talab qilinsin</string>
     <string name="screen_reader_category_title">Ekrandan oʻqish vositasi</string>
-    <string name="screen_saver_main_switch_title">Ekran lavhasidan foydalanish</string>
     <string name="screen_time_summary_usage_today">Bugun: %1$s</string>
     <string name="screen_timeout_summary">%1$s harakatsizlikdan keyin</string>
     <string name="screen_timeout_title">Ekranning o‘chishi</string>
@@ -4279,6 +4305,7 @@ Bu funksiyadan foydalanish uchun quyidagilarni bajaring: \u0009
     <string name="screensaver_settings_button">Sozlamalar</string>
     <string name="screensaver_settings_current">Joriy ekran lavhasi</string>
     <string name="screensaver_settings_disabled_prompt">Telefon dok-stansiyaga ulanganda yoki uyqu rejimiga o‘tganida uning ekranida nima ko‘rinishini sozlash uchun ekran lavhasini yoqing.</string>
+    <string name="screensaver_settings_dream_start">Hozir yoqish</string>
     <string name="screensaver_settings_summary_dock">Dok-stansiyaga ulanganda</string>
     <string name="screensaver_settings_summary_either_long">Quvvat yoki dok-stansiya</string>
     <string name="screensaver_settings_summary_either_short">Har doim</string>
@@ -4329,15 +4356,6 @@ Bu funksiyadan foydalanish uchun quyidagilarni bajaring: \u0009
     <string name="security_settings_biometric_preference_summary_both_fp_single">Yuz va barmoq izi kiritildi</string>
     <string name="security_settings_biometric_preference_summary_none_enrolled">Sozlash uchun bosing</string>
     <string name="security_settings_biometric_preference_title">Yuz va barmoq izi bilan ochish</string>
-    <string name="security_settings_biometrics_description">Yuz va barmoq izi bilan chiqarish sozlanganda, telefoningiz yuz niqobi taqqaningizda yoki qorongʻi joylarda barmoq izingizni soʻraydi</string>
-    <string name="security_settings_biometrics_preference_use_with_apps">Ilovalar ichida autentifikatsiya</string>
-    <string name="security_settings_biometrics_preferences_category">Yuz yoki barmoq izidan bu maqsadlarda foydalanish</string>
-    <string name="security_settings_biometrics_summary_both">Yuz yoki barmoq izi</string>
-    <string name="security_settings_biometrics_summary_face">Faqat yuz</string>
-    <string name="security_settings_biometrics_summary_fingerprint">Faqat barmoq izi</string>
-    <string name="security_settings_biometrics_summary_none">Sozlash uchun bosing</string>
-    <string name="security_settings_biometrics_title">Yuz va barmoq izi bilan ochish</string>
-    <string name="security_settings_biometrics_types_category">Qulfni ochish usullari</string>
     <string name="security_settings_face_enroll_consent_introduction_title">Qulfni yuz bilan ochish</string>
     <string name="security_settings_face_enroll_dialog_ok">OK</string>
     <string name="security_settings_face_enroll_done">Tayyor</string>
@@ -4385,16 +4403,17 @@ Batafsil: g.co/pixel/faceunlock."</string>
     <string name="security_settings_face_enroll_introduction_control_title">Boshqaruv oʻz qoʻlingizda</string>
     <string name="security_settings_face_enroll_introduction_how_consent_message">"Yuz bilan ochish autentifikatsiya paytida shaxsni tanish uchun uning farzandingiz yuzi unikal modelini yaratadi. Sozlash davomida farzandingiz yuzi modelini yaratish uchun uning yuzi turli burchak ostida rasmga olinadi.
 
-Shuningdek, telefon yuz modelini yangilab turish maqsadida farzandingizning yuz bilan ochish harakatlari rasmlaridan ham foydalanadi. Yuz modelini yaratishda ishlatiladigan rasmlar hech qachon saqlanmaydi, lekin yuz modeli telefonda xavfsiz saqlanadi va hech qachon tashqariga yuklanmaydi. Barcha ishlar telefonda xavfsiz amalga oshiriladi."</string>
+Shuningdek, telefon yuz modelini yangilab turish maqsadida farzandingizning yuz bilan ochish harakatlari rasmlaridan ham foydalanadi. Yuz modelini yaratishda ishlatiladigan rasmlar saqlanmaydi, lekin yuz modeli telefonda xavfsiz saqlanadi va hech qachon tashqariga yuklanmaydi. Barcha ishlar telefonda xavfsiz amalga oshiriladi."</string>
     <string name="security_settings_face_enroll_introduction_how_message">"Yuz bilan ochish autentifikatsiya paytida sizni tanish uchun yuzingizning unikal modelini yaratadi. Sozlash davomida yuz modelini yaratish uchun yuzingiz turli burchak ostida rasmga olinadi.
 
-Shuningdek, telefon yuz modelini yangilab turish maqsadida yuzingiz rasmlaridan ham foydalanadi. Yuz modelini yaratishda ishlatiladigan rasmlar hech qachon saqlanmaydi, lekin yuz modeli telefoningizda xavfsiz saqlanadi va hech qachon tashqariga yuklanmaydi. Barcha ishlar telefoningizda xavfsiz amalga oshiriladi."</string>
+Shuningdek, telefon yuz modelini yangilab turish maqsadida yuzingiz rasmlaridan ham foydalanadi. Yuz modelini yaratishda ishlatiladigan rasmlar saqlanmaydi, lekin yuz modeli telefoningizda xavfsiz saqlanadi va hech qachon tashqariga yuklanmaydi. Barcha ishlar telefoningizda xavfsiz amalga oshiriladi."</string>
     <string name="security_settings_face_enroll_introduction_how_title">Ishlash tartibi</string>
     <string name="security_settings_face_enroll_introduction_info_consent_gaze">Yuz bilan ochish funksiyasi telefonni ochishi yoki farzandingizni shaxsini tasdiqlashi uchun uning koʻzlari ochiq boʻlishi kerak. Siz yoki farzandingiz istalgan vaqtda bu sozlamani Sozlamalar orqali yoqishi mumkin.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_glasses">Farzandingiz odatda koʻzoynak taqsa, uni sozlash vaqtida ham taqishi mumkin.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_looking">Telefonga tasodifan qaragalganda ham qulfi ochilishi mumkin. Telefon begonalar tomonidan ham qulfdan chiqarilishi mumkin, masalan farzandingizga oʻxshagan yaqinlaringiz tomonidan yoki kimdir yuziga qaratishi orqali.</string>
     <string name="security_settings_face_enroll_introduction_info_gaze">Yuz bilan ochish funksiyasi telefonni ochishi yoki shaxsingizni tasdiqlashi uchun koʻzlaringiz ochiq boʻlishi kerak. Istalgan vaqtda bu sozlamani Sozlamalar orqali yoqishingiz mumkin.</string>
     <string name="security_settings_face_enroll_introduction_info_glasses">Koʻzoynakni olish shart emas ( quyoshdan himoya qiluvchi koʻzoynak och rangda boʻlsa ham ruxsat beriladi)</string>
+    <string name="security_settings_face_enroll_introduction_info_less_secure">Telefonni yuz bilan ochish kuchli grafik kalit yoki PIN kodga nisbatan xavfsizligi kamroq.</string>
     <string name="security_settings_face_enroll_introduction_info_looking">Telefonga tasodifan qaraganingizda ham qulfi ochilishi mumkin. Telefoningiz begonalar tomonidan ham qulfdan chiqarilishi mumkin, masalan sizga oʻxshagan yaqinlaringiz tomonidan yoki kimdir yuzingizga qaratishi orqali.</string>
     <string name="security_settings_face_enroll_introduction_info_title">Yodda tuting</string>
     <string name="security_settings_face_enroll_introduction_message">Telefonni qulfdan chiqarish, ilovaga kirish yoki xaridni tasdiqlashda shaxsingizni tasdiqlash uchun yuzingizdan foydalaning.</string>
@@ -4452,13 +4471,14 @@ Begonalar telefoningizni yumilmagan koʻzlaringizga qaratish orqali ham qulfdan 
 
 Telefon farzandingiz yoki sizga oʻxshagan yaqinlaringiz tomonidan ham qulfdan chiqarilishi mumkin."</string>
     <string name="security_settings_face_settings_preferences_category">Yuz bilan ochishdan foydalanilganda</string>
-    <string name="security_settings_face_settings_remove_dialog_details">Yuz modelingiz butunlay va xavfsiz oʻchirib tashlandi. Oʻchirib tashlangandan keyin telefoningiz qulfini ochish yoki ilovalarda autentifikatsiya uchun PIN kod, grafik kalit yoki parol kiritishingiz lozim.</string>
+    <string name="security_settings_face_settings_remove_dialog_details">"Yuz modelingiz butunlay va xavfsiz oʻchirib tashlandi.
+
+Oʻchirib tashlangandan keyin telefoningiz qulfini ochish yoki ilovalarda autentifikatsiya uchun PIN kod, grafik kalit yoki parol kiritishingiz lozim."</string>
+    <string name="security_settings_face_settings_remove_dialog_details_convenience">"Yuz modelingiz butunlay va xavfsiz oʻchirib tashlandi.
+
+Oʻchirib tashlangandan keyin telefoningiz qulfini ochish uchun PIN kod, grafik kalit yoki parol kiritishingiz lozim."</string>
     <string name="security_settings_face_settings_remove_dialog_title">Yuz modeli oʻchirib tashlansinmi?</string>
     <string name="security_settings_face_settings_remove_face_model">Yuz modelini oʻchirib tashlash</string>
-    <string name="security_settings_face_settings_remove_model_dialog_details">"Yuz modelingiz butunlay va xavfsiz oʻchirib tashlandi.
-
-Oʻchirib tashlangandan keyin telefoningiz qulfini ochish yoki ilovalarda autentifikatsiya uchun barmoq izi, PIN kod, grafik kalit yoki parol kiritishingiz lozim."</string>
-    <string name="security_settings_face_settings_remove_model_dialog_title">Yuz modeli oʻchirib tashlansinmi?</string>
     <string name="security_settings_face_settings_require_attention">Koʻzlar ochiq boʻlishi kerak</string>
     <string name="security_settings_face_settings_require_attention_details">Telefon qulfini yechish uchun ekranga koʻzlaringizni ochib qarang</string>
     <string name="security_settings_face_settings_require_confirmation">Doim tasdiqlash talab etilsin</string>
@@ -4541,7 +4561,7 @@ Eslatma: barmoq izi orqali qurilmani qulfdan chiqara olmaysiz. Batafsil axborot 
     <string name="security_settings_title">Xavfsizlik</string>
     <string name="security_settings_udfps_enroll_a11y">Sensorni topish uchun barmoqni ekran boʻylab suring. Barmoq izi sensorini bosib turing.</string>
     <string name="security_settings_udfps_enroll_edge_message">Barmoq izingizning yonlarini sensorga joylashtiring va tutib turing, keyin boshqa yonga almashtiring</string>
-    <string name="security_settings_udfps_enroll_edge_title">Endi barmoqlaringiz chetlarini joylang</string>
+    <string name="security_settings_udfps_enroll_edge_title">Endi barmoqlaringiz chetlarini skanerlash kerak</string>
     <string name="security_settings_udfps_enroll_find_sensor_message">Barmoq izi sensori ekraningizda joylashgan. Keyingi ekranda barmoq izlaringizni qayd qilasiz.</string>
     <string name="security_settings_udfps_enroll_find_sensor_start_button">Boshlash</string>
     <string name="security_settings_udfps_enroll_find_sensor_title">Barmoq izi qanday sozlanadi</string>
@@ -4575,7 +4595,6 @@ Eslatma: barmoq izi orqali qurilmani qulfdan chiqara olmaysiz. Batafsil axborot 
     <string name="select_webview_provider_dialog_title">WebView ta’minotchisini sozlash</string>
     <string name="select_webview_provider_title">WebView ta’minotchisi</string>
     <string name="select_webview_provider_toast_text">Bu variant endi yaroqsiz. Qaytadan urining.</string>
-    <string name="sensor_toggle_description">Barcha ilovalar va xizmatlar uchun</string>
     <string name="sensors_off_quick_settings_title">Sensorlar nofaol</string>
     <string name="service_background_processes">%1$s bo‘sh</string>
     <string name="service_foreground_processes">%1$s band</string>
@@ -4807,6 +4826,7 @@ PIN-kod noto‘g‘ri kiritildi shekilli."</string>
     <string name="sound_settings_summary_silent">Qo‘ng‘iroq ovozi o‘chirilgan</string>
     <string name="sound_settings_summary_vibrate">Qo‘ng‘iroq vaqti tebranish yoqilgan</string>
     <string name="sound_work_settings">Ish profilidagi tovushlar</string>
+    <string name="spatial_audio_title">Qamrovli ovoz</string>
     <string name="special_access">Maxsus ruxsatlar</string>
     <string name="special_access_more">Yana</string>
     <string name="speed_label_fast">Tez</string>
@@ -5618,7 +5638,7 @@ Ovozli chaqiruvlar vaqtida internet va ayrim ilovalar ishlamasligi mumkin."</str
     <string name="vpn_turn_on">Yoqish</string>
     <string name="vpn_type">Turi</string>
     <string name="vpn_username">Foydalanuvchi nomi</string>
-    <string name="vpn_version">%s versiya</string>
+    <string name="vpn_version">Versiya</string>
     <string name="vr_listener_security_warning_summary">%1$s ishga tushishi uchun siz ilovadan virtual borliq rejimida foydalanishni boshlashingiz lozim.</string>
     <string name="vr_listener_security_warning_title">VR xizmatiga “%1$s” xizmatidan foydalanishga ruxsat berilsinmi?</string>
     <string name="vr_listeners_title">Yordamchi VR xizmatlar</string>
@@ -5888,7 +5908,7 @@ Tarmoqni yashirganda router sozlamalari o‘zgarmaydi."</string>
     <string name="wifi_not_in_range">Xizmat doirasidan tashqarida</string>
     <string name="wifi_not_in_range_message">Tarmoq xizmat doirasidan tashqarida</string>
     <string name="wifi_notify_open_networks">Ochiq tarmoqlar haqida xabar berish</string>
-    <string name="wifi_notify_open_networks_summary">Avtomatik ulanish imkoniyati mavjud emasligida</string>
+    <string name="wifi_notify_open_networks_summary">Yuqori sifatli ochiq tarmoqlar haqida xabar qilinsin</string>
     <string name="wifi_on_time">Wi‑Fi o‘z vaqtida</string>
     <string name="wifi_p2p_cancel_connect_message">%1$s bilan ulanishga sizga yuborilgan taklifni bekor qilmoqchimisiz?</string>
     <string name="wifi_p2p_cancel_connect_title">Taklif bekor qilinsinmi?</string>
@@ -5976,7 +5996,6 @@ Bu ruxsat tarmoqlarni qidirishni istagan barcha ilovalarga berilsinmi?"</string>
     <string name="wifi_suspend_optimizations">Wi‑Fi optimallashuvi</string>
     <string name="wifi_suspend_optimizations_summary">Wi‑Fi yoqilganda batareya sarfini kamaytirish</string>
     <string name="wifi_switch_away_when_unvalidated">Agar Wi-Fi da internet uzilib qolsa, mobil internetga ulansin.</string>
-    <string name="wifi_switch_summary">Wi-Fi tarmoqlarni topish va ularga ulanish</string>
     <string name="wifi_tap_to_sign_in">Tarmoqqa kirish uchun shu yerga bosing</string>
     <string name="wifi_tether_configure_ap_text">Wi‑Fi ulanish nuqtasini sozlash</string>
     <string name="wifi_tether_configure_ssid_default">AndroidHotspot</string>

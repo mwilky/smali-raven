@@ -23,7 +23,7 @@
 
     new-instance v0, Lcom/android/settings/search/BaseSearchIndexProvider;
 
-    const v1, 0x7f150086
+    const v1, 0x7f150087
 
     invoke-direct {v0, v1}, Lcom/android/settings/search/BaseSearchIndexProvider;-><init>(I)V
 
@@ -85,7 +85,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f150086
+    const p0, 0x7f150087
 
     return p0
 .end method
@@ -136,7 +136,7 @@
 
     iget-boolean v0, p0, Lcom/android/settings/location/RecentLocationAccessSeeAllFragment;->mShowSystem:Z
 
-    const-string v1, "show_system"
+    const-string/jumbo v1, "show_system"
 
     invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z
 
@@ -166,7 +166,7 @@
 
     const/4 v0, 0x2
 
-    const v1, 0x7f040cf2
+    const v1, 0x7f040d1c
 
     invoke-interface {p1, p2, v0, p2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -176,7 +176,7 @@
 
     const/4 v0, 0x3
 
-    const v1, 0x7f040ce8
+    const v1, 0x7f040d00
 
     invoke-interface {p1, p2, v0, p2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -250,7 +250,7 @@
 
     iget-boolean p0, p0, Lcom/android/settings/location/RecentLocationAccessSeeAllFragment;->mShowSystem:Z
 
-    const-string v0, "show_system"
+    const-string/jumbo v0, "show_system"
 
     invoke-virtual {p1, v0, p0}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 

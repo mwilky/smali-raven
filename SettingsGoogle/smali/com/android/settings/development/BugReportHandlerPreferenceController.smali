@@ -18,7 +18,7 @@
 
     invoke-direct {p0, p1}, Lcom/android/settingslib/development/DeveloperOptionsPreferenceController;-><init>(Landroid/content/Context;)V
 
-    const-string v0, "user"
+    const-string/jumbo v0, "user"
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -170,7 +170,7 @@
     :cond_0
     iget-object p0, p0, Lcom/android/settingslib/development/DeveloperOptionsPreferenceController;->mPreference:Landroidx/preference/Preference;
 
-    const p1, 0x7f040243
+    const p1, 0x7f040257
 
     invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setSummary(I)V
 

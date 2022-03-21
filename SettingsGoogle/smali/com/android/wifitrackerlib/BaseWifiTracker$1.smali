@@ -257,7 +257,7 @@
 
     const/4 p1, -0x1
 
-    const-string v0, "subscription"
+    const-string/jumbo v0, "subscription"
 
     invoke-virtual {p2, v0, p1}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 

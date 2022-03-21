@@ -15,7 +15,7 @@
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
 
-    const-string v0, "subscription_detail"
+    const-string/jumbo v0, "subscription_detail"
 
     invoke-direct {p0, p1, v0}, Lcom/android/settings/core/BasePreferenceController;-><init>(Landroid/content/Context;Ljava/lang/String;)V
 
@@ -83,6 +83,16 @@
     return-object p0
 .end method
 
+.method public bridge synthetic getSliceHighlightMenuRes()I
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getSliceHighlightMenuRes()I
+
+    move-result p0
+
+    return p0
+.end method
+
 .method public handlePreferenceTreeClick(Landroidx/preference/Preference;)Z
     .locals 1
 
@@ -90,7 +100,7 @@
 
     move-result-object p1
 
-    const-string v0, "subscription_detail"
+    const-string/jumbo v0, "subscription_detail"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 

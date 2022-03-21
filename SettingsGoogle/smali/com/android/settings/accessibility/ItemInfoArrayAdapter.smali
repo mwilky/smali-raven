@@ -33,9 +33,9 @@
         }
     .end annotation
 
-    const v0, 0x7f0600d0
+    const v0, 0x7f0600d2
 
-    const v1, 0x7f0d05c1
+    const v1, 0x7f0d05d0
 
     invoke-direct {p0, p1, v0, v1, p2}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;IILjava/util/List;)V
 
@@ -57,7 +57,7 @@
 
     check-cast p1, Lcom/android/settings/accessibility/ItemInfoArrayAdapter$ItemInfo;
 
-    const p3, 0x7f0d05c1
+    const p3, 0x7f0d05d0
 
     invoke-virtual {p2, p3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -69,7 +69,7 @@
 
     invoke-virtual {p3, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    const p3, 0x7f0d057b
+    const p3, 0x7f0d058a
 
     invoke-virtual {p2, p3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -101,7 +101,7 @@
     invoke-virtual {p3, v0}, Landroid/widget/TextView;->setVisibility(I)V
 
     :goto_0
-    const p3, 0x7f0d02c3
+    const p3, 0x7f0d02cc
 
     invoke-virtual {p2, p3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

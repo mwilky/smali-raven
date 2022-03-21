@@ -29,7 +29,7 @@
     .locals 0
 
     :try_start_0
-    const-string p0, "shortcut"
+    const-string/jumbo p0, "shortcut"
 
     invoke-static {p0}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
@@ -64,7 +64,7 @@
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f04101b
+    const v0, 0x7f041049
 
     const/4 v1, 0x0
 

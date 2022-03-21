@@ -55,7 +55,7 @@
 .method public getSharedPrefs(Landroid/content/Context;)Landroid/content/SharedPreferences;
     .locals 1
 
-    const-string p0, "suggestions"
+    const-string/jumbo p0, "suggestions"
 
     const/4 v0, 0x0
 

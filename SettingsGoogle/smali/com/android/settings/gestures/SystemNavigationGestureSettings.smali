@@ -17,16 +17,34 @@
 
 
 # instance fields
+.field private mA11yTutorialDialogShown:Z
+
 .field private mOverlayManager:Landroid/content/om/IOverlayManager;
 
 .field private mVideoPreference:Lcom/android/settingslib/widget/IllustrationPreference;
 
 
 # direct methods
-.method public static synthetic $r8$lambda$Mzrx1HhtmppPe7Fw5XsjaF04tGc(Lcom/android/settings/gestures/SystemNavigationGestureSettings;Landroid/view/View;)V
+.method public static synthetic $r8$lambda$1YBdl_wL5kE-FdxuqiEnEtXAebo(Lcom/android/settings/gestures/SystemNavigationGestureSettings;Landroid/content/DialogInterface;)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/settings/gestures/SystemNavigationGestureSettings;->lambda$bindPreferenceExtra$0(Landroid/view/View;)V
+    invoke-direct {p0, p1}, Lcom/android/settings/gestures/SystemNavigationGestureSettings;->lambda$onCreate$0(Landroid/content/DialogInterface;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$u_3F231sE5Ohf4LS8TZB54wCbOw(Lcom/android/settings/gestures/SystemNavigationGestureSettings;Landroid/content/DialogInterface;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/gestures/SystemNavigationGestureSettings;->lambda$setGestureNavigationTutorialDialog$2(Landroid/content/DialogInterface;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$y6D0CBeWiF08Ze-aAvZJed_E6Pk(Lcom/android/settings/gestures/SystemNavigationGestureSettings;Landroid/view/View;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/gestures/SystemNavigationGestureSettings;->lambda$bindPreferenceExtra$1(Landroid/view/View;)V
 
     return-void
 .end method
@@ -36,7 +54,7 @@
 
     new-instance v0, Lcom/android/settings/gestures/SystemNavigationGestureSettings$1;
 
-    const v1, 0x7f1500ed
+    const v1, 0x7f1500f2
 
     invoke-direct {v0, v1}, Lcom/android/settings/gestures/SystemNavigationGestureSettings$1;-><init>(I)V
 
@@ -46,9 +64,13 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .locals 1
 
     invoke-direct {p0}, Lcom/android/settings/widget/RadioButtonPickerFragment;-><init>()V
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/settings/gestures/SystemNavigationGestureSettings;->mA11yTutorialDialogShown:Z
 
     return-void
 .end method
@@ -62,7 +84,7 @@
 
     if-eqz v0, :cond_0
 
-    const-string p0, "system_nav_gestural"
+    const-string/jumbo p0, "system_nav_gestural"
 
     return-object p0
 
@@ -73,17 +95,108 @@
 
     if-eqz p0, :cond_1
 
-    const-string p0, "system_nav_2buttons"
+    const-string/jumbo p0, "system_nav_2buttons"
 
     return-object p0
 
     :cond_1
-    const-string p0, "system_nav_3buttons"
+    const-string/jumbo p0, "system_nav_3buttons"
 
     return-object p0
 .end method
 
-.method private synthetic lambda$bindPreferenceExtra$0(Landroid/view/View;)V
+.method private isAccessibilityFloatingMenuEnabled()Z
+    .locals 2
+
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object p0
+
+    const-string v0, "accessibility_button_mode"
+
+    const/4 v1, -0x1
+
+    invoke-static {p0, v0, v1}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result p0
+
+    const/4 v0, 0x1
+
+    if-ne p0, v0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    return v0
+.end method
+
+.method private isAnyServiceSupportAccessibilityButton()Z
+    .locals 1
+
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
+
+    move-result-object p0
+
+    const-class v0, Landroid/view/accessibility/AccessibilityManager;
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Landroid/view/accessibility/AccessibilityManager;
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, v0}, Landroid/view/accessibility/AccessibilityManager;->getAccessibilityShortcutTargets(I)Ljava/util/List;
+
+    move-result-object p0
+
+    invoke-interface {p0}, Ljava/util/List;->isEmpty()Z
+
+    move-result p0
+
+    xor-int/lit8 p0, p0, 0x1
+
+    return p0
+.end method
+
+.method private isNavBarMagnificationEnabled()Z
+    .locals 2
+
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object p0
+
+    const-string v0, "accessibility_display_magnification_navbar_enabled"
+
+    const/4 v1, 0x0
+
+    invoke-static {p0, v0, v1}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result p0
+
+    const/4 v0, 0x1
+
+    if-ne p0, v0, :cond_0
+
+    move v1, v0
+
+    :cond_0
+    return v1
+.end method
+
+.method private synthetic lambda$bindPreferenceExtra$1(Landroid/view/View;)V
     .locals 1
 
     new-instance p1, Landroid/content/Intent;
@@ -93,6 +206,26 @@
     invoke-direct {p1, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {p0, p1}, Landroidx/fragment/app/Fragment;->startActivity(Landroid/content/Intent;)V
+
+    return-void
+.end method
+
+.method private synthetic lambda$onCreate$0(Landroid/content/DialogInterface;)V
+    .locals 0
+
+    const/4 p1, 0x0
+
+    iput-boolean p1, p0, Lcom/android/settings/gestures/SystemNavigationGestureSettings;->mA11yTutorialDialogShown:Z
+
+    return-void
+.end method
+
+.method private synthetic lambda$setGestureNavigationTutorialDialog$2(Landroid/content/DialogInterface;)V
+    .locals 0
+
+    const/4 p1, 0x0
+
+    iput-boolean p1, p0, Lcom/android/settings/gestures/SystemNavigationGestureSettings;->mA11yTutorialDialogShown:Z
 
     return-void
 .end method
@@ -131,7 +264,7 @@
 
     if-nez v0, :cond_1
 
-    const-string v0, "system_nav_gestural"
+    const-string/jumbo v0, "system_nav_gestural"
 
     invoke-static {p1, v0}, Lcom/android/settings/gestures/SystemNavigationGestureSettings;->setCurrentSystemNavigationMode(Landroid/content/om/IOverlayManager;Ljava/lang/String;)V
 
@@ -173,7 +306,7 @@
     goto :goto_0
 
     :sswitch_0
-    const-string v0, "system_nav_3buttons"
+    const-string/jumbo v0, "system_nav_3buttons"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -189,7 +322,7 @@
     goto :goto_0
 
     :sswitch_1
-    const-string v0, "system_nav_gestural"
+    const-string/jumbo v0, "system_nav_gestural"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -205,7 +338,7 @@
     goto :goto_0
 
     :sswitch_2
-    const-string v0, "system_nav_2buttons"
+    const-string/jumbo v0, "system_nav_2buttons"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -253,6 +386,8 @@
 
     throw p0
 
+    nop
+
     :sswitch_data_0
     .sparse-switch
         -0x6ee22145 -> :sswitch_2
@@ -266,6 +401,61 @@
         :pswitch_2
         :pswitch_0
     .end packed-switch
+.end method
+
+.method private setGestureNavigationTutorialDialog(Ljava/lang/String;)V
+    .locals 1
+
+    const-string/jumbo v0, "system_nav_gestural"
+
+    invoke-static {v0, p1}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+
+    move-result p1
+
+    if-eqz p1, :cond_1
+
+    invoke-direct {p0}, Lcom/android/settings/gestures/SystemNavigationGestureSettings;->isAccessibilityFloatingMenuEnabled()Z
+
+    move-result p1
+
+    if-nez p1, :cond_1
+
+    invoke-direct {p0}, Lcom/android/settings/gestures/SystemNavigationGestureSettings;->isAnyServiceSupportAccessibilityButton()Z
+
+    move-result p1
+
+    if-nez p1, :cond_0
+
+    invoke-direct {p0}, Lcom/android/settings/gestures/SystemNavigationGestureSettings;->isNavBarMagnificationEnabled()Z
+
+    move-result p1
+
+    if-eqz p1, :cond_1
+
+    :cond_0
+    const/4 p1, 0x1
+
+    iput-boolean p1, p0, Lcom/android/settings/gestures/SystemNavigationGestureSettings;->mA11yTutorialDialogShown:Z
+
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
+
+    move-result-object p1
+
+    new-instance v0, Lcom/android/settings/gestures/SystemNavigationGestureSettings$$ExternalSyntheticLambda1;
+
+    invoke-direct {v0, p0}, Lcom/android/settings/gestures/SystemNavigationGestureSettings$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/gestures/SystemNavigationGestureSettings;)V
+
+    invoke-static {p1, v0}, Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial;->showGestureNavigationTutorialDialog(Landroid/content/Context;Landroid/content/DialogInterface$OnDismissListener;)V
+
+    goto :goto_0
+
+    :cond_1
+    const/4 p1, 0x0
+
+    iput-boolean p1, p0, Lcom/android/settings/gestures/SystemNavigationGestureSettings;->mA11yTutorialDialogShown:Z
+
+    :goto_0
+    return-void
 .end method
 
 .method private static setIllustrationVideo(Lcom/android/settingslib/widget/IllustrationPreference;Ljava/lang/String;)V
@@ -284,7 +474,7 @@
     goto :goto_0
 
     :sswitch_0
-    const-string v0, "system_nav_3buttons"
+    const-string/jumbo v0, "system_nav_3buttons"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -300,7 +490,7 @@
     goto :goto_0
 
     :sswitch_1
-    const-string v0, "system_nav_gestural"
+    const-string/jumbo v0, "system_nav_gestural"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -316,7 +506,7 @@
     goto :goto_0
 
     :sswitch_2
-    const-string v0, "system_nav_2buttons"
+    const-string/jumbo v0, "system_nav_2buttons"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -335,28 +525,26 @@
     goto :goto_1
 
     :pswitch_0
-    const p1, 0x7f030035
-
-    invoke-virtual {p0, p1}, Lcom/android/settingslib/widget/IllustrationPreference;->setLottieAnimationResId(I)V
-
-    goto :goto_1
-
-    :pswitch_1
     const p1, 0x7f030036
 
     invoke-virtual {p0, p1}, Lcom/android/settingslib/widget/IllustrationPreference;->setLottieAnimationResId(I)V
 
     goto :goto_1
 
+    :pswitch_1
+    const p1, 0x7f030037
+
+    invoke-virtual {p0, p1}, Lcom/android/settingslib/widget/IllustrationPreference;->setLottieAnimationResId(I)V
+
+    goto :goto_1
+
     :pswitch_2
-    const p1, 0x7f030034
+    const p1, 0x7f030035
 
     invoke-virtual {p0, p1}, Lcom/android/settingslib/widget/IllustrationPreference;->setLottieAnimationResId(I)V
 
     :goto_1
     return-void
-
-    nop
 
     :sswitch_data_0
     .sparse-switch
@@ -399,13 +587,13 @@
 
     move-result-object p2
 
-    const-string p3, "system_nav_gestural"
+    const-string/jumbo p3, "system_nav_gestural"
 
     if-ne p2, p3, :cond_1
 
-    new-instance p2, Lcom/android/settings/gestures/SystemNavigationGestureSettings$$ExternalSyntheticLambda0;
+    new-instance p2, Lcom/android/settings/gestures/SystemNavigationGestureSettings$$ExternalSyntheticLambda2;
 
-    invoke-direct {p2, p0}, Lcom/android/settings/gestures/SystemNavigationGestureSettings$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/gestures/SystemNavigationGestureSettings;)V
+    invoke-direct {p2, p0}, Lcom/android/settings/gestures/SystemNavigationGestureSettings$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/gestures/SystemNavigationGestureSettings;)V
 
     invoke-virtual {p1, p2}, Lcom/android/settingslib/widget/RadioButtonPreference;->setExtraWidgetOnClickListener(Landroid/view/View$OnClickListener;)V
 
@@ -445,19 +633,19 @@
 
     new-instance v1, Lcom/android/settings/utils/CandidateInfoExtra;
 
-    const v3, 0x7f040849
+    const v3, 0x7f040861
 
     invoke-virtual {p0, v3}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v3
 
-    const v4, 0x7f040848
+    const v4, 0x7f040860
 
     invoke-virtual {p0, v4}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v4
 
-    const-string v5, "system_nav_gestural"
+    const-string/jumbo v5, "system_nav_gestural"
 
     invoke-direct {v1, v3, v4, v5, v2}, Lcom/android/settings/utils/CandidateInfoExtra;-><init>(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/String;Z)V
 
@@ -474,19 +662,19 @@
 
     new-instance v1, Lcom/android/settings/utils/CandidateInfoExtra;
 
-    const v3, 0x7f041377
+    const v3, 0x7f04139c
 
     invoke-virtual {p0, v3}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v3
 
-    const v4, 0x7f041376
+    const v4, 0x7f04139b
 
     invoke-virtual {p0, v4}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v4
 
-    const-string v5, "system_nav_2buttons"
+    const-string/jumbo v5, "system_nav_2buttons"
 
     invoke-direct {v1, v3, v4, v5, v2}, Lcom/android/settings/utils/CandidateInfoExtra;-><init>(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/String;Z)V
 
@@ -503,19 +691,19 @@
 
     new-instance v1, Lcom/android/settings/utils/CandidateInfoExtra;
 
-    const v3, 0x7f040b53
+    const v3, 0x7f040b6b
 
     invoke-virtual {p0, v3}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v3
 
-    const v4, 0x7f040b52
+    const v4, 0x7f040b6a
 
     invoke-virtual {p0, v4}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object p0
 
-    const-string v4, "system_nav_3buttons"
+    const-string/jumbo v4, "system_nav_3buttons"
 
     invoke-direct {v1, v3, p0, v4, v2}, Lcom/android/settings/utils/CandidateInfoExtra;-><init>(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/String;Z)V
 
@@ -542,7 +730,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f0409e7
+    const p0, 0x7f0409ff
 
     return p0
 .end method
@@ -558,7 +746,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f1500ed
+    const p0, 0x7f1500f2
 
     return p0
 .end method
@@ -625,6 +813,53 @@
     return-void
 .end method
 
+.method public onCreate(Landroid/os/Bundle;)V
+    .locals 2
+
+    invoke-super {p0, p1}, Lcom/android/settingslib/core/lifecycle/ObservablePreferenceFragment;->onCreate(Landroid/os/Bundle;)V
+
+    if-eqz p1, :cond_0
+
+    const/4 v0, 0x0
+
+    const-string/jumbo v1, "show_a11y_tutorial_dialog_bool"
+
+    invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z
+
+    move-result p1
+
+    iput-boolean p1, p0, Lcom/android/settings/gestures/SystemNavigationGestureSettings;->mA11yTutorialDialogShown:Z
+
+    if-eqz p1, :cond_0
+
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
+
+    move-result-object p1
+
+    new-instance v0, Lcom/android/settings/gestures/SystemNavigationGestureSettings$$ExternalSyntheticLambda0;
+
+    invoke-direct {v0, p0}, Lcom/android/settings/gestures/SystemNavigationGestureSettings$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/gestures/SystemNavigationGestureSettings;)V
+
+    invoke-static {p1, v0}, Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial;->showGestureNavigationTutorialDialog(Landroid/content/Context;Landroid/content/DialogInterface$OnDismissListener;)V
+
+    :cond_0
+    return-void
+.end method
+
+.method public onSaveInstanceState(Landroid/os/Bundle;)V
+    .locals 2
+
+    iget-boolean v0, p0, Lcom/android/settings/gestures/SystemNavigationGestureSettings;->mA11yTutorialDialogShown:Z
+
+    const-string/jumbo v1, "show_a11y_tutorial_dialog_bool"
+
+    invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
+
+    invoke-super {p0, p1}, Lcom/android/settingslib/core/lifecycle/ObservablePreferenceFragment;->onSaveInstanceState(Landroid/os/Bundle;)V
+
+    return-void
+.end method
+
 .method protected setDefaultKey(Ljava/lang/String;)Z
     .locals 1
 
@@ -632,9 +867,11 @@
 
     invoke-static {v0, p1}, Lcom/android/settings/gestures/SystemNavigationGestureSettings;->setCurrentSystemNavigationMode(Landroid/content/om/IOverlayManager;Ljava/lang/String;)V
 
-    iget-object p0, p0, Lcom/android/settings/gestures/SystemNavigationGestureSettings;->mVideoPreference:Lcom/android/settingslib/widget/IllustrationPreference;
+    iget-object v0, p0, Lcom/android/settings/gestures/SystemNavigationGestureSettings;->mVideoPreference:Lcom/android/settingslib/widget/IllustrationPreference;
 
-    invoke-static {p0, p1}, Lcom/android/settings/gestures/SystemNavigationGestureSettings;->setIllustrationVideo(Lcom/android/settingslib/widget/IllustrationPreference;Ljava/lang/String;)V
+    invoke-static {v0, p1}, Lcom/android/settings/gestures/SystemNavigationGestureSettings;->setIllustrationVideo(Lcom/android/settingslib/widget/IllustrationPreference;Ljava/lang/String;)V
+
+    invoke-direct {p0, p1}, Lcom/android/settings/gestures/SystemNavigationGestureSettings;->setGestureNavigationTutorialDialog(Ljava/lang/String;)V
 
     const/4 p0, 0x1
 

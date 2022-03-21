@@ -174,7 +174,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f0d0171
+    const v0, 0x7f0d0175
 
     invoke-virtual {p1, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -352,7 +352,7 @@
 
     iput-object p1, p0, Lcom/android/settings/deviceinfo/PublicVolumeSettings;->mVolumeId:Ljava/lang/String;
 
-    const p1, 0x7f150062
+    const p1, 0x7f150063
 
     invoke-virtual {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->addPreferencesFromResource(I)V
 
@@ -372,7 +372,7 @@
 
     iput-object p1, p0, Lcom/android/settings/deviceinfo/PublicVolumeSettings;->mSummary:Lcom/android/settings/deviceinfo/StorageSummaryPreference;
 
-    const p1, 0x7f0412ea
+    const p1, 0x7f04130f
 
     invoke-direct {p0, p1}, Lcom/android/settings/deviceinfo/PublicVolumeSettings;->buildAction(I)Landroidx/preference/Preference;
 
@@ -390,7 +390,7 @@
 
     iput-object p1, p0, Lcom/android/settings/deviceinfo/PublicVolumeSettings;->mUnmount:Landroid/widget/Button;
 
-    const v0, 0x7f0412ed
+    const v0, 0x7f041312
 
     invoke-virtual {p1, v0}, Landroid/widget/Button;->setText(I)V
 
@@ -400,7 +400,7 @@
 
     invoke-virtual {p1, v0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const p1, 0x7f0412e4
+    const p1, 0x7f041309
 
     invoke-direct {p0, p1}, Lcom/android/settings/deviceinfo/PublicVolumeSettings;->buildAction(I)Landroidx/preference/Preference;
 
@@ -412,7 +412,7 @@
 
     if-eqz p1, :cond_4
 
-    const p1, 0x7f0412e5
+    const p1, 0x7f04130a
 
     invoke-direct {p0, p1}, Lcom/android/settings/deviceinfo/PublicVolumeSettings;->buildAction(I)Landroidx/preference/Preference;
 
@@ -631,7 +631,7 @@
 
     iget-object v7, p0, Lcom/android/settings/deviceinfo/PublicVolumeSettings;->mSummary:Lcom/android/settings/deviceinfo/StorageSummaryPreference;
 
-    const v8, 0x7f0412fb
+    const v8, 0x7f041320
 
     invoke-virtual {p0, v8}, Landroidx/fragment/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
@@ -659,7 +659,7 @@
 
     iget-object v1, p0, Lcom/android/settings/deviceinfo/PublicVolumeSettings;->mSummary:Lcom/android/settings/deviceinfo/StorageSummaryPreference;
 
-    const v7, 0x7f041311
+    const v7, 0x7f041336
 
     new-array v8, v10, [Ljava/lang/Object;
 

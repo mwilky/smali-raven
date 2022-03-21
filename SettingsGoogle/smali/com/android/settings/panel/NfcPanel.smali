@@ -46,11 +46,11 @@
 .end method
 
 .method public getSeeMoreIntent()Landroid/content/Intent;
-    .locals 5
+    .locals 7
 
     iget-object v0, p0, Lcom/android/settings/panel/NfcPanel;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f040658
+    const v1, 0x7f040670
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -58,21 +58,23 @@
 
     invoke-interface {v0}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v4
 
     iget-object v1, p0, Lcom/android/settings/panel/NfcPanel;->mContext:Landroid/content/Context;
 
-    const-class v2, Lcom/android/settings/connecteddevice/AdvancedConnectedDeviceDashboardFragment;
+    const-class v0, Lcom/android/settings/connecteddevice/AdvancedConnectedDeviceDashboardFragment;
 
-    invoke-virtual {v2}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
     move-result-object v2
 
     const/4 v3, 0x0
 
-    const/16 v4, 0x2eb
+    const/16 v5, 0x2eb
 
-    invoke-static {v1, v2, v3, v0, v4}, Lcom/android/settings/slices/SliceBuilderUtils;->buildSearchResultPageIntent(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)Landroid/content/Intent;
+    const v6, 0x7f040d06
+
+    invoke-static/range {v1 .. v6}, Lcom/android/settings/slices/SliceBuilderUtils;->buildSearchResultPageIntent(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;II)Landroid/content/Intent;
 
     move-result-object v0
 
@@ -124,7 +126,7 @@
 
     iget-object p0, p0, Lcom/android/settings/panel/NfcPanel;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f040dc9
+    const v0, 0x7f040df4
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 

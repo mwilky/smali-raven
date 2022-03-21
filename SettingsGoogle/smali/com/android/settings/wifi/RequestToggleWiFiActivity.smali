@@ -15,6 +15,11 @@
 
 
 # instance fields
+.field protected mActivityManager:Landroid/app/IActivityManager;
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+.end field
+
 .field private mAppLabel:Ljava/lang/CharSequence;
 
 .field private mLastUpdateState:I
@@ -55,6 +60,12 @@
     invoke-direct {v0, p0}, Lcom/android/settings/wifi/RequestToggleWiFiActivity$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/wifi/RequestToggleWiFiActivity;)V
 
     iput-object v0, p0, Lcom/android/settings/wifi/RequestToggleWiFiActivity;->mTimeoutCommand:Ljava/lang/Runnable;
+
+    invoke-static {}, Landroid/app/ActivityManager;->getService()Landroid/app/IActivityManager;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/settings/wifi/RequestToggleWiFiActivity;->mActivityManager:Landroid/app/IActivityManager;
 
     const/4 v0, -0x1
 
@@ -156,9 +167,9 @@
 
     const/4 v0, 0x0
 
-    const v2, 0x7f0407b0
+    const v2, 0x7f0407c8
 
-    const v3, 0x7f0401e5
+    const v3, 0x7f0401f9
 
     const/4 v4, 0x1
 
@@ -203,7 +214,7 @@
 
     iput-object v8, v0, Lcom/android/internal/app/AlertController$AlertParams;->mNegativeButtonListener:Landroid/content/DialogInterface$OnClickListener;
 
-    const v1, 0x7f041705
+    const v1, 0x7f04172a
 
     invoke-virtual {p0, v1}, Lcom/android/internal/app/AlertActivity;->getString(I)Ljava/lang/String;
 
@@ -236,7 +247,7 @@
 
     iput-object p0, v1, Lcom/android/internal/app/AlertController$AlertParams;->mNegativeButtonListener:Landroid/content/DialogInterface$OnClickListener;
 
-    const v2, 0x7f0415c0
+    const v2, 0x7f0415e5
 
     new-array v3, v4, [Ljava/lang/Object;
 
@@ -271,7 +282,7 @@
 
     iput-object v8, v0, Lcom/android/internal/app/AlertController$AlertParams;->mNegativeButtonListener:Landroid/content/DialogInterface$OnClickListener;
 
-    const v1, 0x7f0416f9
+    const v1, 0x7f04171e
 
     invoke-virtual {p0, v1}, Lcom/android/internal/app/AlertActivity;->getString(I)Ljava/lang/String;
 
@@ -304,7 +315,7 @@
 
     iput-object p0, v1, Lcom/android/internal/app/AlertController$AlertParams;->mNegativeButtonListener:Landroid/content/DialogInterface$OnClickListener;
 
-    const v2, 0x7f0415c1
+    const v2, 0x7f0415e6
 
     new-array v3, v4, [Ljava/lang/Object;
 
@@ -330,6 +341,95 @@
     .locals 0
 
     return-void
+.end method
+
+.method protected getAppLabel()Ljava/lang/CharSequence;
+    .locals 6
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+
+    const-string v0, "RequestToggleWiFiActivity"
+
+    const/4 v1, 0x0
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/settings/wifi/RequestToggleWiFiActivity;->mActivityManager:Landroid/app/IActivityManager;
+
+    invoke-virtual {p0}, Lcom/android/internal/app/AlertActivity;->getActivityToken()Landroid/os/IBinder;
+
+    move-result-object v3
+
+    invoke-interface {v2, v3}, Landroid/app/IActivityManager;->getLaunchedFromPackage(Landroid/os/IBinder;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    const-string p0, "Package name is null"
+
+    invoke-static {v0, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_1
+
+    return-object v1
+
+    :cond_0
+    :try_start_1
+    invoke-virtual {p0}, Lcom/android/internal/app/AlertActivity;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v3
+
+    const/4 v4, 0x0
+
+    invoke-virtual {v3, v2, v4}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
+
+    move-result-object v3
+
+    invoke-virtual {p0}, Lcom/android/internal/app/AlertActivity;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object p0
+
+    const/high16 v4, 0x447a0000    # 1000.0f
+
+    const/4 v5, 0x5
+
+    invoke-virtual {v3, p0, v4, v5}, Landroid/content/pm/ApplicationInfo;->loadSafeLabel(Landroid/content/pm/PackageManager;FI)Ljava/lang/CharSequence;
+
+    move-result-object p0
+    :try_end_1
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_1 .. :try_end_1} :catch_0
+
+    return-object p0
+
+    :catch_0
+    new-instance p0, Ljava/lang/StringBuilder;
+
+    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "Couldn\'t find app with package name "
+
+    invoke-virtual {p0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-static {v0, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-object v1
+
+    :catch_1
+    const-string p0, "Can not get the package from activity manager"
+
+    invoke-static {v0, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-object v1
 .end method
 
 .method public onClick(Landroid/content/DialogInterface;I)V
@@ -398,7 +498,7 @@
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 4
+    .locals 1
 
     invoke-super {p0, p1}, Lcom/android/internal/app/AlertActivity;->onCreate(Landroid/os/Bundle;)V
 
@@ -424,52 +524,23 @@
 
     invoke-virtual {p0, p1}, Lcom/android/internal/app/AlertActivity;->setResult(I)V
 
-    invoke-virtual {p0}, Lcom/android/internal/app/AlertActivity;->getIntent()Landroid/content/Intent;
+    invoke-virtual {p0}, Lcom/android/settings/wifi/RequestToggleWiFiActivity;->getAppLabel()Ljava/lang/CharSequence;
 
-    move-result-object v0
+    move-result-object p1
 
-    const-string v1, "android.intent.extra.PACKAGE_NAME"
+    iput-object p1, p0, Lcom/android/settings/wifi/RequestToggleWiFiActivity;->mAppLabel:Ljava/lang/CharSequence;
 
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result-object v0
+    move-result p1
 
-    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
+    if-eqz p1, :cond_0
 
     invoke-virtual {p0}, Lcom/android/internal/app/AlertActivity;->finish()V
 
     return-void
 
     :cond_0
-    :try_start_0
-    invoke-virtual {p0}, Lcom/android/internal/app/AlertActivity;->getPackageManager()Landroid/content/pm/PackageManager;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v0, p1}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
-
-    move-result-object p1
-
-    invoke-virtual {p0}, Lcom/android/internal/app/AlertActivity;->getPackageManager()Landroid/content/pm/PackageManager;
-
-    move-result-object v1
-
-    const/high16 v2, 0x447a0000    # 1000.0f
-
-    const/4 v3, 0x5
-
-    invoke-virtual {p1, v1, v2, v3}, Landroid/content/pm/ApplicationInfo;->loadSafeLabel(Landroid/content/pm/PackageManager;FI)Ljava/lang/CharSequence;
-
-    move-result-object p1
-
-    iput-object p1, p0, Lcom/android/settings/wifi/RequestToggleWiFiActivity;->mAppLabel:Ljava/lang/CharSequence;
-    :try_end_0
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
-
     invoke-virtual {p0}, Lcom/android/internal/app/AlertActivity;->getIntent()Landroid/content/Intent;
 
     move-result-object p1
@@ -513,29 +584,6 @@
     iput p1, p0, Lcom/android/settings/wifi/RequestToggleWiFiActivity;->mState:I
 
     :goto_0
-    return-void
-
-    :catch_0
-    new-instance p1, Ljava/lang/StringBuilder;
-
-    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "Couldn\'t find app with package name "
-
-    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    const-string v0, "RequestToggleWiFiActivity"
-
-    invoke-static {v0, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-virtual {p0}, Lcom/android/internal/app/AlertActivity;->finish()V
-
     return-void
 .end method
 

@@ -35,7 +35,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f040985
+    const v1, 0x7f04099d
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -158,7 +158,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f040987
+    const v0, 0x7f04099f
 
     const/4 v1, 0x0
 
@@ -175,7 +175,7 @@
 
     iget-object p0, p0, Landroid/content/pm/PermissionInfo;->packageName:Ljava/lang/String;
 
-    const v0, 0x7f040986
+    const v0, 0x7f04099e
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

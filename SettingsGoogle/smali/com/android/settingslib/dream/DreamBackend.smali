@@ -68,7 +68,7 @@
 
     move-result-object v0
 
-    const v1, 0x11100bf
+    const v1, 0x11100c0
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -80,7 +80,7 @@
 
     move-result-object v0
 
-    const v1, 0x11100be
+    const v1, 0x11100bf
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -92,7 +92,7 @@
 
     move-result-object p1
 
-    const v0, 0x11100bd
+    const v0, 0x11100be
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -1074,7 +1074,7 @@
 
     new-array v0, v0, [Ljava/lang/Object;
 
-    const-string v1, "startDreaming()"
+    const-string/jumbo v1, "startDreaming()"
 
     invoke-static {v1, v0}, Lcom/android/settingslib/dream/DreamBackend;->logd(Ljava/lang/String;[Ljava/lang/Object;)V
 

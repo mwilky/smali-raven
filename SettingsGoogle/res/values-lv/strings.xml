@@ -96,6 +96,7 @@
     <string name="peak_refresh_rate_title">Smooth Display</string>
     <string name="peak_refresh_rate_summary">Noteikta satura atsvaidzināšanas biežums tiek automātiski palielināts no 60 līdz 90 Hz. Tas palielina akumulatora lietojumu.</string>
     <string name="accessibility_vibration_settings_title">Vibrācija un vibrācija pieskaroties</string>
+    <string name="columbus_title">Ātri pieskarieties, lai sāktu darbības</string>
     <string name="emergency_gesture_screen_title">Ārkārtas zvans</string>
     <string name="abc_action_mode_done">Gatavs</string>
     <string name="vibrate_for_calls_category_title">Zvani</string>
@@ -103,6 +104,8 @@
     <string name="lockscreen_privacy_controls_setting_toggle">Rādīt ierīču vadīklas</string>
     <string name="lockscreen_privacy_wallet_summary">Atļaut piekļuvi makam no bloķēšanas ekrāna un ātrajiem iestatījumiem</string>
     <string name="lockscreen_privacy_controls_summary">Piekļūt vadīklām, kad ekrāns ir bloķēts</string>
+    <string name="lockscreen_double_line_clock_summary">Rādīt pulksteni divās rindās, ja tas ir pieejams</string>
+    <string name="lockscreen_double_line_clock_setting_toggle">Pulkstenis divās rindās</string>
     <string name="abc_activity_chooser_view_see_all">Skatīt visu</string>
     <string name="abc_activitychooserview_choose_application">Izvēlieties lietotni</string>
     <string name="abc_capital_off">IZSLĒGT</string>
@@ -147,9 +150,11 @@
     <string name="accessibility_alarm_vibration_title">Signāla vibrācija</string>
     <string name="accessibility_assist_gesture_complete_or_keep_adjusting">Active Edge iestatīšana tika pabeigta. Pārejiet uz nākamo ekrānu vai turpiniet pielāgošanu.</string>
     <string name="accessibility_audio_adjustment_title">Audio korekcija</string>
+    <string name="accessibility_autoclick_about_title">Par autom. klikšķ. (pārdomu laiks)</string>
     <string name="accessibility_autoclick_custom_title">Pielāgoti</string>
     <string name="accessibility_autoclick_default_title">Izslēgt</string>
     <string name="accessibility_autoclick_description">Automātiskās klikšķināšanas funkcija darbojas ar savienotu peli. Varat iestatīt, lai peles kursors automātiski noklikšķina, kad tas noteiktu laiku nekustas.</string>
+    <string name="accessibility_autoclick_footer_learn_more_content_description">Uzzināt vairāk par automātisku klikšķināšanu (pārdomu laiks)</string>
     <string name="accessibility_autoclick_long_summary">1 sekunde</string>
     <string name="accessibility_autoclick_long_title">Ilgi</string>
     <string name="accessibility_autoclick_longer_desc">Ilgāks</string>
@@ -161,16 +166,17 @@
     <string name="accessibility_autoclick_short_title">Īss</string>
     <string name="accessibility_autoclick_shorter_desc">Īsāks</string>
     <string name="accessibility_banner_message_dismiss">Nerādīt</string>
-    <string name="accessibility_button_description">"Ātri piekļūstiet pieejamības funkcijām no jebkura ekrāna. 
+    <string name="accessibility_button_about_title">Par pieejamības pogu</string>
+    <string name="accessibility_button_description">"Ātri piekļūstiet pieejamības funkcijām no jebkura ekrāna.
 
 Lai sāktu darbu, pārejiet uz pieejamības iestatījumiem un atlasiet funkciju. Pieskarieties saīsnei un atlasiet pieejamības pogu."</string>
     <string name="accessibility_button_fade_summary">Poga pēc dažām sekundēm kļūst neskaidra, lai būtu vieglāk redzēt ekrānu</string>
     <string name="accessibility_button_fade_title">Neizmantojot poga kļūst neskaidra</string>
-    <string name="accessibility_button_gesture_description">"Ātra piekļuve pieejamības funkcijām no jebkura ekrāna.
+    <string name="accessibility_button_gesture_about_title">Par pieejamības pogu un žestu</string>
+    <string name="accessibility_button_gesture_description">"Ātri piekļūstiet pieejamības funkcijām no jebkura ekrāna.
 
-Lai sāktu darbu, pārejiet uz pieejamības iestatījumiem un atlasiet funkciju. Pieskarieties saīsnei un atlasiet pieejamības pogu.
-
-Lai izmantotu navigācijas joslā esošo pieejamības pogu, ieslēdziet 2 pogu navigāciju vai 3 pogu navigāciju."</string>
+Lai sāktu darbu, pārejiet uz pieejamības iestatījumiem un atlasiet funkciju. Pieskarieties saīsnei un atlasiet pieejamības pogu vai žestu."</string>
+    <string name="accessibility_button_gesture_footer_learn_more_content_description">Uzzināt vairāk par pieejamības pogu un žestu</string>
     <string name="accessibility_button_gesture_title">Pieejamības poga un žests</string>
     <string name="accessibility_button_high_label">Necaurspīdīga</string>
     <string name="accessibility_button_intro">Tiek izmantota pieejamības poga. Žests nav pieejams, izmantojot 3 pogu navigāciju.</string>
@@ -184,14 +190,23 @@ Lai izmantotu navigācijas joslā esošo pieejamības pogu, ieslēdziet 2 pogu 
     <string name="accessibility_caption_preference_summary">Ne visās lietotnēs tiek atbalstītas šīs subtitru preferences</string>
     <string name="accessibility_caption_primary_switch_summary">Tikai atbalstītai lietotnei</string>
     <string name="accessibility_caption_primary_switch_title">Subtitru rādīšana</string>
+    <string name="accessibility_captioning_about_title">Par subtitru preferencēm</string>
+    <string name="accessibility_captioning_footer_learn_more_content_description">Uzzināt vairāk par subtitru preferencēm</string>
     <string name="accessibility_captioning_title">Subtitru preferences</string>
     <string name="accessibility_category_personal">Personīgā profila konti</string>
     <string name="accessibility_category_work">Darba profila konti — %s</string>
+    <string name="accessibility_color_inversion_about_title">Par krāsu inversiju</string>
+    <string name="accessibility_color_inversion_footer_learn_more_content_description">Uzzināt vairāk par krāsu inversiju</string>
+    <string name="accessibility_control_timeout_about_title">Par laiku veikt darbību (pieejamības noildze)</string>
+    <string name="accessibility_control_timeout_footer_learn_more_content_description">Uzzināt vairāk par laiku veikt darbību (pieejamības noildze)</string>
     <string name="accessibility_control_timeout_preference_summary">"Izvēlieties to ziņojumu rādīšanas ilgumu, kuros ir iekļauts aicinājums uz darbību, bet kuri tiek rādīti tikai noteiktu laiku.
 
 Ne visās lietotnēs šis iestatījums tiek atbalstīts."</string>
     <string name="accessibility_control_timeout_preference_title">Laiks veikt darbību</string>
+    <string name="accessibility_daltonizer_about_title">Par krāsu korekciju</string>
+    <string name="accessibility_daltonizer_footer_learn_more_content_description">Uzzināt vairāk par krāsu korekciju</string>
     <string name="accessibility_daltonizer_primary_switch_title">Izmantot krāsu korekciju</string>
+    <string name="accessibility_daltonizer_shortcut_title">Krāsu korekcijas saīsne</string>
     <string name="accessibility_data_one_bar">Dati: viena josla</string>
     <string name="accessibility_data_signal_full">Pilna piekļuve datu signālam.</string>
     <string name="accessibility_data_three_bars">Dati: trīs joslas.</string>
@@ -206,6 +221,7 @@ Ne visās lietotnēs šis iestatījums tiek atbalstīts."</string>
     <string name="accessibility_display_daltonizer_preference_title">Krāsu korekcija</string>
     <string name="accessibility_display_inversion_preference_subtitle">Izmantojot krāsu inversiju, ekrāna saturs gaišā krāsā tiek rādīts tumšā krāsā.&lt;br/>&lt;br/> Piezīme. &lt;ol> &lt;li> Tāpat, izmantojot krāsu inversiju, ekrāna saturs tumšā krāsā tiek rādīts gaišā krāsā.&lt;/li> &lt;li> Krāsas tiks mainītas multividē un attēlos.&lt;/li> &lt;li> Tumšo motīvu var izmantot, lai tiktu rādīts tumšs fons. Tumšais motīvs darbojas ar atbalstītajām lietotnēm. Krāsu inversija darbojas visās lietotnēs.&lt;/li> &lt;/ol></string>
     <string name="accessibility_display_inversion_preference_title">Krāsu inversija</string>
+    <string name="accessibility_display_inversion_shortcut_title">Krāsu inversijas saīsne</string>
     <string name="accessibility_display_inversion_switch_title">Izmantot krāsu inversiju</string>
     <string name="accessibility_ethernet_connected">Tīkls Ethernet</string>
     <string name="accessibility_ethernet_disconnected">Pārtraukts savienojums ar tīklu Ethernet.</string>
@@ -255,6 +271,8 @@ Pieejamības poga peld ekrānā virs pārējām lietotnēm. Lai veiktu palielin�
     <string name="accessibility_phone_two_bars">Tālrunis: divas joslas.</string>
     <string name="accessibility_power_button_ends_call_prerefence_title">Barošanas poga beidz zvanu</string>
     <string name="accessibility_preference_magnification_summary">Tuvināt ekrānā</string>
+    <string name="accessibility_screen_magnification_about_title">Par palielinājumu</string>
+    <string name="accessibility_screen_magnification_footer_learn_more_content_description">Uzzināt vairāk par palielinājumu</string>
     <string name="accessibility_screen_magnification_gesture_navigation_warning">Pieejamības žestam ir iestatīts %1$s. Lai izmantotu palielinājumu, velciet ar diviem pirkstiem no ekrāna apakšdaļas un turiet. Pēc tam atlasiet palielinājumu.</string>
     <string name="accessibility_screen_magnification_gestures_title">Palielināt, trīsreiz pieskaroties</string>
     <string name="accessibility_screen_magnification_navbar_configuration_warning">Pieejamības pogai ir iestatīts pakalpojums %1$s. Lai izmantotu palielināšanu, pieskarieties pieejamības pogai un pēc tam atlasiet palielināšanu.</string>
@@ -272,6 +290,7 @@ Pieejamības poga peld ekrānā virs pārējām lietotnēm. Lai veiktu palielin�
 Tastatūrā vai navigācijas joslā nevarat veikt tuvināšanu."</string>
     <string name="accessibility_screen_magnification_navbar_title">Palielināšana ar saīsni</string>
     <string name="accessibility_screen_magnification_short_summary">Pieskarieties 3 reizes, lai veiktu tālummaiņu</string>
+    <string name="accessibility_screen_magnification_shortcut_title">Palielinājuma saīsne</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">Palieliniet, lietojot saīsni un trīskāršu skārienu</string>
     <string name="accessibility_screen_magnification_summary">Ātri tuviniet ekrānu, lai palielinātu saturu.&lt;br/>&lt;br/> &lt;b>Lai tuvinātu, veiciet tālāk norādītās darbības.&lt;/b>&lt;br/> {0,number,integer}. Izmantojiet īsinājumtaustiņu, lai sāktu palielināšanu.&lt;br/> {1,number,integer}. Pieskarieties ekrānam.&lt;br/> {2,number,integer}. Lai pārvietotos ekrānā, velciet ar diviem pirkstiem.&lt;br/> {3,number,integer}. Lai regulētu tālummaiņu, savelciet ar diviem pirkstiem.&lt;br/> {4,number,integer}. Izmantojiet īsinājumtaustiņu, lai pārtrauktu palielināšanu.&lt;br/>&lt;br/> &lt;b>Lai īslaicīgi tuvinātu saturu, veiciet tālāk norādītās darbības.&lt;/b>&lt;br/> {0,number,integer}. Izmantojiet īsinājumtaustiņu, lai sāktu palielināšanu.&lt;br/> {1,number,integer}. Pieskarieties un turiet jebkurā ekrāna vietā.&lt;br/> {2,number,integer}. Lai pārvietotos ekrānā, velciet ar pirkstu.&lt;br/> {3,number,integer}. Paceliet pirkstu, lai pārtrauktu palielināšanu.</string>
     <string name="accessibility_screen_magnification_title">Palielinājums</string>
@@ -370,7 +389,7 @@ Lai pārslēgtu funkcijas, velciet augšup ar trīs pirkstiem un turiet."</strin
     <string name="accessibility_tutorial_dialog_message_volume">Lai izmantotu šo funkciju, nospiediet un turiet abus skaļuma taustiņus.</string>
     <string name="accessibility_tutorial_dialog_title_button">Pieejamības pogas izmantošana atvēršanai</string>
     <string name="accessibility_tutorial_dialog_title_gesture">Žesta izmantošana atvēršanai</string>
-    <string name="accessibility_tutorial_dialog_title_gesture_settings">Jaunā pieejamības žesta izmantošana</string>
+    <string name="accessibility_tutorial_dialog_title_gesture_settings">Pieejamības žesta izmantošana</string>
     <string name="accessibility_tutorial_dialog_title_triple">Lai atvērtu, trīsreiz pieskarieties ekrānam</string>
     <string name="accessibility_tutorial_dialog_title_volume">Lai atvērtu, turiet nospiestus skaļuma taustiņus</string>
     <string name="accessibility_tutorial_pager">%1$d. lapa no %2$d</string>
@@ -936,6 +955,7 @@ Pēc atiestatīšanas veiciet iestatīšanu un izvēlieties datu importēšanu n
     <string name="battery_level_title">Akumulatora uzlādes līmenis</string>
     <string name="battery_manager_off">Izslēgts</string>
     <string name="battery_manager_summary">Paildziniet akumulatora darbību un optimizējiet uzlādi.</string>
+    <string name="battery_manager_summary_unsupported">Akumulatora darbības laika paildzināšana</string>
     <string name="battery_missing_link_a11y_message">Pieskarieties, lai uzzinātu vairāk par šo kļūdu.</string>
     <string name="battery_missing_link_message">Uzzināt vairāk</string>
     <string name="battery_missing_message">Nevar iegūt informāciju par akumulatora uzlādes līmeni.</string>
@@ -1061,6 +1081,7 @@ pēdējo 24 h laikā"</string>
     <string name="battery_usage_screen_footer">Akumulatora lietojuma dati ir aptuveni, un tālruņa uzlādes laikā lietojums netiek mērīts</string>
     <string name="battery_usage_screen_footer_empty">Akumulatora lietojuma dati būs pieejami, kad būsiet lietojis tālruni dažas stundas.</string>
     <string name="battery_usage_total_less_than_one_minute">Kopā: mazāk par minūti</string>
+    <string name="battery_usage_without_time" />
     <string name="battery_used_by">%1$s izmanto lietotne %2$s</string>
     <string name="battery_used_for">Izmantots šādu laiku: ^1</string>
     <string name="bearer">Nesējs</string>
@@ -1069,12 +1090,14 @@ pēdējo 24 h laikā"</string>
     <string name="billing_cycle_less_than_one_day_left">Atlikusi mazāk nekā 1 diena</string>
     <string name="billing_cycle_none_left">Laiks beidzies</string>
     <string name="biometric_settings_category_ways_to_unlock">Atbloķēšanas iespējas</string>
-    <string name="biometric_settings_category_ways_to_use">Autorizācija pēc sejas un ar pirksta nospiedumu:</string>
     <string name="biometric_settings_hand_back_to_guardian">Atdodiet tālruni atpakaļ vienam no vecākiem.</string>
     <string name="biometric_settings_hand_back_to_guardian_ok">Labi</string>
     <string name="biometric_settings_intro">Ja iestatīsiet autorizāciju pēc sejas un autorizāciju ar pirksta nospiedumu, tālrunī tiks pieprasīts pirksta nospiedums, kad valkāsiet masku vai atradīsieties tumšā vietā.</string>
-    <string name="biometric_settings_use_biometric_for_apps">Autentifikācija lietotnēs</string>
+    <string name="biometric_settings_use_biometric_for_apps">Lietotnēs verificēt jūsu identitāti</string>
     <string name="biometric_settings_use_biometric_unlock_phone">Tālruņa atbloķēšana</string>
+    <string name="biometric_settings_use_face_or_fingerprint_preference_summary">Izmantojot seju/pirksta nospiedumu</string>
+    <string name="biometric_settings_use_face_preference_summary">Izmantojot autorizāciju pēc sejas</string>
+    <string name="biometric_settings_use_fingerprint_preference_summary">Izmantojot autorizāciju ar pirksta nospiedumu</string>
     <string name="biometrics_unlock_set_unlock_password">Parole • seja • pirksta nospiedums</string>
     <string name="biometrics_unlock_set_unlock_pattern">Kombinācija • seja • pirksta nospiedums</string>
     <string name="biometrics_unlock_set_unlock_pin">PIN • seja • pirksta nospiedums</string>
@@ -1332,7 +1355,6 @@ Atlase"</string>
     <string name="bluetooth_settings_title">Bluetooth</string>
     <string name="bluetooth_show_devices_without_names">Rādīt Bluetooth ierīces bez nosaukumiem</string>
     <string name="bluetooth_show_devices_without_names_summary">Tiks parādītas Bluetooth ierīces bez nosaukumiem (tikai MAC adreses).</string>
-    <string name="bluetooth_show_files_received_via_bluetooth">Lietojot Bluetooth, saņemtie faili</string>
     <string name="bluetooth_show_received_files">Saņemtie faili</string>
     <string name="bluetooth_sim_card_access_dialog_content">"Bluetooth ierīce “%1$s” pieprasa atļauju piekļūt jūsu SIM kartē saglabātajiem datiem, tostarp kontaktpersonām.
 
@@ -1426,6 +1448,7 @@ Ja instalējat CA sertifikātu, sertifikāta īpašnieks var piekļūt jūsu da
     <string name="calls_sms_temp_unavailable">Īslaicīgi nav pieejams</string>
     <string name="calls_sms_unavailable">nav pieejami</string>
     <string name="calls_sms_wfc_summary">Zvanu veikšana un saņemšana Wi-Fi tīklā</string>
+    <string name="cam_toggle_description">Lietotnēm un pakalpojumiem</string>
     <string name="camera_double_tap_power_gesture_desc">Ērta kameras atvēršana, neatbloķējot ekrānu</string>
     <string name="camera_double_tap_power_gesture_title">Kamera, divreiz nospiežot barošanas pogu</string>
     <string name="camera_laser_sensor_switch">Kameras lāzera sensors</string>
@@ -3302,6 +3325,7 @@ Veicot šo darbību, netiks atcelts jūsu mobilo pakalpojumu plāns."</string>
     <string name="menu_stats_total">Kopējais patēriņš</string>
     <string name="menu_stats_unplugged">%1$s kopš atslēgšanas</string>
     <string name="menu_use_uss">Lietot unikālo kopas lielumu</string>
+    <string name="mic_toggle_description">Lietotnēm un pakalpojumiem. Ja šis iestatījums ir izslēgts, mikrofona dati joprojām var tikt kopīgoti, kad zvanīsiet uz ārkārtas numuru.</string>
     <string name="mic_toggle_title">Piekļuve mikrofonam</string>
     <string name="misc_files">Dažādi faili</string>
     <string name="misc_files_selected_count">Atlasīti %1$d no %2$d</string>
@@ -3728,6 +3752,7 @@ Lietotne varēs arī ieslēgt vai izslēgt režīmu “Netraucēt” un mainīt 
     <string name="one_handed_action_show_notification_title">Rādīt paziņojumus</string>
     <string name="one_handed_mode_enabled">Izmantot vienas rokas režīmu</string>
     <string name="one_handed_mode_intro_text">Lai izmantotu vienas rokas režīmu, velciet lejup no ekrāna apakšējās malas. Lai izmantotu šo funkciju, sistēmas navigācijas iestatījumos jābūt ieslēgtai žestu navigācijai.</string>
+    <string name="one_handed_mode_shortcut_title">Saīsne uz vienas rokas režīmu</string>
     <string name="one_handed_mode_swipe_down_category">Velciet lejup:</string>
     <string name="one_handed_mode_use_shortcut_category">Saīsnei piešķiramā darbība:</string>
     <string name="one_usercrt">viens lietotāja sertifikāts</string>
@@ -3803,7 +3828,7 @@ Lietotne varēs arī ieslēgt vai izslēgt režīmu “Netraucēt” un mainīt 
     <string name="post_dsds_reboot_notification_title_with_carrier">%1$s ir aktīvs</string>
     <string name="power_bluetooth">Bluetooth</string>
     <string name="power_camera">Kamera</string>
-    <string name="power_cell">Mobilā tīkla gaidstāve</string>
+    <string name="power_cell">Mobilais tīkls</string>
     <string name="power_charge_remaining">Atlikušais uzlādes laiks: %1$s</string>
     <string name="power_charging">%1$s — %2$s</string>
     <string name="power_charging_duration">%1$s — %2$s līdz pilnai uzlādei</string>
@@ -4037,6 +4062,7 @@ vienlaikus nospiediet barošanas un skaļuma palielināšanas pogu."</string>
     <string name="recent_notifications">Nesen nosūtīti</string>
     <string name="recent_notifications_see_all_title">Skatīt visas pēdējo 7 dienu laikā instalētās</string>
     <string name="recompute_size">Notiek izmēra pārrēķināšana...</string>
+    <string name="reduce_bright_colors_about_title">Par papildu aptumšošanu</string>
     <string name="reduce_bright_colors_intensity_end_label">Gaišāks</string>
     <string name="reduce_bright_colors_intensity_preference_title">Intensitāte</string>
     <string name="reduce_bright_colors_intensity_start_label">Tumšāks</string>
@@ -4044,6 +4070,7 @@ vienlaikus nospiediet barošanas un skaļuma palielināšanas pogu."</string>
     <string name="reduce_bright_colors_preference_subtitle">Padariet savu ekrānu tumšāku ērtākai lasīšanai.&lt;br/>&lt;br/> Tas var būt noderīgi tālāk minētajos gadījumos. &lt;ol> &lt;li> Jūsu tālruņa noklusējuma minimālais spilgtums joprojām ir pārāk gaišs.&lt;/li> &lt;li> Jūs izmantojat tālruni vāja apgaismojuma apstākļos, piemēram, naktī vai tumšā telpā pirms gulētiešanas.&lt;/li> &lt;/ol></string>
     <string name="reduce_bright_colors_preference_summary">Padariet ekrānu tumšāku par tālruņa minimālo spilgtumu.</string>
     <string name="reduce_bright_colors_preference_title">Papildu aptumšošana</string>
+    <string name="reduce_bright_colors_shortcut_title">Papildu aptumšošanas saīsne</string>
     <string name="reduce_bright_colors_switch_title">Izmantot ekrāna papildu aptumšošanu</string>
     <string name="register_automatically">Automātiska reģistrācija...</string>
     <string name="register_on_network">Notiek reģistrēšana tīklā %s...</string>
@@ -4249,7 +4276,6 @@ Lai izmantotu lietotņu piespraušanu, veiciet tālāk norādītās darbības. \
     <string name="screen_pinning_unlock_pattern">Pirms atspraušanas pieprasīt grafisko atsl.</string>
     <string name="screen_pinning_unlock_pin">Prasīt PIN kodu pirms atspraušanas</string>
     <string name="screen_reader_category_title">Ekrāna lasītājs</string>
-    <string name="screen_saver_main_switch_title">Izmantot ekrānsaudzētāju</string>
     <string name="screen_time_summary_usage_today">%1$s šodien</string>
     <string name="screen_timeout_summary">Pēc %1$s neaktivitātes</string>
     <string name="screen_timeout_title">Ekrāns tiek izslēgts</string>
@@ -4279,6 +4305,7 @@ Lai izmantotu lietotņu piespraušanu, veiciet tālāk norādītās darbības. \
     <string name="screensaver_settings_button">Iestatījumi</string>
     <string name="screensaver_settings_current">Pašreizējais ekrānsaudzētājs</string>
     <string name="screensaver_settings_disabled_prompt">Lai kontrolētu, kas notiek, kad tālrunis tiek dokots un/vai ir miega režīmā, ieslēdziet ekrānsaudzētāju.</string>
+    <string name="screensaver_settings_dream_start">Sākt tūlīt</string>
     <string name="screensaver_settings_summary_dock">Kamēr tiek dokots</string>
     <string name="screensaver_settings_summary_either_long">Uzlādes vai dokošanas laikā</string>
     <string name="screensaver_settings_summary_either_short">Vienmēr</string>
@@ -4329,15 +4356,6 @@ Lai izmantotu lietotņu piespraušanu, veiciet tālāk norādītās darbības. \
     <string name="security_settings_biometric_preference_summary_both_fp_single">Seja un pirksta nospiedums ir pievienots</string>
     <string name="security_settings_biometric_preference_summary_none_enrolled">Pieskarieties, lai iestatītu</string>
     <string name="security_settings_biometric_preference_title">Autorizācija pēc sejas un pirksta nospieduma</string>
-    <string name="security_settings_biometrics_description">Ja iestatīsiet autorizāciju pēc sejas un pirksta nospieduma, tālrunī tiks pieprasīts pirksta nospiedums, kad valkāsiet masku vai atradīsieties tumšā vietā</string>
-    <string name="security_settings_biometrics_preference_use_with_apps">Autentifikācija lietotnēs</string>
-    <string name="security_settings_biometrics_preferences_category">Sejas vai pirksta nospieduma lietojums</string>
-    <string name="security_settings_biometrics_summary_both">Seja un pirksta nospiedums</string>
-    <string name="security_settings_biometrics_summary_face">Tikai seja</string>
-    <string name="security_settings_biometrics_summary_fingerprint">Tikai pirksta nospiedums</string>
-    <string name="security_settings_biometrics_summary_none">Pieskarieties, lai iestatītu</string>
-    <string name="security_settings_biometrics_title">Autorizācija pēc sejas un pirksta nosp.</string>
-    <string name="security_settings_biometrics_types_category">Atbloķēšanas iespējas</string>
     <string name="security_settings_face_enroll_consent_introduction_title">Autorizācijas pēc sejas atļaušana</string>
     <string name="security_settings_face_enroll_dialog_ok">Labi</string>
     <string name="security_settings_face_enroll_done">Gatavs</string>
@@ -4385,16 +4403,17 @@ Uzziniet vairāk vietnē g.co/pixel/faceunlock."</string>
     <string name="security_settings_face_enroll_introduction_control_title">Viss ir jūsu pārziņā</string>
     <string name="security_settings_face_enroll_introduction_how_consent_message">"Iestatot autorizāciju pēc sejas, tiek izveidots unikāls jūsu bērna sejas modelis viņa identitātes apstiprināšanai. Lai iestatīšanas laikā izveidotu šo sejas modeli, jūsu bērns uzņems savas sejas attēlus no dažādiem leņķiem.
 
-Izmantojot autorizāciju pēc sejas, sejas modeļa atjaunināšanai tiek izmantoti attēli. Sejas modeļa izveidei izmantotie attēli nekad netiek saglabāti, savukārt sejas modelis tiek droši glabāts jūsu bērna tālrunī un vienmēr atrodas tikai tālrunī. Apstrāde tiek veikta drošā veidā un tikai bērna tālrunī."</string>
+Izmantojot autorizāciju pēc sejas, sejas modeļa atjaunināšanai tiek izmantoti attēli. Sejas modeļa izveidei izmantotie attēli netiek saglabāti, savukārt sejas modelis tiek droši glabāts jūsu bērna tālrunī un vienmēr atrodas tikai tālrunī. Apstrāde tiek veikta drošā veidā un tikai bērna tālrunī."</string>
     <string name="security_settings_face_enroll_introduction_how_message">"Iestatot autorizāciju pēc sejas, tiek izveidots unikāls jūsu sejas modelis jūsu identitātes apstiprināšanai. Lai iestatīšanas laikā izveidotu šo sejas modeli, jūs uzņemsiet savas sejas attēlus no dažādiem leņķiem.
 
-Izmantojot autorizāciju pēc sejas, sejas modeļa atjaunināšanai tiek izmantoti attēli. Sejas modeļa izveidei izmantotie attēli nekad netiek saglabāti, savukārt sejas modelis tiek droši glabāts jūsu tālrunī un vienmēr atrodas tikai tālrunī. Apstrāde tiek veikta drošā veidā un tikai jūsu tālrunī."</string>
+Izmantojot autorizāciju pēc sejas, sejas modeļa atjaunināšanai tiek izmantoti attēli. Sejas modeļa izveidei izmantotie attēli netiek saglabāti, savukārt sejas modelis tiek droši glabāts jūsu tālrunī un vienmēr atrodas tikai tālrunī. Apstrāde tiek veikta drošā veidā un tikai jūsu tālrunī."</string>
     <string name="security_settings_face_enroll_introduction_how_title">Darbības principi</string>
     <string name="security_settings_face_enroll_introduction_info_consent_gaze">Autorizācijai pēc sejas varat iestatīt, lai funkcija tālruņa atbloķēšanai vai identitātes apstiprināšanai darbotos tikai tad, ja bērna acis ir atvērtas. Jebkurā laikā jūs vai jūsu bērns varat šo opciju ieslēgt sadaļā Iestatījumi.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_glasses">Ja jūsu bērns parasti valkā brilles, viņš var tās valkāt iestatīšanas laikā.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_looking">Paskatoties uz tālruni, tas var tikt nejauši atbloķēts. Tālruni var atbloķēt arī jūsu bērnam līdzīga persona, piemēram, identiskais dvīnis, vai arī cita persona, vēršot tālruni pret bērna seju.</string>
     <string name="security_settings_face_enroll_introduction_info_gaze">Autorizācijai pēc sejas varat iestatīt, lai funkcija tālruņa atbloķēšanai vai identitātes apstiprināšanai darbotos tikai tad, ja jūsu acis ir atvērtas. Jebkurā laikā šo opciju varat ieslēgt sadaļā Iestatījumi.</string>
     <string name="security_settings_face_enroll_introduction_info_glasses">Brilles vai viegli tonētas saulesbrilles netraucēs.</string>
+    <string name="security_settings_face_enroll_introduction_info_less_secure">Autorizācijas pēc sejas vai tālruņa atbloķēšanas opcijas izmantošana var būt mazāk droša nekā sarežģīta kombinācija vai PIN.</string>
     <string name="security_settings_face_enroll_introduction_info_looking">Paskatoties uz tālruni, tas var tikt nejauši atbloķēts. Tālruni var atbloķēt arī jums līdzīga persona, piemēram, identiskais dvīnis, vai arī cita persona, vēršot tālruni pret jūsu seju.</string>
     <string name="security_settings_face_enroll_introduction_info_title">Svarīga informācija</string>
     <string name="security_settings_face_enroll_introduction_message">Izmantojiet seju, lai atbloķētu tālruni vai apstiprinātu savu identitāti, piemēram, pierakstoties lietotnēs vai apstiprinot pirkumu.</string>
@@ -4452,13 +4471,14 @@ Jūsu tālruni var atbloķēt kāds cits, ja tālrunis tiek pavērsts pret jūsu
 
 Jūsu tālruni var atbloķēt jums līdzīga persona, piemēram, identiskais dvīnis."</string>
     <string name="security_settings_face_settings_preferences_category">Iestatījumi autorizācijai pēc sejas</string>
-    <string name="security_settings_face_settings_remove_dialog_details">Sejas modelis tiks neatgriezeniski un droši izdzēsts.Pēc izdzēšanas jums būs jāizmanto PIN, kombinācija vai parole, lai atbloķētu tālruni vai veiktu autentifikāciju lietotnēs.</string>
+    <string name="security_settings_face_settings_remove_dialog_details">"Jūsu sejas modelis tiks neatgriezeniski un droši izdzēsts.
+
+Pēc tā dzēšanas jums būs jāizmanto PIN, kombinācija vai parole, lai atbloķētu savu tālruni vai veiktu autentifikāciju lietotnēs."</string>
+    <string name="security_settings_face_settings_remove_dialog_details_convenience">"Jūsu sejas modelis tiks neatgriezeniski un droši izdzēsts.
+
+Pēc tā dzēšanas jums būs jāizmanto PIN, kombinācija vai parole, lai atbloķētu savu tālruni."</string>
     <string name="security_settings_face_settings_remove_dialog_title">Vai dzēst sejas modeli?</string>
     <string name="security_settings_face_settings_remove_face_model">Dzēst sejas modeli</string>
-    <string name="security_settings_face_settings_remove_model_dialog_details">"Sejas modelis tiks neatgriezeniski un droši izdzēsts.
-
-Pēc izdzēšanas jums būs jāizmanto pirksta nospiedums, PIN, kombinācija vai parole, lai autorizētu tālruni vai veiktu autentifikāciju lietotnēs."</string>
-    <string name="security_settings_face_settings_remove_model_dialog_title">Vai dzēst sejas modeli?</string>
     <string name="security_settings_face_settings_require_attention">Jābūt atvērtām acīm</string>
     <string name="security_settings_face_settings_require_attention_details">Lai atbloķētu tālruni, jūsu acīm ir jābūt atvērtām</string>
     <string name="security_settings_face_settings_require_confirmation">Vienmēr pieprasīt apstiprinājumu</string>
@@ -4541,7 +4561,7 @@ Piezīme. Pirksta nospiedumu nevar izmantot šīs ierīces atbloķēšanai. Lai 
     <string name="security_settings_title">Drošība</string>
     <string name="security_settings_udfps_enroll_a11y">Lai atrastu sensoru, pārvietojiet pirkstu pa ekrānu. Pieskarieties pirksta nospieduma sensoram un turiet to.</string>
     <string name="security_settings_udfps_enroll_edge_message">Novietojiet pirksta sānu uz sensora un turiet, pēc tam novietojiet otru pirksta sānu.</string>
-    <string name="security_settings_udfps_enroll_edge_title">Visbeidzot, novietojiet pirksta sānus</string>
+    <string name="security_settings_udfps_enroll_edge_title">Visbeidzot, izmantojiet pirksta sānus</string>
     <string name="security_settings_udfps_enroll_find_sensor_message">Pirksta nospieduma sensors atrodas uz ekrāna. Nākamajā ekrānā tiks tverts viss pirksta nospiedums.</string>
     <string name="security_settings_udfps_enroll_find_sensor_start_button">Sākt</string>
     <string name="security_settings_udfps_enroll_find_sensor_title">Pirksta nospieduma iestatīšana</string>
@@ -4550,7 +4570,7 @@ Piezīme. Pirksta nospiedumu nevar izmantot šīs ierīces atbloķēšanai. Lai 
     <string name="security_settings_udfps_enroll_repeat_a11y_message">Tādējādi tiks tverts plašāks pirksta nospiedums.</string>
     <string name="security_settings_udfps_enroll_repeat_message">Pieskarieties pirksta nospieduma ikonai un turiet to ikreiz, kad tā pārvietojas. Tādējādi tiks tverts plašāks pirksta nospiedums.</string>
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">Atkārtota pieskaršanās pirksta nospieduma ikonai</string>
-    <string name="security_settings_udfps_enroll_start_message">Turiet pirkstu uz sensora, līdz sajūtat vibrāciju.</string>
+    <string name="security_settings_udfps_enroll_start_message">Turiet pirkstu plakaniski uz sensora, līdz sajūtat vibrāciju.</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">Vēlreiz…</string>
     <string name="security_settings_work_fingerprint_preference_title">Pixel Imprint darbam</string>
     <string name="security_status_title">Drošības statuss</string>
@@ -4576,7 +4596,6 @@ Piezīme. Pirksta nospiedumu nevar izmantot šīs ierīces atbloķēšanai. Lai 
     <string name="select_webview_provider_dialog_title">Iestatīt WebView ieviešanu</string>
     <string name="select_webview_provider_title">WebView ieviešana</string>
     <string name="select_webview_provider_toast_text">Šī iespēja vairs nav derīga. Mēģiniet vēlreiz.</string>
-    <string name="sensor_toggle_description">Visām lietotnēm un pakalpojumiem</string>
     <string name="sensors_off_quick_settings_title">Sensori izslēgti</string>
     <string name="service_background_processes">Brīvs: %1$s</string>
     <string name="service_foreground_processes">Aizņemts: %1$s</string>
@@ -4808,6 +4827,7 @@ Iespējams, ka ievadījāt nepareizu PIN kodu."</string>
     <string name="sound_settings_summary_silent">Zvanītājam iestatīts klusuma režīms.</string>
     <string name="sound_settings_summary_vibrate">Zvanītājam iestatīts vibrācijas režīms.</string>
     <string name="sound_work_settings">Darba profila signāli</string>
+    <string name="spatial_audio_title">Telpiskais audio</string>
     <string name="special_access">Īpaša piekļuve lietotnēm</string>
     <string name="special_access_more">Skatīt vairāk</string>
     <string name="speed_label_fast">Ātrs</string>
@@ -4866,7 +4886,7 @@ Lai varētu lietot šo ierīci (^1), tā vispirms ir jāiestata."</string>
 
 Lai lietotu šo ierīci (^1), tā vispirms ir jāiekļauj."</string>
     <string name="storage_documents_and_other">Dokumenti un cits saturs</string>
-    <string name="storage_external_title">Pārnēsājama krātuve</string>
+    <string name="storage_external_title">Pārnesama krātuve</string>
     <string name="storage_files">Faili</string>
     <string name="storage_format_failure">Nevarēja formatēt: %1$s</string>
     <string name="storage_format_success">%1$s ir formatēta</string>
@@ -4905,7 +4925,7 @@ Visas šajā ^1 glabātās lietotnes tiks atinstalētas, un to dati tiks dzēsti
     <string name="storage_menu_forget">Noņemt</string>
     <string name="storage_menu_format">Formatēt</string>
     <string name="storage_menu_format_private">Formatēt kā iekšēju</string>
-    <string name="storage_menu_format_public">Formatēt kā pārnēsājamu</string>
+    <string name="storage_menu_format_public">Formatēt kā pārnesamu</string>
     <string name="storage_menu_free">Atbrīvot vietu</string>
     <string name="storage_menu_manage">Pārvaldīt krātuvi</string>
     <string name="storage_menu_migrate">Migrēt datus</string>
@@ -4968,13 +4988,13 @@ Formatējot tiks dzēsts viss saturs, kas saglabāts šeit: ^2. Lai nezaudētu s
     <string name="storage_wizard_format_progress_body">Formatēšanas laikā neizņemiet: ^1.</string>
     <string name="storage_wizard_format_progress_title">Notiek ^1 formatēšana…</string>
     <string name="storage_wizard_init_external_summary">Izvēloties šo opciju, varēsiet pārvietot fotoattēlus un citus datus uz citām ierīcēm.</string>
-    <string name="storage_wizard_init_external_title">Izmantot kā pārnēsājamu krātuvi</string>
+    <string name="storage_wizard_init_external_title">Izmantot kā pārnesamu krātuvi</string>
     <string name="storage_wizard_init_internal_summary">Izvēloties šo opciju, varēsiet glabāt failus (tostarp lietotnes un fotoattēlus) tikai šajā ierīcē. Tādā gadījumā krātuve ir jāformatē, lai tā darbotos tikai konkrētā ierīcē.</string>
     <string name="storage_wizard_init_internal_title">Izmantot kā iekšējo atmiņu</string>
     <string name="storage_wizard_init_title">Iestatiet ^1</string>
-    <string name="storage_wizard_init_v2_external_action">Pārnēsājama krātuve</string>
+    <string name="storage_wizard_init_v2_external_action">Pārnesama krātuve</string>
     <string name="storage_wizard_init_v2_external_summary">Failu un multivides satura pārsūtīšanai starp ierīcēm</string>
-    <string name="storage_wizard_init_v2_external_title">Pārnēsājamai krātuvei</string>
+    <string name="storage_wizard_init_v2_external_title">Pārnesamai krātuvei</string>
     <string name="storage_wizard_init_v2_internal_action">Tālruņa krātuve</string>
     <string name="storage_wizard_init_v2_internal_summary">Lietotnēm, failiem un multivides saturam tikai šajā tālrunī</string>
     <string name="storage_wizard_init_v2_internal_title">Tālruņa papildu krātuvei</string>
@@ -5035,7 +5055,7 @@ Varat turpināt to izmanot, taču iespējams, ka lietotnes, kuras pārvietosiet 
 
 Ierīcē ^2 saglabātās lietotnes var darboties neatbilstoši un satura pārsūtīšanai var būt nepieciešams ilgs laiks. 
 
-Mēģiniet izmantot ierīci ^3 ar ātrāku darbību, vai arī šo ierīci ^4 izmantojiet kā pārnēsājamu krātuvi."</string>
+Mēģiniet izmantot ierīci ^3 ar ātrāku darbību, vai arī šo ierīci ^4 izmantojiet kā pārnesamu krātuvi."</string>
     <string name="storage_wizard_slow_v2_continue">Tālāk</string>
     <string name="storage_wizard_slow_v2_start_over">Sākt vēlreiz</string>
     <string name="storage_wizard_slow_v2_title">^1 lēni darbojas</string>
@@ -5619,7 +5639,7 @@ Balss zvana laikā jūs nevarat izmantot internetu un dažas lietojumprogrammas,
     <string name="vpn_turn_on">Ieslēgt</string>
     <string name="vpn_type">Veids</string>
     <string name="vpn_username">Lietotājvārds</string>
-    <string name="vpn_version">Versija %s</string>
+    <string name="vpn_version">Versija</string>
     <string name="vr_listener_security_warning_summary">VR klausītāju %1$s varēs palaist, kad izmantosiet lietojumprogrammas virtuālās realitātes režīmā.</string>
     <string name="vr_listener_security_warning_title">Vai atļaut VR pakalpojumam piekļūt pakalpojumam %1$s?</string>
     <string name="vr_listeners_title">VR palīga pakalpojumi</string>
@@ -5889,7 +5909,7 @@ Iestatot tīklu kā slēptu, maršrutētāja iestatījumi netiks mainīti."</str
     <string name="wifi_not_in_range">Nav diapazona ietvaros</string>
     <string name="wifi_not_in_range_message">Neesat tīkla sasniedzamības zonā</string>
     <string name="wifi_notify_open_networks">Paziņojumi par publiskiem tīkliem</string>
-    <string name="wifi_notify_open_networks_summary">Ja nav pieejama automātiskā savienojuma izveide</string>
+    <string name="wifi_notify_open_networks_summary">Paziņot, kad ir pieejams augstas kvalitātes publiskais tīkls</string>
     <string name="wifi_on_time">Wi-Fi uz laiku</string>
     <string name="wifi_p2p_cancel_connect_message">Vai vēlaties atcelt uzaicinājumu izveidot savienojumu ar ierīci %1$s?</string>
     <string name="wifi_p2p_cancel_connect_title">Vai atcelt uzaicinājumu?</string>
@@ -5977,7 +5997,6 @@ Vai atļaut šo darbību visām lietotnēm, kurās tiek pieprasīta skenēšana?
     <string name="wifi_suspend_optimizations">Wi-Fi optimizācija</string>
     <string name="wifi_suspend_optimizations_summary">Pēc iespējas samazināt akumulatora lietojumu, kad Wi-Fi savienojums ir ieslēgts</string>
     <string name="wifi_switch_away_when_unvalidated">Pārslēgties uz mobilajiem datiem, ja Wi-Fi tīklā nav pieejams internets</string>
-    <string name="wifi_switch_summary">Atrast Wi-Fi tīklus un veidot savienojumus ar tiem</string>
     <string name="wifi_tap_to_sign_in">Lai pierakstītos tīklā, pieskarieties šeit</string>
     <string name="wifi_tether_configure_ap_text">Iestatīt Wi-Fi tīklāju</string>
     <string name="wifi_tether_configure_ssid_default">AndroidHotspot</string>

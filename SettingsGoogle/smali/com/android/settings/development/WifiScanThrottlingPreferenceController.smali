@@ -35,7 +35,7 @@
 .method public getPreferenceKey()Ljava/lang/String;
     .locals 0
 
-    const-string p0, "wifi_scan_throttling"
+    const-string/jumbo p0, "wifi_scan_throttling"
 
     return-object p0
 .end method

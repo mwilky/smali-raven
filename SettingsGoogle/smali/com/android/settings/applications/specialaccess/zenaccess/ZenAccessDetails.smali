@@ -102,7 +102,7 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/applications/AppInfoBase;->onCreate(Landroid/os/Bundle;)V
 
-    const p1, 0x7f150118
+    const p1, 0x7f15011d
 
     invoke-virtual {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->addPreferencesFromResource(I)V
 
@@ -150,7 +150,7 @@
 
     if-eqz v1, :cond_0
 
-    const-string v1, "zen_access_switch"
+    const-string/jumbo v1, "zen_access_switch"
 
     invoke-virtual {p0, v1}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
@@ -200,7 +200,7 @@
 
     invoke-virtual {p2, p1}, Landroidx/preference/Preference;->setEnabled(Z)V
 
-    const p1, 0x7f041795
+    const p1, 0x7f0417ba
 
     invoke-virtual {p0, p1}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 

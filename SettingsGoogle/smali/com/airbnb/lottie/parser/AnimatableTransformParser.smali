@@ -25,11 +25,11 @@
 
     const-string v5, "o"
 
-    const-string v6, "so"
+    const-string/jumbo v6, "so"
 
     const-string v7, "eo"
 
-    const-string v8, "sk"
+    const-string/jumbo v8, "sk"
 
     const-string v9, "sa"
 

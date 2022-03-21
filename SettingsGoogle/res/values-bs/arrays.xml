@@ -505,7 +505,7 @@
         <item>720p, 1080p (dupli ekran)</item>
     </string-array>
     <string-array name="preferred_network_mode_choices">
-        <item>Preferiraj GSM/WCDMA</item>
+        <item>Preferira se GSM/WCDMA</item>
         <item>Samo GSM</item>
         <item>Samo WCDMA</item>
         <item>Automatski GSM/WCDMA</item>

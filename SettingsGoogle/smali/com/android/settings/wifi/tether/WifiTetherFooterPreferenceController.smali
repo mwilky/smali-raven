@@ -19,7 +19,7 @@
 .method public getPreferenceKey()Ljava/lang/String;
     .locals 0
 
-    const-string p0, "tether_prefs_footer_2"
+    const-string/jumbo p0, "tether_prefs_footer_2"
 
     return-object p0
 .end method
@@ -45,7 +45,7 @@
 
     iget-object p0, p0, Lcom/android/settings/wifi/tether/WifiTetherBasePreferenceController;->mPreference:Landroidx/preference/Preference;
 
-    const v0, 0x7f0413bf
+    const v0, 0x7f0413e4
 
     invoke-virtual {p0, v0}, Landroidx/preference/Preference;->setTitle(I)V
 
@@ -54,7 +54,7 @@
     :cond_0
     iget-object p0, p0, Lcom/android/settings/wifi/tether/WifiTetherBasePreferenceController;->mPreference:Landroidx/preference/Preference;
 
-    const v0, 0x7f0413be
+    const v0, 0x7f0413e3
 
     invoke-virtual {p0, v0}, Landroidx/preference/Preference;->setTitle(I)V
 

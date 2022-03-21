@@ -189,40 +189,18 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    iget-object v1, p0, Lcom/google/android/setupdesign/template/DescriptionMixin;->templateLayout:Lcom/google/android/setupcompat/internal/TemplateLayout;
+    if-eqz v0, :cond_0
 
-    invoke-static {v1}, Lcom/google/android/setupdesign/util/PartnerStyleHelper;->isPartnerHeavyThemeLayout(Lcom/google/android/setupcompat/internal/TemplateLayout;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    if-eqz v0, :cond_1
-
-    invoke-static {v0}, Lcom/google/android/setupdesign/util/HeaderAreaStyler;->applyPartnerCustomizationDescriptionHeavyStyle(Landroid/widget/TextView;)V
-
-    goto :goto_0
-
-    :cond_0
     iget-object p0, p0, Lcom/google/android/setupdesign/template/DescriptionMixin;->templateLayout:Lcom/google/android/setupcompat/internal/TemplateLayout;
 
-    instance-of v1, p0, Lcom/google/android/setupcompat/PartnerCustomizationLayout;
-
-    if-eqz v1, :cond_1
-
-    check-cast p0, Lcom/google/android/setupcompat/PartnerCustomizationLayout;
-
-    invoke-virtual {p0}, Lcom/google/android/setupcompat/PartnerCustomizationLayout;->shouldApplyPartnerResource()Z
+    invoke-static {p0}, Lcom/google/android/setupdesign/util/PartnerStyleHelper;->shouldApplyPartnerResource(Landroid/view/View;)Z
 
     move-result p0
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_0
 
-    if-eqz v0, :cond_1
+    invoke-static {v0}, Lcom/google/android/setupdesign/util/HeaderAreaStyler;->applyPartnerCustomizationDescriptionHeavyStyle(Landroid/widget/TextView;)V
 
-    invoke-static {v0}, Lcom/google/android/setupdesign/util/HeaderAreaStyler;->applyPartnerCustomizationDescriptionLightStyle(Landroid/widget/TextView;)V
-
-    :cond_1
-    :goto_0
+    :cond_0
     return-void
 .end method

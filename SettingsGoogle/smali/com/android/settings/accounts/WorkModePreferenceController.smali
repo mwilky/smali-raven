@@ -37,7 +37,7 @@
 
     iput-object p2, p0, Lcom/android/settings/accounts/WorkModePreferenceController;->mReceiver:Landroid/content/BroadcastReceiver;
 
-    const-string p2, "user"
+    const-string/jumbo p2, "user"
 
     invoke-virtual {p1, p2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -204,6 +204,16 @@
     return-object p0
 .end method
 
+.method public bridge synthetic getSliceHighlightMenuRes()I
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getSliceHighlightMenuRes()I
+
+    move-result p0
+
+    return p0
+.end method
+
 .method public getSliceType()I
     .locals 0
 
@@ -223,12 +233,12 @@
 
     if-eqz p0, :cond_0
 
-    const p0, 0x7f041779
+    const p0, 0x7f04179e
 
     goto :goto_0
 
     :cond_0
-    const p0, 0x7f041778
+    const p0, 0x7f04179d
 
     :goto_0
     invoke-virtual {v0, p0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;

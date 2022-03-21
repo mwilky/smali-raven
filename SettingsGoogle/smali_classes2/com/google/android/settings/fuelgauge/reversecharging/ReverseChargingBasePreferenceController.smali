@@ -260,26 +260,16 @@
 .end method
 
 .method public getAvailabilityStatus()I
-    .locals 0
+    .locals 1
+
+    iget-object v0, p0, Lcom/google/android/settings/fuelgauge/reversecharging/ReverseChargingBasePreferenceController;->mContext:Landroid/content/Context;
 
     iget-object p0, p0, Lcom/google/android/settings/fuelgauge/reversecharging/ReverseChargingBasePreferenceController;->mReverseChargingManager:Lcom/google/android/settings/fuelgauge/reversecharging/ReverseChargingManager;
 
-    if-eqz p0, :cond_0
-
-    invoke-virtual {p0}, Lcom/google/android/settings/fuelgauge/reversecharging/ReverseChargingManager;->isSupportedReverseCharging()Z
+    invoke-static {v0, p0}, Lcom/google/android/settings/fuelgauge/reversecharging/ReverseChargingUtils;->getAvailability(Landroid/content/Context;Lcom/google/android/settings/fuelgauge/reversecharging/ReverseChargingManager;)I
 
     move-result p0
 
-    if-eqz p0, :cond_0
-
-    const/4 p0, 0x0
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x3
-
-    :goto_0
     return p0
 .end method
 
@@ -310,6 +300,14 @@
     move-result-object p0
 
     return-object p0
+.end method
+
+.method public getSliceHighlightMenuRes()I
+    .locals 0
+
+    const/4 p0, 0x0
+
+    return p0
 .end method
 
 .method protected getThresholdLevel()I

@@ -15,11 +15,11 @@
 
     invoke-direct {p0, p1, p2}, Lcom/android/settings/accessibility/ListDialogPreference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    const p1, 0x7f0600f5
+    const p1, 0x7f0600f8
 
     invoke-virtual {p0, p1}, Landroidx/preference/DialogPreference;->setDialogLayoutResource(I)V
 
-    const p1, 0x7f060081
+    const p1, 0x7f060083
 
     invoke-virtual {p0, p1}, Lcom/android/settings/accessibility/ListDialogPreference;->setListItemLayoutResource(I)V
 
@@ -60,7 +60,7 @@
 
     move-result-object p0
 
-    const v2, 0x7f0405c1
+    const v2, 0x7f0405d9
 
     const/4 v3, 0x3
 
@@ -108,7 +108,7 @@
 
     move-result v1
 
-    const v2, 0x7f0d0166
+    const v2, 0x7f0d016a
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -120,7 +120,7 @@
 
     if-ge v1, v3, :cond_0
 
-    const v1, 0x7f020457
+    const v1, 0x7f020460
 
     invoke-virtual {v2, v1}, Landroid/widget/ImageView;->setBackgroundResource(I)V
 
@@ -160,7 +160,7 @@
 
     if-eqz p0, :cond_2
 
-    const p2, 0x7f0d057b
+    const p2, 0x7f0d058a
 
     invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -183,7 +183,7 @@
 
     if-eqz v0, :cond_4
 
-    const v0, 0x7f0d0164
+    const v0, 0x7f0d0168
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
@@ -205,7 +205,7 @@
 
     if-ge v1, v2, :cond_0
 
-    const v1, 0x7f020457
+    const v1, 0x7f020460
 
     invoke-virtual {p1, v1}, Landroid/widget/ImageView;->setBackgroundResource(I)V
 

@@ -77,7 +77,7 @@
 
     if-eqz v0, :cond_1
 
-    const-string v2, "true"
+    const-string/jumbo v2, "true"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -263,7 +263,7 @@
     goto :goto_0
 
     :cond_0
-    const-string v0, "stop"
+    const-string/jumbo v0, "stop"
 
     :goto_0
     const-string v2, "logd.logpersistd"
@@ -432,7 +432,7 @@
 
     const-string v7, "events"
 
-    const-string v8, "system"
+    const-string/jumbo v8, "system"
 
     const-string v9, "crash"
 

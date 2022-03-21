@@ -409,7 +409,7 @@
     goto :goto_1
 
     :sswitch_2
-    const-string v8, "top"
+    const-string/jumbo v8, "top"
 
     invoke-virtual {v6, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -499,8 +499,6 @@
     sget-object p0, Landroidx/appcompat/widget/DrawableUtils;->INSETS_NONE:Landroid/graphics/Rect;
 
     return-object p0
-
-    nop
 
     :sswitch_data_0
     .sparse-switch

@@ -59,13 +59,13 @@
 .end method
 
 .method public static getIntent(Landroid/content/Context;)Landroid/content/Intent;
-    .locals 5
+    .locals 8
 
     new-instance v0, Landroid/net/Uri$Builder;
 
     invoke-direct {v0}, Landroid/net/Uri$Builder;-><init>()V
 
-    const-string v1, "zen_mode_toggle"
+    const-string/jumbo v1, "zen_mode_toggle"
 
     invoke-virtual {v0, v1}, Landroid/net/Uri$Builder;->appendPath(Ljava/lang/String;)Landroid/net/Uri$Builder;
 
@@ -75,25 +75,31 @@
 
     move-result-object v0
 
-    const v2, 0x7f041862
+    const v1, 0x7f041887
 
-    invoke-virtual {p0, v2}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
+    invoke-virtual {p0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-interface {v2}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+    invoke-interface {v1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v5
 
-    const-class v3, Lcom/android/settings/notification/zen/ZenModeSettings;
+    const-class v1, Lcom/android/settings/notification/zen/ZenModeSettings;
 
-    invoke-virtual {v3}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
     move-result-object v3
 
-    const/16 v4, 0x4c
+    const-string/jumbo v4, "zen_mode_toggle"
 
-    invoke-static {p0, v3, v1, v2, v4}, Lcom/android/settings/slices/SliceBuilderUtils;->buildSearchResultPageIntent(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)Landroid/content/Intent;
+    const/16 v6, 0x4c
+
+    const v7, 0x7f040d0b
+
+    move-object v2, p0
+
+    invoke-static/range {v2 .. v7}, Lcom/android/settings/slices/SliceBuilderUtils;->buildSearchResultPageIntent(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;II)Landroid/content/Intent;
 
     move-result-object v1
 
@@ -143,13 +149,13 @@
 
     move-result v0
 
-    const v1, 0x7f041862
+    const v1, 0x7f041887
 
     invoke-virtual {p0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v1
 
-    const v2, 0x7f041864
+    const v2, 0x7f041889
 
     invoke-virtual {p0, v2}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 

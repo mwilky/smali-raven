@@ -224,19 +224,19 @@
 
     if-eqz v1, :cond_1
 
-    const p1, 0x7f041130
+    const p1, 0x7f041156
 
     invoke-virtual {v4, p1}, Lcom/google/android/settings/biometrics/face/FaceEnrollDialogFactory$DialogBuilder;->setTitle(I)Lcom/google/android/settings/biometrics/face/FaceEnrollDialogFactory$DialogBuilder;
 
-    const p1, 0x7f04112f
+    const p1, 0x7f041155
 
     invoke-virtual {v4, p1}, Lcom/google/android/settings/biometrics/face/FaceEnrollDialogFactory$DialogBuilder;->setMessage(I)Lcom/google/android/settings/biometrics/face/FaceEnrollDialogFactory$DialogBuilder;
 
-    const p1, 0x7f041132
+    const p1, 0x7f041158
 
     invoke-virtual {v4, p1, v3}, Lcom/google/android/settings/biometrics/face/FaceEnrollDialogFactory$DialogBuilder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Lcom/google/android/settings/biometrics/face/FaceEnrollDialogFactory$DialogBuilder;
 
-    const p1, 0x7f041131
+    const p1, 0x7f041157
 
     invoke-virtual {v4, p1, v3}, Lcom/google/android/settings/biometrics/face/FaceEnrollDialogFactory$DialogBuilder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Lcom/google/android/settings/biometrics/face/FaceEnrollDialogFactory$DialogBuilder;
 
@@ -247,37 +247,37 @@
 
     if-ne v0, v1, :cond_3
 
-    const p1, 0x7f041136
+    const p1, 0x7f04115c
 
     invoke-virtual {v4, p1}, Lcom/google/android/settings/biometrics/face/FaceEnrollDialogFactory$DialogBuilder;->setTitle(I)Lcom/google/android/settings/biometrics/face/FaceEnrollDialogFactory$DialogBuilder;
 
-    const p1, 0x7f041134
+    const p1, 0x7f04115a
 
     invoke-virtual {v4, p1}, Lcom/google/android/settings/biometrics/face/FaceEnrollDialogFactory$DialogBuilder;->setMessage(I)Lcom/google/android/settings/biometrics/face/FaceEnrollDialogFactory$DialogBuilder;
 
     if-eqz v2, :cond_2
 
-    const p1, 0x7f041135
+    const p1, 0x7f04115b
 
     invoke-virtual {v4, p1, v3}, Lcom/google/android/settings/biometrics/face/FaceEnrollDialogFactory$DialogBuilder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Lcom/google/android/settings/biometrics/face/FaceEnrollDialogFactory$DialogBuilder;
 
     goto :goto_1
 
     :cond_2
-    const p1, 0x7f041133
+    const p1, 0x7f041159
 
     invoke-virtual {v4, p1, v3}, Lcom/google/android/settings/biometrics/face/FaceEnrollDialogFactory$DialogBuilder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Lcom/google/android/settings/biometrics/face/FaceEnrollDialogFactory$DialogBuilder;
 
     goto :goto_1
 
     :cond_3
-    const v0, 0x7f041101
+    const v0, 0x7f041126
 
     invoke-virtual {v4, v0}, Lcom/google/android/settings/biometrics/face/FaceEnrollDialogFactory$DialogBuilder;->setTitle(I)Lcom/google/android/settings/biometrics/face/FaceEnrollDialogFactory$DialogBuilder;
 
     invoke-virtual {v4, p1}, Lcom/google/android/settings/biometrics/face/FaceEnrollDialogFactory$DialogBuilder;->setMessage(Ljava/lang/CharSequence;)Lcom/google/android/settings/biometrics/face/FaceEnrollDialogFactory$DialogBuilder;
 
-    const p1, 0x7f0410f5
+    const p1, 0x7f04111a
 
     invoke-virtual {v4, p1, v3}, Lcom/google/android/settings/biometrics/face/FaceEnrollDialogFactory$DialogBuilder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Lcom/google/android/settings/biometrics/face/FaceEnrollDialogFactory$DialogBuilder;
 

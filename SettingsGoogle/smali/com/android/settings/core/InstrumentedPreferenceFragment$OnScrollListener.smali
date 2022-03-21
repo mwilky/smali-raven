@@ -61,11 +61,7 @@
     goto :goto_0
 
     :cond_0
-    new-instance p2, Lcom/android/internal/jank/InteractionJankMonitor$Configuration$Builder;
-
-    invoke-direct {p2, v0}, Lcom/android/internal/jank/InteractionJankMonitor$Configuration$Builder;-><init>(I)V
-
-    invoke-virtual {p2, p1}, Lcom/android/internal/jank/InteractionJankMonitor$Configuration$Builder;->setView(Landroid/view/View;)Lcom/android/internal/jank/InteractionJankMonitor$Configuration$Builder;
+    invoke-static {v0, p1}, Lcom/android/internal/jank/InteractionJankMonitor$Configuration$Builder;->withView(ILandroid/view/View;)Lcom/android/internal/jank/InteractionJankMonitor$Configuration$Builder;
 
     move-result-object p1
 

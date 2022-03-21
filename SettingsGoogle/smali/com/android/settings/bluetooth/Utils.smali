@@ -53,7 +53,7 @@
     :goto_0
     if-nez p1, :cond_1
 
-    const p1, 0x7f041420
+    const p1, 0x7f041445
 
     invoke-virtual {p0, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -78,7 +78,7 @@
 .method public static isAdvancedDetailsHeader(Landroid/bluetooth/BluetoothDevice;)Z
     .locals 4
 
-    const-string v0, "settings_ui"
+    const-string/jumbo v0, "settings_ui"
 
     const-string v1, "bt_advanced_header_enabled"
 
@@ -214,7 +214,7 @@
 
     invoke-virtual {v0, p0, v1, v2, v1}, Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;->visible(Landroid/content/Context;III)V
 
-    const v0, 0x7f04042d
+    const v0, 0x7f040445
 
     invoke-static {p0, p1, v0, p2}, Lcom/android/settings/bluetooth/Utils;->showError(Landroid/content/Context;Ljava/lang/String;ILcom/android/settingslib/bluetooth/LocalBluetoothManager;)V
 
@@ -320,7 +320,7 @@
 
     invoke-direct {p0, p2}, Landroidx/appcompat/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const p2, 0x7f040465
+    const p2, 0x7f04047d
 
     invoke-virtual {p0, p2}, Landroidx/appcompat/app/AlertDialog$Builder;->setTitle(I)Landroidx/appcompat/app/AlertDialog$Builder;
 

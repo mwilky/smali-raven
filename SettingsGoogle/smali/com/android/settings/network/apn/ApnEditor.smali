@@ -140,7 +140,7 @@
 
     const-string v2, "mms"
 
-    const-string v3, "supl"
+    const-string/jumbo v3, "supl"
 
     const-string v4, "dun"
 
@@ -158,7 +158,7 @@
 
     const-string v11, "mcx"
 
-    const-string v12, "xcap"
+    const-string/jumbo v12, "xcap"
 
     filled-new-array/range {v1 .. v12}, [Ljava/lang/String;
 
@@ -176,7 +176,7 @@
 
     const-string v5, "port"
 
-    const-string v6, "user"
+    const-string/jumbo v6, "user"
 
     const-string v7, "server"
 
@@ -196,7 +196,7 @@
 
     const-string v15, "authtype"
 
-    const-string v16, "type"
+    const-string/jumbo v16, "type"
 
     const-string v17, "protocol"
 
@@ -214,7 +214,7 @@
 
     const-string v24, "edited"
 
-    const-string v25, "user_editable"
+    const-string/jumbo v25, "user_editable"
 
     filled-new-array/range {v1 .. v25}, [Ljava/lang/String;
 
@@ -518,7 +518,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f040219
+    const v0, 0x7f04022d
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1014,6 +1014,14 @@
 
     if-nez v6, :cond_1
 
+    const-string v6, "ims"
+
+    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-nez v6, :cond_1
+
     if-eqz v3, :cond_0
 
     move v3, v2
@@ -1121,7 +1129,7 @@
     goto/16 :goto_0
 
     :sswitch_4
-    const-string v0, "user"
+    const-string/jumbo v0, "user"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1137,7 +1145,7 @@
     goto/16 :goto_0
 
     :sswitch_5
-    const-string v0, "type"
+    const-string/jumbo v0, "type"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1624,7 +1632,7 @@
 .method private initApnEditorUi()V
     .locals 2
 
-    const v0, 0x7f15001f
+    const v0, 0x7f150020
 
     invoke-virtual {p0, v0}, Lcom/android/settings/SettingsPreferenceFragment;->addPreferencesFromResource(I)V
 
@@ -1632,7 +1640,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f040218
+    const v1, 0x7f04022c
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2095,7 +2103,7 @@
 
     invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "x"
+    const-string/jumbo v1, "x"
 
     invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -3412,7 +3420,7 @@
     :cond_0
     const/4 v1, -0x1
 
-    const-string v2, "sub_id"
+    const-string/jumbo v2, "sub_id"
 
     invoke-virtual {p1, v2, v1}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
@@ -3717,13 +3725,13 @@
 
     const/4 p2, 0x1
 
-    const v1, 0x7f040ce3
+    const v1, 0x7f040cfb
 
     invoke-interface {p1, v0, p2, v0, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
     move-result-object p2
 
-    const v1, 0x7f0201ad
+    const v1, 0x7f0201b4
 
     invoke-interface {p2, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
@@ -3734,7 +3742,7 @@
 
     const/4 p0, 0x2
 
-    const p2, 0x7f040cf0
+    const p2, 0x7f040d1a
 
     invoke-interface {p1, v0, p0, v0, p2}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -3747,7 +3755,7 @@
     :cond_1
     const/4 p0, 0x3
 
-    const p2, 0x7f040ce2
+    const p2, 0x7f040cfa
 
     invoke-interface {p1, v0, p0, v0, p2}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -4474,7 +4482,7 @@
 
     const/4 v5, 0x5
 
-    const-string v2, "user"
+    const-string/jumbo v2, "user"
 
     move-object v0, p0
 
@@ -4621,7 +4629,7 @@
 
     const/16 v5, 0xf
 
-    const-string v2, "type"
+    const-string/jumbo v2, "type"
 
     move-object v0, p0
 
@@ -4941,7 +4949,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0408d3
+    const v1, 0x7f0408eb
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -4960,7 +4968,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0408ce
+    const v1, 0x7f0408e6
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -5007,7 +5015,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0408d2
+    const v1, 0x7f0408ea
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -5021,7 +5029,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0408d1
+    const v1, 0x7f0408e9
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -5079,7 +5087,7 @@
 
     invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v9, "validateApnData: appending type: "
+    const-string/jumbo v9, "validateApnData: appending type: "
 
     invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -5119,7 +5127,7 @@
 
     move-result-object p0
 
-    const v1, 0x7f0408cd
+    const v1, 0x7f0408e5
 
     invoke-virtual {p0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

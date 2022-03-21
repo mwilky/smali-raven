@@ -50,7 +50,7 @@
 .method protected isPageSearchEnabled(Landroid/content/Context;)Z
     .locals 0
 
-    const-string p0, "user"
+    const-string/jumbo p0, "user"
 
     invoke-virtual {p1, p0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 

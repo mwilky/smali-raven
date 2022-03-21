@@ -72,7 +72,7 @@
 
     const/4 v0, 0x0
 
-    const-string v1, "skip_pending_enroll"
+    const-string/jumbo v1, "skip_pending_enroll"
 
     invoke-virtual {p2, v1, v0}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
@@ -191,39 +191,56 @@
 .end method
 
 .method private synthetic lambda$onCreate$0(Z)V
-    .locals 2
+    .locals 3
 
-    if-eqz p1, :cond_0
+    invoke-virtual {p0}, Lcom/android/settings/biometrics/BiometricEnrollIntroduction;->checkMaxEnrolled()I
+
+    move-result v0
+
+    const/4 v1, 0x0
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    move v0, v1
+
+    :goto_0
+    if-nez v0, :cond_2
+
+    if-eqz p1, :cond_1
 
     invoke-virtual {p0}, Lcom/android/settings/biometrics/BiometricEnrollIntroduction;->getMoreButtonTextRes()I
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_1
 
-    :cond_0
+    :cond_1
     invoke-virtual {p0}, Lcom/android/settings/biometrics/BiometricEnrollIntroduction;->getAgreeButtonTextRes()I
 
     move-result v0
 
-    :goto_0
+    :goto_1
     invoke-virtual {p0}, Lcom/android/settings/biometrics/BiometricEnrollIntroduction;->getPrimaryFooterButton()Lcom/google/android/setupcompat/template/FooterButton;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v1, p0, v0}, Lcom/google/android/setupcompat/template/FooterButton;->setText(Landroid/content/Context;I)V
+    invoke-virtual {v2, p0, v0}, Lcom/google/android/setupcompat/template/FooterButton;->setText(Landroid/content/Context;I)V
 
-    if-nez p1, :cond_1
+    :cond_2
+    if-nez p1, :cond_3
 
     invoke-virtual {p0}, Lcom/android/settings/biometrics/BiometricEnrollIntroduction;->getSecondaryFooterButton()Lcom/google/android/setupcompat/template/FooterButton;
 
     move-result-object p0
 
-    const/4 p1, 0x0
+    invoke-virtual {p0, v1}, Lcom/google/android/setupcompat/template/FooterButton;->setVisibility(I)V
 
-    invoke-virtual {p0, p1}, Lcom/google/android/setupcompat/template/FooterButton;->setVisibility(I)V
-
-    :cond_1
+    :cond_3
     return-void
 .end method
 
@@ -654,7 +671,7 @@
 
     move-result-object p1
 
-    const-string v0, "theme"
+    const-string/jumbo v0, "theme"
 
     invoke-virtual {p1, v0}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
@@ -872,7 +889,7 @@
 .end method
 
 .method protected onNextButtonClick(Landroid/view/View;)V
-    .locals 1
+    .locals 2
 
     const/4 p1, 0x1
 
@@ -891,10 +908,21 @@
     goto :goto_0
 
     :cond_0
+    const/4 v0, 0x6
+
+    const-string v1, "enrollIntroduction#onNextButtonClicked"
+
+    invoke-static {p0, v0, v1}, Lcom/android/settings/biometrics/BiometricUtils;->tryStartingNextBiometricEnroll(Landroid/app/Activity;ILjava/lang/String;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
     invoke-virtual {p0, p1}, Landroid/app/Activity;->setResult(I)V
 
     invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
+    :cond_1
     :goto_0
     return-void
 .end method
@@ -949,7 +977,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f040831
+    const v3, 0x7f040849
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

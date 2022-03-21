@@ -21,7 +21,7 @@
 
     new-instance v0, Lcom/android/settings/notification/zen/ZenModeSettings$1;
 
-    const v1, 0x7f150128
+    const v1, 0x7f15012d
 
     invoke-direct {v0, v1}, Lcom/android/settings/notification/zen/ZenModeSettings$1;-><init>(I)V
 
@@ -77,7 +77,7 @@
 
     new-instance v1, Lcom/android/settings/notification/zen/ZenModePeoplePreferenceController;
 
-    const-string v2, "zen_mode_behavior_people"
+    const-string/jumbo v2, "zen_mode_behavior_people"
 
     invoke-direct {v1, p0, p1, v2}, Lcom/android/settings/notification/zen/ZenModePeoplePreferenceController;-><init>(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;Ljava/lang/String;)V
 
@@ -91,7 +91,7 @@
 
     new-instance p3, Lcom/android/settings/notification/zen/ZenModeSoundVibrationPreferenceController;
 
-    const-string p4, "zen_sound_vibration_settings"
+    const-string/jumbo p4, "zen_sound_vibration_settings"
 
     invoke-direct {p3, p0, p1, p4}, Lcom/android/settings/notification/zen/ZenModeSoundVibrationPreferenceController;-><init>(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;Ljava/lang/String;)V
 
@@ -173,7 +173,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f0409e9
+    const p0, 0x7f040a01
 
     return p0
 .end method
@@ -189,7 +189,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f150128
+    const p0, 0x7f15012d
 
     return p0
 .end method

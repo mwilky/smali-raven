@@ -40,7 +40,7 @@
 
     move-object v0, p1
 
-    const-string v8, "unable to setProgress"
+    const-string/jumbo v8, "unable to setProgress"
 
     const-string v9, "SplineSet"
 
@@ -89,7 +89,7 @@
 
     move-result-object v3
 
-    const-string v4, "setProgress"
+    const-string/jumbo v4, "setProgress"
 
     new-array v5, v2, [Ljava/lang/Class;
 

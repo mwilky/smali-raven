@@ -40,7 +40,7 @@
     :cond_0
     iget-boolean v0, p0, Lcom/android/settings/notification/NotificationBackend$AppRow;->banned:Z
 
-    const v1, 0x7f040e8a
+    const v1, 0x7f040eb5
 
     if-eqz v0, :cond_1
 
@@ -88,7 +88,7 @@
     return-object p0
 
     :cond_4
-    const v0, 0x7f040e8c
+    const v0, 0x7f040eb7
 
     const/4 v1, 0x2
 
@@ -240,6 +240,16 @@
     move-result-object p0
 
     return-object p0
+.end method
+
+.method public bridge synthetic getSliceHighlightMenuRes()I
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getSliceHighlightMenuRes()I
+
+    move-result p0
+
+    return p0
 .end method
 
 .method public bridge synthetic hasAsyncUpdate()Z

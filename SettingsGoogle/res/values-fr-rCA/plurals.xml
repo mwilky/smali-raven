@@ -141,8 +141,8 @@
         <item quantity="one">%1$d application sur %2$d a accès à la position</item>
     </plurals>
     <plurals name="location_settings_summary_location_on">
-        <item quantity="other">Activé : %1$d applications ont accès à la position</item>
-        <item quantity="one">Activé : %1$d application a accès à la position</item>
+        <item quantity="other">Activée : %1$d applications ont accès à la position</item>
+        <item quantity="one">Activée : %1$d application a accès à la position</item>
     </plurals>
     <plurals name="lockpassword_password_requires_letters">
         <item quantity="other">Doit contenir au moins %d lettres</item>

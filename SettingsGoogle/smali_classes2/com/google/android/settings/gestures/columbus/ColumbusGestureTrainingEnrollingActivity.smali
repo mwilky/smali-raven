@@ -95,13 +95,13 @@
 
     iget-object v0, p0, Lcom/google/android/settings/gestures/columbus/ColumbusGestureTrainingEnrollingActivity;->mLayout:Lcom/google/android/setupdesign/GlifLayout;
 
-    const v1, 0x7f0405e5
+    const v1, 0x7f0405fd
 
     invoke-virtual {v0, v1}, Lcom/google/android/setupdesign/GlifLayout;->setHeaderText(I)V
 
     iget-object v0, p0, Lcom/google/android/settings/gestures/columbus/ColumbusGestureTrainingEnrollingActivity;->mLayout:Lcom/google/android/setupdesign/GlifLayout;
 
-    const v1, 0x7f0405e4
+    const v1, 0x7f0405fc
 
     invoke-virtual {v0, v1}, Lcom/google/android/setupdesign/GlifLayout;->setDescriptionText(I)V
 
@@ -119,7 +119,7 @@
 
     invoke-direct {v1, p0}, Lcom/google/android/setupcompat/template/FooterButton$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f041775
+    const v2, 0x7f04179a
 
     invoke-virtual {v1, v2}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setText(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -139,7 +139,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f13021a
+    const v2, 0x7f13021c
 
     invoke-virtual {v1, v2}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setTheme(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -173,13 +173,13 @@
 
     iget-object v0, p0, Lcom/google/android/settings/gestures/columbus/ColumbusGestureTrainingEnrollingActivity;->mLayout:Lcom/google/android/setupdesign/GlifLayout;
 
-    const v1, 0x7f0405e2
+    const v1, 0x7f0405fa
 
     invoke-virtual {v0, v1}, Lcom/google/android/setupdesign/GlifLayout;->setHeaderText(I)V
 
     iget-object v0, p0, Lcom/google/android/settings/gestures/columbus/ColumbusGestureTrainingEnrollingActivity;->mLayout:Lcom/google/android/setupdesign/GlifLayout;
 
-    const v1, 0x7f0405e1
+    const v1, 0x7f0405f9
 
     invoke-virtual {v0, v1}, Lcom/google/android/setupdesign/GlifLayout;->setDescriptionText(I)V
 
@@ -294,13 +294,13 @@
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->setTheme(I)V
 
-    const v0, 0x7f060084
+    const v0, 0x7f060086
 
     invoke-virtual {p0, v0}, Landroidx/activity/ComponentActivity;->setContentView(I)V
 
     invoke-super {p0, p1}, Lcom/google/android/settings/gestures/columbus/ColumbusGestureTrainingBase;->onCreate(Landroid/os/Bundle;)V
 
-    const p1, 0x7f0d0318
+    const p1, 0x7f0d0324
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -310,7 +310,7 @@
 
     iput-object p1, p0, Lcom/google/android/settings/gestures/columbus/ColumbusGestureTrainingEnrollingActivity;->mLayout:Lcom/google/android/setupdesign/GlifLayout;
 
-    const v0, 0x7f0d0086
+    const v0, 0x7f0d0089
 
     invoke-virtual {p1, v0}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
 
@@ -322,7 +322,7 @@
 
     iget-object p1, p0, Lcom/google/android/settings/gestures/columbus/ColumbusGestureTrainingEnrollingActivity;->mLayout:Lcom/google/android/setupdesign/GlifLayout;
 
-    const v0, 0x7f0d0167
+    const v0, 0x7f0d016b
 
     invoke-virtual {p1, v0}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
 
@@ -334,7 +334,7 @@
 
     iget-object p1, p0, Lcom/google/android/settings/gestures/columbus/ColumbusGestureTrainingEnrollingActivity;->mLayout:Lcom/google/android/setupdesign/GlifLayout;
 
-    const v0, 0x7f0405e6
+    const v0, 0x7f0405fe
 
     invoke-virtual {p1, v0}, Lcom/google/android/setupdesign/GlifLayout;->setDescriptionText(I)V
 
@@ -352,7 +352,7 @@
 
     invoke-direct {v0, p0}, Lcom/google/android/setupcompat/template/FooterButton$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f0405da
+    const v1, 0x7f0405f2
 
     invoke-virtual {v0, v1}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setText(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -372,7 +372,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f13021b
+    const v0, 0x7f13021d
 
     invoke-virtual {p0, v0}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setTheme(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 

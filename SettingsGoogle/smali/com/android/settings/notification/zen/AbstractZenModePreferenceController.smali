@@ -195,7 +195,7 @@
 
     move-result-object p0
 
-    const-string v0, "zen_duration"
+    const-string/jumbo v0, "zen_duration"
 
     const/4 v1, 0x0
 
@@ -219,7 +219,7 @@
 
     iget p0, p0, Lcom/android/settings/notification/zen/ZenModeBackend;->mZenMode:I
 
-    const-string v1, "zen_mode"
+    const-string/jumbo v1, "zen_mode"
 
     invoke-static {v0, v1, p0}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 

@@ -30,64 +30,64 @@
 
 .field public static final actionOverflowMenuStyle:I = 0x7f05002c
 
-.field public static final alertDialogCenterButtons:I = 0x7f050033
+.field public static final alertDialogCenterButtons:I = 0x7f050035
 
-.field public static final alertDialogStyle:I = 0x7f050034
+.field public static final alertDialogStyle:I = 0x7f050036
 
-.field public static final alertDialogTheme:I = 0x7f050035
+.field public static final alertDialogTheme:I = 0x7f050037
 
-.field public static final autoCompleteTextViewStyle:I = 0x7f050048
+.field public static final autoCompleteTextViewStyle:I = 0x7f05004b
 
-.field public static final buttonStyle:I = 0x7f05008e
+.field public static final buttonStyle:I = 0x7f050091
 
-.field public static final checkboxStyle:I = 0x7f05009d
+.field public static final checkboxStyle:I = 0x7f0500a0
 
-.field public static final colorAccent:I = 0x7f0500d1
+.field public static final colorAccent:I = 0x7f0500d5
 
-.field public static final colorButtonNormal:I = 0x7f0500d3
+.field public static final colorButtonNormal:I = 0x7f0500d7
 
-.field public static final colorControlActivated:I = 0x7f0500d4
+.field public static final colorControlActivated:I = 0x7f0500d8
 
-.field public static final colorControlHighlight:I = 0x7f0500d5
+.field public static final colorControlHighlight:I = 0x7f0500d9
 
-.field public static final colorControlNormal:I = 0x7f0500d6
+.field public static final colorControlNormal:I = 0x7f0500da
 
-.field public static final colorPrimary:I = 0x7f0500de
+.field public static final colorPrimary:I = 0x7f0500e2
 
-.field public static final colorPrimaryDark:I = 0x7f0500df
+.field public static final colorPrimaryDark:I = 0x7f0500e3
 
-.field public static final colorSwitchThumbNormal:I = 0x7f0500e5
+.field public static final colorSwitchThumbNormal:I = 0x7f0500e9
 
-.field public static final dialogTheme:I = 0x7f050139
+.field public static final dialogTheme:I = 0x7f05013d
 
-.field public static final dropDownListViewStyle:I = 0x7f050153
+.field public static final dropDownListViewStyle:I = 0x7f050157
 
-.field public static final editTextStyle:I = 0x7f05015a
+.field public static final editTextStyle:I = 0x7f05015e
 
-.field public static final imageButtonStyle:I = 0x7f0501f2
+.field public static final imageButtonStyle:I = 0x7f0501f9
 
-.field public static final isLightTheme:I = 0x7f0501ff
+.field public static final isLightTheme:I = 0x7f050206
 
-.field public static final listMenuViewStyle:I = 0x7f050271
+.field public static final listMenuViewStyle:I = 0x7f050278
 
-.field public static final listPopupWindowStyle:I = 0x7f050272
+.field public static final listPopupWindowStyle:I = 0x7f050279
 
-.field public static final panelMenuListTheme:I = 0x7f05030c
+.field public static final panelMenuListTheme:I = 0x7f050313
 
-.field public static final radioButtonStyle:I = 0x7f050341
+.field public static final radioButtonStyle:I = 0x7f05034a
 
-.field public static final ratingBarStyle:I = 0x7f050343
+.field public static final ratingBarStyle:I = 0x7f05034c
 
-.field public static final searchViewStyle:I = 0x7f05035d
+.field public static final searchViewStyle:I = 0x7f050366
 
-.field public static final seekBarStyle:I = 0x7f050363
+.field public static final seekBarStyle:I = 0x7f05036e
 
-.field public static final spinnerStyle:I = 0x7f05038a
+.field public static final spinnerStyle:I = 0x7f050395
 
-.field public static final switchStyle:I = 0x7f050428
+.field public static final switchStyle:I = 0x7f05043c
 
-.field public static final textColorSearchUrl:I = 0x7f050465
+.field public static final textColorSearchUrl:I = 0x7f050479
 
-.field public static final toolbarNavigationButtonStyle:I = 0x7f05049b
+.field public static final toolbarNavigationButtonStyle:I = 0x7f0504af
 
-.field public static final toolbarStyle:I = 0x7f05049c
+.field public static final toolbarStyle:I = 0x7f0504b0

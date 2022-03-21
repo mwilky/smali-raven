@@ -108,7 +108,7 @@
 .method public getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f150072
+    const p0, 0x7f150073
 
     return p0
 .end method

@@ -10,8 +10,14 @@
 .implements Lcom/android/settings/fuelgauge/BatterySaverReceiver$BatterySaverListener;
 
 
+# static fields
+.field private static final SWITCH_ANIMATION_DURATION:J = 0x15eL
+
+
 # instance fields
 .field private final mBatterySaverReceiver:Lcom/android/settings/fuelgauge/BatterySaverReceiver;
+
+.field private mHandler:Landroid/os/Handler;
 
 .field private final mPowerManager:Landroid/os/PowerManager;
 
@@ -19,6 +25,14 @@
 
 
 # direct methods
+.method public static synthetic $r8$lambda$iFOAXG2P-72T0OUpHw4AQvbzbR4(Lcom/android/settings/fuelgauge/batterysaver/BatterySaverButtonPreferenceController;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/fuelgauge/batterysaver/BatterySaverButtonPreferenceController;->lambda$onPowerSaveModeChanged$0()V
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/String;)V
     .locals 0
 
@@ -42,6 +56,49 @@
 
     invoke-virtual {p2, p0}, Lcom/android/settings/fuelgauge/BatterySaverReceiver;->setBatterySaverListener(Lcom/android/settings/fuelgauge/BatterySaverReceiver$BatterySaverListener;)V
 
+    new-instance p1, Landroid/os/Handler;
+
+    invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
+
+    move-result-object p2
+
+    invoke-direct {p1, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
+
+    iput-object p1, p0, Lcom/android/settings/fuelgauge/batterysaver/BatterySaverButtonPreferenceController;->mHandler:Landroid/os/Handler;
+
+    return-void
+.end method
+
+.method private synthetic lambda$onPowerSaveModeChanged$0()V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/fuelgauge/batterysaver/BatterySaverButtonPreferenceController;->onPowerSaveModeChangedInternal()V
+
+    return-void
+.end method
+
+.method private onPowerSaveModeChangedInternal()V
+    .locals 2
+
+    invoke-virtual {p0}, Lcom/android/settings/fuelgauge/batterysaver/BatterySaverButtonPreferenceController;->isChecked()Z
+
+    move-result v0
+
+    iget-object v1, p0, Lcom/android/settings/fuelgauge/batterysaver/BatterySaverButtonPreferenceController;->mPreference:Lcom/android/settingslib/widget/MainSwitchPreference;
+
+    if-eqz v1, :cond_0
+
+    invoke-virtual {v1}, Landroidx/preference/TwoStatePreference;->isChecked()Z
+
+    move-result v1
+
+    if-eq v1, v0, :cond_0
+
+    iget-object p0, p0, Lcom/android/settings/fuelgauge/batterysaver/BatterySaverButtonPreferenceController;->mPreference:Lcom/android/settingslib/widget/MainSwitchPreference;
+
+    invoke-virtual {p0, v0}, Lcom/android/settingslib/widget/MainSwitchPreference;->setChecked(Z)V
+
+    :cond_0
     return-void
 .end method
 
@@ -74,7 +131,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f04038e
+    const v1, 0x7f0403a3
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -132,6 +189,14 @@
     move-result-object p0
 
     return-object p0
+.end method
+
+.method public getSliceHighlightMenuRes()I
+    .locals 0
+
+    const p0, 0x7f040d05
+
+    return p0
 .end method
 
 .method public getSliceUri()Landroid/net/Uri;
@@ -228,27 +293,18 @@
 .end method
 
 .method public onPowerSaveModeChanged()V
-    .locals 2
+    .locals 4
 
-    invoke-virtual {p0}, Lcom/android/settings/fuelgauge/batterysaver/BatterySaverButtonPreferenceController;->isChecked()Z
+    iget-object v0, p0, Lcom/android/settings/fuelgauge/batterysaver/BatterySaverButtonPreferenceController;->mHandler:Landroid/os/Handler;
 
-    move-result v0
+    new-instance v1, Lcom/android/settings/fuelgauge/batterysaver/BatterySaverButtonPreferenceController$$ExternalSyntheticLambda0;
 
-    iget-object v1, p0, Lcom/android/settings/fuelgauge/batterysaver/BatterySaverButtonPreferenceController;->mPreference:Lcom/android/settingslib/widget/MainSwitchPreference;
+    invoke-direct {v1, p0}, Lcom/android/settings/fuelgauge/batterysaver/BatterySaverButtonPreferenceController$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/fuelgauge/batterysaver/BatterySaverButtonPreferenceController;)V
 
-    if-eqz v1, :cond_0
+    const-wide/16 v2, 0x15e
 
-    invoke-virtual {v1}, Landroidx/preference/TwoStatePreference;->isChecked()Z
+    invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    move-result v1
-
-    if-eq v1, v0, :cond_0
-
-    iget-object p0, p0, Lcom/android/settings/fuelgauge/batterysaver/BatterySaverButtonPreferenceController;->mPreference:Lcom/android/settingslib/widget/MainSwitchPreference;
-
-    invoke-virtual {p0, v0}, Lcom/android/settingslib/widget/MainSwitchPreference;->setChecked(Z)V
-
-    :cond_0
     return-void
 .end method
 
@@ -265,13 +321,19 @@
 .end method
 
 .method public onStop()V
-    .locals 1
+    .locals 2
 
-    iget-object p0, p0, Lcom/android/settings/fuelgauge/batterysaver/BatterySaverButtonPreferenceController;->mBatterySaverReceiver:Lcom/android/settings/fuelgauge/BatterySaverReceiver;
+    iget-object v0, p0, Lcom/android/settings/fuelgauge/batterysaver/BatterySaverButtonPreferenceController;->mBatterySaverReceiver:Lcom/android/settings/fuelgauge/BatterySaverReceiver;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Lcom/android/settings/fuelgauge/BatterySaverReceiver;->setListening(Z)V
+
+    iget-object p0, p0, Lcom/android/settings/fuelgauge/batterysaver/BatterySaverButtonPreferenceController;->mHandler:Landroid/os/Handler;
 
     const/4 v0, 0x0
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/fuelgauge/BatterySaverReceiver;->setListening(Z)V
+    invoke-virtual {p0, v0}, Landroid/os/Handler;->removeCallbacksAndMessages(Ljava/lang/Object;)V
 
     return-void
 .end method

@@ -16,22 +16,22 @@
 
 .field public static final design_fab_stroke_top_outer_color:I = 0x7f0a00a1
 
-.field public static final material_slider_active_tick_marks_color:I = 0x7f0a0122
+.field public static final material_slider_active_tick_marks_color:I = 0x7f0a0120
 
-.field public static final material_slider_active_track_color:I = 0x7f0a0123
+.field public static final material_slider_active_track_color:I = 0x7f0a0121
 
-.field public static final material_slider_halo_color:I = 0x7f0a0124
+.field public static final material_slider_halo_color:I = 0x7f0a0122
 
-.field public static final material_slider_inactive_tick_marks_color:I = 0x7f0a0125
+.field public static final material_slider_inactive_tick_marks_color:I = 0x7f0a0123
 
-.field public static final material_slider_inactive_track_color:I = 0x7f0a0126
+.field public static final material_slider_inactive_track_color:I = 0x7f0a0124
 
-.field public static final material_timepicker_clockface:I = 0x7f0a012b
+.field public static final material_timepicker_clockface:I = 0x7f0a0129
 
-.field public static final mtrl_filled_background_color:I = 0x7f0a015f
+.field public static final mtrl_filled_background_color:I = 0x7f0a015d
 
-.field public static final mtrl_textinput_default_box_stroke_color:I = 0x7f0a0176
+.field public static final mtrl_textinput_default_box_stroke_color:I = 0x7f0a0174
 
-.field public static final mtrl_textinput_disabled_color:I = 0x7f0a0177
+.field public static final mtrl_textinput_disabled_color:I = 0x7f0a0175
 
-.field public static final mtrl_textinput_hovered_box_stroke_color:I = 0x7f0a017a
+.field public static final mtrl_textinput_hovered_box_stroke_color:I = 0x7f0a0178

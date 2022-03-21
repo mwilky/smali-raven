@@ -64,7 +64,7 @@
 
     move-result-object p0
 
-    const-string p1, "zen_mode_duration_settings"
+    const-string/jumbo p1, "zen_mode_duration_settings"
 
     invoke-interface {p0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 

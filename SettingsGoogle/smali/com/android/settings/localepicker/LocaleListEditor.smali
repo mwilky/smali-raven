@@ -79,7 +79,7 @@
 .method private configureDragAndDrop(Landroid/view/View;)V
     .locals 4
 
-    const v0, 0x7f0d01e0
+    const v0, 0x7f0d01e4
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -113,7 +113,7 @@
 
     invoke-virtual {v0, v1}, Landroidx/recyclerview/widget/RecyclerView;->setAdapter(Landroidx/recyclerview/widget/RecyclerView$Adapter;)V
 
-    const v0, 0x7f0d005b
+    const v0, 0x7f0d005c
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -349,7 +349,7 @@
 
     const/4 v1, 0x2
 
-    const v2, 0x7f040b64
+    const v2, 0x7f040b7c
 
     invoke-interface {p1, v0, v1, v0, v2}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -359,7 +359,7 @@
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setShowAsAction(I)V
 
-    const v1, 0x7f0201ad
+    const v1, 0x7f0201b4
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
@@ -383,7 +383,7 @@
 
     check-cast p3, Landroid/view/ViewGroup;
 
-    const v0, 0x7f060115
+    const v0, 0x7f060119
 
     invoke-virtual {p1, v0, p3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -471,7 +471,7 @@
 
     if-nez v0, :cond_0
 
-    const v0, 0x7f040b41
+    const v0, 0x7f040b59
 
     invoke-virtual {v1, v0}, Landroid/widget/TextView;->setText(I)V
 
@@ -512,7 +512,7 @@
 
     iget-boolean v0, p0, Lcom/android/settings/localepicker/LocaleListEditor;->mShowingRemoveDialog:Z
 
-    const-string v1, "showingLocaleRemoveDialog"
+    const-string/jumbo v1, "showingLocaleRemoveDialog"
 
     invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
@@ -540,7 +540,7 @@
 
     iput-boolean v0, p0, Lcom/android/settings/localepicker/LocaleListEditor;->mRemoveMode:Z
 
-    const-string v0, "showingLocaleRemoveDialog"
+    const-string/jumbo v0, "showingLocaleRemoveDialog"
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z
 
@@ -607,13 +607,13 @@
 
     invoke-direct {v0, v1}, Landroidx/appcompat/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f040811
+    const v1, 0x7f040829
 
     invoke-virtual {v0, v1}, Landroidx/appcompat/app/AlertDialog$Builder;->setTitle(I)Landroidx/appcompat/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f040810
+    const v1, 0x7f040828
 
     invoke-virtual {v0, v1}, Landroidx/appcompat/app/AlertDialog$Builder;->setMessage(I)Landroidx/appcompat/app/AlertDialog$Builder;
 
@@ -674,7 +674,7 @@
 
     if-eqz v2, :cond_2
 
-    const v2, 0x7f040812
+    const v2, 0x7f04082a
 
     invoke-virtual {v1, v2}, Landroidx/appcompat/app/AlertDialog$Builder;->setMessage(I)Landroidx/appcompat/app/AlertDialog$Builder;
 
@@ -693,7 +693,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f040b64
+    const v1, 0x7f040b7c
 
     new-instance v2, Lcom/android/settings/localepicker/LocaleListEditor$4;
 

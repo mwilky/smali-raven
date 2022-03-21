@@ -36,7 +36,7 @@
 
     invoke-virtual {v0, v1, p0}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    const-string p0, "title_id"
+    const-string/jumbo p0, "title_id"
 
     invoke-virtual {v0, p0, p1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
@@ -68,7 +68,7 @@
 
     move-result-object p0
 
-    const-string v0, "title_id"
+    const-string/jumbo v0, "title_id"
 
     invoke-virtual {p0, v0}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 

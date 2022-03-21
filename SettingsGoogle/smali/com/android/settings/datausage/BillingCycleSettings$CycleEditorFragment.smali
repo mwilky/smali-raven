@@ -48,7 +48,7 @@
 
     iget-object v1, p0, Lcom/android/settings/datausage/BillingCycleSettings;->mNetworkTemplate:Landroid/net/NetworkTemplate;
 
-    const-string v2, "template"
+    const-string/jumbo v2, "template"
 
     invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
@@ -90,7 +90,7 @@
 
     move-result-object p1
 
-    const-string p2, "template"
+    const-string/jumbo p2, "template"
 
     invoke-virtual {p1, p2}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
 
@@ -134,7 +134,7 @@
 .end method
 
 .method public onCreateDialog(Landroid/os/Bundle;)Landroid/app/Dialog;
-    .locals 5
+    .locals 6
 
     invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getActivity()Landroidx/fragment/app/FragmentActivity;
 
@@ -162,7 +162,7 @@
 
     move-result-object p1
 
-    const v2, 0x7f0600b3
+    const v2, 0x7f0600b5
 
     const/4 v3, 0x0
 
@@ -172,7 +172,7 @@
 
     move-result-object p1
 
-    const v2, 0x7f0d0197
+    const v2, 0x7f0d019b
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -186,7 +186,7 @@
 
     move-result-object v2
 
-    const-string v3, "template"
+    const-string/jumbo v3, "template"
 
     invoke-virtual {v2, v3}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
 
@@ -206,9 +206,9 @@
 
     iget-object v2, p0, Lcom/android/settings/datausage/BillingCycleSettings$CycleEditorFragment;->mCycleDayPicker:Landroid/widget/NumberPicker;
 
-    const/16 v4, 0x1f
+    const/16 v5, 0x1f
 
-    invoke-virtual {v2, v4}, Landroid/widget/NumberPicker;->setMaxValue(I)V
+    invoke-virtual {v2, v5}, Landroid/widget/NumberPicker;->setMaxValue(I)V
 
     iget-object v2, p0, Lcom/android/settings/datausage/BillingCycleSettings$CycleEditorFragment;->mCycleDayPicker:Landroid/widget/NumberPicker;
 
@@ -218,7 +218,7 @@
 
     invoke-virtual {v0, v3}, Landroid/widget/NumberPicker;->setWrapSelectorWheel(Z)V
 
-    const v0, 0x7f040724
+    const v0, 0x7f04073c
 
     invoke-virtual {v1, v0}, Landroidx/appcompat/app/AlertDialog$Builder;->setTitle(I)Landroidx/appcompat/app/AlertDialog$Builder;
 
@@ -228,7 +228,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f040722
+    const v0, 0x7f04073a
 
     invoke-virtual {p1, v0, p0}, Landroidx/appcompat/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
 
@@ -237,6 +237,8 @@
     invoke-virtual {p0}, Landroidx/appcompat/app/AlertDialog$Builder;->create()Landroidx/appcompat/app/AlertDialog;
 
     move-result-object p0
+
+    invoke-virtual {p0, v4}, Landroid/app/Dialog;->setCanceledOnTouchOutside(Z)V
 
     return-object p0
 .end method

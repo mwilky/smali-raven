@@ -143,7 +143,7 @@
 .method protected getActivityLayoutResId()I
     .locals 0
 
-    const p0, 0x7f0600f2
+    const p0, 0x7f0600f5
 
     return p0
 .end method
@@ -151,7 +151,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f040a1b
+    const p0, 0x7f040a33
 
     return p0
 .end method
@@ -173,7 +173,7 @@
 
     const/4 v0, 0x0
 
-    const v1, 0x7f0600f3
+    const v1, 0x7f0600f6
 
     aput v1, p0, v0
 

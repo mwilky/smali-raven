@@ -44,7 +44,7 @@
 
     new-instance p2, Lcom/android/settings/users/AddUserWhenLockedPreferenceController;
 
-    const-string p3, "user_settings_add_users_when_locked"
+    const-string/jumbo p3, "user_settings_add_users_when_locked"
 
     invoke-direct {p2, p1, p3}, Lcom/android/settings/users/AddUserWhenLockedPreferenceController;-><init>(Landroid/content/Context;Ljava/lang/String;)V
 

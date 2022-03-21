@@ -13,7 +13,7 @@
 
     new-instance v0, Lcom/android/settings/location/WifiScanningFragment$1;
 
-    const v1, 0x7f15008a
+    const v1, 0x7f15008e
 
     invoke-direct {v0, v1}, Lcom/android/settings/location/WifiScanningFragment$1;-><init>(I)V
 
@@ -107,7 +107,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f15008a
+    const p0, 0x7f15008e
 
     return p0
 .end method

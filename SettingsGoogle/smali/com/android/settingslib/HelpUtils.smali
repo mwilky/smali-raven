@@ -361,7 +361,7 @@
 
     sget-object v0, Lcom/android/settingslib/HelpUtils;->sCachedVersionCode:Ljava/lang/String;
 
-    const-string v1, "version"
+    const-string/jumbo v1, "version"
 
     if-nez v0, :cond_0
 

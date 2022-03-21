@@ -59,7 +59,7 @@
 
     if-eqz p0, :cond_0
 
-    const-string p0, "true"
+    const-string/jumbo p0, "true"
 
     goto :goto_0
 

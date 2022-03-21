@@ -31,7 +31,7 @@
 
     sput-object v0, Landroidx/constraintlayout/motion/utils/Easing;->sDefault:Landroidx/constraintlayout/motion/utils/Easing;
 
-    const-string v0, "standard"
+    const-string/jumbo v0, "standard"
 
     const-string v1, "accelerate"
 
@@ -96,7 +96,7 @@
     goto :goto_0
 
     :sswitch_0
-    const-string v1, "standard"
+    const-string/jumbo v1, "standard"
 
     invoke-virtual {p0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -164,7 +164,7 @@
 
     invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v0, "transitionEasing syntax error syntax:transitionEasing=\"cubic(1.0,0.5,0.0,0.6)\" or "
+    const-string/jumbo v0, "transitionEasing syntax error syntax:transitionEasing=\"cubic(1.0,0.5,0.0,0.6)\" or "
 
     invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

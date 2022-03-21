@@ -170,7 +170,7 @@
 
     if-eqz p3, :cond_1
 
-    const-string v0, "slice_uri"
+    const-string/jumbo v0, "slice_uri"
 
     invoke-virtual {p3, v0}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
 
@@ -191,7 +191,7 @@
 
     if-eqz v0, :cond_1
 
-    const-string v0, "slice_intent"
+    const-string/jumbo v0, "slice_intent"
 
     invoke-virtual {p3, v0}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
 

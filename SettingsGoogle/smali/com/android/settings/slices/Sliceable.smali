@@ -15,7 +15,7 @@
 
     check-cast v0, Landroid/content/ClipboardManager;
 
-    const-string v1, "text"
+    const-string/jumbo v1, "text"
 
     invoke-static {v1, p1}, Landroid/content/ClipData;->newPlainText(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Landroid/content/ClipData;
 
@@ -31,7 +31,7 @@
 
     aput-object p2, p1, v0
 
-    const p2, 0x7f040697
+    const p2, 0x7f0406af
 
     invoke-virtual {p0, p2, p1}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -77,6 +77,14 @@
     const/4 p0, 0x0
 
     return-object p0
+.end method
+
+.method public getSliceHighlightMenuRes()I
+    .locals 0
+
+    const/4 p0, 0x0
+
+    return p0
 .end method
 
 .method public hasAsyncUpdate()Z

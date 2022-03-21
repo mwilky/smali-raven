@@ -44,7 +44,7 @@
 
     new-instance p2, Lcom/android/settings/display/WallpaperPreferenceController;
 
-    const-string v0, "unused key"
+    const-string/jumbo v0, "unused key"
 
     invoke-direct {p2, p1, v0}, Lcom/android/settings/display/WallpaperPreferenceController;-><init>(Landroid/content/Context;Ljava/lang/String;)V
 
@@ -80,7 +80,7 @@
 
     iput-object p1, v0, Landroid/provider/SearchIndexableData;->intentAction:Ljava/lang/String;
 
-    const-string p1, "wallpaper_type"
+    const-string/jumbo p1, "wallpaper_type"
 
     iput-object p1, v0, Landroid/provider/SearchIndexableData;->key:Ljava/lang/String;
 

@@ -16,7 +16,7 @@
 .method public constructor <init>(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;I)V
     .locals 1
 
-    const-string v0, "zen_mode_repeat_callers"
+    const-string/jumbo v0, "zen_mode_repeat_callers"
 
     invoke-direct {p0, p1, v0, p2}, Lcom/android/settings/notification/zen/AbstractZenModePreferenceController;-><init>(Landroid/content/Context;Ljava/lang/String;Lcom/android/settingslib/core/lifecycle/Lifecycle;)V
 
@@ -50,7 +50,7 @@
 
     aput-object p0, v1, v2
 
-    const p0, 0x7f041831
+    const p0, 0x7f041856
 
     invoke-virtual {v0, p0, v1}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -68,7 +68,7 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/notification/zen/AbstractZenModePreferenceController;->displayPreference(Landroidx/preference/PreferenceScreen;)V
 
-    const-string v0, "zen_mode_repeat_callers"
+    const-string/jumbo v0, "zen_mode_repeat_callers"
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceGroup;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
@@ -82,7 +82,7 @@
 .method public getPreferenceKey()Ljava/lang/String;
     .locals 0
 
-    const-string p0, "zen_mode_repeat_callers"
+    const-string/jumbo p0, "zen_mode_repeat_callers"
 
     return-object p0
 .end method

@@ -125,12 +125,12 @@
 
     if-eqz p2, :cond_0
 
-    const p1, 0x7f0406e3
+    const p1, 0x7f0406fb
 
     goto :goto_0
 
     :cond_0
-    const p1, 0x7f0406e2
+    const p1, 0x7f0406fa
 
     :goto_0
     invoke-virtual {p0}, Landroidx/preference/Preference;->getContext()Landroid/content/Context;
@@ -160,12 +160,12 @@
 
     if-eqz p2, :cond_2
 
-    const p2, 0x7f0406ea
+    const p2, 0x7f040702
 
     goto :goto_1
 
     :cond_2
-    const p2, 0x7f0406e7
+    const p2, 0x7f0406ff
 
     :goto_1
     invoke-virtual {p1, p2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
@@ -209,12 +209,12 @@
 
     if-eqz p2, :cond_5
 
-    const p2, 0x7f0406eb
+    const p2, 0x7f040703
 
     goto :goto_3
 
     :cond_5
-    const p2, 0x7f0406e8
+    const p2, 0x7f040700
 
     :goto_3
     const/4 v1, 0x1
@@ -238,12 +238,12 @@
 
     if-eqz p2, :cond_7
 
-    const p2, 0x7f0406ec
+    const p2, 0x7f040704
 
     goto :goto_4
 
     :cond_7
-    const p2, 0x7f0406e9
+    const p2, 0x7f040701
 
     :goto_4
     invoke-virtual {p1, p2}, Landroid/content/Context;->getString(I)Ljava/lang/String;

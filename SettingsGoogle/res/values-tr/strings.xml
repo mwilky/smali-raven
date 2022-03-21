@@ -28,7 +28,7 @@
     <string name="display_white_balance_title">Beyaz dengeyi göster</string>
     <string name="double_tap_power_for_camera_title">Kamerayı hızlı aç</string>
     <string name="double_twist_for_camera_mode_title">Selfie için kamerayı çevir</string>
-    <string name="doze_always_on_summary">Daha fazla pil kullanımı</string>
+    <string name="doze_always_on_summary">Yüksek pil kullanımı</string>
     <string name="doze_always_on_title">Saati ve bilgiyi daima göster</string>
     <string name="doze_summary">Ekran karanlıkken yeni bildirimler için açılır</string>
     <string name="doze_title">Bildirimlerde ekranı uyandır</string>
@@ -96,6 +96,7 @@
     <string name="peak_refresh_rate_title">Smooth Display</string>
     <string name="peak_refresh_rate_summary">"Bazı içerikler için yenileme hızını otomatik olarak 60 Hz'den 90 Hz'e yükseltir. Pil kullanımını artırır."</string>
     <string name="accessibility_vibration_settings_title">Titreşim ve dokunma teknolojisi</string>
+    <string name="columbus_title">"İşlemleri başlatmak için Hızlı Dokun'u kullanın"</string>
     <string name="emergency_gesture_screen_title">Acil Yardım</string>
     <string name="abc_action_mode_done">Bitti</string>
     <string name="vibrate_for_calls_category_title">Aramalar</string>
@@ -103,6 +104,8 @@
     <string name="lockscreen_privacy_controls_setting_toggle">Cihaz denetimlerini göster</string>
     <string name="lockscreen_privacy_wallet_summary">Kilit ekranından ve hızlı ayarlardan cüzdana erişime izin verin</string>
     <string name="lockscreen_privacy_controls_summary">Ekran kilitliyken kontrollere erişin</string>
+    <string name="lockscreen_double_line_clock_summary">Kullanılabilir olduğunda çift çizgili saati göster</string>
+    <string name="lockscreen_double_line_clock_setting_toggle">Çift çizgili saat</string>
     <string name="abc_activity_chooser_view_see_all">Tümünü göster</string>
     <string name="abc_activitychooserview_choose_application">Bir uygulama seçin</string>
     <string name="abc_capital_off">KAPAT</string>
@@ -147,9 +150,11 @@
     <string name="accessibility_alarm_vibration_title">Alarm titreşimi</string>
     <string name="accessibility_assist_gesture_complete_or_keep_adjusting">Active Edge kuruldu. Sonraki ekrana geçin veya ayarlamaya devam edin.</string>
     <string name="accessibility_audio_adjustment_title">Ses ayarı</string>
+    <string name="accessibility_autoclick_about_title">Oto tık (bekleme süresi) hakkında</string>
     <string name="accessibility_autoclick_custom_title">Özel</string>
     <string name="accessibility_autoclick_default_title">Kapalı</string>
     <string name="accessibility_autoclick_description">Otomatik tıklama, bağlı bir fare ile çalışır. Fare imlecini, imleç belirli bir süre hareket etmediğinde otomatik olarak tıklayacak şekilde ayarlayabilirsiniz.</string>
+    <string name="accessibility_autoclick_footer_learn_more_content_description">Otomatik tıklama (bekleme süresi) hakkında daha fazla bilgi edinin</string>
     <string name="accessibility_autoclick_long_summary">1 saniye</string>
     <string name="accessibility_autoclick_long_title">Uzun</string>
     <string name="accessibility_autoclick_longer_desc">Daha uzun</string>
@@ -161,16 +166,17 @@
     <string name="accessibility_autoclick_short_title">Kısa</string>
     <string name="accessibility_autoclick_shorter_desc">Daha kısa</string>
     <string name="accessibility_banner_message_dismiss">Kapat</string>
-    <string name="accessibility_button_description">"Erişilebilirlik özelliklerine herhangi bir ekrandan hızlıca erişin. 
+    <string name="accessibility_button_about_title">Erişilebilirlik düğmesi hakkında</string>
+    <string name="accessibility_button_description">"Erişilebilirlik özelliklerine herhangi bir ekrandan hızlıca erişin.
 
 Başlamak için erişilebilirlik ayarlarına gidip bir özellik seçin. Kısayola dokunun ve erişilebilirlik düğmesini seçin."</string>
     <string name="accessibility_button_fade_summary">Ekranı daha rahat görebilmeniz için birkaç saniye içinde şeffaflaşır</string>
     <string name="accessibility_button_fade_title">Kullanılmadığında şeffaflaştır</string>
+    <string name="accessibility_button_gesture_about_title">Erişilebilirlik düğmesi ve hareketi hakkında</string>
     <string name="accessibility_button_gesture_description">"Erişilebilirlik özelliklerine herhangi bir ekrandan hızlıca erişin.
 
-Başlamak için erişilebilirlik ayarlarına gidip bir özellik seçin. Kısayola dokunun ve erişilebilirlik düğmesini seçin.
-
-Bunun yerine gezinme çubuğundaki erişilebilirlik düğmesini kullanmak için 2 düğmeli gezinme veya 3 düğmeli gezinmeye geçin."</string>
+Başlamak için erişilebilirlik ayarlarına gidip bir özellik seçin. Kısayola dokunup erişilebilirlik düğmesi veya hareketini seçin."</string>
+    <string name="accessibility_button_gesture_footer_learn_more_content_description">Erişilebilirlik düğmesi ve hareketi hakkında daha fazla bilgi edinin</string>
     <string name="accessibility_button_gesture_title">Erişilebilirlik düğmesi ve hareketi</string>
     <string name="accessibility_button_high_label">Opak</string>
     <string name="accessibility_button_intro">Erişilebilirlik düğmesini kullanma. Hareket, 3 düğmeli gezinme ile kullanılamaz.</string>
@@ -184,14 +190,23 @@ Bunun yerine gezinme çubuğundaki erişilebilirlik düğmesini kullanmak için 
     <string name="accessibility_caption_preference_summary">Bu altyazı tercihlerini her uygulama desteklemez</string>
     <string name="accessibility_caption_primary_switch_summary">Yalnızca desteklenen uygulamalar için</string>
     <string name="accessibility_caption_primary_switch_title">Altyazıları göster</string>
+    <string name="accessibility_captioning_about_title">Altyazı tercihleri hakkında</string>
+    <string name="accessibility_captioning_footer_learn_more_content_description">Altyazı tercihleri hakkında daha fazla bilgi edinin</string>
     <string name="accessibility_captioning_title">Altyazı tercihleri</string>
     <string name="accessibility_category_personal">Kişisel profil hesapları</string>
     <string name="accessibility_category_work">İş profili hesapları - %s</string>
+    <string name="accessibility_color_inversion_about_title">Rengi ters çevirme hakkında</string>
+    <string name="accessibility_color_inversion_footer_learn_more_content_description">Rengi ters çevirme hakkında daha fazla bilgi edinin</string>
+    <string name="accessibility_control_timeout_about_title">İşlem yapma süresi (Erişilebilirlik zaman aşımı)</string>
+    <string name="accessibility_control_timeout_footer_learn_more_content_description">İşlem yapma süresi (Erişilebilirlik zaman aşımı) hakkında daha fazla bilgi edinin</string>
     <string name="accessibility_control_timeout_preference_summary">"İşlem yapmanızı isteyen, ancak geçici olarak görüntülenen mesajların ne kadar süre gösterileceğini seçin.
 
 Bu ayarı her uygulama desteklemez."</string>
     <string name="accessibility_control_timeout_preference_title">İşlem yapma süresi</string>
+    <string name="accessibility_daltonizer_about_title">Renk düzeltme hakkında</string>
+    <string name="accessibility_daltonizer_footer_learn_more_content_description">Renk düzeltme hakkında daha fazla bilgi edinin</string>
     <string name="accessibility_daltonizer_primary_switch_title">Renk düzeltme işlevini kullan</string>
+    <string name="accessibility_daltonizer_shortcut_title">Renk düzeltme kısayolu</string>
     <string name="accessibility_data_one_bar">Veri sinyali bir çubuk.</string>
     <string name="accessibility_data_signal_full">Veri sinyali tam.</string>
     <string name="accessibility_data_three_bars">Veri sinyali üç çubuk.</string>
@@ -206,6 +221,7 @@ Bu ayarı her uygulama desteklemez."</string>
     <string name="accessibility_display_daltonizer_preference_title">Renk düzeltme</string>
     <string name="accessibility_display_inversion_preference_subtitle">Rengi ters çevirme özelliği açık renkli ekranları koyulaştırır.&lt;br/>&lt;br/> Not: &lt;ol> &lt;li> Rengi ters çevirme özelliği ayrıca koyu renkli ekranları açık renk yapar.&lt;/li> &lt;li> Renkler medyada ve resimlerde değişir.&lt;/li> &lt;li> Koyu arka plan görüntülemek için Koyu tema kullanılabilir. Koyu tema, desteklenen uygulamalarda çalışır. Rengi ters çevirme özelliği tüm uygulamalarda çalışır.&lt;/li> &lt;/ol></string>
     <string name="accessibility_display_inversion_preference_title">Rengi ters çevirme</string>
+    <string name="accessibility_display_inversion_shortcut_title">Rengi ters çevirme kısayolu</string>
     <string name="accessibility_display_inversion_switch_title">Rengi ters çevirme işlevini kullan</string>
     <string name="accessibility_ethernet_connected">Ethernet.</string>
     <string name="accessibility_ethernet_disconnected">Ethernet bağlantısı kesildi.</string>
@@ -255,6 +271,8 @@ Erişilebilirlik düğmesi ekranınızda diğer uygulamaların üzerinde yüzer.
     <string name="accessibility_phone_two_bars">Telefon sinyali iki çubuk.</string>
     <string name="accessibility_power_button_ends_call_prerefence_title">Güç düğmesi çağrıyı sonlandırır</string>
     <string name="accessibility_preference_magnification_summary">Ekranı yakınlaştırın</string>
+    <string name="accessibility_screen_magnification_about_title">Büyütme hakkında</string>
+    <string name="accessibility_screen_magnification_footer_learn_more_content_description">Büyütme hakkında daha fazla bilgi edinin</string>
     <string name="accessibility_screen_magnification_gesture_navigation_warning">Erişilebilirlik hareketi %1$s hizmetine ayarlandı. Büyütme özelliğini kullanmak için iki parmağınızla ekranın altından kaydırıp basılı tutun. Ardından büyütmeyi seçin.</string>
     <string name="accessibility_screen_magnification_gestures_title">Üç kez dokunarak büyütme</string>
     <string name="accessibility_screen_magnification_navbar_configuration_warning">Erişilebilirlik düğmesi %1$s olarak ayarlandı. Büyütmeyi kullanmak için Erişilebilirlik düğmesine dokunup basılı tutun, ardından büyütmeyi seçin.</string>
@@ -272,6 +290,7 @@ Erişilebilirlik düğmesi ekranınızda diğer uygulamaların üzerinde yüzer.
 Klavyede veya gezinme çubuğundayken yakınlaştırma yapamazsınız."</string>
     <string name="accessibility_screen_magnification_navbar_title">Kısayolla büyütme</string>
     <string name="accessibility_screen_magnification_short_summary">Yakınlaştırmak için 3 defa dokunun</string>
+    <string name="accessibility_screen_magnification_shortcut_title">Büyütme kısayolu</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">Kısayolla ve üç kez dokunarak büyütme</string>
     <string name="accessibility_screen_magnification_summary">İçeriği daha net görüntülemek için ekranı hızlıca yakınlaştırın.&lt;br/>&lt;br/> &lt;b>Yakınlaştırmak için:&lt;/b>&lt;br/> {0,number,integer}. Büyütmeyi başlatmak için kısayol kullanın&lt;br/> {1,number,integer}. Ekrana dokunun&lt;br/> {2,number,integer}. Ekranda gezinmek için 2 parmağınızı sürükleyin&lt;br/> {3,number,integer}. Yakınlaştırmayı ayarlamak için 2 parmağınızla sıkıştırın&lt;br/> {4,number,integer}. Büyütmeyi durdurmak için kısayol kullanın&lt;br/>&lt;br/> &lt;b>Geçici bir süreliğine yakınlaştırmak için:&lt;/b>&lt;br/> {0,number,integer}. Büyütmeyi başlatmak için kısayol kullanın&lt;br/> {1,number,integer}. Ekranda herhangi bir yere dokunup basılı tutun&lt;br/> {2,number,integer}. Ekranda gezinmek için parmağınızı sürükleyin&lt;br/> {3,number,integer}. Büyütmeyi durdurmak için parmağınızı kaldırın</string>
     <string name="accessibility_screen_magnification_title">Büyütme</string>
@@ -370,7 +389,7 @@ Klavyede veya gezinme çubuğundayken yakınlaştırma yapamazsınız."</string>
     <string name="accessibility_tutorial_dialog_message_volume">Bu özelliği kullanmak için ses tuşlarının ikisine birden basın ve basılı tutun.</string>
     <string name="accessibility_tutorial_dialog_title_button">Açmak için erişilebilirlik düğmesini kullanın</string>
     <string name="accessibility_tutorial_dialog_title_gesture">Açmak için hareketi kullanın</string>
-    <string name="accessibility_tutorial_dialog_title_gesture_settings">Yeni erişilebilirlik hareketlerini kullanma</string>
+    <string name="accessibility_tutorial_dialog_title_gesture_settings">Erişilebilirlik hareketini kullan</string>
     <string name="accessibility_tutorial_dialog_title_triple">Açmak için ekrana üç kez dokunun</string>
     <string name="accessibility_tutorial_dialog_title_volume">Açmak için ses düğmelerini basılı tutun</string>
     <string name="accessibility_tutorial_pager">Sayfa %1$d/%2$d</string>
@@ -493,7 +512,7 @@ Yöneticiniz, ağ etkinliği ve cihazınızın konum bilgileri de dahil olmak ü
     <string name="advanced_battery_graph_subtext">Kalan pil gücü tahmini, cihazınızın kullanımına göre yapılır</string>
     <string name="advanced_battery_preference_summary">Son tam şarjdan bu yana kullanımı göster</string>
     <string name="advanced_battery_preference_summary_with_hours">Son 24 saatteki kullanımı göster</string>
-    <string name="advanced_battery_preference_title">Pil Kullanımı</string>
+    <string name="advanced_battery_preference_title">Pil kullanımı</string>
     <string name="advanced_battery_title">Pil kullanımı</string>
     <string name="advanced_section_header">Genel</string>
     <string name="advanced_security_title">Gelişmiş</string>
@@ -744,7 +763,7 @@ Cihazları bir araya getirmeniz (genellikle sırt sırta) ve ekranınıza dokunm
     <string name="auto_brightness_summary_on">Açık</string>
     <string name="auto_brightness_summary_very_high">Tercih ettiğiniz parlaklık çok yüksek</string>
     <string name="auto_brightness_summary_very_low">Tercih ettiğiniz parlaklık çok düşük</string>
-    <string name="auto_brightness_very_high_summary">Daha fazla pil kullanımı</string>
+    <string name="auto_brightness_very_high_summary">Yüksek pil kullanımı</string>
     <string name="auto_brightness_very_high_title">Çok yüksek</string>
     <string name="auto_brightness_very_low_title">Çok düşük</string>
     <string name="auto_caps">Otomatik büyük harf yap</string>
@@ -936,6 +955,7 @@ Cihazınız sıfırlandıktan sonra kurulum işlemini gerçekleştirin ve verile
     <string name="battery_level_title">Pil düzeyi</string>
     <string name="battery_manager_off">Kapalı</string>
     <string name="battery_manager_summary">Pil ömrünü uzatıp şarj işlemini optimize et</string>
+    <string name="battery_manager_summary_unsupported">Pil ömrünü uzatma</string>
     <string name="battery_missing_link_a11y_message">Bu hata hakkında daha fazla bilgi edinmek için dokunun</string>
     <string name="battery_missing_link_message">Daha fazla bilgi</string>
     <string name="battery_missing_message">Pil ölçer okunurken sorun oluştu.</string>
@@ -1009,7 +1029,7 @@ Piliniz azaldığında her zaman Pil Tasarrufu'nu açabilirsiniz."</string>
     <string name="battery_tip_early_heads_up_summary">Pil normalden daha erken bitebilir</string>
     <string name="battery_tip_early_heads_up_title">"Pil Tasarrufu'nu aç"</string>
     <string name="battery_tip_high_usage_summary">En fazla pil kullanan uygulamaları göster</string>
-    <string name="battery_tip_high_usage_title">Daha fazla pil kullanımı</string>
+    <string name="battery_tip_high_usage_title">Yüksek pil kullanımı</string>
     <string name="battery_tip_limited_temporarily_dialog_msg">"Yüksek sıcaklıklar ve uzun şarj etme süreleri gibi belirli durumlarda pil sağlığını korumak için şarj etme işlemi %1$s ile sınırlanabilir.
 
 Bu gibi durumlar sona erdiğinde telefonunuz otomatik olarak normal şarj etmeye başlar."</string>
@@ -1061,6 +1081,7 @@ bir dakikadan az kullanıldı"</string>
     <string name="battery_usage_screen_footer">Pil kullanımı verileri yaklaşık değerler olup telefon şarj olurken kullanım ölçülmez</string>
     <string name="battery_usage_screen_footer_empty">Pil kullanım verileri, telefonunuzu birkaç saat kullanmanızın ardından görüntülenebilir</string>
     <string name="battery_usage_total_less_than_one_minute">Toplam: Bir dakikadan az</string>
+    <string name="battery_usage_without_time" />
     <string name="battery_used_by">%1$s kadarı %2$s tarafından kullanılıyor</string>
     <string name="battery_used_for">^1 kullanıldı</string>
     <string name="bearer">Taşıyıcı</string>
@@ -1069,12 +1090,14 @@ bir dakikadan az kullanıldı"</string>
     <string name="billing_cycle_less_than_one_day_left">1 günden az kaldı</string>
     <string name="billing_cycle_none_left">Zaman kalmadı</string>
     <string name="biometric_settings_category_ways_to_unlock">Kilidi açma yöntemleri</string>
-    <string name="biometric_settings_category_ways_to_use">Şunlar için yüz tanıma ve parmak izi kullan:</string>
     <string name="biometric_settings_hand_back_to_guardian">Telefonu tekrar annenize veya babanıza verin</string>
     <string name="biometric_settings_hand_back_to_guardian_ok">Tamam</string>
     <string name="biometric_settings_intro">Yüz Tanıma Kilidi ve Parmak İzi Kilidi özelliklerini kurduğunuzda telefonunuz, yüzünüzde maske varken veya karanlık bir yerde bulunuyorsanız parmak izinizi ister.</string>
-    <string name="biometric_settings_use_biometric_for_apps">Uygulamalarda kimlik doğrulama</string>
-    <string name="biometric_settings_use_biometric_unlock_phone">Telefon kilidini açma</string>
+    <string name="biometric_settings_use_biometric_for_apps">Uygulamalarda kimliğinizi doğrulayın</string>
+    <string name="biometric_settings_use_biometric_unlock_phone">Telefonunuzun kilidini açın</string>
+    <string name="biometric_settings_use_face_or_fingerprint_preference_summary">Yüz tanıma veya parmak izi kullanarak</string>
+    <string name="biometric_settings_use_face_preference_summary">Yüz tanıma kullanarak</string>
+    <string name="biometric_settings_use_fingerprint_preference_summary">Parmak izi kullanarak</string>
     <string name="biometrics_unlock_set_unlock_password">Şifre • Yüz • Parmak İzi</string>
     <string name="biometrics_unlock_set_unlock_pattern">Desen • Yüz • Parmak İzi</string>
     <string name="biometrics_unlock_set_unlock_pin">PIN • Yüz • Parmak İzi</string>
@@ -1332,7 +1355,6 @@ Seçimi"</string>
     <string name="bluetooth_settings_title">Bluetooth</string>
     <string name="bluetooth_show_devices_without_names">Adsız Bluetooth cihazlarını göster</string>
     <string name="bluetooth_show_devices_without_names_summary">Adsız Bluetooth cihazları (yalnızca MAC adresleri) gösterilecek</string>
-    <string name="bluetooth_show_files_received_via_bluetooth">Bluetooth üzerinden alınan dosyalar</string>
     <string name="bluetooth_show_received_files">Alınan dosyalar</string>
     <string name="bluetooth_sim_card_access_dialog_content">"%1$s adlı Bluetooth cihazı, kişileriniz de dahil olmak üzere SIM kartınızdaki verilere ulaşmak istiyor.
 
@@ -1426,6 +1448,7 @@ Bir CA sertifikası yüklerseniz sertifika sahibi; şifreler, veya kredi kartı 
     <string name="calls_sms_temp_unavailable">Geçici olarak kullanılamıyor</string>
     <string name="calls_sms_unavailable">kullanılamıyor</string>
     <string name="calls_sms_wfc_summary">Kablosuz ağ üzerinden telefon edin ve gelen aramaları yanıtlayın</string>
+    <string name="cam_toggle_description">Uygulamalar ve hizmetler için</string>
     <string name="camera_double_tap_power_gesture_desc">Ekranınızı kilitlemeden kamerayı hızlıca açın</string>
     <string name="camera_double_tap_power_gesture_title">Kamera için güç düğmesine iki kez bas</string>
     <string name="camera_laser_sensor_switch">Kamera Lazer Sensörü</string>
@@ -3302,6 +3325,7 @@ Bu cihazda başka kullanıcılar da var.
     <string name="menu_stats_total">Kullanım toplamı</string>
     <string name="menu_stats_unplugged">Fişten çekildikten itibaren %1$s</string>
     <string name="menu_use_uss">"USS'yi kullan"</string>
+    <string name="mic_toggle_description">Uygulamalar ve hizmetler için. Bu ayar kapalıyken bir acil durum numarasını aradığınızda mikrofon verileri paylaşılmaya devam edebilir.</string>
     <string name="mic_toggle_title">Mikrofon erişimi</string>
     <string name="misc_files">Çeşitli dosyalar</string>
     <string name="misc_files_selected_count">toplam %2$d dosyadan %1$d tanesi seçildi</string>
@@ -3728,6 +3752,7 @@ Bu izin, uygulamaya, Rahatsız Etmeyin ayarını açma veya kapatma ve ilgili ay
     <string name="one_handed_action_show_notification_title">Bildirimleri göster</string>
     <string name="one_handed_mode_enabled">Tek el modunu kullan</string>
     <string name="one_handed_mode_intro_text">Tek el modunu kullanmak için ekranın alt kenarından aşağı kaydırın. Bu özelliği kullanabilmek için sistem gezinme ayarlarında hareketle gezinmenin etkin olduğundan emin olun.</string>
+    <string name="one_handed_mode_shortcut_title">Tek el modu kısayolu</string>
     <string name="one_handed_mode_swipe_down_category">Ekranı aşağı kaydırıp</string>
     <string name="one_handed_mode_use_shortcut_category">Kısayolu şunun için kullanın:</string>
     <string name="one_usercrt">bir kullanıcı sertifikası</string>
@@ -3803,7 +3828,7 @@ Bu izin, uygulamaya, Rahatsız Etmeyin ayarını açma veya kapatma ve ilgili ay
     <string name="post_dsds_reboot_notification_title_with_carrier">%1$s etkin durumda</string>
     <string name="power_bluetooth">Bluetooth</string>
     <string name="power_camera">Kamera</string>
-    <string name="power_cell">Mobil ağ beklemede</string>
+    <string name="power_cell">Mobil ağ</string>
     <string name="power_charge_remaining">Şarj olmasına %1$s var</string>
     <string name="power_charging">%1$s - %2$s</string>
     <string name="power_charging_duration">%1$s - Tamamen şarj olmasına %2$s kaldı</string>
@@ -4037,6 +4062,7 @@ Güç ve sesi artırma tuşlarına aynı anda basın."</string>
     <string name="recent_notifications">En son gönderilenler</string>
     <string name="recent_notifications_see_all_title">Son 7 gün içinde kullanılan tüm uygulamaları göster</string>
     <string name="recompute_size">Boyut yeniden hesaplanıyor…</string>
+    <string name="reduce_bright_colors_about_title">Ekstra loş hakkında</string>
     <string name="reduce_bright_colors_intensity_end_label">Daha parlak</string>
     <string name="reduce_bright_colors_intensity_preference_title">Yoğunluk</string>
     <string name="reduce_bright_colors_intensity_start_label">Daha loş</string>
@@ -4044,6 +4070,7 @@ Güç ve sesi artırma tuşlarına aynı anda basın."</string>
     <string name="reduce_bright_colors_preference_subtitle">Daha rahat okuyabilmek için ekranınızın parlaklığını azaltın.&lt;br/>&lt;br/> Bu özelliğin kullanışlı olacağı durumlar: &lt;ol> &lt;li> Telefonunuzun varsayılan minimum parlaklığı çok açık&lt;/li> &lt;li> Telefonunuzu gece veya uyumadan önce, karanlık bir oda gibi ışıksız ortamda kullanıyorsunuz&lt;/li> &lt;/ol></string>
     <string name="reduce_bright_colors_preference_summary">Ekranı, telefonunuzun minimum parlaklığından daha loş yapın</string>
     <string name="reduce_bright_colors_preference_title">Ekstra loş</string>
+    <string name="reduce_bright_colors_shortcut_title">Ekstra loş kısayolu</string>
     <string name="reduce_bright_colors_switch_title">Ekranı ekstra loş yap</string>
     <string name="register_automatically">Otomatik kayıt...</string>
     <string name="register_on_network">%s ağına kaydediliyor...</string>
@@ -4249,7 +4276,6 @@ Uygulama sabitlemeyi kullanmak için: \u0009
     <string name="screen_pinning_unlock_pattern">Sabitlemeyi kaldırmadan önce kilit açma desenini sor</string>
     <string name="screen_pinning_unlock_pin">"Sabitlemeyi kaldırmadan önce PIN'i sor"</string>
     <string name="screen_reader_category_title">Ekran okuyucu</string>
-    <string name="screen_saver_main_switch_title">Ekran koruyucu kullan</string>
     <string name="screen_time_summary_usage_today">Bugün %1$s</string>
     <string name="screen_timeout_summary">%1$s işlem yapılmadığında</string>
     <string name="screen_timeout_title">Ekran kapanır</string>
@@ -4279,6 +4305,7 @@ Uygulama sabitlemeyi kullanmak için: \u0009
     <string name="screensaver_settings_button">Ayarlar</string>
     <string name="screensaver_settings_current">Geçerli ekran koruyucu</string>
     <string name="screensaver_settings_disabled_prompt">Telefon yuvaya yerleştirildiğinde ve/veya uyku durumundayken ne olacağını kontrol etmek için ekran koruyucuyu etkinleştirin.</string>
+    <string name="screensaver_settings_dream_start">Şimdi başlat</string>
     <string name="screensaver_settings_summary_dock">Yuvadayken</string>
     <string name="screensaver_settings_summary_either_long">Şarj olurken veya yuvadayken</string>
     <string name="screensaver_settings_summary_either_short">Her iki durumda da</string>
@@ -4329,15 +4356,6 @@ Uygulama sabitlemeyi kullanmak için: \u0009
     <string name="security_settings_biometric_preference_summary_both_fp_single">Yüz ve parmak izi eklendi</string>
     <string name="security_settings_biometric_preference_summary_none_enrolled">Ayarlamak için dokunun</string>
     <string name="security_settings_biometric_preference_title">Yüz Tanıma ve Parmak İzi Kilidi</string>
-    <string name="security_settings_biometrics_description">Yüz tanıma ve parmak izi kilidi kurduğunuzda telefonunuz, maske taktığınızda veya karanlık bir yerde olduğunuzda parmak izinizi ister</string>
-    <string name="security_settings_biometrics_preference_use_with_apps">Uygulamalarda kimlik doğrulama</string>
-    <string name="security_settings_biometrics_preferences_category">Şunlar için yüz tanıma veya parmak izi kullan:</string>
-    <string name="security_settings_biometrics_summary_both">Yüz ve parmak izi</string>
-    <string name="security_settings_biometrics_summary_face">Yalnızca yüz</string>
-    <string name="security_settings_biometrics_summary_fingerprint">Yalnızca parmak izi</string>
-    <string name="security_settings_biometrics_summary_none">Ayarlamak için dokunun</string>
-    <string name="security_settings_biometrics_title">Yüz tanıma ve parmak izi kilidi</string>
-    <string name="security_settings_biometrics_types_category">Kilidi açma yöntemleri</string>
     <string name="security_settings_face_enroll_consent_introduction_title">"Yüz Tanıma Kilidi'ne izin verin"</string>
     <string name="security_settings_face_enroll_dialog_ok">Tamam</string>
     <string name="security_settings_face_enroll_done">Bitti</string>
@@ -4385,16 +4403,17 @@ Daha fazla bilgiyi g.co/pixel/faceunlock adresinde bulabilirsiniz."</string>
     <string name="security_settings_face_enroll_introduction_control_title">Kontrol sizde</string>
     <string name="security_settings_face_enroll_introduction_how_consent_message">"Yüz Tanıma Kilidi, çocuğunuzun kimliğini doğrulamak için yüzünün benzersiz bir modelini oluşturur. Çocuğunuz, kurulum sırasında bu yüz modelini oluşturmak için yüzünün farklı açılardan resimlerini çeker.
 
-Çocuğunuz Yüz Tanıma Kilidi'ni kullandığında resimler, yüz modelini güncellemek için kullanılır. Çocuğunuzun yüz modelini oluşturmak için kullanılan resimler hiçbir zaman saklanmaz ancak yüz modeli, telefonda güvenli bir şekilde saklanıp hiçbir zaman telefondan dışarı çıkmaz. Tüm işlemler, güvenli bir şekilde telefonda gerçekleşir."</string>
+Çocuğunuz Yüz Tanıma Kilidi'ni kullandığında resimler, yüz modelini güncellemek için kullanılır. Çocuğunuzun yüz modelini oluşturmak için kullanılan resimler saklanmaz ancak yüz modeli, telefonda güvenli bir şekilde saklanıp hiçbir zaman telefondan dışarı çıkmaz. Tüm işlemler, güvenli bir şekilde telefonda gerçekleşir."</string>
     <string name="security_settings_face_enroll_introduction_how_message">"Yüz Tanıma Kilidi, kimliğinizi doğrulamak için yüzünüzün benzersiz bir modelini oluşturur. Kurulum sırasında bu yüz modelini oluşturmak için yüzünüzün farklı açılardan resimlerini çekersiniz.
 
-Yüz Tanıma Kilidi'ni kullandığınızda resimler, yüz modelinizi güncellemek için kullanılır. Yüz modelinizi oluşturmak için kullanılan resimler hiçbir zaman saklanmaz ancak yüz modeli, telefonunuzda güvenli bir şekilde saklanıp hiçbir zaman telefondan dışarı çıkmaz. Tüm işlemler, güvenli bir şekilde telefonunuzda gerçekleşir."</string>
+Yüz Tanıma Kilidi'ni kullandığınızda resimler, yüz modelinizi güncellemek için kullanılır. Yüz modelinizi oluşturmak için kullanılan resimler saklanmaz ancak yüz modeli, telefonunuzda güvenli bir şekilde saklanıp cihazdan dışarı çıkarılmaz. Tüm işlemler, güvenli bir şekilde telefonunuzda gerçekleşir."</string>
     <string name="security_settings_face_enroll_introduction_how_title">İşleyiş şekli</string>
     <string name="security_settings_face_enroll_introduction_info_consent_gaze">"Yüz Tanıma Kilidi, telefon kilidini açmak veya kimliğini doğrulamak için çocuğunuzun gözlerinin açık olmasını isteyebilir. Siz ve çocuğunuz, istediğiniz zaman Ayarlar'dan bu seçeneği açabilirsiniz."</string>
     <string name="security_settings_face_enroll_introduction_info_consent_glasses">Çocuğunuz normalde gözlük takıyorsa kurulum sırasında da takabilir.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_looking">Çocuğunuz telefona baktığında istemese bile kilidi açılabilir. Telefon kilidi, çocuğunuza çok benzeyen birisi (ör. ikiz kardeşi) tarafından veya telefonu yüzüne tutularak da açılabilir.</string>
     <string name="security_settings_face_enroll_introduction_info_gaze">"Yüz Tanıma Kilidi, telefon kilidini açmak veya kimliğinizi doğrulamak için gözlerinizin açık olmasını isteyebilir. İstediğiniz zaman Ayarlar'dan bu seçeneği açabilirsiniz."</string>
     <string name="security_settings_face_enroll_introduction_info_glasses">Gözlük veya camı açık renkli olan güneş gözlüğü kullanılabilir.</string>
+    <string name="security_settings_face_enroll_introduction_info_less_secure">"Telefonun kilidini açmak için yüz tanımanın kullanılması, güçlü bir desen veya PIN'e kıyasla daha az güvenli olabilir."</string>
     <string name="security_settings_face_enroll_introduction_info_looking">Telefona baktığınızda istemeseniz bile kilidi açılabilir. Telefonunuzun kilidi, size çok benzeyen (örneğin ikiz kardeşiniz gibi) birisi tarafından veya birisi telefonunuzu yüzünüze tuttuğunda da açılabilir.</string>
     <string name="security_settings_face_enroll_introduction_info_title">Unutmayın</string>
     <string name="security_settings_face_enroll_introduction_message">Telefonunuzun kilidini açmak veya uygulamalarda oturum açma ya da satın alma işlemlerini onaylama gibi durumlarda kimliğinizi doğrulamak için yüzünüzü kullanın.</string>
@@ -4452,13 +4471,14 @@ Gözleriniz kapalı olsa bile telefonunuz başka birisi tarafından yüzünüze 
 
 Telefonunuzun kilidi, ikiziniz gibi size çok benzeyen başka biri tarafından da açılabilir."</string>
     <string name="security_settings_face_settings_preferences_category">"Yüz Tanıma Kilidi'ni kullanırken"</string>
-    <string name="security_settings_face_settings_remove_dialog_details">Yüz modeliniz, güvenli bir şekilde kalıcı olarak silinir. Silme işleminden sonra telefonunuzun kilidini açmak veya uygulamalarda kimliğinizi doğrulamak için PIN numaranız, deseniniz veya şifreniz gerekir.</string>
+    <string name="security_settings_face_settings_remove_dialog_details">"Yüz modeliniz, güvenli bir şekilde kalıcı olarak silinir.
+
+Silme işleminden sonra telefonunuzun kilidini açmak veya uygulamalarda kimliğinizi doğrulamak için PIN numaranız, deseniniz veya şifreniz gerekir."</string>
+    <string name="security_settings_face_settings_remove_dialog_details_convenience">"Yüz modeliniz güvenli bir şekilde kalıcı olarak silinir.
+
+Silme işleminden sonra, telefonunuzun kilidini açmak için PIN'iniz, deseniniz veya şifreniz gerekir."</string>
     <string name="security_settings_face_settings_remove_dialog_title">Yüz modeli silinsin mi?</string>
     <string name="security_settings_face_settings_remove_face_model">Yüz modelini sil</string>
-    <string name="security_settings_face_settings_remove_model_dialog_details">"Yüz modeliniz, güvenli bir şekilde kalıcı olarak silinir.
-
-Silme işleminden sonra telefonunuzun kilidini açmak veya uygulamalarda kimliğinizi doğrulamak için parmak iziniz, PIN numaranız, deseniniz veya şifreniz gerekir."</string>
-    <string name="security_settings_face_settings_remove_model_dialog_title">Yüz modeli silinsin mi?</string>
     <string name="security_settings_face_settings_require_attention">Gözlerin açık olması gerekli</string>
     <string name="security_settings_face_settings_require_attention_details">Telefonunuzun kilidini açmak için gözleriniz açık olmalıdır</string>
     <string name="security_settings_face_settings_require_confirmation">Her zaman onay gerekli</string>
@@ -4541,7 +4561,7 @@ Not: Bu cihazın kilidini açmak için parmak izinizi kullanamazsınız. Daha fa
     <string name="security_settings_title">Güvenlik</string>
     <string name="security_settings_udfps_enroll_a11y">Sensörü bulmak için parmağınızı ekranda hareket ettirin. Parmak izi sensörüne dokunup basılı tutun</string>
     <string name="security_settings_udfps_enroll_edge_message">Parmak izinizin yan tarafını sensöre yerleştirip basılı tuttuktan sonra diğer tarafa geçin</string>
-    <string name="security_settings_udfps_enroll_edge_title">Son olarak parmağınızın kenarlarını yerleştirin</string>
+    <string name="security_settings_udfps_enroll_edge_title">Son olarak parmağınızın kenarlarını kullanın</string>
     <string name="security_settings_udfps_enroll_find_sensor_message">Parmak izi sensörü ekranınızın üzerindedir. Bir sonraki ekranda parmak izinizi yakalayacaksınız.</string>
     <string name="security_settings_udfps_enroll_find_sensor_start_button">Başlat</string>
     <string name="security_settings_udfps_enroll_find_sensor_title">Parmak izinizi kurma adımları</string>
@@ -4550,7 +4570,7 @@ Not: Bu cihazın kilidini açmak için parmak izinizi kullanamazsınız. Daha fa
     <string name="security_settings_udfps_enroll_repeat_a11y_message">Bu şekilde parmak iziniz daha fazla yakalanabilir</string>
     <string name="security_settings_udfps_enroll_repeat_message">Parmak izi simgesi her hareket ettiğinde dokunup basılı tutun. Bu şekilde parmak iziniz daha fazla yakalanabilir</string>
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">Parmak izi simgesini takip edin</string>
-    <string name="security_settings_udfps_enroll_start_message">Bir titreşim hissedene kadar parmağınızı simgenin üzerinde tutun</string>
+    <string name="security_settings_udfps_enroll_start_message">Bir titreşim hissedene kadar parmak izinizi sensörün üzerinde tutun</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">Bir kez daha</string>
     <string name="security_settings_work_fingerprint_preference_title">İş profili için Pixel Imprint</string>
     <string name="security_status_title">Güvenlik durumu</string>
@@ -4576,7 +4596,6 @@ Not: Bu cihazın kilidini açmak için parmak izinizi kullanamazsınız. Daha fa
     <string name="select_webview_provider_dialog_title">Web Görünümü kullanımını ayarla</string>
     <string name="select_webview_provider_title">Web Görünümü kullanımı</string>
     <string name="select_webview_provider_toast_text">Bu seçenek artık geçerli değil. Tekrar deneyin.</string>
-    <string name="sensor_toggle_description">Tüm uygulamalar ve hizmetler için</string>
     <string name="sensors_off_quick_settings_title">Sensörler Kapalı</string>
     <string name="service_background_processes">%1$s boş</string>
     <string name="service_foreground_processes">%1$s kull.</string>
@@ -4808,6 +4827,7 @@ PIN yanlış olabilir."</string>
     <string name="sound_settings_summary_silent">Telefon zili sessize ayarlandı</string>
     <string name="sound_settings_summary_vibrate">Telefon zili titreşime ayarlandı</string>
     <string name="sound_work_settings">İş profili sesleri</string>
+    <string name="spatial_audio_title">Üç boyutlu ses</string>
     <string name="special_access">Özel uygulama erişimi</string>
     <string name="special_access_more">Daha fazla göster</string>
     <string name="speed_label_fast">Hızlı</string>
@@ -5619,7 +5639,7 @@ Sesli arama sırasında interneti kullanamazsınız ve bazı uygulamalar çalı�
     <string name="vpn_turn_on">Aç</string>
     <string name="vpn_type">Tür</string>
     <string name="vpn_username">Kullanıcı adı</string>
-    <string name="vpn_version">Sürüm %s</string>
+    <string name="vpn_version">Sürüm</string>
     <string name="vr_listener_security_warning_summary">Uygulamaları sanal gerçeklik modunda kullandığınızda %1$s çalışabilir.</string>
     <string name="vr_listener_security_warning_title">%1$s için VR hizmetine erişim izni verilsin mi?</string>
     <string name="vr_listeners_title">VR yardımcı hizmetleri</string>
@@ -5889,7 +5909,7 @@ Ağın görünürlüğü gizli yapıldığında yönlendirici ayarlarınız değ
     <string name="wifi_not_in_range">Kapsama alanı dışında</string>
     <string name="wifi_not_in_range_message">Ağ, kapsama alanında değil</string>
     <string name="wifi_notify_open_networks">Herkese açık ağları bildir</string>
-    <string name="wifi_notify_open_networks_summary">Otomatik bağlantı kullanılamadığı zaman</string>
+    <string name="wifi_notify_open_networks_summary">Herkese açık yüksek kaliteli bir ağ kullanılabilir olduğunda bildir</string>
     <string name="wifi_on_time">Zamanında Kablosuz</string>
     <string name="wifi_p2p_cancel_connect_message">%1$s cihazına bağlanma davetiyesini iptal etmek istiyor musunuz?</string>
     <string name="wifi_p2p_cancel_connect_title">Davetiye iptal edilsin mi?</string>
@@ -5977,7 +5997,6 @@ Tarama yapmak isteyen tüm uygulamaların bu işlevi kullanmalarına izin veriyo
     <string name="wifi_suspend_optimizations">Kablosuz optimizasyonu</string>
     <string name="wifi_suspend_optimizations_summary">Kablosuz açıkken pil kullanımını en aza indir</string>
     <string name="wifi_switch_away_when_unvalidated">Kablosuz bağlantının internet erişimi kesilirse hücresel veriye geç.</string>
-    <string name="wifi_switch_summary">Kablosuz ağları bulur ve bağlanır</string>
     <string name="wifi_tap_to_sign_in">Ağda oturum açmak için buraya dokunun</string>
     <string name="wifi_tether_configure_ap_text">Kablosuz hotspot kurulumu yap</string>
     <string name="wifi_tether_configure_ssid_default">Android Ortak Erişim Noktası</string>

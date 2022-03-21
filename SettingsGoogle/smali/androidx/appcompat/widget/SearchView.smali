@@ -588,7 +588,7 @@
 
     const-string v3, "android.speech.extra.LANGUAGE_MODEL"
 
-    const-string v4, "web_search"
+    const-string/jumbo v4, "web_search"
 
     invoke-virtual {v1, v3, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
@@ -648,7 +648,7 @@
     :cond_0
     iget-object p1, p0, Landroidx/appcompat/widget/SearchView;->mUserQuery:Ljava/lang/CharSequence;
 
-    const-string p2, "user_query"
+    const-string/jumbo p2, "user_query"
 
     invoke-virtual {v0, p2, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/CharSequence;)Landroid/content/Intent;
 
@@ -703,7 +703,7 @@
     const/4 v0, 0x0
 
     :try_start_0
-    const-string v1, "suggest_intent_action"
+    const-string/jumbo v1, "suggest_intent_action"
 
     invoke-static {p1, v1}, Landroidx/appcompat/widget/SuggestionsAdapter;->getColumnString(Landroid/database/Cursor;Ljava/lang/String;)Ljava/lang/String;
 
@@ -725,7 +725,7 @@
     :cond_1
     move-object v2, v1
 
-    const-string v1, "suggest_intent_data"
+    const-string/jumbo v1, "suggest_intent_data"
 
     invoke-static {p1, v1}, Landroidx/appcompat/widget/SuggestionsAdapter;->getColumnString(Landroid/database/Cursor;Ljava/lang/String;)Ljava/lang/String;
 
@@ -742,7 +742,7 @@
     :cond_2
     if-eqz v1, :cond_3
 
-    const-string v3, "suggest_intent_data_id"
+    const-string/jumbo v3, "suggest_intent_data_id"
 
     invoke-static {p1, v3}, Landroidx/appcompat/widget/SuggestionsAdapter;->getColumnString(Landroid/database/Cursor;Ljava/lang/String;)Ljava/lang/String;
 
@@ -785,13 +785,13 @@
     move-object v3, v1
 
     :goto_0
-    const-string v1, "suggest_intent_query"
+    const-string/jumbo v1, "suggest_intent_query"
 
     invoke-static {p1, v1}, Landroidx/appcompat/widget/SuggestionsAdapter;->getColumnString(Landroid/database/Cursor;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v5
 
-    const-string v1, "suggest_intent_extra_data"
+    const-string/jumbo v1, "suggest_intent_extra_data"
 
     invoke-static {p1, v1}, Landroidx/appcompat/widget/SuggestionsAdapter;->getColumnString(Landroid/database/Cursor;Ljava/lang/String;)Ljava/lang/String;
 

@@ -44,11 +44,11 @@
 .method public onCreatePreferences(Landroid/os/Bundle;Ljava/lang/String;)V
     .locals 1
 
-    const p1, 0x7f1500dc
+    const p1, 0x7f1500e1
 
     invoke-virtual {p0, p1, p2}, Landroidx/preference/PreferenceFragmentCompat;->setPreferencesFromResource(ILjava/lang/String;)V
 
-    const-string p1, "slot0_phone_number"
+    const-string/jumbo p1, "slot0_phone_number"
 
     invoke-virtual {p0, p1}, Landroidx/preference/PreferenceFragmentCompat;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
@@ -74,7 +74,7 @@
 
     invoke-virtual {p1, p2}, Landroidx/preference/EditTextPreference;->setText(Ljava/lang/String;)V
 
-    const-string p1, "slot1_phone_number"
+    const-string/jumbo p1, "slot1_phone_number"
 
     invoke-virtual {p0, p1}, Landroidx/preference/PreferenceFragmentCompat;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 

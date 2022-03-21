@@ -2,7 +2,7 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Landroid/view/View$OnClickListener;
+.implements Landroid/view/accessibility/AccessibilityManager$TouchExplorationStateChangeListener;
 
 
 # instance fields
@@ -22,12 +22,12 @@
 
 
 # virtual methods
-.method public final onClick(Landroid/view/View;)V
+.method public final onTouchExplorationStateChanged(Z)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment$$ExternalSyntheticLambda3;->f$0:Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;
 
-    invoke-static {p0, p1}, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->$r8$lambda$3MiinpBrCJ4Psz317DDOfonr7BQ(Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;Landroid/view/View;)V
+    invoke-static {p0, p1}, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->$r8$lambda$WdCnBpafpzSK0kqZrACYywywCyU(Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;Z)V
 
     return-void
 .end method

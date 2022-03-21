@@ -27,7 +27,7 @@
     .end annotation
 .end field
 
-.field static final sValidForRestriction:Ljava/util/Map;
+.field public static final sValidForRestriction:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Map<",
@@ -146,7 +146,7 @@
     return-void
 .end method
 
-.method static clearCache()V
+.method public static clearCache()V
     .locals 1
 
     sget-object v0, Lcom/android/settings/fuelgauge/BatteryDiffEntry;->sResourceCache:Ljava/util/Map;
@@ -173,17 +173,23 @@
 
     move-result v0
 
+    if-nez v0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    iget-object p0, p0, Lcom/android/settings/fuelgauge/BatteryDiffEntry;->mUserManager:Landroid/os/UserManager;
+
     new-instance v1, Landroid/os/UserHandle;
 
     invoke-direct {v1, v0}, Landroid/os/UserHandle;-><init>(I)V
 
-    iget-object p0, p0, Lcom/android/settings/fuelgauge/BatteryDiffEntry;->mUserManager:Landroid/os/UserManager;
-
     invoke-virtual {p0, p1, v1}, Landroid/os/UserManager;->getBadgedIconForUser(Landroid/graphics/drawable/Drawable;Landroid/os/UserHandle;)Landroid/graphics/drawable/Drawable;
 
-    move-result-object p0
+    move-result-object p1
 
-    return-object p0
+    :goto_0
+    return-object p1
 .end method
 
 .method private getCache()Lcom/android/settings/fuelgauge/BatteryEntry$NameAndIcon;
@@ -505,12 +511,36 @@
 .end method
 
 .method public getAppIcon()Landroid/graphics/drawable/Drawable;
-    .locals 0
+    .locals 1
 
     invoke-virtual {p0}, Lcom/android/settings/fuelgauge/BatteryDiffEntry;->loadLabelAndIcon()V
 
+    iget-object v0, p0, Lcom/android/settings/fuelgauge/BatteryDiffEntry;->mAppIcon:Landroid/graphics/drawable/Drawable;
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->getConstantState()Landroid/graphics/drawable/Drawable$ConstantState;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
     iget-object p0, p0, Lcom/android/settings/fuelgauge/BatteryDiffEntry;->mAppIcon:Landroid/graphics/drawable/Drawable;
 
+    invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->getConstantState()Landroid/graphics/drawable/Drawable$ConstantState;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Landroid/graphics/drawable/Drawable$ConstantState;->newDrawable()Landroid/graphics/drawable/Drawable;
+
+    move-result-object p0
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    :goto_0
     return-object p0
 .end method
 

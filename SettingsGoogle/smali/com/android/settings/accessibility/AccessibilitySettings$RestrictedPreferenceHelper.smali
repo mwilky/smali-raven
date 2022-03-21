@@ -149,11 +149,11 @@
 
     invoke-virtual {p0, p1, p2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string p1, "title"
+    const-string/jumbo p1, "title"
 
     invoke-virtual {p0, p1, p3}, Landroid/os/Bundle;->putCharSequence(Ljava/lang/String;Ljava/lang/CharSequence;)V
 
-    const-string p1, "summary"
+    const-string/jumbo p1, "summary"
 
     invoke-virtual {p0, p1, p4}, Landroid/os/Bundle;->putCharSequence(Ljava/lang/String;Ljava/lang/CharSequence;)V
 
@@ -209,7 +209,7 @@
 
     iget-object p0, p0, Lcom/android/settings/accessibility/AccessibilitySettings$RestrictedPreferenceHelper;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f0400ee
+    const v0, 0x7f0400ff
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -219,7 +219,7 @@
 
     move-result-object p0
 
-    const-string v0, "settings_title"
+    const-string/jumbo v0, "settings_title"
 
     invoke-virtual {p1, v0, p0}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -231,7 +231,7 @@
 
     move-result-object p0
 
-    const-string p2, "settings_component_name"
+    const-string/jumbo p2, "settings_component_name"
 
     invoke-virtual {p1, p2, p0}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -383,7 +383,7 @@
 
     iget-object v0, v8, Lcom/android/settings/accessibility/AccessibilitySettings$RestrictedPreferenceHelper;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f020162
+    const v2, 0x7f020169
 
     invoke-static {v0, v2}, Landroidx/core/content/ContextCompat;->getDrawable(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
 
@@ -608,7 +608,7 @@
 
     iget-object v0, v8, Lcom/android/settings/accessibility/AccessibilitySettings$RestrictedPreferenceHelper;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f020162
+    const v2, 0x7f020169
 
     invoke-static {v0, v2}, Landroidx/core/content/ContextCompat;->getDrawable(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
 

@@ -259,7 +259,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f040ab6
+    const v0, 0x7f040ace
 
     if-nez p0, :cond_0
 
@@ -355,7 +355,7 @@
 
     move-result p1
 
-    const-string p2, "show_ime_with_hard_keyboard"
+    const-string/jumbo p2, "show_ime_with_hard_keyboard"
 
     invoke-static {p0, p2, p1}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
@@ -413,7 +413,7 @@
 
     move-result-object v0
 
-    const-string v1, "show_ime_with_hard_keyboard"
+    const-string/jumbo v1, "show_ime_with_hard_keyboard"
 
     invoke-static {v1}, Landroid/provider/Settings$Secure;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 
@@ -550,7 +550,7 @@
 
     invoke-direct {v1, v2}, Landroidx/preference/PreferenceCategory;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f040523
+    const v2, 0x7f04053a
 
     invoke-virtual {v1, v2}, Landroidx/preference/Preference;->setTitle(I)V
 
@@ -628,7 +628,7 @@
 
     move-result-object p0
 
-    const-string v1, "show_ime_with_hard_keyboard"
+    const-string/jumbo v1, "show_ime_with_hard_keyboard"
 
     const/4 v2, 0x0
 
@@ -696,7 +696,7 @@
 
     check-cast p1, Landroid/app/Activity;
 
-    const p2, 0x7f1500ac
+    const p2, 0x7f1500b1
 
     invoke-virtual {p0, p2}, Lcom/android/settings/SettingsPreferenceFragment;->addPreferencesFromResource(I)V
 
@@ -732,7 +732,7 @@
 
     iput-object p1, p0, Lcom/android/settings/inputmethod/PhysicalKeyboardFragment;->mKeyboardAssistanceCategory:Landroidx/preference/PreferenceCategory;
 
-    const-string p2, "show_virtual_keyboard_switch"
+    const-string/jumbo p2, "show_virtual_keyboard_switch"
 
     invoke-virtual {p1, p2}, Landroidx/preference/PreferenceGroup;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 

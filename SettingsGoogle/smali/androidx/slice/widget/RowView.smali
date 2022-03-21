@@ -547,7 +547,7 @@
 
     move-result-object v1
 
-    const-string v2, "slice"
+    const-string/jumbo v2, "slice"
 
     invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -572,7 +572,7 @@
     if-eqz v1, :cond_4
 
     :cond_1
-    const-string v1, "shortcut"
+    const-string/jumbo v1, "shortcut"
 
     invoke-virtual {p1, v1}, Landroidx/slice/SliceItem;->hasHint(Ljava/lang/String;)Z
 
@@ -1449,7 +1449,7 @@
     goto :goto_1
 
     :cond_1
-    const-string v3, "text"
+    const-string/jumbo v3, "text"
 
     const-string v4, "selection_option_key"
 
@@ -2288,7 +2288,7 @@
 
     iget-object v3, p0, Landroidx/slice/widget/RowView;->mRangeItem:Landroidx/slice/SliceItem;
 
-    const-string v4, "value"
+    const-string/jumbo v4, "value"
 
     invoke-static {v3, v1, v4}, Landroidx/slice/core/SliceQuery;->findSubtype(Landroidx/slice/SliceItem;Ljava/lang/String;Ljava/lang/String;)Landroidx/slice/SliceItem;
 
@@ -2819,7 +2819,7 @@
     goto :goto_6
 
     :sswitch_1
-    const-string v5, "time_picker"
+    const-string/jumbo v5, "time_picker"
 
     invoke-virtual {v2, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -2835,7 +2835,7 @@
     goto :goto_6
 
     :sswitch_2
-    const-string v5, "toggle"
+    const-string/jumbo v5, "toggle"
 
     invoke-virtual {v2, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -4017,7 +4017,7 @@
     goto :goto_0
 
     :sswitch_1
-    const-string v3, "time_picker"
+    const-string/jumbo v3, "time_picker"
 
     invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -4033,7 +4033,7 @@
     goto :goto_0
 
     :sswitch_2
-    const-string v3, "toggle"
+    const-string/jumbo v3, "toggle"
 
     invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 

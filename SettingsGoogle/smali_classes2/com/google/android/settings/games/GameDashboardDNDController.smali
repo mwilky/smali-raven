@@ -92,7 +92,7 @@
 
     iget-object p1, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const p2, 0x7f04096d
+    const p2, 0x7f040985
 
     invoke-virtual {p1, p2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -235,6 +235,14 @@
     const/4 p0, 0x0
 
     return-object p0
+.end method
+
+.method public getSliceHighlightMenuRes()I
+    .locals 0
+
+    const p0, 0x7f040d04
+
+    return p0
 .end method
 
 .method public bridge synthetic hasAsyncUpdate()Z

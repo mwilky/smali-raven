@@ -74,7 +74,7 @@
 
     invoke-direct {v1}, Landroid/os/Bundle;-><init>()V
 
-    const-string v2, "title"
+    const-string/jumbo v2, "title"
 
     invoke-virtual {v1, v2, p3}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -146,7 +146,7 @@
 
     move-result-object p1
 
-    const-string v0, "title"
+    const-string/jumbo v0, "title"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 

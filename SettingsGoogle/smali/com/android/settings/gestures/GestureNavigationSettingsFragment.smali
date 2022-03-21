@@ -43,7 +43,7 @@
 
     new-instance v0, Lcom/android/settings/gestures/GestureNavigationSettingsFragment$1;
 
-    const v1, 0x7f150076
+    const v1, 0x7f150077
 
     invoke-direct {v0, v1}, Lcom/android/settings/gestures/GestureNavigationSettingsFragment$1;-><init>(I)V
 
@@ -280,7 +280,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f0409e7
+    const p0, 0x7f0409ff
 
     return p0
 .end method
@@ -304,7 +304,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f150076
+    const p0, 0x7f150077
 
     return p0
 .end method
@@ -328,7 +328,7 @@
 
     move-result-object p1
 
-    const-string v0, "window"
+    const-string/jumbo v0, "window"
 
     invoke-virtual {p1, v0}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -354,7 +354,7 @@
 
     move-result-object p1
 
-    const p2, 0x10500a5
+    const p2, 0x10500a6
 
     invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

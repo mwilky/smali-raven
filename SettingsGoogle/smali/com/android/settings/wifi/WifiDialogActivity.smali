@@ -139,7 +139,7 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, "}"
+    const-string/jumbo v2, "}"
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -248,10 +248,6 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/settings/wifi/WifiDialogActivity;->mDialog2:Lcom/android/settings/wifi/WifiDialog2;
-
-    invoke-virtual {v0}, Landroidx/appcompat/app/AppCompatDialog;->dismiss()V
-
     iput-object v1, p0, Lcom/android/settings/wifi/WifiDialogActivity;->mDialog2:Lcom/android/settings/wifi/WifiDialog2;
 
     :cond_0
@@ -271,10 +267,6 @@
     move-result v0
 
     if-eqz v0, :cond_2
-
-    iget-object v0, p0, Lcom/android/settings/wifi/WifiDialogActivity;->mDialog:Lcom/android/settings/wifi/WifiDialog;
-
-    invoke-virtual {v0}, Landroidx/appcompat/app/AppCompatDialog;->dismiss()V
 
     iput-object v1, p0, Lcom/android/settings/wifi/WifiDialogActivity;->mDialog:Lcom/android/settings/wifi/WifiDialog;
 
@@ -456,7 +448,11 @@
 .method public onScan(Lcom/android/settings/wifi/WifiDialog2;Ljava/lang/String;)V
     .locals 0
 
-    invoke-static {p2}, Lcom/android/settings/wifi/dpp/WifiDppUtils;->getEnrolleeQrCodeScannerIntent(Ljava/lang/String;)Landroid/content/Intent;
+    invoke-virtual {p1}, Landroid/app/Dialog;->getContext()Landroid/content/Context;
+
+    move-result-object p1
+
+    invoke-static {p1, p2}, Lcom/android/settings/wifi/dpp/WifiDppUtils;->getEnrolleeQrCodeScannerIntent(Landroid/content/Context;Ljava/lang/String;)Landroid/content/Intent;
 
     move-result-object p1
 
@@ -474,7 +470,11 @@
 .method public onScan(Lcom/android/settings/wifi/WifiDialog;Ljava/lang/String;)V
     .locals 0
 
-    invoke-static {p2}, Lcom/android/settings/wifi/dpp/WifiDppUtils;->getEnrolleeQrCodeScannerIntent(Ljava/lang/String;)Landroid/content/Intent;
+    invoke-virtual {p1}, Landroid/app/Dialog;->getContext()Landroid/content/Context;
+
+    move-result-object p1
+
+    invoke-static {p1, p2}, Lcom/android/settings/wifi/dpp/WifiDppUtils;->getEnrolleeQrCodeScannerIntent(Landroid/content/Context;Ljava/lang/String;)Landroid/content/Intent;
 
     move-result-object p1
 
@@ -523,12 +523,12 @@
 
     if-eqz v0, :cond_1
 
-    const v0, 0x7f13024d
+    const v0, 0x7f130252
 
     goto :goto_0
 
     :cond_1
-    const v0, 0x7f13024e
+    const v0, 0x7f130253
 
     :goto_0
     iget-boolean v2, p0, Lcom/android/settings/wifi/WifiDialogActivity;->mIsWifiTrackerLib:Z
@@ -685,7 +685,7 @@
 
     if-eqz p1, :cond_2
 
-    const-string v1, "wifi_configuration"
+    const-string/jumbo v1, "wifi_configuration"
 
     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
@@ -799,7 +799,7 @@
     :cond_3
     if-eqz v0, :cond_4
 
-    const-string p1, "wifi_configuration"
+    const-string/jumbo p1, "wifi_configuration"
 
     invoke-virtual {v1, p1, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 

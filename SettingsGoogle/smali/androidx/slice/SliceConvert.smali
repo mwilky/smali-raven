@@ -80,7 +80,7 @@
     goto/16 :goto_1
 
     :sswitch_0
-    const-string v7, "slice"
+    const-string/jumbo v7, "slice"
 
     invoke-virtual {v5, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -128,7 +128,7 @@
     goto :goto_1
 
     :sswitch_3
-    const-string v7, "text"
+    const-string/jumbo v7, "text"
 
     invoke-virtual {v5, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -578,7 +578,7 @@
     goto/16 :goto_1
 
     :sswitch_0
-    const-string v6, "slice"
+    const-string/jumbo v6, "slice"
 
     invoke-virtual {v4, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -626,7 +626,7 @@
     goto :goto_1
 
     :sswitch_3
-    const-string v6, "text"
+    const-string/jumbo v6, "text"
 
     invoke-virtual {v4, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 

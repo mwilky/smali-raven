@@ -38,6 +38,14 @@
 
 
 # virtual methods
+.method public getArity()I
+    .locals 0
+
+    iget p0, p0, Lkotlin/jvm/internal/Lambda;->arity:I
+
+    return p0
+.end method
+
 .method public toString()Ljava/lang/String;
     .locals 1
     .annotation build Lorg/jetbrains/annotations/NotNull;

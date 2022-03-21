@@ -149,7 +149,7 @@
 
     move-result v6
 
-    const-string v8, "subId"
+    const-string/jumbo v8, "subId"
 
     invoke-virtual {v7, v8, v6}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
 
@@ -183,7 +183,7 @@
 
     move-result-object v2
 
-    const-string v3, "wifi"
+    const-string/jumbo v3, "wifi"
 
     invoke-virtual {v0, v3, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
@@ -236,19 +236,19 @@
 
     iget-wide v0, p1, Lcom/android/settingslib/net/DataUsageController$DataUsageInfo;->startDate:J
 
-    const-string p2, "start"
+    const-string/jumbo p2, "start"
 
     invoke-virtual {p0, p2, v0, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;J)Lorg/json/JSONObject;
 
     iget-wide v0, p1, Lcom/android/settingslib/net/DataUsageController$DataUsageInfo;->usageLevel:J
 
-    const-string p2, "usage"
+    const-string/jumbo p2, "usage"
 
     invoke-virtual {p0, p2, v0, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;J)Lorg/json/JSONObject;
 
     iget-wide v0, p1, Lcom/android/settingslib/net/DataUsageController$DataUsageInfo;->warningLevel:J
 
-    const-string p2, "warning"
+    const-string/jumbo p2, "warning"
 
     invoke-virtual {p0, p2, v0, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;J)Lorg/json/JSONObject;
 
@@ -293,7 +293,7 @@
 
     move-result-object v2
 
-    const-string v3, "used"
+    const-string/jumbo v3, "used"
 
     invoke-virtual {v0, v3, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
@@ -313,7 +313,7 @@
 
     move-result-object p0
 
-    const-string v2, "total"
+    const-string/jumbo v2, "total"
 
     invoke-virtual {v0, v2, p0}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
@@ -321,7 +321,7 @@
 
     move-result p0
 
-    const-string v1, "state"
+    const-string/jumbo v1, "state"
 
     invoke-virtual {v0, v1, p0}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
 
@@ -397,7 +397,7 @@
 
     move-result-object v4
 
-    const-string v5, "used"
+    const-string/jumbo v5, "used"
 
     invoke-virtual {v2, v5, v4}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
@@ -409,7 +409,7 @@
 
     move-result-object v3
 
-    const-string v4, "total"
+    const-string/jumbo v4, "total"
 
     invoke-virtual {v2, v4, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
@@ -426,7 +426,7 @@
 
     move-result v3
 
-    const-string v4, "state"
+    const-string/jumbo v4, "state"
 
     invoke-virtual {v2, v4, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
 
@@ -434,7 +434,7 @@
 
     move-result v3
 
-    const-string v4, "stateDesc"
+    const-string/jumbo v4, "stateDesc"
 
     invoke-virtual {v2, v4, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
 
@@ -474,7 +474,7 @@
 
     invoke-virtual {p1, p3, v0}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    const-string p3, "storage"
+    const-string/jumbo p3, "storage"
 
     invoke-direct {p0}, Lcom/android/settings/SettingsDumpService;->dumpStorage()Lorg/json/JSONObject;
 

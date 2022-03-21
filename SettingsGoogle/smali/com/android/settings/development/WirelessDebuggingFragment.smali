@@ -107,7 +107,7 @@
 
     new-instance v0, Lcom/android/settings/development/WirelessDebuggingFragment$2;
 
-    const v1, 0x7f15001b
+    const v1, 0x7f15001c
 
     invoke-direct {v0, v1}, Lcom/android/settings/development/WirelessDebuggingFragment$2;-><init>(I)V
 
@@ -281,7 +281,7 @@
 
     iput-object v1, p0, Lcom/android/settings/development/WirelessDebuggingFragment;->mOffMessagePreference:Lcom/android/settingslib/widget/FooterPreference;
 
-    const v0, 0x7f0401b3
+    const v0, 0x7f0401c7
 
     invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
@@ -437,7 +437,7 @@
 
     invoke-direct {v0, v1}, Lcom/android/settings/core/SubSettingLauncher;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f0401b0
+    const v1, 0x7f0401c4
 
     invoke-virtual {v0, v1}, Lcom/android/settings/core/SubSettingLauncher;->setTitleRes(I)Lcom/android/settings/core/SubSettingLauncher;
 
@@ -785,7 +785,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f15001b
+    const p0, 0x7f15001c
 
     return p0
 .end method
@@ -903,7 +903,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f041771
+    const v2, 0x7f041796
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

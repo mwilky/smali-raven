@@ -189,6 +189,14 @@
     return-object p0
 .end method
 
+.method public getSliceHighlightMenuRes()I
+    .locals 0
+
+    const p0, 0x7f040d07
+
+    return p0
+.end method
+
 .method public getSummary()Ljava/lang/CharSequence;
     .locals 2
 

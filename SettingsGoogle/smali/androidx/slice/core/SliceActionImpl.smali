@@ -252,9 +252,9 @@
 
     const/4 v3, 0x0
 
-    const-string v4, "text"
+    const-string/jumbo v4, "text"
 
-    const-string v5, "title"
+    const-string/jumbo v5, "title"
 
     invoke-static {v2, v4, v5, v3}, Landroidx/slice/core/SliceQuery;->find(Landroidx/slice/Slice;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroidx/slice/SliceItem;
 
@@ -333,7 +333,7 @@
     goto :goto_1
 
     :sswitch_1
-    const-string v3, "time_picker"
+    const-string/jumbo v3, "time_picker"
 
     invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -349,7 +349,7 @@
     goto :goto_1
 
     :sswitch_2
-    const-string v3, "toggle"
+    const-string/jumbo v3, "toggle"
 
     invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -526,7 +526,7 @@
 
     if-ne v4, v5, :cond_0
 
-    const-string v4, "show_label"
+    const-string/jumbo v4, "show_label"
 
     filled-new-array {v4}, [Ljava/lang/String;
 
@@ -556,7 +556,7 @@
 
     if-eqz v1, :cond_3
 
-    const-string v4, "title"
+    const-string/jumbo v4, "title"
 
     filled-new-array {v4}, [Ljava/lang/String;
 
@@ -661,7 +661,7 @@
         }
     .end annotation
 
-    const-string v0, "show_label"
+    const-string/jumbo v0, "show_label"
 
     invoke-virtual {p0, v0}, Landroidx/slice/SliceItem;->hasHint(Ljava/lang/String;)Z
 
@@ -747,9 +747,9 @@
 
     move-result-object p0
 
-    const-string p1, "shortcut"
+    const-string/jumbo p1, "shortcut"
 
-    const-string v0, "title"
+    const-string/jumbo v0, "title"
 
     filled-new-array {p1, v0}, [Ljava/lang/String;
 
@@ -777,7 +777,7 @@
         }
     .end annotation
 
-    const-string v0, "shortcut"
+    const-string/jumbo v0, "shortcut"
 
     filled-new-array {v0}, [Ljava/lang/String;
 
@@ -918,7 +918,7 @@
     return-object p0
 
     :cond_0
-    const-string p0, "time_picker"
+    const-string/jumbo p0, "time_picker"
 
     return-object p0
 
@@ -928,7 +928,7 @@
     return-object p0
 
     :cond_2
-    const-string p0, "toggle"
+    const-string/jumbo p0, "toggle"
 
     return-object p0
 .end method

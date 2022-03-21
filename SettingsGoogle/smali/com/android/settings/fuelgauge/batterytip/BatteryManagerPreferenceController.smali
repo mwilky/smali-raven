@@ -19,7 +19,7 @@
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
 
-    const-string v0, "smart_battery_manager"
+    const-string/jumbo v0, "smart_battery_manager"
 
     invoke-direct {p0, p1, v0}, Lcom/android/settings/core/BasePreferenceController;-><init>(Landroid/content/Context;Ljava/lang/String;)V
 
@@ -101,6 +101,16 @@
     move-result-object p0
 
     return-object p0
+.end method
+
+.method public bridge synthetic getSliceHighlightMenuRes()I
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getSliceHighlightMenuRes()I
+
+    move-result p0
+
+    return p0
 .end method
 
 .method public bridge synthetic hasAsyncUpdate()Z
@@ -196,14 +206,28 @@
 
     invoke-virtual {p1, p0}, Landroidx/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
-    goto :goto_0
+    goto :goto_1
 
     :cond_0
-    const p0, 0x7f040378
+    iget-object p0, p0, Lcom/android/settings/fuelgauge/batterytip/BatteryManagerPreferenceController;->mPowerUsageFeatureProvider:Lcom/android/settings/fuelgauge/PowerUsageFeatureProvider;
 
-    invoke-virtual {p1, p0}, Landroidx/preference/Preference;->setSummary(I)V
+    invoke-interface {p0}, Lcom/android/settings/fuelgauge/PowerUsageFeatureProvider;->isAdaptiveChargingSupported()Z
+
+    move-result p0
+
+    if-eqz p0, :cond_1
+
+    const p0, 0x7f04038c
+
+    goto :goto_0
+
+    :cond_1
+    const p0, 0x7f04038d
 
     :goto_0
+    invoke-virtual {p1, p0}, Landroidx/preference/Preference;->setSummary(I)V
+
+    :goto_1
     return-void
 .end method
 

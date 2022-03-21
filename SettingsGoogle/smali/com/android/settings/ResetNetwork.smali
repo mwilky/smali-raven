@@ -73,7 +73,7 @@
 
     iget-object v0, p0, Lcom/android/settings/ResetNetwork;->mContentView:Landroid/view/View;
 
-    const v1, 0x7f0d048c
+    const v1, 0x7f0d0499
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -85,7 +85,7 @@
 
     iget-object v0, p0, Lcom/android/settings/ResetNetwork;->mContentView:Landroid/view/View;
 
-    const v1, 0x7f0d0208
+    const v1, 0x7f0d020d
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -95,7 +95,7 @@
 
     iget-object v0, p0, Lcom/android/settings/ResetNetwork;->mContentView:Landroid/view/View;
 
-    const v1, 0x7f0d0207
+    const v1, 0x7f0d020c
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -351,7 +351,7 @@
     :goto_1
     iget-object p1, p0, Lcom/android/settings/ResetNetwork;->mContentView:Landroid/view/View;
 
-    const v0, 0x7f0d02d8
+    const v0, 0x7f0d02e4
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -492,7 +492,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f041019
+    const p1, 0x7f041047
 
     invoke-virtual {v0, p1}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -606,7 +606,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f041019
+    const p1, 0x7f041047
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->setTitle(I)V
 
@@ -698,7 +698,7 @@
     return-object p1
 
     :cond_1
-    const p2, 0x7f0601da
+    const p2, 0x7f0601de
 
     invoke-virtual {p1, p2, v0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -718,7 +718,7 @@
 
     :cond_2
     :goto_0
-    const p0, 0x7f06015c
+    const p0, 0x7f060160
 
     invoke-virtual {p1, p0, v0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -763,7 +763,7 @@
     :cond_0
     const-string v1, "ResetNetwork"
 
-    const-string v2, "subcription list changed"
+    const-string/jumbo v2, "subcription list changed"
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -862,7 +862,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f041014
+    const v1, 0x7f041042
 
     invoke-virtual {v0, v1}, Lcom/android/settings/core/SubSettingLauncher;->setTitleRes(I)Lcom/android/settings/core/SubSettingLauncher;
 

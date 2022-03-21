@@ -96,6 +96,7 @@
     <string name="peak_refresh_rate_title">스무스 디스플레이</string>
     <string name="peak_refresh_rate_summary">일부 콘텐츠의 새로고침 빈도를 자동으로 60Hz에서 90Hz로 늘립니다. 이렇게 하면 배터리 사용량이 증가합니다.</string>
     <string name="accessibility_vibration_settings_title">진동 및 햅틱</string>
+    <string name="columbus_title">더블 탭하여 작업 시작하기</string>
     <string name="emergency_gesture_screen_title">긴급 SOS</string>
     <string name="abc_action_mode_done">완료</string>
     <string name="vibrate_for_calls_category_title">전화</string>
@@ -103,6 +104,8 @@
     <string name="lockscreen_privacy_controls_setting_toggle">기기 제어 표시</string>
     <string name="lockscreen_privacy_wallet_summary">잠금 화면 및 빠른 설정에서 월렛 액세스 허용</string>
     <string name="lockscreen_privacy_controls_summary">잠금 상태일 때 제어 기능에 액세스</string>
+    <string name="lockscreen_double_line_clock_summary">사용 가능한 경우 두 줄 시계 표시</string>
+    <string name="lockscreen_double_line_clock_setting_toggle">두 줄 시계</string>
     <string name="abc_activity_chooser_view_see_all">전체 보기</string>
     <string name="abc_activitychooserview_choose_application">앱 선택</string>
     <string name="abc_capital_off">사용 중지</string>
@@ -147,9 +150,11 @@
     <string name="accessibility_alarm_vibration_title">알람 진동</string>
     <string name="accessibility_assist_gesture_complete_or_keep_adjusting">Active Edge가 설정되었습니다. 다음 화면으로 이동하거나 조정을 계속하세요.</string>
     <string name="accessibility_audio_adjustment_title">오디오 조정</string>
+    <string name="accessibility_autoclick_about_title">자동 클릭 정보(체류 시간)</string>
     <string name="accessibility_autoclick_custom_title">사용자설정</string>
     <string name="accessibility_autoclick_default_title">사용 중지</string>
     <string name="accessibility_autoclick_description">자동 클릭은 연결된 마우스와 함께 작동됩니다. 마우스 커서가 일정한 시간 동안 멈춰 있으면 자동으로 클릭되도록 설정할 수 있습니다.</string>
+    <string name="accessibility_autoclick_footer_learn_more_content_description">자동 클릭(체류 시간)에 관해 자세히 알아보기</string>
     <string name="accessibility_autoclick_long_summary">1초</string>
     <string name="accessibility_autoclick_long_title">길게</string>
     <string name="accessibility_autoclick_longer_desc">길게</string>
@@ -161,16 +166,17 @@
     <string name="accessibility_autoclick_short_title">짧게</string>
     <string name="accessibility_autoclick_shorter_desc">짧게</string>
     <string name="accessibility_banner_message_dismiss">닫기</string>
-    <string name="accessibility_button_description">"어느 화면에서나 접근성 기능에 빠르게 액세스하세요. 
+    <string name="accessibility_button_about_title">접근성 버튼 정보</string>
+    <string name="accessibility_button_description">"어느 화면에서나 접근성 기능에 빠르게 액세스하세요.
 
-시작하려면 접근성 설정으로 가서 기능을 선택합니다. 단축키를 탭하고 접근성 버튼을 선택하세요."</string>
+시작하려면 접근성 설정으로 이동하여 기능을 선택합니다. 그런 다음 바로가기를 탭하고 접근성 버튼을 선택하세요."</string>
     <string name="accessibility_button_fade_summary">몇 초 후 사라지므로 쉽게 화면을 볼 수 있습니다.</string>
     <string name="accessibility_button_fade_title">사용하지 않을 때 사라짐</string>
+    <string name="accessibility_button_gesture_about_title">접근성 버튼 및 동작 정보</string>
     <string name="accessibility_button_gesture_description">"어느 화면에서나 접근성 기능에 빠르게 액세스하세요.
 
-시작하려면 접근성 설정으로 이동하여 기능을 선택합니다. 단축키를 탭하고 접근성 버튼을 선택합니다.
-
-대신 탐색 메뉴에서 접근성 버튼을 사용하려면 2버튼 또는 3버튼 탐색으로 전환하세요."</string>
+시작하려면 접근성 설정으로 이동하여 기능을 선택합니다. 그런 다음 바로가기를 탭하고 접근성 버튼 또는 동작을 선택하세요."</string>
+    <string name="accessibility_button_gesture_footer_learn_more_content_description">접근성 버튼 및 동작에 관해 자세히 알아보기</string>
     <string name="accessibility_button_gesture_title">접근성 버튼 및 동작</string>
     <string name="accessibility_button_high_label">불투명</string>
     <string name="accessibility_button_intro">접근성 버튼을 사용하세요. 3버튼 탐색에서는 동작을 사용할 수 없습니다.</string>
@@ -184,14 +190,23 @@
     <string name="accessibility_caption_preference_summary">일부 앱에서는 자막 환경설정을 지원하지 않습니다.</string>
     <string name="accessibility_caption_primary_switch_summary">지원되는 앱만 해당</string>
     <string name="accessibility_caption_primary_switch_title">자막 보기</string>
+    <string name="accessibility_captioning_about_title">자막 환경설정 정보</string>
+    <string name="accessibility_captioning_footer_learn_more_content_description">자막 환경설정에 관해 자세히 알아보기</string>
     <string name="accessibility_captioning_title">자막 환경설정</string>
     <string name="accessibility_category_personal">개인 프로필 계정</string>
     <string name="accessibility_category_work">직장 프로필 계정 - %s</string>
+    <string name="accessibility_color_inversion_about_title">색상 반전 정보</string>
+    <string name="accessibility_color_inversion_footer_learn_more_content_description">색상 반전에 관해 자세히 알아보기</string>
+    <string name="accessibility_control_timeout_about_title">조치를 취할 시간(접근성 기능 시간 제한) 정보</string>
+    <string name="accessibility_control_timeout_footer_learn_more_content_description">조치를 취할 시간(접근성 기능 시간 제한)에 관해 자세히 알아보기</string>
     <string name="accessibility_control_timeout_preference_summary">"사용자에게 조치를 취할 것을 요청하는 메시지를 일시적으로 표시할 시간을 선택하세요.
 
 일부 앱에서는 이 설정이 지원되지 않습니다."</string>
     <string name="accessibility_control_timeout_preference_title">조치를 취할 시간</string>
+    <string name="accessibility_daltonizer_about_title">색상 보정 정보</string>
+    <string name="accessibility_daltonizer_footer_learn_more_content_description">색상 보정에 관해 자세히 알아보기</string>
     <string name="accessibility_daltonizer_primary_switch_title">색상 보정 사용</string>
+    <string name="accessibility_daltonizer_shortcut_title">색상 보정 바로가기</string>
     <string name="accessibility_data_one_bar">데이터 신호 막대가 하나입니다.</string>
     <string name="accessibility_data_signal_full">데이터 신호가 강합니다.</string>
     <string name="accessibility_data_three_bars">데이터 신호 막대가 세 개입니다.</string>
@@ -206,6 +221,7 @@
     <string name="accessibility_display_daltonizer_preference_title">색상 보정</string>
     <string name="accessibility_display_inversion_preference_subtitle">색상 반전은 밝은 화면을 어둡게 전환합니다.&lt;br/>&lt;br/> 참고: &lt;ol> &lt;li> 색상 반전은 어두운 화면을 밝게 전환하기도 합니다.&lt;/li> &lt;li> 미디어 및 이미지의 색상이 변경됩니다.&lt;/li> &lt;li> 어두운 테마를 사용하여 어두운 배경을 표시할 수 있습니다. 어두운 테마는 일부 앱에서만 지원되지만, 색상 반전은 모든 앱에 적용됩니다.&lt;/li> &lt;/ol></string>
     <string name="accessibility_display_inversion_preference_title">색상 반전</string>
+    <string name="accessibility_display_inversion_shortcut_title">색상 반전 바로가기</string>
     <string name="accessibility_display_inversion_switch_title">색상 반전 사용</string>
     <string name="accessibility_ethernet_connected">이더넷에 연결되었습니다.</string>
     <string name="accessibility_ethernet_disconnected">이더넷에서 연결 해제되었습니다.</string>
@@ -255,6 +271,8 @@
     <string name="accessibility_phone_two_bars">휴대전화 신호 막대가 두 개입니다.</string>
     <string name="accessibility_power_button_ends_call_prerefence_title">전원 버튼으로 통화 종료</string>
     <string name="accessibility_preference_magnification_summary">화면 확대</string>
+    <string name="accessibility_screen_magnification_about_title">확대 정보</string>
+    <string name="accessibility_screen_magnification_footer_learn_more_content_description">확대에 관해 자세히 알아보기</string>
     <string name="accessibility_screen_magnification_gesture_navigation_warning">접근성 동작이 %1$s(으)로 설정되어 있습니다. 확대 기능을 사용하려면 두 손가락을 사용하여 화면 하단에서 위로 스와이프한 다음 잠시 기다리세요. 그런 다음 확대를 선택합니다.</string>
     <string name="accessibility_screen_magnification_gestures_title">세 번 탭하여 확대</string>
     <string name="accessibility_screen_magnification_navbar_configuration_warning">접근성 버튼이 %1$s(으)로 설정되어 있습니다. 확대를 사용하려면 접근성 버튼을 길게 터치한 다음 확대를 선택하세요.</string>
@@ -272,6 +290,7 @@
 키보드 또는 탐색 메뉴는 확대할 수 없습니다."</string>
     <string name="accessibility_screen_magnification_navbar_title">바로가기를 사용하여 확대</string>
     <string name="accessibility_screen_magnification_short_summary">3번 탭하여 확대</string>
+    <string name="accessibility_screen_magnification_shortcut_title">확대 바로가기</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">바로가기 및 세 번 탭으로 확대</string>
     <string name="accessibility_screen_magnification_summary">화면을 빠르게 확대하여 콘텐츠를 더 크게 표시합니다.&lt;br/>&lt;br/> &lt;b>확대하는 방법:&lt;/b>&lt;br/> {0,number,integer}. 단축키를 사용하여 확대를 시작합니다.&lt;br/> {1,number,integer}. 화면을 탭합니다.&lt;br/> {2,number,integer}. 두 손가락으로 드래그하여 화면을 움직입니다.&lt;br/> {3,number,integer}. 두 손가락을 모아서 배율을 조정합니다.&lt;br/> {4,number,integer}. 단축키로 확대를 멈춥니다.&lt;br/>&lt;br/> &lt;b>일시적으로 확대하는 방법:&lt;/b>&lt;br/> {0,number,integer}. 단축키를 사용하여 확대를 시작합니다.&lt;br/> {1,number,integer}. 화면 아무 곳이나 길게 터치합니다.&lt;br/> {2,number,integer}. 손가락으로 드래그하여 화면을 움직입니다.&lt;br/> {3,number,integer}. 손가락을 떼어 확대를 멈춥니다.</string>
     <string name="accessibility_screen_magnification_title">확대</string>
@@ -370,7 +389,7 @@
     <string name="accessibility_tutorial_dialog_message_volume">이 기능을 사용하려면 볼륨 키 2개를 동시에 길게 누르세요.</string>
     <string name="accessibility_tutorial_dialog_title_button">접근성 버튼을 사용하여 열기</string>
     <string name="accessibility_tutorial_dialog_title_gesture">동작을 사용해 열기</string>
-    <string name="accessibility_tutorial_dialog_title_gesture_settings">새로운 접근성 동작 사용</string>
+    <string name="accessibility_tutorial_dialog_title_gesture_settings">접근성 동작 사용</string>
     <string name="accessibility_tutorial_dialog_title_triple">화면을 세 번 탭하여 열기</string>
     <string name="accessibility_tutorial_dialog_title_volume">볼륨 키를 길게 눌러 열기</string>
     <string name="accessibility_tutorial_pager">%2$d페이지 중 %1$d페이지</string>
@@ -936,6 +955,7 @@ Pixel이 초기화되면 설정 과정을 진행한 다음 이전 휴대전화�
     <string name="battery_level_title">배터리 수준</string>
     <string name="battery_manager_off">끄기</string>
     <string name="battery_manager_summary">배터리 수명 연장 및 충전 최적화</string>
+    <string name="battery_manager_summary_unsupported">배터리 수명 연장</string>
     <string name="battery_missing_link_a11y_message">탭하여 이 오류에 관해 자세히 알아보기</string>
     <string name="battery_missing_link_message">자세히 알아보기</string>
     <string name="battery_missing_message">배터리 수준을 읽는 중에 문제가 발생했습니다.</string>
@@ -1012,9 +1032,9 @@ Pixel이 초기화되면 설정 과정을 진행한 다음 이전 휴대전화�
     <string name="battery_tip_high_usage_title">배터리 사용량이 증가함</string>
     <string name="battery_tip_limited_temporarily_dialog_msg">"온도가 높거나 충전 시간이 긴 경우 등 특정한 상황에서는 배터리 보호를 위해 %1$s까지만 충전될 수 있습니다.
 
-상태가 완화되면 휴대전화가 다시 자동으로 정상 충전됩니다."</string>
+상태가 개선되면 휴대전화가 다시 자동으로 정상 충전됩니다."</string>
     <string name="battery_tip_limited_temporarily_dialog_resume_charge">충전 재개</string>
-    <string name="battery_tip_limited_temporarily_summary">배터리 수명을 연장하는 방법입니다. 자세히 알아보세요.</string>
+    <string name="battery_tip_limited_temporarily_summary">배터리 보호를 위한 조치입니다. 자세히 알아보세요.</string>
     <string name="battery_tip_limited_temporarily_title">충전이 일시적으로 제한됨</string>
     <string name="battery_tip_low_battery_summary">절전 모드를 사용 설정하여 배터리 수명을 늘리세요</string>
     <string name="battery_tip_low_battery_title">배터리 잔량 부족</string>
@@ -1061,6 +1081,7 @@ Pixel이 초기화되면 설정 과정을 진행한 다음 이전 휴대전화�
     <string name="battery_usage_screen_footer">배터리 사용량 데이터는 대략적인 수치이며 휴대전화가 충전 중일 때는 사용량이 측정되지 않습니다.</string>
     <string name="battery_usage_screen_footer_empty">휴대전화를 몇 시간 사용한 후 배터리 사용량을 확인할 수 있습니다.</string>
     <string name="battery_usage_total_less_than_one_minute">총 시간: 1분 미만</string>
+    <string name="battery_usage_without_time" />
     <string name="battery_used_by">%2$s에서 %1$s 사용</string>
     <string name="battery_used_for">^1 사용됨</string>
     <string name="bearer">베어러(Bearer)</string>
@@ -1069,12 +1090,14 @@ Pixel이 초기화되면 설정 과정을 진행한 다음 이전 휴대전화�
     <string name="billing_cycle_less_than_one_day_left">1일 미만 남음</string>
     <string name="billing_cycle_none_left">남은 시간 없음</string>
     <string name="biometric_settings_category_ways_to_unlock">잠금 해제 방법</string>
-    <string name="biometric_settings_category_ways_to_use">다음에 얼굴 인식 및 지문 인식 사용</string>
     <string name="biometric_settings_hand_back_to_guardian">휴대전화를 부모님께 건네주세요.</string>
     <string name="biometric_settings_hand_back_to_guardian_ok">확인</string>
     <string name="biometric_settings_intro">얼굴 인식 잠금 해제 및 지문 잠금 해제를 설정하면 마스크를 쓰고 있거나 어두운 곳에 있을 때 휴대전화에서 지문을 요청합니다.</string>
-    <string name="biometric_settings_use_biometric_for_apps">앱 내 인증</string>
+    <string name="biometric_settings_use_biometric_for_apps">앱에서 본인 인증</string>
     <string name="biometric_settings_use_biometric_unlock_phone">휴대전화 잠금 해제</string>
+    <string name="biometric_settings_use_face_or_fingerprint_preference_summary">얼굴 또는 지문 사용</string>
+    <string name="biometric_settings_use_face_preference_summary">얼굴 사용</string>
+    <string name="biometric_settings_use_fingerprint_preference_summary">지문 사용</string>
     <string name="biometrics_unlock_set_unlock_password">비밀번호 • 얼굴 인식 • 지문</string>
     <string name="biometrics_unlock_set_unlock_pattern">패턴 • 얼굴 인식 • 지문</string>
     <string name="biometrics_unlock_set_unlock_pin">PIN • 얼굴 인식 • 지문</string>
@@ -1332,7 +1355,6 @@ Pixel이 초기화되면 설정 과정을 진행한 다음 이전 휴대전화�
     <string name="bluetooth_settings_title">블루투스</string>
     <string name="bluetooth_show_devices_without_names">이름이 없는 블루투스 기기 표시</string>
     <string name="bluetooth_show_devices_without_names_summary">이름이 없이 MAC 주소만 있는 블루투스 기기 표시</string>
-    <string name="bluetooth_show_files_received_via_bluetooth">블루투스를 통해 받은 파일</string>
     <string name="bluetooth_show_received_files">받은 파일</string>
     <string name="bluetooth_sim_card_access_dialog_content">"블루투스 기기 %1$s에서 SIM 카드 데이터에 액세스하려고 합니다. 여기에는 연락처 정보가 포함되어 있습니다.
 
@@ -1426,6 +1448,7 @@ CA 인증서를 설치하면 인증서 소유자가 내가 이용하는 웹사�
     <string name="calls_sms_temp_unavailable">일시적으로 사용할 수 없음</string>
     <string name="calls_sms_unavailable">사용할 수 없음</string>
     <string name="calls_sms_wfc_summary">Wi‑Fi로 통화</string>
+    <string name="cam_toggle_description">앱 및 서비스에 적용</string>
     <string name="camera_double_tap_power_gesture_desc">화면을 잠금 해제하지 않고 신속하게 카메라를 열 수 있습니다.</string>
     <string name="camera_double_tap_power_gesture_title">전원 버튼을 두 번 눌러 카메라 열기</string>
     <string name="camera_laser_sensor_switch">카메라 레이저 센서</string>
@@ -1492,7 +1515,7 @@ CA 인증서를 설치하면 인증서 소유자가 내가 이용하는 웹사�
     <string name="cdma_system_select_dialogtitle">시스템 선택</string>
     <string name="cdma_system_select_summary">CDMA 로밍 모드 변경</string>
     <string name="cdma_system_select_title">시스템 선택</string>
-    <string name="cell_broadcast_settings">재난문자</string>
+    <string name="cell_broadcast_settings">긴급 재난 문자</string>
     <string name="cell_data_limit">데이터 사용 한도: ^1</string>
     <string name="cell_data_off_content_description">모바일 데이터 꺼짐</string>
     <string name="cell_data_template">모바일 데이터 사용량: ^1</string>
@@ -2856,7 +2879,7 @@ CA 인증서를 설치하면 인증서 소유자가 내가 이용하는 웹사�
     <string name="launch_wifi_text">세부정보 보기</string>
     <string name="learn_more">자세히 알아보기</string>
     <string name="left_edge">왼쪽 가장자리</string>
-    <string name="legacy_navigation_summary">화면 하단의 버튼을 사용하여 뒤로 돌아가고 홈으로 이동하거나 앱을 전환합니다.</string>
+    <string name="legacy_navigation_summary">화면 하단의 버튼을 사용하여 뒤로 돌아가거나 홈으로 이동하거나 앱을 전환합니다.</string>
     <string name="legacy_navigation_title">3버튼 탐색</string>
     <string name="legal_information">법률 정보</string>
     <string name="license_title">라이선스</string>
@@ -2902,7 +2925,7 @@ CA 인증서를 설치하면 인증서 소유자가 내가 이용하는 웹사�
     <string name="location_scanning_wifi_always_scanning_title">Wi‑Fi 검색</string>
     <string name="location_services_preference_title">위치 서비스</string>
     <string name="location_services_screen_title">위치 서비스</string>
-    <string name="location_settings_footer_general">근처 기기 권한이 있는 앱이 연결된 기기의 상대적인 위치를 파악할 수 있습니다.</string>
+    <string name="location_settings_footer_general">근처 기기 액세스 권한이 있는 앱은 연결된 기기의 상대적인 위치를 파악할 수 있습니다.</string>
     <string name="location_settings_footer_learn_more_content_description">위치 설정 자세히 알아보기</string>
     <string name="location_settings_footer_location_off">앱 및 서비스에 대한 위치 정보 액세스가 사용 중지되어 있습니다. 그래도 긴급 전화번호로 전화를 걸거나 문자 메시지를 보내면 기기의 위치 정보가 구조 서비스에 전달될 수 있습니다.</string>
     <string name="location_settings_loading_app_permission_stats">로드 중…</string>
@@ -3224,7 +3247,7 @@ PIN을 사용하면 휴대전화를 분실하거나 도난당했을 때 휴대�
     <string name="media_controls_recommendations_title">미디어 추천 표시</string>
     <string name="media_controls_resume_description">재생을 빠르게 재개할 수 있도록 빠른 설정에서 미디어 플레이어를 계속 열어 둡니다.</string>
     <string name="media_controls_resume_title">미디어 플레이어 고정</string>
-    <string name="media_controls_show_player">플레이어를 표시합니다.</string>
+    <string name="media_controls_show_player">플레이어 표시</string>
     <string name="media_controls_title">미디어</string>
     <string name="media_management_apps_description">허용하면 이 앱이 다른 앱에서 생성된 미디어 파일을 사용자의 동의 없이 수정하거나 삭제할 수 있습니다. 앱에 파일 및 미디어 액세스 권한을 부여해야 합니다.</string>
     <string name="media_management_apps_title">미디어 관리 앱</string>
@@ -3302,6 +3325,7 @@ PIN을 사용하면 휴대전화를 분실하거나 도난당했을 때 휴대�
     <string name="menu_stats_total">총 사용량</string>
     <string name="menu_stats_unplugged">플러그를 뽑은 후 %1$s</string>
     <string name="menu_use_uss">USS(Unique Set Size) 사용</string>
+    <string name="mic_toggle_description">앱 및 서비스에 적용. 설정이 꺼져 있어도 긴급 전화번호로 전화를 걸 때 마이크 데이터가 공유될 수 있습니다.</string>
     <string name="mic_toggle_title">마이크 액세스</string>
     <string name="misc_files">기타 파일</string>
     <string name="misc_files_selected_count">%2$d개 중 %1$d개가 선택됨</string>
@@ -3728,6 +3752,7 @@ PIN을 사용하면 휴대전화를 분실하거나 도난당했을 때 휴대�
     <string name="one_handed_action_show_notification_title">알림 표시</string>
     <string name="one_handed_mode_enabled">한 손 사용 모드 사용</string>
     <string name="one_handed_mode_intro_text">한 손 사용 모드를 사용하려면 화면 하단 모서리에서 아래로 스와이프하세요. 이 기능을 사용하려면 시스템 탐색 설정에서 동작 탐색이 켜져 있는지 확인하세요.</string>
+    <string name="one_handed_mode_shortcut_title">한 손 사용 모드 바로가기</string>
     <string name="one_handed_mode_swipe_down_category">아래로 스와이프</string>
     <string name="one_handed_mode_use_shortcut_category">단축키 사용</string>
     <string name="one_usercrt">사용자 인증서 1개</string>
@@ -3803,7 +3828,7 @@ PIN을 사용하면 휴대전화를 분실하거나 도난당했을 때 휴대�
     <string name="post_dsds_reboot_notification_title_with_carrier">%1$s이(가) 활성화됨</string>
     <string name="power_bluetooth">블루투스</string>
     <string name="power_camera">카메라</string>
-    <string name="power_cell">모바일 네트워크 대기</string>
+    <string name="power_cell">모바일 네트워크</string>
     <string name="power_charge_remaining">%1$s 후 완충</string>
     <string name="power_charging">%1$s - %2$s</string>
     <string name="power_charging_duration">%1$s: %2$s 후 충전 완료</string>
@@ -4037,6 +4062,7 @@ PIN을 사용하면 휴대전화를 분실하거나 도난당했을 때 휴대�
     <string name="recent_notifications">최근에 알림을 보낸 앱</string>
     <string name="recent_notifications_see_all_title">지난 7일간의 모든 항목 보기</string>
     <string name="recompute_size">크기 다시 계산 중...</string>
+    <string name="reduce_bright_colors_about_title">더 어둡게 정보</string>
     <string name="reduce_bright_colors_intensity_end_label">밝게</string>
     <string name="reduce_bright_colors_intensity_preference_title">강도</string>
     <string name="reduce_bright_colors_intensity_start_label">어둡게</string>
@@ -4044,6 +4070,7 @@ PIN을 사용하면 휴대전화를 분실하거나 도난당했을 때 휴대�
     <string name="reduce_bright_colors_preference_subtitle">읽기 편하도록 화면을 어둡게 합니다.&lt;br/>&lt;br/> 다음의 경우 화면을 어둡게 하면 도움이 됩니다. &lt;ol> &lt;li> 휴대전화를 기본 최소 밝기로 설정해도 여전히 너무 밝을 때&lt;/li> &lt;li> 한밤중 또는 자기 전 어두운 실내 등 어두운 곳에서 휴대전화를 사용할 때&lt;/li> &lt;/ol></string>
     <string name="reduce_bright_colors_preference_summary">휴대전화의 최소 밝기보다 화면 어둡게 하기</string>
     <string name="reduce_bright_colors_preference_title">더 어둡게</string>
+    <string name="reduce_bright_colors_shortcut_title">더 어둡게 바로가기</string>
     <string name="reduce_bright_colors_switch_title">화면 더 어둡게 하기</string>
     <string name="register_automatically">자동 등록...</string>
     <string name="register_on_network">%s에 등록 중...</string>
@@ -4249,7 +4276,6 @@ PIN을 사용하면 휴대전화를 분실하거나 도난당했을 때 휴대�
     <string name="screen_pinning_unlock_pattern">고정 해제 이전에 잠금해제 패턴 요청</string>
     <string name="screen_pinning_unlock_pin">고정 해제 이전에 PIN 요청</string>
     <string name="screen_reader_category_title">스크린 리더</string>
-    <string name="screen_saver_main_switch_title">화면 보호기 사용</string>
     <string name="screen_time_summary_usage_today">%1$s(오늘)</string>
     <string name="screen_timeout_summary">%1$s 이상 동작이 없을 때</string>
     <string name="screen_timeout_title">화면이 꺼짐</string>
@@ -4279,6 +4305,7 @@ PIN을 사용하면 휴대전화를 분실하거나 도난당했을 때 휴대�
     <string name="screensaver_settings_button">설정</string>
     <string name="screensaver_settings_current">현재 화면 보호기</string>
     <string name="screensaver_settings_disabled_prompt">휴대전화가 도킹 또는 절전 모드일 때 작동 방식을 조정하려면 화면 보호기를 사용 설정합니다.</string>
+    <string name="screensaver_settings_dream_start">지금 시작하기</string>
     <string name="screensaver_settings_summary_dock">도킹하는 동안</string>
     <string name="screensaver_settings_summary_either_long">충전 또는 도킹하는 동안</string>
     <string name="screensaver_settings_summary_either_short">도킹이나 충전 중일 때</string>
@@ -4329,15 +4356,6 @@ PIN을 사용하면 휴대전화를 분실하거나 도난당했을 때 휴대�
     <string name="security_settings_biometric_preference_summary_both_fp_single">얼굴 및 지문 추가됨</string>
     <string name="security_settings_biometric_preference_summary_none_enrolled">탭하여 설정</string>
     <string name="security_settings_biometric_preference_title">얼굴 및 지문 잠금 해제</string>
-    <string name="security_settings_biometrics_description">얼굴 인식 및 지문 잠금 해제를 설정하면 마스크를 쓰고 있거나 어두운 곳에 있을 때 휴대전화에서 지문을 요청합니다.</string>
-    <string name="security_settings_biometrics_preference_use_with_apps">앱 내 인증</string>
-    <string name="security_settings_biometrics_preferences_category">다음에 얼굴 인식 또는 지문 사용</string>
-    <string name="security_settings_biometrics_summary_both">얼굴 인식 및 지문</string>
-    <string name="security_settings_biometrics_summary_face">얼굴 인식만</string>
-    <string name="security_settings_biometrics_summary_fingerprint">지문만</string>
-    <string name="security_settings_biometrics_summary_none">탭하여 설정</string>
-    <string name="security_settings_biometrics_title">얼굴 인식 및 지문 잠금 해제</string>
-    <string name="security_settings_biometrics_types_category">잠금 해제 방법</string>
     <string name="security_settings_face_enroll_consent_introduction_title">얼굴 인식 잠금 해제 허용</string>
     <string name="security_settings_face_enroll_dialog_ok">확인</string>
     <string name="security_settings_face_enroll_done">완료</string>
@@ -4385,16 +4403,17 @@ g.co/pixel/faceunlock에서 자세히 알아보세요."</string>
     <string name="security_settings_face_enroll_introduction_control_title">사용자가 직접 관리 가능</string>
     <string name="security_settings_face_enroll_introduction_how_consent_message">"얼굴 인식 잠금 해제를 사용하면 자녀의 본인 인증을 위한 고유한 얼굴 모델이 생성됩니다. 설정 중 얼굴 모델을 만들기 위해 다양한 각도에서 얼굴을 촬영하게 됩니다.
 
-얼굴 인식 잠금 해제를 사용하면 자녀의 얼굴 모델을 업데이트하는 데 이미지가 활용됩니다. 자녀의 얼굴 모델을 만드는 데 사용된 이미지는 저장되지 않으나 얼굴 모델은 휴대전화에 안전하게 저장되며 기기 외부로 전송되지 않습니다. 모든 처리는 휴대전화 내에서 안전하게 이뤄집니다."</string>
+얼굴 인식 잠금 해제를 사용하면 자녀의 얼굴 모델을 업데이트하는 데 이미지가 활용됩니다. 자녀의 얼굴 모델을 만드는 데 사용된 이미지는 저장되지 않으나 얼굴 모델은 휴대전화에 안전하게 저장되며 휴대전화 외부로 전송되지 않습니다. 모든 처리는 휴대전화 내에서 안전하게 이뤄집니다."</string>
     <string name="security_settings_face_enroll_introduction_how_message">"얼굴 인식 잠금 해제를 사용하면 본인 인증을 위한 고유한 얼굴 모델이 생성됩니다. 설정 중 얼굴 모델을 만들기 위해 다양한 각도에서 얼굴을 촬영하게 됩니다.
 
-얼굴 인식 잠금 해제를 사용하면 얼굴 모델을 업데이트하는 데 이미지가 활용됩니다. 얼굴 모델을 만드는 데 사용된 이미지는 저장되지 않으나 얼굴 모델은 휴대전화에 안전하게 저장되며 기기 외부로 전송되지 않습니다. 모든 처리는 휴대전화 내에서 안전하게 이뤄집니다."</string>
+얼굴 인식 잠금 해제를 사용하면 얼굴 모델을 업데이트하는 데 이미지가 활용됩니다. 얼굴 모델을 만드는 데 사용된 이미지는 저장되지 않으나 얼굴 모델은 휴대전화에 안전하게 저장되며 휴대전화 외부로 전송되지 않습니다. 모든 처리는 휴대전화 내에서 안전하게 이뤄집니다."</string>
     <string name="security_settings_face_enroll_introduction_how_title">작동 방식</string>
     <string name="security_settings_face_enroll_introduction_info_consent_gaze">휴대전화를 잠금 해제하거나 본인 인증을 위해 얼굴 인식 잠금 해제를 사용할 때 자녀에게 눈을 뜨도록 요구할 수 있습니다. 부모와 자녀가 언제든지 설정에서 이 옵션을 사용 설정할 수 있습니다.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_glasses">평소 자녀가 안경을 쓰는 경우 설정 중 안경을 착용할 수 있습니다.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_looking">자녀가 휴대전화를 바라보면 의도치 않게 잠금이 해제될 수 있습니다. 일란성 쌍둥이와 같이 자녀와 닮은 사람이 자녀의 휴대전화 잠금을 해제하거나 다른 사람이 자녀의 얼굴에 휴대전화를 가져다 대어 잠금을 해제할 수 있습니다.</string>
     <string name="security_settings_face_enroll_introduction_info_gaze">휴대전화를 잠금 해제하거나 본인 인증을 위해 얼굴 인식 잠금 해제를 사용할 때 눈을 뜨도록 요구할 수 있습니다. 언제든지 설정에서 이 옵션을 사용 설정할 수 있습니다.</string>
     <string name="security_settings_face_enroll_introduction_info_glasses">안경이나 옅은 색의 선글라스는 괜찮습니다.</string>
+    <string name="security_settings_face_enroll_introduction_info_less_secure">얼굴 인식을 사용하여 휴대전화를 잠금 해제하는 것은 강력한 패턴이나 PIN보다 보안 강도가 떨어질 수 있습니다.</string>
     <string name="security_settings_face_enroll_introduction_info_looking">휴대전화를 바라보면 의도치 않게 잠금이 해제될 수 있습니다. 일란성 쌍둥이와 같이 나와 닮은 사람이 휴대전화의 잠금을 해제하거나 다른 사람이 내 얼굴에 휴대전화를 가져다 대어 잠금을 해제할 수 있습니다.</string>
     <string name="security_settings_face_enroll_introduction_info_title">주의사항</string>
     <string name="security_settings_face_enroll_introduction_message">얼굴 인식을 사용하여 휴대전화를 잠금 해제하거나 앱 로그인 또는 구매 승인 등을 위해 본인을 인증하세요</string>
@@ -4452,13 +4471,14 @@ g.co/pixel/faceunlock에서 자세히 알아보세요."</string>
 
 일란성 쌍둥이와 같이 나와 많이 닮은 사람이 휴대전화의 잠금을 해제할 수도 있습니다."</string>
     <string name="security_settings_face_settings_preferences_category">얼굴 인식 잠금 해제를 사용하는 경우</string>
-    <string name="security_settings_face_settings_remove_dialog_details">얼굴 모델이 영구적으로 안전하게 삭제됩니다. 삭제한 후 휴대전화를 잠금 해제하거나 앱 내에서 인증하려면 PIN, 패턴 또는 비밀번호가 필요합니다.</string>
+    <string name="security_settings_face_settings_remove_dialog_details">"얼굴 모델이 영구적으로 안전하게 삭제됩니다.
+
+삭제 후 휴대전화를 잠금 해제하거나 앱에서 인증하려면 PIN, 패턴 또는 비밀번호가 필요합니다."</string>
+    <string name="security_settings_face_settings_remove_dialog_details_convenience">"얼굴 모델이 영구적으로 안전하게 삭제됩니다.
+
+삭제 후 휴대전화를 잠금 해제하려면 PIN, 패턴 또는 비밀번호가 필요합니다."</string>
     <string name="security_settings_face_settings_remove_dialog_title">얼굴 모델을 삭제하시겠습니까?</string>
     <string name="security_settings_face_settings_remove_face_model">얼굴 모델 삭제</string>
-    <string name="security_settings_face_settings_remove_model_dialog_details">"얼굴 모델이 영구적으로 안전하게 삭제됩니다.
-
-삭제한 후 휴대전화를 잠금 해제하거나 앱 내에서 인증하려면 지문, PIN, 패턴 또는 비밀번호가 필요합니다."</string>
-    <string name="security_settings_face_settings_remove_model_dialog_title">얼굴 모델을 삭제하시겠습니까?</string>
     <string name="security_settings_face_settings_require_attention">눈을 뜨고 있어야 함</string>
     <string name="security_settings_face_settings_require_attention_details">휴대전화를 잠금 해제하려면 눈을 뜨고 있어야 함</string>
     <string name="security_settings_face_settings_require_confirmation">항상 확인 요청</string>
@@ -4541,7 +4561,7 @@ g.co/pixel/faceunlock에서 자세히 알아보세요."</string>
     <string name="security_settings_title">보안</string>
     <string name="security_settings_udfps_enroll_a11y">센서를 찾으려면 화면에서 손가락을 움직이세요. 지문 센서를 길게 터치하세요.</string>
     <string name="security_settings_udfps_enroll_edge_message">센서에 손가락 한쪽을 올리고 잠시 기다린 후에 다른 쪽을 올리세요</string>
-    <string name="security_settings_udfps_enroll_edge_title">마지막으로 손가락 가장자리를 돌아가며 올리세요</string>
+    <string name="security_settings_udfps_enroll_edge_title">마지막으로 손가락 가장자리를 사용하세요.</string>
     <string name="security_settings_udfps_enroll_find_sensor_message">지문 센서는 화면에 있습니다. 다음 화면에서 지문을 등록합니다.</string>
     <string name="security_settings_udfps_enroll_find_sensor_start_button">시작</string>
     <string name="security_settings_udfps_enroll_find_sensor_title">지문 인식 설정 방법</string>
@@ -4549,7 +4569,7 @@ g.co/pixel/faceunlock에서 자세히 알아보세요."</string>
     <string name="security_settings_udfps_enroll_repeat_a11y_message">이렇게 하면 지문을 더 많이 캡처할 수 있습니다</string>
     <string name="security_settings_udfps_enroll_repeat_message">지문 아이콘이 움직일 때마다 길게 터치합니다. 이렇게 하면 지문을 더 많이 캡처할 수 있습니다</string>
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">지문 인식 아이콘을 따라가세요</string>
-    <string name="security_settings_udfps_enroll_start_message">진동이 느껴질 때까지 손가락을 센서 위에 둡니다.</string>
+    <string name="security_settings_udfps_enroll_start_message">지문이 센서에 완전히 닿게 손가락을 대고 진동이 느껴질 때까지 기다리세요.</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">한 번 더 하세요</string>
     <string name="security_settings_work_fingerprint_preference_title">직장용 Pixel Imprint</string>
     <string name="security_status_title">보안 상태</string>
@@ -4575,7 +4595,6 @@ g.co/pixel/faceunlock에서 자세히 알아보세요."</string>
     <string name="select_webview_provider_dialog_title">WebView 구현 설정</string>
     <string name="select_webview_provider_title">WebView 구현</string>
     <string name="select_webview_provider_toast_text">선택이 더 이상 유효하지 않습니다. 다시 시도하세요.</string>
-    <string name="sensor_toggle_description">모든 앱 및 서비스</string>
     <string name="sensors_off_quick_settings_title">센서 사용 안함</string>
     <string name="service_background_processes">%1$s 남음</string>
     <string name="service_foreground_processes">%1$s 사용됨</string>
@@ -4636,7 +4655,7 @@ g.co/pixel/faceunlock에서 자세히 알아보세요."</string>
     <string name="show_all_apps">전체 기기 사용 정보 표시</string>
     <string name="show_background_processes">캐시된 프로세스 표시</string>
     <string name="show_clip_access_notification">클립보드 액세스 표시</string>
-    <string name="show_clip_access_notification_summary">앱이 복사된 텍스트, 이미지 또는 기타 콘텐츠에 액세스할 때 메시지를 표시합니다.</string>
+    <string name="show_clip_access_notification_summary">앱이 복사된 텍스트, 이미지 또는 기타 콘텐츠에 액세스할 때 메시지 표시</string>
     <string name="show_dev_already">이미 개발자입니다.</string>
     <string name="show_dev_on">개발자가 되셨습니다.</string>
     <string name="show_first_crash_dialog">비정상 종료 대화상자 항상 표시</string>
@@ -4790,7 +4809,7 @@ PIN이 잘못된 것 같습니다."</string>
     <string name="sms_change_default_no_previous_dialog_text">SMS 앱으로 %s을(를) 사용하시겠습니까?</string>
     <string name="sms_preference">SMS 환경설정</string>
     <string name="sms_preference_title">SMS</string>
-    <string name="snooze_options_title">알림 일시 중지 허용</string>
+    <string name="snooze_options_title">다시 알림 허용</string>
     <string name="sometimes_running">가끔 실행(%s)</string>
     <string name="sort_avg_use">평균 사용량 기준 정렬</string>
     <string name="sort_max_use">최대 사용량 기준 정렬</string>
@@ -4807,6 +4826,7 @@ PIN이 잘못된 것 같습니다."</string>
     <string name="sound_settings_summary_silent">벨소리 장치가 무음으로 설정됨</string>
     <string name="sound_settings_summary_vibrate">벨소리 장치가 진동으로 설정됨</string>
     <string name="sound_work_settings">직장 프로필 소리</string>
+    <string name="spatial_audio_title">서라운드 오디오</string>
     <string name="special_access">특수 앱 액세스</string>
     <string name="special_access_more">더보기</string>
     <string name="speed_label_fast">빠름</string>
@@ -4869,7 +4889,7 @@ PIN이 잘못된 것 같습니다."</string>
     <string name="storage_files">파일</string>
     <string name="storage_format_failure">%1$s을(를) 포맷하지 못했습니다.</string>
     <string name="storage_format_success">%1$s이(가) 포맷되었습니다.</string>
-    <string name="storage_free_up_space_summary">Files 앱으로 이동하여 저장공간을 관리하고 여유 공간을 확보합니다.</string>
+    <string name="storage_free_up_space_summary">저장공간을 관리하고 여유 공간을 확보하려면 Files 앱으로 이동하세요.</string>
     <string name="storage_free_up_space_title">여유 공간 확보</string>
     <string name="storage_games">게임</string>
     <string name="storage_images">이미지</string>
@@ -5236,7 +5256,7 @@ Google 동기화는 사용자가 어디에서든지 연락처, 일정 등에 액
     <string name="uninstall_all_users_text">모든 사용자에 대해 제거</string>
     <string name="uninstall_certs_credential_management_app">인증서 제거</string>
     <string name="uninstall_device_admin">애플리케이션 제거</string>
-    <string name="uninstall_text">설치 제거</string>
+    <string name="uninstall_text">제거</string>
     <string name="unknown">알 수 없음</string>
     <string name="unknown_app">알 수 없는 앱</string>
     <string name="unknown_unavailability_setting_summary">설정을 사용할 수 없음</string>
@@ -5618,7 +5638,7 @@ Google 동기화는 사용자가 어디에서든지 연락처, 일정 등에 액
     <string name="vpn_turn_on">사용</string>
     <string name="vpn_type">유형</string>
     <string name="vpn_username">사용자 이름</string>
-    <string name="vpn_version">버전 %s</string>
+    <string name="vpn_version">버전</string>
     <string name="vr_listener_security_warning_summary">가상 현실 모드에서 애플리케이션을 사용 중일 때 %1$s이(가) 실행될 수 있습니다.</string>
     <string name="vr_listener_security_warning_title">VR 서비스가 %1$s에 액세스하도록 허용하시겠습니까?</string>
     <string name="vr_listeners_title">VR 도우미 서비스</string>
@@ -5888,7 +5908,7 @@ Google 동기화는 사용자가 어디에서든지 연락처, 일정 등에 액
     <string name="wifi_not_in_range">범위 내에 없음</string>
     <string name="wifi_not_in_range_message">범위 안에 네트워크가 없음</string>
     <string name="wifi_notify_open_networks">공용 네트워크 알림</string>
-    <string name="wifi_notify_open_networks_summary">자동 연결을 사용할 수 없는 경우</string>
+    <string name="wifi_notify_open_networks_summary">고품질 공용 네트워크를 사용할 수 있을 때 알립니다.</string>
     <string name="wifi_on_time">Wi-Fi 사용 시간</string>
     <string name="wifi_p2p_cancel_connect_message">%1$s와(과) 연결하려는 초대를 취소하시겠습니까?</string>
     <string name="wifi_p2p_cancel_connect_title">초대를 취소하시겠습니까?</string>
@@ -5976,7 +5996,6 @@ Google 동기화는 사용자가 어디에서든지 연락처, 일정 등에 액
     <string name="wifi_suspend_optimizations">Wi-Fi 최적화</string>
     <string name="wifi_suspend_optimizations_summary">Wi-Fi가 사용 중일 때 배터리 사용량 최소화</string>
     <string name="wifi_switch_away_when_unvalidated">Wi‑Fi 인터넷 액세스가 끊기면 모바일 데이터로 전환</string>
-    <string name="wifi_switch_summary">Wi‑Fi 네트워크 찾기 및 연결</string>
     <string name="wifi_tap_to_sign_in">네트워크에 로그인하려면 여기를 탭하세요.</string>
     <string name="wifi_tether_configure_ap_text">Wi-Fi 핫스팟 설정</string>
     <string name="wifi_tether_configure_ssid_default">AndroidHotspot</string>

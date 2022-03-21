@@ -69,7 +69,7 @@
 
     if-eqz v0, :cond_0
 
-    const-string v0, "wifi_mac_address"
+    const-string/jumbo v0, "wifi_mac_address"
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceGroup;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
@@ -94,7 +94,7 @@
 .method public getPreferenceKey()Ljava/lang/String;
     .locals 0
 
-    const-string p0, "wifi_mac_address"
+    const-string/jumbo p0, "wifi_mac_address"
 
     return-object p0
 .end method

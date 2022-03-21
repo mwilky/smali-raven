@@ -13,10 +13,6 @@
 .field public static final TOUCH_SENSITIVITY_PROP:Ljava/lang/String; = "debug.touch_sensitivity_mode"
 
 
-# instance fields
-.field private mParent:Landroidx/fragment/app/Fragment;
-
-
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/String;)V
     .locals 0
@@ -45,7 +41,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f090052
+    const v0, 0x7f090053
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -91,6 +87,14 @@
     move-result-object p0
 
     return-object p0
+.end method
+
+.method public getSliceHighlightMenuRes()I
+    .locals 0
+
+    const p0, 0x7f040d07
+
+    return p0
 .end method
 
 .method public bridge synthetic hasAsyncUpdate()Z

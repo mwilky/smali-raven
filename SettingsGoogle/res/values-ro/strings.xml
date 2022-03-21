@@ -96,6 +96,7 @@
     <string name="peak_refresh_rate_title">Smooth Display</string>
     <string name="peak_refresh_rate_summary">Ridică automat rata de actualizare de la 60 la 90 Hz pentru unele tipuri de conținut. Mărește utilizarea bateriei.</string>
     <string name="accessibility_vibration_settings_title">Vibrații și feedback tactil</string>
+    <string name="columbus_title">Atingere rapidă pentru a iniția acțiuni</string>
     <string name="emergency_gesture_screen_title">Apel de urgență</string>
     <string name="abc_action_mode_done">Gata</string>
     <string name="vibrate_for_calls_category_title">Apeluri</string>
@@ -103,6 +104,8 @@
     <string name="lockscreen_privacy_controls_setting_toggle">Afișați comenzile dispozitivului</string>
     <string name="lockscreen_privacy_wallet_summary">Permiteți accesul la Wallet din ecranul de blocare și setările rapide</string>
     <string name="lockscreen_privacy_controls_summary">Accesați comenzile când ecranul este blocat</string>
+    <string name="lockscreen_double_line_clock_summary">Afișați ceasul cu două linii când este disponibil</string>
+    <string name="lockscreen_double_line_clock_setting_toggle">Ceas cu două linii</string>
     <string name="abc_activity_chooser_view_see_all">Afișați tot</string>
     <string name="abc_activitychooserview_choose_application">Alegeți o aplicație</string>
     <string name="abc_capital_off">DEZACTIVAT</string>
@@ -147,9 +150,11 @@
     <string name="accessibility_alarm_vibration_title">Vibrație pentru alarmă</string>
     <string name="accessibility_assist_gesture_complete_or_keep_adjusting">S-a configurat Active Edge. Accesați ecranul următor sau continuați să reglați.</string>
     <string name="accessibility_audio_adjustment_title">Ajustarea setărilor audio</string>
+    <string name="accessibility_autoclick_about_title">Despre clicul automat (durată de staționare)</string>
     <string name="accessibility_autoclick_custom_title">Personalizat</string>
     <string name="accessibility_autoclick_default_title">Dezactivat</string>
     <string name="accessibility_autoclick_description">Clicul automat funcționează cu un mouse conectat. Puteți seta cursorul mouse-ului să dea clic automat când nu se mai mișcă pentru un anumit interval de timp.</string>
+    <string name="accessibility_autoclick_footer_learn_more_content_description">Aflați mai multe despre clicul automat (durată de staționare)</string>
     <string name="accessibility_autoclick_long_summary">O secundă</string>
     <string name="accessibility_autoclick_long_title">Lung</string>
     <string name="accessibility_autoclick_longer_desc">Mai lungă</string>
@@ -161,16 +166,17 @@
     <string name="accessibility_autoclick_short_title">Scurt</string>
     <string name="accessibility_autoclick_shorter_desc">Mai scurtă</string>
     <string name="accessibility_banner_message_dismiss">Respingeți</string>
-    <string name="accessibility_button_description">"Accesați rapid funcțiile de accesibilitate de pe orice ecran. 
+    <string name="accessibility_button_about_title">Despre butonul de accesibilitate</string>
+    <string name="accessibility_button_description">"Accesați rapid funcțiile de accesibilitate de pe orice ecran.
 
-Pentru a începe, accesați setările pentru accesibilitate și selectați o funcție. Atingeți comanda rapidă și selectați butonul de accesibilitate."</string>
+Pentru a începe, accesați setările de accesibilitate și selectați o funcție. Atingeți comanda rapidă și selectați butonul de accesibilitate."</string>
     <string name="accessibility_button_fade_summary">Dispare în câteva secunde ca să vedeți mai bine ecranul</string>
     <string name="accessibility_button_fade_title">Dispare atunci când nu este folosit</string>
+    <string name="accessibility_button_gesture_about_title">Despre butonul de accesibilitate și gest</string>
     <string name="accessibility_button_gesture_description">"Accesați rapid funcțiile de accesibilitate de pe orice ecran.
 
-Pentru a începe, accesați setările de accesibilitate și selectați o funcție. Atingeți comanda rapidă și selectați butonul de accesibilitate.
-
-Pentru a folosi butonul de accesibilitate din bara de navigare, comutați la navigarea cu 2 butoane sau la navigarea cu 3 butoane."</string>
+Pentru a începe, accesați setările de accesibilitate și selectați o funcție. Atingeți comanda rapidă și selectați butonul sau gestul de accesibilitate."</string>
+    <string name="accessibility_button_gesture_footer_learn_more_content_description">Aflați mai multe despre butonul de accesibilitate și gest</string>
     <string name="accessibility_button_gesture_title">Buton și gest de accesibilitate</string>
     <string name="accessibility_button_high_label">Netransparent</string>
     <string name="accessibility_button_intro">Folosirea butonului de accesibilitate. Gestul nu este disponibil în cazul navigării cu 3 butoane.</string>
@@ -184,14 +190,23 @@ Pentru a folosi butonul de accesibilitate din bara de navigare, comutați la nav
     <string name="accessibility_caption_preference_summary">Nu toate aplicațiile acceptă aceste preferințe pentru subtitrări</string>
     <string name="accessibility_caption_primary_switch_summary">Numai pentru aplicațiile compatibile</string>
     <string name="accessibility_caption_primary_switch_title">Afișează subtitrările</string>
+    <string name="accessibility_captioning_about_title">Despre preferințele legate de subtitrări</string>
+    <string name="accessibility_captioning_footer_learn_more_content_description">Aflați mai multe despre preferințele legate de subtitrări</string>
     <string name="accessibility_captioning_title">Preferințe pentru subtitrări</string>
     <string name="accessibility_category_personal">Conturi cu profil personal</string>
     <string name="accessibility_category_work">Conturi cu profil de serviciu – %s</string>
+    <string name="accessibility_color_inversion_about_title">Despre inversarea culorilor</string>
+    <string name="accessibility_color_inversion_footer_learn_more_content_description">Aflați mai multe despre inversarea culorilor</string>
+    <string name="accessibility_control_timeout_about_title">Despre timpul de reacție (timp limită de accesibilitate)</string>
+    <string name="accessibility_control_timeout_footer_learn_more_content_description">Aflați mai multe despre timpul de reacție (timp limită de accesibilitate)</string>
     <string name="accessibility_control_timeout_preference_summary">"Alegeți durata de afișare a mesajelor care vă cer să acționați, dar care sunt vizibile numai temporar.
 
 Nu toate aplicațiile permit această setare."</string>
     <string name="accessibility_control_timeout_preference_title">Timp pentru a acționa</string>
+    <string name="accessibility_daltonizer_about_title">Despre corecția culorii</string>
+    <string name="accessibility_daltonizer_footer_learn_more_content_description">Aflați mai multe despre corecția culorii</string>
     <string name="accessibility_daltonizer_primary_switch_title">Folosiți corecția culorii</string>
+    <string name="accessibility_daltonizer_shortcut_title">Comandă rapidă pentru corecția culorii</string>
     <string name="accessibility_data_one_bar">Semnal pentru date: o bară.</string>
     <string name="accessibility_data_signal_full">Semnal pentru date: complet.</string>
     <string name="accessibility_data_three_bars">Semnal pentru date: trei bare.</string>
@@ -206,6 +221,7 @@ Nu toate aplicațiile permit această setare."</string>
     <string name="accessibility_display_daltonizer_preference_title">Corecția culorii</string>
     <string name="accessibility_display_inversion_preference_subtitle">Inversarea culorilor întunecă ecranele luminoase.&lt;br/>&lt;br/> Notă &lt;ol> &lt;li> Dar, prin inversarea culorilor se deschid la culoare ecranele întunecate.&lt;/li> &lt;li> Culorile conținutului media și ale imaginilor se schimbă.&lt;/li> &lt;li> Puteți folosi Tema întunecată pentru a afișa un fundal întunecat. Tema întunecată funcționează cu aplicațiile compatibile. Inversarea culorilor funcționează în toate aplicațiile.&lt;/li> &lt;/ol></string>
     <string name="accessibility_display_inversion_preference_title">Inversarea culorilor</string>
+    <string name="accessibility_display_inversion_shortcut_title">Comandă rapidă pentru inversarea culorilor</string>
     <string name="accessibility_display_inversion_switch_title">Folosiți inversarea culorilor</string>
     <string name="accessibility_ethernet_connected">Ethernet.</string>
     <string name="accessibility_ethernet_disconnected">Ethernet deconectat.</string>
@@ -255,6 +271,8 @@ Butonul de accesibilitate apare pe ecran peste alte aplicații. Atingeți-l pent
     <string name="accessibility_phone_two_bars">Semnal pentru telefon: două bare.</string>
     <string name="accessibility_power_button_ends_call_prerefence_title">Butonul de pornire închide</string>
     <string name="accessibility_preference_magnification_summary">Măriți pe ecran</string>
+    <string name="accessibility_screen_magnification_about_title">Despre mărire</string>
+    <string name="accessibility_screen_magnification_footer_learn_more_content_description">Aflați mai multe despre mărire</string>
     <string name="accessibility_screen_magnification_gesture_navigation_warning">Gestul de accesibilitate este setat la %1$s. Pentru a folosi mărirea, glisați în sus cu două degete din partea de jos a ecranului și mențineți apăsat. Apoi selectați mărirea.</string>
     <string name="accessibility_screen_magnification_gestures_title">Măriți atingând de trei ori</string>
     <string name="accessibility_screen_magnification_navbar_configuration_warning">Butonul Accesibilitate este setat pe %1$s. Pentru a folosi mărirea, atingeți lung butonul Accesibilitate și apoi selectați mărirea.</string>
@@ -272,6 +290,7 @@ Butonul de accesibilitate apare pe ecran peste alte aplicații. Atingeți-l pent
 Nu puteți mări pe tastatură și pe bara de navigare."</string>
     <string name="accessibility_screen_magnification_navbar_title">Măriți folosind scurtătura</string>
     <string name="accessibility_screen_magnification_short_summary">Atingeți de 3 ori pentru zoom</string>
+    <string name="accessibility_screen_magnification_shortcut_title">Comandă rapidă pentru mărire</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">Măriți folosind scurtătura și atingând de trei ori</string>
     <string name="accessibility_screen_magnification_summary">Măriți rapid ecranul pentru a mări conținutul.&lt;br/>&lt;br/> &lt;b>Pentru a mări:&lt;/b>&lt;br/> {0,number,integer}. folosiți comanda rapidă ca să începeți mărirea&lt;br/> {1,number,integer}; atingeți ecranul&lt;br/> {2,number,integer}; glisați cu două degete ca să vă deplasați pe ecran&lt;br/> {3,number,integer}; ciupiți cu două degete ca să ajustați nivelul de zoom&lt;br/> {4,number,integer}. Folosiți comanda rapidă ca să opriți mărirea.&lt;br/>&lt;br/> &lt;b>Ca să măriți temporar:&lt;/b>&lt;br/> {0,number,integer}. folosiți comanda rapidă ca să începeți mărirea&lt;br/> {1,number,integer}; atingeți lung oriunde pe ecran&lt;br/> {2,number,integer}; Glisați cu degetul ca să vă deplasați pe ecran&lt;br/> {3,number,integer}; ridicați degetul ca să opriți mărirea.</string>
     <string name="accessibility_screen_magnification_title">Mărire</string>
@@ -370,7 +389,7 @@ Ca să comutați între funcții, glisați în sus cu trei degete și mențineț
     <string name="accessibility_tutorial_dialog_message_volume">Ca să folosiți această funcție, apăsați lung ambele taste de volum.</string>
     <string name="accessibility_tutorial_dialog_title_button">Folosiți butonul de accesibilitate pentru a deschide</string>
     <string name="accessibility_tutorial_dialog_title_gesture">Folosiți un gest pentru a deschide</string>
-    <string name="accessibility_tutorial_dialog_title_gesture_settings">Folosiți noul gest de accesibilitate</string>
+    <string name="accessibility_tutorial_dialog_title_gesture_settings">Folosiți gestul de accesibilitate</string>
     <string name="accessibility_tutorial_dialog_title_triple">Atingeți ecranul de trei ori ca să deschideți</string>
     <string name="accessibility_tutorial_dialog_title_volume">Apăsați lung tastele de volum pentru a deschide</string>
     <string name="accessibility_tutorial_pager">Pagina %1$d din %2$d</string>
@@ -936,6 +955,7 @@ După resetarea dispozitivului, parcurgeți procesul de configurare și optați 
     <string name="battery_level_title">Nivelul bateriei</string>
     <string name="battery_manager_off">Dezactivat</string>
     <string name="battery_manager_summary">Măriți autonomia bateriei și optimizați încărcarea</string>
+    <string name="battery_manager_summary_unsupported">Prelungirea duratei de funcționare a bateriei</string>
     <string name="battery_missing_link_a11y_message">Atingeți ca să aflați mai multe despre această eroare</string>
     <string name="battery_missing_link_message">Aflați mai multe</string>
     <string name="battery_missing_message">Problemă la citirea măsurării bateriei.</string>
@@ -1061,6 +1081,7 @@ de la ultima încărcare completă"</string>
     <string name="battery_usage_screen_footer">Datele despre utilizarea bateriei sunt aproximative și nu includ utilizarea din timpul încărcării bateriei</string>
     <string name="battery_usage_screen_footer_empty">Datele de utilizare a bateriei vor fi disponibile după ce folosiți telefonul timp de câteva ore</string>
     <string name="battery_usage_total_less_than_one_minute">Total: mai puțin de un minut</string>
+    <string name="battery_usage_without_time" />
     <string name="battery_used_by">%1$s folosită de %2$s</string>
     <string name="battery_used_for">Utilizată ^1</string>
     <string name="bearer">Purtător</string>
@@ -1069,12 +1090,14 @@ de la ultima încărcare completă"</string>
     <string name="billing_cycle_less_than_one_day_left">A rămas mai puțin de o zi</string>
     <string name="billing_cycle_none_left">Nu a mai rămas timp</string>
     <string name="biometric_settings_category_ways_to_unlock">Moduri de a debloca</string>
-    <string name="biometric_settings_category_ways_to_use">Folosiți chipul și amprenta pentru</string>
     <string name="biometric_settings_hand_back_to_guardian">Dați telefonul părinților</string>
     <string name="biometric_settings_hand_back_to_guardian_ok">OK</string>
     <string name="biometric_settings_intro">Când configurați Deblocarea facială și Deblocarea cu amprenta, telefonul vă va solicita amprenta atunci când purtați mască sau vă aflați într-o zonă întunecoasă</string>
-    <string name="biometric_settings_use_biometric_for_apps">Autentificarea în aplicații</string>
-    <string name="biometric_settings_use_biometric_unlock_phone">Deblocarea telefonului</string>
+    <string name="biometric_settings_use_biometric_for_apps">Confirmați-vă identitatea în aplicații</string>
+    <string name="biometric_settings_use_biometric_unlock_phone">Deblocați telefonul</string>
+    <string name="biometric_settings_use_face_or_fingerprint_preference_summary">Folosiți chipul sau amprenta</string>
+    <string name="biometric_settings_use_face_preference_summary">Folosiți chipul</string>
+    <string name="biometric_settings_use_fingerprint_preference_summary">Folosiți amprenta</string>
     <string name="biometrics_unlock_set_unlock_password">Parolă • Față • Amprentă</string>
     <string name="biometrics_unlock_set_unlock_pattern">Model • Față • Amprentă</string>
     <string name="biometrics_unlock_set_unlock_pin">PIN • Față • Amprentă</string>
@@ -1332,7 +1355,6 @@ Selecție"</string>
     <string name="bluetooth_settings_title">Bluetooth</string>
     <string name="bluetooth_show_devices_without_names">Afișați dispozitivele Bluetooth fără nume</string>
     <string name="bluetooth_show_devices_without_names_summary">Vor fi afișate dispozitivele Bluetooth fără nume (numai adresele MAC)</string>
-    <string name="bluetooth_show_files_received_via_bluetooth">Fișiere primite prin Bluetooth</string>
     <string name="bluetooth_show_received_files">Fișiere primite</string>
     <string name="bluetooth_sim_card_access_dialog_content">"Un dispozitiv Bluetooth, %1$s, solicită acces la datele de pe cardul SIM. Aici este inclusă agenda.
 
@@ -1426,6 +1448,7 @@ Dacă instalați un certificat CA, proprietarul certificatului vă poate accesa 
     <string name="calls_sms_temp_unavailable">Temporar indisponibil</string>
     <string name="calls_sms_unavailable">indisponibile</string>
     <string name="calls_sms_wfc_summary">Inițiați și primiți apeluri prin Wi-Fi</string>
+    <string name="cam_toggle_description">Pentru aplicații și servicii</string>
     <string name="camera_double_tap_power_gesture_desc">Deschideți rapid camera foto fără să deblocați ecranul</string>
     <string name="camera_double_tap_power_gesture_title">Apăsați pornire de 2 ori pentru cameră</string>
     <string name="camera_laser_sensor_switch">Senzor laser al camerei foto</string>
@@ -3302,6 +3325,7 @@ Pe acest dispozitiv sunt prezenți și alți utilizatori.
     <string name="menu_stats_total">Totaluri privind utilizarea</string>
     <string name="menu_stats_unplugged">%1$s de la deconectare</string>
     <string name="menu_use_uss">Utilizați Uss</string>
+    <string name="mic_toggle_description">Pentru aplicații și servicii. Chiar dacă setarea este dezactivată, datele de la microfon pot fi trimise când apelați un număr de urgență.</string>
     <string name="mic_toggle_title">Acces la microfon</string>
     <string name="misc_files">Fișiere diverse</string>
     <string name="misc_files_selected_count">au fost selectate %1$d din %2$d</string>
@@ -3728,6 +3752,7 @@ Astfel, aplicația va putea să activeze sau să dezactiveze starea Nu deranja �
     <string name="one_handed_action_show_notification_title">Afișați notificările</string>
     <string name="one_handed_mode_enabled">Folosiți modul cu o mână</string>
     <string name="one_handed_mode_intro_text">Pentru a folosi modul cu o mână, glisați în jos din partea de jos a ecranului. Pentru a folosi această opțiune, asigurați-vă că ați activat navigarea prin gesturi în setările de navigare ale sistemului.</string>
+    <string name="one_handed_mode_shortcut_title">Comandă rapidă pentru modul cu o mână</string>
     <string name="one_handed_mode_swipe_down_category">Glisați în jos pentru următoarele acțiuni:</string>
     <string name="one_handed_mode_use_shortcut_category">Folosiți comanda rapidă pentru</string>
     <string name="one_usercrt">un certificat de utilizator</string>
@@ -3803,7 +3828,7 @@ Astfel, aplicația va putea să activeze sau să dezactiveze starea Nu deranja �
     <string name="post_dsds_reboot_notification_title_with_carrier">%1$s este activ</string>
     <string name="power_bluetooth">Bluetooth</string>
     <string name="power_camera">Cameră foto</string>
-    <string name="power_cell">Rețea mobilă în așteptare</string>
+    <string name="power_cell">Rețea mobilă</string>
     <string name="power_charge_remaining">%1$s până la finalizarea încărcării</string>
     <string name="power_charging">%1$s - %2$s</string>
     <string name="power_charging_duration">%1$s – %2$s până la finalizare</string>
@@ -4037,6 +4062,7 @@ apăsați simultan pe butonul de pornire și pe cel de creștere a volumului"</s
     <string name="recent_notifications">Trimise recent</string>
     <string name="recent_notifications_see_all_title">Afișați-le pe toate din ultimele 7 zile</string>
     <string name="recompute_size">Se recalculează dimensiunea...</string>
+    <string name="reduce_bright_colors_about_title">Despre luminozitatea redusă suplimentar</string>
     <string name="reduce_bright_colors_intensity_end_label">Mai luminos</string>
     <string name="reduce_bright_colors_intensity_preference_title">Intensitate</string>
     <string name="reduce_bright_colors_intensity_start_label">Mai întunecat</string>
@@ -4044,6 +4070,7 @@ apăsați simultan pe butonul de pornire și pe cel de creștere a volumului"</s
     <string name="reduce_bright_colors_preference_subtitle">Întunecați ecranul pentru a citi mai confortabil.&lt;br/>&lt;br/> Această opțiune poate fi utilă atunci când: &lt;ol> &lt;li> luminozitatea minimă prestabilită a telefonului este prea mare;&lt;/li> &lt;li> folosiți telefonul în condiții de luminozitate scăzută, de exemplu, noaptea sau într-o cameră întunecată înainte de culcare.&lt;/li> &lt;/ol></string>
     <string name="reduce_bright_colors_preference_summary">Întunecați ecranul sub setarea minimă pentru luminozitate a telefonului</string>
     <string name="reduce_bright_colors_preference_title">Luminozitate redusă suplimentar</string>
+    <string name="reduce_bright_colors_shortcut_title">Comandă rapidă pentru luminozitate redusă suplimentar</string>
     <string name="reduce_bright_colors_switch_title">Reduceți suplimentar luminozitatea</string>
     <string name="register_automatically">Înregistrare automată…</string>
     <string name="register_on_network">Se înregistrează pe %s…</string>
@@ -4249,7 +4276,6 @@ Pentru a folosi fixarea aplicației: \u0009
     <string name="screen_pinning_unlock_pattern">Solicită mai întâi modelul pentru deblocare</string>
     <string name="screen_pinning_unlock_pin">Solicită codul PIN înainte de a anula fixarea</string>
     <string name="screen_reader_category_title">Cititor de ecran</string>
-    <string name="screen_saver_main_switch_title">Folosiți economizorul de ecran</string>
     <string name="screen_time_summary_usage_today">%1$s astăzi</string>
     <string name="screen_timeout_summary">După %1$s de inactivitate</string>
     <string name="screen_timeout_title">Ecranul se dezactivează</string>
@@ -4279,6 +4305,7 @@ Pentru a folosi fixarea aplicației: \u0009
     <string name="screensaver_settings_button">Setări</string>
     <string name="screensaver_settings_current">Screensaver actual</string>
     <string name="screensaver_settings_disabled_prompt">Pentru a stabili ce se întâmplă când telefonul este andocat și/sau inactiv, activați economizorul de ecran.</string>
+    <string name="screensaver_settings_dream_start">Începe acum</string>
     <string name="screensaver_settings_summary_dock">Când dispozitivul este andocat</string>
     <string name="screensaver_settings_summary_either_long">În timpul încărcării sau andocării</string>
     <string name="screensaver_settings_summary_either_short">În ambele situații</string>
@@ -4329,15 +4356,6 @@ Pentru a folosi fixarea aplicației: \u0009
     <string name="security_settings_biometric_preference_summary_both_fp_single">Fața și amprenta au fost adăugate</string>
     <string name="security_settings_biometric_preference_summary_none_enrolled">Atingeți pentru a configura</string>
     <string name="security_settings_biometric_preference_title">Deblocare facială și cu amprentă</string>
-    <string name="security_settings_biometrics_description">Când configurați deblocarea facială și deblocarea cu amprenta, telefonul vă va solicita amprenta atunci când purtați mască sau vă aflați într-o zonă întunecoasă</string>
-    <string name="security_settings_biometrics_preference_use_with_apps">Autentificarea în aplicații</string>
-    <string name="security_settings_biometrics_preferences_category">Folosiți fața sau amprenta pentru</string>
-    <string name="security_settings_biometrics_summary_both">Fața și amprenta</string>
-    <string name="security_settings_biometrics_summary_face">Numai fața</string>
-    <string name="security_settings_biometrics_summary_fingerprint">Numai amprenta</string>
-    <string name="security_settings_biometrics_summary_none">Atingeți pentru a configura</string>
-    <string name="security_settings_biometrics_title">Deblocarea facială sau cu amprenta</string>
-    <string name="security_settings_biometrics_types_category">Moduri de a debloca</string>
     <string name="security_settings_face_enroll_consent_introduction_title">Permiteți Deblocarea facială</string>
     <string name="security_settings_face_enroll_dialog_ok">OK</string>
     <string name="security_settings_face_enroll_done">Gata</string>
@@ -4385,16 +4403,17 @@ Aflați mai multe la g.co/pixel/faceunlock."</string>
     <string name="security_settings_face_enroll_introduction_control_title">Dvs. dețineți controlul</string>
     <string name="security_settings_face_enroll_introduction_how_consent_message">"Deblocarea facială creează un model unic al feței copilului dvs. pentru a-i confirma identitatea. Pentru a crea acest model facial în timpul configurării, copilul își va fotografia fața din diferite unghiuri.
 
-Când folosește Deblocarea facială, imaginile sunt utilizate pentru a-i actualiza modelul facial. Imaginile folosite pentru a-i crea modelul facial nu sunt stocate niciodată, dar modelul facial este stocat în siguranță pe telefon și nu părăsește niciodată dispozitivul. Toată procesarea are loc în siguranță pe telefon."</string>
+Când folosește Deblocarea facială, imaginile sunt utilizate pentru a-i actualiza modelul facial. Imaginile folosite pentru a-i crea modelul facial nu sunt stocate, dar modelul facial este stocat în siguranță pe telefon și nu părăsește niciodată dispozitivul. Toată procesarea are loc în siguranță pe telefon."</string>
     <string name="security_settings_face_enroll_introduction_how_message">"Deblocarea facială creează un model unic al feței dvs. pentru a vă confirma identitatea. Pentru a crea acest model facial în timpul configurării, fotografiați-vă fața din diferite unghiuri.
 
-Când folosiți Deblocarea facială, imaginile sunt utilizate pentru a vă actualiza modelul facial. Imaginile folosite pentru a vă crea modelul facial nu sunt stocate niciodată, dar modelul facial este stocat în siguranță pe telefon și nu părăsește niciodată dispozitivul. Toată procesarea are loc în siguranță pe telefonul dvs."</string>
+Când folosiți Deblocarea facială, imaginile sunt utilizate pentru a vă actualiza modelul facial. Imaginile folosite pentru a vă crea modelul facial nu sunt stocate, dar modelul facial este stocat în siguranță pe telefon și nu părăsește niciodată dispozitivul. Toată procesarea are loc în siguranță pe telefonul dvs."</string>
     <string name="security_settings_face_enroll_introduction_how_title">Cum funcționează</string>
     <string name="security_settings_face_enroll_introduction_info_consent_gaze">Deblocarea facială poate solicita ca ochii copilului dvs. să fie deschiși pentru a-i debloca telefonul sau pentru a-i confirma identitatea. Dvs. și copilul dvs. puteți activa oricând această opțiune în Setări.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_glasses">Dacă în mod normal copilul dvs. poartă ochelari, îi poate purta și în timpul configurării.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_looking">Dacă privește spre telefon, îl poate debloca și când nu dorește. În plus, telefonul poate fi deblocat de cineva care seamănă mult cu copilul dvs., cum ar fi un frate sau o soră geamănă, sau dacă cineva îl ține în fața sa.</string>
     <string name="security_settings_face_enroll_introduction_info_gaze">Deblocarea facială poate solicita să țineți ochii deschiși pentru a debloca telefonul sau pentru a vă confirma identitatea. Puteți activa oricând această opțiune în Setări.</string>
     <string name="security_settings_face_enroll_introduction_info_glasses">Puteți folosi ochelari de vedere sau de soare cu lentile ușor nuanțate.</string>
+    <string name="security_settings_face_enroll_introduction_info_less_secure">Folosirea unui chip pentru a debloca telefonul poate fi mai puțin sigură decât un model sau un cod PIN puternic.</string>
     <string name="security_settings_face_enroll_introduction_info_looking">Dacă priviți spre telefon, îl puteți debloca și când nu doriți. În plus, telefonul poate fi deblocat de cineva care seamănă mult cu dvs., cum ar fi un frate sau o soră geamănă, sau dacă cineva îl ține în fața dvs.</string>
     <string name="security_settings_face_enroll_introduction_info_title">Rețineți</string>
     <string name="security_settings_face_enroll_introduction_message">Folosiți-vă fața ca să deblocați telefonul sau să vă confirmați identitatea, de exemplu, când vă conectați la aplicații sau aprobați o achiziție.</string>
@@ -4452,13 +4471,14 @@ Telefonul poate fi deblocat de altcineva dacă este ținut în dreptul feței dv
 
 Telefonul poate fi deblocat de cineva care seamănă mult cu dvs., cum ar fi un frate sau o soră geamănă."</string>
     <string name="security_settings_face_settings_preferences_category">Când folosiți Deblocarea facială</string>
-    <string name="security_settings_face_settings_remove_dialog_details">Modelul facial se va șterge definitiv și în siguranță. După ștergere, veți avea nevoie de codul PIN, de model sau de parolă să vă deblocați telefonul sau să vă autentificați în aplicații.</string>
+    <string name="security_settings_face_settings_remove_dialog_details">"Modelul facial se va șterge definitiv și în siguranță.
+
+După ștergere, veți avea nevoie de codul PIN, de model sau de parolă ca să vă deblocați telefonul sau să vă autentificați în aplicații."</string>
+    <string name="security_settings_face_settings_remove_dialog_details_convenience">"Modelul facial se va șterge definitiv și în siguranță.
+
+După ștergere, veți avea nevoie de codul PIN, de model sau de parolă ca să vă deblocați telefonul."</string>
     <string name="security_settings_face_settings_remove_dialog_title">Ștergeți modelul facial?</string>
     <string name="security_settings_face_settings_remove_face_model">Ștergeți modelul facial</string>
-    <string name="security_settings_face_settings_remove_model_dialog_details">"Modelul facial se va șterge definitiv și în siguranță.
-
-După ștergere, veți avea nevoie de amprentă, de codul PIN, de model sau de parolă să vă deblocați telefonul sau să vă autentificați în aplicații."</string>
-    <string name="security_settings_face_settings_remove_model_dialog_title">Ștergeți modelul facial?</string>
     <string name="security_settings_face_settings_require_attention">Ochii trebuie să fie deschiși</string>
     <string name="security_settings_face_settings_require_attention_details">Pentru a debloca telefonul, trebuie să aveți ochii deschiși</string>
     <string name="security_settings_face_settings_require_confirmation">Se solicită întotdeauna confirmarea</string>
@@ -4541,7 +4561,7 @@ Notă: nu vă puteți folosi amprenta ca să deblocați acest dispozitiv. Pentru
     <string name="security_settings_title">Securitate</string>
     <string name="security_settings_udfps_enroll_a11y">Mișcați degetul pe ecran pentru a-l găsi. Atingeți lung senzorul de amprentă.</string>
     <string name="security_settings_udfps_enroll_edge_message">Așezați partea laterală a degetului pe senzor și mențineți, apoi procedați la fel cu cealaltă parte</string>
-    <string name="security_settings_udfps_enroll_edge_title">În final, așezați părțile laterale ale degetului</string>
+    <string name="security_settings_udfps_enroll_edge_title">În final, folosiți părțile laterale ale degetului</string>
     <string name="security_settings_udfps_enroll_find_sensor_message">Senzorul de amprentă este integrat în ecran. Vă veți înregistra amprenta pe ecranul următor.</string>
     <string name="security_settings_udfps_enroll_find_sensor_start_button">Începeți</string>
     <string name="security_settings_udfps_enroll_find_sensor_title">Cum să vă configurați amprenta</string>
@@ -4549,7 +4569,7 @@ Notă: nu vă puteți folosi amprenta ca să deblocați acest dispozitiv. Pentru
     <string name="security_settings_udfps_enroll_repeat_a11y_message">Astfel veți putea captura o parte mai mare din amprentă</string>
     <string name="security_settings_udfps_enroll_repeat_message">Atingeți lung de fiecare dată când se mișcă pictograma amprentei. Astfel veți putea captura o parte mai mare din amprentă.</string>
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">Atingeți repetat pictograma amprentă</string>
-    <string name="security_settings_udfps_enroll_start_message">Țineți degetul pe senzor până când simțiți o vibrație</string>
+    <string name="security_settings_udfps_enroll_start_message">Țineți amprenta pe senzor până când simțiți o vibrație</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">Încă o dată</string>
     <string name="security_settings_work_fingerprint_preference_title">Pixel Imprint pentru serviciu</string>
     <string name="security_status_title">Starea de securitate</string>
@@ -4575,7 +4595,6 @@ Notă: nu vă puteți folosi amprenta ca să deblocați acest dispozitiv. Pentru
     <string name="select_webview_provider_dialog_title">Setați implementarea WebView</string>
     <string name="select_webview_provider_title">Implementare WebView</string>
     <string name="select_webview_provider_toast_text">Această opțiune nu mai este validă. Încercați din nou.</string>
-    <string name="sensor_toggle_description">Pentru toate aplicațiile și serviciile</string>
     <string name="sensors_off_quick_settings_title">Senzori dezactivați</string>
     <string name="service_background_processes">%1$s liberi</string>
     <string name="service_foreground_processes">%1$s utilizați</string>
@@ -4807,6 +4826,7 @@ Codul PIN poate fi incorect."</string>
     <string name="sound_settings_summary_silent">Soneria este setată pe silențios</string>
     <string name="sound_settings_summary_vibrate">Soneria este setată pe vibrații</string>
     <string name="sound_work_settings">Sunetele profilului de serviciu</string>
+    <string name="spatial_audio_title">Sunet spațial</string>
     <string name="special_access">Acces special aplicații</string>
     <string name="special_access_more">Vedeți mai multe</string>
     <string name="speed_label_fast">Rapidă</string>
@@ -5322,7 +5342,7 @@ Această funcție șterge modelul cu amprentă stocat pe dispozitiv. În plus, m
     <string name="unrestricted_data_saver">Date nerestricționate</string>
     <string name="unsupported_setting_summary">Setarea nu este acceptată pe telefon</string>
     <string name="unused_apps">Aplicații nefolosite</string>
-    <string name="unused_apps_switch">Eliminați permisiuni și eliberați spațiu</string>
+    <string name="unused_apps_switch">Revocă permisiunile și eliberează spațiu</string>
     <string name="usage">Utilizare</string>
     <string name="usage_access">Acces la datele de utilizare</string>
     <string name="usage_access_description">Accesul la datele de utilizare permite unei aplicații să înregistreze ce alte aplicații folosiți și cât de des le folosiți, precum și operatorul, setările de limbă și alte detalii.</string>
@@ -5618,7 +5638,7 @@ Orice utilizator poate actualiza aplicațiile pentru toți ceilalți utilizatori
     <string name="vpn_turn_on">Activați</string>
     <string name="vpn_type">Tip</string>
     <string name="vpn_username">Nume de utilizator</string>
-    <string name="vpn_version">Versiunea %s</string>
+    <string name="vpn_version">Versiune</string>
     <string name="vr_listener_security_warning_summary">%1$s va putea rula când folosiți aplicațiile în modul de realitate virtuală.</string>
     <string name="vr_listener_security_warning_title">Permiteți accesul la serviciul RV pentru %1$s?</string>
     <string name="vr_listeners_title">Servicii de ajutor pentru RV</string>
@@ -5888,7 +5908,7 @@ Dacă setați rețeaua ca ascunsă, setările pentru router nu se modifică."</s
     <string name="wifi_not_in_range">În afara ariei de acoperire</string>
     <string name="wifi_not_in_range_message">Rețeaua este în afara ariei de acoperire</string>
     <string name="wifi_notify_open_networks">Notificare pentru rețelele publice</string>
-    <string name="wifi_notify_open_networks_summary">Când nu este disponibilă conectarea automată</string>
+    <string name="wifi_notify_open_networks_summary">Notifică-mă atunci când este disponibilă o rețea publică de înaltă calitate</string>
     <string name="wifi_on_time">Timp de funcționare Wi-Fi</string>
     <string name="wifi_p2p_cancel_connect_message">Doriți să anulați invitația de conectare cu %1$s?</string>
     <string name="wifi_p2p_cancel_connect_title">Anulați invitația?</string>
@@ -5976,7 +5996,6 @@ Permiteți acest lucru pentru toate aplicațiile care solicită scanarea?"</stri
     <string name="wifi_suspend_optimizations">Optimizare Wi-Fi</string>
     <string name="wifi_suspend_optimizations_summary">Reduceți la minimum utilizarea bateriei când rețeaua Wi-Fi este activată</string>
     <string name="wifi_switch_away_when_unvalidated">Comutați la datele mobile dacă rețeaua Wi-Fi pierde accesul la internet.</string>
-    <string name="wifi_switch_summary">Găsiți rețele Wi-Fi și conectați-vă</string>
     <string name="wifi_tap_to_sign_in">Atingeți aici pentru a vă conecta la rețea</string>
     <string name="wifi_tether_configure_ap_text">Configurați hotspotul Wi-Fi</string>
     <string name="wifi_tether_configure_ssid_default">AndroidHotspot</string>

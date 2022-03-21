@@ -150,7 +150,7 @@
 
     if-nez v1, :cond_0
 
-    const-string v1, "values="
+    const-string/jumbo v1, "values="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

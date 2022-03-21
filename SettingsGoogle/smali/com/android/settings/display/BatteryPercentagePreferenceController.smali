@@ -85,7 +85,7 @@
 
     move-result-object p0
 
-    const v0, 0x1110035
+    const v0, 0x1110036
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -131,6 +131,16 @@
     move-result-object p0
 
     return-object p0
+.end method
+
+.method public bridge synthetic getSliceHighlightMenuRes()I
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getSliceHighlightMenuRes()I
+
+    move-result p0
+
+    return p0
 .end method
 
 .method public bridge synthetic hasAsyncUpdate()Z
@@ -188,7 +198,7 @@
 
     move-result-object p2
 
-    const-string v0, "status_bar_show_battery_percent"
+    const-string/jumbo v0, "status_bar_show_battery_percent"
 
     invoke-static {p2, v0, p1}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
@@ -222,7 +232,7 @@
 
     move-result-object p0
 
-    const-string v0, "status_bar_show_battery_percent"
+    const-string/jumbo v0, "status_bar_show_battery_percent"
 
     const/4 v1, 0x0
 

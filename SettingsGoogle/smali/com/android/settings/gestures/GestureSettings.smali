@@ -15,11 +15,11 @@
 .method static constructor <clinit>()V
     .locals 2
 
-    new-instance v0, Lcom/android/settings/search/BaseSearchIndexProvider;
+    new-instance v0, Lcom/android/settings/gestures/GestureSettings$1;
 
-    const v1, 0x7f150077
+    const v1, 0x7f150078
 
-    invoke-direct {v0, v1}, Lcom/android/settings/search/BaseSearchIndexProvider;-><init>(I)V
+    invoke-direct {v0, v1}, Lcom/android/settings/gestures/GestureSettings$1;-><init>(I)V
 
     sput-object v0, Lcom/android/settings/gestures/GestureSettings;->SEARCH_INDEX_DATA_PROVIDER:Lcom/android/settings/search/BaseSearchIndexProvider;
 
@@ -74,7 +74,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f150077
+    const p0, 0x7f150078
 
     return p0
 .end method

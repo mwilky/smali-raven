@@ -93,7 +93,7 @@
 
     iput-object v0, p0, Lcom/android/settings/network/VpnPreferenceController;->mToggleable:Ljava/lang/String;
 
-    const-string v0, "user"
+    const-string/jumbo v0, "user"
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -143,7 +143,7 @@
 
     invoke-super {p0, p1}, Lcom/android/settingslib/core/AbstractPreferenceController;->displayPreference(Landroidx/preference/PreferenceScreen;)V
 
-    const-string v0, "vpn_settings"
+    const-string/jumbo v0, "vpn_settings"
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceGroup;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
@@ -155,7 +155,7 @@
 
     if-eqz p1, :cond_0
 
-    const-string v0, "wifi"
+    const-string/jumbo v0, "wifi"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
@@ -244,7 +244,7 @@
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const p1, 0x7f04160f
+    const p1, 0x7f041634
 
     invoke-virtual {p0, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -313,7 +313,7 @@
 .method public getPreferenceKey()Ljava/lang/String;
     .locals 0
 
-    const-string p0, "vpn_settings"
+    const-string/jumbo p0, "vpn_settings"
 
     return-object p0
 .end method
@@ -500,7 +500,7 @@
 
     iget-object v1, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f041549
+    const v4, 0x7f04156e
 
     invoke-virtual {v1, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -518,14 +518,6 @@
     move-result-object v1
 
     :goto_2
-    iget-object v4, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
-
-    invoke-static {v4}, Lcom/android/settings/Utils;->isProviderModelEnabled(Landroid/content/Context;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_b
-
     iget-object v4, p0, Lcom/android/settings/network/VpnPreferenceController;->mPreference:Landroidx/preference/Preference;
 
     instance-of v4, v4, Lcom/android/settings/vpn2/VpnInfoPreference;
@@ -576,7 +568,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f041574
+    const v1, 0x7f041599
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -589,7 +581,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f041577
+    const v1, 0x7f04159c
 
     new-array v3, v5, [Ljava/lang/Object;
 
@@ -608,7 +600,7 @@
     :cond_a
     iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f041575
+    const v1, 0x7f04159a
 
     new-array v3, v5, [Ljava/lang/Object;
 

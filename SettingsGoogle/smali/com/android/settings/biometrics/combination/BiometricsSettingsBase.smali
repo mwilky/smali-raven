@@ -42,6 +42,200 @@
     return-void
 .end method
 
+.method private getUseAnyBiometricSummary()Ljava/lang/String;
+    .locals 4
+
+    iget-object v0, p0, Lcom/android/settings/biometrics/combination/BiometricsSettingsBase;->mFaceManager:Landroid/hardware/face/FaceManager;
+
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Landroid/hardware/face/FaceManager;->isHardwareDetected()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    move v0, v1
+
+    goto :goto_0
+
+    :cond_0
+    move v0, v2
+
+    :goto_0
+    iget-object v3, p0, Lcom/android/settings/biometrics/combination/BiometricsSettingsBase;->mFingerprintManager:Landroid/hardware/fingerprint/FingerprintManager;
+
+    if-eqz v3, :cond_1
+
+    invoke-virtual {v3}, Landroid/hardware/fingerprint/FingerprintManager;->isHardwareDetected()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    goto :goto_1
+
+    :cond_1
+    move v1, v2
+
+    :goto_1
+    invoke-static {v0, v1}, Lcom/android/settings/biometrics/combination/BiometricsSettingsBase;->getUseBiometricSummaryRes(ZZ)I
+
+    move-result v0
+
+    if-nez v0, :cond_2
+
+    const-string p0, ""
+
+    goto :goto_2
+
+    :cond_2
+    invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    :goto_2
+    return-object p0
+.end method
+
+.method private static getUseBiometricSummaryRes(ZZ)I
+    .locals 0
+
+    if-eqz p0, :cond_0
+
+    if-eqz p1, :cond_0
+
+    const p0, 0x7f04040c
+
+    return p0
+
+    :cond_0
+    if-eqz p0, :cond_1
+
+    const p0, 0x7f04040d
+
+    return p0
+
+    :cond_1
+    if-eqz p1, :cond_2
+
+    const p0, 0x7f04040e
+
+    return p0
+
+    :cond_2
+    const/4 p0, 0x0
+
+    return p0
+.end method
+
+.method private getUseClass2BiometricSummary()Ljava/lang/String;
+    .locals 6
+
+    iget-object v0, p0, Lcom/android/settings/biometrics/combination/BiometricsSettingsBase;->mFaceManager:Landroid/hardware/face/FaceManager;
+
+    const/4 v1, 0x2
+
+    const/4 v2, 0x0
+
+    const/4 v3, 0x1
+
+    if-eqz v0, :cond_2
+
+    invoke-virtual {v0}, Landroid/hardware/face/FaceManager;->getSensorPropertiesInternal()Ljava/util/List;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v0
+
+    :cond_0
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_2
+
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Landroid/hardware/face/FaceSensorPropertiesInternal;
+
+    iget v4, v4, Landroid/hardware/face/FaceSensorPropertiesInternal;->sensorStrength:I
+
+    if-eq v4, v3, :cond_1
+
+    if-ne v4, v1, :cond_0
+
+    :cond_1
+    move v0, v3
+
+    goto :goto_0
+
+    :cond_2
+    move v0, v2
+
+    :goto_0
+    iget-object v4, p0, Lcom/android/settings/biometrics/combination/BiometricsSettingsBase;->mFingerprintManager:Landroid/hardware/fingerprint/FingerprintManager;
+
+    if-eqz v4, :cond_5
+
+    invoke-virtual {v4}, Landroid/hardware/fingerprint/FingerprintManager;->getSensorPropertiesInternal()Ljava/util/List;
+
+    move-result-object v4
+
+    invoke-interface {v4}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v4
+
+    :cond_3
+    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_5
+
+    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;
+
+    iget v5, v5, Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;->sensorStrength:I
+
+    if-eq v5, v3, :cond_4
+
+    if-ne v5, v1, :cond_3
+
+    :cond_4
+    move v2, v3
+
+    :cond_5
+    invoke-static {v0, v2}, Lcom/android/settings/biometrics/combination/BiometricsSettingsBase;->getUseBiometricSummaryRes(ZZ)I
+
+    move-result v0
+
+    if-nez v0, :cond_6
+
+    const-string p0, ""
+
+    goto :goto_1
+
+    :cond_6
+    invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    :goto_1
+    return-object p0
+.end method
+
 .method private synthetic lambda$onPreferenceTreeClick$0(Landroidx/preference/Preference;IIJ)V
     .locals 6
 
@@ -131,7 +325,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0410ea
+    const v1, 0x7f041118
 
     invoke-virtual {p0, v1}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -223,6 +417,12 @@
 .end method
 
 .method public abstract getFingerprintPreferenceKey()Ljava/lang/String;
+.end method
+
+.method public abstract getUnlockPhonePreferenceKey()Ljava/lang/String;
+.end method
+
+.method public abstract getUseInAppsPreferenceKey()Ljava/lang/String;
 .end method
 
 .method public onActivityResult(IILandroid/content/Intent;)V
@@ -426,6 +626,40 @@
     invoke-direct {p0}, Lcom/android/settings/biometrics/combination/BiometricsSettingsBase;->launchChooseOrConfirmLock()V
 
     :cond_2
+    invoke-virtual {p0}, Lcom/android/settings/biometrics/combination/BiometricsSettingsBase;->getUnlockPhonePreferenceKey()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-virtual {p0, p1}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
+
+    move-result-object p1
+
+    if-eqz p1, :cond_3
+
+    invoke-direct {p0}, Lcom/android/settings/biometrics/combination/BiometricsSettingsBase;->getUseAnyBiometricSummary()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroidx/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
+
+    :cond_3
+    invoke-virtual {p0}, Lcom/android/settings/biometrics/combination/BiometricsSettingsBase;->getUseInAppsPreferenceKey()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-virtual {p0, p1}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
+
+    move-result-object p1
+
+    if-eqz p1, :cond_4
+
+    invoke-direct {p0}, Lcom/android/settings/biometrics/combination/BiometricsSettingsBase;->getUseClass2BiometricSummary()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-virtual {p1, p0}, Landroidx/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
+
+    :cond_4
     return-void
 .end method
 

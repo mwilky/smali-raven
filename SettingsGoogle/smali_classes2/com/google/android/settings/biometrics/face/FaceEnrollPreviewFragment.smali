@@ -344,7 +344,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b0163
+    const v2, 0x7f0b0164
 
     const/4 v3, 0x1
 
@@ -370,7 +370,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0b0164
+    const v6, 0x7f0b0165
 
     invoke-virtual {v5, v6, v2, v3}, Landroid/content/res/Resources;->getValue(ILandroid/util/TypedValue;Z)V
 
@@ -378,7 +378,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0b0165
+    const v6, 0x7f0b0166
 
     invoke-virtual {v5, v6, v4, v3}, Landroid/content/res/Resources;->getValue(ILandroid/util/TypedValue;Z)V
 
@@ -606,7 +606,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d05bb
+    const v1, 0x7f0d05ca
 
     invoke-virtual {v0, v1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -620,7 +620,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d0153
+    const v1, 0x7f0d0157
 
     invoke-virtual {v0, v1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -659,7 +659,7 @@
     :cond_0
     iget-boolean v0, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;->mRequireDiversity:Z
 
-    const v1, 0x7f0d01cf
+    const v1, 0x7f0d01d3
 
     if-eqz v0, :cond_1
 
@@ -675,7 +675,7 @@
 
     move-result-object v2
 
-    const v5, 0x7f0d02d0
+    const v5, 0x7f0d02da
 
     invoke-virtual {v2, v5}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 

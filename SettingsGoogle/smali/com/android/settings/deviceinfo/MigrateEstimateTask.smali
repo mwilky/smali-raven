@@ -41,7 +41,7 @@
 .method public copyFrom(Landroid/content/Intent;)V
     .locals 3
 
-    const-string v0, "size_bytes"
+    const-string/jumbo v0, "size_bytes"
 
     const-wide/16 v1, -0x1
 

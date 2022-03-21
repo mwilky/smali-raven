@@ -145,7 +145,7 @@
 
     iput-object v0, p0, Lcom/android/settings/network/TetherEnabler;->mConnectivityManager:Landroid/net/ConnectivityManager;
 
-    const-string v0, "tethering"
+    const-string/jumbo v0, "tethering"
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -155,7 +155,7 @@
 
     iput-object v0, p0, Lcom/android/settings/network/TetherEnabler;->mTetheringManager:Landroid/net/TetheringManager;
 
-    const-string v0, "wifi"
+    const-string/jumbo v0, "wifi"
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -165,7 +165,7 @@
 
     iput-object v0, p0, Lcom/android/settings/network/TetherEnabler;->mWifiManager:Landroid/net/wifi/WifiManager;
 
-    const-string v0, "user"
+    const-string/jumbo v0, "user"
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -834,7 +834,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "updateState: "
+    const-string/jumbo v1, "updateState: "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

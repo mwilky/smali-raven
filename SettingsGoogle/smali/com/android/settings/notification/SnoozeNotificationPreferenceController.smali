@@ -67,6 +67,14 @@
     return-object p0
 .end method
 
+.method public getSliceHighlightMenuRes()I
+    .locals 0
+
+    const p0, 0x7f040d0b
+
+    return p0
+.end method
+
 .method public bridge synthetic hasAsyncUpdate()Z
     .locals 0
 
@@ -86,7 +94,7 @@
 
     move-result-object p0
 
-    const-string v0, "show_notification_snooze"
+    const-string/jumbo v0, "show_notification_snooze"
 
     const/4 v1, 0x0
 
@@ -123,7 +131,7 @@
 
     move-result-object p0
 
-    const-string v0, "show_notification_snooze"
+    const-string/jumbo v0, "show_notification_snooze"
 
     invoke-static {p0, v0, p1}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 

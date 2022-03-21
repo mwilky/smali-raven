@@ -42,7 +42,7 @@
 
     new-instance v0, Lcom/google/android/settings/aware/AwareDisplaySettings$1;
 
-    const v1, 0x7f150032
+    const v1, 0x7f150033
 
     invoke-direct {v0, v1}, Lcom/google/android/settings/aware/AwareDisplaySettings$1;-><init>(I)V
 
@@ -120,13 +120,13 @@
 
     new-instance v2, Lcom/android/settings/utils/CandidateInfoExtra;
 
-    const v3, 0x7f040316
+    const v3, 0x7f04032a
 
     invoke-virtual {v0, v3}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v3
 
-    const v4, 0x7f040314
+    const v4, 0x7f040328
 
     invoke-virtual {v0, v4}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -180,7 +180,7 @@
     :cond_1
     new-instance p0, Lcom/android/settings/utils/CandidateInfoExtra;
 
-    const v3, 0x7f041378
+    const v3, 0x7f04139d
 
     invoke-virtual {v0, v3}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -254,7 +254,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f150032
+    const p0, 0x7f150033
 
     return p0
 .end method
@@ -276,9 +276,9 @@
 
     iput-object v0, p0, Lcom/google/android/settings/aware/AwareDisplaySettings;->mConfig:Landroid/hardware/display/AmbientDisplayConfiguration;
 
-    const p1, 0x7f03000d
+    const p1, 0x7f03000e
 
-    const v0, 0x7f020103
+    const v0, 0x7f020109
 
     invoke-virtual {p0, p1, v0}, Lcom/android/settings/widget/RadioButtonPickerFragment;->setIllustration(II)V
 

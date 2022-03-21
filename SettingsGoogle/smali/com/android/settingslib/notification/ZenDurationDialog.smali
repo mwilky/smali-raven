@@ -623,7 +623,7 @@
 
     move-result-object v0
 
-    const-string v1, "zen_duration"
+    const-string/jumbo v1, "zen_duration"
 
     const/4 v2, 0x0
 
@@ -813,7 +813,7 @@
 
     move-result-object v1
 
-    const-string v2, "zen_duration"
+    const-string/jumbo v2, "zen_duration"
 
     const/4 v3, 0x0
 

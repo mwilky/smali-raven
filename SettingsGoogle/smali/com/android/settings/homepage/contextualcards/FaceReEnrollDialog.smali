@@ -52,17 +52,17 @@
 
     if-eqz p1, :cond_0
 
-    const p1, 0x7f041108
+    const p1, 0x7f04112d
 
     goto :goto_0
 
     :cond_0
-    const p1, 0x7f041107
+    const p1, 0x7f04112c
 
     :goto_0
     iget-object v0, p0, Lcom/android/internal/app/AlertActivity;->mAlertParams:Lcom/android/internal/app/AlertController$AlertParams;
 
-    const v1, 0x7f041109
+    const v1, 0x7f04112e
 
     invoke-virtual {p0, v1}, Lcom/android/internal/app/AlertActivity;->getText(I)Ljava/lang/CharSequence;
 
@@ -76,7 +76,7 @@
 
     iput-object p1, v0, Lcom/android/internal/app/AlertController$AlertParams;->mMessage:Ljava/lang/CharSequence;
 
-    const p1, 0x7f0412ec
+    const p1, 0x7f041311
 
     invoke-virtual {p0, p1}, Lcom/android/internal/app/AlertActivity;->getText(I)Ljava/lang/CharSequence;
 
@@ -84,7 +84,7 @@
 
     iput-object p1, v0, Lcom/android/internal/app/AlertController$AlertParams;->mPositiveButtonText:Ljava/lang/CharSequence;
 
-    const p1, 0x7f04054c
+    const p1, 0x7f040564
 
     invoke-virtual {p0, p1}, Lcom/android/internal/app/AlertActivity;->getText(I)Ljava/lang/CharSequence;
 

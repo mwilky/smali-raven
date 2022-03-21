@@ -7,7 +7,6 @@
     <style name="GlifV3Theme.DayNight.NoActionBar" parent="@style/GlifV3Theme.NoActionBar" />
     <style name="GlifV3Theme.DayNight.Transparent" parent="@style/GlifV3Theme.Transparent" />
     <style name="SetupWizardTheme.DayNight.Transparent" parent="@style/SetupWizardTheme.Transparent" />
-    <style name="SubSettings.SetupWizard" parent="@style/SudThemeGlifV3" />
     <style name="SudDynamicColorThemeGlifV3.DayNight" parent="@style/SudDynamicColorThemeGlifV3" />
     <style name="SudFullDynamicColorThemeGlifV3.DayNight" parent="@style/SudFullDynamicColorThemeGlifV3" />
     <style name="SudThemeGlif.DayNight" parent="@style/SudThemeGlif" />
@@ -25,9 +24,9 @@
     </style>
     <style name="SuwAlertDialogThemeCompat.DayNight" parent="@style/SuwAlertDialogThemeCompat" />
     <style name="Theme.AlertDialog.Base" parent="@style/Theme.AppCompat.DayNight.Dialog.Alert">
-        <item name="android:colorBackground">@*android:color/surface_dark</item>
+        <item name="android:colorBackground">@android:color/surface_dark</item>
         <item name="android:colorError">@color/settings_dialog_colorError</item>
-        <item name="colorAccent">@*android:color/accent_device_default_dark</item>
+        <item name="colorAccent">@android:color/accent_device_default_dark</item>
     </style>
     <style name="Theme.AppCompat.DayNight" parent="@style/Theme.AppCompat" />
     <style name="Theme.AppCompat.DayNight.DarkActionBar" parent="@style/Theme.AppCompat" />
@@ -62,11 +61,11 @@
         <item name="android:colorBackground">?android:colorPrimaryDark</item>
         <item name="android:statusBarColor">?colorPrimaryDark</item>
         <item name="android:navigationBarColor">@android:color/black</item>
-        <item name="colorPrimary">@*android:color/primary_device_default_settings</item>
-        <item name="colorPrimaryDark">@*android:color/primary_dark_device_default_settings</item>
+        <item name="colorPrimary">@android:color/primary_device_default_settings</item>
+        <item name="colorPrimaryDark">@android:color/primary_dark_device_default_settings</item>
     </style>
     <style name="Theme.TabTheme" parent="@style/Theme.MaterialComponents.DayNight">
-        <item name="colorPrimary">@*android:color/edge_effect_device_default_dark</item>
+        <item name="colorPrimary">@android:color/edge_effect_device_default_dark</item>
     </style>
     <style name="ThemeOverlay.AppCompat.DayNight" parent="@style/ThemeOverlay.AppCompat.Dark" />
     <style name="ThemeOverlay.SwitchBar.Settings" parent="@style/ThemeOverlay.SwitchBar.Settings.Base">

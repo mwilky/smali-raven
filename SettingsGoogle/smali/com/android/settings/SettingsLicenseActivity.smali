@@ -29,7 +29,7 @@
 .method private showErrorAndFinish()V
     .locals 2
 
-    const v0, 0x7f0411c6
+    const v0, 0x7f0411ea
 
     const/4 v1, 0x1
 
@@ -95,11 +95,11 @@
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    const-string v1, "text/html"
+    const-string/jumbo v1, "text/html"
 
     invoke-virtual {v0, p1, v1}, Landroid/content/Intent;->setDataAndType(Landroid/net/Uri;Ljava/lang/String;)Landroid/content/Intent;
 
-    const v1, 0x7f0411c5
+    const v1, 0x7f0411e9
 
     invoke-virtual {p0, v1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 

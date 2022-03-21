@@ -43,7 +43,7 @@
 
     iput-object p2, p0, Lcom/android/settings/accessibility/RTTSettingPreferenceController;->mModes:[Ljava/lang/CharSequence;
 
-    const p2, 0x7f040640
+    const p2, 0x7f040658
 
     invoke-virtual {p1, p2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -69,7 +69,7 @@
 
     new-instance p2, Landroid/content/Intent;
 
-    const v0, 0x7f04063f
+    const v0, 0x7f040657
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -140,7 +140,7 @@
 .method private static isDefaultDialerSupportedRTT(Landroid/content/Context;)Z
     .locals 1
 
-    const v0, 0x7f040640
+    const v0, 0x7f040658
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -295,6 +295,16 @@
     return-object p0
 .end method
 
+.method public bridge synthetic getSliceHighlightMenuRes()I
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getSliceHighlightMenuRes()I
+
+    move-result p0
+
+    return p0
+.end method
+
 .method public getSummary()Ljava/lang/CharSequence;
     .locals 3
 
@@ -427,7 +437,7 @@
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v6, "subscription id for the device: "
+    const-string/jumbo v6, "subscription id for the device: "
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

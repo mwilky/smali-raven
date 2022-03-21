@@ -34,7 +34,7 @@
 
     invoke-direct {p0, p1}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
-    const-string p1, "wifi_networks_available_notification_on"
+    const-string/jumbo p1, "wifi_networks_available_notification_on"
 
     invoke-static {p1}, Landroid/provider/Settings$Global;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 

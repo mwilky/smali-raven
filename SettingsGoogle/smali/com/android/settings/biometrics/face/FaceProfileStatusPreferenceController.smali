@@ -100,6 +100,16 @@
     return-object p0
 .end method
 
+.method public bridge synthetic getSliceHighlightMenuRes()I
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getSliceHighlightMenuRes()I
+
+    move-result p0
+
+    return p0
+.end method
+
 .method protected getUserId()I
     .locals 0
 
@@ -187,7 +197,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f04113a
+    const v0, 0x7f041160
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

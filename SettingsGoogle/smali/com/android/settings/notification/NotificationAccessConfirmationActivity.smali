@@ -230,7 +230,7 @@
 
     move-result-object p1
 
-    const-string v0, "user_id"
+    const-string/jumbo v0, "user_id"
 
     const/16 v1, -0x2710
 
@@ -262,7 +262,7 @@
 
     aput-object p1, v2, v3
 
-    const v4, 0x7f040e51
+    const v4, 0x7f040e7c
 
     invoke-virtual {p0, v4, v2}, Landroid/app/Activity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -274,7 +274,7 @@
 
     aput-object p1, v1, v3
 
-    const p1, 0x7f040e50
+    const p1, 0x7f040e7b
 
     invoke-virtual {p0, p1, v1}, Landroid/app/Activity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -282,7 +282,7 @@
 
     iput-object p1, v0, Lcom/android/internal/app/AlertController$AlertParams;->mMessage:Ljava/lang/CharSequence;
 
-    const p1, 0x7f0401e5
+    const p1, 0x7f0401f9
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -296,7 +296,7 @@
 
     iput-object p1, v0, Lcom/android/internal/app/AlertController$AlertParams;->mPositiveButtonListener:Landroid/content/DialogInterface$OnClickListener;
 
-    const p1, 0x7f0407b0
+    const p1, 0x7f0407c8
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 

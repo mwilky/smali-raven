@@ -416,7 +416,7 @@
 .method private getLayout()Lcom/google/android/setupdesign/GlifLayout;
     .locals 1
 
-    const v0, 0x7f0d04e2
+    const v0, 0x7f0d04f1
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -432,7 +432,7 @@
 
     iget-object v0, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling;->mHelpController:Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling$HelpController;
 
-    const v1, 0x7f0408ee
+    const v1, 0x7f040906
 
     invoke-virtual {p0, v1}, Landroid/app/Activity;->getText(I)Ljava/lang/CharSequence;
 
@@ -470,7 +470,7 @@
     invoke-virtual {v0, v1, v1}, Lcom/google/android/settings/biometrics/face/FaceEnrollSidecar;->logEnrollmentEnded(IZ)V
 
     :cond_1
-    const v0, 0x7f041103
+    const v0, 0x7f041128
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getText(I)Ljava/lang/CharSequence;
 
@@ -882,13 +882,13 @@
 
     move-result-object v0
 
-    const v1, 0x7f04112b
+    const v1, 0x7f041151
 
     invoke-virtual {v0, v1}, Lcom/google/android/settings/biometrics/face/FaceEnrollDialogFactory$DialogBuilder;->setTitle(I)Lcom/google/android/settings/biometrics/face/FaceEnrollDialogFactory$DialogBuilder;
 
     move-result-object v0
 
-    const v1, 0x7f041129
+    const v1, 0x7f04114f
 
     invoke-virtual {v0, v1}, Lcom/google/android/settings/biometrics/face/FaceEnrollDialogFactory$DialogBuilder;->setMessage(I)Lcom/google/android/settings/biometrics/face/FaceEnrollDialogFactory$DialogBuilder;
 
@@ -898,7 +898,7 @@
 
     invoke-direct {v1, p0}, Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling$$ExternalSyntheticLambda2;-><init>(Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling;)V
 
-    const v2, 0x7f0410f5
+    const v2, 0x7f04111a
 
     invoke-virtual {v0, v2, v1}, Lcom/google/android/settings/biometrics/face/FaceEnrollDialogFactory$DialogBuilder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Lcom/google/android/settings/biometrics/face/FaceEnrollDialogFactory$DialogBuilder;
 
@@ -908,7 +908,7 @@
 
     invoke-direct {v1, p0}, Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling$$ExternalSyntheticLambda0;-><init>(Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling;)V
 
-    const v2, 0x7f04112a
+    const v2, 0x7f041150
 
     invoke-virtual {v0, v2, v1}, Lcom/google/android/settings/biometrics/face/FaceEnrollDialogFactory$DialogBuilder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Lcom/google/android/settings/biometrics/face/FaceEnrollDialogFactory$DialogBuilder;
 
@@ -1180,7 +1180,7 @@
 .method protected onApplyThemeResource(Landroid/content/res/Resources$Theme;IZ)V
     .locals 2
 
-    const v0, 0x7f1301cd
+    const v0, 0x7f1301cb
 
     const/4 v1, 0x1
 
@@ -1239,11 +1239,11 @@
 
     invoke-virtual {v0, p0}, Lcom/google/android/setupdesign/util/ThemeResolver;->applyTheme(Landroid/app/Activity;)V
 
-    const v0, 0x7f0600e5
+    const v0, 0x7f0600e8
 
     invoke-virtual {p0, v0}, Landroidx/activity/ComponentActivity;->setContentView(I)V
 
-    const v0, 0x7f0d051f
+    const v0, 0x7f0d052e
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -1251,7 +1251,7 @@
 
     check-cast v0, Lcom/google/android/settings/biometrics/face/SquareFrameLayout;
 
-    const v1, 0x7f0d02d0
+    const v1, 0x7f0d02da
 
     const/16 v2, 0x1e
 
@@ -1409,7 +1409,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f09000f
+    const v0, 0x7f090010
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -1451,7 +1451,7 @@
 
     iget-boolean p1, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling;->mFromSetupWizard:Z
 
-    const v0, 0x7f13021b
+    const v0, 0x7f13021d
 
     const/4 v1, 0x2
 
@@ -1463,7 +1463,7 @@
 
     invoke-direct {v2, p0}, Lcom/google/android/setupcompat/template/FooterButton$Builder;-><init>(Landroid/content/Context;)V
 
-    const v3, 0x7f0408f1
+    const v3, 0x7f040909
 
     invoke-virtual {v2, v3}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setText(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -1502,7 +1502,7 @@
 
     invoke-direct {v2, p0}, Lcom/google/android/setupcompat/template/FooterButton$Builder;-><init>(Landroid/content/Context;)V
 
-    const v3, 0x7f0408f2
+    const v3, 0x7f04090a
 
     invoke-virtual {v2, v3}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setText(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -1555,7 +1555,7 @@
 
     iput-object p1, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling;->mHandler:Landroid/os/Handler;
 
-    const p1, 0x7f0d020e
+    const p1, 0x7f0d0213
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -1619,7 +1619,7 @@
 
     if-nez p1, :cond_4
 
-    const p1, 0x7f0408fb
+    const p1, 0x7f040913
 
     invoke-direct {p0, p1}, Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling;->setHeaderText(I)V
 
@@ -1627,7 +1627,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f0408ee
+    const v0, 0x7f040906
 
     invoke-virtual {p1, v0}, Lcom/google/android/setupdesign/GlifLayout;->setDescriptionText(I)V
 
@@ -1642,7 +1642,7 @@
     goto :goto_2
 
     :cond_4
-    const p1, 0x7f0408fa
+    const p1, 0x7f040912
 
     invoke-direct {p0, p1}, Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling;->setHeaderText(I)V
 
@@ -1712,7 +1712,7 @@
 
     if-ne p1, v2, :cond_1
 
-    const v0, 0x7f041103
+    const v0, 0x7f041128
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getText(I)Ljava/lang/CharSequence;
 
@@ -1738,7 +1738,7 @@
     goto :goto_2
 
     :cond_3
-    const v0, 0x7f041102
+    const v0, 0x7f041127
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getText(I)Ljava/lang/CharSequence;
 
@@ -1781,9 +1781,9 @@
     :cond_0
     iget-boolean v1, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling;->mTalkbackEnabled:Z
 
-    const v2, 0x7f0408ee
+    const v2, 0x7f040906
 
-    const v3, 0x7f0408fe
+    const v3, 0x7f040916
 
     if-nez v1, :cond_3
 
@@ -1805,7 +1805,7 @@
     goto :goto_1
 
     :pswitch_0
-    const p2, 0x7f040904
+    const p2, 0x7f04091c
 
     invoke-virtual {p0, p2}, Landroid/app/Activity;->getText(I)Ljava/lang/CharSequence;
 
@@ -1843,7 +1843,7 @@
     goto :goto_1
 
     :pswitch_5
-    const p2, 0x7f040900
+    const p2, 0x7f040918
 
     invoke-virtual {p0, p2}, Landroid/app/Activity;->getText(I)Ljava/lang/CharSequence;
 
@@ -1852,7 +1852,7 @@
     goto :goto_1
 
     :pswitch_6
-    const p2, 0x7f040902
+    const p2, 0x7f04091a
 
     invoke-virtual {p0, p2}, Landroid/app/Activity;->getText(I)Ljava/lang/CharSequence;
 
@@ -1861,7 +1861,7 @@
     goto :goto_1
 
     :pswitch_7
-    const p2, 0x7f040901
+    const p2, 0x7f040919
 
     invoke-virtual {p0, p2}, Landroid/app/Activity;->getText(I)Ljava/lang/CharSequence;
 
@@ -1870,7 +1870,7 @@
     goto :goto_1
 
     :pswitch_8
-    const p2, 0x7f0408ff
+    const p2, 0x7f040917
 
     invoke-virtual {p0, p2}, Landroid/app/Activity;->getText(I)Ljava/lang/CharSequence;
 
@@ -1886,7 +1886,7 @@
     goto :goto_1
 
     :pswitch_a
-    const p2, 0x7f0408fd
+    const p2, 0x7f040915
 
     invoke-virtual {p0, p2}, Landroid/app/Activity;->getText(I)Ljava/lang/CharSequence;
 

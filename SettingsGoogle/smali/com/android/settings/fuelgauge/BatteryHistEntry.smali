@@ -59,7 +59,7 @@
 
     iput-boolean v0, p0, Lcom/android/settings/fuelgauge/BatteryHistEntry;->mIsValidEntry:Z
 
-    const-string v0, "uid"
+    const-string/jumbo v0, "uid"
 
     invoke-direct {p0, p1, v0}, Lcom/android/settings/fuelgauge/BatteryHistEntry;->getLong(Landroid/content/ContentValues;Ljava/lang/String;)J
 
@@ -67,7 +67,7 @@
 
     iput-wide v0, p0, Lcom/android/settings/fuelgauge/BatteryHistEntry;->mUid:J
 
-    const-string v0, "userId"
+    const-string/jumbo v0, "userId"
 
     invoke-direct {p0, p1, v0}, Lcom/android/settings/fuelgauge/BatteryHistEntry;->getLong(Landroid/content/ContentValues;Ljava/lang/String;)J
 
@@ -107,7 +107,7 @@
 
     iput-wide v0, p0, Lcom/android/settings/fuelgauge/BatteryHistEntry;->mBootTimestamp:J
 
-    const-string v0, "timestamp"
+    const-string/jumbo v0, "timestamp"
 
     invoke-direct {p0, p1, v0}, Lcom/android/settings/fuelgauge/BatteryHistEntry;->getLong(Landroid/content/ContentValues;Ljava/lang/String;)J
 
@@ -115,7 +115,7 @@
 
     iput-wide v0, p0, Lcom/android/settings/fuelgauge/BatteryHistEntry;->mTimestamp:J
 
-    const-string v0, "zoneId"
+    const-string/jumbo v0, "zoneId"
 
     invoke-direct {p0, p1, v0}, Lcom/android/settings/fuelgauge/BatteryHistEntry;->getString(Landroid/content/ContentValues;Ljava/lang/String;)Ljava/lang/String;
 
@@ -123,7 +123,7 @@
 
     iput-object v0, p0, Lcom/android/settings/fuelgauge/BatteryHistEntry;->mZoneId:Ljava/lang/String;
 
-    const-string v0, "totalPower"
+    const-string/jumbo v0, "totalPower"
 
     invoke-direct {p0, p1, v0}, Lcom/android/settings/fuelgauge/BatteryHistEntry;->getDouble(Landroid/content/ContentValues;Ljava/lang/String;)D
 
@@ -219,7 +219,7 @@
 
     iput-boolean v0, p0, Lcom/android/settings/fuelgauge/BatteryHistEntry;->mIsValidEntry:Z
 
-    const-string v0, "uid"
+    const-string/jumbo v0, "uid"
 
     invoke-direct {p0, p1, v0}, Lcom/android/settings/fuelgauge/BatteryHistEntry;->getLong(Landroid/database/Cursor;Ljava/lang/String;)J
 
@@ -227,7 +227,7 @@
 
     iput-wide v0, p0, Lcom/android/settings/fuelgauge/BatteryHistEntry;->mUid:J
 
-    const-string v0, "userId"
+    const-string/jumbo v0, "userId"
 
     invoke-direct {p0, p1, v0}, Lcom/android/settings/fuelgauge/BatteryHistEntry;->getLong(Landroid/database/Cursor;Ljava/lang/String;)J
 
@@ -267,7 +267,7 @@
 
     iput-wide v0, p0, Lcom/android/settings/fuelgauge/BatteryHistEntry;->mBootTimestamp:J
 
-    const-string v0, "timestamp"
+    const-string/jumbo v0, "timestamp"
 
     invoke-direct {p0, p1, v0}, Lcom/android/settings/fuelgauge/BatteryHistEntry;->getLong(Landroid/database/Cursor;Ljava/lang/String;)J
 
@@ -275,7 +275,7 @@
 
     iput-wide v0, p0, Lcom/android/settings/fuelgauge/BatteryHistEntry;->mTimestamp:J
 
-    const-string v0, "zoneId"
+    const-string/jumbo v0, "zoneId"
 
     invoke-direct {p0, p1, v0}, Lcom/android/settings/fuelgauge/BatteryHistEntry;->getString(Landroid/database/Cursor;Ljava/lang/String;)Ljava/lang/String;
 
@@ -283,7 +283,7 @@
 
     iput-object v0, p0, Lcom/android/settings/fuelgauge/BatteryHistEntry;->mZoneId:Ljava/lang/String;
 
-    const-string v0, "totalPower"
+    const-string/jumbo v0, "totalPower"
 
     invoke-direct {p0, p1, v0}, Lcom/android/settings/fuelgauge/BatteryHistEntry;->getDouble(Landroid/database/Cursor;Ljava/lang/String;)D
 

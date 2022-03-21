@@ -13,7 +13,7 @@
 
     new-instance v0, Lcom/android/settings/biometrics/combination/CombinedBiometricSearchIndexProvider;
 
-    const v1, 0x7f1500cf
+    const v1, 0x7f1500d4
 
     invoke-direct {v0, v1}, Lcom/android/settings/biometrics/combination/CombinedBiometricSearchIndexProvider;-><init>(I)V
 
@@ -67,9 +67,25 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f1500cf
+    const p0, 0x7f1500d4
 
     return p0
+.end method
+
+.method public getUnlockPhonePreferenceKey()Ljava/lang/String;
+    .locals 0
+
+    const-string p0, "biometric_settings_biometric_keyguard"
+
+    return-object p0
+.end method
+
+.method public getUseInAppsPreferenceKey()Ljava/lang/String;
+    .locals 0
+
+    const-string p0, "biometric_settings_biometric_app"
+
+    return-object p0
 .end method
 
 .method public onAttach(Landroid/content/Context;)V

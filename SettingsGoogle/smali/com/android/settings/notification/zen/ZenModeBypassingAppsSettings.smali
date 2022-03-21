@@ -17,7 +17,7 @@
 
     new-instance v0, Lcom/android/settings/notification/zen/ZenModeBypassingAppsSettings$1;
 
-    const v1, 0x7f15011c
+    const v1, 0x7f150121
 
     invoke-direct {v0, v1}, Lcom/android/settings/notification/zen/ZenModeBypassingAppsSettings$1;-><init>(I)V
 
@@ -144,7 +144,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f15011c
+    const p0, 0x7f150121
 
     return p0
 .end method

@@ -32,7 +32,7 @@
 .method private getScreenTitle(Landroid/content/Context;)Ljava/lang/String;
     .locals 0
 
-    const p0, 0x7f040111
+    const p0, 0x7f040125
 
     invoke-virtual {p1, p0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -81,7 +81,7 @@
 
 # virtual methods
 .method public getAccessCursor(Landroid/content/Context;Lcom/android/settings/slices/SliceData;)Landroid/database/Cursor;
-    .locals 3
+    .locals 6
 
     invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -91,15 +91,21 @@
 
     move-result p2
 
-    const-class v0, Lcom/android/settings/accessibility/AccessibilitySettings;
+    const-class v3, Lcom/android/settings/accessibility/AccessibilitySettings;
 
     invoke-direct {p0, p1}, Lcom/google/android/settings/external/specialcase/ColorInversionSetting;->getScreenTitle(Landroid/content/Context;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v4
 
     const-string v2, "color_inversion"
 
-    invoke-interface {p0, p1, v2, v0, v1}, Lcom/google/android/settings/external/Queryable;->getIntentString(Landroid/content/Context;Ljava/lang/String;Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/String;
+    const v5, 0x7f040d02
+
+    move-object v0, p0
+
+    move-object v1, p1
+
+    invoke-interface/range {v0 .. v5}, Lcom/google/android/settings/external/Queryable;->getIntentString(Landroid/content/Context;Ljava/lang/String;Ljava/lang/Class;Ljava/lang/String;I)Ljava/lang/String;
 
     move-result-object p0
 
@@ -143,7 +149,7 @@
 .end method
 
 .method public getUpdateCursor(Landroid/content/Context;Lcom/android/settings/slices/SliceData;I)Landroid/database/Cursor;
-    .locals 4
+    .locals 7
 
     invoke-direct {p0, p3}, Lcom/google/android/settings/external/specialcase/ColorInversionSetting;->validateInput(I)V
 
@@ -155,15 +161,21 @@
 
     move-result v0
 
-    const-class v1, Lcom/android/settings/accessibility/AccessibilitySettings;
+    const-class v4, Lcom/android/settings/accessibility/AccessibilitySettings;
 
     invoke-direct {p0, p1}, Lcom/google/android/settings/external/specialcase/ColorInversionSetting;->getScreenTitle(Landroid/content/Context;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v5
 
     const-string v3, "color_inversion"
 
-    invoke-interface {p0, p1, v3, v1, v2}, Lcom/google/android/settings/external/Queryable;->getIntentString(Landroid/content/Context;Ljava/lang/String;Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/String;
+    const v6, 0x7f040d02
+
+    move-object v1, p0
+
+    move-object v2, p1
+
+    invoke-interface/range {v1 .. v6}, Lcom/google/android/settings/external/Queryable;->getIntentString(Landroid/content/Context;Ljava/lang/String;Ljava/lang/Class;Ljava/lang/String;I)Ljava/lang/String;
 
     move-result-object p1
 

@@ -39,23 +39,31 @@
 
     move-result v0
 
-    if-ne v0, v4, :cond_3
+    if-lt v0, v4, :cond_3
 
-    const-string v0, "S"
+    invoke-virtual {v2}, Ljava/lang/String;->toUpperCase()Ljava/lang/String;
 
-    invoke-virtual {v2, v0}, Ljava/lang/String;->compareTo(Ljava/lang/String;)I
+    move-result-object v0
 
-    move-result v0
-
-    if-ltz v0, :cond_3
-
-    const-string v0, "Z"
-
-    invoke-virtual {v2, v0}, Ljava/lang/String;->compareTo(Ljava/lang/String;)I
+    invoke-virtual {v0, v1}, Ljava/lang/String;->charAt(I)C
 
     move-result v0
 
-    if-gtz v0, :cond_3
+    const/16 v3, 0x53
+
+    if-lt v0, v3, :cond_3
+
+    invoke-virtual {v2}, Ljava/lang/String;->toUpperCase()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->charAt(I)C
+
+    move-result v0
+
+    const/16 v2, 0x5a
+
+    if-gt v0, v2, :cond_3
 
     :cond_2
     move v1, v4

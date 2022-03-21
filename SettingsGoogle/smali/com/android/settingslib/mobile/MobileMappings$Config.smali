@@ -116,7 +116,7 @@
 
     iput-boolean v1, v0, Lcom/android/settingslib/mobile/MobileMappings$Config;->alwaysShowDataRatIcon:Z
 
-    const-string v1, "show_4g_for_lte_data_icon_bool"
+    const-string/jumbo v1, "show_4g_for_lte_data_icon_bool"
 
     invoke-virtual {p0, v1}, Landroid/os/PersistableBundle;->getBoolean(Ljava/lang/String;)Z
 
@@ -124,7 +124,7 @@
 
     iput-boolean v1, v0, Lcom/android/settingslib/mobile/MobileMappings$Config;->show4gForLte:Z
 
-    const-string v1, "show_4g_for_3g_data_icon_bool"
+    const-string/jumbo v1, "show_4g_for_3g_data_icon_bool"
 
     invoke-virtual {p0, v1}, Landroid/os/PersistableBundle;->getBoolean(Ljava/lang/String;)Z
 

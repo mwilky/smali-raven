@@ -59,7 +59,7 @@
 
     move-result v6
 
-    const v1, 0x7f040aa5
+    const v1, 0x7f040abd
 
     const/4 v5, -0x1
 

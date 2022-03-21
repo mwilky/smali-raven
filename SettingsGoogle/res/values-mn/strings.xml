@@ -96,6 +96,7 @@
     <string name="peak_refresh_rate_title">Smooth Display</string>
     <string name="peak_refresh_rate_summary">Зарим контентын сэргээх хурдыг автоматаар 60-с 90 Гц болгож өсгөнө. Батарей ашиглалтыг нэмэгдүүлнэ.</string>
     <string name="accessibility_vibration_settings_title">Чичиргээ болон хүртэхүй</string>
+    <string name="columbus_title">Үйлдлийг эхлүүлэх Шуурхай товшилт</string>
     <string name="emergency_gesture_screen_title">Яаралтай тусламж</string>
     <string name="abc_action_mode_done">Болсон</string>
     <string name="vibrate_for_calls_category_title">Дуудлагууд</string>
@@ -103,6 +104,8 @@
     <string name="lockscreen_privacy_controls_setting_toggle">Төхөөрөмжийн хяналтыг харуулах</string>
     <string name="lockscreen_privacy_wallet_summary">Түгжигдсэн дэлгэц болон шуурхай тохиргооноос түрийвчид хандахыг зөвшөөрнө</string>
     <string name="lockscreen_privacy_controls_summary">Түгжсэн үед хяналтад хандана</string>
+    <string name="lockscreen_double_line_clock_summary">Боломжтой үед нь хоёр зураастай цаг харуулах</string>
+    <string name="lockscreen_double_line_clock_setting_toggle">Хоёр зураастай цаг</string>
     <string name="abc_activity_chooser_view_see_all">Бүгдийг харах</string>
     <string name="abc_activitychooserview_choose_application">Аппыг сонгох</string>
     <string name="abc_capital_off">ИДЭВХГҮЙ</string>
@@ -147,9 +150,11 @@
     <string name="accessibility_alarm_vibration_title">Сэрүүлгийн чичиргээ</string>
     <string name="accessibility_assist_gesture_complete_or_keep_adjusting">Active Edge-г тохируулсан. Дараагийн дэлгэцэд очих эсвэл үргэлжлүүлэн тохируулна уу.</string>
     <string name="accessibility_audio_adjustment_title">Аудио тохируулга</string>
+    <string name="accessibility_autoclick_about_title">Автомат товшилтын талаар (тодорхой хугацаа)</string>
     <string name="accessibility_autoclick_custom_title">Захиалгат</string>
     <string name="accessibility_autoclick_default_title">Унтраах</string>
     <string name="accessibility_autoclick_description">Автомат товшилт нь холбогдсон хулганатай ажилладаг. Курсор тодорхой хугацааны турш хөдлөхгүй зогсох үед та хулганын курсорыг автоматаар товшихоор тохируулах боломжтой.</string>
+    <string name="accessibility_autoclick_footer_learn_more_content_description">Автомат товшилтын талаар нэмэлт мэдээлэл авах (тодорхой хугацаа)</string>
     <string name="accessibility_autoclick_long_summary">1 секунд</string>
     <string name="accessibility_autoclick_long_title">Урт</string>
     <string name="accessibility_autoclick_longer_desc">Удаан</string>
@@ -161,16 +166,17 @@
     <string name="accessibility_autoclick_short_title">Богино</string>
     <string name="accessibility_autoclick_shorter_desc">Богино</string>
     <string name="accessibility_banner_message_dismiss">Үл хэрэгсэх</string>
-    <string name="accessibility_button_description">"Дурын дэлгэцээс хандалтын онцлогуудад шуурхай хандана уу. 
+    <string name="accessibility_button_about_title">Хандалтын товчлуурын тухай</string>
+    <string name="accessibility_button_description">"Дурын дэлгэцээс хандалтын онцлогуудад шуурхай хандана уу.
 
 Эхлүүлэхийн тулд хандалтын тохиргоо руу очиж, онцлогийг сонгоно уу. Товчлол дээр товшиж, хандалтын товчлуурыг сонгоно уу."</string>
     <string name="accessibility_button_fade_summary">Хэдэн секундийн дараа бүдгэрэх ба ингэснээр дэлгэцээ харахад илүү хялбар болно</string>
     <string name="accessibility_button_fade_title">Ашиглаагүй үед бүдгэрнэ</string>
+    <string name="accessibility_button_gesture_about_title">Хандалтын товчлуур болон зангааны тухай</string>
     <string name="accessibility_button_gesture_description">"Дурын дэлгэцээс хандалтын онцлогуудад шуурхай хандана уу.
 
-Эхлүүлэхийн тулд хандалтын тохиргоо руу очиж, онцлогийг сонгоно уу. Товчлол дээр товшиж, хандалтын товчлуурыг сонгоно уу.
-
-Хандалтын товчлуурыг оронд нь навигацын самбарт ашиглахын тулд 2 товчлуурт навигац эсвэл 3 товчлуурт навигац руу сэлгэнэ үү."</string>
+Эхлүүлэхийн тулд хандалтын тохиргоо руу очиж, онцлогийг сонгоно уу. Товчлол дээр товшиж, хандалтын товчлуур эсвэл зангааг сонгоно уу."</string>
+    <string name="accessibility_button_gesture_footer_learn_more_content_description">Хандалтын товчлуур болон зангааны тухай нэмэлт мэдээлэл авах</string>
     <string name="accessibility_button_gesture_title">Хандалтын товчлуур болон зангаа</string>
     <string name="accessibility_button_high_label">Тунгалаг бус</string>
     <string name="accessibility_button_intro">Хандалтын товчлуурыг ашиглаж байна. 3 товчлуурт навигацаар зангаа боломжгүй байна.</string>
@@ -184,14 +190,23 @@
     <string name="accessibility_caption_preference_summary">Зарим апп нь хадмалын эдгээр тохиргоог дэмждэггүй</string>
     <string name="accessibility_caption_primary_switch_summary">Зөвхөн дэмждэг аппад</string>
     <string name="accessibility_caption_primary_switch_title">Хадмалыг харуулах</string>
+    <string name="accessibility_captioning_about_title">Тайлбарын тохиргооны тухай</string>
+    <string name="accessibility_captioning_footer_learn_more_content_description">Тайлбарын тохиргооны тухай нэмэлт мэдээлэл авах</string>
     <string name="accessibility_captioning_title">Тайлбарын сонголт</string>
     <string name="accessibility_category_personal">Хувийн профайлын бүртгэл</string>
     <string name="accessibility_category_work">Ажлын профайлын бүртгэл - %s</string>
+    <string name="accessibility_color_inversion_about_title">Өнгө урвуулах тухай</string>
+    <string name="accessibility_color_inversion_footer_learn_more_content_description">Өнгө урвуулах тухай нэмэлт мэдээлэл авах</string>
+    <string name="accessibility_control_timeout_about_title">Үйлдэл хийх хугацааны тухай (Хандалтын хугацаа)</string>
+    <string name="accessibility_control_timeout_footer_learn_more_content_description">Үйлдэл хийх хугацааны тухай нэмэлт мэдээлэл авах (Хандалтын хугацаа)</string>
     <string name="accessibility_control_timeout_preference_summary">"Танаас үйлдэл хийхийг шаарддаг хэдий ч зөвхөн түр хугацаанд харагддаг мессежийг хэр удаан хугацаагаар харуулахыг сонгоно уу.
 
 Зарим апп энэ тохиргоог дэмждэггүй."</string>
     <string name="accessibility_control_timeout_preference_title">Үйлдэл хийх хугацаа</string>
+    <string name="accessibility_daltonizer_about_title">Өнгөний засварын тухай</string>
+    <string name="accessibility_daltonizer_footer_learn_more_content_description">Өнгөний засварын тухай нэмэлт мэдээлэл авах</string>
     <string name="accessibility_daltonizer_primary_switch_title">Өнгөний засварыг ашиглах</string>
+    <string name="accessibility_daltonizer_shortcut_title">Өнгөний засварын товчлол</string>
     <string name="accessibility_data_one_bar">Дата нэг баганатай.</string>
     <string name="accessibility_data_signal_full">Дата дохио дүүрэн.</string>
     <string name="accessibility_data_three_bars">Дата гурван баганатай.</string>
@@ -206,6 +221,7 @@
     <string name="accessibility_display_daltonizer_preference_title">Өнгө тохируулах</string>
     <string name="accessibility_display_inversion_preference_subtitle">Өнгө хувиргалт нь цайвар дэлгэцийг бараан болгодог.&lt;br/>&lt;br/> Тэмдэглэл: &lt;ol> &lt;li> Өнгө хувиргалт нь мөн бараан дэлгэцийг цайвар болгодог.&lt;/li> &lt;li> Медиа болон зургийн өнгийг өөрчилнө.&lt;/li> &lt;li> Бараан дэвсгэрийг үзүүлэхийн тулд Бараан загварыг ашиглах боломжтой. Бараан загвар нь дэмждэг аппууд дээр ажилладаг. Өнгө хувиргалт нь бүх апп дээр ажилладаг.&lt;/li> &lt;/ol></string>
     <string name="accessibility_display_inversion_preference_title">Өнгө хувиргалт</string>
+    <string name="accessibility_display_inversion_shortcut_title">Өнгө урвуулах товчлол</string>
     <string name="accessibility_display_inversion_switch_title">Өнгө хувиргалтыг ашиглах</string>
     <string name="accessibility_ethernet_connected">Этернэт.</string>
     <string name="accessibility_ethernet_disconnected">Ethernet саллаа.</string>
@@ -255,6 +271,8 @@
     <string name="accessibility_phone_two_bars">Утас хоёр баганатай.</string>
     <string name="accessibility_power_button_ends_call_prerefence_title">Асаах товч дуудлагыг тасална</string>
     <string name="accessibility_preference_magnification_summary">Дэлгэцэд томруулах</string>
+    <string name="accessibility_screen_magnification_about_title">Томруулалтын тухай</string>
+    <string name="accessibility_screen_magnification_footer_learn_more_content_description">Томруулалтын тухай нэмэлт мэдээлэл авах</string>
     <string name="accessibility_screen_magnification_gesture_navigation_warning">Хандалтын зангааг %1$s-д тохирууллаа. Томруулахыг ашиглахын тулд хоёр хуруугаараа дэлгэцийн доороос дээш шудраад удаан дарна уу. Дараа нь томруулахыг сонгоно уу.</string>
     <string name="accessibility_screen_magnification_gestures_title">Гурван удаа товшиж томруулах</string>
     <string name="accessibility_screen_magnification_navbar_configuration_warning">Хүртээмжийн товчлуурыг %1$s болгож тохируулсан. Томруулахын тулд Хүртээмжийн товчлуурыг удаан дараад, томруулахыг сонгоно уу.</string>
@@ -272,6 +290,7 @@
 Та гар эсвэл навигацын самбарт томруулах боломжгүй."</string>
     <string name="accessibility_screen_magnification_navbar_title">Товчлолоор томруулах</string>
     <string name="accessibility_screen_magnification_short_summary">Томруулахын тулд 3 удаа дар</string>
+    <string name="accessibility_screen_magnification_shortcut_title">Томруулах онцлогийн товчлол</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">Товчлол болон гурав товшилтоор томруулах</string>
     <string name="accessibility_screen_magnification_summary">Контентыг илүү том болгохын тулд дэлгэц дээр хурдан томруулна уу.&lt;br/>&lt;br/> &lt;b>Томруулахын тулд:&lt;/b>&lt;br/> {0,number,integer}. Томруулах онцлогийг эхлүүлэхийн тулд товчлол ашиглана уу&lt;br/> {1,number,integer}. Дэлгэцийг товшино уу&lt;br/> {2,number,integer}. Дэлгэцийн эргэн тойронд шилжихийн тулд 2 хуруугаа чирнэ үү&lt;br/> {3,number,integer}. Томруулалтыг тохируулахын тулд 2 хуруугаараа чимхэнэ үү&lt;br/> {4,number,integer}. Томруулах онцлогийг зогсоохын тулд товчлол ашиглана уу&lt;br/>&lt;br/> &lt;b>Түр хугацаанд томруулахын тулд:&lt;/b>&lt;br/> {0,number,integer}. Томруулах онцлогийг эхлүүлэхийн тулд товчлол ашиглана уу&lt;br/> {1,number,integer}. Дэлгэцийн аль нэг хэсгийг удаан дарна уу&lt;br/> {2,number,integer}. Дэлгэцийн эргэн тойронд шилжихийн тулд хуруугаа чирнэ үү&lt;br/> {3,number,integer}. Томруулах онцлогийг зогсоохын тулд хуруугаа өргөнө үү</string>
     <string name="accessibility_screen_magnification_title">Томруулах</string>
@@ -370,7 +389,7 @@
     <string name="accessibility_tutorial_dialog_message_volume">Энэ онцлогийг ашиглахын тулд дууны түвшний түлхүүрүүдийг зэрэг удаан дарна уу.</string>
     <string name="accessibility_tutorial_dialog_title_button">Нээхийн тулд хандалтын товчлуурыг ашиглах</string>
     <string name="accessibility_tutorial_dialog_title_gesture">Нээхийн тулд зангааг ашиглах</string>
-    <string name="accessibility_tutorial_dialog_title_gesture_settings">Хандалтын шинэ зангаа ашиглах</string>
+    <string name="accessibility_tutorial_dialog_title_gesture_settings">Хандалтын зангаа ашиглах</string>
     <string name="accessibility_tutorial_dialog_title_triple">Нээхийн тулд дэлгэцийг гурав товшино уу</string>
     <string name="accessibility_tutorial_dialog_title_volume">Нээхийн тулд дууны түвшний түлхүүрүүдийг удаан дар</string>
     <string name="accessibility_tutorial_pager">%2$d-н %1$d-р хуудас</string>
@@ -936,6 +955,7 @@
     <string name="battery_level_title">Зайны түвшин</string>
     <string name="battery_manager_off">Унтраалттай</string>
     <string name="battery_manager_summary">Батарейн ажиллах хугацааг уртасгаж, цэнэглэлтийг оновчилно</string>
+    <string name="battery_manager_summary_unsupported">Батарейн ажиллах хугацааг сунгах</string>
     <string name="battery_missing_link_a11y_message">Энэ алдааны талаар нэмэлт мэдээлэл авахын тулд товшино уу</string>
     <string name="battery_missing_link_message">Нэмэлт мэдээлэл авах</string>
     <string name="battery_missing_message">Батарей хэмжигчийг уншихад асуудал гарлаа.</string>
@@ -1061,6 +1081,7 @@
     <string name="battery_usage_screen_footer">Батарей ашиглалтын өгөгдлийг барагцаалдаг бөгөөд утсыг цэнэглэж байх үед ашиглалтыг хэмждэггүй</string>
     <string name="battery_usage_screen_footer_empty">Таныг утсаа цөөн хэдэн цаг ашигласны дараа батарей ашиглалтын өгөгдөл боломжтой болно</string>
     <string name="battery_usage_total_less_than_one_minute">Нийт: нэг минутаас доош</string>
+    <string name="battery_usage_without_time" />
     <string name="battery_used_by">%2$s %1$s-г ашигласан</string>
     <string name="battery_used_for">^1-д ашигласан</string>
     <string name="bearer">Тулгуур</string>
@@ -1069,12 +1090,14 @@
     <string name="billing_cycle_less_than_one_day_left">Нэгээс бага өдөр үлдсэн</string>
     <string name="billing_cycle_none_left">Үлдсэн хугацаа алга</string>
     <string name="biometric_settings_category_ways_to_unlock">Түгжээг тайлах аргууд</string>
-    <string name="biometric_settings_category_ways_to_use">Царай эсвэл хурууны хээг дараахад ашиглах</string>
     <string name="biometric_settings_hand_back_to_guardian">Утсаа буцааж эцэг эхдээ өгнө үү</string>
     <string name="biometric_settings_hand_back_to_guardian_ok">OK</string>
     <string name="biometric_settings_intro">Таныг Царайгаар түгжээ тайлах болон Хурууны хээгээр түгжээ тайлахыг тохируулсан үед утас тань таныг амны хаалт зүүсэн эсвэл харанхуй газар байгаа тохиолдолд танаас хурууны хээгээ оруулахыг хүснэ</string>
-    <string name="biometric_settings_use_biometric_for_apps">Аппууд дахь баталгаажуулалт</string>
-    <string name="biometric_settings_use_biometric_unlock_phone">Таны утасны түгжээг тайлах</string>
+    <string name="biometric_settings_use_biometric_for_apps">Аппуудад та байгаа болохыг баталгаажуулах</string>
+    <string name="biometric_settings_use_biometric_unlock_phone">Утасныхаа түгжээг тайлах</string>
+    <string name="biometric_settings_use_face_or_fingerprint_preference_summary">Царай эсвэл хурууны хээ ашиглах</string>
+    <string name="biometric_settings_use_face_preference_summary">Царай ашиглах</string>
+    <string name="biometric_settings_use_fingerprint_preference_summary">Хурууны хээ ашиглах</string>
     <string name="biometrics_unlock_set_unlock_password">Нууц үг • Царай • Хурууны хээ</string>
     <string name="biometrics_unlock_set_unlock_pattern">Хээ • Царай • Хурууны хээ</string>
     <string name="biometrics_unlock_set_unlock_pin">ПИН • Царай • Хурууны хээ</string>
@@ -1332,7 +1355,6 @@
     <string name="bluetooth_settings_title">Bluetooth</string>
     <string name="bluetooth_show_devices_without_names">Нэргүй Bluetooth төхөөрөмжийг харуулах</string>
     <string name="bluetooth_show_devices_without_names_summary">Нэргүй Bluetooth төхөөрөмжийг (зөвхөн MAC хаяг) харуулна</string>
-    <string name="bluetooth_show_files_received_via_bluetooth">Bluetooth-р хүлээн авсан файл</string>
     <string name="bluetooth_show_received_files">Ирсэн файл</string>
     <string name="bluetooth_sim_card_access_dialog_content">"Bluetooth төхөөрөмж %1$s таны SIM карт дээрх өгөгдөлд хандахыг хүсэж байна. Үүнд таны харилцагчид багтaна.
 
@@ -1426,6 +1448,7 @@
     <string name="calls_sms_temp_unavailable">Түр хугацаанд боломжгүй</string>
     <string name="calls_sms_unavailable">боломжгүй</string>
     <string name="calls_sms_wfc_summary">Wi-Fi-р дуудлага хийх болон хүлээн авах</string>
+    <string name="cam_toggle_description">Апп болон үйлчилгээнд</string>
     <string name="camera_double_tap_power_gesture_desc">Камерыг дэлгэцийн түгжээ тайлалгүйгээр төвөггүй нээх</string>
     <string name="camera_double_tap_power_gesture_title">Камер нээхийн тулд асаах/унтраах товчлуурыг 2 удаа дараарай</string>
     <string name="camera_laser_sensor_switch">Камерын лазер мэдрэгч</string>
@@ -3302,6 +3325,7 @@
     <string name="menu_stats_total">Нийт ашиглалт</string>
     <string name="menu_stats_unplugged">Салгаснаас хойш %1$s</string>
     <string name="menu_use_uss">Uss ашиглах</string>
+    <string name="mic_toggle_description">Апп болон үйлчилгээнд. Энэ тохиргоо унтраалттай тохиолдолд та яаралтай тусламжийн утасны дугаар луу залгах үедээ микрофоны өгөгдлийг хуваалцсан хэвээр байж болзошгүй.</string>
     <string name="mic_toggle_title">Микрофоны хандалт</string>
     <string name="misc_files">Янз бүрийн файлууд</string>
     <string name="misc_files_selected_count">%2$d-с %1$d нь сонгосон</string>
@@ -3728,6 +3752,7 @@
     <string name="one_handed_action_show_notification_title">Мэдэгдэл харуулах</string>
     <string name="one_handed_mode_enabled">Нэг гарын горимыг ашиглах</string>
     <string name="one_handed_mode_intro_text">Нэг гарын горимыг ашиглахын тулд дэлгэцийн доод захаас доош шударна уу. Энэ онцлогийг ашиглахын тулд системийн навигацын тохиргоонд зангааны навигац ассан эсэхийг шалгана уу.</string>
+    <string name="one_handed_mode_shortcut_title">Нэг гарын горимын товчлол</string>
     <string name="one_handed_mode_swipe_down_category">Доош шударч</string>
     <string name="one_handed_mode_use_shortcut_category">Товчлолыг дараахад ашиглах</string>
     <string name="one_usercrt">Нэг хэрэглэгчийн сертификат</string>
@@ -3803,7 +3828,7 @@
     <string name="post_dsds_reboot_notification_title_with_carrier">%1$s идэвхтэй байна</string>
     <string name="power_bluetooth">Bluetooth</string>
     <string name="power_camera">Камер</string>
-    <string name="power_cell">Мобайл сүлжээний түр горим</string>
+    <string name="power_cell">Мобайл сүлжээ</string>
     <string name="power_charge_remaining">%1$s цэнэглэх хүртэл</string>
     <string name="power_charging">%1$s - %2$s</string>
     <string name="power_charging_duration">%1$s - дүүрэх хүртэл %2$s үлдсэн</string>
@@ -4037,6 +4062,7 @@
     <string name="recent_notifications">Саяхан илгээсэн</string>
     <string name="recent_notifications_see_all_title">Сүүлийн 7 хоногийн бүх aппыг харах</string>
     <string name="recompute_size">Хэмжээг дахин тооцоолж байна…</string>
+    <string name="reduce_bright_colors_about_title">Хэт бүүдгэр онцлогийн тухай</string>
     <string name="reduce_bright_colors_intensity_end_label">Илүү тод</string>
     <string name="reduce_bright_colors_intensity_preference_title">Нэвчилт</string>
     <string name="reduce_bright_colors_intensity_start_label">Илүү бүдэг</string>
@@ -4044,6 +4070,7 @@
     <string name="reduce_bright_colors_preference_subtitle">Дэлгэцээ бүүдгэр болгосноор уншихад илүү тухтай болно.&lt;br/>&lt;br/> Энэ нь дараах тохиолдолд хэрэгтэй байж болно: &lt;ol> &lt;li> Таны утасны өгөгдмөл хамгийн бага гэрэлтүүлэг хэт тод хэвээр байх үед&lt;/li> &lt;li> Та утсаа шөнө эсвэл орондоо орохоос өмнө харанхуй өрөөнд байх зэргээр харанхуй нөхцөлд ашиглаж байгаа үед&lt;/li> &lt;/ol></string>
     <string name="reduce_bright_colors_preference_summary">Дэлгэцийг таны утасны хамгийн бага гэрэлтүүлгээс бүүдгэр болгох</string>
     <string name="reduce_bright_colors_preference_title">Хэт бүүдгэр</string>
+    <string name="reduce_bright_colors_shortcut_title">Хэт бүүдгэр онцлогийн товчлол</string>
     <string name="reduce_bright_colors_switch_title">Дэлгэцийг хэт бүүдгэр болгох</string>
     <string name="register_automatically">Автомат бүртгэл…</string>
     <string name="register_on_network">%s-д бүртгэж байна…</string>
@@ -4249,7 +4276,6 @@
     <string name="screen_pinning_unlock_pattern">Бэхэлснийг болиулахаас өмнө түгжээ тайлах хээ асуух</string>
     <string name="screen_pinning_unlock_pin">Бэхэлснийг болиулахаасаа өмнө ПИН асуух</string>
     <string name="screen_reader_category_title">Дэлгэц уншигч</string>
-    <string name="screen_saver_main_switch_title">Дэлгэц амраагчийг ашиглах</string>
     <string name="screen_time_summary_usage_today">Өнөөдөр %1$s</string>
     <string name="screen_timeout_summary">Идэвхгүй %1$s болсны дараа</string>
     <string name="screen_timeout_title">Дэлгэц унтарна</string>
@@ -4279,6 +4305,7 @@
     <string name="screensaver_settings_button">Тохиргоо</string>
     <string name="screensaver_settings_current">Одоогийн дэлгэц амраагч</string>
     <string name="screensaver_settings_disabled_prompt">Утсыг суурилуулсан ба/эсвэл идэвхгүй үед хэрхэхийг удирдахын тулд дэлгэц амраагчийг асаана уу.</string>
+    <string name="screensaver_settings_dream_start">Одоо эхлүүлэх</string>
     <string name="screensaver_settings_summary_dock">Док дээр суурилуулсан үед</string>
     <string name="screensaver_settings_summary_either_long">Цэнэглэх эсвэл суурилуулах үед</string>
     <string name="screensaver_settings_summary_either_short">Аль аль нь</string>
@@ -4329,15 +4356,6 @@
     <string name="security_settings_biometric_preference_summary_both_fp_single">Царай болон хурууны хээ нэмсэн</string>
     <string name="security_settings_biometric_preference_summary_none_enrolled">Тохируулахын тулд товшино уу</string>
     <string name="security_settings_biometric_preference_title">Царай, хурууны хээгээр түгжээ тайлах</string>
-    <string name="security_settings_biometrics_description">Таныг царай болон хурууны хээгээр түгжээ тайлахыг тохируулсан үед утас тань таныг амны хаалт зүүсэн эсвэл харанхуй газар байгаа тохиолдолд танаас хурууны хээгээ оруулахыг хүснэ</string>
-    <string name="security_settings_biometrics_preference_use_with_apps">Аппууд дахь баталгаажуулалт</string>
-    <string name="security_settings_biometrics_preferences_category">Дараахад царай эсвэл хурууны хээ ашиглах</string>
-    <string name="security_settings_biometrics_summary_both">Царай болон хурууны хээ</string>
-    <string name="security_settings_biometrics_summary_face">Зөвхөн царай</string>
-    <string name="security_settings_biometrics_summary_fingerprint">Зөвхөн хурууны хээ</string>
-    <string name="security_settings_biometrics_summary_none">Тохируулахын тулд товшино уу</string>
-    <string name="security_settings_biometrics_title">Царай, хурууны хээгээр түгжээ тайлах</string>
-    <string name="security_settings_biometrics_types_category">Түгжээг тайлах аргууд</string>
     <string name="security_settings_face_enroll_consent_introduction_title">Царайгаар түгжээ тайлахыг зөвшөөрөх</string>
     <string name="security_settings_face_enroll_dialog_ok">ОК</string>
     <string name="security_settings_face_enroll_done">Дууссан</string>
@@ -4383,18 +4401,19 @@
 
 Tа g.co/pixel/faceunlock дээрээс нэмэлт мэдээлэл авна уу."</string>
     <string name="security_settings_face_enroll_introduction_control_title">Хяналт таны гарт</string>
-    <string name="security_settings_face_enroll_introduction_how_consent_message">"Царайгаар түгжээ тайлах онцлог нь таны хүүхдийг мөн болохыг баталгаажуулахын тулд түүний царайн өвөрмөц загварыг үүсгэнэ. Тохируулгын үеэр энэ нүүрний загварыг үүсгэхийн тулд таны хүүхэд нүүрнийхээ өөр өөр өнцгийн зургийг авна.
+    <string name="security_settings_face_enroll_introduction_how_consent_message">"Царайгаар түгжээ тайлах онцлог нь таны хүүхдийг мөн болохыг баталгаажуулахын тулд түүний нүүрний өвөрмөц загварыг үүсгэдэг. Тохируулгын үед энэ нүүрний загварыг үүсгэхийн тулд таны хүүхэд нүүрнийхээ зургийг өөр өөр өнцгөөс авна.
 
-Таны хүүхэд Царайгаар түгжээ тайлах онцлогийг ашиглах үед зургийг түүний нүүрний загварыг шинэчлэхэд ашиглана. Таны хүүхдийн нүүрний загварыг үүсгэхэд ашигласан зургийг хэзээ ч хадгалахгүй хэдий ч нүүрний загварыг утсанд аюулгүйгээр хадгалах бөгөөд тэндээ үлдэнэ. Бүх боловсруулалт утсанд аюулгүйгээр хийгдэнэ."</string>
-    <string name="security_settings_face_enroll_introduction_how_message">"Царайгаар түгжээ тайлах онцлог нь таныг мөн болохыг баталгаажуулахын тулд таны нүүрний өвөрмөц загварыг үүсгэнэ. Тохируулгын үеэр энэ нүүрний загварыг үүсгэхийн тулд та нүүрнийхээ өөр өөр өнцгийн зургийг авна.
+Тэд Царайгаар түгжээ тайлах онцлогийг ашиглах үед зургийг тэдний нүүрний загварыг шинэчлэхэд ашиглана. Тэдний нүүрний загварыг үүсгэхэд ашигласан зургийг хадгалдаггүй хэдий ч нүүрний загварыг утсанд аюулгүйгээр бүрмөсөн хадгалдаг. Бүх боловсруулалтыг утсанд аюулгүйгээр хийдэг."</string>
+    <string name="security_settings_face_enroll_introduction_how_message">"Царайгаар түгжээ тайлах онцлог нь таныг мөн болохыг баталгаажуулахын тулд таны нүүрний өвөрмөц загварыг үүсгэдэг. Тохируулгын үеэр энэ нүүрний загварыг үүсгэхийн тулд та нүүрнийхээ зургийг өөр өөр өнцгөөс авна.
 
-Таныг Царайгаар түгжээ тайлах онцлогийг ашиглах үед зургийг таны нүүрний загварыг шинэчлэхэд ашиглана. Таны нүүрний загварыг үүсгэхэд ашигласан зургийг хэзээ ч хадгалахгүй хэдий ч нүүрний загварыг утсанд тань аюулгүйгээр хадгалах бөгөөд тэндээ үлдэнэ. Бүх боловсруулалт таны утсанд аюулгүйгээр хийгдэнэ."</string>
+Та Царайгаар түгжээ тайлах онцлогийг ашиглах үед зургийг таны нүүрний загварыг шинэчлэхэд ашиглана. Таны нүүрний загварыг үүсгэхэд ашигласан зургийг хадгалахгүй хэдий ч нүүрний загварыг утсанд аюулгүйгээр бүрмөсөн хадгалдаг. Бүх боловсруулалтыг таны утсанд аюулгүйгээр хийдэг."</string>
     <string name="security_settings_face_enroll_introduction_how_title">Энэ нь хэрхэн ажилладаг вэ?</string>
     <string name="security_settings_face_enroll_introduction_info_consent_gaze">Царайгаар түгжээ тайлах онцлог нь утасны түгжээг тайлах эсвэл таны хүүхдийг мөн болохыг баталгаажуулахын тулд таны хүүхдээс нүдээ нээлттэй байлгахыг шаардаж болно. Та болон таны хүүхэд энэ сонголтын хүссэн үедээ Тохиргоо хэсэгт асаах боломжтой.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_glasses">Хэрэв таны хүүхэд ердийн үед нүдний шил зүүдэг бол тохируулгын үеэр шилээ зүүж болно.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_looking">Та хүүхэд утас руу санамсаргүй харснаар түгжээг нь тайлах боломжтой. Таны хүүхдийн утасны түгжээг мөн түүний ихэр зэрэг түүнтэй маш адилхан харагддаг хүн эсвэл хэн нэгэн үүнийг түүний нүүрний өмнө барьсан тохиолдолд тайлах боломжтой.</string>
     <string name="security_settings_face_enroll_introduction_info_gaze">Царайгаар түгжээ тайлах онцлог нь утасны түгжээг тайлах эсвэл таныг мөн болохыг баталгаажуулахын тулд танаас нүдээ нээлттэй байлгахыг шаардаж болно. Та энэ сонголтыг хүссэн үедээ Тохиргоо хэсэгт асаах боломжтой.</string>
     <string name="security_settings_face_enroll_introduction_info_glasses">Нүдний шил эсвэл үл ялиг өнгө оруулсан нарны шил зүүж болно.</string>
+    <string name="security_settings_face_enroll_introduction_info_less_secure">Утасны түгжээг тайлахдаа царайг ашиглах нь хүчтэй хээ эсвэл ПИН-с аюул багатай байж магадгүй.</string>
     <string name="security_settings_face_enroll_introduction_info_looking">Та утас руу санамсаргүй харснаар түгжээг нь тайлах боломжтой. Таны утасны түгжээг мөн таны ихэр зэрэг тантай маш адилхан харагддаг хүн эсвэл хэн нэгэн үүнийг таны нүүрний өмнө барьсан тохиолдолд тайлах боломжтой.</string>
     <string name="security_settings_face_enroll_introduction_info_title">Санаж яваарай</string>
     <string name="security_settings_face_enroll_introduction_message">Утасныхаа түгжээг тайлах эсвэл аппуудад нэвтрэх, худалдан авалт зөвшөөрөх зэргээр өөрийгөө мөн болохыг баталгаажуулахын тулд царайгаа ашиглана уу.</string>
@@ -4452,13 +4471,14 @@ Tа g.co/pixel/faceunlock дээрээс нэмэлт мэдээлэл авна 
 
 Таны төрсөн ах, эгч, дүү зэрэг тантай адилхан царайтай хэн нэгэн таны утасны түгжээг тайлах боломжтой."</string>
     <string name="security_settings_face_settings_preferences_category">Царайгаар түгжээ тайлахыг ашиглаж буй тохиолдолд</string>
-    <string name="security_settings_face_settings_remove_dialog_details">Таны нүүрний загварыг бүрмөсөн, аюулгүйгээр устгана. Устгасны дараа та утасныхаа түгжээг тайлах эсвэл аппуудын баталгаажуулалтад ПИН, хээ эсвэл нууц үгээ оруулах шаардлагатай болно.</string>
+    <string name="security_settings_face_settings_remove_dialog_details">"Таны нүүрний загварыг аюулгүйгээр бүрмөсөн устгана.
+
+Устгасны дараа та утасныхаа түгжээг тайлах эсвэл аппад баталгаажуулахын тулд ПИН, хээ эсвэл нууц үгээ оруулах шаардлагатай болно."</string>
+    <string name="security_settings_face_settings_remove_dialog_details_convenience">"Таны нүүрний загварыг аюулгүйгээр бүрмөсөн устгана.
+
+Устгасны дараа та утасныхаа түгжээг тайлахын тулд ПИН, хээ эсвэл нууц үгээ оруулах шаардлагатай болно."</string>
     <string name="security_settings_face_settings_remove_dialog_title">Нүүрний загварыг устгах уу?</string>
     <string name="security_settings_face_settings_remove_face_model">Нүүрний загвар устгах</string>
-    <string name="security_settings_face_settings_remove_model_dialog_details">"Таны нүүрний загварыг бүрмөсөн, аюулгүйгээр устгана.
-
-Устгасны дараа та утасныхаа түгжээг тайлах эсвэл аппад баталгаажуулахын тулд хурууны хээ, ПИН, хээ эсвэл нууц үгээ оруулах шаардлагатай болно."</string>
-    <string name="security_settings_face_settings_remove_model_dialog_title">Нүүрний загварыг устгах уу?</string>
     <string name="security_settings_face_settings_require_attention">Нүдийг нээлттэй байхыг шаардах</string>
     <string name="security_settings_face_settings_require_attention_details">Утасны түгжээг тайлахын тулд таны нүд нээлттэй байх шаардлагатай</string>
     <string name="security_settings_face_settings_require_confirmation">Үргэлж баталгаажуулалт шаардах</string>
@@ -4541,7 +4561,7 @@ Ta хурууны хээгээ ашиглан худалдан авалт бол
     <string name="security_settings_title">Аюулгүй байдал</string>
     <string name="security_settings_udfps_enroll_a11y">Мэдрэгчийг олохын тулд дэлгэц дээр хуруугаа гүйлгэнэ үү. Хурууны хээ мэдрэгчид хүрээд удаан дарна уу.</string>
     <string name="security_settings_udfps_enroll_edge_message">Хурууныхаа хээний хажуу талыг мэдрэгч дээр удаан байрлуулж, дараа нь нөгөө тал руу сэлгэнэ үү</string>
-    <string name="security_settings_udfps_enroll_edge_title">Эцэст нь хурууныхаа ирмэгүүдийг байруулна уу</string>
+    <string name="security_settings_udfps_enroll_edge_title">Эцэст нь хурууныхаа үзүүрийг ашиглана уу</string>
     <string name="security_settings_udfps_enroll_find_sensor_message">Хурууны хээ мэдрэгч таны дэлгэц дээр байна. Та дараагийн дэлгэц дээр хурууны хээнийхээ зургийг авна.</string>
     <string name="security_settings_udfps_enroll_find_sensor_start_button">Эхлүүлэх</string>
     <string name="security_settings_udfps_enroll_find_sensor_title">Хурууны хээгээ хэрхэн тохируулах вэ?</string>
@@ -4550,7 +4570,7 @@ Ta хурууны хээгээ ашиглан худалдан авалт бол
     <string name="security_settings_udfps_enroll_repeat_a11y_message">Энэ нь таны хурууны хээний илүү их зургийг авахад тусална</string>
     <string name="security_settings_udfps_enroll_repeat_message">Хурууны хээний дүрс тэмдэг хөдлөх бүрд удаан дарна уу. Энэ нь таны хурууны хээний илүү их зургийг авахад тусална.</string>
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">Хурууны хээний дүрс тэмдгийг дагана уу</string>
-    <string name="security_settings_udfps_enroll_start_message">Та чичиргээ мэдрэх хүртэл хуруугаа мэдрэгч дээр байлгана уу</string>
+    <string name="security_settings_udfps_enroll_start_message">Та чичиргээ мэдрэх хүртлээ хурууны хээгээ мэдрэгч дээр тэгш байлгана уу</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">Дахиад нэг удаа</string>
     <string name="security_settings_work_fingerprint_preference_title">Ажлын зориулалттай Pixel Imprint</string>
     <string name="security_status_title">Аюулгүй байдлын төлөв</string>
@@ -4576,7 +4596,6 @@ Ta хурууны хээгээ ашиглан худалдан авалт бол
     <string name="select_webview_provider_dialog_title">WebView хэрэгжилтийг тохируулах</string>
     <string name="select_webview_provider_title">WebView хэрэгжилт</string>
     <string name="select_webview_provider_toast_text">Энэ сонголт хүчингүй байна. Дахин оролдоно уу.</string>
-    <string name="sensor_toggle_description">Бүх апп болон үйлчилгээнд</string>
     <string name="sensors_off_quick_settings_title">Мэдрэгчийг унтраах</string>
     <string name="service_background_processes">%1$s чөлөөтэй</string>
     <string name="service_foreground_processes">%1$s ашиглагдсан</string>
@@ -4808,6 +4827,7 @@ Ta хурууны хээгээ ашиглан худалдан авалт бол
     <string name="sound_settings_summary_silent">Хонхыг чимээгүй болгож тохируулсан</string>
     <string name="sound_settings_summary_vibrate">Хонхыг чичиргээтэй болгож тохируулсан</string>
     <string name="sound_work_settings">Ажлын профайлын ая</string>
+    <string name="spatial_audio_title">Орон зайн аудио</string>
     <string name="special_access">Тусгай аппын хандалт</string>
     <string name="special_access_more">Дэлгэрэнгүй харах</string>
     <string name="speed_label_fast">Хурдан</string>
@@ -5619,7 +5639,7 @@ Ta хурууны хээгээ ашиглан худалдан авалт бол
     <string name="vpn_turn_on">Асаах</string>
     <string name="vpn_type">Төрөл</string>
     <string name="vpn_username">Хэрэглэгчийн нэр</string>
-    <string name="vpn_version">Хувилбар %s</string>
+    <string name="vpn_version">Хувилбар</string>
     <string name="vr_listener_security_warning_summary">%1$s нь таныг апп-г виртуал бодит горимд ашиглах үед ажиллах болно.</string>
     <string name="vr_listener_security_warning_title">VR үйлчилгээг %1$s-д хандахыг зөвшөөрөх үү?</string>
     <string name="vr_listeners_title">VR туслагч үйлчилгээ</string>
@@ -5889,7 +5909,7 @@ Ta хурууны хээгээ ашиглан худалдан авалт бол
     <string name="wifi_not_in_range">Хүрээнд байхгүй</string>
     <string name="wifi_not_in_range_message">Сүлжээ хүрээнд алга</string>
     <string name="wifi_notify_open_networks">Олон нийтийн Wi-Fi сүлжээг мэдэгдэх</string>
-    <string name="wifi_notify_open_networks_summary">Автомат холболт боломжгүй үед</string>
+    <string name="wifi_notify_open_networks_summary">Өндөр чанарын нийтийн сүлжээ боломжтой үед мэдэгдэх</string>
     <string name="wifi_on_time">Wi-Fi цагтаа</string>
     <string name="wifi_p2p_cancel_connect_message">Та %1$s-тай холбох урилгыг цуцлахыг хүсэж байна уу?</string>
     <string name="wifi_p2p_cancel_connect_title">Урилгыг цуцлах уу?</string>
@@ -5977,7 +5997,6 @@ Ta хурууны хээгээ ашиглан худалдан авалт бол
     <string name="wifi_suspend_optimizations">Wi‑Fi оновчлол</string>
     <string name="wifi_suspend_optimizations_summary">Wi-Fi асаалттай үед зайны цэнэг зарцуулалтыг багасгах</string>
     <string name="wifi_switch_away_when_unvalidated">Wi-Fi-н интернет холболт тасарсан үед мобайл дата руу шилжүүлнэ үү.</string>
-    <string name="wifi_switch_summary">Wi-Fi сүлжээг олж, холбогдоно уу</string>
     <string name="wifi_tap_to_sign_in">Сүлжээнд нэвтрэх бол энд товшино уу</string>
     <string name="wifi_tether_configure_ap_text">Wi-Fi сүлжээний цэгийг тохируулах</string>
     <string name="wifi_tether_configure_ssid_default">АндройдСүлжээнийЦэг</string>

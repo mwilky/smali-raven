@@ -278,7 +278,7 @@
 
     aput-object p3, p0, p2
 
-    const-string p2, "sliceUri_"
+    const-string/jumbo p2, "sliceUri_"
 
     aput-object p2, p0, p1
 
@@ -331,8 +331,6 @@
     invoke-direct {p0}, Lcom/android/settings/intelligence/ContextualCardProto$ContextualCard;-><init>()V
 
     return-object p0
-
-    nop
 
     :pswitch_data_0
     .packed-switch 0x1

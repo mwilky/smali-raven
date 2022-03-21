@@ -365,7 +365,7 @@
 
     move-result-object p1
 
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_5
 
     invoke-virtual {p1}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->isConnected()Z
 
@@ -405,24 +405,33 @@
 
     move-result-object p2
 
-    if-eqz p2, :cond_3
+    invoke-virtual {p1}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->getUnpairing()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_3
+
+    return v0
+
+    :cond_3
+    if-eqz p2, :cond_4
 
     invoke-virtual {p2}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->refresh()V
 
     return v0
 
-    :cond_3
+    :cond_4
     invoke-virtual {p1}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->getSubDevice()Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
 
     move-result-object p2
 
-    if-eqz p2, :cond_4
+    if-eqz p2, :cond_5
 
     invoke-virtual {p2}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->isConnected()Z
 
     move-result p2
 
-    if-eqz p2, :cond_4
+    if-eqz p2, :cond_5
 
     iget-object p2, p0, Lcom/android/settingslib/bluetooth/HearingAidDeviceManager;->mBtManager:Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
 
@@ -446,7 +455,7 @@
 
     return v0
 
-    :cond_4
+    :cond_5
     :goto_0
     const/4 p0, 0x0
 

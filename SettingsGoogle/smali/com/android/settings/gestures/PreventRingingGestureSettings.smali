@@ -13,7 +13,7 @@
 
     new-instance v0, Lcom/android/settings/gestures/PreventRingingGestureSettings$1;
 
-    const v1, 0x7f1500b9
+    const v1, 0x7f1500be
 
     invoke-direct {v0, v1}, Lcom/android/settings/gestures/PreventRingingGestureSettings$1;-><init>(I)V
 
@@ -102,7 +102,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f0409ef
+    const p0, 0x7f040a07
 
     return p0
 .end method
@@ -126,7 +126,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f1500b9
+    const p0, 0x7f1500be
 
     return p0
 .end method

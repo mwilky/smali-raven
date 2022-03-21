@@ -79,7 +79,7 @@
 
     const/4 v1, 0x2
 
-    const-string v2, "type"
+    const-string/jumbo v2, "type"
 
     invoke-virtual {v0, v2, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 

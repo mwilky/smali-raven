@@ -41,7 +41,7 @@
         }
     .end annotation
 
-    const v0, 0x7f060076
+    const v0, 0x7f060078
 
     invoke-direct {p0, p1, v0, p2}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;ILjava/util/List;)V
 
@@ -78,15 +78,6 @@
     return-object p0
 
     :cond_0
-    const p1, 0x7f0202f8
-
-    invoke-virtual {p0, p1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
-
-    move-result-object p0
-
-    return-object p0
-
-    :cond_1
     const p1, 0x7f0202ff
 
     invoke-virtual {p0, p1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
@@ -95,8 +86,17 @@
 
     return-object p0
 
+    :cond_1
+    const p1, 0x7f020306
+
+    invoke-virtual {p0, p1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+
+    move-result-object p0
+
+    return-object p0
+
     :cond_2
-    const p1, 0x7f0202f9
+    const p1, 0x7f020300
 
     invoke-virtual {p0, p1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -120,7 +120,7 @@
 
     move-result-object p2
 
-    const v1, 0x7f060076
+    const v1, 0x7f060078
 
     const/4 v2, 0x0
 

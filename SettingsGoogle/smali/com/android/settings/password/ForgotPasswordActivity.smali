@@ -70,11 +70,11 @@
     return-void
 
     :cond_0
-    const v0, 0x7f0600f4
+    const v0, 0x7f0600f7
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->setContentView(I)V
 
-    const v0, 0x7f0d04e2
+    const v0, 0x7f0d04f1
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -114,7 +114,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f13021a
+    const v2, 0x7f13021c
 
     invoke-virtual {v1, v2}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setTheme(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 

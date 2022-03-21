@@ -21,7 +21,7 @@
 .method public getPreferenceKey()Ljava/lang/String;
     .locals 0
 
-    const-string p0, "tap_to_wake"
+    const-string/jumbo p0, "tap_to_wake"
 
     return-object p0
 .end method
@@ -35,7 +35,7 @@
 
     move-result-object p0
 
-    const v0, 0x1110142
+    const v0, 0x1110147
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
 

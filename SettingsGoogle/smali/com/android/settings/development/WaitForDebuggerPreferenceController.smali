@@ -34,7 +34,7 @@
 
     move-result-object v0
 
-    const-string v1, "wait_for_debugger"
+    const-string/jumbo v1, "wait_for_debugger"
 
     const/4 v2, 0x0
 
@@ -95,7 +95,7 @@
 .method public getPreferenceKey()Ljava/lang/String;
     .locals 0
 
-    const-string p0, "wait_for_debugger"
+    const-string/jumbo p0, "wait_for_debugger"
 
     return-object p0
 .end method

@@ -141,7 +141,7 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, "}"
+    const-string/jumbo v2, "}"
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -445,7 +445,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f150113
+    const p0, 0x7f150118
 
     return p0
 .end method
@@ -524,7 +524,7 @@
 
     const/4 v0, 0x1
 
-    const v1, 0x7f041687
+    const v1, 0x7f0416ac
 
     const/4 v2, 0x0
 
@@ -610,7 +610,7 @@
 
     move-result-object v2
 
-    const-string v3, "user"
+    const-string/jumbo v3, "user"
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -730,7 +730,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f041643
+    const v1, 0x7f041668
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 

@@ -46,7 +46,7 @@
     return v1
 
     :cond_0
-    const-string v0, "wallpaper"
+    const-string/jumbo v0, "wallpaper"
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -82,7 +82,7 @@
 
     if-eqz v0, :cond_0
 
-    const-string v0, "wallpaper_only"
+    const-string/jumbo v0, "wallpaper_only"
 
     invoke-virtual {p1, v1, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
@@ -90,7 +90,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f040646
+    const v1, 0x7f04065e
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

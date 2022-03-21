@@ -120,23 +120,23 @@
 
     if-eq p1, v0, :cond_0
 
-    const p1, 0x7f040885
+    const p1, 0x7f04089d
 
-    const v0, 0x7f040882
+    const v0, 0x7f04089a
 
     goto :goto_0
 
     :cond_0
-    const p1, 0x7f040887
+    const p1, 0x7f04089f
 
-    const v0, 0x7f040884
+    const v0, 0x7f04089c
 
     goto :goto_0
 
     :cond_1
-    const p1, 0x7f040886
+    const p1, 0x7f04089e
 
-    const v0, 0x7f040883
+    const v0, 0x7f04089b
 
     :goto_0
     invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getActivity()Landroidx/fragment/app/FragmentActivity;

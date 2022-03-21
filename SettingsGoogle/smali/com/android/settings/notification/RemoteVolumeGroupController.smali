@@ -198,7 +198,7 @@
     :try_start_1
     iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f040ff6
+    const v2, 0x7f041024
 
     invoke-virtual {v0, v2}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -302,7 +302,7 @@
 
     invoke-virtual {v6, p0}, Landroidx/preference/Preference;->setOnPreferenceChangeListener(Landroidx/preference/Preference$OnPreferenceChangeListener;)V
 
-    const v7, 0x7f02039b
+    const v7, 0x7f0203a2
 
     invoke-virtual {v6, v7}, Landroidx/preference/Preference;->setIcon(I)V
 
@@ -356,7 +356,7 @@
 
     iget-object v8, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v9, 0x7f040cb6
+    const v9, 0x7f040cce
 
     new-array v10, v3, [Ljava/lang/Object;
 
@@ -652,6 +652,16 @@
     const-string p0, "remote_media_group"
 
     return-object p0
+.end method
+
+.method public bridge synthetic getSliceHighlightMenuRes()I
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getSliceHighlightMenuRes()I
+
+    move-result p0
+
+    return p0
 .end method
 
 .method public handlePreferenceTreeClick(Landroidx/preference/Preference;)Z

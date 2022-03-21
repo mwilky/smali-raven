@@ -173,17 +173,26 @@
 
     invoke-super {p0, p1}, Landroidx/fragment/app/FragmentActivity;->onCreate(Landroid/os/Bundle;)V
 
-    invoke-direct {p0}, Lcom/android/settings/core/SettingsBaseActivity;->isLockTaskModePinned()Z
+    invoke-virtual {p0}, Landroid/app/Activity;->isFinishing()Z
 
     move-result p1
 
     if-eqz p1, :cond_0
 
+    return-void
+
+    :cond_0
+    invoke-direct {p0}, Lcom/android/settings/core/SettingsBaseActivity;->isLockTaskModePinned()Z
+
+    move-result p1
+
+    if-eqz p1, :cond_1
+
     invoke-direct {p0}, Lcom/android/settings/core/SettingsBaseActivity;->isSettingsRunOnTop()Z
 
     move-result p1
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_1
 
     const-string p1, "SettingsBaseActivity"
 
@@ -193,7 +202,7 @@
 
     invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
-    :cond_0
+    :cond_1
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     invoke-virtual {p0}, Landroidx/activity/ComponentActivity;->getLifecycle()Landroidx/lifecycle/Lifecycle;
@@ -242,11 +251,11 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->requestWindowFeature(I)Z
 
-    :cond_1
+    :cond_2
     invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
     move-result-object p1
@@ -265,41 +274,39 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_4
 
     invoke-static {p0}, Lcom/google/android/setupdesign/util/ThemeHelper;->isSetupWizardDayNightEnabled(Landroid/content/Context;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3
 
-    const v0, 0x7f130210
-
-    goto :goto_0
-
-    :cond_2
-    const v0, 0x7f13020f
+    const v0, 0x7f130212
 
     goto :goto_0
 
     :cond_3
-    invoke-static {p0}, Lcom/google/android/setupdesign/util/ThemeHelper;->isSetupWizardDayNightEnabled(Landroid/content/Context;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_4
-
-    const v0, 0x7f1301ec
-
-    goto :goto_0
-
-    :cond_4
-    const v0, 0x7f130243
+    const v0, 0x7f130211
 
     :goto_0
     invoke-virtual {p0, v0}, Landroid/app/Activity;->setTheme(I)V
 
+    goto :goto_1
+
+    :cond_4
+    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
+
+    move-result-object v0
+
+    invoke-static {p0, v0}, Lcom/android/settings/SetupWizardUtils;->getTheme(Landroid/content/Context;Landroid/content/Intent;)I
+
+    move-result v0
+
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->setTheme(I)V
+
     :cond_5
+    :goto_1
     invoke-virtual {p0}, Lcom/android/settings/core/SettingsBaseActivity;->isToolbarEnabled()Z
 
     move-result v0
@@ -308,11 +315,11 @@
 
     if-nez p1, :cond_7
 
-    const v0, 0x7f06007c
+    const v0, 0x7f06007e
 
     invoke-super {p0, v0}, Landroidx/activity/ComponentActivity;->setContentView(I)V
 
-    const v0, 0x7f0d0160
+    const v0, 0x7f0d0164
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -322,7 +329,7 @@
 
     iput-object v0, p0, Lcom/android/settings/core/SettingsBaseActivity;->mCollapsingToolbarLayout:Lcom/google/android/material/appbar/CollapsingToolbarLayout;
 
-    const v0, 0x7f0d008d
+    const v0, 0x7f0d0090
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -343,15 +350,15 @@
     :cond_6
     invoke-direct {p0}, Lcom/android/settings/core/SettingsBaseActivity;->disableCollapsingToolbarLayoutScrollingBehavior()V
 
-    goto :goto_1
+    goto :goto_2
 
     :cond_7
-    const v0, 0x7f0601fb
+    const v0, 0x7f060200
 
     invoke-super {p0, v0}, Landroidx/activity/ComponentActivity;->setContentView(I)V
 
-    :goto_1
-    const v0, 0x7f0d003c
+    :goto_2
+    const v0, 0x7f0d003d
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -367,7 +374,7 @@
 
     if-eqz p1, :cond_8
 
-    goto :goto_2
+    goto :goto_3
 
     :cond_8
     invoke-virtual {p0, v0}, Lcom/android/settings/core/SettingsBaseActivity;->setActionBar(Landroid/widget/Toolbar;)V
@@ -375,7 +382,7 @@
     return-void
 
     :cond_9
-    :goto_2
+    :goto_3
     const/16 p0, 0x8
 
     invoke-virtual {v0, p0}, Landroid/widget/Toolbar;->setVisibility(I)V
@@ -440,7 +447,7 @@
 .method public setContentView(I)V
     .locals 1
 
-    const v0, 0x7f0d0175
+    const v0, 0x7f0d0179
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -465,7 +472,7 @@
 .method public setContentView(Landroid/view/View;)V
     .locals 1
 
-    const v0, 0x7f0d0175
+    const v0, 0x7f0d0179
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -481,7 +488,7 @@
 .method public setContentView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
     .locals 1
 
-    const v0, 0x7f0d0175
+    const v0, 0x7f0d0179
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -562,6 +569,12 @@
 .method public setTitle(I)V
     .locals 1
 
+    invoke-virtual {p0, p1}, Landroid/app/Activity;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object v0
+
+    invoke-super {p0, v0}, Landroid/app/Activity;->setTitle(Ljava/lang/CharSequence;)V
+
     iget-object v0, p0, Lcom/android/settings/core/SettingsBaseActivity;->mCollapsingToolbarLayout:Lcom/google/android/material/appbar/CollapsingToolbarLayout;
 
     if-eqz v0, :cond_0
@@ -572,30 +585,22 @@
 
     invoke-virtual {v0, p0}, Lcom/google/android/material/appbar/CollapsingToolbarLayout;->setTitle(Ljava/lang/CharSequence;)V
 
-    goto :goto_0
-
     :cond_0
-    invoke-super {p0, p1}, Landroid/app/Activity;->setTitle(I)V
-
-    :goto_0
     return-void
 .end method
 
 .method public setTitle(Ljava/lang/CharSequence;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/settings/core/SettingsBaseActivity;->mCollapsingToolbarLayout:Lcom/google/android/material/appbar/CollapsingToolbarLayout;
-
-    if-eqz v0, :cond_0
-
-    invoke-virtual {v0, p1}, Lcom/google/android/material/appbar/CollapsingToolbarLayout;->setTitle(Ljava/lang/CharSequence;)V
-
-    goto :goto_0
-
-    :cond_0
     invoke-super {p0, p1}, Landroid/app/Activity;->setTitle(Ljava/lang/CharSequence;)V
 
-    :goto_0
+    iget-object p0, p0, Lcom/android/settings/core/SettingsBaseActivity;->mCollapsingToolbarLayout:Lcom/google/android/material/appbar/CollapsingToolbarLayout;
+
+    if-eqz p0, :cond_0
+
+    invoke-virtual {p0, p1}, Lcom/google/android/material/appbar/CollapsingToolbarLayout;->setTitle(Ljava/lang/CharSequence;)V
+
+    :cond_0
     return-void
 .end method
 

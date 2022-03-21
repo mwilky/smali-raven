@@ -32,7 +32,7 @@
 
     new-instance v0, Lcom/android/settings/search/BaseSearchIndexProvider;
 
-    const v1, 0x7f15008c
+    const v1, 0x7f150090
 
     invoke-direct {v0, v1}, Lcom/android/settings/search/BaseSearchIndexProvider;-><init>(I)V
 
@@ -114,7 +114,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f040a20
+    const p0, 0x7f040a38
 
     return p0
 .end method
@@ -138,7 +138,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f15008c
+    const p0, 0x7f150090
 
     return p0
 .end method
@@ -162,7 +162,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f040b85
+    const v2, 0x7f040b9d
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

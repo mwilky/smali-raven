@@ -68,7 +68,7 @@
 
     iget-object p1, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const-string v0, "vibrator"
+    const-string/jumbo v0, "vibrator"
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -193,7 +193,7 @@
 
     if-ne v1, v2, :cond_0
 
-    const v1, 0x7f02039d
+    const v1, 0x7f0203a4
 
     iput v1, p0, Lcom/android/settings/notification/RingVolumePreferenceController;->mMuteIcon:I
 
@@ -204,7 +204,7 @@
     :cond_0
     if-nez v1, :cond_1
 
-    const v1, 0x7f0202e9
+    const v1, 0x7f0202f0
 
     iput v1, p0, Lcom/android/settings/notification/RingVolumePreferenceController;->mMuteIcon:I
 
@@ -213,7 +213,7 @@
     goto :goto_0
 
     :cond_1
-    const p0, 0x7f0202e7
+    const p0, 0x7f0202ee
 
     invoke-virtual {v0, p0}, Lcom/android/settings/notification/VolumeSeekBarPreference;->showIcon(I)V
 

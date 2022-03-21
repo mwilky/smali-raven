@@ -53,9 +53,9 @@
 
     iget-object v3, p0, Lcom/android/settings/inputmethod/UserDictionarySettings;->mCursor:Landroid/database/Cursor;
 
-    const-string p0, "word"
+    const-string/jumbo p0, "word"
 
-    const-string v0, "shortcut"
+    const-string/jumbo v0, "shortcut"
 
     filled-new-array {p0, v0}, [Ljava/lang/String;
 
@@ -67,7 +67,7 @@
 
     fill-array-data v5, :array_0
 
-    const v2, 0x7f06029b
+    const v2, 0x7f0602a7
 
     move-object v0, v6
 
@@ -101,7 +101,7 @@
 
     aput-object p0, v0, v2
 
-    const-string p0, "word=? AND shortcut is null OR shortcut=\'\'"
+    const-string/jumbo p0, "word=? AND shortcut is null OR shortcut=\'\'"
 
     invoke-virtual {p2, p1, p0, v0}, Landroid/content/ContentResolver;->delete(Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)I
 
@@ -118,7 +118,7 @@
 
     aput-object p1, v3, v1
 
-    const-string p0, "word=? AND shortcut=?"
+    const-string/jumbo p0, "word=? AND shortcut=?"
 
     invoke-virtual {p2, v0, p0, v3}, Landroid/content/ContentResolver;->delete(Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)I
 
@@ -153,7 +153,7 @@
     :cond_1
     iget-object p0, p0, Lcom/android/settings/inputmethod/UserDictionarySettings;->mCursor:Landroid/database/Cursor;
 
-    const-string p1, "shortcut"
+    const-string/jumbo p1, "shortcut"
 
     invoke-interface {p0, p1}, Landroid/database/Cursor;->getColumnIndexOrThrow(Ljava/lang/String;)I
 
@@ -193,7 +193,7 @@
     :cond_1
     iget-object p0, p0, Lcom/android/settings/inputmethod/UserDictionarySettings;->mCursor:Landroid/database/Cursor;
 
-    const-string p1, "word"
+    const-string/jumbo p1, "word"
 
     invoke-interface {p0, p1}, Landroid/database/Cursor;->getColumnIndexOrThrow(Ljava/lang/String;)I
 
@@ -227,11 +227,11 @@
 
     invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    const-string v1, "word"
+    const-string/jumbo v1, "word"
 
     invoke-virtual {v0, v1, p1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string p1, "shortcut"
+    const-string/jumbo p1, "shortcut"
 
     invoke-virtual {v0, p1, p2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -263,7 +263,7 @@
 
     move-result-object p1
 
-    const p2, 0x7f0414cd
+    const p2, 0x7f0414f2
 
     invoke-virtual {p1, p2}, Lcom/android/settings/core/SubSettingLauncher;->setTitleRes(I)Lcom/android/settings/core/SubSettingLauncher;
 
@@ -422,13 +422,13 @@
 
     const/4 p2, 0x1
 
-    const v0, 0x7f0414cf
+    const v0, 0x7f0414f4
 
     invoke-interface {p1, p0, p2, p0, v0}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
     move-result-object p0
 
-    const p1, 0x7f02016a
+    const p1, 0x7f020171
 
     invoke-interface {p0, p1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
@@ -448,7 +448,7 @@
 
     move-result-object p3
 
-    const v0, 0x7f0414dd
+    const v0, 0x7f041502
 
     invoke-virtual {p3, v0}, Landroid/app/Activity;->setTitle(I)V
 
@@ -633,7 +633,7 @@
 
     check-cast p1, Landroid/widget/TextView;
 
-    const p2, 0x7f0414d9
+    const p2, 0x7f0414fe
 
     invoke-virtual {p1, p2}, Landroid/widget/TextView;->setText(I)V
 

@@ -22,7 +22,7 @@
 
     iput-boolean p2, p0, Lcom/android/settings/vpn2/VpnInfoPreference;->mIsInsecureVpn:Z
 
-    const p2, 0x7f040a1e
+    const p2, 0x7f040a36
 
     invoke-virtual {p1, p2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -38,7 +38,7 @@
 .method protected getSecondTargetResId()I
     .locals 0
 
-    const p0, 0x7f0601c4
+    const p0, 0x7f0601c8
 
     return p0
 .end method
@@ -48,7 +48,7 @@
 
     invoke-super {p0, p1}, Lcom/android/settingslib/RestrictedPreference;->onBindViewHolder(Landroidx/preference/PreferenceViewHolder;)V
 
-    const v0, 0x7f0d0629
+    const v0, 0x7f0d0639
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
@@ -88,7 +88,7 @@
     invoke-virtual {v0, v2}, Landroid/view/View;->setEnabled(Z)V
 
     :goto_0
-    const p0, 0x7f0d05e3
+    const p0, 0x7f0d05f3
 
     invoke-virtual {p1, p0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
@@ -106,7 +106,7 @@
 
     move-result p1
 
-    const v0, 0x7f0d0629
+    const v0, 0x7f0d0639
 
     if-ne p1, v0, :cond_0
 

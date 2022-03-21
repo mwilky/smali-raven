@@ -42,7 +42,7 @@
 
     invoke-direct {p0, p1}, Landroidx/preference/Preference;-><init>(Landroid/content/Context;)V
 
-    const v0, 0x7f06016a
+    const v0, 0x7f06016e
 
     invoke-virtual {p0, v0}, Landroidx/preference/Preference;->setLayoutResource(I)V
 
@@ -62,7 +62,7 @@
 .method private synthetic lambda$onBindViewHolder$0(Landroidx/preference/PreferenceViewHolder;Landroid/view/View;)Z
     .locals 1
 
-    const p2, 0x7f0d021d
+    const p2, 0x7f0d0222
 
     invoke-virtual {p1, p2}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
@@ -112,7 +112,7 @@
 
     invoke-virtual {p0, v0}, Lcom/android/settings/notification/history/NotificationStation$HistoricalNotificationPreference;->updatePreference(Lcom/android/settings/notification/history/NotificationStation$HistoricalNotificationInfo;)V
 
-    const v0, 0x7f0d05bf
+    const v0, 0x7f0d05ce
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
@@ -193,7 +193,7 @@
     :cond_0
     iget-object v1, p1, Lcom/android/settings/notification/history/NotificationStation$HistoricalNotificationInfo;->icon:Landroid/graphics/drawable/Drawable;
 
-    const v2, 0x7f0d02aa
+    const v2, 0x7f0d02b1
 
     if-eqz v1, :cond_1
 
@@ -212,7 +212,7 @@
     :cond_1
     iget-object v0, p0, Lcom/android/settings/notification/history/NotificationStation$HistoricalNotificationPreference;->mItemView:Landroid/view/ViewGroup;
 
-    const v1, 0x7f0d043b
+    const v1, 0x7f0d0449
 
     invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -228,7 +228,7 @@
 
     iget-object v0, p0, Lcom/android/settings/notification/history/NotificationStation$HistoricalNotificationPreference;->mItemView:Landroid/view/ViewGroup;
 
-    const v1, 0x7f0d05bf
+    const v1, 0x7f0d05ce
 
     invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -246,7 +246,7 @@
 
     move-result v0
 
-    const v3, 0x7f0d05c1
+    const v3, 0x7f0d05d0
 
     const/4 v4, 0x0
 
@@ -292,7 +292,7 @@
 
     move-result v0
 
-    const v3, 0x7f0d05a5
+    const v3, 0x7f0d05b4
 
     if-nez v0, :cond_3
 
@@ -347,7 +347,7 @@
     :cond_4
     iget-object v0, p0, Lcom/android/settings/notification/history/NotificationStation$HistoricalNotificationPreference;->mItemView:Landroid/view/ViewGroup;
 
-    const v2, 0x7f0d045a
+    const v2, 0x7f0d0467
 
     invoke-virtual {v0, v2}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -405,7 +405,7 @@
 
     iget-object p1, p0, Lcom/android/settings/notification/history/NotificationStation$HistoricalNotificationPreference;->mItemView:Landroid/view/ViewGroup;
 
-    const v0, 0x7f0d03e2
+    const v0, 0x7f0d03f0
 
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -421,7 +421,7 @@
 
     iget-object p1, p0, Lcom/android/settings/notification/history/NotificationStation$HistoricalNotificationPreference;->mItemView:Landroid/view/ViewGroup;
 
-    const v0, 0x7f0d047a
+    const v0, 0x7f0d0487
 
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -437,7 +437,7 @@
 
     iget-object p1, p0, Lcom/android/settings/notification/history/NotificationStation$HistoricalNotificationPreference;->mItemView:Landroid/view/ViewGroup;
 
-    const v0, 0x7f0d021d
+    const v0, 0x7f0d0222
 
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -483,7 +483,7 @@
 
     iget-object p1, p0, Lcom/android/settings/notification/history/NotificationStation$HistoricalNotificationPreference;->mItemView:Landroid/view/ViewGroup;
 
-    const v0, 0x7f0d0078
+    const v0, 0x7f0d007a
 
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 

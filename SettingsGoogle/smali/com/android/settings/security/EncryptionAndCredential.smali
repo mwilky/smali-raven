@@ -13,7 +13,7 @@
 
     new-instance v0, Lcom/android/settings/security/EncryptionAndCredential$1;
 
-    const v1, 0x7f15006c
+    const v1, 0x7f15006d
 
     invoke-direct {v0, v1}, Lcom/android/settings/security/EncryptionAndCredential$1;-><init>(I)V
 
@@ -140,7 +140,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f040a18
+    const p0, 0x7f040a30
 
     return p0
 .end method
@@ -164,7 +164,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f15006c
+    const p0, 0x7f15006d
 
     return p0
 .end method

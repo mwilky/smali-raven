@@ -4,6 +4,8 @@
 
 
 # instance fields
+.field private mAccessibilityMetricsFeatureProvider:Lcom/android/settings/accessibility/AccessibilityMetricsFeatureProvider;
+
 .field private mAccessibilitySearchFeatureProvider:Lcom/android/settings/accessibility/AccessibilitySearchFeatureProvider;
 
 .field private mAccountFeatureProvider:Lcom/android/settings/accounts/AccountFeatureProvider;
@@ -54,6 +56,25 @@
 
 
 # virtual methods
+.method public getAccessibilityMetricsFeatureProvider()Lcom/android/settings/accessibility/AccessibilityMetricsFeatureProvider;
+    .locals 1
+
+    iget-object v0, p0, Lcom/google/android/settings/overlay/FeatureFactoryImpl;->mAccessibilityMetricsFeatureProvider:Lcom/android/settings/accessibility/AccessibilityMetricsFeatureProvider;
+
+    if-nez v0, :cond_0
+
+    new-instance v0, Lcom/google/android/settings/accessibility/AccessibilityMetricsFeatureProviderGoogleImpl;
+
+    invoke-direct {v0}, Lcom/google/android/settings/accessibility/AccessibilityMetricsFeatureProviderGoogleImpl;-><init>()V
+
+    iput-object v0, p0, Lcom/google/android/settings/overlay/FeatureFactoryImpl;->mAccessibilityMetricsFeatureProvider:Lcom/android/settings/accessibility/AccessibilityMetricsFeatureProvider;
+
+    :cond_0
+    iget-object p0, p0, Lcom/google/android/settings/overlay/FeatureFactoryImpl;->mAccessibilityMetricsFeatureProvider:Lcom/android/settings/accessibility/AccessibilityMetricsFeatureProvider;
+
+    return-object p0
+.end method
+
 .method public getAccessibilitySearchFeatureProvider()Lcom/android/settings/accessibility/AccessibilitySearchFeatureProvider;
     .locals 1
 

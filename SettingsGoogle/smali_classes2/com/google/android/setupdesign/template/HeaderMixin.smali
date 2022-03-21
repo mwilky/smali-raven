@@ -56,7 +56,7 @@
 
     invoke-virtual {p1}, Landroid/content/res/TypedArray;->recycle()V
 
-    invoke-direct {p0}, Lcom/google/android/setupdesign/template/HeaderMixin;->updateAutoTextSizeWithPartnerConfig()V
+    invoke-direct {p0}, Lcom/google/android/setupdesign/template/HeaderMixin;->tryUpdateAutoTextSizeFlagWithPartnerConfig()V
 
     if-eqz p2, :cond_0
 
@@ -145,7 +145,7 @@
     return-void
 .end method
 
-.method private updateAutoTextSizeWithPartnerConfig()V
+.method private tryUpdateAutoTextSizeFlagWithPartnerConfig()V
     .locals 5
 
     iget-object v0, p0, Lcom/google/android/setupdesign/template/HeaderMixin;->templateLayout:Lcom/google/android/setupcompat/internal/TemplateLayout;
@@ -156,21 +156,17 @@
 
     iget-object v1, p0, Lcom/google/android/setupdesign/template/HeaderMixin;->templateLayout:Lcom/google/android/setupcompat/internal/TemplateLayout;
 
-    invoke-static {v1}, Lcom/google/android/setupdesign/util/PartnerStyleHelper;->isPartnerHeavyThemeLayout(Lcom/google/android/setupcompat/internal/TemplateLayout;)Z
+    invoke-static {v1}, Lcom/google/android/setupdesign/util/PartnerStyleHelper;->shouldApplyPartnerResource(Landroid/view/View;)Z
 
     move-result v1
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_9
-
-    invoke-static {v0}, Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;->shouldApplyExtendedPartnerConfig(Landroid/content/Context;)Z
-
-    move-result v1
-
     if-nez v1, :cond_0
 
-    goto/16 :goto_0
+    iput-boolean v2, p0, Lcom/google/android/setupdesign/template/HeaderMixin;->autoTextSizeEnabled:Z
+
+    return-void
 
     :cond_0
     invoke-static {v0}, Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;->get(Landroid/content/Context;)Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;
@@ -328,12 +324,6 @@
 
     :cond_8
     return-void
-
-    :cond_9
-    :goto_0
-    iput-boolean v2, p0, Lcom/google/android/setupdesign/template/HeaderMixin;->autoTextSizeEnabled:Z
-
-    return-void
 .end method
 
 
@@ -472,17 +462,11 @@
 
     iget-object v1, p0, Lcom/google/android/setupdesign/template/HeaderMixin;->templateLayout:Lcom/google/android/setupcompat/internal/TemplateLayout;
 
-    invoke-static {v1}, Lcom/google/android/setupdesign/util/PartnerStyleHelper;->isPartnerLightThemeLayout(Lcom/google/android/setupcompat/internal/TemplateLayout;)Z
+    invoke-static {v1}, Lcom/google/android/setupdesign/util/PartnerStyleHelper;->shouldApplyPartnerResource(Landroid/view/View;)Z
 
     move-result v1
 
-    iget-object v2, p0, Lcom/google/android/setupdesign/template/HeaderMixin;->templateLayout:Lcom/google/android/setupcompat/internal/TemplateLayout;
-
-    invoke-static {v2}, Lcom/google/android/setupdesign/util/PartnerStyleHelper;->isPartnerHeavyThemeLayout(Lcom/google/android/setupcompat/internal/TemplateLayout;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
+    if-eqz v1, :cond_0
 
     iget-object v1, p0, Lcom/google/android/setupdesign/template/HeaderMixin;->templateLayout:Lcom/google/android/setupcompat/internal/TemplateLayout;
 
@@ -492,33 +476,23 @@
 
     move-result-object v1
 
-    invoke-static {v0}, Lcom/google/android/setupdesign/util/HeaderAreaStyler;->applyPartnerCustomizationHeaderHeavyStyle(Landroid/widget/TextView;)V
-
-    move-object v2, v1
-
-    check-cast v2, Landroid/view/ViewGroup;
-
-    invoke-static {v2}, Lcom/google/android/setupdesign/util/HeaderAreaStyler;->applyPartnerCustomizationHeaderAreaStyle(Landroid/view/ViewGroup;)V
-
     invoke-static {v1}, Lcom/google/android/setupdesign/util/LayoutStyler;->applyPartnerCustomizationExtraPaddingStyle(Landroid/view/View;)V
 
-    invoke-direct {p0}, Lcom/google/android/setupdesign/template/HeaderMixin;->updateAutoTextSizeWithPartnerConfig()V
+    invoke-static {v0}, Lcom/google/android/setupdesign/util/HeaderAreaStyler;->applyPartnerCustomizationHeaderStyle(Landroid/widget/TextView;)V
 
-    goto :goto_0
+    check-cast v1, Landroid/view/ViewGroup;
+
+    invoke-static {v1}, Lcom/google/android/setupdesign/util/HeaderAreaStyler;->applyPartnerCustomizationHeaderAreaStyle(Landroid/view/ViewGroup;)V
 
     :cond_0
-    if-eqz v1, :cond_1
+    invoke-direct {p0}, Lcom/google/android/setupdesign/template/HeaderMixin;->tryUpdateAutoTextSizeFlagWithPartnerConfig()V
 
-    invoke-static {v0}, Lcom/google/android/setupdesign/util/HeaderAreaStyler;->applyPartnerCustomizationHeaderLightStyle(Landroid/widget/TextView;)V
-
-    :cond_1
-    :goto_0
     iget-boolean v1, p0, Lcom/google/android/setupdesign/template/HeaderMixin;->autoTextSizeEnabled:Z
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_1
 
     invoke-direct {p0, v0}, Lcom/google/android/setupdesign/template/HeaderMixin;->autoAdjustTextSize(Landroid/widget/TextView;)V
 
-    :cond_2
+    :cond_1
     return-void
 .end method

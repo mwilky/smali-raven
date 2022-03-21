@@ -4,8 +4,8 @@
 
 
 # virtual methods
-.method public getIntentString(Landroid/content/Context;Ljava/lang/String;Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/String;
-    .locals 0
+.method public getIntentString(Landroid/content/Context;Ljava/lang/String;Ljava/lang/Class;Ljava/lang/String;I)Ljava/lang/String;
+    .locals 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -16,18 +16,26 @@
             "Landroidx/fragment/app/Fragment;",
             ">;",
             "Ljava/lang/String;",
-            ")",
+            "I)",
             "Ljava/lang/String;"
         }
     .end annotation
 
     invoke-virtual {p3}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v1
 
-    const/16 p3, 0x409
+    const/16 v4, 0x409
 
-    invoke-static {p1, p0, p2, p4, p3}, Lcom/android/settings/slices/SliceBuilderUtils;->buildSearchResultPageIntent(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)Landroid/content/Intent;
+    move-object v0, p1
+
+    move-object v2, p2
+
+    move-object v3, p4
+
+    move v5, p5
+
+    invoke-static/range {v0 .. v5}, Lcom/android/settings/slices/SliceBuilderUtils;->buildSearchResultPageIntent(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;II)Landroid/content/Intent;
 
     move-result-object p0
 

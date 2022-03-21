@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:background="@drawable/settingslib_switch_bar_bg_on" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="@dimen/settingslib_switchbar_margin" android:minHeight="@dimen/settingslib_min_switch_bar_height" android:paddingStart="@dimen/settingslib_switchbar_padding_left" android:paddingEnd="@dimen/settingslib_switchbar_padding_right"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textAppearance="?android:textAppearanceListItem" android:ellipsize="end" android:layout_gravity="center_vertical" android:id="@android:id/title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="@dimen/settingslib_switch_title_margin" android:layout_marginVertical="@dimen/settingslib_switch_title_margin" style="@style/MainSwitchText.Settingslib" />
+</LinearLayout>

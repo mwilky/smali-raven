@@ -19,6 +19,8 @@
 
 .field mBluetoothChangedReceiver:Landroid/content/BroadcastReceiver;
 
+.field private mIsAlwaysDiscoverable:Z
+
 .field mLocalManager:Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
 
 .field private mPreference:Lcom/android/settingslib/widget/FooterPreference;
@@ -88,7 +90,7 @@
     :cond_0
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f040441
+    const v1, 0x7f040459
 
     invoke-virtual {p0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -149,7 +151,7 @@
     :cond_0
     iget-object p0, p0, Lcom/android/settings/connecteddevice/DiscoverableFooterPreferenceController;->mPreference:Lcom/android/settingslib/widget/FooterPreference;
 
-    const p1, 0x7f04048b
+    const p1, 0x7f0404a3
 
     invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setTitle(I)V
 
@@ -244,6 +246,16 @@
     return-object p0
 .end method
 
+.method public bridge synthetic getSliceHighlightMenuRes()I
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getSliceHighlightMenuRes()I
+
+    move-result p0
+
+    return p0
+.end method
+
 .method public bridge synthetic hasAsyncUpdate()Z
     .locals 0
 
@@ -306,10 +318,15 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
+    iget-boolean v0, p0, Lcom/android/settings/connecteddevice/DiscoverableFooterPreferenceController;->mIsAlwaysDiscoverable:Z
+
+    if-eqz v0, :cond_1
+
     iget-object v0, p0, Lcom/android/settings/connecteddevice/DiscoverableFooterPreferenceController;->mAlwaysDiscoverable:Lcom/android/settings/bluetooth/AlwaysDiscoverable;
 
     invoke-virtual {v0}, Lcom/android/settings/bluetooth/AlwaysDiscoverable;->start()V
 
+    :cond_1
     iget-object v0, p0, Lcom/android/settings/connecteddevice/DiscoverableFooterPreferenceController;->mBluetoothAdapter:Landroid/bluetooth/BluetoothAdapter;
 
     invoke-virtual {v0}, Landroid/bluetooth/BluetoothAdapter;->getState()I
@@ -337,9 +354,22 @@
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
+    iget-boolean v0, p0, Lcom/android/settings/connecteddevice/DiscoverableFooterPreferenceController;->mIsAlwaysDiscoverable:Z
+
+    if-eqz v0, :cond_1
+
     iget-object p0, p0, Lcom/android/settings/connecteddevice/DiscoverableFooterPreferenceController;->mAlwaysDiscoverable:Lcom/android/settings/bluetooth/AlwaysDiscoverable;
 
     invoke-virtual {p0}, Lcom/android/settings/bluetooth/AlwaysDiscoverable;->stop()V
+
+    :cond_1
+    return-void
+.end method
+
+.method public setAlwaysDiscoverable(Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/settings/connecteddevice/DiscoverableFooterPreferenceController;->mIsAlwaysDiscoverable:Z
 
     return-void
 .end method

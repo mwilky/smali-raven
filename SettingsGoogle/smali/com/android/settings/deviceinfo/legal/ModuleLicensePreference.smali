@@ -37,7 +37,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f0411c6
+    const v0, 0x7f0411ea
 
     const/4 v1, 0x1
 
@@ -71,7 +71,7 @@
 
     move-result-object v1
 
-    const-string v2, "text/html"
+    const-string/jumbo v2, "text/html"
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setDataAndType(Landroid/net/Uri;Ljava/lang/String;)Landroid/content/Intent;
 
@@ -90,6 +90,12 @@
     move-result-object v0
 
     const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+
+    move-result-object v0
+
+    const/high16 v1, 0x10000000
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 

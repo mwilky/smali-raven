@@ -316,7 +316,7 @@
 
     :cond_1
     :goto_0
-    const v0, 0x7f0412cc
+    const v0, 0x7f0412f1
 
     invoke-virtual {p1}, Lcom/android/settings/deviceinfo/storage/StorageEntry;->getDiskId()Ljava/lang/String;
 
@@ -363,7 +363,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d032c
+    const v1, 0x7f0d0338
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -749,7 +749,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f040a30
+    const p0, 0x7f040a48
 
     return p0
 .end method
@@ -773,7 +773,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f1500e8
+    const p0, 0x7f1500ed
 
     return p0
 .end method
@@ -1147,6 +1147,10 @@
     const-string v1, "android.os.storage.action.MANAGE_STORAGE"
 
     invoke-direct {p1, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    const/high16 v1, 0x10000000
+
+    invoke-virtual {p1, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
     new-instance v1, Landroid/os/UserHandle;
 

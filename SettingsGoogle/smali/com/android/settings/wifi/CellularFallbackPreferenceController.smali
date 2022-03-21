@@ -32,7 +32,7 @@
 
     move-result-object p0
 
-    const v0, 0x10e0093
+    const v0, 0x10e0097
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -156,6 +156,14 @@
     move-result-object p0
 
     return-object p0
+.end method
+
+.method public getSliceHighlightMenuRes()I
+    .locals 0
+
+    const p0, 0x7f040d0a
+
+    return p0
 .end method
 
 .method public bridge synthetic hasAsyncUpdate()Z

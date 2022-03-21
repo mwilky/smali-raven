@@ -161,7 +161,7 @@
 
     iput-object v1, v0, Lcom/android/settings/fuelgauge/BatteryInfo;->statusLabel:Ljava/lang/String;
 
-    const-string v1, "status"
+    const-string/jumbo v1, "status"
 
     invoke-virtual {p1, v1, v3}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
@@ -183,7 +183,7 @@
     :goto_1
     const-string p0, "BatteryInfo"
 
-    const-string p1, "time for getBatteryInfo"
+    const-string/jumbo p1, "time for getBatteryInfo"
 
     invoke-static {p0, p1, p4, p5}, Lcom/android/settings/fuelgauge/BatteryUtils;->logRuntime(Ljava/lang/String;Ljava/lang/String;J)V
 
@@ -201,7 +201,7 @@
 
     const-string v3, "BatteryInfo"
 
-    const-string v4, "time for getStats"
+    const-string/jumbo v4, "time for getStats"
 
     invoke-static {v3, v4, v1, v2}, Lcom/android/settings/fuelgauge/BatteryUtils;->logRuntime(Ljava/lang/String;Ljava/lang/String;J)V
 
@@ -273,7 +273,7 @@
 
     invoke-static {v0, v4}, Lcom/android/settingslib/fuelgauge/Estimate;->storeCachedEstimate(Landroid/content/Context;Lcom/android/settingslib/fuelgauge/Estimate;)V
 
-    const-string v8, "time for enhanced BatteryInfo"
+    const-string/jumbo v8, "time for enhanced BatteryInfo"
 
     invoke-static {v3, v8, v1, v2}, Lcom/android/settings/fuelgauge/BatteryUtils;->logRuntime(Ljava/lang/String;Ljava/lang/String;J)V
 
@@ -320,7 +320,7 @@
 
     invoke-direct/range {v10 .. v15}, Lcom/android/settingslib/fuelgauge/Estimate;-><init>(JZJ)V
 
-    const-string v8, "time for regular BatteryInfo"
+    const-string/jumbo v8, "time for regular BatteryInfo"
 
     invoke-static {v3, v8, v1, v2}, Lcom/android/settings/fuelgauge/BatteryUtils;->logRuntime(Ljava/lang/String;Ljava/lang/String;J)V
 
@@ -382,7 +382,7 @@
 
     move-result-wide v1
 
-    const-string p2, "status"
+    const-string/jumbo p2, "status"
 
     const/4 v3, 0x1
 
@@ -408,7 +408,7 @@
 
     iput-object v5, p3, Lcom/android/settings/fuelgauge/BatteryInfo;->remainingLabel:Ljava/lang/CharSequence;
 
-    const p1, 0x7f040efe
+    const p1, 0x7f040f2a
 
     new-array p2, v3, [Ljava/lang/Object;
 
@@ -451,9 +451,9 @@
 
     move-result-object p1
 
-    const p2, 0x7f040efd
+    const p2, 0x7f040f29
 
-    const v0, 0x7f040f16
+    const v0, 0x7f040f42
 
     new-array v1, v3, [Ljava/lang/Object;
 
@@ -499,7 +499,7 @@
     goto :goto_0
 
     :cond_2
-    const p1, 0x7f040efc
+    const p1, 0x7f040f28
 
     new-array p2, v8, [Ljava/lang/Object;
 
@@ -650,7 +650,7 @@
 
     invoke-virtual {p0, v2}, Lcom/android/settings/fuelgauge/BatteryInfo;->parseBatteryHistory([Lcom/android/settings/fuelgauge/BatteryInfo$BatteryDataParser;)V
 
-    const p2, 0x7f0405a3
+    const p2, 0x7f0405bb
 
     new-array v1, v3, [Ljava/lang/Object;
 
@@ -674,7 +674,7 @@
 
     if-eqz p0, :cond_1
 
-    const p0, 0x7f040ff5
+    const p0, 0x7f041023
 
     new-array v5, v3, [Ljava/lang/Object;
 

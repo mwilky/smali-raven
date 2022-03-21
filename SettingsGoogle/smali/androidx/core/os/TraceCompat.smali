@@ -117,7 +117,7 @@
 
     const-class v1, Landroid/os/Trace;
 
-    const-string v2, "traceCounter"
+    const-string/jumbo v2, "traceCounter"
 
     new-array v4, v4, [Ljava/lang/Class;
 

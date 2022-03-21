@@ -21,23 +21,23 @@
 
     invoke-direct {p0, p1}, Landroidx/preference/Preference;-><init>(Landroid/content/Context;)V
 
-    const p1, 0x7f060184
+    const p1, 0x7f060188
 
     invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setLayoutResource(I)V
 
-    const p1, 0x7f0602a7
+    const p1, 0x7f0602b3
 
     invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setWidgetLayoutResource(I)V
 
-    const p1, 0x7f02016a
+    const p1, 0x7f020171
 
     invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setIcon(I)V
 
-    const p1, 0x7f0415ab
+    const p1, 0x7f0415d0
 
     invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setTitle(I)V
 
-    const p1, 0x7f020311
+    const p1, 0x7f020318
 
     invoke-direct {p0, p1}, Lcom/android/settings/wifi/AddWifiNetworkPreference;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -90,19 +90,23 @@
 .end method
 
 .method private synthetic lambda$onBindViewHolder$0(Landroid/view/View;)V
-    .locals 0
+    .locals 1
+
+    invoke-virtual {p0}, Landroidx/preference/Preference;->getContext()Landroid/content/Context;
+
+    move-result-object p1
 
     invoke-virtual {p0}, Landroidx/preference/Preference;->getContext()Landroid/content/Context;
 
     move-result-object p0
 
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    invoke-static {p1}, Lcom/android/settings/wifi/dpp/WifiDppUtils;->getEnrolleeQrCodeScannerIntent(Ljava/lang/String;)Landroid/content/Intent;
+    invoke-static {p0, v0}, Lcom/android/settings/wifi/dpp/WifiDppUtils;->getEnrolleeQrCodeScannerIntent(Landroid/content/Context;Ljava/lang/String;)Landroid/content/Intent;
 
-    move-result-object p1
+    move-result-object p0
 
-    invoke-virtual {p0, p1}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {p1, p0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
     return-void
 .end method
@@ -114,7 +118,7 @@
 
     invoke-super {p0, p1}, Landroidx/preference/Preference;->onBindViewHolder(Landroidx/preference/PreferenceViewHolder;)V
 
-    const v0, 0x7f0d0128
+    const v0, 0x7f0d012c
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
@@ -130,7 +134,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f041633
+    const v1, 0x7f041658
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

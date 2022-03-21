@@ -277,7 +277,7 @@
 
     const-string v2, "TelephonyStatusControlSS"
 
-    const-string v3, "setup availability status failed!"
+    const-string/jumbo v3, "setup availability status failed!"
 
     invoke-static {v2, v3, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 

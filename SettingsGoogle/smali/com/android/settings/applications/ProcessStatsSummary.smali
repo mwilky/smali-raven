@@ -34,7 +34,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f0409f3
+    const p0, 0x7f040a0b
 
     return p0
 .end method
@@ -52,11 +52,11 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/applications/ProcessStatsBase;->onCreate(Landroid/os/Bundle;)V
 
-    const p1, 0x7f1500bf
+    const p1, 0x7f1500c4
 
     invoke-virtual {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->addPreferencesFromResource(I)V
 
-    const-string p1, "status_header"
+    const-string/jumbo p1, "status_header"
 
     invoke-virtual {p0, p1}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
@@ -74,7 +74,7 @@
 
     iput-object p1, p0, Lcom/android/settings/applications/ProcessStatsSummary;->mPerformance:Landroidx/preference/Preference;
 
-    const-string p1, "total_memory"
+    const-string/jumbo p1, "total_memory"
 
     invoke-virtual {p0, p1}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
@@ -122,7 +122,7 @@
 
     invoke-direct {p1}, Landroid/os/Bundle;-><init>()V
 
-    const-string v0, "transfer_stats"
+    const-string/jumbo v0, "transfer_stats"
 
     const/4 v1, 0x1
 
@@ -156,7 +156,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f040cdf
+    const v2, 0x7f040cf7
 
     invoke-virtual {v0, v2}, Lcom/android/settings/core/SubSettingLauncher;->setTitleRes(I)Lcom/android/settings/core/SubSettingLauncher;
 

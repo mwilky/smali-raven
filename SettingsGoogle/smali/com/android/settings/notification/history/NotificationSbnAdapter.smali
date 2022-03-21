@@ -405,7 +405,7 @@
 
     iget-object v0, p0, Lcom/android/settings/notification/history/NotificationSbnAdapter;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f020111
+    const v1, 0x7f020117
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -869,7 +869,7 @@
 
     move-result-object p0
 
-    const p2, 0x7f06016d
+    const p2, 0x7f060171
 
     const/4 v0, 0x0
 

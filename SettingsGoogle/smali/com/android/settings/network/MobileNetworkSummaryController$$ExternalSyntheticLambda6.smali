@@ -27,7 +27,7 @@
 
     iget-object p0, p0, Lcom/android/settings/network/MobileNetworkSummaryController$$ExternalSyntheticLambda6;->f$0:Lcom/android/settings/network/MobileNetworkSummaryController;
 
-    invoke-static {p0, p1}, Lcom/android/settings/network/MobileNetworkSummaryController;->$r8$lambda$fo4bAV1yV7Ivi--aWVT3DqYGtyY(Lcom/android/settings/network/MobileNetworkSummaryController;I)Ljava/lang/CharSequence;
+    invoke-static {p0, p1}, Lcom/android/settings/network/MobileNetworkSummaryController;->$r8$lambda$9MufDBuOba3BBmin-Bp714nGH4U(Lcom/android/settings/network/MobileNetworkSummaryController;I)Ljava/lang/CharSequence;
 
     move-result-object p0
 

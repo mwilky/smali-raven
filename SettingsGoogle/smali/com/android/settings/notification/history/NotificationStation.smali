@@ -505,13 +505,13 @@
 
     invoke-direct {v1}, Landroid/text/SpannableStringBuilder;-><init>()V
 
-    const v2, 0x7f040e5b
+    const v2, 0x7f040e86
 
     invoke-virtual {p0, v2}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
-    const v3, 0x7f040e65
+    const v3, 0x7f040e90
 
     invoke-virtual {p0, v3}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -541,7 +541,7 @@
 
     move-result-object p2
 
-    const v4, 0x7f040e63
+    const v4, 0x7f040e8e
 
     invoke-virtual {p0, v4}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -569,7 +569,7 @@
 
     move-result-object p2
 
-    const v4, 0x7f040e61
+    const v4, 0x7f040e8c
 
     invoke-virtual {p0, v4}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -639,7 +639,7 @@
 
     move-result-object p2
 
-    const-string v4, "timeoutAfter"
+    const-string/jumbo v4, "timeoutAfter"
 
     invoke-static {v4}, Lcom/android/settings/notification/history/NotificationStation;->bold(Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
 
@@ -674,7 +674,7 @@
 
     move-result-object p2
 
-    const v4, 0x7f040e5f
+    const v4, 0x7f040e8a
 
     invoke-virtual {p0, v4}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -708,7 +708,7 @@
 
     if-eqz p1, :cond_1
 
-    const p1, 0x7f040e60
+    const p1, 0x7f040e8b
 
     invoke-virtual {p0, p1}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -729,7 +729,7 @@
 
     move-result-object p1
 
-    const p2, 0x7f040e68
+    const p2, 0x7f040e93
 
     invoke-virtual {p0, p2}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -758,7 +758,7 @@
     :cond_2
     iget-object p1, v0, Landroid/app/Notification;->contentIntent:Landroid/app/PendingIntent;
 
-    const p2, 0x7f040e58
+    const p2, 0x7f040e83
 
     if-eqz p1, :cond_3
 
@@ -799,7 +799,7 @@
 
     move-result-object p1
 
-    const v4, 0x7f040e5a
+    const v4, 0x7f040e85
 
     invoke-virtual {p0, v4}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -834,7 +834,7 @@
 
     move-result-object p1
 
-    const v4, 0x7f040e5e
+    const v4, 0x7f040e89
 
     invoke-virtual {p0, v4}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -879,7 +879,7 @@
 
     move-result-object p1
 
-    const v7, 0x7f040e54
+    const v7, 0x7f040e7f
 
     invoke-virtual {p0, v7}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -918,7 +918,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f040e6c
+    const v9, 0x7f040e97
 
     invoke-virtual {p0, v9}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -985,7 +985,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f040e6b
+    const v9, 0x7f040e96
 
     invoke-virtual {p0, v9}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -1029,7 +1029,7 @@
 
     move-result-object p1
 
-    const p2, 0x7f040e59
+    const p2, 0x7f040e84
 
     invoke-virtual {p0, p2}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -1101,7 +1101,7 @@
 
     move-result-object p1
 
-    const-string p2, "shortcutId"
+    const-string/jumbo p2, "shortcutId"
 
     invoke-static {p2}, Lcom/android/settings/notification/history/NotificationStation;->bold(Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
 
@@ -1140,7 +1140,7 @@
 
     move-result-object p1
 
-    const p2, 0x7f040e5d
+    const p2, 0x7f040e88
 
     invoke-virtual {p0, p2}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -1239,7 +1239,7 @@
 
     move-result-object p2
 
-    const v0, 0x7f040e66
+    const v0, 0x7f040e91
 
     invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -1273,7 +1273,7 @@
 
     move-result-object p2
 
-    const v0, 0x7f040e56
+    const v0, 0x7f040e81
 
     invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -1315,7 +1315,7 @@
 
     invoke-direct {v0}, Landroid/text/SpannableStringBuilder;-><init>()V
 
-    const v1, 0x7f040e5b
+    const v1, 0x7f040e86
 
     invoke-virtual {p0, v1}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -1351,7 +1351,7 @@
 
     move-result-object v3
 
-    const v5, 0x7f040e55
+    const v5, 0x7f040e80
 
     invoke-virtual {p0, v5}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -1368,7 +1368,7 @@
 
     move-result-object v3
 
-    const v5, 0x7f040e53
+    const v5, 0x7f040e7e
 
     invoke-virtual {p0, v5}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -1444,7 +1444,7 @@
 
     move-result v5
 
-    const-string v6, "true"
+    const-string/jumbo v6, "true"
 
     const-string v7, "false"
 
@@ -1500,7 +1500,7 @@
 
     move-result-object p1
 
-    const v3, 0x7f040e62
+    const v3, 0x7f040e8d
 
     invoke-virtual {p0, v3}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -1538,7 +1538,7 @@
 
     move-result-object p1
 
-    const v3, 0x7f040e5c
+    const v3, 0x7f040e87
 
     invoke-virtual {p0, v3}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -1567,7 +1567,7 @@
 
     move-result-object p1
 
-    const v3, 0x7f040e57
+    const v3, 0x7f040e82
 
     invoke-virtual {p0, v3}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -1606,7 +1606,7 @@
 
     move-result-object p1
 
-    const v1, 0x7f040e6a
+    const v1, 0x7f040e95
 
     invoke-virtual {p0, v1}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -1625,7 +1625,7 @@
 
     move-result-object p1
 
-    const v1, 0x7f040e69
+    const v1, 0x7f040e94
 
     invoke-virtual {p0, v1}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -2285,7 +2285,7 @@
     :goto_0
     iput-boolean v1, p1, Lcom/android/settings/notification/history/NotificationStation$HistoricalNotificationInfo;->alerted:Z
 
-    invoke-virtual {v0}, Landroid/service/notification/NotificationListenerService$Ranking;->visuallyInterruptive()Z
+    invoke-virtual {v0}, Landroid/service/notification/NotificationListenerService$Ranking;->isTextChanged()Z
 
     move-result v1
 

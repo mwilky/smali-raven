@@ -72,7 +72,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d0249
+    const v1, 0x7f0d024f
 
     invoke-virtual {v0, v1}, Landroidx/fragment/app/FragmentManager;->findFragmentById(I)Landroidx/fragment/app/Fragment;
 
@@ -84,7 +84,7 @@
 
     if-eqz v0, :cond_0
 
-    const-string v1, "slot0_phone_number"
+    const-string/jumbo v1, "slot0_phone_number"
 
     invoke-virtual {v0, v1}, Landroidx/preference/PreferenceFragmentCompat;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
@@ -98,7 +98,7 @@
 
     move-result-object v1
 
-    const-string v2, "slot1_phone_number"
+    const-string/jumbo v2, "slot1_phone_number"
 
     invoke-virtual {v0, v2}, Landroidx/preference/PreferenceFragmentCompat;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
@@ -177,19 +177,19 @@
 
     invoke-direct {v0, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const p0, 0x7f041274
+    const p0, 0x7f041298
 
     invoke-virtual {v0, p0}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object p0
 
-    const v0, 0x7f041278
+    const v0, 0x7f04129c
 
     invoke-virtual {p0, v0}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object p0
 
-    const v0, 0x7f041277
+    const v0, 0x7f04129b
 
     sget-object v1, Lcom/android/settings/sim/smartForwarding/MDNHandlerFragment$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/settings/sim/smartForwarding/MDNHandlerFragment$$ExternalSyntheticLambda0;
 
@@ -226,7 +226,7 @@
 
     invoke-direct {v0, p1}, Lcom/android/settings/sim/smartForwarding/SmartForwardingFragment;-><init>(Z)V
 
-    const p1, 0x7f0d0175
+    const p1, 0x7f0d0179
 
     invoke-virtual {p0, p1, v0}, Landroidx/fragment/app/FragmentTransaction;->replace(ILandroidx/fragment/app/Fragment;)Landroidx/fragment/app/FragmentTransaction;
 
@@ -250,7 +250,7 @@
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 1
 
-    const p3, 0x7f1500db
+    const p3, 0x7f1500e0
 
     const/4 v0, 0x0
 
@@ -270,7 +270,7 @@
 
     move-result-object p3
 
-    const v0, 0x7f041276
+    const v0, 0x7f04129a
 
     invoke-virtual {p3, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -278,7 +278,7 @@
 
     invoke-virtual {p2, p3}, Landroid/app/ActionBar;->setTitle(Ljava/lang/CharSequence;)V
 
-    const p2, 0x7f0d0459
+    const p2, 0x7f0d0466
 
     invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -292,7 +292,7 @@
 
     invoke-virtual {p2, p3}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const p2, 0x7f0d0133
+    const p2, 0x7f0d0137
 
     invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

@@ -27,7 +27,7 @@
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f0405d2
+    const v0, 0x7f0405ea
 
     const/4 v1, 0x1
 

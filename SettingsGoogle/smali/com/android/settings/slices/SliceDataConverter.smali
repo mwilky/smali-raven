@@ -59,7 +59,7 @@
 
     iget-object v3, p0, Lcom/android/settings/slices/SliceDataConverter;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f040111
+    const v4, 0x7f040125
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -167,7 +167,7 @@
 
     if-nez v4, :cond_1
 
-    const v4, 0x7f020162
+    const v4, 0x7f020169
 
     :cond_1
     invoke-virtual {v1, v5}, Lcom/android/settings/slices/SliceData$Builder;->setKey(Ljava/lang/String;)Lcom/android/settings/slices/SliceData$Builder;
@@ -374,7 +374,15 @@
 
     :try_start_0
     iget-object v7, v1, Lcom/android/settings/slices/SliceDataConverter;->mContext:Landroid/content/Context;
+    :try_end_0
+    .catch Lcom/android/settings/slices/SliceData$InvalidSliceDataException; {:try_start_0 .. :try_end_0} :catch_4
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_0 .. :try_end_0} :catch_3
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_3
+    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_0 .. :try_end_0} :catch_3
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_2
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    :try_start_1
     invoke-virtual {v7}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v7
@@ -462,7 +470,7 @@
     :goto_2
     move-object/from16 p1, v0
 
-    goto :goto_3
+    goto/16 :goto_3
 
     :cond_2
     const-string v9, "key"
@@ -492,13 +500,13 @@
     goto :goto_2
 
     :cond_3
-    const-string v11, "title"
+    const-string/jumbo v11, "title"
 
     invoke-virtual {v8, v11}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v11
 
-    const-string v12, "summary"
+    const-string/jumbo v12, "summary"
 
     invoke-virtual {v8, v12}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
@@ -514,7 +522,7 @@
 
     move-result v14
 
-    const-string v15, "unavailable_slice_subtitle"
+    const-string/jumbo v15, "unavailable_slice_subtitle"
 
     invoke-virtual {v8, v15}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
@@ -526,55 +534,63 @@
 
     move-object/from16 p1, v0
 
-    new-instance v0, Lcom/android/settings/slices/SliceData$Builder;
+    invoke-interface {v10}, Lcom/android/settings/slices/Sliceable;->getSliceHighlightMenuRes()I
 
-    invoke-direct {v0}, Lcom/android/settings/slices/SliceData$Builder;-><init>()V
+    move-result v0
 
-    invoke-virtual {v0, v9}, Lcom/android/settings/slices/SliceData$Builder;->setKey(Ljava/lang/String;)Lcom/android/settings/slices/SliceData$Builder;
+    new-instance v1, Lcom/android/settings/slices/SliceData$Builder;
 
-    move-result-object v0
+    invoke-direct {v1}, Lcom/android/settings/slices/SliceData$Builder;-><init>()V
+
+    invoke-virtual {v1, v9}, Lcom/android/settings/slices/SliceData$Builder;->setKey(Ljava/lang/String;)Lcom/android/settings/slices/SliceData$Builder;
+
+    move-result-object v1
 
     invoke-virtual {v10}, Lcom/android/settings/core/BasePreferenceController;->getSliceUri()Landroid/net/Uri;
 
     move-result-object v9
 
-    invoke-virtual {v0, v9}, Lcom/android/settings/slices/SliceData$Builder;->setUri(Landroid/net/Uri;)Lcom/android/settings/slices/SliceData$Builder;
+    invoke-virtual {v1, v9}, Lcom/android/settings/slices/SliceData$Builder;->setUri(Landroid/net/Uri;)Lcom/android/settings/slices/SliceData$Builder;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {v0, v11}, Lcom/android/settings/slices/SliceData$Builder;->setTitle(Ljava/lang/String;)Lcom/android/settings/slices/SliceData$Builder;
+    invoke-virtual {v1, v11}, Lcom/android/settings/slices/SliceData$Builder;->setTitle(Ljava/lang/String;)Lcom/android/settings/slices/SliceData$Builder;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {v0, v12}, Lcom/android/settings/slices/SliceData$Builder;->setSummary(Ljava/lang/String;)Lcom/android/settings/slices/SliceData$Builder;
+    invoke-virtual {v1, v12}, Lcom/android/settings/slices/SliceData$Builder;->setSummary(Ljava/lang/String;)Lcom/android/settings/slices/SliceData$Builder;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {v0, v13}, Lcom/android/settings/slices/SliceData$Builder;->setIcon(I)Lcom/android/settings/slices/SliceData$Builder;
+    invoke-virtual {v1, v13}, Lcom/android/settings/slices/SliceData$Builder;->setIcon(I)Lcom/android/settings/slices/SliceData$Builder;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {v0, v7}, Lcom/android/settings/slices/SliceData$Builder;->setScreenTitle(Ljava/lang/CharSequence;)Lcom/android/settings/slices/SliceData$Builder;
+    invoke-virtual {v1, v7}, Lcom/android/settings/slices/SliceData$Builder;->setScreenTitle(Ljava/lang/CharSequence;)Lcom/android/settings/slices/SliceData$Builder;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {v0, v3}, Lcom/android/settings/slices/SliceData$Builder;->setPreferenceControllerClassName(Ljava/lang/String;)Lcom/android/settings/slices/SliceData$Builder;
+    invoke-virtual {v1, v3}, Lcom/android/settings/slices/SliceData$Builder;->setPreferenceControllerClassName(Ljava/lang/String;)Lcom/android/settings/slices/SliceData$Builder;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {v0, v4}, Lcom/android/settings/slices/SliceData$Builder;->setFragmentName(Ljava/lang/String;)Lcom/android/settings/slices/SliceData$Builder;
+    invoke-virtual {v1, v4}, Lcom/android/settings/slices/SliceData$Builder;->setFragmentName(Ljava/lang/String;)Lcom/android/settings/slices/SliceData$Builder;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {v0, v14}, Lcom/android/settings/slices/SliceData$Builder;->setSliceType(I)Lcom/android/settings/slices/SliceData$Builder;
+    invoke-virtual {v1, v14}, Lcom/android/settings/slices/SliceData$Builder;->setSliceType(I)Lcom/android/settings/slices/SliceData$Builder;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {v0, v8}, Lcom/android/settings/slices/SliceData$Builder;->setUnavailableSliceSubtitle(Ljava/lang/String;)Lcom/android/settings/slices/SliceData$Builder;
+    invoke-virtual {v1, v8}, Lcom/android/settings/slices/SliceData$Builder;->setUnavailableSliceSubtitle(Ljava/lang/String;)Lcom/android/settings/slices/SliceData$Builder;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {v0, v15}, Lcom/android/settings/slices/SliceData$Builder;->setIsPublicSlice(Z)Lcom/android/settings/slices/SliceData$Builder;
+    invoke-virtual {v1, v15}, Lcom/android/settings/slices/SliceData$Builder;->setIsPublicSlice(Z)Lcom/android/settings/slices/SliceData$Builder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0}, Lcom/android/settings/slices/SliceData$Builder;->setHighlightMenuRes(I)Lcom/android/settings/slices/SliceData$Builder;
 
     move-result-object v0
 
@@ -585,6 +601,8 @@
     invoke-interface {v6, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     :goto_3
+    move-object/from16 v1, p0
+
     move-object/from16 v0, p1
 
     goto/16 :goto_1
@@ -592,61 +610,77 @@
     :cond_4
     new-instance v0, Ljava/lang/RuntimeException;
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v9, "XML document must start with <PreferenceScreen> tag; found"
+    const-string v8, "XML document must start with <PreferenceScreen> tag; found"
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v8, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     const-string v7, " at "
 
-    invoke-virtual {v8, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-interface {v5}, Landroid/content/res/XmlResourceParser;->getPositionDescription()Ljava/lang/String;
 
     move-result-object v7
 
-    invoke-virtual {v8, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v1
 
-    invoke-direct {v0, v7}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
     throw v0
-    :try_end_0
-    .catch Lcom/android/settings/slices/SliceData$InvalidSliceDataException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    :catchall_0
-    move-exception v0
-
-    goto :goto_6
+    :try_end_1
+    .catch Lcom/android/settings/slices/SliceData$InvalidSliceDataException; {:try_start_1 .. :try_end_1} :catch_1
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_1 .. :try_end_1} :catch_0
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
+    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_1 .. :try_end_1} :catch_0
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_2
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     :catch_0
     move-exception v0
 
-    :try_start_1
-    const-string v7, "Get slice data from XML failed "
+    move-object/from16 v1, p0
 
-    invoke-static {v2, v7, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    goto :goto_4
 
-    iget-object v8, v1, Lcom/android/settings/slices/SliceDataConverter;->mMetricsFeatureProvider:Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;
+    :catch_1
+    move-exception v0
 
-    const/4 v9, 0x0
+    move-object/from16 v1, p0
 
-    const/16 v10, 0x6bf
+    goto :goto_5
 
-    const/4 v11, 0x0
+    :catchall_0
+    move-exception v0
+
+    goto :goto_8
+
+    :catch_2
+    move-exception v0
+
+    :try_start_2
+    const-string v1, "Get slice data from XML failed "
+
+    invoke-static {v2, v1, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    move-object/from16 v1, p0
+
+    iget-object v7, v1, Lcom/android/settings/slices/SliceDataConverter;->mMetricsFeatureProvider:Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;
+
+    const/4 v8, 0x0
+
+    const/16 v9, 0x6bf
+
+    const/4 v10, 0x0
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -662,24 +696,25 @@
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v12
+    move-result-object v11
 
-    const/4 v13, 0x1
+    const/4 v12, 0x1
 
-    invoke-virtual/range {v8 .. v13}, Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;->action(IIILjava/lang/String;I)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    invoke-virtual/range {v7 .. v12}, Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;->action(IIILjava/lang/String;I)V
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     if-eqz v5, :cond_6
 
-    goto :goto_4
+    goto :goto_6
 
-    :catch_1
+    :catch_3
     move-exception v0
 
+    :goto_4
     move-object v7, v5
 
-    :try_start_2
+    :try_start_3
     const-string v3, "Error parsing PreferenceScreen: "
 
     invoke-static {v2, v3, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
@@ -697,28 +732,29 @@
     move-object/from16 v4, p2
 
     invoke-virtual/range {v0 .. v5}, Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;->action(IIILjava/lang/String;I)V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
     if-eqz v7, :cond_6
 
     invoke-interface {v7}, Landroid/content/res/XmlResourceParser;->close()V
 
-    goto :goto_5
+    goto :goto_7
 
     :catchall_1
     move-exception v0
 
     move-object v5, v7
 
-    goto :goto_6
+    goto :goto_8
 
-    :catch_2
+    :catch_4
     move-exception v0
 
+    :goto_5
     move-object v12, v3
 
-    :try_start_3
+    :try_start_4
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -746,20 +782,20 @@
     const/4 v13, 0x1
 
     invoke-virtual/range {v8 .. v13}, Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;->action(IIILjava/lang/String;I)V
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
     if-eqz v5, :cond_6
 
     :cond_5
-    :goto_4
+    :goto_6
     invoke-interface {v5}, Landroid/content/res/XmlResourceParser;->close()V
 
     :cond_6
-    :goto_5
+    :goto_7
     return-object v6
 
-    :goto_6
+    :goto_8
     if-eqz v5, :cond_7
 
     invoke-interface {v5}, Landroid/content/res/XmlResourceParser;->close()V

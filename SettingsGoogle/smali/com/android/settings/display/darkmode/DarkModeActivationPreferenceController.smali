@@ -142,6 +142,16 @@
     return-object p0
 .end method
 
+.method public bridge synthetic getSliceHighlightMenuRes()I
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getSliceHighlightMenuRes()I
+
+    move-result p0
+
+    return p0
+.end method
+
 .method public getSummary()Ljava/lang/CharSequence;
     .locals 5
 
@@ -185,12 +195,12 @@
 
     if-eqz v0, :cond_1
 
-    const v0, 0x7f0406ea
+    const v0, 0x7f040702
 
     goto :goto_1
 
     :cond_1
-    const v0, 0x7f0406e7
+    const v0, 0x7f0406ff
 
     :goto_1
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
@@ -232,12 +242,12 @@
 
     if-eqz v0, :cond_4
 
-    const v0, 0x7f0406eb
+    const v0, 0x7f040703
 
     goto :goto_3
 
     :cond_4
-    const v0, 0x7f0406e8
+    const v0, 0x7f040700
 
     :goto_3
     new-array v1, v1, [Ljava/lang/Object;
@@ -255,12 +265,12 @@
 
     if-eqz v0, :cond_6
 
-    const v0, 0x7f0406ec
+    const v0, 0x7f040704
 
     goto :goto_4
 
     :cond_6
-    const v0, 0x7f0406e9
+    const v0, 0x7f040701
 
     :goto_4
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;

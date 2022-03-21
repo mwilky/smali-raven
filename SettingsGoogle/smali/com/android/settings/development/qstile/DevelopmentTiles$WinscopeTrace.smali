@@ -210,7 +210,7 @@
     .locals 2
 
     :try_start_0
-    const-string p0, "statusbar"
+    const-string/jumbo p0, "statusbar"
 
     invoke-static {p0}, Landroid/os/ServiceManager;->checkService(Ljava/lang/String;)Landroid/os/IBinder;
 
@@ -482,7 +482,7 @@
     .locals 1
 
     :try_start_0
-    const-string p0, "statusbar"
+    const-string/jumbo p0, "statusbar"
 
     invoke-static {p0}, Landroid/os/ServiceManager;->checkService(Ljava/lang/String;)Landroid/os/IBinder;
 

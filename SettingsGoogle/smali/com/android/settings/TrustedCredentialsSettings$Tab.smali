@@ -54,15 +54,15 @@
 
     const/4 v2, 0x0
 
-    const-string v3, "system"
+    const-string/jumbo v3, "system"
 
-    const v4, 0x7f0413eb
+    const v4, 0x7f041410
 
-    const v5, 0x7f0d058f
+    const v5, 0x7f0d059e
 
-    const v6, 0x7f0d058e
+    const v6, 0x7f0d059d
 
-    const v7, 0x7f0d058b
+    const v7, 0x7f0d059a
 
     const/4 v8, 0x1
 
@@ -78,15 +78,15 @@
 
     const/4 v12, 0x1
 
-    const-string v13, "user"
+    const-string/jumbo v13, "user"
 
-    const v14, 0x7f0413ed
+    const v14, 0x7f041412
 
-    const v15, 0x7f0d0609
+    const v15, 0x7f0d0619
 
-    const v16, 0x7f0d0608
+    const v16, 0x7f0d0618
 
-    const v17, 0x7f0d0600
+    const v17, 0x7f0d0610
 
     const/16 v18, 0x0
 

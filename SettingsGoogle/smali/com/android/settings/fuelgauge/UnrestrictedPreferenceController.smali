@@ -18,7 +18,7 @@
 
     invoke-direct {p0, p1}, Lcom/android/settingslib/core/AbstractPreferenceController;-><init>(Landroid/content/Context;)V
 
-    const-string v0, "unrestricted_pref"
+    const-string/jumbo v0, "unrestricted_pref"
 
     iput-object v0, p0, Lcom/android/settings/fuelgauge/UnrestrictedPreferenceController;->KEY_UNRESTRICTED_PREF:Ljava/lang/String;
 
@@ -42,38 +42,19 @@
 .end method
 
 .method public handlePreferenceTreeClick(Landroidx/preference/Preference;)Z
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/settings/fuelgauge/UnrestrictedPreferenceController;->KEY_UNRESTRICTED_PREF:Ljava/lang/String;
+    invoke-virtual {p0}, Lcom/android/settings/fuelgauge/UnrestrictedPreferenceController;->getPreferenceKey()Ljava/lang/String;
+
+    move-result-object p0
 
     invoke-virtual {p1}, Landroidx/preference/Preference;->getKey()Ljava/lang/String;
 
     move-result-object p1
 
-    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result p1
-
-    if-nez p1, :cond_0
-
-    const/4 p0, 0x0
-
-    return p0
-
-    :cond_0
-    iget-object p0, p0, Lcom/android/settings/fuelgauge/UnrestrictedPreferenceController;->mBatteryOptimizeUtils:Lcom/android/settings/fuelgauge/BatteryOptimizeUtils;
-
-    sget-object p1, Lcom/android/settings/fuelgauge/BatteryOptimizeUtils$AppUsageState;->UNRESTRICTED:Lcom/android/settings/fuelgauge/BatteryOptimizeUtils$AppUsageState;
-
-    invoke-virtual {p0, p1}, Lcom/android/settings/fuelgauge/BatteryOptimizeUtils;->setAppUsageState(Lcom/android/settings/fuelgauge/BatteryOptimizeUtils$AppUsageState;)V
-
-    const-string p0, "UNRESTRICTED_PREF"
-
-    const-string p1, "Set unrestricted"
-
-    invoke-static {p0, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 p0, 0x1
+    move-result p0
 
     return p0
 .end method
@@ -135,11 +116,11 @@
     :cond_1
     iget-object p0, p0, Lcom/android/settings/fuelgauge/UnrestrictedPreferenceController;->mBatteryOptimizeUtils:Lcom/android/settings/fuelgauge/BatteryOptimizeUtils;
 
-    invoke-virtual {p0}, Lcom/android/settings/fuelgauge/BatteryOptimizeUtils;->getAppUsageState()Lcom/android/settings/fuelgauge/BatteryOptimizeUtils$AppUsageState;
+    invoke-virtual {p0}, Lcom/android/settings/fuelgauge/BatteryOptimizeUtils;->getAppOptimizationMode()I
 
-    move-result-object p0
+    move-result p0
 
-    sget-object v3, Lcom/android/settings/fuelgauge/BatteryOptimizeUtils$AppUsageState;->UNRESTRICTED:Lcom/android/settings/fuelgauge/BatteryOptimizeUtils$AppUsageState;
+    const/4 v3, 0x2
 
     if-ne p0, v3, :cond_2
 

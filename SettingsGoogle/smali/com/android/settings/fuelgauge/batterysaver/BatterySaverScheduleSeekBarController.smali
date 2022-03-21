@@ -29,7 +29,7 @@
 
     iput-object v0, p0, Lcom/android/settings/fuelgauge/batterysaver/BatterySaverScheduleSeekBarController;->mSeekBarPreference:Lcom/android/settings/widget/SeekBarPreference;
 
-    const p1, 0x7f0601be
+    const p1, 0x7f060062
 
     invoke-virtual {v0, p1}, Landroidx/preference/Preference;->setLayoutResource(I)V
 
@@ -91,7 +91,7 @@
 
     aput-object p1, v0, v1
 
-    const p1, 0x7f040394
+    const p1, 0x7f0403a9
 
     invoke-virtual {p0, p1, v0}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

@@ -284,7 +284,7 @@
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->requestWindowFeature(I)Z
 
-    const p1, 0x7f060053
+    const p1, 0x7f060054
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->setContentView(I)V
 
@@ -292,7 +292,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f0200fc
+    const v0, 0x7f020102
 
     invoke-virtual {p1, v0}, Landroid/view/Window;->setBackgroundDrawableResource(I)V
 
@@ -316,7 +316,7 @@
 
     iput-object p1, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;->mAssistGestureHelper:Lcom/google/android/settings/gestures/assist/AssistGestureHelper;
 
-    const p1, 0x7f0d018f
+    const p1, 0x7f0d0193
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -326,7 +326,7 @@
 
     iput-object p1, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;->mCurrentScoreTextView:Landroid/widget/TextView;
 
-    const p1, 0x7f0d024e
+    const p1, 0x7f0d0254
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -352,7 +352,7 @@
 
     invoke-virtual {v0, p1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    const p1, 0x7f0d043c
+    const p1, 0x7f0d044a
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 

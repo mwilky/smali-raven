@@ -54,7 +54,7 @@
 
     iget-object p1, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings$1;->this$0:Lcom/android/settings/wifi/p2p/WifiP2pSettings;
 
-    const-string v0, "wifi_p2p_state"
+    const-string/jumbo v0, "wifi_p2p_state"
 
     invoke-virtual {p2, v0, v3}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
@@ -84,7 +84,7 @@
 
     iget-object p1, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings$1;->this$0:Lcom/android/settings/wifi/p2p/WifiP2pSettings;
 
-    const-string v0, "wifiP2pDeviceList"
+    const-string/jumbo v0, "wifiP2pDeviceList"
 
     invoke-virtual {p2, v0}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
 
@@ -126,7 +126,7 @@
 
     check-cast p1, Landroid/net/NetworkInfo;
 
-    const-string v0, "wifiP2pInfo"
+    const-string/jumbo v0, "wifiP2pInfo"
 
     invoke-virtual {p2, v0}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
 

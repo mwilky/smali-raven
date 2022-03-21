@@ -79,7 +79,7 @@
 
     if-eqz v1, :cond_1
 
-    const-string v1, "settings="
+    const-string/jumbo v1, "settings="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

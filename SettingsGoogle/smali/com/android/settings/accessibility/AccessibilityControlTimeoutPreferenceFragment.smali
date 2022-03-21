@@ -147,7 +147,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f040a33
+    const p0, 0x7f040a4b
 
     return p0
 .end method
@@ -163,7 +163,7 @@
 .method public getMetricsCategory()I
     .locals 0
 
-    const/4 p0, 0x2
+    const/16 p0, 0x76a
 
     return p0
 .end method

@@ -1,5 +1,5 @@
 .class Lcom/android/settings/fuelgauge/PowerUsageAdvanced$1;
-.super Lcom/android/settings/search/BaseSearchIndexProvider;
+.super Landroid/database/ContentObserver;
 .source "PowerUsageAdvanced.java"
 
 
@@ -14,87 +14,53 @@
 .end annotation
 
 
+# instance fields
+.field final synthetic this$0:Lcom/android/settings/fuelgauge/PowerUsageAdvanced;
+
+
 # direct methods
-.method constructor <init>()V
+.method constructor <init>(Lcom/android/settings/fuelgauge/PowerUsageAdvanced;Landroid/os/Handler;)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/settings/search/BaseSearchIndexProvider;-><init>()V
+    iput-object p1, p0, Lcom/android/settings/fuelgauge/PowerUsageAdvanced$1;->this$0:Lcom/android/settings/fuelgauge/PowerUsageAdvanced;
+
+    invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public createPreferenceControllers(Landroid/content/Context;)Ljava/util/List;
-    .locals 7
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroid/content/Context;",
-            ")",
-            "Ljava/util/List<",
-            "Lcom/android/settingslib/core/AbstractPreferenceController;",
-            ">;"
-        }
-    .end annotation
+.method public onChange(Z)V
+    .locals 2
 
-    new-instance p0, Ljava/util/ArrayList;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {p0}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    new-instance v6, Lcom/android/settings/fuelgauge/BatteryAppListPreferenceController;
+    const-string v1, "onBatteryContentChange: "
 
-    const-string v2, "app_list"
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const/4 v3, 0x0
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    const/4 v4, 0x0
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    const/4 v5, 0x0
+    move-result-object p1
 
-    move-object v0, v6
+    const-string v0, "AdvancedBatteryUsage"
 
-    move-object v1, p1
+    invoke-static {v0, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-direct/range {v0 .. v5}, Lcom/android/settings/fuelgauge/BatteryAppListPreferenceController;-><init>(Landroid/content/Context;Ljava/lang/String;Lcom/android/settingslib/core/lifecycle/Lifecycle;Lcom/android/settings/SettingsActivity;Lcom/android/settings/core/InstrumentedPreferenceFragment;)V
+    iget-object p1, p0, Lcom/android/settings/fuelgauge/PowerUsageAdvanced$1;->this$0:Lcom/android/settings/fuelgauge/PowerUsageAdvanced;
 
-    invoke-interface {p0, v6}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    const/4 v0, 0x0
 
-    return-object p0
-.end method
+    invoke-static {p1, v0}, Lcom/android/settings/fuelgauge/PowerUsageAdvanced;->access$102(Lcom/android/settings/fuelgauge/PowerUsageAdvanced;Z)Z
 
-.method public getXmlResourcesToIndex(Landroid/content/Context;Z)Ljava/util/List;
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroid/content/Context;",
-            "Z)",
-            "Ljava/util/List<",
-            "Landroid/provider/SearchIndexableResource;",
-            ">;"
-        }
-    .end annotation
+    iget-object p0, p0, Lcom/android/settings/fuelgauge/PowerUsageAdvanced$1;->this$0:Lcom/android/settings/fuelgauge/PowerUsageAdvanced;
 
-    new-instance p0, Landroid/provider/SearchIndexableResource;
+    invoke-virtual {p0, v0}, Lcom/android/settings/fuelgauge/PowerUsageAdvanced;->restartBatteryStatsLoader(I)V
 
-    invoke-direct {p0, p1}, Landroid/provider/SearchIndexableResource;-><init>(Landroid/content/Context;)V
-
-    const p1, 0x7f1500b4
-
-    iput p1, p0, Landroid/provider/SearchIndexableResource;->xmlResId:I
-
-    const/4 p1, 0x1
-
-    new-array p1, p1, [Landroid/provider/SearchIndexableResource;
-
-    const/4 p2, 0x0
-
-    aput-object p0, p1, p2
-
-    invoke-static {p1}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
-
-    move-result-object p0
-
-    return-object p0
+    return-void
 .end method

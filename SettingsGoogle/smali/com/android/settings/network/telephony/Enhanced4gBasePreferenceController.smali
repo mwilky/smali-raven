@@ -289,7 +289,7 @@
 
     const-string v0, "Enhanced4g"
 
-    const-string v1, "show5gLimitedDialog"
+    const-string/jumbo v1, "show5gLimitedDialog"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -303,13 +303,13 @@
 
     invoke-direct {v1, p0, p1}, Lcom/android/settings/network/telephony/Enhanced4gBasePreferenceController$1;-><init>(Lcom/android/settings/network/telephony/Enhanced4gBasePreferenceController;Landroid/telephony/ims/ImsMmTelManager;)V
 
-    const p1, 0x7f04152e
+    const p1, 0x7f041553
 
     invoke-virtual {v0, p1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object p1
 
-    const v0, 0x7f04152d
+    const v0, 0x7f041552
 
     invoke-virtual {p1, v0}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -321,7 +321,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f04054c
+    const v2, 0x7f040564
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -339,7 +339,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f040620
+    const v0, 0x7f040638
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -559,7 +559,7 @@
     return-object p0
 
     :cond_2
-    const-string v0, "show_4g_for_lte_data_icon_bool"
+    const-string/jumbo v0, "show_4g_for_lte_data_icon_bool"
 
     invoke-virtual {p1, v0}, Landroid/os/PersistableBundle;->getBoolean(Ljava/lang/String;)Z
 
@@ -590,7 +590,7 @@
     iput v0, p0, Lcom/android/settings/network/telephony/Enhanced4gBasePreferenceController;->m4gCurrentMode:I
 
     :cond_4
-    const-string v0, "volte_5g_limited_alert_dialog_bool"
+    const-string/jumbo v0, "volte_5g_limited_alert_dialog_bool"
 
     invoke-virtual {p1, v0}, Landroid/os/PersistableBundle;->getBoolean(Ljava/lang/String;)Z
 

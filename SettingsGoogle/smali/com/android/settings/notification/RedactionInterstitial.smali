@@ -39,12 +39,12 @@
 
     if-eqz p0, :cond_0
 
-    const p0, 0x7f040bad
+    const p0, 0x7f040bc5
 
     goto :goto_0
 
     :cond_0
-    const p0, 0x7f040bac
+    const p0, 0x7f040bc4
 
     :goto_0
     const-string v1, ":settings:show_fragment_title_resid"
@@ -129,7 +129,7 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/SettingsActivity;->onCreate(Landroid/os/Bundle;)V
 
-    const p1, 0x7f0d0176
+    const p1, 0x7f0d017a
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 

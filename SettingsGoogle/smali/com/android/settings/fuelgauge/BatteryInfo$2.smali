@@ -140,7 +140,7 @@
 
     const-string p0, "BatteryInfo"
 
-    const-string p1, "time for callback"
+    const-string/jumbo p1, "time for callback"
 
     invoke-static {p0, p1, v0, v1}, Lcom/android/settings/fuelgauge/BatteryUtils;->logRuntime(Ljava/lang/String;Ljava/lang/String;J)V
 

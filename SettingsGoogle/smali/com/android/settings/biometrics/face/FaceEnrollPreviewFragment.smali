@@ -324,7 +324,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0164
+    const v4, 0x7f0b0165
 
     const/4 v5, 0x1
 
@@ -334,7 +334,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0165
+    const v4, 0x7f0b0166
 
     invoke-virtual {v3, v4, v1, v5}, Landroid/content/res/Resources;->getValue(ILandroid/util/TypedValue;Z)V
 
@@ -342,7 +342,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0163
+    const v4, 0x7f0b0164
 
     invoke-virtual {v3, v4, v2, v5}, Landroid/content/res/Resources;->getValue(ILandroid/util/TypedValue;Z)V
 
@@ -529,7 +529,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f0d05bb
+    const v0, 0x7f0d05ca
 
     invoke-virtual {p1, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -543,7 +543,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f0d0153
+    const v0, 0x7f0d0157
 
     invoke-virtual {p1, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 

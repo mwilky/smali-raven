@@ -104,7 +104,7 @@
 
     sget v5, Landroidx/core/R$styleable;->GradientColor_android_startX:I
 
-    const-string v6, "startX"
+    const-string/jumbo v6, "startX"
 
     const/4 v7, 0x0
 
@@ -114,7 +114,7 @@
 
     sget v5, Landroidx/core/R$styleable;->GradientColor_android_startY:I
 
-    const-string v6, "startY"
+    const-string/jumbo v6, "startY"
 
     invoke-static {v1, v0, v6, v5, v7}, Landroidx/core/content/res/TypedArrayUtils;->getNamedFloat(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;IF)F
 
@@ -154,7 +154,7 @@
 
     sget v5, Landroidx/core/R$styleable;->GradientColor_android_type:I
 
-    const-string v6, "type"
+    const-string/jumbo v6, "type"
 
     const/4 v8, 0x0
 
@@ -164,7 +164,7 @@
 
     sget v6, Landroidx/core/R$styleable;->GradientColor_android_startColor:I
 
-    const-string v13, "startColor"
+    const-string/jumbo v13, "startColor"
 
     invoke-static {v1, v0, v13, v6, v8}, Landroidx/core/content/res/TypedArrayUtils;->getNamedColor(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;II)I
 
@@ -192,7 +192,7 @@
 
     sget v13, Landroidx/core/R$styleable;->GradientColor_android_tileMode:I
 
-    const-string v4, "tileMode"
+    const-string/jumbo v4, "tileMode"
 
     invoke-static {v1, v0, v4, v13, v8}, Landroidx/core/content/res/TypedArrayUtils;->getNamedInt(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;II)I
 

@@ -57,7 +57,7 @@
 
     iget-object v2, p0, Lcom/android/settings/bluetooth/BluetoothDetailsController;->mFragment:Landroidx/preference/PreferenceFragmentCompat;
 
-    const v3, 0x7f0d01fe
+    const v3, 0x7f0d0203
 
     invoke-virtual {v0, v3}, Lcom/android/settingslib/widget/LayoutPreference;->findViewById(I)Landroid/view/View;
 

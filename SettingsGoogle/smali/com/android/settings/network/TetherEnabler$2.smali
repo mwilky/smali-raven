@@ -50,7 +50,7 @@
 
     const/16 v0, 0xe
 
-    const-string v1, "wifi_state"
+    const-string/jumbo v1, "wifi_state"
 
     invoke-virtual {p2, v1, v0}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 

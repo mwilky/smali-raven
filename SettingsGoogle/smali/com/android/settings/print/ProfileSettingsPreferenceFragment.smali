@@ -22,7 +22,7 @@
 
     invoke-super {p0, p1, p2}, Landroidx/preference/PreferenceFragmentCompat;->onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
 
-    const-string p1, "user"
+    const-string/jumbo p1, "user"
 
     invoke-virtual {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -40,7 +40,7 @@
 
     if-eqz p1, :cond_0
 
-    const p2, 0x7f060219
+    const p2, 0x7f060221
 
     invoke-virtual {p0, p2}, Lcom/android/settings/SettingsPreferenceFragment;->setPinnedHeaderView(I)Landroid/view/View;
 

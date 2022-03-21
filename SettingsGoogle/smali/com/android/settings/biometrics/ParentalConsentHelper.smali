@@ -10,34 +10,30 @@
 
 .field private mGkPwHandle:J
 
-.field private final mRequireFace:Z
+.field private mRequireFace:Z
 
-.field private final mRequireFingerprint:Z
+.field private mRequireFingerprint:Z
 
 
 # direct methods
-.method public constructor <init>(ZZLjava/lang/Long;)V
-    .locals 0
+.method public constructor <init>(Ljava/lang/Long;)V
+    .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-boolean p1, p0, Lcom/android/settings/biometrics/ParentalConsentHelper;->mRequireFace:Z
+    if-eqz p1, :cond_0
 
-    iput-boolean p2, p0, Lcom/android/settings/biometrics/ParentalConsentHelper;->mRequireFingerprint:Z
+    invoke-virtual {p1}, Ljava/lang/Long;->longValue()J
 
-    if-eqz p3, :cond_0
-
-    invoke-virtual {p3}, Ljava/lang/Long;->longValue()J
-
-    move-result-wide p1
+    move-result-wide v0
 
     goto :goto_0
 
     :cond_0
-    const-wide/16 p1, 0x0
+    const-wide/16 v0, 0x0
 
     :goto_0
-    iput-wide p1, p0, Lcom/android/settings/biometrics/ParentalConsentHelper;->mGkPwHandle:J
+    iput-wide v0, p0, Lcom/android/settings/biometrics/ParentalConsentHelper;->mGkPwHandle:J
 
     return-void
 .end method
@@ -298,6 +294,16 @@
     move-result p0
 
     return p0
+.end method
+
+.method public setConsentRequirement(ZZ)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/settings/biometrics/ParentalConsentHelper;->mRequireFace:Z
+
+    iput-boolean p2, p0, Lcom/android/settings/biometrics/ParentalConsentHelper;->mRequireFingerprint:Z
+
+    return-void
 .end method
 
 .method public updateGatekeeperHandle(Landroid/content/Intent;)V

@@ -23,6 +23,9 @@
     .end annotation
 .end method
 
+.method public abstract getBatteryHistoryUri()Landroid/net/Uri;
+.end method
+
 .method public abstract getEarlyWarningSignal(Landroid/content/Context;Ljava/lang/String;)Z
 .end method
 
@@ -32,13 +35,19 @@
 .method public abstract getEnhancedBatteryPredictionCurve(Landroid/content/Context;J)Landroid/util/SparseIntArray;
 .end method
 
-.method public abstract getHideBackgroundUsageTimeList(Landroid/content/Context;)Ljava/util/List;
+.method public abstract getHideApplicationEntries(Landroid/content/Context;)[Ljava/lang/CharSequence;
+.end method
+
+.method public abstract getHideApplicationSummary(Landroid/content/Context;)[Ljava/lang/CharSequence;
+.end method
+
+.method public abstract getHideBackgroundUsageTimeSet(Landroid/content/Context;)Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Landroid/content/Context;",
             ")",
-            "Ljava/util/List<",
+            "Ljava/util/Set<",
             "Ljava/lang/CharSequence;",
             ">;"
         }
@@ -46,6 +55,9 @@
 .end method
 
 .method public abstract getResumeChargeIntent()Landroid/content/Intent;
+.end method
+
+.method public abstract isAdaptiveChargingSupported()Z
 .end method
 
 .method public abstract isChartGraphEnabled(Landroid/content/Context;)Z

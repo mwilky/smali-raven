@@ -89,7 +89,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f040231
+    const v2, 0x7f040245
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -101,7 +101,7 @@
 
     invoke-virtual {v0, v1}, Landroidx/appcompat/app/AlertDialog;->setTitle(Ljava/lang/CharSequence;)V
 
-    const v1, 0x7f040232
+    const v1, 0x7f040246
 
     invoke-virtual {p0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 

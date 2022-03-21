@@ -23,7 +23,7 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    const-string v0, "usagestats"
+    const-string/jumbo v0, "usagestats"
 
     invoke-static {v0}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
@@ -219,7 +219,7 @@
 
     if-nez p2, :cond_1
 
-    const p1, 0x7f040e92
+    const p1, 0x7f040ebd
 
     invoke-virtual {p0, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -597,7 +597,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b0108
+    const v1, 0x7f0b0109
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1592,7 +1592,7 @@
 
     move-result-object p0
 
-    const p1, 0x1070066
+    const p1, 0x107006f
 
     invoke-virtual {p0, p1}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 

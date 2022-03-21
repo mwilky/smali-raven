@@ -20,6 +20,48 @@
     return-void
 .end method
 
+.method private enableTwoPaneDeepLinkActivityIfNecessary(Landroid/content/pm/PackageManager;Landroid/content/Context;)V
+    .locals 2
+
+    new-instance p0, Landroid/content/ComponentName;
+
+    const-class v0, Lcom/android/settings/homepage/DeepLinkHomepageActivity;
+
+    invoke-direct {p0, p2, v0}, Landroid/content/ComponentName;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
+
+    new-instance v0, Landroid/content/ComponentName;
+
+    const-class v1, Lcom/android/settings/search/SearchStateReceiver;
+
+    invoke-direct {v0, p2, v1}, Landroid/content/ComponentName;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
+
+    invoke-static {}, Landroidx/window/embedding/SplitController;->getInstance()Landroidx/window/embedding/SplitController;
+
+    move-result-object p2
+
+    invoke-virtual {p2}, Landroidx/window/embedding/SplitController;->isSplitSupported()Z
+
+    move-result p2
+
+    const/4 v1, 0x1
+
+    if-eqz p2, :cond_0
+
+    move p2, v1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p2, 0x2
+
+    :goto_0
+    invoke-virtual {p1, p0, p2, v1}, Landroid/content/pm/PackageManager;->setComponentEnabledSetting(Landroid/content/ComponentName;II)V
+
+    invoke-virtual {p1, v0, p2, v1}, Landroid/content/pm/PackageManager;->setComponentEnabledSetting(Landroid/content/ComponentName;II)V
+
+    return-void
+.end method
+
 .method private synthetic lambda$onReceive$0(Landroid/content/Context;)V
     .locals 0
 
@@ -208,7 +250,7 @@
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 2
 
-    const-string v0, "user"
+    const-string/jumbo v0, "user"
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -237,6 +279,8 @@
     invoke-direct {p2, p0, p1}, Lcom/android/settings/SettingsInitialize$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/SettingsInitialize;Landroid/content/Context;)V
 
     invoke-static {p2}, Lcom/android/settingslib/utils/ThreadUtils;->postOnBackgroundThread(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;
+
+    invoke-direct {p0, v1, p1}, Lcom/android/settings/SettingsInitialize;->enableTwoPaneDeepLinkActivityIfNecessary(Landroid/content/pm/PackageManager;Landroid/content/Context;)V
 
     return-void
 .end method

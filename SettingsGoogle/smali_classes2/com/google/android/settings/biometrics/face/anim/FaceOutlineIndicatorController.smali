@@ -42,7 +42,7 @@
     :cond_0
     iget-object v0, p0, Lcom/google/android/settings/biometrics/face/anim/FaceOutlineIndicatorController;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f02012c
+    const v1, 0x7f020132
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -77,7 +77,7 @@
     :cond_0
     iget-object v0, p0, Lcom/google/android/settings/biometrics/face/anim/FaceOutlineIndicatorController;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f02012b
+    const v2, 0x7f020131
 
     invoke-virtual {v0, v2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

@@ -33,7 +33,7 @@
 
     invoke-direct {p1, p0}, Lcom/android/settingslib/notification/EnableZenModeDialog;-><init>(Landroid/content/Context;)V
 
-    invoke-virtual {p1}, Lcom/android/settingslib/notification/EnableZenModeDialog;->createDialog()Landroid/app/Dialog;
+    invoke-virtual {p1}, Lcom/android/settingslib/notification/EnableZenModeDialog;->createDialog()Landroid/app/AlertDialog;
 
     move-result-object p0
 

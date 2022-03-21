@@ -71,7 +71,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d0256
+    const v1, 0x7f0d025b
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -97,7 +97,7 @@
 
     iget-boolean v0, p0, Lcom/android/settings/sim/ChooseSimActivity;->mHasPsim:Z
 
-    const v1, 0x7f0405aa
+    const v1, 0x7f0405c2
 
     const-string v2, ""
 
@@ -132,7 +132,7 @@
 
     if-eqz v4, :cond_1
 
-    const v3, 0x7f041227
+    const v3, 0x7f04124b
 
     invoke-virtual {p0, v3}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -320,7 +320,7 @@
 
     invoke-virtual {v0, v1}, Lcom/google/android/setupdesign/items/Item;->setEnabled(Z)V
 
-    const v2, 0x7f0405ab
+    const v2, 0x7f0405c3
 
     invoke-virtual {p0, v2}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -392,7 +392,7 @@
 
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
-    const v0, 0x7f06007b
+    const v0, 0x7f06007d
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->setContentView(I)V
 
@@ -458,7 +458,7 @@
     iput-boolean p1, p0, Lcom/android/settings/sim/ChooseSimActivity;->mIsSwitching:Z
 
     :cond_1
-    const p1, 0x7f0d0256
+    const p1, 0x7f0d025b
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -479,7 +479,7 @@
     add-int/lit8 v0, v0, 0x1
 
     :cond_2
-    const v1, 0x7f0405ae
+    const v1, 0x7f0405c6
 
     invoke-virtual {p0, v1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -489,7 +489,7 @@
 
     new-instance v1, Landroid/icu/text/MessageFormat;
 
-    const v2, 0x7f0405ad
+    const v2, 0x7f0405c5
 
     invoke-virtual {p0, v2}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -560,7 +560,7 @@
 
     check-cast p1, Lcom/google/android/setupdesign/items/Item;
 
-    const v0, 0x7f0405aa
+    const v0, 0x7f0405c2
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -799,7 +799,7 @@
 
     invoke-virtual {p1, v0}, Lcom/google/android/setupdesign/items/Item;->setEnabled(Z)V
 
-    const v1, 0x7f0405ab
+    const v1, 0x7f0405c3
 
     invoke-virtual {p0, v1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 

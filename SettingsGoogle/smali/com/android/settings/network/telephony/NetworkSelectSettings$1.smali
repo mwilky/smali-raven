@@ -44,7 +44,7 @@
 
     const/4 v3, 0x2
 
-    const v4, 0x7f040860
+    const v4, 0x7f040878
 
     if-eq v0, v3, :cond_6
 
@@ -284,7 +284,7 @@
     :cond_5
     iget-object p0, p0, Lcom/android/settings/network/telephony/NetworkSelectSettings$1;->this$0:Lcom/android/settings/network/telephony/NetworkSelectSettings;
 
-    const p1, 0x7f040d9b
+    const p1, 0x7f040dc6
 
     invoke-static {p0, p1}, Lcom/android/settings/network/telephony/NetworkSelectSettings;->access$400(Lcom/android/settings/network/telephony/NetworkSelectSettings;I)V
 
@@ -448,7 +448,7 @@
 
     iget-object p1, p1, Lcom/android/settings/network/telephony/NetworkSelectSettings;->mSelectedPreference:Lcom/android/settings/network/telephony/NetworkOperatorPreference;
 
-    const v0, 0x7f040d86
+    const v0, 0x7f040db1
 
     invoke-virtual {p1, v0}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -522,12 +522,12 @@
 
     if-eqz p1, :cond_d
 
-    const p1, 0x7f040d85
+    const p1, 0x7f040db0
 
     goto :goto_1
 
     :cond_d
-    const p1, 0x7f040d91
+    const p1, 0x7f040dbc
 
     :goto_1
     invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setSummary(I)V

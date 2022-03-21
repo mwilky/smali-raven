@@ -96,6 +96,7 @@
     <string name="peak_refresh_rate_title">Smooth Display</string>
     <string name="peak_refresh_rate_summary">Verhoogt de vernieuwingssnelheid automatisch van 60 naar 90 Hz voor bepaalde content. Het batterijgebruik neemt toe.</string>
     <string name="accessibility_vibration_settings_title">Trillen en haptische feedback</string>
+    <string name="columbus_title">Snel tikken om acties te starten</string>
     <string name="emergency_gesture_screen_title">SOS</string>
     <string name="abc_action_mode_done">Klaar</string>
     <string name="vibrate_for_calls_category_title">Gesprekken</string>
@@ -103,6 +104,8 @@
     <string name="lockscreen_privacy_controls_setting_toggle">Apparaatbediening tonen</string>
     <string name="lockscreen_privacy_wallet_summary">Toegang tot portemonnee toestaan via vergrendelscherm en snelle instellingen</string>
     <string name="lockscreen_privacy_controls_summary">Toegangsbeheer indien vergrendeld</string>
+    <string name="lockscreen_double_line_clock_summary">Klok met 2 regels laten zien als die beschikbaar is</string>
+    <string name="lockscreen_double_line_clock_setting_toggle">Klok met 2 regels</string>
     <string name="abc_activity_chooser_view_see_all">Alles weergeven</string>
     <string name="abc_activitychooserview_choose_application">Een app selecteren</string>
     <string name="abc_capital_off">UIT</string>
@@ -147,9 +150,11 @@
     <string name="accessibility_alarm_vibration_title">Trillen voor wekker</string>
     <string name="accessibility_assist_gesture_complete_or_keep_adjusting">Active Edge instellen. Ga naar het volgende scherm of ga door met aanpassen.</string>
     <string name="accessibility_audio_adjustment_title">Audioaanpassing</string>
+    <string name="accessibility_autoclick_about_title">Over automatisch klikken (rusttijd)</string>
     <string name="accessibility_autoclick_custom_title">Aangepast</string>
     <string name="accessibility_autoclick_default_title">Uit</string>
     <string name="accessibility_autoclick_description">Automatisch klikken werkt met een verbonden muis. Je kunt instellen dat de muiscursor automatisch klikt als de cursor een bepaalde tijd niet beweegt.</string>
+    <string name="accessibility_autoclick_footer_learn_more_content_description">Meer informatie over automatisch klikken (rusttijd)</string>
     <string name="accessibility_autoclick_long_summary">1 seconde</string>
     <string name="accessibility_autoclick_long_title">Lang</string>
     <string name="accessibility_autoclick_longer_desc">Langer</string>
@@ -161,16 +166,17 @@
     <string name="accessibility_autoclick_short_title">Kort</string>
     <string name="accessibility_autoclick_shorter_desc">Korter</string>
     <string name="accessibility_banner_message_dismiss">Sluiten</string>
-    <string name="accessibility_button_description">"Krijg vanaf elk scherm snel toegang tot toegankelijkheidsfuncties. 
+    <string name="accessibility_button_about_title">Over de knop Toegankelijkheid</string>
+    <string name="accessibility_button_description">"Ga op elk scherm snel naar de toegankelijkheidsinstellingen.
 
-Ga naar de toegankelijkheidsinstellingen en selecteer een functie om aan de slag te gaan. Tik op de snelkoppeling en selecteer de knop Toegankelijkheid."</string>
+Selecteer een functie in de toegankelijkheidsinstellingen om aan de slag te gaan. Tik op de snelkoppeling en selecteer de knop Toegankelijkheid."</string>
     <string name="accessibility_button_fade_summary">Vervaagt na een paar seconden zodat je je scherm beter kunt zien</string>
     <string name="accessibility_button_fade_title">Vervagen indien niet in gebruik</string>
+    <string name="accessibility_button_gesture_about_title">Over de knop en het gebaar voor toegankelijkheid</string>
     <string name="accessibility_button_gesture_description">"Ga op elk scherm snel naar de toegankelijkheidsinstellingen.
 
-Selecteer een functie in de toegankelijkheidsinstellingen om aan de slag te gaan. Tik op de snelkoppeling en selecteer de knop Toegankelijkheid.
-
-Als je in plaats daarvan de knop Toegankelijkheid op de navigatiebalk wilt gebruiken, schakel je naar navigatie met 2 knoppen of met 3 knoppen."</string>
+Selecteer een functie in de toegankelijkheidsinstellingen om aan de slag te gaan. Tik op de snelkoppeling en selecteer de knop Toegankelijkheid of het toegankelijkheidsgebaar."</string>
+    <string name="accessibility_button_gesture_footer_learn_more_content_description">Meer informatie over de knop Toegankelijkheid en het toegankelijkheidsgebaar</string>
     <string name="accessibility_button_gesture_title">Toegankelijkheidsknop en -gebaar</string>
     <string name="accessibility_button_high_label">Niet-transparant</string>
     <string name="accessibility_button_intro">De toegankelijkheidsknop gebruiken. Het gebaar is niet beschikbaar bij navigatie met 3 knoppen.</string>
@@ -184,14 +190,23 @@ Als je in plaats daarvan de knop Toegankelijkheid op de navigatiebalk wilt gebru
     <string name="accessibility_caption_preference_summary">Niet alle apps ondersteunen deze ondertitelingsvoorkeuren</string>
     <string name="accessibility_caption_primary_switch_summary">Alleen voor ondersteunde apps</string>
     <string name="accessibility_caption_primary_switch_title">Ondertiteling tonen</string>
+    <string name="accessibility_captioning_about_title">Over ondertitelingsvoorkeuren</string>
+    <string name="accessibility_captioning_footer_learn_more_content_description">Meer informatie over ondertitelingsvoorkeuren</string>
     <string name="accessibility_captioning_title">Voorkeuren voor ondertiteling</string>
     <string name="accessibility_category_personal">Persoonlijke profielaccounts</string>
     <string name="accessibility_category_work">Werkprofielaccounts - %s</string>
+    <string name="accessibility_color_inversion_about_title">Over kleurinversie</string>
+    <string name="accessibility_color_inversion_footer_learn_more_content_description">Meer informatie over kleurinversie</string>
+    <string name="accessibility_control_timeout_about_title">Over Tijd voor actie (time-out voor toegankelijkheid)</string>
+    <string name="accessibility_control_timeout_footer_learn_more_content_description">Meer informatie over Tijd voor actie (time-out voor toegankelijkheid)</string>
     <string name="accessibility_control_timeout_preference_summary">"Kies hoelang je berichten wilt tonen die je vragen om actie te ondernemen, maar die slechts tijdelijk zichtbaar zijn.
 
 Deze instelling wordt niet door alle apps ondersteund."</string>
     <string name="accessibility_control_timeout_preference_title">Tijd om actie te ondernemen</string>
+    <string name="accessibility_daltonizer_about_title">Over kleurcorrectie</string>
+    <string name="accessibility_daltonizer_footer_learn_more_content_description">Meer informatie over kleurcorrectie</string>
     <string name="accessibility_daltonizer_primary_switch_title">Kleurcorrectie gebruiken</string>
+    <string name="accessibility_daltonizer_shortcut_title">Snelkoppeling voor kleurcorrectie</string>
     <string name="accessibility_data_one_bar">Gegevens: één streepje.</string>
     <string name="accessibility_data_signal_full">Gegevenssignaal is op volle sterkte.</string>
     <string name="accessibility_data_three_bars">Gegevens: drie streepjes.</string>
@@ -206,6 +221,7 @@ Deze instelling wordt niet door alle apps ondersteund."</string>
     <string name="accessibility_display_daltonizer_preference_title">Kleurcorrectie</string>
     <string name="accessibility_display_inversion_preference_subtitle">Met kleurinversie worden lichte schermen donker.&lt;br/>&lt;br/> Opmerking: &lt;ol> &lt;li> Andersom worden met kleurinversie donkere schermen licht.&lt;/li> &lt;li> Kleuren in media en afbeeldingen worden veranderd.&lt;/li> &lt;li> Het donkere thema kan worden gebruikt om een donkere achtergrond weer te geven. Het donkere thema werkt voor ondersteunde apps. Kleurinversie werkt voor alle apps.&lt;/li> &lt;/ol></string>
     <string name="accessibility_display_inversion_preference_title">Kleurinversie</string>
+    <string name="accessibility_display_inversion_shortcut_title">Snelkoppeling voor kleurinversie</string>
     <string name="accessibility_display_inversion_switch_title">Kleurinversie gebruiken</string>
     <string name="accessibility_ethernet_connected">Ethernet.</string>
     <string name="accessibility_ethernet_disconnected">Ethernetverbinding verbroken.</string>
@@ -255,6 +271,8 @@ Je ziet de knop Toegankelijkheid vóór andere apps op het scherm. Tik op de kno
     <string name="accessibility_phone_two_bars">Telefoon: twee streepjes.</string>
     <string name="accessibility_power_button_ends_call_prerefence_title">Aan/uit-knop beëindigt gesprek</string>
     <string name="accessibility_preference_magnification_summary">Inzoomen op scherm</string>
+    <string name="accessibility_screen_magnification_about_title">Over vergroting</string>
+    <string name="accessibility_screen_magnification_footer_learn_more_content_description">Meer informatie over vergroting</string>
     <string name="accessibility_screen_magnification_gesture_navigation_warning">Het toegankelijkheidsgebaar is ingesteld op %1$s. Als je vergroting wilt gebruiken, swipe je met twee vingers omhoog vanaf het onderkant van het scherm en houd je vast. Selecteer vervolgens Vergroting.</string>
     <string name="accessibility_screen_magnification_gestures_title">Vergroten door 3 keer te tikken</string>
     <string name="accessibility_screen_magnification_navbar_configuration_warning">Toegankelijkheid is ingesteld op %1$s. Als je vergroting wilt gebruiken, tik je op de knop Toegankelijkheid, houd je deze vast en selecteer je Vergroting.</string>
@@ -272,6 +290,7 @@ Je ziet de knop Toegankelijkheid vóór andere apps op het scherm. Tik op de kno
 Je kunt niet inzoomen op het toetsenbord of de navigatiebalk."</string>
     <string name="accessibility_screen_magnification_navbar_title">Vergroten met sneltoets</string>
     <string name="accessibility_screen_magnification_short_summary">Tik drie keer om te zoomen</string>
+    <string name="accessibility_screen_magnification_shortcut_title">Snelkoppeling voor vergroting</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">Vergroten met sneltoets en drie keer tikken</string>
     <string name="accessibility_screen_magnification_summary">Zoom snel in op het scherm om de content groter te maken.&lt;br/>&lt;br/> &lt;b>Zo zoom je in:&lt;/b>&lt;br/> {0,number,integer}. Gebruik de snelkoppeling om de vergroting te starten.&lt;br/> {1,number,integer}. Tik op het scherm.&lt;br/> {2,number,integer}. Sleep met 2 vingers om te navigeren op het scherm.&lt;br/> {3,number,integer}. Knijp met 2 vingers om het zoomniveau aan te passen.&lt;br/> {4,number,integer}. Gebruik de snelkoppeling om de vergroting te stoppen.&lt;br/>&lt;br/> &lt;b>Zo zoom je tijdelijk in:&lt;/b>&lt;br/> {0,number,integer}. Gebruik de snelkoppeling om de vergroting te starten.&lt;br/> {1,number,integer}. Tik ergens op het scherm en houd vast.&lt;br/> {2,number,integer}. Sleep met een vinger om te navigeren op het scherm.&lt;br/> {3,number,integer}. Haal je vinger van het scherm om de vergroting te stoppen.</string>
     <string name="accessibility_screen_magnification_title">Vergroting</string>
@@ -370,7 +389,7 @@ Swipe met 3 vingers omhoog en houd vast om tussen functies te schakelen."</strin
     <string name="accessibility_tutorial_dialog_message_volume">Als je deze functie wilt gebruiken, houd je beide volumetoetsen ingedrukt.</string>
     <string name="accessibility_tutorial_dialog_title_button">Toegankelijkheidsknop gebruiken om te openen</string>
     <string name="accessibility_tutorial_dialog_title_gesture">Gebaar gebruiken om te openen</string>
-    <string name="accessibility_tutorial_dialog_title_gesture_settings">Nieuw toegankelijkheidsgebaar gebruiken</string>
+    <string name="accessibility_tutorial_dialog_title_gesture_settings">Toegankelijkheidsgebaar gebruiken</string>
     <string name="accessibility_tutorial_dialog_title_triple">Tik drie keer op het scherm om te openen</string>
     <string name="accessibility_tutorial_dialog_title_volume">Volumetoetsen ingedrukt houden om te openen</string>
     <string name="accessibility_tutorial_pager">Pagina %1$d van %2$d</string>
@@ -936,6 +955,7 @@ Zodra de Pixel is gereset, doorloop je het instelproces en kies je de optie om g
     <string name="battery_level_title">Accuniveau</string>
     <string name="battery_manager_off">Uit</string>
     <string name="battery_manager_summary">Verleng de batterijduur en optimaliseer het opladen</string>
+    <string name="battery_manager_summary_unsupported">Batterijduur verlengen</string>
     <string name="battery_missing_link_a11y_message">Tik voor meer informatie over deze fout</string>
     <string name="battery_missing_link_message">Meer informatie</string>
     <string name="battery_missing_message">Probleem bij het lezen van de batterijmeter.</string>
@@ -1061,6 +1081,7 @@ gedurende ^2"</string>
     <string name="battery_usage_screen_footer">Gegevens over batterijgebruik zijn bij benadering en meten het gebruik niet als de telefoon wordt opgeladen.</string>
     <string name="battery_usage_screen_footer_empty">Gegevens over batterijgebruik zijn beschikbaar nadat je je telefoon een aantal uur hebt gebruikt.</string>
     <string name="battery_usage_total_less_than_one_minute">Totaal: minder dan een minuut</string>
+    <string name="battery_usage_without_time" />
     <string name="battery_used_by">%1$s gebruikt door %2$s</string>
     <string name="battery_used_for">^1 gebruikt</string>
     <string name="bearer">Drager</string>
@@ -1069,12 +1090,14 @@ gedurende ^2"</string>
     <string name="billing_cycle_less_than_one_day_left">Nog minder dan 1 dag</string>
     <string name="billing_cycle_none_left">Geen tijd resterend</string>
     <string name="biometric_settings_category_ways_to_unlock">Manieren om te ontgrendelen</string>
-    <string name="biometric_settings_category_ways_to_use">Gezicht en vingerafdruk gebruiken voor</string>
     <string name="biometric_settings_hand_back_to_guardian">Geef de telefoon terug aan je ouder</string>
     <string name="biometric_settings_hand_back_to_guardian_ok">OK</string>
     <string name="biometric_settings_intro">Als je Ontgrendelen via gezichtsherkenning en Ontgrendelen met vingerafdruk instelt, vraagt je telefoon naar je vingerafdruk als je een mondkapje draagt of in een donkere omgeving bent</string>
-    <string name="biometric_settings_use_biometric_for_apps">Verificatie in apps</string>
-    <string name="biometric_settings_use_biometric_unlock_phone">Telefoon ontgrendelen</string>
+    <string name="biometric_settings_use_biometric_for_apps">Bevestigen dat jij het bent in apps</string>
+    <string name="biometric_settings_use_biometric_unlock_phone">Je telefoon ontgrendelen</string>
+    <string name="biometric_settings_use_face_or_fingerprint_preference_summary">Gezicht of vingerafdruk gebruiken</string>
+    <string name="biometric_settings_use_face_preference_summary">Gezicht gebruiken</string>
+    <string name="biometric_settings_use_fingerprint_preference_summary">Vingerafdruk gebruiken</string>
     <string name="biometrics_unlock_set_unlock_password">Wachtwoord • Gezicht • Vingerafdruk</string>
     <string name="biometrics_unlock_set_unlock_pattern">Patroon • Gezicht • Vingerafdruk</string>
     <string name="biometrics_unlock_set_unlock_pin">Pincode • Gezicht • Vingerafdruk</string>
@@ -1332,7 +1355,6 @@ Selectie"</string>
     <string name="bluetooth_settings_title">Bluetooth</string>
     <string name="bluetooth_show_devices_without_names">Bluetooth-apparaten zonder naam tonen</string>
     <string name="bluetooth_show_devices_without_names_summary">Toon bluetooth-apparaten zonder naam (alleen MAC-adressen)</string>
-    <string name="bluetooth_show_files_received_via_bluetooth">Bestanden ontvangen via bluetooth</string>
     <string name="bluetooth_show_received_files">Ontvangen bestanden</string>
     <string name="bluetooth_sim_card_access_dialog_content">"Een bluetooth-apparaat (%1$s) wil toegang tot gegevens op je simkaart. Dit zijn onder andere je contacten.
 
@@ -1426,6 +1448,7 @@ Als je een CA-certificaat installeert, kan de eigenaar van het certificaat toega
     <string name="calls_sms_temp_unavailable">Tijdelijk niet beschikbaar</string>
     <string name="calls_sms_unavailable">niet beschikbaar</string>
     <string name="calls_sms_wfc_summary">Bellen en gebeld worden via wifi</string>
+    <string name="cam_toggle_description">Voor apps en services</string>
     <string name="camera_double_tap_power_gesture_desc">Camera snel openen zonder het scherm te ontgrendelen</string>
     <string name="camera_double_tap_power_gesture_title">Druk twee keer op aan/uit voor de camera</string>
     <string name="camera_laser_sensor_switch">Cameralasersensor</string>
@@ -2103,7 +2126,7 @@ Als dit blijft gebeuren, moet je de app mogelijk verwijderen om de prestaties va
     <string name="disabled_by_policy_title_suspend_packages">Kan deze app niet openen</string>
     <string name="disabled_dependent_setting_summary">Is afhankelijk van een andere instelling</string>
     <string name="disabled_feature">De functie is niet beschikbaar</string>
-    <string name="disabled_feature_reason_slow_down_phone">Deze functie staat uit omdat je telefoon erdoor wordt vertraagd</string>
+    <string name="disabled_feature_reason_slow_down_phone">Deze functie is uitgezet omdat je telefoon erdoor wordt vertraagd</string>
     <string name="disabled_for_user_setting_summary">Instelling kan niet worden gewijzigd door de huidige gebruiker</string>
     <string name="disconnected">Niet verbonden</string>
     <string name="display_category_title">Scherm</string>
@@ -2125,7 +2148,7 @@ Als dit blijft gebeuren, moet je de app mogelijk verwijderen om de prestaties va
     <string name="dlg_ok">OK</string>
     <string name="dlg_remove_locales_error_message">Behoud minimaal één voorkeurstaal</string>
     <string name="dlg_remove_locales_error_title">Kan niet alle talen verwijderen</string>
-    <string name="dlg_remove_locales_message">Tekst wordt weergegeven in een andere taal.</string>
+    <string name="dlg_remove_locales_message">Tekst wordt getoond in een andere taal.</string>
     <string name="do_disclosure_generic">Dit apparaat wordt beheerd door je organisatie.</string>
     <string name="do_disclosure_learn_more_separator">" "</string>
     <string name="do_disclosure_with_name">Dit apparaat wordt beheerd door %s.</string>
@@ -3302,6 +3325,7 @@ Er zijn andere gebruikers aanwezig op dit apparaat.
     <string name="menu_stats_total">Gebruikstotalen</string>
     <string name="menu_stats_unplugged">%1$s sinds losgekoppeld</string>
     <string name="menu_use_uss">USS gebruiken</string>
+    <string name="mic_toggle_description">Voor apps en services. Als deze instelling uitstaat, kunnen microfoongegevens nog altijd worden gedeeld als je een alarmnummer belt.</string>
     <string name="mic_toggle_title">Microfoontoegang</string>
     <string name="misc_files">Diverse bestanden</string>
     <string name="misc_files_selected_count">%1$d van %2$d geselecteerd</string>
@@ -3728,6 +3752,7 @@ Hierdoor kan de app ook Niet storen aan- of uitzetten en gerelateerde instelling
     <string name="one_handed_action_show_notification_title">Meldingen tonen</string>
     <string name="one_handed_mode_enabled">Bediening met 1 hand gebruiken</string>
     <string name="one_handed_mode_intro_text">Als je bediening met 1 hand wilt gebruiken, swipe je omlaag vanaf de onderkant van het scherm. Zorg er wel voor dat navigatie met gebaren aanstaat in de navigatie-instellingen van het systeem.</string>
+    <string name="one_handed_mode_shortcut_title">Snelkoppeling voor bediening met 1 hand</string>
     <string name="one_handed_mode_swipe_down_category">Omlaag swipen voor</string>
     <string name="one_handed_mode_use_shortcut_category">Gebruik de snelkoppeling voor</string>
     <string name="one_usercrt">één gebruikerscertificaat</string>
@@ -3803,7 +3828,7 @@ Hierdoor kan de app ook Niet storen aan- of uitzetten en gerelateerde instelling
     <string name="post_dsds_reboot_notification_title_with_carrier">%1$s is actief</string>
     <string name="power_bluetooth">Bluetooth</string>
     <string name="power_camera">Camera</string>
-    <string name="power_cell">Mobiel netwerk stand-by</string>
+    <string name="power_cell">Mobiel netwerk</string>
     <string name="power_charge_remaining">%1$s tot batterij is opgeladen</string>
     <string name="power_charging">%1$s - %2$s</string>
     <string name="power_charging_duration">%1$s - vol over %2$s</string>
@@ -4037,6 +4062,7 @@ druk tegelijkertijd op de aan/uit-knop en de knop Volume omhoog."</string>
     <string name="recent_notifications">Recent verstuurd</string>
     <string name="recent_notifications_see_all_title">Alles van de afgelopen 7 dagen tonen</string>
     <string name="recompute_size">Grootte opnieuw berekenen...</string>
+    <string name="reduce_bright_colors_about_title">Over extra gedimd</string>
     <string name="reduce_bright_colors_intensity_end_label">Helderder</string>
     <string name="reduce_bright_colors_intensity_preference_title">Intensiteit</string>
     <string name="reduce_bright_colors_intensity_start_label">Helderheid lager</string>
@@ -4044,6 +4070,7 @@ druk tegelijkertijd op de aan/uit-knop en de knop Volume omhoog."</string>
     <string name="reduce_bright_colors_preference_subtitle">"Dim je scherm extra zodat je het prettiger kunt lezen.&lt;br/>&lt;br/> Dit kan in de volgende situaties handig zijn: &lt;ol> &lt;li> De standaard minimumhelderheid van je telefoon is te helder voor je.&lt;/li> &lt;li> Je gebruikt je telefoon in een donkere omgeving, zoals 's avonds laat of in een donkere kamer voordat je gaat slapen.&lt;/li> &lt;/ol>"</string>
     <string name="reduce_bright_colors_preference_summary">Dim het scherm meer dan de minimumhelderheid van je telefoon</string>
     <string name="reduce_bright_colors_preference_title">Extra gedimd</string>
+    <string name="reduce_bright_colors_shortcut_title">Snelkoppeling voor extra gedimd</string>
     <string name="reduce_bright_colors_switch_title">Scherm extra dimmen</string>
     <string name="register_automatically">Automatische registratie…</string>
     <string name="register_on_network">Registreren op %s…</string>
@@ -4249,7 +4276,6 @@ Zo zet je een app vast: \u0009
     <string name="screen_pinning_unlock_pattern">Vraag om ontgrendelingspatroon voor losmaken</string>
     <string name="screen_pinning_unlock_pin">Vraag pin voor losmaken</string>
     <string name="screen_reader_category_title">Schermlezer</string>
-    <string name="screen_saver_main_switch_title">Screensaver gebruiken</string>
     <string name="screen_time_summary_usage_today">%1$s vandaag</string>
     <string name="screen_timeout_summary">Na %1$s inactiviteit</string>
     <string name="screen_timeout_title">Scherm wordt uitgezet</string>
@@ -4279,6 +4305,7 @@ Zo zet je een app vast: \u0009
     <string name="screensaver_settings_button">Instellingen</string>
     <string name="screensaver_settings_current">Huidige screensaver</string>
     <string name="screensaver_settings_disabled_prompt">Zet de screensaver aan om te bepalen wat er gebeurt als de telefoon is gedockt en/of de slaapstand actief is.</string>
+    <string name="screensaver_settings_dream_start">Nu beginnen</string>
     <string name="screensaver_settings_summary_dock">Tijdens het docken</string>
     <string name="screensaver_settings_summary_either_long">Tijdens opladen of docken</string>
     <string name="screensaver_settings_summary_either_short">Tijdens beide</string>
@@ -4329,15 +4356,6 @@ Zo zet je een app vast: \u0009
     <string name="security_settings_biometric_preference_summary_both_fp_single">Gezicht en vingerafdruk toegevoegd</string>
     <string name="security_settings_biometric_preference_summary_none_enrolled">Tik om in te stellen</string>
     <string name="security_settings_biometric_preference_title">Ontgrendelen via gezichtsherkenning en vingerafdruk</string>
-    <string name="security_settings_biometrics_description">Als je ontgrendelen via gezichtsherkenning en vingerafdruk instelt, vraagt je telefoon naar je vingerafdruk als je een mondkapje draagt of in een donkere omgeving bent</string>
-    <string name="security_settings_biometrics_preference_use_with_apps">Verificatie in apps</string>
-    <string name="security_settings_biometrics_preferences_category">Gezicht of vingerafdruk gebruiken voor</string>
-    <string name="security_settings_biometrics_summary_both">Gezicht en vingerafdruk</string>
-    <string name="security_settings_biometrics_summary_face">Alleen gezicht</string>
-    <string name="security_settings_biometrics_summary_fingerprint">Alleen vingerafdruk</string>
-    <string name="security_settings_biometrics_summary_none">Tik om in te stellen</string>
-    <string name="security_settings_biometrics_title">Ontgrendelen via gezicht of vingerafdruk</string>
-    <string name="security_settings_biometrics_types_category">Manieren om te ontgrendelen</string>
     <string name="security_settings_face_enroll_consent_introduction_title">Ontgrendelen via gezichtsherkenning toestaan</string>
     <string name="security_settings_face_enroll_dialog_ok">OK</string>
     <string name="security_settings_face_enroll_done">Klaar</string>
@@ -4385,16 +4403,17 @@ Bekijk meer informatie op g.co/pixel/faceunlock."</string>
     <string name="security_settings_face_enroll_introduction_control_title">Jij hebt het voor het zeggen</string>
     <string name="security_settings_face_enroll_introduction_how_consent_message">"Ontgrendelen via gezichtsherkenning maakt een uniek model van het gezicht van je kind voor verificatie. Dit gezichtsmodel wordt tijdens het instellen gemaakt door vanuit verschillende hoeken foto's van het gezicht van je kind te maken.
 
-Als je kind ontgrendelen via gezichtsherkenning gebruikt, worden foto's gebruikt om het gezichtsmodel van je kind te updaten. De foto's die worden gebruikt om je gezichtsmodel te maken, worden nooit opgeslagen, maar het gezichtsmodel zelf wordt beveiligd opgeslagen op je telefoon en verlaat deze nooit. Alle verwerking vindt beveiligd plaats op de telefoon."</string>
+Als je kind ontgrendelen via gezichtsherkenning gebruikt, worden foto's gebruikt om het gezichtsmodel van je kind te updaten. De foto's die worden gebruikt om je gezichtsmodel te maken, worden niet opgeslagen, maar het gezichtsmodel zelf wordt beveiligd opgeslagen op je telefoon en verlaat deze nooit. Alle verwerking vindt beveiligd plaats op de telefoon."</string>
     <string name="security_settings_face_enroll_introduction_how_message">"Ontgrendelen via gezichtsherkenning maakt een uniek model van je gezicht om je te herkennen tijdens verificatie. Dit gezichtsmodel wordt tijdens het instellen gemaakt door vanuit verschillende hoeken foto's van je gezicht te maken.
 
-Als je ontgrendelen via gezichtsherkenning gebruikt, worden foto's gebruikt om je gezichtsmodel te updaten. De foto's die worden gebruikt om je gezichtsmodel te maken, worden nooit opgeslagen, maar het gezichtsmodel zelf wordt beveiligd opgeslagen op je telefoon en verlaat deze nooit. Alle verwerking vindt beveiligd plaats op je telefoon."</string>
+Als je ontgrendelen via gezichtsherkenning gebruikt, worden foto's gebruikt om je gezichtsmodel te updaten. De foto's die worden gebruikt om je gezichtsmodel te maken, worden niet opgeslagen, maar het gezichtsmodel zelf wordt beveiligd opgeslagen op je telefoon en verlaat deze nooit. Alle verwerking vindt beveiligd plaats op je telefoon."</string>
     <string name="security_settings_face_enroll_introduction_how_title">Hoe het werkt</string>
     <string name="security_settings_face_enroll_introduction_info_consent_gaze">Ontgrendelen via gezichtsherkenning kan vereisen dat de ogen van je kind open zijn om de telefoon te ontgrendelen of voor verificatie. Jij en je kind kunnen deze optie op elk moment aanzetten via Instellingen.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_glasses">Draagt je kind normaal een bril, dan kan het deze dragen tijdens het instellen.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_looking">Als je kind naar de telefoon kijkt, kan deze worden ontgrendeld, ook als dat niet de bedoeling was. De telefoon van je kind kan ook worden ontgrendeld door iemand anders die veel op je kind lijkt, zoals een tweelingbroer of -zus, of als iemand de telefoon voor het gezicht van je kind houdt.</string>
     <string name="security_settings_face_enroll_introduction_info_gaze">Ontgrendelen via gezichtsherkenning kan vereisen dat je ogen open zijn om de telefoon te ontgrendelen of voor verificatie. Je kunt deze optie op elk moment aanzetten via Instellingen.</string>
     <string name="security_settings_face_enroll_introduction_info_glasses">Brillen of lichte zonnebrillen zijn geen probleem.</string>
+    <string name="security_settings_face_enroll_introduction_info_less_secure">Als je je gezicht gebruikt om de telefoon te ontgrendelen, is dat misschien minder goed beveiligd dan een sterk patroon of een pincode.</string>
     <string name="security_settings_face_enroll_introduction_info_looking">Als je naar de telefoon kijkt, kan deze worden ontgrendeld, ook als dat niet je bedoeling was. Je telefoon kan ook worden ontgrendeld door iemand anders die veel op je lijkt, zoals een tweelingbroer of -zus, of als iemand je telefoon voor je gezicht houdt.</string>
     <string name="security_settings_face_enroll_introduction_info_title">Houd rekening met het volgende</string>
     <string name="security_settings_face_enroll_introduction_message">Gebruik je gezicht om je telefoon te ontgrendelen of voor verificatie, bijvoorbeeld als je inlogt bij apps of een aankoop goedkeurt.</string>
@@ -4452,13 +4471,14 @@ Je telefoon kan door iemand anders worden ontgrendeld als de telefoon voor je ge
 
 Je telefoon kan worden ontgrendeld door iemand die veel op je lijkt, zoals een broer of zus."</string>
     <string name="security_settings_face_settings_preferences_category">Als je ontgrendelt via gezichtsherkenning</string>
-    <string name="security_settings_face_settings_remove_dialog_details">Je gezichtsmodel wordt definitief en op een beveiligde manier verwijderd. Daarna heb je je pincode, patroon of wachtwoord nodig om je telefoon te ontgrendelen of voor verificatie in apps.</string>
+    <string name="security_settings_face_settings_remove_dialog_details">"Je gezichtsmodel wordt definitief en op een beveiligde manier verwijderd.
+
+Daarna heb je je pincode, patroon of wachtwoord nodig om je telefoon te ontgrendelen of voor verificatie in apps."</string>
+    <string name="security_settings_face_settings_remove_dialog_details_convenience">"Je gezichtsmodel wordt definitief en op een beveiligde manier verwijderd.
+
+Daarna heb je je pincode, patroon of wachtwoord nodig om je telefoon te ontgrendelen."</string>
     <string name="security_settings_face_settings_remove_dialog_title">Gezichtsmodel verwijderen?</string>
     <string name="security_settings_face_settings_remove_face_model">Gezichtsmodel verwijderen</string>
-    <string name="security_settings_face_settings_remove_model_dialog_details">"Je gezichtsmodel wordt definitief en veilig verwijderd.
-
-Daarna heb je je vingerafdruk, pincode, patroon of wachtwoord nodig om je telefoon te ontgrendelen of voor verificatie in apps."</string>
-    <string name="security_settings_face_settings_remove_model_dialog_title">Gezichtsmodel verwijderen?</string>
     <string name="security_settings_face_settings_require_attention">Vereisen dat ogen open zijn</string>
     <string name="security_settings_face_settings_require_attention_details">Je ogen moeten open zijn om de telefoon te ontgrendelen</string>
     <string name="security_settings_face_settings_require_confirmation">Altijd bevestiging vereist</string>
@@ -4541,7 +4561,7 @@ Opmerking: Je kunt je vingerafdruk niet gebruiken om dit apparaat te ontgrendele
     <string name="security_settings_title">Beveiliging</string>
     <string name="security_settings_udfps_enroll_a11y">Beweeg je vinger over het scherm om de sensor te vinden. Raak de vingerafdruksensor aan en houd deze vast</string>
     <string name="security_settings_udfps_enroll_edge_message">Leg de zijkant van je vingerafdruk op de sensor en houd vast. Doe dan hetzelfde aan de andere kant.</string>
-    <string name="security_settings_udfps_enroll_edge_title">Leg tot slot de randen van je vinger op de sensor</string>
+    <string name="security_settings_udfps_enroll_edge_title">Gebruik tot slot de randen van je vinger</string>
     <string name="security_settings_udfps_enroll_find_sensor_message">De vingerafdruksensor bevindt zich op je scherm. Je legt je vingerafdruk vast op het volgende scherm.</string>
     <string name="security_settings_udfps_enroll_find_sensor_start_button">Starten</string>
     <string name="security_settings_udfps_enroll_find_sensor_title">Je vingerafdruk instellen</string>
@@ -4550,7 +4570,7 @@ Opmerking: Je kunt je vingerafdruk niet gebruiken om dit apparaat te ontgrendele
     <string name="security_settings_udfps_enroll_repeat_a11y_message">Zo kan er meer van je vingerafdruk worden geregistreerd</string>
     <string name="security_settings_udfps_enroll_repeat_message">Tik en houd vast elke keer dat het vingerafdrukicoon beweegt. Zo kan er meer van je vingerafdruk worden geregistreerd.</string>
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">Volg het vingerafdrukicoon</string>
-    <string name="security_settings_udfps_enroll_start_message">Houd je vinger op de sensor totdat je een trilling voelt</string>
+    <string name="security_settings_udfps_enroll_start_message">Houd je vinger plat op de sensor totdat je een trilling voelt</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">Nog een keer</string>
     <string name="security_settings_work_fingerprint_preference_title">Pixel Imprint voor werk</string>
     <string name="security_status_title">Beveiligingsstatus</string>
@@ -4576,7 +4596,6 @@ Opmerking: Je kunt je vingerafdruk niet gebruiken om dit apparaat te ontgrendele
     <string name="select_webview_provider_dialog_title">WebView-implementatie instellen</string>
     <string name="select_webview_provider_title">WebView-implementatie</string>
     <string name="select_webview_provider_toast_text">Deze keuze is niet meer geldig. Probeer het opnieuw.</string>
-    <string name="sensor_toggle_description">Voor alle apps en services</string>
     <string name="sensors_off_quick_settings_title">Sensoren uit</string>
     <string name="service_background_processes">%1$s vrij</string>
     <string name="service_foreground_processes">%1$s gebr.</string>
@@ -4808,6 +4827,7 @@ Pincode mogelijk onjuist."</string>
     <string name="sound_settings_summary_silent">Belsoftware ingesteld op stil</string>
     <string name="sound_settings_summary_vibrate">Belsoftware ingesteld op trillen</string>
     <string name="sound_work_settings">Geluiden voor werkprofiel</string>
+    <string name="spatial_audio_title">Ruimtelijke audio</string>
     <string name="special_access">Speciale app-toegang</string>
     <string name="special_access_more">Meer tonen</string>
     <string name="speed_label_fast">Snel</string>
@@ -5619,7 +5639,7 @@ Tijdens een audiogesprek kun je internet niet gebruiken en werken bepaalde apps 
     <string name="vpn_turn_on">Aanzetten</string>
     <string name="vpn_type">Type</string>
     <string name="vpn_username">Gebruikersnaam</string>
-    <string name="vpn_version">Versie %s</string>
+    <string name="vpn_version">Versie</string>
     <string name="vr_listener_security_warning_summary">%1$s kan worden uitgevoerd wanneer je apps in de virtual reality-modus gebruikt.</string>
     <string name="vr_listener_security_warning_title">VR-servicetoegang toestaan voor %1$s?</string>
     <string name="vr_listeners_title">VR-helperservices</string>
@@ -5889,7 +5909,7 @@ De instellingen van je router worden niet gewijzigd als je het netwerk instelt o
     <string name="wifi_not_in_range">Niet binnen bereik</string>
     <string name="wifi_not_in_range_message">Netwerk is niet binnen bereik</string>
     <string name="wifi_notify_open_networks">Melding voor openbare netwerken tonen</string>
-    <string name="wifi_notify_open_networks_summary">Als er geen automatische verbinding beschikbaar is</string>
+    <string name="wifi_notify_open_networks_summary">Melden als er een netwerk van hoge kwaliteit beschikbaar is</string>
     <string name="wifi_on_time">Wifi op tijd</string>
     <string name="wifi_p2p_cancel_connect_message">Wil je de uitnodiging voor verbinding met %1$s annuleren?</string>
     <string name="wifi_p2p_cancel_connect_title">Uitnodiging annuleren?</string>
@@ -5977,7 +5997,6 @@ Dit toestaan voor alle apps die willen scannen?"</string>
     <string name="wifi_suspend_optimizations">Wifi-optimalisatie</string>
     <string name="wifi_suspend_optimizations_summary">Batterijgebruik minimaliseren als wifi aanstaat</string>
     <string name="wifi_switch_away_when_unvalidated">Overschakelen naar mobiele data als wifi geen internettoegang meer heeft.</string>
-    <string name="wifi_switch_summary">Zoek en maak verbinding met wifi-netwerken</string>
     <string name="wifi_tap_to_sign_in">Tik hier om in te loggen bij het netwerk</string>
     <string name="wifi_tether_configure_ap_text">Wifi-hotspot instellen</string>
     <string name="wifi_tether_configure_ssid_default">AndroidHotspot</string>

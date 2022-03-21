@@ -91,7 +91,7 @@
     goto/16 :goto_0
 
     :sswitch_0
-    const-string v0, "waveOffset"
+    const-string/jumbo v0, "waveOffset"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -123,7 +123,7 @@
     goto/16 :goto_0
 
     :sswitch_2
-    const-string v0, "transitionPathRotate"
+    const-string/jumbo v0, "transitionPathRotate"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -171,7 +171,7 @@
     goto/16 :goto_0
 
     :sswitch_5
-    const-string v0, "waveVariesBy"
+    const-string/jumbo v0, "waveVariesBy"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -235,7 +235,7 @@
     goto :goto_0
 
     :sswitch_9
-    const-string v0, "translationZ"
+    const-string/jumbo v0, "translationZ"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -251,7 +251,7 @@
     goto :goto_0
 
     :sswitch_a
-    const-string v0, "translationY"
+    const-string/jumbo v0, "translationY"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -267,7 +267,7 @@
     goto :goto_0
 
     :sswitch_b
-    const-string v0, "translationX"
+    const-string/jumbo v0, "translationX"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 

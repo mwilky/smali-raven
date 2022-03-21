@@ -23,7 +23,7 @@
 
     invoke-direct {p0, p1}, Lcom/android/settingslib/development/DeveloperOptionsPreferenceController;-><init>(Landroid/content/Context;)V
 
-    const-string p1, "window"
+    const-string/jumbo p1, "window"
 
     invoke-static {p1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
@@ -81,7 +81,7 @@
 .method public getPreferenceKey()Ljava/lang/String;
     .locals 0
 
-    const-string p0, "strict_mode"
+    const-string/jumbo p0, "strict_mode"
 
     return-object p0
 .end method

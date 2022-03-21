@@ -238,7 +238,7 @@
 
     new-array v1, v1, [Ljava/lang/String;
 
-    const-string v2, "text"
+    const-string/jumbo v2, "text"
 
     const/4 v3, 0x0
 
@@ -271,13 +271,13 @@
 
     new-instance v0, Landroidx/slice/SliceItem;
 
-    const-string v1, "title"
+    const-string/jumbo v1, "title"
 
     filled-new-array {v1}, [Ljava/lang/String;
 
     move-result-object v1
 
-    const-string v2, "text"
+    const-string/jumbo v2, "text"
 
     const/4 v3, 0x0
 
@@ -324,7 +324,7 @@
 
     move-result-object p1
 
-    const-string p2, "title"
+    const-string/jumbo p2, "title"
 
     filled-new-array {p2}, [Ljava/lang/String;
 
@@ -387,7 +387,7 @@
     invoke-virtual {p1, p2}, Landroidx/slice/Slice$Builder;->addHints([Ljava/lang/String;)Landroidx/slice/Slice$Builder;
 
     :cond_0
-    const-string p2, "title"
+    const-string/jumbo p2, "title"
 
     filled-new-array {p2}, [Ljava/lang/String;
 
@@ -427,7 +427,7 @@
 
     invoke-direct {v0, v1}, Landroidx/slice/Slice$Builder;-><init>(Landroidx/slice/Slice$Builder;)V
 
-    const-string v1, "title"
+    const-string/jumbo v1, "title"
 
     filled-new-array {v1}, [Ljava/lang/String;
 

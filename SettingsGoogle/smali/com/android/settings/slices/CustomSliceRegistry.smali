@@ -382,7 +382,7 @@
 
     move-result-object v13
 
-    const-string v14, "toggle_nfc"
+    const-string/jumbo v14, "toggle_nfc"
 
     invoke-virtual {v13, v14}, Landroid/net/Uri$Builder;->appendPath(Ljava/lang/String;)Landroid/net/Uri$Builder;
 
@@ -580,7 +580,7 @@
 
     move-result-object v14
 
-    const-string v15, "volume_slices"
+    const-string/jumbo v15, "volume_slices"
 
     invoke-virtual {v14, v15}, Landroid/net/Uri$Builder;->appendPath(Ljava/lang/String;)Landroid/net/Uri$Builder;
 
@@ -608,7 +608,7 @@
 
     move-result-object v14
 
-    const-string v15, "wifi_calling"
+    const-string/jumbo v15, "wifi_calling"
 
     invoke-virtual {v14, v15}, Landroid/net/Uri$Builder;->appendPath(Ljava/lang/String;)Landroid/net/Uri$Builder;
 
@@ -636,7 +636,7 @@
 
     move-result-object v14
 
-    const-string v15, "wifi_calling_preference"
+    const-string/jumbo v15, "wifi_calling_preference"
 
     invoke-virtual {v14, v15}, Landroid/net/Uri$Builder;->appendPath(Ljava/lang/String;)Landroid/net/Uri$Builder;
 
@@ -664,7 +664,7 @@
 
     move-result-object v6
 
-    const-string v14, "wifi"
+    const-string/jumbo v14, "wifi"
 
     invoke-virtual {v6, v14}, Landroid/net/Uri$Builder;->appendPath(Ljava/lang/String;)Landroid/net/Uri$Builder;
 
@@ -692,7 +692,7 @@
 
     move-result-object v14
 
-    const-string v15, "zen_mode_toggle"
+    const-string/jumbo v15, "zen_mode_toggle"
 
     invoke-virtual {v14, v15}, Landroid/net/Uri$Builder;->appendPath(Ljava/lang/String;)Landroid/net/Uri$Builder;
 
@@ -832,7 +832,7 @@
 
     move-result-object v1
 
-    const-string v2, "turn_on_wifi"
+    const-string/jumbo v2, "turn_on_wifi"
 
     invoke-virtual {v1, v2}, Landroid/net/Uri$Builder;->appendPath(Ljava/lang/String;)Landroid/net/Uri$Builder;
 

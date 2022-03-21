@@ -239,7 +239,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f0409fd
+    const p0, 0x7f040a15
 
     return p0
 .end method
@@ -316,7 +316,7 @@
 
     move-result-object v1
 
-    const-string v2, "user"
+    const-string/jumbo v2, "user"
 
     invoke-virtual {p0, v2}, Lcom/android/settings/SettingsPreferenceFragment;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -431,7 +431,7 @@
 
     if-eqz v1, :cond_0
 
-    const-string v3, "user_handle"
+    const-string/jumbo v3, "user_handle"
 
     invoke-virtual {v1, v3}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
 

@@ -96,6 +96,7 @@
     <string name="peak_refresh_rate_title">ਸਮੂਥ ਡਿਸਪਲੇ</string>
     <string name="peak_refresh_rate_summary">"ਸਵੈਚਲਿਤ ਤੌਰ 'ਤੇ ਕੁਝ ਸਮੱਗਰੀਆਂ ਲਈ ਰਿਫ੍ਰੈਸ਼ ਦਰ ਨੂੰ 60 ਤੋਂ ਵਧਾ ਕੇ 90 Hz ਕਰ ਦਿੰਦਾ ਹੈ। ਬੈਟਰੀ ਵਰਤੋਂ ਵੱਧ ਜਾਂਦੀ ਹੈ।"</string>
     <string name="accessibility_vibration_settings_title">ਥਰਥਰਾਹਟ ਅਤੇ ਸਪਰਸ਼ ਸੰਵੇਦਕ</string>
+    <string name="columbus_title">ਕਾਰਵਾਈਆਂ ਸ਼ੁਰੂ ਕਰਨ ਲਈ ਕਵਿੱਕ ਟੈਪ</string>
     <string name="emergency_gesture_screen_title">ਸੰਕਟਕਾਲੀਨ ਸਹਾਇਤਾ</string>
     <string name="abc_action_mode_done">ਹੋ ਗਿਆ</string>
     <string name="vibrate_for_calls_category_title">ਕਾਲਾਂ</string>
@@ -103,6 +104,8 @@
     <string name="lockscreen_privacy_controls_setting_toggle">ਡੀਵਾਈਸ ਕੰਟਰੋਲ ਦਿਖਾਓ</string>
     <string name="lockscreen_privacy_wallet_summary">ਲਾਕ ਸਕ੍ਰੀਨ ਅਤੇ ਤਤਕਾਲ ਸੈਟਿੰਗਾਂ ਤੋਂ ਵਾਲੇਟ ਤੱਕ ਪਹੁੰਚ ਕਰਨ ਦਿਓ</string>
     <string name="lockscreen_privacy_controls_summary">"ਲਾਕ ਹੋਣ 'ਤੇ ਕੰਟਰੋਲਾਂ ਤੱਕ ਪਹੁੰਚ ਕਰੋ"</string>
+    <string name="lockscreen_double_line_clock_summary">"ਉਪਲਬਧ ਹੋਣ 'ਤੇ ਡਬਲ-ਲਾਈਨ ਘੜੀ ਦਿਖਾਓ"</string>
+    <string name="lockscreen_double_line_clock_setting_toggle">ਡਬਲ-ਲਾਈਨ ਘੜੀ</string>
     <string name="abc_activity_chooser_view_see_all">ਸਭ ਦੇਖੋ</string>
     <string name="abc_activitychooserview_choose_application">ਇੱਕ ਐਪ ਚੁਣੋ</string>
     <string name="abc_capital_off">ਬੰਦ</string>
@@ -147,9 +150,11 @@
     <string name="accessibility_alarm_vibration_title">ਅਲਾਰਮ ਥਰਥਰਾਹਟ</string>
     <string name="accessibility_assist_gesture_complete_or_keep_adjusting">"Active Edge ਸੈੱਟਅੱਪ ਕਰੋ। ਅਗਲੀ ਸਕ੍ਰੀਨ 'ਤੇ ਜਾਓ ਜਾਂ ਵਿਵਸਥਿਤ ਕਰਦੇ ਰਹੋ।"</string>
     <string name="accessibility_audio_adjustment_title">ਆਡੀਓ ਵਾਧ-ਘਾਟ</string>
+    <string name="accessibility_autoclick_about_title">ਸਵੈ-ਕਲਿੱਕ (ਉਡੀਕ ਦਾ ਸਮਾਂ) ਬਾਰੇ</string>
     <string name="accessibility_autoclick_custom_title">ਵਿਉਂਤਬੱਧ</string>
     <string name="accessibility_autoclick_default_title">ਬੰਦ</string>
     <string name="accessibility_autoclick_description">"ਸਵੈਚਲਿਤ ਕਲਿੱਕ ਕਨੈਕਟ ਕੀਤੇ ਮਾਊਸ ਨਾਲ ਕੰਮ ਕਰਦਾ ਹੈ। ਤੁਸੀਂ ਕਰਸਰ ਦੇ ਕੁਝ ਦੇਰ ਤੱਕ ਚੱਲਣਾ ਬੰਦ ਹੋ ਜਾਣ 'ਤੇ ਮਾਊਸ ਕਰਸਰ ਨੂੰ ਸਵੈਚਲਿਤ ਤੌਰ 'ਤੇ ਕਲਿੱਕ ਕਰਨ ਲਈ ਸੈੱਟ ਕਰ ਸਕਦੇ ਹੋ।"</string>
+    <string name="accessibility_autoclick_footer_learn_more_content_description">ਸਵੈ-ਕਲਿੱਕ (ਉਡੀਕ ਦਾ ਸਮਾਂ) ਬਾਰੇ ਹੋਰ ਜਾਣੋ</string>
     <string name="accessibility_autoclick_long_summary">1 ਸਕਿੰਟ</string>
     <string name="accessibility_autoclick_long_title">ਲੰਮਾ</string>
     <string name="accessibility_autoclick_longer_desc">ਵੱਧ</string>
@@ -161,16 +166,17 @@
     <string name="accessibility_autoclick_short_title">ਛੋਟਾ</string>
     <string name="accessibility_autoclick_shorter_desc">ਘੱਟ</string>
     <string name="accessibility_banner_message_dismiss">ਖਾਰਜ ਕਰੋ</string>
-    <string name="accessibility_button_description">"ਕਿਸੇ ਵੀ ਸਕ੍ਰੀਨ ਤੋਂ ਪਹੁੰਚਯੋਗਤਾ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਤੱਕ ਤੁਰੰਤ ਪਹੁੰਚ ਕਰੋ। 
+    <string name="accessibility_button_about_title">ਪਹੁੰਚਯੋਗਤਾ ਬਟਨ ਬਾਰੇ</string>
+    <string name="accessibility_button_description">"ਕਿਸੇ ਵੀ ਸਕ੍ਰੀਨ ਤੋਂ ਪਹੁੰਚਯੋਗਤਾ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਤੱਕ ਤੁਰੰਤ ਪਹੁੰਚ ਕਰੋ।
 
-ਸ਼ੁਰੂ ਕਰਨ ਲਈ, ਪਹੁੰਚਯੋਗਤਾ ਸੈਟਿੰਗਾਂ 'ਤੇ ਜਾ ਕੇ ਕੋਈ ਵਿਸ਼ੇਸ਼ਤਾ ਚੁਣੋ। ਸ਼ਾਰਟਕੱਟ 'ਤੇ ਟੈਪ ਕਰੋ ਅਤੇ ਪਹੁੰਚਯੋਗਤਾ ਬਟਨ ਚੁਣੋ।"</string>
+ਸ਼ੁਰੂਆਤ ਕਰਨ ਲਈ, ਪਹੁੰਚਯੋਗਤਾ ਸੈਟਿੰਗਾਂ 'ਤੇ ਜਾ ਕੇ ਕੋਈ ਵਿਸ਼ੇਸ਼ਤਾ ਚੁਣੋ। ਸ਼ਾਰਟਕੱਟ 'ਤੇ ਟੈਪ ਕਰੋ ਅਤੇ ਪਹੁੰਚਯੋਗਤਾ ਬਟਨ ਚੁਣੋ।"</string>
     <string name="accessibility_button_fade_summary">ਕੁਝ ਸਕਿੰਟਾਂ ਬਾਅਦ ਫੇਡ ਹੋ ਜਾਂਦਾ ਹੈ ਤਾਂ ਜੋ ਤੁਹਾਡੀ ਸਕ੍ਰੀਨ ਨੂੰ ਦੇਖਣਾ ਹੋਰ ਆਸਾਨ ਹੋ ਜਾਵੇ</string>
     <string name="accessibility_button_fade_title">"ਵਰਤੋਂ ਵਿੱਚ ਨਾ ਹੋਣ 'ਤੇ ਫੇਡ ਕਰੋ"</string>
+    <string name="accessibility_button_gesture_about_title">ਪਹੁੰਚਯੋਗਤਾ ਬਟਨ ਅਤੇ ਇਸ਼ਾਰੇ ਬਾਰੇ</string>
     <string name="accessibility_button_gesture_description">"ਕਿਸੇ ਵੀ ਸਕ੍ਰੀਨ ਤੋਂ ਪਹੁੰਚਯੋਗਤਾ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਤੱਕ ਤੁਰੰਤ ਪਹੁੰਚ ਕਰੋ।
 
-ਸ਼ੁਰੂਆਤ ਕਰਨ ਲਈ, ਪਹੁੰਚਯੋਗਤਾ ਸੈਟਿੰਗਾਂ 'ਤੇ ਜਾ ਕੇ ਕੋਈ ਵਿਸ਼ੇਸ਼ਤਾ ਚੁਣੋ। ਸ਼ਾਰਟਕੱਟ 'ਤੇ ਟੈਪ ਕਰੋ ਅਤੇ ਪਹੁੰਚਯੋਗਤਾ ਬਟਨ ਚੁਣੋ।
-
-ਇਸਦੀ ਬਜਾਏ, ਨੈਵੀਗੇਸ਼ਨ ਬਾਰ ਵਿੱਚ ਪਹੁੰਚਯੋਗਤਾ ਬਟਨ ਦੀ ਵਰਤੋਂ ਕਰਨ ਲਈ, 2-ਬਟਨ ਨੈਵੀਗੇਸ਼ਨ ਜਾਂ 3-ਬਟਨ ਨੈਵੀਗੇਸ਼ਨ 'ਤੇ ਜਾਓ।"</string>
+ਸ਼ੁਰੂਆਤ ਕਰਨ ਲਈ, ਪਹੁੰਚਯੋਗਤਾ ਸੈਟਿੰਗਾਂ 'ਤੇ ਜਾ ਕੇ ਕੋਈ ਵਿਸ਼ੇਸ਼ਤਾ ਚੁਣੋ। ਸ਼ਾਰਟਕੱਟ 'ਤੇ ਟੈਪ ਕਰੋ ਅਤੇ ਪਹੁੰਚਯੋਗਤਾ ਬਟਨ ਜਾਂ ਇਸ਼ਾਰਾ ਚੁਣੋ।"</string>
+    <string name="accessibility_button_gesture_footer_learn_more_content_description">ਪਹੁੰਚਯੋਗਤਾ ਬਟਨ ਅਤੇ ਇਸ਼ਾਰੇ ਬਾਰੇ ਹੋਰ ਜਾਣੋ</string>
     <string name="accessibility_button_gesture_title">ਪਹੁੰਚਯੋਗਤਾ ਬਟਨ ਅਤੇ ਇਸ਼ਾਰਾ</string>
     <string name="accessibility_button_high_label">ਗੈਰ-ਪਾਰਦਰਸ਼ੀ</string>
     <string name="accessibility_button_intro">ਪਹੁੰਚਯੋਗਤਾ ਬਟਨ ਦੀ ਵਰਤੋਂ ਕਰਨਾ। ਇਸ਼ਾਰਾ 3-ਬਟਨ ਨੈਵੀਗੇਸ਼ਨ ਦੇ ਨਾਲ ਉਪਲਬਧ ਨਹੀਂ ਹੈ।</string>
@@ -184,14 +190,23 @@
     <string name="accessibility_caption_preference_summary">ਸਾਰੀਆਂ ਐਪਾਂ ਇਹਨਾਂ ਸੁਰਖੀ ਸੰਬੰਧੀ ਤਰਜੀਹਾਂ ਦਾ ਸਮਰਥਨ ਨਹੀਂ ਕਰਦੀਆਂ ਹਨ</string>
     <string name="accessibility_caption_primary_switch_summary">ਸਿਰਫ਼ ਸਮਰਥਿਤ ਐਪ ਲਈ</string>
     <string name="accessibility_caption_primary_switch_title">ਸੁਰਖੀਆਂ ਦਿਖਾਓ</string>
+    <string name="accessibility_captioning_about_title">ਸੁਰਖੀ ਸੰਬੰਧੀ ਤਰਜੀਹਾਂ ਬਾਰੇ</string>
+    <string name="accessibility_captioning_footer_learn_more_content_description">ਸੁਰਖੀ ਸੰਬੰਧੀ ਤਰਜੀਹਾਂ ਬਾਰੇ ਹੋਰ ਜਾਣੋ</string>
     <string name="accessibility_captioning_title">ਸੁਰਖੀ ਸੰਬੰਧੀ ਤਰਜੀਹਾਂ</string>
     <string name="accessibility_category_personal">ਨਿੱਜੀ ਪ੍ਰੋਫਾਈਲ ਖਾਤੇ</string>
     <string name="accessibility_category_work">ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਖਾਤੇ - %s</string>
+    <string name="accessibility_color_inversion_about_title">ਰੰਗ ਪਲਟਨਾ ਬਾਰੇ</string>
+    <string name="accessibility_color_inversion_footer_learn_more_content_description">ਰੰਗ ਪਲਟਨਾ ਬਾਰੇ ਹੋਰ ਜਾਣੋ</string>
+    <string name="accessibility_control_timeout_about_title">ਕਾਰਵਾਈ ਕਰਨ ਦਾ ਸਮਾਂ (ਪਹੁੰਚਯੋਗਤਾ ਸਮਾਂ ਸਮਾਪਤ) ਬਾਰੇ</string>
+    <string name="accessibility_control_timeout_footer_learn_more_content_description">ਕਾਰਵਾਈ ਕਰਨ ਦਾ ਸਮਾਂ (ਪਹੁੰਚਯੋਗਤਾ ਸਮਾਂ ਸਮਾਪਤ) ਬਾਰੇ ਹੋਰ ਜਾਣੋ</string>
     <string name="accessibility_control_timeout_preference_summary">"ਚੁਣੋ ਕਿ ਤੁਹਾਨੂੰ ਕਾਰਵਾਈ ਕਰਨ ਲਈ ਕਹਿਣ ਵਾਲੇ ਸੁਨੇਹਿਆਂ ਨੂੰ ਕਿੰਨੀ ਦੇਰ ਤੱਕ ਦਿਖਾਉਣਾ ਹੈ, ਜੋ ਕਿ ਸਿਰਫ਼ ਅਸਥਾਈ ਤੌਰ 'ਤੇ ਦਿਖਾਈ ਦਿੰਦੇ ਹਨ।
 
 ਇਸ ਸੈਟਿੰਗ ਦਾ ਸਾਰੀਆਂ ਐਪਾਂ ਸਮਰਥਨ ਨਹੀਂ ਕਰਦੀਆਂ ਹਨ।"</string>
     <string name="accessibility_control_timeout_preference_title">ਕਾਰਵਾਈ ਕਰਨ ਦਾ ਸਮਾਂ</string>
+    <string name="accessibility_daltonizer_about_title">ਰੰਗ ਸੁਧਾਈ ਬਾਰੇ</string>
+    <string name="accessibility_daltonizer_footer_learn_more_content_description">ਰੰਗ ਸੁਧਾਈ ਬਾਰੇ ਹੋਰ ਜਾਣੋ</string>
     <string name="accessibility_daltonizer_primary_switch_title">ਰੰਗ ਸੁਧਾਈ ਵਰਤੋ</string>
+    <string name="accessibility_daltonizer_shortcut_title">ਰੰਗ ਸੁਧਾਈ ਦਾ ਸ਼ਾਰਟਕੱਟ</string>
     <string name="accessibility_data_one_bar">" ਡਾਟਾ  ਇੱਕ ਬਾਰ।"</string>
     <string name="accessibility_data_signal_full">" ਡਾਟਾ  ਸਿਗਨਲ ਪੂਰਾ।"</string>
     <string name="accessibility_data_three_bars">" ਡਾਟਾ  ਤਿੰਨ ਬਾਰ।"</string>
@@ -206,6 +221,7 @@
     <string name="accessibility_display_daltonizer_preference_title">ਰੰਗ ਸੁਧਾਈ</string>
     <string name="accessibility_display_inversion_preference_subtitle">"ਰੰਗ ਪਲਟਨਾ ਵਿਸ਼ੇਸ਼ਤਾ ਹਲਕੀਆਂ ਸਕ੍ਰੀਨਾਂ ਨੂੰ ਗੂੜ੍ਹਾ ਕਰ ਦਿੰਦੀ ਹੈ।&lt;br/>&lt;br/> ਨੋਟ: &lt;ol> &lt;li> ਰੰਗ ਪਲਟਨਾ ਵਿਸ਼ੇਸ਼ਤਾ ਗੂੜ੍ਹੀਆਂ ਸਕ੍ਰੀਨਾਂ ਨੂੰ ਹਲਕਾ ਵੀ ਕਰ ਦਿੰਦੀ ਹੈ।&lt;/li> &lt;li> ਮੀਡੀਆ ਅਤੇ ਚਿੱਤਰਾਂ ਵਿੱਚ ਰੰਗ ਬਦਲ ਜਾਣਗੇ।&lt;/li> &lt;li> ਗੂੜ੍ਹਾ ਬੈਕਗ੍ਰਾਊਂਡ ਦਿਖਾਉਣ ਲਈ ਗੂੜ੍ਹਾ ਥੀਮ ਵਰਤਿਆ ਜਾ ਸਕਦਾ ਹੈ। ਗੂੜ੍ਹਾ ਥੀਮ ਸਮਰਥਿਤ ਐਪਾਂ ਨਾਲ ਕੰਮ ਕਰਦਾ ਹੈ। ਰੰਗ ਪਲਟਨਾ ਵਿਸ਼ੇਸ਼ਤਾ ਸਾਰੀਆਂ ਐਪਾਂ 'ਤੇ ਕੰਮ ਕਰਦੀ ਹੈ।&lt;/li> &lt;/ol>"</string>
     <string name="accessibility_display_inversion_preference_title">ਰੰਗ ਪਲਟਨਾ</string>
+    <string name="accessibility_display_inversion_shortcut_title">ਰੰਗ ਪਲਟਨ ਦਾ ਸ਼ਾਰਟਕੱਟ</string>
     <string name="accessibility_display_inversion_switch_title">"'ਰੰਗ ਪਲਟਨਾ' ਵਰਤੋ"</string>
     <string name="accessibility_ethernet_connected">ਈਥਰਨੈੱਟ।</string>
     <string name="accessibility_ethernet_disconnected">ਈਥਰਨੈੱਟ ਡਿਸਕਨੈਕਟ ਹੋ ਗਿਆ।</string>
@@ -255,6 +271,8 @@
     <string name="accessibility_phone_two_bars">ਫ਼ੋਨ ਦੋ ਬਾਰਸ।</string>
     <string name="accessibility_power_button_ends_call_prerefence_title">ਪਾਵਰ ਬਟਨ ਨਾਲ ਕਾਲ ਕੱਟਣਾ</string>
     <string name="accessibility_preference_magnification_summary">"ਸਕ੍ਰੀਨ 'ਤੇ ਜ਼ੂਮ ਵਧਾਓ"</string>
+    <string name="accessibility_screen_magnification_about_title">ਵੱਡਦਰਸ਼ੀਕਰਨ ਬਾਰੇ</string>
+    <string name="accessibility_screen_magnification_footer_learn_more_content_description">ਵੱਡਦਰਸ਼ੀਕਰਨ ਬਾਰੇ ਹੋਰ ਜਾਣੋ</string>
     <string name="accessibility_screen_magnification_gesture_navigation_warning">"ਪਹੁੰਚਯੋਗਤਾ ਸੰਕੇਤਾਂ ਨੂੰ %1$s 'ਤੇ ਸੈੱਟ ਕੀਤਾ ਜਾਂਦਾ ਹੈ। ਵੱਡਦਰਸ਼ੀਕਰਨ ਨੂੰ ਵਰਤਣ ਲਈ, ਦੋ ਉਂਗਲਾਂ ਨਾਲ ਸਕ੍ਰੀਨ ਦੇ ਹੇਠਾਂ ਤੋਂ ਉੱਪਰ ਵੱਲ ਸਵਾਈਪ ਕਰਕੇ ਦਬਾਈ ਰੱਖੋ। ਫਿਰ ਵੱਡਦਰਸ਼ੀਕਰਨ ਚੁਣੋ।"</string>
     <string name="accessibility_screen_magnification_gestures_title">ਤਿੰਨ-ਟੈਪਾਂ ਨਾਲ ਵੱਡਾ ਕਰੋ</string>
     <string name="accessibility_screen_magnification_navbar_configuration_warning">"ਪਹੁੰਚਯੋਗਤਾ ਬਟਨ %1$s 'ਤੇ ਸੈੱਟ ਹੈ। ਵੱਡਦਰਸ਼ੀਕਰਨ ਦੀ ਵਰਤੋਂ ਕਰਨ ਲਈ, ਪਹੁੰਚਯੋਗਤਾ ਬਟਨ ਨੂੰ ਸਪੱਰਸ਼ ਕਰੋ ਅਤੇ ਦਬਾਈ ਰੱਖੋ, ਫਿਰ ਵੱਡਦਰਸ਼ੀਕਰਨ ਨੂੰ ਚੁਣੋ।"</string>
@@ -272,6 +290,7 @@
 ਤੁਸੀਂ ਕੀ-ਬੋਰਡ ਜਾਂ ਦਿਸ਼ਾ-ਨਿਰਦੇਸ਼ ਪੱਟੀ 'ਤੇ ਜ਼ੂਮ ਵਧਾ ਨਹੀਂ ਸਕਦੇ।"</string>
     <string name="accessibility_screen_magnification_navbar_title">ਸ਼ਾਰਟਕੱਟ ਨਾਲ ਵੱਡਾ ਕਰੋ</string>
     <string name="accessibility_screen_magnification_short_summary">ਜ਼ੂਮ ਕਰਨ ਲਈ 3 ਵਾਰ ਟੈਪ ਕਰੋ</string>
+    <string name="accessibility_screen_magnification_shortcut_title">ਵੱਡਦਰਸ਼ੀਕਰਨ ਦਾ ਸ਼ਾਰਟਕੱਟ</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">ਸ਼ਾਰਟਕੱਟ ਅਤੇ ਤਿੰਨ-ਟੈਪ ਨਾਲ ਵੱਡਾ ਕਰੋ</string>
     <string name="accessibility_screen_magnification_summary">"ਸਮੱਗਰੀ ਨੂੰ ਵਧੇਰੇ ਵੱਡਾ ਕਰਨ ਲਈ ਸਕ੍ਰੀਨ 'ਤੇ ਤੇਜ਼ੀ ਨਾਲ ਜ਼ੂਮ ਵਧਾਓ।&lt;br/>&lt;br/> &lt;b>ਜ਼ੂਮ ਵਧਾਉਣ ਲਈ:&lt;/b>&lt;br/> {0,number,integer}. ਵੱਡਦਰਸ਼ੀਕਰਨ ਸ਼ੁਰੂ ਕਰਨ ਲਈ ਸ਼ਾਰਟਕੱਟ ਵਰਤੋ&lt;br/> {1,number,integer}. ਸਕ੍ਰੀਨ 'ਤੇ ਟੈਪ ਕਰੋ&lt;br/> {2,number,integer}. ਸਕ੍ਰੀਨ 'ਤੇ ਘੁਮਾਉਣ ਲਈ 2 ਉਂਗਲਾਂ ਨਾਲ ਘਸੀਟੋ&lt;br/> {3,number,integer}. ਜ਼ੂਮ ਵਿੱਚ ਵਾਧ-ਘਾਟ ਕਰਨ ਲਈ 2 ਉਂਗਲਾਂ ਨਾਲ ਚੂੰਢੀ ਭਰੋ&lt;br/> {4,number,integer}. ਵੱਡਦਰਸ਼ੀਕਰਨ ਨੂੰ ਰੋਕਣ ਲਈ ਸ਼ਾਰਟਕੱਟ ਵਰਤੋ&lt;br/>&lt;br/> &lt;b>ਕੁਝ ਸਮੇਂ ਲਈ ਜ਼ੂਮ ਵਧਾਉਣ ਲਈ:&lt;/b>&lt;br/> {0,number,integer}. ਵੱਡਦਰਸ਼ੀਕਰਨ ਸ਼ੁਰੂ ਕਰਨ ਲਈ ਸ਼ਾਰਟਕੱਟ ਵਰਤੋ&lt;br/> {1,number,integer}. ਸਕ੍ਰੀਨ 'ਤੇ ਕਿਤੇ ਵੀ ਸਪਰਸ਼ ਕਰਕੇ ਰੱਖੋ&lt;br/> {2,number,integer}. ਸਕ੍ਰੀਨ 'ਤੇ ਘੁਮਾਉਣ ਲਈ ਉਂਗਲ ਨਾਲ ਘਸੀਟੋ&lt;br/> {3,number,integer}. ਵੱਡਦਰਸ਼ੀਕਰਨ ਨੂੰ ਰੋਕਣ ਲਈ ਉਂਗਲ ਚੁੱਕੋ"</string>
     <string name="accessibility_screen_magnification_title">ਵੱਡਦਰਸ਼ੀਕਰਨ</string>
@@ -330,7 +349,7 @@
     <string name="accessibility_sync_disabled">ਸਿੰਕ ਅਸਮਰਥਿਤ</string>
     <string name="accessibility_sync_enabled">ਸਿੰਕ ਸਮਰਥਿਤ</string>
     <string name="accessibility_sync_error">ਸਿੰਕ ਅਸ਼ੁੱਧੀ।</string>
-    <string name="accessibility_sync_in_progress">ਹੁਣ ਸਮਕਾਲੀਕਰਨ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ</string>
+    <string name="accessibility_sync_in_progress">ਹੁਣ ਸਿੰਕ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ</string>
     <string name="accessibility_system_controls_title">ਸਿਸਟਮ ਸੰਬੰਧੀ ਕੰਟਰੋਲ</string>
     <string name="accessibility_tap_assistance_title">ਟਾਈਮਿੰਗ ਕੰਟਰੋਲ</string>
     <string name="accessibility_text_and_display_title">ਲਿਖਤ ਅਤੇ ਡਿਸਪਲੇ</string>
@@ -370,7 +389,7 @@
     <string name="accessibility_tutorial_dialog_message_volume">ਇਸ ਵਿਸ਼ੇਸ਼ਤਾ ਨੂੰ ਵਰਤਣ ਲਈ, ਦੋਵੇਂ ਅਵਾਜ਼ੀ ਕੁੰਜੀਆਂ ਨੂੰ ਦਬਾਈ ਰੱਖੋ।</string>
     <string name="accessibility_tutorial_dialog_title_button">ਖੋਲ੍ਹਣ ਲਈ ਪਹੁੰਚਯੋਗਤਾ ਬਟਨ ਵਰਤੋ</string>
     <string name="accessibility_tutorial_dialog_title_gesture">ਖੋਲ੍ਹਣ ਲਈ ਸੰਕੇਤ ਵਰਤੋ</string>
-    <string name="accessibility_tutorial_dialog_title_gesture_settings">ਨਵਾਂ ਪਹੁੰਚਯੋਗਤਾ ਸੰਕੇਤ ਵਰਤੋ</string>
+    <string name="accessibility_tutorial_dialog_title_gesture_settings">ਪਹੁੰਚਯੋਗਤਾ ਸੰਬੰਧੀ ਇਸ਼ਾਰਾ ਵਰਤੋ</string>
     <string name="accessibility_tutorial_dialog_title_triple">"ਖੋਲ੍ਹਣ ਲਈ ਸਕ੍ਰੀਨ 'ਤੇ ਟ੍ਰਿਪਲ ਟੈਪ ਕਰੋ"</string>
     <string name="accessibility_tutorial_dialog_title_volume">ਖੋਲ੍ਹਣ ਲਈ ਅਵਾਜ਼ ਕੁੰਜੀਆਂ ਦਬਾਈ ਰੱਖੋ</string>
     <string name="accessibility_tutorial_pager">%2$d ਵਿੱਚੋਂ ਪੰਨਾ %1$d</string>
@@ -405,10 +424,10 @@
     <string name="account_settings_menu_auto_sync_work">ਕੰਮ ਸੰਬੰਧੀ ਡਾਟਾ ਸਵੈ-ਸਮਕਾਲੀਕਿਰਤ ਕਰੋ</string>
     <string name="account_settings_title">ਖਾਤੇ</string>
     <string name="account_sync_settings_title">ਸਿੰਕ ਕਰੋ</string>
-    <string name="account_sync_summary_all_off">ਸਾਰੀਆਂ ਆਈਟਮਾਂ ਲਈ ਸਮਕਾਲੀਕਰਨ ਬੰਦ ਹੈ</string>
-    <string name="account_sync_summary_all_on">ਸਾਰੀਆਂ ਆਈਟਮਾਂ ਲਈ ਸਮਕਾਲੀਕਰਨ ਚਾਲੂ ਹੈ</string>
-    <string name="account_sync_summary_some_on">%2$d ਵਿੱਚੋਂ %1$d ਆਈਟਮਾਂ ਲਈ ਸਮਕਾਲੀਕਰਨ ਚਾਲੂ ਹੈ</string>
-    <string name="account_sync_title">ਖਾਤਾ ਸਮਕਾਲੀਕਰਨ</string>
+    <string name="account_sync_summary_all_off">ਸਾਰੀਆਂ ਆਈਟਮਾਂ ਲਈ ਸਿੰਕ ਬੰਦ ਹੈ</string>
+    <string name="account_sync_summary_all_on">ਸਾਰੀਆਂ ਆਈਟਮਾਂ ਲਈ ਸਿੰਕ ਚਾਲੂ ਹੈ</string>
+    <string name="account_sync_summary_some_on">%2$d ਵਿੱਚੋਂ %1$d ਆਈਟਮਾਂ ਲਈ ਸਿੰਕ ਚਾਲੂ ਹੈ</string>
+    <string name="account_sync_title">ਖਾਤਾ ਸਿੰਕ</string>
     <string name="action_drag_label_move_bottom">ਥੱਲੇ ਲੈ ਜਾਓ</string>
     <string name="action_drag_label_move_down">ਹੇਠਾਂ ਲੈ ਜਾਓ</string>
     <string name="action_drag_label_move_top">"ਸਿਖਰ 'ਤੇ ਲੈ ਜਾਓ"</string>
@@ -769,7 +788,7 @@
     <string name="auto_rotate_summary_no_permission">"'ਚਿਹਰਾ ਪਛਾਣ' ਲਈ ਕੈਮਰੇ ਤੱਕ ਪਹੁੰਚ ਲੋੜੀਂਦੀ ਹੈ। ਡੀਵਾਈਸ ਵਿਅਕਤੀਗਤਕਰਨ ਸੇਵਾਵਾਂ ਵਾਸਤੇ ਇਜਾਜ਼ਤਾਂ ਦਾ ਪ੍ਰਬੰਧਨ ਕਰਨ ਲਈ ਟੈਪ ਕਰੋ"</string>
     <string name="auto_rotate_switch_face_based">ਚਿਹਰਾ ਪਛਾਣ ਨੂੰ ਚਾਲੂ ਕਰੋ</string>
     <string name="auto_sync_account_summary">"ਐਪਾਂ ਨੂੰ ਸਵੈਚਲਿਤ ਤੌਰ 'ਤੇ ਡਾਟਾ ਰਿਫ੍ਰੈਸ਼ ਕਰਨ ਦਿਓ"</string>
-    <string name="auto_sync_account_title">"ਐਪ ਡਾਟੇ ਦਾ ਸਵੈਚਲਿਤ ਤੌਰ 'ਤੇ ਸਮਕਾਲੀਕਰਨ ਕਰੋ"</string>
+    <string name="auto_sync_account_title">"ਐਪ ਡਾਟੇ ਦਾ ਸਵੈਚਲਿਤ ਤੌਰ 'ਤੇ ਸਿੰਕ ਕਰੋ"</string>
     <string name="auto_sync_personal_account_title">"ਨਿੱਜੀ  ਡਾਟੇ  ਨੂੰ ਸਵੈਚਲਿਤ ਤੌਰ 'ਤੇ ਸਮਕਾਲੀਕਿਰਤ ਕਰੋ"</string>
     <string name="auto_sync_work_account_title">"ਕਾਰਜ  ਡਾਟੇ  ਨੂੰ ਸਵੈਚਲਿਤ ਤੌਰ 'ਤੇ ਸਮਕਾਲੀਕਿਰਤ ਕਰੋ"</string>
     <string name="autofill_app">ਆਟੋਫਿਲ ਸੇਵਾ</string>
@@ -936,6 +955,7 @@
     <string name="battery_level_title">ਬੈਟਰੀ ਪੱਧਰ</string>
     <string name="battery_manager_off">ਬੰਦ</string>
     <string name="battery_manager_summary">ਬੈਟਰੀ ਲਾਈਫ਼ ਵਧਾਓ ਅਤੇ ਚਾਰਜਿੰਗ ਨੂੰ ਸੁਯੋਗ ਬਣਾਓ</string>
+    <string name="battery_manager_summary_unsupported">ਬੈਟਰੀ ਲਾਈਫ਼ ਵਧਾਓ</string>
     <string name="battery_missing_link_a11y_message">ਇਸ ਗੜਬੜ ਬਾਰੇ ਹੋਰ ਜਾਣਨ ਲਈ ਟੈਪ ਕਰੋ</string>
     <string name="battery_missing_link_message">ਹੋਰ ਜਾਣੋ</string>
     <string name="battery_missing_message">ਬੈਟਰੀ ਮੀਟਰ ਨੂੰ ਪੜ੍ਹਨ ਵਿੱਚ ਸਮੱਸਿਆ ਹੋ ਰਹੀ ਹੈ।</string>
@@ -1061,6 +1081,7 @@
     <string name="battery_usage_screen_footer">ਬੈਟਰੀ ਵਰਤੋਂ ਸੰਬੰਧੀ ਡਾਟਾ ਅੰਦਾਜ਼ਨ ਹੈ ਅਤੇ ਫ਼ੋਨ ਚਾਰਜ ਹੋਣ ਵੇਲੇ ਵਰਤੋਂ ਨੂੰ ਨਹੀਂ ਮਾਪਿਆ ਜਾਂਦਾ ਹੈ</string>
     <string name="battery_usage_screen_footer_empty">ਬੈਟਰੀ ਵਰਤੋਂ ਡਾਟਾ ਤੁਹਾਡੇ ਵੱਲੋਂ ਤੁਹਾਡੇ ਫ਼ੋਨ ਨੂੰ ਕੁਝ ਘੰਟਿਆਂ ਤੱਕ ਵਰਤੇ ਜਾਣ ਤੋਂ ਬਾਅਦ ਹੀ ਉਪਲਬਧ ਹੋਵੇਗਾ</string>
     <string name="battery_usage_total_less_than_one_minute">ਕੁੱਲ: ਇੱਕ ਮਿੰਟ ਤੋਂ ਵੀ ਘੱਟ ਸਮਾਂ</string>
+    <string name="battery_usage_without_time" />
     <string name="battery_used_by">%2$s ਵੱਲੋਂ %1$s ਵਰਤੀ ਗਈ</string>
     <string name="battery_used_for">^1 ਲਈ ਵਰਤਿਆ ਗਿਆ</string>
     <string name="bearer">ਧਾਰਕ</string>
@@ -1069,12 +1090,14 @@
     <string name="billing_cycle_less_than_one_day_left">1 ਦਿਨ ਤੋਂ ਘੱਟ ਸਮਾਂ ਬਾਕੀ ਹੈ</string>
     <string name="billing_cycle_none_left">ਕੋਈ ਸਮਾਂ ਬਾਕੀ ਨਹੀਂ</string>
     <string name="biometric_settings_category_ways_to_unlock">ਅਣਲਾਕ ਕਰਨ ਦੇ ਤਰੀਕੇ</string>
-    <string name="biometric_settings_category_ways_to_use">ਇਸ ਦੇ ਲਈ ਚਿਹਰਾ ਅਤੇ ਫਿੰਗਰਪ੍ਰਿੰਟ ਵਰਤੋ</string>
     <string name="biometric_settings_hand_back_to_guardian">ਫ਼ੋਨ ਵਾਪਸ ਆਪਣੇ ਮਾਂ-ਪਿਓ ਨੂੰ ਦਿਓ</string>
     <string name="biometric_settings_hand_back_to_guardian_ok">ਠੀਕ ਹੈ</string>
     <string name="biometric_settings_intro">ਜਦੋਂ ਤੁਸੀਂ ਫ਼ੇਸ ਅਣਲਾਕ ਅਤੇ ਫਿੰਗਰਪ੍ਰਿੰਟ ਅਣਲਾਕ ਦਾ ਸੈੱਟਅੱਪ ਕਰਦੇ ਹੋ, ਤਾਂ ਤੁਹਾਡਾ ਫ਼ੋਨ ਤੁਹਾਡੇ ਫਿੰਗਰਪ੍ਰਿੰਟ ਵਾਸਤੇ ਪੁੱਛੇਗਾ ਜਦੋਂ ਤੁਸੀਂ ਮਾਸਕ ਪਹਿਨਦੇ ਹੋ ਜਾਂ ਕਿਸੇ ਹਨੇਰੇ ਖੇਤਰ ਵਿੱਚ ਹੁੰਦੇ ਹੋ</string>
-    <string name="biometric_settings_use_biometric_for_apps">ਐਪਾਂ ਵਿੱਚ ਪ੍ਰਮਾਣੀਕਰਨ ਲਈ</string>
-    <string name="biometric_settings_use_biometric_unlock_phone">ਫ਼ੋਨ ਅਣਲਾਕ ਕਰਨ ਲਈ</string>
+    <string name="biometric_settings_use_biometric_for_apps">ਐਪਾਂ ਵਿੱਚ ਆਪਣੀ ਪਛਾਣ ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ</string>
+    <string name="biometric_settings_use_biometric_unlock_phone">ਆਪਣਾ ਫ਼ੋਨ ਅਣਲਾਕ ਕਰੋ</string>
+    <string name="biometric_settings_use_face_or_fingerprint_preference_summary">ਚਿਹਰੇ ਜਾਂ ਫਿੰਗਰਪ੍ਰਿੰਟ ਦੀ ਵਰਤੋਂ ਕਰ ਕੇ</string>
+    <string name="biometric_settings_use_face_preference_summary">ਚਿਹਰੇ ਦੀ ਵਰਤੋਂ ਕਰ ਕੇ</string>
+    <string name="biometric_settings_use_fingerprint_preference_summary">ਫਿੰਗਰਪ੍ਰਿੰਟ ਅਣਲਾਕ ਦੀ ਵਰਤੋਂ ਕਰ ਕੇ</string>
     <string name="biometrics_unlock_set_unlock_password">ਪਾਸਵਰਡ • ਚਿਹਰਾ • ਫਿੰਗਰਪ੍ਰਿੰਟ</string>
     <string name="biometrics_unlock_set_unlock_pattern">ਪੈਟਰਨ • ਚਿਹਰਾ • ਫਿੰਗਰਪ੍ਰਿੰਟ</string>
     <string name="biometrics_unlock_set_unlock_pin">ਪਿੰਨ • ਚਿਹਰਾ • ਫਿੰਗਰਪ੍ਰਿੰਟ</string>
@@ -1332,7 +1355,6 @@
     <string name="bluetooth_settings_title">ਬਲੂਟੁੱਥ</string>
     <string name="bluetooth_show_devices_without_names">ਅਨਾਮ ਬਲੂਟੁੱਥ ਡੀਵਾਈਸਾਂ ਦਿਖਾਓ</string>
     <string name="bluetooth_show_devices_without_names_summary">ਅਨਾਮ ਬਲੂਟੁੱਥ ਡੀਵਾਈਸਾਂ ਦਿਖਾਈਆਂ ਜਾਣਗੀਆਂ (ਸਿਰਫ਼ MAC ਪਤੇ)</string>
-    <string name="bluetooth_show_files_received_via_bluetooth">ਬਲੂਟੁੱਥ ਰਾਹੀਂ ਪ੍ਰਾਪਤ ਹੋਈਆਂ ਫ਼ਾਈਲਾਂ</string>
     <string name="bluetooth_show_received_files">ਪ੍ਰਾਪਤ ਕੀਤੀਆਂ ਫ਼ਾਈਲਾਂ</string>
     <string name="bluetooth_sim_card_access_dialog_content">"ਕੋਈ ਬਲੂਟੁੱਥ ਡੀਵਾਈਸ, %1$s, ਤੁਹਾਡੇ ਸਿਮ ਕਾਰਡ 'ਤੇ ਡਾਟੇ ਤੱਕ ਪਹੁੰਚ ਕਰਨਾ ਚਾਹੁੰਦਾ ਹੈ। ਇਸ ਵਿੱਚ ਤੁਹਾਡੇ ਸੰਪਰਕ ਸ਼ਾਮਲ ਹਨ।
 
@@ -1426,6 +1448,7 @@
     <string name="calls_sms_temp_unavailable">ਕੁਝ ਸਮੇਂ ਲਈ ਅਣਉਪਲਬਧ</string>
     <string name="calls_sms_unavailable">ਉਪਲਬਧ ਨਹੀਂ</string>
     <string name="calls_sms_wfc_summary">"ਵਾਈ-ਫਾਈ 'ਤੇ ਕਾਲਾਂ ਕਰੋ ਅਤੇ ਪ੍ਰਾਪਤ ਕਰੋ"</string>
+    <string name="cam_toggle_description">ਐਪਾਂ ਅਤੇ ਸੇਵਾਵਾਂ ਲਈ</string>
     <string name="camera_double_tap_power_gesture_desc">ਆਪਣੀ ਸਕ੍ਰੀਨ ਨੂੰ ਅਣਲਾਕ ਕੀਤੇ ਬਗੈਰ ਤੁਰੰਤ ਕੈਮਰਾ ਖੋਲ੍ਹੋ</string>
     <string name="camera_double_tap_power_gesture_title">ਕੈਮਰੇ ਲਈ ਪਾਵਰ ਬਟਨ ਨੂੰ ਦੋ ਵਾਰੀ ਦਬਾਓ</string>
     <string name="camera_laser_sensor_switch">ਕੈਮਰਾ ਲੇਜ਼ਰ ਸੈਂਸਰ</string>
@@ -1858,12 +1881,12 @@
     <string name="data_usage_app_restricted">ਪਾਬੰਦੀਸ਼ੁਦਾ</string>
     <string name="data_usage_app_settings">ਐਪ ਸੈਟਿੰਗਾਂ</string>
     <string name="data_usage_app_summary_title">ਮੋਬਾਈਲ ਡਾਟਾ ਅਤੇ ਵਾਈ-ਫਾਈ</string>
-    <string name="data_usage_auto_sync_off_dialog">ਇਹ ਡਾਟਾ ਅਤੇ ਬੈਟਰੀ ਦੀ ਬੱਚਤ ਕਰੇਗਾ, ਪਰ ਹਾਲੀਆ ਜਾਣਕਾਰੀ ਇਕੱਤਰ ਕਰਨ ਲਈ ਤੁਹਾਨੂੰ ਹਰੇਕ ਖਾਤੇ ਦਾ ਹੱਥੀਂ ਸਮਕਾਲੀਕਰਨ ਕਰਨਾ ਪਵੇਗਾ। ਇਸਤੋਂ ਇਲਾਵਾ ਜਦੋਂ ਅੱਪਡੇਟ ਹੁੰਦੇ ਹਨ ਤਾਂ ਤੁਸੀਂ ਸੂਚਨਾਵਾਂ ਪ੍ਰਾਪਤ ਨਹੀਂ ਕਰੋਗੇ।</string>
-    <string name="data_usage_auto_sync_off_dialog_title">ਡਾਟੇ ਦਾ ਸਵੈ-ਸਮਕਾਲੀਕਰਨ ਬੰਦ ਕਰੀਏ?</string>
+    <string name="data_usage_auto_sync_off_dialog">ਇਹ ਡਾਟਾ ਅਤੇ ਬੈਟਰੀ ਦੀ ਬੱਚਤ ਕਰੇਗਾ, ਪਰ ਹਾਲੀਆ ਜਾਣਕਾਰੀ ਇਕੱਤਰ ਕਰਨ ਲਈ ਤੁਹਾਨੂੰ ਹਰੇਕ ਖਾਤੇ ਦਾ ਹੱਥੀਂ ਸਿੰਕ ਕਰਨਾ ਪਵੇਗਾ। ਇਸਤੋਂ ਇਲਾਵਾ ਜਦੋਂ ਅੱਪਡੇਟ ਹੁੰਦੇ ਹਨ ਤਾਂ ਤੁਸੀਂ ਸੂਚਨਾਵਾਂ ਪ੍ਰਾਪਤ ਨਹੀਂ ਕਰੋਗੇ।</string>
+    <string name="data_usage_auto_sync_off_dialog_title">ਡਾਟੇ ਦਾ ਸਵੈ-ਸਿੰਕ ਬੰਦ ਕਰੀਏ?</string>
     <string name="data_usage_auto_sync_on_dialog">"ਤੁਸੀਂ ਵੈੱਬ 'ਤੇ ਆਪਣੇ ਖਾਤਿਆਂ ਵਿੱਚ ਜੋ ਕੋਈ ਵੀ ਬਦਲਾਵ ਕਰਦੇ ਹੋ, ਉਹ ਸਵੈਚਲਿਤ ਤੌਰ 'ਤੇ ਤੁਹਾਡੇ ਫ਼ੋਨ 'ਤੇ ਕਾਪੀ ਕੀਤੇ ਜਾਣਗੇ।
 
 ਕੁਝ ਖਾਤੇ ਸਵੈਚਲਿਤ ਤੌਰ 'ਤੇ ਉਹ ਬਦਲਾਵ ਕਾਪੀ ਕਰ ਸਕਦੇ ਹਨ ਜੋ ਤੁਸੀਂ ਵੈੱਬ 'ਤੇ ਆਪਣੇ ਫ਼ੋਨ ਵਿੱਚ ਕਰਦੇ ਹੋ। ਇੱਕ Google ਖਾਤਾ ਇਸ ਤਰ੍ਹਾਂ ਕੰਮ ਕਰਦਾ ਹੈ।"</string>
-    <string name="data_usage_auto_sync_on_dialog_title">ਕੀ ਸਵੈ-ਸਮਕਾਲੀਕਰਨ ਡਾਟਾ ਚਾਲੂ ਕਰਨਾ ਹੈ?</string>
+    <string name="data_usage_auto_sync_on_dialog_title">ਕੀ ਸਵੈ-ਸਿੰਕ ਡਾਟਾ ਚਾਲੂ ਕਰਨਾ ਹੈ?</string>
     <string name="data_usage_background_label">ਪਿਛੋਕੜ</string>
     <string name="data_usage_cellular_data">ਮੋਬਾਈਲ ਡਾਟਾ</string>
     <string name="data_usage_cellular_data_summary">ਸੀਮਾ ਤੇ ਰੋਕਿਆ</string>
@@ -2179,7 +2202,7 @@
     <string name="edge_to_edge_navigation_title">ਇਸ਼ਾਰਾ ਨੈਵੀਗੇਸ਼ਨ</string>
     <string name="emergency_address_summary">ਤੁਹਾਡੇ ਵੱਲੋਂ ਕੀਤੀ ਜਾਣ ਵਾਲੀ ਕਿਸੇ ਸੰਕਟਕਾਲੀਨ ਕਾਲ ਵੇਲੇ ਇਹ ਪਤਾ ਵਰਤਿਆ ਜਾਂਦਾ ਹੈ</string>
     <string name="emergency_address_title">ਸੰਕਟਕਾਲੀਨ ਪਤਾ</string>
-    <string name="emergency_dashboard_summary">ਸੰਕਟਕਾਲੀਨ ਸਹਾਇਤਾ, ਡਾਕਟਰੀ ਜਾਣਕਾਰੀ, ਸੁਚੇਤਨਾਵਾਂ</string>
+    <string name="emergency_dashboard_summary">ਐਮਰਜੈਂਸੀ ਸਹਾਇਤਾ, ਡਾਕਟਰੀ ਜਾਣਕਾਰੀ, ਸੁਚੇਤਨਾਵਾਂ</string>
     <string name="emergency_gesture_call_for_help_dialog_title">ਮਦਦ ਲਈ ਕਾਲ ਕਰਨ ਵਾਸਤੇ ਨੰਬਰ</string>
     <string name="emergency_gesture_call_for_help_summary">%1$s. ਬਦਲਣ ਲਈ ਟੈਪ ਕਰੋ</string>
     <string name="emergency_gesture_call_for_help_title">ਮਦਦ ਲਈ ਕਾਲ ਕਰੋ</string>
@@ -2194,7 +2217,7 @@
     <string name="emergency_gesture_switchbar_title">ਸੰਕਟਕਾਲੀਨ ਸਹਾਇਤਾ ਵਰਤੋ</string>
     <string name="emergency_info_summary">%1$s ਦੀ ਜਾਣਕਾਰੀ ਅਤੇ ਸੰਪਰਕ</string>
     <string name="emergency_info_title">ਸੰਕਟਕਾਲੀਨ ਜਾਣਕਾਰੀ</string>
-    <string name="emergency_settings_preference_title">ਸੁਰੱਖਿਆ ਅਤੇ ਸੰਕਟਕਾਲ</string>
+    <string name="emergency_settings_preference_title">ਸੁਰੱਖਿਆ ਅਤੇ ਐਮਰਜੈਂਸੀ</string>
     <string name="emergency_tone_alert">ਟੋਨਾਂ</string>
     <string name="emergency_tone_silent">ਖਾਮੋਸ਼ੀ</string>
     <string name="emergency_tone_summary">ਜਦੋਂ ਇੱਕ ਸੰਕਟਕਾਲੀਨ ਕਾਲ ਕੀਤੀ ਜਾਂਦੀ ਹੈ ਤਾਂ ਵਿਵਹਾਰ ਸੈੱਟ ਕਰੋ</string>
@@ -2846,7 +2869,7 @@
     <string name="language_input_gesture_title">ਭਾਸ਼ਾਵਾਂ, ਇਨਪੁੱਟ ਅਤੇ ਸੰਕੇਤ</string>
     <string name="language_keyboard_settings_title">ਭਾਸ਼ਾਵਾਂ ਅਤੇ ਇਨਪੁੱਟ</string>
     <string name="language_picker_title">ਭਾਸ਼ਾਵਾਂ</string>
-    <string name="last_synced">ਪਿਛਲਾ ਸਮਕਾਲੀਕਰਨ %1$s</string>
+    <string name="last_synced">ਪਿਛਲਾ ਸਿੰਕ %1$s</string>
     <string name="last_time_used_label">ਆਖਰੀ ਵਾਰ ਵਰਤਿਆ</string>
     <string name="launch_by_default">ਪੂਰਵ-ਨਿਰਧਾਰਿਤ ਵਜੋਂ ਖੋਲ੍ਹੋ</string>
     <string name="launch_defaults_none">ਕੋਈ ਪੂਰਵ-ਨਿਰਧਾਰਿਤ ਸੈੱਟ ਨਹੀਂ ਕੀਤੇ</string>
@@ -3197,10 +3220,10 @@
     <string name="manager_battery_usage_optimized_summary">"ਆਪਣੀ ਵਰਤੋਂ ਦੇ ਆਧਾਰ 'ਤੇ ਸੁਯੋਗ ਬਣਾਓ। ਜ਼ਿਆਦਾਤਰ ਐਪਾਂ ਲਈ ਸਿਫ਼ਾਰਸ਼ੀ।"</string>
     <string name="manager_battery_usage_optimized_title">ਸੁਯੋਗ ਬਣਾਈ ਗਈ</string>
     <string name="manager_battery_usage_restricted_summary">"ਬੈਕਗ੍ਰਾਊਂਡ ਵਿੱਚ ਹੋਣ 'ਤੇ ਬੈਟਰੀ ਵਰਤੋਂ 'ਤੇ ਪਾਬੰਦੀ ਲਗਾਓ। ਹੋ ਸਕਦਾ ਹੈ ਕਿ ਐਪ ਉਮੀਦ ਮੁਤਾਬਕ ਕੰਮ ਨਾ ਕਰੇ। ਸੂਚਨਾਵਾਂ ਵਿੱਚ ਦੇਰੀ ਹੋ ਸਕਦੀ ਹੈ।"</string>
-    <string name="manager_battery_usage_restricted_title">ਪਾਬੰਦੀਸ਼ੁਦਾ</string>
+    <string name="manager_battery_usage_restricted_title">ਪ੍ਰਤਿਬੰਧਿਤ</string>
     <string name="manager_battery_usage_unrestricted_only">ਗੈਰ-ਪਾਬੰਦੀਸ਼ੁਦਾ</string>
     <string name="manager_battery_usage_unrestricted_summary">ਪਾਬੰਦੀਆਂ ਤੋਂ ਬਿਨਾਂ ਬੈਕਗ੍ਰਾਊਂਡ ਵਿੱਚ ਬੈਟਰੀ ਵਰਤੋਂ ਦੀ ਆਗਿਆ ਦਿਓ। ਵੱਧ ਬੈਟਰੀ ਦੀ ਵਰਤੋਂ ਹੋ ਸਕਦੀ ਹੈ।</string>
-    <string name="manager_battery_usage_unrestricted_title">ਗੈਰ-ਪਾਬੰਦੀਸ਼ੁਦਾ</string>
+    <string name="manager_battery_usage_unrestricted_title">ਅਣ-ਪ੍ਰਤਿਬੰਧਿਤ</string>
     <string name="managing_admin">%s ਦੁਆਰਾ ਪ੍ਰਬੰਧਿਤ</string>
     <string name="manual">ਮੈਨੁਅਲ</string>
     <string name="manual_mode_disallowed_summary">"%1$s ਨਾਲ ਕਨੈਕਟ ਹੋਣ 'ਤੇ ਉਪਲਬਧ ਨਹੀਂ ਹੈ"</string>
@@ -3302,6 +3325,7 @@
     <string name="menu_stats_total">ਕੁੱਲ ਵਰਤੋਂ</string>
     <string name="menu_stats_unplugged">ਅਨਪਲਗ ਕਰਨ ਤੋਂ ਬਾਅਦ %1$s</string>
     <string name="menu_use_uss">Uss ਵਰਤੋ</string>
+    <string name="mic_toggle_description">"ਐਪਾਂ ਅਤੇ ਸੇਵਾਵਾਂ ਲਈ। ਇਸ ਸੈਟਿੰਗ ਦੇ ਬੰਦ ਹੋਣ 'ਤੇ, ਜਦੋਂ ਤੁਸੀਂ ਕਿਸੇ ਐਮਰਜੈਂਸੀ ਨੰਬਰ 'ਤੇ ਕਾਲ ਕਰਦੇ ਹੋ ਤਾਂ ਮਾਈਕ੍ਰੋਫ਼ੋਨ ਡਾਟੇ ਨੂੰ ਫਿਰ ਵੀ ਸਾਂਝਾ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ।"</string>
     <string name="mic_toggle_title">ਮਾਈਕ੍ਰੋਫ਼ੋਨ ਪਹੁੰਚ</string>
     <string name="misc_files">ਵਿਵਿਧ ਫ਼ਾਈਲਾਂ</string>
     <string name="misc_files_selected_count">%2$d ਵਿੱਚੋਂ %1$d ਚੁਣਿਆ</string>
@@ -3728,6 +3752,7 @@
     <string name="one_handed_action_show_notification_title">ਸੂਚਨਾਵਾਂ ਦਿਖਾਓ</string>
     <string name="one_handed_mode_enabled">ਇੱਕ ਹੱਥ ਮੋਡ ਵਰਤੋ</string>
     <string name="one_handed_mode_intro_text">ਇੱਕ ਹੱਥ ਮੋਡ ਦੀ ਵਰਤੋਂ ਕਰਨ ਲਈ, ਸਕ੍ਰੀਨ ਦੇ ਹੇਠਲੇ ਕਿਨਾਰੇ ਤੋਂ ਹੇਠਾਂ ਵੱਲ ਸਵਾਈਪ ਕਰੋ। ਇਸ ਵਿਸ਼ੇਸ਼ਤਾ ਦੀ ਵਰਤੋਂ ਕਰਨ ਲਈ, ਪੱਕਾ ਕਰੋ ਕਿ ਸਿਸਟਮ ਨੈਵੀਗੇਸ਼ਨ ਸੈਟਿੰਗਾਂ ਵਿੱਚ ਇਸ਼ਾਰਾ ਨੈਵੀਗੇਸ਼ਨ ਚਾਲੂ ਹੈ।</string>
+    <string name="one_handed_mode_shortcut_title">ਇੱਕ ਹੱਥ ਮੋਡ ਲਈ ਸ਼ਾਰਟਕੱਟ</string>
     <string name="one_handed_mode_swipe_down_category">ਇਸ ਦੇ ਲਈ ਹੇਠਾਂ ਵੱਲ ਸਵਾਈਪ ਕਰੋ</string>
     <string name="one_handed_mode_use_shortcut_category">ਇਸ ਲਈ ਸ਼ਾਰਟਕੱਟ ਵਰਤੋ</string>
     <string name="one_usercrt">ਇੱਕ ਵਰਤੋਂਕਾਰ ਪ੍ਰਮਾਣ-ਪੱਤਰ</string>
@@ -3803,7 +3828,7 @@
     <string name="post_dsds_reboot_notification_title_with_carrier">%1$s ਕਿਰਿਆਸ਼ੀਲ ਹੈ</string>
     <string name="power_bluetooth">ਬਲੂਟੁੱਥ</string>
     <string name="power_camera">ਕੈਮਰਾ</string>
-    <string name="power_cell">ਮੋਬਾਈਲ ਨੈੱਟਵਰਕ ਸਟੈਂਡਬਾਏ</string>
+    <string name="power_cell">ਮੋਬਾਈਲ ਨੈੱਟਵਰਕ</string>
     <string name="power_charge_remaining">ਚਾਰਜ ਕਰਨ ਲਈ %1$s</string>
     <string name="power_charging">%1$s - %2$s</string>
     <string name="power_charging_duration">%1$s - ਬੈਟਰੀ ਪੂਰੀ ਚਾਰਜ ਹੋਣ ਵਿੱਚ %2$s ਬਾਕੀ</string>
@@ -4037,6 +4062,7 @@
     <string name="recent_notifications">ਹਾਲ ਵਿੱਚ ਭੇਜੀਆਂ ਗਈਆਂ</string>
     <string name="recent_notifications_see_all_title">ਪਿਛਲੇ 7 ਦਿਨਾਂ ਦੀਆਂ ਸਾਰੀਆਂ ਦੇਖੋ</string>
     <string name="recompute_size">ਅਕਾਰ ਰੀਕੰਪਿਊਟ ਕਰ ਰਿਹਾ ਹੈ...</string>
+    <string name="reduce_bright_colors_about_title">ਜ਼ਿਆਦਾ ਘੱਟ ਚਮਕ ਬਾਰੇ</string>
     <string name="reduce_bright_colors_intensity_end_label">ਚਮਕਦਾਰ</string>
     <string name="reduce_bright_colors_intensity_preference_title">ਤੀਬਰਤਾ</string>
     <string name="reduce_bright_colors_intensity_start_label">ਮੱਧਮ</string>
@@ -4044,6 +4070,7 @@
     <string name="reduce_bright_colors_preference_subtitle">ਸਕ੍ਰੀਨ ਦੀ ਚਮਕ ਨੂੰ ਹੋਰ ਘੱਟ ਕਰੋ ਤਾਂ ਜੋ ਇਹ ਪੜ੍ਹਨ ਲਈ ਵਧੇਰੇ ਸਹਿਜ ਹੋਵੇ।&lt;br/>&lt;br/> ਇਹ ਉਦੋਂ ਲਾਹੇਵੰਦ ਹੋ ਸਕਦਾ ਹੈ ਜਦੋਂ: &lt;ol> &lt;li> ਤੁਹਾਡੇ ਫ਼ੋਨ ਦੀ ਪੂਰਵ-ਨਿਰਧਾਰਿਤ ਘੱਟੋ-ਘੱਟ ਚਮਕ ਹਾਲੇ ਵੀ ਬਹੁਤ ਚਮਕਦਾਰ ਹੋਵੇ&lt;/li> &lt;li> ਤੁਸੀਂ ਆਪਣੇ ਫ਼ੋਨ ਦੀ ਵਰਤੋਂ ਹਨੇਰੇ ਵਾਲੀਆਂ ਸਥਿਤੀਆਂ ਜਿਵੇਂ ਕਿ ਰਾਤ ਜਾਂ ਸੌਣ ਤੋਂ ਪਹਿਲਾਂ ਹਨੇਰੇ ਕਮਰੇ ਵਿੱਚ ਕਰ ਰਹੇ ਹੋਵੋ&lt;/li> &lt;/ol></string>
     <string name="reduce_bright_colors_preference_summary">ਸਕ੍ਰੀਨ ਨੂੰ ਆਪਣੇ ਫ਼ੋਨ ਦੀ ਘੱਟੋ-ਘੱਟ ਚਮਕ ਨਾਲੋਂ ਵੀ ਮੱਧਮ ਕਰੋ</string>
     <string name="reduce_bright_colors_preference_title">ਜ਼ਿਆਦਾ ਘੱਟ ਚਮਕ</string>
+    <string name="reduce_bright_colors_shortcut_title">ਜ਼ਿਆਦਾ ਘੱਟ ਚਮਕ ਦਾ ਸ਼ਾਰਟਕੱਟ</string>
     <string name="reduce_bright_colors_switch_title">ਸਕ੍ਰੀਨ ਦੀ ਚਮਕ ਜ਼ਿਆਦਾ ਘੱਟ ਕਰੋ</string>
     <string name="register_automatically">ਸਵੈਚਲਿਤ ਰਜਿਸਟਰੇਸ਼ਨ…</string>
     <string name="register_on_network">"%s 'ਤੇ ਰਜਿਸਟਰ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ…"</string>
@@ -4249,7 +4276,6 @@
     <string name="screen_pinning_unlock_pattern">ਅਨਪਿੰਨ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਅਣਲਾਕ ਪੈਟਰਨ ਵਾਸਤੇ ਪੁੱਛੋ</string>
     <string name="screen_pinning_unlock_pin">ਅਨਪਿੰਨ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਪਿੰਨ ਮੰਗੋ</string>
     <string name="screen_reader_category_title">ਸਕ੍ਰੀਨ ਰੀਡਰ</string>
-    <string name="screen_saver_main_switch_title">ਸਕ੍ਰੀਨ ਸੇਵਰ ਵਰਤੋ</string>
     <string name="screen_time_summary_usage_today">%1$s ਅੱਜ</string>
     <string name="screen_timeout_summary">"%1$s ਤੱਕ ਕੋਈ ਸਰਗਰਮੀ ਨਾ ਹੋਣ 'ਤੇ"</string>
     <string name="screen_timeout_title">ਸਕ੍ਰੀਨ ਬੰਦ ਹੈ</string>
@@ -4279,6 +4305,7 @@
     <string name="screensaver_settings_button">ਸੈਟਿੰਗਾਂ</string>
     <string name="screensaver_settings_current">ਮੌਜੂਦਾ ਸਕ੍ਰੀਨ ਸੇਵਰ</string>
     <string name="screensaver_settings_disabled_prompt">ਇਹ ਕੰਟਰੋਲ ਕਰਨ ਲਈ ਕਿ ਜਦੋਂ ਫ਼ੋਨ ਡੌਕ ਕੀਤਾ ਅਤੇ/ਜਾਂ ਸਲੀਪ ਮੋਡ ਵਿੱਚ ਹੁੰਦਾ ਹੈ ਉਦੋਂ ਕੀ ਹੁੰਦਾ ਹੈ, ਸਕ੍ਰੀਨ ਸੇਵਰ ਚਾਲੂ ਕਰੋ।</string>
+    <string name="screensaver_settings_dream_start">ਹੁਣੇ ਚਾਲੂ ਕਰੋ</string>
     <string name="screensaver_settings_summary_dock">ਜਦੋਂ ਡੌਕ ਕੀਤਾ ਹੋਵੇ</string>
     <string name="screensaver_settings_summary_either_long">ਚਾਰਜ ਕਰਨ ਵੇਲੇ ਜਾਂ ਡੌਕ ਕੀਤੇ ਹੋਣ ਦੌਰਾਨ</string>
     <string name="screensaver_settings_summary_either_short">ਦੋਵਾਂ ਵਿੱਚੋਂ ਇੱਕ</string>
@@ -4329,15 +4356,6 @@
     <string name="security_settings_biometric_preference_summary_both_fp_single">ਚਿਹਰਾ ਅਤੇ ਫਿੰਗਰਪ੍ਰਿੰਟ ਨੂੰ ਸ਼ਾਮਲ ਕੀਤਾ ਗਿਆ</string>
     <string name="security_settings_biometric_preference_summary_none_enrolled">ਸੈੱਟਅੱਪ ਕਰਨ ਲਈ ਟੈਪ ਕਰੋ</string>
     <string name="security_settings_biometric_preference_title">ਫ਼ੇਸ ਅਤੇ ਫਿੰਗਰਪ੍ਰਿੰਟ ਅਣਲਾਕ</string>
-    <string name="security_settings_biometrics_description">ਜਦੋਂ ਤੁਸੀਂ ਫ਼ੇਸ ਅਤੇ ਫਿੰਗਰਪ੍ਰਿੰਟ ਅਣਲਾਕ ਦਾ ਸੈੱਟਅੱਪ ਕਰਦੇ ਹੋ, ਤਾਂ ਤੁਹਾਡਾ ਫ਼ੋਨ ਤੁਹਾਡੇ ਫਿੰਗਰਪ੍ਰਿੰਟ ਵਾਸਤੇ ਪੁੱਛੇਗਾ ਜਦੋਂ ਤੁਸੀਂ ਮਾਸਕ ਪਹਿਨਦੇ ਹੋ ਜਾਂ ਕਿਸੇ ਹਨੇਰੇ ਖੇਤਰ ਵਿੱਚ ਹੁੰਦੇ ਹੋ</string>
-    <string name="security_settings_biometrics_preference_use_with_apps">ਐਪਾਂ ਵਿੱਚ ਪ੍ਰਮਾਣੀਕਰਨ</string>
-    <string name="security_settings_biometrics_preferences_category">ਦੇ ਲਈ ਚਿਹਰਾ ਜਾਂ ਫਿੰਗਰਪ੍ਰਿੰਟ ਵਰਤੋ</string>
-    <string name="security_settings_biometrics_summary_both">ਚਿਹਰਾ ਅਤੇ ਫਿੰਗਰਪ੍ਰਿੰਟ</string>
-    <string name="security_settings_biometrics_summary_face">ਸਿਰਫ਼ ਚਿਹਰਾ</string>
-    <string name="security_settings_biometrics_summary_fingerprint">ਸਿਰਫ਼ ਫਿੰਗਰਪ੍ਰਿੰਟ</string>
-    <string name="security_settings_biometrics_summary_none">ਸੈੱਟਅੱਪ ਕਰਨ ਲਈ ਟੈਪ ਕਰੋ</string>
-    <string name="security_settings_biometrics_title">ਫ਼ੇਸ ਅਤੇ ਫਿੰਗਰਪ੍ਰਿੰਟ ਅਣਲਾਕ</string>
-    <string name="security_settings_biometrics_types_category">ਅਣਲਾਕ ਕਰਨ ਦੇ ਤਰੀਕੇ</string>
     <string name="security_settings_face_enroll_consent_introduction_title">ਫ਼ੇਸ ਅਣਲਾਕ ਨੂੰ ਇਜਾਜ਼ਤ ਦਿਓ</string>
     <string name="security_settings_face_enroll_dialog_ok">ਠੀਕ ਹੈ</string>
     <string name="security_settings_face_enroll_done">ਹੋ ਗਿਆ</string>
@@ -4383,18 +4401,19 @@ g.co/pixel/faceunlock 'ਤੇ ਹੋਰ ਜਾਣੋ।"</string>
 
 g.co/pixel/faceunlock 'ਤੇ ਹੋਰ ਜਾਣੋ।"</string>
     <string name="security_settings_face_enroll_introduction_control_title">ਕੰਟਰੋਲ ਤੁਹਾਡੇ ਹੱਥ ਹੈ</string>
-    <string name="security_settings_face_enroll_introduction_how_consent_message">"ਫ਼ੇਸ ਅਣਲਾਕ ਤੁਹਾਡੇ ਬੱਚੇ ਦੀ ਪਛਾਣ ਕਰਨ ਲਈ ਉਸਦੇ ਚਿਹਰੇ ਦਾ ਇੱਕ ਵਿਲੱਖਣ ਮਾਡਲ ਬਣਾਉਂਦਾ ਹੈ। ਸੈੱਟਅੱਪ ਦੌਰਾਨ ਇਸ ਚਿਹਰੇ ਦੇ ਮਾਡਲ ਨੂੰ ਬਣਾਉਣ ਲਈ, ਤੁਹਾਡਾ ਬੱਚਾ ਵੱਖ-ਵੱਖ ਕੋਣਾਂ ਤੋਂ ਆਪਣੇ ਚਿਹਰੇ ਦੇ ਚਿੱਤਰ ਲਵੇਗਾ।
+    <string name="security_settings_face_enroll_introduction_how_consent_message">"ਫ਼ੇਸ ਅਣਲਾਕ ਤੁਹਾਡੇ ਬੱਚੇ ਦੀ ਪਛਾਣ ਦੀ ਪੁਸ਼ਟੀ ਕਰਨ ਲਈ ਉਸਦੇ ਚਿਹਰੇ ਦਾ ਇੱਕ ਵਿਲੱਖਣ ਮਾਡਲ ਬਣਾਉਂਦਾ ਹੈ। ਸੈੱਟਅੱਪ ਦੌਰਾਨ ਇਸ ਚਿਹਰੇ ਦੇ ਮਾਡਲ ਨੂੰ ਬਣਾਉਣ ਲਈ, ਤੁਹਾਡਾ ਬੱਚਾ ਵੱਖ-ਵੱਖ ਕੋਣਾਂ ਤੋਂ ਆਪਣੇ ਚਿਹਰੇ ਦੇ ਚਿੱਤਰ ਲਵੇਗਾ।
 
-ਜਦੋਂ ਉਹ ਫ਼ੇਸ ਅਣਲਾਕ ਵਰਤਦਾ ਹੈ, ਤਾਂ ਉਸਦੇ ਚਿਹਰੇ ਦੇ ਮਾਡਲ ਨੂੰ ਅੱਪਡੇਟ ਕਰਨ ਲਈ ਚਿੱਤਰ ਵਰਤੇ ਜਾਂਦੇ ਹਨ। ਉਸਦੇ ਚਿਹਰੇ ਦਾ ਮਾਡਲ ਬਣਾਉਣ ਲਈ ਵਰਤੇ ਜਾਂਦੇ ਚਿੱਤਰ ਕਦੇ ਵੀ ਸਟੋਰ ਨਹੀਂ ਕੀਤੇ ਜਾਂਦੇ, ਪਰ ਚਿਹਰੇ ਦੇ ਮਾਡਲ ਨੂੰ ਫ਼ੋਨ 'ਤੇ ਸੁਰੱਖਿਅਤ ਤਰੀਕੇ ਨਾਲ ਸਟੋਰ ਕੀਤਾ ਜਾਂਦਾ ਹੈ ਅਤੇ ਇਹ ਕਦੇ ਵੀ ਫ਼ੋਨ ਤੋਂ ਬਾਹਰ ਨਹੀਂ ਜਾਂਦਾ। ਸਾਰੀ ਪ੍ਰਕਿਰਿਆ ਫ਼ੋਨ 'ਤੇ ਸੁਰੱਖਿਅਤ ਤਰੀਕੇ ਨਾਲ ਵਾਪਰਦੀ ਹੈ।"</string>
+ਜਦੋਂ ਉਹ ਫ਼ੇਸ ਅਣਲਾਕ ਵਰਤਦਾ ਹੈ, ਤਾਂ ਉਸਦੇ ਚਿਹਰੇ ਦੇ ਮਾਡਲ ਨੂੰ ਅੱਪਡੇਟ ਕਰਨ ਲਈ ਚਿੱਤਰ ਵਰਤੇ ਜਾਂਦੇ ਹਨ। ਉਸਦੇ ਚਿਹਰੇ ਦਾ ਮਾਡਲ ਬਣਾਉਣ ਲਈ ਵਰਤੇ ਜਾਂਦੇ ਚਿੱਤਰ ਸਟੋਰ ਨਹੀਂ ਕੀਤੇ ਜਾਂਦੇ, ਪਰ ਚਿਹਰੇ ਦੇ ਮਾਡਲ ਨੂੰ ਫ਼ੋਨ 'ਤੇ ਸੁਰੱਖਿਅਤ ਤਰੀਕੇ ਨਾਲ ਸਟੋਰ ਕੀਤਾ ਜਾਂਦਾ ਹੈ ਅਤੇ ਇਹ ਕਦੇ ਵੀ ਫ਼ੋਨ ਤੋਂ ਬਾਹਰ ਨਹੀਂ ਜਾਂਦਾ। ਸਾਰੀ ਪ੍ਰਕਿਰਿਆ ਫ਼ੋਨ 'ਤੇ ਸੁਰੱਖਿਅਤ ਤਰੀਕੇ ਨਾਲ ਵਾਪਰਦੀ ਹੈ।"</string>
     <string name="security_settings_face_enroll_introduction_how_message">"ਫ਼ੇਸ ਅਣਲਾਕ ਤੁਹਾਡੀ ਪਛਾਣ ਦੀ ਪੁਸ਼ਟੀ ਕਰਨ ਲਈ ਤੁਹਾਡੇ ਚਿਹਰੇ ਦਾ ਇੱਕ ਵਿਲੱਖਣ ਮਾਡਲ ਬਣਾਉਂਦਾ ਹੈ। ਸੈੱਟਅੱਪ ਦੌਰਾਨ ਇਸ ਚਿਹਰੇ ਦੇ ਮਾਡਲ ਨੂੰ ਬਣਾਉਣ ਲਈ, ਤੁਸੀਂ ਵੱਖ-ਵੱਖ ਕੋਣਾਂ ਤੋਂ ਆਪਣੇ ਚਿਹਰੇ ਦੇ ਚਿੱਤਰ ਲਓਗੇ।
 
-ਜਦੋਂ ਤੁਸੀਂ ਫ਼ੇਸ ਅਣਲਾਕ ਵਰਤਦੇ ਹੋ, ਤਾਂ ਤੁਹਾਡੇ ਚਿਹਰੇ ਦੇ ਮਾਡਲ ਨੂੰ ਅੱਪਡੇਟ ਕਰਨ ਲਈ ਚਿੱਤਰ ਵਰਤੇ ਜਾਂਦੇ ਹਨ। ਤੁਹਾਡੇ ਚਿਹਰੇ ਦਾ ਮਾਡਲ ਬਣਾਉਣ ਲਈ ਵਰਤੇ ਜਾਂਦੇ ਚਿੱਤਰ ਕਦੇ ਵੀ ਸਟੋਰ ਨਹੀਂ ਕੀਤੇ ਜਾਂਦੇ, ਪਰ ਚਿਹਰੇ ਦੇ ਮਾਡਲ ਨੂੰ ਤੁਹਾਡੇ ਫ਼ੋਨ 'ਤੇ ਸੁਰੱਖਿਅਤ ਤਰੀਕੇ ਨਾਲ ਸਟੋਰ ਕੀਤਾ ਜਾਂਦਾ ਹੈ ਅਤੇ ਇਹ ਕਦੇ ਵੀ ਫ਼ੋਨ ਤੋਂ ਬਾਹਰ ਨਹੀਂ ਜਾਂਦਾ। ਸਾਰੀ ਪ੍ਰਕਿਰਿਆ ਤੁਹਾਡੇ ਫ਼ੋਨ 'ਤੇ ਸੁਰੱਖਿਅਤ ਤਰੀਕੇ ਨਾਲ ਵਾਪਰਦੀ ਹੈ।"</string>
+ਜਦੋਂ ਤੁਸੀਂ ਫ਼ੇਸ ਅਣਲਾਕ ਵਰਤਦੇ ਹੋ, ਤਾਂ ਤੁਹਾਡੇ ਚਿਹਰੇ ਦੇ ਮਾਡਲ ਨੂੰ ਅੱਪਡੇਟ ਕਰਨ ਲਈ ਚਿੱਤਰ ਵਰਤੇ ਜਾਂਦੇ ਹਨ। ਤੁਹਾਡੇ ਚਿਹਰੇ ਦਾ ਮਾਡਲ ਬਣਾਉਣ ਲਈ ਵਰਤੇ ਜਾਂਦੇ ਚਿੱਤਰ ਸਟੋਰ ਨਹੀਂ ਕੀਤੇ ਜਾਂਦੇ, ਪਰ ਚਿਹਰੇ ਦੇ ਮਾਡਲ ਨੂੰ ਤੁਹਾਡੇ ਫ਼ੋਨ 'ਤੇ ਸੁਰੱਖਿਅਤ ਤਰੀਕੇ ਨਾਲ ਸਟੋਰ ਕੀਤਾ ਜਾਂਦਾ ਹੈ ਅਤੇ ਇਹ ਕਦੇ ਵੀ ਫ਼ੋਨ ਤੋਂ ਬਾਹਰ ਨਹੀਂ ਜਾਂਦਾ। ਸਾਰੀ ਪ੍ਰਕਿਰਿਆ ਤੁਹਾਡੇ ਫ਼ੋਨ 'ਤੇ ਸੁਰੱਖਿਅਤ ਤਰੀਕੇ ਨਾਲ ਵਾਪਰਦੀ ਹੈ।"</string>
     <string name="security_settings_face_enroll_introduction_how_title">ਇਹ ਕਿਵੇਂ ਕੰਮ ਕਰਦਾ ਹੈ</string>
     <string name="security_settings_face_enroll_introduction_info_consent_gaze">ਫ਼ੋਨ ਨੂੰ ਅਣਲਾਕ ਕਰਨ ਜਾਂ ਉਹਨਾਂ ਦੀ ਪਛਾਣ ਦੀ ਪੁਸ਼ਟੀ ਕਰਨ ਲਈ ਫ਼ੇਸ ਅਣਲਾਕ ਵਾਸਤੇ ਤੁਹਾਡੇ ਬੱਚੇ ਦੀਆਂ ਅੱਖਾਂ ਦਾ ਖੁੱਲ੍ਹਾ ਹੋਣਾ ਲਾਜ਼ਮੀ ਹੋ ਸਕਦਾ ਹੈ। ਤੁਸੀਂ ਅਤੇ ਤੁਹਾਡਾ ਬੱਚਾ ਸੈਟਿੰਗਾਂ ਵਿੱਚ ਜਾ ਕੇ ਕਿਸੇ ਵੇਲੇ ਵੀ ਇਸ ਵਿਕਲਪ ਨੂੰ ਚਾਲੂ ਕਰ ਸਕਦੇ ਹੋ।</string>
     <string name="security_settings_face_enroll_introduction_info_consent_glasses">"ਜੇ ਤੁਹਾਡਾ ਬੱਚਾ ਆਮ ਤੌਰ 'ਤੇ ਐਨਕਾਂ ਪਹਿਨਦਾ ਹੈ, ਤਾਂ ਉਹ ਸੈੱਟਅੱਪ ਦੌਰਾਨ ਇਹਨਾਂ ਨੂੰ ਪਹਿਨ ਸਕਦਾ ਹੈ।"</string>
     <string name="security_settings_face_enroll_introduction_info_consent_looking">ਫ਼ੋਨ ਵੱਲ ਦੇਖਦੇ ਸਾਰ ਹੀ ਇਹ ਅਣਲਾਕ ਹੋ ਸਕਦਾ ਹੈ ਭਾਵੇਂ ਇੰਝ ਕਰਨ ਦਾ ਉਸਦਾ ਇਰਾਦਾ ਵੀ ਨਾ ਹੋਵੇ। ਉਸਦੇ ਨਾਲ ਬਹੁਤ ਜ਼ਿਆਦਾ ਮਿਲਦੇ-ਜੁਲਦੇ ਚਿਹਰੇ ਵਾਲੇ ਕਿਸੇ ਵਿਅਕਤੀ ਵੱਲੋਂ ਵੀ ਉਸਦਾ ਫ਼ੋਨ ਅਣਲਾਕ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ, ਜਿਵੇਂ ਕਿ ਉਸਦੇ ਵਰਗੇ ਦਿਸਣ ਵਾਲੇ ਭੈਣ-ਭਰਾ ਜਾਂ ਜੇ ਕਿਸੇ ਨੇ ਇਸਨੂੰ ਉਸਦੇ ਚਿਹਰੇ ਦੇ ਮੂਹਰੇ ਕੀਤਾ ਹੋਵੇ।</string>
     <string name="security_settings_face_enroll_introduction_info_gaze">ਫ਼ੋਨ ਨੂੰ ਅਣਲਾਕ ਕਰਨ ਜਾਂ ਤੁਹਾਡੀ ਪਛਾਣ ਦੀ ਪੁਸ਼ਟੀ ਕਰਨ ਲਈ ਫ਼ੇਸ ਅਣਲਾਕ ਵਾਸਤੇ ਤੁਹਾਡੀਆਂ ਅੱਖਾਂ ਦਾ ਖੁੱਲ੍ਹਾ ਹੋਣਾ ਲਾਜ਼ਮੀ ਹੋ ਸਕਦਾ ਹੈ। ਤੁਸੀਂ ਸੈਟਿੰਗਾਂ ਵਿੱਚ ਜਾ ਕੇ ਕਿਸੇ ਵੇਲੇ ਵੀ ਇਸ ਵਿਕਲਪ ਨੂੰ ਚਾਲੂ ਕਰ ਸਕਦੇ ਹੋ।</string>
     <string name="security_settings_face_enroll_introduction_info_glasses">ਐਨਕਾਂ ਜਾਂ ਹਲਕੀ ਜਿਹੀ ਭਾਹ ਦੀਆਂ ਧੁੱਪ ਵਾਲੀਆਂ ਐਨਕਾਂ ਠੀਕ ਰਹਿਣਗੀਆਂ।</string>
+    <string name="security_settings_face_enroll_introduction_info_less_secure">ਫ਼ੋਨ ਨੂੰ ਅਣਲਾਕ ਕਰਨ ਲਈ ਚਿਹਰੇ ਦੀ ਵਰਤੋਂ ਕਰਨਾ ਮਜ਼ਬੂਤ ਪੈਟਰਨ ਜਾਂ ਪਿੰਨ ਨਾਲੋਂ ਘੱਟ ਸੁਰੱਖਿਅਤ ਹੋ ਸਕਦਾ ਹੈ।</string>
     <string name="security_settings_face_enroll_introduction_info_looking">ਫ਼ੋਨ ਵੱਲ ਦੇਖਦੇ ਸਾਰ ਹੀ ਇਹ ਅਣਲਾਕ ਹੋ ਸਕਦਾ ਹੈ ਭਾਵੇਂ ਇੰਝ ਕਰਨ ਦਾ ਤੁਹਾਡਾ ਇਰਾਦਾ ਵੀ ਨਾ ਹੋਵੇ। ਤੁਹਾਡੇ ਨਾਲ ਬਹੁਤ ਜ਼ਿਆਦਾ ਮਿਲਦੇ-ਜੁਲਦੇ ਚਿਹਰੇ ਵਾਲੇ ਕਿਸੇ ਵਿਅਕਤੀ ਵੱਲੋਂ ਵੀ ਤੁਹਾਡਾ ਫ਼ੋਨ ਅਣਲਾਕ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ, ਜਿਵੇਂ ਕਿ ਤੁਹਾਡੇ ਵਰਗੇ ਦਿਸਣ ਵਾਲੇ ਭੈਣ-ਭਰਾ ਜਾਂ ਜੇ ਇਹ ਕਿਸੇ ਨੇ ਤੁਹਾਡੇ ਚਿਹਰੇ ਦੇ ਮੂਹਰੇ ਕੀਤਾ ਹੈ।</string>
     <string name="security_settings_face_enroll_introduction_info_title">ਧਿਆਨ ਵਿੱਚ ਰੱਖੋ</string>
     <string name="security_settings_face_enroll_introduction_message">ਆਪਣਾ ਫ਼ੋਨ ਅਣਲਾਕ ਕਰਨ ਜਾਂ ਆਪਣੀ ਪਛਾਣ ਦੀ ਪੁਸ਼ਟੀ ਕਰਨ ਲਈ ਆਪਣਾ ਚਿਹਰਾ ਵਰਤੋ, ਜਿਵੇਂ ਕਿ ਜਦੋਂ ਤੁਸੀਂ ਐਪਾਂ ਵਿੱਚ ਸਾਈਨ-ਇਨ ਕਰਦੇ ਹੋ ਜਾਂ ਕਿਸੇ ਖਰੀਦ ਨੂੰ ਮਨਜ਼ੂਰੀ ਦਿੰਦੇ ਹੋ।</string>
@@ -4452,13 +4471,14 @@ g.co/pixel/faceunlock 'ਤੇ ਹੋਰ ਜਾਣੋ।"</string>
 
 ਤੁਹਾਡੇ ਵਰਗੇ ਦਿਸਣ ਵਾਲੇ ਕਿਸੇ ਵਿਅਕਤੀ ਵੱਲੋਂ ਵੀ ਤੁਹਾਡਾ ਫ਼ੋਨ ਅਣਲਾਕ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ, ਜਿਵੇਂ ਇੱਕੋ ਜਿਹੇ ਦਿਸਣ ਵਾਲੇ ਭੈਣ-ਭਰਾ।"</string>
     <string name="security_settings_face_settings_preferences_category">ਫ਼ੇਸ ਅਣਲਾਕ ਦੀ ਵਰਤੋਂ ਕਰਦੇ ਸਮੇਂ</string>
-    <string name="security_settings_face_settings_remove_dialog_details">"ਤੁਹਾਡੇ ਚਿਹਰੇ ਦਾ ਮਾਡਲ ਪੱਕੇ ਤੌਰ 'ਤੇ ਅਤੇ ਸੁਰੱਖਿਅਤ ਤਰੀਕੇ ਨਾਲ ਮਿਟਾ ਦਿੱਤਾ ਜਾਵੇਗਾ। ਮਿਟਾਉਣ ਤੋਂ ਬਾਅਦ, ਤੁਹਾਨੂੰ ਆਪਣੇ ਫ਼ੋਨ ਨੂੰ ਅਣਲਾਕ ਕਰਨ ਜਾਂ ਐਪਾਂ ਵਿੱਚ ਪ੍ਰਮਾਣੀਕਰਨ ਲਈ ਆਪਣੇ ਪਿੰਨ, ਪੈਟਰਨ ਜਾਂ ਪਾਸਵਰਡ ਦੀ ਲੋੜ ਪਵੇਗੀ।"</string>
+    <string name="security_settings_face_settings_remove_dialog_details">"ਤੁਹਾਡੇ ਚਿਹਰੇ ਦਾ ਮਾਡਲ ਪੱਕੇ ਤੌਰ 'ਤੇ ਅਤੇ ਸੁਰੱਖਿਅਤ ਤਰੀਕੇ ਨਾਲ ਮਿਟਾਇਆ ਜਾਵੇਗਾ।
+
+ਮਿਟਾਉਣ ਤੋਂ ਬਾਅਦ, ਤੁਹਾਨੂੰ ਆਪਣੇ ਫ਼ੋਨ ਨੂੰ ਅਣਲਾਕ ਕਰਨ ਜਾਂ ਐਪਾਂ ਵਿੱਚ ਪ੍ਰਮਾਣੀਕਰਨ ਲਈ ਆਪਣੇ ਪਿੰਨ, ਪੈਟਰਨ ਜਾਂ ਪਾਸਵਰਡ ਦੀ ਲੋੜ ਹੋਵੇਗੀ।"</string>
+    <string name="security_settings_face_settings_remove_dialog_details_convenience">"ਤੁਹਾਡੇ ਚਿਹਰੇ ਦਾ ਮਾਡਲ ਪੱਕੇ ਤੌਰ 'ਤੇ ਅਤੇ ਸੁਰੱਖਿਅਤ ਤਰੀਕੇ ਨਾਲ ਮਿਟਾਇਆ ਜਾਵੇਗਾ।
+
+ਮਿਟਾਉਣ ਤੋਂ ਬਾਅਦ, ਤੁਹਾਨੂੰ ਆਪਣੇ ਫ਼ੋਨ ਨੂੰ ਅਣਲਾਕ ਕਰਨ ਲਈ ਆਪਣੇ ਪਿੰਨ, ਪੈਟਰਨ ਜਾਂ ਪਾਸਵਰਡ ਦੀ ਲੋੜ ਹੋਵੇਗੀ।"</string>
     <string name="security_settings_face_settings_remove_dialog_title">ਕੀ ਚਿਹਰੇ ਦਾ ਮਾਡਲ ਮਿਟਾਉਣਾ ਹੈ?</string>
     <string name="security_settings_face_settings_remove_face_model">ਚਿਹਰੇ ਦਾ ਮਾਡਲ ਮਿਟਾਓ</string>
-    <string name="security_settings_face_settings_remove_model_dialog_details">"ਤੁਹਾਡੇ ਚਿਹਰੇ ਦਾ ਮਾਡਲ ਪੱਕੇ ਤੌਰ 'ਤੇ ਅਤੇ ਸੁਰੱਖਿਅਤ ਤਰੀਕੇ ਨਾਲ ਮਿਟਾ ਦਿੱਤਾ ਜਾਵੇਗਾ।
-
- ਮਿਟਾਉਣ ਤੋਂ ਬਾਅਦ, ਤੁਹਾਨੂੰ ਆਪਣੇ ਫ਼ੋਨ ਨੂੰ ਅਣਲਾਕ ਕਰਨ ਜਾਂ ਐਪਾਂ ਵਿੱਚ ਪ੍ਰਮਾਣੀਕਰਨ ਲਈ ਆਪਣੇ ਫਿੰਗਰਪ੍ਰਿੰਟ, ਪਿੰਨ, ਪੈਟਰਨ ਜਾਂ ਪਾਸਵਰਡ ਦੀ ਲੋੜ ਪਵੇਗੀ।"</string>
-    <string name="security_settings_face_settings_remove_model_dialog_title">ਕੀ ਚਿਹਰੇ ਦਾ ਮਾਡਲ ਮਿਟਾਉਣਾ ਹੈ?</string>
     <string name="security_settings_face_settings_require_attention">ਅੱਖਾਂ ਖੁੱਲ੍ਹੀਆਂ ਹੋਣ</string>
     <string name="security_settings_face_settings_require_attention_details">ਫ਼ੋਨ ਅਣਲਾਕ ਕਰਨ ਲਈ, ਤੁਹਾਡੀਆਂ ਅੱਖਾਂ ਦਾ ਖੁੱਲ੍ਹੇ ਹੋਣਾ ਲਾਜ਼ਮੀ ਹੈ</string>
     <string name="security_settings_face_settings_require_confirmation">ਹਮੇਸ਼ਾਂ ਪੁਸ਼ਟੀਕਰਨ ਮੰਗੋ</string>
@@ -4541,7 +4561,7 @@ g.co/pixel/faceunlock 'ਤੇ ਹੋਰ ਜਾਣੋ।"</string>
     <string name="security_settings_title">ਸੁਰੱਖਿਆ</string>
     <string name="security_settings_udfps_enroll_a11y">"ਸੈਂਸਰ ਨੂੰ ਲੱਭਣ ਲਈ ਸਕ੍ਰੀਨ 'ਤੇ ਆਪਣੀ ਉਂਗਲ ਨੂੰ ਘੁੰਮਾਓ। ਫਿੰਗਰਪ੍ਰਿੰਟ ਸੈਂਸਰ ਨੂੰ ਸਪਰਸ਼ ਕਰਕੇ ਦਬਾਈ ਰੱਖੋ।"</string>
     <string name="security_settings_udfps_enroll_edge_message">"ਆਪਣੀ ਉਂਗਲ ਦੇ ਇੱਕ ਪਾਸੇ ਨੂੰ ਸੈਂਸਰ 'ਤੇ ਲਗਾ ਕੇ ਰੱਖੋ, ਫਿਰ ਦੂਜੇ ਪਾਸੇ ਨੂੰ ਲਗਾਓ"</string>
-    <string name="security_settings_udfps_enroll_edge_title">ਅੰਤ ਵਿੱਚ, ਆਪਣੀ ਉਂਗਲ ਦੇ ਕੋਨਿਆਂ ਨੂੰ ਰੱਖੋ</string>
+    <string name="security_settings_udfps_enroll_edge_title">ਅੰਤ ਵਿੱਚ, ਆਪਣੀ ਉਂਗਲ ਦੇ ਕੋਨਿਆਂ ਦੀ ਵਰਤੋਂ ਕਰੋ</string>
     <string name="security_settings_udfps_enroll_find_sensor_message">"ਫਿੰਗਰਪ੍ਰਿੰਟ ਸੈਂਸਰ ਤੁਹਾਡੀ ਸਕ੍ਰੀਨ 'ਤੇ ਹੈ। ਤੁਸੀਂ ਅਗਲੀ ਸਕ੍ਰੀਨ 'ਤੇ ਆਪਣੇ ਫਿੰਗਰਪ੍ਰਿੰਟ ਨੂੰ ਕੈਪਚਰ ਕਰੋਗੇ।"</string>
     <string name="security_settings_udfps_enroll_find_sensor_start_button">ਸ਼ੁਰੂ ਕਰੋ</string>
     <string name="security_settings_udfps_enroll_find_sensor_title">ਆਪਣੇ ਫਿੰਗਰਪ੍ਰਿੰਟ ਦਾ ਸੈੱਟਅੱਪ ਕਿਵੇਂ ਕਰਨਾ ਹੈ</string>
@@ -4550,7 +4570,7 @@ g.co/pixel/faceunlock 'ਤੇ ਹੋਰ ਜਾਣੋ।"</string>
     <string name="security_settings_udfps_enroll_repeat_a11y_message">ਇਸ ਨਾਲ ਤੁਹਾਡੇ ਫਿੰਗਰਪ੍ਰਿੰਟ ਨੂੰ ਬਿਹਤਰ ਢੰਗ ਨਾਲ ਕੈਪਚਰ ਕਰਨ ਵਿੱਚ ਮਦਦ ਹੁੰਦੀ ਹੈ</string>
     <string name="security_settings_udfps_enroll_repeat_message">"ਫਿੰਗਰਪ੍ਰਿੰਟ ਪ੍ਰਤੀਕ ਵਿੱਚ ਹਰੇਕ ਵਾਰ ਹਲਚਲ ਹੋਣ 'ਤੇ ਉਸਨੂੰ ਸਪਰਸ਼ ਕਰਕੇ ਰੱਖੋ। ਇਸ ਨਾਲ ਤੁਹਾਡੇ ਫਿੰਗਰਪ੍ਰਿੰਟ ਨੂੰ ਬਿਹਤਰ ਢੰਗ ਨਾਲ ਕੈਪਚਰ ਕਰਨ ਵਿੱਚ ਮਦਦ ਹੁੰਦੀ ਹੈ।"</string>
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">ਫਿੰਗਰਪ੍ਰਿੰਟ ਪ੍ਰਤੀਕ ਦੀਆਂ ਹਿਦਾਇਤਾਂ ਦੀ ਪਾਲਣਾ ਕਰੋ</string>
-    <string name="security_settings_udfps_enroll_start_message">"ਆਪਣੀ ਉਂਗਲ ਨੂੰ ਉਦੋਂ ਤੱਕ ਸੈਂਸਰ 'ਤੇ ਰੱਖੋ ਜਦੋਂ ਤੱਕ ਤੁਹਾਨੂੰ ਥਰਥਰਾਹਟ ਮਹਿਸੂਸ ਨਹੀਂ ਹੁੰਦੀ"</string>
+    <string name="security_settings_udfps_enroll_start_message">"ਆਪਣੇ ਫਿੰਗਰਪ੍ਰਿੰਟ ਨੂੰ ਉਦੋਂ ਤੱਕ ਸੈਂਸਰ 'ਤੇ ਸਿੱਧਾ ਰੱਖੋ ਜਦੋਂ ਤੱਕ ਤੁਹਾਨੂੰ ਥਰਥਰਾਹਟ ਮਹਿਸੂਸ ਨਹੀਂ ਹੁੰਦੀ"</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">ਇੱਕ ਵਾਰ ਹੋਰ</string>
     <string name="security_settings_work_fingerprint_preference_title">ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਲਈ Pixel Imprint</string>
     <string name="security_status_title">ਸੁਰੱਖਿਆ ਸਥਿਤੀ</string>
@@ -4576,7 +4596,6 @@ g.co/pixel/faceunlock 'ਤੇ ਹੋਰ ਜਾਣੋ।"</string>
     <string name="select_webview_provider_dialog_title">WebView ਅਮਲੀਕਰਨ ਸੈੱਟ ਕਰੋ</string>
     <string name="select_webview_provider_title">WebView ਅਮਲੀਕਰਨ</string>
     <string name="select_webview_provider_toast_text">ਇਹ ਚੋਣ ਹੁਣ ਵੈਧ ਨਹੀਂ ਹੈ। ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।</string>
-    <string name="sensor_toggle_description">ਸਾਰੀਆਂ ਐਪਾਂ ਅਤੇ ਸੇਵਾਵਾਂ ਲਈ</string>
     <string name="sensors_off_quick_settings_title">ਸੈਂਸਰ ਬੰਦ ਕਰੋ</string>
     <string name="service_background_processes">%1$s ਮੁਫ਼ਤ</string>
     <string name="service_foreground_processes">%1$s ਵਰਤੀ</string>
@@ -4808,6 +4827,7 @@ g.co/pixel/faceunlock 'ਤੇ ਹੋਰ ਜਾਣੋ।"</string>
     <string name="sound_settings_summary_silent">"ਰਿੰਗਰ ਸ਼ਾਂਤ 'ਤੇ ਸੈੱਟ ਹੈ"</string>
     <string name="sound_settings_summary_vibrate">"ਰਿੰਗਰ ਥਰਥਰਾਹਟ 'ਤੇ ਸੈੱਟ ਹੈ"</string>
     <string name="sound_work_settings">ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਧੁਨੀਆਂ</string>
+    <string name="spatial_audio_title">ਸਥਾਨ-ਅਨੁਕੂਲ ਆਡੀਓ</string>
     <string name="special_access">ਵਿਸ਼ੇਸ਼ ਐਪ ਪਹੁੰਚ</string>
     <string name="special_access_more">ਹੋਰ ਦੇਖੋ</string>
     <string name="speed_label_fast">ਤੇਜ਼</string>
@@ -5085,16 +5105,16 @@ g.co/pixel/faceunlock 'ਤੇ ਹੋਰ ਜਾਣੋ।"</string>
     <string name="sync_automatically">"ਐਪ  ਡਾਟਾ  ਆਟੋ-ਸਿੰਕ ਕਰੋ"</string>
     <string name="sync_calendar">Calendar</string>
     <string name="sync_contacts">ਸੰਪਰਕ</string>
-    <string name="sync_disabled">ਸਮਕਾਲੀਕਰਨ ਬੰਦ ਹੈ</string>
+    <string name="sync_disabled">ਸਿੰਕ ਬੰਦ ਹੈ</string>
     <string name="sync_enabled">ਸਿੰਕ ਚਾਲੂ ਹੈ</string>
     <string name="sync_error">ਸਿੰਕ ਅਸ਼ੁੱਧੀ</string>
     <string name="sync_failed">ਸਿੰਕ ਅਸਫਲ</string>
     <string name="sync_gmail">Gmail</string>
-    <string name="sync_in_progress">ਹੁਣ ਸਮਕਾਲੀਕਰਨ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ…</string>
-    <string name="sync_is_failing">ਸਮਕਾਲੀਕਰਨ ਵਿੱਚ ਇਸ ਵੇਲੇ ਸਮੱਸਿਆਵਾਂ ਹੋ ਰਹੀਆਂ ਹਨ। ਇਹ ਜਲਦੀ ਹੀ ਠੀਕ ਹੋ ਜਾਏਗਾ।</string>
-    <string name="sync_menu_sync_cancel">ਸਮਕਾਲੀਕਰਨ ਰੱਦ ਕਰੋ</string>
-    <string name="sync_menu_sync_now">ਹੁਣ ਸਮਕਾਲੀਕਰਨ ਕਰੋ</string>
-    <string name="sync_one_time_sync">"ਹੁਣੇ ਸਮਕਾਲੀਕਰਨ ਲਈ ਟੈਪ ਕਰੋ
+    <string name="sync_in_progress">ਹੁਣ ਸਿੰਕ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ…</string>
+    <string name="sync_is_failing">ਸਿੰਕ ਵਿੱਚ ਇਸ ਵੇਲੇ ਸਮੱਸਿਆਵਾਂ ਹੋ ਰਹੀਆਂ ਹਨ। ਇਹ ਜਲਦੀ ਹੀ ਠੀਕ ਹੋ ਜਾਏਗਾ।</string>
+    <string name="sync_menu_sync_cancel">ਸਿੰਕ ਰੱਦ ਕਰੋ</string>
+    <string name="sync_menu_sync_now">ਹੁਣ ਸਿੰਕ ਕਰੋ</string>
+    <string name="sync_one_time_sync">"ਹੁਣੇ ਸਿੰਕ ਲਈ ਟੈਪ ਕਰੋ
 %1$s"</string>
     <string name="sync_plug"><font fgcolor="#ffffffff">Google ਸਿੰਕ ਤੇ ਤੁਹਾਡਾ ਸੁਆਗਤ ਹੈ!</font>" 
 ਤੁਸੀਂ ਜਿੱਥੇ ਵੀ ਹੋਵੋ, ਉੱਥੋਂ ਤੁਹਾਡੇ ਸੰਪਰਕਾਂ, ਮੁਲਾਕਾਤਾਂ ਆਦਿ ਤੱਕ ਪਹੁੰਚ ਦੀ ਆਗਿਆ ਦੇਣ ਲਈ ਡਾਟਾ ਸਿੰਕ ਕਰਨ ਲਈ ਇੱਕ Google ਪਹੁੰਚ।"</string>
@@ -5619,7 +5639,7 @@ g.co/pixel/faceunlock 'ਤੇ ਹੋਰ ਜਾਣੋ।"</string>
     <string name="vpn_turn_on">ਚਾਲੂ ਕਰੋ</string>
     <string name="vpn_type">ਕਿਸਮ</string>
     <string name="vpn_username">ਵਰਤੋਂਕਾਰ ਨਾਮ</string>
-    <string name="vpn_version">ਵਰਜਨ %s</string>
+    <string name="vpn_version">ਵਰਜਨ</string>
     <string name="vr_listener_security_warning_summary">ਜਦੋਂ ਤੁਸੀਂ ਆਭਾਸੀ ਵਾਸਤਵਿਕਤਾ ਮੋਡ ਵਿੱਚ ਐਪਲੀਕੇਸ਼ਨਾਂ ਦੀ ਵਰਤੋਂ ਕਰਦੇ ਹੋ ਤਾਂ %1$s ਚੱਲਣ ਦੇ ਯੋਗ ਹੋ ਜਾਵੇਗਾ।</string>
     <string name="vr_listener_security_warning_title">ਕੀ %1$s ਲਈ VR ਸੇਵਾ ਪਹੁੰਚ ਨੂੰ ਆਗਿਆ ਦੇਣੀ ਹੈ?</string>
     <string name="vr_listeners_title">VR ਮਦਦਗਾਰ ਸੇਵਾਵਾਂ</string>
@@ -5889,7 +5909,7 @@ g.co/pixel/faceunlock 'ਤੇ ਹੋਰ ਜਾਣੋ।"</string>
     <string name="wifi_not_in_range">ਰੇਂਜ ਵਿੱਚ ਨਹੀਂ ਹੈ</string>
     <string name="wifi_not_in_range_message">ਨੈੱਟਵਰਕ ਰੇਂਜ ਵਿੱਚ ਨਹੀਂ ਹੈ</string>
     <string name="wifi_notify_open_networks">ਜਨਤਕ ਨੈੱਟਵਰਕਾਂ ਲਈ ਸੂਚਿਤ ਕਰੋ</string>
-    <string name="wifi_notify_open_networks_summary">ਜਦੋਂ ਸਵੈਚਲਿਤ ਕਨੈਕਸ਼ਨ ਉਪਲਬਧ ਨਹੀਂ ਹੁੰਦਾ ਹੈ</string>
+    <string name="wifi_notify_open_networks_summary">"ਉੱਚ ਗੁਣਵੱਤਾ ਵਾਲਾ ਕੋਈ ਜਨਤਕ ਨੈੱਟਵਰਕ ਉਪਲਬਧ ਹੋਣ 'ਤੇ ਸੂਚਿਤ ਕਰੋ"</string>
     <string name="wifi_on_time">ਵਾਈ‑ਫਾਈ ਚਾਲੂ ਹੋਣ ਦਾ ਸਮਾਂ</string>
     <string name="wifi_p2p_cancel_connect_message">ਕੀ ਤੁਸੀਂ %1$s ਨਾਲ ਕਨੈਕਟ ਕਰਨ ਲਈ ਸੱਦਾ ਰੱਦ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ?</string>
     <string name="wifi_p2p_cancel_connect_title">ਕੀ ਸੱਦਾ ਰੱਦ ਕਰਨਾ ਹੈ?</string>
@@ -5977,7 +5997,6 @@ g.co/pixel/faceunlock 'ਤੇ ਹੋਰ ਜਾਣੋ।"</string>
     <string name="wifi_suspend_optimizations">ਵਾਈ‑ਫਾਈ ਅਨੁਕੂਲਨ</string>
     <string name="wifi_suspend_optimizations_summary">ਜਦੋਂ ਵਾਈ‑ਫਾਈ ਚਾਲੂ ਹੋਵੇ ਤਾਂ ਬੈਟਰੀ ਵਰਤੋਂ ਘੱਟ ਕਰੋ</string>
     <string name="wifi_switch_away_when_unvalidated">"ਵਾਈ-ਫਾਈ ਦੀ ਇੰਟਰਨੈੱਟ ਪਹੁੰਚ ਚਲੀ ਜਾਣ 'ਤੇ ਮੋਬਾਈਲ ਡਾਟਾ ਵਰਤੋ।"</string>
-    <string name="wifi_switch_summary">ਵਾਈ-ਫਾਈ ਨੈੱਟਵਰਕਾਂ ਨੂੰ ਲੱਭ ਕੇ ਉਹਨਾਂ ਨਾਲ ਕਨੈਕਟ ਕਰੋ</string>
     <string name="wifi_tap_to_sign_in">ਨੈੱਟਵਰਕ ਵਿੱਚ ਸਾਈਨ-ਇਨ ਕਰਨ ਲਈ ਇੱਥੇ ਟੈਪ ਕਰੋ</string>
     <string name="wifi_tether_configure_ap_text">ਵਾਈ‑ਫਾਈ ਹੌਟਸਪੌਟ ਸਥਾਪਤ ਕਰੋ</string>
     <string name="wifi_tether_configure_ssid_default">AndroidHotspot</string>
@@ -6345,7 +6364,7 @@ g.co/pixel/faceunlock 'ਤੇ ਹੋਰ ਜਾਣੋ।"</string>
     <string name="zone_auto_title">"ਸਵੈਚਲਿਤ ਤੌਰ 'ਤੇ ਸਮਾਂ ਖੇਤਰ ਸੈੱਟ ਕਰੋ"</string>
     <string name="zone_change_to_from_dst">%1$s %2$s ਨੂੰ ਸ਼ੁਰੂ ਹੋਵੇਗਾ।</string>
     <string name="zone_info_exemplar_location_and_offset">%1$s (%2$s)</string>
-    <string name="zone_info_footer">%1$s ਦੀ ਵਰਤੋਂ ਹੋ ਰਹੀ ਹੈ। %3$s ਨੂੰ %2$s ਸ਼ੁਰੂ ਹੋਵੇਗਾ।</string>
+    <string name="zone_info_footer">%1$s ਵਰਤਿਆ ਜਾ ਰਿਹਾ ਹੈ। %2$s %3$s ਤੋਂ ਸ਼ੁਰੂ ਹੁੰਦਾ ਹੈ।</string>
     <string name="zone_info_footer_no_dst">%1$s ਦੀ ਵਰਤੋਂ ਹੋ ਰਹੀ ਹੈ। ਦਿਨ ਦੇ ਸਮੇਂ ਨੂੰ ਵਿੱਚ ਕੋਈ ਬਦਲਾਅ ਨਹੀਂ।</string>
     <string name="zone_info_offset_and_name">%2$s (%1$s)</string>
     <string name="zone_menu_by_offset">UTC ਆਫ਼ਸੈੱਟ ਮੁਤਾਬਕ ਚੁਣੋ</string>

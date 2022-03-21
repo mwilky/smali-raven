@@ -214,12 +214,12 @@
     return p0
 
     :cond_0
-    const p0, 0x7f0413ce
+    const p0, 0x7f0413f3
 
     return p0
 
     :cond_1
-    const p0, 0x7f0411de
+    const p0, 0x7f041202
 
     return p0
 .end method
@@ -250,12 +250,12 @@
     return p0
 
     :cond_0
-    const p0, 0x7f0413cf
+    const p0, 0x7f0413f4
 
     return p0
 
     :cond_1
-    const p0, 0x7f0411df
+    const p0, 0x7f041203
 
     return p0
 .end method
@@ -337,7 +337,7 @@
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 3
 
-    const v0, 0x7f06009b
+    const v0, 0x7f06009d
 
     const/4 v1, 0x1
 

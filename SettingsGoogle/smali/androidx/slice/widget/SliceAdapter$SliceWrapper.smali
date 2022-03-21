@@ -90,7 +90,7 @@
 
     const/4 v0, 0x0
 
-    const-string v1, "source"
+    const-string/jumbo v1, "source"
 
     invoke-static {p0, v0, v1}, Landroidx/slice/core/SliceQuery;->findSubtype(Landroidx/slice/SliceItem;Ljava/lang/String;Ljava/lang/String;)Landroidx/slice/SliceItem;
 

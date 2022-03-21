@@ -212,7 +212,7 @@
 
     if-nez p1, :cond_7
 
-    const p1, 0x1040262
+    const p1, 0x1040263
 
     invoke-virtual {p0, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -224,7 +224,7 @@
 
     if-eqz p0, :cond_7
 
-    const-string p0, "showing dialog for packaged keyboard"
+    const-string/jumbo p0, "showing dialog for packaged keyboard"
 
     invoke-static {v2, p0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 

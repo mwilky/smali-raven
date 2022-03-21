@@ -170,7 +170,7 @@
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0417ee
+    const v1, 0x7f041813
 
     invoke-virtual {p0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -341,17 +341,17 @@
 
     if-nez v0, :cond_0
 
-    const v0, 0x7f041812
+    const v0, 0x7f041837
 
     invoke-direct {p0, v1, v0}, Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;->makeRadioPreference(Ljava/lang/String;I)Lcom/android/settingslib/widget/RadioButtonPreference;
 
-    const v0, 0x7f041815
+    const v0, 0x7f04183a
 
     const-string v1, "conversations_important"
 
     invoke-direct {p0, v1, v0}, Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;->makeRadioPreference(Ljava/lang/String;I)Lcom/android/settingslib/widget/RadioButtonPreference;
 
-    const v0, 0x7f041816
+    const v0, 0x7f04183b
 
     const-string v1, "conversations_none"
 

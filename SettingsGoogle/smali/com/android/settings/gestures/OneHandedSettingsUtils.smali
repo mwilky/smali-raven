@@ -53,7 +53,7 @@
 
     sput-object v0, Lcom/android/settings/gestures/OneHandedSettingsUtils;->ONE_HANDED_MODE_ENABLED_URI:Landroid/net/Uri;
 
-    const-string v0, "swipe_bottom_to_notification_enabled"
+    const-string/jumbo v0, "swipe_bottom_to_notification_enabled"
 
     invoke-static {v0}, Landroid/provider/Settings$Secure;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 
@@ -290,7 +290,7 @@
 
     sget v0, Lcom/android/settings/gestures/OneHandedSettingsUtils;->sCurrentUserId:I
 
-    const-string v1, "swipe_bottom_to_notification_enabled"
+    const-string/jumbo v1, "swipe_bottom_to_notification_enabled"
 
     const/4 v2, 0x0
 
@@ -333,7 +333,7 @@
 
     sget v0, Lcom/android/settings/gestures/OneHandedSettingsUtils;->sCurrentUserId:I
 
-    const-string v1, "swipe_bottom_to_notification_enabled"
+    const-string/jumbo v1, "swipe_bottom_to_notification_enabled"
 
     invoke-static {p0, v1, p1, v0}, Landroid/provider/Settings$Secure;->putIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)Z
 
@@ -349,7 +349,7 @@
 
     sget v0, Lcom/android/settings/gestures/OneHandedSettingsUtils;->sCurrentUserId:I
 
-    const-string v1, "taps_app_to_exit"
+    const-string/jumbo v1, "taps_app_to_exit"
 
     invoke-static {p0, v1, p1, v0}, Landroid/provider/Settings$Secure;->putIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)Z
 

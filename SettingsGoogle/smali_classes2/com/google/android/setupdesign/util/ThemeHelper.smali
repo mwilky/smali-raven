@@ -256,39 +256,13 @@
     return p0
 .end method
 
-.method public static isSetupWizardDynamicColorEnabled(Landroid/content/Context;)Z
+.method public static shouldApplyDynamicColor(Landroid/content/Context;)Z
     .locals 0
 
     invoke-static {p0}, Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;->isSetupWizardDynamicColorEnabled(Landroid/content/Context;)Z
 
     move-result p0
 
-    return p0
-.end method
-
-.method public static shouldApplyDynamicColor(Landroid/content/Context;)Z
-    .locals 1
-
-    invoke-static {p0}, Lcom/google/android/setupdesign/util/ThemeHelper;->shouldApplyExtendedPartnerConfig(Landroid/content/Context;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    invoke-static {p0}, Lcom/google/android/setupdesign/util/ThemeHelper;->isSetupWizardDynamicColorEnabled(Landroid/content/Context;)Z
-
-    move-result p0
-
-    if-eqz p0, :cond_0
-
-    const/4 p0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    :goto_0
     return p0
 .end method
 
@@ -305,7 +279,7 @@
 .method public static trySetDynamicColor(Landroid/content/Context;)Z
     .locals 2
 
-    invoke-static {p0}, Lcom/google/android/setupdesign/util/ThemeHelper;->shouldApplyExtendedPartnerConfig(Landroid/content/Context;)Z
+    invoke-static {}, Lcom/google/android/setupcompat/util/BuildCompatUtils;->isAtLeastS()Z
 
     move-result v0
 
@@ -315,14 +289,14 @@
 
     sget-object p0, Lcom/google/android/setupdesign/util/ThemeHelper;->LOG:Lcom/google/android/setupcompat/util/Logger;
 
-    const-string v0, "SetupWizard does not supports the extended partner configs."
+    const-string v0, "Dynamic color require platform version at least S."
 
     invoke-virtual {p0, v0}, Lcom/google/android/setupcompat/util/Logger;->w(Ljava/lang/String;)V
 
     return v1
 
     :cond_0
-    invoke-static {p0}, Lcom/google/android/setupdesign/util/ThemeHelper;->isSetupWizardDynamicColorEnabled(Landroid/content/Context;)Z
+    invoke-static {p0}, Lcom/google/android/setupdesign/util/ThemeHelper;->shouldApplyDynamicColor(Landroid/content/Context;)Z
 
     move-result v0
 

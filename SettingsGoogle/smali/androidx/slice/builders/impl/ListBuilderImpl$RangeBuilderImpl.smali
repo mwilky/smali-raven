@@ -124,7 +124,7 @@
 
     if-eqz v0, :cond_2
 
-    const-string v2, "title"
+    const-string/jumbo v2, "title"
 
     filled-new-array {v2}, [Ljava/lang/String;
 
@@ -209,7 +209,7 @@
 
     new-array v1, v2, [Ljava/lang/String;
 
-    const-string v3, "value"
+    const-string/jumbo v3, "value"
 
     invoke-virtual {p1, v0, v3, v1}, Landroidx/slice/Slice$Builder;->addInt(ILjava/lang/String;[Ljava/lang/String;)Landroidx/slice/Slice$Builder;
 

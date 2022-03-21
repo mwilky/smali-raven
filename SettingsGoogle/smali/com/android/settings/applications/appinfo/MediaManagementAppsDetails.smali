@@ -62,12 +62,12 @@
 
     if-eqz p0, :cond_1
 
-    const p0, 0x7f04025c
+    const p0, 0x7f040270
 
     goto :goto_1
 
     :cond_1
-    const p0, 0x7f04025d
+    const p0, 0x7f040271
 
     :goto_1
     return p0
@@ -176,7 +176,7 @@
 
     iput-object p1, p0, Lcom/android/settings/applications/appinfo/MediaManagementAppsDetails;->mAppOpsManager:Landroid/app/AppOpsManager;
 
-    const p1, 0x7f150094
+    const p1, 0x7f150099
 
     invoke-virtual {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->addPreferencesFromResource(I)V
 

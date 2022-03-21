@@ -234,7 +234,7 @@
 
     iput-object p1, p0, Lcom/android/settings/applications/UsageAccessDetails;->mDpm:Landroid/app/admin/DevicePolicyManager;
 
-    const p1, 0x7f150028
+    const p1, 0x7f150029
 
     invoke-virtual {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->addPreferencesFromResource(I)V
 
@@ -260,19 +260,19 @@
 
     move-result-object p1
 
-    const v0, 0x7f04145f
+    const v0, 0x7f041484
 
     invoke-virtual {p1, v0}, Landroidx/preference/Preference;->setTitle(I)V
 
     iget-object p1, p0, Lcom/android/settings/applications/UsageAccessDetails;->mSwitchPref:Landroidx/preference/SwitchPreference;
 
-    const v0, 0x7f040ed9
+    const v0, 0x7f040f05
 
     invoke-virtual {p1, v0}, Landroidx/preference/Preference;->setTitle(I)V
 
     iget-object p1, p0, Lcom/android/settings/applications/UsageAccessDetails;->mUsageDesc:Landroidx/preference/Preference;
 
-    const v0, 0x7f041460
+    const v0, 0x7f041485
 
     invoke-virtual {p1, v0}, Landroidx/preference/Preference;->setTitle(I)V
 
@@ -368,13 +368,13 @@
 
     move-result-object p1
 
-    const p2, 0x7f041781
+    const p2, 0x7f0417a6
 
     invoke-virtual {p1, p2}, Landroidx/appcompat/app/AlertDialog$Builder;->setMessage(I)Landroidx/appcompat/app/AlertDialog$Builder;
 
     move-result-object p1
 
-    const p2, 0x7f040ea1
+    const p2, 0x7f040ecc
 
     const/4 v1, 0x0
 

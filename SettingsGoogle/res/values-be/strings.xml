@@ -96,6 +96,7 @@
     <string name="peak_refresh_rate_title">Плаўны паказ</string>
     <string name="peak_refresh_rate_summary">Аўтаматычна павялічвае частату абнаўлення пэўнага змесціва з 60 да 90 Гц. Павышае выкарыстанне зараду акумулятара.</string>
     <string name="accessibility_vibration_settings_title">Вібрацыя і тактыльны водгук</string>
+    <string name="columbus_title">Хуткі дотык для пачатку дзеянняў</string>
     <string name="emergency_gesture_screen_title">Экстранны выклік SOS</string>
     <string name="abc_action_mode_done">Гатова</string>
     <string name="vibrate_for_calls_category_title">Выклікі</string>
@@ -103,6 +104,8 @@
     <string name="lockscreen_privacy_controls_setting_toggle">Паказ элементаў кіравання прыладай</string>
     <string name="lockscreen_privacy_wallet_summary">Дазволіць доступ да кашалька з заблакіраванага экрана і хуткіх налад</string>
     <string name="lockscreen_privacy_controls_summary">Доступ да элементаў кіравання пры заблакіраваным экране</string>
+    <string name="lockscreen_double_line_clock_summary">Паказваць двухрадковы дысплэй гадзінніка, калі ён даступны</string>
+    <string name="lockscreen_double_line_clock_setting_toggle">Двухрадковы дысплэй гадзінніка</string>
     <string name="abc_activity_chooser_view_see_all">Паказаць усе</string>
     <string name="abc_activitychooserview_choose_application">Выберыце праграму</string>
     <string name="abc_capital_off">ВЫКЛ.</string>
@@ -147,9 +150,11 @@
     <string name="accessibility_alarm_vibration_title">Вібрацыя падчас сігналаў</string>
     <string name="accessibility_assist_gesture_complete_or_keep_adjusting">Active Edge наладжаны. Перайдзіце да наступнага экрана ці працягвайце выконваць налады.</string>
     <string name="accessibility_audio_adjustment_title">Настройка аўдыя</string>
+    <string name="accessibility_autoclick_about_title">Пра аўтанацісканне (час чакання)</string>
     <string name="accessibility_autoclick_custom_title">Карыстальніцкі</string>
     <string name="accessibility_autoclick_default_title">Выключана</string>
     <string name="accessibility_autoclick_description">Функцыя аўтаматычнага націскання працуе з падключанай мышшу. Вы можаце наладзіць курсор мышы, каб выконвалася аўтаматычнае націсканне, калі курсор не рухаецца на працягу пэўнага перыяду часу.</string>
+    <string name="accessibility_autoclick_footer_learn_more_content_description">Даведацца больш пра аўтаматычнае націсканне (час чакання)</string>
     <string name="accessibility_autoclick_long_summary">1 секунда</string>
     <string name="accessibility_autoclick_long_title">Доўгі</string>
     <string name="accessibility_autoclick_longer_desc">Даўжэй</string>
@@ -161,16 +166,17 @@
     <string name="accessibility_autoclick_short_title">Кароткі</string>
     <string name="accessibility_autoclick_shorter_desc">Карацей</string>
     <string name="accessibility_banner_message_dismiss">Адхіліць</string>
-    <string name="accessibility_button_description">"Хуткі доступ да спецыяльных магчымасцей з любога экрана. 
+    <string name="accessibility_button_about_title">Пра кнопку спецыяльных магчымасцей</string>
+    <string name="accessibility_button_description">"Хуткі доступ да спецыяльных магчымасцей з любога экрана.
 
 Каб пачаць, адкрыйце налады спецыяльных магчымасцей і выберыце патрэбную функцыю. Націсніце ярлык і выберыце кнопку спецыяльных магчымасцей."</string>
     <string name="accessibility_button_fade_summary">Знікае праз некалькі секунд, каб не засланяць экран</string>
     <string name="accessibility_button_fade_title">Дазволіць знікаць пры бяздзейнасці</string>
+    <string name="accessibility_button_gesture_about_title">Пра кнопку спецыяльных магчымасцей і жэст</string>
     <string name="accessibility_button_gesture_description">"Хуткі доступ да спецыяльных магчымасцей з любога экрана.
 
-Каб пачаць, адкрыйце налады спецыяльных магчымасцей і выберыце патрэбную функцыю. Націсніце ярлык і выберыце кнопку спецыяльных магчымасцей.
-
-Каб скарыстаць кнопку спецыяльных магчымасцей на панэлі навігацыі, пераключыцеся на 2-кнопачную ці 3-кнопачную навігацыю."</string>
+Каб пачаць, адкрыйце налады спецыяльных магчымасцей і выберыце патрэбную функцыю. Націсніце ярлык і выберыце кнопку ці жэст спецыяльных магчымасцей."</string>
+    <string name="accessibility_button_gesture_footer_learn_more_content_description">Даведацца больш пра кнопку спецыяльных магчымасцей і жэст</string>
     <string name="accessibility_button_gesture_title">Кнопка спец. магчымасцей; жэст</string>
     <string name="accessibility_button_high_label">Непразрыстая</string>
     <string name="accessibility_button_intro">Выкарыстанне кнопкі спецыяльных магчымасцей. Гэты жэст недаступны з 3-кнопачнай навігацыяй.</string>
@@ -184,14 +190,23 @@
     <string name="accessibility_caption_preference_summary">Не ўсе праграмы падтрымліваюць гэтыя налады субцітраў</string>
     <string name="accessibility_caption_primary_switch_summary">Толькі для праграмы, якая падтрымліваецца</string>
     <string name="accessibility_caption_primary_switch_title">Паказваць субцітры</string>
+    <string name="accessibility_captioning_about_title">Пра налады субцітраў</string>
+    <string name="accessibility_captioning_footer_learn_more_content_description">Даведацца больш пра налады субцітраў</string>
     <string name="accessibility_captioning_title">Налады субцітраў</string>
     <string name="accessibility_category_personal">Уліковыя запісы з асабістым профілем</string>
     <string name="accessibility_category_work">Уліковыя запісы з рабочым профілем – %s</string>
+    <string name="accessibility_color_inversion_about_title">Пра інверсію колераў</string>
+    <string name="accessibility_color_inversion_footer_learn_more_content_description">Даведацца больш пра інверсію колераў</string>
+    <string name="accessibility_control_timeout_about_title">Пра час чакання дзеяння (спецыяльных магчымасцей)</string>
+    <string name="accessibility_control_timeout_footer_learn_more_content_description">Даведацца больш пра час чакання дзеяння (спецыяльных магчымасцей)</string>
     <string name="accessibility_control_timeout_preference_summary">"Выберыце, колькі часу паказваць часова бачныя паведамленні з заклікамі да дзеянняў.
 
 Не ўсе праграмы падтрымліваюць такую наладу."</string>
     <string name="accessibility_control_timeout_preference_title">Час на выкананне дзеяння</string>
+    <string name="accessibility_daltonizer_about_title">Пра карэкцыю колераў</string>
+    <string name="accessibility_daltonizer_footer_learn_more_content_description">Даведацца больш пра карэкцыю колераў</string>
     <string name="accessibility_daltonizer_primary_switch_title">Выкарыстоўваць карэкцыю колераў</string>
+    <string name="accessibility_daltonizer_shortcut_title">Хуткая каманда для карэкцыі колераў</string>
     <string name="accessibility_data_one_bar">Адна планка дадзеных.</string>
     <string name="accessibility_data_signal_full">Поўны сігнал перадачы дадзеных.</string>
     <string name="accessibility_data_three_bars">3 планкі дадзеных.</string>
@@ -206,6 +221,7 @@
     <string name="accessibility_display_daltonizer_preference_title">Карэкцыя колераў</string>
     <string name="accessibility_display_inversion_preference_subtitle">Інверсія колераў мяняе светлыя колеры на экране на цёмныя.&lt;br/>&lt;br/> Заўвага. &lt;ol> &lt;li> Інверсія колераў таксама ператварае цёмныя колеры ў светлыя.&lt;/li> &lt;li> Колеры зменяцца ў мультымедыя і на відарысах.&lt;/li> &lt;li> Для паказу цёмнага фону можна таксама выкарыстоўваць цёмную тэму. Цёмная тэма працуе з праграмамі, якія падтрымліваюцца. Інверсія колераў працуе з усімі праграмамі.&lt;/li> &lt;/ol></string>
     <string name="accessibility_display_inversion_preference_title">Інверсія колераў</string>
+    <string name="accessibility_display_inversion_shortcut_title">Хуткая каманда для інверсіі колераў</string>
     <string name="accessibility_display_inversion_switch_title">Ужыць інверсію колераў</string>
     <string name="accessibility_ethernet_connected">Ethernet.</string>
     <string name="accessibility_ethernet_disconnected">Ethernet адлучаны.</string>
@@ -255,6 +271,8 @@
     <string name="accessibility_phone_two_bars">2 планкі тэлефона.</string>
     <string name="accessibility_power_button_ends_call_prerefence_title">Завяршыць выклік кнопкай сілкавання</string>
     <string name="accessibility_preference_magnification_summary">Павялічыць маштаб экрана</string>
+    <string name="accessibility_screen_magnification_about_title">Пра павелічэнне</string>
+    <string name="accessibility_screen_magnification_footer_learn_more_content_description">Даведацца больш пра павелічэнне</string>
     <string name="accessibility_screen_magnification_gesture_navigation_warning">Жэст спецыяльных магчымасцей усталяваны для службы \"%1$s\". Каб выкарыстоўваць функцыю павелічэння, правядзіце двума пальцамі па экране знізу ўверх і затрымайце іх. Пасля выберыце функцыю павелічэння.</string>
     <string name="accessibility_screen_magnification_gestures_title">Павялічваць трайным дотыкам</string>
     <string name="accessibility_screen_magnification_navbar_configuration_warning">Для кнопкі \"Спецыяльныя магчымасці\" зададзена наступнае: %1$s. Каб павялічваць маштаб з яе дапамогай, краніце і ўтрымлівайце кнопку \"Спецыяльныя магчымасці\", а потым выберыце функцыю павелічэння.</string>
@@ -272,6 +290,7 @@
 Павелічэнне маштабу клавіятуры ці панэлі навігацыі не прадугледжана."</string>
     <string name="accessibility_screen_magnification_navbar_title">Павялічваць спалучэннем клавіш</string>
     <string name="accessibility_screen_magnification_short_summary">Тройчы дакраніцеся, каб змяніць маштаб</string>
+    <string name="accessibility_screen_magnification_shortcut_title">Хуткая каманда для павелічэння</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">Павялічваць спалучэннем клавіш і трайным дотыкам</string>
     <string name="accessibility_screen_magnification_summary">Каб разглядзець змесціва на экране, вы можаце хутка наблізіць выяву.&lt;br/>&lt;br/> &lt;b>Для павелічэння маштабу:&lt;/b>&lt;br/> {0,number,integer}. Скарыстайце хуткі доступ для запуску функцыі павелічэння&lt;br/> {1,number,integer}. Націсніце на экран&lt;br/> {2,number,integer}. Каб перамясціць выяву, перацягніце яе двума пальцамі&lt;br/> {3,number,integer}. Звядзіце ці развядзіце два пальцы для змены маштабу&lt;br/> {4,number,integer}. Скарыстайце хуткі доступ, каб выключыць функцыю павелічэння&lt;br/>&lt;br/>&lt;b>Для часовага павелічэння маштабу:&lt;/b>&lt;br/> {0,number,integer}. Скарыстайце хуткі доступ для запуску функцыі павелічэння&lt;br/> {1,number,integer}. Утрымлівайце палец націснутым у любым месцы экрана&lt;br/> {2,number,integer}. Каб перамясціць выяву, перацягніце яе пальцам&lt;br/> {3,number,integer}. Падніміце палец, каб спыніць функцыю павелічэння</string>
     <string name="accessibility_screen_magnification_title">Павелічэнне</string>
@@ -370,7 +389,7 @@
     <string name="accessibility_tutorial_dialog_message_volume">Каб скарыстаць гэту функцыю, націсніце і ўтрымлівайце абедзве клавішы гучнасці.</string>
     <string name="accessibility_tutorial_dialog_title_button">Адкрывайце кнопкай спецыяльных магчымасцей</string>
     <string name="accessibility_tutorial_dialog_title_gesture">Адкрывайце жэстам</string>
-    <string name="accessibility_tutorial_dialog_title_gesture_settings">Выкарыстоўвайце новы жэст спецыяльных магчымасцей</string>
+    <string name="accessibility_tutorial_dialog_title_gesture_settings">Скарыстаць жэст спецыяльных магчымасцей</string>
     <string name="accessibility_tutorial_dialog_title_triple">Каб адкрыць, тройчы націсніце на экран</string>
     <string name="accessibility_tutorial_dialog_title_volume">Каб адкрыць, утрымлівайце клавішы гучнасці</string>
     <string name="accessibility_tutorial_pager">Старонка %1$d з %2$d</string>
@@ -936,6 +955,7 @@
     <string name="battery_level_title">Узровень батарэі</string>
     <string name="battery_manager_off">Выключана</string>
     <string name="battery_manager_summary">Падаўжае час працы ад акумулятара і аптымізуе зарадку</string>
+    <string name="battery_manager_summary_unsupported">Павялічыць тэрмін службы акумулятара</string>
     <string name="battery_missing_link_a11y_message">Націсніце, каб даведацца больш пра гэту памылку</string>
     <string name="battery_missing_link_message">Даведацца больш</string>
     <string name="battery_missing_message">Не ўдаецца атрымаць даныя пра зарад акумулятара.</string>
@@ -945,7 +965,7 @@
     <string name="battery_overall_usage">%1$s ад усяго зараду</string>
     <string name="battery_percentage">Працэнт зараду акумулятара</string>
     <string name="battery_percentage_description">Паказваць працэнт зараду акумулятара на панэлі стану</string>
-    <string name="battery_saver">Эканомія зараду</string>
+    <string name="battery_saver">Рэжым энергазберажэння</string>
     <string name="battery_saver_auto_no_schedule">Няма раскладу</string>
     <string name="battery_saver_auto_percentage">На падставе колькасці зараду</string>
     <string name="battery_saver_auto_percentage_summary">Уключыцца пры зарадзе %1$s</string>
@@ -1061,6 +1081,7 @@
     <string name="battery_usage_screen_footer">"Даныя пра выкарыстанне зараду з'яўляюцца прыблізнымі. Падчас зарадкі тэлефона вымярэнні не праводзяцца"</string>
     <string name="battery_usage_screen_footer_empty">"Даныя пра выкарыстанне зараду з'явяцца пасля некалькіх гадзін выкарыстання тэлефона"</string>
     <string name="battery_usage_total_less_than_one_minute">Усяго: менш адной хвіліны</string>
+    <string name="battery_usage_without_time" />
     <string name="battery_used_by">%1$s выкарыстана праграмай %2$s</string>
     <string name="battery_used_for">Час выкарыстанння: ^1</string>
     <string name="bearer">"Прад'яўнік"</string>
@@ -1069,12 +1090,14 @@
     <string name="billing_cycle_less_than_one_day_left">Засталося менш за 1 дзень</string>
     <string name="billing_cycle_none_left">Часу не засталося</string>
     <string name="biometric_settings_category_ways_to_unlock">Спосабы разблакіроўкі</string>
-    <string name="biometric_settings_category_ways_to_use">Выкарыстоўваць распазнаванне твару і адбітка, каб</string>
-    <string name="biometric_settings_hand_back_to_guardian">Дайце тэлефон аднаму з бацькоў</string>
+    <string name="biometric_settings_hand_back_to_guardian">Дай тэлефон аднаму з бацькоў</string>
     <string name="biometric_settings_hand_back_to_guardian_ok">ОК</string>
     <string name="biometric_settings_intro">Пасля наладжвання разблакіроўкі праз распазнаванне твару і адбітка пальца тэлефон будзе запытваць адбітак пальца, калі навокал цёмна ці ў вас на твары маска</string>
-    <string name="biometric_settings_use_biometric_for_apps">Аўтэнтыфікацыя ў праграмах</string>
-    <string name="biometric_settings_use_biometric_unlock_phone">Разблакіроўка</string>
+    <string name="biometric_settings_use_biometric_for_apps">Спраўдзіце сваю асобу ў праграмах</string>
+    <string name="biometric_settings_use_biometric_unlock_phone">Разблакіруйце тэлефон</string>
+    <string name="biometric_settings_use_face_or_fingerprint_preference_summary">Выкарыстанне твару ці адбітка пальца</string>
+    <string name="biometric_settings_use_face_preference_summary">Выкарыстанне твару</string>
+    <string name="biometric_settings_use_fingerprint_preference_summary">Выкарыстанне адбітка пальца</string>
     <string name="biometrics_unlock_set_unlock_password">Пароль • Твар • Адбітак пальца</string>
     <string name="biometrics_unlock_set_unlock_pattern">Узор разблакіроўкі • Твар • Адбітак пальца</string>
     <string name="biometrics_unlock_set_unlock_pin">PIN-код • Твар • Адбітак пальца</string>
@@ -1332,7 +1355,6 @@
     <string name="bluetooth_settings_title">Bluetooth</string>
     <string name="bluetooth_show_devices_without_names">Паказваць прылады Bluetooth без назваў</string>
     <string name="bluetooth_show_devices_without_names_summary">Прылады Bluetooth будуць паказаны без назваў (толькі MAC-адрасы)</string>
-    <string name="bluetooth_show_files_received_via_bluetooth">Файлы, атрыманыя праз Bluetooth</string>
     <string name="bluetooth_show_received_files">Атрыманыя файлы</string>
     <string name="bluetooth_sim_card_access_dialog_content">"Прылада з Bluetooth, %1$s, запытвае дазвол на доступ да даных на вашай SIM-карце, у прыватнасці да кантактаў.
 
@@ -1426,6 +1448,7 @@
     <string name="calls_sms_temp_unavailable">Часова недаступны</string>
     <string name="calls_sms_unavailable">недаступны</string>
     <string name="calls_sms_wfc_summary">Рабіць і прымаць выклікі праз Wi‑Fi</string>
+    <string name="cam_toggle_description">Для праграм і сэрвісаў</string>
     <string name="camera_double_tap_power_gesture_desc">Хутка адкрыць камеру без разблакіроўкі экрана</string>
     <string name="camera_double_tap_power_gesture_title">Каб адкр. кам., двойчы кран. кнопку сіл.</string>
     <string name="camera_laser_sensor_switch">Лазерны датчык камеры</string>
@@ -1532,7 +1555,7 @@
     <string name="clear_activities">Ачысціць стандартныя налады</string>
     <string name="clear_adb_keys">Скасаваць дазвол да адладкі па USB</string>
     <string name="clear_cache_btn_text">Ачысціць кэш</string>
-    <string name="clear_data_dlg_text">Даныя гэтай праграмы (файлы, налады, базы даных і г. д.) будуць выдалены назаўсёды.</string>
+    <string name="clear_data_dlg_text">"Даныя гэтай праграмы (файлы, налады, базы даных і г. д.)  будуць выдалены назаўсёды."</string>
     <string name="clear_data_dlg_title">Выдаліць даныя праграмы?</string>
     <string name="clear_failed_dlg_text">Немагчыма ачысціць сховішча для праграмы.</string>
     <string name="clear_instant_app_confirmation">Хочаце выдаліць гэту імгненную праграму?</string>
@@ -2091,7 +2114,7 @@
     <string name="disabled_by_admin">Адключана адміністратарам</string>
     <string name="disabled_by_admin_summary_text">Кантралюецца адміністратарам</string>
     <string name="disabled_by_administrator_summary">Недаступна</string>
-    <string name="disabled_by_policy_content_biometric_parental_consent">Каб наладзіць гэту функцыю, перадайце тэлефон аднаму з бацькоў</string>
+    <string name="disabled_by_policy_content_biometric_parental_consent">Каб наладзіць гэту функцыю, перадай тэлефон аднаму з бацькоў</string>
     <string name="disabled_by_policy_title">Заблакіравана вашым ІТ-адміністратарам</string>
     <string name="disabled_by_policy_title_adjust_volume">Не ўдалося змяніць гучнасць</string>
     <string name="disabled_by_policy_title_biometric_parental_consent">Патрабуецца дапамога бацькоў</string>
@@ -2505,7 +2528,7 @@
     <string name="game_dashboard_dnd_summary">Падчас гульні атрымліваць апавяшчэнні толькі ад важных карыстальнікаў і праграм</string>
     <string name="game_dashboard_dnd_title">Рэжым \"Не турбаваць\" для гульняў</string>
     <string name="game_mode_battery_description">Павялічвае час працы ад акумулятара</string>
-    <string name="game_mode_battery_title">Эканомія зараду</string>
+    <string name="game_mode_battery_title">Рэжым энергазберажэння</string>
     <string name="game_mode_performance_description">Пры максімальным павышэнні частаты кадраў акумулятар разраджаецца хутчэй</string>
     <string name="game_mode_performance_title">Прадукцыйнасць</string>
     <string name="game_mode_standard_description">У гэтым рэжыме выкарыстоўваюцца стандартныя налады гульні</string>
@@ -2782,7 +2805,7 @@
     <string name="keywords_install_other_apps">усталёўваць праграмы з невядомых крыніц</string>
     <string name="keywords_internet">падключэнне да сеткі, інтэрнэт, бесправадны, даныя, wifi, wi-fi, wi fi, сотавая сетка, мабільны, аператар сотавай сувязі, 4g, 3g, 2g, lte</string>
     <string name="keywords_keyboard_and_ime">выпраўленне тэксту, правільны, гук, вібрацыя, аўтаматычна, мова, жэст, прапанаваць, прапанова, тэма, абразлівы, слова, набіраць, эмодзі, міжнародны</string>
-    <string name="keywords_live_caption">Субцітры, субцітры, цітры, Імгненная транскрыпцыя, слабы слых, страта слыху, транскрыпцыя ў рэальным часе, пераўтварэнне маўлення ў тэкст, субцітр</string>
+    <string name="keywords_live_caption">Субцітры, цітры, Імгненная расшыфроўка, слабы слых, страта слыху, расшыфроўка ў рэальным часе, пераўтварэнне маўлення ў тэкст, субцітр</string>
     <string name="keywords_live_transcribe">Субцітры, субцітры, цітры, Імгненныя субцітры, слабы слых, страта слыху, транскрыпцыя ў рэальным часе, пераўтварэнне маўлення ў тэкст, субцітр</string>
     <string name="keywords_location">паблізу, месцазнаходжанне, гісторыя, справаздачы, GPS</string>
     <string name="keywords_lockscreen">правядзіце, каб разблакіраваць, пароль, узор, PIN-код</string>
@@ -3302,6 +3325,7 @@ PIN-код абараняе тэлефон у выпадку страты ці �
     <string name="menu_stats_total">Вынікі выкарыстання</string>
     <string name="menu_stats_unplugged">%1$s пасля адключэння</string>
     <string name="menu_use_uss">Выкарыстоўваць Uss</string>
+    <string name="mic_toggle_description">Для праграм і сэрвісаў. Нават калі гэта налада выключана, даныя з мікрафона будуць абагульвацца падчас выкліку нумара экстраннай службы.</string>
     <string name="mic_toggle_title">Доступ да мікрафона</string>
     <string name="misc_files">Розныя файлы</string>
     <string name="misc_files_selected_count">выбрана %1$d з %2$d</string>
@@ -3728,6 +3752,7 @@ PIN-код абараняе тэлефон у выпадку страты ці �
     <string name="one_handed_action_show_notification_title">Паказаць апавяшчэнні</string>
     <string name="one_handed_mode_enabled">Выкарыстоўваць рэжым кіравання адной рукой</string>
     <string name="one_handed_mode_intro_text">Каб выкарыстоўваць рэжым кіравання адной рукой, правядзіце пальцам ад ніжняга краю экрана ўверх. Для карыстання гэтай функцыяй неабходна ўключыць у наладах навігацыю жэстамі.</string>
+    <string name="one_handed_mode_shortcut_title">Хуткі доступ да рэжыму кіравання адной рукой</string>
     <string name="one_handed_mode_swipe_down_category">Правядзіце пальцам уніз</string>
     <string name="one_handed_mode_use_shortcut_category">Выкарыстоўваць ярлык, каб</string>
     <string name="one_usercrt">адзін сертыфікат карыстальніка</string>
@@ -3803,7 +3828,7 @@ PIN-код абараняе тэлефон у выпадку страты ці �
     <string name="post_dsds_reboot_notification_title_with_carrier">Сетка \"%1$s\" актыўная</string>
     <string name="power_bluetooth">Bluetooth</string>
     <string name="power_camera">Камера</string>
-    <string name="power_cell">Сетка мабільнай сувязі ў рэжыме чакання</string>
+    <string name="power_cell">Мабільная сетка</string>
     <string name="power_charge_remaining">Да поўнай зарадкі засталося %1$s</string>
     <string name="power_charging">%1$s – %2$s</string>
     <string name="power_charging_duration">%1$s – да поўнай зарадкі засталося: %2$s</string>
@@ -4037,6 +4062,7 @@ PIN-код абараняе тэлефон у выпадку страты ці �
     <string name="recent_notifications">Нядаўна адпраўленыя</string>
     <string name="recent_notifications_see_all_title">Прагледзець усё за апошнія 7 дзён</string>
     <string name="recompute_size">Пераразлік памеру...</string>
+    <string name="reduce_bright_colors_about_title">Пра дадатковае памяншэнне яркасці</string>
     <string name="reduce_bright_colors_intensity_end_label">Ярчэй</string>
     <string name="reduce_bright_colors_intensity_preference_title">Інтэнсіўнасць</string>
     <string name="reduce_bright_colors_intensity_start_label">Цямней</string>
@@ -4044,6 +4070,7 @@ PIN-код абараняе тэлефон у выпадку страты ці �
     <string name="reduce_bright_colors_preference_subtitle">Зацямніце экран, каб было зручней чытаць.&lt;br/>&lt;br/> Гэта можа быць карысным у наступных выпадках: &lt;ol> &lt;li> узровень стандартнай мінімальнай яркасці на вашым тэлефоне даволі высокі;&lt;/li> &lt;li> вы выкарыстоўваеце тэлефон ва ўмовах цемнаты, напрыклад ноччу ці ў цёмным памяшканні перад адыходам да сну.&lt;/li> &lt;/ol></string>
     <string name="reduce_bright_colors_preference_summary">Зрабіць экран тэлефона цямнейшым, чым пры мінімальным узроўні яркасці</string>
     <string name="reduce_bright_colors_preference_title">Дадатковае памяншэнне яркасці</string>
+    <string name="reduce_bright_colors_shortcut_title">Хуткая каманда для дадатковага памяншэння яркасці</string>
     <string name="reduce_bright_colors_switch_title">Дадаткова паменшыць яркасць экрана</string>
     <string name="register_automatically">Выконваецца аўтаматычная рэгістрацыя…</string>
     <string name="register_on_network">Выконваецца рэгістрацыя ў сетцы %s…</string>
@@ -4249,7 +4276,6 @@ PIN-код абараняе тэлефон у выпадку страты ці �
     <string name="screen_pinning_unlock_pattern">Запытваць узор разблакіроўкі перад адмацаваннем</string>
     <string name="screen_pinning_unlock_pin">Запытваць PIN-код перад адмацаваннем</string>
     <string name="screen_reader_category_title">Праграма чытання з экрана</string>
-    <string name="screen_saver_main_switch_title">Выкарыстоўваць экранную застаўку</string>
     <string name="screen_time_summary_usage_today">Сёння %1$s</string>
     <string name="screen_timeout_summary">Пасля бяздзейнасці: %1$s</string>
     <string name="screen_timeout_title">Экран выключаецца</string>
@@ -4279,6 +4305,7 @@ PIN-код абараняе тэлефон у выпадку страты ці �
     <string name="screensaver_settings_button">Налады</string>
     <string name="screensaver_settings_current">Бягучая экранная застаўка</string>
     <string name="screensaver_settings_disabled_prompt">Каб кантраляваць тое, што адбываецца, калі тэлефон прыстыкаваны і/або знаходзіцца ў рэжыме сну, уключыце экранную застаўку.</string>
+    <string name="screensaver_settings_dream_start">Пачаць</string>
     <string name="screensaver_settings_summary_dock">Пры падключэнні</string>
     <string name="screensaver_settings_summary_either_long">Пакуль прылада зараджаецца ці падключана</string>
     <string name="screensaver_settings_summary_either_short">У абодвух выпадках</string>
@@ -4329,15 +4356,6 @@ PIN-код абараняе тэлефон у выпадку страты ці �
     <string name="security_settings_biometric_preference_summary_both_fp_single">Дададзены твар і адбітак пальца</string>
     <string name="security_settings_biometric_preference_summary_none_enrolled">Дакраніцеся, каб наладзіць</string>
     <string name="security_settings_biometric_preference_title">Распазнаванне твару і разблакіраванне адбіткам пальца</string>
-    <string name="security_settings_biometrics_description">Пасля наладжвання разблакіроўкі праз распазнаванне твару і адбітка пальца тэлефон будзе запытваць адбітак пальца, калі навокал цёмна ці ў вас на твары маска</string>
-    <string name="security_settings_biometrics_preference_use_with_apps">Аўтэнтыфікацыя ў праграмах</string>
-    <string name="security_settings_biometrics_preferences_category">Ужываць распазнаванне твару ці адбітка пальца для</string>
-    <string name="security_settings_biometrics_summary_both">Распазнаванне твару і адбітка пальца</string>
-    <string name="security_settings_biometrics_summary_face">Толькі распазнаванне твару</string>
-    <string name="security_settings_biometrics_summary_fingerprint">Толькі распазнаванне адбітка пальца</string>
-    <string name="security_settings_biometrics_summary_none">Дакраніцеся, каб наладзіць</string>
-    <string name="security_settings_biometrics_title">Распазнаванне твару і разблакіраванне адбіткам пальца</string>
-    <string name="security_settings_biometrics_types_category">Спосабы разблакіроўкі</string>
     <string name="security_settings_face_enroll_consent_introduction_title">Дазволіць распазнаванне твару</string>
     <string name="security_settings_face_enroll_dialog_ok">ОК</string>
     <string name="security_settings_face_enroll_done">Гатова</string>
@@ -4385,16 +4403,17 @@ PIN-код абараняе тэлефон у выпадку страты ці �
     <string name="security_settings_face_enroll_introduction_control_title">Усё пад кантролем</string>
     <string name="security_settings_face_enroll_introduction_how_consent_message">"Каб спраўджваць асобу дзіцяці, функцыя распазнавання твару стварае ўнікальную мадэль яго твару. Для стварэння мадэлі трэба зрабіць здымкі твару дзіцяці з розных ракурсаў.
 
-Калі дзіця ўжывае функцыю распазнавання твару, відарысы выкарыстоўваюцца для абнаўлення мадэлі твару. Відарысы, якія выкарыстоўваліся для стварэння мадэлі твару, ніколі не захоўваюцца. На тэлефоне бяспечна захоўваецца толькі сама мадэль, і яна нікуды не адпраўляецца. Уся апрацоўка выконваецца толькі на тэлефоне."</string>
+Калі дзіця ўжывае функцыю распазнавання твару, відарысы выкарыстоўваюцца для абнаўлення мадэлі твару. Відарысы, якія выкарыстоўваліся для стварэння мадэлі твару, не захоўваюцца. На тэлефоне бяспечна захоўваецца толькі сама мадэль, і яна нікуды не адпраўляецца. Уся апрацоўка выконваецца толькі на тэлефоне."</string>
     <string name="security_settings_face_enroll_introduction_how_message">"Каб спраўджваць вашу асобу, функцыя распазнавання твару стварае ўнікальную мадэль вашага твару. Для стварэння мадэлі зрабіце здымкі свайго твару з розных ракурсаў.
 
-Калі вы ўжываеце функцыю распазнавання твару, відарысы выкарыстоўваюцца для абнаўлення мадэлі вашага твару. Відарысы, якія выкарыстоўваліся для стварэння мадэлі твару, ніколі не захоўваюцца. На вашым тэлефоне бяспечна захоўваецца толькі сама мадэль, і яна нікуды не адпраўляецца. Уся апрацоўка выконваецца толькі на вашым тэлефоне."</string>
+Калі вы ўжываеце функцыю распазнавання твару, відарысы выкарыстоўваюцца для абнаўлення мадэлі вашага твару. Відарысы, якія выкарыстоўваліся для стварэння мадэлі твару, не захоўваюцца. На вашым тэлефоне бяспечна захоўваецца толькі сама мадэль, і яна нікуды не адпраўляецца. Уся апрацоўка выконваецца толькі на вашым тэлефоне."</string>
     <string name="security_settings_face_enroll_introduction_how_title">Як гэта працуе</string>
     <string name="security_settings_face_enroll_introduction_info_consent_gaze">Для функцыі распазнавання твару можна забараніць разблакіроўку тэлефона ці спраўджанне асобы, калі ў дзіцяці не адкрыты вочы. Вы і ваша дзіця можаце ў любы час уключыць гэты параметр у Наладах.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_glasses">Калі ваша дзіця звычайна носіць акуляры, падчас наладжвання яно можа не здымаць іх.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_looking">Гледзячы на тэлефон, можна разблакіраваць яго, нават не маючы такога намеру. Акрамя таго, тэлефон можа быць разблакіраваны кімсьці, хто падобны на ваша дзіця (напрыклад, гэта можа быць брат ці сястра), ці чалавекам, які паднясе тэлефон да твару дзіцяці.</string>
     <string name="security_settings_face_enroll_introduction_info_gaze">Для функцыі распазнавання твару можна забараніць разблакіроўку тэлефона ці спраўджанне асобы, калі ў вас не адкрыты вочы. Вы можаце ў любы час уключыць гэты параметр у Наладах.</string>
     <string name="security_settings_face_enroll_introduction_info_glasses">Акуляры з празрыстымі лінзамі ці крыху зацемненым шклом не перашкодзяць распазнаванню твару.</string>
+    <string name="security_settings_face_enroll_introduction_info_less_secure">Выкарыстанне распазнавання твару для разблакіроўкі тэлефона можа быць не такім бяспечным, як складаны ўзор разблакіроўкі ці PIN-код.</string>
     <string name="security_settings_face_enroll_introduction_info_looking">Гледзячы на тэлефон, вы можаце разблакіраваць яго, нават не маючы такога намеру. Акрамя таго, ваш тэлефон можа быць разблакіраваны кімсьці, хто падобны на вас (напрыклад, гэта можа быць ваш брат ці сястра), ці чалавекам, які паднясе тэлефон да вашага твару.</string>
     <string name="security_settings_face_enroll_introduction_info_title">Майце на ўвазе</string>
     <string name="security_settings_face_enroll_introduction_message">Твар можна выкарыстоўваць для разблакіроўкі тэлефона ці спраўджання вашай асобы, напрыклад падчас уваходу ў праграмы ці ўхвалення куплі.</string>
@@ -4452,13 +4471,14 @@ PIN-код абараняе тэлефон у выпадку страты ці �
 
 Ваш тэлефон можа быць разблакіраваны кімсьці, хто падобны на вас – напрыклад, гэта можа быць ваш брат ці сястра."</string>
     <string name="security_settings_face_settings_preferences_category">Падчас выкарыстання распазнавання твару</string>
-    <string name="security_settings_face_settings_remove_dialog_details">Мадэль вашага твару будзе канчаткова і бяспечна выдалена. Пасля гэтага для разблакіроўкі тэлефона ці аўтэнтыфікацыі ў праграмах трэба будзе выкарыстоўваць PIN-код, узор разблакіроўкі ці пароль.</string>
+    <string name="security_settings_face_settings_remove_dialog_details">"Мадэль вашага твару будзе канчаткова і бяспечна выдалена.
+
+Пасля гэтага для разблакіроўкі тэлефона ці аўтэнтыфікацыі ў праграмах трэба будзе выкарыстоўваць PIN-код, узор разблакіроўкі ці пароль."</string>
+    <string name="security_settings_face_settings_remove_dialog_details_convenience">"Мадэль вашага твару будзе канчаткова і бяспечна выдалена.
+
+Пасля гэтага для разблакіроўкі тэлефона трэба будзе выкарыстоўваць PIN-код, узор разблакіроўкі ці пароль."</string>
     <string name="security_settings_face_settings_remove_dialog_title">Выдаліць мадэль твару?</string>
     <string name="security_settings_face_settings_remove_face_model">Выдаліць мадэль твару</string>
-    <string name="security_settings_face_settings_remove_model_dialog_details">"Мадэль вашага твару будзе канчаткова і бяспечна выдалена.
-
-Пасля гэтага для разблакіроўкі тэлефона ці аўтэнтыфікацыі ў праграмах трэба будзе выкарыстоўваць адбітак пальца, PIN-код, узор разблакіроўкі ці пароль."</string>
-    <string name="security_settings_face_settings_remove_model_dialog_title">Выдаліць мадэль твару?</string>
     <string name="security_settings_face_settings_require_attention">Вочы павінны быць расплюшчаны</string>
     <string name="security_settings_face_settings_require_attention_details">Каб разблакіраваць тэлефон, расплюшчыце вочы</string>
     <string name="security_settings_face_settings_require_confirmation">Заўсёды патрабаваць пацвярджэнне</string>
@@ -4575,7 +4595,6 @@ PIN-код абараняе тэлефон у выпадку страты ці �
     <string name="select_webview_provider_dialog_title">Наладзіць рэалізацыю WebView</string>
     <string name="select_webview_provider_title">Рэалізацыя WebView</string>
     <string name="select_webview_provider_toast_text">Гэты варыянт больш не даступны. Паспрабуйце яшчэ раз.</string>
-    <string name="sensor_toggle_description">Для ўсіх праграм і сэрвісаў</string>
     <string name="sensors_off_quick_settings_title">Датчыкі выключаны</string>
     <string name="service_background_processes">Свабодна: %1$s</string>
     <string name="service_foreground_processes">Выкар.: %1$s</string>
@@ -4807,6 +4826,7 @@ PIN-код абараняе тэлефон у выпадку страты ці �
     <string name="sound_settings_summary_silent">Для гуку выкліку заданы бязгучны рэжым</string>
     <string name="sound_settings_summary_vibrate">Для гуку выкліку заданы рэжым вібрацыі</string>
     <string name="sound_work_settings">Гукі працоўнага профілю</string>
+    <string name="spatial_audio_title">"Аб'ёмнае аўдыя"</string>
     <string name="special_access">Спецыяльны доступ</string>
     <string name="special_access_more">Яшчэ</string>
     <string name="speed_label_fast">Хуткая</string>
@@ -5092,7 +5112,7 @@ PIN-код абараняе тэлефон у выпадку страты ці �
     <string name="sync_in_progress">Сінхранiзаваць зараз</string>
     <string name="sync_is_failing">У цяперашні час ёсць праблемы сінхранізацыi. Яна хутка адновіцца.</string>
     <string name="sync_menu_sync_cancel">Адмяніць сінхранізацыю</string>
-    <string name="sync_menu_sync_now">Сінхранізаваць цяпер</string>
+    <string name="sync_menu_sync_now">Сінхранізаваць зараз</string>
     <string name="sync_one_time_sync">"Краніце, каб сінхранізаваць зараз
 %1$s"</string>
     <string name="sync_plug"><font fgcolor="#ffffffff">Вітаем у службе сінхранізацыі Google!</font>" 
@@ -5618,7 +5638,7 @@ PIN-код абараняе тэлефон у выпадку страты ці �
     <string name="vpn_turn_on">Уключыць</string>
     <string name="vpn_type">Тып</string>
     <string name="vpn_username">Імя карыстальніка</string>
-    <string name="vpn_version">Версія %s</string>
+    <string name="vpn_version">Версія</string>
     <string name="vr_listener_security_warning_summary">%1$s зможа выконвацца, калі вы выкарыстоўваеце праграмы ў рэжыме віртуальнай рэальнасці.</string>
     <string name="vr_listener_security_warning_title">Дазволіць сэрвісу віртуальнай рэальнасці (VR) доступ да %1$s?</string>
     <string name="vr_listeners_title">Дапаможныя VR-сэрвісы</string>
@@ -5888,7 +5908,7 @@ PIN-код абараняе тэлефон у выпадку страты ці �
     <string name="wifi_not_in_range">Не ў зоне дасягальнасці</string>
     <string name="wifi_not_in_range_message">Сетка не ў зоне дасягальнасці</string>
     <string name="wifi_notify_open_networks">Апавяшчаць пра агульнадаступныя сеткі</string>
-    <string name="wifi_notify_open_networks_summary">Калі аўтаматычнае падключэнне недаступнае</string>
+    <string name="wifi_notify_open_networks_summary">Апавяшчаць, калі даступная высакаякасная сетка агульнага доступу</string>
     <string name="wifi_on_time">Wi-Fi у тэрмін</string>
     <string name="wifi_p2p_cancel_connect_message">Вы жадаеце адмяніць запрашэнне на падлучэнне да прылады %1$s?</string>
     <string name="wifi_p2p_cancel_connect_title">Адмяніць запрашэнне?</string>
@@ -5976,7 +5996,6 @@ PIN-код абараняе тэлефон у выпадку страты ці �
     <string name="wifi_suspend_optimizations">Аптымiзацыя Wi-Fi</string>
     <string name="wifi_suspend_optimizations_summary">Зменшыць выкарыстанне батарэi, калi ўключана Wi-Fi</string>
     <string name="wifi_switch_away_when_unvalidated">Пераключыцца на мабільную перадачу даных, калі сетка Wi-Fi страчвае доступ да інтэрнэту.</string>
-    <string name="wifi_switch_summary">Знайсці сеткі Wi-Fi і падключыцца</string>
     <string name="wifi_tap_to_sign_in">Націсніце тут, каб увайсці ў сетку</string>
     <string name="wifi_tether_configure_ap_text">Наладка хот-спота Wi-Fi</string>
     <string name="wifi_tether_configure_ssid_default">AndroidHotspot</string>

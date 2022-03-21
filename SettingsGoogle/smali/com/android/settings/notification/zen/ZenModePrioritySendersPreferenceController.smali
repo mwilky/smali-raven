@@ -41,7 +41,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .locals 3
 
     new-instance v0, Landroid/content/Intent;
 
@@ -49,21 +49,35 @@
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
+    const v1, 0x10008000
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
+
+    move-result-object v0
+
     sput-object v0, Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController;->ALL_CONTACTS_INTENT:Landroid/content/Intent;
 
     new-instance v0, Landroid/content/Intent;
 
-    const-string v1, "com.android.contacts.action.LIST_STARRED"
+    const-string v2, "com.android.contacts.action.LIST_STARRED"
 
-    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
+
+    move-result-object v0
 
     sput-object v0, Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController;->STARRED_CONTACTS_INTENT:Landroid/content/Intent;
 
     new-instance v0, Landroid/content/Intent;
 
-    const-string v1, "android.intent.action.MAIN"
+    const-string v2, "android.intent.action.MAIN"
 
-    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
+
+    move-result-object v0
 
     sput-object v0, Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController;->FALLBACK_INTENT:Landroid/content/Intent;
 
@@ -315,12 +329,12 @@
 
     if-eqz p0, :cond_2
 
-    const p0, 0x7f0417b8
+    const p0, 0x7f0417dd    # 1.75582E38f
 
     goto :goto_2
 
     :cond_2
-    const p0, 0x7f0417b7
+    const p0, 0x7f0417dc
 
     :goto_2
     invoke-virtual {p1, p0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
@@ -707,19 +721,19 @@
 
     if-nez v0, :cond_1
 
-    const v0, 0x7f041817
+    const v0, 0x7f04183c
 
     const-string v2, "senders_starred_contacts"
 
     invoke-direct {p0, v2, v0}, Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController;->makeRadioPreference(Ljava/lang/String;I)Lcom/android/settingslib/widget/RadioButtonPreference;
 
-    const v0, 0x7f041814
+    const v0, 0x7f041839
 
     const-string v2, "senders_contacts"
 
     invoke-direct {p0, v2, v0}, Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController;->makeRadioPreference(Ljava/lang/String;I)Lcom/android/settingslib/widget/RadioButtonPreference;
 
-    const v0, 0x7f041813
+    const v0, 0x7f041838
 
     invoke-direct {p0, v1, v0}, Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController;->makeRadioPreference(Ljava/lang/String;I)Lcom/android/settingslib/widget/RadioButtonPreference;
 
@@ -727,12 +741,12 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f041823
+    const v0, 0x7f041848
 
     goto :goto_0
 
     :cond_0
-    const v0, 0x7f041822
+    const v0, 0x7f041847
 
     :goto_0
     const-string v1, "senders_none"

@@ -96,6 +96,7 @@
     <string name="peak_refresh_rate_title">Smooth Display</string>
     <string name="peak_refresh_rate_summary">Automatiškai padidinamas kai kurio turinio atnaujinimo dažnis nuo 60 iki 90 Hz. Vartojama daugiau akumuliatoriaus energijos.</string>
     <string name="accessibility_vibration_settings_title">Vibravimas ir lietimo technologija</string>
+    <string name="columbus_title">Veiksmų pradžia naudojant „Quick Tap“</string>
     <string name="emergency_gesture_screen_title">Pagalbos iškvietimas kritiniu atveju</string>
     <string name="abc_action_mode_done">Atlikta</string>
     <string name="vibrate_for_calls_category_title">Skambučiai</string>
@@ -103,6 +104,8 @@
     <string name="lockscreen_privacy_controls_setting_toggle">Rodyti įrenginio valdiklius</string>
     <string name="lockscreen_privacy_wallet_summary">Leiskite pasiekti piniginę iš užrakinimo ekrano ir sparčiųjų nustatymų</string>
     <string name="lockscreen_privacy_controls_summary">Pasiekite valdiklius, kai užrakinta</string>
+    <string name="lockscreen_double_line_clock_summary">Rodyti vertikalųjį laikrodį, kai jis pasiekiamas</string>
+    <string name="lockscreen_double_line_clock_setting_toggle">Vertikalusis laikrodis</string>
     <string name="abc_activity_chooser_view_see_all">Žr. viską</string>
     <string name="abc_activitychooserview_choose_application">Pasirinkite programą</string>
     <string name="abc_capital_off">IŠJUNGTI</string>
@@ -147,9 +150,11 @@
     <string name="accessibility_alarm_vibration_title">Įspėjamasis vibravimas</string>
     <string name="accessibility_assist_gesture_complete_or_keep_adjusting">„Active Edge“ nustatytas. Eikite į kitą ekraną arba koreguokite toliau.</string>
     <string name="accessibility_audio_adjustment_title">Garso koregavimas</string>
+    <string name="accessibility_autoclick_about_title">Apie autom. pasp. (neveikos trukmė)</string>
     <string name="accessibility_autoclick_custom_title">Tinkintas</string>
     <string name="accessibility_autoclick_default_title">Išjungti</string>
     <string name="accessibility_autoclick_description">Automatinio paspaudimo funkcija veikia prijungus pelę. Galite nustatyti, kad būtų automatiškai spustelėta pelės žymekliu, žymekliui nebejudant tam tikrą laiką.</string>
+    <string name="accessibility_autoclick_footer_learn_more_content_description">Sužinokite daugiau apie automatinį paspaudimą (neveikos trukmė)</string>
     <string name="accessibility_autoclick_long_summary">1 sek.</string>
     <string name="accessibility_autoclick_long_title">Ilgas</string>
     <string name="accessibility_autoclick_longer_desc">Ilgesnis</string>
@@ -161,16 +166,17 @@
     <string name="accessibility_autoclick_short_title">Trumpas</string>
     <string name="accessibility_autoclick_shorter_desc">Trumpesnis</string>
     <string name="accessibility_banner_message_dismiss">Atsisakyti</string>
-    <string name="accessibility_button_description">"Greitai pasiekite pritaikymo neįgaliesiems funkcijas bet kuriame ekrane. 
+    <string name="accessibility_button_about_title">Apie pritaikomumo mygtuką</string>
+    <string name="accessibility_button_description">"Sparčiai pasiekite pritaikymo neįgaliesiems funkcijas bet kuriame ekrane.
 
-Norėdami pradėti, eikite į pritaikomumo nustatymus ir pasirinkite funkciją. Palieskite spartųjį klavišą ir pasirinkite pritaikomumo mygtuką."</string>
+Jei norite pradėti, eikite į pritaikomumo nustatymus ir pasirinkite funkciją. Palieskite spartųjį klavišą ir pasirinkite pritaikomumo mygtuką."</string>
     <string name="accessibility_button_fade_summary">Po kelių sekundžių išblunka, kad geriau matytumėte ekraną</string>
     <string name="accessibility_button_fade_title">Išblunka, kai nenaudojamas</string>
+    <string name="accessibility_button_gesture_about_title">Apie pritaikomumo mygtuką ir gestą</string>
     <string name="accessibility_button_gesture_description">"Sparčiai pasiekite pritaikymo neįgaliesiems funkcijas bet kuriame ekrane.
 
-Jei norite pradėti, eikite į pritaikomumo nustatymus ir pasirinkite funkciją. Palieskite spartųjį klavišą ir pasirinkite pritaikomumo mygtuką.
-
-Jei norite naudoti pritaikomumo mygtuką naršymo juostoje, perjunkite į naršymą 2 mygtukais arba naršymą 3 mygtukais."</string>
+Jei norite pradėti, eikite į pritaikomumo nustatymus ir pasirinkite funkciją. Palieskite spartųjį klavišą ir pasirinkite pritaikomumo mygtuką arba gestą."</string>
+    <string name="accessibility_button_gesture_footer_learn_more_content_description">Sužinokite daugiau apie pritaikomumo mygtuką ir gestą</string>
     <string name="accessibility_button_gesture_title">Pritaikomumo mygtukas ir gestas</string>
     <string name="accessibility_button_high_label">Neskaidrus</string>
     <string name="accessibility_button_intro">Pritaikomumo mygtuko naudojimas. Gestas nepasiekiamas naudojant naršymą 3 mygtukais.</string>
@@ -184,14 +190,23 @@ Jei norite naudoti pritaikomumo mygtuką naršymo juostoje, perjunkite į naršy
     <string name="accessibility_caption_preference_summary">Ne visos programos palaiko šias antraščių nuostatas</string>
     <string name="accessibility_caption_primary_switch_summary">Tik palaikomai programai</string>
     <string name="accessibility_caption_primary_switch_title">Rodyti subtitrus</string>
+    <string name="accessibility_captioning_about_title">Apie subtitrų nuostatas</string>
+    <string name="accessibility_captioning_footer_learn_more_content_description">Sužinokite daugiau apie subtitrų nuostatas</string>
     <string name="accessibility_captioning_title">Subtitrų nuostatos</string>
     <string name="accessibility_category_personal">Asmeninio profilio paskyros</string>
     <string name="accessibility_category_work">Darbo profilio paskyros – %s</string>
+    <string name="accessibility_color_inversion_about_title">Apie spalvų inversiją</string>
+    <string name="accessibility_color_inversion_footer_learn_more_content_description">Sužinokite daugiau apie spalvų inversiją</string>
+    <string name="accessibility_control_timeout_about_title">Apie veiksmui atlikti skirtą laiką (pritaikomumui skirtas laikas)</string>
+    <string name="accessibility_control_timeout_footer_learn_more_content_description">Sužinokite daugiau apie veiksmui atlikti skirtą laiką (pritaikomumui skirtas laikas)</string>
     <string name="accessibility_control_timeout_preference_summary">"Pasirinkite, kiek laiko norite rodyti pranešimus, su kuriais reikia atlikti veiksmus ir kurie matomi tik laikinai.
 
 Šis nustatymas palaikomas ne visose programose."</string>
     <string name="accessibility_control_timeout_preference_title">Laikas, skirtas veiksmams atlikti</string>
+    <string name="accessibility_daltonizer_about_title">Apie spalvų taisymą</string>
+    <string name="accessibility_daltonizer_footer_learn_more_content_description">Sužinokite daugiau apie spalvų taisymą</string>
     <string name="accessibility_daltonizer_primary_switch_title">Naudoti spalvų taisymą</string>
+    <string name="accessibility_daltonizer_shortcut_title">Spalvų taisymo spartusis klavišas</string>
     <string name="accessibility_data_one_bar">Viena duomenų juosta.</string>
     <string name="accessibility_data_signal_full">Stiprus duomenų signalas.</string>
     <string name="accessibility_data_three_bars">Trys duomenų juostos.</string>
@@ -206,6 +221,7 @@ Jei norite naudoti pritaikomumo mygtuką naršymo juostoje, perjunkite į naršy
     <string name="accessibility_display_daltonizer_preference_title">Spalvų taisymas</string>
     <string name="accessibility_display_inversion_preference_subtitle">Naudojant spalvų inversiją šviesūs ekranai pakeičiami tamsiais.&lt;br/>&lt;br/> Atkreipkite dėmesį į toliau nurodytus dalykus. &lt;ol> &lt;li> Naudojant spalvų inversiją įjungiamas tamsių ekranų apšvietimas.&lt;/li> &lt;li> Bus pakeistos medijos ir vaizdų spalvos.&lt;/li> &lt;li> Galite naudoti Tamsiąją temą, kad būtų pateiktas tamsus fonas. Tamsioji tema suderinama su palaikomomis programomis. Spalvų inversija veikia visose programose.&lt;/li> &lt;/ol></string>
     <string name="accessibility_display_inversion_preference_title">Spalvų inversija</string>
+    <string name="accessibility_display_inversion_shortcut_title">Spalvų inversijos spartusis klavišas</string>
     <string name="accessibility_display_inversion_switch_title">Naudoti spalvų inversiją</string>
     <string name="accessibility_ethernet_connected">Eternetas.</string>
     <string name="accessibility_ethernet_disconnected">Atsijungta nuo eterneto.</string>
@@ -255,6 +271,8 @@ Pritaikomumo mygtukas bus pateiktas kaip slankusis mygtukas virš kitų program�
     <string name="accessibility_phone_two_bars">Dvi telefono juostos.</string>
     <string name="accessibility_power_button_ends_call_prerefence_title">Maitinimo mygt. baig. skamb.</string>
     <string name="accessibility_preference_magnification_summary">Ekrano artinimas</string>
+    <string name="accessibility_screen_magnification_about_title">Apie didinimą</string>
+    <string name="accessibility_screen_magnification_footer_learn_more_content_description">Sužinokite daugiau apie didinimą</string>
     <string name="accessibility_screen_magnification_gesture_navigation_warning">Pritaikomumo gestas nustatytas į „%1$s“. Norėdami naudoti didinimą, perbraukite dviem pirštais iš ekrano apačios ir palaikykite. Tada pasirinkite didinimą.</string>
     <string name="accessibility_screen_magnification_gestures_title">Didinti palietus tris kartus</string>
     <string name="accessibility_screen_magnification_navbar_configuration_warning">Pritaikymo mobiliesiems mygtukas nustatytas į „%1$s“. Jei norite naudoti didinimo funkciją, palieskite ir palaikykite pritaikymo neįgaliesiems mygtuką, tada pasirinkite didinimo funkciją.</string>
@@ -272,6 +290,7 @@ Pritaikomumo mygtukas bus pateiktas kaip slankusis mygtukas virš kitų program�
 Negalite artinti naudodami klaviatūrą ar naršymo juostą."</string>
     <string name="accessibility_screen_magnification_navbar_title">Didinimas naudojant spart. klavišą</string>
     <string name="accessibility_screen_magnification_short_summary">Palieskite 3 kartus, kad keistumėte mastelį.</string>
+    <string name="accessibility_screen_magnification_shortcut_title">Didinimo spartusis klavišas</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">Didinti naud. spart. klav. ir palietus tris kartus</string>
     <string name="accessibility_screen_magnification_summary">Sparčiai artinkite ekrano vaizdą, kad turinys būtų didesnis.&lt;br/>&lt;br/> &lt;b>Kad priartintumėte, atlikite toliau nurodytus veiksmus.&lt;/b>&lt;br/> {0,number,integer}. Paleiskite didinimo funkciją sparčiuoju klavišu.&lt;br/> {1,number,integer}. Palieskite ekraną.&lt;br/> {2,number,integer}. Pereikite nuo vieno ekrano elemento prie kito vilkdami dviem pirštais.&lt;br/> {3,number,integer}. Koreguokite mastelį suėmę dviem pirštais.&lt;br/> {4,number,integer}. Sustabdykite didinimo funkciją sparčiuoju klavišu.&lt;br/>&lt;br/> &lt;b>Kad laikinai priartintumėte, atlikite toliau nurodytus veiksmus.&lt;/b>&lt;br/> {0,number,integer}. Paleiskite didinimo funkciją sparčiuoju klavišu.&lt;br/> {1,number,integer}. Palieskite ir palaikykite bet kurią ekrano vietą.&lt;br/> {2,number,integer}. Pereikite nuo vieno ekrano elemento prie kito vilkdami pirštu.&lt;br/> {3,number,integer}. Sustabdykite didinimo funkciją pakeldami pirštą.</string>
     <string name="accessibility_screen_magnification_title">Didinimas</string>
@@ -370,7 +389,7 @@ Jei norite perjungti funkcijas, perbraukite aukštyn trimis pirštais ir palaiky
     <string name="accessibility_tutorial_dialog_message_volume">Norėdami naudoti šią funkciją, paspauskite ir palaikykite abu garsumo klavišus.</string>
     <string name="accessibility_tutorial_dialog_title_button">Naudokite pritaikomumo mygtuką, kad atidarytumėte</string>
     <string name="accessibility_tutorial_dialog_title_gesture">Naudokite gestą, kad atidarytumėte</string>
-    <string name="accessibility_tutorial_dialog_title_gesture_settings">Naudokite naują pritaikomumo gestą</string>
+    <string name="accessibility_tutorial_dialog_title_gesture_settings">Pritaikomumo gesto naudojimas</string>
     <string name="accessibility_tutorial_dialog_title_triple">Norėdami atidaryti, triskart palieskite ekraną</string>
     <string name="accessibility_tutorial_dialog_title_volume">Norėdami atidaryti, palaikykite garsumo klavišus</string>
     <string name="accessibility_tutorial_pager">%1$d psl. iš %2$d</string>
@@ -936,6 +955,7 @@ Kai telefonas bus nustatytas iš naujo, atlikite sąrankos proceso veiksmus ir p
     <string name="battery_level_title">Akumuliatoriaus lygis</string>
     <string name="battery_manager_off">Išjungta</string>
     <string name="battery_manager_summary">Pailginamas akumuliatoriaus veikimo laikas ir optimizuojamas įkrovimas</string>
+    <string name="battery_manager_summary_unsupported">Akumuliatoriaus veikimo laiko pailginimas</string>
     <string name="battery_missing_link_a11y_message">Palieskite, jei norite sužinoti daugiau apie šią klaidą</string>
     <string name="battery_missing_link_message">Sužinokite daugiau</string>
     <string name="battery_missing_message">Nuskaitant akumuliatoriaus skaitiklį iškilo problema.</string>
@@ -1061,6 +1081,7 @@ per ^2"</string>
     <string name="battery_usage_screen_footer">Akumuliatoriaus energijos vartojimo duomenys yra apytiksliai ir neįtraukiamas energijos vartojimas, kai telefonas įkraunamas</string>
     <string name="battery_usage_screen_footer_empty">Akumuliatoriaus energijos vartojimo duomenys bus pasiekiami telefoną panaudojus kelias valandas</string>
     <string name="battery_usage_total_less_than_one_minute">Iš viso: mažiau nei minutė</string>
+    <string name="battery_usage_without_time" />
     <string name="battery_used_by">%1$s naudoja „%2$s“</string>
     <string name="battery_used_for">Naudojama ^1</string>
     <string name="bearer">Nešiklis</string>
@@ -1069,12 +1090,14 @@ per ^2"</string>
     <string name="billing_cycle_less_than_one_day_left">Liko mažiau nei 1 diena</string>
     <string name="billing_cycle_none_left">Laiko neliko</string>
     <string name="biometric_settings_category_ways_to_unlock">Atrakinimo metodai</string>
-    <string name="biometric_settings_category_ways_to_use">Veido ir kontrolinio kodo naudojimas</string>
     <string name="biometric_settings_hand_back_to_guardian">Vėl perduokite telefoną vienam iš tėvų</string>
     <string name="biometric_settings_hand_back_to_guardian_ok">Gerai</string>
     <string name="biometric_settings_intro">Jei nustatote atrakinimą pagal veidą ir atrakinimą kontroliniu kodu, telefone prašoma kontrolinio kodo, kai dėvite kaukę arba esate tamsioje vietoje</string>
-    <string name="biometric_settings_use_biometric_for_apps">Autentifikavimas programose</string>
-    <string name="biometric_settings_use_biometric_unlock_phone">Telefono atrakinimas</string>
+    <string name="biometric_settings_use_biometric_for_apps">Patvirtinti tapatybę programose</string>
+    <string name="biometric_settings_use_biometric_unlock_phone">Atrakinti telefoną</string>
+    <string name="biometric_settings_use_face_or_fingerprint_preference_summary">Veido atpažinimo ar kontrolinio kodo naudojimas</string>
+    <string name="biometric_settings_use_face_preference_summary">Veido atpažinimo naudojimas</string>
+    <string name="biometric_settings_use_fingerprint_preference_summary">Kontrolinio kodo naudojimas</string>
     <string name="biometrics_unlock_set_unlock_password">Slaptažodis • Veidas • Kontrolinis kodas</string>
     <string name="biometrics_unlock_set_unlock_pattern">Atrak. piešinys • Veidas • Kontrolinis kodas</string>
     <string name="biometrics_unlock_set_unlock_pin">PIN kodas • Veidas • Kontrolinis kodas</string>
@@ -1332,7 +1355,6 @@ Pasirinkimas"</string>
     <string name="bluetooth_settings_title">Bluetooth</string>
     <string name="bluetooth_show_devices_without_names">Rodyti „Bluetooth“ įrenginius be pavadinimų</string>
     <string name="bluetooth_show_devices_without_names_summary">Bus rodomi „Bluetooth“ įrenginiai be pavadinimų (tik MAC adresai)</string>
-    <string name="bluetooth_show_files_received_via_bluetooth">Failai gauti naud. „Bluetooth“</string>
     <string name="bluetooth_show_received_files">Gauti failai</string>
     <string name="bluetooth_sim_card_access_dialog_content">"„Bluetooth“ įrenginys (%1$s) nori pasiekti duomenis jūsų SIM kortelėje. Tai apima jūsų kontaktus.
 
@@ -1426,6 +1448,7 @@ Jei įdiegsite CA sertifikatą, jo savininkas galės pasiekti jūsų duomenis (n
     <string name="calls_sms_temp_unavailable">Laikinai nepasiekiama</string>
     <string name="calls_sms_unavailable">nepasiekiama</string>
     <string name="calls_sms_wfc_summary">Atlikite ir gaukite skambučius naudodami „Wi‑Fi“</string>
+    <string name="cam_toggle_description">Programos ir paslaugos</string>
     <string name="camera_double_tap_power_gesture_desc">Greitai atidarykite fotoaparatą neatrakinę įrenginio</string>
     <string name="camera_double_tap_power_gesture_title">Dukart pasp. mait. mygt. fotoap. atidar.</string>
     <string name="camera_laser_sensor_switch">Fotoaparato lazerio jutiklis</string>
@@ -3302,6 +3325,7 @@ Yra kitų šio įrenginio naudotojų.
     <string name="menu_stats_total">Visas naudojimas</string>
     <string name="menu_stats_unplugged">%1$s po to, kai buvo ištrauktas iš lizdo</string>
     <string name="menu_use_uss">Naudoti USS</string>
+    <string name="mic_toggle_description">Programos ir paslaugos. Jei šis nustatymas išjungtas, mikrofono duomenys vis tiek gali būti bendrinami, skambinant pagalbos numeriu.</string>
     <string name="mic_toggle_title">Prieiga prie mikrofono</string>
     <string name="misc_files">Įvairūs failai</string>
     <string name="misc_files_selected_count">pasirinkti (-a) %1$d iš %2$d</string>
@@ -3728,6 +3752,7 @@ Programa taip pat galės įjungti ar išjungti netrukdymo režimą ir keisti sus
     <string name="one_handed_action_show_notification_title">Pranešimų rodymas</string>
     <string name="one_handed_mode_enabled">Naudoti vienos rankos režimą</string>
     <string name="one_handed_mode_intro_text">Norėdami naudoti vienos rankos režimą, perbraukite žemyn nuo viršutinio ekrano krašto. Kad galėtumėte naudoti šią funkciją, įsitikinkite, kad naršymas gestais įjungtas sistemos naršymo nustatymuose.</string>
+    <string name="one_handed_mode_shortcut_title">Vienos rankos režimo spartusis klavišas</string>
     <string name="one_handed_mode_swipe_down_category">Perbraukimas žemyn</string>
     <string name="one_handed_mode_use_shortcut_category">Naudokite spartųjį klavišą, norėdami</string>
     <string name="one_usercrt">vienas naudotojo sertifikatas</string>
@@ -3803,7 +3828,7 @@ Programa taip pat galės įjungti ar išjungti netrukdymo režimą ir keisti sus
     <string name="post_dsds_reboot_notification_title_with_carrier">Operatorius „%1$s“ aktyvus</string>
     <string name="power_bluetooth">Bluetooth</string>
     <string name="power_camera">Fotoaparatas</string>
-    <string name="power_cell">Mobiliojo ryšio tinklo budėjimo režimas</string>
+    <string name="power_cell">Mobiliojo ryšio tinklas</string>
     <string name="power_charge_remaining">Liko įkrauti: %1$s</string>
     <string name="power_charging">%1$s – %2$s</string>
     <string name="power_charging_duration">%1$s – liko %2$s, kol bus visiškai įkrauta</string>
@@ -4037,6 +4062,7 @@ paspauskite maitinimo ir garsumo didinimo mygtukus tuo pačiu metu."</string>
     <string name="recent_notifications">Neseniai išsiųsta</string>
     <string name="recent_notifications_see_all_title">Žiūrėti visas pastarųjų 7 d.</string>
     <string name="recompute_size">Iš naujo apskaičiuojamas dydis...</string>
+    <string name="reduce_bright_colors_about_title">Apie funkciją „Itin blanku“</string>
     <string name="reduce_bright_colors_intensity_end_label">Šviesiau</string>
     <string name="reduce_bright_colors_intensity_preference_title">Intensyvumas</string>
     <string name="reduce_bright_colors_intensity_start_label">Tamsiau</string>
@@ -4044,6 +4070,7 @@ paspauskite maitinimo ir garsumo didinimo mygtukus tuo pačiu metu."</string>
     <string name="reduce_bright_colors_preference_subtitle">Pritemdykite ekraną, kad būtų patogiau skaityti.&lt;br/>&lt;br/> Tai gali būti naudinga, kai: &lt;ol> &lt;li> nustačius numatytąjį mažiausią telefono šviesumą ekranas vis tiek pernelyg šviesus;&lt;/li> &lt;li> telefoną naudojate tamsioje aplinkoje, pvz., naktį arba tamsiame kambaryje prieš eidami miegoti.&lt;/li> &lt;/ol></string>
     <string name="reduce_bright_colors_preference_summary">Pritemdykite ekraną daugiau nei mažiausias telefono šviesumas</string>
     <string name="reduce_bright_colors_preference_title">Itin blanku</string>
+    <string name="reduce_bright_colors_shortcut_title">Funkcijos „Itin blanku“ spartusis klavišas</string>
     <string name="reduce_bright_colors_switch_title">Padaryti ekraną itin blankų</string>
     <string name="register_automatically">Automatinė registracija…</string>
     <string name="register_on_network">Registruojama tinkle „%s“…</string>
@@ -4249,7 +4276,6 @@ Norėdami prisegti programą, atlikite toliau nurodytus veiksmus. \u0009
     <string name="screen_pinning_unlock_pattern">Prašyti atrakinimo piešinio prieš atsegant</string>
     <string name="screen_pinning_unlock_pin">Prašyti PIN kodo prieš atsegant</string>
     <string name="screen_reader_category_title">Ekrano skaitytuvas</string>
-    <string name="screen_saver_main_switch_title">Naudoti ekrano užsklandą</string>
     <string name="screen_time_summary_usage_today">%1$s šiandien</string>
     <string name="screen_timeout_summary">Po %1$s neveiklumo</string>
     <string name="screen_timeout_title">Ekranas išjungiamas</string>
@@ -4279,6 +4305,7 @@ Norėdami prisegti programą, atlikite toliau nurodytus veiksmus. \u0009
     <string name="screensaver_settings_button">Nustatymai</string>
     <string name="screensaver_settings_current">Dabartinė ekrano užsklanda</string>
     <string name="screensaver_settings_disabled_prompt">Jei norite valdyti, kas vyksta, kai telefonas yra doke ir (arba) veikia miego režimu, įjunkite ekrano užsklandą.</string>
+    <string name="screensaver_settings_dream_start">Pradėti dabar</string>
     <string name="screensaver_settings_summary_dock">Kai yra doke</string>
     <string name="screensaver_settings_summary_either_long">Įkraunat ar prijungus prie doko</string>
     <string name="screensaver_settings_summary_either_short">Abiem atvejais</string>
@@ -4329,15 +4356,6 @@ Norėdami prisegti programą, atlikite toliau nurodytus veiksmus. \u0009
     <string name="security_settings_biometric_preference_summary_both_fp_single">Pridėtas veidas ir kontrolinis kodas</string>
     <string name="security_settings_biometric_preference_summary_none_enrolled">Palieskite, kad nustatytumėte</string>
     <string name="security_settings_biometric_preference_title">Atrakinimas pagal veidą ir kontroliniu kodu</string>
-    <string name="security_settings_biometrics_description">Kai nustatote atrakinimą pagal veidą ir kontrolinį kodą, telefone prašoma kontrolinio kodo, kai dėvite kaukę arba esate tamsioje vietoje</string>
-    <string name="security_settings_biometrics_preference_use_with_apps">Autentifikavimas programose</string>
-    <string name="security_settings_biometrics_preferences_category">Veido arba kontrolinio kodo naudojimas</string>
-    <string name="security_settings_biometrics_summary_both">Veidas ir kontrolinis kodas</string>
-    <string name="security_settings_biometrics_summary_face">Tik veidas</string>
-    <string name="security_settings_biometrics_summary_fingerprint">Tik kontrolinis kodas</string>
-    <string name="security_settings_biometrics_summary_none">Palieskite, kad nustatytumėte</string>
-    <string name="security_settings_biometrics_title">Atrakinimas pagal veidą ir kontroliniu kodu</string>
-    <string name="security_settings_biometrics_types_category">Atrakinimo metodai</string>
     <string name="security_settings_face_enroll_consent_introduction_title">Atrakinimo pagal veidą leidimas</string>
     <string name="security_settings_face_enroll_dialog_ok">Gerai</string>
     <string name="security_settings_face_enroll_done">Atlikta</string>
@@ -4385,16 +4403,17 @@ Sužinokite daugiau adresu g.co/pixel/faceunlock."</string>
     <string name="security_settings_face_enroll_introduction_control_title">Jūs viską valdote</string>
     <string name="security_settings_face_enroll_introduction_how_consent_message">"Naudojant atrakinimą pagal veidą kuriamas unikalus jūsų vaiko veido modelis, kad būtų galima patvirtinti vaiko tapatybę. Norint sukurti šį veido modelį nustatant, reikia sukurti vaiko veido vaizdų iš skirtingų kampų.
 
-Naudojant atrakinimą pagal veidą vaizdai naudojami veido modeliui atnaujinti. Vaizdai, kurie naudojami veido modeliui kurti, niekada nesaugomi, bet veido modelis saugiai saugomas telefone ir visada lieka jame. Visas apdorojimo procesas saugiai vykdomas telefone."</string>
+Naudojant atrakinimą pagal veidą vaizdai naudojami veido modeliui atnaujinti. Vaizdai, kurie naudojami veido modeliui kurti, nesaugomi, bet veido modelis saugiai saugomas telefone ir visada lieka jame. Visas apdorojimo procesas saugiai vykdomas telefone."</string>
     <string name="security_settings_face_enroll_introduction_how_message">"Naudojant atrakinimą pagal veidą kuriamas unikalus jūsų veido modelis, kad būtų galima patvirtinti jūsų tapatybę. Kad sukurtumėte šį veido modelį nustatydami, turite sukurti veido vaizdų iš skirtingų kampų.
 
-Naudojant atrakinimą pagal veidą vaizdai naudojami jūsų veido modeliui atnaujinti. Vaizdai, kurie naudojami jūsų veido modeliui kurti, niekada nesaugomi, bet veido modelis saugiai saugomas telefone ir visada lieka jame. Visas apdorojimo procesas saugiai vykdomas telefone."</string>
+Naudojant atrakinimą pagal veidą vaizdai naudojami jūsų veido modeliui atnaujinti. Vaizdai, kurie naudojami jūsų veido modeliui kurti, nesaugomi, bet veido modelis saugiai saugomas telefone ir visada lieka jame. Visas apdorojimo procesas saugiai vykdomas telefone."</string>
     <string name="security_settings_face_enroll_introduction_how_title">Kaip tai veikia</string>
     <string name="security_settings_face_enroll_introduction_info_consent_gaze">Atrakinimo pagal veidą funkcijai gali reikėti, jog vaikas būtų atsimerkęs, kad ji galėtų atrakinti telefoną ar patvirtinti, kad tai vaikas nori naudotis telefonu. Jūs ir jūsų vaikas bet kada galite ištrinti šią parinktį skiltyje „Nustatymai“.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_glasses">Jei vaikas įprastai nešioja akinius, nustatydamas jis gali juos užsidėti.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_looking">Žiūrint į telefoną galima jį atrakinti net neketinant to daryti. Be to, telefoną gali atrakinti į vaiką labai panašus asmuo, pvz., identiškas dvynys, arba galima atrakinti, kai kas nors laiko telefoną vaikui prie veido.</string>
     <string name="security_settings_face_enroll_introduction_info_gaze">Atrakinimo pagal veidą funkcijai gali reikėti, jog būtumėte atsimerkę, kad ji galėtų atrakinti telefoną ar patvirtinti, kad tai jūs. Bet kada galite įjungti šią parinktį skiltyje „Nustatymai“.</string>
     <string name="security_settings_face_enroll_introduction_info_glasses">Akiniai arba neryškaus atspalvio akiniai nuo saulės netrukdys.</string>
+    <string name="security_settings_face_enroll_introduction_info_less_secure">Telefono atrakinimas naudojant veido atpažinimo funkciją gali būti mažiau saugus nei naudojant stiprų atrakinimo piešinį ar PIN kodą.</string>
     <string name="security_settings_face_enroll_introduction_info_looking">Žiūrėdami į telefoną galite jį atrakinti net neketindami to daryti. Be to, telefoną gali atrakinti į jus labai panašus asmuo, pvz., identiškas dvynys, arba galima atrakinti, kai kas nors laiko telefoną jums prie veido.</string>
     <string name="security_settings_face_enroll_introduction_info_title">Atminkite</string>
     <string name="security_settings_face_enroll_introduction_message">Naudodami atrakinimą pagal veidą atrakinkite telefoną ar patvirtinkite savo tapatybę, pvz., kai prisijungiate prie programų ar patvirtinate pirkinį.</string>
@@ -4452,13 +4471,14 @@ Telefoną gali atrakinti kitas asmuo, laikydamas jį prieš jus.
 
 Telefoną gali atrakinti į jus labai panašus asmuo, pvz., identiškas dvynys."</string>
     <string name="security_settings_face_settings_preferences_category">Kai naudojamas atrakinimas pagal veidą</string>
-    <string name="security_settings_face_settings_remove_dialog_details">Jūsų veido modelis bus visam laikui saugiai ištrintas. Ištrynus reikės PIN kodo, atrakinimo piešinio arba slaptažodžio, norint atrakinti telefoną ar nustatyti tapatybę programose.</string>
+    <string name="security_settings_face_settings_remove_dialog_details">"Jūsų veido modelis bus visam laikui saugiai ištrintas.
+
+Ištrynus reikės PIN kodo, atrakinimo piešinio arba slaptažodžio, norint atrakinti telefoną ar nustatyti tapatybę programose."</string>
+    <string name="security_settings_face_settings_remove_dialog_details_convenience">"Jūsų veido modelis bus visam laikui saugiai ištrintas.
+
+Ištrynus reikės PIN kodo, atrakinimo piešinio arba slaptažodžio, norint atrakinti telefoną."</string>
     <string name="security_settings_face_settings_remove_dialog_title">Ištrinti veido modelį?</string>
     <string name="security_settings_face_settings_remove_face_model">Ištrinti veido modelį</string>
-    <string name="security_settings_face_settings_remove_model_dialog_details">"Jūsų veido modelis bus visam laikui saugiai ištrintas.
-
-Ištrynus reikės kontrolinio kodo, PIN kodo, atrakinimo piešinio arba slaptažodžio, norint atrakinti telefoną ar nustatyti tapatybę programose."</string>
-    <string name="security_settings_face_settings_remove_model_dialog_title">Ištrinti veido modelį?</string>
     <string name="security_settings_face_settings_require_attention">Reikia būti atsimerkus</string>
     <string name="security_settings_face_settings_require_attention_details">Norint atrakinti telefoną, reikia būti atsimerkus</string>
     <string name="security_settings_face_settings_require_confirmation">Visada reikalauti patvirtinimo</string>
@@ -4541,7 +4561,7 @@ Pastaba: naudodami piršto antspaudą šio įrenginio atrakinti negalite. Daugia
     <string name="security_settings_title">Sauga</string>
     <string name="security_settings_udfps_enroll_a11y">Raskite jutiklį pirštu braukdami per ekraną. Palieskite ir palaikykite kontrolinio kodo jutiklį.</string>
     <string name="security_settings_udfps_enroll_edge_message">Padėkite vieną piršto šoną ant jutiklio ir palaikykite, tada tą patį atlikite su kitu šonu</string>
-    <string name="security_settings_udfps_enroll_edge_title">Galiausiai padėkite piršto kraštus</string>
+    <string name="security_settings_udfps_enroll_edge_title">Galiausiai prispauskite piršto kraštus</string>
     <string name="security_settings_udfps_enroll_find_sensor_message">Kontrolinio kodo jutiklis yra jūsų ekrane. Kontrolinį kodą užfiksuosite kitame ekrane.</string>
     <string name="security_settings_udfps_enroll_find_sensor_start_button">Pradėti</string>
     <string name="security_settings_udfps_enroll_find_sensor_title">Kaip nustatyti kontrolinį kodą</string>
@@ -4550,7 +4570,7 @@ Pastaba: naudodami piršto antspaudą šio įrenginio atrakinti negalite. Daugia
     <string name="security_settings_udfps_enroll_repeat_a11y_message">Taip užfiksuojama daugiau piršto atspaudo</string>
     <string name="security_settings_udfps_enroll_repeat_message">Palieskite ir palaikykite kiekvieną kartą, kai kontrolinio kodo piktograma sujuda. Taip užfiksuojama daugiau piršto atspaudo</string>
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">Stebėkite kontrolinio kodo piktogramą</string>
-    <string name="security_settings_udfps_enroll_start_message">Laikykite pirštą ant jutiklio, kol pajusite vibravimą</string>
+    <string name="security_settings_udfps_enroll_start_message">Laikykite pirštą prispaustą prie jutiklio, kol pajusite vibraciją</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">Dar kartą</string>
     <string name="security_settings_work_fingerprint_preference_title">„Pixel Imprint“, skirtas darbo profiliui</string>
     <string name="security_status_title">Saugos būsena</string>
@@ -4576,7 +4596,6 @@ Pastaba: naudodami piršto antspaudą šio įrenginio atrakinti negalite. Daugia
     <string name="select_webview_provider_dialog_title">„WebView“ diegimo nustatymas</string>
     <string name="select_webview_provider_title">„WebView“ diegimas</string>
     <string name="select_webview_provider_toast_text">Šios parinkties nebegalima pasirinkti. Bandykite dar kartą.</string>
-    <string name="sensor_toggle_description">Visoms programoms ir paslaugoms</string>
     <string name="sensors_off_quick_settings_title">Jutikliai išjungti</string>
     <string name="service_background_processes">%1$s laisva</string>
     <string name="service_foreground_processes">Panaudota %1$s</string>
@@ -4808,6 +4827,7 @@ Tikriausiai netinkamas PIN kodas."</string>
     <string name="sound_settings_summary_silent">Skambutis nustatytas į tylų</string>
     <string name="sound_settings_summary_vibrate">Skambutis nustatytas į vibravimą</string>
     <string name="sound_work_settings">Darbo profilio garsai</string>
+    <string name="spatial_audio_title">Erdvinis garsas</string>
     <string name="special_access">Spec. prieiga prie prog.</string>
     <string name="special_access_more">Žr. daugiau</string>
     <string name="speed_label_fast">Greitas</string>
@@ -5619,7 +5639,7 @@ Vykstant balso skambučiui negalima naudoti interneto ir kai kurios programos ga
     <string name="vpn_turn_on">Įjungti</string>
     <string name="vpn_type">Tipas</string>
     <string name="vpn_username">Naudotojo vardas</string>
-    <string name="vpn_version">%s versija</string>
+    <string name="vpn_version">Versija</string>
     <string name="vr_listener_security_warning_summary">„%1$s“ galės veikti, kai programas naudosite virtualiosios realybės režimu.</string>
     <string name="vr_listener_security_warning_title">Leisti „%1$s“ pasiekti virtualiosios realybės paslaugą?</string>
     <string name="vr_listeners_title">Pagalbinės virtualiosios realybės paslaugos</string>
@@ -5889,7 +5909,7 @@ Nustačius tinklą kaip paslėptą, maršruto parinktuvo nustatymai nebus pakeis
     <string name="wifi_not_in_range">Ne diapazone</string>
     <string name="wifi_not_in_range_message">Tinklas ne diapazone</string>
     <string name="wifi_notify_open_networks">Pranešti apie viešuosius tinklus</string>
-    <string name="wifi_notify_open_networks_summary">Kai nepasiekiamas automatinis ryšys</string>
+    <string name="wifi_notify_open_networks_summary">Pranešti, kai pasiekiamas aukštos kokybės viešas tinklas</string>
     <string name="wifi_on_time">„Wi-Fi“ laiku</string>
     <string name="wifi_p2p_cancel_connect_message">Ar norite atšaukti kvietimą prisijungti prie %1$s?</string>
     <string name="wifi_p2p_cancel_connect_title">Atšaukti kvietimą?</string>
@@ -5977,7 +5997,6 @@ Ar norite suteikti leidimą nuskaityti visoms to prašančioms programoms?"</str
     <string name="wifi_suspend_optimizations">„Wi-Fi“ optimizavimas</string>
     <string name="wifi_suspend_optimizations_summary">Sumažinti akumuliatoriaus naudojimą, kai „Wi-Fi“ įjungta</string>
     <string name="wifi_switch_away_when_unvalidated">Perjungti į mobiliojo ryšio duomenis, jei prarandama „Wi‑Fi“ prieiga prie interneto.</string>
-    <string name="wifi_switch_summary">Raskite „Wi‑Fi“ tinklus ir prisijunkite prie jų</string>
     <string name="wifi_tap_to_sign_in">Palieskite čia, kad prisijungtumėte prie tinklo</string>
     <string name="wifi_tether_configure_ap_text">Nustatyti „Wi-Fi“ viešosios interneto prieigos tašką</string>
     <string name="wifi_tether_configure_ssid_default">„AndroidHotspot“</string>

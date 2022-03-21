@@ -52,12 +52,12 @@
 
     if-eqz p1, :cond_0
 
-    const p1, 0x7f04025c
+    const p1, 0x7f040270
 
     goto :goto_0
 
     :cond_0
-    const p1, 0x7f04025d
+    const p1, 0x7f040271
 
     :goto_0
     invoke-virtual {p0, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
@@ -200,7 +200,7 @@
 
     if-eqz p1, :cond_1
 
-    const-string v0, "uncommitted_state"
+    const-string/jumbo v0, "uncommitted_state"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->get(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -239,7 +239,7 @@
     invoke-virtual {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->setResult(I)V
 
     :cond_1
-    const p1, 0x7f15001d
+    const p1, 0x7f15001e
 
     invoke-virtual {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->addPreferencesFromResource(I)V
 
@@ -378,7 +378,7 @@
 
     iget-object p0, p0, Lcom/android/settings/applications/appinfo/AlarmsAndRemindersDetails;->mUncommittedState:Ljava/lang/Boolean;
 
-    const-string v0, "uncommitted_state"
+    const-string/jumbo v0, "uncommitted_state"
 
     invoke-virtual {p1, v0, p0}, Landroid/os/Bundle;->putObject(Ljava/lang/String;Ljava/lang/Object;)V
 

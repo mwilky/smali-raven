@@ -40,7 +40,7 @@
 
     invoke-virtual {v1, v2, p0}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    const-string p0, "subId"
+    const-string/jumbo p0, "subId"
 
     invoke-virtual {v1, p0, p1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
@@ -109,7 +109,7 @@
 
     invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v0, "unknown type "
+    const-string/jumbo v0, "unknown type "
 
     invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -214,7 +214,7 @@
 
     iput v1, p0, Lcom/android/settings/network/telephony/MobileDataDialogFragment;->mType:I
 
-    const-string v1, "subId"
+    const-string/jumbo v1, "subId"
 
     invoke-virtual {p1, v1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
@@ -248,7 +248,7 @@
 
     move-result-object v1
 
-    const v4, 0x7f04125f
+    const v4, 0x7f041283
 
     if-nez v1, :cond_0
 
@@ -314,7 +314,7 @@
 
     invoke-direct {v4, v0}, Landroidx/appcompat/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v5, 0x7f041234
+    const v5, 0x7f041258
 
     new-array v6, v3, [Ljava/lang/Object;
 
@@ -330,7 +330,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f041232
+    const v5, 0x7f041256
 
     const/4 v6, 0x2
 
@@ -348,7 +348,7 @@
 
     move-result-object v1
 
-    const v4, 0x7f041233
+    const v4, 0x7f041257
 
     new-array v3, v3, [Ljava/lang/Object;
 
@@ -362,7 +362,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f04054c
+    const p1, 0x7f040564
 
     invoke-virtual {p0, p1, v2}, Landroidx/appcompat/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
 
@@ -381,7 +381,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "unknown type "
+    const-string/jumbo v1, "unknown type "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -402,7 +402,7 @@
 
     invoke-direct {p1, v0}, Landroidx/appcompat/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v0, 0x7f040728
+    const v0, 0x7f040740
 
     invoke-virtual {p1, v0}, Landroidx/appcompat/app/AlertDialog$Builder;->setMessage(I)Landroidx/appcompat/app/AlertDialog$Builder;
 

@@ -83,6 +83,16 @@
     return p0
 .end method
 
+.method public bridge synthetic getSliceHighlightMenuRes()I
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getSliceHighlightMenuRes()I
+
+    move-result p0
+
+    return p0
+.end method
+
 .method protected getVibrationEnabledSetting()Ljava/lang/String;
     .locals 0
 

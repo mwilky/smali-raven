@@ -356,7 +356,7 @@
 
     if-ne p2, v2, :cond_0
 
-    const p2, 0x7f06027e
+    const p2, 0x7f06028a
 
     invoke-virtual {v0, p2, p1, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -392,7 +392,7 @@
     throw p0
 
     :cond_1
-    const p0, 0x7f06027d
+    const p0, 0x7f060289
 
     invoke-virtual {v0, p0, p1, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 

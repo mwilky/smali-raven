@@ -38,7 +38,7 @@
 
     invoke-direct {p0, p1}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
-    const-string p1, "zen_mode"
+    const-string/jumbo p1, "zen_mode"
 
     invoke-static {p1}, Landroid/provider/Settings$Global;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 
@@ -46,7 +46,7 @@
 
     iput-object p1, p0, Lcom/android/settings/notification/zen/AbstractZenModePreferenceController$SettingObserver;->ZEN_MODE_URI:Landroid/net/Uri;
 
-    const-string p1, "zen_mode_config_etag"
+    const-string/jumbo p1, "zen_mode_config_etag"
 
     invoke-static {p1}, Landroid/provider/Settings$Global;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 
@@ -54,7 +54,7 @@
 
     iput-object p1, p0, Lcom/android/settings/notification/zen/AbstractZenModePreferenceController$SettingObserver;->ZEN_MODE_CONFIG_ETAG_URI:Landroid/net/Uri;
 
-    const-string p1, "zen_duration"
+    const-string/jumbo p1, "zen_duration"
 
     invoke-static {p1}, Landroid/provider/Settings$Secure;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 

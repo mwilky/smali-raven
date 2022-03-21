@@ -39,7 +39,7 @@
 
     iput-object p1, p0, Lcom/android/settings/development/qstile/DevelopmentTilePreferenceController$OnChangeHandler;->mPackageManager:Landroid/content/pm/PackageManager;
 
-    const-string p1, "statusbar"
+    const-string/jumbo p1, "statusbar"
 
     invoke-static {p1}, Landroid/os/ServiceManager;->checkService(Ljava/lang/String;)Landroid/os/IBinder;
 

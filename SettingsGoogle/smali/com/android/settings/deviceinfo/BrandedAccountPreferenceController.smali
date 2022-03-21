@@ -99,7 +99,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090027
+    const v1, 0x7f090028
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -159,6 +159,16 @@
     return-object p0
 .end method
 
+.method public bridge synthetic getSliceHighlightMenuRes()I
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getSliceHighlightMenuRes()I
+
+    move-result p0
+
+    return p0
+.end method
+
 .method public handlePreferenceTreeClick(Landroidx/preference/Preference;)Z
     .locals 2
 
@@ -197,7 +207,7 @@
 
     move-result-object v0
 
-    const-string v1, "user_handle"
+    const-string/jumbo v1, "user_handle"
 
     invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
@@ -227,7 +237,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f04017e
+    const v0, 0x7f040192
 
     invoke-virtual {p0, v0}, Lcom/android/settings/core/SubSettingLauncher;->setTitleRes(I)Lcom/android/settings/core/SubSettingLauncher;
 

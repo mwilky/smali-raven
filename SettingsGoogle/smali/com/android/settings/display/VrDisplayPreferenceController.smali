@@ -20,7 +20,7 @@
 .method public getPreferenceKey()Ljava/lang/String;
     .locals 0
 
-    const-string p0, "vr_display_pref"
+    const-string/jumbo p0, "vr_display_pref"
 
     return-object p0
 .end method
@@ -56,7 +56,7 @@
 
     move-result-object p0
 
-    const-string v1, "vr_display_mode"
+    const-string/jumbo v1, "vr_display_mode"
 
     const/4 v2, 0x0
 
@@ -66,14 +66,14 @@
 
     if-nez p0, :cond_0
 
-    const p0, 0x7f040808
+    const p0, 0x7f040820
 
     invoke-virtual {p1, p0}, Landroidx/preference/Preference;->setSummary(I)V
 
     goto :goto_0
 
     :cond_0
-    const p0, 0x7f040809
+    const p0, 0x7f040821
 
     invoke-virtual {p1, p0}, Landroidx/preference/Preference;->setSummary(I)V
 

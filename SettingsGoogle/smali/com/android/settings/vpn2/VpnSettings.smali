@@ -714,7 +714,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f040a3b
+    const p0, 0x7f040a53
 
     return p0
 .end method
@@ -820,7 +820,7 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/RestrictedSettingsFragment;->onActivityCreated(Landroid/os/Bundle;)V
 
-    const-string p1, "user"
+    const-string/jumbo p1, "user"
 
     invoke-virtual {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -840,7 +840,7 @@
 
     iput-object p1, p0, Lcom/android/settings/vpn2/VpnSettings;->mConnectivityManager:Landroid/net/ConnectivityManager;
 
-    const-string p1, "vpn_management"
+    const-string/jumbo p1, "vpn_management"
 
     invoke-virtual {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -860,7 +860,7 @@
 
     invoke-virtual {p0, p1}, Landroidx/fragment/app/Fragment;->setHasOptionsMenu(Z)V
 
-    const p1, 0x7f150105
+    const p1, 0x7f15010a
 
     invoke-virtual {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->addPreferencesFromResource(I)V
 
@@ -871,16 +871,6 @@
     .locals 1
 
     invoke-super {p0, p1, p2}, Lcom/android/settingslib/core/lifecycle/ObservablePreferenceFragment;->onCreateOptionsMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V
-
-    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/android/settings/Utils;->isProviderModelEnabled(Landroid/content/Context;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
 
     invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
 
@@ -902,7 +892,7 @@
 
     const-string p1, "FEATURE_IPSEC_TUNNELS missing from system, cannot create new VPNs"
 
-    invoke-static {p0, p1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p0, p1}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
@@ -921,7 +911,7 @@
 
     move-result v0
 
-    const v1, 0x7f0d0623
+    const v1, 0x7f0d0633
 
     if-ne v0, v1, :cond_1
 
@@ -1280,7 +1270,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f041576
+    const v1, 0x7f04159b
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -1304,7 +1294,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f041564
+    const v1, 0x7f041589
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 

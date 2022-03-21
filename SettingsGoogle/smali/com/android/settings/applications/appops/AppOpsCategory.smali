@@ -51,7 +51,7 @@
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
-    const-string v1, "template"
+    const-string/jumbo v1, "template"
 
     invoke-virtual {v0, v1, p1}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
@@ -142,7 +142,7 @@
 
     if-eqz p1, :cond_0
 
-    const-string p2, "template"
+    const-string/jumbo p2, "template"
 
     invoke-virtual {p1, p2}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
 
@@ -180,7 +180,7 @@
 
     if-eqz p1, :cond_0
 
-    const p3, 0x7f0d03f3
+    const p3, 0x7f0d0401
 
     invoke-virtual {p2, p3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

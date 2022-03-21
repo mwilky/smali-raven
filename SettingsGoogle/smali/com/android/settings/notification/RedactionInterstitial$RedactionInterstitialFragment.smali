@@ -128,7 +128,7 @@
     move v1, v2
 
     :cond_2
-    const v2, 0x7f0d0290
+    const v2, 0x7f0d0295
 
     if-eqz v0, :cond_4
 
@@ -142,7 +142,7 @@
 
     if-nez v0, :cond_3
 
-    const v2, 0x7f0d04ea
+    const v2, 0x7f0d04f9
 
     goto :goto_2
 
@@ -155,7 +155,7 @@
 
     if-nez v0, :cond_4
 
-    const v2, 0x7f0d047f
+    const v2, 0x7f0d048c
 
     :cond_4
     :goto_2
@@ -223,7 +223,7 @@
 
     const/4 v0, 0x0
 
-    const v1, 0x7f0d04ea
+    const v1, 0x7f0d04f9
 
     if-ne p2, v1, :cond_0
 
@@ -235,7 +235,7 @@
     move v1, v0
 
     :goto_0
-    const v2, 0x7f0d0290
+    const v2, 0x7f0d0295
 
     if-eq p2, v2, :cond_1
 
@@ -271,7 +271,7 @@
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 0
 
-    const p0, 0x7f0601d2
+    const p0, 0x7f0601d6
 
     const/4 p3, 0x0
 
@@ -309,7 +309,7 @@
 
     invoke-super {p0, p1, p2}, Landroidx/preference/PreferenceFragmentCompat;->onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
 
-    const p2, 0x7f0d0479
+    const p2, 0x7f0d0486
 
     invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -319,7 +319,7 @@
 
     iput-object p2, p0, Lcom/android/settings/notification/RedactionInterstitial$RedactionInterstitialFragment;->mRadioGroup:Landroid/widget/RadioGroup;
 
-    const p2, 0x7f0d04ea
+    const p2, 0x7f0d04f9
 
     invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -329,7 +329,7 @@
 
     iput-object p2, p0, Lcom/android/settings/notification/RedactionInterstitial$RedactionInterstitialFragment;->mShowAllButton:Lcom/android/settings/RestrictedRadioButton;
 
-    const p2, 0x7f0d047f
+    const p2, 0x7f0d048c
 
     invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -381,7 +381,7 @@
 
     if-eqz p2, :cond_0
 
-    const p2, 0x7f0d0566
+    const p2, 0x7f0d0575
 
     invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -389,23 +389,23 @@
 
     check-cast p2, Landroid/widget/TextView;
 
-    const v0, 0x7f040bab
+    const v0, 0x7f040bc3
 
     invoke-virtual {p2, v0}, Landroid/widget/TextView;->setText(I)V
 
     iget-object p2, p0, Lcom/android/settings/notification/RedactionInterstitial$RedactionInterstitialFragment;->mShowAllButton:Lcom/android/settings/RestrictedRadioButton;
 
-    const v0, 0x7f040bb2
+    const v0, 0x7f040bca
 
     invoke-virtual {p2, v0}, Landroid/widget/RadioButton;->setText(I)V
 
     iget-object p2, p0, Lcom/android/settings/notification/RedactionInterstitial$RedactionInterstitialFragment;->mRedactSensitiveButton:Lcom/android/settings/RestrictedRadioButton;
 
-    const v0, 0x7f040bb0
+    const v0, 0x7f040bc8
 
     invoke-virtual {p2, v0}, Landroid/widget/RadioButton;->setText(I)V
 
-    const p2, 0x7f0d0290
+    const p2, 0x7f0d0295
 
     invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -418,7 +418,7 @@
     invoke-virtual {p2, v0}, Landroid/widget/RadioButton;->setVisibility(I)V
 
     :cond_0
-    const p2, 0x7f0d04e2
+    const p2, 0x7f0d04f1
 
     invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -442,7 +442,7 @@
 
     invoke-direct {p2, v0}, Lcom/google/android/setupcompat/template/FooterButton$Builder;-><init>(Landroid/content/Context;)V
 
-    const v0, 0x7f040257
+    const v0, 0x7f04026b
 
     invoke-virtual {p2, v0}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setText(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -462,7 +462,7 @@
 
     move-result-object p0
 
-    const p2, 0x7f13021a
+    const p2, 0x7f13021c
 
     invoke-virtual {p0, p2}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setTheme(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 

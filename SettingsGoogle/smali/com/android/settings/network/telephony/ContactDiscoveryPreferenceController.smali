@@ -239,7 +239,7 @@
 
     if-eqz p0, :cond_1
 
-    const-string v0, "use_rcs_presence_bool"
+    const-string/jumbo v0, "use_rcs_presence_bool"
 
     invoke-virtual {p0, v0, p1}, Landroid/os/PersistableBundle;->getBoolean(Ljava/lang/String;Z)Z
 

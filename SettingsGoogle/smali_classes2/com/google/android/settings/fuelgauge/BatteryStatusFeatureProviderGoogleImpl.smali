@@ -141,12 +141,12 @@
 
     if-eqz v3, :cond_0
 
-    const v3, 0x7f041041
+    const v3, 0x7f04106f
 
     goto :goto_0
 
     :cond_0
-    const v3, 0x7f041040
+    const v3, 0x7f04106e
 
     :goto_0
     invoke-virtual {v0, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
@@ -164,7 +164,7 @@
     :cond_1
     iget-object p0, p0, Lcom/android/settings/fuelgauge/BatteryStatusFeatureProviderImpl;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f04039f
+    const v4, 0x7f0403b4
 
     const/4 v5, 0x2
 

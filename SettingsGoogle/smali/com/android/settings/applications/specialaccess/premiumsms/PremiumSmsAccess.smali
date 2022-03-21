@@ -34,7 +34,7 @@
 
     new-instance v0, Lcom/android/settings/search/BaseSearchIndexProvider;
 
-    const v1, 0x7f1500b8
+    const v1, 0x7f1500bd
 
     invoke-direct {v0, v1}, Lcom/android/settings/search/BaseSearchIndexProvider;-><init>(I)V
 
@@ -93,7 +93,7 @@
     return-void
 
     :cond_0
-    const v0, 0x7f040f60
+    const v0, 0x7f040f8c
 
     invoke-virtual {p0, v0}, Lcom/android/settings/widget/EmptyTextSettings;->setEmptyText(I)V
 
@@ -155,7 +155,7 @@
 
     invoke-direct {p1, p0}, Lcom/android/settingslib/widget/FooterPreference;-><init>(Landroid/content/Context;)V
 
-    const p0, 0x7f040f61
+    const p0, 0x7f040f8d
 
     invoke-virtual {p1, p0}, Landroidx/preference/Preference;->setTitle(I)V
 
@@ -178,7 +178,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f1500b8
+    const p0, 0x7f1500bd
 
     return p0
 .end method

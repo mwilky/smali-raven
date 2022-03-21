@@ -55,7 +55,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d022f
+    const v1, 0x7f0d0234
 
     invoke-virtual {v0, v1}, Landroidx/appcompat/app/AppCompatDialog;->findViewById(I)Landroid/view/View;
 

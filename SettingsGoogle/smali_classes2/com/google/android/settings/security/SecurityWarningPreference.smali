@@ -8,26 +8,26 @@
 
 
 # direct methods
-.method public static synthetic $r8$lambda$XAZfkSpiSUCiJbJ9_6kcg_Ss6UY(Lcom/google/android/settings/security/SecurityWarningPreference;Landroid/os/Bundle;Landroid/view/View;)V
+.method public static synthetic $r8$lambda$AdhPMxncSantaAcEuDyDQ-0hTtc(Lcom/google/android/settings/security/SecurityWarningPreference;Landroid/os/Bundle;Lcom/android/settings/SettingsPreferenceFragment;Landroid/view/View;)V
     .locals 0
 
-    invoke-direct {p0, p1, p2}, Lcom/google/android/settings/security/SecurityWarningPreference;->lambda$setSecurityWarning$0(Landroid/os/Bundle;Landroid/view/View;)V
+    invoke-direct {p0, p1, p2, p3}, Lcom/google/android/settings/security/SecurityWarningPreference;->lambda$setSecurityWarning$3(Landroid/os/Bundle;Lcom/android/settings/SettingsPreferenceFragment;Landroid/view/View;)V
 
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$pHTfKmjJEXbSCQRi3oGqKKhu9Bo(Lcom/google/android/settings/security/SecurityWarningPreference;Landroid/os/Bundle;Landroid/view/View;)V
+.method public static synthetic $r8$lambda$F2kWWcjPof0F-qgzECbAkxFUK8Y(Lcom/google/android/settings/security/SecurityWarningPreference;Landroid/os/Bundle;Lcom/android/settings/SettingsPreferenceFragment;Landroid/view/View;)V
     .locals 0
 
-    invoke-direct {p0, p1, p2}, Lcom/google/android/settings/security/SecurityWarningPreference;->lambda$setSecurityWarning$3(Landroid/os/Bundle;Landroid/view/View;)V
+    invoke-direct {p0, p1, p2, p3}, Lcom/google/android/settings/security/SecurityWarningPreference;->lambda$setSecurityWarning$1(Landroid/os/Bundle;Lcom/android/settings/SettingsPreferenceFragment;Landroid/view/View;)V
 
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$t10sffU6AhTmYie_UBs0Bfv0us0(Lcom/google/android/settings/security/SecurityWarningPreference;Landroid/os/Bundle;Landroid/view/View;)V
+.method public static synthetic $r8$lambda$RtR3w69w0h-9keo9CYk5aQtAhjM(Lcom/google/android/settings/security/SecurityWarningPreference;Landroid/os/Bundle;Lcom/android/settings/SettingsPreferenceFragment;Landroid/view/View;)V
     .locals 0
 
-    invoke-direct {p0, p1, p2}, Lcom/google/android/settings/security/SecurityWarningPreference;->lambda$setSecurityWarning$1(Landroid/os/Bundle;Landroid/view/View;)V
+    invoke-direct {p0, p1, p2, p3}, Lcom/google/android/settings/security/SecurityWarningPreference;->lambda$setSecurityWarning$0(Landroid/os/Bundle;Lcom/android/settings/SettingsPreferenceFragment;Landroid/view/View;)V
 
     return-void
 .end method
@@ -54,22 +54,30 @@
     return-void
 .end method
 
-.method private synthetic lambda$setSecurityWarning$0(Landroid/os/Bundle;Landroid/view/View;)V
+.method private synthetic lambda$setSecurityWarning$0(Landroid/os/Bundle;Lcom/android/settings/SettingsPreferenceFragment;Landroid/view/View;)V
     .locals 0
 
     iget-object p0, p0, Lcom/google/android/settings/security/SecurityWarningPreference;->mSecurityContentManager:Lcom/google/android/settings/security/SecurityContentManager;
 
-    invoke-virtual {p0, p1}, Lcom/google/android/settings/security/SecurityContentManager;->handleClick(Landroid/os/Bundle;)Z
+    invoke-virtual {p2}, Landroidx/fragment/app/Fragment;->getActivity()Landroidx/fragment/app/FragmentActivity;
+
+    move-result-object p2
+
+    invoke-virtual {p0, p1, p2}, Lcom/google/android/settings/security/SecurityContentManager;->handleClick(Landroid/os/Bundle;Landroid/app/Activity;)Z
 
     return-void
 .end method
 
-.method private synthetic lambda$setSecurityWarning$1(Landroid/os/Bundle;Landroid/view/View;)V
+.method private synthetic lambda$setSecurityWarning$1(Landroid/os/Bundle;Lcom/android/settings/SettingsPreferenceFragment;Landroid/view/View;)V
     .locals 0
 
     iget-object p0, p0, Lcom/google/android/settings/security/SecurityWarningPreference;->mSecurityContentManager:Lcom/google/android/settings/security/SecurityContentManager;
 
-    invoke-virtual {p0, p1}, Lcom/google/android/settings/security/SecurityContentManager;->handleClick(Landroid/os/Bundle;)Z
+    invoke-virtual {p2}, Landroidx/fragment/app/Fragment;->getActivity()Landroidx/fragment/app/FragmentActivity;
+
+    move-result-object p2
+
+    invoke-virtual {p0, p1, p2}, Lcom/google/android/settings/security/SecurityContentManager;->handleClick(Landroid/os/Bundle;Landroid/app/Activity;)Z
 
     return-void
 .end method
@@ -77,11 +85,11 @@
 .method private static synthetic lambda$setSecurityWarning$2(Landroid/os/Bundle;Lcom/android/settings/SettingsPreferenceFragment;Landroid/view/View;)V
     .locals 3
 
-    const p2, 0x7f0410e2
+    const p2, 0x7f041110
 
     const/4 v0, 0x0
 
-    const v1, 0x7f0410e1
+    const v1, 0x7f04110f
 
     const/high16 v2, 0x1040000
 
@@ -100,12 +108,16 @@
     return-void
 .end method
 
-.method private synthetic lambda$setSecurityWarning$3(Landroid/os/Bundle;Landroid/view/View;)V
+.method private synthetic lambda$setSecurityWarning$3(Landroid/os/Bundle;Lcom/android/settings/SettingsPreferenceFragment;Landroid/view/View;)V
     .locals 0
 
     iget-object p0, p0, Lcom/google/android/settings/security/SecurityWarningPreference;->mSecurityContentManager:Lcom/google/android/settings/security/SecurityContentManager;
 
-    invoke-virtual {p0, p1}, Lcom/google/android/settings/security/SecurityContentManager;->handleClick(Landroid/os/Bundle;)Z
+    invoke-virtual {p2}, Landroidx/fragment/app/Fragment;->getActivity()Landroidx/fragment/app/FragmentActivity;
+
+    move-result-object p2
+
+    invoke-virtual {p0, p1, p2}, Lcom/google/android/settings/security/SecurityContentManager;->handleClick(Landroid/os/Bundle;Landroid/app/Activity;)Z
 
     return-void
 .end method
@@ -139,9 +151,9 @@
 
     if-eqz v0, :cond_0
 
-    new-instance v1, Lcom/google/android/settings/security/SecurityWarningPreference$$ExternalSyntheticLambda1;
+    new-instance v1, Lcom/google/android/settings/security/SecurityWarningPreference$$ExternalSyntheticLambda3;
 
-    invoke-direct {v1, p0, v0}, Lcom/google/android/settings/security/SecurityWarningPreference$$ExternalSyntheticLambda1;-><init>(Lcom/google/android/settings/security/SecurityWarningPreference;Landroid/os/Bundle;)V
+    invoke-direct {v1, p0, v0, p2}, Lcom/google/android/settings/security/SecurityWarningPreference$$ExternalSyntheticLambda3;-><init>(Lcom/google/android/settings/security/SecurityWarningPreference;Landroid/os/Bundle;Lcom/android/settings/SettingsPreferenceFragment;)V
 
     invoke-virtual {p0, v1}, Lcom/android/settingslib/widget/BannerMessagePreference;->setPositiveButtonOnClickListener(Landroid/view/View$OnClickListener;)Lcom/android/settingslib/widget/BannerMessagePreference;
 
@@ -158,9 +170,9 @@
 
     if-eqz v0, :cond_1
 
-    new-instance v1, Lcom/google/android/settings/security/SecurityWarningPreference$$ExternalSyntheticLambda3;
+    new-instance v1, Lcom/google/android/settings/security/SecurityWarningPreference$$ExternalSyntheticLambda2;
 
-    invoke-direct {v1, p0, v0}, Lcom/google/android/settings/security/SecurityWarningPreference$$ExternalSyntheticLambda3;-><init>(Lcom/google/android/settings/security/SecurityWarningPreference;Landroid/os/Bundle;)V
+    invoke-direct {v1, p0, v0, p2}, Lcom/google/android/settings/security/SecurityWarningPreference$$ExternalSyntheticLambda2;-><init>(Lcom/google/android/settings/security/SecurityWarningPreference;Landroid/os/Bundle;Lcom/android/settings/SettingsPreferenceFragment;)V
 
     invoke-virtual {p0, v1}, Lcom/android/settingslib/widget/BannerMessagePreference;->setNegativeButtonOnClickListener(Landroid/view/View$OnClickListener;)Lcom/android/settingslib/widget/BannerMessagePreference;
 
@@ -192,11 +204,11 @@
     goto :goto_0
 
     :cond_2
-    new-instance p2, Lcom/google/android/settings/security/SecurityWarningPreference$$ExternalSyntheticLambda2;
+    new-instance v1, Lcom/google/android/settings/security/SecurityWarningPreference$$ExternalSyntheticLambda1;
 
-    invoke-direct {p2, p0, v0}, Lcom/google/android/settings/security/SecurityWarningPreference$$ExternalSyntheticLambda2;-><init>(Lcom/google/android/settings/security/SecurityWarningPreference;Landroid/os/Bundle;)V
+    invoke-direct {v1, p0, v0, p2}, Lcom/google/android/settings/security/SecurityWarningPreference$$ExternalSyntheticLambda1;-><init>(Lcom/google/android/settings/security/SecurityWarningPreference;Landroid/os/Bundle;Lcom/android/settings/SettingsPreferenceFragment;)V
 
-    invoke-virtual {p0, p2}, Lcom/android/settingslib/widget/BannerMessagePreference;->setDismissButtonOnClickListener(Landroid/view/View$OnClickListener;)Lcom/android/settingslib/widget/BannerMessagePreference;
+    invoke-virtual {p0, v1}, Lcom/android/settingslib/widget/BannerMessagePreference;->setDismissButtonOnClickListener(Landroid/view/View$OnClickListener;)Lcom/android/settingslib/widget/BannerMessagePreference;
 
     :cond_3
     :goto_0

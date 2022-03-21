@@ -11,7 +11,7 @@
 .method public constructor <init>(Landroid/content/Context;Landroidx/fragment/app/Fragment;Lcom/android/settingslib/core/lifecycle/Lifecycle;)V
     .locals 1
 
-    const-string v0, "zen_mode_automatic_rules"
+    const-string/jumbo v0, "zen_mode_automatic_rules"
 
     invoke-direct {p0, p1, v0, p2, p3}, Lcom/android/settings/notification/zen/AbstractZenModeAutomaticRulePreferenceController;-><init>(Landroid/content/Context;Ljava/lang/String;Landroidx/fragment/app/Fragment;Lcom/android/settingslib/core/lifecycle/Lifecycle;)V
 
@@ -77,7 +77,7 @@
 .method public getPreferenceKey()Ljava/lang/String;
     .locals 0
 
-    const-string p0, "zen_mode_automatic_rules"
+    const-string/jumbo p0, "zen_mode_automatic_rules"
 
     return-object p0
 .end method

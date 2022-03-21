@@ -33,7 +33,7 @@
 
     sput-object v0, Lcom/airbnb/lottie/parser/DocumentDataParser;->INSTANCE:Lcom/airbnb/lottie/parser/DocumentDataParser;
 
-    const-string v1, "t"
+    const-string/jumbo v1, "t"
 
     const-string v2, "f"
 
@@ -41,7 +41,7 @@
 
     const-string v4, "j"
 
-    const-string v5, "tr"
+    const-string/jumbo v5, "tr"
 
     const-string v6, "lh"
 
@@ -51,7 +51,7 @@
 
     const-string v9, "sc"
 
-    const-string v10, "sw"
+    const-string/jumbo v10, "sw"
 
     const-string v11, "of"
 

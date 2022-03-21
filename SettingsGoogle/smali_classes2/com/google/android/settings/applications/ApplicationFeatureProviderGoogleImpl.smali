@@ -415,7 +415,7 @@
 
     sget-object v3, Landroid/icu/text/MeasureFormat$FormatWidth;->NARROW:Landroid/icu/text/MeasureFormat$FormatWidth;
 
-    const v4, 0x7f040847
+    const v4, 0x7f04085f
 
     const/4 v5, 0x0
 
@@ -425,7 +425,7 @@
 
     iget-object p0, p0, Lcom/google/android/settings/applications/ApplicationFeatureProviderGoogleImpl;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f04109b
+    const v3, 0x7f0410c8
 
     const/4 v4, 0x1
 

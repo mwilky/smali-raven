@@ -72,7 +72,7 @@
 .method protected getDialogTitle()I
     .locals 0
 
-    const p0, 0x7f0404ca
+    const p0, 0x7f0404e2
 
     return p0
 .end method

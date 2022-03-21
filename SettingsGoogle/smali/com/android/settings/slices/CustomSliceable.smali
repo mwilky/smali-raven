@@ -130,6 +130,9 @@
 .method public abstract getSlice()Landroidx/slice/Slice;
 .end method
 
+.method public abstract getSliceHighlightMenuRes()I
+.end method
+
 .method public abstract getUri()Landroid/net/Uri;
 .end method
 

@@ -375,7 +375,7 @@
 
     const/4 p1, 0x6
 
-    const-string p2, "timestamp_"
+    const-string/jumbo p2, "timestamp_"
 
     aput-object p2, p0, p1
 
@@ -402,6 +402,8 @@
     invoke-direct {p0}, Lcom/android/settings/intelligence/LogProto$SettingsLog;-><init>()V
 
     return-object p0
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x1

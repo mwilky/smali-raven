@@ -150,7 +150,7 @@
 
     aput-object p1, v0, v1
 
-    const p1, 0x7f040931
+    const p1, 0x7f040949
 
     invoke-virtual {p0, p1, v0}, Landroidx/fragment/app/Fragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -168,19 +168,19 @@
 
     move-result-object p1
 
-    const v0, 0x7f040930
+    const v0, 0x7f040948
 
     invoke-virtual {p1, v0}, Landroidx/appcompat/app/AlertDialog$Builder;->setMessage(I)Landroidx/appcompat/app/AlertDialog$Builder;
 
     move-result-object p1
 
-    const v0, 0x7f04114c
+    const v0, 0x7f041171
 
     invoke-virtual {p1, v0, p0}, Landroidx/appcompat/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
 
     move-result-object p1
 
-    const v0, 0x7f04054c
+    const v0, 0x7f040564
 
     const/4 v1, 0x0
 

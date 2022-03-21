@@ -43,7 +43,7 @@
 .method public register(Landroid/content/ContentResolver;)V
     .locals 2
 
-    const-string v0, "updatable_driver_all_apps"
+    const-string/jumbo v0, "updatable_driver_all_apps"
 
     invoke-static {v0}, Landroid/provider/Settings$Global;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 

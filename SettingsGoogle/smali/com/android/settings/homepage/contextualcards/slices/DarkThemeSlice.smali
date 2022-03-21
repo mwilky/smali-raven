@@ -306,7 +306,7 @@
 
     iget-object v2, p0, Lcom/android/settings/homepage/contextualcards/slices/DarkThemeSlice;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f020119
+    const v6, 0x7f02011f
 
     invoke-static {v2, v6}, Landroidx/core/graphics/drawable/IconCompat;->createWithResource(Landroid/content/Context;I)Landroidx/core/graphics/drawable/IconCompat;
 
@@ -343,7 +343,7 @@
 
     iget-object v5, p0, Lcom/android/settings/homepage/contextualcards/slices/DarkThemeSlice;->mContext:Landroid/content/Context;
 
-    const v7, 0x7f0406d7
+    const v7, 0x7f0406ef
 
     invoke-virtual {v5, v7}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -359,7 +359,7 @@
 
     iget-object p0, p0, Lcom/android/settings/homepage/contextualcards/slices/DarkThemeSlice;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0406d6
+    const v3, 0x7f0406ee
 
     invoke-virtual {p0, v3}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -408,6 +408,14 @@
     move-result-object p0
 
     return-object p0
+.end method
+
+.method public getSliceHighlightMenuRes()I
+    .locals 0
+
+    const p0, 0x7f040d07
+
+    return p0
 .end method
 
 .method public getUri()Landroid/net/Uri;

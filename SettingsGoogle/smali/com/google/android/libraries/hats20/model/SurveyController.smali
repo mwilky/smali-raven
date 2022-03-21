@@ -502,7 +502,7 @@
 
     invoke-direct {v0}, Lcom/google/android/libraries/hats20/model/SurveyController;-><init>()V
 
-    const-string v1, "tags"
+    const-string/jumbo v1, "tags"
 
     invoke-virtual {p0, v1}, Lorg/json/JSONObject;->getJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
 
@@ -679,7 +679,7 @@
     goto :goto_2
 
     :sswitch_4
-    const-string v8, "thankYouMessage"
+    const-string/jumbo v8, "thankYouMessage"
 
     invoke-virtual {v5, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -690,7 +690,7 @@
     goto :goto_1
 
     :sswitch_5
-    const-string v6, "showInvitation"
+    const-string/jumbo v6, "showInvitation"
 
     invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 

@@ -103,8 +103,10 @@
         Lcom/android/settings/Settings$UsageAccessSettingsActivity;,
         Lcom/android/settings/Settings$SecurityDashboardActivity;,
         Lcom/android/settings/Settings$ReduceBrightColorsSettingsActivity;,
+        Lcom/android/settings/Settings$BlueToothPairingActivity;,
         Lcom/android/settings/Settings$LockScreenSettingsActivity;,
         Lcom/android/settings/Settings$AccessibilityDaltonizerSettingsActivity;,
+        Lcom/android/settings/Settings$AccessibilityInversionSettingsActivity;,
         Lcom/android/settings/Settings$CaptioningSettingsActivity;,
         Lcom/android/settings/Settings$AccessibilityDetailsSettingsActivity;,
         Lcom/android/settings/Settings$AccessibilitySettingsActivity;,
@@ -129,6 +131,7 @@
         Lcom/android/settings/Settings$AvailableVirtualKeyboardActivity;,
         Lcom/android/settings/Settings$WifiP2pSettingsActivity;,
         Lcom/android/settings/Settings$WifiDetailsSettingsActivity;,
+        Lcom/android/settings/Settings$NetworkSelectActivity;,
         Lcom/android/settings/Settings$NetworkProviderSettingsActivity;,
         Lcom/android/settings/Settings$WifiSettingsActivity;,
         Lcom/android/settings/Settings$PublicVolumeSettingsActivity;,
@@ -171,7 +174,7 @@
 .method private static wrapIntentWithAllInOneTetherSettingsIfNeeded(Landroid/content/Context;Landroid/content/Intent;)Landroid/content/Intent;
     .locals 3
 
-    const-string v0, "settings_tether_all_in_one"
+    const-string/jumbo v0, "settings_tether_all_in_one"
 
     invoke-static {p0, v0}, Landroid/util/FeatureFlagUtils;->isEnabled(Landroid/content/Context;Ljava/lang/String;)Z
 

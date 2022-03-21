@@ -96,6 +96,7 @@
     <string name="peak_refresh_rate_title">Smooth Display</string>
     <string name="peak_refresh_rate_summary">Höjer uppdateringsfrekvensen dynamiskt från 60 till 90 Hz för visst innehåll. Ökar batteriförbrukningen.</string>
     <string name="accessibility_vibration_settings_title">Vibration och haptik</string>
+    <string name="columbus_title">Använd snabbtryck för att starta åtgärderna</string>
     <string name="emergency_gesture_screen_title">SOS-larm</string>
     <string name="abc_action_mode_done">Klar</string>
     <string name="vibrate_for_calls_category_title">Samtal</string>
@@ -103,6 +104,8 @@
     <string name="lockscreen_privacy_controls_setting_toggle">Visa enhetsstyrning</string>
     <string name="lockscreen_privacy_wallet_summary">Tillåt åtkomst till Wallet från låsskärmen och snabbinställningar</string>
     <string name="lockscreen_privacy_controls_summary">Få åtkomst till kontroller när skärmen är låst</string>
+    <string name="lockscreen_double_line_clock_summary">Visa klocka på två rader när så är möjligt</string>
+    <string name="lockscreen_double_line_clock_setting_toggle">Klocka på två rader</string>
     <string name="abc_activity_chooser_view_see_all">Visa alla</string>
     <string name="abc_activitychooserview_choose_application">Välj en app</string>
     <string name="abc_capital_off">AV</string>
@@ -147,9 +150,11 @@
     <string name="accessibility_alarm_vibration_title">Vibration för alarm</string>
     <string name="accessibility_assist_gesture_complete_or_keep_adjusting">Active Edge har konfigurerats. Fortsätt till nästa skärm eller gör fler justeringar.</string>
     <string name="accessibility_audio_adjustment_title">Ljudjustering</string>
+    <string name="accessibility_autoclick_about_title">Om automatiskt klick (hovringstid)</string>
     <string name="accessibility_autoclick_custom_title">Anpassad</string>
     <string name="accessibility_autoclick_default_title">Av</string>
     <string name="accessibility_autoclick_description">Automatiskt klick fungerar med en ansluten mus. Du kan ställa in muspekaren så att den klickar automatiskt när markören har varit stilla en viss tid.</string>
+    <string name="accessibility_autoclick_footer_learn_more_content_description">Läs mer om automatiskt klick (hovringstid)</string>
     <string name="accessibility_autoclick_long_summary">1 sekund</string>
     <string name="accessibility_autoclick_long_title">Lång</string>
     <string name="accessibility_autoclick_longer_desc">Längre</string>
@@ -161,16 +166,17 @@
     <string name="accessibility_autoclick_short_title">Kort</string>
     <string name="accessibility_autoclick_shorter_desc">Kortare</string>
     <string name="accessibility_banner_message_dismiss">Ignorera</string>
-    <string name="accessibility_button_description">"Kom snabbt åt tillgänglighetsfunktioner från alla skärmar. 
+    <string name="accessibility_button_about_title">Om tillgänglighetsknappen</string>
+    <string name="accessibility_button_description">"Kom snabbt åt tillgänglighetsfunktioner från alla skärmar.
 
 Kom igång genom att öppna tillgänglighetsinställningarna och välj en funktion. Tryck på genvägen och välj tillgänglighetsknappen."</string>
     <string name="accessibility_button_fade_summary">Tonas ut efter några sekunder så att det är enklare att se skärmen</string>
     <string name="accessibility_button_fade_title">Tona ut när den inte används</string>
+    <string name="accessibility_button_gesture_about_title">Om tillgänglighetsknappen och tillgänglighetsrörelsen</string>
     <string name="accessibility_button_gesture_description">"Kom snabbt åt tillgänglighetsfunktioner från alla skärmar.
 
-Kom igång genom att öppna tillgänglighetsinställningarna och välj en funktion. Tryck på genvägen och välj tillgänglighetsknappen.
-
-Om du vill använda tillgänglighetsknappen i navigeringsfältet i stället byter du till navigering med två knappar eller navigering med tre knappar."</string>
+Kom igång genom att öppna tillgänglighetsinställningarna och välj en funktion. Tryck på genvägen och välj tillgänglighetsknappen eller rörelsen."</string>
+    <string name="accessibility_button_gesture_footer_learn_more_content_description">Läs mer om tillgänglighetsknappen och tillgänglighetsrörelsen</string>
     <string name="accessibility_button_gesture_title">Tillgänglighetsknapp och rörelse</string>
     <string name="accessibility_button_high_label">Inte genomskinlig</string>
     <string name="accessibility_button_intro">Använda tillgänglighetsknappen. Rörelsen är inte tillgänglig med navigering med tre knappar.</string>
@@ -184,14 +190,23 @@ Om du vill använda tillgänglighetsknappen i navigeringsfältet i stället byte
     <string name="accessibility_caption_preference_summary">Alla appar har inte stöd för de här inställningarna för textning.</string>
     <string name="accessibility_caption_primary_switch_summary">Endast för app som stöds</string>
     <string name="accessibility_caption_primary_switch_title">Visa textning</string>
+    <string name="accessibility_captioning_about_title">Om inställningar för textning</string>
+    <string name="accessibility_captioning_footer_learn_more_content_description">Läs mer om inställningar för textning</string>
     <string name="accessibility_captioning_title">Inställningar för textning</string>
     <string name="accessibility_category_personal">Personliga profilkonton</string>
     <string name="accessibility_category_work">Jobbprofilkonton – %s</string>
+    <string name="accessibility_color_inversion_about_title">Om inverterade färger</string>
+    <string name="accessibility_color_inversion_footer_learn_more_content_description">Läs mer om inverterade färger</string>
+    <string name="accessibility_control_timeout_about_title">Om väntetid för åtgärd (tillgänglighet)</string>
+    <string name="accessibility_control_timeout_footer_learn_more_content_description">Läs mer om väntetid för åtgärd (tillgänglighet)</string>
     <string name="accessibility_control_timeout_preference_summary">"Ställ in hur lång tid som tillfälliga meddelanden som ber dig att vidta åtgärder ska visas.
 
 Det är inte alla appar som har stöd för inställningen."</string>
     <string name="accessibility_control_timeout_preference_title">Tidsperiod för åtgärder</string>
+    <string name="accessibility_daltonizer_about_title">Om färgkorrigering</string>
+    <string name="accessibility_daltonizer_footer_learn_more_content_description">Läs mer om färgkorrigering</string>
     <string name="accessibility_daltonizer_primary_switch_title">Använd färgkorrigering</string>
+    <string name="accessibility_daltonizer_shortcut_title">Genväg till färgkorrigering</string>
     <string name="accessibility_data_one_bar">Data: en stapel.</string>
     <string name="accessibility_data_signal_full">Datasignalen är full.</string>
     <string name="accessibility_data_three_bars">Data: tre staplar.</string>
@@ -206,6 +221,7 @@ Det är inte alla appar som har stöd för inställningen."</string>
     <string name="accessibility_display_daltonizer_preference_title">Färgkorrigering</string>
     <string name="accessibility_display_inversion_preference_subtitle">Med inverterade färger blir ljusa skärmar mörka.&lt;br/>&lt;br/> Obs! &lt;ol> &lt;li> Inverterade färger gör även mörka skärmar ljusa.&lt;/li> &lt;li> Färger ändras i media och bilder.&lt;/li> &lt;li> Du kan även använda Mörkt tema för att göra bakgrunden mörk. Mörkt tema fungerar med appar som stöds. Inverterade färger fungerar i alla appar.&lt;/li> &lt;/ol></string>
     <string name="accessibility_display_inversion_preference_title">Inverterade färger</string>
+    <string name="accessibility_display_inversion_shortcut_title">Genväg till inverterade färger</string>
     <string name="accessibility_display_inversion_switch_title">Använd inverterade färger</string>
     <string name="accessibility_ethernet_connected">Ethernet.</string>
     <string name="accessibility_ethernet_disconnected">Ethernet har kopplats från.</string>
@@ -255,6 +271,8 @@ Tillgänglighetsknappen visas flytande på skärmen över andra appar. Tryck på
     <string name="accessibility_phone_two_bars">Telefon: två staplar.</string>
     <string name="accessibility_power_button_ends_call_prerefence_title">Avsluta samtal med av/på-knapp</string>
     <string name="accessibility_preference_magnification_summary">Zooma in på skärmen</string>
+    <string name="accessibility_screen_magnification_about_title">Om förstoring</string>
+    <string name="accessibility_screen_magnification_footer_learn_more_content_description">Läs mer om förstoring</string>
     <string name="accessibility_screen_magnification_gesture_navigation_warning">Tillgänglighetsrörelsen är inställd på %1$s. Om du vill använda förstoring sveper du uppåt med två fingrar från skärmens nederkant och håller kvar fingret. Välj sedan Förstoring.</string>
     <string name="accessibility_screen_magnification_gestures_title">Tryck tre gånger för att förstora</string>
     <string name="accessibility_screen_magnification_navbar_configuration_warning">%1$s har angetts för tillgänglighetsknappen. Om du vill använda förstoring trycker du länge på tillgänglighetsknappen och väljer förstoring.</string>
@@ -272,6 +290,7 @@ Tillgänglighetsknappen visas flytande på skärmen över andra appar. Tryck på
 Det går inte att zooma in på tangentbordet eller navigeringsfältet."</string>
     <string name="accessibility_screen_magnification_navbar_title">Förstora med genväg</string>
     <string name="accessibility_screen_magnification_short_summary">Tryck tre gånger om du vill zooma</string>
+    <string name="accessibility_screen_magnification_shortcut_title">Genväg till förstoring</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">Förstora med genväg och tryck snabbt tre gånger</string>
     <string name="accessibility_screen_magnification_summary">Zooma in snabbt på skärmen för att göra innehållet större.&lt;br/>&lt;br/> &lt;b>Så här zoomar du in:&lt;/b>&lt;br/> {0,number,integer}. Starta förstoring med kortkommando&lt;br/> {1,number,integer}. Tryck på skärmen&lt;br/> {2,number,integer}. Dra två fingrar för att navigera på skärmen&lt;br/> {3,number,integer}. Nyp med två fingrar för att justera zoomnivån&lt;br/> {4,number,integer}. Stoppa förstoring med kortkommando&lt;br/>&lt;br/> &lt;b>Så här zoomar du in tillfälligt:&lt;/b>&lt;br/> {0,number,integer}. Starta förstoring med kortkommando&lt;br/> {1,number,integer}. Tryck länge var som helst på skärmen&lt;br/> {2,number,integer}. Dra fingret för att navigera på skärmen&lt;br/> {3,number,integer}. Stoppa förstoringen genom att lyfta fingret</string>
     <string name="accessibility_screen_magnification_title">Förstoring</string>
@@ -370,7 +389,7 @@ Byt funktion genom att svepa uppåt med tre fingrar och hålla kvar dem."</strin
     <string name="accessibility_tutorial_dialog_message_volume">Håll båda volymknapparna nedtryckta om du vill använda den här funktionen.</string>
     <string name="accessibility_tutorial_dialog_title_button">Öppna med tillgänglighetsknappen</string>
     <string name="accessibility_tutorial_dialog_title_gesture">Öppna med rörelse</string>
-    <string name="accessibility_tutorial_dialog_title_gesture_settings">Använd en ny tillgänglighetsrörelse</string>
+    <string name="accessibility_tutorial_dialog_title_gesture_settings">Använda tillgänglighetsrörelser</string>
     <string name="accessibility_tutorial_dialog_title_triple">Öppna genom att trycka snabbt tre gånger</string>
     <string name="accessibility_tutorial_dialog_title_volume">Öppna genom att hålla ned volymknapparna</string>
     <string name="accessibility_tutorial_pager">Sida %1$d av %2$d</string>
@@ -936,6 +955,7 @@ När mobilen har återställts konfigurerar du den och väljer att hämta data f
     <string name="battery_level_title">Batterinivå</string>
     <string name="battery_manager_off">Av</string>
     <string name="battery_manager_summary">Förläng batteritiden och optimera laddningen</string>
+    <string name="battery_manager_summary_unsupported">Utöka batteritiden</string>
     <string name="battery_missing_link_a11y_message">Tryck för att läsa mer om det här felet</string>
     <string name="battery_missing_link_message">Läs mer</string>
     <string name="battery_missing_message">Batteriindikatorn visas inte.</string>
@@ -1014,7 +1034,7 @@ Om batteriet börjar ta slut kan du aktivera batterisparläget."</string>
 
 Telefonen återgår automatiskt till normal laddning när det är möjligt."</string>
     <string name="battery_tip_limited_temporarily_dialog_resume_charge">Återuppta laddning</string>
-    <string name="battery_tip_limited_temporarily_summary">För att spara batteri. Läs mer.</string>
+    <string name="battery_tip_limited_temporarily_summary">Detta bevarar batteriets livslängd. Läs mer.</string>
     <string name="battery_tip_limited_temporarily_title">Laddning har begränsats tillfälligt</string>
     <string name="battery_tip_low_battery_summary">Förläng batteritiden genom att aktivera batterisparläget</string>
     <string name="battery_tip_low_battery_title">Låg batterinivå</string>
@@ -1061,6 +1081,7 @@ under perioden ^2"</string>
     <string name="battery_usage_screen_footer">Informationen om batteriförbrukning är en uppskattning och speglar inte användningen när telefonen laddas</string>
     <string name="battery_usage_screen_footer_empty">Information om batteriförbrukning blir tillgänglig när du har använt telefonen några timmar</string>
     <string name="battery_usage_total_less_than_one_minute">Totalt: mindre än en minut</string>
+    <string name="battery_usage_without_time" />
     <string name="battery_used_by">%1$s har använts av %2$s</string>
     <string name="battery_used_for">Har använts i ^1</string>
     <string name="bearer">Bearer</string>
@@ -1069,12 +1090,14 @@ under perioden ^2"</string>
     <string name="billing_cycle_less_than_one_day_left">Mindre än 1 dag kvar</string>
     <string name="billing_cycle_none_left">Ingen tid återstår</string>
     <string name="biometric_settings_category_ways_to_unlock">Olika sätt att låsa upp</string>
-    <string name="biometric_settings_category_ways_to_use">Använd ansikte och fingeravtryck för</string>
     <string name="biometric_settings_hand_back_to_guardian">Ge tillbaka telefonen till din förälder</string>
     <string name="biometric_settings_hand_back_to_guardian_ok">OK</string>
     <string name="biometric_settings_intro">Om du konfigurerar ansiktslås och fingeravtryckslås frågar telefonen om fingeravtryck när du använder munskydd eller om det är mörkt</string>
-    <string name="biometric_settings_use_biometric_for_apps">Autentisering i appar</string>
+    <string name="biometric_settings_use_biometric_for_apps">Verifiera din identitet i appar</string>
     <string name="biometric_settings_use_biometric_unlock_phone">Låsa upp telefonen</string>
+    <string name="biometric_settings_use_face_or_fingerprint_preference_summary">Med ansikte eller fingeravtryck</string>
+    <string name="biometric_settings_use_face_preference_summary">Med ansikte</string>
+    <string name="biometric_settings_use_fingerprint_preference_summary">Med fingeravtryck</string>
     <string name="biometrics_unlock_set_unlock_password">Lösenord • Ansikte • Fingeravtryck</string>
     <string name="biometrics_unlock_set_unlock_pattern">Mönster • Ansikte • Fingeravtryck</string>
     <string name="biometrics_unlock_set_unlock_pin">Pinkod • Ansikte • Fingeravtryck</string>
@@ -1332,7 +1355,6 @@ Val"</string>
     <string name="bluetooth_settings_title">Bluetooth</string>
     <string name="bluetooth_show_devices_without_names">Visa namnlösa Bluetooth-enheter</string>
     <string name="bluetooth_show_devices_without_names_summary">Bluetooth-enheter utan namn (enbart MAC-adresser) visas</string>
-    <string name="bluetooth_show_files_received_via_bluetooth">Mottagna filer från Bluetooth</string>
     <string name="bluetooth_show_received_files">Mottagna filer</string>
     <string name="bluetooth_sim_card_access_dialog_content">"En Bluetooth-enhet, %1$s, vill få åtkomst till data på ditt SIM-kort. Detta inkluderar dina kontakter.
 
@@ -1426,6 +1448,7 @@ Om du installerar ett CA-certifikat kan certifikatsägaren få åtkomst till din
     <string name="calls_sms_temp_unavailable">Inte tillgängligt just nu</string>
     <string name="calls_sms_unavailable">otillgängligt</string>
     <string name="calls_sms_wfc_summary">Ringa och ta emot samtal via Wi‑Fi</string>
+    <string name="cam_toggle_description">För appar och tjänster</string>
     <string name="camera_double_tap_power_gesture_desc">Öppna kameran snabbt utan att låsa upp skärmen</string>
     <string name="camera_double_tap_power_gesture_title">Öppna kameran med två tryck på strömbr.</string>
     <string name="camera_laser_sensor_switch">Lasersensor för kamera</string>
@@ -2679,7 +2702,7 @@ Du kan ändra detta senare under Inställningar > Appar och aviseringar."</strin
     <string name="interact_across_profiles_number_of_connected_apps_none">Inga appar har kopplats</string>
     <string name="interact_across_profiles_summary_1">Kopplade appar har samma behörighet och kan använda varandras data.</string>
     <string name="interact_across_profiles_summary_2">Koppla bara appar om du litar på att de inte delar personuppgifter med IT-administratören.</string>
-    <string name="interact_across_profiles_summary_3">Du kan när som helst koppla från appar i dina sekretessinställningar för enheten.</string>
+    <string name="interact_across_profiles_summary_3">Du kan när som helst koppla från appar i dina integritetsinställningar för enheten.</string>
     <string name="interact_across_profiles_summary_allowed">Kopplad</string>
     <string name="interact_across_profiles_summary_not_allowed">Inte kopplad</string>
     <string name="interact_across_profiles_switch_disabled">Koppla dessa appar</string>
@@ -3302,6 +3325,7 @@ Det finns andra användare på enheten.
     <string name="menu_stats_total">Total förbrukning</string>
     <string name="menu_stats_unplugged">%1$s sedan bortkoppling</string>
     <string name="menu_use_uss">Använd USS</string>
+    <string name="mic_toggle_description">För appar och tjänster. Om inställningen är inaktiverad kan mikrofondata fortfarande delas när du ringer ett nödnummer.</string>
     <string name="mic_toggle_title">Mikrofonåtkomst</string>
     <string name="misc_files">Misc-filer</string>
     <string name="misc_files_selected_count">%1$d av %2$d har valts</string>
@@ -3728,6 +3752,7 @@ Appen kan också aktivera eller inaktivera Stör ej och ändra relaterade instä
     <string name="one_handed_action_show_notification_title">Visa aviseringar</string>
     <string name="one_handed_mode_enabled">Använd enhandsläge</string>
     <string name="one_handed_mode_intro_text">Om du vill använda enhandsläge sveper du nedåt från skärmens nederkant. Se till att navigering med rörelser har aktiverats i systemnavigeringsinställningarna för att använda funktionen.</string>
+    <string name="one_handed_mode_shortcut_title">Genväg till enhandsläge</string>
     <string name="one_handed_mode_swipe_down_category">Svep nedåt för att</string>
     <string name="one_handed_mode_use_shortcut_category">Använd genvägen till följande:</string>
     <string name="one_usercrt">ett användarcertifikat</string>
@@ -3803,7 +3828,7 @@ Appen kan också aktivera eller inaktivera Stör ej och ändra relaterade instä
     <string name="post_dsds_reboot_notification_title_with_carrier">%1$s är aktiv</string>
     <string name="power_bluetooth">Bluetooth</string>
     <string name="power_camera">Kamera</string>
-    <string name="power_cell">Strömsparläge för mobilnätverk</string>
+    <string name="power_cell">Mobilnätverk</string>
     <string name="power_charge_remaining">Ladda i %1$s till</string>
     <string name="power_charging">%1$s – %2$s</string>
     <string name="power_charging_duration">%1$s – %2$s kvar tills fulladdat</string>
@@ -4037,6 +4062,7 @@ Tryck på strömbrytaren + höj volymen samtidigt"</string>
     <string name="recent_notifications">Nyligen skickat</string>
     <string name="recent_notifications_see_all_title">Visa alla för de senaste sju dagarna</string>
     <string name="recompute_size">Räknar om storlek…</string>
+    <string name="reduce_bright_colors_about_title">Om extradimmat</string>
     <string name="reduce_bright_colors_intensity_end_label">Ljusare</string>
     <string name="reduce_bright_colors_intensity_preference_title">Intensitet</string>
     <string name="reduce_bright_colors_intensity_start_label">Svagare</string>
@@ -4044,6 +4070,7 @@ Tryck på strömbrytaren + höj volymen samtidigt"</string>
     <string name="reduce_bright_colors_preference_subtitle">Dimma skärmen ytterligare så att det blir behagligare att läsa.&lt;br/>&lt;br/> Detta kan vara användbart när &lt;ol> &lt;li> telefonens lägsta ljusstyrka fortfarande är för ljus&lt;/li> &lt;li> du använder telefonen i mörker, t.ex. på natten eller i ett mörkt rum innan du ska sova.&lt;/li> &lt;/ol></string>
     <string name="reduce_bright_colors_preference_summary">Gör skärmen mer dimmad än telefonens lägsta ljusstyrka</string>
     <string name="reduce_bright_colors_preference_title">Extradimmat</string>
+    <string name="reduce_bright_colors_shortcut_title">Genväg till extradimmat</string>
     <string name="reduce_bright_colors_switch_title">Gör skärmen extradimmad</string>
     <string name="register_automatically">Automatisk registrering …</string>
     <string name="register_on_network">Registrerar på %s …</string>
@@ -4249,7 +4276,6 @@ Så här fäster du appar: \u0009
     <string name="screen_pinning_unlock_pattern">Kräv grafiskt lösenordet innan skärmen lossas</string>
     <string name="screen_pinning_unlock_pin">Be om pinkod innan appen lossas</string>
     <string name="screen_reader_category_title">Skärmläsare</string>
-    <string name="screen_saver_main_switch_title">Använd skärmsläckare</string>
     <string name="screen_time_summary_usage_today">%1$s i dag</string>
     <string name="screen_timeout_summary">Efter att ha varit inaktiv i %1$s</string>
     <string name="screen_timeout_title">Skärmen stängs av</string>
@@ -4279,6 +4305,7 @@ Så här fäster du appar: \u0009
     <string name="screensaver_settings_button">Inställningar</string>
     <string name="screensaver_settings_current">Aktuell skärmsläckare</string>
     <string name="screensaver_settings_disabled_prompt">Om du vill styra vad som händer när mobilen är dockad eller i viloläge aktiverar du skärmsläckaren.</string>
+    <string name="screensaver_settings_dream_start">Starta nu</string>
     <string name="screensaver_settings_summary_dock">Vid dockning</string>
     <string name="screensaver_settings_summary_either_long">Vid laddning eller dockning</string>
     <string name="screensaver_settings_summary_either_short">Båda</string>
@@ -4312,7 +4339,7 @@ Så här fäster du appar: \u0009
     <string name="sdcard_settings_used_bytes_label">Bytes som har använts:</string>
     <string name="sdcard_unmount">Avmontera USB-enhet</string>
     <string name="search_bar_account_avatar_content_description">Profilbild, tryck snabbt två gånger för att öppna Google-kontot</string>
-    <string name="search_menu">Sökinställningar</string>
+    <string name="search_menu">Sök i inställningar</string>
     <string name="search_menu_title">Sök</string>
     <string name="search_results_title">Inställningar</string>
     <string name="search_settings">Sök</string>
@@ -4329,15 +4356,6 @@ Så här fäster du appar: \u0009
     <string name="security_settings_biometric_preference_summary_both_fp_single">Ansikte och ett fingeravtryck har lagts till</string>
     <string name="security_settings_biometric_preference_summary_none_enrolled">Tryck för att konfigurera</string>
     <string name="security_settings_biometric_preference_title">Ansikts- och fingeravtryckslås</string>
-    <string name="security_settings_biometrics_description">Om du konfigurerar upplåsning med ansikte och fingeravtryck frågar telefonen om fingeravtryck när du använder munskydd eller om det är mörkt</string>
-    <string name="security_settings_biometrics_preference_use_with_apps">Autentisering i appar</string>
-    <string name="security_settings_biometrics_preferences_category">Använd ansikte eller fingeravtryck för</string>
-    <string name="security_settings_biometrics_summary_both">Ansikte och fingeravtryck</string>
-    <string name="security_settings_biometrics_summary_face">Endast ansikte</string>
-    <string name="security_settings_biometrics_summary_fingerprint">Endast fingeravtryck</string>
-    <string name="security_settings_biometrics_summary_none">Tryck för att konfigurera</string>
-    <string name="security_settings_biometrics_title">Ansikts- och fingeravtryckslås</string>
-    <string name="security_settings_biometrics_types_category">Olika sätt att låsa upp</string>
     <string name="security_settings_face_enroll_consent_introduction_title">Tillåt ansiktslås</string>
     <string name="security_settings_face_enroll_dialog_ok">OK</string>
     <string name="security_settings_face_enroll_done">Klar</string>
@@ -4385,16 +4403,17 @@ Läs mer på g.co/pixel/faceunlock."</string>
     <string name="security_settings_face_enroll_introduction_control_title">Du bestämmer själv</string>
     <string name="security_settings_face_enroll_introduction_how_consent_message">"Med ansiktslås skapas en unik modell av ditt barns ansikte så att barnet kan verifiera sin identitet. Ansiktsmodellen skapas under konfigureringen genom att bilder tas av ansiktet från olika vinklar.
 
-När barnet använder ansiktslås uppdateras ansiktsmodellen med hjälp av bilder. De bilder som används för att skapa ansiktsmodellen lagras aldrig, men ansiktsmodellen lagras säkert på telefonen och lämnar den aldrig. All behandling görs säkert på telefonen."</string>
+När barnet använder ansiktslås uppdateras ansiktsmodellen med hjälp av bilder. De bilder som används för att skapa ansiktsmodellen lagras inte, men ansiktsmodellen lagras säkert på telefonen och lämnar den aldrig. All behandling görs säkert på telefonen."</string>
     <string name="security_settings_face_enroll_introduction_how_message">"Med ansiktslås skapas en unik modell av ditt ansikte så att du kan verifiera din identitet. Ansiktsmodellen skapas under konfigureringen genom att bilder tas av ansiktet från olika vinklar.
 
-När du använder ansiktslås uppdateras ansiktsmodellen med hjälp av bilder. De bilder som används för att skapa ansiktsmodellen lagras aldrig, men ansiktsmodellen lagras säkert på telefonen och lämnar den aldrig. All behandling görs säkert på telefonen."</string>
+När du använder ansiktslås uppdateras ansiktsmodellen med hjälp av bilder. De bilder som används för att skapa ansiktsmodellen lagras inte, men ansiktsmodellen lagras säkert på telefonen och lämnar den aldrig. All behandling görs säkert på telefonen."</string>
     <string name="security_settings_face_enroll_introduction_how_title">Så fungerar det</string>
     <string name="security_settings_face_enroll_introduction_info_consent_gaze">Ditt barns ögon kan behöva vara öppna för att låsa upp telefonen med ansiktslåset eller verifiera sin identitet. Du och ditt barn kan när som helst aktivera inställningen i Inställningar.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_glasses">Om ditt barn vanligen använder glasögon kan barnet ha dem på sig under konfigureringen.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_looking">Om ditt barn tittar på telefonen kan barnet oavsiktligt låsa upp den. Telefonen kanske kan låsas upp av någon som är mycket lik ditt barn, till exempel ett syskon, eller om någon håller upp den framför barnets ansikte.</string>
     <string name="security_settings_face_enroll_introduction_info_gaze">Dina ögon kan behöva vara öppna för att låsa upp telefonen med ansiktslåset eller verifiera din identitet. Du kan när som helst aktivera inställningen i Inställningar.</string>
     <string name="security_settings_face_enroll_introduction_info_glasses">Glasögon eller solglasögon i en ljus ton är okej.</string>
+    <string name="security_settings_face_enroll_introduction_info_less_secure">Att låsa upp telefonen med ansiktet kan vara mindre säkert än ett starkt grafiskt lösenord eller en stark pinkod.</string>
     <string name="security_settings_face_enroll_introduction_info_looking">Om du tittar på telefonen kan du oavsiktligt låsa upp den. Telefonen kanske kan låsas upp av någon som är mycket lik dig, till exempel ett syskon, eller om någon håller upp den framför ditt ansikte.</string>
     <string name="security_settings_face_enroll_introduction_info_title">Kom ihåg</string>
     <string name="security_settings_face_enroll_introduction_message">Lås upp telefonen eller verifiera din identitet med ditt ansikte, till exempel när du loggar in i appar eller godkänner ett köp.</string>
@@ -4452,13 +4471,14 @@ Andra kan låsa upp telefonen om de håller upp den mot ditt ansikte, även om d
 
 Telefonen kanske kan låsas upp av någon som är mycket lik dig, till exempel ett syskon."</string>
     <string name="security_settings_face_settings_preferences_category">När ansiktslås används</string>
-    <string name="security_settings_face_settings_remove_dialog_details">Ansiktsmodellen raderas permanent på ett säkert sätt. Efter borttagningen behöver du pinkod, lösenord eller mönster för att låsa upp telefonen och för autentisering i appar.</string>
+    <string name="security_settings_face_settings_remove_dialog_details">"Ansiktsmodellen raderas permanent på ett säkert sätt.
+
+Efter borttagningen behöver du pinkod, lösenord eller mönster för att låsa upp telefonen och för autentisering i appar."</string>
+    <string name="security_settings_face_settings_remove_dialog_details_convenience">"Ansiktsmodellen raderas permanent på ett säkert sätt.
+
+Efter borttagningen behöver du pinkod, lösenord eller grafiskt lösenord för att låsa upp telefonen."</string>
     <string name="security_settings_face_settings_remove_dialog_title">Vill du radera ansiktsmodellen?</string>
     <string name="security_settings_face_settings_remove_face_model">Radera ansiktsmodell</string>
-    <string name="security_settings_face_settings_remove_model_dialog_details">"Ansiktsmodellen raderas permanent på ett säkert sätt.
-
-Efter borttagningen behöver du fingeravtryck, pinkod, lösenord eller mönster för att låsa upp telefonen eller för autentisering i appar."</string>
-    <string name="security_settings_face_settings_remove_model_dialog_title">Vill du radera ansiktsmodellen?</string>
     <string name="security_settings_face_settings_require_attention">Du måste ha ögonen öppna</string>
     <string name="security_settings_face_settings_require_attention_details">Du måste ha ögonen öppna för att låsa upp telefonen</string>
     <string name="security_settings_face_settings_require_confirmation">Måste alltid bekräftas</string>
@@ -4541,7 +4561,7 @@ Obs! Det går inte att låsa upp den här enheten med ett fingeravtryck. Kontakt
     <string name="security_settings_title">Säkerhet</string>
     <string name="security_settings_udfps_enroll_a11y">Rör fingret över skärmen för att hitta sensorn. Tryck länge på fingeravtryckssensorn.</string>
     <string name="security_settings_udfps_enroll_edge_message">Placera sidan av fingerspetsen på sensorn, håll kvar och byt sedan till andra sidan</string>
-    <string name="security_settings_udfps_enroll_edge_title">Slutligen trycker du med fingerspetsens sidor</string>
+    <string name="security_settings_udfps_enroll_edge_title">Slutligen använder du fingertoppens sidor</string>
     <string name="security_settings_udfps_enroll_find_sensor_message">Fingeravtryckssensorn finns på skärmen. Du registrerar ditt fingeravtryck på nästa skärm.</string>
     <string name="security_settings_udfps_enroll_find_sensor_start_button">Börja</string>
     <string name="security_settings_udfps_enroll_find_sensor_title">Så konfigurerar du fingeravtryck</string>
@@ -4576,7 +4596,6 @@ Obs! Det går inte att låsa upp den här enheten med ett fingeravtryck. Kontakt
     <string name="select_webview_provider_dialog_title">Ange WebView-implementering</string>
     <string name="select_webview_provider_title">WebView-implementering</string>
     <string name="select_webview_provider_toast_text">Det här alternativet är inte längre giltigt. Försök igen.</string>
-    <string name="sensor_toggle_description">För alla appar och tjänster</string>
     <string name="sensors_off_quick_settings_title">Sensorer är inaktiverade</string>
     <string name="service_background_processes">%1$s led.</string>
     <string name="service_foreground_processes">%1$s anv.</string>
@@ -4808,6 +4827,7 @@ Du kan ha angett fel PIN-kod."</string>
     <string name="sound_settings_summary_silent">Ringsignalen är avstängd</string>
     <string name="sound_settings_summary_vibrate">Enheten är inställd på att vibrera som ringsignal</string>
     <string name="sound_work_settings">Jobbprofilens ljud</string>
+    <string name="spatial_audio_title">Rumsligt ljud</string>
     <string name="special_access">Särskild appåtkomst</string>
     <string name="special_access_more">Visa mer</string>
     <string name="speed_label_fast">Snabb</string>
@@ -5619,7 +5639,7 @@ Det innebär att du inte kan använda internet eller vissa appar under röstsamt
     <string name="vpn_turn_on">Aktivera</string>
     <string name="vpn_type">Typ</string>
     <string name="vpn_username">Användarnamn</string>
-    <string name="vpn_version">Version %s</string>
+    <string name="vpn_version">Version</string>
     <string name="vr_listener_security_warning_summary">%1$s kan köras medan du använder appar i läget för virtuell verklighet.</string>
     <string name="vr_listener_security_warning_title">Vill du tillåta att tjänsten för VR får tillgång till %1$s?</string>
     <string name="vr_listeners_title">Hjälptjänster för VR</string>
@@ -5725,7 +5745,7 @@ Läs mer i operatörens integritetspolicy."</string>
     <string name="wifi_certificate">Wi‑Fi-certifikat</string>
     <string name="wifi_check_password_try_again">Kontrollera lösenordet och försök igen</string>
     <string name="wifi_configure_settings_preference_summary_wakeup_off">Wi‑Fi återaktiveras inte automatiskt</string>
-    <string name="wifi_configure_settings_preference_summary_wakeup_on">Wi‑Fi återaktiveras automatiskt</string>
+    <string name="wifi_configure_settings_preference_summary_wakeup_on">Wifi återaktiveras automatiskt</string>
     <string name="wifi_configure_settings_preference_title">Inställningar för wifi</string>
     <string name="wifi_connect">Anslut</string>
     <string name="wifi_connected_low_quality">Låg kvalitet</string>
@@ -5889,7 +5909,7 @@ Routerinställningarna ändras inte om du anger att nätverket ska vara dolt."</
     <string name="wifi_not_in_range">Utom räckhåll</string>
     <string name="wifi_not_in_range_message">Nätverket är inte inom räckvidd</string>
     <string name="wifi_notify_open_networks">Avisering för offentliga nätverk</string>
-    <string name="wifi_notify_open_networks_summary">När det inte går att ansluta automatiskt</string>
+    <string name="wifi_notify_open_networks_summary">Meddela om tillgängliga offentliga nätverk av hög kvalitet</string>
     <string name="wifi_on_time">Wifi i tid</string>
     <string name="wifi_p2p_cancel_connect_message">Vill du avvisa inbjudan att ansluta till %1$s?</string>
     <string name="wifi_p2p_cancel_connect_title">Avvisa inbjudan?</string>
@@ -5977,7 +5997,6 @@ Vill du tillåta detta för alla appar som vill söka efter nätverk?"</string>
     <string name="wifi_suspend_optimizations">Wifi-optimering</string>
     <string name="wifi_suspend_optimizations_summary">Minimera batterianvändningen när wifi är aktiverat</string>
     <string name="wifi_switch_away_when_unvalidated">Växla till mobildata om det inte går att ansluta till internet via wifi.</string>
-    <string name="wifi_switch_summary">Hitta och anslut till wifi-nätverk</string>
     <string name="wifi_tap_to_sign_in">Tryck här om du vill logga in på nätverket</string>
     <string name="wifi_tether_configure_ap_text">Konfigurera surfzon via wifi</string>
     <string name="wifi_tether_configure_ssid_default">AndroidHotspot</string>

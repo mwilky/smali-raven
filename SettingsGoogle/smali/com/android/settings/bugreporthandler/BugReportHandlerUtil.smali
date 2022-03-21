@@ -515,7 +515,7 @@
 
     move-result-object p0
 
-    const p1, 0x111003f
+    const p1, 0x1110040
 
     invoke-virtual {p0, p1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -561,7 +561,7 @@
 .method public showInvalidChoiceToast(Landroid/content/Context;)V
     .locals 1
 
-    const p0, 0x7f0411a0
+    const p0, 0x7f0411c5
 
     const/4 v0, 0x0
 

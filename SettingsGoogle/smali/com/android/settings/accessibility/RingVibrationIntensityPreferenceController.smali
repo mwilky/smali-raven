@@ -15,7 +15,7 @@
 
     const-string v3, "ring_vibration_intensity"
 
-    const-string v4, "vibrate_when_ringing"
+    const-string/jumbo v4, "vibrate_when_ringing"
 
     const/4 v5, 0x1
 
@@ -85,6 +85,16 @@
     move-result-object p0
 
     return-object p0
+.end method
+
+.method public bridge synthetic getSliceHighlightMenuRes()I
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getSliceHighlightMenuRes()I
+
+    move-result p0
+
+    return p0
 .end method
 
 .method public bridge synthetic hasAsyncUpdate()Z

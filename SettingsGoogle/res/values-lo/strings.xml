@@ -96,6 +96,7 @@
     <string name="peak_refresh_rate_title">Smooth Display</string>
     <string name="peak_refresh_rate_summary">ເພີ່ມຣີເຟຣຊເຣດຈາກ 60 ເປັນ 90 Hz ສຳລັບບາງເນື້ອຫາໂດຍອັດຕະໂນມັດ. ເພີ່ມການນຳໃຊ້ແບັດເຕີຣີ.</string>
     <string name="accessibility_vibration_settings_title">ການສັ່ນເຕືອນ ແລະ ການຕອບສະໜອງ</string>
+    <string name="columbus_title">ການແຕະດ່ວນເພື່ອເລີ່ມຄຳສັ່ງ</string>
     <string name="emergency_gesture_screen_title">SOS ສຸກເສີນ</string>
     <string name="abc_action_mode_done">ແລ້ວໆ</string>
     <string name="vibrate_for_calls_category_title">ການໂທ</string>
@@ -103,6 +104,8 @@
     <string name="lockscreen_privacy_controls_setting_toggle">ສະແດງການຄວບຄຸມອຸປະກອນ</string>
     <string name="lockscreen_privacy_wallet_summary">ອະນຸຍາດໃຫ້ເຂົ້າເຖິງກະເປົາໄດ້ຈາກໜ້າຈໍລັອກ ແລະ ການ​ຕັ້ງ​ຄ່າ​ດ່ວນ</string>
     <string name="lockscreen_privacy_controls_summary">ເຂົ້າເຖິງການຄວບຄຸມເມື່ອລັອກໄວ້</string>
+    <string name="lockscreen_double_line_clock_summary">ສະແດງໂມງສອງແຖວເມື່ອສາມາດໃຊ້ໄດ້</string>
+    <string name="lockscreen_double_line_clock_setting_toggle">ໂມງສອງແຖວ</string>
     <string name="abc_activity_chooser_view_see_all">ເບິ່ງທັງໝົດ</string>
     <string name="abc_activitychooserview_choose_application">ເລືອກແອັບ</string>
     <string name="abc_capital_off">ປິດ</string>
@@ -147,9 +150,11 @@
     <string name="accessibility_alarm_vibration_title">ການສັ່ນເຕືອນໂມງປຸກ</string>
     <string name="accessibility_assist_gesture_complete_or_keep_adjusting">ຕັ້ງຄ່າ Active Edge. ໄປທີ່ໜ້າຈໍຖັດໄປ ຫຼື ສືບຕໍ່ປັບແຕ່ງ.</string>
     <string name="accessibility_audio_adjustment_title">ການປັບແກ້ສຽງ</string>
+    <string name="accessibility_autoclick_about_title">ກ່ຽວກັບການຄລິກອັດຕະໂນມັດ (ເວລາທີ່ບໍ່ມີການເຄື່ອນເມົ້າ)</string>
     <string name="accessibility_autoclick_custom_title">ກຳນົດເອງ</string>
     <string name="accessibility_autoclick_default_title">ປິດ</string>
     <string name="accessibility_autoclick_description">ການຄລິກອັດຕະໂນມັດໃຊ້ໄດ້ກັບເມົ້າທີ່ເຊື່ອມຕໍ່ແລ້ວ. ທ່ານສາມາດຕັ້ງເຄີເຊີເມົ້າໃຫ້ຄລິກອັດຕະໂນມັດໄດ້ໃນເວລາທີ່ເຄີເຊີຢຸດເຄື່ອນໄຫວເປັນໄລຍະເວລາໃດໜຶ່ງ.</string>
+    <string name="accessibility_autoclick_footer_learn_more_content_description">ສຶກສາເພີ່ມເຕີມກ່ຽວກັບການຄລິກອັດຕະໂນມັດ (ເວລາທີ່ບໍ່ມີການເຄື່ອນເມົ້າ)</string>
     <string name="accessibility_autoclick_long_summary">1 ວິນາທີ</string>
     <string name="accessibility_autoclick_long_title">ຍາວ</string>
     <string name="accessibility_autoclick_longer_desc">ດົນຂຶ້ນ</string>
@@ -161,16 +166,17 @@
     <string name="accessibility_autoclick_short_title">ສັ້ນ</string>
     <string name="accessibility_autoclick_shorter_desc">ສັ້ນລົງ</string>
     <string name="accessibility_banner_message_dismiss">ປິດໄວ້</string>
-    <string name="accessibility_button_description">"ເຂົ້າເຖິງຄຸນສົມບັດການຊ່ວຍເຂົ້າເຖິງດ່ວນຈາກໜ້າຈໍໃດກໍໄດ້. 
+    <string name="accessibility_button_about_title">ກ່ຽວກັບປຸ່ມການຊ່ວຍເຂົ້າເຖິງ</string>
+    <string name="accessibility_button_description">"ເຂົ້າໃຊ້ຄຸນສົມບັດການຊ່ວຍເຂົ້າເຖິງໄດ້ຢ່າງວ່ອງໄວຈາກໜ້າຈໍໃດກໍໄດ້.
 
-ເພື່ອເລີ່ມຕົ້ນ, ໃຫ້ໄປການຕັ້ງຄ່າການຊ່ວຍເຂົ້າເຖິງແລ້ວເລືອກຄຸນສົມບັດໃດໜຶ່ງ. ແຕະໃສ່ທາງລັດແລ້ວເລືອກປຸ່ມການຊ່ວຍເຂົ້າເຖິງ."</string>
+ເພື່ອເລີ່ມຕົ້ນ, ໃຫ້ເຂົ້າໄປການຕັ້ງຄ່າການຊ່ວຍເຂົ້າເຖິງແລ້ວເລືອກຄຸນສົມບັດໃດໜຶ່ງ. ແຕະໃສ່ທາງລັດແລ້ວເລືອກປຸ່ມການຊ່ວຍເຂົ້າເຖິງ."</string>
     <string name="accessibility_button_fade_summary">ຈາງລົງຫຼັງຈາກສອງສາມວິນາທີເພື່ອໃຫ້ເບິ່ງເຫັນໜ້າຈໍຂອງທ່ານໄດ້ງ່າຍຂຶ້ນ</string>
     <string name="accessibility_button_fade_title">ຈາງລົງເມື່ອບໍ່ໄດ້ໃຊ້</string>
+    <string name="accessibility_button_gesture_about_title">ກ່ຽວກັບປຸ່ມການຊ່ວຍເຂົ້າເຖິງ ແລະ ທ່າທາງ</string>
     <string name="accessibility_button_gesture_description">"ເຂົ້າໃຊ້ຄຸນສົມບັດການຊ່ວຍເຂົ້າເຖິງໄດ້ຢ່າງວ່ອງໄວຈາກໜ້າຈໍໃດກໍໄດ້.
 
-ເພື່ອເລີ່ມຕົ້ນ, ໃຫ້ເຂົ້າໄປການຕັ້ງຄ່າການຊ່ວຍເຂົ້າເຖິງແລ້ວເລືອກຄຸນສົມບັດໃດໜຶ່ງ. ແຕະໃສ່ທາງລັດແລ້ວເລືອກປຸ່ມການຊ່ວຍເຂົ້າເຖິງ.
-
-ເພື່ອໃຊ້ປຸ່ມການຊ່ວຍເຂົ້າເຖິງໃນແຖບການນຳທາງແທນ, ໃຫ້ສະຫຼັບໄປໃຊ້ການນຳທາງແບບ 2 ປຸ່ມ ຫຼື 3 ປຸ່ມ."</string>
+ເພື່ອເລີ່ມຕົ້ນ, ໃຫ້ເຂົ້າໄປການຕັ້ງຄ່າການຊ່ວຍເຂົ້າເຖິງແລ້ວເລືອກຄຸນສົມບັດໃດໜຶ່ງ. ແຕະໃສ່ທາງລັດແລ້ວເລືອກປຸ່ມ ຫຼື ທ່າທາງການຊ່ວຍເຂົ້າເຖິງ."</string>
+    <string name="accessibility_button_gesture_footer_learn_more_content_description">ສຶກສາເພີ່ມເຕີມກ່ຽວກັບປຸ່ມການຊ່ວຍເຂົ້າເຖິງ ແລະ ທ່າທາງ</string>
     <string name="accessibility_button_gesture_title">ປຸ່ມການຊ່ວຍເຂົ້າເຖິງ ແລະ ທ່າທາງ</string>
     <string name="accessibility_button_high_label">ບໍ່ໂປ່ງໃສ</string>
     <string name="accessibility_button_intro">ການໃຊ້ປຸ່ມການຊ່ວຍເຂົ້າເຖິງ. ບໍ່ສາມາດໃຊ້ທ່າທາງກັບການນຳທາງແບບ 3 ປຸ່ມໄດ້.</string>
@@ -184,14 +190,23 @@
     <string name="accessibility_caption_preference_summary">ບໍ່ແມ່ນທຸກແອັບຈະຮອງຮັບການຕັ້ງຄ່າຄຳບັນຍາຍເຫຼົ່ານີ້</string>
     <string name="accessibility_caption_primary_switch_summary">ສຳລັບແອັບທີ່ຮອງຮັບເທົ່ານັ້ນ</string>
     <string name="accessibility_caption_primary_switch_title">ສະແດງຄຳບັນຍາຍ</string>
+    <string name="accessibility_captioning_about_title">ກ່ຽວກັບການຕັ້ງຄ່າຄຳບັນຍາຍ</string>
+    <string name="accessibility_captioning_footer_learn_more_content_description">ສຶກສາເພີ່ມເຕີມກ່ຽວກັບການຕັ້ງຄ່າຄຳບັນຍາຍ</string>
     <string name="accessibility_captioning_title">ການຕັ້ງຄ່າຄຳບັນຍາຍ</string>
     <string name="accessibility_category_personal">ບັນ​ຊີ​ໂປ​ຣ​ໄຟ​ລ໌​ສ່ວນ​ຕົວ</string>
     <string name="accessibility_category_work">ບັນ​ຊີ​ໂປ​ຣ​ໄຟ​ລ໌​ວຽກ - %s</string>
+    <string name="accessibility_color_inversion_about_title">ກ່ຽວກັບການປີ້ນສີ</string>
+    <string name="accessibility_color_inversion_footer_learn_more_content_description">ສຶກສາເພີ່ມເຕີມກ່ຽວກັບການປີ້ນສີ</string>
+    <string name="accessibility_control_timeout_about_title">ຮອດເວລາດຳເນີນການ (ໝົດເວລາການຊ່ວຍເຂົ້າເຖິງ)</string>
+    <string name="accessibility_control_timeout_footer_learn_more_content_description">ສຶກສາເພີ່ມເຕີມກ່ຽວກັບການຮອດເວລາດຳເນີນການ (ໝົດເວລາການຊ່ວຍເຂົ້າເຖິງ)</string>
     <string name="accessibility_control_timeout_preference_summary">"ເລືອກໄລຍະເວລາເພື່ອສະແດງຂໍ້ຄວາມໃຫ້ທ່ານດຳເນີນການ, ແຕ່ຈະເຫັນຊົ່ວຄາວເທົ່ານັ້ນ.
 
 ບໍ່ແມ່ນທຸກແອັບທີ່ຮອງຮັບການຕັ້ງຄ່ານີ້."</string>
     <string name="accessibility_control_timeout_preference_title">ເວລາໃນການດຳເນີນການ</string>
+    <string name="accessibility_daltonizer_about_title">ກ່ຽວກັບການແກ້ໄຂສີ</string>
+    <string name="accessibility_daltonizer_footer_learn_more_content_description">ສຶກສາເພີ່ມເຕີມກ່ຽວກັບການແກ້ໄຂສີ</string>
     <string name="accessibility_daltonizer_primary_switch_title">ໃຊ້ການແກ້ໄຂສີ</string>
+    <string name="accessibility_daltonizer_shortcut_title">ທາງລັດການແກ້ໄຂສີ</string>
     <string name="accessibility_data_one_bar">ຂໍ້ມູນນຶ່ງຂີດ.</string>
     <string name="accessibility_data_signal_full">ສັນ​ຍານຂໍ້ມູນ​ເຕັມ.</string>
     <string name="accessibility_data_three_bars">ຂໍ້ມູນສາມຂີດ.</string>
@@ -206,6 +221,7 @@
     <string name="accessibility_display_daltonizer_preference_title">ການ​ປັບ​ແຕ່ງ​ສີ</string>
     <string name="accessibility_display_inversion_preference_subtitle">ການປີ້ນສີຈະປ່ຽນໜ້າຈໍແຈ້ງໃຫ້ເປັນສີມືດ.&lt;br/>&lt;br/> ໝາຍເຫດ: &lt;ol> &lt;li> ການປີ້ນສີຈະປ່ຽນໜ້າຈໍມືດໃຫ້ເປັນສີແຈ້ງນຳ.&lt;/li> &lt;li> ສີຈະປ່ຽນໃນມີເດຍ ແລະ ຮູບຕ່າງໆ.&lt;/li> &lt;li> ສາມາດໃຊ້ຮູບແບບສີສັນມືດເພື່ອສະແດງພື້ນຫຼັງມືດໄດ້. ຮູບແບບສີສັນມືດໃຊ້ໄດ້ກັບແອັບທີ່ຮອງຮັບ. ການປີ້ນສີສາມາດໃຊ້ໄດ້ກັບທຸກແອັບ.&lt;/li> &lt;/ol></string>
     <string name="accessibility_display_inversion_preference_title">ການປີ້ນສີ</string>
+    <string name="accessibility_display_inversion_shortcut_title">ທາງລັດການປີ້ນສີ</string>
     <string name="accessibility_display_inversion_switch_title">ໃຊ້ການປີ້ນສີ</string>
     <string name="accessibility_ethernet_connected">ອີເທີເນັດ.</string>
     <string name="accessibility_ethernet_disconnected">ອີ​ເທີ​ເນັດ​ຕັດ​ເຊື່ອມ​ຕໍ່​ແລ້ວ.</string>
@@ -255,6 +271,8 @@
     <string name="accessibility_phone_two_bars">ສັນຍານສອງຂີດ.</string>
     <string name="accessibility_power_button_ends_call_prerefence_title">ກົດປຸ່ມ ປິດ/ເປີດ ເພື່ອວາງສາຍ</string>
     <string name="accessibility_preference_magnification_summary">ຊູມເຂົ້າໃນໜ້າຈໍ</string>
+    <string name="accessibility_screen_magnification_about_title">ກ່ຽວກັບການຂະຫຍາຍ</string>
+    <string name="accessibility_screen_magnification_footer_learn_more_content_description">ສຶກສາເພີ່ມເຕີມກ່ຽວກັບການຂະຫຍາຍ</string>
     <string name="accessibility_screen_magnification_gesture_navigation_warning">ຕັ້ງທ່າທາງການຊ່ວຍເຫຼືອເປັນ %1$s ແລ້ວ. ເພື່ອໃຊ້ການຂະຫຍາຍ, ໃຫ້ປັດຂຶ້ນດ້ວຍສອງນິ້ວຈາກລຸ່ມສຸດຂອງໜ້າຈໍຄ້າງໄວ້. ຈາກນັ້ນເລືອກການຂະຫຍາຍ.</string>
     <string name="accessibility_screen_magnification_gestures_title">ຂະຫຍາຍດ້ວຍການແຕະສາມເທື່ອ</string>
     <string name="accessibility_screen_magnification_navbar_configuration_warning">ປຸ່ມການຊ່ວຍເຂົ້າເຖິງຖືກຕັ້ງເປັນ %1$s ແລ້ວ. ເພື່ອໃຊ້ການຂະຫຍາຍ, ໃຫ້ແຕະປຸ່ມການຊ່ວຍເຂົ້າເຖິງຄ້າງໄວ້, ຈາກນັ້ນເລືອກການຂະຫຍາຍ.</string>
@@ -272,6 +290,7 @@
 ທ່ານບໍ່ສາມາດຊູມໃສ່ແປ້ນພິມ ຫຼື ແຖບການນຳທາງໄດ້."</string>
     <string name="accessibility_screen_magnification_navbar_title">ຂະຫຍາຍດ້ວຍທາງລັດ</string>
     <string name="accessibility_screen_magnification_short_summary">ແຕະ 3 ຄັ້ງເພື່ອຊູມ</string>
+    <string name="accessibility_screen_magnification_shortcut_title">ທາງລັດການຂະຫຍາຍ</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">ຂະຫຍາຍດ້ວຍທາງລັດ ແລະ ການແຕະສາມເທື່ອ</string>
     <string name="accessibility_screen_magnification_summary">ຊູມເຂົ້າຢູ່ໜ້າຈໍແບບໄວໆເພື່ອເຮັດໃຫ້ເນື້ອຫາໃຫຍ່ຂຶ້ນ.&lt;br/>&lt;br/> &lt;b>ເພື່ອຊູມເຂົ້າ:&lt;/b>&lt;br/> {0,number,integer}. ໃຊ້ທາງລັດເພື່ອເລີ່ມການຂະຫຍາຍ&lt;br/> {1,number,integer}. ແຕະໃສ່ໜ້າຈໍ&lt;br/> {2,number,integer}. ລາກ 2 ນິ້ວເພື່ອເລື່ອນໄປມາຢູ່ໜ້າຈໍ&lt;br/> {3,number,integer}. ບີບດ້ວຍ 2 ນິ້ວເພື່ອປັບແກ້ການຊູມ&lt;br/> {4,number,integer}. ໃຊ້ທາງລັດເພື່ອຢຸດການຂະຫຍາຍ&lt;br/>&lt;br/>&lt;b>ເພື່ອຊູມຊົ່ວຄາວ:&lt;/b>&lt;br/> {0,number,integer}. ໃຊ້ທາງລັດເພື່ອເລີ່ມການຂະຫຍາຍ&lt;br/> {1,number,integer}. ແຕະຢູ່ບ່ອນໃດກໍໄດ້ຂອງຈໍຄ້າງໄວ້&lt;br/> {2,number,integer}. ລາກນິ້ວເພື່ອເລື່ອນໄປມາຢູ່ໜ້າຈໍ&lt;br/> {3,number,integer}. ຍົກນິ້ວຂຶ້ນເພື່ອຢຸດການຂະຫຍາຍ</string>
     <string name="accessibility_screen_magnification_title">ການຂະຫຍາຍ</string>
@@ -370,7 +389,7 @@
     <string name="accessibility_tutorial_dialog_message_volume">ເພື່ອໃຊ້ຄຸນສົມບັດນີ້, ໃຫ້ກົດປຸ່ມລະດັບສຽງທັງສອງຄ້າງໄວ້.</string>
     <string name="accessibility_tutorial_dialog_title_button">ໃຊ້ປຸ່ມການຊ່ວຍເຂົ້າເຖິງເພື່ອເປີດ</string>
     <string name="accessibility_tutorial_dialog_title_gesture">ໃຊ້ທ່າທາງເພື່ອເປີດ</string>
-    <string name="accessibility_tutorial_dialog_title_gesture_settings">ໃຊ້ທ່າທາງການຊ່ວຍເຂົ້າເຖິງໃໝ່</string>
+    <string name="accessibility_tutorial_dialog_title_gesture_settings">ໃຊ້ທ່າທາງການຊ່ວຍເຂົ້າເຖິງ</string>
     <string name="accessibility_tutorial_dialog_title_triple">ແຕະໜ້າຈໍສາມເທື່ອເພື່ອເປີດ</string>
     <string name="accessibility_tutorial_dialog_title_volume">ກົດປຸ່ມລະດັບສຽງຄ້າງໄວ້ເພື່ອເປີດ</string>
     <string name="accessibility_tutorial_pager">ໜ້າທີ %1$d ຈາກທັງໝົດ %2$d</string>
@@ -936,6 +955,7 @@
     <string name="battery_level_title">ລະດັບແບັດເຕີຣີ</string>
     <string name="battery_manager_off">ປິດ</string>
     <string name="battery_manager_summary">ຍືດອາຍຸແບັດເຕີຣີ ແລະ ເພີ່ມປະສິດທິພາບການສາກໄຟ</string>
+    <string name="battery_manager_summary_unsupported">ຂະຫຍາຍອາຍຸແບັດເຕີຣີ</string>
     <string name="battery_missing_link_a11y_message">ແຕະເພື່ອສຶກສາເພີ່ມເຕີມກ່ຽວກັບຂໍ້ຜິດພາດນີ້</string>
     <string name="battery_missing_link_message">ສຶກສາເພີ່ມເຕີມ</string>
     <string name="battery_missing_message">ເກີດບັນຫາໃນການອ່ານຕົວວັດແທກແບັດເຕີຣີ.</string>
@@ -1061,6 +1081,7 @@
     <string name="battery_usage_screen_footer">ຂໍ້ມູນການໃຊ້ແບັດເຕີຣີເປັນການປະມານການເທົ່ານັ້ນ ແລະ ບໍ່ໄດ້ວັດແທກການນຳໃຊ້ໃນເວລາທີ່ກຳລັງສາກໄຟໂທລະສັບ</string>
     <string name="battery_usage_screen_footer_empty">ຂໍ້ມູນການໃຊ້ແບັດເຕີຣີຈະສາມາດເບິ່ງໄດ້ຫຼັງຈາກທີ່ທ່ານໃຊ້ໂທລະສັບຂອງທ່ານໄປສອງສາມຊົ່ວໂມງ</string>
     <string name="battery_usage_total_less_than_one_minute">ທັງໝົດ: ໜ້ອຍກວ່າໜຶ່ງນາທີ</string>
+    <string name="battery_usage_without_time" />
     <string name="battery_used_by">%1$s ໃຊ້ໄປແລ້ວໂດຍ %2$s</string>
     <string name="battery_used_for">ໃຊ້ເປັນເວລາ ^1</string>
     <string name="bearer">Bearer</string>
@@ -1069,12 +1090,14 @@
     <string name="billing_cycle_less_than_one_day_left">ເຫຼືອໜ້ອຍກວ່າ 1 ມື້</string>
     <string name="billing_cycle_none_left">ບໍ່ມີເວລາເຫຼືອ</string>
     <string name="biometric_settings_category_ways_to_unlock">ວິທີປົດລັອກ</string>
-    <string name="biometric_settings_category_ways_to_use">ໃຊ້ໃບໜ້າ ແລະ ລາຍນິ້ວມືສຳລັບ</string>
     <string name="biometric_settings_hand_back_to_guardian">ເອົາໂທລະສັບກັບໄປໃຫ້ພໍ່ແມ່ຂອງທ່ານ</string>
     <string name="biometric_settings_hand_back_to_guardian_ok">ຕົກລົງ</string>
     <string name="biometric_settings_intro">ເມື່ອທ່ານຕັ້ງຄ່າການປົດລັອກດ້ວຍໜ້າ ແລະ ການປົດລັອກດ້ວຍລາຍນິ້ວມື, ໂທລະສັບຂອງທ່ານຈະຖາມຫາລາຍນິ້ວມືຂອງທ່ານເມື່ອທ່ານໃສ່ໜ້າກາກອະນາໄມ ຫຼື ຢູ່ໃນບ່ອນມືດ</string>
-    <string name="biometric_settings_use_biometric_for_apps">ການພິສູດຢືນຢັນໃນແອັບ</string>
-    <string name="biometric_settings_use_biometric_unlock_phone">ການປົດລັອກໂທລະສັບ</string>
+    <string name="biometric_settings_use_biometric_for_apps">ຢັ້ງຢືນວ່າແມ່ນທ່ານແທ້ໃນແອັບ</string>
+    <string name="biometric_settings_use_biometric_unlock_phone">ປົດລັອກໂທລະສັບຂອງທ່ານ</string>
+    <string name="biometric_settings_use_face_or_fingerprint_preference_summary">ກຳລັງໃຊ້ໜ້າ ຫຼື ລາຍນິ້ວມື</string>
+    <string name="biometric_settings_use_face_preference_summary">ກຳລັງໃຊ້ໜ້າ</string>
+    <string name="biometric_settings_use_fingerprint_preference_summary">ກຳລັງໃຊ້ລາຍນິ້ວມື</string>
     <string name="biometrics_unlock_set_unlock_password">ລະຫັດຜ່ານ • ໜ້າ • ລາຍນິ້ວມື</string>
     <string name="biometrics_unlock_set_unlock_pattern">ຮູບແບບ • ໜ້າ • ລາຍນິ້ວມື</string>
     <string name="biometrics_unlock_set_unlock_pin">PIN • ໜ້າ • ລາຍນິ້ວມື</string>
@@ -1332,7 +1355,6 @@
     <string name="bluetooth_settings_title">Bluetooth</string>
     <string name="bluetooth_show_devices_without_names">ສະແດງອຸປະກອນ Bluetooth ທີ່ບໍ່ມີຊື່</string>
     <string name="bluetooth_show_devices_without_names_summary">ຈະສະແດງອຸປະກອນ Bluetooth ທີ່ບໍ່ມີຊື່ (ທີ່ຢູ່ MAC ເທົ່ານັ້ນ)</string>
-    <string name="bluetooth_show_files_received_via_bluetooth">ໄຟລ໌ທີ່ໄດ້ຮັບຜ່ານ Bluetooth</string>
     <string name="bluetooth_show_received_files">ໄຟລ໌ທີ່ຮັບແລ້ວ</string>
     <string name="bluetooth_sim_card_access_dialog_content">"ອຸປະກອນ Bluetooth, %1$s, ຕ້ອງການເຂົ້າເຖິງຂໍ້ມູນຢູ່ຊິມກາດຂອງທ່ານ ນີ້ຮວມມີລາຍຊື່ຜູ້ຕິດຕໍ່ຂອງທ່ານນຳ.
 
@@ -1426,6 +1448,7 @@
     <string name="calls_sms_temp_unavailable">ບໍ່ສາມາດໃຊ້ໄດ້ຊົ່ວຄາວ</string>
     <string name="calls_sms_unavailable">ບໍ່ມີຂໍ້ມູນ</string>
     <string name="calls_sms_wfc_summary">ໂທ ແລະ ຮັບສາຍຜ່ານ Wi‑Fi</string>
+    <string name="cam_toggle_description">ສຳລັບແອັບ ແລະ ບໍລິການ</string>
     <string name="camera_double_tap_power_gesture_desc">ເປີດ​ກ້ອງ​ຖ່າຍ​ຮູບ​ດ່ວນ​ໂດຍ​ບໍ່​ຕ້ອງ​ປົດ​ລັອກໜ້າຈໍ​ຂອງ​ທ່ານ</string>
     <string name="camera_double_tap_power_gesture_title">ກົດ​ປຸ່ມ​ປິດ​ເປີດ​ສອງ​ຄັ້ງ​ສຳ​ລັບ​ກ້ອງ​ຖ່າຍ​ຮູບ</string>
     <string name="camera_laser_sensor_switch">ເຊັນເຊີເລເຊີກ້ອງ</string>
@@ -3302,6 +3325,7 @@ PIN ຈະປົກປ້ອງໂທລະສັບຫາກມັນເສຍ 
     <string name="menu_stats_total">ໃຊ້ທັງໝົດ</string>
     <string name="menu_stats_unplugged">%1$s ຕັ້ງແຕ່ຖອດສາຍສາກ</string>
     <string name="menu_use_uss">ໃຊ້ USS</string>
+    <string name="mic_toggle_description">ສຳລັບແອັບ ແລະ ບໍລິການ. ຫາກປິດການຕັ້ງຄ່ານີ້ໄວ້, ຂໍ້ມູນໄມໂຄຣໂຟນອາດຍັງຄົງຖືກແບ່ງປັນໃນເວລາທີ່ທ່ານໂທຫາເບີໂທສຸກເສີນ.</string>
     <string name="mic_toggle_title">ການເຂົ້າເຖິງໄມໂຄຣໂຟນ</string>
     <string name="misc_files">ໄຟລ໌ອື່ນໆ</string>
     <string name="misc_files_selected_count">ເລືອກແລ້ວ %1$d ຈາກທັງໝົດ %2$d</string>
@@ -3728,6 +3752,7 @@ PIN ຈະປົກປ້ອງໂທລະສັບຫາກມັນເສຍ 
     <string name="one_handed_action_show_notification_title">ສະແດງການແຈ້ງເຕືອນ</string>
     <string name="one_handed_mode_enabled">ໃຊ້ໂໝດມືດຽວ</string>
     <string name="one_handed_mode_intro_text">ເພື່ອໃຊ້ໂໝດມືດຽວ, ໃຫ້ປັດລົງຈາກຂອບລຸ່ມສຸດຂອງໜ້າຈໍ. ເພື່ອໃຊ້ຄຸນສົມບັດນີ້, ໃຫ້ກວດສອບວ່າເປີດໃຊ້ການນຳທາງແບບທ່າທາງແລ້ວໃນການຕັ້ງຄ່າການນຳທາງລະບົບ.</string>
+    <string name="one_handed_mode_shortcut_title">ທາງລັດໂໝດມືດຽວ</string>
     <string name="one_handed_mode_swipe_down_category">ປັດລົງເພື່ອ</string>
     <string name="one_handed_mode_use_shortcut_category">ໃຊ້ທາງລັດເພື່ອ</string>
     <string name="one_usercrt">ໃບຢັ້ງຢືນຜູ້ໃຊ້ໜຶ່ງ​ໃບ</string>
@@ -3803,7 +3828,7 @@ PIN ຈະປົກປ້ອງໂທລະສັບຫາກມັນເສຍ 
     <string name="post_dsds_reboot_notification_title_with_carrier">ເປີດໃຊ້ %1$s ຢູ່</string>
     <string name="power_bluetooth">Bluetooth</string>
     <string name="power_camera">ກ້ອງຖ່າຍຮູບ</string>
-    <string name="power_cell">ການສະແຕນບາຍເຄືອຂ່າຍມືຖື</string>
+    <string name="power_cell">ເຄືອຂ່າຍມືຖື</string>
     <string name="power_charge_remaining">%1$s ​ກ່ອນ​ຈະ​ເຕັມ</string>
     <string name="power_charging">%1$s - %2$s</string>
     <string name="power_charging_duration">ຍັງເຫຼືອອີກ %1$s - %2$s ຈຶ່ງຈະສາກເຕັມ</string>
@@ -4037,6 +4062,7 @@ PIN ຈະປົກປ້ອງໂທລະສັບຫາກມັນເສຍ 
     <string name="recent_notifications">ສົ່ງຫຼ້າສຸດ</string>
     <string name="recent_notifications_see_all_title">ເບິ່ງທັງໝົດຈາກ 7 ມື້ຫຼ້າສຸດ</string>
     <string name="recompute_size">ກຳລັງຄຳນວນຂະໜາດຄືນໃໝ່...</string>
+    <string name="reduce_bright_colors_about_title">ກ່ຽວກັບການຫຼຸດແສງເປັນພິເສດ</string>
     <string name="reduce_bright_colors_intensity_end_label">ແຈ້ງຂຶ້ນ</string>
     <string name="reduce_bright_colors_intensity_preference_title">ຄວາມເຂັ້ມ</string>
     <string name="reduce_bright_colors_intensity_start_label">ມືດລົງ</string>
@@ -4044,6 +4070,7 @@ PIN ຈະປົກປ້ອງໂທລະສັບຫາກມັນເສຍ 
     <string name="reduce_bright_colors_preference_subtitle">ເຮັດໃຫ້ໜ້າຈໍຂອງທ່ານມືດລົງເພື່ອໃຫ້ອ່ານໄດ້ສະບາຍຂຶ້ນ.&lt;br/>&lt;br/> ນີ້ຈະມີປະໂຫຍດໃນເວລາ: &lt;ol> &lt;li> ຄວາມສະຫວ່າງຂັ້ນຕ່ຳເລີ່ມຕົ້ນຂອງໂທລະສັບທ່ານຍັງຄົງແຈ້ງເກີນໄປ&lt;/li> &lt;li> ທ່ານກຳລັງໃຊ້ໂທລະສັບໃນສະຖານະການທີ່ມືດ ເຊັ່ນ: ໃນເວລາກາງຄືນ ຫຼື ໃນຫ້ອງມືດກ່ອນນອນ&lt;/li> &lt;/ol></string>
     <string name="reduce_bright_colors_preference_summary">ຫຼຸດແສງໜ້າຈໍໃຫ້ຕ່ຳກວ່າຄວາມສະຫວ່າງຂັ້ນຕ່ຳຂອງໂທລະສັບທ່ານ</string>
     <string name="reduce_bright_colors_preference_title">ຫຼຸດແສງເປັນພິເສດ</string>
+    <string name="reduce_bright_colors_shortcut_title">ທາງລັດການຫຼຸດແສງເປັນພິເສດ</string>
     <string name="reduce_bright_colors_switch_title">ຫຼຸດແສງໜ້າຈໍລົງເປັນພິເສດ</string>
     <string name="register_automatically">ການລົງທະບຽນອັດຕະໂນມັດ...</string>
     <string name="register_on_network">ກຳລັງລົງທະບຽນໃນ %s…</string>
@@ -4249,7 +4276,6 @@ PIN ຈະປົກປ້ອງໂທລະສັບຫາກມັນເສຍ 
     <string name="screen_pinning_unlock_pattern">​ຖາມ​ຫາ​ຮູບ​ແບບ​ປົດ​ລັອກ​ກ່ອນ​ຍົກ​ເລີກ​ການ​ປັກ​ໝຸດ</string>
     <string name="screen_pinning_unlock_pin">​ຖາມ​ຫາ PIN ກ່ອນ​ຍົກ​ເລີກ​ການປັກ​ໝຸດ</string>
     <string name="screen_reader_category_title">ໂປຣແກຣມອ່ານໜ້າຈໍ</string>
-    <string name="screen_saver_main_switch_title">ໃຊ້ສະກຣີນເຊບເວີ</string>
     <string name="screen_time_summary_usage_today">%1$s ມື້ນີ້</string>
     <string name="screen_timeout_summary">ຫຼັງຈາກ %1$s ທີ່ບໍ່ໄດ້ເຮັດຫຍັງ</string>
     <string name="screen_timeout_title">​ປິດ​ໜ້າ​ຈໍ</string>
@@ -4279,6 +4305,7 @@ PIN ຈະປົກປ້ອງໂທລະສັບຫາກມັນເສຍ 
     <string name="screensaver_settings_button">ການຕັ້ງຄ່າ</string>
     <string name="screensaver_settings_current">ຕົວພັກໜ້າຈໍປັດຈຸບັນ</string>
     <string name="screensaver_settings_disabled_prompt">ເພື່ອຄວບຄຸມວ່າຈະເກີດຫຍັງຂຶ້ນເມື່ອວາງໂທລະສັບໄວ້ ແລະ/ຫຼື ເມື່ອກຳລັງນອນຫຼັບ, ໃຫ້ເປີດພາບພັກໜ້າຈໍກ່ອນ.</string>
+    <string name="screensaver_settings_dream_start">ເລີ່ມດຽວນີ້</string>
     <string name="screensaver_settings_summary_dock">ໃນຂະນະຕັ້ງໃສ່ບ່ອນຕັ້ງສາກ</string>
     <string name="screensaver_settings_summary_either_long">ໃນຂະນະທີ່ກຳລັງສາກ ຫຼື ວາງໄວ້ບ່ອນຕັ້ງສາກ</string>
     <string name="screensaver_settings_summary_either_short">ແບບໃດກໍໄດ້</string>
@@ -4329,15 +4356,6 @@ PIN ຈະປົກປ້ອງໂທລະສັບຫາກມັນເສຍ 
     <string name="security_settings_biometric_preference_summary_both_fp_single">ເພີ່ມໜ້າ ແລະ ລາຍນິ້ວມືແລ້ວ</string>
     <string name="security_settings_biometric_preference_summary_none_enrolled">ແຕະເພື່ອຕັ້ງຄ່າ</string>
     <string name="security_settings_biometric_preference_title">ປົດລັອກດ້ວຍໜ້າ ແລະ ລາຍນິ້ວມື</string>
-    <string name="security_settings_biometrics_description">ເມື່ອທ່ານຕັ້ງການປົດລັອກດ້ວຍໜ້າ ແລະ ລາຍນິ້ວມື, ໂທລະສັບຂອງທ່ານຈະຖາມຫາລາຍນິ້ວມືຂອງທ່ານເມື່ອທ່ານໃສ່ໜ້າກາກອະນາໄມ ຫຼື ຢູ່ໃນພື້ນທີ່ມືດ</string>
-    <string name="security_settings_biometrics_preference_use_with_apps">ການພິສູດຢືນຢັນໃນແອັບ</string>
-    <string name="security_settings_biometrics_preferences_category">ໃຊ້ໜ້າ ຫຼື ລາຍນິ້ວມືສຳລັບ</string>
-    <string name="security_settings_biometrics_summary_both">ໜ້າ ແລະ ລາຍນິ້ວມື</string>
-    <string name="security_settings_biometrics_summary_face">ໜ້າເທົ່ານັ້ນ</string>
-    <string name="security_settings_biometrics_summary_fingerprint">ລາຍນິ້ວມືເທົ່ານັ້ນ</string>
-    <string name="security_settings_biometrics_summary_none">ແຕະເພື່ອຕັ້ງຄ່າ</string>
-    <string name="security_settings_biometrics_title">ປົດລັອກດ້ວຍໜ້າ ແລະ ລາຍນິ້ວມື</string>
-    <string name="security_settings_biometrics_types_category">ວິທີປົດລັອກ</string>
     <string name="security_settings_face_enroll_consent_introduction_title">ອະນຸຍາດໃຫ້ປົດລັອກດ້ວຍໜ້າ</string>
     <string name="security_settings_face_enroll_dialog_ok">ຕົກລົງ</string>
     <string name="security_settings_face_enroll_done">ແລ້ວໆ</string>
@@ -4395,6 +4413,7 @@ PIN ຈະປົກປ້ອງໂທລະສັບຫາກມັນເສຍ 
     <string name="security_settings_face_enroll_introduction_info_consent_looking">ການເບິ່ງໂທລະສັບສາມາດປົດລັອກມັນໄດ້ເຖິງແມ່ນວ່າເຂົາເຈົ້າຈະບໍ່ຕັ້ງໃຈກໍຕາມ. ໂທລະສັບຂອງເຂົາເຈົ້າສາມາດຖືກປົດລັອກໄດ້ໂດຍຄົນທີ່ໜ້າຕາຄ້າຍເຂົາເຈົ້າຫຼາຍ ເຊັ່ນ: ຝາແຝດ ຫຼື ຫາກມີຄົນຖືມັນໄປໃສ່ໜ້າຂອງເຂົາເຈົ້າ.</string>
     <string name="security_settings_face_enroll_introduction_info_gaze">ການປົດລັອກດ້ວຍໜ້າສາມາດບັງຄັບໃຫ້ທ່ານມືນຕາເພື່ອປົດລັອກໂທລະສັບ ຫຼື ຢັ້ງຢືນວ່າແມ່ນເຂົາເຈົ້າແທ້. ທ່ານສາມາດເປີດຕົວເລືອກນີ້ຕອນໃດກໍໄດ້ໃນການຕັ້ງຄ່າ.</string>
     <string name="security_settings_face_enroll_introduction_info_glasses">ແວ່ນຕາ ຫຼື ແວ່ນກັນແດດທີ່ມີສີເລັກນ້ອຍແມ່ນໃຊ້ໄດ້.</string>
+    <string name="security_settings_face_enroll_introduction_info_less_secure">ການໃຊ້ໜ້າເພື່ອປົດລັອກໂທລະສັບອາດມີຄວາມປອດໄພໜ້ອຍກວ່າການໃຊ້ຮູບແບບ ຫຼື PIN ທີ່ຊັບຊ້ອນ.</string>
     <string name="security_settings_face_enroll_introduction_info_looking">ການເບິ່ງໂທລະສັບຈະສາມາດປົດລັອກມັນໄດ້ເຖິງແມ່ນວ່າທ່ານຈະບໍ່ຕັ້ງໃຈກໍຕາມ. ໂທລະສັບຂອງທ່ານສາມາດຖືກປົດລັອກໄດ້ໂດຍຄົນທີ່ໜ້າຕາຄ້າຍທ່ານຫຼາຍ ເຊັ່ນ: ຝາແຝດ ຫຼື ຫາກມີຄົນຖືມັນໄປໃສ່ໜ້າຂອງທ່ານ.</string>
     <string name="security_settings_face_enroll_introduction_info_title">ຂໍ້ຄວນຈື່</string>
     <string name="security_settings_face_enroll_introduction_message">ໃຊ້ໃບໜ້າຂອງທ່ານເພື່ອປົດລັອກໂທລະສັບທ່ານ ຫຼື ຢັ້ງຢືນວ່າແມ່ນທ່ານແທ້ ເຊັ່ນ: ໃນເວລາທີ່ທ່ານເຂົ້າສູ່ລະບົບຫາແອັບ ຫຼື ອະນຸມັດການສັ່ງຊື້ໃດໜຶ່ງ.</string>
@@ -4452,13 +4471,14 @@ PIN ຈະປົກປ້ອງໂທລະສັບຫາກມັນເສຍ 
 
 ໂທລະສັບຂອງທ່ານສາມາດຖືກປົດລັອກໄດ້ໂດຍຄົນທີ່ໜ້າຄ້າຍທ່ານຫຼາຍ ເຊັ່ນ: ອ້າຍນ້ອງ ຫຼື ເອື້ອຍນ້ອງຝາແຝດຂອງທ່ານ."</string>
     <string name="security_settings_face_settings_preferences_category">ເມື່ອໃຊ້ການປົດລັອກດ້ວຍໜ້າ</string>
-    <string name="security_settings_face_settings_remove_dialog_details">ຮູບແບບໃບໜ້າຂອງທ່ານຈະຖືກລຶບອອກຢ່າງຖາວອນ ແລະ ປອດໄພ. ຫຼັງຈາກການລຶບແລ້ວ, ທ່ານຈະຕ້ອງໃຊ້ PIN, ຮູບແບບ ຫຼື ລະຫັດຜ່ານຂອງທ່ານເພື່ອປົດລັອກໂທລະສັບຂອງທ່ານ ຫຼື ສຳລັບການພິສູດຢືນຢັນໃນແອັບ.</string>
+    <string name="security_settings_face_settings_remove_dialog_details">"ຮູບແບບໃບໜ້າຂອງທ່ານຈະຖືກລຶບອອກຢ່າງຖາວອນ ແລະ ປອດໄພ.
+
+ຫຼັງຈາກການລຶບແລ້ວ, ທ່ານຈະຕ້ອງໃຊ້ PIN, ຮູບແບບ ຫຼື ລະຫັດຜ່ານຂອງທ່ານເພື່ອປົດລັອກໂທລະສັບຂອງທ່ານ ຫຼື ສຳລັບການພິສູດຢືນຢັນໃນແອັບຕ່າງໆ."</string>
+    <string name="security_settings_face_settings_remove_dialog_details_convenience">"ຮູບແບບໃບໜ້າຂອງທ່ານຈະຖືກລຶບອອກຢ່າງຖາວອນ ແລະ ປອດໄພ.
+
+ຫຼັງຈາກການລຶບແລ້ວ, ທ່ານຈະຕ້ອງໃຊ້ PIN, ຮູບແບບ ຫຼື ລະຫັດຜ່ານຂອງທ່ານເພື່ອປົດລັອກໂທລະສັບຂອງທ່ານ."</string>
     <string name="security_settings_face_settings_remove_dialog_title">ລຶບຮູບແບບໃບໜ້າອອກບໍ?</string>
     <string name="security_settings_face_settings_remove_face_model">ລຶບຮູບແບບໃບໜ້າ</string>
-    <string name="security_settings_face_settings_remove_model_dialog_details">"ຮູບແບບໃບໜ້າຂອງທ່ານຈະຖືກລຶບອອກຢ່າງຖາວອນ ແລະ ປອດໄພ.
-
-ຫຼັງຈາກການລຶບແລ້ວ, ທ່ານຈະຕ້ອງໃຊ້ລາຍນິ້ວມື, PIN, ຮູບແບບ ຫຼື ລະຫັດຜ່ານຂອງທ່ານເພື່ອປົດລັອກໂທລະສັບຂອງທ່ານ ຫຼື ສຳລັບການພິສູດຢືນຢັນໃນແອັບ."</string>
-    <string name="security_settings_face_settings_remove_model_dialog_title">ລຶບຮູບແບບໃບໜ້າອອກບໍ?</string>
     <string name="security_settings_face_settings_require_attention">ຕ້ອງມືນຕາຈຶ່ງຈະໃຊ້ໄດ້</string>
     <string name="security_settings_face_settings_require_attention_details">ເພື່ອປົດລັອກໂທລະສັບ, ທ່ານຈະຕ້ອງມືນຕາຂອງທ່ານກ່ອນ</string>
     <string name="security_settings_face_settings_require_confirmation">ຈຳເປັນຕ້ອງມີການຢືນຢັນທຸກເທື່ອ</string>
@@ -4541,7 +4561,7 @@ PIN ຈະປົກປ້ອງໂທລະສັບຫາກມັນເສຍ 
     <string name="security_settings_title">ຄວາມ​ປອດ​ໄພ</string>
     <string name="security_settings_udfps_enroll_a11y">ເລື່ອນນິ້ວຂອງທ່ານໄປມາຢູ່ໜ້າຈໍເພື່ອຊອກຫາເຊັນເຊີ. ແຕະເຊັນ​ເຊີລາຍນິ້ວ​ມືຄ້າງໄວ້.</string>
     <string name="security_settings_udfps_enroll_edge_message">ວາງທາງຂ້າງຂອງລາຍນິ້ວມືທ່ານໃສ່ເຊັນເຊີແລ້ວກົດຄ້າງໄວ້, ຈາກນັ້ນສະຫຼັບໄປອີກຂ້າງ</string>
-    <string name="security_settings_udfps_enroll_edge_title">ສຸດທ້າຍ, ໃຫ້ວາງຂອບຂອງນິ້ວມືທ່ານໃສ່</string>
+    <string name="security_settings_udfps_enroll_edge_title">ສຸດທ້າຍ, ໃຫ້ໃຊ້ຂອບຂອງນິ້ວມືທ່ານ</string>
     <string name="security_settings_udfps_enroll_find_sensor_message">ເຊັນເຊີລາຍນິ້ວມືແມ່ນຢູ່ໜ້າຈໍຂອງທ່ານ. ທ່ານຈະບັນທຶກລາຍນິ້ວມືຂອງທ່ານຢູ່ໜ້າຈໍຕໍ່ໄປ.</string>
     <string name="security_settings_udfps_enroll_find_sensor_start_button">ເລີ່ມ</string>
     <string name="security_settings_udfps_enroll_find_sensor_title">ວິທີຕັ້ງຄ່າລາຍນິ້ວມືຂອງທ່ານ</string>
@@ -4550,7 +4570,7 @@ PIN ຈະປົກປ້ອງໂທລະສັບຫາກມັນເສຍ 
     <string name="security_settings_udfps_enroll_repeat_a11y_message">ນີ້ຈະຊ່ວຍບັນທຶກລາຍນິ້ວມືຂອງທ່ານໄດ້ຫຼາຍຂຶ້ນ</string>
     <string name="security_settings_udfps_enroll_repeat_message">ແຕະຄ້າງໄວ້ໃນແຕ່ລະເທື່ອທີ່ໄອຄອນລາຍນິ້ວມືເຄື່ອນ. ນີ້ຈະຊ່ວຍບັນທຶກລາຍນິ້ວມືຂອງທ່ານໄດ້ຫຼາຍຂຶ້ນ.</string>
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">ເລື່ອນຕາມໄອຄອນລາຍນິ້ວມື</string>
-    <string name="security_settings_udfps_enroll_start_message">ວາງນິ້ວຂອງທ່ານໄວ້ຢູ່ເຊັນເຊີຈົນກວ່າທ່ານຈະຮູ້ສຶກມີການສັ່ນເຕືອນ</string>
+    <string name="security_settings_udfps_enroll_start_message">ແນບລາຍນິ້ວມືຂອງທ່ານໃຫ້ສະເໝີກັບເຊັນເຊີຈົນກວ່າທ່ານຈະຮູ້ສຶກມີການສັ່ນເຕືອນ</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">ອີກເທື່ອໜຶ່ງ</string>
     <string name="security_settings_work_fingerprint_preference_title">Pixel Imprint ສຳລັບວຽກ</string>
     <string name="security_status_title">ສະຖານະຄວາມປອດໄພ</string>
@@ -4576,7 +4596,6 @@ PIN ຈະປົກປ້ອງໂທລະສັບຫາກມັນເສຍ 
     <string name="select_webview_provider_dialog_title">ຕັ້ງການຈັດຕັ້ງປະຕິບັດ WebView</string>
     <string name="select_webview_provider_title">ການຈັດຕັ້ງປະຕິບັດ WebView</string>
     <string name="select_webview_provider_toast_text">ບໍ່ສາມາດໃຊ້ການເລືອກນີ້ໄດ້ອີກຕໍ່ໄປແລ້ວ. ກະລຸນາລອງໃໝ່.</string>
-    <string name="sensor_toggle_description">ສຳລັບແອັບ ແລະ ບໍລິການທັງໝົດ</string>
     <string name="sensors_off_quick_settings_title">ປີດເຊັນເຊີ</string>
     <string name="service_background_processes">ຫວ່າງ %1$s</string>
     <string name="service_foreground_processes">%1$s ໃຊ້ໄປແລ້ວ</string>
@@ -4808,6 +4827,7 @@ PIN ຈະປົກປ້ອງໂທລະສັບຫາກມັນເສຍ 
     <string name="sound_settings_summary_silent">ປິດສຽງໂທລະສັບແລ້ວ</string>
     <string name="sound_settings_summary_vibrate">ເປີດໃຫ້ສັ່ນເຕືອນແລ້ວ</string>
     <string name="sound_work_settings">ສຽງໂປຣໄຟລ໌ບ່ອນເຮັດວຽກ</string>
+    <string name="spatial_audio_title">ສຽງຮອບທິດທາງ</string>
     <string name="special_access">ສິດການເຂົ້າເຖິງແອັບພິເສດ</string>
     <string name="special_access_more">ເບິ່ງເພີ່ມເຕີມ</string>
     <string name="speed_label_fast">ໄວ</string>
@@ -5619,7 +5639,7 @@ PIN ຈະປົກປ້ອງໂທລະສັບຫາກມັນເສຍ 
     <string name="vpn_turn_on">ເປີດໃຊ້</string>
     <string name="vpn_type">ປະເພດ</string>
     <string name="vpn_username">ຊື່ຜູ້ໃຊ້</string>
-    <string name="vpn_version">ເວີ​ຊັນ %s</string>
+    <string name="vpn_version">ເວີຊັນ</string>
     <string name="vr_listener_security_warning_summary">%1$s ຈະສາມາດໃຊ້ໄດ້ເມື່ອທ່ານກຳລັງໃຊ້ແອັບພລິເຄຊັນຕ່າງໆໃນໂໝດສະເໝືອນຈິງ.</string>
     <string name="vr_listener_security_warning_title">ອະນຸຍາດໃຫ້ເຂົ້າເຖິງບໍລິການ VR ສຳລັບ %1$s ບໍ?</string>
     <string name="vr_listeners_title">ບໍລິການຕົວຊ່ວຍ VR</string>
@@ -5889,7 +5909,7 @@ PIN ຈະປົກປ້ອງໂທລະສັບຫາກມັນເສຍ 
     <string name="wifi_not_in_range">ບໍ່ຢູ່ໃນໄລຍະທີ່ເຊື່ອມຕໍ່ໄດ້</string>
     <string name="wifi_not_in_range_message">ເຄືອຂ່າຍບໍ່ຢູ່ໃນໄລຍະ</string>
     <string name="wifi_notify_open_networks">ແຈ້ງເຕືອນສຳລັບເຄືອຂ່າຍສາທາລະນະ</string>
-    <string name="wifi_notify_open_networks_summary">ເມື່ອບໍ່ມີການເຊື່ອມຕໍ່ອັດຕະໂນມັດ</string>
+    <string name="wifi_notify_open_networks_summary">ແຈ້ງເຕືອນເມື່ອມີເຄືອຂ່າຍສາທາລະນະຄຸນນະພາບສູງໃຫ້ໃຊ້</string>
     <string name="wifi_on_time">ເວລາເປີດໃຊ້ Wi-Fi</string>
     <string name="wifi_p2p_cancel_connect_message">ທ່ານຕ້ອງການຍົກເລີກການເຊີນເພື່ອເຊື່ອມຕໍ່ກັບ %1$s ບໍ່?</string>
     <string name="wifi_p2p_cancel_connect_title">ຍົກເລີກການເຊີນ?</string>
@@ -5977,7 +5997,6 @@ PIN ຈະປົກປ້ອງໂທລະສັບຫາກມັນເສຍ 
     <string name="wifi_suspend_optimizations">ການປັບແຕ່ງ Wi-Fi</string>
     <string name="wifi_suspend_optimizations_summary">ຫຼຸດການນຳໃຊ້ແບັດເຕີຣີເມື່ອເປີດໃຊ້ Wi-Fi</string>
     <string name="wifi_switch_away_when_unvalidated">ສະຫຼັບໄປໃຊ້ອິນເຕີເນັດມືຖືຖ້າ Wi‑Fi ເຊື່ອມຕໍ່ອິນເຕີເນັດບໍ່ໄດ້.</string>
-    <string name="wifi_switch_summary">ຊອກ ແລະ ເຊື່ອມຕໍ່ຫາເຄືອຂ່າຍ Wi‑Fi</string>
     <string name="wifi_tap_to_sign_in">ແຕະບ່ອນນີ້ເພື່ອເຂົ້າສູ່ລະບົບເຄືອຂ່າຍ</string>
     <string name="wifi_tether_configure_ap_text">ຕັ້ງຄ່າ Wi-Fi ຮັອດສະປອດ</string>
     <string name="wifi_tether_configure_ssid_default">AndroidHotspot</string>

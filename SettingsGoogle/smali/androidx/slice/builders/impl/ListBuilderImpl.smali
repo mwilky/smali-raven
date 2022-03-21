@@ -505,7 +505,7 @@
     move v2, v4
 
     :goto_0
-    const-string v5, "slice"
+    const-string/jumbo v5, "slice"
 
     const-string v6, "list_item"
 
@@ -521,9 +521,9 @@
     move v3, v4
 
     :goto_1
-    const-string v4, "shortcut"
+    const-string/jumbo v4, "shortcut"
 
-    const-string v6, "title"
+    const-string/jumbo v6, "title"
 
     filled-new-array {v4, v6}, [Ljava/lang/String;
 
@@ -745,7 +745,7 @@
 
     move-result-object p0
 
-    const-string p1, "ttl"
+    const-string/jumbo p1, "ttl"
 
     filled-new-array {p1}, [Ljava/lang/String;
 

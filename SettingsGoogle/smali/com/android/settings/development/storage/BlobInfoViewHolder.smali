@@ -38,7 +38,7 @@
     return-object p0
 
     :cond_0
-    const p1, 0x7f060063
+    const p1, 0x7f060065
 
     const/4 v0, 0x0
 
@@ -52,7 +52,7 @@
 
     iput-object p0, p1, Lcom/android/settings/development/storage/BlobInfoViewHolder;->rootView:Landroid/view/View;
 
-    const v0, 0x7f0d00df
+    const v0, 0x7f0d00e3
 
     invoke-virtual {p0, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -62,7 +62,7 @@
 
     iput-object v0, p1, Lcom/android/settings/development/storage/BlobInfoViewHolder;->blobLabel:Landroid/widget/TextView;
 
-    const v0, 0x7f0d00de
+    const v0, 0x7f0d00e2
 
     invoke-virtual {p0, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -72,7 +72,7 @@
 
     iput-object v0, p1, Lcom/android/settings/development/storage/BlobInfoViewHolder;->blobId:Landroid/widget/TextView;
 
-    const v0, 0x7f0d00dd
+    const v0, 0x7f0d00e1
 
     invoke-virtual {p0, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -82,7 +82,7 @@
 
     iput-object v0, p1, Lcom/android/settings/development/storage/BlobInfoViewHolder;->blobExpiry:Landroid/widget/TextView;
 
-    const v0, 0x7f0d00e0
+    const v0, 0x7f0d00e4
 
     invoke-virtual {p0, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

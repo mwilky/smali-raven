@@ -196,7 +196,7 @@
 
     iget-boolean v0, p0, Lcom/android/settings/wifi/calling/WifiCallingDisclaimerFragment;->mScrollToBottom:Z
 
-    const-string v1, "state_is_scroll_to_bottom"
+    const-string/jumbo v1, "state_is_scroll_to_bottom"
 
     invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z
 
@@ -211,7 +211,7 @@
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 2
 
-    const p3, 0x7f0602a2
+    const p3, 0x7f0602ae
 
     const/4 v0, 0x0
 
@@ -219,7 +219,7 @@
 
     move-result-object p1
 
-    const p2, 0x7f0d0071
+    const p2, 0x7f0d0073
 
     invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -231,7 +231,7 @@
 
     invoke-virtual {p2, p0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const p2, 0x7f0d01c6
+    const p2, 0x7f0d01ca
 
     invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -243,7 +243,7 @@
 
     invoke-virtual {p2, p0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const p2, 0x7f0d01c8
+    const p2, 0x7f0d01cc
 
     invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -307,7 +307,7 @@
 
     iget-boolean p0, p0, Lcom/android/settings/wifi/calling/WifiCallingDisclaimerFragment;->mScrollToBottom:Z
 
-    const-string v0, "state_is_scroll_to_bottom"
+    const-string/jumbo v0, "state_is_scroll_to_bottom"
 
     invoke-virtual {p1, v0, p0}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 

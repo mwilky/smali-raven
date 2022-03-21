@@ -43,7 +43,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f06003f
+    const v1, 0x7f060040
 
     const/4 v2, 0x0
 
@@ -207,7 +207,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f040ea1
+    const v2, 0x7f040ecc
 
     invoke-virtual {v0, v2, v1}, Landroidx/appcompat/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
 
@@ -356,7 +356,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f0d006c
+    const p1, 0x7f0d006e
 
     invoke-virtual {p2, p1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -376,7 +376,7 @@
 .method setAdminSupportIcon(Landroid/view/View;Landroid/content/ComponentName;I)V
     .locals 0
 
-    const p2, 0x7f0d006a
+    const p2, 0x7f0d006c
 
     invoke-virtual {p1, p2}, Landroid/view/View;->requireViewById(I)Landroid/view/View;
 
@@ -386,7 +386,7 @@
 
     iget-object p2, p0, Lcom/android/settings/enterprise/ActionDisabledByAdminDialogHelper;->mActivity:Landroid/app/Activity;
 
-    const p3, 0x7f020238
+    const p3, 0x7f02023f
 
     invoke-virtual {p2, p3}, Landroid/app/Activity;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -408,7 +408,7 @@
 .method setAdminSupportTitle(Landroid/view/View;Ljava/lang/String;)V
     .locals 1
 
-    const v0, 0x7f0d0069
+    const v0, 0x7f0d006b
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

@@ -167,7 +167,7 @@
 
     const-string p0, "SimSlotChangeHandler"
 
-    const-string v1, "slotInfos is null. Unable to get slot infos."
+    const-string/jumbo v1, "slotInfos is null. Unable to get slot infos."
 
     invoke-static {p0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -213,7 +213,7 @@
 
     move-result-object p0
 
-    const-string p1, "suw_psim_action"
+    const-string/jumbo p1, "suw_psim_action"
 
     invoke-interface {p0, p1, v0}, Landroid/content/SharedPreferences;->getInt(Ljava/lang/String;I)I
 
@@ -447,7 +447,7 @@
 .method private init(Landroid/content/Context;)V
     .locals 1
 
-    const-string v0, "telephony_subscription_service"
+    const-string/jumbo v0, "telephony_subscription_service"
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -562,7 +562,7 @@
 
     move-result-object p0
 
-    const-string p1, "suw_psim_action"
+    const-string/jumbo p1, "suw_psim_action"
 
     invoke-interface {p0, p1, p2}, Landroid/content/SharedPreferences$Editor;->putInt(Ljava/lang/String;I)Landroid/content/SharedPreferences$Editor;
 
@@ -634,7 +634,7 @@
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
 
-    const-string v1, "sub_to_enable"
+    const-string/jumbo v1, "sub_to_enable"
 
     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 

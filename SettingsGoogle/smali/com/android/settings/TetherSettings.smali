@@ -332,7 +332,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "updateBluetoothState() btState : "
+    const-string/jumbo v3, "updateBluetoothState() btState : "
 
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -349,7 +349,7 @@
 
     if-ne v0, v1, :cond_1
 
-    const-string p0, "updateBluetoothState() Bluetooth state is error!"
+    const-string/jumbo p0, "updateBluetoothState() Bluetooth state is error!"
 
     invoke-static {v2, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -526,7 +526,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f040a32
+    const p0, 0x7f040a4a
 
     return p0
 .end method
@@ -598,7 +598,7 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/RestrictedSettingsFragment;->onCreate(Landroid/os/Bundle;)V
 
-    const p1, 0x7f1500f2
+    const p1, 0x7f1500f7
 
     invoke-virtual {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->addPreferencesFromResource(I)V
 
@@ -698,7 +698,7 @@
 
     iput-object v0, p0, Lcom/android/settings/TetherSettings;->mEm:Landroid/net/EthernetManager;
 
-    const-string v0, "tethering"
+    const-string/jumbo v0, "tethering"
 
     invoke-virtual {p0, v0}, Lcom/android/settings/SettingsPreferenceFragment;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -1040,7 +1040,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0413c4
+    const v1, 0x7f0413e9
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -1084,7 +1084,7 @@
 
     move-result-object v0
 
-    const-string v2, "shared"
+    const-string/jumbo v2, "shared"
 
     invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1250,7 +1250,7 @@
 .method setTopIntroPreferenceTitle()V
     .locals 2
 
-    const-string v0, "tether_prefs_top_intro"
+    const-string/jumbo v0, "tether_prefs_top_intro"
 
     invoke-virtual {p0, v0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
@@ -1272,14 +1272,14 @@
 
     if-eqz p0, :cond_0
 
-    const p0, 0x7f0413bf
+    const p0, 0x7f0413e4
 
     invoke-virtual {v0, p0}, Landroidx/preference/Preference;->setTitle(I)V
 
     goto :goto_0
 
     :cond_0
-    const p0, 0x7f0413be
+    const p0, 0x7f0413e3
 
     invoke-virtual {v0, p0}, Landroidx/preference/Preference;->setTitle(I)V
 
@@ -1290,7 +1290,7 @@
 .method setupTetherPreference()V
     .locals 1
 
-    const-string v0, "usb_tether_settings"
+    const-string/jumbo v0, "usb_tether_settings"
 
     invoke-virtual {p0, v0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
@@ -1392,7 +1392,7 @@
 
     invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string p2, "updateEthernetState() isAvailable : "
+    const-string/jumbo p2, "updateEthernetState() isAvailable : "
 
     invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1529,7 +1529,7 @@
 
     invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v0, "updateUsbState() mUsbConnected : "
+    const-string/jumbo v0, "updateUsbState() mUsbConnected : "
 
     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

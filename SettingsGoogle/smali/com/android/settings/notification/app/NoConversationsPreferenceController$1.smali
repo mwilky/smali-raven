@@ -152,7 +152,7 @@
     :cond_0
     iget-object p1, p0, Lcom/android/settings/notification/app/NoConversationsPreferenceController$1;->val$pref:Lcom/android/settingslib/widget/LayoutPreference;
 
-    const v0, 0x7f0d03ef
+    const v0, 0x7f0d03fd
 
     invoke-virtual {p1, v0}, Lcom/android/settingslib/widget/LayoutPreference;->findViewById(I)Landroid/view/View;
 

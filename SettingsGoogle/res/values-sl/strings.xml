@@ -96,6 +96,7 @@
     <string name="peak_refresh_rate_title">Tekoč prikaz</string>
     <string name="peak_refresh_rate_summary">Samodejno poveča hitrost osveževanja s 60 na 90 Hz za nekatere vsebine. Poveča porabo energije baterije.</string>
     <string name="accessibility_vibration_settings_title">Vibriranje in odziv na dotik</string>
+    <string name="columbus_title">Hitri dotik za zagon dejanj</string>
     <string name="emergency_gesture_screen_title">Nujni primer</string>
     <string name="abc_action_mode_done">Končano</string>
     <string name="vibrate_for_calls_category_title">Klici</string>
@@ -103,6 +104,8 @@
     <string name="lockscreen_privacy_controls_setting_toggle">Prikaži kontrolnike naprave</string>
     <string name="lockscreen_privacy_wallet_summary">Dovolite dostop do denarnice prek zaklenjenega zaslona in hitrih nastavitev.</string>
     <string name="lockscreen_privacy_controls_summary">Dostopajte do kontrolnikov pri zaklenjenem zaslonu.</string>
+    <string name="lockscreen_double_line_clock_summary">Prikaz ure v dveh vrsticah, ko je na voljo</string>
+    <string name="lockscreen_double_line_clock_setting_toggle">Ura v dveh vrsticah</string>
     <string name="abc_activity_chooser_view_see_all">Pokaži vse</string>
     <string name="abc_activitychooserview_choose_application">Izbira aplikacije</string>
     <string name="abc_capital_off">IZKLOP</string>
@@ -147,9 +150,11 @@
     <string name="accessibility_alarm_vibration_title">Vibriranje alarma</string>
     <string name="accessibility_assist_gesture_complete_or_keep_adjusting">Funkcija Active Edge je nastavljena. Pojdite na naslednji zaslon ali pa nadaljujte s prilagajanjem.</string>
     <string name="accessibility_audio_adjustment_title">Prilagoditev zvoka</string>
+    <string name="accessibility_autoclick_about_title">O samodejnem kliku (času negibnosti)</string>
     <string name="accessibility_autoclick_custom_title">Po meri</string>
     <string name="accessibility_autoclick_default_title">Izklopljeno</string>
     <string name="accessibility_autoclick_description">Samodejni klik deluje s povezano miško. Nastavite lahko, da kazalec miške samodejno klikne, potem ko se nekaj časa ne premakne.</string>
+    <string name="accessibility_autoclick_footer_learn_more_content_description">Preberite več o samodejnem kliku (času negibnosti).</string>
     <string name="accessibility_autoclick_long_summary">1 sekunda</string>
     <string name="accessibility_autoclick_long_title">Dolgo</string>
     <string name="accessibility_autoclick_longer_desc">Daljše</string>
@@ -161,16 +166,17 @@
     <string name="accessibility_autoclick_short_title">Kratko</string>
     <string name="accessibility_autoclick_shorter_desc">Krajše</string>
     <string name="accessibility_banner_message_dismiss">Opusti</string>
-    <string name="accessibility_button_description">"Hitro dostopajte do funkcij za ljudi s posebnimi potrebami na poljubnem zaslonu. 
+    <string name="accessibility_button_about_title">O gumbu za fun. za ljudi s pos. potr.</string>
+    <string name="accessibility_button_description">"Hitro dostopajte do funkcij za ljudi s posebnimi potrebami na poljubnem zaslonu.
 
 Če želite začeti, odprite nastavitve funkcij za ljudi s posebnimi potrebami in izberite funkcijo. Dotaknite se bližnjice in izberite gumb za funkcije za ljudi s posebnimi potrebami."</string>
     <string name="accessibility_button_fade_summary">Pobledi po nekaj sekundah, da boste lažje videli zaslon.</string>
     <string name="accessibility_button_fade_title">Pobleditev, ko ni v uporabi</string>
-    <string name="accessibility_button_gesture_description">"Hitro dostopajte do funkcij za ljudi s posebnimi potrebami na poljubnem zaslonu. 
+    <string name="accessibility_button_gesture_about_title">O gumbu in potezi za funk. za ljudi s poseb. potrebami</string>
+    <string name="accessibility_button_gesture_description">"Hitro dostopajte do funkcij za ljudi s posebnimi potrebami na poljubnem zaslonu.
 
-Če želite začeti, odprite nastavitve funkcij za ljudi s posebnimi potrebami in izberite funkcijo. Dotaknite se bližnjice in izberite gumb za funkcije za ljudi s posebnimi potrebami.
-
-Če želite namesto tega uporabljati gumb za funkcije za ljudi s posebnimi potrebami v vrstici za krmarjenje, preklopite na krmarjenje z dvema gumboma ali s tremi gumbi."</string>
+Če želite začeti, odprite nastavitve funkcij za ljudi s posebnimi potrebami in izberite funkcijo. Dotaknite se bližnjice in izberite gumb ali potezo za funkcije za ljudi s posebnimi potrebami."</string>
+    <string name="accessibility_button_gesture_footer_learn_more_content_description">Preberite več o gumbu in potezi za funkcije za ljudi s posebnimi potrebami.</string>
     <string name="accessibility_button_gesture_title">Gumb ali poteza za funk. za ljud. s pos. potrebami</string>
     <string name="accessibility_button_high_label">Neprosojno</string>
     <string name="accessibility_button_intro">Uporaba gumba za funkcije za ljudi s posebnimi potrebami Poteza ni na voljo pri krmarjenju s tremi gumbi.</string>
@@ -184,14 +190,23 @@
     <string name="accessibility_caption_preference_summary">Vse aplikacije ne podpirajo teh nastavitev podnapisov.</string>
     <string name="accessibility_caption_primary_switch_summary">Samo pri podprtih aplikacijah</string>
     <string name="accessibility_caption_primary_switch_title">Prikaži podnapise</string>
+    <string name="accessibility_captioning_about_title">O nastavitvah podnapisov</string>
+    <string name="accessibility_captioning_footer_learn_more_content_description">Preberite več o nastavitvah podnapisov.</string>
     <string name="accessibility_captioning_title">Nastavitve podnapisov</string>
     <string name="accessibility_category_personal">Računi za osebne profile</string>
     <string name="accessibility_category_work">Računi za delovne profile – %s</string>
+    <string name="accessibility_color_inversion_about_title">O inverziji barv</string>
+    <string name="accessibility_color_inversion_footer_learn_more_content_description">Preberite več o inverziji barv.</string>
+    <string name="accessibility_control_timeout_about_title">O času za dejanje (časovni omejitvi funkcije)</string>
+    <string name="accessibility_control_timeout_footer_learn_more_content_description">Preberite več o času za dejanje (časovni omejitvi funkcije).</string>
     <string name="accessibility_control_timeout_preference_summary">"Izberite, kako dolgo naj bodo prikazana sporočila, ki vas pozivajo k ukrepanju, vendar so vidna le začasno.
 
 Te nastavitve ne podpirajo vse aplikacije."</string>
     <string name="accessibility_control_timeout_preference_title">Čas za ukrepanje</string>
+    <string name="accessibility_daltonizer_about_title">O popravljanju barv</string>
+    <string name="accessibility_daltonizer_footer_learn_more_content_description">Preberite več o popravljanju barv.</string>
     <string name="accessibility_daltonizer_primary_switch_title">Uporabi popravljanje barv</string>
+    <string name="accessibility_daltonizer_shortcut_title">Bližnjica za popravljanje barv</string>
     <string name="accessibility_data_one_bar">Podatkovni signal z eno črtico.</string>
     <string name="accessibility_data_signal_full">Podatkovni signal poln.</string>
     <string name="accessibility_data_three_bars">Podatki s tremi črticami.</string>
@@ -206,6 +221,7 @@ Te nastavitve ne podpirajo vse aplikacije."</string>
     <string name="accessibility_display_daltonizer_preference_title">Popravljanje barv</string>
     <string name="accessibility_display_inversion_preference_subtitle">Z barvno inverzijo svetli zasloni postanejo temni.&lt;br/>&lt;br/> Opomba: &lt;ol> &lt;li> Velja tudi obratno, da z barvno inverzijo temni zasloni postanejo svetli.&lt;/li> &lt;li> Barve se spremenijo v predstavnosti in na slikah.&lt;/li> &lt;li> Za prikaz temnega ozadja lahko vklopite tudi temno temo. Temna tema deluje v podprtih aplikacijah. Inverzija barv deluje v vseh aplikacijah.&lt;/li> &lt;/ol></string>
     <string name="accessibility_display_inversion_preference_title">Inverzija barv</string>
+    <string name="accessibility_display_inversion_shortcut_title">Bližnjica za inverzijo barv</string>
     <string name="accessibility_display_inversion_switch_title">Uporabi inverzijo barv</string>
     <string name="accessibility_ethernet_connected">Ethernet</string>
     <string name="accessibility_ethernet_disconnected">Ethernetna povezava je prekinjena.</string>
@@ -255,6 +271,8 @@ Gumb za funkcije za ljudi s posebnimi potrebami lebdi na zaslonu nad drugimi apl
     <string name="accessibility_phone_two_bars">Telefon z dvema črticama.</string>
     <string name="accessibility_power_button_ends_call_prerefence_title">Gumb za vklop konča klic</string>
     <string name="accessibility_preference_magnification_summary">Povečava zaslona</string>
+    <string name="accessibility_screen_magnification_about_title">O povečavi</string>
+    <string name="accessibility_screen_magnification_footer_learn_more_content_description">Preberite več o povečavi.</string>
     <string name="accessibility_screen_magnification_gesture_navigation_warning">Poteza za ljudi s posebnimi potrebami je nastavljena na %1$s. Če želite uporabiti povečavo, z dvema prstoma povlecite z dna zaslona navzgor in pridržite. Nato izberite povečavo.</string>
     <string name="accessibility_screen_magnification_gestures_title">Povečevanje s trikratnim dotikom</string>
     <string name="accessibility_screen_magnification_navbar_configuration_warning">Gumb »Dostopnost« je nastavljen na %1$s. Če želite uporabiti povečavo, se dotaknite gumba »Dostopnost« in ga pridržite, nato pa izberite povečavo.</string>
@@ -272,6 +290,7 @@ Gumb za funkcije za ljudi s posebnimi potrebami lebdi na zaslonu nad drugimi apl
 Povečava ni mogoča na tipkovnici ali v vrstici za krmarjenje."</string>
     <string name="accessibility_screen_magnification_navbar_title">Povečanje z bližnjico</string>
     <string name="accessibility_screen_magnification_short_summary">Če želite povečati, se trikrat dotaknite</string>
+    <string name="accessibility_screen_magnification_shortcut_title">Bližnjica za povečavo</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">Povečanje z bližnjico in trikratnim dotikom</string>
     <string name="accessibility_screen_magnification_summary">Hitro povečanje prikaza na zaslonu za povečan prikaz vsebine.&lt;br/>&lt;br/> &lt;b>Prikaz povečate tako:&lt;/b>&lt;br/> {0,number,integer}. Z bližnjico vklopite povečavo.&lt;br/> {1,number,integer}. Dotaknite se zaslona.&lt;br/> {2,number,integer}. Po zaslonu se pomikajte z vlečenjem dveh prstov.&lt;br/> {3,number,integer}. Stopnjo povečave prilagodite tako, da prsta razmaknete ali primaknete.&lt;br/> {4,number,integer}. Z bližnjico izklopite povečavo&lt;br/>&lt;br/> &lt;b>Povečavo začasno povečate tako:&lt;/b>&lt;br/> {0,number,integer}. Z bližnjico vklopite povečavo.&lt;br/> {1,number,integer}. Dotaknite se poljubne točke na zaslonu in jo pridržite.&lt;br/> {2,number,integer}. Po zaslonu se pomikajte z vlečenjem prsta.&lt;br/> {3,number,integer}. Dvignite prst, da izklopite povečavo.</string>
     <string name="accessibility_screen_magnification_title">Povečava</string>
@@ -370,7 +389,7 @@ Povečava ni mogoča na tipkovnici ali v vrstici za krmarjenje."</string>
     <string name="accessibility_tutorial_dialog_message_volume">Če želite uporabljati to funkcijo, pritisnite obe tipki za glasnost in ju pridržite.</string>
     <string name="accessibility_tutorial_dialog_title_button">Odpiranje z gumbom za ljudi s posebnimi potrebami</string>
     <string name="accessibility_tutorial_dialog_title_gesture">Odpiranje s potezo</string>
-    <string name="accessibility_tutorial_dialog_title_gesture_settings">Uporaba nove poteze za ljudi s posebnimi potrebami</string>
+    <string name="accessibility_tutorial_dialog_title_gesture_settings">Uporaba poteze za funkcije za ljudi s posebnimi potrebami</string>
     <string name="accessibility_tutorial_dialog_title_triple">Za odpiranje se trikrat dotaknite zaslona</string>
     <string name="accessibility_tutorial_dialog_title_volume">Za odpiranje pridržite tipki za glasnost</string>
     <string name="accessibility_tutorial_pager">%1$d. stran od %2$d</string>
@@ -936,6 +955,7 @@ Ko je telefon ponastavljen, izvedite postopek nastavitve in izberite možnost za
     <string name="battery_level_title">Raven napolnjenosti baterije</string>
     <string name="battery_manager_off">Izklopljeno</string>
     <string name="battery_manager_summary">Podaljševanje časa delovanja baterije in optimiziranje polnjenja.</string>
+    <string name="battery_manager_summary_unsupported">Podaljšanje časa delovanja akumulatorja</string>
     <string name="battery_missing_link_a11y_message">Dotaknite se, če želite izvedeti več o tej napaki.</string>
     <string name="battery_missing_link_message">Več o tem</string>
     <string name="battery_missing_message">Težava z branjem merilnika stanja napolnjenosti baterije.</string>
@@ -1014,7 +1034,7 @@ Aplikacije, ki porabljajo največ energije baterije:"</string>
 
 Ko teh pogojev ni več, polnjenje baterije telefona samodejno zopet poteka kot običajno."</string>
     <string name="battery_tip_limited_temporarily_dialog_resume_charge">Nadaljuj polnjenje</string>
-    <string name="battery_tip_limited_temporarily_summary">Da se bo energija baterija počasneje porabljala. Več o tem</string>
+    <string name="battery_tip_limited_temporarily_summary">Za ohranjanje baterije. Več o tem</string>
     <string name="battery_tip_limited_temporarily_title">Začasno omejeno polnjenje</string>
     <string name="battery_tip_low_battery_summary">Vklopite varčevanje z energijo baterije, da podaljšate čas delovanja baterije.</string>
     <string name="battery_tip_low_battery_title">Nizka raven napolnjenosti baterije</string>
@@ -1061,6 +1081,7 @@ v časovnem obdobju ^2"</string>
     <string name="battery_usage_screen_footer">Podatki o porabi energije baterije so približni in ne merijo porabe, ko se telefon polni.</string>
     <string name="battery_usage_screen_footer_empty">Podatki o porabi energije baterije bodo na voljo po nekajurni uporabi telefona.</string>
     <string name="battery_usage_total_less_than_one_minute">Skupno: manj kot minuta</string>
+    <string name="battery_usage_without_time" />
     <string name="battery_used_by">%1$s porabil: %2$s</string>
     <string name="battery_used_for">Trajanje uporabe: ^1</string>
     <string name="bearer">Nosilec</string>
@@ -1069,12 +1090,14 @@ v časovnem obdobju ^2"</string>
     <string name="billing_cycle_less_than_one_day_left">Še manj kot 1 dan</string>
     <string name="billing_cycle_none_left">Ni preostalega časa</string>
     <string name="biometric_settings_category_ways_to_unlock">Načini odklepanja</string>
-    <string name="biometric_settings_category_ways_to_use">Uporaba obraza in prstnega odtisa za</string>
     <string name="biometric_settings_hand_back_to_guardian">Telefon vrni staršu</string>
     <string name="biometric_settings_hand_back_to_guardian_ok">V redu</string>
     <string name="biometric_settings_intro">Če nastavite odklepanje z obrazom in prstnim odtisom, telefon zahteva prstni odtis, ko nosite masko ali ko ste nekje, kjer je temno.</string>
-    <string name="biometric_settings_use_biometric_for_apps">Preverjanje pristnosti v aplikacijah</string>
+    <string name="biometric_settings_use_biometric_for_apps">Preverjanje identitete v aplikacijah</string>
     <string name="biometric_settings_use_biometric_unlock_phone">Odklepanje telefona</string>
+    <string name="biometric_settings_use_face_or_fingerprint_preference_summary">Uporaba obraza ali prstnega odtisa</string>
+    <string name="biometric_settings_use_face_preference_summary">Uporaba obraza</string>
+    <string name="biometric_settings_use_fingerprint_preference_summary">Uporaba prstnega odtisa</string>
     <string name="biometrics_unlock_set_unlock_password">Geslo • Obraz • Prstni odtis</string>
     <string name="biometrics_unlock_set_unlock_pattern">Vzorec • Obraz • Prstni odtis</string>
     <string name="biometrics_unlock_set_unlock_pin">Koda PIN • Obraz • Prstni odtis</string>
@@ -1332,7 +1355,6 @@ Izbor"</string>
     <string name="bluetooth_settings_title">Bluetooth</string>
     <string name="bluetooth_show_devices_without_names">Prikaži naprave Bluetooth brez imen</string>
     <string name="bluetooth_show_devices_without_names_summary">Prikazane bodo naprave Bluetooth brez imen (samo z naslovi MAC).</string>
-    <string name="bluetooth_show_files_received_via_bluetooth">Datoteke, prejete prek Bluetootha</string>
     <string name="bluetooth_show_received_files">Prejete datoteke</string>
     <string name="bluetooth_sim_card_access_dialog_content">"Naprava Bluetooth %1$s želi dostopati do podatkov na kartici SIM. To vključuje vaše stike.
 
@@ -1426,6 +1448,7 @@ To vpliva na druge aplikacije ali pogovore, v katerih je prikaz v oblačkih že 
     <string name="calls_sms_temp_unavailable">Začasno ni na voljo</string>
     <string name="calls_sms_unavailable">ni na voljo</string>
     <string name="calls_sms_wfc_summary">Opravljanje in prejemanje klicev v omrežjih Wi‑Fi</string>
+    <string name="cam_toggle_description">Za aplikacije in storitve</string>
     <string name="camera_double_tap_power_gesture_desc">Hitro odpre fotoaparat brez odklepanja zaslona</string>
     <string name="camera_double_tap_power_gesture_title">Dva dotika gumba za vklop za fotoaparat</string>
     <string name="camera_laser_sensor_switch">Lasersko tipalo fotoaparata</string>
@@ -3302,6 +3325,7 @@ V napravi so prisotni drugi uporabniki.
     <string name="menu_stats_total">Skupna poraba</string>
     <string name="menu_stats_unplugged">%1$s od odklopa</string>
     <string name="menu_use_uss">Uporaba USS-ja</string>
+    <string name="mic_toggle_description">Za aplikacije in storitve. Če je ta nastavitev izklopljena, bodo podatki mikrofona morda še vedno deljeni, ko pokličete številko za klic v sili.</string>
     <string name="mic_toggle_title">Dostop do mikrofona</string>
     <string name="misc_files">Razne datoteke</string>
     <string name="misc_files_selected_count">izbrano: %1$d od %2$d</string>
@@ -3696,7 +3720,7 @@ S tem lahko aplikacija tudi vklopi ali izklopi način »ne moti« in spremeni po
     <string name="notification_volume_option_title">Glasnost obvestila</string>
     <string name="notification_volume_title">Obvestilo</string>
     <string name="notifications_bubble_setting_description">Nekateri pogovori bodo prikazani kot lebdeče ikone nad drugimi aplikacijami.</string>
-    <string name="notifications_bubble_setting_on_summary">Vklopljeno/pogovori so lahko prikazani kot lebdeče ikone</string>
+    <string name="notifications_bubble_setting_on_summary">Vklopljeno/pogovori so lahko prikazani kot lebdeče ikone.</string>
     <string name="notifications_bubble_setting_title">Omogoči aplikacijam, da prikažejo oblačke</string>
     <string name="notifications_disabled">Izklopljeno</string>
     <string name="notifications_enabled">Vklopljeno</string>
@@ -3728,6 +3752,7 @@ S tem lahko aplikacija tudi vklopi ali izklopi način »ne moti« in spremeni po
     <string name="one_handed_action_show_notification_title">Pokaži obvestila</string>
     <string name="one_handed_mode_enabled">Uporabi enoročni način</string>
     <string name="one_handed_mode_intro_text">Če želite uporabljati enoročni način, s prstom povlecite navzdol s spodnjega roba zaslona. Za uporabo te funkcije mora biti v nastavitvah krmarjenja po sistemu vklopljeno krmarjenje s potezami.</string>
+    <string name="one_handed_mode_shortcut_title">Bližnjica do enoročnega načina</string>
     <string name="one_handed_mode_swipe_down_category">Povlecite navzdol za</string>
     <string name="one_handed_mode_use_shortcut_category">Uporaba bližnjice za</string>
     <string name="one_usercrt">eno uporabniško potrdilo</string>
@@ -3803,7 +3828,7 @@ S tem lahko aplikacija tudi vklopi ali izklopi način »ne moti« in spremeni po
     <string name="post_dsds_reboot_notification_title_with_carrier">Operater %1$s je aktiven</string>
     <string name="power_bluetooth">Bluetooth</string>
     <string name="power_camera">Fotoaparat</string>
-    <string name="power_cell">Mobilno omrežje v stanju pripravljenosti</string>
+    <string name="power_cell">Mobilno omrežje</string>
     <string name="power_charge_remaining">%1$s do napolnjenosti</string>
     <string name="power_charging">%1$s – %2$s</string>
     <string name="power_charging_duration">%1$s – še %2$s do napolnjenosti</string>
@@ -4037,6 +4062,7 @@ Sočasno pritisnite gumba za vklop in povečanje glasnosti."</string>
     <string name="recent_notifications">Nedavno poslano</string>
     <string name="recent_notifications_see_all_title">Prikaz vseh za zadnjih 7 dni</string>
     <string name="recompute_size">Preračunavanje velikosti ...</string>
+    <string name="reduce_bright_colors_about_title">O funkciji »Zelo zatemnjeno«</string>
     <string name="reduce_bright_colors_intensity_end_label">Svetleje</string>
     <string name="reduce_bright_colors_intensity_preference_title">Intenzivnost</string>
     <string name="reduce_bright_colors_intensity_start_label">Temneje</string>
@@ -4044,6 +4070,7 @@ Sočasno pritisnite gumba za vklop in povečanje glasnosti."</string>
     <string name="reduce_bright_colors_preference_subtitle">Zatemnite zaslon, da bo branje prijetnejše.&lt;br/>&lt;br/> To je uporabno v teh primerih: &lt;ol> &lt;li> privzeta najmanjša svetlost zaslona telefona je presvetla,&lt;/li> &lt;li> telefon uporabljate v temnih okoliščinah, na primer ponoči ali v temni sobi, preden greste spat.&lt;/li> &lt;/ol></string>
     <string name="reduce_bright_colors_preference_summary">Zatemnite zaslon telefona, da bo temnejši od najmanjše svetlosti.</string>
     <string name="reduce_bright_colors_preference_title">Zelo zatemnjeno</string>
+    <string name="reduce_bright_colors_shortcut_title">Bližnjica za zelo zatemnjeno</string>
     <string name="reduce_bright_colors_switch_title">Zaslon naj bo zelo zatemnjen</string>
     <string name="register_automatically">Samodejna registracija …</string>
     <string name="register_on_network">Registriranje v omrežje %s</string>
@@ -4249,7 +4276,6 @@ Pripenjanje aplikacij uporabite le za osebe, ki jim zaupate."</string>
     <string name="screen_pinning_unlock_pattern">Pred odpenjanjem vprašaj za vzorec za odklepanje</string>
     <string name="screen_pinning_unlock_pin">Zahtevaj PIN pred odpenjanjem</string>
     <string name="screen_reader_category_title">Bralnik zaslona</string>
-    <string name="screen_saver_main_switch_title">Uporabi ohranjevalnik zaslona</string>
     <string name="screen_time_summary_usage_today">Danes: %1$s</string>
     <string name="screen_timeout_summary">Po toliko časa nedejavnosti: %1$s</string>
     <string name="screen_timeout_title">Zaslon se izklopi</string>
@@ -4279,6 +4305,7 @@ Pripenjanje aplikacij uporabite le za osebe, ki jim zaupate."</string>
     <string name="screensaver_settings_button">Nastavitve</string>
     <string name="screensaver_settings_current">Trenutni ohranjevalnik zaslona</string>
     <string name="screensaver_settings_disabled_prompt">Če želite nadzirati, kaj se dogaja, ko je telefon na nosilcu in/ali v stanju pripravljenosti, vklopite ohranjevalnik zaslona.</string>
+    <string name="screensaver_settings_dream_start">Zaženi zdaj</string>
     <string name="screensaver_settings_summary_dock">Ko je v stojalu</string>
     <string name="screensaver_settings_summary_either_long">Med polnjenjem ali v stojalu</string>
     <string name="screensaver_settings_summary_either_short">Eno ali drugo</string>
@@ -4329,15 +4356,6 @@ Pripenjanje aplikacij uporabite le za osebe, ki jim zaupate."</string>
     <string name="security_settings_biometric_preference_summary_both_fp_single">Obraz in prstni odtis sta dodana.</string>
     <string name="security_settings_biometric_preference_summary_none_enrolled">Dotaknite se za nastavitev.</string>
     <string name="security_settings_biometric_preference_title">Odklepanje z obrazom in prstnim odtisom</string>
-    <string name="security_settings_biometrics_description">Če nastavite odklepanje z obrazom in prstnim odtisom, telefon zahteva prstni odtis, ko nosite masko ali ko ste nekje, kjer je temno.</string>
-    <string name="security_settings_biometrics_preference_use_with_apps">Preverjanje pristnosti v aplikacijah</string>
-    <string name="security_settings_biometrics_preferences_category">Uporaba obraza ali prstnega odtisa za</string>
-    <string name="security_settings_biometrics_summary_both">Obraz in prstni odtis</string>
-    <string name="security_settings_biometrics_summary_face">Samo obraz</string>
-    <string name="security_settings_biometrics_summary_fingerprint">Samo prstni odtis</string>
-    <string name="security_settings_biometrics_summary_none">Dotaknite se za nastavitev</string>
-    <string name="security_settings_biometrics_title">Odklepanje z obrazom in prstnim odtisom</string>
-    <string name="security_settings_biometrics_types_category">Načini odklepanja</string>
     <string name="security_settings_face_enroll_consent_introduction_title">Omogočanje odklepanja z obrazom</string>
     <string name="security_settings_face_enroll_dialog_ok">V redu</string>
     <string name="security_settings_face_enroll_done">Končano</string>
@@ -4385,16 +4403,17 @@ Preberite več o tem na g.co/pixel/faceunlock."</string>
     <string name="security_settings_face_enroll_introduction_control_title">Vse imate pod nadzorom</string>
     <string name="security_settings_face_enroll_introduction_how_consent_message">"Odklepanje z obrazom ustvari edinstven model otrokovega obraza, s katerim potrdi svojo identiteto. Za ustvarjanje modela obraza med postopkom nastavitve mora otrok posneti svoj obraz iz različnih kotov.
 
-Ko uporablja odklepanje z obrazom, se model obraza posodablja s slikami iz teh interakcij. Slike, iz katerih je ustvarjen model obraza, se nikoli ne shranijo, model obraza pa se varno shrani v telefon in ga nikoli ne zapusti. Celotna obdelava je izvedena varno v telefonu."</string>
+Ko uporablja odklepanje z obrazom, se model obraza posodablja s slikami iz teh interakcij. Slike, iz katerih je ustvarjen model obraza, se ne shranijo, model obraza pa se varno shrani v telefon in ga nikoli ne zapusti. Celotna obdelava je izvedena varno v telefonu."</string>
     <string name="security_settings_face_enroll_introduction_how_message">"Odklepanje z obrazom ustvari edinstven model vašega obraza, s katerim potrdite svojo identiteto. Za ustvarjanje modela obraza med postopkom nastavitve morate posneti svoj obraz iz različnih kotov.
 
-Ko uporabljate odklepanje z obrazom, se model obraza posodablja s slikami iz teh interakcij. Slike, iz katerih je ustvarjen model obraza, se nikoli ne shranijo, model obraza pa se varno shrani v telefon in ga nikoli ne zapusti. Celotna obdelava je izvedena varno v telefonu."</string>
+Ko uporabljate odklepanje z obrazom, se model obraza posodablja s slikami iz teh interakcij. Slike, iz katerih je ustvarjen model obraza, se ne shranijo, model obraza pa se varno shrani v telefon in ga nikoli ne zapusti. Celotna obdelava je izvedena varno v telefonu."</string>
     <string name="security_settings_face_enroll_introduction_how_title">Delovanje</string>
     <string name="security_settings_face_enroll_introduction_info_consent_gaze">Odklepanje z obrazom lahko za odklepanje telefona ali potrditev identitete zahteva, da so otrokove oči odprte. Vi in otrok lahko to možnost kadar koli vklopite v nastavitvah.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_glasses">Če otrok običajno nosi očala, jih lahko nadene med postopkom nastavitve.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_looking">Če pogleda proti telefonu, ga bo morda nenamerno odklenil. Telefon lahko odklene tudi nekdo, ki je otroku zelo podoben, na primer enojajčni dvojček, ali nekdo, ki telefon podrži pred njegovim obrazom.</string>
     <string name="security_settings_face_enroll_introduction_info_gaze">Odklepanje z obrazom lahko za odklepanje telefona ali potrditev identitete zahteva, da so vaše oči odprte. To možnost lahko kadar koli vklopite v nastavitvah.</string>
     <string name="security_settings_face_enroll_introduction_info_glasses">Lahko nosite očala ali rahlo zatemnjena sončna očala.</string>
+    <string name="security_settings_face_enroll_introduction_info_less_secure">Uporaba obraza za odklepanje telefona je lahko manj varna kot zapleten vzorec ali koda PIN.</string>
     <string name="security_settings_face_enroll_introduction_info_looking">Če pogledate proti telefonu, ga boste morda nenamerno odklenili. Telefon lahko odklene tudi nekdo, ki vam je zelo podoben, na primer enojajčni dvojček, ali nekdo, ki telefon podrži pred vašim obrazom.</string>
     <string name="security_settings_face_enroll_introduction_info_title">Upoštevajte</string>
     <string name="security_settings_face_enroll_introduction_message">Z obrazom odklenite telefon ali potrdite svojo identiteto, na primer ob prijavi v aplikacije ali odobritvi nakupa.</string>
@@ -4452,13 +4471,14 @@ Telefon lahko odklene tudi nekdo drug, če ga podrži pred vašim obrazom – ce
 
 Prav tako lahko telefon odklene nekdo, ki vam je zelo podoben, na primer vaš enojajčni dvojček."</string>
     <string name="security_settings_face_settings_preferences_category">Ob uporabi odklepanja z obrazom</string>
-    <string name="security_settings_face_settings_remove_dialog_details">Model obraza bo trajno in varno izbrisan. Po izbrisu boste za odklepanje telefona ali preverjanje pristnosti v aplikacijah morali uporabiti kodo PIN, vzorec ali geslo.</string>
+    <string name="security_settings_face_settings_remove_dialog_details">"Model obraza bo trajno in varno izbrisan.
+
+Po izbrisu boste za odklepanje telefona ali preverjanje pristnosti v aplikacijah morali uporabiti kodo PIN, vzorec ali geslo."</string>
+    <string name="security_settings_face_settings_remove_dialog_details_convenience">"Model obraza bo trajno in varno izbrisan.
+
+Po izbrisu boste za odklepanje telefona morali uporabiti kodo PIN, vzorec ali geslo."</string>
     <string name="security_settings_face_settings_remove_dialog_title">Želite izbrisati model obraza?</string>
     <string name="security_settings_face_settings_remove_face_model">Izbriši model obraza</string>
-    <string name="security_settings_face_settings_remove_model_dialog_details">"Model obraza bo trajno in varno izbrisan.
-
-Ko bo izbrisan, boste za odklepanje telefona ali preverjanje pristnosti v aplikacijah morali uporabiti prstni odtis, kodo PIN, vzorec ali geslo."</string>
-    <string name="security_settings_face_settings_remove_model_dialog_title">Želite izbrisati model obraza?</string>
     <string name="security_settings_face_settings_require_attention">Oči morajo biti odprte</string>
     <string name="security_settings_face_settings_require_attention_details">Če želite odkleniti telefon, morate imeti odprte oči</string>
     <string name="security_settings_face_settings_require_confirmation">Vedno zahtevaj potrditev</string>
@@ -4541,7 +4561,7 @@ Opomba: prstnega odtisa ne morete uporabiti za odklepanje naprave. Za več infor
     <string name="security_settings_title">Varnost</string>
     <string name="security_settings_udfps_enroll_a11y">Tipalo najdete tako, da prst premaknete po zaslonu. Dotaknite se tipala prstnih odtisov in ga pridržite.</string>
     <string name="security_settings_udfps_enroll_edge_message">Stranski del prstnega odtisa položite na tipalo prstnih odtisov in ga pridržite, nato zamenjajte stran.</string>
-    <string name="security_settings_udfps_enroll_edge_title">Nazadnje na tipalo položite robove prsta.</string>
+    <string name="security_settings_udfps_enroll_edge_title">Nazadnje na tipalo položite robove prsta</string>
     <string name="security_settings_udfps_enroll_find_sensor_message">Tipalo prstnih odtisov je na zaslonu. Zajem prstnega odtisa boste izvedli na naslednjem zaslonu.</string>
     <string name="security_settings_udfps_enroll_find_sensor_start_button">Začni</string>
     <string name="security_settings_udfps_enroll_find_sensor_title">Navodila za nastavitev prstnega odtisa</string>
@@ -4549,7 +4569,7 @@ Opomba: prstnega odtisa ne morete uporabiti za odklepanje naprave. Za več infor
     <string name="security_settings_udfps_enroll_repeat_a11y_message">Tako bo sistem lahko zajel večji del prstnega odtisa.</string>
     <string name="security_settings_udfps_enroll_repeat_message">Dotaknite se in pridržite vsakič, ko se ikona prstnega odtisa premakne. Tako bo sistem lahko zajel večji del prstnega odtisa.</string>
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">Sledite ikoni prstnega odtisa</string>
-    <string name="security_settings_udfps_enroll_start_message">Prst držite na tipalu, dokler ne začutite vibriranja.</string>
+    <string name="security_settings_udfps_enroll_start_message">Držite prst plosko na tipalu, dokler ne začutite vibriranja.</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">Še enkrat</string>
     <string name="security_settings_work_fingerprint_preference_title">Pixel Imprint za službo</string>
     <string name="security_status_title">Stanje varnosti</string>
@@ -4575,7 +4595,6 @@ Opomba: prstnega odtisa ne morete uporabiti za odklepanje naprave. Za več infor
     <string name="select_webview_provider_dialog_title">Nastavitev izvedbe spletnega pogleda</string>
     <string name="select_webview_provider_title">Izvedba spletnega pogleda</string>
     <string name="select_webview_provider_toast_text">Ta izbira ni več veljavna. Poskusite znova.</string>
-    <string name="sensor_toggle_description">Za vse aplikacije in storitve</string>
     <string name="sensors_off_quick_settings_title">Izklop tipal</string>
     <string name="service_background_processes">Prosto: %1$s</string>
     <string name="service_foreground_processes">V uporabi: %1$s</string>
@@ -4807,6 +4826,7 @@ Morda je koda PIN napačna."</string>
     <string name="sound_settings_summary_silent">Zvonjenje je nastavljeno na tiho</string>
     <string name="sound_settings_summary_vibrate">Zvonjenje je nastavljeno na vibriranje</string>
     <string name="sound_work_settings">Zvoki v delovnem profilu</string>
+    <string name="spatial_audio_title">Prostorski zvok</string>
     <string name="special_access">Posebni dostop za aplikacije</string>
     <string name="special_access_more">Prikaži več</string>
     <string name="speed_label_fast">Hitra</string>
@@ -5618,7 +5638,7 @@ Med glasovnim klicem ne boste mogli uporabljati interneta in nekatere aplikacije
     <string name="vpn_turn_on">Vklopi</string>
     <string name="vpn_type">Vrsta</string>
     <string name="vpn_username">Uporabniško ime</string>
-    <string name="vpn_version">Različica %s</string>
+    <string name="vpn_version">Različica</string>
     <string name="vr_listener_security_warning_summary">Poslušalec %1$s se bo lahko izvajal, ko boste uporabljali aplikacije v načinu za navidezno resničnost.</string>
     <string name="vr_listener_security_warning_title">Dovolite storitvi %1$s dostop za storitev za VR?</string>
     <string name="vr_listeners_title">Storitve za pomoč za VR</string>
@@ -5888,7 +5908,7 @@ To lahko povzroči varnostno tveganje, ker bo telefon redno oddajal svoj signal,
     <string name="wifi_not_in_range">Ni v obsegu</string>
     <string name="wifi_not_in_range_message">Omrežje ni v dosegu</string>
     <string name="wifi_notify_open_networks">Obvesti, če so na voljo javna omrežja</string>
-    <string name="wifi_notify_open_networks_summary">Kadar samodejna povezava ni na voljo.</string>
+    <string name="wifi_notify_open_networks_summary">Obvesti me, ko je na voljo zanesljivo javno omrežje</string>
     <string name="wifi_on_time">Čas z vklopljenim Wi-Fi-jem</string>
     <string name="wifi_p2p_cancel_connect_message">Ali želite preklicati povabilo za povezavo z napravo %1$s?</string>
     <string name="wifi_p2p_cancel_connect_title">Želite preklicati povabilo?</string>
@@ -5976,7 +5996,6 @@ Dovolite to vsem aplikacijam, ki želijo iskati?"</string>
     <string name="wifi_suspend_optimizations">Optimizacija Wi-Fi-ja</string>
     <string name="wifi_suspend_optimizations_summary">Zmanjšanje porabe energije baterije, ko je vklopljen Wi-Fi</string>
     <string name="wifi_switch_away_when_unvalidated">Preklopi na prenos podatkov v mobilnih omrežjih, če omrežje Wi‑Fi nima več dostopa do interneta.</string>
-    <string name="wifi_switch_summary">Poišči omrežja Wi-Fi in vzpostavi povezavo z njimi.</string>
     <string name="wifi_tap_to_sign_in">Dotaknite se tukaj, da se prijavite v omrežje</string>
     <string name="wifi_tether_configure_ap_text">Nastavitev dostopne točke Wi-Fi</string>
     <string name="wifi_tether_configure_ssid_default">AndroidHotspot</string>

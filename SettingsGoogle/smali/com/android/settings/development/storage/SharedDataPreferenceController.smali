@@ -34,7 +34,7 @@
 .method public getPreferenceKey()Ljava/lang/String;
     .locals 0
 
-    const-string p0, "shared_data"
+    const-string/jumbo p0, "shared_data"
 
     return-object p0
 .end method
@@ -42,7 +42,7 @@
 .method public updateState(Landroidx/preference/Preference;)V
     .locals 4
 
-    const v0, 0x7f0411e9
+    const v0, 0x7f04120d
 
     const/4 v1, 0x0
 
@@ -75,7 +75,7 @@
 
     if-eqz p0, :cond_1
 
-    const p0, 0x7f0411eb
+    const p0, 0x7f04120f
 
     goto :goto_1
 

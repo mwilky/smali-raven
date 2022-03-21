@@ -72,11 +72,11 @@
 
     const-string v0, "position"
 
-    const-string v1, "x"
+    const-string/jumbo v1, "x"
 
-    const-string v2, "y"
+    const-string/jumbo v2, "y"
 
-    const-string v3, "width"
+    const-string/jumbo v3, "width"
 
     const-string v4, "height"
 

@@ -8,16 +8,28 @@
 
 
 # instance fields
+.field private mCertinstallerPreference:Landroidx/preference/Preference;
+
 .field private mWifiWakeupPreferenceController:Lcom/android/settings/wifi/WifiWakeupPreferenceController;
 
 
 # direct methods
+.method public static synthetic $r8$lambda$uTUZVksXGD5h0CY_deTN-OQu-FY(Lcom/android/settings/wifi/ConfigureWifiSettings;Landroidx/preference/Preference;)Z
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/wifi/ConfigureWifiSettings;->lambda$onCreate$0(Landroidx/preference/Preference;)Z
+
+    move-result p0
+
+    return p0
+.end method
+
 .method static constructor <clinit>()V
     .locals 2
 
     new-instance v0, Lcom/android/settings/wifi/ConfigureWifiSettings$1;
 
-    const v1, 0x7f15010f
+    const v1, 0x7f150114
 
     invoke-direct {v0, v1}, Lcom/android/settings/wifi/ConfigureWifiSettings$1;-><init>(I)V
 
@@ -32,6 +44,46 @@
     invoke-direct {p0}, Lcom/android/settings/dashboard/DashboardFragment;-><init>()V
 
     return-void
+.end method
+
+.method private synthetic lambda$onCreate$0(Landroidx/preference/Preference;)Z
+    .locals 3
+
+    new-instance p1, Landroid/content/Intent;
+
+    const-string v0, "android.credentials.INSTALL"
+
+    invoke-direct {p1, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    const/high16 v0, 0x10000000
+
+    invoke-virtual {p1, v0}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
+
+    new-instance v0, Landroid/content/ComponentName;
+
+    const-string v1, "com.android.certinstaller"
+
+    const-string v2, "com.android.certinstaller.CertInstallerMain"
+
+    invoke-direct {v0, v1, v2}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-virtual {p1, v0}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
+
+    const-string v0, "certificate_install_usage"
+
+    const-string/jumbo v1, "wifi"
+
+    invoke-virtual {p1, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
+
+    move-result-object p0
+
+    invoke-virtual {p0, p1}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
+
+    const/4 p0, 0x1
+
+    return p0
 .end method
 
 
@@ -49,7 +101,7 @@
         }
     .end annotation
 
-    const-string v0, "wifi"
+    const-string/jumbo v0, "wifi"
 
     invoke-virtual {p0, v0}, Lcom/android/settings/SettingsPreferenceFragment;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -93,7 +145,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f15010f
+    const p0, 0x7f150114
 
     return p0
 .end method
@@ -142,26 +194,39 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/dashboard/DashboardFragment;->onCreate(Landroid/os/Bundle;)V
 
-    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getActivity()Landroidx/fragment/app/FragmentActivity;
 
     move-result-object p1
 
-    const-string v0, "settings_provider_model"
+    const v0, 0x7f040dae
 
-    invoke-static {p1, v0}, Landroid/util/FeatureFlagUtils;->isEnabled(Landroid/content/Context;Ljava/lang/String;)Z
+    invoke-virtual {p1, v0}, Landroid/app/Activity;->setTitle(I)V
 
-    move-result p1
+    const-string p1, "install_credentials"
+
+    invoke-virtual {p0, p1}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
+
+    move-result-object p1
+
+    iput-object p1, p0, Lcom/android/settings/wifi/ConfigureWifiSettings;->mCertinstallerPreference:Landroidx/preference/Preference;
 
     if-eqz p1, :cond_0
 
-    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getActivity()Landroidx/fragment/app/FragmentActivity;
+    new-instance v0, Lcom/android/settings/wifi/ConfigureWifiSettings$$ExternalSyntheticLambda0;
 
-    move-result-object p0
+    invoke-direct {v0, p0}, Lcom/android/settings/wifi/ConfigureWifiSettings$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/wifi/ConfigureWifiSettings;)V
 
-    const p1, 0x7f040d83
+    invoke-virtual {p1, v0}, Landroidx/preference/Preference;->setOnPreferenceClickListener(Landroidx/preference/Preference$OnPreferenceClickListener;)V
 
-    invoke-virtual {p0, p1}, Landroid/app/Activity;->setTitle(I)V
+    goto :goto_0
 
     :cond_0
+    const-string p0, "ConfigureWifiSettings"
+
+    const-string p1, "Can not find the preference."
+
+    invoke-static {p0, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :goto_0
     return-void
 .end method

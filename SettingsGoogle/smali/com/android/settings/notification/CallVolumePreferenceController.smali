@@ -66,7 +66,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090028
+    const v1, 0x7f090029
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -115,7 +115,7 @@
 .method public getMuteIcon()I
     .locals 0
 
-    const p0, 0x7f020236
+    const p0, 0x7f02023d
 
     return p0
 .end method

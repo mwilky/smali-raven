@@ -39,7 +39,7 @@
 
     int-to-float p1, p1
 
-    const/high16 v1, 0x3d000000    # 0.03125f
+    const v1, 0x3d0f5c29    # 0.035f
 
     mul-float/2addr p1, v1
 
@@ -154,9 +154,9 @@
     :try_start_0
     iget-object v2, p0, Lcom/android/launcher3/icons/ShadowGenerator;->mDefaultBlurMaskFilter:Landroid/graphics/BlurMaskFilter;
 
-    const/4 v3, 0x7
+    const/16 v3, 0x19
 
-    const/16 v4, 0xa
+    const/4 v4, 0x7
 
     move-object v0, p0
 

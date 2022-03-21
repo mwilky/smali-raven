@@ -79,7 +79,7 @@
 
     move-result p0
 
-    const-string p2, "wifi_display_wps_config"
+    const-string/jumbo p2, "wifi_display_wps_config"
 
     invoke-static {p1, p2, p0}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 

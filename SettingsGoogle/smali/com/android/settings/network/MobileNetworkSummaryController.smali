@@ -23,6 +23,16 @@
 
 
 # direct methods
+.method public static synthetic $r8$lambda$9MufDBuOba3BBmin-Bp714nGH4U(Lcom/android/settings/network/MobileNetworkSummaryController;I)Ljava/lang/CharSequence;
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/network/MobileNetworkSummaryController;->lambda$getSummary$0(I)Ljava/lang/CharSequence;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method public static synthetic $r8$lambda$Qfd_T5tA7vD_ChhIibGzbgjGIg4(Lcom/android/settings/network/MobileNetworkSummaryController;Landroidx/preference/Preference;)Z
     .locals 0
 
@@ -55,16 +65,6 @@
     invoke-direct {p0, p1}, Lcom/android/settings/network/MobileNetworkSummaryController;->lambda$onSubscriptionsChanged$6(Lcom/android/settings/network/MobileNetworkSummaryStatus;)V
 
     return-void
-.end method
-
-.method public static synthetic $r8$lambda$fo4bAV1yV7Ivi--aWVT3DqYGtyY(Lcom/android/settings/network/MobileNetworkSummaryController;I)Ljava/lang/CharSequence;
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settings/network/MobileNetworkSummaryController;->lambda$getSummaryForProviderModel$0(I)Ljava/lang/CharSequence;
-
-    move-result-object p0
-
-    return-object p0
 .end method
 
 .method public static synthetic $r8$lambda$jVanGiy73oyHBB2K6OQtc03B9-Q(Lcom/android/settings/network/MobileNetworkSummaryController;Ljava/util/List;Landroidx/preference/Preference;)Z
@@ -142,51 +142,6 @@
     return-void
 .end method
 
-.method private getSummaryForProviderModel(Ljava/util/List;)Ljava/lang/CharSequence;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/List<",
-            "Lcom/android/settings/network/helper/SubscriptionAnnotation;",
-            ">;)",
-            "Ljava/lang/CharSequence;"
-        }
-    .end annotation
-
-    invoke-interface {p1}, Ljava/util/List;->stream()Ljava/util/stream/Stream;
-
-    move-result-object p1
-
-    sget-object v0, Lcom/android/settings/network/MobileNetworkSummaryController$$ExternalSyntheticLambda7;->INSTANCE:Lcom/android/settings/network/MobileNetworkSummaryController$$ExternalSyntheticLambda7;
-
-    invoke-interface {p1, v0}, Ljava/util/stream/Stream;->mapToInt(Ljava/util/function/ToIntFunction;)Ljava/util/stream/IntStream;
-
-    move-result-object p1
-
-    new-instance v0, Lcom/android/settings/network/MobileNetworkSummaryController$$ExternalSyntheticLambda6;
-
-    invoke-direct {v0, p0}, Lcom/android/settings/network/MobileNetworkSummaryController$$ExternalSyntheticLambda6;-><init>(Lcom/android/settings/network/MobileNetworkSummaryController;)V
-
-    invoke-interface {p1, v0}, Ljava/util/stream/IntStream;->mapToObj(Ljava/util/function/IntFunction;)Ljava/util/stream/Stream;
-
-    move-result-object p0
-
-    const-string p1, ", "
-
-    invoke-static {p1}, Ljava/util/stream/Collectors;->joining(Ljava/lang/CharSequence;)Ljava/util/stream/Collector;
-
-    move-result-object p1
-
-    invoke-interface {p0, p1}, Ljava/util/stream/Stream;->collect(Ljava/util/stream/Collector;)Ljava/lang/Object;
-
-    move-result-object p0
-
-    check-cast p0, Ljava/lang/CharSequence;
-
-    return-object p0
-.end method
-
 .method private initPreference()V
     .locals 2
 
@@ -223,7 +178,7 @@
     return-void
 .end method
 
-.method private synthetic lambda$getSummaryForProviderModel$0(I)Ljava/lang/CharSequence;
+.method private synthetic lambda$getSummary$0(I)Ljava/lang/CharSequence;
     .locals 0
 
     iget-object p0, p0, Lcom/android/settings/network/MobileNetworkSummaryController;->mStatusCache:Lcom/android/settings/network/MobileNetworkSummaryStatus;
@@ -354,6 +309,12 @@
     const-string v1, "android.provider.extra.SUB_ID"
 
     invoke-virtual {p2, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+
+    iget-object p1, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+
+    const/4 v1, 0x0
+
+    invoke-static {p1, p2, v1}, Lcom/android/settings/network/MobileNetworkTwoPaneUtils;->registerTwoPaneForMobileNetwork(Landroid/content/Context;Landroid/content/Intent;Ljava/lang/String;)V
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
@@ -601,7 +562,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f040d24
+    const v0, 0x7f040d4f
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -619,27 +580,27 @@
 
     move-result v1
 
-    const/4 v2, 0x0
+    const/4 v2, 0x1
 
-    const/4 v3, 0x1
+    if-ne v1, v2, :cond_4
 
-    if-ne v1, v3, :cond_4
+    const/4 v1, 0x0
 
-    invoke-interface {v0, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Lcom/android/settings/network/helper/SubscriptionAnnotation;
 
-    iget-object v1, p0, Lcom/android/settings/network/MobileNetworkSummaryController;->mStatusCache:Lcom/android/settings/network/MobileNetworkSummaryStatus;
+    iget-object v3, p0, Lcom/android/settings/network/MobileNetworkSummaryController;->mStatusCache:Lcom/android/settings/network/MobileNetworkSummaryStatus;
 
     invoke-virtual {v0}, Lcom/android/settings/network/helper/SubscriptionAnnotation;->getSubscriptionId()I
 
     move-result v4
 
-    invoke-virtual {v1, v4}, Lcom/android/settings/network/MobileNetworkSummaryStatus;->getDisplayName(I)Ljava/lang/CharSequence;
+    invoke-virtual {v3, v4}, Lcom/android/settings/network/MobileNetworkSummaryStatus;->getDisplayName(I)Ljava/lang/CharSequence;
 
-    move-result-object v1
+    move-result-object v3
 
     invoke-virtual {v0}, Lcom/android/settings/network/helper/SubscriptionAnnotation;->getSubInfo()Landroid/telephony/SubscriptionInfo;
 
@@ -670,13 +631,13 @@
     :cond_2
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f040d25
+    const v0, 0x7f040d50
 
-    new-array v3, v3, [Ljava/lang/Object;
+    new-array v2, v2, [Ljava/lang/Object;
 
-    aput-object v1, v3, v2
+    aput-object v3, v2, v1
 
-    invoke-virtual {p0, v0, v3}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {p0, v0, v2}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object p0
 
@@ -684,47 +645,38 @@
 
     :cond_3
     :goto_0
-    return-object v1
+    return-object v3
 
     :cond_4
-    iget-object v1, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+    invoke-interface {v0}, Ljava/util/List;->stream()Ljava/util/stream/Stream;
 
-    invoke-static {v1}, Lcom/android/settings/Utils;->isProviderModelEnabled(Landroid/content/Context;)Z
+    move-result-object v0
 
-    move-result v1
+    sget-object v1, Lcom/android/settings/network/MobileNetworkSummaryController$$ExternalSyntheticLambda7;->INSTANCE:Lcom/android/settings/network/MobileNetworkSummaryController$$ExternalSyntheticLambda7;
 
-    if-eqz v1, :cond_5
+    invoke-interface {v0, v1}, Ljava/util/stream/Stream;->mapToInt(Ljava/util/function/ToIntFunction;)Ljava/util/stream/IntStream;
 
-    invoke-direct {p0, v0}, Lcom/android/settings/network/MobileNetworkSummaryController;->getSummaryForProviderModel(Ljava/util/List;)Ljava/lang/CharSequence;
+    move-result-object v0
 
-    move-result-object p0
+    new-instance v1, Lcom/android/settings/network/MobileNetworkSummaryController$$ExternalSyntheticLambda6;
 
-    return-object p0
+    invoke-direct {v1, p0}, Lcom/android/settings/network/MobileNetworkSummaryController$$ExternalSyntheticLambda6;-><init>(Lcom/android/settings/network/MobileNetworkSummaryController;)V
 
-    :cond_5
-    invoke-interface {v0}, Ljava/util/List;->size()I
-
-    move-result v0
-
-    iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
-
-    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-interface {v0, v1}, Ljava/util/stream/IntStream;->mapToObj(Ljava/util/function/IntFunction;)Ljava/util/stream/Stream;
 
     move-result-object p0
 
-    const v1, 0x7f120033
+    const-string v0, ", "
 
-    new-array v3, v3, [Ljava/lang/Object;
+    invoke-static {v0}, Ljava/util/stream/Collectors;->joining(Ljava/lang/CharSequence;)Ljava/util/stream/Collector;
 
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v0
 
-    move-result-object v4
-
-    aput-object v4, v3, v2
-
-    invoke-virtual {p0, v1, v0, v3}, Landroid/content/res/Resources;->getQuantityString(II[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-interface {p0, v0}, Ljava/util/stream/Stream;->collect(Ljava/util/stream/Collector;)Ljava/lang/Object;
 
     move-result-object p0
+
+    check-cast p0, Ljava/lang/CharSequence;
 
     return-object p0
 .end method

@@ -98,7 +98,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090062
+    const v1, 0x7f090065
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -125,7 +125,7 @@
     return-object p0
 
     :cond_0
-    const p1, 0x7f04015a
+    const p1, 0x7f04016e
 
     invoke-virtual {p0, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -134,7 +134,7 @@
     return-object p0
 
     :cond_1
-    const p1, 0x7f04015c
+    const p1, 0x7f040170
 
     invoke-virtual {p0, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -143,7 +143,7 @@
     return-object p0
 
     :cond_2
-    const p1, 0x7f04015b
+    const p1, 0x7f04016f
 
     invoke-virtual {p0, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -152,7 +152,7 @@
     return-object p0
 
     :cond_3
-    const p1, 0x7f04015d
+    const p1, 0x7f040171
 
     invoke-virtual {p0, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -163,7 +163,7 @@
     :cond_4
     if-nez p1, :cond_5
 
-    const p1, 0x7f041378
+    const p1, 0x7f04139d
 
     invoke-virtual {p0, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -172,7 +172,7 @@
     return-object p0
 
     :cond_5
-    const p1, 0x7f041379
+    const p1, 0x7f04139e
 
     invoke-virtual {p0, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -239,6 +239,16 @@
     move-result-object p0
 
     return-object p0
+.end method
+
+.method public bridge synthetic getSliceHighlightMenuRes()I
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getSliceHighlightMenuRes()I
+
+    move-result p0
+
+    return p0
 .end method
 
 .method public getSummary()Ljava/lang/CharSequence;

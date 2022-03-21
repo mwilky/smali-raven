@@ -27,7 +27,7 @@
 .method public getPreferenceKey()Ljava/lang/String;
     .locals 0
 
-    const-string p0, "show_all_anrs"
+    const-string/jumbo p0, "show_all_anrs"
 
     return-object p0
 .end method

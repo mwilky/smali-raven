@@ -150,7 +150,7 @@
 
     move-result-object p2
 
-    const v0, 0x7f040642
+    const v0, 0x7f04065a
 
     invoke-virtual {p2, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -221,7 +221,7 @@
     return-void
 
     :cond_4
-    const v1, 0x7f0410da
+    const v1, 0x7f041108
 
     const/4 v2, 0x0
 
@@ -229,7 +229,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f020315
+    const v0, 0x7f02031c
 
     invoke-interface {p1, v0}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 

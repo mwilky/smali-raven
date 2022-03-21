@@ -63,7 +63,7 @@
 
     const/4 v0, -0x1
 
-    const v1, 0x7f040a8a
+    const v1, 0x7f040aa2
 
     if-eq p1, v0, :cond_0
 
@@ -81,7 +81,7 @@
     return-object p0
 
     :cond_1
-    const p1, 0x7f04082a
+    const p1, 0x7f040842
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -90,7 +90,7 @@
     return-object p0
 
     :cond_2
-    const p1, 0x7f041397
+    const p1, 0x7f0413bc
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -99,7 +99,7 @@
     return-object p0
 
     :cond_3
-    const p1, 0x7f040aaa
+    const p1, 0x7f040ac2
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -108,7 +108,7 @@
     return-object p0
 
     :cond_4
-    const p1, 0x7f040d34
+    const p1, 0x7f040d5f
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -133,7 +133,7 @@
     return-void
 
     :cond_0
-    const p1, 0x7f060222
+    const p1, 0x7f06022a
 
     invoke-virtual {p0, p1}, Lcom/android/settings/deviceinfo/StorageWizardBase;->setContentView(I)V
 
@@ -169,11 +169,11 @@
 
     move-result-object v0
 
-    const v1, 0x7f02037d
+    const v1, 0x7f020384
 
     invoke-virtual {p0, v1}, Lcom/android/settings/deviceinfo/StorageWizardBase;->setIcon(I)V
 
-    const v1, 0x7f041340
+    const v1, 0x7f041365
 
     const/4 v2, 0x1
 
@@ -185,7 +185,7 @@
 
     invoke-virtual {p0, v1, v3}, Lcom/android/settings/deviceinfo/StorageWizardBase;->setHeaderText(I[Ljava/lang/CharSequence;)V
 
-    const v1, 0x7f04133e
+    const v1, 0x7f041363
 
     const/4 v3, 0x2
 

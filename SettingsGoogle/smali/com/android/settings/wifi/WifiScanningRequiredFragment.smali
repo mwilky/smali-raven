@@ -88,7 +88,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0409fb
+    const v1, 0x7f040a13
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -100,7 +100,7 @@
 
     if-nez v0, :cond_0
 
-    const v0, 0x7f040b50
+    const v0, 0x7f040b68
 
     invoke-virtual {p1, v0, p0}, Landroidx/appcompat/app/AlertDialog$Builder;->setNeutralButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
 
@@ -111,7 +111,7 @@
 .method getHelpIntent(Landroid/content/Context;)Landroid/content/Intent;
     .locals 1
 
-    const p0, 0x7f0409fb
+    const p0, 0x7f040a13
 
     invoke-virtual {p1, p0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -172,7 +172,7 @@
 
     invoke-virtual {p2, v1}, Landroid/net/wifi/WifiManager;->setScanAlwaysAvailable(Z)V
 
-    const p2, 0x7f0416e7
+    const p2, 0x7f04170c
 
     invoke-virtual {p1, p2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -218,25 +218,25 @@
 
     invoke-direct {p1, v0}, Landroidx/appcompat/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v0, 0x7f0416ea
+    const v0, 0x7f04170f
 
     invoke-virtual {p1, v0}, Landroidx/appcompat/app/AlertDialog$Builder;->setTitle(I)Landroidx/appcompat/app/AlertDialog$Builder;
 
     move-result-object p1
 
-    const v0, 0x7f0602b5
+    const v0, 0x7f0602c1
 
     invoke-virtual {p1, v0}, Landroidx/appcompat/app/AlertDialog$Builder;->setView(I)Landroidx/appcompat/app/AlertDialog$Builder;
 
     move-result-object p1
 
-    const v0, 0x7f0416eb
+    const v0, 0x7f041710
 
     invoke-virtual {p1, v0, p0}, Landroidx/appcompat/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
 
     move-result-object p1
 
-    const v0, 0x7f04054c
+    const v0, 0x7f040564
 
     const/4 v1, 0x0
 

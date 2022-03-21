@@ -318,7 +318,7 @@
 
     move-result-object v2
 
-    const-string v3, "user"
+    const-string/jumbo v3, "user"
 
     invoke-virtual {p0, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -425,7 +425,7 @@
 
     move-result-object p0
 
-    const-string p1, "wifi_device_owner_configs_lockdown"
+    const-string/jumbo p1, "wifi_device_owner_configs_lockdown"
 
     invoke-static {p0, p1, v0}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 

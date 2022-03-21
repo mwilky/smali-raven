@@ -35,6 +35,8 @@
     .end annotation
 .end field
 
+.field private final mBatteryObserver:Landroid/database/ContentObserver;
+
 .field mHistPref:Lcom/android/settings/fuelgauge/BatteryHistoryPreference;
 
 .field private mIsChartDataLoaded:Z
@@ -48,9 +50,9 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    new-instance v0, Lcom/android/settings/fuelgauge/PowerUsageAdvanced$1;
+    new-instance v0, Lcom/android/settings/fuelgauge/PowerUsageAdvanced$2;
 
-    invoke-direct {v0}, Lcom/android/settings/fuelgauge/PowerUsageAdvanced$1;-><init>()V
+    invoke-direct {v0}, Lcom/android/settings/fuelgauge/PowerUsageAdvanced$2;-><init>()V
 
     sput-object v0, Lcom/android/settings/fuelgauge/PowerUsageAdvanced;->SEARCH_INDEX_DATA_PROVIDER:Lcom/android/settings/search/BaseSearchIndexProvider;
 
@@ -76,7 +78,25 @@
 
     iput-boolean v0, p0, Lcom/android/settings/fuelgauge/PowerUsageAdvanced;->mIsChartGraphEnabled:Z
 
+    new-instance v0, Lcom/android/settings/fuelgauge/PowerUsageAdvanced$1;
+
+    new-instance v1, Landroid/os/Handler;
+
+    invoke-direct {v1}, Landroid/os/Handler;-><init>()V
+
+    invoke-direct {v0, p0, v1}, Lcom/android/settings/fuelgauge/PowerUsageAdvanced$1;-><init>(Lcom/android/settings/fuelgauge/PowerUsageAdvanced;Landroid/os/Handler;)V
+
+    iput-object v0, p0, Lcom/android/settings/fuelgauge/PowerUsageAdvanced;->mBatteryObserver:Landroid/database/ContentObserver;
+
     return-void
+.end method
+
+.method static synthetic access$102(Lcom/android/settings/fuelgauge/PowerUsageAdvanced;Z)Z
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/settings/fuelgauge/PowerUsageAdvanced;->mIsChartDataLoaded:Z
+
+    return p1
 .end method
 
 .method private refreshFeatureFlag(Landroid/content/Context;)V
@@ -296,7 +316,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f1500b4
+    const p0, 0x7f1500b9
 
     return p0
 .end method
@@ -375,6 +395,58 @@
 
     iput-boolean v0, p0, Lcom/android/settings/fuelgauge/PowerUsageAdvanced;->mIsChartDataLoaded:Z
 
+    iget-object v0, p0, Lcom/android/settings/fuelgauge/PowerUsageAdvanced;->mPowerUsageFeatureProvider:Lcom/android/settings/fuelgauge/PowerUsageFeatureProvider;
+
+    invoke-interface {v0}, Lcom/android/settings/fuelgauge/PowerUsageFeatureProvider;->getBatteryHistoryUri()Landroid/net/Uri;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    iget-object p0, p0, Lcom/android/settings/fuelgauge/PowerUsageAdvanced;->mBatteryObserver:Landroid/database/ContentObserver;
+
+    invoke-virtual {v0, p0}, Landroid/content/ContentResolver;->unregisterContentObserver(Landroid/database/ContentObserver;)V
+
+    :cond_0
+    return-void
+.end method
+
+.method public onResume()V
+    .locals 3
+
+    invoke-super {p0}, Lcom/android/settings/dashboard/DashboardFragment;->onResume()V
+
+    iget-object v0, p0, Lcom/android/settings/fuelgauge/PowerUsageAdvanced;->mPowerUsageFeatureProvider:Lcom/android/settings/fuelgauge/PowerUsageFeatureProvider;
+
+    invoke-interface {v0}, Lcom/android/settings/fuelgauge/PowerUsageFeatureProvider;->getBatteryHistoryUri()Landroid/net/Uri;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    const/4 v2, 0x1
+
+    iget-object p0, p0, Lcom/android/settings/fuelgauge/PowerUsageAdvanced;->mBatteryObserver:Landroid/database/ContentObserver;
+
+    invoke-virtual {v1, v0, v2, p0}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
+
+    :cond_0
     return-void
 .end method
 

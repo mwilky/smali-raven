@@ -23,7 +23,7 @@
 .end method
 
 .method public displayPreference(Landroidx/preference/PreferenceScreen;)V
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
@@ -33,27 +33,26 @@
 
     if-eqz v0, :cond_0
 
+    const v0, 0x7f0400b1
+
+    goto :goto_0
+
+    :cond_0
+    const v0, 0x7f0400ad
+
+    :goto_0
     invoke-virtual {p0}, Lcom/android/settings/core/BasePreferenceController;->getPreferenceKey()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {p1, v0}, Landroidx/preference/PreferenceGroup;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/settings/accessibility/AccessibilityFooterPreference;
-
-    iget-object v1, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
-
-    const v2, 0x7f0400ab
-
-    invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
+    invoke-virtual {p1, v1}, Landroidx/preference/PreferenceGroup;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
-    :cond_0
+    move-result-object v1
+
+    check-cast v1, Lcom/android/settings/accessibility/AccessibilityFooterPreference;
+
+    invoke-virtual {v1, v0}, Landroidx/preference/Preference;->setTitle(I)V
+
     invoke-super {p0, p1}, Lcom/android/settings/accessibility/AccessibilityFooterPreferenceController;->displayPreference(Landroidx/preference/PreferenceScreen;)V
 
     return-void
@@ -88,18 +87,42 @@
     return-object p0
 .end method
 
-.method protected getLabelName()Ljava/lang/String;
+.method protected getIntroductionTitle()Ljava/lang/String;
     .locals 1
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f0400b5
+    const v0, 0x7f0400ac
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object p0
 
     return-object p0
+.end method
+
+.method protected getLearnMoreContentDescription()Ljava/lang/String;
+    .locals 1
+
+    iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+
+    const v0, 0x7f0400b2
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public bridge synthetic getSliceHighlightMenuRes()I
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getSliceHighlightMenuRes()I
+
+    move-result p0
+
+    return p0
 .end method
 
 .method public bridge synthetic hasAsyncUpdate()Z

@@ -81,7 +81,7 @@
 
     iput-object p1, p0, Lcom/android/settings/display/darkmode/DarkModeObserver;->mCallback:Ljava/lang/Runnable;
 
-    const-string p1, "ui_night_mode"
+    const-string/jumbo p1, "ui_night_mode"
 
     invoke-static {p1}, Landroid/provider/Settings$Secure;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 

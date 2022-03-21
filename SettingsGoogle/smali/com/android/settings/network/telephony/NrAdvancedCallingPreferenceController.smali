@@ -27,6 +27,8 @@
 
 .field private mIsNrEnableFromCarrierConfig:Z
 
+.field private mIsVonrEnabledFromCarrierConfig:Z
+
 .field private mIsVonrVisibleFromCarrierConfig:Z
 
 .field mPreference:Landroidx/preference/Preference;
@@ -43,6 +45,8 @@
     invoke-direct {p0, p1, p2}, Lcom/android/settings/network/telephony/TelephonyTogglePreferenceController;-><init>(Landroid/content/Context;Ljava/lang/String;)V
 
     const/4 p2, 0x0
+
+    iput-boolean p2, p0, Lcom/android/settings/network/telephony/NrAdvancedCallingPreferenceController;->mIsVonrEnabledFromCarrierConfig:Z
 
     iput-boolean p2, p0, Lcom/android/settings/network/telephony/NrAdvancedCallingPreferenceController;->mIsVonrVisibleFromCarrierConfig:Z
 
@@ -135,6 +139,10 @@
     if-eqz p1, :cond_0
 
     iget-boolean p1, p0, Lcom/android/settings/network/telephony/NrAdvancedCallingPreferenceController;->mIsNrEnableFromCarrierConfig:Z
+
+    if-eqz p1, :cond_0
+
+    iget-boolean p1, p0, Lcom/android/settings/network/telephony/NrAdvancedCallingPreferenceController;->mIsVonrEnabledFromCarrierConfig:Z
 
     if-eqz p1, :cond_0
 
@@ -284,7 +292,15 @@
     return-object p0
 
     :cond_4
-    const-string v1, "vonr_setting_visibility_bool"
+    const-string/jumbo v1, "vonr_enabled_bool"
+
+    invoke-virtual {p1, v1}, Landroid/os/PersistableBundle;->getBoolean(Ljava/lang/String;)Z
+
+    move-result v1
+
+    iput-boolean v1, p0, Lcom/android/settings/network/telephony/NrAdvancedCallingPreferenceController;->mIsVonrEnabledFromCarrierConfig:Z
+
+    const-string/jumbo v1, "vonr_setting_visibility_bool"
 
     invoke-virtual {p1, v1}, Landroid/os/PersistableBundle;->getBoolean(Ljava/lang/String;)Z
 
@@ -323,6 +339,14 @@
     invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     iget-boolean v1, p0, Lcom/android/settings/network/telephony/NrAdvancedCallingPreferenceController;->mIsNrEnableFromCarrierConfig:Z
+
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    const-string v1, ",mIsVonrEnabledFromCarrierConfig: "
+
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-boolean v1, p0, Lcom/android/settings/network/telephony/NrAdvancedCallingPreferenceController;->mIsVonrEnabledFromCarrierConfig:Z
 
     invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 

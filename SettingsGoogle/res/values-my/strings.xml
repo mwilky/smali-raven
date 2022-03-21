@@ -35,7 +35,7 @@
     <string name="fingerprint_swipe_for_notifications_title">သတိပေးချက်များကြည့်ရန် လက်ဗွေပွတ်ဆွဲခြင်း</string>
     <string name="gesture_preference_title">လက်ဟန်</string>
     <string name="gesture_prevent_ringing_screen_title">ဖုန်းသံမမြည်ရန် လုပ်ခြင်း</string>
-    <string name="gesture_silence_title">သတိပေးချက်များ အသံတိတ်ရန် လက်ဟန်</string>
+    <string name="gesture_silence_title">သတိပေးချက်များ အသံပိတ်ရန် လက်ဟန်</string>
     <string name="gesture_skip_title">ကျော်ရန် လက်ဟန်</string>
     <string name="header_category_system">စနစ်</string>
     <string name="keywords_ambient_display_screen">ဝန်းကျင် ပြကွက်၊ လော့ခ်မျက်နှာပြင် ပြကွက်</string>
@@ -96,6 +96,7 @@
     <string name="peak_refresh_rate_title">Smooth Display</string>
     <string name="peak_refresh_rate_summary">အကြောင်းအရာအချို့အတွက် ပြန်လည်စတင်နှုန်းကို ၆၀ မှ ၉၀ Hz သို့ အလိုအလျောက် တိုးပေးသည်။ ဘက်ထရီ အသုံးပြုမှု တိုးလာပါမည်။</string>
     <string name="accessibility_vibration_settings_title">တုန်ခါမှုနှင့် တုန်ခါ၍တုံ့ပြန်မှုများ</string>
+    <string name="columbus_title">လုပ်ဆောင်ချက်များ စတင်ရန် ‘အမြန်တို့’ လက်ဟန်</string>
     <string name="emergency_gesture_screen_title">အရေးပေါ် SOS</string>
     <string name="abc_action_mode_done">ပြီးပြီ</string>
     <string name="vibrate_for_calls_category_title">ခေါ်ဆိုမှုများ</string>
@@ -103,6 +104,8 @@
     <string name="lockscreen_privacy_controls_setting_toggle">စက်ထိန်းစနစ် ပြရန်</string>
     <string name="lockscreen_privacy_wallet_summary">လော့ခ်မျက်နှာပြင်နှင့် အမြန် ဆက်တင်များမှ Wallet သို့ ဝင်သုံးခွင့်ပြုသည်</string>
     <string name="lockscreen_privacy_controls_summary">လော့ခ်ချထားသည့်အခါ ထိန်းချုပ်မှုများကို ဝင်သုံးသည်</string>
+    <string name="lockscreen_double_line_clock_summary">နှစ်တန်းပြေး နာရီကို ရနိုင်ပါက ပြပါ</string>
+    <string name="lockscreen_double_line_clock_setting_toggle">နှစ်တန်းပြေး နာရီ</string>
     <string name="abc_activity_chooser_view_see_all">အားလုံး ကြည့်ရန်</string>
     <string name="abc_activitychooserview_choose_application">အက်ပ်တစ်ခုကို ရွေးရန်</string>
     <string name="abc_capital_off">ပိတ်ရန်</string>
@@ -147,9 +150,11 @@
     <string name="accessibility_alarm_vibration_title">နိုးစက် တုန်ခါမှု</string>
     <string name="accessibility_assist_gesture_complete_or_keep_adjusting">Active Edge စနစ်ထည့်သွင်းမှု။ နောက်တစ်မျက်နှာသို့ သွားပါ သို့မဟုတ် ဆက်လက်ချိန်ညှိပါ။</string>
     <string name="accessibility_audio_adjustment_title">အသံ ပြင်ဆင်ချက်</string>
+    <string name="accessibility_autoclick_about_title">အလိုအလျောက်ကလစ် အကြောင်း (ကြာချိန်)</string>
     <string name="accessibility_autoclick_custom_title">မိမိစိတ်ကြိုက်</string>
     <string name="accessibility_autoclick_default_title">ပိတ်</string>
     <string name="accessibility_autoclick_description">"'အလိုအလျောက်နှိပ်ခြင်း' ကို ချိတ်ဆက်ထားသည့် မောက်စ်ဖြင့် အသုံးပြုနိုင်သည်။ မောက်စ်ကာဆာသည် အချိန်ပမာဏတစ်ခုအတွင်း ရွေ့လျားခြင်းမရှိတော့သည့်အခါ အလိုအလျောက်နှိပ်ရန် သတ်မှတ်ထားနိုင်သည်။"</string>
+    <string name="accessibility_autoclick_footer_learn_more_content_description">အလိုအလျောက်ကလစ် အကြောင်း (ကြာချိန်) ပိုမိုလေ့လာရန်</string>
     <string name="accessibility_autoclick_long_summary">၁ စက္ကန့်</string>
     <string name="accessibility_autoclick_long_title">အရှည်</string>
     <string name="accessibility_autoclick_longer_desc">ပိုကြာသည်</string>
@@ -161,16 +166,17 @@
     <string name="accessibility_autoclick_short_title">အတို</string>
     <string name="accessibility_autoclick_shorter_desc">ပိုတိုသည်</string>
     <string name="accessibility_banner_message_dismiss">ပယ်ရန်</string>
-    <string name="accessibility_button_description">"အများသုံးစွဲနိုင်မှုဆိုင်ရာ ဝန်ဆောင်မှုများကို မည်သည့်ဖန်သားပြင်မှမဆို အမြန်သုံးနိုင်သည်။ 
+    <string name="accessibility_button_about_title">အများသုံးစွဲနိုင်မှု ခလုတ် အကြောင်း</string>
+    <string name="accessibility_button_description">"အများသုံးနိုင်သည့် ဝန်ဆောင်မှုများကို မည်သည့်ဖန်သားပြင်မှမဆို အမြန်သုံးနိုင်သည်။
 
-စတင်ရန် အများသုံးစွဲနိုင်မှု ဆက်တင်များသို့သွား၍ ဝန်ဆောင်မှုကို ရွေးပါ။ ဖြတ်လမ်းလင့်ခ်ကို တို့ပြီး အများသုံးစွဲနိုင်မှု ခလုတ်ကို ရွေးပါ။"</string>
+စတင်ရန် သုံးနိုင်မှုဆက်တင်များသို့သွား၍ ဝန်ဆောင်မှုကို ရွေးပါ။ ဖြတ်လမ်းလင့်ခ်ကို တို့ပြီး သုံးနိုင်မှုခလုတ်ကို ရွေးပါ။"</string>
     <string name="accessibility_button_fade_summary">သင့်ဖန်သားပြင်ကို ပိုမိုလွယ်ကူစွာမြင်ရရန် စက္ကန့်အနည်းငယ်အကြာတွင် မှိန်သွားသည်</string>
     <string name="accessibility_button_fade_title">အသုံးမပြုသည့်အခါ မှိန်သွားသည်</string>
-    <string name="accessibility_button_gesture_description">"အများသုံးစွဲနိုင်မှုဆိုင်ရာ ဝန်ဆောင်မှုများကို မည်သည့်ဖန်သားပြင်မှမဆို အမြန်သုံးနိုင်သည်။
+    <string name="accessibility_button_gesture_about_title">အများသုံးစွဲနိုင်မှု ခလုတ်နှင့် လက်ဟန် အကြောင်း</string>
+    <string name="accessibility_button_gesture_description">"အများသုံးနိုင်သည့် ဝန်ဆောင်မှုများကို မည်သည့်ဖန်သားပြင်မှမဆို အမြန်သုံးနိုင်သည်။
 
-စတင်ရန် အများသုံးစွဲနိုင်မှု ဆက်တင်များသို့သွား၍ ဝန်ဆောင်မှုကို ရွေးပါ။ ဖြတ်လမ်းလင့်ခ်ကို တို့ပြီး အများသုံးစွဲနိုင်မှု ခလုတ်ကို ရွေးပါ။
-
-အများသုံးစွဲနိုင်မှု ခလုတ်ကို လမ်းညွှန်ဘားတွင် အစားထိုးသုံးရန် ခလုတ် ၂ ခု ဖြင့် လမ်းညွှန်ခြင်း (သို့) ခလုတ် ၃ ခုဖြင့် လမ်းညွှန်ခြင်းသို့ ပြောင်းပါ။"</string>
+စတင်ရန် သုံးနိုင်မှုဆက်တင်များသို့သွား၍ ဝန်ဆောင်မှုကို ရွေးပါ။ ဖြတ်လမ်းလင့်ခ်ကိုတို့ပြီး သုံးနိုင်မှုခလုတ် (သို့) လက်ဟန်ကို ရွေးပါ။"</string>
+    <string name="accessibility_button_gesture_footer_learn_more_content_description">အများသုံးစွဲနိုင်မှု ခလုတ်နှင့် လက်ဟန် အကြောင်း ပိုမိုလေ့လာရန်</string>
     <string name="accessibility_button_gesture_title">အများသုံးစွဲနိုင်မှု ခလုတ်နှင့် လက်ဟန်</string>
     <string name="accessibility_button_high_label">ဖောက်ထွင်းမမြင်နိုင်ပါ</string>
     <string name="accessibility_button_intro">အများသုံးစွဲနိုင်မှု ခလုတ်ကို သုံးနေသည်။ ခလုတ် ၃ ခုဖြင့် လမ်းညွှန်ခြင်းဖြင့် ဤလက်ဟန်ကို မရနိုင်ပါ။</string>
@@ -184,14 +190,23 @@
     <string name="accessibility_caption_preference_summary">အက်ပ်တိုင်းက ဤစာတန်းစိတ်ကြိုက်ရွေးချယ်မှုများကို ပံ့ပိုးမထားပါ</string>
     <string name="accessibility_caption_primary_switch_summary">ပံ့ပိုးထားသည့် အက်ပ်အတွက်သာ</string>
     <string name="accessibility_caption_primary_switch_title">စာတန်းများကို ပြရန်</string>
+    <string name="accessibility_captioning_about_title">စာတန်း သတ်မှတ်ချက်များ အကြောင်း</string>
+    <string name="accessibility_captioning_footer_learn_more_content_description">စာတန်း သတ်မှတ်ချက်များ အကြောင်း ပိုမိုလေ့လာရန်</string>
     <string name="accessibility_captioning_title">စာတန်း သတ်မှတ်ချက်များ</string>
     <string name="accessibility_category_personal">ကိုယ်ရေးကိုယ်တာ အချက်အလက် အကောင့်များ</string>
     <string name="accessibility_category_work">အလုပ်အချက်အလက် အကောင့်များကို - %s</string>
+    <string name="accessibility_color_inversion_about_title">အရောင်ပြောင်းပြန်လုပ်ခြင်း အကြောင်း</string>
+    <string name="accessibility_color_inversion_footer_learn_more_content_description">အရောင်ပြောင်းပြန်ပြုလုပ်ခြင်း အကြောင်း ပိုမိုလေ့လာရန်</string>
+    <string name="accessibility_control_timeout_about_title">လုပ်ရန်အချိန် အကြောင်း (အများသုံးစွဲနိုင်မှု အချိန်ကုန်သွားခြင်း)</string>
+    <string name="accessibility_control_timeout_footer_learn_more_content_description">လုပ်ရန်အချိန် အကြောင်း (အများသုံးစွဲနိုင်မှု အချိန်ကုန်သွားခြင်း) ပိုမိုလေ့လာရန်</string>
     <string name="accessibility_control_timeout_preference_summary">"တစ်ခုခုလုပ်ဆောင်ရန် ပြောသည့် မက်ဆေ့ဂျ်များ မည်မျှကြာကြာပြရမည်ကို ရွေးပါ၊ သို့သော်လည်း ယာယီသာ မြင်ရပါမည်။
 
 အက်ပ်အားလုံးတွင် ဤဆက်တင် အသုံးမပြုနိုင်ပါ။"</string>
     <string name="accessibility_control_timeout_preference_title">တစ်ခုခုလုပ်ဆောင်ရန် အချိန်</string>
+    <string name="accessibility_daltonizer_about_title">အရောင် အမှန်ပြင်ခြင်း အကြောင်း</string>
+    <string name="accessibility_daltonizer_footer_learn_more_content_description">အရောင် အမှန်ပြင်ခြင်း အကြောင်း ပိုမိုလေ့လာရန်</string>
     <string name="accessibility_daltonizer_primary_switch_title">အရောင်ပြင်ဆင်ခြင်းကို သုံးရန်</string>
+    <string name="accessibility_daltonizer_shortcut_title">အရောင် အမှန်ပြင်ခြင်း ဖြတ်လမ်းလင့်ခ်</string>
     <string name="accessibility_data_one_bar">ဒေတာတစ်ဘား။</string>
     <string name="accessibility_data_signal_full">ဒေတာထုတ်လွှင့်မှုအပြည့်ဖမ်းမိခြင်း</string>
     <string name="accessibility_data_three_bars">ဒေတာသုံးဘား။</string>
@@ -206,6 +221,7 @@
     <string name="accessibility_display_daltonizer_preference_title">အရောင်ပြင်ဆင်မှု</string>
     <string name="accessibility_display_inversion_preference_subtitle">အရောင်ပြောင်းပြန်လှန်ခြင်းက လင်းသောဖန်သားပြင်များကို အမှောင်ပြောင်းပေးသည်။&lt;br/>&lt;br/> သတိပြုရန်- &lt;ol> &lt;li> အရောင်ပြောင်းပြန်လှန်ခြင်းသည် မှောင်သောဖန်သားပြင်များကိုလည်း အလင်းပြောင်းပေးသည်။&lt;/li> &lt;li> မီဒီယာနှင့် ပုံများတွင် အရောင်များ ပြောင်းသွားမည်။&lt;/li> &lt;li> အမှောင်နောက်ခံပုံ ပြရန် မှောင်သည့် အပြင်အဆင် အသုံးပြုနိုင်သည်။ မှောင်သည့်အပြင်အဆင်ကို ပံ့ပိုးထားသည့်အက်ပ်များတွင် သုံးနိုင်သည်။ အရောင်ပြောင်းပြန်လှန်ခြင်းကို အက်ပ်အားလုံးတွင် သုံးနိုင်သည်။&lt;/li> &lt;/ol></string>
     <string name="accessibility_display_inversion_preference_title">အရောင်​ပြောင်းပြန်</string>
+    <string name="accessibility_display_inversion_shortcut_title">အရောင်ပြောင်းပြန်ပြုလုပ်ခြင်း ဖြတ်လမ်းလင့်ခ်</string>
     <string name="accessibility_display_inversion_switch_title">အရောင် ပြောင်းပြန်လှန်ခြင်းကို သုံးပါ</string>
     <string name="accessibility_ethernet_connected">အီသာနက်။</string>
     <string name="accessibility_ethernet_disconnected">Ethernet နှင့်ချိတ်ဆက်မှုပြတ်တောက်</string>
@@ -255,6 +271,8 @@
     <string name="accessibility_phone_two_bars">ဖုန်းလိုင်းနှစ်ဘား။</string>
     <string name="accessibility_power_button_ends_call_prerefence_title">ဖွင့်ပိတ်ခလုတ်ဖြင့် ဖုန်းချရန်</string>
     <string name="accessibility_preference_magnification_summary">မျက်နှာပြင် ဇူးမ်ဆွဲပါ</string>
+    <string name="accessibility_screen_magnification_about_title">ချဲ့ခြင်း အကြောင်း</string>
+    <string name="accessibility_screen_magnification_footer_learn_more_content_description">ချဲ့ခြင်း အကြောင်း ပိုမိုလေ့လာရန်</string>
     <string name="accessibility_screen_magnification_gesture_navigation_warning">အများသုံးစွဲနိုင်မှု လက်ဟန်ကို %1$s အဖြစ် သတ်မှတ်ထားသည်။ ပုံကြီးချဲ့ခြင်းကို အသုံးပြုရန် မျက်နှာပြင်၏ အောက်ခြေမှနေ၍ အပေါ်သို့ လက်နှစ်ချောင်းဖြင့် ပွတ်ဆွဲပြီး ဖိထားပါ။ ထို့နောက် ပုံကြီးချဲ့ခြင်းကို ရွေးပါ။</string>
     <string name="accessibility_screen_magnification_gestures_title">သုံးချက်တို့၍ အကြီးချဲ့ခြင်း</string>
     <string name="accessibility_screen_magnification_navbar_configuration_warning">အများသုံးစွဲနိုင်မှု ခလုတ်ကို %1$s အဖြစ် သတ်မှတ်ထားသည်။ ပုံကြီးချဲ့ခြင်းကို အသုံးပြုရန် အများသုံးစွဲနိုင်မှု ခလုတ်ကို ထိထားပြီးနောက် ပုံကြီးချဲ့ခြင်းကို ရွေးပါ။</string>
@@ -272,6 +290,7 @@
 ကီးဘုတ် သို့မဟုတ် လမ်းညွှန်ဘားကို ဇူးမ်ဆွဲ၍ မရပါ။"</string>
     <string name="accessibility_screen_magnification_navbar_title">ဖြတ်လမ်းလင့်ခ်ဖြင့် ချဲ့ခြင်း</string>
     <string name="accessibility_screen_magnification_short_summary">ဇူးမ်အသုံးပြုရန် ၃ ကြိမ်တို့ပါ</string>
+    <string name="accessibility_screen_magnification_shortcut_title">ချဲ့ခြင်း ဖြတ်လမ်းလင့်ခ်</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">ဖြတ်လမ်းလင့်ခ်ဖြင့် သုံးချက်တို့ပြီး ချဲ့ပါ</string>
     <string name="accessibility_screen_magnification_summary">အကြောင်းအရာကို ပိုမိုကြီးမားစွာ မြင်ရရန် ဖန်သားပြင်ပေါ်တွင် အမြန် ဇူးမ်ဆွဲပါ။&lt;br/>&lt;br/> &lt;b>ဇူးမ်ဆွဲရန်-&lt;/b>&lt;br/> {0,number,integer}။ စတင်ချဲ့ရန် ဖြတ်လမ်းလင့်ခ်ကို သုံးပါ&lt;br/> {1,number,integer}။ ဖန်သားပြင်ကို တို့ပါ&lt;br/> {2,number,integer}။ ဖန်သားပြင်ပေါ်တွင် ရွှေ့ကြည့်ရန် လက် ၂ ချောင်းဖြင့် ဖိဆွဲပါ&lt;br/> {3,number,integer}။ ဇူးမ်ချိန်ညှိရန် လက် ၂ ချောင်းဖြင့် ချဲ့ချုံ့ပါ&lt;br/> {4,number,integer}။ ချဲ့ခြင်းကို ရပ်ရန် ဖြတ်လမ်းလင့်ခ်ကို သုံးပါ&lt;br/>&lt;br/> &lt;b>ယာယီ ဇူးမ်ဆွဲရန်-&lt;/b>&lt;br/> {0,number,integer}။ စတင်ချဲ့ရန် ဖြတ်လမ်းလင့်ခ်ကို သုံးပါ&lt;br/> {1,number,integer}။ ဖန်သားပြင်ပေါ် တစ်နေရာရာတွင် ထိပြီး ဖိထားပါ&lt;br/> {2,number,integer}။ ဖန်သားပြင်ပေါ်တွင် ရွှေ့ကြည့်ရန် လက်ချောင်းဖြင့် ဖိဆွဲပါ&lt;br/> {3,number,integer}။ ချဲ့ခြင်း ရပ်ရန် လက်ချောင်းကို ကြွပါ</string>
     <string name="accessibility_screen_magnification_title">ပုံကြီးချဲ့ခြင်း</string>
@@ -350,17 +369,17 @@
     <string name="accessibility_toggle_screen_magnification_auto_update_preference_title">မျက်နှာပြင်ချဲ့မှု အော်တိုအပ်ဒိတ်</string>
     <string name="accessibility_turn_screen_darker_title">ဖန်သားပြင်ကို ပိုမှောင်အောင်လုပ်ခြင်း</string>
     <string name="accessibility_tutorial_dialog_button">ရပါပြီ</string>
-    <string name="accessibility_tutorial_dialog_message_button">"ဤဝန်ဆောင်မှု အသုံးပြုရန် သင့်ဖန်သားပြင် အောက်ခြေရှိ အများသုံးစွဲနိုင်မှု ခလုတ် %s ကို တို့ပါ။
+    <string name="accessibility_tutorial_dialog_message_button">"ဤဝန်ဆောင်မှု အသုံးပြုရန် သင့်ဖန်သားပြင် အောက်ခြေရှိ သုံးနိုင်မှုခလုတ် %s ကို တို့ပါ။
 
-ဝန်ဆောင်မှုများအကြား ပြောင်းရန် အများသုံးစွဲနိုင်မှုခလုတ်ကို ထိပြီး နှိပ်ထားပါ။"</string>
-    <string name="accessibility_tutorial_dialog_message_floating_button">ဤဝန်ဆောင်မှုကိုသုံးရန် သင့်ဖန်သားပြင်ပေါ်ရှိ အများသုံးစွဲနိုင်မှုခလုတ်ကို တို့ပါ။</string>
+ဝန်ဆောင်မှုများအကြား ပြောင်းရန် သုံးနိုင်မှုခလုတ်ကို ဖိထားပါ။"</string>
+    <string name="accessibility_tutorial_dialog_message_floating_button">ဤဝန်ဆောင်မှုကိုသုံးရန် သင့်ဖန်သားပြင်ပေါ်ရှိ သုံးနိုင်မှုခလုတ်ကို တို့ပါ။</string>
     <string name="accessibility_tutorial_dialog_message_gesture">"ဤဝန်ဆောင်မှု အသုံးပြုရန် လက် ၂ ချောင်းဖြင့် ဖန်သားပြင်အောက်ခြေမှ အပေါ်သို့ပွတ်ဆွဲပါ။
 
 ဝန်ဆောင်မှုများအကြား ပြောင်းရန် လက် ၂ ချောင်းဖြင့် အပေါ်သို့ပွတ်ဆွဲပြီး ဖိထားပါ။"</string>
-    <string name="accessibility_tutorial_dialog_message_gesture_settings">"အများသုံးစွဲနိုင်မှုဆိုင်ရာ ဝန်ဆောင်မှုတစ်ခု အသုံးပြုရန် လက် ၂ ချောင်းဖြင့် ဖန်သားပြင်အောက်ခြေမှ အပေါ်သို့ပွတ်ဆွဲပါ။
+    <string name="accessibility_tutorial_dialog_message_gesture_settings">"အများသုံးနိုင်သည့် ဝန်ဆောင်မှုတစ်ခု အသုံးပြုရန် လက် ၂ ချောင်းဖြင့် ဖန်သားပြင်အောက်ခြေမှ အပေါ်သို့ပွတ်ဆွဲပါ။
 
 ဝန်ဆောင်မှုများအကြား ပြောင်းရန် လက် ၂ ချောင်းဖြင့် အပေါ်သို့ပွတ်ဆွဲပြီး ဖိထားပါ။"</string>
-    <string name="accessibility_tutorial_dialog_message_gesture_settings_talkback">"အများသုံးစွဲနိုင်မှုဆိုင်ရာ ဝန်ဆောင်မှုတစ်ခု အသုံးပြုရန် လက် ၃ ချောင်းဖြင့် ဖန်သားပြင်အောက်ခြေမှ အပေါ်သို့ပွတ်ဆွဲပါ။
+    <string name="accessibility_tutorial_dialog_message_gesture_settings_talkback">"အများသုံးနိုင်သည့် ဝန်ဆောင်မှုတစ်ခု အသုံးပြုရန် လက် ၃ ချောင်းဖြင့် ဖန်သားပြင်အောက်ခြေမှ အပေါ်သို့ပွတ်ဆွဲပါ။
 
 ဝန်ဆောင်မှုများအကြား ပြောင်းရန် လက် ၃ ချောင်းဖြင့် အပေါ်သို့ပွတ်ဆွဲပြီး ဖိထားပါ။"</string>
     <string name="accessibility_tutorial_dialog_message_gesture_talkback">"ဤဝန်ဆောင်မှု အသုံးပြုရန် လက် ၃ ချောင်းဖြင့် ဖန်သားပြင်အောက်ခြေမှ အပေါ်သို့ပွတ်ဆွဲပါ။
@@ -370,7 +389,7 @@
     <string name="accessibility_tutorial_dialog_message_volume">ဤဝန်ဆောင်မှု အသုံးပြုရန် အသံခလုတ် နှစ်ခုလုံးကို နှိပ်ထားပါ။</string>
     <string name="accessibility_tutorial_dialog_title_button">ဖွင့်ရန် အသုံးလွယ်မှုခလုတ်ကို သုံးပါ</string>
     <string name="accessibility_tutorial_dialog_title_gesture">ဖွင့်ရန် လက်ဟန်ကို အသုံးပြုပါ</string>
-    <string name="accessibility_tutorial_dialog_title_gesture_settings">အများသုံးစွဲနိုင်မှု လက်ဟန်အသစ်ကို အသုံးပြုရန်</string>
+    <string name="accessibility_tutorial_dialog_title_gesture_settings">အများသုံးစွဲနိုင်မှု လက်ဟန်ကို သုံးပါ</string>
     <string name="accessibility_tutorial_dialog_title_triple">ဖွင့်ရန် သုံးချက်တို့ခြင်း</string>
     <string name="accessibility_tutorial_dialog_title_volume">ဖွင့်ရန် အသံခလုတ်များကို နှိပ်ထားခြင်း</string>
     <string name="accessibility_tutorial_pager">စာမျက်နှာ %2$d မျက်နှာအနက် %1$d မျက်နှာ</string>
@@ -936,6 +955,7 @@
     <string name="battery_level_title">ဘက်ထရီ အားအဆင့်</string>
     <string name="battery_manager_off">ပိတ်</string>
     <string name="battery_manager_summary">ဘက်ထရီသက်တမ်း ပိုရှည်စေပြီး အားသွင်းခြင်းကို ပိုကောင်းအောင်လုပ်သည်</string>
+    <string name="battery_manager_summary_unsupported">ဘက်ထရီသက်တမ်းကို တိုးပေးသည်</string>
     <string name="battery_missing_link_a11y_message">ဤအမှားအကြောင်း ပိုမိုလေ့လာရန် တို့ပါ</string>
     <string name="battery_missing_link_message">ပိုမိုလေ့လာရန်</string>
     <string name="battery_missing_message">ဘက်ထရီမီတာကို ဖတ်ရာတွင် ပြဿနာရှိနေသည်။</string>
@@ -1061,6 +1081,7 @@
     <string name="battery_usage_screen_footer">ဘက်ထရီ အသုံးပြုမှုဒေတာသည် ခန့်မှန်းခြေဖြစ်ပြီး ဖုန်းအားသွင်းနေသည့်အခါ အသုံးပြုမှုကို မတိုင်းတာပါ</string>
     <string name="battery_usage_screen_footer_empty">သင့်ဖုန်းကို နာရီအနည်းငယ်ကြာ အသုံးပြုပြီးသောအခါ ဘက်ထရီ အသုံးပြုမှုဒေတာကို ရနိုင်ပါမည်</string>
     <string name="battery_usage_total_less_than_one_minute">စုစုပေါင်း- တစ်မိနစ်ထက် နည်းသည်</string>
+    <string name="battery_usage_without_time" />
     <string name="battery_used_by">%1$s ကို %2$s က အသုံးပြုထားသည်</string>
     <string name="battery_used_for">^1 ကြာ သုံးထားသည်</string>
     <string name="bearer">သယ်ဆောင်သူ</string>
@@ -1069,12 +1090,14 @@
     <string name="billing_cycle_less_than_one_day_left">၁ ရက်အောက်သာ ကျန်သည်</string>
     <string name="billing_cycle_none_left">အချိန် မကျန်တော့ပါ</string>
     <string name="biometric_settings_category_ways_to_unlock">သော့ဖွင့်ရန် နည်းလမ်းများ</string>
-    <string name="biometric_settings_category_ways_to_use">မျက်နှာနှင့် လက်ဗွေ သုံးခြင်း</string>
     <string name="biometric_settings_hand_back_to_guardian">သင့်မိဘအား ဤဖုန်း ပြန်ပေးလိုက်ပါ</string>
     <string name="biometric_settings_hand_back_to_guardian_ok">OK</string>
     <string name="biometric_settings_intro">မျက်နှာပြ လော့ခ်ဖွင့်ခြင်းနှင့် လက်ဗွေသုံး လော့ခ်ဖွင့်ခြင်းကို ထည့်သွင်းသည့်အခါ သင်နှာခေါင်းစည်း တပ်ဆင်ထားလျှင် (သို့) မှောင်သောနေရာသို့ ရောက်နေလျှင် သင်၏ဖုန်းက သင့်လက်ဗွေကို တောင်းပါမည်</string>
-    <string name="biometric_settings_use_biometric_for_apps">အက်ပ်များတွင် အထောက်အထားစိစစ်ခြင်း</string>
-    <string name="biometric_settings_use_biometric_unlock_phone">ဖုန်းကို ဖွင့်ခြင်း</string>
+    <string name="biometric_settings_use_biometric_for_apps">အက်ပ်များတွင် သင်ဖြစ်ကြောင်း အတည်ပြုရန်</string>
+    <string name="biometric_settings_use_biometric_unlock_phone">သင့်ဖုန်းကို ဖွင့်ရန်</string>
+    <string name="biometric_settings_use_face_or_fingerprint_preference_summary">မျက်နှာ (သို့) လက်ဗွေ သုံးခြင်း</string>
+    <string name="biometric_settings_use_face_preference_summary">မျက်နှာသုံးခြင်း</string>
+    <string name="biometric_settings_use_fingerprint_preference_summary">လက်ဗွေသုံးခြင်း</string>
     <string name="biometrics_unlock_set_unlock_password">စကားဝှက် • မျက်နှာ • လက်ဗွေ</string>
     <string name="biometrics_unlock_set_unlock_pattern">ပုံစံ • မျက်နှာ • လက်ဗွေ</string>
     <string name="biometrics_unlock_set_unlock_pin">ပင်နံပါတ် • မျက်နှာ • လက်ဗွေ</string>
@@ -1294,7 +1317,7 @@
     <string name="bluetooth_rename_button">အမည်ပြောင်းရန်</string>
     <string name="bluetooth_rename_device">ဤစက်ကို အမည်ပြောင်းရန်</string>
     <string name="bluetooth_right_name">ညာ</string>
-    <string name="bluetooth_sap_acceptance_dialog_text">%1$s သည် သင့် SIM ကဒ်အား ဝင်ရောက်သုံးလို၏။ SIM ကဒ်အား ဝင်ရောက်သုံးခွင့်ပြုပါက ချိတ်ဆက်နေစဉ်ကာလအတွင်း သင့် စက်ကိရိယာ၏ ဒေတာချိတ်ဆက်မှုအား ပိတ်ထားလိမ့်မည်။ %2$s? အား ဝင်ရောက်သုံးခွင့်ပြုရန်</string>
+    <string name="bluetooth_sap_acceptance_dialog_text">%1$s သည် သင့် SIM ကတ်အား အသုံးပြုလို၏။ SIM ကတ်အား သုံးခွင့်ပြုပါက ချိတ်ဆက်နေစဉ်ကာလအတွင်း သင့် စက်ကိရိယာ၏ ဒေတာချိတ်ဆက်မှုအား ပိတ်ထားလိမ့်မည်။ %2$s? အား ဝင်သုံးခွင့်ပြုရန်</string>
     <string name="bluetooth_sap_profile_summary_connected">SAP သို့ချိတ်ဆက်ထားသည်</string>
     <string name="bluetooth_sap_profile_summary_use_for">SIM အသုံးပြုမှုအတွက် အသုံးပြုမည်</string>
     <string name="bluetooth_sap_request">SIM ကတ် သုံးခွင့် တောင်းဆိုမှု</string>
@@ -1332,7 +1355,6 @@
     <string name="bluetooth_settings_title">ဘလူးတုသ်</string>
     <string name="bluetooth_show_devices_without_names">အမည်မရှိသော ဘလူးတုသ်စက်ပစ္စည်းများကို ပြသရန်</string>
     <string name="bluetooth_show_devices_without_names_summary">အမည်မရှိသော (MAC လိပ်စာများသာပါသော) ဘလူးတုသ်စက်ပစ္စည်းများကို ပြသပါမည်</string>
-    <string name="bluetooth_show_files_received_via_bluetooth">ဘလူးတုသ်မှ ရရှိသော ဖိုင်များ</string>
     <string name="bluetooth_show_received_files">လက်ခံရရှိထားသော ဖိုင်များ</string>
     <string name="bluetooth_sim_card_access_dialog_content">"ဘလူးတုသ်သုံးစက် %1$s က သင့်ဆင်းမ်ကတ်ရှိ ဒေတာကို သုံးခွင့်ရလိုသည်။ ၎င်းတွင် သင်၏ အဆက်အသွယ်များ ပါဝင်သည်။
 
@@ -1426,6 +1448,7 @@ CA လက်မှတ်ကို ထည့်သွင်းပါက သင်
     <string name="calls_sms_temp_unavailable">လောလောဆယ် မရနိုင်သေးပါ</string>
     <string name="calls_sms_unavailable">မရနိုင်ပါ</string>
     <string name="calls_sms_wfc_summary">Wi-Fi မှတစ်ဆင့် ဖုန်းခေါ်ဆိုခြင်းနှင့် လက်ခံခြင်းတို့ကို ပြုလုပ်ပါ</string>
+    <string name="cam_toggle_description">အက်ပ်နှင့် ဝန်ဆောင်မှုများအတွက်</string>
     <string name="camera_double_tap_power_gesture_desc">သင်၏ မျက်နှာပြင်ကို သော့မဖွင့်ဘဲနှင့် ကင်မရာကို အမြန်ဖွင့်ပါ</string>
     <string name="camera_double_tap_power_gesture_title">ကင်မရာအတွက် ပါဝါခလုတ်ကို နှစ်ကြိမ် နှိပ်ပါ</string>
     <string name="camera_laser_sensor_switch">Camera လေဆာ အာရုံခံကိရိယာ</string>
@@ -1700,7 +1723,7 @@ CA လက်မှတ်ကို ထည့်သွင်းပါက သင်
     <string name="contextual_card_feedback_confirm_message">ဤအကြံပြုမှုအပေါ် ထင်မြင်ချက် ပေးလိုသလား။</string>
     <string name="contextual_card_feedback_send">အကြံပြုချက် ပို့ရန်</string>
     <string name="contextual_card_removed_message">အကြံပြုချက်များကို ဖယ်ရှားပြီးပါပြီ</string>
-    <string name="contextual_card_undo_dismissal_text">တစ်ဆင့် နောက်ပြန်ရန်</string>
+    <string name="contextual_card_undo_dismissal_text">နောက်ပြန်ရန်</string>
     <string name="contributors_title">ထောက်ပံ့သူများ</string>
     <string name="controls_label">ထိန်းချုပ်မှုများ</string>
     <string name="controls_subtitle">ပါဝါအသုံးပြုမှုအား ချိန်တွယ်ခြင်း</string>
@@ -1727,7 +1750,7 @@ CA လက်မှတ်ကို ထည့်သွင်းပါက သင်
     <string name="copy_toast_msg">လင့်ခ်ကို ကလစ်ဘုတ်သို့ ကူးပြီးပါပြီ</string>
     <string name="copyable_slice_toast">%1$s ကို ကလစ်ဘုတ်သို့ မိတ္တူကူးပြီးပါပြီ။</string>
     <string name="copyright_title">မူပိုင်ခွင့်</string>
-    <string name="create">ဖန်တီးရန်</string>
+    <string name="create">ပြုလုပ်ရန်</string>
     <string name="creating_new_user_dialog_message">အသုံးပြုသူအသစ် ပြုလုပ်နေသည်…</string>
     <string name="credential_contains">ဤအကြောင်းအရာတွင် ပါဝင်သည်များ −</string>
     <string name="credential_for_vpn_and_apps">VPN နှင့် အက်ပ်များအတွက် ထည့်သွင်းထားပါသည်</string>
@@ -2617,7 +2640,7 @@ CA လက်မှတ်ကို ထည့်သွင်းပါက သင်
     <string name="ignore_optimizations_on">သင့်မြတ်အောင် မလုပ်ပါနှင့်</string>
     <string name="ignore_optimizations_on_desc">သင့်ဘတ်ထရီကို ပိုမိုလျှင်မြန်စွာ ကုန်စေပါသည်။ အက်ပ်က နောက်ခံတွင် ဘက်ထရီအသုံးပြုနေခြင်းကို ကန့်သတ်တော့မည်မဟုတ်ပါ။</string>
     <string name="ignore_optimizations_title">ဘက်ထရီ ပိုမိုကောင်းမွန်ရေးကို လျစ်လျူရှုရန် %sကိုခွင့်ပြုမလား?</string>
-    <string name="ime_security_warning">ဤထည့်သွင်းမှုနည်းလမ်းမှာ သင့်ကိုယ်ရေးအချက်အလက်များဖြစ်သော စကားဝှက်များနှင့် ကရက်ဒစ်ကဒ်နံပါတ်စသည်တို့ကို ရယူသွားမည်ဖြစ်သည်။ %1$sအပလီကေးရှင်းမှလာပါသည်။ ဤထည့်သွင်းမှုနည်းလမ်းကို အသုံးပြုမည်လား?</string>
+    <string name="ime_security_warning">ဤထည့်သွင်းမှုနည်းလမ်းမှာ သင့်ကိုယ်ရေးအချက်အလက်များဖြစ်သော စကားဝှက်များနှင့် ခရက်ဒစ်ကတ်နံပါတ်စသည်တို့ကို ရယူသွားမည်ဖြစ်သည်။ ဤ %1$s အပလီကေးရှင်းမှလာပါသည်။ ဤထည့်သွင်းမှုနည်းလမ်းကို အသုံးပြုမလား။</string>
     <string name="imei_information_summary">IMEI ဆက်စပ် အချက်အလက်များ</string>
     <string name="imei_information_title">IMEI အချက်အလက်များ</string>
     <string name="imei_multi_sim">IMEI (ဆင်းမ် အထိုင် %1$d)</string>
@@ -2836,7 +2859,7 @@ CA လက်မှတ်ကို ထည့်သွင်းပါက သင်
     <string name="keywords_wifi_display_settings">စကရင်ပွားရန်</string>
     <string name="keywords_wifi_notify_open_networks">Wi‑Fi အကြောင်းကြားချက်၊ wifi အကြောင်းကြားချက်</string>
     <string name="keywords_write_settings">စနစ်ချိန်ညှိချက်များကို ရေးသားပြုပြင်မည်</string>
-    <string name="keywords_zen_mode_settings">dnd၊ အစီအစဉ်၊ အကြောင်းကြားချက်များ၊ အသံတိတ်၊ တုန်ခါခြင်း၊ နားခြင်း၊ အလုပ်၊ ပြတ်သားအောင် ချိန်ခြင်း၊ အသံ၊ အသံတိတ်ရန်၊ နေ့၊ ကြားရက်၊ စနေတနင်္ဂနွေ၊ ကြားရက်ည၊ အစီအစဉ်</string>
+    <string name="keywords_zen_mode_settings">dnd၊ အစီအစဉ်၊ အကြောင်းကြားချက်များ၊ အသံတိတ်၊ တုန်ခါခြင်း၊ နားခြင်း၊ အလုပ်၊ ပြတ်သားအောင် ချိန်ခြင်း၊ အသံ၊ အသံပိတ်ရန်၊ နေ့၊ ကြားရက်၊ စနေတနင်္ဂနွေ၊ ကြားရက်ည၊ အစီအစဉ်</string>
     <string name="label_available">ရရှိနိုင်သော ကွန်ရက်များ</string>
     <string name="language_and_input_for_work_category_title">အလုပ်ပရိုဖိုင် လက်ကွက်နှင့် တူးလ်များ</string>
     <string name="language_empty_list_user_restricted">စက်၏ ဘာသာစကားကို ပြောင်းရန် သင့်အား ခွင့်ပြုချက်ပေးမထားပါ။</string>
@@ -3302,6 +3325,7 @@ CA လက်မှတ်ကို ထည့်သွင်းပါက သင်
     <string name="menu_stats_total">အသုံးပြုမှု စုစုပေါင်း</string>
     <string name="menu_stats_unplugged">%1$s အားသွင်းကြိုးဖြုတ်စဥ်မှ</string>
     <string name="menu_use_uss">Uss သုံးခြင်း</string>
+    <string name="mic_toggle_description">အက်ပ်နှင့် ဝန်ဆောင်မှုများအတွက်။ ဤဆက်တင်ကို ပိတ်ထားသော်လည်း အရေးပေါ် နံပါတ်ကို သင်ခေါ်ဆိုချိန်တွင် မိုက်ခရိုဖုန်းဒေတာကို မျှဝေနိုင်သေးသည်။</string>
     <string name="mic_toggle_title">မိုက်ခရိုဖုန်းသုံးခွင့်</string>
     <string name="misc_files">အသေးအဖွဲဖိုင်များ</string>
     <string name="misc_files_selected_count">%2$d ထဲမှ%1$d ရွေးမည်</string>
@@ -3325,7 +3349,7 @@ CA လက်မှတ်ကို ထည့်သွင်းပါက သင်
     <string name="mobile_data_settings_summary_unavailable">ဆင်းမ်ကတ် မရနိုင်ပါ</string>
     <string name="mobile_data_settings_title">မိုဘိုင်းဒေတာ</string>
     <string name="mobile_data_usage_title">အက်ပ်ဒေတာ သုံးစွဲမှု</string>
-    <string name="mobile_insert_sim_card">ကျေးဇူးပြု၍ ဆင်းမ်ကဒ်ထည့်၍ အစမှ ပြန်စပါ။</string>
+    <string name="mobile_insert_sim_card">ကျေးဇူးပြု၍ ဆင်းမ်ကတ်ထည့်၍ အစမှ ပြန်စပါ။</string>
     <string name="mobile_network_active_esim">သုံးနေသော / ဒေါင်းလုဒ်လုပ်ထားသော ဆင်းမ်</string>
     <string name="mobile_network_active_sim">သုံးနေသော / ဆင်းမ်ကတ်</string>
     <string name="mobile_network_apn_title">ချိတ်ဆက်ပွိုင့် အမည်များ</string>
@@ -3679,7 +3703,7 @@ CA လက်မှတ်ကို ထည့်သွင်းပါက သင်
     <string name="notification_screen_summary">အကြောင်းကြားချက်မှတ်တမ်း၊ ပူဖောင်းကွက်များ၊ မကြာသေးမီက ပို့ထားသော</string>
     <string name="notification_settings_work_profile">အလုပ်ပရိုဖိုင်အတွင်းရှိ အက်ပ်များအတွက် အကြောင်းကြားချက် ဝင်ကြည့်၍ မရနိုင်ပါ။</string>
     <string name="notification_show_lights_title">မီးကို မှိတ်တုတ်မှိတ်တုတ်လုပ်ရန်</string>
-    <string name="notification_silence_title">အသံတိတ်ရန်</string>
+    <string name="notification_silence_title">အသံပိတ်ရန်</string>
     <string name="notification_sound_default">မူရင်းအကြောင်းကြားသံ</string>
     <string name="notification_sound_dialog_title">မူရင်းအကြောင်းကြားသံ</string>
     <string name="notification_sound_title">မူရင်းအကြောင်းကြားသံ</string>
@@ -3728,6 +3752,7 @@ CA လက်မှတ်ကို ထည့်သွင်းပါက သင်
     <string name="one_handed_action_show_notification_title">အကြောင်းကြားချက်များ ပြရန်</string>
     <string name="one_handed_mode_enabled">လက်တစ်ဖက်သုံးမုဒ် သုံးရန်</string>
     <string name="one_handed_mode_intro_text">လက်တစ်ဖက်သုံးမုဒ်သုံးရန် ဖန်သားပြင်၏ အောက်ခြေအစွန်းမှ အောက်သို့ ပွတ်ဆွဲပါ။ ဤဝန်ဆောင်မှုကိုသုံးရန် စနစ် လမ်းညွှန်ခြင်း ဆက်တင်များတွင် လက်ဟန်ဖြင့် လမ်းညွှန်ခြင်း ဖွင့်ထားကြောင်း သေချာပါစေ။</string>
+    <string name="one_handed_mode_shortcut_title">လက်တစ်ဖက်သုံးမုဒ် ဖြတ်လမ်းလင့်ခ်</string>
     <string name="one_handed_mode_swipe_down_category">အောက်သို့ ပွတ်ဆွဲပါ</string>
     <string name="one_handed_mode_use_shortcut_category">ဖြတ်လမ်းလင့်ခ် သုံးခြင်း</string>
     <string name="one_usercrt">အသုံးပြုသူ၏ လက်မှတ် တစ်ခု</string>
@@ -3781,12 +3806,12 @@ CA လက်မှတ်ကို ထည့်သွင်းပါက သင်
     <string name="physical_keyboard_title">စက်၏ ကီးဘုတ်</string>
     <string name="picture_color_mode">ဓာတ်ပုံအရောင်မုဒ်</string>
     <string name="picture_color_mode_desc">sRGB ကို အသုံးပြုပါ</string>
-    <string name="picture_in_picture_app_detail_summary">အက်ပ်ပွင့်နေစဉ် သို့မဟုတ် ထွက်လိုက်စဉ်တွင် ဤအက်ပ်အား တစ်ခုပေါ်တစ်ခုထပ်၍ ဖွင့်သည့် ဝင်းဒိုးတစ်ခု ပြုလုပ်ခွင့်ပြုပါ (ဥပမာ ဗီဒီယိုဆက်ကြည့်ရန်)။ ဤဝင်းဒိုးကို သင်သုံးနေသော အခြားအက်ပ်များ၏အပေါ်တွင် ပြသပါလိမ့်မည်။</string>
-    <string name="picture_in_picture_app_detail_switch">တစ်ခုပေါ်တစ်ခု ထပ်၍ ဖွင့်ခွင့်ပြုရန်</string>
-    <string name="picture_in_picture_app_detail_title">တစ်ခုပေါ်တစ်ခု ထပ်၍ ဖွင့်ခြင်း</string>
-    <string name="picture_in_picture_empty_text">ထည့်သွင်းထားသည့် အက်ပ်တစ်ခုမျှ မျက်နှာပြင်ပေါ်တွင် တစ်ခုပေါ်တစ်ခု ထပ်၍ဖွင့်ခြင်းကို ခွင့်မပြုပါ</string>
-    <string name="picture_in_picture_keywords">တစ်ခုပေါ်တစ်ခု ထပ်၍ ဖွင့်ခြင်း</string>
-    <string name="picture_in_picture_title">တစ်ခုပေါ်တစ်ခု ထပ်၍ ဖွင့်ခြင်း</string>
+    <string name="picture_in_picture_app_detail_summary">အက်ပ်ပွင့်နေစဉ် သို့မဟုတ် ထွက်လိုက်စဉ်တွင် ဤအက်ပ်အား နှစ်ခုထပ်၍ကြည့်သည့် ဝင်းဒိုးတစ်ခု ပြုလုပ်ခွင့်ပေးပါ (ဥပမာ ဗီဒီယိုဆက်ကြည့်ရန်)။ ဤဝင်းဒိုးကို သင်သုံးနေသော အခြားအက်ပ်များ၏အပေါ်တွင် ပြသပါလိမ့်မည်။</string>
+    <string name="picture_in_picture_app_detail_switch">နှစ်ခုထပ်၍ ကြည့်ခြင်း ခွင့်ပြုရန်</string>
+    <string name="picture_in_picture_app_detail_title">နှစ်ခုထပ်၍ ကြည့်ခြင်း</string>
+    <string name="picture_in_picture_empty_text">ထည့်သွင်းထားသည့် အက်ပ်တစ်ခုမျှ နှစ်ခုထပ်၍ကြည့်ခြင်းကို ခွင့်မပြုပါ</string>
+    <string name="picture_in_picture_keywords">နှစ်ခုထပ်၍ ကြည့်ခြင်း</string>
+    <string name="picture_in_picture_title">နှစ်ခုထပ်၍ ကြည့်ခြင်း</string>
     <string name="pin_failed">ဆင်းမ်ကတ် ပင်လုပ်ငန်းဆောင်ရွက်မှု မအောင်မြင်ပါ!</string>
     <string name="ping_test_label">Ping စမ်းသပ်ခြင်း လုပ်ဆောင်ပါ</string>
     <string name="platform_compat_dashboard_summary">အက်ပ်ကိုက်ညီမှု အပြောင်းအလဲများကို အဖွင့်အပိတ်လုပ်ရန်</string>
@@ -3803,7 +3828,7 @@ CA လက်မှတ်ကို ထည့်သွင်းပါက သင်
     <string name="post_dsds_reboot_notification_title_with_carrier">%1$s ကို အသုံးပြုနေသည်</string>
     <string name="power_bluetooth">ဘလူးတုသ်</string>
     <string name="power_camera">ကင်မရာ</string>
-    <string name="power_cell">မိုဘိုင်းကွန်ရက် အရန်သင့်</string>
+    <string name="power_cell">မိုဘိုင်းကွန်ရက်</string>
     <string name="power_charge_remaining">%1$s အားသွင်းမည်</string>
     <string name="power_charging">%1$s - %2$s</string>
     <string name="power_charging_duration">အားပြည့်ရန် %1$s - %2$s လိုသည်</string>
@@ -3907,7 +3932,7 @@ CA လက်မှတ်ကို ထည့်သွင်းပါက သင်
     <string name="premium_sms_none">ထည့်သွင်းထားသည့် မည်သည့်အက်ပ်တစ်ခုမျှ ပရီမီယံ SMS သုံးခွင့် တောင်းဆိုမထားပါ။</string>
     <string name="premium_sms_warning">ပရီမီယံ SMS သည်ငွေကြေးကုန်ကျနိုင်ပြီး သင့်ဖုန်းဝန်​ဆောင်မှုပေးသူ၏ ငွေတောင်းခံလွှာသို့ ပေါင်း၍ ထည့်သွင်းပါမည်။ အက်ပ်တစ်ခုကို သင်ခွင့်ပြုလိုက်လျှင် ၎င်းအက်ပ်ကိုအသုံးပြုပြီး ပရီမီယံ SMS ပို့နိုင်မည်ဖြစ်သည်။</string>
     <string name="prevent_ringing_main_switch_title">ဖုန်းသံမမြည်အောင်လုပ်ပါ</string>
-    <string name="prevent_ringing_option_mute">အသံတိတ်ရန်</string>
+    <string name="prevent_ringing_option_mute">အသံပိတ်ရန်</string>
     <string name="prevent_ringing_option_mute_summary">အသံတိတ်သည်</string>
     <string name="prevent_ringing_option_none">ပြောင်းလဲမှု မလုပ်ပါနှင့်</string>
     <string name="prevent_ringing_option_unavailable_lpp_summary">ဖွင့်ရန်အတွက် ဦးစွာ \"ဖွင့်ပိတ်ခလုတ် နှိပ်ထားခြင်း\" ကို ပါဝါမီနူးသို့ ပြောင်းပါ။</string>
@@ -4037,6 +4062,7 @@ CA လက်မှတ်ကို ထည့်သွင်းပါက သင်
     <string name="recent_notifications">လတ်တလော ပို့ထားသည်</string>
     <string name="recent_notifications_see_all_title">ပြီးခဲ့သည့် ၇ ရက်မှ အရာအားလုံးကို ကြည့်ရန်</string>
     <string name="recompute_size">အရွယ်အစားကို ပြန်လည်တွက်ချက်နေသည်</string>
+    <string name="reduce_bright_colors_about_title">ပိုမှိန်ခြင်း အကြောင်း</string>
     <string name="reduce_bright_colors_intensity_end_label">ပိုမိုတောက်ပအောင်လုပ်ရန်</string>
     <string name="reduce_bright_colors_intensity_preference_title">တောက်ပမှုပြင်းအား</string>
     <string name="reduce_bright_colors_intensity_start_label">တောက်ပမှုကို လျှော့ချရန်</string>
@@ -4044,6 +4070,7 @@ CA လက်မှတ်ကို ထည့်သွင်းပါက သင်
     <string name="reduce_bright_colors_preference_subtitle">စာဖတ်ရာတွင် အနေတော်ဖြစ်စေရန် သင့်ဖန်သားပြင်ကို ပိုမှိန်အောင်လုပ်ပါ။&lt;br/>&lt;br/> ၎င်းက အောက်ပါတို့တွင် အသုံးဝင်နိုင်သည်- &lt;ol> &lt;li> သင့်ဖုန်း၏ မူလ အနိမ့်ဆုံးတောက်ပမှုက အလွန်လင်းနေသောအခါ&lt;/li> &lt;li> ညအချိန် (သို့) မအိပ်မီ အမှောင်ခန်းကဲ့သို့ မှောင်သည့်အခြေအနေမျိုးတွင် ဖုန်းသုံးနေသောအခါ&lt;/li> &lt;/ol></string>
     <string name="reduce_bright_colors_preference_summary">ဖန်သားပြင်ကို သင့်ဖုန်း၏ အနိမ့်ဆုံးတောက်ပမှုထက် ပိုမှိန်သည်</string>
     <string name="reduce_bright_colors_preference_title">ပိုမှိန်ခြင်း</string>
+    <string name="reduce_bright_colors_shortcut_title">ပိုမှိန်ခြင်း ဖြတ်လမ်းလင့်ခ်</string>
     <string name="reduce_bright_colors_switch_title">ဖန်သားပြင်ကို ပိုမှိန်အောင်လုပ်ခြင်း</string>
     <string name="register_automatically">အလိုအလျောက် မှတ်ပုံတင်ခြင်း…</string>
     <string name="register_on_network">%s တွင် မှတ်ပုံတင်နေသည်…</string>
@@ -4249,7 +4276,6 @@ CA လက်မှတ်ကို ထည့်သွင်းပါက သင်
     <string name="screen_pinning_unlock_pattern">ပင်မဖြုတ်မီမှာ သော့ဖွင့် ပုံစံကွက်ကို မေးရန်</string>
     <string name="screen_pinning_unlock_pin">ပင်မဖြုတ်မီမှာ PIN ကို မေးရန်</string>
     <string name="screen_reader_category_title">ဖန်သားပြင်ဖတ် အက်ပ်</string>
-    <string name="screen_saver_main_switch_title">ဖန်သားပြင်ချွေတာစနစ် သုံးခြင်း</string>
     <string name="screen_time_summary_usage_today">ယနေ့ %1$s</string>
     <string name="screen_timeout_summary">%1$sကြာ အသုံးပြုမှု မရှိလျှင်</string>
     <string name="screen_timeout_title">မျက်နှာပြင်ကို ပိတ်ထားသည်</string>
@@ -4279,6 +4305,7 @@ CA လက်မှတ်ကို ထည့်သွင်းပါက သင်
     <string name="screensaver_settings_button">ဆက်တင်များ</string>
     <string name="screensaver_settings_current">လက်ရှိဖန်သားပြင်ချွေတာစနစ်</string>
     <string name="screensaver_settings_disabled_prompt">ဖုန်းကို အထိုင်တွင် တပ်ဆင်လိုက်ချိန် နှင့်/သို့မဟုတ် အနားယူနေချိန်တွင် လုပ်ဆောင်မည့်အရာများကို ထိန်းချုပ်ရန်၊ ဖန်သားပြင်အသုံးပြုမှု ချွေတာမှုစနစ်ကို ဖွင့်ပါ။</string>
+    <string name="screensaver_settings_dream_start">ယခု စတင်ပါ</string>
     <string name="screensaver_settings_summary_dock">အထိုင်တွင်တပ်ထားစဉ်</string>
     <string name="screensaver_settings_summary_either_long">အားသွင်းနေစဉ် သို့မဟုတ် တပ်ဆင်ထားစဉ်</string>
     <string name="screensaver_settings_summary_either_short">နှစ်မျိုးအနက် တမျိုးရွေးချယ်ရန်</string>
@@ -4329,15 +4356,6 @@ CA လက်မှတ်ကို ထည့်သွင်းပါက သင်
     <string name="security_settings_biometric_preference_summary_both_fp_single">မျက်နှာနှင့် လက်ဗွေ ထည့်ပြီးပါပြီ</string>
     <string name="security_settings_biometric_preference_summary_none_enrolled">စနစ်ထည့်သွင်းရန် တို့ပါ</string>
     <string name="security_settings_biometric_preference_title">မျက်နှာနှင့်လက်ဗွေသုံး လော့ခ်ဖွင့်ခြင်း</string>
-    <string name="security_settings_biometrics_description">မျက်နှာပြ လော့ခ်ဖွင့်ခြင်းနှင့် လက်ဗွေသုံးလော့ခ်ဖွင့်ခြင်းကို စနစ်ထည့်သွင်းသည့်အခါ သင်နှာခေါင်းစည်း တပ်ဆင်ထားလျှင် (သို့) မှောင်သောနေရာသို့ ရောက်နေလျှင် သင်၏ဖုန်းက သင့်လက်ဗွေကို တောင်းပါမည်</string>
-    <string name="security_settings_biometrics_preference_use_with_apps">အက်ပ်များတွင် အထောက်အထားစိစစ်ခြင်း</string>
-    <string name="security_settings_biometrics_preferences_category">မျက်နှာ (သို့) လက်ဗွေ သုံးခြင်း</string>
-    <string name="security_settings_biometrics_summary_both">မျက်နှာနှင့် လက်ဗွေ</string>
-    <string name="security_settings_biometrics_summary_face">မျက်နှာကိုသာ သုံးမည်</string>
-    <string name="security_settings_biometrics_summary_fingerprint">လက်ဗွေကိုသာ သုံးမည်</string>
-    <string name="security_settings_biometrics_summary_none">စနစ်ထည့်သွင်းရန် တို့ပါ</string>
-    <string name="security_settings_biometrics_title">မျက်နှာနှင့် လက်ဗွေသုံးလော့ခ်ဖွင့်ခြင်း</string>
-    <string name="security_settings_biometrics_types_category">သော့ဖွင့်ရန် နည်းလမ်းများ</string>
     <string name="security_settings_face_enroll_consent_introduction_title">‘မျက်နှာပြ လော့ခ်ဖွင့်ခြင်း’ ကို ခွင့်ပြုရန်</string>
     <string name="security_settings_face_enroll_dialog_ok">OK</string>
     <string name="security_settings_face_enroll_done">ပြီးပြီ</string>
@@ -4383,18 +4401,19 @@ g.co/pixel/faceunlock တွင် ပိုမိုလေ့လာပါ။"</
 
 g.co/pixel/faceunlock တွင် ပိုမိုလေ့လာပါ။"</string>
     <string name="security_settings_face_enroll_introduction_control_title">သင့်ထိန်းချုပ်မှုအောက်တွင် ရှိပါသည်</string>
-    <string name="security_settings_face_enroll_introduction_how_consent_message">"‘မျက်နှာပြ လော့ခ်ဖွင့်ခြင်း’ က သင့်ကလေးကို သူဖြစ်ကြောင်း အတည်ပြုရန်အတွက် သူ့လက်ဗွေ၏ သီးခြားနမူနာတစ်ခုကို ပြုလုပ်သည်။ စနစ်ထည့်သွင်းနေစဉ် ဤမျက်နှာနမူနာကို ပြုလုပ်ရန်အတွက် သင့်ကလေး၏မျက်နှာကို ရှုထောင့်အမျိုးမျိုးမှ ပုံများရိုက်ကူးမည်။
+    <string name="security_settings_face_enroll_introduction_how_consent_message">"‘မျက်နှာပြ လော့ခ်ဖွင့်ခြင်း’ က သင့်ကလေးကို သူဖြစ်ကြောင်း အတည်ပြုရန်အတွက် သူ့မျက်နှာ၏ သီးခြားနမူနာတစ်ခုကို ပြုလုပ်သည်။ စနစ်ထည့်သွင်းနေစဉ် ဤမျက်နှာနမူနာကို ပြုလုပ်ရန်အတွက် သင့်ကလေး၏မျက်နှာကို ရှုထောင့်အမျိုးမျိုးမှ ပုံများရိုက်ကူးမည်။
 
-သူက ‘မျက်နှာပြ လော့ခ်ဖွင့်ခြင်း’ သုံးသောအခါ သူ၏မျက်နှာနမူနာကို အပ်ဒိတ်လုပ်ရန် ပုံများကို သုံးသည်။ သူ၏မျက်နှာနမူနာပြုလုပ်ရန် သုံးထားသောပုံများကို မည်သည့်အခါမှ မသိမ်းပါ။ သို့သော် မျက်နှာနမူနာကို ဖုန်းတွင် လုံခြုံစွာသိမ်းပြီး ဖုန်းအတွင်း၌သာ ထားပါသည်။ လုပ်ဆောင်ချက်အားလုံး ဖုန်းတွင် လုံခြုံစွာ ဖြစ်ပေါ်သည်။"</string>
+သူက ‘မျက်နှာပြ လော့ခ်ဖွင့်ခြင်း’ သုံးသောအခါ သူ၏မျက်နှာနမူနာကို အပ်ဒိတ်လုပ်ရန် ပုံများကို သုံးသည်။ သူ၏မျက်နှာနမူနာပြုလုပ်ရန် သုံးထားသောပုံများကို မသိမ်းပါ။ သို့သော် မျက်နှာနမူနာကို ဖုန်းတွင် လုံခြုံစွာသိမ်းပြီး ဖုန်းအတွင်း၌သာ ထားပါသည်။ လုပ်ဆောင်ချက်အားလုံး ဖုန်းတွင် လုံခြုံစွာ ဖြစ်ပေါ်သည်။"</string>
     <string name="security_settings_face_enroll_introduction_how_message">"‘မျက်နှာပြ လော့ခ်ဖွင့်ခြင်း’ က သင်ဖြစ်ကြောင်း အတည်ပြုရန် သင့်မျက်နှာ၏ သီးခြားနမူနာတစ်ခုကို ပြုလုပ်သည်။ စနစ်ထည့်သွင်းနေစဉ် ဤမျက်နှာနမူနာကို ပြုလုပ်ရန်အတွက် သင့်မျက်နှာကို ရှုထောင့်အမျိုးမျိုးမှ ပုံများရိုက်ကူးမည်။
 
-‘မျက်နှာပြ လော့ခ်ဖွင့်ခြင်း’ သုံးသောအခါ သင့်မျက်နှာနမူနာကို အပ်ဒိတ်လုပ်ရန် ပုံများကို သုံးသည်။ သင်၏မျက်နှာနမူနာပြုလုပ်ရန် သုံးထားသောပုံများကို မည်သည့်အခါမှ မသိမ်းပါ။ သို့သော် မျက်နှာနမူနာကို သင့်ဖုန်းတွင် လုံခြုံစွာသိမ်းပြီး ဖုန်းအတွင်း၌သာ ထားပါသည်။ လုပ်ဆောင်ချက်အားလုံး သင့်ဖုန်းတွင် လုံခြုံစွာ ဖြစ်ပေါ်သည်။"</string>
+‘မျက်နှာပြ လော့ခ်ဖွင့်ခြင်း’ သုံးသောအခါ သင့်မျက်နှာနမူနာကို အပ်ဒိတ်လုပ်ရန် ပုံများကို သုံးသည်။ သင်၏မျက်နှာနမူနာပြုလုပ်ရန် သုံးထားသောပုံများကို မသိမ်းပါ။ သို့သော် မျက်နှာနမူနာကို သင့်ဖုန်းတွင် လုံခြုံစွာသိမ်းပြီး ဖုန်းအတွင်း၌သာ ထားပါသည်။ လုပ်ဆောင်ချက်အားလုံး သင့်ဖုန်းတွင် လုံခြုံစွာ ဖြစ်ပေါ်သည်။"</string>
     <string name="security_settings_face_enroll_introduction_how_title">အလုပ်လုပ်ပုံ</string>
     <string name="security_settings_face_enroll_introduction_info_consent_gaze">ဖုန်းကို လော့ခ်ဖွင့်ရန်အတွက် (သို့) သင့်ကလေးဖြစ်ကြောင်း အတည်ပြုရန်အတွက် ‘မျက်နှာပြ လော့ခ်ဖွင့်ခြင်း’ သည် သူ၏မျက်လုံးများကို ဖွင့်ထားရန်လိုအပ်နိုင်သည်။ သင်နှင့် သင့်ကလေးက ဤနည်းလမ်းကို ဆက်တင်များတွင် အချိန်မရွေး ဖွင့်နိုင်သည်။</string>
     <string name="security_settings_face_enroll_introduction_info_consent_glasses">သင့်ကလေးသည် မျက်မှန်တပ်လေ့ရှိသူဖြစ်လျှင် စနစ်ထည့်သွင်းစဉ်တွင် မျက်မှန်တပ်ထားနိုင်သည်။</string>
     <string name="security_settings_face_enroll_introduction_info_consent_looking">မတော်တဆ သူ ဖုန်းကို ကြည့်မိရုံမျှဖြင့် ဖုန်းပွင့်သွားနိုင်ပါသည်။ အမြွှာကဲ့သို့ သူနှင့်အလွန်တူသူကလည်း သူ့ဖုန်းကို လော့ခ်ဖွင့်နိုင်သည် (သို့) တစ်စုံတစ်ယောက်က ဖုန်းကို သူ့မျက်နှာရှေ့ကိုင်ထားလျှင် ပွင့်နိုင်သည်။</string>
     <string name="security_settings_face_enroll_introduction_info_gaze">ဖုန်းကို လော့ခ်ဖွင့်ရန်အတွက် (သို့) သင်ဖြစ်ကြောင်း အတည်ပြုရန်အတွက် ‘မျက်နှာပြ လော့ခ်ဖွင့်ခြင်း’ သည် သင်၏မျက်လုံးများကို ဖွင့်ထားရန်လိုအပ်နိုင်သည်။ ဤနည်းလမ်းကို ဆက်တင်များတွင် အချိန်မရွေး ဖွင့်နိုင်သည်။</string>
     <string name="security_settings_face_enroll_introduction_info_glasses">မျက်မှန် (သို့) အရောင်အနည်းငယ်ပါသည့် နေကာမျက်မှန်များ သုံးနိုင်သည်။</string>
+    <string name="security_settings_face_enroll_introduction_info_less_secure">မျက်နှာကိုသုံး၍ ဖုန်းလော့ခ်ဖွင့်ခြင်းသည် ခိုင်မာသည့်ပုံစံ (သို့) ပင်နံပါတ်လောက် လုံခြုံမှုမရှိနိုင်ပါ။</string>
     <string name="security_settings_face_enroll_introduction_info_looking">မတော်တဆ သင့်ဖုန်းကို ကြည့်မိရုံမျှဖြင့် ဖုန်းပွင့်သွားနိုင်ပါသည်။ အမြွှာကဲ့သို့ သင်နှင့်အလွန်တူသူကလည်း သင့်ဖုန်းကို လော့ခ်ဖွင့်နိုင်သည် (သို့) တစ်စုံတစ်ယောက်က ဖုန်းကို သင့်မျက်နှာရှေ့ကိုင်ထားလျှင် ပွင့်နိုင်သည်။</string>
     <string name="security_settings_face_enroll_introduction_info_title">သတိပြုရန်</string>
     <string name="security_settings_face_enroll_introduction_message">အက်ပ်များသို့ လက်မှတ်ထိုးဝင်သောအခါ (သို့) ဝယ်ယူမှုကို အတည်ပြုသောအခါကဲ့သို့တွင် သင်ဖြစ်ကြောင်း အတည်ပြုရန်အတွက် (သို့) သင့်ဖုန်းကို လော့ခ်ဖွင့်ရန်အတွက် သင့်မျက်နှာကို သုံးပါ။</string>
@@ -4452,13 +4471,14 @@ g.co/pixel/faceunlock တွင် ပိုမိုလေ့လာပါ။"</
 
 အမြွှာကဲ့သို့ သင်နှင့်အလွန်တူသူက သင့်ဖုန်းကို လော့ခ်ဖွင့်နိုင်သည်။"</string>
     <string name="security_settings_face_settings_preferences_category">မျက်နှာပြ လော့ခ်ဖွင့်ခြင်းကို သုံးလျှင်</string>
-    <string name="security_settings_face_settings_remove_dialog_details">သင်၏မျက်နှာနမူနာကို လုံခြုံစွာ အပြီးဖျက်လိုက်ပါမည်။ ဖျက်ပြီးသည့်အခါ သင့်ဖုန်းကို လော့ခ်ဖွင့်ရန် (သို့) အက်ပ်များတွင် အထောက်အထားစိစစ်ခြင်းအတွက် ပင်နံပါတ်၊ ပုံစံ (သို့) စကားဝှက် လိုအပ်ပါမည်။</string>
+    <string name="security_settings_face_settings_remove_dialog_details">"သင်၏မျက်နှာနမူနာကို လုံခြုံစွာ အပြီးဖျက်လိုက်ပါမည်။ 
+
+ဖျက်ပြီးသည့်အခါ သင့်ဖုန်းကို လော့ခ်ဖွင့်ရန် (သို့) အက်ပ်များတွင် အထောက်အထားစိစစ်ခြင်းအတွက် ပင်နံပါတ်၊ ပုံစံ (သို့) စကားဝှက် လိုအပ်ပါမည်။"</string>
+    <string name="security_settings_face_settings_remove_dialog_details_convenience">"သင်၏မျက်နှာနမူနာကို လုံခြုံစွာ အပြီးဖျက်လိုက်ပါမည်။
+
+ဖျက်ပြီးသည့်အခါ သင်၏ဖုန်းကိုဖွင့်ရန် လက်ဗွေ၊ ပင်နံပါတ်၊ ပုံစံ (သို့) စကားဝှက် လိုအပ်ပါမည်။"</string>
     <string name="security_settings_face_settings_remove_dialog_title">မျက်နှာနမူနာကို ဖျက်မလား။</string>
     <string name="security_settings_face_settings_remove_face_model">မျက်နှာနမူနာကို ဖျက်ရန်</string>
-    <string name="security_settings_face_settings_remove_model_dialog_details">"သင်၏မျက်နှာနမူနာကို လုံခြုံစွာ အပြီးဖျက်လိုက်ပါမည်။
-
-ဖျက်ပြီးသည့်အခါ သင့်ဖုန်းလော့ခ်ဖွင့်ရန် (သို့) အက်ပ်များတွင် အထောက်အထားစိစစ်ခြင်းအတွက် လက်ဗွေ၊ ပင်နံပါတ်၊ ပုံစံ၊ (သို့) စကားဝှက်ကို လိုအပ်ပါမည်။"</string>
-    <string name="security_settings_face_settings_remove_model_dialog_title">မျက်နှာနမူနာကို ဖျက်မလား။</string>
     <string name="security_settings_face_settings_require_attention">မျက်လုံးများ ဖွင့်ထားရမည်</string>
     <string name="security_settings_face_settings_require_attention_details">ဖုန်းလော့ခ်ဖွင့်ရန် သင့်မျက်လုံးများ ဖွင့်ထားရမည်</string>
     <string name="security_settings_face_settings_require_confirmation">အတည်ပြုချက် အမြဲလိုအပ်သည်</string>
@@ -4537,11 +4557,11 @@ g.co/pixel/faceunlock တွင် ပိုမိုလေ့လာပါ။"</
     <string name="security_settings_fingerprint_v2_home_screen">"အက်ပ်များသို့ လက်မှတ်ထိုးဝင်သောအခါကဲ့သို့ သင်ဖြစ်ကြောင်း အတည်ပြုရန်အတွက် (သို့) သင့်ဖုန်းကို လော့ခ်ဖွင့်ရန်အတွက် သင့်လက်ဗွေကို သုံးပါ
 
 "<annotation id="url">ပိုမိုလေ့လာရန်</annotation></string>
-    <string name="security_settings_summary">ကျွန်ုပ်၏တည်နေရာ စကရင်ကိုသော့ဖွင့်ခြင်း ဆင်းမ်ကဒ်သော့ချခြင်း ယုံကြည်စိတ်ချရသောသိုလှောင်ရာနေရာတို့ကို သတ်မှတ်မည်</string>
+    <string name="security_settings_summary">ကျွန်ုပ်၏တည်နေရာ စကရင်ကိုလော့ခ်ဖွင့်ခြင်း ဆင်းမ်ကတ်လော့ခ်ချခြင်း ယုံကြည်စိတ်ချရသောသိုလှောင်ရာနေရာတို့ကို သတ်မှတ်မည်</string>
     <string name="security_settings_title">လုံခြုံရေး</string>
     <string name="security_settings_udfps_enroll_a11y">အာရုံခံကိရိယာကို ရှာရန် သင့်လက်ချောင်းကို စခရင်ပေါ်တွင် ရွှေ့ပါ။ လက်ဗွေ အာရုံခံကိရိယာကို တို့ထိ၍ ဖိထားပါ။</string>
     <string name="security_settings_udfps_enroll_edge_message">အာရုံခံကိရိယာပေါ်တွင် သင့်လက်ဗွေ၏ဘေးခြမ်းကို တင်ပြီးဖိထားပါ။ ထို့နောက် အခြားတစ်ဘက်သို့ ပြောင်းပါ</string>
-    <string name="security_settings_udfps_enroll_edge_title">နောက်ဆုံးအနေဖြင့် သင့်လက်ချောင်း၏ အစွန်းများကို တင်ပါ</string>
+    <string name="security_settings_udfps_enroll_edge_title">နောက်ဆုံးအနေဖြင့် သင့်လက်ချောင်းထိပ်များကို သုံးပါ</string>
     <string name="security_settings_udfps_enroll_find_sensor_message">လက်ဗွေ အာရုံခံကိရိယာသည် သင့်စခရင်ပေါ်တွင်ရှိသည်။ နောက်စခရင်တွင် သင့်လက်ဗွေကို ရိုက်ကူးပါမည်။</string>
     <string name="security_settings_udfps_enroll_find_sensor_start_button">စတင်ရန်</string>
     <string name="security_settings_udfps_enroll_find_sensor_title">သင့်လက်ဗွေ စနစ်ထည့်သွင်းနည်း</string>
@@ -4550,7 +4570,7 @@ g.co/pixel/faceunlock တွင် ပိုမိုလေ့လာပါ။"</
     <string name="security_settings_udfps_enroll_repeat_a11y_message">၎င်းက သင့်လက်ဗွေကို ပိုမိုဖမ်းယူပေးသည်</string>
     <string name="security_settings_udfps_enroll_repeat_message">လက်ဗွေသင်္ကေတ ရွေ့သွားတိုင်း တို့ထိ၍ ဖိထားပါ။ ၎င်းက သင့်လက်ဗွေကို ပိုမိုဖမ်းယူပေးသည်။</string>
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">လက်ဗွေသင်္ကေတကို ထပ်တို့ပါ</string>
-    <string name="security_settings_udfps_enroll_start_message">တုန်ခါမှုကို ခံစားရချိန်အထိ သင့်လက်ချောင်းကို အာရုံခံကိရိယာပေါ်တွင် ထားပါ</string>
+    <string name="security_settings_udfps_enroll_start_message">တုန်ခါမှုကို ခံစားရချိန်အထိ အာရုံခံကိရိယာပေါ်တွင် သင့်လက်ဗွေထည့်သွင်းပါ</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">နောက်တစ်ကြိမ်</string>
     <string name="security_settings_work_fingerprint_preference_title">အလုပ်အတွက် Pixel Imprint</string>
     <string name="security_status_title">လုံခြုံရေး အခြေအနေ</string>
@@ -4576,7 +4596,6 @@ g.co/pixel/faceunlock တွင် ပိုမိုလေ့လာပါ။"</
     <string name="select_webview_provider_dialog_title">WebView အကောင်အထည်ဖော်မှု သတ်မှတ်ပါ</string>
     <string name="select_webview_provider_title">WebView အကောင်အထည်ဖော်မှု</string>
     <string name="select_webview_provider_toast_text">ဤရွေးချယ်မှု မှန်ကန်မှု မရှိတော့ပါ။ ထပ်စမ်းကြည့်ပါ။</string>
-    <string name="sensor_toggle_description">အက်ပ်နှင့် ဝန်ဆောင်မှုအားလုံးအတွက်</string>
     <string name="sensors_off_quick_settings_title">အာရုံခံစနစ်များ ပိတ်ပါ</string>
     <string name="service_background_processes">%1$s အားနေသည်</string>
     <string name="service_foreground_processes">%1$s သုံးနေ</string>
@@ -4696,7 +4715,7 @@ g.co/pixel/faceunlock တွင် ပိုမိုလေ့လာပါ။"</
     <string name="sim_card">SIM</string>
     <string name="sim_card_label">ဆင်းမ်ကတ်</string>
     <string name="sim_card_number_title">ဆင်းမ် %1$d</string>
-    <string name="sim_card_select_title">ဆင်းမ် ကဒ်ကို ရွေးရန်</string>
+    <string name="sim_card_select_title">ဆင်းမ် ကတ်ကို ရွေးရန်</string>
     <string name="sim_cards_changed_message">ဆင်းမ် ကဒ်များ ပြောင်းလဲသွားပြီ</string>
     <string name="sim_cards_changed_message_summary">လှုပ်ရှားမှုများ သတ်မှတ်ရန် တို့ပါ</string>
     <string name="sim_category_active_sim">အသုံးပြုနေသည်</string>
@@ -4713,7 +4732,7 @@ g.co/pixel/faceunlock တွင် ပိုမိုလေ့လာပါ။"</
     <string name="sim_change_pin">ဆင်းကဒ် ပင်နံပါတ်</string>
     <string name="sim_change_succeeded">ဆင်းကဒ် ပင်နံပါတ် ပြောင်းခြင်းအောင်မြင်ပါသည်</string>
     <string name="sim_combination_warning_notification_title">ဆင်းမ်ကတ် ပေါင်းစပ်အသုံးပြုမှုတွင် ပြဿနာရှိသည်</string>
-    <string name="sim_disable_sim_lock">ဆင်းမ်ကဒ်ကို သော့ဖွင့်ရန်</string>
+    <string name="sim_disable_sim_lock">ဆင်းမ်ကတ်ကို လော့ခ်ဖွင့်ရန်</string>
     <string name="sim_editor_carrier">စီမံပေးသူ</string>
     <string name="sim_editor_color">ဆင်းမ် အရောင်</string>
     <string name="sim_editor_name">ဆင်းမ် အမည်</string>
@@ -4725,15 +4744,15 @@ g.co/pixel/faceunlock တွင် ပိုမိုလေ့လာပါ။"</
     <string name="sim_enter_ok">OK</string>
     <string name="sim_enter_old">ဆင်းကဒ် ပင်နံပါတ်အဟောင်း</string>
     <string name="sim_enter_pin">ဆင်းကဒ် ပင်နံပါတ်</string>
-    <string name="sim_lock_failed">"ဆင်းမ်ကဒ်သော့ကျနေမှုအခြေအနေအား ပြောင်းမရပါ။ 
-ပင်နံပါတ်မှားယွင်းမှု ဖြစ်နိုင်သည်။"</string>
+    <string name="sim_lock_failed">"ဆင်းမ် လော့ခ်ကျနေသည်။ 
+ပင် မှားနေသည်။"</string>
     <string name="sim_lock_off">ဖုန်းကိုအသုံးပြုရန် ပင်နံပါတ်လိုအပ်သည်</string>
     <string name="sim_lock_on">ဖုန်းကိုအသုံးပြုရန် ပင်နံပါတ်လိုအပ်သည်</string>
     <string name="sim_lock_settings">ဆင်းမ်ကတ် လော့ခ်ဆက်တင်များ</string>
     <string name="sim_lock_settings_category">ဆင်းမ်ကတ် လော့ခ်</string>
     <string name="sim_lock_settings_summary_off">ပိတ်</string>
     <string name="sim_lock_settings_summary_on">လော့ခ်ချထားသည်</string>
-    <string name="sim_lock_settings_title">ဆင်းကဒ် သော့ချခြင်း</string>
+    <string name="sim_lock_settings_title">ဆင်းမ်ကတ် လော့ခ်ချခြင်း</string>
     <string name="sim_multi_sims_summary">မိုဘိုင်းဒေတာ အသုံးပြုလိုသည့် ဆင်းမ်ကဒ်ကို ရွေးပါ။</string>
     <string name="sim_multi_sims_title">ဆင်းမ်များ အများအပြား တွေ့ထား</string>
     <string name="sim_name_hint">ဆင်းမ်အမည် ရိုက်ထည့်ပါ</string>
@@ -4748,9 +4767,9 @@ g.co/pixel/faceunlock တွင် ပိုမိုလေ့လာပါ။"</
     <string name="sim_pin_toggle">ဆင်းမ်ကတ် လော့ခ်ချခြင်း</string>
     <string name="sim_pins_dont_match">ပင်နံပါတ်များ မတူပါ။</string>
     <string name="sim_preferred_message">%1$s သည် သင့်ဖုန်းထဲရှိ တစ်ခုတည်းသော ဆင်းမ်ကဒ်ဖြစ်သည်။ ဤဆင်းမ်ကဒ်ကို မိုဘိုင်းဒေတာ အသုံးပြုရန်၊ ဖုန်းခေါ်ရန်နှင့် SMS မက်ဆေ့ဂျ်ပို့ရန် အတွက် အသုံးပြုလိုပါသလား။</string>
-    <string name="sim_preferred_title">SIM ကဒ်ကို အပ်ဒိတ်လုပ်မလား</string>
+    <string name="sim_preferred_title">SIM ကတ်ကို အပ်ဒိတ်လုပ်မလား</string>
     <string name="sim_reenter_new">PIN အသစ်ကို ပြန်ပြီး တိုက်ရိုက်ပါ</string>
-    <string name="sim_select_card">ဆင်းမ် ကဒ်ကို ရွေးရန်</string>
+    <string name="sim_select_card">ဆင်းမ် ကတ်ကို ရွေးရန်</string>
     <string name="sim_selection_channel_title">ဆင်းမ် ရွေးချယ်ရန်</string>
     <string name="sim_selection_required_pref">ရွေးချယ်ရန် လိုအပ်</string>
     <string name="sim_settings_summary">အမည် %1$s နံပါတ်%2$s</string>
@@ -4808,6 +4827,7 @@ g.co/pixel/faceunlock တွင် ပိုမိုလေ့လာပါ။"</
     <string name="sound_settings_summary_silent">ဖုန်းမြည်သံကို အသံပိတ်ထားပါသည်</string>
     <string name="sound_settings_summary_vibrate">ဖုန်းမြည်သံကို တုန်ခါမှုအဖြစ် သတ်မှတ်ထားပါသည်</string>
     <string name="sound_work_settings">အလုပ်ပရိုဖိုင်ဆိုင်ရာ အသံများ</string>
+    <string name="spatial_audio_title">စပေရှယ် အသံ</string>
     <string name="special_access">အထူးသုံးခွင့်ရ အက်ပ်</string>
     <string name="special_access_more">နောက်ထပ်ကြည့်ပါ</string>
     <string name="speed_label_fast">မြန်</string>
@@ -4820,7 +4840,7 @@ g.co/pixel/faceunlock တွင် ပိုမိုလေ့လာပါ။"</
     <string name="spell_checker_primary_switch_title">သတ်ပုံစစ်စနစ် အသုံးပြုပါ</string>
     <string name="spellchecker_language">ဘာသာစကား</string>
     <string name="spellchecker_quick_settings">ဆက်တင်များ</string>
-    <string name="spellchecker_security_warning">ဤစာလုံးပေါင်းစစ်ဆေးရာတွင် သင့်ကိုယ်ရေးအချက်အလက်များဖြစ်သော စကားဝှက်များနှင့် ကရက်ဒစ်ကဒ်နံပါတ်စသည်တို့အပါအဝင် သင်ရိုက်ထည့်သောစာများအားလုံးကို ရယူသွားမည်ဖြစ်သည်။ %1$sဤစာလုံးပေါင်းစစ်ဆေးခြင်းကို အသုံးပြုမည်လား?</string>
+    <string name="spellchecker_security_warning">ဤစာလုံးပေါင်းစစ်ဆေးရာတွင် သင့်ကိုယ်ရေးအချက်အလက်များဖြစ်သော စကားဝှက်များနှင့် ခရက်ဒစ်ကတ်နံပါတ်စသည်တို့အပါအဝင် သင်ရိုက်ထည့်သောစာများအားလုံးကို ရယူသွားမည်ဖြစ်သည်။ ဤသည်မှာ %1$s အက်ပ်မှဖြစ်သည်။ ဤစာလုံးပေါင်းစစ်စနစ်ကို အသုံးပြုမလား။</string>
     <string name="spellcheckers_settings_for_work_title">အလုပ်အတွက် စာလုံးပေါင်းစစ်စနစ်</string>
     <string name="spellcheckers_settings_title">စာလုံးပေါင်းစစ်ခြင်း</string>
     <string name="ssl_ca_cert_warning">ကွန်ရက်ကို စောင့်ကြည့်စစ်ဆေးခံရနိုင်သည်</string>
@@ -5200,7 +5220,7 @@ g.co/pixel/faceunlock တွင် ပိုမိုလေ့လာပါ။"</
     <string name="tts_engine_preference_section_title">ဦးစားပေးအင်ဂျင်</string>
     <string name="tts_engine_preference_title">ဦးစားပေးအင်ဂျင်</string>
     <string name="tts_engine_section_title">အင်ဂျင်</string>
-    <string name="tts_engine_security_warning">ဤစကားသံပေါင်းစပ်အင်ဂျင်အားအသုံးပြုရာရာတွင် သင့်ကိုယ်ရေးအချက်အလက်များဖြစ်သော စကားဝှက်များနှင့် ကရက်ဒစ်ကဒ်နံပါတ်စသည်တို့အပါအဝင် သင်ပြောဆိုသောစာသားများအားလုံးကို ရယူသွားမည်ဖြစ်သည်။ %sအင်ဂျင်မှ လာပါသည်။ ဤစကားသံပေါင်းစပ်အင်ဂျင်ကို အသုံးပြုမည်လား?</string>
+    <string name="tts_engine_security_warning">ဤစကားသံပေါင်းစပ်စနစ်အားအသုံးပြုရာရာတွင် သင့်ကိုယ်ရေးအချက်အလက်များဖြစ်သော စကားဝှက်များနှင့် ကရက်ဒစ်ကတ်နံပါတ်စသည်တို့အပါအဝင် သင်ပြောဆိုသောစာသားများအားလုံးကို ရယူသွားမည်ဖြစ်သည်။ ဤစနစ်သည် %s မှ လာပါသည်။ ဤစကားသံပေါင်းစပ်စနစ်ကို အသုံးပြုမလား။</string>
     <string name="tts_engine_settings_button">အင်ဂျင်ဆက်တင်များကိုဖွင့်ခြင်း</string>
     <string name="tts_engine_settings_title">အင်ဂျင်ဆက်တင်များ</string>
     <string name="tts_general_section_title">ယေဘုယျ</string>
@@ -5428,7 +5448,7 @@ g.co/pixel/faceunlock တွင် ပိုမိုလေ့လာပါ။"</
     <string name="user_cannot_manage_message">ဖုန်း၏ ပိုင်ရှင်သာ သုံးစွဲသူများကို စီမံခန့်ခွဲနိုင်သည်</string>
     <string name="user_certificate">VPN အက်ပ်သုံးသူလက်မှတ်</string>
     <string name="user_confirm_remove_message">အက်ပ်အားလုံးနှင့် ဒေတာကို ဖျက်ပါမည်။</string>
-    <string name="user_confirm_remove_self_message">ဤဖုန်းပေါ်မှ သင့်နေရာနှင့် အချက်အလက်များသည် ပျောက်သွားလိမ့်မည်။ ဤလုပ်ဆောင်ချက်ကို သင် နောက်ပြန်သွား၍ မရနိုင်ပါ။</string>
+    <string name="user_confirm_remove_self_message">ဤဖုန်းပေါ်မှ သင့်နေရာနှင့် အချက်အလက်များသည် ပျောက်သွားလိမ့်မည်။ ဤလုပ်ဆောင်ချက်ကို ပြန်ပြင်၍မရပါ။</string>
     <string name="user_confirm_remove_self_title">သင့်ကို ဖယ်ရှားမလား။</string>
     <string name="user_confirm_remove_title">ဤအသုံးပြုသူကို ဖျက်မလား။</string>
     <string name="user_credential_none_installed">မည်သည့် အသုံးပြုသူအထောက်အထားကိုမျှ ထည့်သွင်းမထားပါ</string>
@@ -5619,7 +5639,7 @@ g.co/pixel/faceunlock တွင် ပိုမိုလေ့လာပါ။"</
     <string name="vpn_turn_on">ဖွင့်ရန်</string>
     <string name="vpn_type">အမျိုးအစား</string>
     <string name="vpn_username">သုံးသူအမည်</string>
-    <string name="vpn_version">ဗားရှင်း %s</string>
+    <string name="vpn_version">ဗားရှင်း</string>
     <string name="vr_listener_security_warning_summary">ပကတိအသွင်မုဒ်တွင် အက်ပ်များကို သင်အသုံးပြုနေစဉ်တွင် %1$s ကိုဖွင့်နိုင်ပါလိမ့်မည်။</string>
     <string name="vr_listener_security_warning_title">%1$s အတွက် VR ဝန်ဆောင်မှု အသုံးပြုခွင့်ပြုမလား။</string>
     <string name="vr_listeners_title">VR အထောက်အကူပြု ဝန်ဆောင်မှုများ</string>
@@ -5889,7 +5909,7 @@ g.co/pixel/faceunlock တွင် ပိုမိုလေ့လာပါ။"</
     <string name="wifi_not_in_range">စက်ကွင်းထဲတွင် မဟုတ်ပါ</string>
     <string name="wifi_not_in_range_message">ကွန်ရက်သည် ရနိုင်သောအကွာအဝေးတွင် မရှိပါ</string>
     <string name="wifi_notify_open_networks">အများသုံးကွန်ရက်များအတွက် အသိပေးခြင်း</string>
-    <string name="wifi_notify_open_networks_summary">အလိုအလျောက် ချိတ်ဆက်မှု မရနိုင်လျှင်</string>
+    <string name="wifi_notify_open_networks_summary">အရည်အသွေးမြင့် အများသုံးကွန်ရက်ရှိလျှင် အကြောင်းကြားပေးရန်</string>
     <string name="wifi_on_time">အချိန်ကိုက်ဝိုင်ဖိုင်</string>
     <string name="wifi_p2p_cancel_connect_message">%1$s နှင့် ချိတ်ဆက်ရန် ဖိတ်ကြားချက်ကို သင်ဖျက်သိမ်းချင်သလား?</string>
     <string name="wifi_p2p_cancel_connect_title">ဖိတ်ကြားချက် ဖျက်သိမ်းမည်လား?</string>
@@ -5977,7 +5997,6 @@ g.co/pixel/faceunlock တွင် ပိုမိုလေ့လာပါ။"</
     <string name="wifi_suspend_optimizations">"Wi-Fi  သင့်တော်အောင်ဆောင်ရွက်ခြင်း"</string>
     <string name="wifi_suspend_optimizations_summary">ဝိုင်ဖိုင်ဖွင့်ထားစဉ် ဘက်ထရီအသုံးပြုမှု အနည်းဆုံး ဖြစ်ရန်</string>
     <string name="wifi_switch_away_when_unvalidated">Wi-Fi တွင် အင်တာနက် သုံးစွဲခွင့်မရှိတော့ပါက မိုဘိုင်းဒေတာသို့ ပြောင်းပါ။</string>
-    <string name="wifi_switch_summary">Wi-Fi ကွန်ရက်များကို ရှာဖွေပြီး ချိတ်ဆက်ရန်</string>
     <string name="wifi_tap_to_sign_in">ကွန်ရက်သို့ လက်မှတ်ထိုးဝင်ရန် ဤနေရာတွင် တို့ပါ</string>
     <string name="wifi_tether_configure_ap_text">Wi-Fi ဟော့စပေါ့ သတ်မှတ်ရန်</string>
     <string name="wifi_tether_configure_ssid_default">Android ဟော့စပေါ့</string>
@@ -6301,7 +6320,7 @@ g.co/pixel/faceunlock တွင် ပိုမိုလေ့လာပါ။"</
     <string name="zen_mode_settings_title">မနှောင့်ယှက်ရ</string>
     <string name="zen_mode_settings_turn_on_dialog_title">"'မနှောင့်ယှက်ရ' ဖွင့်ခြင်း"</string>
     <string name="zen_mode_slice_subtitle">အနှောင့်အယှက်များကို တားဆီးသည်</string>
-    <string name="zen_mode_sound_summary_off">{count,plural, =0{ပိတ်ရန်}=1{ပိတ်ရန် / အချိန်ဇယား ၁ ခုကို အလိုအလျောက် ဖွင့်နိုင်သည်}other{ပိတ်ရန် / အချိန်ဇယား # ခုကို အလိုအလျောက် ဖွင့်နိုင်သည်}}</string>
+    <string name="zen_mode_sound_summary_off">{count,plural, =0{ပိတ်}=1{ပိတ် / အစီအစဉ် ၁ ခု အလိုအလျောက် ဖွင့်နိုင်သည်}other{ပိတ် / အစီအစဉ် # ခု အလိုအလျောက် ဖွင့်နိုင်သည်}}</string>
     <string name="zen_mode_sound_summary_on">ဖွင့်</string>
     <string name="zen_mode_sound_summary_on_with_info">ဖွင့် / %1$s</string>
     <string name="zen_mode_sounds_none">မည်သည့်အရာကမျှ ကြားဖြတ်နိုင်ခြင်းမရှိပါ</string>

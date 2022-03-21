@@ -15,7 +15,7 @@
 .method private static parse(Landroid/net/Uri;)Landroid/net/Uri;
     .locals 3
 
-    const-string v0, "slice"
+    const-string/jumbo v0, "slice"
 
     invoke-virtual {p0, v0}, Landroid/net/Uri;->getQueryParameter(Ljava/lang/String;)Ljava/lang/String;
 

@@ -49,12 +49,12 @@
 
     if-nez p0, :cond_0
 
-    const p0, 0x7f040eaa
+    const p0, 0x7f040ed6
 
     goto :goto_0
 
     :cond_0
-    const p0, 0x7f040ea9
+    const p0, 0x7f040ed5
 
     :goto_0
     invoke-virtual {p1, p0}, Landroidx/preference/Preference;->setTitle(I)V
@@ -97,6 +97,16 @@
     move-result-object p0
 
     return-object p0
+.end method
+
+.method public bridge synthetic getSliceHighlightMenuRes()I
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getSliceHighlightMenuRes()I
+
+    move-result p0
+
+    return p0
 .end method
 
 .method public bridge synthetic hasAsyncUpdate()Z

@@ -17,6 +17,8 @@
 # instance fields
 .field private mFragmentClassName:Ljava/lang/String;
 
+.field private mHighlightMenuRes:I
+
 .field private mIconResource:I
 
 .field private mIsPublicSlice:Z
@@ -77,6 +79,14 @@
     .locals 0
 
     iget-boolean p0, p0, Lcom/android/settings/slices/SliceData$Builder;->mIsPublicSlice:Z
+
+    return p0
+.end method
+
+.method static synthetic access$1200(Lcom/android/settings/slices/SliceData$Builder;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/settings/slices/SliceData$Builder;->mHighlightMenuRes:I
 
     return p0
 .end method
@@ -156,7 +166,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_4
 
     iget-object v0, p0, Lcom/android/settings/slices/SliceData$Builder;->mTitle:Ljava/lang/String;
 
@@ -164,7 +174,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_3
 
     iget-object v0, p0, Lcom/android/settings/slices/SliceData$Builder;->mFragmentClassName:Ljava/lang/String;
 
@@ -172,7 +182,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2
 
     iget-object v0, p0, Lcom/android/settings/slices/SliceData$Builder;->mPrefControllerClassName:Ljava/lang/String;
 
@@ -180,8 +190,33 @@
 
     move-result v0
 
+    if-nez v0, :cond_1
+
+    iget v0, p0, Lcom/android/settings/slices/SliceData$Builder;->mHighlightMenuRes:I
+
     if-nez v0, :cond_0
 
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "Highlight menu key res is empty: "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v1, p0, Lcom/android/settings/slices/SliceData$Builder;->mPrefControllerClassName:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "SliceData"
+
+    invoke-static {v1, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
     new-instance v0, Lcom/android/settings/slices/SliceData;
 
     const/4 v1, 0x0
@@ -190,7 +225,7 @@
 
     return-object v0
 
-    :cond_0
+    :cond_1
     new-instance p0, Lcom/android/settings/slices/SliceData$InvalidSliceDataException;
 
     const-string v0, "Preference Controller cannot be empty"
@@ -199,7 +234,7 @@
 
     throw p0
 
-    :cond_1
+    :cond_2
     new-instance p0, Lcom/android/settings/slices/SliceData$InvalidSliceDataException;
 
     const-string v0, "Fragment Name cannot be empty"
@@ -208,7 +243,7 @@
 
     throw p0
 
-    :cond_2
+    :cond_3
     new-instance p0, Lcom/android/settings/slices/SliceData$InvalidSliceDataException;
 
     const-string v0, "Title cannot be empty"
@@ -217,7 +252,7 @@
 
     throw p0
 
-    :cond_3
+    :cond_4
     new-instance p0, Lcom/android/settings/slices/SliceData$InvalidSliceDataException;
 
     const-string v0, "Key cannot be empty"
@@ -231,6 +266,14 @@
     .locals 0
 
     iput-object p1, p0, Lcom/android/settings/slices/SliceData$Builder;->mFragmentClassName:Ljava/lang/String;
+
+    return-object p0
+.end method
+
+.method public setHighlightMenuRes(I)Lcom/android/settings/slices/SliceData$Builder;
+    .locals 0
+
+    iput p1, p0, Lcom/android/settings/slices/SliceData$Builder;->mHighlightMenuRes:I
 
     return-object p0
 .end method

@@ -328,7 +328,7 @@
 
     if-eqz v1, :cond_9
 
-    const-string v1, "user"
+    const-string/jumbo v1, "user"
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -492,13 +492,13 @@
 
     if-eq v4, v7, :cond_5
 
-    const v4, 0x7f04041e
+    const v4, 0x7f040436
 
     invoke-virtual {p1, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v4
 
-    const v9, 0x7f04041d
+    const v9, 0x7f040435
 
     new-array v10, v5, [Ljava/lang/Object;
 
@@ -513,13 +513,13 @@
     goto :goto_1
 
     :cond_5
-    const v4, 0x7f0404f0
+    const v4, 0x7f040507
 
     invoke-virtual {p1, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v4
 
-    const v9, 0x7f0404ef
+    const v9, 0x7f040506
 
     new-array v10, v5, [Ljava/lang/Object;
 
@@ -534,13 +534,13 @@
     goto :goto_1
 
     :cond_6
-    const v1, 0x7f04047d
+    const v1, 0x7f040495
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v4
 
-    const v1, 0x7f040483
+    const v1, 0x7f04049b
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -549,13 +549,13 @@
     goto :goto_1
 
     :cond_7
-    const v1, 0x7f0404ac
+    const v1, 0x7f0404c4
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v4
 
-    const v1, 0x7f0404ab
+    const v1, 0x7f0404c3
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -576,7 +576,7 @@
 
     new-instance v9, Landroid/app/NotificationChannel;
 
-    const v11, 0x7f0403ff
+    const v11, 0x7f040417
 
     invoke-virtual {p1, v11}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

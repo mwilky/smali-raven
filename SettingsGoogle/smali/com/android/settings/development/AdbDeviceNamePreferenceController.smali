@@ -37,7 +37,7 @@
 
     iget-object v1, p0, Lcom/android/settings/development/AdbDeviceNamePreferenceController;->mDeviceName:Ljava/lang/String;
 
-    const-string v2, "text"
+    const-string/jumbo v2, "text"
 
     invoke-static {v2, v1}, Landroid/content/ClipData;->newPlainText(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Landroid/content/ClipData;
 
@@ -57,7 +57,7 @@
 
     aput-object v2, v1, v3
 
-    const v2, 0x7f040697
+    const v2, 0x7f0406af
 
     invoke-virtual {v0, v2, v1}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -138,6 +138,16 @@
     move-result-object p0
 
     return-object p0
+.end method
+
+.method public bridge synthetic getSliceHighlightMenuRes()I
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getSliceHighlightMenuRes()I
+
+    move-result p0
+
+    return p0
 .end method
 
 .method public getSummary()Ljava/lang/CharSequence;

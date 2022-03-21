@@ -39,7 +39,7 @@
 
     move-result v3
 
-    invoke-static {p0}, Lcom/google/android/setupdesign/util/PartnerStyleHelper;->shouldApplyPartnerHeavyThemeResource(Landroid/view/View;)Z
+    invoke-static {p0}, Lcom/google/android/setupdesign/util/PartnerStyleHelper;->shouldApplyPartnerResource(Landroid/view/View;)Z
 
     move-result v5
 
@@ -76,7 +76,7 @@
 
     invoke-virtual {v5, v8, v7}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
 
-    move-result v7
+    move-result v8
 
     invoke-virtual {v5}, Landroid/content/res/TypedArray;->recycle()V
 
@@ -93,6 +93,10 @@
     float-to-int v1, v1
 
     sub-int/2addr v1, v6
+
+    invoke-static {v7, v1}, Ljava/lang/Math;->max(II)I
+
+    move-result v1
 
     goto :goto_0
 
@@ -114,7 +118,11 @@
 
     float-to-int v0, v0
 
-    sub-int/2addr v0, v7
+    sub-int/2addr v0, v8
+
+    invoke-static {v7, v0}, Ljava/lang/Math;->max(II)I
+
+    move-result v0
 
     goto :goto_1
 
@@ -197,7 +205,7 @@
 
     move-result v3
 
-    invoke-static {p0}, Lcom/google/android/setupdesign/util/PartnerStyleHelper;->shouldApplyPartnerHeavyThemeResource(Landroid/view/View;)Z
+    invoke-static {p0}, Lcom/google/android/setupdesign/util/PartnerStyleHelper;->shouldApplyPartnerResource(Landroid/view/View;)Z
 
     move-result v5
 

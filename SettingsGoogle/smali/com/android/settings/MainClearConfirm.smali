@@ -93,7 +93,7 @@
 
     iget-object v0, p0, Lcom/android/settings/MainClearConfirm;->mContentView:Landroid/view/View;
 
-    const v1, 0x7f0d04e2
+    const v1, 0x7f0d04f1
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -117,7 +117,7 @@
 
     invoke-direct {v1, v2}, Lcom/google/android/setupcompat/template/FooterButton$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f040c5c
+    const v2, 0x7f040c74
 
     invoke-virtual {v1, v2}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setText(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -135,7 +135,7 @@
 
     move-result-object p0
 
-    const v1, 0x7f13021a
+    const v1, 0x7f13021c
 
     invoke-virtual {p0, v1}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setTheme(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -175,7 +175,7 @@
 
     iget-object v1, p0, Lcom/android/settings/MainClearConfirm;->mContentView:Landroid/view/View;
 
-    const v2, 0x7f0d0566
+    const v2, 0x7f0d0575
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -396,7 +396,7 @@
 
     if-eqz p3, :cond_0
 
-    const p0, 0x7f06011b
+    const p0, 0x7f06011f
 
     invoke-virtual {p1, p0, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -440,7 +440,7 @@
     return-object p1
 
     :cond_1
-    const p2, 0x7f06011a
+    const p2, 0x7f06011e
 
     invoke-virtual {p1, p2, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -470,7 +470,7 @@
 
     iget-object p0, p0, Lcom/android/settings/MainClearConfirm;->mContentView:Landroid/view/View;
 
-    const v0, 0x7f0d0566
+    const v0, 0x7f0d0575
 
     invoke-virtual {p0, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -478,7 +478,7 @@
 
     check-cast p0, Landroid/widget/TextView;
 
-    const v0, 0x7f040c64
+    const v0, 0x7f040c7c
 
     invoke-virtual {p0, v0}, Landroid/widget/TextView;->setText(I)V
 

@@ -77,7 +77,7 @@
 
     iget-object p0, p0, Lcom/android/settings/network/ProviderModelSliceHelper;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f040b06
+    const v0, 0x7f040b1e
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -123,7 +123,7 @@
 
     iget-object p0, p0, Lcom/android/settings/network/ProviderModelSliceHelper;->mContext:Landroid/content/Context;
 
-    const p1, 0x7f040d09
+    const p1, 0x7f040d34
 
     invoke-virtual {p0, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -140,7 +140,7 @@
 
     iget-object p0, p0, Lcom/android/settings/network/ProviderModelSliceHelper;->mContext:Landroid/content/Context;
 
-    const p1, 0x7f040d07
+    const p1, 0x7f040d32
 
     invoke-virtual {p0, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -157,7 +157,7 @@
 
     iget-object p0, p0, Lcom/android/settings/network/ProviderModelSliceHelper;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f040f2f
+    const v0, 0x7f040f5b
 
     const/4 v1, 0x2
 
@@ -165,7 +165,7 @@
 
     const/4 v2, 0x0
 
-    const v3, 0x7f040d03
+    const v3, 0x7f040d2e
 
     invoke-virtual {p0, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -258,7 +258,7 @@
 
     iget-object v1, p0, Lcom/android/settings/network/ProviderModelSliceHelper;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f020362
+    const v2, 0x7f020369
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -558,7 +558,7 @@
 
     iget-object v0, p0, Lcom/android/settings/network/ProviderModelSliceHelper;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f040d0d
+    const v1, 0x7f040d38
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 

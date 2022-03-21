@@ -195,6 +195,7 @@
     <dimen name="chartview_trapezoid_radius">5.0dip</dimen>
     <dimen name="checkbox_layout_padding">16.0dip</dimen>
     <dimen name="checkbox_widget_min_width">58.0dip</dimen>
+    <dimen name="choose_lockscreen_min_height">200.0dip</dimen>
     <dimen name="circle_avatar_size">40.0dip</dimen>
     <dimen name="clock_face_margin_start">64.0dip</dimen>
     <dimen name="color_mode_preview_height">320.0dip</dimen>
@@ -226,7 +227,7 @@
     <dimen name="confirm_credentials_top_margin">16.0dip</dimen>
     <dimen name="confirm_credentials_top_padding">0.0dip</dimen>
     <dimen name="content_margin_left">16.0dip</dimen>
-    <item type="dimen" name="contextual_card_corner_radius">@*android:dimen/config_dialogCornerRadius</item>
+    <item type="dimen" name="contextual_card_corner_radius">@android:dimen/config_dialogCornerRadius</item>
     <dimen name="contextual_card_dismissal_button_margin_end">6.0dip</dimen>
     <dimen name="contextual_card_dismissal_button_margin_start">4.0dip</dimen>
     <dimen name="contextual_card_dismissal_margin_top">12.0dip</dimen>
@@ -427,6 +428,8 @@
     <item type="dimen" name="hint_alpha_material_light">0.38</item>
     <item type="dimen" name="hint_pressed_alpha_material_dark">0.7</item>
     <item type="dimen" name="hint_pressed_alpha_material_light">0.54</item>
+    <dimen name="homepage_menu_entry_corner_radius">28.0dip</dimen>
+    <dimen name="homepage_menu_entry_padding_horizontal">16.0dip</dimen>
     <dimen name="homepage_title_margin_bottom">8.0dip</dimen>
     <dimen name="homepage_title_margin_horizontal">24.0dip</dimen>
     <dimen name="horizontal_divider_height">0.75dip</dimen>
@@ -731,6 +734,8 @@
     <dimen name="pager_tabs_padding">0.0dip</dimen>
     <dimen name="pager_tabs_selected_indicator_height">3.0dip</dimen>
     <dimen name="pager_tabs_title_padding">16.0dip</dimen>
+    <dimen name="panel_slice_Horizontal_padding">24.0dip</dimen>
+    <dimen name="panel_slice_vertical_padding">8.0dip</dimen>
     <dimen name="password_requirement_textsize">14.0sp</dimen>
     <dimen name="preference_dropdown_padding_start">72.0dip</dimen>
     <dimen name="preference_icon_foreground_image_inset">12.0dip</dimen>
@@ -740,6 +745,7 @@
     <dimen name="preference_seekbar_padding_vertical">15.0dip</dimen>
     <dimen name="preference_seekbar_value_minWidth">36.0dip</dimen>
     <dimen name="preview_pager_padding">8.0dip</dimen>
+    <dimen name="preview_size_top_margin">-12.0dip</dimen>
     <dimen name="profile_badge_size">24.0dip</dimen>
     <dimen name="qrcode_preview_size">360.0dip</dimen>
     <dimen name="qrcode_size">264.0dip</dimen>
@@ -777,6 +783,8 @@
     <dimen name="settings_bar_view_max_height">72.0dip</dimen>
     <dimen name="settings_panel_corner_radius">28.0dip</dimen>
     <dimen name="settings_panel_title_margin">24.0dip</dimen>
+    <dimen name="settings_panel_title_margin_bottom">16.0dip</dimen>
+    <item type="dimen" name="settings_panel_width">@dimen/match_parent</item>
     <dimen name="settingslib_dialogCornerRadius">28.0dip</dimen>
     <dimen name="settingslib_illustration_height">300.0dip</dimen>
     <dimen name="settingslib_illustration_padding">16.0dip</dimen>
@@ -788,10 +796,10 @@
     <item type="dimen" name="settingslib_restricted_icon_size">@android:dimen/config_restrictedIconSize</item>
     <dimen name="settingslib_scrim_visible_height_trigger">137.0dip</dimen>
     <dimen name="settingslib_switch_bar_radius">28.0dip</dimen>
-    <dimen name="settingslib_switch_title_margin">16.0dip</dimen>
+    <dimen name="settingslib_switch_title_margin">24.0dip</dimen>
     <dimen name="settingslib_switchbar_margin">16.0dip</dimen>
-    <dimen name="settingslib_switchbar_padding_left">24.0dip</dimen>
-    <dimen name="settingslib_switchbar_padding_right">16.0dip</dimen>
+    <dimen name="settingslib_switchbar_padding_left">20.0dip</dimen>
+    <dimen name="settingslib_switchbar_padding_right">20.0dip</dimen>
     <dimen name="settingslib_switchbar_subsettings_margin_end">16.0dip</dimen>
     <dimen name="settingslib_switchbar_subsettings_margin_start">72.0dip</dimen>
     <dimen name="settingslib_toolbar_layout_height">179.0dip</dimen>
@@ -809,6 +817,10 @@
     <dimen name="spinner_height">36.0dip</dimen>
     <dimen name="spinner_padding_top_or_bottom">8.0dip</dimen>
     <dimen name="subtitle_bottom_padding">24.0dip</dimen>
+    <dimen name="sud_alert_dialog_button_bar_button_text_size">14.0sp</dimen>
+    <dimen name="sud_alert_dialog_button_bar_height">48.0dip</dimen>
+    <dimen name="sud_alert_dialog_button_bar_width">64.0dip</dimen>
+    <dimen name="sud_alert_dialog_title_text_size">20.0sp</dimen>
     <dimen name="sud_card_corner_radius">2.0dip</dimen>
     <dimen name="sud_card_elevation">5.0dip</dimen>
     <dimen name="sud_card_land_header_text_margin_top">128.0dip</dimen>
@@ -890,6 +902,7 @@
     <dimen name="sud_header_title_padding_bottom">2.0dip</dimen>
     <dimen name="sud_header_title_padding_top">16.0dip</dimen>
     <dimen name="sud_header_title_size">24.0sp</dimen>
+    <dimen name="sud_horizontal_icon_height">32.0dip</dimen>
     <dimen name="sud_icon_uniformity_elevation">0.0dip</dimen>
     <item type="dimen" name="sud_illustration_aspect_ratio">2.22</item>
     <dimen name="sud_items_glif_icon_divider_inset">72.0dip</dimen>
@@ -915,6 +928,8 @@
     <dimen name="sud_navbar_ic_intrinsic_size">24.0dip</dimen>
     <dimen name="sud_navbar_padding_sides">24.0dip</dimen>
     <dimen name="sud_navbar_text_size">16.0sp</dimen>
+    <dimen name="sud_progress_bar_margin_bottom">-7.0dip</dimen>
+    <dimen name="sud_progress_bar_margin_top">-7.0dip</dimen>
     <dimen name="sud_progress_bar_margin_vertical">-7.0dip</dimen>
     <dimen name="sud_radio_button_line_spacing_extra">5.0sp</dimen>
     <dimen name="sud_radio_button_margin_bottom">12.0dip</dimen>

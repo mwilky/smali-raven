@@ -71,7 +71,7 @@
 
     check-cast p2, Landroid/content/res/XmlResourceParser;
 
-    const-string v0, "transitionVisibilityMode"
+    const-string/jumbo v0, "transitionVisibilityMode"
 
     const/4 v1, 0x0
 

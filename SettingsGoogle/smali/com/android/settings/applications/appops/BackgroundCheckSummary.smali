@@ -35,7 +35,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f040320
+    const p1, 0x7f040334
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->setTitle(I)V
 
@@ -47,7 +47,7 @@
 
     iput-object p1, p0, Lcom/android/settings/applications/appops/BackgroundCheckSummary;->mInflater:Landroid/view/LayoutInflater;
 
-    const p3, 0x7f06005c
+    const p3, 0x7f06005d
 
     const/4 v0, 0x0
 
@@ -78,7 +78,7 @@
 
     move-result-object p0
 
-    const p2, 0x7f0d00a6
+    const p2, 0x7f0d00a9
 
     new-instance p3, Lcom/android/settings/applications/appops/AppOpsCategory;
 

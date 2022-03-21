@@ -16,7 +16,7 @@
 
     invoke-direct {p0, p1}, Lcom/android/settingslib/core/AbstractPreferenceController;-><init>(Landroid/content/Context;)V
 
-    const-string v0, "textservices"
+    const-string/jumbo v0, "textservices"
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -36,7 +36,7 @@
 
     invoke-super {p0, p1}, Lcom/android/settingslib/core/AbstractPreferenceController;->displayPreference(Landroidx/preference/PreferenceScreen;)V
 
-    const-string p0, "spellcheckers_settings"
+    const-string/jumbo p0, "spellcheckers_settings"
 
     invoke-virtual {p1, p0}, Landroidx/preference/PreferenceGroup;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
@@ -53,7 +53,7 @@
 .method public getPreferenceKey()Ljava/lang/String;
     .locals 0
 
-    const-string p0, "spellcheckers_settings"
+    const-string/jumbo p0, "spellcheckers_settings"
 
     return-object p0
 .end method
@@ -67,7 +67,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f09004b
+    const v0, 0x7f09004c
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -92,7 +92,7 @@
 
     if-nez v0, :cond_1
 
-    const p0, 0x7f041378
+    const p0, 0x7f04139d
 
     invoke-virtual {p1, p0}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -122,7 +122,7 @@
     goto :goto_0
 
     :cond_2
-    const p0, 0x7f04129f
+    const p0, 0x7f0412c4
 
     invoke-virtual {p1, p0}, Landroidx/preference/Preference;->setSummary(I)V
 

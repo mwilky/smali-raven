@@ -196,7 +196,7 @@
 
     if-eqz v7, :cond_7
 
-    const-string v7, "type"
+    const-string/jumbo v7, "type"
 
     invoke-virtual {v6, v7, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -245,7 +245,7 @@
 
     move-result-object v1
 
-    const-string v7, "title"
+    const-string/jumbo v7, "title"
 
     invoke-virtual {v6, v7, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -262,7 +262,7 @@
 
     move-result-object v1
 
-    const-string v7, "summary"
+    const-string/jumbo v7, "summary"
 
     invoke-virtual {v6, v7, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -332,7 +332,7 @@
 
     move-result v1
 
-    const-string v7, "staticPreferenceLocation"
+    const-string/jumbo v7, "staticPreferenceLocation"
 
     invoke-virtual {v6, v7, v1}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
@@ -349,7 +349,7 @@
 
     move-result-object v1
 
-    const-string v7, "unavailable_slice_subtitle"
+    const-string/jumbo v7, "unavailable_slice_subtitle"
 
     invoke-virtual {v6, v7, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -371,6 +371,23 @@
     invoke-virtual {v6, v7, v1}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
     :cond_11
+    const/16 v1, 0x2000
+
+    invoke-static {p2, v1}, Lcom/android/settings/core/PreferenceXmlParserUtils;->hasFlag(II)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_12
+
+    invoke-static {v8}, Lcom/android/settings/core/PreferenceXmlParserUtils;->getHighlightableMenuKey(Landroid/content/res/TypedArray;)Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string v7, "highlightable_menu_key"
+
+    invoke-virtual {v6, v7, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_12
     invoke-interface {v0, v6}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     invoke-virtual {v8}, Landroid/content/res/TypedArray;->recycle()V
@@ -380,7 +397,7 @@
 
     move-result v1
 
-    if-eq v1, v3, :cond_12
+    if-eq v1, v3, :cond_13
 
     const/4 v6, 0x3
 
@@ -392,7 +409,7 @@
 
     if-gt v6, v4, :cond_2
 
-    :cond_12
+    :cond_13
     invoke-interface {p1}, Landroid/content/res/XmlResourceParser;->close()V
 
     return-object v0
@@ -420,6 +437,18 @@
     const/4 v1, 0x4
 
     invoke-static {p0, p1, v0, v1}, Lcom/android/settings/core/PreferenceXmlParserUtils;->getStringData(Landroid/content/Context;Landroid/util/AttributeSet;[II)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method private static getHighlightableMenuKey(Landroid/content/res/TypedArray;)Ljava/lang/String;
+    .locals 1
+
+    const/16 v0, 0x1d
+
+    invoke-virtual {p0, v0}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
 
     move-result-object p0
 
@@ -507,7 +536,7 @@
 .method private static getUnavailableSliceSubtitle(Landroid/content/res/TypedArray;)Ljava/lang/String;
     .locals 1
 
-    const/16 v0, 0x28
+    const/16 v0, 0x29
 
     invoke-virtual {p0, v0}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
 

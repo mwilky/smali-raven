@@ -152,7 +152,7 @@
 
     invoke-super {p0, p1}, Lcom/android/settingslib/core/AbstractPreferenceController;->displayPreference(Landroidx/preference/PreferenceScreen;)V
 
-    const-string v0, "wifi_ip_address"
+    const-string/jumbo v0, "wifi_ip_address"
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceGroup;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
@@ -176,7 +176,7 @@
 .method public getPreferenceKey()Ljava/lang/String;
     .locals 0
 
-    const-string p0, "wifi_ip_address"
+    const-string/jumbo p0, "wifi_ip_address"
 
     return-object p0
 .end method

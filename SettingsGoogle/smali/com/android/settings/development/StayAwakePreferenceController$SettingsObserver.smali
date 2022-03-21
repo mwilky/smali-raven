@@ -32,7 +32,7 @@
 
     invoke-direct {p0, p1}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
-    const-string p1, "stay_on_while_plugged_in"
+    const-string/jumbo p1, "stay_on_while_plugged_in"
 
     invoke-static {p1}, Landroid/provider/Settings$Global;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 

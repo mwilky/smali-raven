@@ -31,7 +31,7 @@
 
     invoke-direct {p0, p1, v0}, Lcom/android/settings/core/BasePreferenceController;-><init>(Landroid/content/Context;Ljava/lang/String;)V
 
-    const-string v0, "wifi"
+    const-string/jumbo v0, "wifi"
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -200,6 +200,16 @@
     iget-object p0, p0, Lcom/android/settings/wifi/details2/WifiPrivacyPreferenceController2;->mWifiEntry:Lcom/android/wifitrackerlib/WifiEntry;
 
     invoke-virtual {p0}, Lcom/android/wifitrackerlib/WifiEntry;->getPrivacy()I
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public bridge synthetic getSliceHighlightMenuRes()I
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getSliceHighlightMenuRes()I
 
     move-result p0
 
@@ -398,7 +408,7 @@
 
     if-nez v2, :cond_0
 
-    const p0, 0x7f0416ac
+    const p0, 0x7f0416d1
 
     invoke-virtual {v0, p0}, Landroidx/preference/Preference;->setSummary(I)V
 

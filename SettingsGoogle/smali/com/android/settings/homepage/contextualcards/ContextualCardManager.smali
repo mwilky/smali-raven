@@ -249,7 +249,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f06009a
+    const v2, 0x7f06009c
 
     invoke-virtual {v1, v2}, Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;->setViewType(I)Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;
 
@@ -329,7 +329,7 @@
 
     move-result-object v2
 
-    const v4, 0x7f060099
+    const v4, 0x7f06009b
 
     invoke-virtual {v2, v4}, Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;->setViewType(I)Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;
 
@@ -647,7 +647,7 @@
 
     iget-object p0, p0, Lcom/android/settings/homepage/contextualcards/ContextualCardManager;->mContext:Landroid/content/Context;
 
-    const-string v0, "settings_conditionals"
+    const-string/jumbo v0, "settings_conditionals"
 
     invoke-static {p0, v0}, Landroid/util/FeatureFlagUtils;->isEnabled(Landroid/content/Context;Ljava/lang/String;)Z
 
@@ -674,6 +674,8 @@
 
     return-object p0
 
+    nop
+
     :array_0
     .array-data 4
         0x3
@@ -690,7 +692,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090061
+    const v1, 0x7f090064
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 

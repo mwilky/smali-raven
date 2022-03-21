@@ -165,6 +165,14 @@
 .method protected abstract getMuteIcon()I
 .end method
 
+.method public getSliceHighlightMenuRes()I
+    .locals 0
+
+    const p0, 0x7f040d0e
+
+    return p0
+.end method
+
 .method public getSliderPosition()I
     .locals 1
 

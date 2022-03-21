@@ -68,11 +68,11 @@
 
 # virtual methods
 .method public getIntent()Landroid/content/Intent;
-    .locals 5
+    .locals 7
 
     iget-object v0, p0, Lcom/android/settings/homepage/contextualcards/slices/LowStorageSlice;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0412dd
+    const v1, 0x7f041302
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -80,21 +80,23 @@
 
     invoke-interface {v0}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v4
 
     iget-object v1, p0, Lcom/android/settings/homepage/contextualcards/slices/LowStorageSlice;->mContext:Landroid/content/Context;
 
-    const-class v2, Lcom/android/settings/deviceinfo/StorageDashboardFragment;
+    const-class v0, Lcom/android/settings/deviceinfo/StorageDashboardFragment;
 
-    invoke-virtual {v2}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
     move-result-object v2
 
     const-string v3, ""
 
-    const/16 v4, 0x579
+    const/16 v5, 0x579
 
-    invoke-static {v1, v2, v3, v0, v4}, Lcom/android/settings/slices/SliceBuilderUtils;->buildSearchResultPageIntent(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)Landroid/content/Intent;
+    move-object v6, p0
+
+    invoke-static/range {v1 .. v6}, Lcom/android/settings/slices/SliceBuilderUtils;->buildSearchResultPageIntent(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILcom/android/settings/slices/CustomSliceable;)Landroid/content/Intent;
 
     move-result-object v0
 
@@ -194,7 +196,7 @@
 
     iget-object v5, p0, Lcom/android/settings/homepage/contextualcards/slices/LowStorageSlice;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f02036c
+    const v6, 0x7f020373
 
     invoke-static {v5, v6}, Landroidx/core/graphics/drawable/IconCompat;->createWithResource(Landroid/content/Context;I)Landroidx/core/graphics/drawable/IconCompat;
 
@@ -214,7 +216,7 @@
 
     iget-object v3, p0, Lcom/android/settings/homepage/contextualcards/slices/LowStorageSlice;->mContext:Landroid/content/Context;
 
-    const v8, 0x7f0412f7
+    const v8, 0x7f04131c
 
     invoke-virtual {v3, v8}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -222,7 +224,7 @@
 
     iget-object v8, p0, Lcom/android/settings/homepage/contextualcards/slices/LowStorageSlice;->mContext:Landroid/content/Context;
 
-    const v9, 0x7f0412fd
+    const v9, 0x7f041322
 
     new-array v6, v6, [Ljava/lang/Object;
 
@@ -255,7 +257,7 @@
     :cond_0
     iget-object v3, p0, Lcom/android/settings/homepage/contextualcards/slices/LowStorageSlice;->mContext:Landroid/content/Context;
 
-    const v8, 0x7f0412e7
+    const v8, 0x7f04130c
 
     invoke-virtual {v3, v8}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -263,7 +265,7 @@
 
     iget-object v8, p0, Lcom/android/settings/homepage/contextualcards/slices/LowStorageSlice;->mContext:Landroid/content/Context;
 
-    const v9, 0x7f040c58
+    const v9, 0x7f040c70
 
     new-array v6, v6, [Ljava/lang/Object;
 
@@ -288,6 +290,14 @@
     move-result-object p0
 
     return-object p0
+.end method
+
+.method public getSliceHighlightMenuRes()I
+    .locals 0
+
+    const p0, 0x7f040d0f
+
+    return p0
 .end method
 
 .method public getUri()Landroid/net/Uri;

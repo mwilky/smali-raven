@@ -39,7 +39,7 @@
 
     move-result-object v2
 
-    const-string v3, "zen_mute_notifications"
+    const-string/jumbo v3, "zen_mute_notifications"
 
     invoke-direct {v1, p1, v2, v3}, Lcom/android/settings/notification/zen/ZenRuleVisEffectsAllPreferenceController;-><init>(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;Ljava/lang/String;)V
 
@@ -53,7 +53,7 @@
 
     move-result-object v2
 
-    const-string v3, "zen_hide_notifications"
+    const-string/jumbo v3, "zen_hide_notifications"
 
     invoke-direct {v1, p1, v2, v3}, Lcom/android/settings/notification/zen/ZenRuleVisEffectsNonePreferenceController;-><init>(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;Ljava/lang/String;)V
 
@@ -67,7 +67,7 @@
 
     move-result-object v2
 
-    const-string v3, "zen_custom"
+    const-string/jumbo v3, "zen_custom"
 
     invoke-direct {v1, p1, v2, v3}, Lcom/android/settings/notification/zen/ZenRuleVisEffectsCustomPreferenceController;-><init>(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;Ljava/lang/String;)V
 
@@ -121,7 +121,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f150126
+    const p0, 0x7f15012b
 
     return p0
 .end method

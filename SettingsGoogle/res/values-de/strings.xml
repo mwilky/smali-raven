@@ -96,6 +96,7 @@
     <string name="peak_refresh_rate_title">Smooth Display</string>
     <string name="peak_refresh_rate_summary">Setzt die Aktualisierungsrate für einige Inhalte automatisch von 60 auf 90 Hz herauf. Erhöhter Akkuverbrauch.</string>
     <string name="accessibility_vibration_settings_title">Vibration &amp; haptisches Feedback</string>
+    <string name="columbus_title">Schnelltippen, um Aktionen zu starten</string>
     <string name="emergency_gesture_screen_title">Notfall-SOS</string>
     <string name="abc_action_mode_done">Fertig</string>
     <string name="vibrate_for_calls_category_title">Anrufe</string>
@@ -103,6 +104,8 @@
     <string name="lockscreen_privacy_controls_setting_toggle">Gerätesteuerung anzeigen</string>
     <string name="lockscreen_privacy_wallet_summary">Zugriff auf Geldbörse aus Sperrbildschirm und Schnelleinstellungen erlauben</string>
     <string name="lockscreen_privacy_controls_summary">Zugriffssteuerung bei Sperre</string>
+    <string name="lockscreen_double_line_clock_summary">Uhr in zwei Zeilen anzeigen, wenn verfügbar</string>
+    <string name="lockscreen_double_line_clock_setting_toggle">Uhr in zwei Zeilen</string>
     <string name="abc_activity_chooser_view_see_all">Alle anzeigen</string>
     <string name="abc_activitychooserview_choose_application">App auswählen</string>
     <string name="abc_capital_off">AUS</string>
@@ -147,9 +150,11 @@
     <string name="accessibility_alarm_vibration_title">Vibrationsalarm</string>
     <string name="accessibility_assist_gesture_complete_or_keep_adjusting">Active Edge ist eingerichtet. Gehe zum nächsten Bildschirm oder fahre mit der Anpassung fort.</string>
     <string name="accessibility_audio_adjustment_title">Audioanpassung</string>
+    <string name="accessibility_autoclick_about_title">Über automatische Klicks (Verweildauer)</string>
     <string name="accessibility_autoclick_custom_title">Benutzerdefiniert</string>
     <string name="accessibility_autoclick_default_title">Aus</string>
     <string name="accessibility_autoclick_description">Automatische Klicks funktionieren mit einer verbundenen Maus. Du kannst festlegen, dass der Mauszeiger automatisch klickt, wenn er sich für eine bestimmte Zeit nicht bewegt.</string>
+    <string name="accessibility_autoclick_footer_learn_more_content_description">Weitere Informationen zu automatischen Klicks (Verweildauer)</string>
     <string name="accessibility_autoclick_long_summary">1 Sekunde</string>
     <string name="accessibility_autoclick_long_title">Lang</string>
     <string name="accessibility_autoclick_longer_desc">Länger</string>
@@ -161,16 +166,17 @@
     <string name="accessibility_autoclick_short_title">Kurz</string>
     <string name="accessibility_autoclick_shorter_desc">Kürzer</string>
     <string name="accessibility_banner_message_dismiss">Schließen</string>
-    <string name="accessibility_button_description">"Du kannst auf allen Bildschirmen schnell auf Bedienungshilfen zugreifen. 
+    <string name="accessibility_button_about_title">Über die Schaltfläche „Bedienungshilfen“</string>
+    <string name="accessibility_button_description">"Du kannst auf allen Bildschirmen schnell auf Bedienungshilfen zugreifen.
 
-Gehe zuerst zu den Einstellungen für Bedienungshilfen und wähle eine Funktion aus. Tippe auf den Kurzbefehl und wähle die Schaltfläche „Bedienungshilfen“ aus."</string>
+Gehe zuerst zu den Einstellungen für Bedienungshilfen und wähle eine Funktion aus. Tippe auf die Verknüpfung und wähle die Schaltfläche „Bedienungshilfen“ aus."</string>
     <string name="accessibility_button_fade_summary">Wird nach einigen Sekunden ausgeblendet, damit du den Bildschirm besser siehst</string>
     <string name="accessibility_button_fade_title">Bei Nichtnutzung ausblenden</string>
+    <string name="accessibility_button_gesture_about_title">Über die Schaltfläche „Bedienungshilfen“ und Gesten</string>
     <string name="accessibility_button_gesture_description">"Du kannst auf allen Bildschirmen schnell auf Bedienungshilfen zugreifen.
 
-Gehe zuerst zu den Einstellungen für Bedienungshilfen und wähle eine Funktion aus. Tippe auf den Kurzbefehl und wähle die Schaltfläche „Bedienungshilfen“ aus.
-
-Wenn du stattdessen die Schaltfläche „Bedienungshilfen“ in der Navigationsleiste verwenden möchtest, wechsle zur Bedienung über 2 Schaltflächen oder zur Bedienung über 3 Schaltflächen."</string>
+Gehe zuerst zu den Einstellungen für Bedienungshilfen und wähle eine Funktion aus. Tippe auf die Verknüpfung und wähle die Schaltfläche „Bedienungshilfen“ oder die entsprechende Touch-Geste aus."</string>
+    <string name="accessibility_button_gesture_footer_learn_more_content_description">Weitere Informationen zur Schaltfläche „Bedienungshilfen“ und zu Gesten</string>
     <string name="accessibility_button_gesture_title">Bedienungshilfen &amp; Touch-Geste</string>
     <string name="accessibility_button_high_label">Nicht transparent</string>
     <string name="accessibility_button_intro">Schaltfläche „Bedienungshilfen“ wird verwendet. Bei Bedienung über 3 Schaltflächen ist die Touch-Geste nicht verfügbar.</string>
@@ -184,14 +190,23 @@ Wenn du stattdessen die Schaltfläche „Bedienungshilfen“ in der Navigationsl
     <string name="accessibility_caption_preference_summary">Diese Einstellungen für Untertitel werden nicht von allen Apps unterstützt.</string>
     <string name="accessibility_caption_primary_switch_summary">Nur für unterstützte Apps</string>
     <string name="accessibility_caption_primary_switch_title">Untertitel anzeigen</string>
+    <string name="accessibility_captioning_about_title">Über die Einstellungen für Untertitel</string>
+    <string name="accessibility_captioning_footer_learn_more_content_description">Weitere Informationen zu den Einstellungen für Untertitel</string>
     <string name="accessibility_captioning_title">Untertitel-Einstellungen</string>
     <string name="accessibility_category_personal">Konten für persönliches Profil</string>
     <string name="accessibility_category_work">Konten für Arbeitsprofil – %s</string>
+    <string name="accessibility_color_inversion_about_title">Über die Farbumkehr</string>
+    <string name="accessibility_color_inversion_footer_learn_more_content_description">Weitere Informationen zur Farbumkehr</string>
+    <string name="accessibility_control_timeout_about_title">Über die Zeit zum Reagieren (Zeitüberschreitung bei Bedienungshilfen)</string>
+    <string name="accessibility_control_timeout_footer_learn_more_content_description">Weitere Informationen über die Zeit zum Reagieren (Zeitüberschreitung bei Bedienungshilfen)</string>
     <string name="accessibility_control_timeout_preference_summary">"Hier kannst du auswählen, wie lange Nachrichten sichtbar sind, die eine Reaktion erfordern, aber nur vorübergehend angezeigt werden.
 
 Diese Einstellung wird nicht von allen Apps unterstützt."</string>
     <string name="accessibility_control_timeout_preference_title">Zeit zum Reagieren</string>
+    <string name="accessibility_daltonizer_about_title">Über die Farbkorrektur</string>
+    <string name="accessibility_daltonizer_footer_learn_more_content_description">Weitere Informationen zur Farbkorrektur</string>
     <string name="accessibility_daltonizer_primary_switch_title">Farbkorrektur aktivieren</string>
+    <string name="accessibility_daltonizer_shortcut_title">Kurzbefehl für Farbkorrektur</string>
     <string name="accessibility_data_one_bar">Datensignal - ein Balken</string>
     <string name="accessibility_data_signal_full">Volle Datensignalstärke</string>
     <string name="accessibility_data_three_bars">Datensignal - drei Balken</string>
@@ -206,6 +221,7 @@ Diese Einstellung wird nicht von allen Apps unterstützt."</string>
     <string name="accessibility_display_daltonizer_preference_title">Farbkorrektur</string>
     <string name="accessibility_display_inversion_preference_subtitle">Wenn „Farbumkehr“ aktiviert ist, werden helle Displays dunkel angezeigt.&lt;br/>&lt;br/> Hinweis: &lt;ol> &lt;li> Dunkle Farben werden hell.&lt;/li> &lt;li> Farben in Medien und Bildern werden verändert wiedergegeben.&lt;/li> &lt;li> Mit dem Modus „Dunkles Design“ kannst du auf einen dunklen Hintergrund umstellen. „Dunkles Design“ funktioniert nur in unterstützten Apps. „Farbumkehr“ hingegen funktioniert in allen Apps.&lt;/li> &lt;/ol></string>
     <string name="accessibility_display_inversion_preference_title">Farbumkehr</string>
+    <string name="accessibility_display_inversion_shortcut_title">Kurzbefehl für Farbumkehr</string>
     <string name="accessibility_display_inversion_switch_title">Farbumkehr aktivieren</string>
     <string name="accessibility_ethernet_connected">Ethernet.</string>
     <string name="accessibility_ethernet_disconnected">Ethernet nicht verbunden</string>
@@ -255,6 +271,8 @@ Die Schaltfläche „Bedienungshilfen“ wird unverankert über anderen Apps auf
     <string name="accessibility_phone_two_bars">Telefonsignal - zwei Balken</string>
     <string name="accessibility_power_button_ends_call_prerefence_title">Ein/Aus-Taste beendet Anruf</string>
     <string name="accessibility_preference_magnification_summary">Auf dem Bildschirm heranzoomen</string>
+    <string name="accessibility_screen_magnification_about_title">Über die Vergrößerung</string>
+    <string name="accessibility_screen_magnification_footer_learn_more_content_description">Weitere Informationen zur Vergrößerung</string>
     <string name="accessibility_screen_magnification_gesture_navigation_warning">Die Touch-Geste für die Bedienungshilfen ist auf den Dienst \"%1$s\" eingestellt. Wenn du die Vergrößerung verwenden möchtest, wische mit zwei Fingern vom unteren Bildschirmrand nach oben und halte den Bildschirm gedrückt. Wähle dann \"Vergrößerung\" aus.</string>
     <string name="accessibility_screen_magnification_gestures_title">Dreimal tippen zum Vergrößern</string>
     <string name="accessibility_screen_magnification_navbar_configuration_warning">Die Schaltfläche für die Bedienungshilfen ist auf %1$s gestellt. Um die Vergrößerung nutzen zu können, tippe &amp; halte die Schaltfläche für die Bedienungshilfen gedrückt und wähle anschließend \"Vergrößerung\" aus.</string>
@@ -272,6 +290,7 @@ Die Schaltfläche „Bedienungshilfen“ wird unverankert über anderen Apps auf
 In die Tastatur oder Navigationsleiste kann nicht hineingezoomt werden."</string>
     <string name="accessibility_screen_magnification_navbar_title">Mit Tastenkombination vergrößern</string>
     <string name="accessibility_screen_magnification_short_summary">Zum Zoomen dreimal tippen</string>
+    <string name="accessibility_screen_magnification_shortcut_title">Kurzbefehl für Vergrößerung</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">Mit Tastenkombination und 3-mal Tippen vergrößern</string>
     <string name="accessibility_screen_magnification_summary">Du kannst auf dem Display schnell heranzoomen, um Inhalte zu vergrößern.&lt;br/>&lt;br/> &lt;b>So zoomst du heran:&lt;/b>&lt;br/> {0,number,integer}. Starte die Vergrößerung über die Verknüpfung&lt;br/> {1,number,integer}. Tippe auf das Display&lt;br/> {2,number,integer}. Ziehe mit zwei Fingern, um den angezeigten Bildschirmausschnitt zu verschieben&lt;br/> {3,number,integer}. Ziehe zwei Finger auseinander oder zusammen, um den Zoom anzupassen&lt;br/> {4,number,integer}. Beende die Vergrößerung über die Verknüpfung&lt;br/>&lt;br/> &lt;b>So zoomst du vorübergehend heran:&lt;/b>&lt;br/> {0,number,integer}. Starte die Vergrößerung über die Verknüpfung&lt;br/> {1,number,integer}. Halte eine beliebige Stelle auf dem Display gedrückt&lt;br/> {2,number,integer}. Ziehe mit dem Finger, um den angezeigten Bildschirmausschnitt zu ändern&lt;br/> {3,number,integer}. Hebe den Finger, um die Vergrößerung zu beenden</string>
     <string name="accessibility_screen_magnification_title">Vergrößerung</string>
@@ -370,7 +389,7 @@ Wenn du zwischen den Funktionen wechseln möchtest, wische mit drei Fingern übe
     <string name="accessibility_tutorial_dialog_message_volume">Wenn du diese Funktion verwenden möchtest, halte beide Lautstärketasten gedrückt.</string>
     <string name="accessibility_tutorial_dialog_title_button">Zum Öffnen Schaltfläche „Bedienungshilfen“ nutzen</string>
     <string name="accessibility_tutorial_dialog_title_gesture">Zum Öffnen Touch-Geste verwenden</string>
-    <string name="accessibility_tutorial_dialog_title_gesture_settings">Neue Touch-Geste für Bedienungshilfen verwenden</string>
+    <string name="accessibility_tutorial_dialog_title_gesture_settings">Touch-Geste für Bedienungshilfen verwenden</string>
     <string name="accessibility_tutorial_dialog_title_triple">Zum Öffnen dreimal auf das Display tippen</string>
     <string name="accessibility_tutorial_dialog_title_volume">Zum Öffnen die Lautstärketasten gedrückt halten</string>
     <string name="accessibility_tutorial_pager">Seite %1$d von %2$d</string>
@@ -936,6 +955,7 @@ Nach dem Zurücksetzen muss das Gerät erneut eingerichtet werden. Dabei legst d
     <string name="battery_level_title">Akkustand</string>
     <string name="battery_manager_off">Aus</string>
     <string name="battery_manager_summary">Verlängert die Akkulaufzeit und optimiert den Ladevorgang</string>
+    <string name="battery_manager_summary_unsupported">Akkulaufzeit verlängern</string>
     <string name="battery_missing_link_a11y_message">Tippe, um mehr über diesen Fehler zu erfahren</string>
     <string name="battery_missing_link_message">Weitere Informationen</string>
     <string name="battery_missing_message">Problem beim Lesen des Akkustands.</string>
@@ -1010,11 +1030,11 @@ Bei niedrigem Akkustand kannst du jederzeit den Energiesparmodus aktivieren."</s
     <string name="battery_tip_early_heads_up_title">Energiesparmodus aktivieren</string>
     <string name="battery_tip_high_usage_summary">Apps mit der höchsten Nutzung anzeigen</string>
     <string name="battery_tip_high_usage_title">Höhere Akkunutzung</string>
-    <string name="battery_tip_limited_temporarily_dialog_msg">"Unter bestimmten Umständen, z. B. bei hohen Temperaturen und langen Ladezeiten, kann die Ladung auf %1$s begrenzt sein, um den Akku zu schonen.
+    <string name="battery_tip_limited_temporarily_dialog_msg">"Unter bestimmten Umständen, z. B. bei hohen Temperaturen und langen Ladezeiten, kann die Ladung auf %1$s begrenzt werden, um den Akku zu schonen.
 
 Sobald sich diese Umstände ändern, wird dein Smartphone wieder normal aufgeladen."</string>
     <string name="battery_tip_limited_temporarily_dialog_resume_charge">Ladevorgang fortsetzen</string>
-    <string name="battery_tip_limited_temporarily_summary">Dadurch wird der Akku geschont. Weitere Informationen</string>
+    <string name="battery_tip_limited_temporarily_summary">Dadurch wird der Akku geschont. \\nWeitere Informationen</string>
     <string name="battery_tip_limited_temporarily_title">Aufladen vorübergehend eingeschränkt</string>
     <string name="battery_tip_low_battery_summary">Energiesparmodus aktivieren, um Akkulaufzeit zu erhöhen</string>
     <string name="battery_tip_low_battery_title">Akkustand niedrig</string>
@@ -1061,6 +1081,7 @@ im Zeitraum ^2"</string>
     <string name="battery_usage_screen_footer">Die Daten zum Akkuverbrauch sind eine Schätzung. Der Verbrauch wird nicht gemessen, während das Smartphone geladen wird.</string>
     <string name="battery_usage_screen_footer_empty">Daten zur Akkunutzung sind verfügbar, nachdem du dein Smartphone einige Stunden genutzt hast</string>
     <string name="battery_usage_total_less_than_one_minute">Gesamt: weniger als eine Minute</string>
+    <string name="battery_usage_without_time" />
     <string name="battery_used_by">%1$s durch %2$s verbraucht</string>
     <string name="battery_used_for">Verwendungsdauer: ^1</string>
     <string name="bearer">Träger</string>
@@ -1069,12 +1090,14 @@ im Zeitraum ^2"</string>
     <string name="billing_cycle_less_than_one_day_left">Noch weniger als 1 Tag</string>
     <string name="billing_cycle_none_left">Keine Zeit übrig</string>
     <string name="biometric_settings_category_ways_to_unlock">Entsperrmöglichkeiten</string>
-    <string name="biometric_settings_category_ways_to_use">Gesicht und Fingerabdruck verwenden für</string>
     <string name="biometric_settings_hand_back_to_guardian">Gib das Telefon an dein Elternteil zurück</string>
     <string name="biometric_settings_hand_back_to_guardian_ok">OK</string>
     <string name="biometric_settings_intro">Wenn du die Entsperrung per Gesichtserkennung und die Entsperrung per Fingerabdruck einrichtest, fragt dein Smartphone nach deinem Fingerabdruck, falls du eine Maske trägst oder dich im Dunkeln befindest</string>
-    <string name="biometric_settings_use_biometric_for_apps">Authentifizierung in Apps</string>
+    <string name="biometric_settings_use_biometric_for_apps">Deine Identität in Apps bestätigen</string>
     <string name="biometric_settings_use_biometric_unlock_phone">Smartphone entsperren</string>
+    <string name="biometric_settings_use_face_or_fingerprint_preference_summary">Gesicht oder Fingerabdruck verwenden</string>
+    <string name="biometric_settings_use_face_preference_summary">Gesicht verwenden</string>
+    <string name="biometric_settings_use_fingerprint_preference_summary">Fingerabdruck verwenden</string>
     <string name="biometrics_unlock_set_unlock_password">Passwort • Gesicht • Fingerabdruck</string>
     <string name="biometrics_unlock_set_unlock_pattern">Muster • Gesicht • Fingerabdruck</string>
     <string name="biometrics_unlock_set_unlock_pin">PIN • Gesicht • Fingerabdruck</string>
@@ -1331,7 +1354,6 @@ Auswahl"</string>
     <string name="bluetooth_settings_title">Bluetooth</string>
     <string name="bluetooth_show_devices_without_names">Bluetooth-Geräte ohne Namen anzeigen</string>
     <string name="bluetooth_show_devices_without_names_summary">Bluetooth-Geräte werden ohne Namen und nur mit ihren MAC-Adressen angezeigt</string>
-    <string name="bluetooth_show_files_received_via_bluetooth">Über Bluetooth empfangene Dateien</string>
     <string name="bluetooth_show_received_files">Empfangene Dateien</string>
     <string name="bluetooth_sim_card_access_dialog_content">"Ein Bluetooth-Gerät, %1$s, möchte auf Daten auf deiner SIM-Karte zugreifen. Das betrifft auch deine Kontakte.
 
@@ -1364,11 +1386,11 @@ So lange die Verbindung besteht, erhält %2$s alle Anrufe für %3$s."</string>
     <string name="brightness_title">Helligkeit</string>
     <string name="bt_hci_snoop_log">Bluetooth HCI-Snoop-Protokoll aktivieren</string>
     <string name="bt_hci_snoop_log_summary">Bluetooth-Pakete erfassen. Nach der Änderung muss Bluetooth aus- und wieder eingeschaltet werden</string>
-    <string name="bubble_app_setting_all">Alle Unterhaltungen können als Bubble angezeigt werden</string>
+    <string name="bubble_app_setting_all">Alle Unterhaltungen können als Bubble erscheinen</string>
     <string name="bubble_app_setting_bubble_conversation">Bubbles für diese Unterhaltung aktivieren</string>
-    <string name="bubble_app_setting_excluded_conversation_title">Alle Unterhaltungen können als Bubble angezeigt werden, außer</string>
-    <string name="bubble_app_setting_none">Unterhaltungen können nicht als Bubble angezeigt werden</string>
-    <string name="bubble_app_setting_selected">Ausgewählte Unterhaltungen können als Bubble angezeigt werden</string>
+    <string name="bubble_app_setting_excluded_conversation_title">Alle Unterhaltungen können als Bubble erscheinen, außer</string>
+    <string name="bubble_app_setting_none">Unterhaltungen können nicht als Bubble erscheinen</string>
+    <string name="bubble_app_setting_selected">Ausgewählte Unter­hal­tun­gen können als Bubble erscheinen</string>
     <string name="bubble_app_setting_selected_conversation_title">Unterhaltungen</string>
     <string name="bubble_app_setting_unbubble_conversation">Bubbles für diese Unterhaltung deaktivieren</string>
     <string name="bubbles_app_toggle_summary">%1$s erlauben, einige Benachrichtigungen als Bubbles anzuzeigen</string>
@@ -1425,6 +1447,7 @@ Wenn du ein CA-Zertifikat installierst, hat dessen Inhaber Zugriff auf deine Dat
     <string name="calls_sms_temp_unavailable">Momentan nicht verfügbar</string>
     <string name="calls_sms_unavailable">nicht verfügbar</string>
     <string name="calls_sms_wfc_summary">Anrufe über WLAN starten und empfangen</string>
+    <string name="cam_toggle_description">Für Apps und Dienste</string>
     <string name="camera_double_tap_power_gesture_desc">Kamera ohne Entsperren des Displays schnell öffnen</string>
     <string name="camera_double_tap_power_gesture_title">Für Kamera Ein/Aus zweimal drücken</string>
     <string name="camera_laser_sensor_switch">Kamera-Lasersensor</string>
@@ -1500,7 +1523,7 @@ Wenn du ein CA-Zertifikat installierst, hat dessen Inhaber Zugriff auf deine Dat
     <string name="cellular_data_summary">Datennutzung über Mobilfunknetz zulassen</string>
     <string name="cellular_data_usage">Mobile Datennutzung</string>
     <string name="cert_not_installed">Zertifikat nicht installiert</string>
-    <string name="certificate_management_app">Zertifikatsver&amp;shy;waltungs-App</string>
+    <string name="certificate_management_app">Zertifikatsver­waltungs-App</string>
     <string name="certificate_management_app_description">Mit Zertifikaten wird deine Identität überprüft, wenn du die folgenden Apps und URLs verwendest</string>
     <string name="certificate_warning_dont_install">Nicht installieren</string>
     <string name="certificate_warning_install_anyway">Trotzdem installieren</string>
@@ -2105,7 +2128,7 @@ Wenn dies öfter vorkommt, musst du die App eventuell deinstallieren, um die Lau
     <string name="disabled_feature_reason_slow_down_phone">Diese Funktion wurde deaktiviert, weil sie dein Smartphone langsamer macht</string>
     <string name="disabled_for_user_setting_summary">Einstellung kann vom aktuellen Nutzer nicht geändert werden</string>
     <string name="disconnected">Nicht verbunden</string>
-    <string name="display_category_title">Bildschirm</string>
+    <string name="display_category_title">Display</string>
     <string name="display_cutout_emulation">Display-Aussparung</string>
     <string name="display_cutout_emulation_keywords">display aussparung, notch</string>
     <string name="display_dashboard_summary">Dunkles Design, Schriftgröße, Helligkeit</string>
@@ -2178,7 +2201,7 @@ Wenn dies öfter vorkommt, musst du die App eventuell deinstallieren, um die Lau
     <string name="edge_to_edge_navigation_title">Bedienung über Gesten</string>
     <string name="emergency_address_summary">Wird als dein Standort verwendet, wenn du einen Notruf über WLAN tätigst</string>
     <string name="emergency_address_title">Notfalladresse</string>
-    <string name="emergency_dashboard_summary">Notfall-SOS, medizinische Informationen, Warnungen</string>
+    <string name="emergency_dashboard_summary">Notfall-SOS, medizinische Informationen, Benachrichtigungen</string>
     <string name="emergency_gesture_call_for_help_dialog_title">Notrufnummer</string>
     <string name="emergency_gesture_call_for_help_summary">%1$s. Zum Ändern tippen</string>
     <string name="emergency_gesture_call_for_help_title">Hilfe anfordern</string>
@@ -2956,7 +2979,7 @@ Du kannst diese Einstellung jederzeit unter „Einstellungen“ > „Apps &amp; 
     <string name="lock_screen_notifs_redact_work">Vertrauliche Benachrichtigungen aus Arbeitsprofilen</string>
     <string name="lock_screen_notifs_redact_work_summary">Auf dem Sperrbildschirm werden vertrauliche Inhalte aus Arbeitsprofilen angezeigt</string>
     <string name="lock_screen_notifs_show_alerting">Lautlose Unterhaltungen und Benachrichtigungen verbergen</string>
-    <string name="lock_screen_notifs_show_all">Lautlose und Standardunterhaltungen anzeigen</string>
+    <string name="lock_screen_notifs_show_all">Alle Benachrichtigungen anzeigen</string>
     <string name="lock_screen_notifs_show_none">Keine Benachrichtigungen anzeigen</string>
     <string name="lock_screen_notifs_title">Benachrichtigungen auf Sperrbildschirm</string>
     <string name="lock_screen_password_skip_biometrics_message">"Zum Einrichten der Entsperrung per Gesichtserkennung und der Entsperrung per Fingerabdruck ist ein Passwort erforderlich.
@@ -3301,6 +3324,7 @@ Auf diesem Gerät sind andere Nutzer vorhanden.
     <string name="menu_stats_total">Verbrauch insgesamt</string>
     <string name="menu_stats_unplugged">%1$s seit dem Ausstecken</string>
     <string name="menu_use_uss">USS verwenden</string>
+    <string name="mic_toggle_description">Für Apps und Dienste. Wenn diese Einstellung deaktiviert ist, können Mikrofondaten dennoch freigegeben werden, wenn du den Notruf wählst.</string>
     <string name="mic_toggle_title">Mikrofonzugriff</string>
     <string name="misc_files">Sonstige Dateien</string>
     <string name="misc_files_selected_count">%1$d von %2$d ausgewählt</string>
@@ -3434,7 +3458,7 @@ Dein Mobilfunkvertrag bei %2$s wird nicht gekündigt, wenn du zu %1$s  wechselst
     <string name="my_device_info_device_details_category_title">Gerätedetails</string>
     <string name="my_device_info_device_identifiers_category_title">Geräte-IDs</string>
     <string name="my_device_info_device_name_preference_title">Gerätename</string>
-    <string name="my_device_info_legal_category_title">Rechtliche und regulatorische Informationen</string>
+    <string name="my_device_info_legal_category_title">Rechtliche Informationen</string>
     <string name="n_cacrts">%d CA-Zertifikate</string>
     <string name="network_4G">4G (empfohlen)</string>
     <string name="network_5G_recommended">5G (empfohlen)</string>
@@ -3588,8 +3612,8 @@ Die Funktion hat Zugriff auf alle Benachrichtigungen, darunter auch personenbezo
     <string name="notification_assistant_security_warning_title">%1$s Zugriff auf Benachrichtigungen erlauben?</string>
     <string name="notification_assistant_summary">Vorgeschlagene Aktionen, Antworten und mehr erhalten</string>
     <string name="notification_assistant_title">Erweiterte Benachrichtigungen</string>
-    <string name="notification_badge_title">App-Benachrichtigungspunkt erlauben</string>
-    <string name="notification_badging_title">Benachrichtigungspunkt auf App-Symbol</string>
+    <string name="notification_badge_title">App-Benach­rich­ti­gungs­punkt erlauben</string>
+    <string name="notification_badging_title">Benachrich­ti­gungs­punkt auf App-Symbol</string>
     <string name="notification_block_title">Blockieren</string>
     <string name="notification_bubbles_title">Bubbles</string>
     <string name="notification_channel_badge_title">App-Benachrichtigungs­punkt anzeigen</string>
@@ -3727,6 +3751,7 @@ Zusätzlich wird die App in die Lage versetzt, die „Bitte nicht stören“-Fun
     <string name="one_handed_action_show_notification_title">Benachrichtigungen anzeigen</string>
     <string name="one_handed_mode_enabled">Einhandmodus verwenden</string>
     <string name="one_handed_mode_intro_text">Wische vom unteren Displayrand nach unten, um den Einhandmodus zu verwenden. Wenn du diese Funktion nutzen möchtest, muss „Bedienung über Gesten“ in den Einstellungen der Systemsteuerung aktiviert sein.</string>
+    <string name="one_handed_mode_shortcut_title">Kurzbefehl für Einhandmodus</string>
     <string name="one_handed_mode_swipe_down_category">Beim Wischen nach unten</string>
     <string name="one_handed_mode_use_shortcut_category">Tastenkombination für Folgendes verwenden:</string>
     <string name="one_usercrt">ein Nutzerzertifikat</string>
@@ -3802,7 +3827,7 @@ Zusätzlich wird die App in die Lage versetzt, die „Bitte nicht stören“-Fun
     <string name="post_dsds_reboot_notification_title_with_carrier">%1$s ist aktiviert</string>
     <string name="power_bluetooth">Bluetooth</string>
     <string name="power_camera">Kamera</string>
-    <string name="power_cell">Mobilfunknetz – Standby</string>
+    <string name="power_cell">Mobilfunknetz</string>
     <string name="power_charge_remaining">Verbleibende Ladezeit: %1$s</string>
     <string name="power_charging">%1$s – %2$s</string>
     <string name="power_charging_duration">%1$s – voll in %2$s</string>
@@ -4036,6 +4061,7 @@ Ein-/Aus-Taste und Lautertaste gleichzeitig drücken."</string>
     <string name="recent_notifications">Apps, die zuletzt Benachrichtigungen gesendet haben</string>
     <string name="recent_notifications_see_all_title">Alle der letzten 7 Tage ansehen</string>
     <string name="recompute_size">Größe wird neu berechnet...</string>
+    <string name="reduce_bright_colors_about_title">Über die Funktion „Extradunkel“</string>
     <string name="reduce_bright_colors_intensity_end_label">Heller</string>
     <string name="reduce_bright_colors_intensity_preference_title">Intensität</string>
     <string name="reduce_bright_colors_intensity_start_label">Dunkler</string>
@@ -4043,6 +4069,7 @@ Ein-/Aus-Taste und Lautertaste gleichzeitig drücken."</string>
     <string name="reduce_bright_colors_preference_subtitle">Mit dieser Einstellung kannst du dein Display dunkler machen, um beim Lesen die Augen zu schonen.&lt;br/>&lt;br/> Dies kann sinnvoll sein, wenn: &lt;ol> &lt;li> die niedrigste Standardhelligkeit deines Smartphones immer noch zu hell ist&lt;/li> &lt;li> du dein Smartphone in dunklen Umgebungen nutzt, wie z. B. nachts oder in einem dunklen Raum vor dem Schlafengehen&lt;/li> &lt;/ol></string>
     <string name="reduce_bright_colors_preference_summary">Das Display dunkler machen als die niedrigste Helligkeit deines Smartphones</string>
     <string name="reduce_bright_colors_preference_title">Extradunkel</string>
+    <string name="reduce_bright_colors_shortcut_title">Kurzbefehl für Extradunkel</string>
     <string name="reduce_bright_colors_switch_title">Display extradunkel machen</string>
     <string name="register_automatically">Automatische Registrierung…</string>
     <string name="register_on_network">Registrierung in %s...</string>
@@ -4248,7 +4275,6 @@ So verwendest du die Funktion „Bildschirmfixierung“: \u0009
     <string name="screen_pinning_unlock_pattern">Zum Loslösen nach Entsperrungsmuster fragen</string>
     <string name="screen_pinning_unlock_pin">Vor Beenden nach PIN fragen</string>
     <string name="screen_reader_category_title">Screenreader</string>
-    <string name="screen_saver_main_switch_title">Bildschirmschoner verwenden</string>
     <string name="screen_time_summary_usage_today">%1$s heute</string>
     <string name="screen_timeout_summary">%1$s ohne Aktivität</string>
     <string name="screen_timeout_title">Display wird ausgeschaltet.</string>
@@ -4278,6 +4304,7 @@ So verwendest du die Funktion „Bildschirmfixierung“: \u0009
     <string name="screensaver_settings_button">Einstellungen</string>
     <string name="screensaver_settings_current">Aktueller Bildschirmschoner</string>
     <string name="screensaver_settings_disabled_prompt">Um festzulegen, was geschieht, wenn dein Smartphone angedockt oder im Ruhemodus ist, aktiviere den Bildschirmschoner.</string>
+    <string name="screensaver_settings_dream_start">Jetzt aktivieren</string>
     <string name="screensaver_settings_summary_dock">Wenn in Dockingstation</string>
     <string name="screensaver_settings_summary_either_long">Beim Aufladen oder wenn in Dockingstation</string>
     <string name="screensaver_settings_summary_either_short">In beiden Fällen</string>
@@ -4328,15 +4355,6 @@ So verwendest du die Funktion „Bildschirmfixierung“: \u0009
     <string name="security_settings_biometric_preference_summary_both_fp_single">Gesicht und Fingerabdruck hinzugefügt</string>
     <string name="security_settings_biometric_preference_summary_none_enrolled">Zum Einrichten tippen</string>
     <string name="security_settings_biometric_preference_title">Entsperrung per Gesichtserkennung &amp; Fingerabdruck</string>
-    <string name="security_settings_biometrics_description">Wenn du die Entsperrung per Gesichtserkennung oder Fingerabdruck einrichtest, fragt dein Smartphone nach deinem Fingerabdruck, wenn du eine Maske trägst oder dich im Dunkeln befindest</string>
-    <string name="security_settings_biometrics_preference_use_with_apps">Authentifizierung in Apps</string>
-    <string name="security_settings_biometrics_preferences_category">Gesicht oder Fingerabdruck verwenden für</string>
-    <string name="security_settings_biometrics_summary_both">Gesicht und Fingerabdruck</string>
-    <string name="security_settings_biometrics_summary_face">Nur Gesicht</string>
-    <string name="security_settings_biometrics_summary_fingerprint">Nur Fingerabdruck</string>
-    <string name="security_settings_biometrics_summary_none">Zum Einrichten tippen</string>
-    <string name="security_settings_biometrics_title">Entsperrung per Gesicht &amp; Fingerabdruck</string>
-    <string name="security_settings_biometrics_types_category">Entsperrmöglichkeiten</string>
     <string name="security_settings_face_enroll_consent_introduction_title">Gesichtsentsperrung zulassen</string>
     <string name="security_settings_face_enroll_dialog_ok">OK</string>
     <string name="security_settings_face_enroll_done">Fertig</string>
@@ -4384,16 +4402,17 @@ Weitere Informationen findest du unter g.co/pixel/faceunlock."</string>
     <string name="security_settings_face_enroll_introduction_control_title">Du hast die Kontrolle</string>
     <string name="security_settings_face_enroll_introduction_how_consent_message">"Die Funktion „Entsperrung per Gesichtserkennung“ erstellt ein eindeutiges Modell des Gesichts deines Kindes, mit dem seine Identität bestätigt werden kann. Bei der Einrichtung macht dein Kind aus verschiedenen Blickwinkeln Fotos von seinem Gesicht. Daraus wird das Gesichtsmodell erstellt.
 
-Wenn es die Funktion „Entsperrung per Gesichtserkennung“ nutzt, werden Bilder zum Aktualisieren seines Gesichtsmodells verwendet. Während die zum Erstellen des Gesichtsmodells verwendeten Bilder niemals gespeichert werden, wird das Modell selbst sicher auf dem Smartphone abgelegt, ohne es je zu verlassen. Die Verarbeitung der entsprechenden Daten findet unter Einhaltung aller Sicherheitsvorgaben ausschließlich auf dem Smartphone statt."</string>
+Jedes Mal, wenn dein Kind sein Smartphone per Gesichtserkennung entsperrt, wird das Modell mit neuen Fotos aktualisiert. Die verwendeten Fotos werden niemals gespeichert. Das Modell selbst wird auf dem Smartphone abgelegt. Die Verarbeitung der entsprechenden Daten findet unter Einhaltung aller Sicherheitsvorgaben ausschließlich auf dem Smartphone statt."</string>
     <string name="security_settings_face_enroll_introduction_how_message">"Die Funktion „Entsperrung per Gesichtserkennung“ erstellt ein eindeutiges Modell deines Gesichts, mit dem deine Identität bestätigt werden kann. Bei der Einrichtung machst du aus verschiedenen Blickwinkeln Fotos von deinem Gesicht. Daraus wird das Gesichtsmodell erstellt.
 
-Wenn du die Funktion „Entsperrung per Gesichtserkennung“ nutzt, werden Bilder zum Aktualisieren deines Gesichtsmodells verwendet. Während die zum Erstellen deines Gesichtsmodells verwendeten Bilder niemals gespeichert werden, wird das Modell selbst sicher auf deinem Smartphone abgelegt, ohne es je zu verlassen. Die Verarbeitung der entsprechenden Daten findet unter Einhaltung aller Sicherheitsvorgaben ausschließlich auf dem Smartphone statt."</string>
+Jedes Mal, wenn du dein Smartphone per Gesichtserkennung entsperrst, wird das Modell mit neuen Fotos aktualisiert. Die verwendeten Fotos werden niemals gespeichert. Das Modell selbst wird auf dem Smartphone abgelegt. Die Verarbeitung der entsprechenden Daten findet, unter Einhaltung aller Sicherheitsvorgaben, ausschließlich auf dem Smartphone statt."</string>
     <string name="security_settings_face_enroll_introduction_how_title">So gehts</string>
     <string name="security_settings_face_enroll_introduction_info_consent_gaze">Bei der Entsperrung per Gesichtserkennung muss dein Kind möglicherweise die Augen offen haben, damit seine Identität bestätigt bzw. das Smartphone entsperrt werden kann. Du und dein Kind könnt diese Option jederzeit in den Einstellungen aktivieren.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_glasses">Falls dein Kind eine Brille hat, kann es sie auch bei der Einrichtung tragen.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_looking">Wenn dein Kind das Smartphone ansieht, kann es entsperrt werden, selbst wenn das nicht beabsichtigt ist. Das Smartphone kann eventuell auch entsperrt werden, wenn ihm jemand sehr ähnlich sieht, etwa ein eineiiger Zwilling, oder das Gerät vor das Gesicht hält.</string>
     <string name="security_settings_face_enroll_introduction_info_gaze">Bei der Entsperrung per Gesichtserkennung musst du möglicherweise die Augen offen haben, damit deine Identität bestätigt bzw. das Smartphone entsperrt werden kann. Du kannst diese Option jederzeit in den Einstellungen aktivieren.</string>
     <string name="security_settings_face_enroll_introduction_info_glasses">Eine Korrekturbrille oder eine leicht getönte Sonnenbrille sind in Ordnung.</string>
+    <string name="security_settings_face_enroll_introduction_info_less_secure">Dein Smartphone per Gesichtserkennung zu entsperren ist möglicherweise nicht so sicher wie ein komplexes Muster oder eine PIN.</string>
     <string name="security_settings_face_enroll_introduction_info_looking">Wenn du auf das Smartphone blickst, kann es entsperrt werden, selbst wenn du dies nicht möchtest. Dein Smartphone kann eventuell auch von jemandem entsperrt werden, der dir sehr ähnlich sieht, beispielsweise einem eineiigen Zwilling, oder wenn jemand das Gerät vor dein Gesicht hält.</string>
     <string name="security_settings_face_enroll_introduction_info_title">Hinweis</string>
     <string name="security_settings_face_enroll_introduction_message">Du kannst dein Gesicht zum Entsperren deines Smartphones oder Bestätigen deiner Identität verwenden, z. B. um dich in Apps anzumelden oder um Käufe zu autorisieren.</string>
@@ -4451,13 +4470,14 @@ Eine andere Person kann dein Smartphone dadurch entsperren, dass sie es vor dein
 
 Dein Smartphone kann eventuell auch von jemandem entsperrt werden, der dir sehr ähnlich sieht, beispielsweise von einem eineiigen Zwilling."</string>
     <string name="security_settings_face_settings_preferences_category">Bei Nutzung der Entsperrung per Gesichtserkennung</string>
-    <string name="security_settings_face_settings_remove_dialog_details">Dein Gesichtsmodell wird dauerhaft und sicher gelöscht. Nach dem Entfernen benötigst du deine PIN, dein Muster oder dein Passwort, um dein Smartphone zu entsperren und dich in Apps zu authentifizieren.</string>
+    <string name="security_settings_face_settings_remove_dialog_details">"Dein Gesichtsmodell wird dauerhaft und sicher gelöscht.
+
+Nach dem Löschen benötigst du deine PIN, dein Muster oder dein Passwort, um dein Smartphone zu entsperren und dich in Apps zu authentifizieren."</string>
+    <string name="security_settings_face_settings_remove_dialog_details_convenience">"Dein Gesichtsmodell wird dauerhaft und sicher gelöscht.
+
+Nach dem Löschen benötigst du deine PIN, dein Muster oder dein Passwort, um dein Smartphone zu entsperren."</string>
     <string name="security_settings_face_settings_remove_dialog_title">Gesichtsmodell löschen?</string>
     <string name="security_settings_face_settings_remove_face_model">Gesichtsmodell löschen</string>
-    <string name="security_settings_face_settings_remove_model_dialog_details">"Dein Gesichtsmodell wird dauerhaft und sicher gelöscht.
-
-Nach dem Entfernen benötigst du deinen Fingerabdruck, deine PIN, dein Muster oder dein Passwort, um dein Smartphone zu entsperren und dich in Apps zu authentifizieren."</string>
-    <string name="security_settings_face_settings_remove_model_dialog_title">Gesichtsmodell löschen?</string>
     <string name="security_settings_face_settings_require_attention">Augen müssen geöffnet sein</string>
     <string name="security_settings_face_settings_require_attention_details">Zum Entsperren des Smartphones müssen deine Augen geöffnet sein</string>
     <string name="security_settings_face_settings_require_confirmation">Bestätigung immer erforderlich</string>
@@ -4574,7 +4594,6 @@ Hinweis: Dieses Gerät kann nicht mit deinem Fingerabdruck entsperrt werden. Wei
     <string name="select_webview_provider_dialog_title">WebView-Implementierung festlegen</string>
     <string name="select_webview_provider_title">WebView-Implementierung</string>
     <string name="select_webview_provider_toast_text">Diese Auswahl ist nicht mehr gültig. Bitte versuche es noch einmal.</string>
-    <string name="sensor_toggle_description">Für alle Apps und Dienste</string>
     <string name="sensors_off_quick_settings_title">Sensoren aus</string>
     <string name="service_background_processes">%1$s frei</string>
     <string name="service_foreground_processes">%1$s belegt</string>
@@ -4766,7 +4785,7 @@ Möglicherweise falsche PIN."</string>
     <string name="skip_lock_screen_dialog_button_label">Überspringen</string>
     <string name="slot_number">(Slot %1$d)</string>
     <string name="smart_battery_footer">Zur Verlängerung der Akkulaufzeit kann die Funktion „Intelligenter Akku“ die Leistung und Hintergrundaktivitäten reduzieren. Einige Benachrichtigungen können sich verzögern.</string>
-    <string name="smart_battery_manager_title">Einstellungen für die Funktionen „Intelligenter Akku“ und „Adaptives Laden“</string>
+    <string name="smart_battery_manager_title">Einstellungen für „Intelligenter Akku“ und „Adaptives Laden“</string>
     <string name="smart_battery_summary">Akkulaufzeit entsprechend deiner üblichen Nutzung des Smartphones verlängern</string>
     <string name="smart_battery_title">Intelligenter Akku</string>
     <string name="smart_forwarding_failed_not_activated_text">SIM ist nicht aktiviert.</string>
@@ -4806,6 +4825,7 @@ Möglicherweise falsche PIN."</string>
     <string name="sound_settings_summary_silent">Klingelton auf lautlos gestellt</string>
     <string name="sound_settings_summary_vibrate">Klingelton auf Vibrieren gestellt</string>
     <string name="sound_work_settings">Töne für Arbeitsprofil</string>
+    <string name="spatial_audio_title">Raumklang</string>
     <string name="special_access">Spezieller App-Zugriff</string>
     <string name="special_access_more">Mehr anzeigen</string>
     <string name="speed_label_fast">Schnell</string>
@@ -5617,7 +5637,7 @@ Während eines Sprachanrufs kannst du das Internet nicht nutzen und manche Apps 
     <string name="vpn_turn_on">Aktivieren</string>
     <string name="vpn_type">Typ</string>
     <string name="vpn_username">Nutzername</string>
-    <string name="vpn_version">Version %s</string>
+    <string name="vpn_version">Version</string>
     <string name="vr_listener_security_warning_summary">%1$s kann ausgeführt werden, wenn der Modus für virtuelle Realität für Apps aktiviert wird.</string>
     <string name="vr_listener_security_warning_title">VR-Dienstzugriff für %1$s erlauben?</string>
     <string name="vr_listeners_title">VR-Hilfsdienste</string>
@@ -5887,7 +5907,7 @@ Deine Routereinstellungen ändern sich nicht, wenn du das Netzwerk als verborgen
     <string name="wifi_not_in_range">Nicht in Reichweite</string>
     <string name="wifi_not_in_range_message">Netzwerk außer Reichweite</string>
     <string name="wifi_notify_open_networks">Über öffentliche Netzwerke informieren</string>
-    <string name="wifi_notify_open_networks_summary">Wenn das automatische Verbinden nicht verfügbar ist</string>
+    <string name="wifi_notify_open_networks_summary">Benachrichtigen, wenn ein leistungsstarkes öffentliches Netzwerk verfügbar ist</string>
     <string name="wifi_on_time">WLAN-Aktivzeit</string>
     <string name="wifi_p2p_cancel_connect_message">Möchtest du die Einladung zum Verbinden mit %1$s ablehnen?</string>
     <string name="wifi_p2p_cancel_connect_title">Einladung ablehnen?</string>
@@ -5975,7 +5995,6 @@ Sollen alle Apps nach WLANs suchen können?"</string>
     <string name="wifi_suspend_optimizations">WLAN-Optimierung</string>
     <string name="wifi_suspend_optimizations_summary">Akkuverbrauch bei aktiviertem WLAN minimieren</string>
     <string name="wifi_switch_away_when_unvalidated">Zu mobilen Daten wechseln, wenn über WLAN kein Internetzugriff mehr möglich ist.</string>
-    <string name="wifi_switch_summary">WLAN suchen und eine Verbindung herstellen</string>
     <string name="wifi_tap_to_sign_in">Tippe hier, um dich im Netzwerk anzumelden</string>
     <string name="wifi_tether_configure_ap_text">WLAN-Hotspot einrichten</string>
     <string name="wifi_tether_configure_ssid_default">AndroidHotspot</string>

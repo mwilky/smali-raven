@@ -145,7 +145,7 @@
 
     move-result-object v0
 
-    const-string v1, "user_switcher_enabled"
+    const-string/jumbo v1, "user_switcher_enabled"
 
     invoke-static {v0, v1, p1}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 

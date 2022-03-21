@@ -527,7 +527,7 @@
 
     move-result-object v1
 
-    const-string v2, "slice"
+    const-string/jumbo v2, "slice"
 
     invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -617,7 +617,7 @@
 
     move-result-object v1
 
-    const-string v2, "slice"
+    const-string/jumbo v2, "slice"
 
     invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 

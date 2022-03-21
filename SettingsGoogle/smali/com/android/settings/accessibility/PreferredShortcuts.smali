@@ -45,7 +45,7 @@
 
     move-result-object v0
 
-    const-string v1, "user_shortcut_type"
+    const-string/jumbo v1, "user_shortcut_type"
 
     invoke-interface {p0, v1, v0}, Landroid/content/SharedPreferences;->getStringSet(Ljava/lang/String;Ljava/util/Set;)Ljava/util/Set;
 
@@ -166,7 +166,7 @@
 
     move-result-object p0
 
-    const-string v0, "user_shortcut_type"
+    const-string/jumbo v0, "user_shortcut_type"
 
     invoke-interface {p0, v0, p1}, Landroid/content/SharedPreferences$Editor;->putStringSet(Ljava/lang/String;Ljava/util/Set;)Landroid/content/SharedPreferences$Editor;
 

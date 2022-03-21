@@ -415,7 +415,7 @@
     move p1, v1
 
     :goto_1
-    const v3, 0x105022a
+    const v3, 0x105022c
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1013,6 +1013,18 @@
     return p0
 .end method
 
+.method public static getHomepageIconColorHighlight(Landroid/content/Context;)I
+    .locals 1
+
+    const v0, 0x101003a
+
+    invoke-static {p0, v0}, Lcom/android/settingslib/Utils;->getColorAttrDefaultColor(Landroid/content/Context;I)I
+
+    move-result p0
+
+    return p0
+.end method
+
 .method private static getLocalProfileGivenName(Landroid/content/Context;)Ljava/lang/String;
     .locals 10
 
@@ -1508,7 +1520,7 @@
 
     if-nez v0, :cond_0
 
-    const/16 v0, 0x1f4
+    const/16 v0, 0x258
 
     invoke-static {p0, v0, v0}, Lcom/android/settings/Utils;->getSafeDrawable(Landroid/graphics/drawable/Drawable;II)Landroid/graphics/drawable/Drawable;
 
@@ -2390,18 +2402,6 @@
     return v2
 .end method
 
-.method public static isProviderModelEnabled(Landroid/content/Context;)Z
-    .locals 1
-
-    const-string v0, "settings_provider_model"
-
-    invoke-static {p0, v0}, Landroid/util/FeatureFlagUtils;->isEnabled(Landroid/content/Context;Ljava/lang/String;)Z
-
-    move-result p0
-
-    return p0
-.end method
-
 .method public static isSettingsIntelligence(Landroid/content/Context;)Z
     .locals 2
 
@@ -2421,7 +2421,7 @@
 
     aget-object v0, v0, v1
 
-    const v1, 0x7f040642
+    const v1, 0x7f04065a
 
     invoke-virtual {p0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -2645,7 +2645,7 @@
 
     move-result-object p3
 
-    const v2, 0x105022a
+    const v2, 0x105022c
 
     invoke-virtual {p3, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

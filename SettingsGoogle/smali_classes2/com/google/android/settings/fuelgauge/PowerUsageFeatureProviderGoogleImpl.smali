@@ -32,6 +32,16 @@
 
 .field static final TIMESTAMP_COL:Ljava/lang/String; = "timestamp_millis"
 
+.field static sChartConfigurationLoaded:Z
+
+.field private static sChartGraphEnabled:Z
+
+.field private static sChartGraphSlotsEnabled:Z
+
+
+# instance fields
+.field mAdaptiveChargingManager:Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager;
+
 
 # direct methods
 .method static constructor <clinit>()V
@@ -47,6 +57,10 @@
 
     sput-object v0, Lcom/google/android/settings/fuelgauge/PowerUsageFeatureProviderGoogleImpl;->PACKAGES_SERVICE:[Ljava/lang/String;
 
+    const/4 v0, 0x0
+
+    sput-boolean v0, Lcom/google/android/settings/fuelgauge/PowerUsageFeatureProviderGoogleImpl;->sChartConfigurationLoaded:Z
+
     return-void
 .end method
 
@@ -56,6 +70,27 @@
     invoke-direct {p0, p1}, Lcom/android/settings/fuelgauge/PowerUsageFeatureProviderImpl;-><init>(Landroid/content/Context;)V
 
     return-void
+.end method
+
+.method private getAdaptiveChargingManager()Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager;
+    .locals 2
+
+    iget-object v0, p0, Lcom/google/android/settings/fuelgauge/PowerUsageFeatureProviderGoogleImpl;->mAdaptiveChargingManager:Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager;
+
+    if-nez v0, :cond_0
+
+    new-instance v0, Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager;
+
+    iget-object v1, p0, Lcom/android/settings/fuelgauge/PowerUsageFeatureProviderImpl;->mContext:Landroid/content/Context;
+
+    invoke-direct {v0, v1}, Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager;-><init>(Landroid/content/Context;)V
+
+    iput-object v0, p0, Lcom/google/android/settings/fuelgauge/PowerUsageFeatureProviderGoogleImpl;->mAdaptiveChargingManager:Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager;
+
+    :cond_0
+    iget-object p0, p0, Lcom/google/android/settings/fuelgauge/PowerUsageFeatureProviderGoogleImpl;->mAdaptiveChargingManager:Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager;
+
+    return-object p0
 .end method
 
 .method private getEnhancedBatteryPredictionCurveUri()Landroid/net/Uri;
@@ -157,6 +192,64 @@
     return p0
 .end method
 
+.method private loadChartConfiguration(Landroid/content/Context;)V
+    .locals 3
+
+    sget-boolean v0, Lcom/google/android/settings/fuelgauge/PowerUsageFeatureProviderGoogleImpl;->sChartConfigurationLoaded:Z
+
+    if-eqz v0, :cond_0
+
+    return-void
+
+    :cond_0
+    invoke-direct {p0, p1}, Lcom/google/android/settings/fuelgauge/PowerUsageFeatureProviderGoogleImpl;->isSettingsIntelligenceExist(Landroid/content/Context;)Z
+
+    move-result p0
+
+    const/4 v0, 0x1
+
+    const/4 v1, 0x0
+
+    if-eqz p0, :cond_1
+
+    invoke-static {p1}, Lcom/google/android/settings/fuelgauge/DatabaseUtils;->isContentProviderEnabled(Landroid/content/Context;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    move v2, v0
+
+    goto :goto_0
+
+    :cond_1
+    move v2, v1
+
+    :goto_0
+    sput-boolean v2, Lcom/google/android/settings/fuelgauge/PowerUsageFeatureProviderGoogleImpl;->sChartGraphEnabled:Z
+
+    if-eqz p0, :cond_2
+
+    const-string p0, "com.google.android.settings.intelligence"
+
+    const-string v2, "BatteryUsage__is_time_slot_supported"
+
+    invoke-static {p1, p0, v2, v1}, Lcom/google/android/settings/experiments/PhenotypeProxy;->getFlagByPackageAndKey(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Z)Z
+
+    move-result p0
+
+    if-eqz p0, :cond_2
+
+    move v1, v0
+
+    :cond_2
+    sput-boolean v1, Lcom/google/android/settings/fuelgauge/PowerUsageFeatureProviderGoogleImpl;->sChartGraphSlotsEnabled:Z
+
+    sput-boolean v0, Lcom/google/android/settings/fuelgauge/PowerUsageFeatureProviderGoogleImpl;->sChartConfigurationLoaded:Z
+
+    return-void
+.end method
+
 
 # virtual methods
 .method public getAdvancedUsageScreenInfoString()Ljava/lang/String;
@@ -164,7 +257,7 @@
 
     iget-object p0, p0, Lcom/android/settings/fuelgauge/PowerUsageFeatureProviderImpl;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f0401cf
+    const v0, 0x7f0401e3
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -198,6 +291,14 @@
     invoke-static {p1, p0, v0}, Lcom/google/android/settings/fuelgauge/DatabaseUtils;->getHistoryMap(Landroid/content/Context;Ljava/time/Clock;Z)Ljava/util/Map;
 
     move-result-object p0
+
+    return-object p0
+.end method
+
+.method public getBatteryHistoryUri()Landroid/net/Uri;
+    .locals 0
+
+    sget-object p0, Lcom/google/android/settings/fuelgauge/DatabaseUtils;->BATTERY_CONTENT_URI:Landroid/net/Uri;
 
     return-object p0
 .end method
@@ -626,32 +727,66 @@
     return-object p0
 .end method
 
-.method public getHideBackgroundUsageTimeList(Landroid/content/Context;)Ljava/util/List;
+.method public getHideApplicationEntries(Landroid/content/Context;)[Ljava/lang/CharSequence;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroid/content/Context;",
-            ")",
-            "Ljava/util/List<",
-            "Ljava/lang/CharSequence;",
-            ">;"
-        }
-    .end annotation
 
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object p0
 
-    const p1, 0x7f01000d
+    const p1, 0x7f01000e
 
     invoke-virtual {p0, p1}, Landroid/content/res/Resources;->getTextArray(I)[Ljava/lang/CharSequence;
 
     move-result-object p0
 
-    invoke-static {p0}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
+    return-object p0
+.end method
+
+.method public getHideApplicationSummary(Landroid/content/Context;)[Ljava/lang/CharSequence;
+    .locals 0
+
+    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object p0
+
+    const p1, 0x7f01000f
+
+    invoke-virtual {p0, p1}, Landroid/content/res/Resources;->getTextArray(I)[Ljava/lang/CharSequence;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public getHideBackgroundUsageTimeSet(Landroid/content/Context;)Ljava/util/Set;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/content/Context;",
+            ")",
+            "Ljava/util/Set<",
+            "Ljava/lang/CharSequence;",
+            ">;"
+        }
+    .end annotation
+
+    new-instance p0, Ljava/util/HashSet;
+
+    invoke-direct {p0}, Ljava/util/HashSet;-><init>()V
+
+    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object p1
+
+    const v0, 0x7f01000d
+
+    invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getTextArray(I)[Ljava/lang/CharSequence;
+
+    move-result-object p1
+
+    invoke-static {p0, p1}, Ljava/util/Collections;->addAll(Ljava/util/Collection;[Ljava/lang/Object;)Z
 
     return-object p0
 .end method
@@ -669,64 +804,49 @@
 
     invoke-virtual {p0, v0}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
 
-    const/high16 v0, 0x10000000
+    move-result-object p0
 
-    invoke-virtual {p0, v0}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
+    const/high16 v0, 0x50000000
+
+    invoke-virtual {p0, v0}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+
+    move-result-object p0
 
     return-object p0
+.end method
+
+.method public isAdaptiveChargingSupported()Z
+    .locals 0
+
+    invoke-direct {p0}, Lcom/google/android/settings/fuelgauge/PowerUsageFeatureProviderGoogleImpl;->getAdaptiveChargingManager()Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager;->isAvailable()Z
+
+    move-result p0
+
+    return p0
 .end method
 
 .method public isChartGraphEnabled(Landroid/content/Context;)Z
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/google/android/settings/fuelgauge/PowerUsageFeatureProviderGoogleImpl;->isSettingsIntelligenceExist(Landroid/content/Context;)Z
+    invoke-direct {p0, p1}, Lcom/google/android/settings/fuelgauge/PowerUsageFeatureProviderGoogleImpl;->loadChartConfiguration(Landroid/content/Context;)V
 
-    move-result p0
+    sget-boolean p0, Lcom/google/android/settings/fuelgauge/PowerUsageFeatureProviderGoogleImpl;->sChartGraphEnabled:Z
 
-    if-eqz p0, :cond_0
-
-    invoke-static {p1}, Lcom/google/android/settings/fuelgauge/DatabaseUtils;->isContentProviderEnabled(Landroid/content/Context;)Z
-
-    move-result p0
-
-    if-eqz p0, :cond_0
-
-    const/4 p0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    :goto_0
     return p0
 .end method
 
 .method public isChartGraphSlotsEnabled(Landroid/content/Context;)Z
-    .locals 2
+    .locals 0
 
-    invoke-direct {p0, p1}, Lcom/google/android/settings/fuelgauge/PowerUsageFeatureProviderGoogleImpl;->isSettingsIntelligenceExist(Landroid/content/Context;)Z
+    invoke-direct {p0, p1}, Lcom/google/android/settings/fuelgauge/PowerUsageFeatureProviderGoogleImpl;->loadChartConfiguration(Landroid/content/Context;)V
 
-    move-result p0
+    sget-boolean p0, Lcom/google/android/settings/fuelgauge/PowerUsageFeatureProviderGoogleImpl;->sChartGraphSlotsEnabled:Z
 
-    const/4 v0, 0x0
-
-    if-eqz p0, :cond_0
-
-    const-string p0, "com.google.android.settings.intelligence"
-
-    const-string v1, "BatteryUsage__is_time_slot_supported"
-
-    invoke-static {p1, p0, v1, v0}, Lcom/google/android/settings/experiments/PhenotypeProxy;->getFlagByPackageAndKey(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Z)Z
-
-    move-result p0
-
-    if-eqz p0, :cond_0
-
-    const/4 v0, 0x1
-
-    :cond_0
-    return v0
+    return p0
 .end method
 
 .method public isEnhancedBatteryPredictionEnabled(Landroid/content/Context;)Z

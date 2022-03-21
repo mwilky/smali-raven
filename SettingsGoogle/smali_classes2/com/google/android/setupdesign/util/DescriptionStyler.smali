@@ -5,9 +5,9 @@
 
 # direct methods
 .method public static applyPartnerCustomizationHeavyStyle(Landroid/widget/TextView;)V
-    .locals 9
+    .locals 10
 
-    new-instance v8, Lcom/google/android/setupdesign/util/TextViewPartnerStyler$TextPartnerConfigs;
+    new-instance v9, Lcom/google/android/setupdesign/util/TextViewPartnerStyler$TextPartnerConfigs;
 
     sget-object v1, Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;->CONFIG_DESCRIPTION_TEXT_COLOR:Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;
 
@@ -17,31 +17,33 @@
 
     sget-object v4, Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;->CONFIG_DESCRIPTION_FONT_FAMILY:Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;
 
+    sget-object v5, Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;->CONFIG_DESCRIPTION_LINK_FONT_FAMILY:Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;
+
     invoke-virtual {p0}, Landroid/widget/TextView;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
     invoke-static {v0}, Lcom/google/android/setupdesign/util/PartnerStyleHelper;->getLayoutGravity(Landroid/content/Context;)I
 
-    move-result v7
-
-    const/4 v5, 0x0
+    move-result v8
 
     const/4 v6, 0x0
 
-    move-object v0, v8
+    const/4 v7, 0x0
 
-    invoke-direct/range {v0 .. v7}, Lcom/google/android/setupdesign/util/TextViewPartnerStyler$TextPartnerConfigs;-><init>(Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;I)V
+    move-object v0, v9
 
-    invoke-static {p0, v8}, Lcom/google/android/setupdesign/util/TextViewPartnerStyler;->applyPartnerCustomizationStyle(Landroid/widget/TextView;Lcom/google/android/setupdesign/util/TextViewPartnerStyler$TextPartnerConfigs;)V
+    invoke-direct/range {v0 .. v8}, Lcom/google/android/setupdesign/util/TextViewPartnerStyler$TextPartnerConfigs;-><init>(Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;I)V
+
+    invoke-static {p0, v9}, Lcom/google/android/setupdesign/util/TextViewPartnerStyler;->applyPartnerCustomizationStyle(Landroid/widget/TextView;Lcom/google/android/setupdesign/util/TextViewPartnerStyler$TextPartnerConfigs;)V
 
     return-void
 .end method
 
 .method public static applyPartnerCustomizationLightStyle(Landroid/widget/TextView;)V
-    .locals 9
+    .locals 10
 
-    new-instance v8, Lcom/google/android/setupdesign/util/TextViewPartnerStyler$TextPartnerConfigs;
+    new-instance v9, Lcom/google/android/setupdesign/util/TextViewPartnerStyler$TextPartnerConfigs;
 
     invoke-virtual {p0}, Landroid/widget/TextView;->getContext()Landroid/content/Context;
 
@@ -49,7 +51,7 @@
 
     invoke-static {v0}, Lcom/google/android/setupdesign/util/PartnerStyleHelper;->getLayoutGravity(Landroid/content/Context;)I
 
-    move-result v7
+    move-result v8
 
     const/4 v1, 0x0
 
@@ -63,11 +65,13 @@
 
     const/4 v6, 0x0
 
-    move-object v0, v8
+    const/4 v7, 0x0
 
-    invoke-direct/range {v0 .. v7}, Lcom/google/android/setupdesign/util/TextViewPartnerStyler$TextPartnerConfigs;-><init>(Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;I)V
+    move-object v0, v9
 
-    invoke-static {p0, v8}, Lcom/google/android/setupdesign/util/TextViewPartnerStyler;->applyPartnerCustomizationLightStyle(Landroid/widget/TextView;Lcom/google/android/setupdesign/util/TextViewPartnerStyler$TextPartnerConfigs;)V
+    invoke-direct/range {v0 .. v8}, Lcom/google/android/setupdesign/util/TextViewPartnerStyler$TextPartnerConfigs;-><init>(Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;I)V
+
+    invoke-static {p0, v9}, Lcom/google/android/setupdesign/util/TextViewPartnerStyler;->applyPartnerCustomizationLightStyle(Landroid/widget/TextView;Lcom/google/android/setupdesign/util/TextViewPartnerStyler$TextPartnerConfigs;)V
 
     return-void
 .end method

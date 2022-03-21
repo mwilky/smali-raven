@@ -96,6 +96,7 @@
     <string name="peak_refresh_rate_title">Smooth Display</string>
     <string name="peak_refresh_rate_summary">Automatikoki igotzen du freskatze-abiadura 60 Hz-etik 90 Hz-era zenbait edukitarako. Bateria-erabilera luzatzen du.</string>
     <string name="accessibility_vibration_settings_title">Dardara eta ukipen bidezko interakzioa</string>
+    <string name="columbus_title">Ekintzak gauzatzeko sakatze bizkorrak</string>
     <string name="emergency_gesture_screen_title">SOS larrialdia</string>
     <string name="abc_action_mode_done">Eginda</string>
     <string name="vibrate_for_calls_category_title">Deiak</string>
@@ -103,6 +104,8 @@
     <string name="lockscreen_privacy_controls_setting_toggle">Erakutsi gailuak kontrolatzeko widgetak</string>
     <string name="lockscreen_privacy_wallet_summary">Eman diru-zorroa atzitzeko baimena pantaila blokeatuan eta ezarpen bizkorretan</string>
     <string name="lockscreen_privacy_controls_summary">Atzitu kontrolatzeko aukerak gailua blokeatuta dagoenean</string>
+    <string name="lockscreen_double_line_clock_summary">Ahal denean, erakutsi erlojua bi lerrotan</string>
+    <string name="lockscreen_double_line_clock_setting_toggle">Bi lerroko erlojua</string>
     <string name="abc_activity_chooser_view_see_all">Ikusi guztiak</string>
     <string name="abc_activitychooserview_choose_application">Aukeratu aplikazio bat</string>
     <string name="abc_capital_off">DESAKTIBATU</string>
@@ -147,9 +150,11 @@
     <string name="accessibility_alarm_vibration_title">Alarmen dardara</string>
     <string name="accessibility_assist_gesture_complete_or_keep_adjusting">Konfiguratu da Active Edge. Joan hurrengo pantailara edo jarraitu aukerak doitzen.</string>
     <string name="accessibility_audio_adjustment_title">Audio-doikuntza</string>
+    <string name="accessibility_autoclick_about_title">Klik automatikoari buruz (itxarote-denbora)</string>
     <string name="accessibility_autoclick_custom_title">Pertsonalizatua</string>
     <string name="accessibility_autoclick_default_title">Desaktibatuta</string>
     <string name="accessibility_autoclick_description">Klik automatikoak erabiltzeko, sagu bat konektatu behar da. Denbora jakin batean geldirik egon ondoren automatikoki klik egin dezan konfigura dezakezu saguaren kurtsorea.</string>
+    <string name="accessibility_autoclick_footer_learn_more_content_description">Lortu informazio gehiago klik automatikoari buruz (itxarote-denbora)</string>
     <string name="accessibility_autoclick_long_summary">1 segundo</string>
     <string name="accessibility_autoclick_long_title">Luzea</string>
     <string name="accessibility_autoclick_longer_desc">Luzatu</string>
@@ -161,16 +166,17 @@
     <string name="accessibility_autoclick_short_title">Laburra</string>
     <string name="accessibility_autoclick_shorter_desc">Laburtu</string>
     <string name="accessibility_banner_message_dismiss">Baztertu</string>
-    <string name="accessibility_button_description">"Atzitu bizkor erabilerraztasun-eginbideak edozein pantailatan. 
+    <string name="accessibility_button_about_title">Erabilerraztasuna botoiari buruz</string>
+    <string name="accessibility_button_description">"Atzitu bizkor erabilerraztasun-eginbideak edozein pantailatan.
 
-Hasteko, joan erabilerraztasun-ezarpenetara eta hautatu eginbide bat. Sakatu lasterbidea eta, jarraian, sakatu Erabilerraztasuna botoia."</string>
+Hasteko, joan erabilerraztasun-ezarpenetara eta hautatu eginbide bat. Sakatu lasterbidea eta hautatu Erabilerraztasuna botoia."</string>
     <string name="accessibility_button_fade_summary">Segundo batzuen ostean, desagertu egiten da apurka pantaila errazago ikusteko</string>
     <string name="accessibility_button_fade_title">Desagerrarazi apurka erabiltzen ez denean</string>
+    <string name="accessibility_button_gesture_about_title">Erabilerraztasuna botoiari eta keinuari buruz</string>
     <string name="accessibility_button_gesture_description">"Atzitu bizkor erabilerraztasun-eginbideak edozein pantailatan.
 
-Hasteko, joan erabilerraztasun-ezarpenetara eta hautatu eginbide bat. Sakatu lasterbidea eta hautatu Erabilerraztasuna botoia.
-
-Horren ordez Erabilerraztasuna botoia nabigazio-barran erabiltzeko, aldatu bi botoiko nabigaziora edo hiru botoiko nabigaziora."</string>
+Hasteko, joan erabilerraztasun-ezarpenetara eta hautatu eginbide bat. Sakatu lasterbidea eta, jarraian, sakatu Erabilerraztasuna botoia edo erabilerraztasun-keinua."</string>
+    <string name="accessibility_button_gesture_footer_learn_more_content_description">Lortu informazio gehiago Erabilerraztasuna botoiari eta keinuari buruz</string>
     <string name="accessibility_button_gesture_title">Erabilerraztasun-botoia eta -keinua</string>
     <string name="accessibility_button_high_label">Gardentasunik gabe</string>
     <string name="accessibility_button_intro">Erabili erabilerraztasun-botoia. Keinuak ez du funtzionatzen hiru botoiko nabigazioarekin.</string>
@@ -184,14 +190,23 @@ Horren ordez Erabilerraztasuna botoia nabigazio-barran erabiltzeko, aldatu bi bo
     <string name="accessibility_caption_preference_summary">Aplikazio guztiak ez dira bateragarriak azpitituluen hobespen hauekin</string>
     <string name="accessibility_caption_primary_switch_summary">Bateragarriak diren aplikazioetarako bakarrik</string>
     <string name="accessibility_caption_primary_switch_title">Erakutsi azpitituluak</string>
+    <string name="accessibility_captioning_about_title">Azpitituluen hobespenei buruz</string>
+    <string name="accessibility_captioning_footer_learn_more_content_description">Lortu informazio gehiago azpitituluen hobespenei buruz</string>
     <string name="accessibility_captioning_title">Azpitituluen hobespenak</string>
     <string name="accessibility_category_personal">Profil pertsonalen kontuak</string>
     <string name="accessibility_category_work">Laneko profilaren kontuak - %s</string>
+    <string name="accessibility_color_inversion_about_title">Koloreen alderantzikatzeari buruz</string>
+    <string name="accessibility_color_inversion_footer_learn_more_content_description">Lortu informazio gehiago koloreen alderantzikatzeari buruz</string>
+    <string name="accessibility_control_timeout_about_title">Zerbait egiteko denborari buruz (erabilerraztasunaren denbora-muga)</string>
+    <string name="accessibility_control_timeout_footer_learn_more_content_description">Lortu informazio gehiago zerbait egiteko denborari buruz (erabilerraztasunaren denbora-muga)</string>
     <string name="accessibility_control_timeout_preference_summary">"Aukeratu zenbat denboraz erakutsi behar diren mezuak, zerbait egiteko eskatzen badizute baina aldi baterako soilik badaude ikusgai.
 
 Aplikazio guztiek ez dute onartzen ezarpen hau."</string>
     <string name="accessibility_control_timeout_preference_title">Zerbait egiteko denbora</string>
+    <string name="accessibility_daltonizer_about_title">Koloreen zuzenketari buruz</string>
+    <string name="accessibility_daltonizer_footer_learn_more_content_description">Lortu informazio gehiago koloreen zuzenketari buruz</string>
     <string name="accessibility_daltonizer_primary_switch_title">Erabili koloreen zuzenketa</string>
+    <string name="accessibility_daltonizer_shortcut_title">Kolorea zuzentzeko lasterbidea</string>
     <string name="accessibility_data_one_bar">Datu-seinaleak barra bat du.</string>
     <string name="accessibility_data_signal_full">Datu-seinale osoa.</string>
     <string name="accessibility_data_three_bars">Datu-seinaleak hiru barra ditu.</string>
@@ -206,6 +221,7 @@ Aplikazio guztiek ez dute onartzen ezarpen hau."</string>
     <string name="accessibility_display_daltonizer_preference_title">Koloreen zuzenketa</string>
     <string name="accessibility_display_inversion_preference_subtitle">Koloreen alderantzikatzeak ilun bihurtzen ditu pantaila argiak.&lt;br/>&lt;br/> Oharra: &lt;ol> &lt;li> Koloreen alderantzikatzeak argi bihurtzen ditu pantaila ilunak ere.&lt;/li> &lt;li> Multimedia-edukien eta irudien koloreak aldatu egingo dira.&lt;/li> &lt;li> Gai iluna atzeko plano ilun bat bistaratzeko erabil daiteke. Aplikazio bateragarrietan funtzionatzen du gai ilunak; koloreen alderantzikatzeak, berriz, aplikazio guztietan.&lt;/li> &lt;/ol></string>
     <string name="accessibility_display_inversion_preference_title">Koloreen alderantzikatzea</string>
+    <string name="accessibility_display_inversion_shortcut_title">Kolorea alderantzikatzeko lasterbidea</string>
     <string name="accessibility_display_inversion_switch_title">Erabili koloreen alderantzikatzea</string>
     <string name="accessibility_ethernet_connected">Ethernet.</string>
     <string name="accessibility_ethernet_disconnected">Ethernet bidezko konexioa eten da.</string>
@@ -255,6 +271,8 @@ Erabilerraztasuna botoia pantailako beste aplikazioen gainean bistaratzen da. Sa
     <string name="accessibility_phone_two_bars">Telefono-seinaleak bi barra ditu.</string>
     <string name="accessibility_power_button_ends_call_prerefence_title">Amaitu deiak etengailuarekin</string>
     <string name="accessibility_preference_magnification_summary">Handitu pantaila</string>
+    <string name="accessibility_screen_magnification_about_title">Lupari buruz</string>
+    <string name="accessibility_screen_magnification_footer_learn_more_content_description">Lortu informazio gehiago lupari buruz</string>
     <string name="accessibility_screen_magnification_gesture_navigation_warning">%1$s erabiltzeko konfiguratu da erabilerraztasun-keinua. Lupa erabili nahi baduzu, pasatu bi hatz pantailaren behealdetik gora eta eduki sakatuta une batez. Ondoren, hautatu lupa.</string>
     <string name="accessibility_screen_magnification_gestures_title">Handitzeko, sakatu hiru aldiz</string>
     <string name="accessibility_screen_magnification_navbar_configuration_warning">Erabilerraztasuna botoia labur sakatuta \"%1$s\" aukera aktibatzen da. Lupa aplikatzeko, eduki sakatuta Erabilerraztasuna botoia eta, ondoren, hautatu lupa.</string>
@@ -272,6 +290,7 @@ Erabilerraztasuna botoia pantailako beste aplikazioen gainean bistaratzen da. Sa
 Ezin da aplikatu zooma teklatuan edo nabigazio-barran."</string>
     <string name="accessibility_screen_magnification_navbar_title">Handitu pantaila lasterbidearekin</string>
     <string name="accessibility_screen_magnification_short_summary">Zooma aplikatzeko, sakatu hirutan</string>
+    <string name="accessibility_screen_magnification_shortcut_title">Luparen lasterbidea</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">Handitu pantaila lasterbide eta hiru ukitutxorekin</string>
     <string name="accessibility_screen_magnification_summary">Handitu pantaila bizkor edukia handiago ikusteko.&lt;br/>&lt;br/> &lt;b>Handitzeko:&lt;/b>&lt;br/> {0,number,integer}. Erabili lupa aktibatzeko lasterbidea.&lt;br/> {1,number,integer}. Sakatu pantaila.&lt;br/> {2,number,integer}. Arrastatu bi hatz pantailan zehar mugitzeko.&lt;br/> {3,number,integer}. Atximurkatu bi hatz zooma doitzeko.&lt;br/> {4,number,integer}. Erabili lupa desaktibatzeko lasterbidea.&lt;br/>&lt;br/> &lt;b>Une batez handitzeko:&lt;/b>&lt;br/> {0,number,integer}. Erabili lupa aktibatzeko lasterbidea.&lt;br/> {1,number,integer}. Eduki sakatuta pantailako edozein puntu.&lt;br/> {2,number,integer}. Arrastatu hatz bat pantailan zehar mugitzeko.&lt;br/> {3,number,integer}. Altxatu hatza lupa desaktibatzeko.</string>
     <string name="accessibility_screen_magnification_title">Lupa</string>
@@ -370,7 +389,7 @@ Eginbide batetik bestera aldatzeko, pasatu hiru hatz gorantz eta eduki pantaila 
     <string name="accessibility_tutorial_dialog_message_volume">Eginbide hau erabiltzeko, eduki sakatuta bi bolumen-botoiak.</string>
     <string name="accessibility_tutorial_dialog_title_button">Erabili Erabilerraztasuna botoia irekitzeko</string>
     <string name="accessibility_tutorial_dialog_title_gesture">Erabili keinua irekitzeko</string>
-    <string name="accessibility_tutorial_dialog_title_gesture_settings">Erabili erabilerraztasun-keinu berria</string>
+    <string name="accessibility_tutorial_dialog_title_gesture_settings">Erabili erabilerraztasun-keinua</string>
     <string name="accessibility_tutorial_dialog_title_triple">Irekitzeko, sakatu pantaila hiru aldiz</string>
     <string name="accessibility_tutorial_dialog_title_volume">Irekitzeko, eduki sakatuta bolumen-botoiak</string>
     <string name="accessibility_tutorial_pager">%1$d/%2$d orria</string>
@@ -439,7 +458,7 @@ Eginbide batetik bestera aldatzeko, pasatu hiru hatz gorantz eta eduki pantaila 
     <string name="adaptive_sleep_title_no_permission">Kamera erabiltzeko baimena behar da</string>
     <string name="adb_authorization_timeout_summary">Desgaitu ADB baimenen baliogabetze automatikoa lehenetsitako epean (zazpi egun) edo erabiltzaileak konfiguratutako epean (gutxienez egun bat) berriro konektatu ez diren sistemetan</string>
     <string name="adb_authorization_timeout_title">Desgaitu ADB baimenaren denbora-muga</string>
-    <string name="adb_device_fingerprint_title_format">Gailuaren erreferentzia-gako digitala: %1$s</string>
+    <string name="adb_device_fingerprint_title_format">Gailuaren aztarna digitala: %1$s</string>
     <string name="adb_device_forget">Ahaztu</string>
     <string name="adb_keys_warning_message">Aurretik baimendutako ordenagailu guztiei USB bidezko arazketarako sarbidea kendu nahi diezu?</string>
     <string name="adb_pair_method_code_summary">Parekatu gailu gehiago sei digituko kode batekin</string>
@@ -682,7 +701,7 @@ Hori egiteko, hurbildu gailuak bata bestearengana (atzealdeak elkartu behar izan
     <string name="assist_gesture_enrollment_seekbar_light">Estutze arina</string>
     <string name="assist_gesture_enrollment_seekbar_strong">Estutze sendoa</string>
     <string name="assist_gesture_enrollment_settings">Ezarpenak</string>
-    <string name="assist_gesture_setting_enable_assistant_text">Laguntzailea eginbideari hitz egiteko, estutu eta askatu bizkor telefonoaren beheko erdia</string>
+    <string name="assist_gesture_setting_enable_assistant_text">Laguntzailea zerbitzuari hitz egiteko, estutu eta askatu bizkor telefonoaren beheko erdia</string>
     <string name="assist_gesture_setting_enable_assistant_title">Estutu Laguntzailea erabiltzeko</string>
     <string name="assist_gesture_setting_enable_ring_alarm_silence_text">Estutu telefonoa alarmak, tenporizadoreak, jakinarazpenak eta jasotako deiak isilarazteko</string>
     <string name="assist_gesture_setting_enable_ring_silence_text">Estutu telefonoa jakinarazpenak eta jasotako deiak isilarazteko</string>
@@ -701,10 +720,10 @@ Hori egiteko, hurbildu gailuak bata bestearengana (atzealdeak elkartu behar izan
     <string name="assist_gesture_training_enrolling_title">Estutu eta askatu bizkor</string>
     <string name="assist_gesture_training_finished_text">Geroago ere alda dezakezu estutzeko keinuaren sentikortasuna Ezarpenak atalean</string>
     <string name="assist_gesture_training_finished_title">Amaitu edo jarraitu doitzen</string>
-    <string name="assist_gesture_training_intro_text">Laguntzailea eginbideari edonoiz hitz egiteko, estutu eta askatu bizkor telefonoaren beheko erdia</string>
+    <string name="assist_gesture_training_intro_text">Laguntzailea zerbitzuari edonoiz hitz egiteko, estutu eta askatu bizkor telefonoaren beheko erdia</string>
     <string name="assist_gesture_training_intro_title">Estutu Laguntzailea erabiltzeko</string>
-    <string name="assist_gesture_training_suggestion_summary">Hitz egin Laguntzailea eginbideari eta isilarazi deiak</string>
-    <string name="assist_gesture_training_suggestion_summary_including_alarms">Hitz egin Laguntzailea eginbideari, eta isilarazi alarmak eta deiak</string>
+    <string name="assist_gesture_training_suggestion_summary">Hitz egin Laguntzailea zerbitzuari eta isilarazi deiak</string>
+    <string name="assist_gesture_training_suggestion_summary_including_alarms">Hitz egin Laguntzailea zerbitzuari, eta isilarazi alarmak eta deiak</string>
     <string name="assist_gesture_training_suggestion_title">Estutu eta askatu Laguntzailea atzitzeko</string>
     <string name="assistant_corner_gesture_summary">Laguntzaile digitalaren aplikazioa abiarazteko, pasatu hatza beheko ertz batetik gora.</string>
     <string name="assistant_corner_gesture_title">Laguntzaile digitala abiarazteko, pasatu hatza</string>
@@ -936,6 +955,7 @@ Berrezarri ondoren, gauzatu konfiguratze-prozesua eta adierazi telefono zaharrek
     <string name="battery_level_title">Bateria-maila</string>
     <string name="battery_manager_off">Desaktibatuta</string>
     <string name="battery_manager_summary">Luzatu bateriaren iraupena eta optimizatu kargatze-prozesua</string>
+    <string name="battery_manager_summary_unsupported">Luzatu bateriaren iraupena</string>
     <string name="battery_missing_link_a11y_message">Sakatu hau erroreari buruzko informazio gehiago lortzeko</string>
     <string name="battery_missing_link_message">Lortu informazio gehiago</string>
     <string name="battery_missing_message">Arazo bat izan da bateria-neurgailua irakurtzean.</string>
@@ -1061,6 +1081,7 @@ azken 24 orduetan"</string>
     <string name="battery_usage_screen_footer">Bateria-erabileraren datuak gutxi gorabeherakoak dira eta ez dute neurtzen erabilerarik telefonoa kargatzen ari denean</string>
     <string name="battery_usage_screen_footer_empty">Telefonoa ordu batzuez erabili ondoren egongo dira erabilgarri bateriaren erabilera-datuak</string>
     <string name="battery_usage_total_less_than_one_minute">Guztira: minutu bat baino gutxiago</string>
+    <string name="battery_usage_without_time" />
     <string name="battery_used_by">%1$s erabili du %2$s aplikazioak</string>
     <string name="battery_used_for">Erabilera-denbora: ^1</string>
     <string name="bearer">Jabea</string>
@@ -1069,12 +1090,14 @@ azken 24 orduetan"</string>
     <string name="billing_cycle_less_than_one_day_left">Egun bat baino gutxiago gelditzen da</string>
     <string name="billing_cycle_none_left">Ez da gelditzen denborarik</string>
     <string name="biometric_settings_category_ways_to_unlock">Desblokeatzeko moduak</string>
-    <string name="biometric_settings_category_ways_to_use">Erabili aurpegia eta hatz-marka hauek egiteko:</string>
     <string name="biometric_settings_hand_back_to_guardian">Eman telefonoa guraso bati</string>
     <string name="biometric_settings_hand_back_to_guardian_ok">Ados</string>
     <string name="biometric_settings_intro">Aurpegi eta hatz-marka bidez desblokeatzeko eginbideak konfiguratzen badituzu, hatz-marka eskatuko dizu telefonoak maskara bat jantzita daukazunean edo argi gutxi dagoenean</string>
-    <string name="biometric_settings_use_biometric_for_apps">Aplikazioetako autentifikazioa</string>
-    <string name="biometric_settings_use_biometric_unlock_phone">Telefonoa desblokeatzeko</string>
+    <string name="biometric_settings_use_biometric_for_apps">Egiaztatu zeu ari zarela aplikazioak erabiltzen</string>
+    <string name="biometric_settings_use_biometric_unlock_phone">Desblokeatu telefonoa</string>
+    <string name="biometric_settings_use_face_or_fingerprint_preference_summary">Aurpegiaren edo hatz-markaren bidez</string>
+    <string name="biometric_settings_use_face_preference_summary">Aurpegiaren bidez</string>
+    <string name="biometric_settings_use_fingerprint_preference_summary">Hatz-markaren bidez</string>
     <string name="biometrics_unlock_set_unlock_password">Pasahitza • Aurpegia • Hatz-marka</string>
     <string name="biometrics_unlock_set_unlock_pattern">Eredua • Aurpegia • Hatz-marka</string>
     <string name="biometrics_unlock_set_unlock_pin">PINa • Aurpegia • Hatz-marka</string>
@@ -1332,7 +1355,6 @@ Hautapena"</string>
     <string name="bluetooth_settings_title">Bluetooth-a</string>
     <string name="bluetooth_show_devices_without_names">Erakutsi Bluetooth bidezko gailuak izenik gabe</string>
     <string name="bluetooth_show_devices_without_names_summary">Bluetooth bidezko gailuak izenik gabe (MAC helbideak soilik) erakutsiko dira</string>
-    <string name="bluetooth_show_files_received_via_bluetooth">Bluetooth bidez jasotako fitxategiak</string>
     <string name="bluetooth_show_received_files">Jasotako fitxategiak</string>
     <string name="bluetooth_sim_card_access_dialog_content">"Bluetooth bidezko gailu bat (%1$s) SIM txartelaren datuak atzitu nahian dabil (besteak beste, kontaktuak).
 
@@ -1401,7 +1423,7 @@ Burbuilak erabiltzeko aukera duten beste aplikazio eta elkarrizketei ere aplikat
     <string name="cache_header_label">Cachea</string>
     <string name="cache_size_label">Cachea</string>
     <string name="cached">Cachean gordetako atzeko planoko prozesua</string>
-    <string name="cached_apps_freezer">Eten cacheko aplikazioen exekuzioa</string>
+    <string name="cached_apps_freezer">Utzi cacheko aplikazioak exekutatzeari</string>
     <string name="cached_apps_freezer_device_default">Gailuaren balio lehenetsia</string>
     <string name="cached_apps_freezer_disabled">Desgaituta</string>
     <string name="cached_apps_freezer_enabled">Gaituta</string>
@@ -1426,6 +1448,7 @@ Burbuilak erabiltzeko aukera duten beste aplikazio eta elkarrizketei ere aplikat
     <string name="calls_sms_temp_unavailable">Ez dago erabilgarri aldi baterako</string>
     <string name="calls_sms_unavailable">ez dago erabilgarri</string>
     <string name="calls_sms_wfc_summary">Egin eta jaso deiak wifi bidez</string>
+    <string name="cam_toggle_description">Aplikazio eta zerbitzuetarako</string>
     <string name="camera_double_tap_power_gesture_desc">Ireki kamera bizkor, pantaila desblokeatu beharrik gabe</string>
     <string name="camera_double_tap_power_gesture_title">Ireki kamera etengailua birritan sakatuta</string>
     <string name="camera_laser_sensor_switch">Kameraren laser-sentsorea</string>
@@ -1585,9 +1608,9 @@ Burbuilak erabiltzeko aukera duten beste aplikazio eta elkarrizketei ere aplikat
     <string name="columbus_gesture_training_intro_text_accidental">Gailuaren atzealdea birritan sakatu duzu; Laguntzailea edonoiz eta edonon erabiltzeko aukera ematen dizu keinu horrek. Keinua pertsonalizatzeko, joan ezarpenetara.</string>
     <string name="columbus_gesture_training_intro_text_suw">Atera pantaila-argazki bat, erakutsi jakinarazpenak edo hasi beste ekintza bat birritan sakatuta.</string>
     <string name="columbus_gesture_training_intro_title">Sakatze bizkorrarekin ekintza bizkorrak egiteko</string>
-    <string name="columbus_gesture_training_launch_no_selection_error">Hautatu zer aplikazio ireki nahi duzun</string>
+    <string name="columbus_gesture_training_launch_no_selection_error">Hautatu zein aplikazio ireki nahi duzun</string>
     <string name="columbus_gesture_training_launch_text">Hautatu zer aplikazio irekiko den sakatze bizkorra erabiltzen duzunean.</string>
-    <string name="columbus_gesture_training_launch_title">Aukeratu zer aplikazio ireki nahi duzun</string>
+    <string name="columbus_gesture_training_launch_title">Aukeratu zein aplikazio ireki nahi duzun</string>
     <string name="columbus_launch_app_extra_widget_a11y_label">%1$s aplikazioaren lasterbidearen ezarpenak</string>
     <string name="columbus_launch_settings_activity_title">Sakatze bizkorraren ezarpenak</string>
     <string name="columbus_name">Sakatze bizkorra</string>
@@ -3302,6 +3325,7 @@ Badaude erabiltzaile gehiago gailu honetan.
     <string name="menu_stats_total">Erabilera, guztira</string>
     <string name="menu_stats_unplugged">%1$s entxufea atera zenetik</string>
     <string name="menu_use_uss">Erabili USS</string>
+    <string name="mic_toggle_description">Aplikazio eta zerbitzuetarako. Ezarpena desaktibatuta badago, agian mikrofonotik lortutako datuak partekatu egingo dira larrialdietarako zenbaki batera deitzen duzunean.</string>
     <string name="mic_toggle_title">Mikrofonoa atzitzeko baimena</string>
     <string name="misc_files">Askotariko fitxategiak</string>
     <string name="misc_files_selected_count">%1$d/%2$d hautatuta</string>
@@ -3446,7 +3470,7 @@ Berrabiarazi gailua eta saiatu berriro."</string>
     <string name="network_connection_connect_failure">Ezin izan da konektatu</string>
     <string name="network_connection_connect_successful">Konektatu da</string>
     <string name="network_connection_connecting_message">Gailura konektatzen…</string>
-    <string name="network_connection_errorstate_dialog_message">Arazoren bat izan da. Aplikazioak bertan behera utzi du gailu bat aukeratzeko eskaera.</string>
+    <string name="network_connection_errorstate_dialog_message">Arazo bat izan da. Aplikazioak bertan behera utzi du gailu bat aukeratzeko eskaera.</string>
     <string name="network_connection_request_dialog_showall">Erakutsi guztiak</string>
     <string name="network_connection_request_dialog_summary">%1$s aplikazioak aldi baterako wifi-sare bat erabili nahi du zure gailura konektatzeko</string>
     <string name="network_connection_request_dialog_title">Konektatu gailura</string>
@@ -3728,6 +3752,7 @@ Horrez gain, ez molestatzeko modua aktibatzeko eta desaktibatzeko aukera izango 
     <string name="one_handed_action_show_notification_title">Erakutsi jakinarazpenak</string>
     <string name="one_handed_mode_enabled">Erabili esku bakarreko modua</string>
     <string name="one_handed_mode_intro_text">Esku bakarreko modua erabiltzeko, pasatu hatza beherantz pantailaren beheko ertzetik. Eginbide hori erabiltzeko, ziurtatu keinu bidezko nabigazioa aktibatuta dagoela sistemaren nabigazio-ezarpenetan.</string>
+    <string name="one_handed_mode_shortcut_title">Esku bakarreko moduaren lasterbidea</string>
     <string name="one_handed_mode_swipe_down_category">Pasatu hatza beherantz hauek egiteko:</string>
     <string name="one_handed_mode_use_shortcut_category">Erabili lasterbidea honetarako:</string>
     <string name="one_usercrt">erabiltzaile-ziurtagiri bat</string>
@@ -3803,7 +3828,7 @@ Horrez gain, ez molestatzeko modua aktibatzeko eta desaktibatzeko aukera izango 
     <string name="post_dsds_reboot_notification_title_with_carrier">Aktibo dago %1$s</string>
     <string name="power_bluetooth">Bluetooth-a</string>
     <string name="power_camera">Kamera</string>
-    <string name="power_cell">Sare mugikorra egonean</string>
+    <string name="power_cell">Sare mugikorra</string>
     <string name="power_charge_remaining">Kargatu arteko denbora: %1$s</string>
     <string name="power_charging">%1$s - %2$s</string>
     <string name="power_charging_duration">%1$s - %2$s guztiz kargatu arte</string>
@@ -3957,7 +3982,7 @@ Sakatu etengailua eta bolumena igotzeko tekla aldi berean."</string>
     <string name="private_dns_mode_provider">DNS hornitzaile pribatuaren ostalari-izena</string>
     <string name="private_dns_mode_provider_failure">Ezin izan da konektatu</string>
     <string name="private_dns_mode_provider_hostname_hint">Idatzi DNS hornitzailearen ostalari-izena</string>
-    <string name="privileged_action_disable_fail_text">Arazoren bat izan da, eta ezin izan da desgaitu operadorea.</string>
+    <string name="privileged_action_disable_fail_text">Arazo bat izan da, eta ezin izan da desgaitu operadorea.</string>
     <string name="privileged_action_disable_fail_title">Ezin da desgaitu operadorea</string>
     <string name="privileged_action_disable_sub_dialog_progress">SIM txartela desaktibatzen…</string>
     <string name="privileged_action_disable_sub_dialog_title">%1$s desaktibatu nahi duzu?</string>
@@ -3970,7 +3995,7 @@ Sakatu etengailua eta bolumena igotzeko tekla aldi berean."</string>
     <string name="process_service_in_use_description">%1$s zerbitzua abian da.</string>
     <string name="process_stats_bg_ram_use">RAM erabilera (atzeko planoan)</string>
     <string name="process_stats_os_cache">Cacheak</string>
-    <string name="process_stats_os_kernel">Kernela</string>
+    <string name="process_stats_os_kernel">Kernel-a</string>
     <string name="process_stats_os_label">Android sistema eragilea</string>
     <string name="process_stats_os_native">Natiboa</string>
     <string name="process_stats_os_zram">Z-Ram</string>
@@ -3984,7 +4009,7 @@ Sakatu etengailua eta bolumena igotzeko tekla aldi berean."</string>
     <string name="process_stats_type_cached">Cachean gordeta</string>
     <string name="process_stats_type_foreground">Aurreko planoa</string>
     <string name="processes_subtitle">Prozesuak</string>
-    <string name="profile_connect_timeout_subtext">Arazoren bat izan da konektatzean. Itzali gailua eta pitz ezazu berriro.</string>
+    <string name="profile_connect_timeout_subtext">Arazo bat izan da konektatzean. Itzali gailua eta pitz ezazu berriro.</string>
     <string name="profile_info_settings_title">Profileko informazioa</string>
     <string name="profile_owner_add_title">Profil-kudeatzailea aktibatu nahi duzu?</string>
     <string name="profile_owner_add_title_simplified">Gainbegiratzeko baimena eman nahi duzu?</string>
@@ -4037,6 +4062,7 @@ Sakatu etengailua eta bolumena igotzeko tekla aldi berean."</string>
     <string name="recent_notifications">Bidalitako azkenak</string>
     <string name="recent_notifications_see_all_title">Ikusi azken zazpi egunetako guztia</string>
     <string name="recompute_size">Tamaina berriro kalkulatzen…</string>
+    <string name="reduce_bright_colors_about_title">Are ilunago eginbideari buruz</string>
     <string name="reduce_bright_colors_intensity_end_label">Argiago</string>
     <string name="reduce_bright_colors_intensity_preference_title">Intentsitatea</string>
     <string name="reduce_bright_colors_intensity_start_label">Ilunago</string>
@@ -4044,6 +4070,7 @@ Sakatu etengailua eta bolumena igotzeko tekla aldi berean."</string>
     <string name="reduce_bright_colors_preference_subtitle">Ilundu pantaila, irakurtzeko erosoagoa izan dadin.&lt;br/>&lt;br/> Kasu hauetan izan daiteke lagungarria: &lt;ol> &lt;li> Gutxieneko balio lehenetsia ezarrita ere telefonoaren distira argiegia denean.&lt;/li> &lt;li> Telefonoa ilunpean erabiltzen ari zarenean (adibidez, gauez edo oheratu aurretik logela ilun dagoenean).&lt;/li> &lt;/ol></string>
     <string name="reduce_bright_colors_preference_summary">Ilundu pantaila telefonoaren gutxieneko distiratik harago</string>
     <string name="reduce_bright_colors_preference_title">Are ilunago</string>
+    <string name="reduce_bright_colors_shortcut_title">Are gehiago iluntzeko lasterbidea</string>
     <string name="reduce_bright_colors_switch_title">Ilundu pantaila are gehiago</string>
     <string name="register_automatically">Erregistratze automatikoa…</string>
     <string name="register_on_network">%s sarean erregistratzen…</string>
@@ -4249,7 +4276,6 @@ Aplikazioak ainguratzeko aukera erabiltzeko: \u0009
     <string name="screen_pinning_unlock_pattern">Eskatu desblokeatzeko eredua aingura kendu aurretik</string>
     <string name="screen_pinning_unlock_pin">Eskatu PINa aingura kendu aurretik</string>
     <string name="screen_reader_category_title">Pantaila-irakurgailua</string>
-    <string name="screen_saver_main_switch_title">Erabili pantaila-babeslea</string>
     <string name="screen_time_summary_usage_today">%1$s gaur</string>
     <string name="screen_timeout_summary">%1$s inaktibo egon ondoren</string>
     <string name="screen_timeout_title">Pantaila itzaltzen da</string>
@@ -4279,6 +4305,7 @@ Aplikazioak ainguratzeko aukera erabiltzeko: \u0009
     <string name="screensaver_settings_button">Ezarpenak</string>
     <string name="screensaver_settings_current">Oraingo pantaila-babeslea</string>
     <string name="screensaver_settings_disabled_prompt">Telefonoa oinarrian edo inaktibo dagoenean zer gertatzen den kontrolatzeko, aktibatu pantaila-babeslea.</string>
+    <string name="screensaver_settings_dream_start">Abiarazi</string>
     <string name="screensaver_settings_summary_dock">Oinarrian dagoenean</string>
     <string name="screensaver_settings_summary_either_long">Kargatzen ari denean edo oinarrian dagoenean</string>
     <string name="screensaver_settings_summary_either_short">Bietako edozein</string>
@@ -4287,7 +4314,7 @@ Aplikazioak ainguratzeko aukera erabiltzeko: \u0009
     <string name="screensaver_settings_summary_sleep">Kargatzen ari denean</string>
     <string name="screensaver_settings_when_to_dream">Noiz abiarazi</string>
     <string name="sd_card_settings_label">USB bidezko memoria</string>
-    <string name="sd_eject">Desmuntatu partekatutako memoria</string>
+    <string name="sd_eject">Desmuntatu biltegi partekatua</string>
     <string name="sd_eject_summary">Desmuntatu barneko USB memoria</string>
     <string name="sd_ejecting_summary">Desmuntatzea abian da</string>
     <string name="sd_ejecting_title">Desmuntatzen</string>
@@ -4329,15 +4356,6 @@ Aplikazioak ainguratzeko aukera erabiltzeko: \u0009
     <string name="security_settings_biometric_preference_summary_both_fp_single">Aurpegia eta hatz-marka gehitu dira</string>
     <string name="security_settings_biometric_preference_summary_none_enrolled">Sakatu konfiguratzeko</string>
     <string name="security_settings_biometric_preference_title">Aurpegi eta hatz-marka bidez desblokeatzeko eginbidea</string>
-    <string name="security_settings_biometrics_description">Aurpegi eta hatz-marka bidez desblokeatzeko eginbidea konfiguratzen baduzu, hatz-marka eskatuko dizu telefonoak maskara bat jantzita duzunean edo argi gutxi dagoenean</string>
-    <string name="security_settings_biometrics_preference_use_with_apps">Aplikazioetako autentifikazioa</string>
-    <string name="security_settings_biometrics_preferences_category">Erabili aurpegia edo hatz-marka hau egiteko:</string>
-    <string name="security_settings_biometrics_summary_both">Aurpegia eta hatz-marka</string>
-    <string name="security_settings_biometrics_summary_face">Aurpegia soilik</string>
-    <string name="security_settings_biometrics_summary_fingerprint">Hatz-marka soilik</string>
-    <string name="security_settings_biometrics_summary_none">Sakatu konfiguratzeko</string>
-    <string name="security_settings_biometrics_title">Aurpegi eta hatz-marka bidez desblokeatzea</string>
-    <string name="security_settings_biometrics_types_category">Desblokeatzeko moduak</string>
     <string name="security_settings_face_enroll_consent_introduction_title">Eman aurpegi bidez desblokeatzeko baimena</string>
     <string name="security_settings_face_enroll_dialog_ok">Ados</string>
     <string name="security_settings_face_enroll_done">Eginda</string>
@@ -4383,18 +4401,19 @@ Lortu informazio gehiago g.co/pixel/faceunlock helbidean."</string>
 
 Lortu informazio gehiago g.co/pixel/faceunlock helbidean."</string>
     <string name="security_settings_face_enroll_introduction_control_title">Zure esku dago</string>
-    <string name="security_settings_face_enroll_introduction_how_consent_message">"Aurpegi bidez desblokeatzeko eginbideak haurraren aurpegiaren eredu esklusibo bat sortzen du hura dela egiaztatzeko. Konfiguratzean aurpegi-eredu hori sortzeko, aurpegiaren argazkiak aterako ditu haurrak, hainbat posiziotan.
+    <string name="security_settings_face_enroll_introduction_how_consent_message">"Aurpegi bidez desblokeatzeko eginbideak haurraren aurpegiaren eredu esklusibo bat sortzen du hura dela egiaztatzeko. Konfiguratzean aurpegi-eredu hori sortzeko, aurpegiaren argazkiak aterako ditu haurrak, hainbat ikuspegitatik.
 
-Aurpegi bidez desblokeatzeko eginbidea erabiltzen duenean, haren aurpegi-eredua eguneratzeko erabiltzen dira irudiak. Aurpegi-eredua sortzeko erabilitako irudiak ez dira inoiz biltegiratzen, baina aurpegi-eredua telefonoan gordetzen da, modu seguruan, eta ez da inoiz ateratzen telefonotik. Guztia telefonoan prozesatzen da, modu seguruan."</string>
+Aurpegi bidez desblokeatzeko eginbidea erabiltzen duenean, haren aurpegi-eredua eguneratzeko erabiltzen dira irudiak. Aurpegi-eredua sortzeko erabilitako irudiak ez dira biltegiratzen, baina aurpegi-eredua telefonoan gordetzen da, modu seguruan, eta ez da inoiz ateratzen telefonotik. Guztia telefonoan prozesatzen da, modu seguruan."</string>
     <string name="security_settings_face_enroll_introduction_how_message">"Aurpegi bidez desblokeatzeko eginbideak zure aurpegiaren eredu esklusibo bat sortzen du zeu zarela egiaztatzeko. Konfiguratzean aurpegi-eredu hori sortzeko, aurpegiaren argazkiak aterako dituzu, hainbat ikuspegitatik.
 
-Aurpegi bidez desblokeatzeko eginbidea erabiltzen duzunean, zure aurpegi-eredua eguneratzeko erabiltzen dira irudiak. Aurpegi-eredua sortzeko erabilitako irudiak ez dira inoiz biltegiratzen, baina aurpegi-eredua telefonoan gordetzen da, modu seguruan, eta ez da inoiz ateratzen telefonotik. Guztia telefonoan prozesatzen da, modu seguruan."</string>
+Aurpegi bidez desblokeatzeko eginbidea erabiltzen duzunean, zure aurpegi-eredua eguneratzeko erabiltzen dira irudiak. Aurpegi-eredua sortzeko erabilitako irudiak ez dira biltegiratzen, baina aurpegi-eredua telefonoan gordetzen da, modu seguruan, eta ez da inoiz ateratzen telefonotik. Guztia telefonoan prozesatzen da, modu seguruan."</string>
     <string name="security_settings_face_enroll_introduction_how_title">Nola funtzionatzen du?</string>
     <string name="security_settings_face_enroll_introduction_info_consent_gaze">Baliteke haurrak begiak irekita edukitzeko eskatzea aurpegi bidez desblokeatzeko eginbideak, telefonoa desblokeatze edo hura dela egiaztatze aldera. Ezarpenetan aktiba edo desaktiba dezakezue aukera hori bai zuk, bai haurrak berak.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_glasses">Haurrak betaurrekoak erabili ohi baditu, konfigurazio-prozesuan jantzita eduki ditzake.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_looking">Telefonoari begiratuz gero, desblokeatu egin daiteke, halako asmorik izan ez arren. Haren antz handia duen norbaitek ere (biki batek, esaterako) desblokea dezake telefonoa, edo telefonoa aurpegiaren parean jartzen badiote.</string>
     <string name="security_settings_face_enroll_introduction_info_gaze">Baliteke begiak irekita edukitzeko eskatzea aurpegi bidez desblokeatzeko eginbideak, telefonoa desblokeatze edo zeu zarela egiaztatze aldera. Ezarpenetan aktiba edo desaktiba dezakezu aukera hori.</string>
     <string name="security_settings_face_enroll_introduction_info_glasses">Betaurrekoak jantzita utz daitezke, baita kristalak leunki tindatuta badituzte ere.</string>
+    <string name="security_settings_face_enroll_introduction_info_less_secure">Telefonoa aurpegiaren bidez desblokeatzea agian ez da eredu edo PIN konplexuak erabiltzea bezain segurua.</string>
     <string name="security_settings_face_enroll_introduction_info_looking">Telefonoari begiratuz gero, desblokeatu egin daiteke, halako asmorik izan ez arren. Zure antz handia duen norbaitek ere (biki batek, esaterako) desblokea dezake telefonoa, edo telefonoa aurpegiaren parean jartzen badizute.</string>
     <string name="security_settings_face_enroll_introduction_info_title">Gogoan izan</string>
     <string name="security_settings_face_enroll_introduction_message">Erabili aurpegia telefonoa desblokeatzeko edo zeu zarela egiaztatzeko, hala nola aplikazioetan saioa hastean edo erosketak onartzean.</string>
@@ -4452,13 +4471,14 @@ Beste norbaitek ere desblokea dezake telefonoa, zuri begira jartzen badu, nahiz 
 
 Zure antz handia dutenek ere desblokea dezakete telefonoa; esate baterako, biki batek."</string>
     <string name="security_settings_face_settings_preferences_category">Aurpegi bidez desblokeatzeko eginbidea erabiltzean</string>
-    <string name="security_settings_face_settings_remove_dialog_details">Aurpegi-eredua modu seguruan eta betiko ezabatuko da. Horren ondoren, PINa, eredua edo pasahitza beharko duzu telefonoa desblokeatzeko edo aplikazioetan autentifikatzeko.</string>
+    <string name="security_settings_face_settings_remove_dialog_details">"Aurpegi-eredua modu seguruan eta betiko ezabatuko da.
+
+Horren ondoren, PINa, eredua edo pasahitza beharko duzu telefonoa desblokeatzeko edo aplikazioetan autentifikatzeko."</string>
+    <string name="security_settings_face_settings_remove_dialog_details_convenience">"Aurpegi-eredua betiko eta modu seguruan ezabatuko da.
+
+Ezabatu ondoren, hatz-marka, PINa, eredua edo pasahitza beharko duzu telefonoa desblokeatzeko."</string>
     <string name="security_settings_face_settings_remove_dialog_title">Aurpegi-eredua ezabatu nahi duzu?</string>
     <string name="security_settings_face_settings_remove_face_model">Ezabatu aurpegi-eredua</string>
-    <string name="security_settings_face_settings_remove_model_dialog_details">"Aurpegi-eredua modu seguruan eta betiko ezabatuko da.
-
-Horren ondoren, hatz-marka, PINa, eredua edo pasahitza beharko duzu telefonoa desblokeatzeko edo aplikazioetan autentifikatzeko."</string>
-    <string name="security_settings_face_settings_remove_model_dialog_title">Aurpegi-eredua ezabatu nahi duzu?</string>
     <string name="security_settings_face_settings_require_attention">Begiek irekita egon behar dute</string>
     <string name="security_settings_face_settings_require_attention_details">Begiek irekita egon behar dute telefonoa desblokeatzeko</string>
     <string name="security_settings_face_settings_require_confirmation">Eskatu beti berresteko</string>
@@ -4550,7 +4570,7 @@ Oharra: ezin duzu erabili hatz-marka gailua desblokeatzeko. Informazio gehiago l
     <string name="security_settings_udfps_enroll_repeat_a11y_message">Horrela, hatz-markaren eremu zabalagoa hartzen da</string>
     <string name="security_settings_udfps_enroll_repeat_message">Hatz-markaren ikonoa mugitzen den bakoitzean, eduki sakatuta sentsorea. Horrela, hatz-markaren eremu zabalagoa hartzen da.</string>
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">Jarraitu hatz-marken ikonoari</string>
-    <string name="security_settings_udfps_enroll_start_message">Mantendu hatza sentsorearen gainean dardara sentitu arte</string>
+    <string name="security_settings_udfps_enroll_start_message">Mantendu hatz-marka modu lauan sentsorearen gainean dardara sentitu arte</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">Beste behin</string>
     <string name="security_settings_work_fingerprint_preference_title">Laneko profilerako Pixel Imprint</string>
     <string name="security_status_title">Segurtasunaren egoera</string>
@@ -4576,7 +4596,6 @@ Oharra: ezin duzu erabili hatz-marka gailua desblokeatzeko. Informazio gehiago l
     <string name="select_webview_provider_dialog_title">Ezarri WebView inplementazioa</string>
     <string name="select_webview_provider_title">WebView inplementazioa</string>
     <string name="select_webview_provider_toast_text">Jada ez dago erabilgarri aukera hori. Saiatu berriro.</string>
-    <string name="sensor_toggle_description">Aplikazio eta zerbitzu guztietarako</string>
     <string name="sensors_off_quick_settings_title">Sentsoreak desaktibatuta</string>
     <string name="service_background_processes">%1$s libre</string>
     <string name="service_foreground_processes">%1$s erabilita</string>
@@ -4808,6 +4827,7 @@ Agian PINa okerra da."</string>
     <string name="sound_settings_summary_silent">Isilik moduan ezarri da gailua</string>
     <string name="sound_settings_summary_vibrate">Dardara moduan ezarri da gailua</string>
     <string name="sound_work_settings">Laneko profileko soinuak</string>
+    <string name="spatial_audio_title">360°-ko audioa</string>
     <string name="special_access">Aplikazio-baimen bereziak</string>
     <string name="special_access_more">Ikusi gehiago</string>
     <string name="speed_label_fast">Bizkorra</string>
@@ -5619,7 +5639,7 @@ Ahots-dei bat egiten duzun bitartean, ezingo duzu erabili Internet, eta baliteke
     <string name="vpn_turn_on">Aktibatu</string>
     <string name="vpn_type">Mota</string>
     <string name="vpn_username">Erabiltzaile-izena</string>
-    <string name="vpn_version">%s bertsioa</string>
+    <string name="vpn_version">Bertsioa</string>
     <string name="vr_listener_security_warning_summary">"Aplikazioak errealitate birtualean erabiltzen dituzunean abiarazi ahal izango da  %1$s."</string>
     <string name="vr_listener_security_warning_title">Errealitate birtualeko zerbitzuak atzitzeko baimena eman nahi diozu %1$s zerbitzuari?</string>
     <string name="vr_listeners_title">Errealitate birtualeko laguntza-zerbitzuak</string>
@@ -5783,7 +5803,7 @@ Irakurri operadorearen pribatutasun-gidalerroak xehetasunak ikusteko."</string>
     <string name="wifi_dpp_failure_enrollee_authentication">Egiaztatu pasahitza eta saiatu berriro</string>
     <string name="wifi_dpp_failure_enrollee_rejected_configuration">Jarri harremanetan gailuaren fabrikatzailearekin</string>
     <string name="wifi_dpp_failure_generic">Ziurtatu gailua entxufatuta, kargatuta eta piztuta dagoela. Arazoak badirau, jarri gailuaren fabrikatzailearekin harremanetan.</string>
-    <string name="wifi_dpp_failure_not_compatible">Arazoren bat izan da</string>
+    <string name="wifi_dpp_failure_not_compatible">Arazo bat izan da</string>
     <string name="wifi_dpp_failure_not_supported">Ezin da gehitu \"%1$s\" gailu honetan</string>
     <string name="wifi_dpp_failure_timeout">Ziurtatu gailua entxufatuta, kargatuta eta piztuta dagoela</string>
     <string name="wifi_dpp_hotspot_password">Wifi-guneko pasahitza: %1$s</string>
@@ -5889,7 +5909,7 @@ Sarea ezkutuko gisa ezartzeak ez ditu aldatuko bideratzailearen ezarpenak."</str
     <string name="wifi_not_in_range">Urrunegi</string>
     <string name="wifi_not_in_range_message">Sarea ez dago barrutian</string>
     <string name="wifi_notify_open_networks">Jakinarazi sare publikoak daudela</string>
-    <string name="wifi_notify_open_networks_summary">Konexio automatikoa erabilgarri ez dagoenean</string>
+    <string name="wifi_notify_open_networks_summary">Jakinarazi kalitate handiko sare publikoak erabilgarri daudenean</string>
     <string name="wifi_on_time">Wi‑Fi garaiz</string>
     <string name="wifi_p2p_cancel_connect_message">%1$s gailura konektatzeko gonbidapena bertan behera utzi nahi duzu?</string>
     <string name="wifi_p2p_cancel_connect_title">Gonbidapena bertan behera utzi nahi duzu?</string>
@@ -5977,7 +5997,6 @@ Bilaketa egin nahi duten beste aplikazio guztiei ere baimendu nahi diezu?"</stri
     <string name="wifi_suspend_optimizations">Wi-Fiaren optimizazioa</string>
     <string name="wifi_suspend_optimizations_summary">Murriztu bateria-erabilera wifi-konexioa aktibatuta dagoenean</string>
     <string name="wifi_switch_away_when_unvalidated">Aldatu datu-konexiora Wi-Fi sareak Interneteko konexioa galtzen badu.</string>
-    <string name="wifi_switch_summary">Aurkitu wifi-sareak eta konektatu haietara</string>
     <string name="wifi_tap_to_sign_in">Sakatu hau sarean saioa hasteko</string>
     <string name="wifi_tether_configure_ap_text">Konfiguratu wifi-gunea</string>
     <string name="wifi_tether_configure_ssid_default">AndroidSarePublikoa</string>

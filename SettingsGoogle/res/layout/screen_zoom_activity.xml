@@ -11,7 +11,7 @@
                 <com.android.settings.widget.LabeledSeekBar android:id="@id/seek_bar" android:layout_width="0.0dip" android:layout_height="48.0dip" android:layout_weight="1.0" style="@android:style/Widget.Material.SeekBar.Discrete" />
                 <ImageView android:id="@id/larger" android:background="?android:selectableItemBackgroundBorderless" android:focusable="true" android:layout_width="48.0dip" android:layout_height="48.0dip" android:src="@drawable/ic_add_24dp" android:scaleType="center" android:tint="?android:textColorPrimary" android:contentDescription="@string/screen_zoom_make_larger_desc" android:tintMode="src_in" />
             </LinearLayout>
-            <TextView android:textAppearance="@*android:style/TextAppearance.DeviceDefault.Subhead" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="16.0dip" android:text="@string/screen_zoom_summary" />
+            <TextView android:textAppearance="@android:style/TextAppearance.DeviceDefault.Subhead" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="16.0dip" android:text="@string/screen_zoom_summary" />
         </LinearLayout>
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

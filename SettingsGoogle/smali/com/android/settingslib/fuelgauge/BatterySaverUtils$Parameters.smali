@@ -75,7 +75,7 @@
     :goto_0
     const/4 p1, 0x4
 
-    const-string v1, "start_nth"
+    const-string/jumbo v1, "start_nth"
 
     invoke-virtual {v0, v1, p1}, Landroid/util/KeyValueListParser;->getInt(Ljava/lang/String;I)I
 

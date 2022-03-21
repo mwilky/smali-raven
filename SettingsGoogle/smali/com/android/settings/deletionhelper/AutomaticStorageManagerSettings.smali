@@ -183,7 +183,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0402f3
+    const v2, 0x7f040307
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -245,7 +245,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f0409f7
+    const p0, 0x7f040a0f
 
     return p0
 .end method
@@ -269,7 +269,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f15002f
+    const p0, 0x7f150030
 
     return p0
 .end method

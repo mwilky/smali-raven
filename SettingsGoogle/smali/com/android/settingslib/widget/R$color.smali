@@ -22,4 +22,4 @@
 
 .field public static final homepage_generic_icon_background:I = 0x7f0a00f1
 
-.field public static final material_grey_600:I = 0x7f0a0114
+.field public static final material_grey_600:I = 0x7f0a0112

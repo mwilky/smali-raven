@@ -95,7 +95,7 @@
 
     const-string v0, "password"
 
-    const-string v1, "type"
+    const-string/jumbo v1, "type"
 
     if-eqz p0, :cond_0
 
@@ -192,7 +192,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f0406b0
+    const p1, 0x7f0406c8
 
     invoke-virtual {v0, p1}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -236,7 +236,7 @@
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setFragment(Ljava/lang/String;)V
 
-    const v1, 0x7f0406aa
+    const v1, 0x7f0406c2
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setTitle(I)V
 
@@ -311,7 +311,7 @@
     invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
     :cond_0
-    const p1, 0x7f0406b0
+    const p1, 0x7f0406c8
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->setTitle(I)V
 
@@ -336,7 +336,7 @@
 
     if-eqz p3, :cond_1
 
-    const-string p2, "type"
+    const-string/jumbo p2, "type"
 
     invoke-virtual {p3, p2, p1}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
@@ -371,7 +371,7 @@
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 0
 
-    const p2, 0x7f0600ad
+    const p2, 0x7f0600af
 
     const/4 p3, 0x0
 
@@ -393,7 +393,7 @@
 
     iget-object p1, p0, Lcom/android/settings/security/CryptKeeperSettings;->mContentView:Landroid/view/View;
 
-    const p2, 0x7f0d02d7
+    const p2, 0x7f0d02e3
 
     invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -415,7 +415,7 @@
 
     iget-object p1, p0, Lcom/android/settings/security/CryptKeeperSettings;->mContentView:Landroid/view/View;
 
-    const p2, 0x7f0d062b
+    const p2, 0x7f0d063b
 
     invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -425,7 +425,7 @@
 
     iget-object p1, p0, Lcom/android/settings/security/CryptKeeperSettings;->mContentView:Landroid/view/View;
 
-    const p2, 0x7f0d062a
+    const p2, 0x7f0d063a
 
     invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

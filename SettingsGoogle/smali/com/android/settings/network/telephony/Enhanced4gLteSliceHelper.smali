@@ -116,7 +116,7 @@
 
     iget-object v0, p0, Lcom/android/settings/network/telephony/Enhanced4gLteSliceHelper;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f020230
+    const v1, 0x7f020237
 
     invoke-static {v0, v1}, Landroidx/core/graphics/drawable/IconCompat;->createWithResource(Landroid/content/Context;I)Landroidx/core/graphics/drawable/IconCompat;
 
@@ -210,7 +210,7 @@
 
     move-result v0
 
-    const-string v2, "show_4g_for_lte_data_icon_bool"
+    const-string/jumbo v2, "show_4g_for_lte_data_icon_bool"
 
     invoke-direct {p0, v2, p1, v1}, Lcom/android/settings/network/telephony/Enhanced4gLteSliceHelper;->isCarrierConfigManagerKeyEnabled(Ljava/lang/String;IZ)Z
 

@@ -27,7 +27,7 @@
 
     iget-object p0, p0, Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial$$ExternalSyntheticLambda1;->f$0:Landroid/content/Context;
 
-    invoke-static {p0}, Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial;->$r8$lambda$sa_W-jaLCoow4DWafKTBE_CNvmY(Landroid/content/Context;)Landroid/view/View;
+    invoke-static {p0}, Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial;->$r8$lambda$bGP8Itgu_TrQ6AkOgUSDQLTEukw(Landroid/content/Context;)Landroid/view/View;
 
     move-result-object p0
 

@@ -98,7 +98,7 @@
 
     move-result-object p1
 
-    const p2, 0x1110174
+    const p2, 0x111017b
 
     invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -806,7 +806,7 @@
 
     const-string p0, "InfoMediaManager"
 
-    const-string p1, "shouldDisableMediaOutput() package name is null or empty!"
+    const-string/jumbo p1, "shouldDisableMediaOutput() package name is null or empty!"
 
     invoke-static {p0, p1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 

@@ -44,7 +44,7 @@
 .method protected getHelpResource()I
     .locals 0
 
-    const p0, 0x7f040a33
+    const p0, 0x7f040a4b
 
     return p0
 .end method
@@ -59,18 +59,42 @@
     return-object p0
 .end method
 
-.method protected getLabelName()Ljava/lang/String;
+.method protected getIntroductionTitle()Ljava/lang/String;
     .locals 1
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f040110
+    const v0, 0x7f0400c7
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object p0
 
     return-object p0
+.end method
+
+.method protected getLearnMoreContentDescription()Ljava/lang/String;
+    .locals 1
+
+    iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+
+    const v0, 0x7f0400c8
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public bridge synthetic getSliceHighlightMenuRes()I
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getSliceHighlightMenuRes()I
+
+    move-result p0
+
+    return p0
 .end method
 
 .method public bridge synthetic hasAsyncUpdate()Z

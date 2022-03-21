@@ -152,7 +152,7 @@
 .method protected onApplyThemeResource(Landroid/content/res/Resources$Theme;IZ)V
     .locals 2
 
-    const v0, 0x7f1301cd
+    const v0, 0x7f1301cb
 
     const/4 v1, 0x1
 

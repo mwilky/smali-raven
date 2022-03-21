@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public getAccessCursor(Landroid/content/Context;Lcom/android/settings/slices/SliceData;)Landroid/database/Cursor;
-    .locals 4
+    .locals 7
 
     const-class p2, Landroid/hardware/display/ColorDisplayManager;
 
@@ -66,15 +66,21 @@
     const/4 v0, 0x2
 
     :goto_0
-    const-class v1, Lcom/android/settings/display/NightDisplaySettings;
+    const-class v4, Lcom/android/settings/display/NightDisplaySettings;
 
     invoke-direct {p0, p1}, Lcom/google/android/settings/external/specialcase/NightDisplaySetting;->getScreenTitle(Landroid/content/Context;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v5
+
+    const v6, 0x7f040d07
 
     const-string v3, "night_display"
 
-    invoke-interface {p0, p1, v3, v1, v2}, Lcom/google/android/settings/external/Queryable;->getIntentString(Landroid/content/Context;Ljava/lang/String;Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/String;
+    move-object v1, p0
+
+    move-object v2, p1
+
+    invoke-interface/range {v1 .. v6}, Lcom/google/android/settings/external/Queryable;->getIntentString(Landroid/content/Context;Ljava/lang/String;Ljava/lang/Class;Ljava/lang/String;I)Ljava/lang/String;
 
     move-result-object p1
 
@@ -130,7 +136,7 @@
 .end method
 
 .method public getUpdateCursor(Landroid/content/Context;Lcom/android/settings/slices/SliceData;I)Landroid/database/Cursor;
-    .locals 6
+    .locals 9
 
     const-class p2, Landroid/hardware/display/ColorDisplayManager;
 
@@ -160,15 +166,21 @@
     const/4 v1, 0x2
 
     :goto_0
-    const-class v3, Lcom/android/settings/display/NightDisplaySettings;
+    const-class v6, Lcom/android/settings/display/NightDisplaySettings;
 
     invoke-direct {p0, p1}, Lcom/google/android/settings/external/specialcase/NightDisplaySetting;->getScreenTitle(Landroid/content/Context;)Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v7
+
+    const v8, 0x7f040d07
 
     const-string v5, "night_display"
 
-    invoke-interface {p0, p1, v5, v3, v4}, Lcom/google/android/settings/external/Queryable;->getIntentString(Landroid/content/Context;Ljava/lang/String;Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/String;
+    move-object v3, p0
+
+    move-object v4, p1
+
+    invoke-interface/range {v3 .. v8}, Lcom/google/android/settings/external/Queryable;->getIntentString(Landroid/content/Context;Ljava/lang/String;Ljava/lang/Class;Ljava/lang/String;I)Ljava/lang/String;
 
     move-result-object p1
 

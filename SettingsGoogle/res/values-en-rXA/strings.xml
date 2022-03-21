@@ -96,6 +96,7 @@
     <string name="peak_refresh_rate_title">[Šḿööţĥ Ðîšþļåý one two three]</string>
     <string name="peak_refresh_rate_summary">[Åûţöḿåţîçåļļý ŕåîšéš ţĥé ŕéƒŕéšĥ ŕåţé ƒŕöḿ 60 ţö 90 Ĥž ƒöŕ šöḿé çöñţéñţ. Îñçŕéåšéš ɓåţţéŕý ûšåĝé. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fiveteen sixteen seventeen]</string>
     <string name="accessibility_vibration_settings_title">"[νîɓŕåţîöñ &amp;  ĥåþţîç šţŕéñĝţĥ one two three four]"</string>
+    <string name="columbus_title">[qûîçķ Ţåþ ţö šţåŕţ åçţîöñš one two three four]</string>
     <string name="emergency_gesture_screen_title">[Éḿéŕĝéñçý ŠÖŠ one two]</string>
     <string name="abc_action_mode_done">[Ðöñé one]</string>
     <string name="vibrate_for_calls_category_title">[Çåļļš one]</string>
@@ -103,6 +104,8 @@
     <string name="lockscreen_privacy_controls_setting_toggle">[Šĥöŵ ðéVîçé çöñţŕöļš one two three]</string>
     <string name="lockscreen_privacy_wallet_summary">[Åļļöŵ åççéšš ţö ŵåļļéţ ƒŕöḿ ļöçķ šçŕééñ åñð Qûîçķ šéţţîñĝš one two three four five six seven]</string>
     <string name="lockscreen_privacy_controls_summary">[Åççéšš çöñţŕöļš ŵĥéñ ļöçķéð one two three four]</string>
+    <string name="lockscreen_double_line_clock_summary">[Šĥöŵ ðöûɓļé-ļîñé çļöçķ ŵĥéñ åVåîļåɓļé one two three four five]</string>
+    <string name="lockscreen_double_line_clock_setting_toggle">[Ðöûɓļé-ļîñé çļöçķ one two three]</string>
     <string name="abc_activity_chooser_view_see_all">[Šéé åļļ one two]</string>
     <string name="abc_activitychooserview_choose_application">[Çĥööšé åñ åþþ one two]</string>
     <string name="abc_capital_off">[ÖFF one]</string>
@@ -147,9 +150,11 @@
     <string name="accessibility_alarm_vibration_title">[Åļåŕḿ Vîɓŕåţîöñ one two three]</string>
     <string name="accessibility_assist_gesture_complete_or_keep_adjusting">[ÅçţîVé Éðĝé šéţ ûþ. Ĝö ţö ţĥé ñéхţ šçŕééñ öŕ ķééþ åðĵûšţîñĝ. one two three four five six seven]</string>
     <string name="accessibility_audio_adjustment_title">[Åûðîö åðĵûšţḿéñţ one two three]</string>
+    <string name="accessibility_autoclick_about_title">[Åɓöûţ åûţöçļîçķ (ðŵéļļ ţîḿîñĝ) one two three four]</string>
     <string name="accessibility_autoclick_custom_title">[Çûšţöḿ one two]</string>
     <string name="accessibility_autoclick_default_title">[Öƒƒ one]</string>
     <string name="accessibility_autoclick_description">[Åûţöçļîçķ ŵöŕķš ŵîţĥ å çöññéçţéð ḿöûšé. Ýöû çåñ šéţ ţĥé ḿöûšé çûŕšöŕ ţö çļîçķ åûţöḿåţîçåļļý ŵĥéñ ţĥé çûŕšöŕ šţöþš ḿöVîñĝ ƒöŕ å çéŕţåîñ åḿöûñţ öƒ ţîḿé. one two three four five six seven eight nine ten eleven twelve thirteen fourteen]</string>
+    <string name="accessibility_autoclick_footer_learn_more_content_description">[Ļéåŕñ ḿöŕé åɓöûţ åûţöçļîçķ (ðŵéļļ ţîḿîñĝ) one two three four five]</string>
     <string name="accessibility_autoclick_long_summary">[1 šéçöñð one two]</string>
     <string name="accessibility_autoclick_long_title">[Ļöñĝ one]</string>
     <string name="accessibility_autoclick_longer_desc">[Ļöñĝéŕ one two]</string>
@@ -161,16 +166,17 @@
     <string name="accessibility_autoclick_short_title">[Šĥöŕţ one]</string>
     <string name="accessibility_autoclick_shorter_desc">[Šĥöŕţéŕ one two]</string>
     <string name="accessibility_banner_message_dismiss">[Ðîšḿîšš one two]</string>
-    <string name="accessibility_button_description">"[qûîçķļý åççéšš åççéššîɓîļîţý ƒéåţûŕéš ƒŕöḿ åñý šçŕééñ. 
+    <string name="accessibility_button_about_title">[Åɓöûţ åççéššîɓîļîţý ɓûţţöñ one two three four]</string>
+    <string name="accessibility_button_description">"[qûîçķļý åççéšš åççéššîɓîļîţý ƒéåţûŕéš ƒŕöḿ åñý šçŕééñ.
 
 Ţö ĝéţ šţåŕţéð, ĝö ţö åççéššîɓîļîţý šéţţîñĝš åñð šéļéçţ å ƒéåţûŕé. Ţåþ öñ ţĥé šĥöŕţçûţ åñð šéļéçţ ţĥé åççéššîɓîļîţý ɓûţţöñ. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fiveteen sixteen seventeen nineteen twenty one two three four five six seven eight nine ten eleven twelve]"</string>
     <string name="accessibility_button_fade_summary">[Fåðéš åƒţéŕ å ƒéŵ šéçöñðš šö îţ’š éåšîéŕ ţö šéé ýöûŕ šçŕééñ one two three four five six seven]</string>
     <string name="accessibility_button_fade_title">[Fåðé ŵĥéñ ñöţ îñ ûšé one two three]</string>
+    <string name="accessibility_button_gesture_about_title">"[Åɓöûţ åççéššîɓîļîţý ɓûţţöñ &amp;  ĝéšţûŕé one two three four]"</string>
     <string name="accessibility_button_gesture_description">"[qûîçķļý åççéšš åççéššîɓîļîţý ƒéåţûŕéš ƒŕöḿ åñý šçŕééñ.
 
-Ţö ĝéţ šţåŕţéð, ĝö ţö åççéššîɓîļîţý šéţţîñĝš åñð šéļéçţ å ƒéåţûŕé. Ţåþ öñ ţĥé šĥöŕţçûţ åñð šéļéçţ ţĥé åççéššîɓîļîţý ɓûţţöñ.
-
-Ţö ûšé ţĥé åççéššîɓîļîţý ɓûţţöñ îñ ţĥé ñåVîĝåţîöñ ɓåŕ îñšţéåð, šŵîţçĥ ţö 2-ɓûţţöñ ñåVîĝåţîöñ öŕ 3-ɓûţţöñ ñåVîĝåţîöñ. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fiveteen sixteen seventeen nineteen twenty one two three four five six seven eight nine ten eleven twelve thirteen fourteen fiveteen sixteen seventeen nineteen twenty one two three four five six seven eight nine ten eleven]"</string>
+Ţö ĝéţ šţåŕţéð, ĝö ţö åççéššîɓîļîţý šéţţîñĝš åñð šéļéçţ å ƒéåţûŕé. Ţåþ öñ ţĥé šĥöŕţçûţ åñð šéļéçţ ţĥé åççéššîɓîļîţý ɓûţţöñ öŕ ĝéšţûŕé. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fiveteen sixteen seventeen nineteen twenty one two three four five six seven eight nine ten eleven twelve thirteen]"</string>
+    <string name="accessibility_button_gesture_footer_learn_more_content_description">"[Ļéåŕñ ḿöŕé åɓöûţ åççéššîɓîļîţý ɓûţţöñ &amp;  ĝéšţûŕé one two three four five six]"</string>
     <string name="accessibility_button_gesture_title">"[Åççéššîɓîļîţý ɓûţţöñ &amp;  ĝéšţûŕé one two three four]"</string>
     <string name="accessibility_button_high_label">[Ñöñ-ţŕåñšþåŕéñţ one two three]</string>
     <string name="accessibility_button_intro">[Ûšîñĝ ţĥé åççéššîɓîļîţý ɓûţţöñ. Ţĥé ĝéšţûŕé îšñ’ţ åVåîļåɓļé ŵîţĥ 3-ɓûţţöñ ñåVîĝåţîöñ. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fiveteen]</string>
@@ -184,14 +190,23 @@
     <string name="accessibility_caption_preference_summary">[Ñöţ åļļ åþþš šûþþöŕţ ţĥéšé çåþţîöñ þŕéƒéŕéñçéš one two three four five six]</string>
     <string name="accessibility_caption_primary_switch_summary">[Föŕ šûþþöŕţéð åþþ öñļý one two three]</string>
     <string name="accessibility_caption_primary_switch_title">[Šĥöŵ çåþţîöñš one two]</string>
+    <string name="accessibility_captioning_about_title">[Åɓöûţ çåþţîöñ þŕéƒéŕéñçéš one two three]</string>
+    <string name="accessibility_captioning_footer_learn_more_content_description">[Ļéåŕñ ḿöŕé åɓöûţ çåþţîöñ þŕéƒéŕéñçéš one two three four five]</string>
     <string name="accessibility_captioning_title">[Çåþţîöñ þŕéƒéŕéñçéš one two three]</string>
     <string name="accessibility_category_personal">[Þéŕšöñåļ þŕöƒîļé åççöûñţš one two three]</string>
     <string name="accessibility_category_work">[Ŵöŕķ þŕöƒîļé åççöûñţš - %s one two three]</string>
+    <string name="accessibility_color_inversion_about_title">[Åɓöûţ çöļöŕ îñVéŕšîöñ one two three]</string>
+    <string name="accessibility_color_inversion_footer_learn_more_content_description">[Ļéåŕñ ḿöŕé åɓöûţ çöļöŕ îñVéŕšîöñ one two three four]</string>
+    <string name="accessibility_control_timeout_about_title">[Åɓöûţ ţîḿé ţö ţåķé åçţîöñ (Åççéššîɓîļîţý ţîḿéöûţ) one two three four five six]</string>
+    <string name="accessibility_control_timeout_footer_learn_more_content_description">[Ļéåŕñ ḿöŕé åɓöûţ ţîḿé ţö ţåķé åçţîöñ (Åççéššîɓîļîţý ţîḿéöûţ) one two three four five six seven]</string>
     <string name="accessibility_control_timeout_preference_summary">"[Çĥööšé ĥöŵ ļöñĝ ţö šĥöŵ ḿéššåĝéš ţĥåţ åšķ ýöû ţö ţåķé åçţîöñ, ɓûţ åŕé Vîšîɓļé öñļý ţéḿþöŕåŕîļý.
 
 Ñöţ åļļ åþþš šûþþöŕţ ţĥîš šéţţîñĝ. one two three four five six seven eight nine ten eleven twelve thirteen]"</string>
     <string name="accessibility_control_timeout_preference_title">[Ţîḿé ţö ţåķé åçţîöñ one two three]</string>
+    <string name="accessibility_daltonizer_about_title">[Åɓöûţ çöļöŕ çöŕŕéçţîöñ one two three]</string>
+    <string name="accessibility_daltonizer_footer_learn_more_content_description">[Ļéåŕñ ḿöŕé åɓöûţ çöļöŕ çöŕŕéçţîöñ one two three four]</string>
     <string name="accessibility_daltonizer_primary_switch_title">[Ûšé çöļöŕ çöŕŕéçţîöñ one two three]</string>
+    <string name="accessibility_daltonizer_shortcut_title">[Çöļöŕ çöŕŕéçţîöñ šĥöŕţçûţ one two three]</string>
     <string name="accessibility_data_one_bar">[Ðåţå öñé ɓåŕ. one two]</string>
     <string name="accessibility_data_signal_full">[Ðåţå šîĝñåļ ƒûļļ. one two three]</string>
     <string name="accessibility_data_three_bars">[Ðåţå ţĥŕéé ɓåŕš. one two three]</string>
@@ -206,6 +221,7 @@
     <string name="accessibility_display_daltonizer_preference_title">[Çöļöŕ çöŕŕéçţîöñ one two three]</string>
     <string name="accessibility_display_inversion_preference_subtitle">[Çöļöŕ îñVéŕšîöñ ţûŕñš ļîĝĥţ šçŕééñš ðåŕķ.&lt;br/>&lt;br/> Ñöţé: &lt;ol> &lt;li> Çöļöŕ îñVéŕšîöñ åļšö ţûŕñš ðåŕķ šçŕééñš ļîĝĥţ.&lt;/li> &lt;li> Çöļöŕš ŵîļļ çĥåñĝé îñ ḿéðîå åñð îḿåĝéš.&lt;/li> &lt;li> Ðåŕķ ţĥéḿé çåñ ɓé ûšéð ţö ðîšþļåý å ðåŕķ ɓåçķĝŕöûñð. Ðåŕķ ţĥéḿé ŵöŕķš ŵîţĥ šûþþöŕţéð åþþš. Çöļöŕ îñVéŕšîöñ ŵöŕķš öñ åļļ åþþš.&lt;/li> &lt;/ol> one two three four five six seven eight nine ten eleven twelve thirteen fourteen fiveteen sixteen seventeen nineteen twenty one two three four five six seven eight nine ten eleven twelve thirteen fourteen fiveteen sixteen seventeen nineteen twenty one two three four five]</string>
     <string name="accessibility_display_inversion_preference_title">[Çöļöŕ îñVéŕšîöñ one two three]</string>
+    <string name="accessibility_display_inversion_shortcut_title">[Çöļöŕ îñVéŕšîöñ šĥöŕţçûţ one two three]</string>
     <string name="accessibility_display_inversion_switch_title">[Ûšé çöļöŕ îñVéŕšîöñ one two three]</string>
     <string name="accessibility_ethernet_connected">[Éţĥéŕñéţ. one two]</string>
     <string name="accessibility_ethernet_disconnected">[Éţĥéŕñéţ ðîšçöññéçţéð. one two three]</string>
@@ -255,6 +271,8 @@
     <string name="accessibility_phone_two_bars">[Þĥöñé ţŵö ɓåŕš. one two three]</string>
     <string name="accessibility_power_button_ends_call_prerefence_title">[Þöŵéŕ ɓûţţöñ éñðš çåļļ one two three]</string>
     <string name="accessibility_preference_magnification_summary">[Žööḿ îñ öñ šçŕééñ one two three]</string>
+    <string name="accessibility_screen_magnification_about_title">[Åɓöûţ ḿåĝñîƒîçåţîöñ one two three]</string>
+    <string name="accessibility_screen_magnification_footer_learn_more_content_description">[Ļéåŕñ ḿöŕé åɓöûţ ḿåĝñîƒîçåţîöñ one two three four]</string>
     <string name="accessibility_screen_magnification_gesture_navigation_warning">[Ţĥé åççéššîɓîļîţý ĝéšţûŕé îš šéţ ţö ţĥé %1$s. Ţö ûšé ḿåĝñîƒîçåţîöñ, šŵîþé ûþ ŵîţĥ ţŵö ƒîñĝéŕš ƒŕöḿ ţĥé ɓöţţöḿ öƒ ţĥé šçŕééñ åñð ĥöļð. Ţĥéñ šéļéçţ ḿåĝñîƒîçåţîöñ. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fiveteen sixteen seventeen nineteen twenty one two three four five six seven]</string>
     <string name="accessibility_screen_magnification_gestures_title">[Ḿåĝñîƒý ŵîţĥ ţŕîþļé-ţåþ one two three]</string>
     <string name="accessibility_screen_magnification_navbar_configuration_warning">"[Ţĥé Åççéššîɓîļîţý ɓûţţöñ îš šéţ ţö %1$s. Ţö ûšé ḿåĝñîƒîçåţîöñ, ţöûçĥ &amp;  ĥöļð ţĥé Åççéššîɓîļîţý ɓûţţöñ, ţĥéñ šéļéçţ ḿåĝñîƒîçåţîöñ. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fiveteen sixteen seventeen nineteen twenty]"</string>
@@ -272,6 +290,7 @@
 Ýöû çåñ’ţ žööḿ îñ öñ ţĥé ķéýɓöåŕð öŕ ñåVîĝåţîöñ ɓåŕ. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fiveteen sixteen seventeen nineteen twenty one two three four five six seven eight nine ten eleven twelve thirteen fourteen fiveteen sixteen seventeen nineteen twenty one two three four five six seven eight nine ten eleven twelve thirteen fourteen fiveteen sixteen seventeen nineteen twenty one two three four five six]"</string>
     <string name="accessibility_screen_magnification_navbar_title">[Ḿåĝñîƒý ŵîţĥ šĥöŕţçûţ one two three]</string>
     <string name="accessibility_screen_magnification_short_summary">[Ţåþ 3 ţîḿéš ţö žööḿ one two three]</string>
+    <string name="accessibility_screen_magnification_shortcut_title">[Ḿåĝñîƒîçåţîöñ šĥöŕţçûţ one two three]</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">"[Ḿåĝñîƒý ŵîţĥ šĥöŕţçûţ &amp;  ţŕîþļé-ţåþ one two three four]"</string>
     <string name="accessibility_screen_magnification_summary">"[qûîçķļý žööḿ îñ öñ ţĥé šçŕééñ ţö ḿåķé çöñţéñţ ļåŕĝéŕ.&lt;br/>&lt;br/> &lt;b>Ţö žööḿ îñ:&lt;/b>&lt;br/> »{0,number,integer}«. Ûšé šĥöŕţçûţ ţö šţåŕţ ḿåĝñîƒîçåţîöñ&lt;br/> »{1,number,integer}«. Ţåþ ţĥé šçŕééñ&lt;br/> »{2,number,integer}«. Ðŕåĝ 2 ƒîñĝéŕš ţö ḿöVé åŕöûñð šçŕééñ&lt;br/> »{3,number,integer}«. Þîñçĥ ŵîţĥ 2 ƒîñĝéŕš ţö åðĵûšţ žööḿ&lt;br/> »{4,number,integer}«. Ûšé šĥöŕţçûţ ţö šţöþ ḿåĝñîƒîçåţîöñ&lt;br/>&lt;br/> &lt;b>Ţö žööḿ îñ ţéḿþöŕåŕîļý:&lt;/b>&lt;br/> »{0,number,integer}«. Ûšé šĥöŕţçûţ ţö šţåŕţ ḿåĝñîƒîçåţîöñ&lt;br/> »{1,number,integer}«. Ţöûçĥ &amp;  ĥöļð åñýŵĥéŕé öñ ţĥé šçŕééñ&lt;br/> »{2,number,integer}«. Ðŕåĝ ƒîñĝéŕ ţö ḿöVé åŕöûñð šçŕééñ&lt;br/> »{3,number,integer}«. Ļîƒţ ƒîñĝéŕ ţö šţöþ ḿåĝñîƒîçåţîöñ one two three four five six seven eight nine ten eleven twelve thirteen fourteen fiveteen sixteen seventeen nineteen twenty one two three four five six seven eight nine ten eleven twelve thirteen fourteen fiveteen sixteen seventeen nineteen twenty one two three four five six seven eight nine ten eleven twelve thirteen fourteen fiveteen sixteen seventeen nineteen twenty one two three four five six seven eight]"</string>
     <string name="accessibility_screen_magnification_title">[Ḿåĝñîƒîçåţîöñ one two]</string>
@@ -370,7 +389,7 @@
     <string name="accessibility_tutorial_dialog_message_volume">"[Ţö ûšé ţĥîš ƒéåţûŕé, þŕéšš &amp;  ĥöļð ɓöţĥ Vöļûḿé ķéýš. one two three four five six]"</string>
     <string name="accessibility_tutorial_dialog_title_button">[Ûšé åççéššîɓîļîţý ɓûţţöñ ţö öþéñ one two three four]</string>
     <string name="accessibility_tutorial_dialog_title_gesture">[Ûšé ĝéšţûŕé ţö öþéñ one two three]</string>
-    <string name="accessibility_tutorial_dialog_title_gesture_settings">[Ûšé ñéŵ åççéššîɓîļîţý ĝéšţûŕé one two three four]</string>
+    <string name="accessibility_tutorial_dialog_title_gesture_settings">[Ûšé åççéššîɓîļîţý ĝéšţûŕé one two three]</string>
     <string name="accessibility_tutorial_dialog_title_triple">[Ţŕîþļé ţåþ šçŕééñ ţö öþéñ one two three]</string>
     <string name="accessibility_tutorial_dialog_title_volume">[Ĥöļð Vöļûḿé ķéýš ţö öþéñ one two three]</string>
     <string name="accessibility_tutorial_pager">[Þåĝé %1$d öƒ %2$d one two]</string>
@@ -494,7 +513,7 @@
     <string name="advanced_battery_graph_subtext">[βåţţéŕý ļéƒţ éšţîḿåţé îš ɓåšéð öñ ýöûŕ ðéVîçé ûšåĝé one two three four five six]</string>
     <string name="advanced_battery_preference_summary">[νîéŵ ûšåĝé ƒŕöḿ ļåšţ ƒûļļ çĥåŕĝé one two three four]</string>
     <string name="advanced_battery_preference_summary_with_hours">[νîéŵ ûšåĝé ƒöŕ þåšţ 24 ĥöûŕš one two three four]</string>
-    <string name="advanced_battery_preference_title">[βåţţéŕý Ûšåĝé one two]</string>
+    <string name="advanced_battery_preference_title">[βåţţéŕý ûšåĝé one two]</string>
     <string name="advanced_battery_title">[βåţţéŕý ûšåĝé one two]</string>
     <string name="advanced_section_header">[Ĝéñéŕåļ one two]</string>
     <string name="advanced_security_title">[ÅðVåñçéð one two]</string>
@@ -935,6 +954,7 @@
     <string name="battery_level_title">[βåţţéŕý ļéVéļ one two]</string>
     <string name="battery_manager_off">[Öƒƒ one]</string>
     <string name="battery_manager_summary">[Ðéţéçţîñĝ ŵĥéñ åþþš ðŕåîñ ɓåţţéŕý one two three four]</string>
+    <string name="battery_manager_summary_unsupported">[Ðéţéçţîñĝ ŵĥéñ åþþš ðŕåîñ ɓåţţéŕý one two three four]</string>
     <string name="battery_meter_very_low_overlay_symbol">[¡ one]</string>
     <string name="battery_missing_link_a11y_message">[Ţåþ ţö ļéåŕñ ḿöŕé åɓöûţ ţĥîš éŕŕöŕ one two three four]</string>
     <string name="battery_missing_link_message">[]</string>
@@ -1062,6 +1082,7 @@
     <string name="battery_usage_screen_footer">"[βåţţéŕý ûšåĝé ðåţå îš åþþŕöхîḿåţé åñð ðöéšñ'ţ ḿéåšûŕé ûšåĝé ŵĥéñ þĥöñé îš çĥåŕĝîñĝ one two three four five six seven eight nine]"</string>
     <string name="battery_usage_screen_footer_empty">[βåţţéŕý ûšåĝé ðåţå ŵîļļ ɓé åVåîļåɓļé åƒţéŕ ýöû ûšé ýöûŕ þĥöñé ƒöŕ å ƒéŵ ĥöûŕš one two three four five six seven eight]</string>
     <string name="battery_usage_total_less_than_one_minute">[Ţöţåļ: ļéšš ţĥåñ å ḿîñ one two three]</string>
+    <string name="battery_usage_without_time">[]</string>
     <string name="battery_used_by">[%1$s ûšéð ɓý %2$s one two]</string>
     <string name="battery_used_for">[Ûšéð ƒöŕ ^1 one two]</string>
     <string name="bearer">[βéåŕéŕ one two]</string>
@@ -1070,12 +1091,14 @@
     <string name="billing_cycle_less_than_one_day_left">[Ļéšš ţĥåñ 1 ðåý ļéƒţ one two three]</string>
     <string name="billing_cycle_none_left">[Ñö ţîḿé ŕéḿåîñîñĝ one two three]</string>
     <string name="biometric_settings_category_ways_to_unlock">[Ŵåýš ţö ûñļöçķ one two three]</string>
-    <string name="biometric_settings_category_ways_to_use">[Ûšé ƒåçé åñð ƒîñĝéŕþŕîñţ ƒöŕ one two three four]</string>
     <string name="biometric_settings_hand_back_to_guardian">[Ĥåñð ţĥé þĥöñé ɓåçķ ţö ýöûŕ þåŕéñţ one two three four]</string>
     <string name="biometric_settings_hand_back_to_guardian_ok">[ÖĶ one]</string>
     <string name="biometric_settings_intro">[Ŵĥéñ ýöû šéţ ûþ Fåçé Ûñļöçķ åñð Fîñĝéŕþŕîñţ Ûñļöçķ, ýöûŕ þĥöñé ŵîļļ åšķ ƒöŕ ýöûŕ ƒîñĝéŕþŕîñţ ŵĥéñ ýöû ŵéåŕ å ḿåšķ öŕ åŕé îñ å ðåŕķ åŕéå one two three four five six seven eight nine ten eleven twelve thirteen]</string>
-    <string name="biometric_settings_use_biometric_for_apps">[Åûţĥéñţîçåţîöñ îñ åþþš one two three]</string>
-    <string name="biometric_settings_use_biometric_unlock_phone">[Ûñļöçķîñĝ ýöûŕ þĥöñé one two three]</string>
+    <string name="biometric_settings_use_biometric_for_apps">[νéŕîƒý îţ’š ýöû îñ åþþš one two three]</string>
+    <string name="biometric_settings_use_biometric_unlock_phone">[Ûñļöçķ ýöûŕ þĥöñé one two three]</string>
+    <string name="biometric_settings_use_face_or_fingerprint_preference_summary">[Ûšîñĝ ƒåçé öŕ ƒîñĝéŕþŕîñţ one two three]</string>
+    <string name="biometric_settings_use_face_preference_summary">[Ûšîñĝ ƒåçé one two]</string>
+    <string name="biometric_settings_use_fingerprint_preference_summary">[Ûšîñĝ ƒîñĝéŕþŕîñţ one two three]</string>
     <string name="biometrics_unlock_set_unlock_password">[Þåššŵöŕð • Fåçé • Fîñĝéŕþŕîñţ one two three four five six seven eight]</string>
     <string name="biometrics_unlock_set_unlock_pattern">[Þåţţéŕñ • Fåçé • Fîñĝéŕþŕîñţ one two three four five six seven]</string>
     <string name="biometrics_unlock_set_unlock_pin">[ÞÎÑ • Fåçé • Fîñĝéŕþŕîñţ one two three four five six seven]</string>
@@ -1333,7 +1356,6 @@
     <string name="bluetooth_settings_title">[βļûéţööţĥ one two]</string>
     <string name="bluetooth_show_devices_without_names">[Šĥöŵ βļûéţööţĥ ðéVîçéš ŵîţĥöûţ ñåḿéš one two three four five]</string>
     <string name="bluetooth_show_devices_without_names_summary">[βļûéţööţĥ ðéVîçéš ŵîţĥöûţ ñåḿéš (ḾÅÇ åððŕéššéš öñļý) ŵîļļ ɓé ðîšþļåýéð one two three four five six seven eight]</string>
-    <string name="bluetooth_show_files_received_via_bluetooth">[Fîļéš ŕéçéîVéð Vîå βļûéţööţĥ one two three four]</string>
     <string name="bluetooth_show_received_files">[ŔéçéîVéð ƒîļéš one two three]</string>
     <string name="bluetooth_sim_card_access_dialog_content">"[Å βļûéţööţĥ ðéVîçé, %1$s, ŵåñţš ţö åççéšš ðåţå öñ ýöûŕ ŠÎḾ çåŕð. Ţĥîš îñçļûðéš ýöûŕ çöñţåçţš.
 
@@ -1358,7 +1380,7 @@
     <string name="bluetooth_unpair_dialog_forget_confirm_button">[Föŕĝéţ ðéVîçé one two]</string>
     <string name="bluetooth_unpair_dialog_title">[Föŕĝéţ ðéVîçé¿ one two three]</string>
     <string name="bluetooth_untether_blank">[%1$s ŵîļļ ɓé ûñţéţĥéŕéð. one two three]</string>
-    <string name="bluetooth_untethered_unpair_dialog_body">[%1$s ŵîļļ ñö ļöñĝéŕ ɓé þåîŕéð ŵîţĥ åñý ðéVîçé ļîñķéð ţö ţĥîš åççöûñţ one two three four five six seven]</string>
+    <string name="bluetooth_untethered_unpair_dialog_body">[%1$s ŵîļļ ñö ļöñĝéŕ ɓé þåîŕéð ŵîţĥ åñý ðéVîçé ļîñķéð ţö ţĥîš Ĝööĝļé Åççöûñţ one two three four five six seven eight]</string>
     <string name="bluetooth_visibility_timeout">[νîšîɓîļîţý ţîḿéöûţ one two three]</string>
     <string name="boot_sounds_title">[Þöŵéŕ öñ šöûñðš one two three]</string>
     <string name="bottomsheet_action_expand_halfway">[Éхþåñð ĥåļƒŵåý one two three]</string>
@@ -1428,6 +1450,7 @@
     <string name="calls_sms_temp_unavailable">[Ţéḿþöŕåŕîļý ûñåVåîļåɓļé one two three]</string>
     <string name="calls_sms_unavailable">[ûñåVåîļåɓļé one two]</string>
     <string name="calls_sms_wfc_summary">[Ḿåķé åñð ŕéçéîVé çåļļš öVéŕ Ŵî‑Fî one two three four]</string>
+    <string name="cam_toggle_description">[Föŕ åþþš åñð šéŕVîçéš one two three]</string>
     <string name="camera_double_tap_power_gesture_desc">[qûîçķļý öþéñ çåḿéŕå ŵîţĥöûţ ûñļöçķîñĝ ýöûŕ šçŕééñ one two three four five six]</string>
     <string name="camera_double_tap_power_gesture_title">[Þŕéšš þöŵéŕ ɓûţţöñ ţŵîçé ƒöŕ çåḿéŕå one two three four]</string>
     <string name="camera_laser_sensor_switch">[Çåḿéŕå Ļåšéŕ Šéñšöŕ one two three]</string>
@@ -3320,6 +3343,7 @@ Föŕ ḿöŕé ðéţåîļš, çöñţåçţ ýöûŕ öŕĝåñîžåţîöñ
     <string name="menu_stats_total">[Ûšåĝé ţöţåļš one two]</string>
     <string name="menu_stats_unplugged">[%1$s šîñçé ûñþļûĝĝéð one two three]</string>
     <string name="menu_use_uss">[Ûšé Ûšš one two]</string>
+    <string name="mic_toggle_description">[Föŕ åþþš åñð šéŕVîçéš. Îƒ ţĥîš šéţţîñĝ îš öƒƒ, ḿîçŕöþĥöñé ðåţå ḿåý šţîļļ ɓé šĥåŕéð ŵĥéñ ýöû çåļļ åñ éḿéŕĝéñçý ñûḿɓéŕ. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fiveteen sixteen seventeen nineteen twent]</string>
     <string name="mic_toggle_title">[Ḿîçŕöþĥöñé åççéšš one two three]</string>
     <string name="misc_files">[Ḿîšç ƒîļéš one two]</string>
     <string name="misc_files_selected_count">[šéļéçţéð %1$d öûţ öƒ %2$d one two three]</string>
@@ -3745,6 +3769,7 @@ Föŕ ḿöŕé ðéţåîļš, çöñţåçţ ýöûŕ öŕĝåñîžåţîöñ
     <string name="one_handed_action_show_notification_title">[Šĥöŵ ñöţîƒîçåţîöñš one two three]</string>
     <string name="one_handed_mode_enabled">[Ûšé öñé-ĥåñðéð ḿöðé one two three]</string>
     <string name="one_handed_mode_intro_text">[Ţö ûšé öñé ĥåñðéð ḿöðé, šŵîþé ðöŵñ ƒŕöḿ ţĥé ɓöţţöḿ éðĝé öƒ ţĥé šçŕééñ. Ţö ûšé ţĥîš ƒéåţûŕé, ḿåķé šûŕé ĝéšţûŕé ñåVîĝåţîöñ îš ţûŕñéð öñ îñ šýšţéḿ ñåVîĝåţîöñ šéţţîñĝš. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fiveteen sixteen seventeen nineteen twenty one two three four five six seven eight nine]</string>
+    <string name="one_handed_mode_shortcut_title">[Öñé-ĥåñðéð ḿöðé šĥöŕţçûţ one two three]</string>
     <string name="one_handed_mode_swipe_down_category">[Šŵîþé ðöŵñ ţö one two]</string>
     <string name="one_handed_mode_use_shortcut_category">[Ûšé ţĥé šĥöŕţçûţ ţö one two three]</string>
     <string name="one_usercrt">[öñé ûšéŕ çéŕţîƒîçåţé one two three]</string>
@@ -4056,6 +4081,7 @@ Föŕ ḿöŕé ðéţåîļš, çöñţåçţ ýöûŕ öŕĝåñîžåţîöñ
     <string name="recent_notifications">[Ŕéçéñţļý šéñţ one two]</string>
     <string name="recent_notifications_see_all_title">[Šéé åļļ ƒŕöḿ ļåšţ 7 ðåýš one two three]</string>
     <string name="recompute_size">[Ŕéçöḿþûţîñĝ šîžé… one two three]</string>
+    <string name="reduce_bright_colors_about_title">[Åɓöûţ éхţŕå ðîḿ one two three]</string>
     <string name="reduce_bright_colors_intensity_end_label">[βŕîĝĥţéŕ one two]</string>
     <string name="reduce_bright_colors_intensity_preference_title">[Îñţéñšîţý one two]</string>
     <string name="reduce_bright_colors_intensity_start_label">[Ðîḿḿéŕ one two]</string>
@@ -4063,6 +4089,7 @@ Föŕ ḿöŕé ðéţåîļš, çöñţåçţ ýöûŕ öŕĝåñîžåţîöñ
     <string name="reduce_bright_colors_preference_subtitle">[Ḿåķé ýöûŕ šçŕééñ ðîḿḿéŕ šö îţ’š ḿöŕé çöḿƒöŕţåɓļé ţö ŕéåð.&lt;br/>&lt;br/> Ţĥîš çåñ ɓé ĥéļþƒûļ ŵĥéñ: &lt;ol> &lt;li> Ýöûŕ þĥöñé’š ðéƒåûļţ ḿîñîḿûḿ ɓŕîĝĥţñéšš îš šţîļļ ţöö ɓŕîĝĥţ&lt;/li> &lt;li> Ýöû’ŕé ûšîñĝ ýöûŕ þĥöñé îñ ðåŕķ šîţûåţîöñš, ļîķé åţ ñîĝĥţ öŕ îñ å ðåŕķ ŕööḿ ɓéƒöŕé ɓéð&lt;/li> &lt;/ol> one two three four five six seven eight nine ten eleven twelve thirteen fourteen fiveteen sixteen seventeen nineteen twenty one two three four five six seven eight nine ten eleven twelve thirteen fourteen fiveteen sixteen seventeen nineteen twent]</string>
     <string name="reduce_bright_colors_preference_summary">[Ðîḿ šçŕééñ ɓéýöñð ýöûŕ þĥöñé’š ḿîñîḿûḿ ɓŕîĝĥţñéšš one two three four five six]</string>
     <string name="reduce_bright_colors_preference_title">[Éхţŕå ðîḿ one two]</string>
+    <string name="reduce_bright_colors_shortcut_title">[Éхţŕå ðîḿ šĥöŕţçûţ one two three]</string>
     <string name="reduce_bright_colors_switch_title">[Ḿåķé šçŕééñ éхţŕå ðîḿ one two three]</string>
     <string name="register_automatically">[Åûţöḿåţîç ŕéĝîšţŕåţîöñ… one two three]</string>
     <string name="register_on_network">[Ŕéĝîšţéŕîñĝ öñ %s… one two three]</string>
@@ -4268,7 +4295,6 @@ Fļîþ ýöûŕ þĥöñé öVéŕ ţö ţŕý. one two three four five six sev
     <string name="screen_pinning_unlock_pattern">[Åšķ ƒöŕ ûñļöçķ þåţţéŕñ ɓéƒöŕé ûñþîññîñĝ one two three four five]</string>
     <string name="screen_pinning_unlock_pin">[Åšķ ƒöŕ ÞÎÑ ɓéƒöŕé ûñþîññîñĝ one two three four]</string>
     <string name="screen_reader_category_title">[Šçŕééñ ŕéåðéŕ one two]</string>
-    <string name="screen_saver_main_switch_title">[Ûšé šçŕééñ šåVéŕ one two three]</string>
     <string name="screen_time_summary_usage_today">[%1$s ţöðåý one two]</string>
     <string name="screen_timeout_summary">[Åƒţéŕ %1$s öƒ îñåçţîVîţý one two three]</string>
     <string name="screen_timeout_title">[Šçŕééñ ţûŕñš öƒƒ one two three]</string>
@@ -4298,6 +4324,7 @@ Fļîþ ýöûŕ þĥöñé öVéŕ ţö ţŕý. one two three four five six sev
     <string name="screensaver_settings_button">[Šéţţîñĝš one two]</string>
     <string name="screensaver_settings_current">[Çûŕŕéñţ šçŕééñ šåVéŕ one two three]</string>
     <string name="screensaver_settings_disabled_prompt">[Ţö çöñţŕöļ ŵĥåţ ĥåþþéñš ŵĥéñ ţĥé þĥöñé îš ðöçķéð åñð/öŕ šļééþîñĝ, ţûŕñ šçŕééñ šåVéŕ öñ. one two three four five six seven eight nine]</string>
+    <string name="screensaver_settings_dream_start">[Šţåŕţ ñöŵ one two]</string>
     <string name="screensaver_settings_summary_dock">[Ŵĥîļé ðöçķéð one two]</string>
     <string name="screensaver_settings_summary_either_long">[Ŵĥîļé çĥåŕĝîñĝ öŕ ðöçķéð one two three]</string>
     <string name="screensaver_settings_summary_either_short">[Éîţĥéŕ one two]</string>
@@ -4348,15 +4375,6 @@ Fļîþ ýöûŕ þĥöñé öVéŕ ţö ţŕý. one two three four five six sev
     <string name="security_settings_biometric_preference_summary_both_fp_single">[Fåçé åñð ƒîñĝéŕþŕîñţ åððéð one two three four]</string>
     <string name="security_settings_biometric_preference_summary_none_enrolled">[Ţåþ ţö šéţ ûþ one two]</string>
     <string name="security_settings_biometric_preference_title">"[Fåçé &amp;  Fîñĝéŕþŕîñţ Ûñļöçķ one two three]"</string>
-    <string name="security_settings_biometrics_description">[Ŵĥéñ ýöû šéţ ûþ ƒåçé åñð ƒîñĝéŕþŕîñţ ûñļöçķ, ýöûŕ þĥöñé ŵîļļ åšķ ƒöŕ ýöûŕ ƒîñĝéŕþŕîñţ ŵĥéñ ýöû ŵéåŕ å ḿåšķ öŕ åŕé îñ å ðåŕķ åŕéå one two three four five six seven eight nine ten eleven twelve thirteen]</string>
-    <string name="security_settings_biometrics_preference_use_with_apps">[Åûţĥéñţîçåţîöñ îñ åþþš one two three]</string>
-    <string name="security_settings_biometrics_preferences_category">[Ûšé ƒåçé öŕ ƒîñĝéŕþŕîñţ ƒöŕ one two three four]</string>
-    <string name="security_settings_biometrics_summary_both">[Fåçé åñð ƒîñĝéŕþŕîñţ one two three]</string>
-    <string name="security_settings_biometrics_summary_face">[Fåçé öñļý one two]</string>
-    <string name="security_settings_biometrics_summary_fingerprint">[Fîñĝéŕþŕîñţ öñļý one two three]</string>
-    <string name="security_settings_biometrics_summary_none">[Ţåþ ţö šéţ ûþ one two]</string>
-    <string name="security_settings_biometrics_title">"[Fåçé &amp;  ƒîñĝéŕþŕîñţ ûñļöçķ one two three]"</string>
-    <string name="security_settings_biometrics_types_category">[Ŵåýš ţö ûñļöçķ one two three]</string>
     <string name="security_settings_face_enroll_consent_introduction_title">[Åļļöŵ ƒåçé ûñļöçķ one two three]</string>
     <string name="security_settings_face_enroll_dialog_ok">[ÖĶ one]</string>
     <string name="security_settings_face_enroll_done">[Ðöñé one]</string>
@@ -4406,6 +4424,7 @@ Fļîþ ýöûŕ þĥöñé öVéŕ ţö ţŕý. one two three four five six sev
     <string name="security_settings_face_enroll_introduction_info_consent_looking">[]</string>
     <string name="security_settings_face_enroll_introduction_info_gaze">[]</string>
     <string name="security_settings_face_enroll_introduction_info_glasses">[]</string>
+    <string name="security_settings_face_enroll_introduction_info_less_secure">[]</string>
     <string name="security_settings_face_enroll_introduction_info_looking">[]</string>
     <string name="security_settings_face_enroll_introduction_info_title">[]</string>
     <string name="security_settings_face_enroll_introduction_message">[Ûšé ýöûŕ ƒåçé ţö ûñļöçķ ýöûŕ þĥöñé, åûţĥöŕîžé þûŕçĥåšéš, öŕ šîĝñ îñ ţö åþþš. one two three four five six seven eight]</string>
@@ -4463,13 +4482,14 @@ Fļîþ ýöûŕ þĥöñé öVéŕ ţö ţŕý. one two three four five six sev
 
 Ýöûŕ þĥöñé çåñ ɓé ûñļöçķéð ɓý šöḿéöñé ŵĥö ļööķš å ļöţ ļîķé ýöû, ļîķé åñ îðéñţîçåļ šîɓļîñĝ. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fiveteen sixteen seventeen nineteen twenty one two three four five six seven eight nine ten eleven twelve thirteen fourteen fiveteen sixteen seventeen nineteen twenty one two three four five six seven eight nine ten eleven twelve thirteen fourteen fiveteen sixteen seventeen nineteen twenty one two three four five six seven eight nine ten eleven twelve thirteen fourteen fiveteen sixteen seventeen]"</string>
     <string name="security_settings_face_settings_preferences_category">[Ŵĥéñ ûšîñĝ Fåçé Ûñļöçķ one two three]</string>
-    <string name="security_settings_face_settings_remove_dialog_details">[Ýöûŕ ƒåçé ḿöðéļ ŵîļļ ɓé þéŕḿåñéñţļý åñð šéçûŕéļý ðéļéţéð. Åƒţéŕ ðéļéţîöñ, ýöû ŵîļļ ñééð ýöûŕ ÞÎÑ, þåţţéŕñ, öŕ þåššŵöŕð ţö ûñļöçķ ýöûŕ þĥöñé öŕ ƒöŕ åûţĥéñţîçåţîöñ îñ åþþš. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fiveteen sixteen seventeen nineteen twenty one two three four five six seven eight nine ten]</string>
+    <string name="security_settings_face_settings_remove_dialog_details">"[Ýöûŕ ƒåçé ḿöðéļ ŵîļļ ɓé þéŕḿåñéñţļý åñð šéçûŕéļý ðéļéţéð.
+
+Åƒţéŕ ðéļéţîöñ, ýöû ŵîļļ ñééð ýöûŕ ÞÎÑ, þåţţéŕñ, öŕ þåššŵöŕð ţö ûñļöçķ ýöûŕ þĥöñé öŕ ƒöŕ åûţĥéñţîçåţîöñ îñ åþþš. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fiveteen sixteen seventeen nineteen twenty one two three four five six seven eight nine ten]"</string>
+    <string name="security_settings_face_settings_remove_dialog_details_convenience">"[Ýöûŕ ƒåçé ḿöðéļ ŵîļļ ɓé þéŕḿåñéñţļý åñð šéçûŕéļý ðéļéţéð.
+
+Åƒţéŕ ðéļéţîöñ, ýöû ŵîļļ ñééð ýöûŕ ÞÎÑ, þåţţéŕñ, öŕ þåššŵöŕð ţö ûñļöçķ ýöûŕ þĥöñé. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fiveteen sixteen seventeen nineteen twenty one two three four]"</string>
     <string name="security_settings_face_settings_remove_dialog_title">[Ðéļéţé ƒåçé ḿöðéļ¿ one two three]</string>
     <string name="security_settings_face_settings_remove_face_model">[Ðéļéţé ƒåçé ḿöðéļ one two three]</string>
-    <string name="security_settings_face_settings_remove_model_dialog_details">"[Ýöûŕ ƒåçé ḿöðéļ ŵîļļ ɓé þéŕḿåñéñţļý åñð šéçûŕéļý ðéļéţéð.
-
-Åƒţéŕ ðéļéţîöñ, ýöû ŵîļļ ñééð ýöûŕ ƒîñĝéŕþŕîñţ, ÞÎÑ, þåţţéŕñ, öŕ þåššŵöŕð ţö ûñļöçķ ýöûŕ þĥöñé öŕ ƒöŕ åûţĥéñţîçåţîöñ îñ åþþš. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fiveteen sixteen seventeen nineteen twenty one two three four five six seven eight nine ten eleven twelve]"</string>
-    <string name="security_settings_face_settings_remove_model_dialog_title">[Ðéļéţé ƒåçé ḿöðéļ¿ one two three]</string>
     <string name="security_settings_face_settings_require_attention">[ŔéQûîŕé éýéš ţö ɓé öþéñ one two three]</string>
     <string name="security_settings_face_settings_require_attention_details">[Ţö ûñļöçķ ţĥé þĥöñé, ýöûŕ éýéš ḿûšţ ɓé öþéñ one two three four five]</string>
     <string name="security_settings_face_settings_require_confirmation">[Åļŵåýš ŕéQûîŕé çöñƒîŕḿåţîöñ one two three four]</string>
@@ -4548,7 +4568,7 @@ Fļîþ ýöûŕ þĥöñé öVéŕ ţö ţŕý. one two three four five six sev
     <string name="security_settings_title">[Šéçûŕîţý one two]</string>
     <string name="security_settings_udfps_enroll_a11y">"[ḾöVé ýöûŕ ƒîñĝéŕ åçŕöšš ţĥé šçŕééñ ţö ƒîñð ţĥé šéñšöŕ. Ţöûçĥ &amp;  ĥöļð ţĥé ƒîñĝéŕþŕîñţ šéñšöŕ. one two three four five six seven eight nine ten]"</string>
     <string name="security_settings_udfps_enroll_edge_message">[Þļåçé ţĥé šîðé öƒ ýöûŕ ƒîñĝéŕþŕîñţ öñ ţĥé šéñšöŕ åñð ĥöļð, ţĥéñ šŵîţçĥ ţö ţĥé öţĥéŕ šîðé one two three four five six seven eight nine ten]</string>
-    <string name="security_settings_udfps_enroll_edge_title">[Fîñåļļý, þļåçé ţĥé éðĝéš öƒ ýöûŕ ƒîñĝéŕ one two three four five]</string>
+    <string name="security_settings_udfps_enroll_edge_title">[Fîñåļļý, ûšé ţĥé éðĝéš öƒ ýöûŕ ƒîñĝéŕ one two three four five]</string>
     <string name="security_settings_udfps_enroll_find_sensor_message">[Ţĥé ƒîñĝéŕþŕîñţ šéñšöŕ îš öñ ýöûŕ šçŕééñ. Ýöû’ļļ çåþţûŕé ýöûŕ ƒîñĝéŕþŕîñţ öñ ţĥé ñéхţ šçŕééñ. one two three four five six seven eight nine ten]</string>
     <string name="security_settings_udfps_enroll_find_sensor_start_button">[Šţåŕţ one]</string>
     <string name="security_settings_udfps_enroll_find_sensor_title">[Ĥöŵ ţö šéţ ûþ ýöûŕ ƒîñĝéŕþŕîñţ one two three four]</string>
@@ -4557,7 +4577,7 @@ Fļîþ ýöûŕ þĥöñé öVéŕ ţö ţŕý. one two three four five six sev
     <string name="security_settings_udfps_enroll_repeat_a11y_message">[Ţĥîš ĥéļþš çåþţûŕé ḿöŕé öƒ ýöûŕ ƒîñĝéŕþŕîñţ one two three four five]</string>
     <string name="security_settings_udfps_enroll_repeat_message">"[Ţöûçĥ &amp;  ĥöļð éåçĥ ţîḿé ţĥé ƒîñĝéŕþŕîñţ îçöñ ḿöVéš. Ţĥîš ĥéļþš çåþţûŕé ḿöŕé öƒ ýöûŕ ƒîñĝéŕþŕîñţ. one two three four five six seven eight nine ten]"</string>
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">[Föļļöŵ ţĥé ƒîñĝéŕþŕîñţ îçöñ one two three four]</string>
-    <string name="security_settings_udfps_enroll_start_message">[Ķééþ ýöûŕ ƒîñĝéŕ öñ ţĥé šéñšöŕ ûñţîļ ýöû ƒééļ å Vîɓŕåţîöñ one two three four five six seven]</string>
+    <string name="security_settings_udfps_enroll_start_message">[Ķééþ ýöûŕ ƒîñĝéŕþŕîñţ ƒļåţ öñ ţĥé šéñšöŕ ûñţîļ ýöû ƒééļ å Vîɓŕåţîöñ one two three four five six seven eight]</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">[Öñé ḿöŕé ţîḿé one two]</string>
     <string name="security_settings_work_fingerprint_preference_title">[Fîñĝéŕþŕîñţ ƒöŕ ŵöŕķ one two three]</string>
     <string name="security_status_title">[Šéçûŕîţý šţåţûš one two three]</string>
@@ -4583,7 +4603,6 @@ Fļîþ ýöûŕ þĥöñé öVéŕ ţö ţŕý. one two three four five six sev
     <string name="select_webview_provider_dialog_title">[Šéţ Ŵéɓνîéŵ îḿþļéḿéñţåţîöñ one two three four]</string>
     <string name="select_webview_provider_title">[Ŵéɓνîéŵ îḿþļéḿéñţåţîöñ one two three]</string>
     <string name="select_webview_provider_toast_text">[Ţĥîš çĥöîçé îš ñö ļöñĝéŕ Våļîð. Ţŕý åĝåîñ. one two three four five]</string>
-    <string name="sensor_toggle_description">[Föŕ åļļ åþþš åñð šéŕVîçéš one two three]</string>
     <string name="sensors_off_quick_settings_title">[Šéñšöŕš Öƒƒ one two]</string>
     <string name="service_background_processes">[%1$s ƒŕéé one]</string>
     <string name="service_client_name">[%1$s]</string>
@@ -4817,6 +4836,7 @@ Fļîþ ýöûŕ þĥöñé öVéŕ ţö ţŕý. one two three four five six sev
     <string name="sound_settings_summary_silent">[Ŕîñĝéŕ šéţ ţö šîļéñţ one two three]</string>
     <string name="sound_settings_summary_vibrate">[Ŕîñĝéŕ šéţ ţö Vîɓŕåţé one two three]</string>
     <string name="sound_work_settings">[Ŵöŕķ þŕöƒîļé šöûñðš one two three]</string>
+    <string name="spatial_audio_title">[Šþåţîåļ åûðîö one two]</string>
     <string name="special_access">[Šþéçîåļ åþþ åççéšš one two three]</string>
     <string name="special_access_more">[Šéé ḿöŕé one two]</string>
     <string name="speed_label_fast">[Fåšţ one]</string>
@@ -5635,7 +5655,7 @@ To manage this ^2, go to "<b>Settings > Storage</b>. one two three four]</string
     <string name="vpn_turn_on">[Ţûŕñ öñ one two]</string>
     <string name="vpn_type">[Ţýþé one]</string>
     <string name="vpn_username">[Ûšéŕñåḿé one two]</string>
-    <string name="vpn_version">[νéŕšîöñ %s one two]</string>
+    <string name="vpn_version">[νéŕšîöñ one two]</string>
     <string name="vr_listener_security_warning_summary">[%1$s ŵîļļ ɓé åɓļé ţö ŕûñ ŵĥéñ ýöû åŕé ûšîñĝ åþþļîçåţîöñš îñ Vîŕţûåļ ŕéåļîţý ḿöðé. one two three four five six seven eight]</string>
     <string name="vr_listener_security_warning_title">[Åļļöŵ νŔ šéŕVîçé åççéšš ƒöŕ %1$s¿ one two three four]</string>
     <string name="vr_listeners_title">[νŔ ĥéļþéŕ šéŕVîçéš one two three]</string>
@@ -5994,7 +6014,6 @@ To manage this ^2, go to "<b>Settings > Storage</b>. one two three four]</string
     <string name="wifi_suspend_optimizations">[Ŵî‑Fî öþţîḿîžåţîöñ one two three]</string>
     <string name="wifi_suspend_optimizations_summary">[Ḿîñîḿîžé ɓåţţéŕý ûšåĝé ŵĥéñ Ŵî‑Fî îš öñ one two three four five]</string>
     <string name="wifi_switch_away_when_unvalidated">[Šŵîţçĥ ţö ḿöɓîļé ðåţå îƒ Ŵî‑Fî ļöšéš îñţéŕñéţ åççéšš. one two three four five six seven]</string>
-    <string name="wifi_switch_summary">[Fîñð åñð çöññéçţ ţö Ŵî‑Fî ñéţŵöŕķš one two three four five]</string>
     <string name="wifi_tap_to_sign_in">[Ţåþ ĥéŕé ţö šîĝñ îñ ţö ñéţŵöŕķ one two three four]</string>
     <string name="wifi_tether_configure_ap_text">[Šéţ ûþ Ŵî‑Fî ĥöţšþöţ one two three]</string>
     <string name="wifi_tether_configure_ssid_default">[ÅñðŕöîðĤöţšþöţ one two three]</string>
@@ -6029,6 +6048,7 @@ To manage this ^2, go to "<b>Settings > Storage</b>. one two three four]</string
     <string name="wifitrackerlib_connected_via_network_scorer_default">[Åûţöḿåţîçåļļý çöññéçţéð Vîå ñéţŵöŕķ ŕåţîñĝ þŕöVîðéŕ one two three four five six]</string>
     <string name="wifitrackerlib_connected_with_wsu_authenticator">[Çöññéçţéð ŵîţĥ %1$s one two three]</string>
     <string name="wifitrackerlib_imsi_protection_warning">[Ţĥîš ñéţŵöŕķ ŕéçéîVéš å ŠÎḾ ÎÐ ţĥåţ çåñ ɓé ûšéð ţö ţŕåçķ ðéVîçé ļöçåţîöñ. <annotation id="url">Ļéåŕñ ḿöŕé</annotation> one two three four five six seven eight nine]</string>
+    <string name="wifitrackerlib_no_attribution_annotation_packages">[çöḿ.ĝööĝļé.åñðŕöîð.šéţûþŵîžåŕð,çöḿ.ĝööĝļé.åñðŕöîð.ĝḿš one two three four five six]</string>
     <string name="wifitrackerlib_osu_completing_sign_up">[Çöḿþļéţîñĝ šîĝñ-ûþ… one two three]</string>
     <string name="wifitrackerlib_osu_connect_failed">[Çöûļðñ’ţ çöññéçţ one two three]</string>
     <string name="wifitrackerlib_osu_opening_provider">[Öþéñîñĝ %1$s one two]</string>

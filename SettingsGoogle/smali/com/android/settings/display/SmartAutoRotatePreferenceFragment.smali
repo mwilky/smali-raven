@@ -21,7 +21,7 @@
 
     new-instance v0, Lcom/android/settings/search/BaseSearchIndexProvider;
 
-    const v1, 0x7f15002e
+    const v1, 0x7f15002f
 
     invoke-direct {v0, v1}, Lcom/android/settings/search/BaseSearchIndexProvider;-><init>(I)V
 
@@ -65,7 +65,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0402db
+    const v2, 0x7f0402ef
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -118,7 +118,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f15002e
+    const p0, 0x7f15002f
 
     return p0
 .end method
@@ -168,7 +168,7 @@
 
     if-eqz p3, :cond_0
 
-    const v0, 0x7f04127f
+    const v0, 0x7f0412a3
 
     invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 

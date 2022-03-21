@@ -56,7 +56,7 @@
 
     aput-object p2, v0, p1
 
-    const p1, 0x7f041334
+    const p1, 0x7f041359
 
     invoke-virtual {p0, p1, v0}, Lcom/android/settings/deviceinfo/StorageWizardBase;->setBodyText(I[Ljava/lang/CharSequence;)V
 

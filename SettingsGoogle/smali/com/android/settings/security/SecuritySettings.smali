@@ -13,7 +13,7 @@
 
     new-instance v0, Lcom/android/settings/security/SecuritySettings$1;
 
-    const v1, 0x7f1500cb
+    const v1, 0x7f1500d0
 
     invoke-direct {v0, v1}, Lcom/android/settings/security/SecuritySettings$1;-><init>(I)V
 
@@ -231,7 +231,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f040a2e
+    const p0, 0x7f040a46
 
     return p0
 .end method
@@ -255,7 +255,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f1500cb
+    const p0, 0x7f1500d0
 
     return p0
 .end method

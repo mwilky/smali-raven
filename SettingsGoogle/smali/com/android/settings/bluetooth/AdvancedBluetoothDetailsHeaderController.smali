@@ -247,7 +247,7 @@
 
     iget-object v1, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f04062d
+    const v2, 0x7f040645
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -257,7 +257,7 @@
 
     move-result-object v0
 
-    const-string v1, "time_remaining"
+    const-string/jumbo v1, "time_remaining"
 
     invoke-virtual {v0, v1}, Landroid/net/Uri$Builder;->appendPath(Ljava/lang/String;)Landroid/net/Uri$Builder;
 
@@ -315,7 +315,7 @@
 
     move-result-object v0
 
-    const-string v1, "timestamp"
+    const-string/jumbo v1, "timestamp"
 
     invoke-virtual {p2, v1, v0}, Landroid/net/Uri$Builder;->appendQueryParameter(Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri$Builder;
 
@@ -353,7 +353,7 @@
 
     if-nez v0, :cond_0
 
-    const-string p0, "showBatteryPredictionIfNecessary() cursor is null!"
+    const-string/jumbo p0, "showBatteryPredictionIfNecessary() cursor is null!"
 
     invoke-static {v1, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -394,7 +394,7 @@
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v7, "showBatteryTimeIfNecessary() batteryId : "
+    const-string/jumbo v7, "showBatteryTimeIfNecessary() batteryId : "
 
     invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -443,7 +443,7 @@
 .method private synthetic lambda$showBatteryPredictionIfNecessary$1(Landroid/widget/LinearLayout;IJ)V
     .locals 1
 
-    const v0, 0x7f0d0110
+    const v0, 0x7f0d0114
 
     invoke-virtual {p1, v0}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -598,7 +598,7 @@
     move p3, v0
 
     :goto_0
-    const v1, 0x7f0d010f
+    const v1, 0x7f0d0113
 
     invoke-virtual {p1, v1}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -610,7 +610,7 @@
 
     iget-object p2, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const p3, 0x7f020184
+    const p3, 0x7f02018b
 
     invoke-virtual {p2, p3}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -704,7 +704,7 @@
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/AdvancedBluetoothDetailsHeaderController;->mLayoutPreference:Lcom/android/settingslib/widget/LayoutPreference;
 
-    const v1, 0x7f0d0319
+    const v1, 0x7f0d0325
 
     invoke-virtual {v0, v1}, Lcom/android/settingslib/widget/LayoutPreference;->findViewById(I)Landroid/view/View;
 
@@ -716,7 +716,7 @@
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/AdvancedBluetoothDetailsHeaderController;->mLayoutPreference:Lcom/android/settingslib/widget/LayoutPreference;
 
-    const v2, 0x7f0d031b
+    const v2, 0x7f0d0327
 
     invoke-virtual {v0, v2}, Lcom/android/settingslib/widget/LayoutPreference;->findViewById(I)Landroid/view/View;
 
@@ -726,7 +726,7 @@
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/AdvancedBluetoothDetailsHeaderController;->mLayoutPreference:Lcom/android/settingslib/widget/LayoutPreference;
 
-    const v2, 0x7f0d031a
+    const v2, 0x7f0d0326
 
     invoke-virtual {v0, v2}, Lcom/android/settingslib/widget/LayoutPreference;->findViewById(I)Landroid/view/View;
 
@@ -738,7 +738,7 @@
 
     invoke-virtual {v0, v2}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
-    const v2, 0x7f0d0289
+    const v2, 0x7f0d028e
 
     invoke-virtual {v0, v2}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -746,7 +746,7 @@
 
     invoke-virtual {v2, v1}, Landroid/view/View;->setVisibility(I)V
 
-    const v2, 0x7f0d0111
+    const v2, 0x7f0d0115
 
     invoke-virtual {v0, v2}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -754,7 +754,7 @@
 
     invoke-virtual {v2, v1}, Landroid/view/View;->setVisibility(I)V
 
-    const v2, 0x7f0d010f
+    const v2, 0x7f0d0113
 
     invoke-virtual {v0, v2}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -782,7 +782,7 @@
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "updateDisconnectLayout() iconUri : "
+    const-string/jumbo v3, "updateDisconnectLayout() iconUri : "
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -799,7 +799,7 @@
     :cond_0
     if-eqz v1, :cond_1
 
-    const v2, 0x7f0d0285
+    const v2, 0x7f0d028a
 
     invoke-virtual {v0, v2}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -831,7 +831,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d0285
+    const v2, 0x7f0d028a
 
     invoke-virtual {p1, v2}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -883,7 +883,7 @@
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "updateSubLayout() icon : "
+    const-string/jumbo v5, "updateSubLayout() icon : "
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -940,7 +940,7 @@
     invoke-direct {p0, p1, p7, v2}, Lcom/android/settings/bluetooth/AdvancedBluetoothDetailsHeaderController;->showBatteryPredictionIfNecessary(Landroid/widget/LinearLayout;II)V
 
     :cond_4
-    const p2, 0x7f0d0111
+    const p2, 0x7f0d0115
 
     invoke-virtual {p1, p2}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -1002,7 +1002,7 @@
 
     invoke-virtual {p1, v4}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
-    const p0, 0x7f0d010f
+    const p0, 0x7f0d0113
 
     invoke-virtual {p1, p0}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -1044,7 +1044,7 @@
     invoke-virtual {p2, v5}, Landroid/widget/TextView;->setVisibility(I)V
 
     :goto_2
-    const p0, 0x7f0d0289
+    const p0, 0x7f0d028e
 
     invoke-virtual {p1, p0}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -1082,7 +1082,7 @@
 
     new-instance p0, Lcom/android/settings/fuelgauge/BatteryMeterView$BatteryMeterDrawable;
 
-    const v0, 0x7f0a0135
+    const v0, 0x7f0a0133
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getColor(I)I
 
@@ -1212,6 +1212,16 @@
     move-result-object p0
 
     return-object p0
+.end method
+
+.method public bridge synthetic getSliceHighlightMenuRes()I
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getSliceHighlightMenuRes()I
+
+    move-result p0
+
+    return p0
 .end method
 
 .method public bridge synthetic hasAsyncUpdate()Z
@@ -1403,7 +1413,7 @@
 
     if-eqz v1, :cond_5
 
-    const v1, 0x7f0d0206
+    const v1, 0x7f0d020b
 
     invoke-virtual {v0, v1}, Lcom/android/settingslib/widget/LayoutPreference;->findViewById(I)Landroid/view/View;
 
@@ -1421,7 +1431,7 @@
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/AdvancedBluetoothDetailsHeaderController;->mLayoutPreference:Lcom/android/settingslib/widget/LayoutPreference;
 
-    const v1, 0x7f0d0204
+    const v1, 0x7f0d0209
 
     invoke-virtual {v0, v1}, Lcom/android/settingslib/widget/LayoutPreference;->findViewById(I)Landroid/view/View;
 
@@ -1476,11 +1486,11 @@
 
     move-result v2
 
-    const v3, 0x7f0d031a
+    const v3, 0x7f0d0326
 
-    const v4, 0x7f0d031b
+    const v4, 0x7f0d0327
 
-    const v5, 0x7f0d0319
+    const v5, 0x7f0d0325
 
     if-nez v2, :cond_3
 
@@ -1530,7 +1540,7 @@
 
     const/16 v10, 0xd
 
-    const v11, 0x7f040476
+    const v11, 0x7f04048e
 
     const/4 v12, 0x1
 
@@ -1556,7 +1566,7 @@
 
     const/16 v10, 0xf
 
-    const v11, 0x7f040484
+    const v11, 0x7f04049c
 
     const/4 v12, 0x3
 
@@ -1580,7 +1590,7 @@
 
     const/16 v6, 0xe
 
-    const v7, 0x7f0404cb
+    const v7, 0x7f0404e3
 
     const/4 v8, 0x2
 

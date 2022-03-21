@@ -25,25 +25,25 @@
 
     const-class v1, Lcom/android/settings/network/telephony/ConfirmDialogFragment$OnConfirmListener;
 
-    const v0, 0x7f041210
+    const v0, 0x7f041234
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
-    const v0, 0x7f04120f
+    const v0, 0x7f041233
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
     move-result-object v4
 
-    const v0, 0x7f041221
+    const v0, 0x7f041245
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
     move-result-object v5
 
-    const v0, 0x7f041216
+    const v0, 0x7f04123a
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -63,25 +63,25 @@
 
     const-class v1, Lcom/android/settings/network/telephony/ConfirmDialogFragment$OnConfirmListener;
 
-    const v0, 0x7f041219
+    const v0, 0x7f04123d
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
-    const v0, 0x7f04120f
+    const v0, 0x7f041233
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
     move-result-object v4
 
-    const v0, 0x7f041217
+    const v0, 0x7f04123b
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
     move-result-object v5
 
-    const v0, 0x7f04054c
+    const v0, 0x7f040564
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -199,7 +199,7 @@
 
     invoke-static {v0, p1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    const p1, 0x7f041215
+    const p1, 0x7f041239
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -296,13 +296,13 @@
 
     invoke-virtual {p0}, Lcom/android/settings/network/telephony/SubscriptionActionDialogActivity;->dismissProgressDialog()V
 
-    const p1, 0x7f04083d
+    const p1, 0x7f040855
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
     move-result-object p1
 
-    const v0, 0x7f04083c
+    const v0, 0x7f040854
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 

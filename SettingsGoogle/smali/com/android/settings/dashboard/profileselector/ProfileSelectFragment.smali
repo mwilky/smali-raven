@@ -37,8 +37,8 @@
 
     :array_0
     .array-data 4
-        0x7f040580
-        0x7f040581
+        0x7f040598
+        0x7f040599
     .end array-data
 .end method
 
@@ -191,7 +191,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f1500b0
+    const p0, 0x7f1500b5
 
     return p0
 .end method
@@ -267,6 +267,14 @@
     return p0
 .end method
 
+.method getTitleResId()I
+    .locals 0
+
+    const/4 p0, 0x0
+
+    return p0
+.end method
+
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 2
 
@@ -282,6 +290,15 @@
 
     move-result-object p1
 
+    invoke-virtual {p0}, Lcom/android/settings/dashboard/profileselector/ProfileSelectFragment;->getTitleResId()I
+
+    move-result p2
+
+    if-lez p2, :cond_0
+
+    invoke-virtual {p1, p2}, Landroid/app/Activity;->setTitle(I)V
+
+    :cond_0
     invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object p2
@@ -296,13 +313,13 @@
 
     iget-object p3, p0, Lcom/android/settings/dashboard/profileselector/ProfileSelectFragment;->mContentView:Landroid/view/ViewGroup;
 
-    const v0, 0x7f0d0591
+    const v0, 0x7f0d05a0
 
     invoke-virtual {p3, v0}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
     move-result-object p3
 
-    const v0, 0x7f0d0619
+    const v0, 0x7f0d0629
 
     invoke-virtual {p3, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -316,7 +333,7 @@
 
     invoke-virtual {v0, v1}, Landroidx/viewpager/widget/ViewPager;->setAdapter(Landroidx/viewpager/widget/PagerAdapter;)V
 
-    const v1, 0x7f0d0592
+    const v1, 0x7f0d05a1
 
     invoke-virtual {p3, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

@@ -55,6 +55,47 @@
     return-object p0
 .end method
 
+.method public handlePreferenceTreeClick(Landroidx/preference/Preference;)Z
+    .locals 1
+
+    invoke-virtual {p1}, Landroidx/preference/Preference;->getKey()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-virtual {p0}, Lcom/android/settings/deviceinfo/SafetyInfoPreferenceController;->getPreferenceKey()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {p1, v0}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+
+    move-result p1
+
+    if-nez p1, :cond_0
+
+    const/4 p0, 0x0
+
+    return p0
+
+    :cond_0
+    new-instance p1, Landroid/content/Intent;
+
+    sget-object v0, Lcom/android/settings/deviceinfo/SafetyInfoPreferenceController;->INTENT_PROBE:Landroid/content/Intent;
+
+    invoke-direct {p1, v0}, Landroid/content/Intent;-><init>(Landroid/content/Intent;)V
+
+    const/high16 v0, 0x10000000
+
+    invoke-virtual {p1, v0}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+
+    iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+
+    invoke-virtual {p0, p1}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
+
+    const/4 p0, 0x1
+
+    return p0
+.end method
+
 .method public isAvailable()Z
     .locals 2
 

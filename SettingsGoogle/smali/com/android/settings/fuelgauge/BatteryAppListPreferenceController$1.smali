@@ -29,31 +29,28 @@
 
 # virtual methods
 .method public shouldShowBatteryAttributionList(Landroid/content/Context;)Z
-    .locals 2
+    .locals 3
 
     new-instance p0, Lcom/android/internal/os/PowerProfile;
 
     invoke-direct {p0, p1}, Lcom/android/internal/os/PowerProfile;-><init>(Landroid/content/Context;)V
 
-    const-string p1, "screen.full"
+    const-string p1, "screen.full.display"
 
-    invoke-virtual {p0, p1}, Lcom/android/internal/os/PowerProfile;->getAveragePower(Ljava/lang/String;)D
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, p1, v0}, Lcom/android/internal/os/PowerProfile;->getAveragePowerForOrdinal(Ljava/lang/String;I)D
 
     move-result-wide p0
 
-    const-wide/high16 v0, 0x4024000000000000L    # 10.0
+    const-wide/high16 v1, 0x4024000000000000L    # 10.0
 
-    cmpl-double p0, p0, v0
+    cmpl-double p0, p0, v1
 
     if-ltz p0, :cond_0
 
-    const/4 p0, 0x1
-
-    goto :goto_0
+    const/4 v0, 0x1
 
     :cond_0
-    const/4 p0, 0x0
-
-    :goto_0
-    return p0
+    return v0
 .end method

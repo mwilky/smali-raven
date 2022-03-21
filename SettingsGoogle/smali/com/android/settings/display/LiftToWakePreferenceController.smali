@@ -75,7 +75,7 @@
 
     move-result-object p0
 
-    const-string p2, "wake_gesture_enabled"
+    const-string/jumbo p2, "wake_gesture_enabled"
 
     invoke-static {p0, p2, p1}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
@@ -93,7 +93,7 @@
 
     move-result-object p0
 
-    const-string v0, "wake_gesture_enabled"
+    const-string/jumbo v0, "wake_gesture_enabled"
 
     const/4 v1, 0x0
 

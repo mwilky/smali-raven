@@ -153,7 +153,7 @@
 
     if-ne p1, v0, :cond_0
 
-    const-string v0, "show_label"
+    const-string/jumbo v0, "show_label"
 
     invoke-virtual {p0, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 

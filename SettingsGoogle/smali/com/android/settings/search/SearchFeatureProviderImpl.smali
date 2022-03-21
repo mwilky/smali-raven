@@ -172,7 +172,7 @@
     :cond_2
     new-instance p0, Ljava/lang/SecurityException;
 
-    const-string p1, "Search result intents must be called with from a allowlisted package."
+    const-string p1, "Search result intents must be called with from an allowlisted package."
 
     invoke-direct {p0, p1}, Ljava/lang/SecurityException;-><init>(Ljava/lang/String;)V
 

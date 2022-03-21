@@ -235,7 +235,7 @@
     return-object p0
 
     :cond_1
-    const v0, 0x7f041420
+    const v0, 0x7f041445
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getText(I)Ljava/lang/CharSequence;
 
@@ -269,7 +269,7 @@
     return-object p0
 
     :cond_1
-    const v0, 0x7f041420
+    const v0, 0x7f041445
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getText(I)Ljava/lang/CharSequence;
 
@@ -281,7 +281,7 @@
 .method protected getGlifLayout()Lcom/google/android/setupdesign/GlifLayout;
     .locals 1
 
-    const v0, 0x7f0d04e2
+    const v0, 0x7f0d04f1
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->requireViewById(I)Landroid/view/View;
 
@@ -295,7 +295,7 @@
 .method protected getProgressBar()Landroid/widget/ProgressBar;
     .locals 1
 
-    const v0, 0x7f0d0545
+    const v0, 0x7f0d0554
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->requireViewById(I)Landroid/view/View;
 
@@ -309,7 +309,7 @@
 .method protected onApplyThemeResource(Landroid/content/res/Resources$Theme;IZ)V
     .locals 2
 
-    const v0, 0x7f1301cd
+    const v0, 0x7f1301cb
 
     const/4 v1, 0x1
 
@@ -450,7 +450,7 @@
 .method protected setAuxChecklist()V
     .locals 4
 
-    const v0, 0x7f0d0540
+    const v0, 0x7f0d054f
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->requireViewById(I)Landroid/view/View;
 
@@ -466,7 +466,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f06021f
+    const v2, 0x7f060227
 
     const/4 v3, 0x0
 
@@ -478,7 +478,7 @@
 
     invoke-virtual {v0, v3}, Landroid/widget/FrameLayout;->setVisibility(I)V
 
-    const v1, 0x7f0d0544
+    const v1, 0x7f0d0553
 
     invoke-virtual {v0, v1}, Landroid/widget/FrameLayout;->requireViewById(I)Landroid/view/View;
 
@@ -486,7 +486,7 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    const v1, 0x7f041338
+    const v1, 0x7f04135d
 
     invoke-virtual {p0, v1}, Landroid/app/Activity;->getText(I)Ljava/lang/CharSequence;
 
@@ -548,7 +548,7 @@
 .method protected varargs setBodyText(I[Ljava/lang/CharSequence;)V
     .locals 1
 
-    const v0, 0x7f0d0541
+    const v0, 0x7f0d0550
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->requireViewById(I)Landroid/view/View;
 
@@ -596,7 +596,7 @@
 
     invoke-direct {v0, p0}, Lcom/google/android/setupcompat/template/FooterButton$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f041773
+    const v1, 0x7f041798
 
     invoke-virtual {v0, v1}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setText(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -616,7 +616,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f13021b
+    const v1, 0x7f13021d
 
     invoke-virtual {v0, v1}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setTheme(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -634,7 +634,7 @@
 
     invoke-direct {v0, p0}, Lcom/google/android/setupcompat/template/FooterButton$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f041775
+    const v1, 0x7f04179a
 
     invoke-virtual {v0, v1}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setText(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -654,7 +654,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f13021a
+    const v1, 0x7f13021c
 
     invoke-virtual {v0, v1}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setTheme(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -698,7 +698,7 @@
 
     invoke-virtual {v0, p1}, Landroid/widget/ProgressBar;->setProgress(I)V
 
-    const v0, 0x7f0d0546
+    const v0, 0x7f0d0555
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->requireViewById(I)Landroid/view/View;
 

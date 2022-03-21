@@ -75,6 +75,16 @@
     return-object p0
 .end method
 
+.method public bridge synthetic getSliceHighlightMenuRes()I
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getSliceHighlightMenuRes()I
+
+    move-result p0
+
+    return p0
+.end method
+
 .method public getSummary()Ljava/lang/CharSequence;
     .locals 8
 
@@ -102,7 +112,7 @@
 
     move-result-object v1
 
-    const-string v2, "vibrate_when_ringing"
+    const-string/jumbo v2, "vibrate_when_ringing"
 
     const/4 v3, 0x0
 
@@ -203,7 +213,7 @@
     :cond_2
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f04015f
+    const v0, 0x7f040173
 
     const/4 v2, 0x3
 

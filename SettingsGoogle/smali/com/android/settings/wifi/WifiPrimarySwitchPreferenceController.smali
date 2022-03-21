@@ -22,26 +22,6 @@
 .field private mWifiPreference:Lcom/android/settings/widget/PrimarySwitchPreference;
 
 
-# direct methods
-.method public constructor <init>(Landroid/content/Context;Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settingslib/core/AbstractPreferenceController;-><init>(Landroid/content/Context;)V
-
-    iput-object p2, p0, Lcom/android/settings/wifi/WifiPrimarySwitchPreferenceController;->mMetricsFeatureProvider:Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;
-
-    new-instance p1, Lcom/android/settings/wifi/WifiSummaryUpdater;
-
-    iget-object p2, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
-
-    invoke-direct {p1, p2, p0}, Lcom/android/settings/wifi/WifiSummaryUpdater;-><init>(Landroid/content/Context;Lcom/android/settings/widget/SummaryUpdater$OnSummaryChangeListener;)V
-
-    iput-object p1, p0, Lcom/android/settings/wifi/WifiPrimarySwitchPreferenceController;->mSummaryHelper:Lcom/android/settings/wifi/WifiSummaryUpdater;
-
-    return-void
-.end method
-
-
 # virtual methods
 .method public displayPreference(Landroidx/preference/PreferenceScreen;)V
     .locals 1
@@ -78,7 +58,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f09005c
+    const v0, 0x7f09005d
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
 

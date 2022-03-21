@@ -55,7 +55,7 @@
 
     iget-object v0, p0, Lcom/google/android/libraries/hats20/answer/AnswerBeaconTransmitter$TransmitTask;->uri:Landroid/net/Uri;
 
-    const-string v1, "t"
+    const-string/jumbo v1, "t"
 
     invoke-virtual {v0, v1}, Landroid/net/Uri;->getQueryParameter(Ljava/lang/String;)Ljava/lang/String;
 
@@ -120,7 +120,7 @@
 
     const-string v4, "charset"
 
-    const-string v5, "utf-8"
+    const-string/jumbo v5, "utf-8"
 
     invoke-virtual {v1, v4, v5}, Ljava/net/HttpURLConnection;->setRequestProperty(Ljava/lang/String;Ljava/lang/String;)V
 

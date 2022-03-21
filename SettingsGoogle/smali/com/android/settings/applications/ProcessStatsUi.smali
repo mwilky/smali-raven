@@ -141,7 +141,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f0409f2
+    const p0, 0x7f040a0a
 
     return p0
 .end method
@@ -169,7 +169,7 @@
 
     iput-object p1, p0, Lcom/android/settings/applications/ProcessStatsUi;->mPm:Landroid/content/pm/PackageManager;
 
-    const p1, 0x7f1500c0
+    const p1, 0x7f1500c5
 
     invoke-virtual {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->addPreferencesFromResource(I)V
 
@@ -199,7 +199,7 @@
 
     const/4 v0, 0x1
 
-    const v1, 0x7f041288
+    const v1, 0x7f0412ac
 
     invoke-interface {p1, p2, v0, p2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -209,7 +209,7 @@
 
     const/4 v0, 0x2
 
-    const v1, 0x7f041289
+    const v1, 0x7f0412ad
 
     invoke-interface {p1, p2, v0, p2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -329,12 +329,12 @@
 
     if-eqz v3, :cond_0
 
-    const v3, 0x7f040ca2
+    const v3, 0x7f040cba
 
     goto :goto_0
 
     :cond_0
-    const v3, 0x7f0402fb
+    const v3, 0x7f04030f
 
     :goto_0
     invoke-virtual {v1, v3}, Landroidx/preference/Preference;->setTitle(I)V

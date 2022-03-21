@@ -13,7 +13,7 @@
 
     new-instance v0, Lcom/android/settings/location/LocationServices$1;
 
-    const v1, 0x7f150088
+    const v1, 0x7f15008b
 
     invoke-direct {v0, v1}, Lcom/android/settings/location/LocationServices$1;-><init>(I)V
 
@@ -113,7 +113,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f150088
+    const p0, 0x7f15008b
 
     return p0
 .end method

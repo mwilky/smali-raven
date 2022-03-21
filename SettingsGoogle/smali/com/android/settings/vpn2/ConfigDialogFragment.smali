@@ -53,7 +53,7 @@
     :catch_0
     iget-object p0, p0, Lcom/android/settings/vpn2/ConfigDialogFragment;->mContext:Landroid/content/Context;
 
-    const p1, 0x7f041562
+    const p1, 0x7f041587
 
     const/4 p2, 0x1
 
@@ -224,7 +224,7 @@
 
     move-result-object p0
 
-    const-string p2, "vpnconfigdialog"
+    const-string/jumbo p2, "vpnconfigdialog"
 
     invoke-virtual {p1, p0, p2}, Landroidx/fragment/app/DialogFragment;->show(Landroidx/fragment/app/FragmentManager;Ljava/lang/String;)V
 
@@ -244,7 +244,7 @@
 
     iget-object p0, p0, Lcom/android/settings/vpn2/ConfigDialogFragment;->mContext:Landroid/content/Context;
 
-    const p1, 0x7f041558
+    const p1, 0x7f04157d
 
     const/4 p2, 0x1
 

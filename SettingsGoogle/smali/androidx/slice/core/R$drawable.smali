@@ -4,6 +4,6 @@
 
 
 # static fields
-.field public static final abc_ic_arrow_forward:I = 0x7f0200ab
+.field public static final abc_ic_arrow_forward:I = 0x7f0200b0
 
-.field public static final abc_ic_permission:I = 0x7f0200b5
+.field public static final abc_ic_permission:I = 0x7f0200ba

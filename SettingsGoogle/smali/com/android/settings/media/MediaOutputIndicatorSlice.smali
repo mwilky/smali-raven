@@ -128,7 +128,7 @@
 
     iget-object v4, p0, Lcom/android/settings/media/MediaOutputIndicatorSlice;->mContext:Landroid/content/Context;
 
-    const v5, 0x7f040cb6
+    const v5, 0x7f040cce
 
     new-array v3, v3, [Ljava/lang/Object;
 
@@ -227,6 +227,14 @@
     move-result-object p0
 
     return-object p0
+.end method
+
+.method public getSliceHighlightMenuRes()I
+    .locals 0
+
+    const p0, 0x7f040d06
+
+    return p0
 .end method
 
 .method public getUri()Landroid/net/Uri;

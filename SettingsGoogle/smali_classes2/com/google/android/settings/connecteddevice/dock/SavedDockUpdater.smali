@@ -41,7 +41,7 @@
         value = {
             "Ljava/util/Map<",
             "Ljava/lang/String;",
-            "Lcom/android/settings/widget/SingleTargetGearPreference;",
+            "Lcom/android/settings/widget/GearPreference;",
             ">;"
         }
     .end annotation
@@ -191,7 +191,7 @@
     return p0
 .end method
 
-.method private initPreference(Ljava/lang/String;Ljava/lang/String;)Lcom/android/settings/widget/SingleTargetGearPreference;
+.method private initPreference(Ljava/lang/String;Ljava/lang/String;)Lcom/android/settings/widget/GearPreference;
     .locals 3
 
     iget-object v0, p0, Lcom/google/android/settings/connecteddevice/dock/SavedDockUpdater;->mPreferenceContext:Landroid/content/Context;
@@ -200,13 +200,13 @@
 
     invoke-static {v0, v1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    new-instance v0, Lcom/android/settings/widget/SingleTargetGearPreference;
+    new-instance v0, Lcom/android/settings/widget/GearPreference;
 
     iget-object v1, p0, Lcom/google/android/settings/connecteddevice/dock/SavedDockUpdater;->mPreferenceContext:Landroid/content/Context;
 
     const/4 v2, 0x0
 
-    invoke-direct {v0, v1, v2}, Lcom/android/settings/widget/SingleTargetGearPreference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
+    invoke-direct {v0, v1, v2}, Lcom/android/settings/widget/GearPreference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
     iget-object p0, p0, Lcom/google/android/settings/connecteddevice/dock/SavedDockUpdater;->mPreferenceContext:Landroid/content/Context;
 
@@ -512,7 +512,7 @@
 
     move-result-object v1
 
-    check-cast v1, Lcom/android/settings/widget/SingleTargetGearPreference;
+    check-cast v1, Lcom/android/settings/widget/GearPreference;
 
     invoke-virtual {v1, v2}, Landroidx/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
 
@@ -521,7 +521,7 @@
     :cond_2
     iget-object v3, p0, Lcom/google/android/settings/connecteddevice/dock/SavedDockUpdater;->mPreferenceMap:Ljava/util/Map;
 
-    invoke-direct {p0, v1, v2}, Lcom/google/android/settings/connecteddevice/dock/SavedDockUpdater;->initPreference(Ljava/lang/String;Ljava/lang/String;)Lcom/android/settings/widget/SingleTargetGearPreference;
+    invoke-direct {p0, v1, v2}, Lcom/google/android/settings/connecteddevice/dock/SavedDockUpdater;->initPreference(Ljava/lang/String;Ljava/lang/String;)Lcom/android/settings/widget/GearPreference;
 
     move-result-object v2
 

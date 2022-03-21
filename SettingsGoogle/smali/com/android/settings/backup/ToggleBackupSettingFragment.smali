@@ -83,7 +83,7 @@
 
     move-result-object v0
 
-    const-string v1, "user_full_data_backup_aware"
+    const-string/jumbo v1, "user_full_data_backup_aware"
 
     const/4 v2, 0x0
 
@@ -97,7 +97,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f040968
+    const v1, 0x7f040980
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -110,7 +110,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f04032f
+    const v1, 0x7f040343
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -133,7 +133,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f040330
+    const v1, 0x7f040344
 
     invoke-virtual {v0, v1}, Landroidx/appcompat/app/AlertDialog$Builder;->setTitle(I)Landroidx/appcompat/app/AlertDialog$Builder;
 
@@ -280,7 +280,7 @@
 
     iget-object v0, p0, Lcom/android/settings/backup/ToggleBackupSettingFragment;->mSummaryPreference:Landroidx/preference/Preference;
 
-    const v1, 0x7f060276
+    const v1, 0x7f060282
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setLayoutResource(I)V
 
@@ -376,7 +376,7 @@
 
     move-result-object p1
 
-    const-string p2, "user_full_data_backup_aware"
+    const-string/jumbo p2, "user_full_data_backup_aware"
 
     const/4 v0, 0x0
 
@@ -388,7 +388,7 @@
 
     iget-object p1, p0, Lcom/android/settings/backup/ToggleBackupSettingFragment;->mSummaryPreference:Landroidx/preference/Preference;
 
-    const p2, 0x7f040967
+    const p2, 0x7f04097f
 
     invoke-virtual {p1, p2}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -397,7 +397,7 @@
     :cond_0
     iget-object p1, p0, Lcom/android/settings/backup/ToggleBackupSettingFragment;->mSummaryPreference:Landroidx/preference/Preference;
 
-    const p2, 0x7f04032c
+    const p2, 0x7f040340
 
     invoke-virtual {p1, p2}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -435,7 +435,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f04032d
+    const p1, 0x7f040341
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->setTitle(I)V
 

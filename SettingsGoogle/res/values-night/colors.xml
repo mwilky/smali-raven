@@ -10,7 +10,7 @@
     <color name="biometric_enroll_intro_color_bar">#ff5bb974</color>
     <color name="biometric_enroll_intro_color_icon">#ff669df6</color>
     <color name="biometric_enroll_intro_color_outline">#ff5e5e5e</color>
-    <color name="color_surface_header">@*android:color/surface_header_dark</color>
+    <color name="color_surface_header">@android:color/surface_header_dark</color>
     <color name="contextual_card_background">#ff202124</color>
     <color name="contextual_card_dismissal_background">#ff3c4043</color>
     <color name="face_enroll_indicator">#ff8ab4f8</color>
@@ -21,7 +21,7 @@
     <color name="notification_history_background">#ff202124</color>
     <color name="notification_importance_button_selected">#ffaecbfa</color>
     <color name="notification_importance_button_unselected">#ff5f6368</color>
-    <color name="notification_importance_selection_bg">@*android:color/material_grey_800</color>
+    <color name="notification_importance_selection_bg">@android:color/material_grey_800</color>
     <color name="palette_list_color_blue">@color/palette_list_dark_mode_color_blue</color>
     <color name="palette_list_color_cyan">@color/palette_list_dark_mode_color_cyan</color>
     <color name="palette_list_color_gray">@color/palette_list_dark_mode_color_gray</color>
@@ -31,9 +31,9 @@
     <color name="palette_list_color_red">@color/palette_list_dark_mode_color_red</color>
     <color name="palette_list_color_yellow">@color/palette_list_dark_mode_color_yellow</color>
     <color name="palette_list_gradient_background">@android:color/black</color>
-    <color name="ripple_color">@*android:color/material_grey_900</color>
-    <color name="ripple_material_inverse">@*android:color/ripple_material_light</color>
-    <color name="search_bar_background">?*android:^attr-private/colorSurfaceVariant</color>
+    <color name="ripple_color">@android:color/material_grey_900</color>
+    <color name="ripple_material_inverse">@android:color/ripple_material_light</color>
+    <color name="search_bar_background">?android:^attr-private/colorSurfaceVariant</color>
     <color name="security_green">#ff5bb974</color>
     <color name="security_red">#ffee675c</color>
     <color name="security_status_unfilled_wedge">#ff3c4043</color>
@@ -67,5 +67,5 @@
     <color name="switchbar_switch_thumb_tint">@android:color/black</color>
     <color name="switchbar_switch_track_tint">#82000000</color>
     <color name="dialog_background">#ff3c4043</color>
-    <color name="homepage_card_dismissal_background">@*android:color/material_grey_900</color>
+    <color name="homepage_card_dismissal_background">@android:color/material_grey_900</color>
 </resources>

@@ -73,7 +73,7 @@
 
     move-result-object v1
 
-    const-string v2, "template"
+    const-string/jumbo v2, "template"
 
     invoke-virtual {v1, v2}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
 
@@ -183,7 +183,7 @@
 
     move-result-object p0
 
-    const-string v2, "template"
+    const-string/jumbo v2, "template"
 
     invoke-virtual {v1, v2, p0}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
@@ -205,7 +205,7 @@
 
     move-result-object p1
 
-    const-string v0, "warningEditor"
+    const-string/jumbo v0, "warningEditor"
 
     invoke-virtual {p0, p1, v0}, Landroidx/fragment/app/DialogFragment;->show(Landroidx/fragment/app/FragmentManager;Ljava/lang/String;)V
 
@@ -246,7 +246,7 @@
 
     move-result-object v0
 
-    const-string v1, "template"
+    const-string/jumbo v1, "template"
 
     invoke-virtual {v0, v1}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
 
@@ -266,7 +266,7 @@
 
     iget-object v2, p0, Lcom/android/settings/datausage/BillingCycleSettings$BytesEditorFragment;->mView:Landroid/view/View;
 
-    const v3, 0x7f0d012f
+    const v3, 0x7f0d0133
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -276,7 +276,7 @@
 
     iget-object p0, p0, Lcom/android/settings/datausage/BillingCycleSettings$BytesEditorFragment;->mView:Landroid/view/View;
 
-    const v3, 0x7f0d04ff
+    const v3, 0x7f0d050e
 
     invoke-virtual {p0, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -377,7 +377,7 @@
 
     move-result v1
 
-    const v2, 0x7f0600b2
+    const v2, 0x7f0600b4
 
     const/4 v3, 0x0
 
@@ -389,7 +389,7 @@
 
     iput-object v0, p0, Lcom/android/settings/datausage/BillingCycleSettings$BytesEditorFragment;->mView:Landroid/view/View;
 
-    const v2, 0x7f0d012f
+    const v2, 0x7f0d0133
 
     invoke-virtual {v0, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -399,7 +399,7 @@
 
     iget-object v2, p0, Lcom/android/settings/datausage/BillingCycleSettings$BytesEditorFragment;->mView:Landroid/view/View;
 
-    const v3, 0x7f0d04ff
+    const v3, 0x7f0d050e
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -415,12 +415,12 @@
 
     if-eqz v1, :cond_0
 
-    const p1, 0x7f040735
+    const p1, 0x7f04074d
 
     goto :goto_0
 
     :cond_0
-    const p1, 0x7f040762
+    const p1, 0x7f04077a
 
     :goto_0
     invoke-virtual {v0, p1}, Landroidx/appcompat/app/AlertDialog$Builder;->setTitle(I)Landroidx/appcompat/app/AlertDialog$Builder;
@@ -433,7 +433,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f040722
+    const v0, 0x7f04073a
 
     invoke-virtual {p1, v0, p0}, Landroidx/appcompat/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
 
@@ -442,6 +442,8 @@
     invoke-virtual {p0}, Landroidx/appcompat/app/AlertDialog$Builder;->create()Landroidx/appcompat/app/AlertDialog;
 
     move-result-object p0
+
+    invoke-virtual {p0, v4}, Landroid/app/Dialog;->setCanceledOnTouchOutside(Z)V
 
     return-object p0
 .end method

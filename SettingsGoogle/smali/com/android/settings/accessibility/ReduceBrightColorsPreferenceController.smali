@@ -142,12 +142,20 @@
     return-object p0
 .end method
 
+.method public getSliceHighlightMenuRes()I
+    .locals 0
+
+    const p0, 0x7f040d02
+
+    return p0
+.end method
+
 .method public getSummary()Ljava/lang/CharSequence;
     .locals 1
 
     iget-object p0, p0, Lcom/android/settings/accessibility/ReduceBrightColorsPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f040fed
+    const v0, 0x7f04101a
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 

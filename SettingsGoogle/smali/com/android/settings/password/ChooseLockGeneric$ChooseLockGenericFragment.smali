@@ -223,22 +223,22 @@
 
     if-eq v0, v1, :cond_0
 
-    const v0, 0x7f04143d
+    const v0, 0x7f041462
 
     goto :goto_0
 
     :cond_0
-    const v0, 0x7f04143a
+    const v0, 0x7f04145f
 
     goto :goto_0
 
     :cond_1
-    const v0, 0x7f04143c
+    const v0, 0x7f041461
 
     goto :goto_0
 
     :cond_2
-    const v0, 0x7f04143b
+    const v0, 0x7f041460
 
     :goto_0
     invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getResources()Landroid/content/res/Resources;
@@ -449,26 +449,26 @@
 
     if-eqz v1, :cond_2
 
-    const p0, 0x7f041434
+    const p0, 0x7f041459
 
     return p0
 
     :cond_2
     if-eqz v0, :cond_3
 
-    const p0, 0x7f041435
+    const p0, 0x7f04145a
 
     return p0
 
     :cond_3
     if-eqz v1, :cond_4
 
-    const p0, 0x7f041433
+    const p0, 0x7f041458
 
     return p0
 
     :cond_4
-    const p0, 0x7f041432
+    const p0, 0x7f041457
 
     return p0
 
@@ -477,26 +477,26 @@
 
     if-eqz v1, :cond_6
 
-    const p0, 0x7f041428
+    const p0, 0x7f04144d
 
     return p0
 
     :cond_6
     if-eqz v0, :cond_7
 
-    const p0, 0x7f041429
+    const p0, 0x7f04144e
 
     return p0
 
     :cond_7
     if-eqz v1, :cond_8
 
-    const p0, 0x7f041427
+    const p0, 0x7f04144c
 
     return p0
 
     :cond_8
-    const p0, 0x7f041426
+    const p0, 0x7f04144b
 
     return p0
 
@@ -505,26 +505,26 @@
 
     if-eqz v1, :cond_a
 
-    const p0, 0x7f041430
+    const p0, 0x7f041455
 
     return p0
 
     :cond_a
     if-eqz v0, :cond_b
 
-    const p0, 0x7f041431
+    const p0, 0x7f041456
 
     return p0
 
     :cond_b
     if-eqz v1, :cond_c
 
-    const p0, 0x7f04142f
+    const p0, 0x7f041454
 
     return p0
 
     :cond_c
-    const p0, 0x7f04142e
+    const p0, 0x7f041453
 
     return p0
 
@@ -533,26 +533,26 @@
 
     if-eqz v1, :cond_e
 
-    const p0, 0x7f04142c
+    const p0, 0x7f041451
 
     return p0
 
     :cond_e
     if-eqz v0, :cond_f
 
-    const p0, 0x7f04142d
+    const p0, 0x7f041452
 
     return p0
 
     :cond_f
     if-eqz v1, :cond_10
 
-    const p0, 0x7f04142b
+    const p0, 0x7f041450
 
     return p0
 
     :cond_10
-    const p0, 0x7f04142a
+    const p0, 0x7f04144f
 
     return p0
 .end method
@@ -564,12 +564,12 @@
 
     if-eqz p0, :cond_0
 
-    const p0, 0x7f041438
+    const p0, 0x7f04145d
 
     goto :goto_0
 
     :cond_0
-    const p0, 0x7f041437
+    const p0, 0x7f04145c
 
     :goto_0
     return p0
@@ -998,7 +998,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f040bdc
+    const v0, 0x7f040bf4
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->setTitle(I)V
 
@@ -1009,7 +1009,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f040bd8
+    const v0, 0x7f040bf0
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->setTitle(I)V
 
@@ -1028,7 +1028,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f040bdb
+    const v0, 0x7f040bf3
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->setTitle(I)V
 
@@ -1039,7 +1039,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f040bd7
+    const v0, 0x7f040bef
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->setTitle(I)V
 
@@ -1060,7 +1060,7 @@
 
     if-eqz p0, :cond_0
 
-    const v0, 0x7f0406c6
+    const v0, 0x7f0406de
 
     invoke-virtual {p0, v0}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -1114,7 +1114,7 @@
     :cond_2
     sget-object v0, Lcom/android/settings/password/ScreenLockType;->PATTERN:Lcom/android/settings/password/ScreenLockType;
 
-    const v1, 0x7f0410de
+    const v1, 0x7f04110c
 
     invoke-direct {p0, v0, v1}, Lcom/android/settings/password/ChooseLockGeneric$ChooseLockGenericFragment;->setPreferenceSummary(Lcom/android/settings/password/ScreenLockType;I)V
 
@@ -1142,19 +1142,19 @@
 
     sget-object v0, Lcom/android/settings/password/ScreenLockType;->PATTERN:Lcom/android/settings/password/ScreenLockType;
 
-    const v1, 0x7f040940
+    const v1, 0x7f040958
 
     invoke-direct {p0, v0, v1}, Lcom/android/settings/password/ChooseLockGeneric$ChooseLockGenericFragment;->setPreferenceTitle(Lcom/android/settings/password/ScreenLockType;I)V
 
     sget-object v0, Lcom/android/settings/password/ScreenLockType;->PIN:Lcom/android/settings/password/ScreenLockType;
 
-    const v1, 0x7f040941
+    const v1, 0x7f040959
 
     invoke-direct {p0, v0, v1}, Lcom/android/settings/password/ChooseLockGeneric$ChooseLockGenericFragment;->setPreferenceTitle(Lcom/android/settings/password/ScreenLockType;I)V
 
     sget-object v0, Lcom/android/settings/password/ScreenLockType;->PASSWORD:Lcom/android/settings/password/ScreenLockType;
 
-    const v1, 0x7f04093f
+    const v1, 0x7f040957
 
     invoke-direct {p0, v0, v1}, Lcom/android/settings/password/ChooseLockGeneric$ChooseLockGenericFragment;->setPreferenceTitle(Lcom/android/settings/password/ScreenLockType;I)V
 
@@ -1167,19 +1167,19 @@
 
     sget-object v0, Lcom/android/settings/password/ScreenLockType;->PATTERN:Lcom/android/settings/password/ScreenLockType;
 
-    const v1, 0x7f040908
+    const v1, 0x7f040920
 
     invoke-direct {p0, v0, v1}, Lcom/android/settings/password/ChooseLockGeneric$ChooseLockGenericFragment;->setPreferenceTitle(Lcom/android/settings/password/ScreenLockType;I)V
 
     sget-object v0, Lcom/android/settings/password/ScreenLockType;->PIN:Lcom/android/settings/password/ScreenLockType;
 
-    const v1, 0x7f040909
+    const v1, 0x7f040921
 
     invoke-direct {p0, v0, v1}, Lcom/android/settings/password/ChooseLockGeneric$ChooseLockGenericFragment;->setPreferenceTitle(Lcom/android/settings/password/ScreenLockType;I)V
 
     sget-object v0, Lcom/android/settings/password/ScreenLockType;->PASSWORD:Lcom/android/settings/password/ScreenLockType;
 
-    const v1, 0x7f040907
+    const v1, 0x7f04091f
 
     invoke-direct {p0, v0, v1}, Lcom/android/settings/password/ChooseLockGeneric$ChooseLockGenericFragment;->setPreferenceTitle(Lcom/android/settings/password/ScreenLockType;I)V
 
@@ -1192,19 +1192,19 @@
 
     sget-object v0, Lcom/android/settings/password/ScreenLockType;->PATTERN:Lcom/android/settings/password/ScreenLockType;
 
-    const v1, 0x7f0403f8
+    const v1, 0x7f040410
 
     invoke-direct {p0, v0, v1}, Lcom/android/settings/password/ChooseLockGeneric$ChooseLockGenericFragment;->setPreferenceTitle(Lcom/android/settings/password/ScreenLockType;I)V
 
     sget-object v0, Lcom/android/settings/password/ScreenLockType;->PIN:Lcom/android/settings/password/ScreenLockType;
 
-    const v1, 0x7f0403f9
+    const v1, 0x7f040411
 
     invoke-direct {p0, v0, v1}, Lcom/android/settings/password/ChooseLockGeneric$ChooseLockGenericFragment;->setPreferenceTitle(Lcom/android/settings/password/ScreenLockType;I)V
 
     sget-object v0, Lcom/android/settings/password/ScreenLockType;->PASSWORD:Lcom/android/settings/password/ScreenLockType;
 
-    const v1, 0x7f0403f7
+    const v1, 0x7f04040f
 
     invoke-direct {p0, v0, v1}, Lcom/android/settings/password/ChooseLockGeneric$ChooseLockGenericFragment;->setPreferenceTitle(Lcom/android/settings/password/ScreenLockType;I)V
 
@@ -1249,7 +1249,7 @@
     if-nez v0, :cond_5
 
     :cond_4
-    const-string v0, "unlock_skip_fingerprint"
+    const-string/jumbo v0, "unlock_skip_fingerprint"
 
     invoke-virtual {p0, v0}, Lcom/android/settings/SettingsPreferenceFragment;->removePreference(Ljava/lang/String;)Z
 
@@ -1263,7 +1263,7 @@
     if-nez v0, :cond_7
 
     :cond_6
-    const-string v0, "unlock_skip_face"
+    const-string/jumbo v0, "unlock_skip_face"
 
     invoke-virtual {p0, v0}, Lcom/android/settings/SettingsPreferenceFragment;->removePreference(Ljava/lang/String;)Z
 
@@ -1277,7 +1277,7 @@
     if-nez v0, :cond_9
 
     :cond_8
-    const-string v0, "unlock_skip_biometrics"
+    const-string/jumbo v0, "unlock_skip_biometrics"
 
     invoke-virtual {p0, v0}, Lcom/android/settings/SettingsPreferenceFragment;->removePreference(Ljava/lang/String;)Z
 
@@ -1290,7 +1290,7 @@
 .method protected addHeaderView()V
     .locals 4
 
-    const v0, 0x7f060077
+    const v0, 0x7f060079
 
     invoke-virtual {p0, v0}, Lcom/android/settings/SettingsPreferenceFragment;->setHeaderView(I)V
 
@@ -1298,7 +1298,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d00dc
+    const v1, 0x7f0d00e0
 
     invoke-virtual {v0, v1}, Lcom/android/settingslib/widget/LayoutPreference;->findViewById(I)Landroid/view/View;
 
@@ -1308,7 +1308,7 @@
 
     iget-boolean v1, p0, Lcom/android/settings/password/ChooseLockGeneric$ChooseLockGenericFragment;->mForFingerprint:Z
 
-    const v2, 0x7f040bd4
+    const v2, 0x7f040bec
 
     if-eqz v1, :cond_1
 
@@ -1316,7 +1316,7 @@
 
     if-eqz p0, :cond_0
 
-    const p0, 0x7f040943
+    const p0, 0x7f04095b
 
     invoke-virtual {v0, p0}, Landroid/widget/TextView;->setText(I)V
 
@@ -1336,7 +1336,7 @@
 
     if-eqz p0, :cond_2
 
-    const p0, 0x7f04090b
+    const p0, 0x7f040923
 
     invoke-virtual {v0, p0}, Landroid/widget/TextView;->setText(I)V
 
@@ -1356,7 +1356,7 @@
 
     if-eqz p0, :cond_4
 
-    const p0, 0x7f0403fb
+    const p0, 0x7f040413
 
     invoke-virtual {v0, p0}, Landroid/widget/TextView;->setText(I)V
 
@@ -1372,7 +1372,7 @@
 
     if-eqz v1, :cond_6
 
-    const p0, 0x7f040bd9
+    const p0, 0x7f040bf1
 
     invoke-virtual {v0, p0}, Landroid/widget/TextView;->setText(I)V
 
@@ -1401,7 +1401,7 @@
 
     new-instance v2, Ljava/lang/StringBuilder;
 
-    const v3, 0x7f040bd3
+    const v3, 0x7f040beb
 
     invoke-virtual {p0, v3}, Landroidx/fragment/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
@@ -1429,7 +1429,7 @@
 .method protected addPreferences()V
     .locals 2
 
-    const v0, 0x7f1500d3
+    const v0, 0x7f1500d8
 
     invoke-virtual {p0, v0}, Lcom/android/settings/SettingsPreferenceFragment;->addPreferencesFromResource(I)V
 
@@ -1477,11 +1477,11 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d032f
+    const v1, 0x7f0d033c
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setViewId(I)V
 
-    const-string v0, "unlock_skip_fingerprint"
+    const-string/jumbo v0, "unlock_skip_fingerprint"
 
     invoke-virtual {p0, v0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
@@ -1489,7 +1489,7 @@
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setViewId(I)V
 
-    const-string v0, "unlock_skip_face"
+    const-string/jumbo v0, "unlock_skip_face"
 
     invoke-virtual {p0, v0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
@@ -1497,7 +1497,7 @@
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setViewId(I)V
 
-    const-string v0, "unlock_skip_biometrics"
+    const-string/jumbo v0, "unlock_skip_biometrics"
 
     invoke-virtual {p0, v0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
@@ -1513,7 +1513,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d0331
+    const v1, 0x7f0d033e
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setViewId(I)V
 
@@ -1525,7 +1525,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f0d0330
+    const v0, 0x7f0d033d
 
     invoke-virtual {p0, v0}, Landroidx/preference/Preference;->setViewId(I)V
 
@@ -1583,7 +1583,7 @@
 
     invoke-direct {p0, p1, v0}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    const-string p1, "skip_intro"
+    const-string/jumbo p1, "skip_intro"
 
     const/4 v0, 0x1
 
@@ -1605,7 +1605,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f040a0d
+    const p0, 0x7f040a25
 
     return p0
 .end method
@@ -2258,7 +2258,7 @@
 
     if-eqz v1, :cond_7
 
-    const-string v3, "unification_profile_credential"
+    const-string/jumbo v3, "unification_profile_credential"
 
     invoke-virtual {v1, v3}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
 
@@ -2270,7 +2270,7 @@
 
     const/16 v3, -0x2710
 
-    const-string v4, "unification_profile_id"
+    const-string/jumbo v4, "unification_profile_id"
 
     invoke-virtual {v1, v4, v3}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
 
@@ -2289,7 +2289,7 @@
 
     iput-boolean v3, p0, Lcom/android/settings/password/ChooseLockGeneric$ChooseLockGenericFragment;->mPasswordConfirmed:Z
 
-    const-string v3, "waiting_for_confirmation"
+    const-string/jumbo v3, "waiting_for_confirmation"
 
     invoke-virtual {p1, v3}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
 
@@ -2483,7 +2483,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f041445
+    const v2, 0x7f04146a
 
     invoke-virtual {p0, v2}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -2638,7 +2638,7 @@
     return v1
 
     :cond_0
-    const-string v0, "unlock_skip_fingerprint"
+    const-string/jumbo v0, "unlock_skip_fingerprint"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -2646,7 +2646,7 @@
 
     if-nez v0, :cond_2
 
-    const-string v0, "unlock_skip_face"
+    const-string/jumbo v0, "unlock_skip_face"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -2654,7 +2654,7 @@
 
     if-nez v0, :cond_2
 
-    const-string v0, "unlock_skip_biometrics"
+    const-string/jumbo v0, "unlock_skip_biometrics"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -2756,7 +2756,7 @@
 
     iget-boolean v0, p0, Lcom/android/settings/password/ChooseLockGeneric$ChooseLockGenericFragment;->mWaitingForConfirmation:Z
 
-    const-string v1, "waiting_for_confirmation"
+    const-string/jumbo v1, "waiting_for_confirmation"
 
     invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
@@ -2875,7 +2875,7 @@
 
     const/4 p2, 0x0
 
-    const-string v1, "show_options_button"
+    const-string/jumbo v1, "show_options_button"
 
     invoke-virtual {p1, v1, p2}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 

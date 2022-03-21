@@ -106,7 +106,7 @@
 
     iget-object p1, p0, Lcom/android/settings/fuelgauge/batterytip/BatteryTipPolicy;->mParser:Landroid/util/KeyValueListParser;
 
-    const-string p2, "summary_enabled"
+    const-string/jumbo p2, "summary_enabled"
 
     const/4 v1, 0x0
 
@@ -270,7 +270,7 @@
 
     iget-object p1, p0, Lcom/android/settings/fuelgauge/batterytip/BatteryTipPolicy;->mParser:Landroid/util/KeyValueListParser;
 
-    const-string p2, "test_battery_saver_tip"
+    const-string/jumbo p2, "test_battery_saver_tip"
 
     invoke-virtual {p1, p2, v1}, Landroid/util/KeyValueListParser;->getBoolean(Ljava/lang/String;Z)Z
 
@@ -280,7 +280,7 @@
 
     iget-object p1, p0, Lcom/android/settings/fuelgauge/batterytip/BatteryTipPolicy;->mParser:Landroid/util/KeyValueListParser;
 
-    const-string p2, "test_high_usage_tip"
+    const-string/jumbo p2, "test_high_usage_tip"
 
     invoke-virtual {p1, p2, v1}, Landroid/util/KeyValueListParser;->getBoolean(Ljava/lang/String;Z)Z
 
@@ -290,7 +290,7 @@
 
     iget-object p1, p0, Lcom/android/settings/fuelgauge/batterytip/BatteryTipPolicy;->mParser:Landroid/util/KeyValueListParser;
 
-    const-string p2, "test_smart_battery_tip"
+    const-string/jumbo p2, "test_smart_battery_tip"
 
     invoke-virtual {p1, p2, v1}, Landroid/util/KeyValueListParser;->getBoolean(Ljava/lang/String;Z)Z
 
@@ -300,7 +300,7 @@
 
     iget-object p1, p0, Lcom/android/settings/fuelgauge/batterytip/BatteryTipPolicy;->mParser:Landroid/util/KeyValueListParser;
 
-    const-string p2, "test_low_battery_tip"
+    const-string/jumbo p2, "test_low_battery_tip"
 
     invoke-virtual {p1, p2, v1}, Landroid/util/KeyValueListParser;->getBoolean(Ljava/lang/String;Z)Z
 

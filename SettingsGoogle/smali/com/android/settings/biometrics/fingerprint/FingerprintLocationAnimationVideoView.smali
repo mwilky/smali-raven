@@ -104,7 +104,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f030015
+    const v0, 0x7f030017
 
     invoke-static {p0, v0}, Lcom/android/settings/biometrics/fingerprint/FingerprintLocationAnimationVideoView;->resourceEntryToUri(Landroid/content/Context;I)Landroid/net/Uri;
 

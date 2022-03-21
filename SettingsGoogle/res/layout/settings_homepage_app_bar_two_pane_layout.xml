@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:id="@id/two_pane_suggestion_content" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="16.0dip">
+        <include layout="@layout/search_bar_two_pane_version" />
+        <ImageView android:layout_gravity="center" android:id="@id/account_avatar_two_pane_version" android:layout_width="@dimen/avatar_length" android:layout_height="@dimen/avatar_length" android:contentDescription="@string/search_bar_account_avatar_content_description" android:layout_marginEnd="16.0dip" />
+    </LinearLayout>
+</LinearLayout>

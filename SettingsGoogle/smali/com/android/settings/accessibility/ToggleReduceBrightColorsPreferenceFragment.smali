@@ -25,7 +25,7 @@
 
     new-instance v0, Lcom/android/settings/accessibility/ToggleReduceBrightColorsPreferenceFragment$2;
 
-    const v1, 0x7f1500c2
+    const v1, 0x7f1500c7
 
     invoke-direct {v0, v1}, Lcom/android/settings/accessibility/ToggleReduceBrightColorsPreferenceFragment$2;-><init>(I)V
 
@@ -44,6 +44,34 @@
     invoke-direct {v0}, Landroid/os/Handler;-><init>()V
 
     iput-object v0, p0, Lcom/android/settings/accessibility/ToggleReduceBrightColorsPreferenceFragment;->mHandler:Landroid/os/Handler;
+
+    return-void
+.end method
+
+.method private updateFooterPreference()V
+    .locals 2
+
+    invoke-virtual {p0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->getPrefContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    const v1, 0x7f041014
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mFooterPreferenceController:Lcom/android/settings/accessibility/AccessibilityFooterPreferenceController;
+
+    invoke-virtual {v1, v0}, Lcom/android/settings/accessibility/AccessibilityFooterPreferenceController;->setIntroductionTitle(Ljava/lang/String;)V
+
+    iget-object v0, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mFooterPreferenceController:Lcom/android/settings/accessibility/AccessibilityFooterPreferenceController;
+
+    invoke-virtual {p0}, Landroidx/preference/PreferenceFragmentCompat;->getPreferenceScreen()Landroidx/preference/PreferenceScreen;
+
+    move-result-object p0
+
+    invoke-virtual {v0, p0}, Lcom/android/settings/accessibility/AccessibilityFooterPreferenceController;->displayPreference(Landroidx/preference/PreferenceScreen;)V
 
     return-void
 .end method
@@ -135,7 +163,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f1500c2
+    const p0, 0x7f1500c7
 
     return p0
 .end method
@@ -181,7 +209,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f03000f
+    const v1, 0x7f030010
 
     invoke-static {v1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
@@ -201,7 +229,7 @@
 
     iput-object v0, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mComponentName:Landroid/content/ComponentName;
 
-    const v0, 0x7f040fee
+    const v0, 0x7f04101b
 
     invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
@@ -209,7 +237,7 @@
 
     iput-object v0, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mPackageName:Ljava/lang/CharSequence;
 
-    const v0, 0x7f040fec
+    const v0, 0x7f041019
 
     invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
@@ -295,11 +323,13 @@
 
     iget-object p2, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mToggleServiceSwitchPreference:Lcom/android/settings/widget/SettingsMainSwitchPreference;
 
-    const p3, 0x7f040fef
+    const p3, 0x7f04101d
 
     invoke-virtual {p2, p3}, Landroidx/preference/Preference;->setTitle(I)V
 
     invoke-direct {p0}, Lcom/android/settings/accessibility/ToggleReduceBrightColorsPreferenceFragment;->updateGeneralCategoryOrder()V
+
+    invoke-direct {p0}, Lcom/android/settings/accessibility/ToggleReduceBrightColorsPreferenceFragment;->updateFooterPreference()V
 
     return-object p1
 .end method
@@ -374,6 +404,16 @@
     return-void
 .end method
 
+.method protected updateShortcutTitle(Lcom/android/settings/accessibility/ShortcutPreference;)V
+    .locals 0
+
+    const p0, 0x7f04101c
+
+    invoke-virtual {p1, p0}, Landroidx/preference/Preference;->setTitle(I)V
+
+    return-void
+.end method
+
 .method protected updateSwitchBarToggleSwitch()V
     .locals 4
 
@@ -430,7 +470,7 @@
 .method protected updateToggleServiceTitle(Lcom/android/settings/widget/SettingsMainSwitchPreference;)V
     .locals 0
 
-    const p0, 0x7f040fee
+    const p0, 0x7f04101b
 
     invoke-virtual {p1, p0}, Landroidx/preference/Preference;->setTitle(I)V
 

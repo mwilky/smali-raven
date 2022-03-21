@@ -227,6 +227,14 @@
     return-object p0
 .end method
 
+.method public getSliceHighlightMenuRes()I
+    .locals 0
+
+    const p0, 0x7f040d06
+
+    return p0
+.end method
+
 .method public getSummary()Ljava/lang/CharSequence;
     .locals 1
 
@@ -240,7 +248,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f04150c
+    const v0, 0x7f041531
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -255,7 +263,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f04150b
+    const v0, 0x7f041530
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

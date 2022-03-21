@@ -21,7 +21,7 @@
 # static fields
 .field private static final KEY_PENDING_DEVICE_NAME:Ljava/lang/String; = "key_pending_device_name"
 
-.field static final RES_SHOW_DEVICE_NAME_BOOL:I = 0x7f090030
+.field static final RES_SHOW_DEVICE_NAME_BOOL:I = 0x7f090031
 
 
 # instance fields
@@ -46,7 +46,7 @@
 
     invoke-direct {p0, p1, p2}, Lcom/android/settings/core/BasePreferenceController;-><init>(Landroid/content/Context;Ljava/lang/String;)V
 
-    const-string p2, "wifi"
+    const-string/jumbo p2, "wifi"
 
     invoke-virtual {p1, p2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -283,7 +283,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f090030
+    const v0, 0x7f090031
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -329,6 +329,16 @@
     move-result-object p0
 
     return-object p0
+.end method
+
+.method public bridge synthetic getSliceHighlightMenuRes()I
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getSliceHighlightMenuRes()I
+
+    move-result p0
+
+    return p0
 .end method
 
 .method public getSummary()Ljava/lang/CharSequence;

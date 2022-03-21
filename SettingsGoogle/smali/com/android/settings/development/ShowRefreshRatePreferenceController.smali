@@ -39,7 +39,7 @@
 .method public getPreferenceKey()Ljava/lang/String;
     .locals 0
 
-    const-string p0, "show_refresh_rate"
+    const-string/jumbo p0, "show_refresh_rate"
 
     return-object p0
 .end method

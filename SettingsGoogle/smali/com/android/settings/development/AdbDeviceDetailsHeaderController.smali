@@ -51,7 +51,7 @@
 
     iget-object v1, p0, Lcom/android/settings/development/AdbDeviceDetailsHeaderController;->mFragment:Landroidx/fragment/app/Fragment;
 
-    const v2, 0x7f0d01fe
+    const v2, 0x7f0d0203
 
     invoke-virtual {p1, v2}, Lcom/android/settingslib/widget/LayoutPreference;->findViewById(I)Landroid/view/View;
 

@@ -49,7 +49,7 @@
 
     new-instance v0, Lcom/android/settings/connecteddevice/usb/UsbDetailsFragment$1;
 
-    const v1, 0x7f1500fd
+    const v1, 0x7f150102
 
     invoke-direct {v0, v1}, Lcom/android/settings/connecteddevice/usb/UsbDetailsFragment$1;-><init>(I)V
 
@@ -247,7 +247,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f1500fd
+    const p0, 0x7f150102
 
     return p0
 .end method

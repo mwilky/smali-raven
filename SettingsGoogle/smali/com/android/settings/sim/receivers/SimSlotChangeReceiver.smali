@@ -108,7 +108,7 @@
 
     if-nez v0, :cond_0
 
-    const-string p0, "slotInfos is null. Unable to get slot infos."
+    const-string/jumbo p0, "slotInfos is null. Unable to get slot infos."
 
     invoke-static {v1, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -298,7 +298,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090012
+    const v1, 0x7f090013
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 

@@ -68,7 +68,7 @@
     iput-object v0, p0, Lcom/android/settings/development/OemUnlockPreferenceController;->mOemLockManager:Landroid/service/oemlock/OemLockManager;
 
     :goto_0
-    const-string v0, "user"
+    const-string/jumbo v0, "user"
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -200,7 +200,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f040e9c
+    const v0, 0x7f040ec7
 
     goto :goto_0
 
@@ -211,7 +211,7 @@
 
     if-eqz v0, :cond_1
 
-    const v0, 0x7f040e9f
+    const v0, 0x7f040eca
 
     goto :goto_0
 
@@ -222,12 +222,12 @@
 
     if-nez v0, :cond_2
 
-    const v0, 0x7f040e9e
+    const v0, 0x7f040ec9
 
     goto :goto_0
 
     :cond_2
-    const v0, 0x7f040ea0
+    const v0, 0x7f040ecb
 
     :goto_0
     iget-object v1, p0, Lcom/android/settings/development/OemUnlockPreferenceController;->mPreference:Lcom/android/settingslib/RestrictedSwitchPreference;
@@ -502,7 +502,7 @@
 
     move-result-object p0
 
-    const p2, 0x7f040e9b
+    const p2, 0x7f040ec6
 
     invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

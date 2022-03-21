@@ -41,7 +41,7 @@
 .end method
 
 .method private synthetic lambda$onClick$0(Landroid/accounts/AccountManagerFuture;)V
-    .locals 3
+    .locals 5
 
     invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getTargetFragment()Landroidx/fragment/app/Fragment;
 
@@ -51,18 +51,20 @@
 
     move-result-object v0
 
+    const-string v1, "RemoveAccountPrefController"
+
     if-eqz v0, :cond_2
 
     invoke-virtual {v0}, Landroid/app/Activity;->isFinishing()Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_0
+    if-eqz v2, :cond_0
 
     goto :goto_1
 
     :cond_0
-    const/4 v1, 0x1
+    const/4 v2, 0x1
 
     :try_start_0
     invoke-interface {p1}, Landroid/accounts/AccountManagerFuture;->getResult()Ljava/lang/Object;
@@ -71,20 +73,38 @@
 
     check-cast p1, Landroid/os/Bundle;
 
-    const-string v2, "booleanResult"
+    const-string v3, "booleanResult"
 
-    invoke-virtual {p1, v2}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
+    invoke-virtual {p1, v3}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
 
-    move-result p1
+    move-result p0
     :try_end_0
     .catch Landroid/accounts/OperationCanceledException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Landroid/accounts/AuthenticatorException; {:try_start_0 .. :try_end_0} :catch_0
 
-    xor-int/2addr v1, p1
+    xor-int/2addr v2, p0
+
+    goto :goto_0
 
     :catch_0
-    if-eqz v1, :cond_1
+    move-exception p1
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "Remove account error: "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-static {v1, p1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getTargetFragment()Landroidx/fragment/app/Fragment;
 
@@ -92,21 +112,35 @@
 
     invoke-static {p0}, Lcom/android/settings/accounts/RemoveAccountPreferenceController$RemoveAccountFailureDialog;->show(Landroidx/fragment/app/Fragment;)V
 
-    goto :goto_0
+    :goto_0
+    new-instance p0, Ljava/lang/StringBuilder;
 
-    :cond_1
+    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string p1, "failed: "
+
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-static {v1, p0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    if-nez v2, :cond_1
+
     invoke-virtual {v0}, Landroid/app/Activity;->finish()V
 
-    :goto_0
+    :cond_1
     return-void
 
     :cond_2
     :goto_1
-    const-string p0, "PrefControllerMixin"
+    const-string p0, "Activity is no longer alive, skipping results"
 
-    const-string p1, "Activity is no longer alive, skipping results"
-
-    invoke-static {p0, p1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 .end method
@@ -241,13 +275,13 @@
 
     invoke-direct {v0, p1}, Landroidx/appcompat/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const p1, 0x7f040fe0
+    const p1, 0x7f04100c
 
     invoke-virtual {v0, p1}, Landroidx/appcompat/app/AlertDialog$Builder;->setTitle(I)Landroidx/appcompat/app/AlertDialog$Builder;
 
     move-result-object p1
 
-    const v0, 0x7f040fdf
+    const v0, 0x7f04100b
 
     invoke-virtual {p1, v0}, Landroidx/appcompat/app/AlertDialog$Builder;->setMessage(I)Landroidx/appcompat/app/AlertDialog$Builder;
 
@@ -261,7 +295,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f040ff8
+    const v0, 0x7f041026
 
     invoke-virtual {p1, v0, p0}, Landroidx/appcompat/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
 

@@ -478,7 +478,7 @@
 
     move-result-object p0
 
-    const v0, 0x10e00ed
+    const v0, 0x10e00f1
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -632,7 +632,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "setMobileDataEnabled: enabled="
+    const-string/jumbo v1, "setMobileDataEnabled: enabled="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

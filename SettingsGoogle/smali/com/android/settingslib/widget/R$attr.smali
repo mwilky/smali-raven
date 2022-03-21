@@ -4,4 +4,4 @@
 
 
 # static fields
-.field public static final footerPreferenceStyle:I = 0x7f0501be
+.field public static final footerPreferenceStyle:I = 0x7f0501c4

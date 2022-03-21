@@ -87,7 +87,7 @@
 
     move-result-object v1
 
-    const-string v2, "show_password"
+    const-string/jumbo v2, "show_password"
 
     const/4 v3, 0x1
 

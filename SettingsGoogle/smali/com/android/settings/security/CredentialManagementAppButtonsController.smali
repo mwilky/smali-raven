@@ -105,14 +105,14 @@
 
     if-ne p1, p2, :cond_0
 
-    const p1, 0x7f02030a
+    const p1, 0x7f020311
 
     iput p1, p0, Lcom/android/settings/security/CredentialManagementAppButtonsController;->mRemoveIcon:I
 
     goto :goto_0
 
     :cond_0
-    const p1, 0x7f02038d
+    const p1, 0x7f020394
 
     iput p1, p0, Lcom/android/settings/security/CredentialManagementAppButtonsController;->mRemoveIcon:I
 
@@ -137,13 +137,13 @@
 
     check-cast p1, Lcom/android/settingslib/widget/ActionButtonsPreference;
 
-    const v0, 0x7f04141d
+    const v0, 0x7f041442
 
     invoke-virtual {p1, v0}, Lcom/android/settingslib/widget/ActionButtonsPreference;->setButton1Text(I)Lcom/android/settingslib/widget/ActionButtonsPreference;
 
     move-result-object p1
 
-    const v0, 0x7f02038e
+    const v0, 0x7f020395
 
     invoke-virtual {p1, v0}, Lcom/android/settingslib/widget/ActionButtonsPreference;->setButton1Icon(I)Lcom/android/settingslib/widget/ActionButtonsPreference;
 
@@ -157,7 +157,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f040ffb
+    const v0, 0x7f041029
 
     invoke-virtual {p1, v0}, Lcom/android/settingslib/widget/ActionButtonsPreference;->setButton2Text(I)Lcom/android/settingslib/widget/ActionButtonsPreference;
 
@@ -403,6 +403,16 @@
     move-result-object p0
 
     return-object p0
+.end method
+
+.method public bridge synthetic getSliceHighlightMenuRes()I
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getSliceHighlightMenuRes()I
+
+    move-result p0
+
+    return p0
 .end method
 
 .method public bridge synthetic hasAsyncUpdate()Z

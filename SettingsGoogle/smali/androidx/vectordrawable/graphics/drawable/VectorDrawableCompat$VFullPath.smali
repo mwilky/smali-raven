@@ -303,7 +303,7 @@
 
     const/16 v0, 0x8
 
-    const-string v1, "strokeLineCap"
+    const-string/jumbo v1, "strokeLineCap"
 
     const/4 v2, -0x1
 
@@ -321,7 +321,7 @@
 
     const/16 v0, 0x9
 
-    const-string v1, "strokeLineJoin"
+    const-string/jumbo v1, "strokeLineJoin"
 
     invoke-static {p1, p2, v1, v0, v2}, Landroidx/core/content/res/TypedArrayUtils;->getNamedInt(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;II)I
 
@@ -339,7 +339,7 @@
 
     iget v1, p0, Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VFullPath;->mStrokeMiterlimit:F
 
-    const-string v2, "strokeMiterLimit"
+    const-string/jumbo v2, "strokeMiterLimit"
 
     invoke-static {p1, p2, v2, v0, v1}, Landroidx/core/content/res/TypedArrayUtils;->getNamedFloat(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;IF)F
 
@@ -349,7 +349,7 @@
 
     const/4 v5, 0x3
 
-    const-string v4, "strokeColor"
+    const-string/jumbo v4, "strokeColor"
 
     move-object v1, p1
 
@@ -365,7 +365,7 @@
 
     iget v0, p0, Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VFullPath;->mStrokeAlpha:F
 
-    const-string v1, "strokeAlpha"
+    const-string/jumbo v1, "strokeAlpha"
 
     invoke-static {p1, p2, v1, p3, v0}, Landroidx/core/content/res/TypedArrayUtils;->getNamedFloat(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;IF)F
 
@@ -377,7 +377,7 @@
 
     iget v0, p0, Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VFullPath;->mStrokeWidth:F
 
-    const-string v1, "strokeWidth"
+    const-string/jumbo v1, "strokeWidth"
 
     invoke-static {p1, p2, v1, p3, v0}, Landroidx/core/content/res/TypedArrayUtils;->getNamedFloat(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;IF)F
 
@@ -389,7 +389,7 @@
 
     iget v0, p0, Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VFullPath;->mTrimPathEnd:F
 
-    const-string v1, "trimPathEnd"
+    const-string/jumbo v1, "trimPathEnd"
 
     invoke-static {p1, p2, v1, p3, v0}, Landroidx/core/content/res/TypedArrayUtils;->getNamedFloat(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;IF)F
 
@@ -401,7 +401,7 @@
 
     iget v0, p0, Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VFullPath;->mTrimPathOffset:F
 
-    const-string v1, "trimPathOffset"
+    const-string/jumbo v1, "trimPathOffset"
 
     invoke-static {p1, p2, v1, p3, v0}, Landroidx/core/content/res/TypedArrayUtils;->getNamedFloat(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;IF)F
 
@@ -413,7 +413,7 @@
 
     iget v0, p0, Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VFullPath;->mTrimPathStart:F
 
-    const-string v1, "trimPathStart"
+    const-string/jumbo v1, "trimPathStart"
 
     invoke-static {p1, p2, v1, p3, v0}, Landroidx/core/content/res/TypedArrayUtils;->getNamedFloat(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;IF)F
 

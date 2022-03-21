@@ -78,7 +78,7 @@
 
     const/4 p0, 0x1
 
-    const-string v1, "show_options_button"
+    const-string/jumbo v1, "show_options_button"
 
     invoke-virtual {v0, v1, p0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
@@ -180,6 +180,44 @@
     invoke-static {p1, v0}, Lcom/google/android/setupcompat/util/WizardManagerHelper;->copyWizardManagerExtras(Landroid/content/Intent;Landroid/content/Intent;)V
 
     return-object v0
+.end method
+
+.method public static isConvenience(Landroid/hardware/face/FaceManager;)Z
+    .locals 1
+
+    invoke-virtual {p0}, Landroid/hardware/face/FaceManager;->getSensorPropertiesInternal()Ljava/util/List;
+
+    move-result-object p0
+
+    invoke-interface {p0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object p0
+
+    :cond_0
+    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/hardware/face/FaceSensorPropertiesInternal;
+
+    iget v0, v0, Landroid/hardware/face/FaceSensorPropertiesInternal;->sensorStrength:I
+
+    if-nez v0, :cond_0
+
+    const/4 p0, 0x1
+
+    return p0
+
+    :cond_1
+    const/4 p0, 0x0
+
+    return p0
 .end method
 
 .method public static isReverseLandscape(Landroid/content/Context;)Z
@@ -382,7 +420,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "tryStartingNextBiometricEnroll, debugReason: "
+    const-string/jumbo v1, "tryStartingNextBiometricEnroll, debugReason: "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

@@ -56,7 +56,7 @@
 
     const-string p1, ":settings:show_fragment_title_resid"
 
-    const v0, 0x7f04088b
+    const v0, 0x7f0408a3
 
     invoke-virtual {p0, p1, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
@@ -140,7 +140,7 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/SettingsActivity;->onCreate(Landroid/os/Bundle;)V
 
-    const p1, 0x7f0d0176
+    const p1, 0x7f0d017a
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 

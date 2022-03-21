@@ -76,13 +76,13 @@
 
     const-string v0, "list_item"
 
-    const-string v1, "shortcut"
+    const-string/jumbo v1, "shortcut"
 
     const-string v2, "actions"
 
     const-string v3, "keywords"
 
-    const-string v4, "ttl"
+    const-string/jumbo v4, "ttl"
 
     const-string v5, "last_updated"
 
@@ -94,7 +94,7 @@
 
     move-result-object v0
 
-    const-string v1, "slice"
+    const-string/jumbo v1, "slice"
 
     const/4 v2, 0x0
 
@@ -139,9 +139,9 @@
 
     if-nez v0, :cond_1
 
-    const-string v0, "shortcut"
+    const-string/jumbo v0, "shortcut"
 
-    const-string v3, "title"
+    const-string/jumbo v3, "title"
 
     filled-new-array {v0, v3}, [Ljava/lang/String;
 
@@ -399,7 +399,7 @@
 
     move-result-object v0
 
-    const-string v2, "slice"
+    const-string/jumbo v2, "slice"
 
     invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -471,7 +471,7 @@
 
     move-result-object v0
 
-    const-string v1, "slice"
+    const-string/jumbo v1, "slice"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -497,7 +497,7 @@
 
     if-nez v0, :cond_0
 
-    const-string v0, "text"
+    const-string/jumbo v0, "text"
 
     const/4 v2, 0x0
 
@@ -598,7 +598,7 @@
 
     const-string v6, "keywords"
 
-    const-string v7, "ttl"
+    const-string/jumbo v7, "ttl"
 
     const-string v8, "last_updated"
 
@@ -620,7 +620,7 @@
 
     if-nez v4, :cond_3
 
-    const-string v4, "slice"
+    const-string/jumbo v4, "slice"
 
     invoke-virtual {v4, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
