@@ -7915,7 +7915,9 @@
     goto :goto_0
 
     :cond_1
-    invoke-virtual {p0, v1}, Lcom/android/wm/shell/bubbles/BubbleStackView;->setExpanded(Z)V
+    iget-object p0, p0, Lcom/android/wm/shell/bubbles/BubbleStackView;->mBubbleData:Lcom/android/wm/shell/bubbles/BubbleData;
+
+    invoke-virtual {p0, v1}, Lcom/android/wm/shell/bubbles/BubbleData;->setExpanded(Z)V
 
     :cond_2
     :goto_0
