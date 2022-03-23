@@ -22856,7 +22856,7 @@
 
     if-nez v0, :cond_1
 
-    const/4 v0, 0x3
+    const/4 v0, 0x2
 
     const/16 v1, 0x9
 
