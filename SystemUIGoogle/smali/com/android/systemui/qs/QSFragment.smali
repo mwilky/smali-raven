@@ -1957,10 +1957,6 @@
     iget-boolean v1, p0, Lcom/android/systemui/qs/QSFragment;->mListening:Z
 
     invoke-virtual {v0, v1, p1}, Lcom/android/systemui/qs/QSPanelController;->setListening(ZZ)V
-    
-    iget-object v0, p0, Lcom/android/systemui/qs/QSFragment;->mQuickQSPanelController:Lcom/android/systemui/qs/QuickQSPanelController;
-    
-    invoke-virtual {v0, v1}, Lcom/android/systemui/qs/QuickQSPanelController;->setListening(Z)V
 
     invoke-direct {p0}, Lcom/android/systemui/qs/QSFragment;->updateQsState()V
 
@@ -2053,7 +2049,7 @@
 .end method
 
 .method public setListening(Z)V
-    .locals 2
+    .locals 1
 
     iput-boolean p1, p0, Lcom/android/systemui/qs/QSFragment;->mListening:Z
 
@@ -2069,13 +2065,9 @@
 
     iget-boolean v0, p0, Lcom/android/systemui/qs/QSFragment;->mListening:Z
 
-    iget-boolean v1, p0, Lcom/android/systemui/qs/QSFragment;->mQsExpanded:Z
+    iget-boolean p0, p0, Lcom/android/systemui/qs/QSFragment;->mQsExpanded:Z
 
-    invoke-virtual {p1, v0, v1}, Lcom/android/systemui/qs/QSPanelController;->setListening(ZZ)V
-    
-    iget-object p1, p0, Lcom/android/systemui/qs/QSFragment;->mQuickQSPanelController:Lcom/android/systemui/qs/QuickQSPanelController;
-    
-    invoke-virtual {p1, v0}, Lcom/android/systemui/qs/QuickQSPanelController;->setListening(Z)V
+    invoke-virtual {p1, v0, p0}, Lcom/android/systemui/qs/QSPanelController;->setListening(ZZ)V
 
     return-void
 .end method

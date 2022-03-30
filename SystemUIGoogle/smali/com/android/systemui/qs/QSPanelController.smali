@@ -771,8 +771,6 @@
 
     invoke-virtual {v0}, Lcom/android/systemui/qs/QSPanel;->updateBrightnessSliderPosition()V
 
-    #invoke-static {p0}, Lcom/android/systemui/qs/QSPanelController;->access$300(Lcom/android/systemui/qs/QSPanelController;)V
-
     return-void
 .end method
 

@@ -20,8 +20,6 @@
 
 
 # instance fields
-.field private mQQSBrightnessAnimator:Lcom/android/systemui/qs/TouchAnimator;
-
 .field private mAllPagesDelayedAnimator:Lcom/android/systemui/qs/TouchAnimator;
 
 .field private final mAllViews:Ljava/util/ArrayList;
