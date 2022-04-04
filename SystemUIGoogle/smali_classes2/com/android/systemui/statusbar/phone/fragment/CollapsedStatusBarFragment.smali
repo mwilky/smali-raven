@@ -418,7 +418,7 @@
 .end method
 
 .method private hideClock(Z)V
-    .locals 2
+    .locals 4
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/fragment/CollapsedStatusBarFragment;->mClockController:Lcom/android/systemui/statusbar/phone/ClockController;
 
@@ -430,12 +430,30 @@
 
     if-eqz v0, :cond_exit
 
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/fragment/CollapsedStatusBarFragment;->mKeyguardStateController:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
+
+    invoke-interface {v2}, Lcom/android/systemui/statusbar/policy/KeyguardStateController;->isShowing()Z
+
+    move-result v2
+
+    if-nez v2, :cond_stock
+
+    const/4 v2, 0x1
+
+    sget v3, Lcom/android/mwilky/Renovate;->mClockPosition:I
+
+    if-ne v2, v3, :cond_stock
+
+    goto :goto_exit
+
+    :cond_stock
     invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/fragment/CollapsedStatusBarFragment;->clockHiddenMode()I
 
     move-result v1
 
     invoke-direct {p0, v0, v1, p1}, Lcom/android/systemui/statusbar/phone/fragment/CollapsedStatusBarFragment;->animateHiddenState(Landroid/view/View;IZ)V
 
+    :goto_exit
     :cond_exit
     return-void
 .end method
