@@ -241,34 +241,36 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_3
 
     invoke-virtual {p2}, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->isBypassEnabled()Z
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_2
 
     invoke-virtual {p2}, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->isPulseExpanding()Z
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_3
+
+    :cond_2
+    move p0, v0
 
     goto :goto_2
 
-    :cond_2
-    iget v0, p0, Lcom/android/systemui/statusbar/notification/stack/StackScrollAlgorithm;->mNotificationScrimPadding:F
-
     :cond_3
+    iget p0, p0, Lcom/android/systemui/statusbar/notification/stack/StackScrollAlgorithm;->mNotificationScrimPadding:F
+
     :goto_2
     invoke-virtual {p2}, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->getStackHeight()F
 
-    move-result p0
+    move-result v1
 
-    sub-float/2addr p0, p1
+    sub-float/2addr v1, p1
 
-    sub-float/2addr p0, v0
+    sub-float/2addr v1, p0
 
     invoke-virtual {p2}, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->getStackEndHeight()F
 
@@ -276,11 +278,18 @@
 
     sub-float/2addr p2, p1
 
-    sub-float/2addr p2, v0
+    sub-float/2addr p2, p0
 
-    div-float/2addr p0, p2
+    cmpl-float p0, p2, v0
 
-    return p0
+    if-nez p0, :cond_4
+
+    return v0
+
+    :cond_4
+    div-float/2addr v1, p2
+
+    return v1
 .end method
 
 .method private getNotificationChildrenStates(Lcom/android/systemui/statusbar/notification/stack/StackScrollAlgorithm$StackScrollAlgorithmState;Lcom/android/systemui/statusbar/notification/stack/AmbientState;)V

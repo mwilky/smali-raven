@@ -890,27 +890,40 @@
 .method private fadeExistingPip(Z)V
     .locals 8
 
+    iget-object v0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mLeash:Landroid/view/SurfaceControl;
+
+    if-eqz v0, :cond_4
+
+    invoke-virtual {v0}, Landroid/view/SurfaceControl;->isValid()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    goto :goto_3
+
+    :cond_0
     const/4 v0, 0x0
 
     const/high16 v1, 0x3f800000    # 1.0f
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1
 
     move v6, v0
 
     goto :goto_0
 
-    :cond_0
+    :cond_1
     move v6, v1
 
     :goto_0
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_2
 
     move v7, v1
 
     goto :goto_1
 
-    :cond_1
+    :cond_2
     move v7, v0
 
     :goto_1
@@ -942,13 +955,13 @@
 
     move-result-object v0
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_3
 
     iget v2, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mEnterAnimationDuration:I
 
     goto :goto_2
 
-    :cond_2
+    :cond_3
     iget v2, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mExitAnimationDuration:I
 
     :goto_2
@@ -963,6 +976,30 @@
     xor-int/2addr p1, v1
 
     iput-boolean p1, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mHasFadeOut:Z
+
+    return-void
+
+    :cond_4
+    :goto_3
+    sget-object p1, Lcom/android/wm/shell/pip/PipTaskOrganizer;->TAG:Ljava/lang/String;
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "Invalid leash on fadeExistingPip: "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object p0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mLeash:Landroid/view/SurfaceControl;
+
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-static {p1, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 .end method
