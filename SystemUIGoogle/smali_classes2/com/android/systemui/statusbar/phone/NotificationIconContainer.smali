@@ -710,7 +710,7 @@
 
     if-eqz v3, :cond_0
 
-    const/4 v3, 0x5
+    sget v3, Lcom/android/mwilky/Renovate;->mMaxNotifications:I
 
     goto :goto_0
 
