@@ -11,11 +11,11 @@
 .method static constructor <clinit>()V
     .locals 2
 
-    new-instance v0, Lcom/android/settings/search/BaseSearchIndexProvider;
+    new-instance v0, Lcom/android/settings/connecteddevice/NfcAndPaymentFragment$1;
 
     const v1, 0x7f1500a4
 
-    invoke-direct {v0, v1}, Lcom/android/settings/search/BaseSearchIndexProvider;-><init>(I)V
+    invoke-direct {v0, v1}, Lcom/android/settings/connecteddevice/NfcAndPaymentFragment$1;-><init>(I)V
 
     sput-object v0, Lcom/android/settings/connecteddevice/NfcAndPaymentFragment;->SEARCH_INDEX_DATA_PROVIDER:Lcom/android/settings/search/BaseSearchIndexProvider;
 
