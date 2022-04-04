@@ -1651,9 +1651,9 @@
 
     const/high16 v4, 0x4000000
 
-    move-object v3, v0
+    const/4 v5, 0x0
 
-    move-object v5, p2
+    move-object v3, v0
 
     move-object v6, p3
 
@@ -2903,13 +2903,13 @@
 
     iget-object v0, p0, Lcom/android/server/pm/LauncherAppsService$LauncherAppsImpl;->mActivityManagerInternal:Landroid/app/ActivityManagerInternal;
 
+    const/4 v4, 0x0
+
     move v1, p1
 
     move-object v2, p2
 
     move v3, p3
-
-    move-object v4, p4
 
     move-object v5, p5
 

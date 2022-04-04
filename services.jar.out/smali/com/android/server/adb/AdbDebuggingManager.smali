@@ -716,6 +716,16 @@
     return-object v3
 .end method
 
+.method static sendBroadcastWithDebugPermission(Landroid/content/Context;Landroid/content/Intent;Landroid/os/UserHandle;)V
+    .locals 1
+
+    const-string v0, "android.permission.MANAGE_DEBUGGING"
+
+    invoke-virtual {p0, p1, p2, v0}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;Ljava/lang/String;)V
+
+    return-void
+.end method
+
 .method private sendPersistKeyStoreMessage()V
     .locals 2
 

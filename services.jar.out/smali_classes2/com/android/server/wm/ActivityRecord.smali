@@ -11184,9 +11184,7 @@
 
     iput-object v0, p0, Lcom/android/server/wm/ActivityRecord;->mCompatDisplayInsets:Lcom/android/server/wm/ActivityRecord$CompatDisplayInsets;
 
-    invoke-virtual {p0}, Lcom/android/server/wm/ActivityRecord;->getRequestedOverrideConfiguration()Landroid/content/res/Configuration;
-
-    move-result-object v0
+    sget-object v0, Landroid/content/res/Configuration;->EMPTY:Landroid/content/res/Configuration;
 
     invoke-virtual {p0, v0}, Lcom/android/server/wm/ActivityRecord;->onRequestedOverrideConfigurationChanged(Landroid/content/res/Configuration;)V
 
