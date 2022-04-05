@@ -798,8 +798,10 @@
 
 # virtual methods
 .method protected adjustDisableFlags(I)I
-    .locals 6
+    .registers 8
+    .param p1, "i"    # I
 
+    .line 28
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/fragment/CollapsedStatusBarFragment;->mStatusBarFragmentComponent:Lcom/android/systemui/statusbar/phone/fragment/dagger/StatusBarFragmentComponent;
 
     invoke-interface {v0}, Lcom/android/systemui/statusbar/phone/fragment/dagger/StatusBarFragmentComponent;->getHeadsUpAppearanceController()Lcom/android/systemui/statusbar/phone/HeadsUpAppearanceController;
@@ -810,129 +812,149 @@
 
     move-result v0
 
+    .line 29
+    .local v0, "shouldBeVisible":Z
     const/high16 v1, 0x800000
 
-    if-eqz v0, :cond_0
+    const/4 v2, 0x1
 
+    if-eqz v0, :cond_14
+
+    .line 30
+    sget v3, Lcom/android/mwilky/Renovate;->mClockPosition:I
+
+    if-eq v3, v2, :cond_14
+
+    .line 31
     or-int/2addr p1, v1
 
-    :cond_0
-    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/fragment/CollapsedStatusBarFragment;->mKeyguardStateController:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
+    .line 34
+    :cond_14
+    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/fragment/CollapsedStatusBarFragment;->mKeyguardStateController:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
 
-    invoke-interface {v2}, Lcom/android/systemui/statusbar/policy/KeyguardStateController;->isLaunchTransitionFadingAway()Z
+    invoke-interface {v3}, Lcom/android/systemui/statusbar/policy/KeyguardStateController;->isLaunchTransitionFadingAway()Z
 
-    move-result v2
+    move-result v3
 
-    const/high16 v3, 0x100000
+    const/high16 v4, 0x100000
 
-    const/high16 v4, 0x20000
+    const/high16 v5, 0x20000
 
-    if-nez v2, :cond_2
+    if-nez v3, :cond_3d
 
-    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/fragment/CollapsedStatusBarFragment;->mKeyguardStateController:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
+    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/fragment/CollapsedStatusBarFragment;->mKeyguardStateController:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
 
-    invoke-interface {v2}, Lcom/android/systemui/statusbar/policy/KeyguardStateController;->isKeyguardFadingAway()Z
+    invoke-interface {v3}, Lcom/android/systemui/statusbar/policy/KeyguardStateController;->isKeyguardFadingAway()Z
 
-    move-result v2
+    move-result v3
 
-    if-nez v2, :cond_2
+    if-nez v3, :cond_3d
 
     invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/fragment/CollapsedStatusBarFragment;->shouldHideNotificationIcons()Z
 
+    move-result v3
+
+    if-eqz v3, :cond_3d
+
+    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/fragment/CollapsedStatusBarFragment;->mStatusBarStateController:Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
+
+    invoke-interface {v3}, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;->getState()I
+
+    move-result v3
+
+    if-ne v3, v2, :cond_38
+
+    if-nez v0, :cond_3d
+
+    .line 35
+    :cond_38
+    or-int v2, p1, v5
+
+    or-int/2addr v2, v4
+
+    or-int p1, v2, v1
+
+    .line 37
+    :cond_3d
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/fragment/CollapsedStatusBarFragment;->mNetworkController:Lcom/android/systemui/statusbar/connectivity/NetworkController;
+
+    .line 38
+    .local v1, "networkController":Lcom/android/systemui/statusbar/connectivity/NetworkController;
+    if-eqz v1, :cond_55
+
+    sget-boolean v2, Lcom/android/systemui/statusbar/policy/EncryptionHelper;->IS_DATA_ENCRYPTED:Z
+
+    if-eqz v2, :cond_55
+
+    .line 39
+    invoke-interface {v1}, Lcom/android/systemui/statusbar/connectivity/NetworkController;->hasEmergencyCryptKeeperText()Z
+
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_4c
 
+    .line 40
+    or-int/2addr p1, v5
+
+    .line 42
+    :cond_4c
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/fragment/CollapsedStatusBarFragment;->mNetworkController:Lcom/android/systemui/statusbar/connectivity/NetworkController;
+
+    invoke-interface {v2}, Lcom/android/systemui/statusbar/connectivity/NetworkController;->isRadioOn()Z
+
+    move-result v2
+
+    if-nez v2, :cond_55
+
+    .line 43
+    or-int/2addr p1, v4
+
+    .line 46
+    :cond_55
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/fragment/CollapsedStatusBarFragment;->mStatusBarStateController:Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
 
-    invoke-interface {v2}, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;->getState()I
+    invoke-interface {v2}, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;->isDozing()Z
 
     move-result v2
 
-    const/4 v5, 0x1
+    if-eqz v2, :cond_68
 
-    if-ne v2, v5, :cond_1
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/fragment/CollapsedStatusBarFragment;->mNotificationPanelViewController:Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;
 
-    if-nez v0, :cond_2
+    invoke-virtual {v2}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->hasCustomClock()Z
 
-    :cond_1
-    or-int/2addr p1, v4
+    move-result v2
 
-    or-int/2addr p1, v3
+    if-eqz v2, :cond_68
 
-    or-int/2addr p1, v1
+    .line 47
+    const/high16 v2, 0x900000
 
-    :cond_2
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/fragment/CollapsedStatusBarFragment;->mNetworkController:Lcom/android/systemui/statusbar/connectivity/NetworkController;
+    or-int/2addr p1, v2
 
-    if-eqz v0, :cond_4
+    .line 49
+    :cond_68
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/fragment/CollapsedStatusBarFragment;->mOngoingCallController:Lcom/android/systemui/statusbar/phone/ongoingcall/OngoingCallController;
 
-    sget-boolean v1, Lcom/android/systemui/statusbar/policy/EncryptionHelper;->IS_DATA_ENCRYPTED:Z
+    invoke-virtual {v2}, Lcom/android/systemui/statusbar/phone/ongoingcall/OngoingCallController;->hasOngoingCall()Z
 
-    if-eqz v1, :cond_4
+    move-result v2
 
-    invoke-interface {v0}, Lcom/android/systemui/statusbar/connectivity/NetworkController;->hasEmergencyCryptKeeperText()Z
+    if-eqz v2, :cond_75
 
-    move-result v0
+    const v2, -0x4000001
 
-    if-eqz v0, :cond_3
+    and-int/2addr v2, p1
 
-    or-int/2addr p1, v4
+    goto :goto_78
 
-    :cond_3
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/fragment/CollapsedStatusBarFragment;->mNetworkController:Lcom/android/systemui/statusbar/connectivity/NetworkController;
+    :cond_75
+    const/high16 v2, 0x4000000
 
-    invoke-interface {v0}, Lcom/android/systemui/statusbar/connectivity/NetworkController;->isRadioOn()Z
+    or-int/2addr v2, p1
 
-    move-result v0
-
-    if-nez v0, :cond_4
-
-    or-int/2addr p1, v3
-
-    :cond_4
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/fragment/CollapsedStatusBarFragment;->mStatusBarStateController:Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
-
-    invoke-interface {v0}, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;->isDozing()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_5
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/fragment/CollapsedStatusBarFragment;->mNotificationPanelViewController:Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;
-
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->hasCustomClock()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_5
-
-    const/high16 v0, 0x900000
-
-    or-int/2addr p1, v0
-
-    :cond_5
-    iget-object p0, p0, Lcom/android/systemui/statusbar/phone/fragment/CollapsedStatusBarFragment;->mOngoingCallController:Lcom/android/systemui/statusbar/phone/ongoingcall/OngoingCallController;
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/ongoingcall/OngoingCallController;->hasOngoingCall()Z
-
-    move-result p0
-
-    if-eqz p0, :cond_6
-
-    const p0, -0x4000001
-
-    and-int/2addr p0, p1
-
-    goto :goto_0
-
-    :cond_6
-    const/high16 p0, 0x4000000
-
-    or-int/2addr p0, p1
-
-    :goto_0
-    return p0
+    :goto_78
+    return v2
 .end method
 
 .method public disable(IIIZ)V
