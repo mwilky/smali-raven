@@ -62,6 +62,8 @@
     move-result-object p2
 
     check-cast p2, Lcom/android/systemui/battery/BatteryMeterView;
+    
+    iget-object p2, p2, Lcom/android/systemui/battery/BatteryMeterView;->mBatteryIconView:Landroid/widget/ImageView;
 
     iget-object p0, p0, Lcom/android/systemui/battery/BatteryMeterViewController$2;->this$0:Lcom/android/systemui/battery/BatteryMeterViewController;
 
@@ -83,7 +85,7 @@
     const/4 p0, 0x0
 
     :goto_0
-    invoke-virtual {p2, p0}, Landroid/widget/LinearLayout;->setVisibility(I)V
+    invoke-virtual {p2, p0}, Landroid/widget/ImageView;->setVisibility(I)V
 
     :cond_1
     return-void

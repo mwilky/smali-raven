@@ -23,7 +23,7 @@
 
 .field private mBatteryEstimateFetcher:Lcom/android/systemui/battery/BatteryMeterView$BatteryEstimateFetcher;
 
-.field private final mBatteryIconView:Landroid/widget/ImageView;
+.field public final mBatteryIconView:Landroid/widget/ImageView;
 
 .field private mBatteryPercentView:Landroid/widget/TextView;
 
