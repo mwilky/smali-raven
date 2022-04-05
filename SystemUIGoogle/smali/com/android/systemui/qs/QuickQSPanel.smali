@@ -131,8 +131,6 @@
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setClipChildren(Z)V
 
     :cond_0
-    invoke-virtual {p0}, Lcom/android/systemui/qs/QSPanel;->updateBrightnessSliderVisibility()V
-
     sget v0, Lcom/android/mwilky/Renovate;->mQsBrightnessSliderPosition:I
     
     if-eqz v0, :cond_top
@@ -260,37 +258,6 @@
     return-void
 .end method
 
-.method public updateBrightnessSliderVisibility()V
-    .locals 3
-
-    sget-boolean v0, Lcom/android/mwilky/Renovate;->mQQsBrightnesSlider:Z
-
-    const/4 v1, 0x0
-
-    if-eqz v0, :cond_hidden
-    
-    sget v0, Lcom/android/mwilky/Renovate;->mQsBrightnessSliderPosition:I
-
-    const/4 v2, 0x2
-
-    if-eq v0, v2, :cond_hidden
-
-    goto :goto_exit
-
-    :cond_hidden
-    const v1, 0x8
-
-    :goto_exit
-    iget-object v0, p0, Lcom/android/systemui/qs/QSPanel;->mBrightnessView:Landroid/view/View;
-
-    if-eqz v0, :cond_exit
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
-
-    :cond_exit
-    return-void
-.end method
-
 .method protected setBrightnessViewMargin(Z)V
     .locals 2
 
@@ -358,7 +325,7 @@
     return-void
 .end method
 
-.method public updateBrightnessSliderPosition()V
+.method public updateQQsBrightnessSliderPosition()V
     .locals 3
 
     iget-object v0, p0, Lcom/android/systemui/qs/QSPanel;->mBrightnessView:Landroid/view/View;
@@ -366,6 +333,8 @@
     invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->removeView(Landroid/view/View;)V
 
     iget-object v0, p0, Lcom/android/systemui/qs/QSPanel;->mBrightnessView:Landroid/view/View;
+    
+    if-eqz v0, :cond_null
     
     sget v1, Lcom/android/mwilky/Renovate;->mQsBrightnessSliderPosition:I
     
@@ -383,6 +352,7 @@
 
     invoke-virtual {p0, v0, v1}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;I)V
     
+    :cond_null
     sget v1, Lcom/android/mwilky/Renovate;->mQsBrightnessSliderPosition:I
     
     if-eqz v1, :cond_top2

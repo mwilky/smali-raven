@@ -124,8 +124,6 @@
 .method protected onConfigurationChanged()V
     .locals 3
 
-    invoke-virtual {p0}, Lcom/android/systemui/qs/QuickQSPanelController;->updateQQsBrightnessSlider()V
-
     iget-object v0, p0, Lcom/android/systemui/qs/QuickQSPanelController;->mFooterActionsController:Lcom/android/systemui/qs/FooterActionsController;
 
     iget-boolean p0, p0, Lcom/android/systemui/qs/QSPanelControllerBase;->mShouldUseSplitNotificationShade:Z
@@ -158,7 +156,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/QuickQSPanelController;->mBrightnessController:Lcom/android/systemui/qs/QuickQSBrightnessController;
 
-    const/4 v1, 0x1
+    sget-boolean v1, Lcom/android/mwilky/Renovate;->mQQsBrightnesSlider:Z
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/qs/QuickQSBrightnessController;->init(Z)V
 
@@ -351,14 +349,26 @@
     return-void
 .end method
 
-.method public updateQQsBrightnessSlider()V
+.method public updateQQsBrightnessSliderPosition()V
     .registers 4
     
     iget-object v0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
 
     check-cast v0, Lcom/android/systemui/qs/QuickQSPanel;
 
-    invoke-virtual {v0}, Lcom/android/systemui/qs/QuickQSPanel;->updateBrightnessSliderPosition()V
+    invoke-virtual {v0}, Lcom/android/systemui/qs/QuickQSPanel;->updateQQsBrightnessSliderPosition()V
+
+    return-void
+.end method
+
+.method public updateQQsBrightnessSliderVisibility()V
+    .locals 2
+    
+    sget-boolean v1, Lcom/android/mwilky/Renovate;->mQQsBrightnesSlider:Z
+
+    iget-object v0, p0, Lcom/android/systemui/qs/QuickQSPanelController;->mBrightnessController:Lcom/android/systemui/qs/QuickQSBrightnessController;
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/qs/QuickQSBrightnessController;->refreshVisibility(Z)V
 
     return-void
 .end method

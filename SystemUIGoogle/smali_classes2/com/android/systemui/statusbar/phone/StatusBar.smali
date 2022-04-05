@@ -12927,7 +12927,7 @@
 
     invoke-static {v0}, Lcom/android/mwilky/Renovate;->setQsBrightnessSliderPosition(Landroid/content/Context;)V
     
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateBrightnessSliderPosition()V
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateQQsBrightnessSliderPosition()V
 
     :cond_mwilky57
     const-string v0, "tweaks_qs_tile_outline"
@@ -13301,12 +13301,35 @@
     
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mQuickQSPanelController:Lcom/android/systemui/qs/QuickQSPanelController;
 
-    invoke-virtual {v0}, Lcom/android/systemui/qs/QuickQSPanelController;->updateQQsBrightnessSlider()V
+    invoke-virtual {v0}, Lcom/android/systemui/qs/QuickQSPanelController;->updateQQsBrightnessSliderPosition()V
     
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->setQQsBrightnessSliderPosition()V
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->reloadBrightnessSliderPosition()V
 
     return-void
-.end method	
+.end method
+
+.method updateQQsBrightnessSliderPosition()V
+	.locals 2
+	
+	iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mQuickQSPanelController:Lcom/android/systemui/qs/QuickQSPanelController;
+
+    invoke-virtual {v0}, Lcom/android/systemui/qs/QuickQSPanelController;->updateQQsBrightnessSliderVisibility()V
+    
+    sget v0, Lcom/android/mwilky/Renovate;->mQsBrightnessSliderPosition:I
+    
+    const/4 v1, 0x2
+    
+    if-ne v0, v1, :cond_mw
+    
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mQSPanelController:Lcom/android/systemui/qs/QSPanelController;
+
+    invoke-virtual {v0}, Lcom/android/systemui/qs/QSPanelController;->updateBrightnessSliderPosition()V
+
+    :cond_mw
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->reloadBrightnessSliderPosition()V
+
+    return-void
+.end method
 
 .method public reloadTiles()V
     .locals 1
@@ -13356,7 +13379,7 @@
     return-void
 .end method
 
-.method public setQQsBrightnessSliderPosition()V
+.method public reloadBrightnessSliderPosition()V
     .registers 5
 
     .line 196
