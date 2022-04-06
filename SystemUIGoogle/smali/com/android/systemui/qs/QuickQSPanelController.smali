@@ -186,9 +186,27 @@
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/qs/QSPanel;->addOnConfigurationChangedListener(Lcom/android/systemui/qs/QSPanel$OnConfigurationChangedListener;)V
 
-    iget-object p0, p0, Lcom/android/systemui/qs/QuickQSPanelController;->mBrightnessMirrorHandler:Lcom/android/systemui/settings/brightness/BrightnessMirrorHandler;
+    iget-object v0, p0, Lcom/android/systemui/qs/QuickQSPanelController;->mBrightnessMirrorHandler:Lcom/android/systemui/settings/brightness/BrightnessMirrorHandler;
 
-    invoke-virtual {p0}, Lcom/android/systemui/settings/brightness/BrightnessMirrorHandler;->onQsPanelAttached()V
+    invoke-virtual {v0}, Lcom/android/systemui/settings/brightness/BrightnessMirrorHandler;->onQsPanelAttached()V
+    
+    sget v0, Lcom/android/mwilky/Renovate;->mQsBrightnessSliderPosition:I
+    
+    if-eqz v0, :cond_top
+    
+    const/4 v0, 0x0
+    
+    goto :goto_bottom
+    
+    :cond_top
+    const/4 v0, 0x1
+
+    :goto_bottom
+    iget-object v1, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
+
+    check-cast v1, Lcom/android/systemui/qs/QuickQSPanel;
+
+    invoke-virtual {v1, v0}, Lcom/android/systemui/qs/QuickQSPanel;->setBrightnessViewMargin(Z)V
 
     return-void
 .end method
