@@ -434,7 +434,7 @@
 
 .field private final mUiBgExecutor:Ljava/util/concurrent/Executor;
 
-.field private mUiModeManager:Landroid/app/UiModeManager;
+.field public mUiModeManager:Landroid/app/UiModeManager;
 
 .field private final mUnlockScrimCallback:Lcom/android/systemui/statusbar/phone/ScrimController$Callback;
 
@@ -13304,6 +13304,8 @@
     invoke-virtual {v0}, Lcom/android/systemui/qs/QuickQSPanelController;->updateQQsBrightnessSliderPosition()V
     
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->reloadBrightnessSliderPosition()V
+    
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->runToggleNightMode()V
 
     return-void
 .end method
@@ -13327,6 +13329,8 @@
 
     :cond_mw
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->reloadBrightnessSliderPosition()V
+    
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->runToggleNightMode()V
 
     return-void
 .end method
@@ -13394,5 +13398,34 @@
     invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
     .line 201
+    return-void
+.end method
+
+.method public runToggleNightMode()V
+    .registers 5
+
+    .line 43
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mMainHandler:Landroid/os/Handler;
+
+    new-instance v1, Lcom/android/systemui/statusbar/phone/StatusBar$ToggleNightMode;
+
+    invoke-direct {v1, p0}, Lcom/android/systemui/statusbar/phone/StatusBar$ToggleNightMode;-><init>(Lcom/android/systemui/statusbar/phone/StatusBar;)V
+
+    const-wide/16 v2, 0x1f4
+
+    invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+
+    .line 44
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mMainHandler:Landroid/os/Handler;
+
+    new-instance v1, Lcom/android/systemui/statusbar/phone/StatusBar$ToggleNightMode;
+
+    invoke-direct {v1, p0}, Lcom/android/systemui/statusbar/phone/StatusBar$ToggleNightMode;-><init>(Lcom/android/systemui/statusbar/phone/StatusBar;)V
+
+    const-wide/16 v2, 0x3e8
+
+    invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+
+    .line 45
     return-void
 .end method
