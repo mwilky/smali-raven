@@ -4,7 +4,6 @@
 
 # interfaces
 .implements Lcom/android/systemui/demomode/DemoModeCommandReceiver;
-.implements Lcom/android/systemui/tuner/TunerService$Tunable;
 .implements Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
 .implements Lcom/android/systemui/plugins/DarkIconDispatcher$DarkReceiver;
 .implements Lcom/android/systemui/statusbar/policy/ConfigurationController$ConfigurationListener;
@@ -875,24 +874,6 @@
 
     invoke-virtual {v1, v2, v0, v3, v4}, Lcom/android/systemui/broadcast/BroadcastDispatcher;->registerReceiverWithHandler(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;Landroid/os/Handler;Landroid/os/UserHandle;)V
 
-    const-class v0, Lcom/android/systemui/tuner/TunerService;
-
-    invoke-static {v0}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/systemui/tuner/TunerService;
-
-    const-string v1, "clock_seconds"
-
-    const-string v2, "icon_blacklist"
-
-    filled-new-array {v1, v2}, [Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, p0, v1}, Lcom/android/systemui/tuner/TunerService;->addTunable(Lcom/android/systemui/tuner/TunerService$Tunable;[Ljava/lang/String;)V
-
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/Clock;->mCommandQueue:Lcom/android/systemui/statusbar/CommandQueue;
 
     invoke-virtual {v0, p0}, Lcom/android/systemui/statusbar/CommandQueue;->addCallback(Lcom/android/systemui/statusbar/CommandQueue$Callbacks;)V
@@ -1092,16 +1073,6 @@
 
     iput-boolean v1, p0, Lcom/android/systemui/statusbar/policy/Clock;->mAttached:Z
 
-    const-class v0, Lcom/android/systemui/tuner/TunerService;
-
-    invoke-static {v0}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/systemui/tuner/TunerService;
-
-    invoke-virtual {v0, p0}, Lcom/android/systemui/tuner/TunerService;->removeTunable(Lcom/android/systemui/tuner/TunerService$Tunable;)V
-
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/Clock;->mCommandQueue:Lcom/android/systemui/statusbar/CommandQueue;
 
     invoke-virtual {v0, p0}, Lcom/android/systemui/statusbar/CommandQueue;->removeCallback(Lcom/android/systemui/statusbar/CommandQueue$Callbacks;)V
@@ -1235,42 +1206,6 @@
     invoke-virtual {v0, v1, p0}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
     return-object v0
-.end method
-
-.method public onTuningChanged(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 1
-
-    const-string v0, "icon_blacklist"
-
-    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p1
-
-    if-eqz p1, :cond_1
-
-    invoke-virtual {p0}, Landroid/widget/TextView;->getContext()Landroid/content/Context;
-
-    move-result-object p1
-
-    invoke-static {p1, p2}, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->getIconHideList(Landroid/content/Context;Ljava/lang/String;)Landroid/util/ArraySet;
-
-    move-result-object p1
-
-    const-string p2, "clock"
-
-    invoke-virtual {p1, p2}, Landroid/util/ArraySet;->contains(Ljava/lang/Object;)Z
-
-    move-result p1
-
-    xor-int/lit8 p1, p1, 0x1
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/policy/Clock;->setClockVisibleByUser(Z)V
-
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/policy/Clock;->updateClockVisibility()V
-
-    :cond_1
-    :goto_0
-    return-void
 .end method
 
 .method public setClockVisibilityByPolicy(Z)V
