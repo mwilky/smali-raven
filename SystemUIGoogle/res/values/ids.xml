@@ -1616,4 +1616,5 @@
     <item type="id" name="zerostate" />
     <item type="id" name="zerostate_icon_image" />
     <item type="id" name="clock_right" />
+    <item type="id" name="side_icon_frame" />
 </resources>

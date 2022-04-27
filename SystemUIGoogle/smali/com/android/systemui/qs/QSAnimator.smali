@@ -815,240 +815,405 @@
 .end method
 
 .method private updateAnimators()V
-    .locals 30
+    .registers 41
 
-    move-object/from16 v9, p0
+    .line 83
+    const/4 v0, 0x0
 
-    const/4 v10, 0x0
-
-    iput-boolean v10, v9, Lcom/android/systemui/qs/QSAnimator;->mNeedsAnimatorUpdate:Z
-
-    new-instance v11, Lcom/android/systemui/qs/TouchAnimator$Builder;
-
-    invoke-direct {v11}, Lcom/android/systemui/qs/TouchAnimator$Builder;-><init>()V
-
-    new-instance v12, Lcom/android/systemui/qs/TouchAnimator$Builder;
-
-    invoke-direct {v12}, Lcom/android/systemui/qs/TouchAnimator$Builder;-><init>()V
-
-    new-instance v13, Lcom/android/systemui/qs/TouchAnimator$Builder;
-
-    invoke-direct {v13}, Lcom/android/systemui/qs/TouchAnimator$Builder;-><init>()V
-
-    iget-object v0, v9, Lcom/android/systemui/qs/QSAnimator;->mHost:Lcom/android/systemui/qs/QSTileHost;
-
-    invoke-virtual {v0}, Lcom/android/systemui/qs/QSTileHost;->getTiles()Ljava/util/Collection;
-
-    move-result-object v0
-
-    const/4 v14, 0x2
-
-    new-array v15, v14, [I
-
-    new-array v8, v14, [I
-
-    invoke-direct/range {p0 .. p0}, Lcom/android/systemui/qs/QSAnimator;->clearAnimationState()V
-
-    iget-object v1, v9, Lcom/android/systemui/qs/QSAnimator;->mAllViews:Ljava/util/ArrayList;
-
-    invoke-virtual {v1}, Ljava/util/ArrayList;->clear()V
-
-    iget-object v1, v9, Lcom/android/systemui/qs/QSAnimator;->mAnimatedQsViews:Ljava/util/ArrayList;
-
-    invoke-virtual {v1}, Ljava/util/ArrayList;->clear()V
-
+    .line 84
+    .local v0, "z":Z
     const/4 v1, 0x0
 
-    iput-object v1, v9, Lcom/android/systemui/qs/QSAnimator;->mQQSTileHeightAnimator:Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;
+    .line 85
+    .local v1, "i":I
+    move-object/from16 v2, p0
 
-    iput-object v1, v9, Lcom/android/systemui/qs/QSAnimator;->mOtherTilesExpandAnimator:Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;
+    .line 86
+    .local v2, "qSAnimator":Lcom/android/systemui/qs/QSAnimator;
+    move-object/from16 v12, p0
 
-    iget-object v1, v9, Lcom/android/systemui/qs/QSAnimator;->mQuickQsPanel:Lcom/android/systemui/qs/QuickQSPanel;
+    iget-object v3, v12, Lcom/android/systemui/qs/QSAnimator;->mQuickQsPanel:Lcom/android/systemui/qs/QuickQSPanel;
 
-    invoke-virtual {v1}, Lcom/android/systemui/qs/QuickQSPanel;->getNumQuickTiles()I
+    invoke-virtual {v3}, Lcom/android/systemui/qs/QuickQSPanel;->getTileLayout()Lcom/android/systemui/qs/QSPanel$QSTileLayout;
 
-    move-result v1
+    move-result-object v3
 
-    iput v1, v9, Lcom/android/systemui/qs/QSAnimator;->mNumQuickTiles:I
+    move-object v13, v3
 
-    iget-object v1, v9, Lcom/android/systemui/qs/QSAnimator;->mQsPanelController:Lcom/android/systemui/qs/QSPanelController;
+    check-cast v13, Lcom/android/systemui/qs/SideLabelTileLayout;
 
-    invoke-virtual {v1}, Lcom/android/systemui/qs/QSPanelControllerBase;->getTileLayout()Lcom/android/systemui/qs/QSPanel$QSTileLayout;
+    .line 87
+    .local v13, "sideLabelTileLayout":Lcom/android/systemui/qs/SideLabelTileLayout;
+    const/4 v14, 0x0
 
-    move-result-object v7
+    .line 88
+    .local v14, "offsetTranslation":I
+    move-object/from16 v3, p0
 
-    iget-object v1, v9, Lcom/android/systemui/qs/QSAnimator;->mAllViews:Ljava/util/ArrayList;
+    .line 89
+    .local v3, "qSAnimator2":Lcom/android/systemui/qs/QSAnimator;
+    const/4 v15, 0x0
 
-    move-object v2, v7
+    iput-boolean v15, v3, Lcom/android/systemui/qs/QSAnimator;->mNeedsAnimatorUpdate:Z
 
-    check-cast v2, Landroid/view/View;
+    .line 90
+    new-instance v4, Lcom/android/systemui/qs/TouchAnimator$Builder;
 
-    invoke-virtual {v1, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-direct {v4}, Lcom/android/systemui/qs/TouchAnimator$Builder;-><init>()V
 
-    iget-object v1, v9, Lcom/android/systemui/qs/QSAnimator;->mQs:Lcom/android/systemui/plugins/qs/QS;
+    move-object v11, v4
 
-    invoke-interface {v1}, Lcom/android/systemui/plugins/FragmentBase;->getView()Landroid/view/View;
+    .line 91
+    .local v11, "builder":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    new-instance v4, Lcom/android/systemui/qs/TouchAnimator$Builder;
 
-    move-result-object v1
+    invoke-direct {v4}, Lcom/android/systemui/qs/TouchAnimator$Builder;-><init>()V
 
-    if-eqz v1, :cond_0
+    move-object v10, v4
 
-    iget-object v1, v9, Lcom/android/systemui/qs/QSAnimator;->mQs:Lcom/android/systemui/plugins/qs/QS;
+    .line 92
+    .local v10, "builder2":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    new-instance v4, Lcom/android/systemui/qs/TouchAnimator$Builder;
 
-    invoke-interface {v1}, Lcom/android/systemui/plugins/FragmentBase;->getView()Landroid/view/View;
+    invoke-direct {v4}, Lcom/android/systemui/qs/TouchAnimator$Builder;-><init>()V
 
-    move-result-object v1
+    move-object v9, v4
 
-    invoke-virtual {v1}, Landroid/view/View;->getMeasuredHeight()I
+    .line 93
+    .local v9, "builder3":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    iget-object v4, v3, Lcom/android/systemui/qs/QSAnimator;->mHost:Lcom/android/systemui/qs/QSTileHost;
 
-    move-result v1
+    invoke-virtual {v4}, Lcom/android/systemui/qs/QSTileHost;->getTiles()Ljava/util/Collection;
 
-    goto :goto_0
+    move-result-object v16
 
-    :cond_0
-    move v1, v10
+    .line 94
+    .local v16, "tiles":Ljava/util/Collection;, "Ljava/util/Collection<Lcom/android/systemui/plugins/qs/QSTile;>;"
+    const/4 v8, 0x2
 
-    :goto_0
-    iget-object v2, v9, Lcom/android/systemui/qs/QSAnimator;->mQs:Lcom/android/systemui/plugins/qs/QS;
+    new-array v7, v8, [I
 
-    invoke-interface {v2}, Lcom/android/systemui/plugins/qs/QS;->getHeader()Landroid/view/View;
+    .line 95
+    .local v7, "iArr":[I
+    new-array v6, v8, [I
 
-    move-result-object v2
+    .line 96
+    .local v6, "iArr2":[I
+    invoke-direct/range {p0 .. p0}, Lcom/android/systemui/qs/QSAnimator;->clearAnimationState()V
 
-    invoke-virtual {v2}, Landroid/view/View;->getBottom()I
+    .line 97
+    iget-object v4, v3, Lcom/android/systemui/qs/QSAnimator;->mAllViews:Ljava/util/ArrayList;
 
-    move-result v2
+    invoke-virtual {v4}, Ljava/util/ArrayList;->clear()V
 
-    sub-int/2addr v1, v2
+    .line 98
+    iget-object v4, v3, Lcom/android/systemui/qs/QSAnimator;->mAnimatedQsViews:Ljava/util/ArrayList;
 
-    iget-object v2, v9, Lcom/android/systemui/qs/QSAnimator;->mQs:Lcom/android/systemui/plugins/qs/QS;
+    invoke-virtual {v4}, Ljava/util/ArrayList;->clear()V
 
-    invoke-interface {v2}, Lcom/android/systemui/plugins/qs/QS;->getHeader()Landroid/view/View;
+    .line 99
+    const/4 v4, 0x0
 
-    move-result-object v2
+    iput-object v4, v3, Lcom/android/systemui/qs/QSAnimator;->mQQSTileHeightAnimator:Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;
 
-    invoke-virtual {v2}, Landroid/view/View;->getPaddingBottom()I
+    .line 100
+    iput-object v4, v3, Lcom/android/systemui/qs/QSAnimator;->mOtherTilesExpandAnimator:Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;
 
-    move-result v2
+    .line 101
+    iget-object v4, v3, Lcom/android/systemui/qs/QSAnimator;->mQuickQsPanel:Lcom/android/systemui/qs/QuickQSPanel;
 
-    add-int/2addr v1, v2
+    invoke-virtual {v4}, Lcom/android/systemui/qs/QuickQSPanel;->getNumQuickTiles()I
 
-    iget-boolean v2, v9, Lcom/android/systemui/qs/QSAnimator;->mTranslateWhileExpanding:Z
+    move-result v4
 
-    if-nez v2, :cond_1
+    iput v4, v3, Lcom/android/systemui/qs/QSAnimator;->mNumQuickTiles:I
 
-    int-to-float v1, v1
+    .line 102
+    iget-object v4, v3, Lcom/android/systemui/qs/QSAnimator;->mQsPanelController:Lcom/android/systemui/qs/QSPanelController;
 
-    const v2, 0x3dcccccd    # 0.1f
-
-    mul-float/2addr v1, v2
-
-    float-to-int v1, v1
-
-    :cond_1
-    move v6, v1
-
-    new-array v1, v14, [F
-
-    int-to-float v2, v6
-
-    aput v2, v1, v10
-
-    const/4 v5, 0x1
-
-    const/16 v16, 0x0
-
-    aput v16, v1, v5
-
-    const-string v4, "translationY"
-
-    invoke-virtual {v11, v7, v4, v1}, Lcom/android/systemui/qs/TouchAnimator$Builder;->addFloat(Ljava/lang/Object;Ljava/lang/String;[F)Lcom/android/systemui/qs/TouchAnimator$Builder;
-
-    iget-object v1, v9, Lcom/android/systemui/qs/QSAnimator;->mQsPanelController:Lcom/android/systemui/qs/QSPanelController;
-
-    invoke-virtual {v1}, Lcom/android/systemui/qs/QSPanelControllerBase;->areThereTiles()Z
-
-    move-result v1
-
-    const-string v3, "alpha"
-
-    if-eqz v1, :cond_9
-
-    invoke-interface {v0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
-
-    move-result-object v17
-
-    move v0, v10
-
-    move v2, v0
-
-    :goto_1
-    invoke-interface/range {v17 .. v17}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_9
-
-    invoke-interface/range {v17 .. v17}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/android/systemui/plugins/qs/QSTile;
-
-    iget-object v14, v9, Lcom/android/systemui/qs/QSAnimator;->mQsPanelController:Lcom/android/systemui/qs/QSPanelController;
-
-    invoke-virtual {v14, v1}, Lcom/android/systemui/qs/QSPanelControllerBase;->getTileView(Lcom/android/systemui/plugins/qs/QSTile;)Lcom/android/systemui/plugins/qs/QSTileView;
-
-    move-result-object v14
-
-    if-nez v14, :cond_2
-
-    new-instance v14, Ljava/lang/StringBuilder;
-
-    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v10, "tileView is null "
-
-    invoke-virtual {v14, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-interface {v1}, Lcom/android/systemui/plugins/qs/QSTile;->getTileSpec()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v14, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    const-string v10, "QSAnimator"
-
-    invoke-static {v10, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    move-object/from16 v20, v3
-
-    goto :goto_2
-
-    :cond_2
-    invoke-virtual {v14}, Lcom/android/systemui/plugins/qs/QSTileView;->getIcon()Lcom/android/systemui/plugins/qs/QSIconView;
-
-    move-result-object v10
-
-    invoke-virtual {v10}, Lcom/android/systemui/plugins/qs/QSIconView;->getIconView()Landroid/view/View;
-
-    move-result-object v10
-
-    iget-object v5, v9, Lcom/android/systemui/qs/QSAnimator;->mQs:Lcom/android/systemui/plugins/qs/QS;
-
-    invoke-interface {v5}, Lcom/android/systemui/plugins/FragmentBase;->getView()Landroid/view/View;
+    invoke-virtual {v4}, Lcom/android/systemui/qs/QSPanelController;->getTileLayout()Lcom/android/systemui/qs/QSPanel$QSTileLayout;
 
     move-result-object v5
 
-    move-object/from16 v20, v3
+    .line 103
+    .local v5, "tileLayout":Lcom/android/systemui/qs/QSPanel$QSTileLayout;
+    iget-object v4, v3, Lcom/android/systemui/qs/QSAnimator;->mAllViews:Ljava/util/ArrayList;
 
-    iget-object v3, v9, Lcom/android/systemui/qs/QSAnimator;->mQuickQSPanelController:Lcom/android/systemui/qs/QuickQSPanelController;
+    move-object v15, v5
 
-    invoke-virtual {v3}, Lcom/android/systemui/qs/QSPanelControllerBase;->getTileLayout()Lcom/android/systemui/qs/QSPanel$QSTileLayout;
+    check-cast v15, Landroid/view/View;
+
+    invoke-virtual {v4, v15}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    .line 104
+    iget-object v4, v3, Lcom/android/systemui/qs/QSAnimator;->mQs:Lcom/android/systemui/plugins/qs/QS;
+
+    invoke-interface {v4}, Lcom/android/systemui/plugins/qs/QS;->getView()Landroid/view/View;
+
+    move-result-object v4
+
+    if-eqz v4, :cond_6d
+
+    iget-object v4, v3, Lcom/android/systemui/qs/QSAnimator;->mQs:Lcom/android/systemui/plugins/qs/QS;
+
+    invoke-interface {v4}, Lcom/android/systemui/plugins/qs/QS;->getView()Landroid/view/View;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Landroid/view/View;->getMeasuredHeight()I
+
+    move-result v4
+
+    goto :goto_6e
+
+    :cond_6d
+    const/4 v4, 0x0
+
+    :goto_6e
+    iget-object v15, v3, Lcom/android/systemui/qs/QSAnimator;->mQs:Lcom/android/systemui/plugins/qs/QS;
+
+    invoke-interface {v15}, Lcom/android/systemui/plugins/qs/QS;->getHeader()Landroid/view/View;
+
+    move-result-object v15
+
+    invoke-virtual {v15}, Landroid/view/View;->getBottom()I
+
+    move-result v15
+
+    sub-int/2addr v4, v15
+
+    iget-object v15, v3, Lcom/android/systemui/qs/QSAnimator;->mQs:Lcom/android/systemui/plugins/qs/QS;
+
+    invoke-interface {v15}, Lcom/android/systemui/plugins/qs/QS;->getHeader()Landroid/view/View;
+
+    move-result-object v15
+
+    invoke-virtual {v15}, Landroid/view/View;->getPaddingBottom()I
+
+    move-result v15
+
+    add-int/2addr v4, v15
+
+    .line 105
+    .local v4, "measuredHeight":I
+    iget-boolean v15, v3, Lcom/android/systemui/qs/QSAnimator;->mTranslateWhileExpanding:Z
+
+    if-nez v15, :cond_91
+
+    .line 106
+    int-to-float v15, v4
+
+    const v18, 0x3dcccccd    # 0.1f
+
+    mul-float v15, v15, v18
+
+    float-to-int v4, v15
+
+    move v15, v4
+
+    goto :goto_92
+
+    .line 105
+    :cond_91
+    move v15, v4
+
+    .line 108
+    .end local v4    # "measuredHeight":I
+    .local v15, "measuredHeight":I
+    :goto_92
+    const-string v4, "translationY"
+
+    .line 109
+    .local v4, "str":Ljava/lang/String;
+    move/from16 v18, v0
+
+    .end local v0    # "z":Z
+    .local v18, "z":Z
+    new-array v0, v8, [F
+
+    int-to-float v8, v15
+
+    const/16 v17, 0x0
+
+    aput v8, v0, v17
+
+    const/4 v8, 0x1
+
+    const/16 v20, 0x0
+
+    aput v20, v0, v8
+
+    invoke-virtual {v11, v5, v4, v0}, Lcom/android/systemui/qs/TouchAnimator$Builder;->addFloat(Ljava/lang/Object;Ljava/lang/String;[F)Lcom/android/systemui/qs/TouchAnimator$Builder;
+
+    .line 110
+    const-string v0, "alpha"
+
+    .line 111
+    .local v0, "str2":Ljava/lang/String;
+    iget-object v8, v3, Lcom/android/systemui/qs/QSAnimator;->mQsPanelController:Lcom/android/systemui/qs/QSPanelController;
+
+    invoke-virtual {v8}, Lcom/android/systemui/qs/QSPanelController;->areThereTiles()Z
+
+    move-result v8
+
+    if-eqz v8, :cond_3fe
+
+    .line 112
+    const/4 v8, 0x0
+
+    .line 113
+    .local v8, "i2":I
+    const/16 v22, 0x0
+
+    .line 114
+    .local v22, "i3":I
+    invoke-interface/range {v16 .. v16}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+
+    move-result-object v23
+
+    move/from16 v38, v22
+
+    move/from16 v22, v1
+
+    move/from16 v1, v38
+
+    move/from16 v39, v8
+
+    move-object v8, v3
+
+    move/from16 v3, v39
+
+    .local v1, "i3":I
+    .local v3, "i2":I
+    .local v8, "qSAnimator2":Lcom/android/systemui/qs/QSAnimator;
+    .local v22, "i":I
+    :goto_c1
+    invoke-interface/range {v23 .. v23}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v24
+
+    if-eqz v24, :cond_3e5
+
+    invoke-interface/range {v23 .. v23}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v24
+
+    move-object/from16 v25, v2
+
+    .end local v2    # "qSAnimator":Lcom/android/systemui/qs/QSAnimator;
+    .local v25, "qSAnimator":Lcom/android/systemui/qs/QSAnimator;
+    move-object/from16 v2, v24
+
+    check-cast v2, Lcom/android/systemui/plugins/qs/QSTile;
+
+    .line 115
+    .local v2, "qSTile":Lcom/android/systemui/plugins/qs/QSTile;
+    move-object/from16 v24, v5
+
+    .end local v5    # "tileLayout":Lcom/android/systemui/qs/QSPanel$QSTileLayout;
+    .local v24, "tileLayout":Lcom/android/systemui/qs/QSPanel$QSTileLayout;
+    iget-object v5, v8, Lcom/android/systemui/qs/QSAnimator;->mQsPanelController:Lcom/android/systemui/qs/QSPanelController;
+
+    invoke-virtual {v5, v2}, Lcom/android/systemui/qs/QSPanelController;->getTileView(Lcom/android/systemui/plugins/qs/QSTile;)Lcom/android/systemui/plugins/qs/QSTileView;
+
+    move-result-object v5
+
+    .line 116
+    .local v5, "tileView":Lcom/android/systemui/plugins/qs/QSTileView;
+    if-nez v5, :cond_10b
+
+    .line 117
+    move-object/from16 v26, v11
+
+    .end local v11    # "builder":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    .local v26, "builder":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    new-instance v11, Ljava/lang/StringBuilder;
+
+    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v12, "tileView is null "
+
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-interface {v2}, Lcom/android/systemui/plugins/qs/QSTile;->getTileSpec()Ljava/lang/String;
+
+    move-result-object v12
+
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v11
+
+    const-string v12, "QSAnimator"
+
+    invoke-static {v12, v11}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 118
+    move-object/from16 v35, v9
+
+    move-object v11, v10
+
+    move-object v12, v13
+
+    move/from16 v33, v14
+
+    move-object/from16 v2, v25
+
+    move-object/from16 v5, v26
+
+    const/16 v17, 0x0
+
+    move-object v14, v4
+
+    move-object v4, v6
+
+    move-object v13, v8
+
+    move-object v8, v7
+
+    goto/16 :goto_3d4
+
+    .line 120
+    .end local v26    # "builder":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    .restart local v11    # "builder":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    :cond_10b
+    move-object/from16 v26, v11
+
+    .end local v11    # "builder":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    .restart local v26    # "builder":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    invoke-virtual {v5}, Lcom/android/systemui/plugins/qs/QSTileView;->getIcon()Lcom/android/systemui/plugins/qs/QSIconView;
+
+    move-result-object v11
+
+    invoke-virtual {v11}, Lcom/android/systemui/plugins/qs/QSIconView;->getIconView()Landroid/view/View;
+
+    move-result-object v12
+
+    .line 121
+    .local v12, "iconView":Landroid/view/View;
+    iget-object v11, v8, Lcom/android/systemui/qs/QSAnimator;->mQs:Lcom/android/systemui/plugins/qs/QS;
+
+    invoke-interface {v11}, Lcom/android/systemui/plugins/qs/QS;->getView()Landroid/view/View;
+
+    move-result-object v11
+
+    .line 122
+    .local v11, "view":Landroid/view/View;
+    nop
+
+    .line 123
+    move/from16 v27, v3
+
+    .end local v3    # "i2":I
+    .local v27, "i2":I
+    iget-object v3, v8, Lcom/android/systemui/qs/QSAnimator;->mQuickQSPanelController:Lcom/android/systemui/qs/QuickQSPanelController;
+
+    invoke-virtual {v3}, Lcom/android/systemui/qs/QuickQSPanelController;->getTileLayout()Lcom/android/systemui/qs/QSPanel$QSTileLayout;
 
     move-result-object v3
 
@@ -1056,735 +1221,1585 @@
 
     move-result v3
 
-    if-ge v2, v3, :cond_5
+    if-ge v1, v3, :cond_2de
 
-    iget-boolean v3, v9, Lcom/android/systemui/qs/QSAnimator;->mAllowFancy:Z
+    iget-boolean v3, v8, Lcom/android/systemui/qs/QSAnimator;->mAllowFancy:Z
 
-    if-eqz v3, :cond_5
+    if-nez v3, :cond_149
 
-    iget-object v3, v9, Lcom/android/systemui/qs/QSAnimator;->mQuickQSPanelController:Lcom/android/systemui/qs/QuickQSPanelController;
+    move-object/from16 v31, v2
 
-    invoke-virtual {v3, v1}, Lcom/android/systemui/qs/QSPanelControllerBase;->getTileView(Lcom/android/systemui/plugins/qs/QSTile;)Lcom/android/systemui/plugins/qs/QSTileView;
+    move-object/from16 v34, v6
 
-    move-result-object v10
+    move-object/from16 v32, v7
 
-    if-nez v10, :cond_3
+    move-object/from16 v19, v8
 
-    :goto_2
-    move-object/from16 v3, v20
+    move-object/from16 v35, v9
 
-    const/4 v5, 0x1
+    move-object/from16 v36, v10
 
-    const/4 v10, 0x0
+    move-object/from16 v21, v12
 
-    const/4 v14, 0x2
+    move-object/from16 v29, v13
 
-    goto :goto_1
+    move/from16 v33, v14
 
-    :cond_3
-    invoke-direct {v9, v15, v10, v5}, Lcom/android/systemui/qs/QSAnimator;->getRelativePosition([ILandroid/view/View;Landroid/view/View;)V
+    const/4 v12, 0x2
 
-    invoke-direct {v9, v8, v14, v5}, Lcom/android/systemui/qs/QSAnimator;->getRelativePosition([ILandroid/view/View;Landroid/view/View;)V
+    move-object v14, v4
 
-    const/16 v19, 0x1
+    move-object v6, v5
 
-    aget v1, v8, v19
+    move-object/from16 v5, v26
 
-    aget v3, v15, v19
+    move-object/from16 v26, v11
 
-    sub-int v21, v1, v3
+    goto/16 :goto_2f7
 
-    const/4 v1, 0x0
+    .line 166
+    :cond_149
+    iget-object v3, v8, Lcom/android/systemui/qs/QSAnimator;->mQuickQSPanelController:Lcom/android/systemui/qs/QuickQSPanelController;
 
-    aget v3, v8, v1
+    invoke-virtual {v3, v2}, Lcom/android/systemui/qs/QuickQSPanelController;->getTileView(Lcom/android/systemui/plugins/qs/QSTile;)Lcom/android/systemui/plugins/qs/QSTileView;
 
-    aget v18, v15, v1
+    move-result-object v3
 
-    sub-int v3, v3, v18
+    .line 167
+    .local v3, "tileView2":Lcom/android/systemui/plugins/qs/QSTileView;
+    if-eqz v3, :cond_2af
 
-    iget-object v1, v9, Lcom/android/systemui/qs/QSAnimator;->mQuickStatusBarHeader:Lcom/android/systemui/qs/QuickStatusBarHeader;
+    .line 168
+    invoke-direct {v8, v7, v3, v11}, Lcom/android/systemui/qs/QSAnimator;->getRelativePosition([ILandroid/view/View;Landroid/view/View;)V
 
-    invoke-virtual {v1}, Lcom/android/systemui/qs/QuickStatusBarHeader;->getOffsetTranslation()I
+    .line 169
+    invoke-direct {v8, v6, v5, v11}, Lcom/android/systemui/qs/QSAnimator;->getRelativePosition([ILandroid/view/View;Landroid/view/View;)V
 
-    move-result v1
+    .line 170
+    const/16 v21, 0x1
 
-    sub-int v1, v21, v1
+    aget v28, v6, v21
 
-    move/from16 v22, v2
+    aget v29, v7, v21
 
-    move/from16 v23, v6
+    sub-int v28, v28, v29
 
-    const/4 v2, 0x2
+    .line 171
+    .local v28, "i4":I
+    const/16 v17, 0x0
 
-    new-array v6, v2, [F
+    aget v29, v6, v17
 
-    const/16 v18, 0x0
+    aget v30, v7, v17
 
-    aput v16, v6, v18
+    move-object/from16 v31, v2
 
-    int-to-float v2, v1
+    .end local v2    # "qSTile":Lcom/android/systemui/plugins/qs/QSTile;
+    .local v31, "qSTile":Lcom/android/systemui/plugins/qs/QSTile;
+    sub-int v2, v29, v30
 
-    aput v2, v6, v19
+    .line 172
+    .local v2, "i5":I
+    move-object/from16 v19, v6
 
-    invoke-virtual {v12, v10, v4, v6}, Lcom/android/systemui/qs/TouchAnimator$Builder;->addFloat(Ljava/lang/Object;Ljava/lang/String;[F)Lcom/android/systemui/qs/TouchAnimator$Builder;
+    move-object/from16 v29, v13
 
-    const/4 v2, 0x2
+    const/4 v13, 0x2
 
-    new-array v6, v2, [F
+    .end local v6    # "iArr2":[I
+    .end local v13    # "sideLabelTileLayout":Lcom/android/systemui/qs/SideLabelTileLayout;
+    .local v19, "iArr2":[I
+    .local v29, "sideLabelTileLayout":Lcom/android/systemui/qs/SideLabelTileLayout;
+    new-array v6, v13, [F
 
-    neg-int v1, v1
+    aput v20, v6, v17
 
-    int-to-float v1, v1
+    iget-object v13, v8, Lcom/android/systemui/qs/QSAnimator;->mQuickStatusBarHeader:Lcom/android/systemui/qs/QuickStatusBarHeader;
 
-    aput v1, v6, v18
+    invoke-virtual {v13}, Lcom/android/systemui/qs/QuickStatusBarHeader;->getOffsetTranslation()I
 
-    aput v16, v6, v19
+    move-result v13
 
-    invoke-virtual {v12, v14, v4, v6}, Lcom/android/systemui/qs/TouchAnimator$Builder;->addFloat(Ljava/lang/Object;Ljava/lang/String;[F)Lcom/android/systemui/qs/TouchAnimator$Builder;
+    sub-int v13, v28, v13
 
-    new-array v1, v2, [F
+    int-to-float v13, v13
 
-    aput v16, v1, v18
+    const/16 v21, 0x1
 
-    int-to-float v6, v3
+    aput v13, v6, v21
 
-    aput v6, v1, v19
+    invoke-virtual {v10, v3, v4, v6}, Lcom/android/systemui/qs/TouchAnimator$Builder;->addFloat(Ljava/lang/Object;Ljava/lang/String;[F)Lcom/android/systemui/qs/TouchAnimator$Builder;
 
-    const-string v6, "translationX"
+    .line 173
+    const/4 v13, 0x2
 
-    invoke-virtual {v13, v10, v6, v1}, Lcom/android/systemui/qs/TouchAnimator$Builder;->addFloat(Ljava/lang/Object;Ljava/lang/String;[F)Lcom/android/systemui/qs/TouchAnimator$Builder;
+    new-array v6, v13, [F
 
-    new-array v1, v2, [F
+    neg-int v13, v14
 
-    neg-int v2, v3
+    int-to-float v13, v13
 
-    int-to-float v2, v2
+    aput v13, v6, v17
 
-    aput v2, v1, v18
+    aput v20, v6, v21
 
-    aput v16, v1, v19
+    invoke-virtual {v10, v5, v4, v6}, Lcom/android/systemui/qs/TouchAnimator$Builder;->addFloat(Ljava/lang/Object;Ljava/lang/String;[F)Lcom/android/systemui/qs/TouchAnimator$Builder;
 
-    invoke-virtual {v13, v14, v6, v1}, Lcom/android/systemui/qs/TouchAnimator$Builder;->addFloat(Ljava/lang/Object;Ljava/lang/String;[F)Lcom/android/systemui/qs/TouchAnimator$Builder;
+    .line 174
+    const/4 v13, 0x2
 
-    iget-object v1, v9, Lcom/android/systemui/qs/QSAnimator;->mQQSTileHeightAnimator:Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;
+    new-array v6, v13, [F
 
-    if-nez v1, :cond_4
+    aput v20, v6, v17
 
-    new-instance v0, Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;
+    int-to-float v13, v2
 
-    invoke-virtual {v10}, Landroid/widget/LinearLayout;->getMeasuredHeight()I
+    aput v13, v6, v21
 
-    move-result v1
+    const-string v13, "translationX"
 
-    invoke-virtual {v14}, Landroid/widget/LinearLayout;->getMeasuredHeight()I
+    invoke-virtual {v9, v3, v13, v6}, Lcom/android/systemui/qs/TouchAnimator$Builder;->addFloat(Ljava/lang/Object;Ljava/lang/String;[F)Lcom/android/systemui/qs/TouchAnimator$Builder;
 
-    move-result v2
+    .line 175
+    move-object/from16 v30, v4
 
-    invoke-direct {v0, v9, v1, v2}, Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;-><init>(Lcom/android/systemui/qs/TouchAnimator$Listener;II)V
+    const/4 v6, 0x2
 
-    iput-object v0, v9, Lcom/android/systemui/qs/QSAnimator;->mQQSTileHeightAnimator:Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;
+    .end local v4    # "str":Ljava/lang/String;
+    .local v30, "str":Ljava/lang/String;
+    new-array v4, v6, [F
 
-    invoke-virtual {v10}, Landroid/widget/LinearLayout;->getMeasuredHeight()I
+    neg-int v6, v2
 
-    move-result v0
+    int-to-float v6, v6
 
-    :cond_4
-    move/from16 v24, v0
+    aput v6, v4, v17
 
-    iget-object v0, v9, Lcom/android/systemui/qs/QSAnimator;->mQQSTileHeightAnimator:Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;
+    aput v20, v4, v21
 
-    invoke-virtual {v0, v10}, Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;->addView(Landroid/view/View;)V
+    invoke-virtual {v9, v5, v13, v4}, Lcom/android/systemui/qs/TouchAnimator$Builder;->addFloat(Ljava/lang/Object;Ljava/lang/String;[F)Lcom/android/systemui/qs/TouchAnimator$Builder;
 
-    invoke-virtual {v10}, Lcom/android/systemui/plugins/qs/QSTileView;->getIcon()Lcom/android/systemui/plugins/qs/QSIconView;
+    .line 176
+    iget-object v4, v8, Lcom/android/systemui/qs/QSAnimator;->mQQSTileHeightAnimator:Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;
 
-    move-result-object v1
+    if-nez v4, :cond_1c2
 
-    invoke-virtual {v14}, Lcom/android/systemui/plugins/qs/QSTileView;->getIcon()Lcom/android/systemui/plugins/qs/QSIconView;
+    .line 177
+    new-instance v4, Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;
 
-    move-result-object v2
+    invoke-virtual {v3}, Lcom/android/systemui/plugins/qs/QSTileView;->getMeasuredHeight()I
 
-    move-object/from16 v0, p0
+    move-result v6
 
-    move/from16 v6, v22
+    invoke-virtual {v5}, Lcom/android/systemui/plugins/qs/QSTileView;->getMeasuredHeight()I
 
-    move-object/from16 v9, v20
+    move-result v13
 
-    move/from16 v20, v3
+    invoke-direct {v4, v8, v6, v13}, Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;-><init>(Lcom/android/systemui/qs/TouchAnimator$Listener;II)V
 
-    move-object v3, v5
+    iput-object v4, v8, Lcom/android/systemui/qs/QSAnimator;->mQQSTileHeightAnimator:Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;
 
-    move-object/from16 v25, v4
+    .line 178
+    invoke-virtual {v3}, Lcom/android/systemui/plugins/qs/QSTileView;->getMeasuredHeight()I
 
-    move/from16 v4, v20
+    move-result v4
 
-    move-object/from16 v22, v5
+    move/from16 v27, v4
 
-    move/from16 v5, v21
+    .line 180
+    :cond_1c2
+    iget-object v4, v8, Lcom/android/systemui/qs/QSAnimator;->mQQSTileHeightAnimator:Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;
 
-    move/from16 v27, v6
+    invoke-virtual {v4, v3}, Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;->addView(Landroid/view/View;)V
 
-    move/from16 v26, v23
+    .line 181
+    nop
 
-    move-object v6, v15
+    .line 182
+    nop
 
-    move-object/from16 v28, v7
+    .line 183
+    nop
 
-    move-object v7, v13
+    .line 184
+    sget v4, Lcom/android/mwilky/Renovate;->mQsStyle:I
 
-    move-object/from16 v29, v8
+    if-nez v4, :cond_202
 
-    move-object v8, v12
+    .line 185
+    invoke-virtual {v3}, Lcom/android/systemui/plugins/qs/QSTileView;->getIcon()Lcom/android/systemui/plugins/qs/QSIconView;
 
-    invoke-direct/range {v0 .. v8}, Lcom/android/systemui/qs/QSAnimator;->translateContent(Landroid/view/View;Landroid/view/View;Landroid/view/View;II[ILcom/android/systemui/qs/TouchAnimator$Builder;Lcom/android/systemui/qs/TouchAnimator$Builder;)V
+    move-result-object v4
 
-    invoke-virtual {v10}, Lcom/android/systemui/plugins/qs/QSTileView;->getLabelContainer()Landroid/view/View;
+    invoke-virtual {v5}, Lcom/android/systemui/plugins/qs/QSTileView;->getIcon()Lcom/android/systemui/plugins/qs/QSIconView;
 
-    move-result-object v1
+    move-result-object v6
 
-    invoke-virtual {v14}, Lcom/android/systemui/plugins/qs/QSTileView;->getLabelContainer()Landroid/view/View;
+    move-object v13, v3
 
-    move-result-object v2
+    .end local v3    # "tileView2":Lcom/android/systemui/plugins/qs/QSTileView;
+    .local v13, "tileView2":Lcom/android/systemui/plugins/qs/QSTileView;
+    move-object/from16 v3, p0
 
-    move-object/from16 v3, v22
+    move/from16 v33, v14
 
-    invoke-direct/range {v0 .. v8}, Lcom/android/systemui/qs/QSAnimator;->translateContent(Landroid/view/View;Landroid/view/View;Landroid/view/View;II[ILcom/android/systemui/qs/TouchAnimator$Builder;Lcom/android/systemui/qs/TouchAnimator$Builder;)V
+    move-object/from16 v14, v30
 
-    invoke-virtual {v10}, Lcom/android/systemui/plugins/qs/QSTileView;->getSecondaryIcon()Landroid/view/View;
+    .end local v30    # "str":Ljava/lang/String;
+    .local v14, "str":Ljava/lang/String;
+    .local v33, "offsetTranslation":I
+    move-object/from16 v30, v5
 
-    move-result-object v1
+    .end local v5    # "tileView":Lcom/android/systemui/plugins/qs/QSTileView;
+    .local v30, "tileView":Lcom/android/systemui/plugins/qs/QSTileView;
+    move-object v5, v6
 
-    invoke-virtual {v14}, Lcom/android/systemui/plugins/qs/QSTileView;->getSecondaryIcon()Landroid/view/View;
+    move-object/from16 v34, v19
 
-    move-result-object v2
+    const/16 v19, 0x2
 
-    invoke-direct/range {v0 .. v8}, Lcom/android/systemui/qs/QSAnimator;->translateContent(Landroid/view/View;Landroid/view/View;Landroid/view/View;II[ILcom/android/systemui/qs/TouchAnimator$Builder;Lcom/android/systemui/qs/TouchAnimator$Builder;)V
+    .end local v19    # "iArr2":[I
+    .local v34, "iArr2":[I
+    move-object v6, v11
 
-    invoke-virtual {v10}, Lcom/android/systemui/plugins/qs/QSTileView;->getSecondaryLabel()Landroid/view/View;
+    move-object/from16 v32, v7
 
-    move-result-object v0
+    .end local v7    # "iArr":[I
+    .local v32, "iArr":[I
+    move v7, v2
 
-    const/4 v1, 0x2
+    move-object/from16 v21, v12
 
-    new-array v2, v1, [F
+    move/from16 v12, v19
 
-    fill-array-data v2, :array_0
+    move-object/from16 v19, v8
 
-    invoke-virtual {v11, v0, v9, v2}, Lcom/android/systemui/qs/TouchAnimator$Builder;->addFloat(Ljava/lang/Object;Ljava/lang/String;[F)Lcom/android/systemui/qs/TouchAnimator$Builder;
+    .end local v8    # "qSAnimator2":Lcom/android/systemui/qs/QSAnimator;
+    .end local v12    # "iconView":Landroid/view/View;
+    .local v19, "qSAnimator2":Lcom/android/systemui/qs/QSAnimator;
+    .local v21, "iconView":Landroid/view/View;
+    move/from16 v8, v28
 
-    move-object/from16 v1, p0
+    move-object/from16 v35, v9
 
-    iget-object v0, v1, Lcom/android/systemui/qs/QSAnimator;->mAnimatedQsViews:Ljava/util/ArrayList;
+    .end local v9    # "builder3":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    .local v35, "builder3":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    move-object/from16 v9, v32
 
-    invoke-virtual {v0, v14}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    move-object/from16 v36, v10
 
-    iget-object v0, v1, Lcom/android/systemui/qs/QSAnimator;->mAllViews:Ljava/util/ArrayList;
+    .end local v10    # "builder2":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    .local v36, "builder2":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    move-object/from16 v10, v35
 
-    invoke-virtual {v0, v10}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    move-object/from16 v37, v26
 
-    iget-object v0, v1, Lcom/android/systemui/qs/QSAnimator;->mAllViews:Ljava/util/ArrayList;
+    move-object/from16 v26, v11
 
-    invoke-virtual {v10}, Lcom/android/systemui/plugins/qs/QSTileView;->getSecondaryLabel()Landroid/view/View;
+    .end local v11    # "view":Landroid/view/View;
+    .local v26, "view":Landroid/view/View;
+    .local v37, "builder":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    move-object/from16 v11, v36
 
-    move-result-object v2
+    invoke-direct/range {v3 .. v11}, Lcom/android/systemui/qs/QSAnimator;->translateContent(Landroid/view/View;Landroid/view/View;Landroid/view/View;II[ILcom/android/systemui/qs/TouchAnimator$Builder;Lcom/android/systemui/qs/TouchAnimator$Builder;)V
 
-    invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    goto :goto_232
 
-    move/from16 v0, v24
+    .line 187
+    .end local v13    # "tileView2":Lcom/android/systemui/plugins/qs/QSTileView;
+    .end local v21    # "iconView":Landroid/view/View;
+    .end local v32    # "iArr":[I
+    .end local v33    # "offsetTranslation":I
+    .end local v34    # "iArr2":[I
+    .end local v35    # "builder3":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    .end local v36    # "builder2":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    .end local v37    # "builder":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    .restart local v3    # "tileView2":Lcom/android/systemui/plugins/qs/QSTileView;
+    .restart local v5    # "tileView":Lcom/android/systemui/plugins/qs/QSTileView;
+    .restart local v7    # "iArr":[I
+    .restart local v8    # "qSAnimator2":Lcom/android/systemui/qs/QSAnimator;
+    .restart local v9    # "builder3":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    .restart local v10    # "builder2":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    .restart local v11    # "view":Landroid/view/View;
+    .restart local v12    # "iconView":Landroid/view/View;
+    .local v14, "offsetTranslation":I
+    .local v19, "iArr2":[I
+    .local v26, "builder":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    .local v30, "str":Ljava/lang/String;
+    :cond_202
+    move-object v13, v3
 
-    move-object/from16 v6, v25
+    move-object/from16 v32, v7
 
-    move/from16 v3, v26
+    move-object/from16 v35, v9
 
-    move/from16 v2, v27
+    move-object/from16 v36, v10
 
-    :goto_3
-    move-object/from16 v8, v29
+    move-object/from16 v21, v12
 
-    const/4 v7, 0x0
+    move/from16 v33, v14
 
-    goto/16 :goto_5
+    move-object/from16 v34, v19
 
-    :cond_5
-    move/from16 v27, v2
+    move-object/from16 v37, v26
 
-    move-object/from16 v25, v4
+    move-object/from16 v14, v30
 
-    move-object/from16 v22, v5
+    const/4 v12, 0x2
 
-    move/from16 v26, v6
+    move-object/from16 v30, v5
 
-    move-object/from16 v28, v7
+    move-object/from16 v19, v8
 
-    move-object/from16 v29, v8
+    move-object/from16 v26, v11
 
-    move-object v1, v9
+    .end local v3    # "tileView2":Lcom/android/systemui/plugins/qs/QSTileView;
+    .end local v5    # "tileView":Lcom/android/systemui/plugins/qs/QSTileView;
+    .end local v7    # "iArr":[I
+    .end local v8    # "qSAnimator2":Lcom/android/systemui/qs/QSAnimator;
+    .end local v9    # "builder3":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    .end local v10    # "builder2":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    .end local v11    # "view":Landroid/view/View;
+    .end local v12    # "iconView":Landroid/view/View;
+    .restart local v13    # "tileView2":Lcom/android/systemui/plugins/qs/QSTileView;
+    .local v14, "str":Ljava/lang/String;
+    .local v19, "qSAnimator2":Lcom/android/systemui/qs/QSAnimator;
+    .restart local v21    # "iconView":Landroid/view/View;
+    .local v26, "view":Landroid/view/View;
+    .local v30, "tileView":Lcom/android/systemui/plugins/qs/QSTileView;
+    .restart local v32    # "iArr":[I
+    .restart local v33    # "offsetTranslation":I
+    .restart local v34    # "iArr2":[I
+    .restart local v35    # "builder3":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    .restart local v36    # "builder2":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    .restart local v37    # "builder":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    invoke-virtual {v13}, Lcom/android/systemui/plugins/qs/QSTileView;->getIconWithBackground()Landroid/view/View;
 
-    move-object/from16 v9, v20
+    move-result-object v4
 
-    iget-boolean v2, v1, Lcom/android/systemui/qs/QSAnimator;->mFullRows:Z
+    invoke-virtual/range {v30 .. v30}, Lcom/android/systemui/plugins/qs/QSTileView;->getIconWithBackground()Landroid/view/View;
 
-    if-eqz v2, :cond_7
+    move-result-object v5
 
-    move/from16 v2, v27
+    move-object/from16 v3, p0
 
-    invoke-direct {v1, v2}, Lcom/android/systemui/qs/QSAnimator;->isIconInAnimatedRow(I)Z
+    move-object/from16 v6, v26
 
-    move-result v3
+    move v7, v2
 
-    if-eqz v3, :cond_6
+    move/from16 v8, v28
 
-    const/4 v3, 0x2
+    move-object/from16 v9, v32
 
-    new-array v4, v3, [F
+    move-object/from16 v10, v35
 
-    move/from16 v3, v26
+    move-object/from16 v11, v36
 
-    neg-int v5, v3
+    invoke-direct/range {v3 .. v11}, Lcom/android/systemui/qs/QSAnimator;->translateContent(Landroid/view/View;Landroid/view/View;Landroid/view/View;II[ILcom/android/systemui/qs/TouchAnimator$Builder;Lcom/android/systemui/qs/TouchAnimator$Builder;)V
 
-    int-to-float v5, v5
+    .line 189
+    :goto_232
+    invoke-virtual {v13}, Lcom/android/systemui/plugins/qs/QSTileView;->getLabelContainer()Landroid/view/View;
 
-    const/4 v6, 0x0
+    move-result-object v4
 
-    aput v5, v4, v6
+    invoke-virtual/range {v30 .. v30}, Lcom/android/systemui/plugins/qs/QSTileView;->getLabelContainer()Landroid/view/View;
 
-    const/4 v5, 0x1
+    move-result-object v5
 
-    aput v16, v4, v5
+    move-object/from16 v3, p0
 
-    move-object/from16 v6, v25
+    move-object/from16 v6, v26
 
-    invoke-virtual {v11, v14, v6, v4}, Lcom/android/systemui/qs/TouchAnimator$Builder;->addFloat(Ljava/lang/Object;Ljava/lang/String;[F)Lcom/android/systemui/qs/TouchAnimator$Builder;
+    move v7, v2
 
-    iget-object v4, v1, Lcom/android/systemui/qs/QSAnimator;->mAllViews:Ljava/util/ArrayList;
+    move/from16 v8, v28
 
-    invoke-virtual {v4, v10}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    move-object/from16 v9, v32
 
-    goto :goto_3
+    move-object/from16 v10, v35
 
-    :cond_6
-    move-object/from16 v6, v25
+    move-object/from16 v11, v36
 
-    move/from16 v3, v26
+    invoke-direct/range {v3 .. v11}, Lcom/android/systemui/qs/QSAnimator;->translateContent(Landroid/view/View;Landroid/view/View;Landroid/view/View;II[ILcom/android/systemui/qs/TouchAnimator$Builder;Lcom/android/systemui/qs/TouchAnimator$Builder;)V
 
-    goto :goto_4
+    .line 190
+    invoke-virtual {v13}, Lcom/android/systemui/plugins/qs/QSTileView;->getSecondaryIcon()Landroid/view/View;
 
-    :cond_7
-    move-object/from16 v6, v25
+    move-result-object v4
 
-    move/from16 v3, v26
+    invoke-virtual/range {v30 .. v30}, Lcom/android/systemui/plugins/qs/QSTileView;->getSecondaryIcon()Landroid/view/View;
 
-    move/from16 v2, v27
+    move-result-object v5
 
-    :goto_4
-    const/4 v5, 0x1
+    invoke-direct/range {v3 .. v11}, Lcom/android/systemui/qs/QSAnimator;->translateContent(Landroid/view/View;Landroid/view/View;Landroid/view/View;II[ILcom/android/systemui/qs/TouchAnimator$Builder;Lcom/android/systemui/qs/TouchAnimator$Builder;)V
 
-    iget-object v4, v1, Lcom/android/systemui/qs/QSAnimator;->mQuickQsPanel:Lcom/android/systemui/qs/QuickQSPanel;
+    .line 191
+    sget v3, Lcom/android/mwilky/Renovate;->mQsStyle:I
 
-    invoke-virtual {v4}, Lcom/android/systemui/qs/QSPanel;->getTileLayout()Lcom/android/systemui/qs/QSPanel$QSTileLayout;
+    if-nez v3, :cond_268
+
+    .line 192
+    invoke-virtual {v13}, Lcom/android/systemui/plugins/qs/QSTileView;->getSecondaryLabel()Landroid/view/View;
+
+    move-result-object v3
+
+    new-array v4, v12, [F
+
+    fill-array-data v4, :array_518
+
+    move-object/from16 v5, v37
+
+    .end local v37    # "builder":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    .local v5, "builder":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    invoke-virtual {v5, v3, v0, v4}, Lcom/android/systemui/qs/TouchAnimator$Builder;->addFloat(Ljava/lang/Object;Ljava/lang/String;[F)Lcom/android/systemui/qs/TouchAnimator$Builder;
+
+    goto :goto_276
+
+    .line 194
+    .end local v5    # "builder":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    .restart local v37    # "builder":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    :cond_268
+    move-object/from16 v5, v37
+
+    .end local v37    # "builder":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    .restart local v5    # "builder":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    invoke-virtual {v13}, Lcom/android/systemui/plugins/qs/QSTileView;->getLabelContainer()Landroid/view/View;
+
+    move-result-object v3
+
+    new-array v4, v12, [F
+
+    fill-array-data v4, :array_520
+
+    invoke-virtual {v5, v3, v0, v4}, Lcom/android/systemui/qs/TouchAnimator$Builder;->addFloat(Ljava/lang/Object;Ljava/lang/String;[F)Lcom/android/systemui/qs/TouchAnimator$Builder;
+
+    .line 197
+    :goto_276
+    move-object/from16 v3, p0
+
+    .line 198
+    .end local v25    # "qSAnimator":Lcom/android/systemui/qs/QSAnimator;
+    .local v3, "qSAnimator":Lcom/android/systemui/qs/QSAnimator;
+    iget-object v4, v3, Lcom/android/systemui/qs/QSAnimator;->mAnimatedQsViews:Ljava/util/ArrayList;
+
+    move-object/from16 v6, v30
+
+    .end local v30    # "tileView":Lcom/android/systemui/plugins/qs/QSTileView;
+    .local v6, "tileView":Lcom/android/systemui/plugins/qs/QSTileView;
+    invoke-virtual {v4, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    .line 199
+    iget-object v4, v3, Lcom/android/systemui/qs/QSAnimator;->mAllViews:Ljava/util/ArrayList;
+
+    invoke-virtual {v4, v13}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    .line 200
+    sget v4, Lcom/android/mwilky/Renovate;->mQsStyle:I
+
+    if-nez v4, :cond_292
+
+    .line 201
+    iget-object v4, v3, Lcom/android/systemui/qs/QSAnimator;->mAllViews:Ljava/util/ArrayList;
+
+    invoke-virtual {v13}, Lcom/android/systemui/plugins/qs/QSTileView;->getSecondaryLabel()Landroid/view/View;
+
+    move-result-object v7
+
+    invoke-virtual {v4, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto :goto_29b
+
+    .line 203
+    :cond_292
+    iget-object v4, v3, Lcom/android/systemui/qs/QSAnimator;->mAllViews:Ljava/util/ArrayList;
+
+    invoke-virtual {v13}, Lcom/android/systemui/plugins/qs/QSTileView;->getLabelContainer()Landroid/view/View;
+
+    move-result-object v7
+
+    invoke-virtual {v4, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    .line 205
+    :goto_29b
+    nop
+
+    .line 206
+    nop
+
+    .line 207
+    move v4, v1
+
+    move v2, v1
+
+    move-object/from16 v7, v21
+
+    move-object/from16 v9, v26
+
+    move-object/from16 v12, v29
+
+    move-object/from16 v8, v32
+
+    move-object/from16 v4, v34
+
+    move-object/from16 v11, v36
+
+    const/16 v17, 0x0
+
+    .end local v22    # "i":I
+    .local v4, "i":I
+    goto/16 :goto_3c3
+
+    .line 167
+    .end local v19    # "qSAnimator2":Lcom/android/systemui/qs/QSAnimator;
+    .end local v21    # "iconView":Landroid/view/View;
+    .end local v28    # "i4":I
+    .end local v29    # "sideLabelTileLayout":Lcom/android/systemui/qs/SideLabelTileLayout;
+    .end local v31    # "qSTile":Lcom/android/systemui/plugins/qs/QSTile;
+    .end local v32    # "iArr":[I
+    .end local v33    # "offsetTranslation":I
+    .end local v34    # "iArr2":[I
+    .end local v35    # "builder3":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    .end local v36    # "builder2":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    .local v2, "qSTile":Lcom/android/systemui/plugins/qs/QSTile;
+    .local v3, "tileView2":Lcom/android/systemui/plugins/qs/QSTileView;
+    .local v4, "str":Ljava/lang/String;
+    .local v5, "tileView":Lcom/android/systemui/plugins/qs/QSTileView;
+    .local v6, "iArr2":[I
+    .restart local v7    # "iArr":[I
+    .restart local v8    # "qSAnimator2":Lcom/android/systemui/qs/QSAnimator;
+    .restart local v9    # "builder3":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    .restart local v10    # "builder2":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    .restart local v11    # "view":Landroid/view/View;
+    .restart local v12    # "iconView":Landroid/view/View;
+    .local v13, "sideLabelTileLayout":Lcom/android/systemui/qs/SideLabelTileLayout;
+    .local v14, "offsetTranslation":I
+    .restart local v22    # "i":I
+    .restart local v25    # "qSAnimator":Lcom/android/systemui/qs/QSAnimator;
+    .local v26, "builder":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    :cond_2af
+    move-object/from16 v31, v2
+
+    move-object/from16 v34, v6
+
+    move-object/from16 v32, v7
+
+    move-object/from16 v19, v8
+
+    move-object/from16 v35, v9
+
+    move-object/from16 v36, v10
+
+    move-object/from16 v21, v12
+
+    move-object/from16 v29, v13
+
+    move/from16 v33, v14
+
+    const/4 v12, 0x2
+
+    move-object v13, v3
+
+    move-object v14, v4
+
+    move-object v6, v5
+
+    move-object/from16 v5, v26
+
+    move-object/from16 v26, v11
+
+    .end local v2    # "qSTile":Lcom/android/systemui/plugins/qs/QSTile;
+    .end local v3    # "tileView2":Lcom/android/systemui/plugins/qs/QSTileView;
+    .end local v4    # "str":Ljava/lang/String;
+    .end local v7    # "iArr":[I
+    .end local v8    # "qSAnimator2":Lcom/android/systemui/qs/QSAnimator;
+    .end local v9    # "builder3":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    .end local v10    # "builder2":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    .end local v11    # "view":Landroid/view/View;
+    .end local v12    # "iconView":Landroid/view/View;
+    .local v5, "builder":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    .local v6, "tileView":Lcom/android/systemui/plugins/qs/QSTileView;
+    .local v13, "tileView2":Lcom/android/systemui/plugins/qs/QSTileView;
+    .local v14, "str":Ljava/lang/String;
+    .restart local v19    # "qSAnimator2":Lcom/android/systemui/qs/QSAnimator;
+    .restart local v21    # "iconView":Landroid/view/View;
+    .local v26, "view":Landroid/view/View;
+    .restart local v29    # "sideLabelTileLayout":Lcom/android/systemui/qs/SideLabelTileLayout;
+    .restart local v31    # "qSTile":Lcom/android/systemui/plugins/qs/QSTile;
+    .restart local v32    # "iArr":[I
+    .restart local v33    # "offsetTranslation":I
+    .restart local v34    # "iArr2":[I
+    .restart local v35    # "builder3":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    .restart local v36    # "builder2":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    move v2, v1
+
+    move-object/from16 v7, v21
+
+    move/from16 v1, v22
+
+    move-object/from16 v3, v25
+
+    move-object/from16 v9, v26
+
+    move-object/from16 v12, v29
+
+    move-object/from16 v8, v32
+
+    move-object/from16 v4, v34
+
+    move-object/from16 v11, v36
+
+    const/16 v17, 0x0
+
+    goto/16 :goto_3c3
+
+    .line 123
+    .end local v19    # "qSAnimator2":Lcom/android/systemui/qs/QSAnimator;
+    .end local v21    # "iconView":Landroid/view/View;
+    .end local v29    # "sideLabelTileLayout":Lcom/android/systemui/qs/SideLabelTileLayout;
+    .end local v31    # "qSTile":Lcom/android/systemui/plugins/qs/QSTile;
+    .end local v32    # "iArr":[I
+    .end local v33    # "offsetTranslation":I
+    .end local v34    # "iArr2":[I
+    .end local v35    # "builder3":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    .end local v36    # "builder2":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    .restart local v2    # "qSTile":Lcom/android/systemui/plugins/qs/QSTile;
+    .restart local v4    # "str":Ljava/lang/String;
+    .local v5, "tileView":Lcom/android/systemui/plugins/qs/QSTileView;
+    .local v6, "iArr2":[I
+    .restart local v7    # "iArr":[I
+    .restart local v8    # "qSAnimator2":Lcom/android/systemui/qs/QSAnimator;
+    .restart local v9    # "builder3":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    .restart local v10    # "builder2":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    .restart local v11    # "view":Landroid/view/View;
+    .restart local v12    # "iconView":Landroid/view/View;
+    .local v13, "sideLabelTileLayout":Lcom/android/systemui/qs/SideLabelTileLayout;
+    .local v14, "offsetTranslation":I
+    .local v26, "builder":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    :cond_2de
+    move-object/from16 v31, v2
+
+    move-object/from16 v34, v6
+
+    move-object/from16 v32, v7
+
+    move-object/from16 v19, v8
+
+    move-object/from16 v35, v9
+
+    move-object/from16 v36, v10
+
+    move-object/from16 v21, v12
+
+    move-object/from16 v29, v13
+
+    move/from16 v33, v14
+
+    const/4 v12, 0x2
+
+    move-object v14, v4
+
+    move-object v6, v5
+
+    move-object/from16 v5, v26
+
+    move-object/from16 v26, v11
+
+    .line 124
+    .end local v2    # "qSTile":Lcom/android/systemui/plugins/qs/QSTile;
+    .end local v4    # "str":Ljava/lang/String;
+    .end local v7    # "iArr":[I
+    .end local v8    # "qSAnimator2":Lcom/android/systemui/qs/QSAnimator;
+    .end local v9    # "builder3":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    .end local v10    # "builder2":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    .end local v11    # "view":Landroid/view/View;
+    .end local v12    # "iconView":Landroid/view/View;
+    .end local v13    # "sideLabelTileLayout":Lcom/android/systemui/qs/SideLabelTileLayout;
+    .local v5, "builder":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    .local v6, "tileView":Lcom/android/systemui/plugins/qs/QSTileView;
+    .local v14, "str":Ljava/lang/String;
+    .restart local v19    # "qSAnimator2":Lcom/android/systemui/qs/QSAnimator;
+    .restart local v21    # "iconView":Landroid/view/View;
+    .local v26, "view":Landroid/view/View;
+    .restart local v29    # "sideLabelTileLayout":Lcom/android/systemui/qs/SideLabelTileLayout;
+    .restart local v31    # "qSTile":Lcom/android/systemui/plugins/qs/QSTile;
+    .restart local v32    # "iArr":[I
+    .restart local v33    # "offsetTranslation":I
+    .restart local v34    # "iArr2":[I
+    .restart local v35    # "builder3":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    .restart local v36    # "builder2":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    :goto_2f7
+    nop
+
+    .line 125
+    nop
+
+    .line 126
+    move-object/from16 v2, v19
+
+    .line 127
+    .end local v25    # "qSAnimator":Lcom/android/systemui/qs/QSAnimator;
+    .local v2, "qSAnimator":Lcom/android/systemui/qs/QSAnimator;
+    nop
+
+    .line 128
+    iget-boolean v3, v2, Lcom/android/systemui/qs/QSAnimator;->mFullRows:Z
+
+    if-eqz v3, :cond_321
+
+    .line 129
+    move v3, v1
+
+    .line 130
+    .end local v22    # "i":I
+    .local v3, "i":I
+    invoke-direct {v2, v3}, Lcom/android/systemui/qs/QSAnimator;->isIconInAnimatedRow(I)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_31e
+
+    .line 131
+    nop
+
+    .line 132
+    nop
+
+    .line 133
+    new-array v4, v12, [F
+
+    neg-int v7, v15
+
+    int-to-float v7, v7
+
+    const/4 v8, 0x0
+
+    aput v7, v4, v8
+
+    const/4 v7, 0x1
+
+    aput v20, v4, v7
+
+    invoke-virtual {v5, v6, v14, v4}, Lcom/android/systemui/qs/TouchAnimator$Builder;->addFloat(Ljava/lang/Object;Ljava/lang/String;[F)Lcom/android/systemui/qs/TouchAnimator$Builder;
+
+    .line 134
+    iget-object v4, v2, Lcom/android/systemui/qs/QSAnimator;->mAllViews:Ljava/util/ArrayList;
+
+    move-object/from16 v7, v21
+
+    .end local v21    # "iconView":Landroid/view/View;
+    .local v7, "iconView":Landroid/view/View;
+    invoke-virtual {v4, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto :goto_325
+
+    .line 136
+    .end local v7    # "iconView":Landroid/view/View;
+    .restart local v21    # "iconView":Landroid/view/View;
+    :cond_31e
+    move-object/from16 v7, v21
+
+    .line 137
+    .end local v21    # "iconView":Landroid/view/View;
+    .restart local v7    # "iconView":Landroid/view/View;
+    goto :goto_325
+
+    .line 140
+    .end local v3    # "i":I
+    .end local v7    # "iconView":Landroid/view/View;
+    .restart local v21    # "iconView":Landroid/view/View;
+    .restart local v22    # "i":I
+    :cond_321
+    move-object/from16 v7, v21
+
+    .line 141
+    .end local v21    # "iconView":Landroid/view/View;
+    .restart local v7    # "iconView":Landroid/view/View;
+    nop
+
+    .line 142
+    move v3, v1
+
+    .line 144
+    .end local v22    # "i":I
+    .restart local v3    # "i":I
+    :goto_325
+    iget-object v4, v2, Lcom/android/systemui/qs/QSAnimator;->mQuickQsPanel:Lcom/android/systemui/qs/QuickQSPanel;
+
+    invoke-virtual {v4}, Lcom/android/systemui/qs/QuickQSPanel;->getTileLayout()Lcom/android/systemui/qs/QSPanel$QSTileLayout;
 
     move-result-object v4
 
     check-cast v4, Lcom/android/systemui/qs/SideLabelTileLayout;
 
-    move-object/from16 v7, v22
+    move-object/from16 v9, v26
 
-    invoke-direct {v1, v15, v4, v7}, Lcom/android/systemui/qs/QSAnimator;->getRelativePosition([ILandroid/view/View;Landroid/view/View;)V
+    move-object/from16 v8, v32
 
-    move-object/from16 v8, v29
+    .end local v26    # "view":Landroid/view/View;
+    .end local v32    # "iArr":[I
+    .local v8, "iArr":[I
+    .local v9, "view":Landroid/view/View;
+    invoke-direct {v2, v8, v4, v9}, Lcom/android/systemui/qs/QSAnimator;->getRelativePosition([ILandroid/view/View;Landroid/view/View;)V
 
-    invoke-direct {v1, v8, v14, v7}, Lcom/android/systemui/qs/QSAnimator;->getRelativePosition([ILandroid/view/View;Landroid/view/View;)V
+    .line 145
+    nop
 
-    aget v7, v8, v5
+    .line 146
+    move-object/from16 v4, v34
 
-    aget v10, v15, v5
+    .end local v34    # "iArr2":[I
+    .local v4, "iArr2":[I
+    invoke-direct {v2, v4, v6, v9}, Lcom/android/systemui/qs/QSAnimator;->getRelativePosition([ILandroid/view/View;Landroid/view/View;)V
 
-    invoke-virtual {v4, v2}, Lcom/android/systemui/qs/SideLabelTileLayout;->getPhantomTopPosition(I)I
+    .line 147
+    const/16 v18, 0x0
 
-    move-result v4
+    .line 148
+    new-array v10, v12, [F
 
-    add-int/2addr v10, v4
+    const/4 v11, 0x1
 
-    sub-int/2addr v7, v10
+    aget v13, v4, v11
 
-    const/4 v4, 0x2
+    aget v21, v8, v11
 
-    new-array v10, v4, [F
+    move-object/from16 v12, v29
 
-    neg-int v4, v7
+    .end local v29    # "sideLabelTileLayout":Lcom/android/systemui/qs/SideLabelTileLayout;
+    .local v12, "sideLabelTileLayout":Lcom/android/systemui/qs/SideLabelTileLayout;
+    invoke-virtual {v12, v3}, Lcom/android/systemui/qs/SideLabelTileLayout;->getPhantomTopPosition(I)I
 
-    int-to-float v4, v4
+    move-result v22
 
-    const/4 v7, 0x0
+    add-int v21, v21, v22
 
-    aput v4, v10, v7
+    sub-int v13, v13, v21
 
-    aput v16, v10, v5
+    neg-int v13, v13
 
-    invoke-virtual {v12, v14, v6, v10}, Lcom/android/systemui/qs/TouchAnimator$Builder;->addFloat(Ljava/lang/Object;Ljava/lang/String;[F)Lcom/android/systemui/qs/TouchAnimator$Builder;
+    int-to-float v13, v13
 
-    iget-object v4, v1, Lcom/android/systemui/qs/QSAnimator;->mOtherTilesExpandAnimator:Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;
+    const/16 v17, 0x0
 
-    if-nez v4, :cond_8
+    aput v13, v10, v17
 
-    new-instance v4, Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;
+    aput v20, v10, v11
 
-    invoke-virtual {v14}, Landroid/widget/LinearLayout;->getMeasuredHeight()I
+    move-object/from16 v11, v36
 
-    move-result v10
+    .end local v36    # "builder2":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    .local v11, "builder2":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    invoke-virtual {v11, v6, v14, v10}, Lcom/android/systemui/qs/TouchAnimator$Builder;->addFloat(Ljava/lang/Object;Ljava/lang/String;[F)Lcom/android/systemui/qs/TouchAnimator$Builder;
 
-    invoke-direct {v4, v1, v0, v10}, Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;-><init>(Lcom/android/systemui/qs/TouchAnimator$Listener;II)V
+    .line 149
+    iget-object v10, v2, Lcom/android/systemui/qs/QSAnimator;->mOtherTilesExpandAnimator:Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;
 
-    iput-object v4, v1, Lcom/android/systemui/qs/QSAnimator;->mOtherTilesExpandAnimator:Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;
+    if-nez v10, :cond_36e
 
-    :cond_8
-    iget-object v4, v1, Lcom/android/systemui/qs/QSAnimator;->mOtherTilesExpandAnimator:Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;
+    .line 150
+    new-instance v10, Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;
 
-    invoke-virtual {v4, v14}, Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;->addView(Landroid/view/View;)V
+    invoke-virtual {v6}, Lcom/android/systemui/plugins/qs/QSTileView;->getMeasuredHeight()I
 
-    invoke-virtual {v14, v5}, Landroid/widget/LinearLayout;->setClipChildren(Z)V
+    move-result v13
 
-    invoke-virtual {v14, v5}, Landroid/widget/LinearLayout;->setClipToPadding(Z)V
+    move/from16 v21, v1
 
-    invoke-virtual {v14}, Lcom/android/systemui/plugins/qs/QSTileView;->getSecondaryLabel()Landroid/view/View;
+    move/from16 v1, v27
 
-    move-result-object v4
+    .end local v27    # "i2":I
+    .local v1, "i2":I
+    .local v21, "i3":I
+    invoke-direct {v10, v2, v1, v13}, Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;-><init>(Lcom/android/systemui/qs/TouchAnimator$Listener;II)V
+
+    iput-object v10, v2, Lcom/android/systemui/qs/QSAnimator;->mOtherTilesExpandAnimator:Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;
+
+    goto :goto_372
+
+    .line 149
+    .end local v21    # "i3":I
+    .local v1, "i3":I
+    .restart local v27    # "i2":I
+    :cond_36e
+    move/from16 v21, v1
+
+    move/from16 v1, v27
+
+    .line 152
+    .end local v27    # "i2":I
+    .local v1, "i2":I
+    .restart local v21    # "i3":I
+    :goto_372
+    iget-object v10, v2, Lcom/android/systemui/qs/QSAnimator;->mOtherTilesExpandAnimator:Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;
+
+    invoke-virtual {v10, v6}, Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;->addView(Landroid/view/View;)V
+
+    .line 153
+    const/4 v10, 0x1
+
+    invoke-virtual {v6, v10}, Lcom/android/systemui/plugins/qs/QSTileView;->setClipChildren(Z)V
+
+    .line 154
+    invoke-virtual {v6, v10}, Lcom/android/systemui/plugins/qs/QSTileView;->setClipToPadding(Z)V
+
+    .line 155
+    sget v13, Lcom/android/mwilky/Renovate;->mQsStyle:I
+
+    if-nez v13, :cond_39b
+
+    .line 156
+    invoke-virtual {v6}, Lcom/android/systemui/plugins/qs/QSTileView;->getSecondaryLabel()Landroid/view/View;
+
+    move-result-object v13
+
+    move/from16 v27, v1
 
     const/4 v10, 0x2
 
-    new-array v5, v10, [F
+    .end local v1    # "i2":I
+    .restart local v27    # "i2":I
+    new-array v1, v10, [F
 
-    fill-array-data v5, :array_1
+    fill-array-data v1, :array_528
 
-    invoke-virtual {v11, v4, v9, v5}, Lcom/android/systemui/qs/TouchAnimator$Builder;->addFloat(Ljava/lang/Object;Ljava/lang/String;[F)Lcom/android/systemui/qs/TouchAnimator$Builder;
+    invoke-virtual {v5, v13, v0, v1}, Lcom/android/systemui/qs/TouchAnimator$Builder;->addFloat(Ljava/lang/Object;Ljava/lang/String;[F)Lcom/android/systemui/qs/TouchAnimator$Builder;
 
-    iget-object v4, v1, Lcom/android/systemui/qs/QSAnimator;->mAllViews:Ljava/util/ArrayList;
+    .line 157
+    iget-object v1, v2, Lcom/android/systemui/qs/QSAnimator;->mAllViews:Ljava/util/ArrayList;
 
-    invoke-virtual {v14}, Lcom/android/systemui/plugins/qs/QSTileView;->getSecondaryLabel()Landroid/view/View;
+    invoke-virtual {v6}, Lcom/android/systemui/plugins/qs/QSTileView;->getSecondaryLabel()Landroid/view/View;
 
-    move-result-object v5
+    move-result-object v13
 
-    invoke-virtual {v4, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v13}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    :goto_5
-    iget-object v4, v1, Lcom/android/systemui/qs/QSAnimator;->mAllViews:Ljava/util/ArrayList;
+    goto :goto_3b3
 
-    invoke-virtual {v4, v14}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    .line 159
+    .end local v27    # "i2":I
+    .restart local v1    # "i2":I
+    :cond_39b
+    move/from16 v27, v1
 
-    add-int/lit8 v2, v2, 0x1
+    const/4 v10, 0x2
+
+    .end local v1    # "i2":I
+    .restart local v27    # "i2":I
+    invoke-virtual {v6}, Lcom/android/systemui/plugins/qs/QSTileView;->getLabelContainer()Landroid/view/View;
+
+    move-result-object v1
+
+    new-array v13, v10, [F
+
+    fill-array-data v13, :array_530
+
+    invoke-virtual {v5, v1, v0, v13}, Lcom/android/systemui/qs/TouchAnimator$Builder;->addFloat(Ljava/lang/Object;Ljava/lang/String;[F)Lcom/android/systemui/qs/TouchAnimator$Builder;
+
+    .line 160
+    iget-object v1, v2, Lcom/android/systemui/qs/QSAnimator;->mAllViews:Ljava/util/ArrayList;
+
+    invoke-virtual {v6}, Lcom/android/systemui/plugins/qs/QSTileView;->getLabelContainer()Landroid/view/View;
+
+    move-result-object v10
+
+    invoke-virtual {v1, v10}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    .line 162
+    :goto_3b3
+    iget-object v1, v2, Lcom/android/systemui/qs/QSAnimator;->mAllViews:Ljava/util/ArrayList;
+
+    invoke-virtual {v1, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    .line 163
+    add-int/lit8 v1, v3, 0x1
+
+    .line 164
+    .end local v21    # "i3":I
+    .local v1, "i3":I
+    move-object v10, v2
+
+    move-object/from16 v19, v10
+
+    move-object/from16 v38, v2
+
+    move v2, v1
+
+    move v1, v3
+
+    move-object/from16 v3, v38
+
+    .line 210
+    .local v1, "i":I
+    .local v2, "i3":I
+    .local v3, "qSAnimator":Lcom/android/systemui/qs/QSAnimator;
+    :goto_3c3
+    const/4 v10, 0x0
+
+    .line 211
+    .end local v18    # "z":Z
+    .local v10, "z":Z
+    iget-object v13, v3, Lcom/android/systemui/qs/QSAnimator;->mAllViews:Ljava/util/ArrayList;
+
+    invoke-virtual {v13, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    .line 212
+    add-int/lit8 v2, v1, 0x1
+
+    .line 213
+    move-object v13, v3
+
+    move/from16 v22, v1
+
+    move v1, v2
+
+    move-object v2, v3
+
+    move/from16 v18, v10
+
+    move/from16 v3, v27
+
+    .line 215
+    .end local v6    # "tileView":Lcom/android/systemui/plugins/qs/QSTileView;
+    .end local v7    # "iconView":Landroid/view/View;
+    .end local v9    # "view":Landroid/view/View;
+    .end local v10    # "z":Z
+    .end local v19    # "qSAnimator2":Lcom/android/systemui/qs/QSAnimator;
+    .end local v27    # "i2":I
+    .end local v31    # "qSTile":Lcom/android/systemui/plugins/qs/QSTile;
+    .local v1, "i3":I
+    .local v2, "qSAnimator":Lcom/android/systemui/qs/QSAnimator;
+    .local v3, "i2":I
+    .local v13, "qSAnimator2":Lcom/android/systemui/qs/QSAnimator;
+    .restart local v18    # "z":Z
+    .restart local v22    # "i":I
+    :goto_3d4
+    move-object v6, v4
+
+    move-object v7, v8
+
+    move-object v10, v11
+
+    move-object v8, v13
+
+    move-object v4, v14
+
+    move/from16 v14, v33
+
+    move-object/from16 v9, v35
+
+    move-object v11, v5
+
+    move-object v13, v12
+
+    move-object/from16 v5, v24
+
+    move-object/from16 v12, p0
+
+    goto/16 :goto_c1
+
+    .line 114
+    .end local v12    # "sideLabelTileLayout":Lcom/android/systemui/qs/SideLabelTileLayout;
+    .end local v24    # "tileLayout":Lcom/android/systemui/qs/QSPanel$QSTileLayout;
+    .end local v33    # "offsetTranslation":I
+    .end local v35    # "builder3":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    .local v4, "str":Ljava/lang/String;
+    .local v5, "tileLayout":Lcom/android/systemui/qs/QSPanel$QSTileLayout;
+    .local v6, "iArr2":[I
+    .local v7, "iArr":[I
+    .local v8, "qSAnimator2":Lcom/android/systemui/qs/QSAnimator;
+    .local v9, "builder3":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    .local v10, "builder2":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    .local v11, "builder":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    .local v13, "sideLabelTileLayout":Lcom/android/systemui/qs/SideLabelTileLayout;
+    .local v14, "offsetTranslation":I
+    :cond_3e5
+    move/from16 v21, v1
+
+    move-object/from16 v25, v2
+
+    move/from16 v27, v3
+
+    move-object/from16 v24, v5
+
+    move-object/from16 v19, v8
+
+    move-object/from16 v35, v9
+
+    move-object v5, v11
+
+    move-object v12, v13
+
+    move/from16 v33, v14
+
+    move-object v14, v4
 
     move-object v4, v6
 
-    move v10, v7
+    move-object v8, v7
 
-    move-object/from16 v7, v28
+    move-object v11, v10
 
-    const/4 v5, 0x1
+    .end local v1    # "i3":I
+    .end local v2    # "qSAnimator":Lcom/android/systemui/qs/QSAnimator;
+    .end local v3    # "i2":I
+    .end local v6    # "iArr2":[I
+    .end local v7    # "iArr":[I
+    .end local v9    # "builder3":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    .end local v10    # "builder2":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    .end local v13    # "sideLabelTileLayout":Lcom/android/systemui/qs/SideLabelTileLayout;
+    .local v4, "iArr2":[I
+    .local v5, "builder":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    .local v8, "iArr":[I
+    .local v11, "builder2":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    .restart local v12    # "sideLabelTileLayout":Lcom/android/systemui/qs/SideLabelTileLayout;
+    .local v14, "str":Ljava/lang/String;
+    .restart local v19    # "qSAnimator2":Lcom/android/systemui/qs/QSAnimator;
+    .restart local v21    # "i3":I
+    .restart local v24    # "tileLayout":Lcom/android/systemui/qs/QSPanel$QSTileLayout;
+    .restart local v25    # "qSAnimator":Lcom/android/systemui/qs/QSAnimator;
+    .restart local v27    # "i2":I
+    .restart local v33    # "offsetTranslation":I
+    .restart local v35    # "builder3":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    move-object/from16 v3, v19
 
-    const/4 v14, 0x2
+    move/from16 v1, v22
 
-    move v6, v3
+    goto :goto_40a
 
-    move-object v3, v9
+    .line 111
+    .end local v8    # "iArr":[I
+    .end local v12    # "sideLabelTileLayout":Lcom/android/systemui/qs/SideLabelTileLayout;
+    .end local v19    # "qSAnimator2":Lcom/android/systemui/qs/QSAnimator;
+    .end local v21    # "i3":I
+    .end local v22    # "i":I
+    .end local v24    # "tileLayout":Lcom/android/systemui/qs/QSPanel$QSTileLayout;
+    .end local v25    # "qSAnimator":Lcom/android/systemui/qs/QSAnimator;
+    .end local v27    # "i2":I
+    .end local v33    # "offsetTranslation":I
+    .end local v35    # "builder3":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    .local v1, "i":I
+    .restart local v2    # "qSAnimator":Lcom/android/systemui/qs/QSAnimator;
+    .local v3, "qSAnimator2":Lcom/android/systemui/qs/QSAnimator;
+    .local v4, "str":Ljava/lang/String;
+    .local v5, "tileLayout":Lcom/android/systemui/qs/QSPanel$QSTileLayout;
+    .restart local v6    # "iArr2":[I
+    .restart local v7    # "iArr":[I
+    .restart local v9    # "builder3":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    .restart local v10    # "builder2":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    .local v11, "builder":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    .restart local v13    # "sideLabelTileLayout":Lcom/android/systemui/qs/SideLabelTileLayout;
+    .local v14, "offsetTranslation":I
+    :cond_3fe
+    move-object/from16 v24, v5
 
-    move-object v9, v1
+    move-object v8, v7
 
-    goto/16 :goto_1
+    move-object/from16 v35, v9
 
-    :cond_9
-    move-object/from16 v28, v7
+    move-object v5, v11
 
-    move-object v1, v9
+    move-object v12, v13
 
-    move-object v9, v3
+    move/from16 v33, v14
 
-    iget-boolean v0, v1, Lcom/android/systemui/qs/QSAnimator;->mAllowFancy:Z
+    move-object v14, v4
 
-    if-eqz v0, :cond_d
+    move-object v4, v6
 
-    invoke-direct {v1, v11}, Lcom/android/systemui/qs/QSAnimator;->animateBrightnessSlider(Lcom/android/systemui/qs/TouchAnimator$Builder;)V
+    move-object v11, v10
 
-    invoke-virtual {v11, v1}, Lcom/android/systemui/qs/TouchAnimator$Builder;->setListener(Lcom/android/systemui/qs/TouchAnimator$Listener;)Lcom/android/systemui/qs/TouchAnimator$Builder;
+    .line 217
+    .end local v6    # "iArr2":[I
+    .end local v7    # "iArr":[I
+    .end local v9    # "builder3":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    .end local v10    # "builder2":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    .end local v13    # "sideLabelTileLayout":Lcom/android/systemui/qs/SideLabelTileLayout;
+    .local v4, "iArr2":[I
+    .local v5, "builder":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    .restart local v8    # "iArr":[I
+    .local v11, "builder2":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    .restart local v12    # "sideLabelTileLayout":Lcom/android/systemui/qs/SideLabelTileLayout;
+    .local v14, "str":Ljava/lang/String;
+    .restart local v24    # "tileLayout":Lcom/android/systemui/qs/QSPanel$QSTileLayout;
+    .restart local v33    # "offsetTranslation":I
+    .restart local v35    # "builder3":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    :goto_40a
+    iget-boolean v6, v3, Lcom/android/systemui/qs/QSAnimator;->mAllowFancy:Z
 
-    move-result-object v0
+    if-eqz v6, :cond_4d2
 
-    invoke-virtual {v0}, Lcom/android/systemui/qs/TouchAnimator$Builder;->build()Lcom/android/systemui/qs/TouchAnimator;
+    .line 218
+    invoke-direct {v3, v5}, Lcom/android/systemui/qs/QSAnimator;->animateBrightnessSlider(Lcom/android/systemui/qs/TouchAnimator$Builder;)V
 
-    move-result-object v0
+    .line 219
+    invoke-virtual {v5, v3}, Lcom/android/systemui/qs/TouchAnimator$Builder;->setListener(Lcom/android/systemui/qs/TouchAnimator$Listener;)Lcom/android/systemui/qs/TouchAnimator$Builder;
 
-    iput-object v0, v1, Lcom/android/systemui/qs/QSAnimator;->mFirstPageAnimator:Lcom/android/systemui/qs/TouchAnimator;
+    move-result-object v6
 
-    new-instance v0, Lcom/android/systemui/qs/TouchAnimator$Builder;
+    invoke-virtual {v6}, Lcom/android/systemui/qs/TouchAnimator$Builder;->build()Lcom/android/systemui/qs/TouchAnimator;
 
-    invoke-direct {v0}, Lcom/android/systemui/qs/TouchAnimator$Builder;-><init>()V
+    move-result-object v6
 
-    const/4 v2, 0x2
+    iput-object v6, v3, Lcom/android/systemui/qs/QSAnimator;->mFirstPageAnimator:Lcom/android/systemui/qs/TouchAnimator;
 
-    new-array v3, v2, [F
+    .line 220
+    move-object/from16 v6, v24
 
-    fill-array-data v3, :array_2
+    .line 221
+    .local v6, "qSTileLayout":Lcom/android/systemui/qs/QSPanel$QSTileLayout;
+    new-instance v7, Lcom/android/systemui/qs/TouchAnimator$Builder;
 
-    move-object/from16 v2, v28
+    invoke-direct {v7}, Lcom/android/systemui/qs/TouchAnimator$Builder;-><init>()V
 
-    invoke-virtual {v0, v2, v9, v3}, Lcom/android/systemui/qs/TouchAnimator$Builder;->addFloat(Ljava/lang/Object;Ljava/lang/String;[F)Lcom/android/systemui/qs/TouchAnimator$Builder;
+    const/4 v9, 0x2
 
-    move-result-object v0
+    new-array v10, v9, [F
 
-    invoke-virtual {v0}, Lcom/android/systemui/qs/TouchAnimator$Builder;->build()Lcom/android/systemui/qs/TouchAnimator;
+    fill-array-data v10, :array_538
 
-    move-result-object v0
+    invoke-virtual {v7, v6, v0, v10}, Lcom/android/systemui/qs/TouchAnimator$Builder;->addFloat(Ljava/lang/Object;Ljava/lang/String;[F)Lcom/android/systemui/qs/TouchAnimator$Builder;
 
-    iput-object v0, v1, Lcom/android/systemui/qs/QSAnimator;->mFirstPageDelayedAnimator:Lcom/android/systemui/qs/TouchAnimator;
+    move-result-object v7
 
-    iget-object v0, v1, Lcom/android/systemui/qs/QSAnimator;->mQQSFooterActions:Landroid/view/View;
+    invoke-virtual {v7}, Lcom/android/systemui/qs/TouchAnimator$Builder;->build()Lcom/android/systemui/qs/TouchAnimator;
 
-    invoke-virtual {v0}, Landroid/view/View;->getVisibility()I
+    move-result-object v7
 
-    move-result v0
+    iput-object v7, v3, Lcom/android/systemui/qs/QSAnimator;->mFirstPageDelayedAnimator:Lcom/android/systemui/qs/TouchAnimator;
 
-    const/16 v3, 0x8
+    .line 222
+    iget-object v7, v3, Lcom/android/systemui/qs/QSAnimator;->mQQSFooterActions:Landroid/view/View;
 
-    if-eq v0, v3, :cond_a
+    invoke-virtual {v7}, Landroid/view/View;->getVisibility()I
 
+    move-result v7
+
+    const/16 v9, 0x8
+
+    if-eq v7, v9, :cond_43f
+
+    .line 223
     invoke-direct/range {p0 .. p0}, Lcom/android/systemui/qs/QSAnimator;->updateQQSFooterAnimation()V
 
-    :cond_a
-    new-instance v0, Lcom/android/systemui/qs/TouchAnimator$Builder;
+    .line 225
+    :cond_43f
+    new-instance v7, Lcom/android/systemui/qs/TouchAnimator$Builder;
 
-    invoke-direct {v0}, Lcom/android/systemui/qs/TouchAnimator$Builder;-><init>()V
+    invoke-direct {v7}, Lcom/android/systemui/qs/TouchAnimator$Builder;-><init>()V
 
-    const v3, 0x3f5c28f6    # 0.86f
+    const v9, 0x3f5c28f6    # 0.86f
 
-    invoke-virtual {v0, v3}, Lcom/android/systemui/qs/TouchAnimator$Builder;->setStartDelay(F)Lcom/android/systemui/qs/TouchAnimator$Builder;
+    invoke-virtual {v7, v9}, Lcom/android/systemui/qs/TouchAnimator$Builder;->setStartDelay(F)Lcom/android/systemui/qs/TouchAnimator$Builder;
 
-    move-result-object v0
+    move-result-object v7
 
-    iget-object v3, v1, Lcom/android/systemui/qs/QSAnimator;->mSecurityFooter:Lcom/android/systemui/qs/QSSecurityFooter;
+    .line 226
+    .local v7, "startDelay":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    iget-object v9, v3, Lcom/android/systemui/qs/QSAnimator;->mSecurityFooter:Lcom/android/systemui/qs/QSSecurityFooter;
 
-    invoke-virtual {v3}, Lcom/android/systemui/qs/QSSecurityFooter;->getView()Landroid/view/View;
+    invoke-virtual {v9}, Lcom/android/systemui/qs/QSSecurityFooter;->getView()Landroid/view/View;
 
-    move-result-object v3
+    move-result-object v9
 
-    const/4 v4, 0x2
+    const/4 v10, 0x2
 
-    new-array v5, v4, [F
+    new-array v13, v10, [F
 
-    fill-array-data v5, :array_3
+    fill-array-data v13, :array_540
 
-    invoke-virtual {v0, v3, v9, v5}, Lcom/android/systemui/qs/TouchAnimator$Builder;->addFloat(Ljava/lang/Object;Ljava/lang/String;[F)Lcom/android/systemui/qs/TouchAnimator$Builder;
+    invoke-virtual {v7, v9, v0, v13}, Lcom/android/systemui/qs/TouchAnimator$Builder;->addFloat(Ljava/lang/Object;Ljava/lang/String;[F)Lcom/android/systemui/qs/TouchAnimator$Builder;
 
-    iget-object v3, v1, Lcom/android/systemui/qs/QSAnimator;->mQsPanelController:Lcom/android/systemui/qs/QSPanelController;
+    .line 227
+    iget-object v9, v3, Lcom/android/systemui/qs/QSAnimator;->mQsPanelController:Lcom/android/systemui/qs/QSPanelController;
 
-    invoke-virtual {v3}, Lcom/android/systemui/qs/QSPanelControllerBase;->shouldUseHorizontalLayout()Z
+    invoke-virtual {v9}, Lcom/android/systemui/qs/QSPanelController;->shouldUseHorizontalLayout()Z
 
-    move-result v3
+    move-result v9
 
-    if-eqz v3, :cond_b
+    if-eqz v9, :cond_476
 
-    iget-object v3, v1, Lcom/android/systemui/qs/QSAnimator;->mQsPanelController:Lcom/android/systemui/qs/QSPanelController;
+    iget-object v9, v3, Lcom/android/systemui/qs/QSAnimator;->mQsPanelController:Lcom/android/systemui/qs/QSPanelController;
 
-    iget-object v3, v3, Lcom/android/systemui/qs/QSPanelControllerBase;->mMediaHost:Lcom/android/systemui/media/MediaHost;
+    iget-object v9, v9, Lcom/android/systemui/qs/QSPanelController;->mMediaHost:Lcom/android/systemui/media/MediaHost;
 
-    iget-object v3, v3, Lcom/android/systemui/media/MediaHost;->hostView:Lcom/android/systemui/util/animation/UniqueObjectHostView;
+    iget-object v9, v9, Lcom/android/systemui/media/MediaHost;->hostView:Lcom/android/systemui/util/animation/UniqueObjectHostView;
 
-    if-eqz v3, :cond_b
+    move-object v10, v9
 
-    new-array v5, v4, [F
+    .local v10, "uniqueObjectHostView":Lcom/android/systemui/util/animation/UniqueObjectHostView;
+    if-nez v9, :cond_46c
 
-    fill-array-data v5, :array_4
+    goto :goto_476
 
-    invoke-virtual {v0, v3, v9, v5}, Lcom/android/systemui/qs/TouchAnimator$Builder;->addFloat(Ljava/lang/Object;Ljava/lang/String;[F)Lcom/android/systemui/qs/TouchAnimator$Builder;
+    .line 230
+    :cond_46c
+    const/4 v9, 0x2
 
-    goto :goto_6
+    new-array v13, v9, [F
 
-    :cond_b
-    iget-object v3, v1, Lcom/android/systemui/qs/QSAnimator;->mQsPanelController:Lcom/android/systemui/qs/QSPanelController;
+    fill-array-data v13, :array_548
 
-    iget-object v3, v3, Lcom/android/systemui/qs/QSPanelControllerBase;->mMediaHost:Lcom/android/systemui/media/MediaHost;
+    invoke-virtual {v7, v10, v0, v13}, Lcom/android/systemui/qs/TouchAnimator$Builder;->addFloat(Ljava/lang/Object;Ljava/lang/String;[F)Lcom/android/systemui/qs/TouchAnimator$Builder;
 
-    iget-object v3, v3, Lcom/android/systemui/media/MediaHost;->hostView:Lcom/android/systemui/util/animation/UniqueObjectHostView;
+    goto :goto_481
 
-    const/high16 v4, 0x3f800000    # 1.0f
+    .line 228
+    .end local v10    # "uniqueObjectHostView":Lcom/android/systemui/util/animation/UniqueObjectHostView;
+    :cond_476
+    :goto_476
+    iget-object v9, v3, Lcom/android/systemui/qs/QSAnimator;->mQsPanelController:Lcom/android/systemui/qs/QSPanelController;
 
-    invoke-virtual {v3, v4}, Landroid/widget/FrameLayout;->setAlpha(F)V
+    iget-object v9, v9, Lcom/android/systemui/qs/QSPanelController;->mMediaHost:Lcom/android/systemui/media/MediaHost;
 
-    :goto_6
-    invoke-virtual {v0}, Lcom/android/systemui/qs/TouchAnimator$Builder;->build()Lcom/android/systemui/qs/TouchAnimator;
+    iget-object v9, v9, Lcom/android/systemui/media/MediaHost;->hostView:Lcom/android/systemui/util/animation/UniqueObjectHostView;
 
-    move-result-object v0
+    const/high16 v10, 0x3f800000    # 1.0f
 
-    iput-object v0, v1, Lcom/android/systemui/qs/QSAnimator;->mAllPagesDelayedAnimator:Lcom/android/systemui/qs/TouchAnimator;
+    invoke-virtual {v9, v10}, Lcom/android/systemui/util/animation/UniqueObjectHostView;->setAlpha(F)V
 
-    iget-object v0, v1, Lcom/android/systemui/qs/QSAnimator;->mAllViews:Ljava/util/ArrayList;
+    .line 232
+    :goto_481
+    invoke-virtual {v7}, Lcom/android/systemui/qs/TouchAnimator$Builder;->build()Lcom/android/systemui/qs/TouchAnimator;
 
-    iget-object v3, v1, Lcom/android/systemui/qs/QSAnimator;->mSecurityFooter:Lcom/android/systemui/qs/QSSecurityFooter;
+    move-result-object v9
 
-    invoke-virtual {v3}, Lcom/android/systemui/qs/QSSecurityFooter;->getView()Landroid/view/View;
+    iput-object v9, v3, Lcom/android/systemui/qs/QSAnimator;->mAllPagesDelayedAnimator:Lcom/android/systemui/qs/TouchAnimator;
 
-    move-result-object v3
+    .line 233
+    iget-object v9, v3, Lcom/android/systemui/qs/QSAnimator;->mAllViews:Ljava/util/ArrayList;
 
-    invoke-virtual {v0, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    iget-object v10, v3, Lcom/android/systemui/qs/QSAnimator;->mSecurityFooter:Lcom/android/systemui/qs/QSSecurityFooter;
 
-    iget-object v0, v1, Lcom/android/systemui/qs/QSAnimator;->mQSExpansionPathInterpolator:Lcom/android/systemui/qs/QSExpansionPathInterpolator;
+    invoke-virtual {v10}, Lcom/android/systemui/qs/QSSecurityFooter;->getView()Landroid/view/View;
 
-    invoke-virtual {v0}, Lcom/android/systemui/qs/QSExpansionPathInterpolator;->getYInterpolator()Landroid/view/animation/Interpolator;
+    move-result-object v10
 
-    move-result-object v0
+    invoke-virtual {v9, v10}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    invoke-virtual {v12, v0}, Lcom/android/systemui/qs/TouchAnimator$Builder;->setInterpolator(Landroid/view/animation/Interpolator;)Lcom/android/systemui/qs/TouchAnimator$Builder;
+    .line 234
+    iget-object v9, v3, Lcom/android/systemui/qs/QSAnimator;->mQSExpansionPathInterpolator:Lcom/android/systemui/qs/QSExpansionPathInterpolator;
 
-    iget-object v0, v1, Lcom/android/systemui/qs/QSAnimator;->mQSExpansionPathInterpolator:Lcom/android/systemui/qs/QSExpansionPathInterpolator;
+    invoke-virtual {v9}, Lcom/android/systemui/qs/QSExpansionPathInterpolator;->getYInterpolator()Landroid/view/animation/Interpolator;
 
-    invoke-virtual {v0}, Lcom/android/systemui/qs/QSExpansionPathInterpolator;->getXInterpolator()Landroid/view/animation/Interpolator;
+    move-result-object v9
 
-    move-result-object v0
+    invoke-virtual {v11, v9}, Lcom/android/systemui/qs/TouchAnimator$Builder;->setInterpolator(Landroid/view/animation/Interpolator;)Lcom/android/systemui/qs/TouchAnimator$Builder;
 
-    invoke-virtual {v13, v0}, Lcom/android/systemui/qs/TouchAnimator$Builder;->setInterpolator(Landroid/view/animation/Interpolator;)Lcom/android/systemui/qs/TouchAnimator$Builder;
+    .line 235
+    iget-object v9, v3, Lcom/android/systemui/qs/QSAnimator;->mQSExpansionPathInterpolator:Lcom/android/systemui/qs/QSExpansionPathInterpolator;
 
-    invoke-virtual {v12}, Lcom/android/systemui/qs/TouchAnimator$Builder;->build()Lcom/android/systemui/qs/TouchAnimator;
+    invoke-virtual {v9}, Lcom/android/systemui/qs/QSExpansionPathInterpolator;->getXInterpolator()Landroid/view/animation/Interpolator;
 
-    move-result-object v0
+    move-result-object v9
 
-    iput-object v0, v1, Lcom/android/systemui/qs/QSAnimator;->mTranslationYAnimator:Lcom/android/systemui/qs/TouchAnimator;
+    move-object/from16 v10, v35
 
-    invoke-virtual {v13}, Lcom/android/systemui/qs/TouchAnimator$Builder;->build()Lcom/android/systemui/qs/TouchAnimator;
+    .end local v35    # "builder3":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    .local v10, "builder3":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    invoke-virtual {v10, v9}, Lcom/android/systemui/qs/TouchAnimator$Builder;->setInterpolator(Landroid/view/animation/Interpolator;)Lcom/android/systemui/qs/TouchAnimator$Builder;
 
-    move-result-object v0
+    .line 236
+    invoke-virtual {v11}, Lcom/android/systemui/qs/TouchAnimator$Builder;->build()Lcom/android/systemui/qs/TouchAnimator;
 
-    iput-object v0, v1, Lcom/android/systemui/qs/QSAnimator;->mTranslationXAnimator:Lcom/android/systemui/qs/TouchAnimator;
+    move-result-object v9
 
-    iget-object v0, v1, Lcom/android/systemui/qs/QSAnimator;->mQQSTileHeightAnimator:Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;
+    iput-object v9, v3, Lcom/android/systemui/qs/QSAnimator;->mTranslationYAnimator:Lcom/android/systemui/qs/TouchAnimator;
 
-    if-eqz v0, :cond_c
+    .line 237
+    invoke-virtual {v10}, Lcom/android/systemui/qs/TouchAnimator$Builder;->build()Lcom/android/systemui/qs/TouchAnimator;
 
-    iget-object v3, v1, Lcom/android/systemui/qs/QSAnimator;->mQSExpansionPathInterpolator:Lcom/android/systemui/qs/QSExpansionPathInterpolator;
+    move-result-object v9
 
-    invoke-virtual {v3}, Lcom/android/systemui/qs/QSExpansionPathInterpolator;->getYInterpolator()Landroid/view/animation/Interpolator;
+    iput-object v9, v3, Lcom/android/systemui/qs/QSAnimator;->mTranslationXAnimator:Lcom/android/systemui/qs/TouchAnimator;
 
-    move-result-object v3
+    .line 238
+    iget-object v9, v3, Lcom/android/systemui/qs/QSAnimator;->mQQSTileHeightAnimator:Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;
 
-    invoke-virtual {v0, v3}, Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
+    .line 239
+    .local v9, "heightExpansionAnimator":Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;
+    if-eqz v9, :cond_4bf
 
-    :cond_c
-    iget-object v0, v1, Lcom/android/systemui/qs/QSAnimator;->mOtherTilesExpandAnimator:Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;
+    .line 240
+    iget-object v13, v3, Lcom/android/systemui/qs/QSAnimator;->mQSExpansionPathInterpolator:Lcom/android/systemui/qs/QSExpansionPathInterpolator;
 
-    if-eqz v0, :cond_e
+    invoke-virtual {v13}, Lcom/android/systemui/qs/QSExpansionPathInterpolator;->getYInterpolator()Landroid/view/animation/Interpolator;
 
-    iget-object v3, v1, Lcom/android/systemui/qs/QSAnimator;->mQSExpansionPathInterpolator:Lcom/android/systemui/qs/QSExpansionPathInterpolator;
+    move-result-object v13
 
-    invoke-virtual {v3}, Lcom/android/systemui/qs/QSExpansionPathInterpolator;->getYInterpolator()Landroid/view/animation/Interpolator;
+    invoke-virtual {v9, v13}, Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
 
-    move-result-object v3
+    .line 242
+    :cond_4bf
+    iget-object v13, v3, Lcom/android/systemui/qs/QSAnimator;->mOtherTilesExpandAnimator:Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;
 
-    invoke-virtual {v0, v3}, Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
+    .line 243
+    .local v13, "heightExpansionAnimator2":Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;
+    if-eqz v13, :cond_4cf
 
-    goto :goto_7
+    .line 244
+    move/from16 v17, v1
 
-    :cond_d
-    move-object/from16 v2, v28
+    .end local v1    # "i":I
+    .local v17, "i":I
+    iget-object v1, v3, Lcom/android/systemui/qs/QSAnimator;->mQSExpansionPathInterpolator:Lcom/android/systemui/qs/QSExpansionPathInterpolator;
 
-    :cond_e
-    :goto_7
-    new-instance v0, Lcom/android/systemui/qs/TouchAnimator$Builder;
+    invoke-virtual {v1}, Lcom/android/systemui/qs/QSExpansionPathInterpolator;->getYInterpolator()Landroid/view/animation/Interpolator;
 
-    invoke-direct {v0}, Lcom/android/systemui/qs/TouchAnimator$Builder;-><init>()V
+    move-result-object v1
 
-    iget-object v3, v1, Lcom/android/systemui/qs/QSAnimator;->mQuickQsPanel:Lcom/android/systemui/qs/QuickQSPanel;
+    invoke-virtual {v13, v1}, Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
 
-    const/4 v4, 0x2
+    goto :goto_4d1
 
-    new-array v5, v4, [F
+    .line 243
+    .end local v17    # "i":I
+    .restart local v1    # "i":I
+    :cond_4cf
+    move/from16 v17, v1
 
-    fill-array-data v5, :array_5
+    .line 246
+    .end local v1    # "i":I
+    .end local v7    # "startDelay":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    .end local v9    # "heightExpansionAnimator":Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;
+    .end local v13    # "heightExpansionAnimator2":Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;
+    .restart local v17    # "i":I
+    :goto_4d1
+    goto :goto_4d8
 
-    invoke-virtual {v0, v3, v9, v5}, Lcom/android/systemui/qs/TouchAnimator$Builder;->addFloat(Ljava/lang/Object;Ljava/lang/String;[F)Lcom/android/systemui/qs/TouchAnimator$Builder;
+    .line 247
+    .end local v6    # "qSTileLayout":Lcom/android/systemui/qs/QSPanel$QSTileLayout;
+    .end local v10    # "builder3":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    .end local v17    # "i":I
+    .restart local v1    # "i":I
+    .restart local v35    # "builder3":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    :cond_4d2
+    move/from16 v17, v1
 
-    move-result-object v0
+    move-object/from16 v10, v35
 
-    iget-object v3, v1, Lcom/android/systemui/qs/QSAnimator;->mNonFirstPageListener:Lcom/android/systemui/qs/TouchAnimator$Listener;
+    .end local v1    # "i":I
+    .end local v35    # "builder3":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    .restart local v10    # "builder3":Lcom/android/systemui/qs/TouchAnimator$Builder;
+    .restart local v17    # "i":I
+    move-object/from16 v6, v24
 
-    invoke-virtual {v0, v3}, Lcom/android/systemui/qs/TouchAnimator$Builder;->setListener(Lcom/android/systemui/qs/TouchAnimator$Listener;)Lcom/android/systemui/qs/TouchAnimator$Builder;
+    .line 249
+    .restart local v6    # "qSTileLayout":Lcom/android/systemui/qs/QSPanel$QSTileLayout;
+    :goto_4d8
+    new-instance v1, Lcom/android/systemui/qs/TouchAnimator$Builder;
 
-    move-result-object v0
+    invoke-direct {v1}, Lcom/android/systemui/qs/TouchAnimator$Builder;-><init>()V
 
-    const/high16 v3, 0x3f000000    # 0.5f
+    iget-object v7, v3, Lcom/android/systemui/qs/QSAnimator;->mQuickQsPanel:Lcom/android/systemui/qs/QuickQSPanel;
 
-    invoke-virtual {v0, v3}, Lcom/android/systemui/qs/TouchAnimator$Builder;->setEndDelay(F)Lcom/android/systemui/qs/TouchAnimator$Builder;
+    const/4 v9, 0x2
 
-    move-result-object v0
+    new-array v13, v9, [F
 
-    invoke-virtual {v0}, Lcom/android/systemui/qs/TouchAnimator$Builder;->build()Lcom/android/systemui/qs/TouchAnimator;
+    fill-array-data v13, :array_550
 
-    move-result-object v0
+    invoke-virtual {v1, v7, v0, v13}, Lcom/android/systemui/qs/TouchAnimator$Builder;->addFloat(Ljava/lang/Object;Ljava/lang/String;[F)Lcom/android/systemui/qs/TouchAnimator$Builder;
 
-    iput-object v0, v1, Lcom/android/systemui/qs/QSAnimator;->mNonfirstPageAnimator:Lcom/android/systemui/qs/TouchAnimator;
+    move-result-object v1
 
-    new-instance v0, Lcom/android/systemui/qs/TouchAnimator$Builder;
+    iget-object v7, v3, Lcom/android/systemui/qs/QSAnimator;->mNonFirstPageListener:Lcom/android/systemui/qs/TouchAnimator$Listener;
 
-    invoke-direct {v0}, Lcom/android/systemui/qs/TouchAnimator$Builder;-><init>()V
+    invoke-virtual {v1, v7}, Lcom/android/systemui/qs/TouchAnimator$Builder;->setListener(Lcom/android/systemui/qs/TouchAnimator$Listener;)Lcom/android/systemui/qs/TouchAnimator$Builder;
 
-    const v3, 0x3e0f5c29    # 0.14f
+    move-result-object v1
 
-    invoke-virtual {v0, v3}, Lcom/android/systemui/qs/TouchAnimator$Builder;->setStartDelay(F)Lcom/android/systemui/qs/TouchAnimator$Builder;
+    const/high16 v7, 0x3f000000    # 0.5f
 
-    move-result-object v0
+    invoke-virtual {v1, v7}, Lcom/android/systemui/qs/TouchAnimator$Builder;->setEndDelay(F)Lcom/android/systemui/qs/TouchAnimator$Builder;
 
-    const/4 v3, 0x2
+    move-result-object v1
 
-    new-array v3, v3, [F
+    invoke-virtual {v1}, Lcom/android/systemui/qs/TouchAnimator$Builder;->build()Lcom/android/systemui/qs/TouchAnimator;
 
-    fill-array-data v3, :array_6
+    move-result-object v1
 
-    invoke-virtual {v0, v2, v9, v3}, Lcom/android/systemui/qs/TouchAnimator$Builder;->addFloat(Ljava/lang/Object;Ljava/lang/String;[F)Lcom/android/systemui/qs/TouchAnimator$Builder;
+    iput-object v1, v3, Lcom/android/systemui/qs/QSAnimator;->mNonfirstPageAnimator:Lcom/android/systemui/qs/TouchAnimator;
 
-    move-result-object v0
+    .line 250
+    new-instance v1, Lcom/android/systemui/qs/TouchAnimator$Builder;
 
-    invoke-virtual {v0}, Lcom/android/systemui/qs/TouchAnimator$Builder;->build()Lcom/android/systemui/qs/TouchAnimator;
+    invoke-direct {v1}, Lcom/android/systemui/qs/TouchAnimator$Builder;-><init>()V
 
-    move-result-object v0
+    const v7, 0x3e0f5c29    # 0.14f
 
-    iput-object v0, v1, Lcom/android/systemui/qs/QSAnimator;->mNonfirstPageDelayedAnimator:Lcom/android/systemui/qs/TouchAnimator;
+    invoke-virtual {v1, v7}, Lcom/android/systemui/qs/TouchAnimator$Builder;->setStartDelay(F)Lcom/android/systemui/qs/TouchAnimator$Builder;
 
+    move-result-object v1
+
+    const/4 v7, 0x2
+
+    new-array v7, v7, [F
+
+    fill-array-data v7, :array_558
+
+    invoke-virtual {v1, v6, v0, v7}, Lcom/android/systemui/qs/TouchAnimator$Builder;->addFloat(Ljava/lang/Object;Ljava/lang/String;[F)Lcom/android/systemui/qs/TouchAnimator$Builder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/android/systemui/qs/TouchAnimator$Builder;->build()Lcom/android/systemui/qs/TouchAnimator;
+
+    move-result-object v1
+
+    iput-object v1, v3, Lcom/android/systemui/qs/QSAnimator;->mNonfirstPageDelayedAnimator:Lcom/android/systemui/qs/TouchAnimator;
+
+    .line 251
     return-void
 
-    nop
-
-    :array_0
+    :array_518
     .array-data 4
         0x0
         0x3f800000    # 1.0f
     .end array-data
 
-    :array_1
+    :array_520
     .array-data 4
         0x0
         0x3f800000    # 1.0f
     .end array-data
 
-    :array_2
+    :array_528
     .array-data 4
         0x0
         0x3f800000    # 1.0f
     .end array-data
 
-    :array_3
+    :array_530
     .array-data 4
         0x0
         0x3f800000    # 1.0f
     .end array-data
 
-    :array_4
+    :array_538
     .array-data 4
         0x0
         0x3f800000    # 1.0f
     .end array-data
 
-    :array_5
+    :array_540
+    .array-data 4
+        0x0
+        0x3f800000    # 1.0f
+    .end array-data
+
+    :array_548
+    .array-data 4
+        0x0
+        0x3f800000    # 1.0f
+    .end array-data
+
+    :array_550
     .array-data 4
         0x3f800000    # 1.0f
         0x0
     .end array-data
 
-    :array_6
+    :array_558
     .array-data 4
         0x0
         0x3f800000    # 1.0f

@@ -11,6 +11,8 @@
 
 .field protected mCellHeightResId:I
 
+.field protected mCellHeightModResId:I
+
 .field protected mCellMarginHorizontal:I
 
 .field protected mCellMarginVertical:I
@@ -64,67 +66,102 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 3
+    .registers 7
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attributeSet"    # Landroid/util/AttributeSet;
 
+    .line 50
     invoke-direct {p0, p1, p2}, Landroid/view/ViewGroup;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    const/4 p2, 0x1
+    .line 51
+    const-string v0, "qs_tile_height"
 
-    iput p2, p0, Lcom/android/systemui/qs/TileLayout;->mRows:I
+    const-string v1, "dimen"
 
-    new-instance v0, Ljava/util/ArrayList;
-
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
-
-    iput-object v0, p0, Lcom/android/systemui/qs/TileLayout;->mRecords:Ljava/util/ArrayList;
-
-    sget v0, Lcom/android/mwilky/Renovate;->mQsRows:I
-
-    iput v0, p0, Lcom/android/systemui/qs/TileLayout;->mMaxAllowedRows:I
-
-    iput p2, p0, Lcom/android/systemui/qs/TileLayout;->mMinRows:I
-
-    const/16 v0, 0x64
-
-    iput v0, p0, Lcom/android/systemui/qs/TileLayout;->mMaxColumns:I
-
-    const/high16 v0, 0x3f800000    # 1.0f
-
-    iput v0, p0, Lcom/android/systemui/qs/TileLayout;->mSquishinessFraction:F
-
-    invoke-virtual {p0, p2}, Landroid/view/ViewGroup;->setFocusableInTouchMode(Z)V
-
-    invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v0
-
-    const-string v1, "qs_less_rows"
-
-    const/4 v2, 0x0
-
-    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v0
 
-    if-nez v0, :cond_1
+    iput v0, p0, Lcom/android/systemui/qs/TileLayout;->mCellHeightResId:I
+
+    .line 52
+    const-string v0, "qs_tile_height_mw"
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/systemui/qs/TileLayout;->mCellHeightModResId:I
+
+    .line 53
+    const/4 v0, 0x1
+
+    .line 54
+    .local v0, "z":Z
+    const/4 v1, 0x1
+
+    iput v1, p0, Lcom/android/systemui/qs/TileLayout;->mRows:I
+
+    .line 55
+    new-instance v2, Ljava/util/ArrayList;
+
+    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
+
+    iput-object v2, p0, Lcom/android/systemui/qs/TileLayout;->mRecords:Ljava/util/ArrayList;
+
+    .line 56
+    const/4 v2, 0x3
+
+    iput v2, p0, Lcom/android/systemui/qs/TileLayout;->mMaxAllowedRows:I
+
+    .line 57
+    iput v1, p0, Lcom/android/systemui/qs/TileLayout;->mMinRows:I
+
+    .line 58
+    const/16 v2, 0x64
+
+    iput v2, p0, Lcom/android/systemui/qs/TileLayout;->mMaxColumns:I
+
+    .line 59
+    const/high16 v2, 0x3f800000    # 1.0f
+
+    iput v2, p0, Lcom/android/systemui/qs/TileLayout;->mSquishinessFraction:F
+
+    .line 60
+    invoke-virtual {p0, v1}, Lcom/android/systemui/qs/TileLayout;->setFocusableInTouchMode(Z)V
+
+    .line 61
+    invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    const-string v2, "qs_less_rows"
+
+    const/4 v3, 0x0
+
+    invoke-static {v1, v2, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v1
+
+    if-nez v1, :cond_44
 
     invoke-static {p1}, Lcom/android/systemui/util/Utils;->useQsMediaPlayer(Landroid/content/Context;)Z
 
-    move-result p1
+    move-result v1
 
-    if-eqz p1, :cond_0
+    if-nez v1, :cond_44
 
-    goto :goto_0
+    .line 62
+    const/4 v0, 0x0
 
-    :cond_0
-    move p2, v2
+    .line 64
+    :cond_44
+    iput-boolean v0, p0, Lcom/android/systemui/qs/TileLayout;->mLessRows:Z
 
-    :cond_1
-    :goto_0
-    iput-boolean p2, p0, Lcom/android/systemui/qs/TileLayout;->mLessRows:Z
-
+    .line 65
     invoke-virtual {p0}, Lcom/android/systemui/qs/TileLayout;->updateResources()Z
 
+    .line 66
     return-void
 .end method
 
@@ -885,16 +922,17 @@
 .end method
 
 .method public updateResources()Z
-    .locals 4
-    
-    invoke-virtual {p0}, Lcom/android/systemui/qs/TileLayout;->setQsTileTweaks()V
+    .registers 7
 
-    iget-object v0, p0, Landroid/view/ViewGroup;->mContext:Landroid/content/Context;
+    .line 108
+    iget-object v0, p0, Lcom/android/systemui/qs/TileLayout;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
+    .line 109
+    .local v0, "resources":Landroid/content/res/Resources;
     sget v1, Lcom/android/mwilky/Renovate;->mQsColumns:I
 
     const/4 v2, 0x1
@@ -905,9 +943,16 @@
 
     iput v1, p0, Lcom/android/systemui/qs/TileLayout;->mResourceColumns:I
 
+    .line 110
     invoke-direct {p0}, Lcom/android/systemui/qs/TileLayout;->updateColumns()Z
 
-    iget-object v1, p0, Landroid/view/ViewGroup;->mContext:Landroid/content/Context;
+    .line 111
+    sget v1, Lcom/android/mwilky/Renovate;->mQsStyle:I
+
+    if-nez v1, :cond_25
+
+    .line 112
+    iget-object v1, p0, Lcom/android/systemui/qs/TileLayout;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -921,57 +966,162 @@
 
     iput v1, p0, Lcom/android/systemui/qs/TileLayout;->mMaxCellHeight:I
 
+    goto :goto_33
+
+    .line 114
+    :cond_25
+    iget-object v1, p0, Lcom/android/systemui/qs/TileLayout;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    iget v3, p0, Lcom/android/systemui/qs/TileLayout;->mCellHeightModResId:I
+
+    invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v1
+
+    iput v1, p0, Lcom/android/systemui/qs/TileLayout;->mMaxCellHeight:I
+
+    .line 116
+    :goto_33
+    sget v1, Lcom/android/mwilky/Renovate;->mQsStyle:I
+
+    const-string v3, "dimen"
+
+    if-nez v1, :cond_46
+
+    .line 117
+    const-string v1, "qs_tile_margin_horizontal"
+
+    invoke-static {v1, v3}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v1
+
+    iput v1, p0, Lcom/android/systemui/qs/TileLayout;->mCellMarginHorizontal:I
+
+    goto :goto_52
+
+    .line 119
+    :cond_46
+    const-string v1, "qs_tile_margin_horizontal_mw"
+
+    invoke-static {v1, v3}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v1
+
+    iput v1, p0, Lcom/android/systemui/qs/TileLayout;->mCellMarginHorizontal:I
+
+    .line 121
+    :goto_52
     invoke-virtual {p0}, Lcom/android/systemui/qs/TileLayout;->useSidePadding()Z
 
     move-result v1
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_5e
 
     iget v1, p0, Lcom/android/systemui/qs/TileLayout;->mCellMarginHorizontal:I
 
     div-int/lit8 v1, v1, 0x2
 
-    goto :goto_0
+    goto :goto_5f
 
-    :cond_0
-    move v1, v3
+    :cond_5e
+    move v1, v4
 
-    :goto_0
+    :goto_5f
     iput v1, p0, Lcom/android/systemui/qs/TileLayout;->mSidePadding:I
 
-    sget v0, Lcom/android/mwilky/Renovate;->mQsRows:I
+    .line 122
+    sget v1, Lcom/android/mwilky/Renovate;->mQsStyle:I
 
-    iput v0, p0, Lcom/android/systemui/qs/TileLayout;->mMaxAllowedRows:I
+    if-nez v1, :cond_72
 
-    iget-boolean v1, p0, Lcom/android/systemui/qs/TileLayout;->mLessRows:Z
+    .line 123
+    const-string v1, "qs_tile_margin_vertical"
 
-    if-eqz v1, :cond_1
+    invoke-static {v1, v3}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget v1, p0, Lcom/android/systemui/qs/TileLayout;->mMinRows:I
+    move-result v1
 
-    sub-int/2addr v0, v2
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
-    invoke-static {v1, v0}, Ljava/lang/Math;->max(II)I
+    move-result v1
 
-    move-result v0
+    iput v1, p0, Lcom/android/systemui/qs/TileLayout;->mCellMarginVertical:I
 
-    iput v0, p0, Lcom/android/systemui/qs/TileLayout;->mMaxAllowedRows:I
+    goto :goto_7e
 
-    :cond_1
+    .line 125
+    :cond_72
+    const-string v1, "qs_tile_margin_vertical_mw"
+
+    invoke-static {v1, v3}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v1
+
+    iput v1, p0, Lcom/android/systemui/qs/TileLayout;->mCellMarginVertical:I
+
+    .line 127
+    :goto_7e
+    sget v1, Lcom/android/mwilky/Renovate;->mQsRows:I
+
+    invoke-static {v2, v1}, Ljava/lang/Math;->max(II)I
+
+    move-result v1
+
+    .line 128
+    .local v1, "max":I
+    iput v1, p0, Lcom/android/systemui/qs/TileLayout;->mMaxAllowedRows:I
+
+    .line 129
+    iget-boolean v3, p0, Lcom/android/systemui/qs/TileLayout;->mLessRows:Z
+
+    if-eqz v3, :cond_94
+
+    .line 130
+    iget v3, p0, Lcom/android/systemui/qs/TileLayout;->mMinRows:I
+
+    add-int/lit8 v5, v1, -0x1
+
+    invoke-static {v3, v5}, Ljava/lang/Math;->max(II)I
+
+    move-result v3
+
+    iput v3, p0, Lcom/android/systemui/qs/TileLayout;->mMaxAllowedRows:I
+
+    .line 132
+    :cond_94
     invoke-direct {p0}, Lcom/android/systemui/qs/TileLayout;->updateColumns()Z
 
-    move-result v0
+    move-result v3
 
-    if-eqz v0, :cond_2
+    if-nez v3, :cond_9b
 
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->requestLayout()V
+    .line 133
+    return v4
 
+    .line 135
+    :cond_9b
+    invoke-virtual {p0}, Lcom/android/systemui/qs/TileLayout;->requestLayout()V
+
+    .line 136
     return v2
-
-    :cond_2
-    return v3
 .end method
 
 .method protected useSidePadding()Z
@@ -981,270 +1131,3 @@
 
     return p0
 .end method
-
-.method public setQsTileTweaks()V
-    .registers 4
-
-    .line 32
-    sget v0, Lcom/android/mwilky/Renovate;->mQsStyle:I
-
-    const-string v1, "dimen"
-
-    if-lez v0, :cond_b6
-
-    .line 33
-    iget-object v0, p0, Lcom/android/systemui/qs/TileLayout;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    const-string v2, "qs_tile_margin_vertical_tweak"
-
-    invoke-static {v2, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
-
-    move-result v2
-
-    invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v0
-
-    iput v0, p0, Lcom/android/systemui/qs/TileLayout;->mCellMarginVertical:I
-
-    .line 34
-    sget v0, Lcom/android/mwilky/Renovate;->mQsColumns:I
-
-    const/4 v2, 0x5
-
-    if-ne v0, v2, :cond_39
-
-    .line 35
-    iget-object v0, p0, Lcom/android/systemui/qs/TileLayout;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    const-string v2, "qs_tile_margin_horizontal_5"
-
-    invoke-static {v2, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
-
-    move-result v2
-
-    invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v0
-
-    iput v0, p0, Lcom/android/systemui/qs/TileLayout;->mCellMarginHorizontal:I
-
-    .line 36
-    const-string v0, "qs_tile_height_5"
-
-    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
-
-    move-result v0
-
-    iput v0, p0, Lcom/android/systemui/qs/TileLayout;->mCellHeightResId:I
-
-    goto/16 :goto_e2
-
-    .line 37
-    :cond_39
-    sget v0, Lcom/android/mwilky/Renovate;->mQsColumns:I
-
-    const/4 v2, 0x6
-
-    if-ne v0, v2, :cond_5a
-
-    .line 38
-    iget-object v0, p0, Lcom/android/systemui/qs/TileLayout;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    const-string v2, "qs_tile_margin_horizontal_6"
-
-    invoke-static {v2, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
-
-    move-result v2
-
-    invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v0
-
-    iput v0, p0, Lcom/android/systemui/qs/TileLayout;->mCellMarginHorizontal:I
-
-    .line 39
-    const-string v0, "qs_tile_height_6"
-
-    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
-
-    move-result v0
-
-    iput v0, p0, Lcom/android/systemui/qs/TileLayout;->mCellHeightResId:I
-
-    goto/16 :goto_e2
-
-    .line 40
-    :cond_5a
-    sget v0, Lcom/android/mwilky/Renovate;->mQsColumns:I
-
-    const/4 v2, 0x7
-
-    if-ne v0, v2, :cond_7a
-
-    .line 41
-    iget-object v0, p0, Lcom/android/systemui/qs/TileLayout;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    const-string v2, "qs_tile_margin_horizontal_7"
-
-    invoke-static {v2, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
-
-    move-result v2
-
-    invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v0
-
-    iput v0, p0, Lcom/android/systemui/qs/TileLayout;->mCellMarginHorizontal:I
-
-    .line 42
-    const-string v0, "qs_tile_height_7"
-
-    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
-
-    move-result v0
-
-    iput v0, p0, Lcom/android/systemui/qs/TileLayout;->mCellHeightResId:I
-
-    goto :goto_e2
-
-    .line 43
-    :cond_7a
-    sget v0, Lcom/android/mwilky/Renovate;->mQsColumns:I
-
-    const/16 v2, 0x8
-
-    if-ne v0, v2, :cond_9b
-
-    .line 44
-    iget-object v0, p0, Lcom/android/systemui/qs/TileLayout;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    const-string v2, "qs_tile_margin_horizontal_8"
-
-    invoke-static {v2, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
-
-    move-result v2
-
-    invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v0
-
-    iput v0, p0, Lcom/android/systemui/qs/TileLayout;->mCellMarginHorizontal:I
-
-    .line 45
-    const-string v0, "qs_tile_height_8"
-
-    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
-
-    move-result v0
-
-    iput v0, p0, Lcom/android/systemui/qs/TileLayout;->mCellHeightResId:I
-
-    goto :goto_e2
-
-    .line 47
-    :cond_9b
-    iget-object v0, p0, Lcom/android/systemui/qs/TileLayout;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    const-string v2, "qs_tile_margin_horizontal_4"
-
-    invoke-static {v2, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
-
-    move-result v2
-
-    invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v0
-
-    iput v0, p0, Lcom/android/systemui/qs/TileLayout;->mCellMarginHorizontal:I
-
-    .line 48
-    const-string v0, "qs_tile_height_4"
-
-    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
-
-    move-result v0
-
-    iput v0, p0, Lcom/android/systemui/qs/TileLayout;->mCellHeightResId:I
-
-    goto :goto_e2
-
-    .line 51
-    :cond_b6
-    iget-object v0, p0, Lcom/android/systemui/qs/TileLayout;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    const-string v2, "qs_tile_margin_vertical"
-
-    invoke-static {v2, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
-
-    move-result v2
-
-    invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v0
-
-    iput v0, p0, Lcom/android/systemui/qs/TileLayout;->mCellMarginVertical:I
-
-    .line 52
-    iget-object v0, p0, Lcom/android/systemui/qs/TileLayout;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    const-string v2, "qs_tile_margin_horizontal"
-
-    invoke-static {v2, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
-
-    move-result v2
-
-    invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v0
-
-    iput v0, p0, Lcom/android/systemui/qs/TileLayout;->mCellMarginHorizontal:I
-
-    .line 53
-    const-string v0, "qs_tile_height"
-
-    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
-
-    move-result v0
-
-    iput v0, p0, Lcom/android/systemui/qs/TileLayout;->mCellHeightResId:I
-
-    .line 56
-    :goto_e2
-    return-void
-.end method
-
-
-

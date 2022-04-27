@@ -1424,6 +1424,7 @@
     <item type="dimen" name="qs_header_system_icons_area_height">@android:dimen/quick_qs_offset_height</item>
     <dimen name="qs_icon_size">20.0dip</dimen>
     <dimen name="qs_label_container_margin">10.0dip</dimen>
+    <dimen name="qs_label_container_margin_mw">6.0dip</dimen>
     <dimen name="qs_media_action_margin">12.0dip</dimen>
     <dimen name="qs_media_action_spacing">4.0dip</dimen>
     <dimen name="qs_media_album_device_padding">26.0dip</dimen>
@@ -1448,6 +1449,7 @@
     <item type="dimen" name="qs_panel_width">@dimen/notification_panel_width</item>
     <dimen name="qs_peek_height">0.0dip</dimen>
     <dimen name="qs_quick_tile_size">60.0dip</dimen>
+    <dimen name="qs_quick_tile_size_mw">55.0dip</dimen>
     <dimen name="qs_seamless_height">24.0dip</dimen>
     <dimen name="qs_seamless_icon_size">12.0dip</dimen>
     <dimen name="qs_security_footer_background_inset">0.0dip</dimen>
@@ -1456,30 +1458,17 @@
     <dimen name="qs_security_footer_single_line_height">48.0dip</dimen>
     <dimen name="qs_side_view_size">28.0dip</dimen>
     <dimen name="qs_tile_height">84.0dip</dimen>
-    <dimen name="qs_tile_height_4">60.0dip</dimen>
-    <dimen name="qs_tile_height_5">60.0dip</dimen>
-    <dimen name="qs_tile_height_6">60.0dip</dimen>
-    <dimen name="qs_tile_height_7">55.0dip</dimen>
-    <dimen name="qs_tile_height_8">50.0dip</dimen>
-    <dimen name="qs_tile_icon_background_stroke_width">-1.0dip</dimen>
-    <dimen name="qs_tile_layout_margin_side">18.0dip</dimen>
+    <dimen name="qs_tile_height_mw">100.0dip</dimen>
     <dimen name="qs_tile_margin_horizontal">8.0dip</dimen>
-    <dimen name="qs_tile_margin_horizontal_4">70.0dip</dimen>
-    <dimen name="qs_tile_margin_horizontal_5">37.0dip</dimen>
-    <dimen name="qs_tile_margin_horizontal_6">18.0dip</dimen>
-    <dimen name="qs_tile_margin_horizontal_7">10.0dip</dimen>
-    <dimen name="qs_tile_margin_horizontal_8">8.5dip</dimen>
+    <dimen name="qs_tile_margin_horizontal_mw">22.0dip</dimen>
     <dimen name="qs_tile_margin_top_bottom">4.0dip</dimen>
-    <dimen name="qs_tile_margin_vertical">8.0dip</dimen>
-    <dimen name="qs_tile_margin_vertical_tweak">48.0dip</dimen>
+    <item type="dimen" name="qs_tile_margin_vertical">@dimen/qs_tile_margin_horizontal</item>
+    <dimen name="qs_tile_margin_vertical_mw">22.0dip</dimen>
     <dimen name="qs_tile_padding">12.0dip</dimen>
+    <dimen name="qs_tile_padding_mw">18.0dip</dimen>
     <dimen name="qs_tile_start_padding">16.0dip</dimen>
-    <dimen name="qs_tile_start_padding_4">21.0dip</dimen>
-    <dimen name="qs_tile_start_padding_5">20.0dip</dimen>
-    <dimen name="qs_tile_start_padding_6">20.0dip</dimen>
-    <dimen name="qs_tile_start_padding_7">18.0dip</dimen>
-    <dimen name="qs_tile_start_padding_8">14.0dip</dimen>
     <dimen name="qs_tile_text_size">14.0sp</dimen>
+    <dimen name="qs_tile_text_size_mw">12.0sp</dimen>
     <dimen name="qs_time_collapsed_size">14.0sp</dimen>
     <dimen name="qs_time_expanded_size">14.0sp</dimen>
     <dimen name="quick_settings_bottom_margin_media">8.0dip</dimen>

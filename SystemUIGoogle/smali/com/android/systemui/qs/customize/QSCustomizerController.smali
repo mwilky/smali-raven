@@ -419,21 +419,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/qs/customize/TileQueryHelper;->setListener(Lcom/android/systemui/qs/customize/TileQueryHelper$TileStateListener;)V
 
-    invoke-virtual {p0}, Lcom/android/systemui/util/ViewController;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    sget v1, Lcom/android/systemui/R$dimen;->qs_tile_margin_horizontal:I
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v0
-
-    div-int/lit8 v0, v0, 0x2
-
-    iget-object v1, p0, Lcom/android/systemui/qs/customize/QSCustomizerController;->mTileAdapter:Lcom/android/systemui/qs/customize/TileAdapter;
-
-    invoke-virtual {v1, v0}, Lcom/android/systemui/qs/customize/TileAdapter;->changeHalfMargin(I)V
+    invoke-virtual {p0}, Lcom/android/systemui/qs/customize/QSCustomizerController;->updateMargins()V
 
     iget-object v0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
 
@@ -700,5 +686,77 @@
     invoke-virtual {p1, p0}, Lcom/android/systemui/qs/customize/QSCustomizer;->updateNavColors(Lcom/android/systemui/statusbar/phone/LightBarController;)V
 
     :cond_1
+    return-void
+.end method
+
+.method public updateMargins()V
+    .registers 6
+
+    .line 39
+    sget v0, Lcom/android/mwilky/Renovate;->mQsStyle:I
+
+    const-string v1, "mwilky"
+
+    const-string v2, "dimen"
+
+    if-nez v0, :cond_23
+
+    .line 40
+    iget-object v0, p0, Lcom/android/systemui/qs/customize/QSCustomizerController;->mTileAdapter:Lcom/android/systemui/qs/customize/TileAdapter;
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/customize/QSCustomizerController;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v3
+
+    const-string v4, "qs_tile_margin_horizontal"
+
+    invoke-static {v4, v2}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    invoke-virtual {v3, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v2
+
+    div-int/lit8 v2, v2, 0x2
+
+    invoke-virtual {v0, v2}, Lcom/android/systemui/qs/customize/TileAdapter;->changeHalfMargin(I)V
+
+    .line 41
+    const-string v0, "stock value loaded"
+
+    invoke-static {v1, v0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_3d
+
+    .line 43
+    :cond_23
+    iget-object v0, p0, Lcom/android/systemui/qs/customize/QSCustomizerController;->mTileAdapter:Lcom/android/systemui/qs/customize/TileAdapter;
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/customize/QSCustomizerController;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v3
+
+    const-string v4, "qs_tile_margin_horizontal_mw"
+
+    invoke-static {v4, v2}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    invoke-virtual {v3, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v2
+
+    div-int/lit8 v2, v2, 0x2
+
+    invoke-virtual {v0, v2}, Lcom/android/systemui/qs/customize/TileAdapter;->changeHalfMargin(I)V
+
+    .line 44
+    const-string v0, "custom value loaded"
+
+    invoke-static {v1, v0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 46
+    :goto_3d
     return-void
 .end method

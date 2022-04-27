@@ -220,19 +220,48 @@
 .end method
 
 .method public updateResources()Z
-    .locals 3
+    .registers 3
 
-    sget v0, Lcom/android/systemui/R$dimen;->qs_quick_tile_size:I
+    .line 49
+    sget v0, Lcom/android/mwilky/Renovate;->mQsStyle:I
+
+    const-string v1, "dimen"
+
+    if-nez v0, :cond_f
+
+    .line 50
+    const-string v0, "qs_quick_tile_size"
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v0
 
     iput v0, p0, Lcom/android/systemui/qs/TileLayout;->mCellHeightResId:I
 
+    goto :goto_17
+
+    .line 52
+    :cond_f
+    const-string v0, "qs_quick_tile_size_mw"
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/systemui/qs/TileLayout;->mCellHeightResId:I
+
+    .line 54
+    :goto_17
     invoke-super {p0}, Lcom/android/systemui/qs/SideLabelTileLayout;->updateResources()Z
 
     move-result v0
 
+    .line 55
+    .local v0, "updateResources":Z
     sget v1, Lcom/android/mwilky/Renovate;->mQQsRows:I
 
     iput v1, p0, Lcom/android/systemui/qs/TileLayout;->mMaxAllowedRows:I
 
+    .line 56
     return v0
 .end method
