@@ -4455,7 +4455,7 @@
 .end method
 
 .method public getActiveNotificationsWithAttribution(Ljava/lang/String;Ljava/lang/String;)[Landroid/service/notification/StatusBarNotification;
-    .locals 8
+    .locals 9
 
     iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$10;->this$0:Lcom/android/server/notification/NotificationManagerService;
 
@@ -4469,11 +4469,33 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    const/4 v0, 0x0
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
     move-result v7
+
+    new-instance v1, Ljava/util/ArrayList;
+
+    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
+
+    move-object v8, v1
+
+    const/4 v1, -0x1
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    invoke-virtual {v8, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    new-instance v1, Lcom/android/server/notification/NotificationManagerService$10$$ExternalSyntheticLambda0;
+
+    invoke-direct {v1, p0, v8}, Lcom/android/server/notification/NotificationManagerService$10$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/notification/NotificationManagerService$10;Ljava/util/ArrayList;)V
+
+    invoke-static {v1}, Landroid/os/Binder;->withCleanCallingIdentity(Lcom/android/internal/util/FunctionalUtils$ThrowingRunnable;)V
 
     iget-object v1, p0, Lcom/android/server/notification/NotificationManagerService$10;->this$0:Lcom/android/server/notification/NotificationManagerService;
 
@@ -4495,7 +4517,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_2
 
     iget-object v1, p0, Lcom/android/server/notification/NotificationManagerService$10;->this$0:Lcom/android/server/notification/NotificationManagerService;
 
@@ -4512,22 +4534,10 @@
 
     move-result v2
 
-    new-array v2, v2, [Landroid/service/notification/StatusBarNotification;
-
-    move-object v0, v2
-
-    iget-object v2, p0, Lcom/android/server/notification/NotificationManagerService$10;->this$0:Lcom/android/server/notification/NotificationManagerService;
-
-    iget-object v2, v2, Lcom/android/server/notification/NotificationManagerService;->mNotificationList:Ljava/util/ArrayList;
-
-    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
-
-    move-result v2
-
     const/4 v3, 0x0
 
     :goto_0
-    if-ge v3, v2, :cond_0
+    if-ge v3, v2, :cond_1
 
     iget-object v4, p0, Lcom/android/server/notification/NotificationManagerService$10;->this$0:Lcom/android/server/notification/NotificationManagerService;
 
@@ -4543,13 +4553,28 @@
 
     move-result-object v4
 
-    aput-object v4, v0, v3
+    invoke-virtual {v4}, Landroid/service/notification/StatusBarNotification;->getUserId()I
 
+    move-result v5
+
+    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v5
+
+    invoke-virtual {v8, v5}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_0
+
+    invoke-virtual {v0, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    :cond_0
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
-    :cond_0
+    :cond_1
     monitor-exit v1
 
     goto :goto_1
@@ -4563,9 +4588,21 @@
 
     throw v2
 
-    :cond_1
+    :cond_2
     :goto_1
-    return-object v0
+    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
+
+    move-result v1
+
+    new-array v1, v1, [Landroid/service/notification/StatusBarNotification;
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, [Landroid/service/notification/StatusBarNotification;
+
+    return-object v1
 .end method
 
 .method public getAllowedAssistantAdjustments(Ljava/lang/String;)Ljava/util/List;
@@ -5738,7 +5775,13 @@
 
     move-result-object v2
 
-    invoke-virtual {v2, p3, p4}, Lcom/android/server/notification/NotificationManagerService$Archive;->getArray(IZ)[Landroid/service/notification/StatusBarNotification;
+    iget-object v3, p0, Lcom/android/server/notification/NotificationManagerService$10;->this$0:Lcom/android/server/notification/NotificationManagerService;
+
+    invoke-static {v3}, Lcom/android/server/notification/NotificationManagerService;->access$5900(Lcom/android/server/notification/NotificationManagerService;)Landroid/os/UserManager;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3, p3, p4}, Lcom/android/server/notification/NotificationManagerService$Archive;->getArray(Landroid/os/UserManager;IZ)[Landroid/service/notification/StatusBarNotification;
 
     move-result-object v2
 
@@ -6956,6 +6999,51 @@
     move-result v0
 
     return v0
+.end method
+
+.method public synthetic lambda$getActiveNotificationsWithAttribution$0$NotificationManagerService$10(Ljava/util/ArrayList;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/Exception;
+        }
+    .end annotation
+
+    iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$10;->this$0:Lcom/android/server/notification/NotificationManagerService;
+
+    invoke-static {v0}, Lcom/android/server/notification/NotificationManagerService;->access$5900(Lcom/android/server/notification/NotificationManagerService;)Landroid/os/UserManager;
+
+    move-result-object v0
+
+    invoke-static {}, Landroid/app/ActivityManager;->getCurrentUser()I
+
+    move-result v1
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v1, v2}, Landroid/os/UserManager;->getProfileIds(IZ)[I
+
+    move-result-object v0
+
+    array-length v1, v0
+
+    :goto_0
+    if-ge v2, v1, :cond_0
+
+    aget v3, v0, v2
+
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    invoke-virtual {p1, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    return-void
 .end method
 
 .method public matchesCallFilter(Landroid/os/Bundle;)Z

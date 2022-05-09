@@ -2225,7 +2225,11 @@
 
     if-ne p3, p1, :cond_1
 
-    invoke-virtual {p1}, Lcom/android/server/wm/ActivityRecord;->isFocusable()Z
+    invoke-virtual {p1}, Lcom/android/server/wm/ActivityRecord;->getTask()Lcom/android/server/wm/Task;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p1}, Lcom/android/server/wm/Task;->canBeResumed(Lcom/android/server/wm/ActivityRecord;)Z
 
     move-result v3
 

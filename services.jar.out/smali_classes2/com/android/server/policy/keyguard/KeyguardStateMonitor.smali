@@ -221,6 +221,14 @@
     return-void
 .end method
 
+.method public getCurrentUser()I
+    .locals 1
+
+    iget v0, p0, Lcom/android/server/policy/keyguard/KeyguardStateMonitor;->mCurrentUserId:I
+
+    return v0
+.end method
+
 .method public isInputRestricted()Z
     .locals 1
 
@@ -283,9 +291,16 @@
     return-void
 .end method
 
-.method public onShowingStateChanged(Z)V
+.method public onShowingStateChanged(ZI)V
     .locals 1
 
+    iget v0, p0, Lcom/android/server/policy/keyguard/KeyguardStateMonitor;->mCurrentUserId:I
+
+    if-eq p2, v0, :cond_0
+
+    return-void
+
+    :cond_0
     iput-boolean p1, p0, Lcom/android/server/policy/keyguard/KeyguardStateMonitor;->mIsShowing:Z
 
     iget-object v0, p0, Lcom/android/server/policy/keyguard/KeyguardStateMonitor;->mCallback:Lcom/android/server/policy/keyguard/KeyguardStateMonitor$StateCallback;

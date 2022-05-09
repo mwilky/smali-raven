@@ -13293,25 +13293,8 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
-
-    iget-object v0, p0, Lcom/android/server/wm/WindowManagerService;->mAtmInternal:Lcom/android/server/wm/ActivityTaskManagerInternal;
-
-    invoke-virtual {v0}, Lcom/android/server/wm/ActivityTaskManagerInternal;->isDreaming()Z
-
-    move-result v0
-
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/wm/WindowManagerService;->mAtmService:Lcom/android/server/wm/ActivityTaskManagerService;
-
-    iget-object v0, v0, Lcom/android/server/wm/ActivityTaskManagerService;->mTaskSupervisor:Lcom/android/server/wm/ActivityTaskSupervisor;
-
-    const-string v1, "dismissKeyguard"
-
-    invoke-virtual {v0, v1}, Lcom/android/server/wm/ActivityTaskSupervisor;->wakeUp(Ljava/lang/String;)V
-
-    :cond_0
     iget-object v0, p0, Lcom/android/server/wm/WindowManagerService;->mGlobalLock:Lcom/android/server/wm/WindowManagerGlobalLock;
 
     monitor-enter v0
@@ -13343,7 +13326,7 @@
 
     throw v1
 
-    :cond_1
+    :cond_0
     new-instance v0, Ljava/lang/SecurityException;
 
     const-string v1, "Requires CONTROL_KEYGUARD permission"

@@ -1080,6 +1080,8 @@
 
     invoke-direct {v7, v9, v8, v13}, Lcom/android/server/slice/SliceManagerService;->enforceOwner(Ljava/lang/String;Landroid/net/Uri;I)V
 
+    invoke-direct {v7, v9}, Lcom/android/server/slice/SliceManagerService;->verifyCaller(Ljava/lang/String;)V
+
     array-length v0, v12
 
     move v1, v15
