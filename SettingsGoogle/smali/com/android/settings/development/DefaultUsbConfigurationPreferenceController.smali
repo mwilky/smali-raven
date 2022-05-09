@@ -4,7 +4,7 @@
 
 
 # instance fields
-.field private mPreference:Lcom/android/settingslib/RestrictedSwitchPreference;
+.field private mPreference:Lcom/android/settingslib/RestrictedPreference;
 
 
 # direct methods
@@ -31,9 +31,9 @@
 
     move-result-object p1
 
-    check-cast p1, Lcom/android/settingslib/RestrictedSwitchPreference;
+    check-cast p1, Lcom/android/settingslib/RestrictedPreference;
 
-    iput-object p1, p0, Lcom/android/settings/development/DefaultUsbConfigurationPreferenceController;->mPreference:Lcom/android/settingslib/RestrictedSwitchPreference;
+    iput-object p1, p0, Lcom/android/settings/development/DefaultUsbConfigurationPreferenceController;->mPreference:Lcom/android/settingslib/RestrictedPreference;
 
     return-void
 .end method
@@ -51,7 +51,7 @@
 
     invoke-super {p0}, Lcom/android/settingslib/development/DeveloperOptionsPreferenceController;->onDeveloperOptionsSwitchEnabled()V
 
-    iget-object v0, p0, Lcom/android/settings/development/DefaultUsbConfigurationPreferenceController;->mPreference:Lcom/android/settingslib/RestrictedSwitchPreference;
+    iget-object v0, p0, Lcom/android/settings/development/DefaultUsbConfigurationPreferenceController;->mPreference:Lcom/android/settingslib/RestrictedPreference;
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
@@ -63,7 +63,7 @@
 
     move-result-object p0
 
-    invoke-virtual {v0, p0}, Lcom/android/settingslib/RestrictedSwitchPreference;->setDisabledByAdmin(Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;)V
+    invoke-virtual {v0, p0}, Lcom/android/settingslib/RestrictedPreference;->setDisabledByAdmin(Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;)V
 
     return-void
 .end method
@@ -71,7 +71,7 @@
 .method public updateState(Landroidx/preference/Preference;)V
     .locals 1
 
-    iget-object p1, p0, Lcom/android/settings/development/DefaultUsbConfigurationPreferenceController;->mPreference:Lcom/android/settingslib/RestrictedSwitchPreference;
+    iget-object p1, p0, Lcom/android/settings/development/DefaultUsbConfigurationPreferenceController;->mPreference:Lcom/android/settingslib/RestrictedPreference;
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
@@ -83,7 +83,7 @@
 
     move-result-object p0
 
-    invoke-virtual {p1, p0}, Lcom/android/settingslib/RestrictedSwitchPreference;->setDisabledByAdmin(Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;)V
+    invoke-virtual {p1, p0}, Lcom/android/settingslib/RestrictedPreference;->setDisabledByAdmin(Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;)V
 
     return-void
 .end method
