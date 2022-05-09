@@ -195,30 +195,50 @@
 .end method
 
 .method public getAvailabilityStatus()I
-    .locals 1
+    .locals 2
 
+    iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const v1, 0x7f090043
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    const/4 p0, 0x3
+
+    return p0
+
+    :cond_0
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    const-class v0, Landroid/os/UserManager;
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object p0
 
-    const v0, 0x7f090043
+    check-cast p0, Landroid/os/UserManager;
 
-    invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
+    invoke-virtual {p0}, Landroid/os/UserManager;->isGuestUser()Z
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_1
 
+    const/4 p0, 0x4
+
+    return p0
+
+    :cond_1
     const/4 p0, 0x0
 
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x3
-
-    :goto_0
     return p0
 .end method
 

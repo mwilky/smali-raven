@@ -58,7 +58,7 @@
         <SwitchPreference android:title="@string/wifi_enhanced_mac_randomization" android:key="wifi_enhanced_mac_randomization" android:summary="@string/wifi_enhanced_mac_randomization_summary" />
         <SwitchPreference android:title="@string/mobile_data_always_on" android:key="mobile_data_always_on" android:summary="@string/mobile_data_always_on_summary" />
         <SwitchPreference android:title="@string/tethering_hardware_offload" android:key="tethering_hardware_offload" android:summary="@string/tethering_hardware_offload_summary" />
-        <com.android.settingslib.RestrictedSwitchPreference android:title="@string/usb_default_label" android:key="default_usb_configuration" android:fragment="com.android.settings.connecteddevice.usb.UsbDefaultFragment" />
+        <com.android.settingslib.RestrictedPreference android:title="@string/usb_default_label" android:key="default_usb_configuration" android:fragment="com.android.settings.connecteddevice.usb.UsbDefaultFragment" />
         <SwitchPreference android:title="@string/bluetooth_show_devices_without_names" android:key="bluetooth_show_devices_without_names" android:summary="@string/bluetooth_show_devices_without_names_summary" />
         <SwitchPreference android:title="@string/bluetooth_disable_absolute_volume" android:key="bluetooth_disable_absolute_volume" android:summary="@string/bluetooth_disable_absolute_volume_summary" />
         <SwitchPreference android:title="@string/bluetooth_enable_gabeldorsche" android:key="bluetooth_gabeldorsche_enable" android:summary="@string/bluetooth_enable_gabeldorsche_summary" />
