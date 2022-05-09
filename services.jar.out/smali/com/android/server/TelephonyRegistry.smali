@@ -1404,7 +1404,7 @@
 .end method
 
 .method private broadcastServiceStateChanged(Landroid/telephony/ServiceState;II)V
-    .locals 8
+    .locals 11
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
@@ -1477,31 +1477,93 @@
 
     sget-object v5, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
 
-    const-string v6, "android.permission.READ_PHONE_STATE"
+    const/4 v6, 0x0
 
-    invoke-virtual {v4, v2, v5, v6}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;Ljava/lang/String;)V
-
-    iget-object v4, p0, Lcom/android/server/TelephonyRegistry;->mContext:Landroid/content/Context;
-
-    sget-object v5, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
-
-    const/4 v7, 0x0
-
-    invoke-virtual {v4, v5, v7}, Landroid/content/Context;->createContextAsUser(Landroid/os/UserHandle;I)Landroid/content/Context;
+    invoke-virtual {v4, v5, v6}, Landroid/content/Context;->createContextAsUser(Landroid/os/UserHandle;I)Landroid/content/Context;
 
     move-result-object v4
 
-    const-string v5, "android.permission.READ_PRIVILEGED_PHONE_STATE"
+    const-string v5, "android.permission.READ_PHONE_STATE"
+
+    const-string v7, "android.permission.ACCESS_FINE_LOCATION"
+
+    filled-new-array {v5, v7}, [Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v4, v2, v8}, Landroid/content/Context;->sendBroadcastMultiplePermissions(Landroid/content/Intent;[Ljava/lang/String;)V
+
+    iget-object v4, p0, Lcom/android/server/TelephonyRegistry;->mContext:Landroid/content/Context;
+
+    sget-object v8, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
+
+    invoke-virtual {v4, v8, v6}, Landroid/content/Context;->createContextAsUser(Landroid/os/UserHandle;I)Landroid/content/Context;
+
+    move-result-object v4
+
+    const-string v8, "android.permission.READ_PRIVILEGED_PHONE_STATE"
+
+    filled-new-array {v8, v7}, [Ljava/lang/String;
+
+    move-result-object v9
 
     filled-new-array {v5}, [Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v10
 
-    filled-new-array {v6}, [Ljava/lang/String;
+    invoke-virtual {v4, v2, v9, v10}, Landroid/content/Context;->sendBroadcastMultiplePermissions(Landroid/content/Intent;[Ljava/lang/String;[Ljava/lang/String;)V
+
+    new-instance v4, Landroid/os/Bundle;
+
+    invoke-direct {v4}, Landroid/os/Bundle;-><init>()V
+
+    move-object v3, v4
+
+    const/4 v4, 0x1
+
+    invoke-virtual {p1, v4}, Landroid/telephony/ServiceState;->createLocationInfoSanitizedCopy(Z)Landroid/telephony/ServiceState;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v3}, Landroid/telephony/ServiceState;->fillInNotifierBundle(Landroid/os/Bundle;)V
+
+    invoke-virtual {v2, v3}, Landroid/content/Intent;->putExtras(Landroid/os/Bundle;)Landroid/content/Intent;
+
+    iget-object v4, p0, Lcom/android/server/TelephonyRegistry;->mContext:Landroid/content/Context;
+
+    sget-object v9, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
+
+    invoke-virtual {v4, v9, v6}, Landroid/content/Context;->createContextAsUser(Landroid/os/UserHandle;I)Landroid/content/Context;
+
+    move-result-object v4
+
+    filled-new-array {v5}, [Ljava/lang/String;
+
+    move-result-object v9
+
+    filled-new-array {v7}, [Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-virtual {v4, v2, v9, v10}, Landroid/content/Context;->sendBroadcastMultiplePermissions(Landroid/content/Intent;[Ljava/lang/String;[Ljava/lang/String;)V
+
+    iget-object v4, p0, Lcom/android/server/TelephonyRegistry;->mContext:Landroid/content/Context;
+
+    sget-object v9, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
+
+    invoke-virtual {v4, v9, v6}, Landroid/content/Context;->createContextAsUser(Landroid/os/UserHandle;I)Landroid/content/Context;
+
+    move-result-object v4
+
+    filled-new-array {v8}, [Ljava/lang/String;
 
     move-result-object v6
 
-    invoke-virtual {v4, v2, v5, v6}, Landroid/content/Context;->sendBroadcastMultiplePermissions(Landroid/content/Intent;[Ljava/lang/String;[Ljava/lang/String;)V
+    filled-new-array {v5, v7}, [Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v2, v6, v5}, Landroid/content/Context;->sendBroadcastMultiplePermissions(Landroid/content/Intent;[Ljava/lang/String;[Ljava/lang/String;)V
 
     return-void
 .end method
