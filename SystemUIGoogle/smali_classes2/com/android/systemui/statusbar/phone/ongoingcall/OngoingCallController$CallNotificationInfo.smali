@@ -17,7 +17,7 @@
 # instance fields
 .field private final callStartTime:J
 
-.field private final intent:Landroid/content/Intent;
+.field private final intent:Landroid/app/PendingIntent;
 
 .field private final isOngoing:Z
 
@@ -29,7 +29,7 @@
 
 
 # direct methods
-.method public constructor <init>(Ljava/lang/String;JLandroid/content/Intent;IZZ)V
+.method public constructor <init>(Ljava/lang/String;JLandroid/app/PendingIntent;IZZ)V
     .locals 1
 
     const-string v0, "key"
@@ -42,7 +42,7 @@
 
     iput-wide p2, p0, Lcom/android/systemui/statusbar/phone/ongoingcall/OngoingCallController$CallNotificationInfo;->callStartTime:J
 
-    iput-object p4, p0, Lcom/android/systemui/statusbar/phone/ongoingcall/OngoingCallController$CallNotificationInfo;->intent:Landroid/content/Intent;
+    iput-object p4, p0, Lcom/android/systemui/statusbar/phone/ongoingcall/OngoingCallController$CallNotificationInfo;->intent:Landroid/app/PendingIntent;
 
     iput p5, p0, Lcom/android/systemui/statusbar/phone/ongoingcall/OngoingCallController$CallNotificationInfo;->uid:I
 
@@ -53,7 +53,7 @@
     return-void
 .end method
 
-.method public static synthetic copy$default(Lcom/android/systemui/statusbar/phone/ongoingcall/OngoingCallController$CallNotificationInfo;Ljava/lang/String;JLandroid/content/Intent;IZZILjava/lang/Object;)Lcom/android/systemui/statusbar/phone/ongoingcall/OngoingCallController$CallNotificationInfo;
+.method public static synthetic copy$default(Lcom/android/systemui/statusbar/phone/ongoingcall/OngoingCallController$CallNotificationInfo;Ljava/lang/String;JLandroid/app/PendingIntent;IZZILjava/lang/Object;)Lcom/android/systemui/statusbar/phone/ongoingcall/OngoingCallController$CallNotificationInfo;
     .locals 5
 
     and-int/lit8 p9, p8, 0x1
@@ -76,7 +76,7 @@
 
     if-eqz p2, :cond_2
 
-    iget-object p4, p0, Lcom/android/systemui/statusbar/phone/ongoingcall/OngoingCallController$CallNotificationInfo;->intent:Landroid/content/Intent;
+    iget-object p4, p0, Lcom/android/systemui/statusbar/phone/ongoingcall/OngoingCallController$CallNotificationInfo;->intent:Landroid/app/PendingIntent;
 
     :cond_2
     move-object p9, p4
@@ -122,7 +122,7 @@
 
     move p9, v4
 
-    invoke-virtual/range {p2 .. p9}, Lcom/android/systemui/statusbar/phone/ongoingcall/OngoingCallController$CallNotificationInfo;->copy(Ljava/lang/String;JLandroid/content/Intent;IZZ)Lcom/android/systemui/statusbar/phone/ongoingcall/OngoingCallController$CallNotificationInfo;
+    invoke-virtual/range {p2 .. p9}, Lcom/android/systemui/statusbar/phone/ongoingcall/OngoingCallController$CallNotificationInfo;->copy(Ljava/lang/String;JLandroid/app/PendingIntent;IZZ)Lcom/android/systemui/statusbar/phone/ongoingcall/OngoingCallController$CallNotificationInfo;
 
     move-result-object p0
 
@@ -131,7 +131,7 @@
 
 
 # virtual methods
-.method public final copy(Ljava/lang/String;JLandroid/content/Intent;IZZ)Lcom/android/systemui/statusbar/phone/ongoingcall/OngoingCallController$CallNotificationInfo;
+.method public final copy(Ljava/lang/String;JLandroid/app/PendingIntent;IZZ)Lcom/android/systemui/statusbar/phone/ongoingcall/OngoingCallController$CallNotificationInfo;
     .locals 8
 
     const-string p0, "key"
@@ -154,7 +154,7 @@
 
     move v7, p7
 
-    invoke-direct/range {v0 .. v7}, Lcom/android/systemui/statusbar/phone/ongoingcall/OngoingCallController$CallNotificationInfo;-><init>(Ljava/lang/String;JLandroid/content/Intent;IZZ)V
+    invoke-direct/range {v0 .. v7}, Lcom/android/systemui/statusbar/phone/ongoingcall/OngoingCallController$CallNotificationInfo;-><init>(Ljava/lang/String;JLandroid/app/PendingIntent;IZZ)V
 
     return-object p0
 .end method
@@ -204,9 +204,9 @@
     return v2
 
     :cond_3
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/ongoingcall/OngoingCallController$CallNotificationInfo;->intent:Landroid/content/Intent;
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/ongoingcall/OngoingCallController$CallNotificationInfo;->intent:Landroid/app/PendingIntent;
 
-    iget-object v3, p1, Lcom/android/systemui/statusbar/phone/ongoingcall/OngoingCallController$CallNotificationInfo;->intent:Landroid/content/Intent;
+    iget-object v3, p1, Lcom/android/systemui/statusbar/phone/ongoingcall/OngoingCallController$CallNotificationInfo;->intent:Landroid/app/PendingIntent;
 
     invoke-static {v1, v3}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
@@ -255,10 +255,10 @@
     return-wide v0
 .end method
 
-.method public final getIntent()Landroid/content/Intent;
+.method public final getIntent()Landroid/app/PendingIntent;
     .locals 0
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/phone/ongoingcall/OngoingCallController$CallNotificationInfo;->intent:Landroid/content/Intent;
+    iget-object p0, p0, Lcom/android/systemui/statusbar/phone/ongoingcall/OngoingCallController$CallNotificationInfo;->intent:Landroid/app/PendingIntent;
 
     return-object p0
 .end method
@@ -330,7 +330,7 @@
 
     mul-int/lit8 v0, v0, 0x1f
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/ongoingcall/OngoingCallController$CallNotificationInfo;->intent:Landroid/content/Intent;
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/ongoingcall/OngoingCallController$CallNotificationInfo;->intent:Landroid/app/PendingIntent;
 
     if-nez v1, :cond_0
 
@@ -339,7 +339,7 @@
     goto :goto_0
 
     :cond_0
-    invoke-virtual {v1}, Landroid/content/Intent;->hashCode()I
+    invoke-virtual {v1}, Landroid/app/PendingIntent;->hashCode()I
 
     move-result v1
 
@@ -421,7 +421,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/ongoingcall/OngoingCallController$CallNotificationInfo;->intent:Landroid/content/Intent;
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/ongoingcall/OngoingCallController$CallNotificationInfo;->intent:Landroid/app/PendingIntent;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
