@@ -687,3 +687,34 @@
 
     return-void
 .end method
+
+.method public updatePowerViewVisibility(I)V
+    .locals 2
+    
+    if-eqz p1, :cond_stock
+    
+    sget-boolean v0, Lcom/android/mwilky/Renovate;->mBlockPowerMenuKeyguard:Z
+
+    if-nez v0, :cond_0
+
+    :cond_stock
+    iget-object v0, p0, Lcom/android/systemui/qs/FooterActionsController;->powerMenuLite:Landroid/view/View;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
+
+    goto :goto_0
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/systemui/qs/FooterActionsController;->powerMenuLite:Landroid/view/View;
+
+    const/16 v1, 0x8
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
+
+    :goto_0
+    invoke-direct {p0}, Lcom/android/systemui/qs/FooterActionsController;->updateView()V
+
+    return-void
+.end method

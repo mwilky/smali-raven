@@ -306,17 +306,19 @@
 .end method
 
 .method public setKeyguardShowing(Z)V
-    .locals 0
+    .locals 1
 
-    iget-object p1, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
+    iget-object v0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
 
-    check-cast p1, Lcom/android/systemui/qs/QSFooterView;
+    check-cast v0, Lcom/android/systemui/qs/QSFooterView;
 
-    invoke-virtual {p1}, Lcom/android/systemui/qs/QSFooterView;->setKeyguardShowing()V
+    invoke-virtual {v0}, Lcom/android/systemui/qs/QSFooterView;->setKeyguardShowing()V
 
     iget-object p0, p0, Lcom/android/systemui/qs/QSFooterViewController;->mFooterActionsController:Lcom/android/systemui/qs/FooterActionsController;
 
     invoke-virtual {p0}, Lcom/android/systemui/qs/FooterActionsController;->setKeyguardShowing()V
+    
+    invoke-virtual {p0, p1}, Lcom/android/systemui/qs/FooterActionsController;->updatePowerViewVisibility(I)V
 
     return-void
 .end method
