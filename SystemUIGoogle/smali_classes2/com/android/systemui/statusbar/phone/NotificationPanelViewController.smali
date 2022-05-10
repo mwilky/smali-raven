@@ -4394,16 +4394,7 @@
 
 .method private handleQsDown(Landroid/view/MotionEvent;)V
     .locals 3
-    
-    sget-boolean v0, Lcom/android/mwilky/Renovate;->mDisableQsLockscreen:Z
-    
-    if-eqz v0, :cond_stock
-    
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mKeyguardShowing:Z
-    
-    if-nez v0, :cond_0
 
-    :cond_stock
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionMasked()I
 
     move-result v0

@@ -870,7 +870,22 @@
 
 .method public click(Landroid/view/View;)V
     .locals 5
+    
+    sget-boolean v0, Lcom/android/mwilky/Renovate;->mDisableQsLockscreen:Z
+    
+    if-eqz v0, :cond_stock
+    
+    iget-object v0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mStatusBarStateController:Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
 
+    invoke-interface {v0}, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;->getState()I
+
+    move-result v0
+    
+    const/4 v1, 0x1
+    
+    if-eq v0, v1, :cond_exit 
+
+    :cond_stock
     iget-object v0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mMetricsLogger:Lcom/android/internal/logging/MetricsLogger;
 
     new-instance v1, Landroid/metrics/LogMaker;
@@ -962,6 +977,7 @@
     :cond_0
     invoke-virtual {p0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->handleVibrate()V
 
+    :cond_exit
     return-void
 .end method
 
