@@ -82,6 +82,27 @@
     goto :goto_0
 
     :pswitch_0
+    sget-boolean v0, Lcom/android/server/policy/PhoneWindowManager;->mBlockPowerMenuKeyguard:Z
+
+    if-eqz v0, :cond_mw
+    
+    iget-object v0, p0, Lcom/android/server/policy/PhoneWindowManager$9;->this$0:Lcom/android/server/policy/PhoneWindowManager;
+
+    invoke-virtual {v0}, Lcom/android/server/policy/PhoneWindowManager;->isScreenOn()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_mw
+    
+    iget-object v0, p0, Lcom/android/server/policy/PhoneWindowManager$9;->this$0:Lcom/android/server/policy/PhoneWindowManager;
+
+    invoke-virtual {v0}, Lcom/android/server/policy/PhoneWindowManager;->keyguardOn()Z
+
+    move-result v0
+
+    if-nez v0, :cond_exit
+
+    :cond_mw
     iget-object v0, p0, Lcom/android/server/policy/PhoneWindowManager$9;->this$0:Lcom/android/server/policy/PhoneWindowManager;
 
     const/4 v2, 0x0
@@ -112,6 +133,7 @@
     nop
 
     :goto_0
+    :cond_exit
     return-void
 
     :pswitch_data_0
