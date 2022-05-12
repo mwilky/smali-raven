@@ -205,11 +205,7 @@
 
     move-result-object p1
 
-    sget p2, Lcom/android/systemui/qs/customize/TileAdapter;->NUM_COLUMNS_ID:I
-
-    invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getInteger(I)I
-
-    move-result p1
+    sget p1, Lcom/android/mwilky/Renovate;->mQsColumns:I
 
     iput p1, p0, Lcom/android/systemui/qs/customize/TileAdapter;->mNumColumns:I
 
@@ -2016,11 +2012,7 @@
 
     move-result-object v0
 
-    sget v1, Lcom/android/systemui/qs/customize/TileAdapter;->NUM_COLUMNS_ID:I
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
-
-    move-result v0
+    sget v0, Lcom/android/mwilky/Renovate;->mQsColumns:I
 
     iget v1, p0, Lcom/android/systemui/qs/customize/TileAdapter;->mNumColumns:I
 
