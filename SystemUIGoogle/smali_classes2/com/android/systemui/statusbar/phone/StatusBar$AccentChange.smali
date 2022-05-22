@@ -47,6 +47,8 @@
     invoke-static {v1}, Lcom/android/mwilky/Renovate;->setStatusbarIconColors(Landroid/content/Context;)V
     
     invoke-static {v1}, Lcom/android/mwilky/Renovate;->setQsTileTweaks(Landroid/content/Context;)V
+    
+    invoke-static {v1}, Lcom/android/mwilky/Renovate;->setNotificationTextColors(Landroid/content/Context;)V
 
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateStatusbarIconColors()V
     
