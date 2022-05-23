@@ -12107,7 +12107,7 @@
 
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
     
-    const-string v3, "tweaks_notification_text_color_accent"
+    const-string v3, "tweaks_notification_text_accent"
 
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
     
@@ -13250,7 +13250,7 @@
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->runToggleNightMode()V
 
     :cond_mwilky69
-    const-string v0, "tweaks_notification_text_color_accent"
+    const-string v0, "tweaks_notification_text_accent"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 

@@ -847,7 +847,7 @@
     sput-boolean v1, Lcom/android/mwilky/Renovate;->mUnlockNotificationColors:Z
 
     .line 546
-    const-string v1, "tweaks_notification_text_color_accent"
+    const-string v1, "tweaks_notification_text_accent"
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
