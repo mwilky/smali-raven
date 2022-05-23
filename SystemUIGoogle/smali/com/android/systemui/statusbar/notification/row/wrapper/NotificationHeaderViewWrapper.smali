@@ -574,6 +574,8 @@
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationViewWrapper;->mView:Landroid/view/View;
     
     invoke-static {v0}, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationHeaderViewWrapper;->setNotificationColors(Landroid/view/View;)V
+    
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationHeaderViewWrapper;->updateExpandButton()V
 
     return-void
 .end method
@@ -1131,5 +1133,26 @@
     .end local v0    # "e":Ljava/lang/Exception;
     :cond_81
     :goto_81
+    return-void
+.end method
+
+.method public updateExpandButton()V
+    .registers 3
+
+    .line 101
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationHeaderViewWrapper;->mExpandButton:Lcom/android/internal/widget/NotificationExpandButton;
+
+    sget v1, Lcom/android/mwilky/Renovate;->mNotificationTextColor:I
+
+    invoke-virtual {v0, v1}, Lcom/android/internal/widget/NotificationExpandButton;->setDefaultTextColor(I)V
+
+    .line 102
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationHeaderViewWrapper;->mExpandButton:Lcom/android/internal/widget/NotificationExpandButton;
+
+    sget v1, Lcom/android/mwilky/Renovate;->mNotificationTextColor:I
+
+    invoke-virtual {v0, v1}, Lcom/android/internal/widget/NotificationExpandButton;->setHighlightTextColor(I)V
+
+    .line 103
     return-void
 .end method
