@@ -54,7 +54,7 @@
 
     iget v1, p0, Lcom/android/systemui/statusbar/phone/StatusBar$BrightnessControl;->val$val:F
 
-    const-string v2, "screen_auto_brightness_adj"
+    const-string v2, "screen_brightness_float"
 
     invoke-static {v0, v2, v1}, Landroid/provider/Settings$System;->putFloat(Landroid/content/ContentResolver;Ljava/lang/String;F)Z
 
