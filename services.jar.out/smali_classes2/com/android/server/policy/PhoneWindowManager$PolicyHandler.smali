@@ -222,6 +222,42 @@
     invoke-virtual {v0}, Lcom/android/server/policy/PhoneWindowManager;->toggleTorchMode()V
 
     goto :goto_0
+    
+	:pswitch_media  
+    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+
+    check-cast v0, Landroid/view/KeyEvent;
+
+    .line 164
+    .local v0, "event":Landroid/view/KeyEvent;
+    const/4 v2, 0x1
+
+    sput-boolean v2, Lcom/android/server/policy/PhoneWindowManager;->mVolKeyLongPress:Z
+
+    .line 165
+    iget-object v3, p0, Lcom/android/server/policy/PhoneWindowManager$PolicyHandler;->this$0:Lcom/android/server/policy/PhoneWindowManager;
+
+    invoke-virtual {v3, v0}, Lcom/android/server/policy/PhoneWindowManager;->dispatchMediaKeyWithWakeLockToAudioService(Landroid/view/KeyEvent;)V
+
+    .line 166
+    iget-object v3, p0, Lcom/android/server/policy/PhoneWindowManager$PolicyHandler;->this$0:Lcom/android/server/policy/PhoneWindowManager;
+
+    .line 167
+    invoke-static {v0, v2}, Landroid/view/KeyEvent;->changeAction(Landroid/view/KeyEvent;I)Landroid/view/KeyEvent;
+
+    move-result-object v2
+
+    .line 166
+    invoke-virtual {v3, v2}, Lcom/android/server/policy/PhoneWindowManager;->dispatchMediaKeyWithWakeLockToAudioService(Landroid/view/KeyEvent;)V
+
+    .line 168
+    iget-object v2, p0, Lcom/android/server/policy/PhoneWindowManager$PolicyHandler;->this$0:Lcom/android/server/policy/PhoneWindowManager;
+
+    const-string v3, "Volume - Long Press - Media Control"
+
+    invoke-static {v2, v1, v1, v3}, Lcom/android/server/policy/PhoneWindowManager;->access$1500(Lcom/android/server/policy/PhoneWindowManager;IZLjava/lang/String;)Z
+    
+    goto :goto_0
 
     :pswitch_12
     iget-object v0, p0, Lcom/android/server/policy/PhoneWindowManager$PolicyHandler;->this$0:Lcom/android/server/policy/PhoneWindowManager;
@@ -265,5 +301,6 @@
         :pswitch_2
         :pswitch_1
         :pswitch_torch
+        :pswitch_media
     .end packed-switch
 .end method
