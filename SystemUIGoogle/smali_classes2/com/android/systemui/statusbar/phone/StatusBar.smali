@@ -9744,6 +9744,8 @@
     invoke-static {v0}, Lcom/android/mwilky/Renovate;->setStatusbarBrightnessControl(Landroid/content/Context;)V
 
     invoke-static {v0}, Lcom/android/mwilky/Renovate;->setNotificationTextColors(Landroid/content/Context;)V
+    
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setDoubleTapStatusbarSleep(Landroid/content/Context;)V
 
     iget-object v0, v7, Lcom/android/systemui/statusbar/phone/StatusBar;->mScreenLifecycle:Lcom/android/systemui/keyguard/ScreenLifecycle;
 
