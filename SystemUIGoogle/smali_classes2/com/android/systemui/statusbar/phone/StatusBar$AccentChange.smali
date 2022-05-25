@@ -53,6 +53,10 @@
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateStatusbarIconColors()V
     
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/StatusBar;->reloadTiles()V
+    
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/StatusBar;->reloadBrightnessSliderPosition()V
+    
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/StatusBar;->runToggleNightMode()V
 
     .line 199
     return-void
