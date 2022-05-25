@@ -324,9 +324,13 @@
     :cond_0
     iget-object v0, p1, Lcom/android/systemui/statusbar/connectivity/MobileDataIndicators;->qsIcon:Lcom/android/systemui/statusbar/connectivity/IconState;
 
+    if-eqz v0, :cond_5
+
+    iget-boolean v0, p1, Lcom/android/systemui/statusbar/connectivity/MobileDataIndicators;->isDefault:Z
+
     if-nez v0, :cond_1
 
-    return-void
+    goto :goto_2
 
     :cond_1
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/InternetTile$InternetSignalCallback;->mCellularInfo:Lcom/android/systemui/qs/tiles/InternetTile$CellularCallbackInfo;
@@ -410,6 +414,8 @@
 
     invoke-static {p1, p0}, Lcom/android/systemui/qs/tiles/InternetTile;->access$800(Lcom/android/systemui/qs/tiles/InternetTile;Ljava/lang/Object;)V
 
+    :cond_5
+    :goto_2
     return-void
 .end method
 
@@ -507,9 +513,13 @@
 
     iget-object v2, p1, Lcom/android/systemui/statusbar/connectivity/WifiIndicators;->qsIcon:Lcom/android/systemui/statusbar/connectivity/IconState;
 
-    if-nez v2, :cond_1
+    if-eqz v2, :cond_2
 
-    return-void
+    iget-boolean v3, p1, Lcom/android/systemui/statusbar/connectivity/WifiIndicators;->isDefault:Z
+
+    if-nez v3, :cond_1
+
+    goto :goto_0
 
     :cond_1
     iget-boolean v3, v2, Lcom/android/systemui/statusbar/connectivity/IconState;->visible:Z
@@ -550,6 +560,8 @@
 
     invoke-static {p0, v0}, Lcom/android/systemui/qs/tiles/InternetTile;->access$500(Lcom/android/systemui/qs/tiles/InternetTile;Ljava/lang/Object;)V
 
+    :cond_2
+    :goto_0
     return-void
 .end method
 

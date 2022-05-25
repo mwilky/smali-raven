@@ -632,111 +632,69 @@
 .end method
 
 .method private getQsInfo(Ljava/lang/String;I)Lcom/android/systemui/statusbar/connectivity/MobileSignalController$QsInfo;
-    .locals 6
+    .locals 4
 
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;->mProviderModelSetting:Z
+    iget-object v0, p0, Lcom/android/systemui/statusbar/connectivity/SignalController;->mCurrentState:Lcom/android/systemui/statusbar/connectivity/ConnectivityState;
 
-    const/4 v1, 0x1
+    move-object v1, v0
+
+    check-cast v1, Lcom/android/systemui/statusbar/connectivity/MobileState;
+
+    iget-boolean v1, v1, Lcom/android/systemui/statusbar/connectivity/MobileState;->dataSim:Z
 
     const/4 v2, 0x0
 
-    if-nez v0, :cond_1
+    const/4 v3, 0x0
 
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;->mProviderModelBehavior:Z
-
-    if-eqz v0, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    move v0, v2
-
-    goto :goto_1
-
-    :cond_1
-    :goto_0
-    move v0, v1
-
-    :goto_1
-    iget-object v3, p0, Lcom/android/systemui/statusbar/connectivity/SignalController;->mCurrentState:Lcom/android/systemui/statusbar/connectivity/ConnectivityState;
-
-    move-object v4, v3
-
-    check-cast v4, Lcom/android/systemui/statusbar/connectivity/MobileState;
-
-    iget-boolean v4, v4, Lcom/android/systemui/statusbar/connectivity/MobileState;->dataSim:Z
-
-    const/4 v5, 0x0
-
-    if-eqz v4, :cond_7
-
-    if-eqz v0, :cond_2
-
-    move-object v0, v3
+    if-eqz v1, :cond_5
 
     check-cast v0, Lcom/android/systemui/statusbar/connectivity/MobileState;
 
-    iget-boolean v0, v0, Lcom/android/systemui/statusbar/connectivity/MobileState;->isDefault:Z
-
-    if-nez v0, :cond_2
-
-    new-instance p0, Lcom/android/systemui/statusbar/connectivity/MobileSignalController$QsInfo;
-
-    invoke-direct {p0, v2, v5, v5}, Lcom/android/systemui/statusbar/connectivity/MobileSignalController$QsInfo;-><init>(ILcom/android/systemui/statusbar/connectivity/IconState;Ljava/lang/CharSequence;)V
-
-    return-object p0
-
-    :cond_2
-    check-cast v3, Lcom/android/systemui/statusbar/connectivity/MobileState;
-
-    invoke-virtual {v3}, Lcom/android/systemui/statusbar/connectivity/MobileState;->showQuickSettingsRatIcon()Z
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/connectivity/MobileState;->showQuickSettingsRatIcon()Z
 
     move-result v0
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_2
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;->mConfig:Lcom/android/settingslib/mobile/MobileMappings$Config;
 
     iget-boolean v0, v0, Lcom/android/settingslib/mobile/MobileMappings$Config;->alwaysShowDataRatIcon:Z
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_1
 
-    goto :goto_2
+    goto :goto_0
 
-    :cond_3
-    move p2, v2
+    :cond_1
+    move p2, v3
 
-    :cond_4
-    :goto_2
+    :cond_2
+    :goto_0
     iget-object v0, p0, Lcom/android/systemui/statusbar/connectivity/SignalController;->mCurrentState:Lcom/android/systemui/statusbar/connectivity/ConnectivityState;
 
-    move-object v3, v0
+    move-object v1, v0
 
-    check-cast v3, Lcom/android/systemui/statusbar/connectivity/MobileState;
+    check-cast v1, Lcom/android/systemui/statusbar/connectivity/MobileState;
 
-    iget-boolean v3, v3, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;->enabled:Z
+    iget-boolean v1, v1, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;->enabled:Z
 
-    if-eqz v3, :cond_5
+    if-eqz v1, :cond_3
 
     check-cast v0, Lcom/android/systemui/statusbar/connectivity/MobileState;
 
     iget-boolean v0, v0, Lcom/android/systemui/statusbar/connectivity/MobileState;->isEmergency:Z
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_3
 
-    goto :goto_3
+    const/4 v3, 0x1
 
-    :cond_5
-    move v1, v2
-
-    :goto_3
+    :cond_3
     new-instance v0, Lcom/android/systemui/statusbar/connectivity/IconState;
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;->getQsCurrentIconId()I
 
-    move-result v2
+    move-result v1
 
-    invoke-direct {v0, v1, v2, p1}, Lcom/android/systemui/statusbar/connectivity/IconState;-><init>(ZILjava/lang/String;)V
+    invoke-direct {v0, v3, v1, p1}, Lcom/android/systemui/statusbar/connectivity/IconState;-><init>(ZILjava/lang/String;)V
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/connectivity/SignalController;->mCurrentState:Lcom/android/systemui/statusbar/connectivity/ConnectivityState;
 
@@ -746,28 +704,28 @@
 
     iget-boolean p1, p1, Lcom/android/systemui/statusbar/connectivity/MobileState;->isEmergency:Z
 
-    if-nez p1, :cond_6
+    if-nez p1, :cond_4
 
     check-cast p0, Lcom/android/systemui/statusbar/connectivity/MobileState;
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/connectivity/MobileState;->networkName:Ljava/lang/String;
+    iget-object v2, p0, Lcom/android/systemui/statusbar/connectivity/MobileState;->networkName:Ljava/lang/String;
 
-    :cond_6
-    move v2, p2
+    :cond_4
+    move v3, p2
 
-    move-object p0, v5
+    move-object p0, v2
 
-    move-object v5, v0
+    move-object v2, v0
 
-    goto :goto_4
+    goto :goto_1
 
-    :cond_7
-    move-object p0, v5
+    :cond_5
+    move-object p0, v2
 
-    :goto_4
+    :goto_1
     new-instance p1, Lcom/android/systemui/statusbar/connectivity/MobileSignalController$QsInfo;
 
-    invoke-direct {p1, v2, v5, p0}, Lcom/android/systemui/statusbar/connectivity/MobileSignalController$QsInfo;-><init>(ILcom/android/systemui/statusbar/connectivity/IconState;Ljava/lang/CharSequence;)V
+    invoke-direct {p1, v3, v2, p0}, Lcom/android/systemui/statusbar/connectivity/MobileSignalController$QsInfo;-><init>(ILcom/android/systemui/statusbar/connectivity/IconState;Ljava/lang/CharSequence;)V
 
     return-object p1
 .end method
@@ -809,14 +767,6 @@
     check-cast v0, Lcom/android/systemui/statusbar/connectivity/MobileState;
 
     iget-boolean v0, v0, Lcom/android/systemui/statusbar/connectivity/MobileState;->dataSim:Z
-
-    if-eqz v0, :cond_1
-
-    move-object v0, v1
-
-    check-cast v0, Lcom/android/systemui/statusbar/connectivity/MobileState;
-
-    iget-boolean v0, v0, Lcom/android/systemui/statusbar/connectivity/MobileState;->isDefault:Z
 
     if-eqz v0, :cond_1
 
@@ -2242,7 +2192,7 @@
 .end method
 
 .method public notifyListeners(Lcom/android/systemui/statusbar/connectivity/SignalCallback;)V
-    .locals 17
+    .locals 18
 
     move-object/from16 v0, p0
 
@@ -2368,17 +2318,25 @@
 
     iget-object v0, v0, Lcom/android/systemui/statusbar/connectivity/SignalController;->mCurrentState:Lcom/android/systemui/statusbar/connectivity/ConnectivityState;
 
+    move-object v3, v0
+
+    check-cast v3, Lcom/android/systemui/statusbar/connectivity/MobileState;
+
+    iget-boolean v15, v3, Lcom/android/systemui/statusbar/connectivity/MobileState;->roaming:Z
+
+    iget-boolean v1, v1, Lcom/android/systemui/statusbar/connectivity/MobileSignalController$SbInfo;->showTriangle:Z
+
     check-cast v0, Lcom/android/systemui/statusbar/connectivity/MobileState;
 
-    iget-boolean v15, v0, Lcom/android/systemui/statusbar/connectivity/MobileState;->roaming:Z
-
-    iget-boolean v0, v1, Lcom/android/systemui/statusbar/connectivity/MobileSignalController$SbInfo;->showTriangle:Z
+    iget-boolean v0, v0, Lcom/android/systemui/statusbar/connectivity/MobileState;->isDefault:Z
 
     move-object v4, v2
 
-    move/from16 v16, v0
+    move/from16 v16, v1
 
-    invoke-direct/range {v4 .. v16}, Lcom/android/systemui/statusbar/connectivity/MobileDataIndicators;-><init>(Lcom/android/systemui/statusbar/connectivity/IconState;Lcom/android/systemui/statusbar/connectivity/IconState;IIZZLjava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/CharSequence;IZZ)V
+    move/from16 v17, v0
+
+    invoke-direct/range {v4 .. v17}, Lcom/android/systemui/statusbar/connectivity/MobileDataIndicators;-><init>(Lcom/android/systemui/statusbar/connectivity/IconState;Lcom/android/systemui/statusbar/connectivity/IconState;IIZZLjava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/CharSequence;IZZZ)V
 
     move-object/from16 v0, p1
 

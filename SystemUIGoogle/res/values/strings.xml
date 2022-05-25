@@ -1507,9 +1507,9 @@ If you have questions, contact %2$s."</string>
     <string name="quick_settings_screen_record_stop">Stop</string>
     <string name="quick_settings_secondary_label_until">Until %s</string>
     <string name="quick_settings_tiles">default</string>
-    <string name="quick_settings_tiles_default">internet,bt,flashlight,dnd,alarm,airplane,controls,wallet,rotation,battery,cast,screenrecord,custom(com.google.android.gms/.nearby.sharing.SharingTileService),mictoggle,cameratoggle</string>
+    <string name="quick_settings_tiles_default">internet,bt,flashlight,dnd,alarm,airplane,controls,wallet,rotation,battery,cast,screenrecord,custom(com.google.android.gms/.nearby.sharing.SharingTileService),mictoggle,cameratoggle,wifi,cell</string>
     <string name="quick_settings_tiles_retail_mode">night,dark,dnd,flashlight,rotation,location</string>
-    <string name="quick_settings_tiles_stock">internet,bt,flashlight,dnd,alarm,airplane,controls,wallet,rotation,battery,cast,screenrecord,mictoggle,cameratoggle,location,hotspot,inversion,saver,dark,work,night,reverse,reduce_brightness</string>
+    <string name="quick_settings_tiles_stock">internet,bt,flashlight,dnd,alarm,airplane,controls,wallet,rotation,battery,cast,screenrecord,mictoggle,cameratoggle,location,hotspot,inversion,saver,dark,work,night,reverse,reduce_brightness,wifi,cell</string>
     <string name="quick_settings_ui_mode_night_label">Dark theme</string>
     <string name="quick_settings_user_title">User</string>
     <string name="quick_settings_wifi_detail_empty_text">No Wi-Fi networks available</string>

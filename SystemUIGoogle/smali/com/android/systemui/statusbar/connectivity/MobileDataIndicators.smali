@@ -8,6 +8,8 @@
 
 .field public final activityOut:Z
 
+.field public final isDefault:Z
+
 .field public final qsDescription:Ljava/lang/CharSequence;
 
 .field public final qsIcon:Lcom/android/systemui/statusbar/connectivity/IconState;
@@ -30,7 +32,7 @@
 
 
 # direct methods
-.method public constructor <init>(Lcom/android/systemui/statusbar/connectivity/IconState;Lcom/android/systemui/statusbar/connectivity/IconState;IIZZLjava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/CharSequence;IZZ)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/connectivity/IconState;Lcom/android/systemui/statusbar/connectivity/IconState;IIZZLjava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/CharSequence;IZZZ)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -58,6 +60,8 @@
     iput-boolean p11, p0, Lcom/android/systemui/statusbar/connectivity/MobileDataIndicators;->roaming:Z
 
     iput-boolean p12, p0, Lcom/android/systemui/statusbar/connectivity/MobileDataIndicators;->showTriangle:Z
+
+    iput-boolean p13, p0, Lcom/android/systemui/statusbar/connectivity/MobileDataIndicators;->isDefault:Z
 
     return-void
 .end method
@@ -204,15 +208,24 @@
     return v2
 
     :cond_c
-    iget-boolean p0, p0, Lcom/android/systemui/statusbar/connectivity/MobileDataIndicators;->showTriangle:Z
+    iget-boolean v1, p0, Lcom/android/systemui/statusbar/connectivity/MobileDataIndicators;->showTriangle:Z
 
-    iget-boolean p1, p1, Lcom/android/systemui/statusbar/connectivity/MobileDataIndicators;->showTriangle:Z
+    iget-boolean v3, p1, Lcom/android/systemui/statusbar/connectivity/MobileDataIndicators;->showTriangle:Z
 
-    if-eq p0, p1, :cond_d
+    if-eq v1, v3, :cond_d
 
     return v2
 
     :cond_d
+    iget-boolean p0, p0, Lcom/android/systemui/statusbar/connectivity/MobileDataIndicators;->isDefault:Z
+
+    iget-boolean p1, p1, Lcom/android/systemui/statusbar/connectivity/MobileDataIndicators;->isDefault:Z
+
+    if-eq p0, p1, :cond_e
+
+    return v2
+
+    :cond_e
     return v0
 .end method
 
@@ -372,13 +385,24 @@
 
     mul-int/lit8 v0, v0, 0x1f
 
-    iget-boolean p0, p0, Lcom/android/systemui/statusbar/connectivity/MobileDataIndicators;->showTriangle:Z
+    iget-boolean v1, p0, Lcom/android/systemui/statusbar/connectivity/MobileDataIndicators;->showTriangle:Z
 
-    if-eqz p0, :cond_8
+    if-eqz v1, :cond_8
+
+    move v1, v3
+
+    :cond_8
+    add-int/2addr v0, v1
+
+    mul-int/lit8 v0, v0, 0x1f
+
+    iget-boolean p0, p0, Lcom/android/systemui/statusbar/connectivity/MobileDataIndicators;->isDefault:Z
+
+    if-eqz p0, :cond_9
 
     goto :goto_5
 
-    :cond_8
+    :cond_9
     move v3, p0
 
     :goto_5

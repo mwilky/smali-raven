@@ -130,178 +130,223 @@
 .end method
 
 .method private addCurrentAndStockTiles(Lcom/android/systemui/qs/QSTileHost;)V
-    .locals 7
+    .registers 12
+    .param p1, "qSTileHost"    # Lcom/android/systemui/qs/QSTileHost;
 
+    .line 25
     iget-object v0, p0, Lcom/android/systemui/qs/customize/TileQueryHelper;->mContext:Landroid/content/Context;
 
-    sget v1, Lcom/android/systemui/R$string;->quick_settings_tiles_stock:I
-
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/android/systemui/qs/customize/TileQueryHelper;->mContext:Landroid/content/Context;
+    .line 28
+    .local v0, "ContentResolver":Landroid/content/ContentResolver;
+    const-string v1, "tweaks_qs_fix_ran"
 
-    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    const/4 v2, 0x0
 
-    move-result-object v1
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    const-string v2, "sysui_qs_tiles"
+    move-result v3
 
-    invoke-static {v1, v2}, Landroid/provider/Settings$Secure;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
+    const/4 v4, 0x1
 
-    move-result-object v1
+    if-ne v3, v4, :cond_12
 
+    move v3, v4
+
+    goto :goto_13
+
+    :cond_12
+    move v3, v2
+
+    .line 29
+    .local v3, "hasRan":Z
+    :goto_13
+    iget-object v5, p0, Lcom/android/systemui/qs/customize/TileQueryHelper;->mContext:Landroid/content/Context;
+
+    const-string v6, "quick_settings_tiles_stock"
+
+    const-string v7, "string"
+
+    invoke-static {v6, v7}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v6
+
+    invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    .line 30
+    .local v5, "string":Ljava/lang/String;
+    iget-object v6, p0, Lcom/android/systemui/qs/customize/TileQueryHelper;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v6}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v6
+
+    const-string v7, "sysui_qs_tiles"
+
+    invoke-static {v6, v7}, Landroid/provider/Settings$Secure;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v6
+
+    .line 31
+    .local v6, "string2":Ljava/lang/String;
+    if-nez v3, :cond_33
+
+    .line 32
+    const/4 v6, 0x0
+
+    .line 33
+    invoke-static {v0, v1, v4}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    .line 35
+    :cond_33
+    new-instance v1, Ljava/util/ArrayList;
+
+    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
+
+    .line 36
+    .local v1, "arrayList":Ljava/util/ArrayList;
+    const-string v4, ","
+
+    if-eqz v6, :cond_48
+
+    .line 37
+    invoke-virtual {v6, v4}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v7}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
+
+    move-result-object v7
+
+    invoke-virtual {v1, v7}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
+
+    goto :goto_4a
+
+    .line 39
+    :cond_48
+    const-string v6, ""
+
+    .line 41
+    :goto_4a
+    invoke-virtual {v5, v4}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+
+    move-result-object v4
+
+    array-length v7, v4
+
+    :goto_4f
+    if-ge v2, v7, :cond_5f
+
+    aget-object v8, v4, v2
+
+    .line 42
+    .local v8, "str":Ljava/lang/String;
+    invoke-virtual {v6, v8}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v9
+
+    if-nez v9, :cond_5c
+
+    .line 43
+    invoke-virtual {v1, v8}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    .line 41
+    .end local v8    # "str":Ljava/lang/String;
+    :cond_5c
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_4f
+
+    .line 46
+    :cond_5f
     new-instance v2, Ljava/util/ArrayList;
 
     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
-    const-string v3, ","
-
-    if-eqz v1, :cond_0
-
-    invoke-virtual {v1, v3}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+    .line 52
+    .local v2, "arrayList2":Ljava/util/ArrayList;
+    invoke-virtual {v1}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object v4
 
-    invoke-static {v4}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
+    .line 53
+    .local v4, "it":Ljava/util/Iterator;
+    :goto_68
+    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result-object v4
+    move-result v7
 
-    invoke-virtual {v2, v4}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
+    if-eqz v7, :cond_97
 
-    goto :goto_0
+    .line 54
+    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    :cond_0
-    const-string v1, ""
+    move-result-object v7
 
-    :goto_0
-    invoke-virtual {v0, v3}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+    check-cast v7, Ljava/lang/String;
 
-    move-result-object v0
+    .line 55
+    .local v7, "str2":Ljava/lang/String;
+    const-string v8, "custom("
 
-    array-length v3, v0
+    invoke-virtual {v7, v8}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    const/4 v4, 0x0
+    move-result v8
 
-    :goto_1
-    if-ge v4, v3, :cond_2
+    if-nez v8, :cond_96
 
-    aget-object v5, v0, v4
+    invoke-virtual {p1, v7}, Lcom/android/systemui/qs/QSTileHost;->createTile(Ljava/lang/String;)Lcom/android/systemui/plugins/qs/QSTile;
 
-    invoke-virtual {v1, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    move-result-object v8
 
-    move-result v6
+    move-object v9, v8
 
-    if-nez v6, :cond_1
+    .local v9, "createTile":Lcom/android/systemui/plugins/qs/QSTile;
+    if-eqz v8, :cond_96
 
-    invoke-virtual {v2, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    .line 56
+    invoke-interface {v9}, Lcom/android/systemui/plugins/qs/QSTile;->isAvailable()Z
 
-    :cond_1
-    add-int/lit8 v4, v4, 0x1
+    move-result v8
 
-    goto :goto_1
+    if-nez v8, :cond_90
 
-    :cond_2
-    sget-boolean v0, Landroid/os/Build;->IS_DEBUGGABLE:Z
+    .line 57
+    invoke-interface {v9, v7}, Lcom/android/systemui/plugins/qs/QSTile;->setTileSpec(Ljava/lang/String;)V
 
-    if-eqz v0, :cond_3
+    .line 58
+    invoke-interface {v9}, Lcom/android/systemui/plugins/qs/QSTile;->destroy()V
 
-    const-string v0, "dbg:mem"
+    goto :goto_96
 
-    invoke-virtual {v1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    .line 60
+    :cond_90
+    invoke-interface {v9, v7}, Lcom/android/systemui/plugins/qs/QSTile;->setTileSpec(Ljava/lang/String;)V
 
-    move-result v1
+    .line 61
+    invoke-virtual {v2, v9}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    if-nez v1, :cond_3
+    .line 64
+    .end local v7    # "str2":Ljava/lang/String;
+    .end local v9    # "createTile":Lcom/android/systemui/plugins/qs/QSTile;
+    :cond_96
+    :goto_96
+    goto :goto_68
 
-    invoke-virtual {v2, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    .line 65
+    :cond_97
+    new-instance v7, Lcom/android/systemui/qs/customize/TileQueryHelper$TileCollector;
 
-    :cond_3
-    new-instance v0, Ljava/util/ArrayList;
+    invoke-direct {v7, p0, v2, p1}, Lcom/android/systemui/qs/customize/TileQueryHelper$TileCollector;-><init>(Lcom/android/systemui/qs/customize/TileQueryHelper;Ljava/util/List;Lcom/android/systemui/qs/QSTileHost;)V
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    invoke-static {v7}, Lcom/android/systemui/qs/customize/TileQueryHelper$TileCollector;->access$000(Lcom/android/systemui/qs/customize/TileQueryHelper$TileCollector;)V
 
-    iget-object v1, p0, Lcom/android/systemui/qs/customize/TileQueryHelper;->mFeatureFlags:Lcom/android/systemui/flags/FeatureFlags;
-
-    invoke-virtual {v1}, Lcom/android/systemui/flags/FeatureFlags;->isProviderModelSettingEnabled()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_4
-
-    const-string v1, "cell"
-
-    invoke-virtual {v2, v1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
-
-    const-string/jumbo v1, "wifi"
-
-    invoke-virtual {v2, v1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
-
-    :cond_4
-    invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
-
-    move-result-object v1
-
-    :goto_2
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_8
-
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Ljava/lang/String;
-
-    const-string v3, "custom("
-
-    invoke-virtual {v2, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_5
-
-    goto :goto_2
-
-    :cond_5
-    invoke-virtual {p1, v2}, Lcom/android/systemui/qs/QSTileHost;->createTile(Ljava/lang/String;)Lcom/android/systemui/plugins/qs/QSTile;
-
-    move-result-object v3
-
-    if-nez v3, :cond_6
-
-    goto :goto_2
-
-    :cond_6
-    invoke-interface {v3}, Lcom/android/systemui/plugins/qs/QSTile;->isAvailable()Z
-
-    move-result v4
-
-    if-nez v4, :cond_7
-
-    invoke-interface {v3, v2}, Lcom/android/systemui/plugins/qs/QSTile;->setTileSpec(Ljava/lang/String;)V
-
-    invoke-interface {v3}, Lcom/android/systemui/plugins/qs/QSTile;->destroy()V
-
-    goto :goto_2
-
-    :cond_7
-    invoke-interface {v3, v2}, Lcom/android/systemui/plugins/qs/QSTile;->setTileSpec(Ljava/lang/String;)V
-
-    invoke-virtual {v0, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    goto :goto_2
-
-    :cond_8
-    new-instance v1, Lcom/android/systemui/qs/customize/TileQueryHelper$TileCollector;
-
-    invoke-direct {v1, p0, v0, p1}, Lcom/android/systemui/qs/customize/TileQueryHelper$TileCollector;-><init>(Lcom/android/systemui/qs/customize/TileQueryHelper;Ljava/util/List;Lcom/android/systemui/qs/QSTileHost;)V
-
-    invoke-static {v1}, Lcom/android/systemui/qs/customize/TileQueryHelper$TileCollector;->access$000(Lcom/android/systemui/qs/customize/TileQueryHelper$TileCollector;)V
-
+    .line 66
     return-void
 .end method
 

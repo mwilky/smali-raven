@@ -629,7 +629,10 @@
 .end method
 
 .method protected static loadTileSpecs(Landroid/content/Context;Ljava/lang/String;Lcom/android/systemui/flags/FeatureFlags;)Ljava/util/List;
-    .locals 7
+    .registers 15
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "str"    # Ljava/lang/String;
+    .param p2, "featureFlags"    # Lcom/android/systemui/flags/FeatureFlags;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -643,231 +646,222 @@
         }
     .end annotation
 
+    .line 30
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
+    .line 31
+    .local v0, "resources":Landroid/content/res/Resources;
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v1
 
     const-string v2, "QSTileHost"
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_33
 
-    sget p1, Lcom/android/systemui/R$string;->quick_settings_tiles:I
+    .line 32
+    const-string v1, "quick_settings_tiles"
 
-    invoke-virtual {v0, p1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    const-string v3, "id"
 
-    move-result-object p1
+    invoke-static {v1, v3}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
 
-    sget-boolean v0, Lcom/android/systemui/qs/QSTileHost;->DEBUG:Z
+    move-result v1
 
-    if-eqz v0, :cond_1
-
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "Loaded tile specs from config: "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v2, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
-
-    :cond_0
-    sget-boolean v0, Lcom/android/systemui/qs/QSTileHost;->DEBUG:Z
-
-    if-eqz v0, :cond_1
-
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "Loaded tile specs from setting: "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v2, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_1
-    :goto_0
-    new-instance v0, Ljava/util/ArrayList;
-
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
-
-    new-instance v1, Landroid/util/ArraySet;
-
-    invoke-direct {v1}, Landroid/util/ArraySet;-><init>()V
-
-    const-string v2, ","
-
-    invoke-virtual {p1, v2}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object p1
 
-    array-length v2, p1
+    .line 33
+    sget-boolean v1, Lcom/android/systemui/qs/QSTileHost;->DEBUG:Z
 
+    if-eqz v1, :cond_4d
+
+    .line 34
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "Loaded tile specs from config: "
+
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v2, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_4d
+
+    .line 36
+    :cond_33
+    sget-boolean v1, Lcom/android/systemui/qs/QSTileHost;->DEBUG:Z
+
+    if-eqz v1, :cond_4d
+
+    .line 37
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "Loaded tile specs from setting: "
+
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v2, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 39
+    :cond_4d
+    :goto_4d
+    new-instance v1, Ljava/util/ArrayList;
+
+    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
+
+    .line 40
+    .local v1, "arrayList":Ljava/util/ArrayList;
+    new-instance v2, Landroid/util/ArraySet;
+
+    invoke-direct {v2}, Landroid/util/ArraySet;-><init>()V
+
+    .line 41
+    .local v2, "arraySet":Landroid/util/ArraySet;
     const/4 v3, 0x0
 
-    move v4, v3
+    .line 42
+    .local v3, "z":Z
+    const-string v4, ","
 
-    :goto_1
-    if-ge v3, v2, :cond_7
+    invoke-virtual {p1, v4}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
-    aget-object v5, p1, v3
+    move-result-object v4
 
-    invoke-virtual {v5}, Ljava/lang/String;->trim()Ljava/lang/String;
+    array-length v5, v4
 
-    move-result-object v5
+    const/4 v6, 0x0
 
-    invoke-virtual {v5}, Ljava/lang/String;->isEmpty()Z
+    :goto_60
+    if-ge v6, v5, :cond_aa
 
-    move-result v6
+    aget-object v7, v4, v6
 
-    if-eqz v6, :cond_2
+    .line 43
+    .local v7, "str2":Ljava/lang/String;
+    invoke-virtual {v7}, Ljava/lang/String;->trim()Ljava/lang/String;
 
-    goto :goto_3
+    move-result-object v8
 
-    :cond_2
-    const-string v6, "default"
+    .line 44
+    .local v8, "trim":Ljava/lang/String;
+    invoke-virtual {v8}, Ljava/lang/String;->isEmpty()Z
 
-    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result v9
 
-    move-result v6
+    if-nez v9, :cond_a7
 
-    if-eqz v6, :cond_5
+    .line 45
+    const-string v9, "default"
 
-    if-nez v4, :cond_6
+    invoke-virtual {v8, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
+    move-result v9
+
+    if-eqz v9, :cond_9b
+
+    .line 46
+    if-nez v3, :cond_a7
+
+    .line 47
     invoke-static {p0}, Lcom/android/systemui/qs/QSTileHost;->getDefaultSpecs(Landroid/content/Context;)Ljava/util/List;
 
-    move-result-object v4
+    move-result-object v9
 
-    invoke-interface {v4}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-interface {v9}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v4
+    move-result-object v9
 
-    :cond_3
-    :goto_2
-    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
+    :goto_80
+    invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v5
+    move-result v10
 
-    if-eqz v5, :cond_4
+    if-eqz v10, :cond_99
 
-    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object v10
 
-    check-cast v5, Ljava/lang/String;
+    check-cast v10, Ljava/lang/String;
 
-    invoke-interface {v1, v5}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
+    .line 48
+    .local v10, "str3":Ljava/lang/String;
+    invoke-virtual {v2, v10}, Landroid/util/ArraySet;->contains(Ljava/lang/Object;)Z
 
-    move-result v6
+    move-result v11
 
-    if-nez v6, :cond_3
+    if-nez v11, :cond_98
 
-    invoke-virtual {v0, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    .line 49
+    invoke-virtual {v1, v10}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    invoke-interface {v1, v5}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+    .line 50
+    invoke-virtual {v2, v10}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
 
-    goto :goto_2
+    .line 52
+    .end local v10    # "str3":Ljava/lang/String;
+    :cond_98
+    goto :goto_80
 
-    :cond_4
-    const/4 v4, 0x1
+    .line 53
+    :cond_99
+    const/4 v3, 0x1
 
-    goto :goto_3
+    goto :goto_a7
 
-    :cond_5
-    invoke-interface {v1, v5}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
+    .line 55
+    :cond_9b
+    invoke-virtual {v2, v8}, Landroid/util/ArraySet;->contains(Ljava/lang/Object;)Z
 
-    move-result v6
+    move-result v9
 
-    if-nez v6, :cond_6
+    if-nez v9, :cond_a7
 
-    invoke-virtual {v0, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    .line 56
+    invoke-virtual {v1, v8}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    invoke-interface {v1, v5}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+    .line 57
+    invoke-virtual {v2, v8}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
 
-    :cond_6
-    :goto_3
-    add-int/lit8 v3, v3, 0x1
+    .line 42
+    .end local v7    # "str2":Ljava/lang/String;
+    .end local v8    # "trim":Ljava/lang/String;
+    :cond_a7
+    :goto_a7
+    add-int/lit8 v6, v6, 0x1
 
-    goto :goto_1
+    goto :goto_60
 
-    :cond_7
-    invoke-virtual {p2}, Lcom/android/systemui/flags/FeatureFlags;->isProviderModelSettingEnabled()Z
-
-    move-result p0
-
-    if-eqz p0, :cond_a
-
-    const-string p0, "internet"
-
-    invoke-virtual {v0, p0}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
-
-    move-result p1
-
-    const-string/jumbo p2, "wifi"
-
-    const-string v1, "cell"
-
-    if-nez p1, :cond_9
-
-    invoke-virtual {v0, p2}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
-
-    move-result p1
-
-    if-eqz p1, :cond_8
-
-    invoke-virtual {v0, p2}, Ljava/util/ArrayList;->indexOf(Ljava/lang/Object;)I
-
-    move-result p1
-
-    invoke-virtual {v0, p1, p0}, Ljava/util/ArrayList;->set(ILjava/lang/Object;)Ljava/lang/Object;
-
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
-
-    goto :goto_4
-
-    :cond_8
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
-
-    move-result p1
-
-    if-eqz p1, :cond_a
-
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->indexOf(Ljava/lang/Object;)I
-
-    move-result p1
-
-    invoke-virtual {v0, p1, p0}, Ljava/util/ArrayList;->set(ILjava/lang/Object;)Ljava/lang/Object;
-
-    goto :goto_4
-
-    :cond_9
-    invoke-virtual {v0, p2}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
-
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
-
-    :cond_a
-    :goto_4
-    return-object v0
+    .line 73
+    :cond_aa
+    return-object v1
 .end method
 
 

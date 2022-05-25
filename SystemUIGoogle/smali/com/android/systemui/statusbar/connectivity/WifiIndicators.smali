@@ -12,6 +12,8 @@
 
 .field public final enabled:Z
 
+.field public final isDefault:Z
+
 .field public final isTransient:Z
 
 .field public final qsIcon:Lcom/android/systemui/statusbar/connectivity/IconState;
@@ -22,7 +24,7 @@
 
 
 # direct methods
-.method public constructor <init>(ZLcom/android/systemui/statusbar/connectivity/IconState;Lcom/android/systemui/statusbar/connectivity/IconState;ZZLjava/lang/String;ZLjava/lang/String;)V
+.method public constructor <init>(ZLcom/android/systemui/statusbar/connectivity/IconState;Lcom/android/systemui/statusbar/connectivity/IconState;ZZLjava/lang/String;ZLjava/lang/String;Z)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -42,6 +44,8 @@
     iput-boolean p7, p0, Lcom/android/systemui/statusbar/connectivity/WifiIndicators;->isTransient:Z
 
     iput-object p8, p0, Lcom/android/systemui/statusbar/connectivity/WifiIndicators;->statusLabel:Ljava/lang/String;
+
+    iput-boolean p9, p0, Lcom/android/systemui/statusbar/connectivity/WifiIndicators;->isDefault:Z
 
     return-void
 .end method
@@ -144,19 +148,28 @@
     return v2
 
     :cond_8
-    iget-object p0, p0, Lcom/android/systemui/statusbar/connectivity/WifiIndicators;->statusLabel:Ljava/lang/String;
+    iget-object v1, p0, Lcom/android/systemui/statusbar/connectivity/WifiIndicators;->statusLabel:Ljava/lang/String;
 
-    iget-object p1, p1, Lcom/android/systemui/statusbar/connectivity/WifiIndicators;->statusLabel:Ljava/lang/String;
+    iget-object v3, p1, Lcom/android/systemui/statusbar/connectivity/WifiIndicators;->statusLabel:Ljava/lang/String;
 
-    invoke-static {p0, p1}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v1, v3}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    move-result p0
+    move-result v1
 
-    if-nez p0, :cond_9
+    if-nez v1, :cond_9
 
     return v2
 
     :cond_9
+    iget-boolean p0, p0, Lcom/android/systemui/statusbar/connectivity/WifiIndicators;->isDefault:Z
+
+    iget-boolean p1, p1, Lcom/android/systemui/statusbar/connectivity/WifiIndicators;->isDefault:Z
+
+    if-eq p0, p1, :cond_a
+
+    return v2
+
+    :cond_a
     return v0
 .end method
 
@@ -256,29 +269,40 @@
 
     if-eqz v2, :cond_6
 
-    goto :goto_3
+    move v2, v1
 
     :cond_6
-    move v1, v2
-
-    :goto_3
-    add-int/2addr v0, v1
+    add-int/2addr v0, v2
 
     mul-int/lit8 v0, v0, 0x1f
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/connectivity/WifiIndicators;->statusLabel:Ljava/lang/String;
+    iget-object v2, p0, Lcom/android/systemui/statusbar/connectivity/WifiIndicators;->statusLabel:Ljava/lang/String;
 
-    if-nez p0, :cond_7
+    if-nez v2, :cond_7
 
-    goto :goto_4
+    goto :goto_3
 
     :cond_7
-    invoke-virtual {p0}, Ljava/lang/String;->hashCode()I
+    invoke-virtual {v2}, Ljava/lang/String;->hashCode()I
 
     move-result v3
 
-    :goto_4
+    :goto_3
     add-int/2addr v0, v3
+
+    mul-int/lit8 v0, v0, 0x1f
+
+    iget-boolean p0, p0, Lcom/android/systemui/statusbar/connectivity/WifiIndicators;->isDefault:Z
+
+    if-eqz p0, :cond_8
+
+    goto :goto_4
+
+    :cond_8
+    move v1, p0
+
+    :goto_4
+    add-int/2addr v0, v1
 
     return v0
 .end method
