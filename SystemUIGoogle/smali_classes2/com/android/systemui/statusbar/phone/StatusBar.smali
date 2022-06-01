@@ -12073,7 +12073,11 @@
 
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    const-string v3, "tweaks_qs_tile_corner_radius"
+    const-string v3, "tweaks_qs_tile_corner_radius_enabled"
+
+    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    
+    const-string v3, "tweaks_qs_tile_corner_radius_disabled"
 
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
     
@@ -13111,7 +13115,7 @@
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->reloadTiles()V
 
     :cond_mwilky60
-    const-string v0, "tweaks_qs_tile_corner_radius"
+    const-string v0, "tweaks_qs_tile_corner_radius_enabled"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -13286,6 +13290,21 @@
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->runToggleNightMode()V
 
     :cond_mwilky71
+    const-string v0, "tweaks_qs_tile_corner_radius_disabled"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_mwilky72
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setQsTileTweaks(Landroid/content/Context;)V
+    
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->reloadTiles()V
+
+    :cond_mwilky72
     return-void
 .end method
 
