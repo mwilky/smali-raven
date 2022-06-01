@@ -1710,128 +1710,133 @@
     .registers 25
     .param p1, "state"    # Lcom/android/systemui/plugins/qs/QSTile$State;
 
-    .line 556
+    .line 548
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
 
+    iget v2, v1, Lcom/android/systemui/plugins/qs/QSTile$State;->state:I
+
+    invoke-virtual {v0, v2}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->setQsTileOutline(I)V
+
+    .line 549
     const-string/jumbo v2, "state"
 
     invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 557
+    .line 550
     invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->animationsEnabled()Z
 
     move-result v2
 
-    .line 558
+    .line 551
     .local v2, "animationsEnabled":Z
     iget-boolean v3, v1, Lcom/android/systemui/plugins/qs/QSTile$State;->showRippleEffect:Z
 
     iput-boolean v3, v0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->showRippleEffect:Z
 
-    .line 559
+    .line 552
     iget v3, v1, Lcom/android/systemui/plugins/qs/QSTile$State;->state:I
 
     const/4 v4, 0x1
 
     const/4 v5, 0x0
 
-    if-eqz v3, :cond_1a
+    if-eqz v3, :cond_1f
 
     move v3, v4
 
-    goto :goto_1b
+    goto :goto_20
 
-    :cond_1a
+    :cond_1f
     move v3, v5
 
-    :goto_1b
+    :goto_20
     invoke-virtual {v0, v3}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->setClickable(Z)V
 
-    .line 560
+    .line 553
     iget-boolean v3, v1, Lcom/android/systemui/plugins/qs/QSTile$State;->handlesLongClick:Z
 
     invoke-virtual {v0, v3}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->setLongClickable(Z)V
 
-    .line 561
+    .line 554
     invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->getIcon()Lcom/android/systemui/plugins/qs/QSIconView;
 
     move-result-object v3
 
     invoke-virtual {v3, v1, v2}, Lcom/android/systemui/plugins/qs/QSIconView;->setIcon(Lcom/android/systemui/plugins/qs/QSTile$State;Z)V
 
-    .line 562
+    .line 555
     iget-object v3, v1, Lcom/android/systemui/plugins/qs/QSTile$State;->contentDescription:Ljava/lang/CharSequence;
 
     invoke-virtual {v0, v3}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->setContentDescription(Ljava/lang/CharSequence;)V
 
-    .line 563
+    .line 556
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 564
+    .line 557
     .local v3, "sb":Ljava/lang/StringBuilder;
     invoke-direct/range {p0 .. p1}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->getStateText(Lcom/android/systemui/plugins/qs/QSTile$State;)Ljava/lang/String;
 
     move-result-object v6
 
-    .line 565
+    .line 558
     .local v6, "stateText":Ljava/lang/String;
     invoke-static {v6}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v7
 
-    if-nez v7, :cond_4b
+    if-nez v7, :cond_50
 
-    .line 566
+    .line 559
     invoke-virtual {v3, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 567
+    .line 560
     iget-object v7, v1, Lcom/android/systemui/plugins/qs/QSTile$State;->secondaryLabel:Ljava/lang/CharSequence;
 
     invoke-static {v7}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v7
 
-    if-eqz v7, :cond_4b
+    if-eqz v7, :cond_50
 
-    .line 568
+    .line 561
     iput-object v6, v1, Lcom/android/systemui/plugins/qs/QSTile$State;->secondaryLabel:Ljava/lang/CharSequence;
 
-    .line 571
-    :cond_4b
+    .line 564
+    :cond_50
     iget-object v7, v1, Lcom/android/systemui/plugins/qs/QSTile$State;->stateDescription:Ljava/lang/CharSequence;
 
     invoke-static {v7}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v7
 
-    if-nez v7, :cond_74
+    if-nez v7, :cond_79
 
-    .line 572
+    .line 565
     const-string v7, ", "
 
     invoke-virtual {v3, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 573
+    .line 566
     iget-object v7, v1, Lcom/android/systemui/plugins/qs/QSTile$State;->stateDescription:Ljava/lang/CharSequence;
 
     invoke-virtual {v3, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;
 
-    .line 574
+    .line 567
     iget v7, v0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->lastState:I
 
-    .line 575
+    .line 568
     .local v7, "i":I
     const/4 v8, -0x1
 
-    if-eq v7, v8, :cond_74
+    if-eq v7, v8, :cond_79
 
     iget v8, v1, Lcom/android/systemui/plugins/qs/QSTile$State;->state:I
 
-    if-ne v8, v7, :cond_74
+    if-ne v8, v7, :cond_79
 
     iget-object v8, v1, Lcom/android/systemui/plugins/qs/QSTile$State;->stateDescription:Ljava/lang/CharSequence;
 
@@ -1841,53 +1846,53 @@
 
     move-result v8
 
-    if-nez v8, :cond_74
+    if-nez v8, :cond_79
 
-    .line 576
+    .line 569
     iget-object v8, v1, Lcom/android/systemui/plugins/qs/QSTile$State;->stateDescription:Ljava/lang/CharSequence;
 
     iput-object v8, v0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->stateDescriptionDeltas:Ljava/lang/CharSequence;
 
-    .line 579
+    .line 572
     .end local v7    # "i":I
-    :cond_74
+    :cond_79
     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v7
 
     invoke-virtual {v0, v7}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->setStateDescription(Ljava/lang/CharSequence;)V
 
-    .line 580
+    .line 573
     iget-object v7, v1, Lcom/android/systemui/plugins/qs/QSTile$State;->stateDescription:Ljava/lang/CharSequence;
 
     iput-object v7, v0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->lastStateDescription:Ljava/lang/CharSequence;
 
-    .line 581
+    .line 574
     iget v7, v1, Lcom/android/systemui/plugins/qs/QSTile$State;->state:I
 
     const/4 v8, 0x0
 
-    if-nez v7, :cond_86
+    if-nez v7, :cond_8b
 
     move-object v7, v8
 
-    goto :goto_88
+    goto :goto_8d
 
-    :cond_86
+    :cond_8b
     iget-object v7, v1, Lcom/android/systemui/plugins/qs/QSTile$State;->expandedAccessibilityClassName:Ljava/lang/String;
 
-    :goto_88
+    :goto_8d
     iput-object v7, v0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->accessibilityClass:Ljava/lang/String;
 
-    .line 582
+    .line 575
     sget v7, Lcom/android/mwilky/Renovate;->mQsStyle:I
 
-    if-nez v7, :cond_9f
+    if-nez v7, :cond_a4
 
-    .line 584
+    .line 577
     instance-of v7, v1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
 
-    if-eqz v7, :cond_9e
+    if-eqz v7, :cond_a3
 
     iget-boolean v7, v0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->tileState:Z
 
@@ -1900,26 +1905,26 @@
     move v10, v9
 
     .local v10, "z":Z
-    if-eq v7, v9, :cond_9e
+    if-eq v7, v9, :cond_a3
 
-    .line 585
+    .line 578
     iput-boolean v10, v0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->tileState:Z
 
-    .line 587
+    .line 580
     .end local v10    # "z":Z
-    :cond_9e
-    goto :goto_ae
+    :cond_a3
+    goto :goto_b3
 
-    .line 588
-    :cond_9f
+    .line 581
+    :cond_a4
     instance-of v7, v1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
 
-    if-eqz v7, :cond_ae
+    if-eqz v7, :cond_b3
 
-    .line 589
+    .line 582
     iget-boolean v7, v0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->tileState:Z
 
-    .line 590
+    .line 583
     .local v7, "z":Z
     move-object v9, v1
 
@@ -1927,27 +1932,27 @@
 
     iget-boolean v9, v9, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->value:Z
 
-    .line 591
+    .line 584
     .local v9, "z2":Z
-    if-eq v7, v9, :cond_ae
+    if-eq v7, v9, :cond_b3
 
-    .line 592
+    .line 585
     iput-boolean v9, v0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->tileState:Z
 
-    .line 596
+    .line 589
     .end local v7    # "z":Z
     .end local v9    # "z2":Z
-    :cond_ae
-    :goto_ae
+    :cond_b3
+    :goto_b3
     iget-object v7, v0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->label:Landroid/widget/TextView;
 
-    .line 597
+    .line 590
     .local v7, "textView":Landroid/widget/TextView;
     const-string v9, "label"
 
-    if-eqz v7, :cond_228
+    if-eqz v7, :cond_22d
 
-    .line 598
+    .line 591
     invoke-virtual {v7}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
 
     move-result-object v10
@@ -1958,33 +1963,33 @@
 
     move-result v10
 
-    if-nez v10, :cond_ce
+    if-nez v10, :cond_d3
 
-    .line 599
+    .line 592
     iget-object v10, v0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->label:Landroid/widget/TextView;
 
-    .line 600
+    .line 593
     .local v10, "textView2":Landroid/widget/TextView;
-    if-eqz v10, :cond_ca
+    if-eqz v10, :cond_cf
 
-    .line 601
+    .line 594
     iget-object v11, v1, Lcom/android/systemui/plugins/qs/QSTile$State;->label:Ljava/lang/CharSequence;
 
     invoke-virtual {v10, v11}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    goto :goto_ce
+    goto :goto_d3
 
-    .line 603
-    :cond_ca
+    .line 596
+    :cond_cf
     invoke-static {v9}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
-    .line 604
+    .line 597
     throw v8
 
-    .line 607
+    .line 600
     .end local v10    # "textView2":Landroid/widget/TextView;
-    :cond_ce
-    :goto_ce
+    :cond_d3
+    :goto_d3
     invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->getSecondaryLabel()Landroid/widget/TextView;
 
     move-result-object v10
@@ -2001,9 +2006,9 @@
 
     const/4 v11, 0x4
 
-    if-nez v10, :cond_112
+    if-nez v10, :cond_117
 
-    .line 608
+    .line 601
     invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->getSecondaryLabel()Landroid/widget/TextView;
 
     move-result-object v10
@@ -2012,12 +2017,12 @@
 
     invoke-virtual {v10, v12}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 609
+    .line 602
     sget v10, Lcom/android/mwilky/Renovate;->mQsStyle:I
 
-    if-nez v10, :cond_100
+    if-nez v10, :cond_105
 
-    .line 610
+    .line 603
     invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->getSecondaryLabel()Landroid/widget/TextView;
 
     move-result-object v10
@@ -2028,22 +2033,22 @@
 
     move-result v12
 
-    if-eqz v12, :cond_fb
+    if-eqz v12, :cond_100
 
     const/16 v12, 0x8
 
-    goto :goto_fc
+    goto :goto_101
 
-    :cond_fb
+    :cond_100
     move v12, v5
 
-    :goto_fc
+    :goto_101
     invoke-virtual {v10, v12}, Landroid/widget/TextView;->setVisibility(I)V
 
-    goto :goto_112
+    goto :goto_117
 
-    .line 612
-    :cond_100
+    .line 605
+    :cond_105
     invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->getSecondaryLabel()Landroid/widget/TextView;
 
     move-result-object v10
@@ -2054,53 +2059,53 @@
 
     move-result v12
 
-    if-eqz v12, :cond_10e
+    if-eqz v12, :cond_113
 
     move v12, v11
 
-    goto :goto_10f
+    goto :goto_114
 
-    :cond_10e
+    :cond_113
     move v12, v5
 
-    :goto_10f
+    :goto_114
     invoke-virtual {v10, v12}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 615
-    :cond_112
-    :goto_112
+    .line 608
+    :cond_117
+    :goto_117
     iget v10, v1, Lcom/android/systemui/plugins/qs/QSTile$State;->state:I
 
     iget v12, v0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->lastState:I
 
-    if-eq v10, v12, :cond_20c
+    if-eq v10, v12, :cond_211
 
-    .line 616
+    .line 609
     iget-object v10, v0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->tileAnimator:Landroid/animation/AnimatorSet;
 
     invoke-virtual {v10}, Landroid/animation/AnimatorSet;->cancel()V
 
-    .line 617
-    if-eqz v2, :cond_1e3
+    .line 610
+    if-eqz v2, :cond_1e8
 
-    .line 618
+    .line 611
     iget-object v10, v0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->shapeAnimator:Landroid/animation/ValueAnimator;
 
-    .line 619
+    .line 612
     .local v10, "valueAnimator":Landroid/animation/ValueAnimator;
     const/4 v12, 0x2
 
     new-array v13, v12, [F
 
-    .line 620
+    .line 613
     .local v13, "fArr":[F
     iget-object v14, v0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->colorBackgroundDrawable:Landroid/graphics/drawable/Drawable;
 
-    .line 621
+    .line 614
     .local v14, "drawable":Landroid/graphics/drawable/Drawable;
-    if-eqz v14, :cond_13c
+    if-eqz v14, :cond_141
 
-    .line 622
+    .line 615
     move-object v15, v14
 
     check-cast v15, Landroid/graphics/drawable/GradientDrawable;
@@ -2111,7 +2116,7 @@
 
     aput v15, v13, v5
 
-    .line 623
+    .line 616
     iget v15, v1, Lcom/android/systemui/plugins/qs/QSTile$State;->state:I
 
     invoke-direct {v0, v15}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->getCornerRadiusForState(I)F
@@ -2120,18 +2125,18 @@
 
     aput v15, v13, v4
 
-    .line 624
+    .line 617
     invoke-virtual {v10, v13}, Landroid/animation/ValueAnimator;->setFloatValues([F)V
 
-    .line 626
-    :cond_13c
+    .line 619
+    :cond_141
     iget-object v15, v0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->singleAnimator:Landroid/animation/ValueAnimator;
 
-    .line 627
+    .line 620
     .local v15, "valueAnimator2":Landroid/animation/ValueAnimator;
     new-array v11, v11, [Landroid/animation/PropertyValuesHolder;
 
-    .line 628
+    .line 621
     .local v11, "propertyValuesHolderArr":[Landroid/animation/PropertyValuesHolder;
     new-array v8, v12, [I
 
@@ -2153,31 +2158,31 @@
 
     move-result-object v8
 
-    .line 629
+    .line 622
     .local v8, "colorValuesHolder":Landroid/animation/PropertyValuesHolder;
     aput-object v8, v11, v5
 
-    .line 630
+    .line 623
     const/4 v12, 0x2
 
     new-array v4, v12, [I
 
-    .line 631
+    .line 624
     .local v4, "iArr":[I
     iget-object v12, v0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->label:Landroid/widget/TextView;
 
-    .line 632
+    .line 625
     .local v12, "textView3":Landroid/widget/TextView;
-    if-eqz v12, :cond_1dc
+    if-eqz v12, :cond_1e1
 
-    .line 633
+    .line 626
     invoke-virtual {v12}, Landroid/widget/TextView;->getCurrentTextColor()I
 
     move-result v18
 
     aput v18, v4, v5
 
-    .line 634
+    .line 627
     iget v5, v1, Lcom/android/systemui/plugins/qs/QSTile$State;->state:I
 
     invoke-direct {v0, v5}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->getLabelColorForState(I)I
@@ -2188,16 +2193,16 @@
 
     aput v5, v4, v17
 
-    .line 635
+    .line 628
     invoke-static {v9, v4}, Lcom/android/systemui/qs/tileimpl/QSTileViewImplKt;->access$colorValuesHolder(Ljava/lang/String;[I)Landroid/animation/PropertyValuesHolder;
 
     move-result-object v5
 
-    .line 636
+    .line 629
     .local v5, "colorValuesHolder2":Landroid/animation/PropertyValuesHolder;
     aput-object v5, v11, v17
 
-    .line 637
+    .line 630
     move/from16 v19, v2
 
     move-object/from16 v16, v3
@@ -2236,16 +2241,16 @@
 
     move-result-object v2
 
-    .line 638
+    .line 631
     .local v2, "colorValuesHolder3":Landroid/animation/PropertyValuesHolder;
     const/4 v3, 0x2
 
     aput-object v2, v11, v3
 
-    .line 639
+    .line 632
     new-array v3, v3, [I
 
-    .line 640
+    .line 633
     .local v3, "iArr2":[I
     move-object/from16 v20, v2
 
@@ -2253,34 +2258,34 @@
     .local v20, "colorValuesHolder3":Landroid/animation/PropertyValuesHolder;
     iget-object v2, v0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->chevronView:Landroid/widget/ImageView;
 
-    .line 641
+    .line 634
     .local v2, "imageView":Landroid/widget/ImageView;
-    if-eqz v2, :cond_1d3
+    if-eqz v2, :cond_1d8
 
-    .line 642
+    .line 635
     invoke-virtual {v2}, Landroid/widget/ImageView;->getImageTintList()Landroid/content/res/ColorStateList;
 
     move-result-object v21
 
-    .line 643
+    .line 636
     .local v21, "imageTintList":Landroid/content/res/ColorStateList;
-    if-nez v21, :cond_1a8
+    if-nez v21, :cond_1ad
 
     const/16 v22, 0x0
 
-    goto :goto_1ac
+    goto :goto_1b1
 
-    :cond_1a8
+    :cond_1ad
     invoke-virtual/range {v21 .. v21}, Landroid/content/res/ColorStateList;->getDefaultColor()I
 
     move-result v22
 
-    :goto_1ac
+    :goto_1b1
     const/16 v18, 0x0
 
     aput v22, v3, v18
 
-    .line 644
+    .line 637
     move-object/from16 v18, v2
 
     .end local v2    # "imageView":Landroid/widget/ImageView;
@@ -2295,23 +2300,23 @@
 
     aput v2, v3, v17
 
-    .line 645
+    .line 638
     const-string v2, "chevron"
 
     invoke-static {v2, v3}, Lcom/android/systemui/qs/tileimpl/QSTileViewImplKt;->access$colorValuesHolder(Ljava/lang/String;[I)Landroid/animation/PropertyValuesHolder;
 
     move-result-object v2
 
-    .line 646
+    .line 639
     .local v2, "colorValuesHolder4":Landroid/animation/PropertyValuesHolder;
     const/16 v22, 0x3
 
     aput-object v2, v11, v22
 
-    .line 647
+    .line 640
     invoke-virtual {v15, v11}, Landroid/animation/ValueAnimator;->setValues([Landroid/animation/PropertyValuesHolder;)V
 
-    .line 648
+    .line 641
     move-object/from16 v22, v2
 
     .end local v2    # "colorValuesHolder4":Landroid/animation/PropertyValuesHolder;
@@ -2320,16 +2325,16 @@
 
     invoke-virtual {v2}, Landroid/animation/AnimatorSet;->start()V
 
-    .line 649
+    .line 642
     .end local v21    # "imageTintList":Landroid/content/res/ColorStateList;
     nop
 
-    .line 653
+    .line 646
     .end local v3    # "iArr2":[I
     .end local v18    # "imageView":Landroid/widget/ImageView;
     nop
 
-    .line 657
+    .line 650
     .end local v4    # "iArr":[I
     .end local v10    # "valueAnimator":Landroid/animation/ValueAnimator;
     .end local v11    # "propertyValuesHolderArr":[Landroid/animation/PropertyValuesHolder;
@@ -2337,9 +2342,9 @@
     .end local v13    # "fArr":[F
     .end local v14    # "drawable":Landroid/graphics/drawable/Drawable;
     .end local v15    # "valueAnimator2":Landroid/animation/ValueAnimator;
-    goto :goto_210
+    goto :goto_215
 
-    .line 650
+    .line 643
     .end local v22    # "colorValuesHolder4":Landroid/animation/PropertyValuesHolder;
     .local v2, "imageView":Landroid/widget/ImageView;
     .restart local v3    # "iArr2":[I
@@ -2350,7 +2355,7 @@
     .restart local v13    # "fArr":[F
     .restart local v14    # "drawable":Landroid/graphics/drawable/Drawable;
     .restart local v15    # "valueAnimator2":Landroid/animation/ValueAnimator;
-    :cond_1d3
+    :cond_1d8
     move-object/from16 v18, v2
 
     .end local v2    # "imageView":Landroid/widget/ImageView;
@@ -2359,12 +2364,12 @@
 
     invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
-    .line 651
+    .line 644
     const/4 v2, 0x0
 
     throw v2
 
-    .line 654
+    .line 647
     .end local v5    # "colorValuesHolder2":Landroid/animation/PropertyValuesHolder;
     .end local v16    # "sb":Ljava/lang/StringBuilder;
     .end local v18    # "imageView":Landroid/widget/ImageView;
@@ -2372,7 +2377,7 @@
     .end local v20    # "colorValuesHolder3":Landroid/animation/PropertyValuesHolder;
     .local v2, "animationsEnabled":Z
     .local v3, "sb":Ljava/lang/StringBuilder;
-    :cond_1dc
+    :cond_1e1
     move/from16 v19, v2
 
     const/4 v2, 0x0
@@ -2381,10 +2386,10 @@
     .restart local v19    # "animationsEnabled":Z
     invoke-static {v9}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
-    .line 655
+    .line 648
     throw v2
 
-    .line 658
+    .line 651
     .end local v4    # "iArr":[I
     .end local v8    # "colorValuesHolder":Landroid/animation/PropertyValuesHolder;
     .end local v10    # "valueAnimator":Landroid/animation/ValueAnimator;
@@ -2395,7 +2400,7 @@
     .end local v15    # "valueAnimator2":Landroid/animation/ValueAnimator;
     .end local v19    # "animationsEnabled":Z
     .restart local v2    # "animationsEnabled":Z
-    :cond_1e3
+    :cond_1e8
     move/from16 v19, v2
 
     move-object/from16 v16, v3
@@ -2430,7 +2435,7 @@
 
     invoke-direct {v0, v2, v3, v4, v5}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->setAllColors(IIII)V
 
-    .line 659
+    .line 652
     iget v2, v1, Lcom/android/systemui/plugins/qs/QSTile$State;->state:I
 
     invoke-direct {v0, v2}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->getCornerRadiusForState(I)F
@@ -2439,34 +2444,34 @@
 
     invoke-direct {v0, v2}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->setCornerRadius(F)V
 
-    goto :goto_210
+    goto :goto_215
 
-    .line 615
+    .line 608
     .end local v16    # "sb":Ljava/lang/StringBuilder;
     .end local v19    # "animationsEnabled":Z
     .restart local v2    # "animationsEnabled":Z
     .restart local v3    # "sb":Ljava/lang/StringBuilder;
-    :cond_20c
+    :cond_211
     move/from16 v19, v2
 
     move-object/from16 v16, v3
 
-    .line 662
+    .line 655
     .end local v2    # "animationsEnabled":Z
     .end local v3    # "sb":Ljava/lang/StringBuilder;
     .restart local v16    # "sb":Ljava/lang/StringBuilder;
     .restart local v19    # "animationsEnabled":Z
-    :goto_210
+    :goto_215
     invoke-direct/range {p0 .. p1}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->loadSideViewDrawableIfNecessary(Lcom/android/systemui/plugins/qs/QSTile$State;)V
 
-    .line 663
+    .line 656
     iget-object v2, v0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->label:Landroid/widget/TextView;
 
-    .line 664
+    .line 657
     .local v2, "textView4":Landroid/widget/TextView;
-    if-eqz v2, :cond_223
+    if-eqz v2, :cond_228
 
-    .line 665
+    .line 658
     iget-boolean v3, v1, Lcom/android/systemui/plugins/qs/QSTile$State;->disabledByPolicy:Z
 
     const/4 v4, 0x1
@@ -2475,29 +2480,29 @@
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setEnabled(Z)V
 
-    .line 666
+    .line 659
     iget v3, v1, Lcom/android/systemui/plugins/qs/QSTile$State;->state:I
 
     iput v3, v0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->lastState:I
 
-    .line 667
+    .line 660
     return-void
 
-    .line 669
-    :cond_223
+    .line 662
+    :cond_228
     invoke-static {v9}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
-    .line 670
+    .line 663
     const/4 v3, 0x0
 
     throw v3
 
-    .line 672
+    .line 665
     .end local v16    # "sb":Ljava/lang/StringBuilder;
     .end local v19    # "animationsEnabled":Z
     .local v2, "animationsEnabled":Z
     .restart local v3    # "sb":Ljava/lang/StringBuilder;
-    :cond_228
+    :cond_22d
     move-object/from16 v16, v3
 
     move-object v3, v8
@@ -2506,7 +2511,7 @@
     .restart local v16    # "sb":Ljava/lang/StringBuilder;
     invoke-static {v9}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
-    .line 673
+    .line 666
     throw v3
 .end method
 
@@ -2534,8 +2539,6 @@
     invoke-direct {v1, p1, p0}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl$init$2;-><init>(Lcom/android/systemui/plugins/qs/QSTile;Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;)V
 
     invoke-direct {p0, v0, v1}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->init(Landroid/view/View$OnClickListener;Landroid/view/View$OnLongClickListener;)V
-    
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->setQsTileOutline()V
 
     return-void
 .end method
@@ -4247,55 +4250,71 @@
     return-void
 .end method
 
-.method public setQsTileOutline()V
-    .registers 4
+.method public setQsTileOutline(I)V
+    .registers 5
+    .param p1, "State"    # I
 
-    .line 363
+    .line 364
     :try_start_0
     iget-object v0, p0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->colorBackgroundDrawable:Landroid/graphics/drawable/Drawable;
 
     check-cast v0, Landroid/graphics/drawable/GradientDrawable;
 
-    .line 364
-    .local v0, "drawable":Landroid/graphics/drawable/GradientDrawable;
-    if-eqz v0, :cond_16
-
     .line 365
-    sget-boolean v1, Lcom/android/mwilky/Renovate;->mQsTileOutline:Z
-
-    if-eqz v1, :cond_12
+    .local v0, "drawable":Landroid/graphics/drawable/GradientDrawable;
+    if-eqz v0, :cond_22
 
     .line 366
-    sget v1, Lcom/android/mwilky/Renovate;->mQsTileOutlineWidth:I
+    const/4 v1, 0x2
 
-    sget v2, Lcom/android/mwilky/Renovate;->mQsTileOutlineColor:I
+    if-ne p1, v1, :cond_15
+
+    .line 367
+    sget-boolean v1, Lcom/android/mwilky/Renovate;->mQsTileOutlineActive:Z
+
+    if-eqz v1, :cond_22
+
+    .line 368
+    sget v1, Lcom/android/mwilky/Renovate;->mQsTileOutlineWidthActive:I
+
+    sget v2, Lcom/android/mwilky/Renovate;->mQsTileOutlineColorActive:I
 
     invoke-virtual {v0, v1, v2}, Landroid/graphics/drawable/GradientDrawable;->setStroke(II)V
 
-    goto :goto_16
-
-    .line 368
-    :cond_12
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1, v1}, Landroid/graphics/drawable/GradientDrawable;->setStroke(II)V
-    :try_end_16
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_16} :catch_18
-
-    .line 372
-    .end local v0    # "drawable":Landroid/graphics/drawable/GradientDrawable;
-    :cond_16
-    :goto_16
-    nop
-
-    .line 373
-    return-void
+    goto :goto_22
 
     .line 370
-    :catch_18
-    move-exception v0
+    :cond_15
+    if-eq p1, v1, :cond_22
 
     .line 371
+    sget-boolean v1, Lcom/android/mwilky/Renovate;->mQsTileOutlineInactive:Z
+
+    if-eqz v1, :cond_22
+
+    .line 372
+    sget v1, Lcom/android/mwilky/Renovate;->mQsTileOutlineWidthInactive:I
+
+    sget v2, Lcom/android/mwilky/Renovate;->mQsTileOutlineColorInactive:I
+
+    invoke-virtual {v0, v1, v2}, Landroid/graphics/drawable/GradientDrawable;->setStroke(II)V
+    :try_end_22
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_22} :catch_24
+
+    .line 377
+    .end local v0    # "drawable":Landroid/graphics/drawable/GradientDrawable;
+    :cond_22
+    :goto_22
+    nop
+
+    .line 378
+    return-void
+
+    .line 375
+    :catch_24
+    move-exception v0
+
+    .line 376
     .local v0, "e":Ljava/lang/Exception;
     return-void
 .end method
@@ -4354,56 +4373,56 @@
     .registers 5
     .param p1, "i"    # I
 
-    .line 952
+    .line 941
     sget v0, Lcom/android/mwilky/Renovate;->mQsStyle:I
 
     if-eqz v0, :cond_1c
 
-    .line 953
+    .line 942
     if-nez p1, :cond_a
 
-    .line 954
-    sget v0, Lcom/android/mwilky/Renovate;->mQsTileCornerRadiusDisabled:I
+    .line 943
+    sget v0, Lcom/android/mwilky/Renovate;->mQsTileCornerRadiusInactive:I
 
     int-to-float v0, v0
 
     return v0
 
-    .line 956
+    .line 945
     :cond_a
     const/4 v0, 0x1
 
     if-ne p1, v0, :cond_11
 
-    .line 957
-    sget v0, Lcom/android/mwilky/Renovate;->mQsTileCornerRadiusDisabled:I
+    .line 946
+    sget v0, Lcom/android/mwilky/Renovate;->mQsTileCornerRadiusInactive:I
 
     int-to-float v0, v0
 
     return v0
 
-    .line 959
+    .line 948
     :cond_11
     const/4 v0, 0x2
 
     if-eq p1, v0, :cond_18
 
-    .line 960
-    sget v0, Lcom/android/mwilky/Renovate;->mQsTileCornerRadiusDisabled:I
+    .line 949
+    sget v0, Lcom/android/mwilky/Renovate;->mQsTileCornerRadiusInactive:I
 
     int-to-float v0, v0
 
     return v0
 
-    .line 962
+    .line 951
     :cond_18
-    sget v0, Lcom/android/mwilky/Renovate;->mQsTileCornerRadiusEnabled:I
+    sget v0, Lcom/android/mwilky/Renovate;->mQsTileCornerRadiusActive:I
 
     int-to-float v0, v0
 
     return v0
 
-    .line 964
+    .line 953
     :cond_1c
     invoke-virtual {p0}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->getResources()Landroid/content/res/Resources;
 
