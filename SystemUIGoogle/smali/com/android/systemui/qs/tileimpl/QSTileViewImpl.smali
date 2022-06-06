@@ -902,51 +902,68 @@
 .end method
 
 .method private final getBackgroundColorForState(I)I
-    .locals 1
+    .registers 5
+    .param p1, "i"    # I
 
-    if-eqz p1, :cond_2
+    .line 407
+    sget v0, Lcom/android/mwilky/Renovate;->mQsStyle:I
 
+    const/4 v1, 0x0
+
+    const/4 v2, 0x2
+
+    if-ne v0, v2, :cond_7
+
+    .line 408
+    return v1
+
+    .line 410
+    :cond_7
+    if-nez p1, :cond_c
+
+    .line 411
+    iget v0, p0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->colorUnavailable:I
+
+    return v0
+
+    .line 413
+    :cond_c
     const/4 v0, 0x1
 
-    if-eq p1, v0, :cond_1
+    if-ne p1, v0, :cond_12
 
-    const/4 v0, 0x2
+    .line 414
+    iget v0, p0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->colorInactive:I
 
-    if-eq p1, v0, :cond_0
+    return v0
 
+    .line 416
+    :cond_12
+    if-ne p1, v2, :cond_17
+
+    .line 417
+    iget v0, p0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->colorActive:I
+
+    return v0
+
+    .line 419
+    :cond_17
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object p0
+    move-result-object v0
 
-    const-string p1, "Invalid state "
+    const-string v2, "Invalid state "
 
-    invoke-static {p1, p0}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v2, v0}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    const-string p1, "QSTileViewImpl"
+    const-string v2, "QSTileViewImpl"
 
-    invoke-static {p1, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/4 p0, 0x0
-
-    goto :goto_0
-
-    :cond_0
-    iget p0, p0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->colorActive:I
-
-    goto :goto_0
-
-    :cond_1
-    iget p0, p0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->colorInactive:I
-
-    goto :goto_0
-
-    :cond_2
-    iget p0, p0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->colorUnavailable:I
-
-    :goto_0
-    return p0
+    .line 420
+    return v1
 .end method
 
 .method private final getChevronColorForState(I)I
@@ -4398,41 +4415,49 @@
 .end method
 
 .method private final setOutline(II)V
-    .registers 4
+    .registers 6
     .param p1, "width"    # I
     .param p2, "color"    # I
 
-    .line 951
+    .line 955
     :try_start_0
     iget-object v0, p0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->colorBackgroundDrawable:Landroid/graphics/drawable/Drawable;
 
     check-cast v0, Landroid/graphics/drawable/GradientDrawable;
 
-    .line 952
+    .line 956
     .local v0, "drawable":Landroid/graphics/drawable/GradientDrawable;
-    if-eqz v0, :cond_a
-
-    .line 953
-    invoke-virtual {v0, p1, p2}, Landroid/graphics/drawable/GradientDrawable;->setStroke(II)V
-    :try_end_9
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_9} :catch_c
-
-    .line 954
-    return-void
+    if-eqz v0, :cond_f
 
     .line 957
-    .end local v0    # "drawable":Landroid/graphics/drawable/GradientDrawable;
-    :cond_a
-    nop
+    sget v1, Lcom/android/mwilky/Renovate;->mQsStyle:I
+
+    const/4 v2, 0x2
+
+    if-eq v1, v2, :cond_e
 
     .line 958
+    invoke-virtual {v0, p1, p2}, Landroid/graphics/drawable/GradientDrawable;->setStroke(II)V
+    :try_end_e
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_e} :catch_11
+
+    .line 960
+    :cond_e
     return-void
 
-    .line 955
-    :catch_c
+    .line 963
+    .end local v0    # "drawable":Landroid/graphics/drawable/GradientDrawable;
+    :cond_f
+    nop
+
+    .line 964
+    return-void
+
+    .line 961
+    :catch_11
     move-exception v0
 
-    .line 956
+    .line 962
     .local v0, "e":Ljava/lang/Exception;
     return-void
 .end method

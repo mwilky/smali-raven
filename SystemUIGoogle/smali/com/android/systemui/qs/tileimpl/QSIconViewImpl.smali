@@ -172,70 +172,99 @@
 .end method
 
 .method public static getIconColorForState(Landroid/content/Context;I)I
-    .locals 2
+    .registers 4
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "i"    # I
 
+    .line 12
     const v0, 0x1010036
 
-    if-eqz p1, :cond_2
+    if-nez p1, :cond_11
 
+    .line 13
+    const v1, 0x3e99999a    # 0.3f
+
+    invoke-static {p0, v0}, Lcom/android/settingslib/Utils;->getColorAttrDefaultColor(Landroid/content/Context;I)I
+
+    move-result v0
+
+    invoke-static {v1, v0}, Lcom/android/settingslib/Utils;->applyAlpha(FI)I
+
+    move-result v0
+
+    return v0
+
+    .line 15
+    :cond_11
     const/4 v1, 0x1
 
-    if-eq p1, v1, :cond_1
+    if-ne p1, v1, :cond_19
 
+    .line 16
+    invoke-static {p0, v0}, Lcom/android/settingslib/Utils;->getColorAttrDefaultColor(Landroid/content/Context;I)I
+
+    move-result v0
+
+    return v0
+
+    .line 18
+    :cond_19
     const/4 v0, 0x2
 
-    if-eq p1, v0, :cond_0
+    if-ne p1, v0, :cond_30
 
-    new-instance p0, Ljava/lang/StringBuilder;
+    .line 19
+    sget v1, Lcom/android/mwilky/Renovate;->mQsStyle:I
 
-    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
+    if-ne v1, v0, :cond_28
 
-    const-string v0, "Invalid state "
-
-    invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p0
-
-    const-string p1, "QSIconView"
-
-    invoke-static {p1, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 p0, 0x0
-
-    return p0
-
-    :cond_0
-    const p1, 0x1010039
-
-    invoke-static {p0, p1}, Lcom/android/settingslib/Utils;->getColorAttrDefaultColor(Landroid/content/Context;I)I
-
-    move-result p0
-
-    return p0
-
-    :cond_1
-    invoke-static {p0, v0}, Lcom/android/settingslib/Utils;->getColorAttrDefaultColor(Landroid/content/Context;I)I
-
-    move-result p0
-
-    return p0
-
-    :cond_2
-    const p1, 0x3e99999a    # 0.3f
+    .line 20
+    const v0, 0x1120024
 
     invoke-static {p0, v0}, Lcom/android/settingslib/Utils;->getColorAttrDefaultColor(Landroid/content/Context;I)I
 
-    move-result p0
+    move-result v0
 
-    invoke-static {p1, p0}, Lcom/android/settingslib/Utils;->applyAlpha(FI)I
+    return v0
 
-    move-result p0
+    .line 22
+    :cond_28
+    const v0, 0x1010039
 
-    return p0
+    invoke-static {p0, v0}, Lcom/android/settingslib/Utils;->getColorAttrDefaultColor(Landroid/content/Context;I)I
+
+    move-result v0
+
+    return v0
+
+    .line 25
+    :cond_30
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "Invalid state "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "QSIconView"
+
+    invoke-static {v1, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 26
+    const/4 v0, 0x0
+
+    return v0
 .end method
 
 .method private static synthetic lambda$animateGrayScale$1(FFFFLandroid/widget/ImageView;Landroid/animation/ValueAnimator;)V
