@@ -426,9 +426,9 @@
 .end method
 
 .method private final createAndAddLabels()V
-    .registers 14
+    .registers 12
 
-    .line 689
+    .line 687
     sget v0, Lcom/android/mwilky/Renovate;->mQsStyle:I
 
     const/4 v1, 0x0
@@ -437,7 +437,7 @@
 
     if-nez v0, :cond_1a
 
-    .line 690
+    .line 688
     invoke-virtual {p0}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -459,7 +459,7 @@
     .local v0, "inflate":Landroid/view/View;
     goto :goto_2c
 
-    .line 692
+    .line 690
     .end local v0    # "inflate":Landroid/view/View;
     :cond_1a
     invoke-virtual {p0}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->getContext()Landroid/content/Context;
@@ -480,24 +480,24 @@
 
     move-result-object v0
 
-    .line 694
+    .line 692
     .restart local v0    # "inflate":Landroid/view/View;
     :goto_2c
     const-string v1, "null cannot be cast to non-null type com.android.systemui.qs.tileimpl.IgnorableChildLinearLayout"
 
     invoke-static {v0, v1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 695
+    .line 693
     move-object v1, v0
 
     check-cast v1, Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;
 
-    .line 696
+    .line 694
     .local v1, "ignorableChildLinearLayout":Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;
     iput-object v1, p0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->labelContainer:Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;
 
-    .line 697
-    const-string v2, "tile_label"
+    .line 695
+    const-string/jumbo v2, "tile_label"
 
     const-string v3, "id"
 
@@ -509,31 +509,31 @@
 
     move-result-object v2
 
-    .line 698
+    .line 696
     .local v2, "requireViewById":Landroid/view/View;
     const-string v4, "labelContainer.requireViewById(R.id.tile_label)"
 
     invoke-static {v2, v4}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 699
+    .line 697
     move-object v4, v2
 
     check-cast v4, Landroid/widget/TextView;
 
     iput-object v4, p0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->label:Landroid/widget/TextView;
 
-    .line 700
+    .line 698
     iget-object v4, p0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->labelContainer:Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;
 
-    .line 701
+    .line 699
     .local v4, "ignorableChildLinearLayout2":Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;
     const/4 v5, 0x0
 
     const-string v6, "labelContainer"
 
-    if-eqz v4, :cond_f3
+    if-eqz v4, :cond_e6
 
-    .line 702
+    .line 700
     const-string v7, "app_label"
 
     invoke-static {v7, v3}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
@@ -544,84 +544,84 @@
 
     move-result-object v3
 
-    .line 703
+    .line 701
     .local v3, "requireViewById2":Landroid/view/View;
     const-string v7, "labelContainer.requireViewById(R.id.app_label)"
 
     invoke-static {v3, v7}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 704
+    .line 702
     move-object v7, v3
 
     check-cast v7, Landroid/widget/TextView;
 
     invoke-virtual {p0, v7}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->setSecondaryLabel(Landroid/widget/TextView;)V
 
-    .line 705
+    .line 703
     sget v7, Lcom/android/mwilky/Renovate;->mQsStyle:I
 
-    const/4 v8, 0x0
+    const/4 v8, 0x1
 
-    const/4 v9, 0x1
+    if-nez v7, :cond_ac
 
-    if-nez v7, :cond_ab
-
-    .line 706
+    .line 704
     iget-boolean v7, p0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->collapsed:Z
 
-    if-eqz v7, :cond_90
+    if-eqz v7, :cond_91
 
-    .line 707
+    .line 705
     iget-object v7, p0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->labelContainer:Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;
 
-    .line 708
+    .line 706
     .local v7, "ignorableChildLinearLayout3":Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;
-    if-eqz v7, :cond_8c
+    if-eqz v7, :cond_8d
+
+    .line 707
+    invoke-virtual {v7, v8}, Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;->setIgnoreLastView(Z)V
+
+    .line 708
+    iget-object v9, p0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->labelContainer:Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;
 
     .line 709
-    invoke-virtual {v7, v9}, Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;->setIgnoreLastView(Z)V
+    .local v9, "ignorableChildLinearLayout4":Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;
+    if-eqz v9, :cond_89
 
     .line 710
-    iget-object v10, p0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->labelContainer:Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;
+    invoke-virtual {v9, v8}, Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;->setForceUnspecifiedMeasure(Z)V
 
     .line 711
-    .local v10, "ignorableChildLinearLayout4":Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;
-    if-eqz v10, :cond_88
-
-    .line 712
-    invoke-virtual {v10, v9}, Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;->setForceUnspecifiedMeasure(Z)V
-
-    .line 713
     invoke-virtual {p0}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->getSecondaryLabel()Landroid/widget/TextView;
 
-    move-result-object v9
+    move-result-object v8
 
-    invoke-virtual {v9, v8}, Landroid/widget/TextView;->setAlpha(F)V
+    const/4 v10, 0x0
 
-    .line 718
-    .end local v10    # "ignorableChildLinearLayout4":Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;
-    goto :goto_90
-
-    .line 715
-    .restart local v10    # "ignorableChildLinearLayout4":Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;
-    :cond_88
-    invoke-static {v6}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+    invoke-virtual {v8, v10}, Landroid/widget/TextView;->setAlpha(F)V
 
     .line 716
-    throw v5
+    .end local v9    # "ignorableChildLinearLayout4":Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;
+    goto :goto_91
 
-    .line 719
-    .end local v10    # "ignorableChildLinearLayout4":Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;
-    :cond_8c
+    .line 713
+    .restart local v9    # "ignorableChildLinearLayout4":Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;
+    :cond_89
     invoke-static {v6}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
-    .line 720
+    .line 714
     throw v5
 
-    .line 723
+    .line 717
+    .end local v9    # "ignorableChildLinearLayout4":Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;
+    :cond_8d
+    invoke-static {v6}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+
+    .line 718
+    throw v5
+
+    .line 721
     .end local v7    # "ignorableChildLinearLayout3":Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;
-    :cond_90
-    :goto_90
+    :cond_91
+    :goto_91
     const/4 v7, 0x2
 
     invoke-direct {p0, v7}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->getLabelColorForState(I)I
@@ -630,156 +630,139 @@
 
     invoke-direct {p0, v8}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->setLabelColor(I)V
 
-    .line 724
+    .line 722
     invoke-direct {p0, v7}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->getSecondaryLabelColorForState(I)I
 
     move-result v7
 
     invoke-direct {p0, v7}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->setSecondaryLabelColor(I)V
 
-    .line 725
+    .line 723
     iget-object v7, p0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->labelContainer:Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;
 
-    .line 726
+    .line 724
     .local v7, "ignorableChildLinearLayout5":Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;
-    if-eqz v7, :cond_a7
+    if-eqz v7, :cond_a8
 
-    .line 727
+    .line 725
     invoke-virtual {p0, v7}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->addView(Landroid/view/View;)V
 
-    .line 732
+    .line 730
     .end local v7    # "ignorableChildLinearLayout5":Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;
-    goto :goto_e5
+    goto :goto_d8
 
-    .line 729
+    .line 727
     .restart local v7    # "ignorableChildLinearLayout5":Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;
-    :cond_a7
+    :cond_a8
     invoke-static {v6}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
-    .line 730
+    .line 728
     throw v5
 
-    .line 733
+    .line 731
     .end local v7    # "ignorableChildLinearLayout5":Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;
-    :cond_ab
+    :cond_ac
     iget-object v7, p0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->labelContainer:Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;
 
-    .line 734
+    .line 732
     .local v7, "ignorableChildLinearLayout3":Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;
-    if-eqz v7, :cond_ef
+    if-eqz v7, :cond_e2
 
-    .line 735
+    .line 733
     invoke-virtual {v7}, Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;->invalidate()V
 
+    .line 734
+    iget-object v9, p0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->labelContainer:Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;
+
+    .line 735
+    .restart local v9    # "ignorableChildLinearLayout4":Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;
+    if-eqz v9, :cond_de
+
     .line 736
-    iget-object v10, p0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->labelContainer:Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;
+    iget-boolean v10, p0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->collapsed:Z
+
+    invoke-virtual {v9, v10}, Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;->setIgnoreLastView(Z)V
 
     .line 737
-    .restart local v10    # "ignorableChildLinearLayout4":Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;
-    if-eqz v10, :cond_eb
+    iget-boolean v10, p0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->collapsed:Z
 
-    .line 738
-    iget-boolean v11, p0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->collapsed:Z
-
-    invoke-virtual {v10, v11}, Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;->setIgnoreLastView(Z)V
+    invoke-virtual {v9, v10}, Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;->setForceUnspecifiedMeasure(Z)V
 
     .line 739
-    iget-boolean v11, p0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->collapsed:Z
+    invoke-direct {p0, v8}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->getLabelColorForState(I)I
 
-    invoke-virtual {v10, v11}, Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;->setForceUnspecifiedMeasure(Z)V
+    move-result v10
+
+    invoke-direct {p0, v10}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->setLabelColor(I)V
 
     .line 740
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->getSecondaryLabel()Landroid/widget/TextView;
-
-    move-result-object v11
-
-    iget-boolean v12, p0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->collapsed:Z
-
-    if-eqz v12, :cond_c9
-
-    goto :goto_cb
-
-    :cond_c9
-    const/high16 v8, 0x3f800000    # 1.0f
-
-    :goto_cb
-    invoke-virtual {v11, v8}, Landroid/widget/TextView;->setAlpha(F)V
-
-    .line 741
-    invoke-direct {p0, v9}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->getLabelColorForState(I)I
-
-    move-result v8
-
-    invoke-direct {p0, v8}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->setLabelColor(I)V
-
-    .line 742
-    invoke-direct {p0, v9}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->getSecondaryLabelColorForState(I)I
+    invoke-direct {p0, v8}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->getSecondaryLabelColorForState(I)I
 
     move-result v8
 
     invoke-direct {p0, v8}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->setSecondaryLabelColor(I)V
 
-    .line 743
+    .line 741
     iget-object v8, p0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->labelContainer:Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;
 
-    .line 744
+    .line 742
     .local v8, "ignorableChildLinearLayout5":Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;
-    if-eqz v8, :cond_e7
+    if-eqz v8, :cond_da
 
-    .line 745
+    .line 743
     invoke-virtual {p0, v8}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->addView(Landroid/view/View;)V
 
-    .line 750
+    .line 748
     .end local v8    # "ignorableChildLinearLayout5":Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;
     nop
 
-    .line 754
-    .end local v10    # "ignorableChildLinearLayout4":Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;
+    .line 752
+    .end local v9    # "ignorableChildLinearLayout4":Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;
     nop
 
-    .line 759
+    .line 757
     .end local v3    # "requireViewById2":Landroid/view/View;
     .end local v7    # "ignorableChildLinearLayout3":Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;
-    :goto_e5
+    :goto_d8
     nop
 
-    .line 763
+    .line 761
     return-void
 
-    .line 747
+    .line 745
     .restart local v3    # "requireViewById2":Landroid/view/View;
     .restart local v7    # "ignorableChildLinearLayout3":Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;
     .restart local v8    # "ignorableChildLinearLayout5":Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;
-    .restart local v10    # "ignorableChildLinearLayout4":Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;
-    :cond_e7
+    .restart local v9    # "ignorableChildLinearLayout4":Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;
+    :cond_da
     invoke-static {v6}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
-    .line 748
+    .line 746
     throw v5
 
-    .line 751
+    .line 749
     .end local v8    # "ignorableChildLinearLayout5":Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;
-    :cond_eb
+    :cond_de
     invoke-static {v6}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
-    .line 752
+    .line 750
     throw v5
 
-    .line 755
-    .end local v10    # "ignorableChildLinearLayout4":Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;
-    :cond_ef
+    .line 753
+    .end local v9    # "ignorableChildLinearLayout4":Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;
+    :cond_e2
     invoke-static {v6}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
-    .line 756
+    .line 754
     throw v5
 
-    .line 760
+    .line 758
     .end local v3    # "requireViewById2":Landroid/view/View;
     .end local v7    # "ignorableChildLinearLayout3":Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;
-    :cond_f3
+    :cond_e6
     invoke-static {v6}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
-    .line 761
+    .line 759
     throw v5
 .end method
 
@@ -1720,6 +1703,35 @@
 
     :cond_0
     const-string p0, "secondaryLabel"
+
+    invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+
+    const/4 p0, 0x0
+
+    throw p0
+.end method
+
+.method public getLabel()Landroid/view/View;
+    .locals 0
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->getLabel()Landroid/widget/TextView;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method protected final getLabel()Landroid/widget/TextView;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->label:Landroid/widget/TextView;
+
+    if-eqz p0, :cond_0
+
+    return-object p0
+
+    :cond_0
+    const-string p0, "label"
 
     invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
@@ -3378,19 +3390,19 @@
 .method public final updateResources()V
     .registers 19
 
-    .line 828
+    .line 826
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->label:Landroid/widget/TextView;
 
-    .line 829
+    .line 827
     .local v1, "textView":Landroid/widget/TextView;
-    if-eqz v1, :cond_17c
+    if-eqz v1, :cond_16d
 
-    .line 830
+    .line 828
     const/4 v3, 0x0
 
-    .line 831
+    .line 829
     .local v3, "i":I
     sget v4, Lcom/android/mwilky/Renovate;->mQsStyle:I
 
@@ -3398,7 +3410,7 @@
 
     if-nez v4, :cond_14
 
-    .line 832
+    .line 830
     const-string v4, "qs_tile_text_size"
 
     invoke-static {v4, v5}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
@@ -3407,7 +3419,7 @@
 
     goto :goto_1a
 
-    .line 834
+    .line 832
     :cond_14
     const-string v4, "qs_tile_text_size_mw"
 
@@ -3415,37 +3427,37 @@
 
     move-result v3
 
-    .line 836
+    .line 834
     :goto_1a
     invoke-static {v1, v3}, Lcom/android/systemui/FontSizeUtils;->updateFontSize(Landroid/widget/TextView;I)V
 
-    .line 837
+    .line 835
     invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->getSecondaryLabel()Landroid/widget/TextView;
 
     move-result-object v4
 
     invoke-static {v4, v3}, Lcom/android/systemui/FontSizeUtils;->updateFontSize(Landroid/widget/TextView;I)V
 
-    .line 838
+    .line 836
     iget-object v4, v0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->labelContainer:Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;
 
-    .line 839
+    .line 837
     .local v4, "ignorableChildLinearLayout":Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;
     const-string v6, "labelContainer"
 
-    if-eqz v4, :cond_177
+    if-eqz v4, :cond_168
 
-    .line 840
+    .line 838
     invoke-virtual {v4}, Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;->invalidate()V
 
-    .line 841
+    .line 839
     iget-object v7, v0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->labelContainer:Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;
 
-    .line 842
+    .line 840
     .local v7, "ignorableChildLinearLayout2":Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;
-    if-eqz v7, :cond_172
+    if-eqz v7, :cond_163
 
-    .line 843
+    .line 841
     sget v8, Lcom/android/mwilky/Renovate;->mQsStyle:I
 
     const-string v9, "qs_icon_size"
@@ -3454,7 +3466,7 @@
 
     if-nez v8, :cond_e6
 
-    .line 844
+    .line 842
     invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->getContext()Landroid/content/Context;
 
     move-result-object v6
@@ -3471,7 +3483,7 @@
 
     move-result v6
 
-    .line 845
+    .line 843
     .local v6, "dimensionPixelSize":I
     iget-object v8, v0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->_icon:Lcom/android/systemui/plugins/qs/QSIconView;
 
@@ -3479,14 +3491,14 @@
 
     move-result-object v8
 
-    .line 846
+    .line 844
     .local v8, "layoutParams":Landroid/view/ViewGroup$LayoutParams;
     iput v6, v8, Landroid/view/ViewGroup$LayoutParams;->height:I
 
-    .line 847
+    .line 845
     iput v6, v8, Landroid/view/ViewGroup$LayoutParams;->width:I
 
-    .line 848
+    .line 846
     invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->getResources()Landroid/content/res/Resources;
 
     move-result-object v9
@@ -3501,7 +3513,7 @@
 
     move-result v9
 
-    .line 849
+    .line 847
     .local v9, "dimensionPixelSize2":I
     invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->getResources()Landroid/content/res/Resources;
 
@@ -3519,7 +3531,7 @@
 
     invoke-virtual {v0, v11, v9, v9, v9}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->setPaddingRelative(IIII)V
 
-    .line 850
+    .line 848
     invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->getResources()Landroid/content/res/Resources;
 
     move-result-object v11
@@ -3534,24 +3546,24 @@
 
     move-result v11
 
-    .line 851
+    .line 849
     .local v11, "dimensionPixelSize3":I
     invoke-virtual {v4}, Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v12
 
-    .line 852
+    .line 850
     .local v12, "layoutParams2":Landroid/view/ViewGroup$LayoutParams;
     invoke-static {v12, v10}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 853
+    .line 851
     move-object v13, v12
 
     check-cast v13, Landroid/view/ViewGroup$MarginLayoutParams;
 
     invoke-virtual {v13, v11}, Landroid/view/ViewGroup$MarginLayoutParams;->setMarginStart(I)V
 
-    .line 854
+    .line 852
     invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->getSideView()Landroid/view/ViewGroup;
 
     move-result-object v13
@@ -3560,46 +3572,46 @@
 
     move-result-object v13
 
-    .line 855
+    .line 853
     .local v13, "layoutParams3":Landroid/view/ViewGroup$LayoutParams;
     invoke-static {v13, v10}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 856
+    .line 854
     move-object v14, v13
 
     check-cast v14, Landroid/view/ViewGroup$MarginLayoutParams;
 
     invoke-virtual {v14, v11}, Landroid/view/ViewGroup$MarginLayoutParams;->setMarginStart(I)V
 
-    .line 857
+    .line 855
     iget-object v14, v0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->chevronView:Landroid/widget/ImageView;
 
-    .line 858
+    .line 856
     .local v14, "imageView":Landroid/widget/ImageView;
     if-eqz v14, :cond_dd
 
-    .line 859
+    .line 857
     invoke-virtual {v14}, Landroid/widget/ImageView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v15
 
-    .line 860
+    .line 858
     .local v15, "layoutParams4":Landroid/view/ViewGroup$LayoutParams;
     invoke-static {v15, v10}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 861
+    .line 859
     move-object v2, v15
 
     check-cast v2, Landroid/view/ViewGroup$MarginLayoutParams;
 
-    .line 862
+    .line 860
     .local v2, "marginLayoutParams":Landroid/view/ViewGroup$MarginLayoutParams;
     iput v6, v2, Landroid/view/ViewGroup$MarginLayoutParams;->height:I
 
-    .line 863
+    .line 861
     iput v6, v2, Landroid/view/ViewGroup$MarginLayoutParams;->width:I
 
-    .line 864
+    .line 862
     move-object/from16 v16, v1
 
     .end local v1    # "textView":Landroid/widget/TextView;
@@ -3622,39 +3634,39 @@
 
     move-result v1
 
-    .line 865
+    .line 863
     .local v1, "dimensionPixelSize4":I
     iget-object v2, v0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->customDrawableView:Landroid/widget/ImageView;
 
-    .line 866
+    .line 864
     .local v2, "imageView2":Landroid/widget/ImageView;
     if-eqz v2, :cond_d6
 
-    .line 867
+    .line 865
     invoke-virtual {v2}, Landroid/widget/ImageView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v5
 
-    .line 868
+    .line 866
     .local v5, "layoutParams5":Landroid/view/ViewGroup$LayoutParams;
     invoke-static {v5, v10}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 869
+    .line 867
     move-object v10, v5
 
     check-cast v10, Landroid/view/ViewGroup$MarginLayoutParams;
 
-    .line 870
+    .line 868
     .local v10, "marginLayoutParams2":Landroid/view/ViewGroup$MarginLayoutParams;
     iput v6, v10, Landroid/view/ViewGroup$MarginLayoutParams;->height:I
 
-    .line 871
+    .line 869
     invoke-virtual {v10, v1}, Landroid/view/ViewGroup$MarginLayoutParams;->setMarginEnd(I)V
 
-    .line 872
+    .line 870
     return-void
 
-    .line 874
+    .line 872
     .end local v5    # "layoutParams5":Landroid/view/ViewGroup$LayoutParams;
     .end local v10    # "marginLayoutParams2":Landroid/view/ViewGroup$MarginLayoutParams;
     :cond_d6
@@ -3662,12 +3674,12 @@
 
     invoke-static {v5}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
-    .line 875
+    .line 873
     const/4 v5, 0x0
 
     throw v5
 
-    .line 877
+    .line 875
     .end local v2    # "imageView2":Landroid/widget/ImageView;
     .end local v15    # "layoutParams4":Landroid/view/ViewGroup$LayoutParams;
     .end local v16    # "textView":Landroid/widget/TextView;
@@ -3684,10 +3696,10 @@
 
     invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
-    .line 878
+    .line 876
     throw v5
 
-    .line 880
+    .line 878
     .end local v6    # "dimensionPixelSize":I
     .end local v8    # "layoutParams":Landroid/view/ViewGroup$LayoutParams;
     .end local v9    # "dimensionPixelSize2":I
@@ -3706,31 +3718,12 @@
 
     invoke-virtual {v7, v1}, Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;->setIgnoreLastView(Z)V
 
-    .line 881
+    .line 879
     iget-boolean v1, v0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->collapsed:Z
 
     invoke-virtual {v7, v1}, Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;->setForceUnspecifiedMeasure(Z)V
 
-    .line 882
-    invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->getSecondaryLabel()Landroid/widget/TextView;
-
-    move-result-object v1
-
-    iget-boolean v2, v0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->collapsed:Z
-
-    if-eqz v2, :cond_fc
-
-    const/4 v2, 0x0
-
-    goto :goto_fe
-
-    :cond_fc
-    const/high16 v2, 0x3f800000    # 1.0f
-
-    :goto_fe
-    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setAlpha(F)V
-
-    .line 883
+    .line 881
     invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->getContext()Landroid/content/Context;
 
     move-result-object v1
@@ -3749,29 +3742,29 @@
 
     move-result v1
 
-    .line 884
+    .line 882
     .local v1, "dimensionPixelSize":I
     iget-object v2, v0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->iconContainer:Landroid/widget/LinearLayout;
 
-    .line 885
+    .line 883
     .local v2, "linearLayout":Landroid/widget/LinearLayout;
     const-string v8, "iconContainer"
 
-    if-eqz v2, :cond_16d
+    if-eqz v2, :cond_15e
 
-    .line 886
+    .line 884
     invoke-virtual {v2}, Landroid/widget/LinearLayout;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v11
 
-    .line 887
+    .line 885
     .local v11, "layoutParams":Landroid/view/ViewGroup$LayoutParams;
     iput v1, v11, Landroid/view/ViewGroup$LayoutParams;->height:I
 
-    .line 888
+    .line 886
     iput v1, v11, Landroid/view/ViewGroup$LayoutParams;->width:I
 
-    .line 889
+    .line 887
     invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->getResources()Landroid/content/res/Resources;
 
     move-result-object v12
@@ -3786,7 +3779,7 @@
 
     move-result v12
 
-    .line 890
+    .line 888
     .local v12, "dimensionPixelSize2":I
     invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->getContext()Landroid/content/Context;
 
@@ -3804,7 +3797,7 @@
 
     move-result v5
 
-    .line 891
+    .line 889
     .local v5, "dimensionPixelSize3":I
     iget-object v9, v0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->_icon:Lcom/android/systemui/plugins/qs/QSIconView;
 
@@ -3812,40 +3805,40 @@
 
     move-result-object v9
 
-    .line 892
+    .line 890
     .local v9, "layoutParams2":Landroid/view/ViewGroup$LayoutParams;
     iput v5, v9, Landroid/view/ViewGroup$LayoutParams;->height:I
 
-    .line 893
+    .line 891
     iput v5, v9, Landroid/view/ViewGroup$LayoutParams;->width:I
 
-    .line 894
+    .line 892
     iget-object v13, v0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->iconContainer:Landroid/widget/LinearLayout;
 
-    .line 895
+    .line 893
     .local v13, "linearLayout2":Landroid/widget/LinearLayout;
-    if-eqz v13, :cond_168
+    if-eqz v13, :cond_159
 
-    .line 896
+    .line 894
     invoke-virtual {v13, v12, v12, v12, v12}, Landroid/widget/LinearLayout;->setPaddingRelative(IIII)V
 
-    .line 897
+    .line 895
     iget-object v8, v0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->labelContainer:Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;
 
-    .line 898
+    .line 896
     .local v8, "ignorableChildLinearLayout3":Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;
-    if-eqz v8, :cond_163
+    if-eqz v8, :cond_154
 
-    .line 899
+    .line 897
     invoke-virtual {v8}, Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v6
 
-    .line 900
+    .line 898
     .local v6, "layoutParams3":Landroid/view/ViewGroup$LayoutParams;
     invoke-static {v6, v10}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 901
+    .line 899
     move-object v10, v6
 
     check-cast v10, Landroid/view/ViewGroup$MarginLayoutParams;
@@ -3854,69 +3847,69 @@
 
     iput v14, v10, Landroid/view/ViewGroup$MarginLayoutParams;->topMargin:I
 
-    .line 902
+    .line 900
     return-void
 
-    .line 904
+    .line 902
     .end local v6    # "layoutParams3":Landroid/view/ViewGroup$LayoutParams;
-    :cond_163
+    :cond_154
     invoke-static {v6}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
-    .line 905
+    .line 903
     const/4 v10, 0x0
 
     throw v10
 
-    .line 907
+    .line 905
     .end local v8    # "ignorableChildLinearLayout3":Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;
-    :cond_168
+    :cond_159
     const/4 v10, 0x0
 
     invoke-static {v8}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
-    .line 908
+    .line 906
     throw v10
 
-    .line 910
+    .line 908
     .end local v5    # "dimensionPixelSize3":I
     .end local v9    # "layoutParams2":Landroid/view/ViewGroup$LayoutParams;
     .end local v11    # "layoutParams":Landroid/view/ViewGroup$LayoutParams;
     .end local v12    # "dimensionPixelSize2":I
     .end local v13    # "linearLayout2":Landroid/widget/LinearLayout;
-    :cond_16d
+    :cond_15e
     const/4 v10, 0x0
 
     invoke-static {v8}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
-    .line 911
+    .line 909
     throw v10
 
-    .line 914
+    .line 912
     .end local v2    # "linearLayout":Landroid/widget/LinearLayout;
     .end local v16    # "textView":Landroid/widget/TextView;
     .local v1, "textView":Landroid/widget/TextView;
-    :cond_172
+    :cond_163
     const/4 v10, 0x0
 
     invoke-static {v6}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+
+    .line 913
+    throw v10
 
     .line 915
-    throw v10
-
-    .line 917
     .end local v7    # "ignorableChildLinearLayout2":Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;
-    :cond_177
+    :cond_168
     const/4 v10, 0x0
 
     invoke-static {v6}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
-    .line 918
+    .line 916
     throw v10
 
-    .line 920
+    .line 918
     .end local v3    # "i":I
     .end local v4    # "ignorableChildLinearLayout":Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;
-    :cond_17c
+    :cond_16d
     move-object/from16 v16, v1
 
     const/4 v10, 0x0
@@ -3927,7 +3920,7 @@
 
     invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
-    .line 921
+    .line 919
     throw v10
 .end method
 
