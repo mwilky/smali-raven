@@ -28,6 +28,8 @@
 
 .field private static final PEOPLE_CACHE_SIZE:I = 0xc8
 
+.field static final PHONE_LOOKUP_PROJECTION:[Ljava/lang/String;
+
 .field private static final SETTING_ENABLE_PEOPLE_VALIDATOR:Ljava/lang/String; = "validate_notification_people_enabled"
 
 .field static final STARRED_CONTACT:F = 1.0f
@@ -77,7 +79,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .locals 4
 
     const-string v0, "ValidateNoPeople"
 
@@ -99,13 +101,27 @@
 
     const-string v0, "_id"
 
-    const-string/jumbo v1, "starred"
+    const-string/jumbo v1, "lookup"
+
+    const-string/jumbo v2, "starred"
+
+    const-string v3, "has_phone_number"
+
+    filled-new-array {v0, v1, v2, v3}, [Ljava/lang/String;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/android/server/notification/ValidateNotificationPeople;->LOOKUP_PROJECTION:[Ljava/lang/String;
+
+    const-string v0, "data4"
+
+    const-string v1, "data1"
 
     filled-new-array {v0, v1}, [Ljava/lang/String;
 
     move-result-object v0
 
-    sput-object v0, Lcom/android/server/notification/ValidateNotificationPeople;->LOOKUP_PROJECTION:[Ljava/lang/String;
+    sput-object v0, Lcom/android/server/notification/ValidateNotificationPeople;->PHONE_LOOKUP_PROJECTION:[Ljava/lang/String;
 
     return-void
 .end method
@@ -1644,6 +1660,133 @@
 
     :goto_0
     return-object v0
+.end method
+
+.method searchContactsAndLookupNumbers(Landroid/content/Context;Landroid/net/Uri;)Lcom/android/server/notification/ValidateNotificationPeople$LookupResult;
+    .locals 10
+
+    const-string v0, "ValidateNoPeople"
+
+    invoke-virtual {p0, p1, p2}, Lcom/android/server/notification/ValidateNotificationPeople;->searchContacts(Landroid/content/Context;Landroid/net/Uri;)Lcom/android/server/notification/ValidateNotificationPeople$LookupResult;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/android/server/notification/ValidateNotificationPeople$LookupResult;->getPhoneLookupKey()Ljava/lang/String;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_5
+
+    const-string/jumbo v9, "lookup = ?"
+
+    const/4 v3, 0x1
+
+    new-array v7, v3, [Ljava/lang/String;
+
+    const/4 v3, 0x0
+
+    aput-object v2, v7, v3
+
+    :try_start_0
+    invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v3
+
+    sget-object v4, Landroid/provider/ContactsContract$CommonDataKinds$Phone;->CONTENT_URI:Landroid/net/Uri;
+
+    sget-object v5, Lcom/android/server/notification/ValidateNotificationPeople;->PHONE_LOOKUP_PROJECTION:[Ljava/lang/String;
+
+    const/4 v8, 0x0
+
+    move-object v6, v9
+
+    invoke-virtual/range {v3 .. v8}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
+
+    move-result-object v3
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_2
+
+    if-nez v3, :cond_1
+
+    :try_start_1
+    const-string v4, "Cursor is null when querying contact phone number."
+
+    invoke-static {v0, v4}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    nop
+
+    if-eqz v3, :cond_0
+
+    :try_start_2
+    invoke-interface {v3}, Landroid/database/Cursor;->close()V
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_2
+
+    :cond_0
+    return-object v1
+
+    :cond_1
+    :goto_0
+    :try_start_3
+    invoke-interface {v3}, Landroid/database/Cursor;->moveToNext()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_2
+
+    invoke-virtual {v1, v3}, Lcom/android/server/notification/ValidateNotificationPeople$LookupResult;->mergePhoneNumber(Landroid/database/Cursor;)V
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
+    goto :goto_0
+
+    :cond_2
+    if-eqz v3, :cond_3
+
+    :try_start_4
+    invoke-interface {v3}, Landroid/database/Cursor;->close()V
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_2
+
+    :cond_3
+    goto :goto_2
+
+    :catchall_0
+    move-exception v4
+
+    if-eqz v3, :cond_4
+
+    :try_start_5
+    invoke-interface {v3}, Landroid/database/Cursor;->close()V
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_1
+
+    goto :goto_1
+
+    :catchall_1
+    move-exception v5
+
+    :try_start_6
+    invoke-virtual {v4, v5}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
+
+    :cond_4
+    :goto_1
+    throw v4
+    :try_end_6
+    .catchall {:try_start_6 .. :try_end_6} :catchall_2
+
+    :catchall_2
+    move-exception v3
+
+    const-string v4, "Problem getting content resolver or querying phone numbers."
+
+    invoke-static {v0, v4, v3}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    :cond_5
+    :goto_2
+    return-object v1
 .end method
 
 .method public setConfig(Lcom/android/server/notification/RankingConfig;)V

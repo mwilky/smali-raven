@@ -14784,7 +14784,7 @@
 
     iget-object v3, p0, Lcom/android/server/inputmethod/InputMethodManagerService;->mRes:Landroid/content/res/Resources;
 
-    const v4, 0x1110197
+    const v4, 0x1110198
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getBoolean(I)Z
 

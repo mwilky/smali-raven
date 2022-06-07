@@ -41,7 +41,7 @@
 
     check-cast p1, Landroid/graphics/Rect;
 
-    invoke-virtual {v0, v1, v2, p1}, Lcom/android/server/wm/DisplayPolicy;->lambda$simulateLayoutDisplay$12$DisplayPolicy(Lcom/android/server/wm/DisplayFrames;Lcom/android/server/wm/InsetsSourceProvider;Landroid/graphics/Rect;)V
+    invoke-virtual {v0, v1, v2, p1}, Lcom/android/server/wm/DisplayPolicy;->lambda$simulateLayoutDisplay$14$DisplayPolicy(Lcom/android/server/wm/DisplayFrames;Lcom/android/server/wm/InsetsSourceProvider;Landroid/graphics/Rect;)V
 
     return-void
 .end method

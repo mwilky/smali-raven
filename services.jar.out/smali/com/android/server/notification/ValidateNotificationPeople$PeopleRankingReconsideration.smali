@@ -33,6 +33,16 @@
     .end annotation
 .end field
 
+.field private mPhoneNumbers:Landroid/util/ArraySet;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroid/util/ArraySet<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private mRecord:Lcom/android/server/notification/NotificationRecord;
 
 .field final synthetic this$0:Lcom/android/server/notification/ValidateNotificationPeople;
@@ -61,6 +71,10 @@
     const/4 p1, 0x0
 
     iput p1, p0, Lcom/android/server/notification/ValidateNotificationPeople$PeopleRankingReconsideration;->mContactAffinity:F
+
+    const/4 p1, 0x0
+
+    iput-object p1, p0, Lcom/android/server/notification/ValidateNotificationPeople$PeopleRankingReconsideration;->mPhoneNumbers:Landroid/util/ArraySet;
 
     iput-object p2, p0, Lcom/android/server/notification/ValidateNotificationPeople$PeopleRankingReconsideration;->mContext:Landroid/content/Context;
 
@@ -123,6 +137,10 @@
     invoke-static {v2, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
+    iget-object v1, p0, Lcom/android/server/notification/ValidateNotificationPeople$PeopleRankingReconsideration;->mPhoneNumbers:Landroid/util/ArraySet;
+
+    invoke-virtual {p1, v1}, Lcom/android/server/notification/NotificationRecord;->mergePhoneNumbers(Landroid/util/ArraySet;)V
+
     return-void
 .end method
 
@@ -187,7 +205,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_d
+    if-eqz v3, :cond_e
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -400,7 +418,7 @@
 
     iget-object v9, p0, Lcom/android/server/notification/ValidateNotificationPeople$PeopleRankingReconsideration;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v8, v9, v7}, Lcom/android/server/notification/ValidateNotificationPeople;->searchContacts(Landroid/content/Context;Landroid/net/Uri;)Lcom/android/server/notification/ValidateNotificationPeople$LookupResult;
+    invoke-virtual {v8, v9, v7}, Lcom/android/server/notification/ValidateNotificationPeople;->searchContactsAndLookupNumbers(Landroid/content/Context;Landroid/net/Uri;)Lcom/android/server/notification/ValidateNotificationPeople$LookupResult;
 
     move-result-object v5
 
@@ -445,7 +463,7 @@
 
     :cond_8
     :goto_1
-    if-eqz v5, :cond_b
+    if-eqz v5, :cond_c
 
     if-nez v6, :cond_9
 
@@ -522,14 +540,39 @@
 
     iput v7, p0, Lcom/android/server/notification/ValidateNotificationPeople$PeopleRankingReconsideration;->mContactAffinity:F
 
-    goto :goto_3
+    invoke-virtual {v5}, Lcom/android/server/notification/ValidateNotificationPeople$LookupResult;->getPhoneNumbers()Landroid/util/ArraySet;
+
+    move-result-object v7
+
+    if-eqz v7, :cond_d
+
+    iget-object v7, p0, Lcom/android/server/notification/ValidateNotificationPeople$PeopleRankingReconsideration;->mPhoneNumbers:Landroid/util/ArraySet;
+
+    if-nez v7, :cond_b
+
+    new-instance v7, Landroid/util/ArraySet;
+
+    invoke-direct {v7}, Landroid/util/ArraySet;-><init>()V
+
+    iput-object v7, p0, Lcom/android/server/notification/ValidateNotificationPeople$PeopleRankingReconsideration;->mPhoneNumbers:Landroid/util/ArraySet;
 
     :cond_b
+    iget-object v7, p0, Lcom/android/server/notification/ValidateNotificationPeople$PeopleRankingReconsideration;->mPhoneNumbers:Landroid/util/ArraySet;
+
+    invoke-virtual {v5}, Lcom/android/server/notification/ValidateNotificationPeople$LookupResult;->getPhoneNumbers()Landroid/util/ArraySet;
+
+    move-result-object v8
+
+    invoke-virtual {v7, v8}, Landroid/util/ArraySet;->addAll(Landroid/util/ArraySet;)V
+
+    goto :goto_3
+
+    :cond_c
     invoke-static {}, Lcom/android/server/notification/ValidateNotificationPeople;->access$000()Z
 
     move-result v7
 
-    if-eqz v7, :cond_c
+    if-eqz v7, :cond_d
 
     const-string v7, "ValidateNoPeople"
 
@@ -537,7 +580,7 @@
 
     invoke-static {v7, v8}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_c
+    :cond_d
     :goto_3
     goto/16 :goto_0
 
@@ -551,12 +594,12 @@
 
     throw v2
 
-    :cond_d
+    :cond_e
     invoke-static {}, Lcom/android/server/notification/ValidateNotificationPeople;->access$000()Z
 
     move-result v2
 
-    if-eqz v2, :cond_e
+    if-eqz v2, :cond_f
 
     const-string v2, "ValidateNoPeople"
 
@@ -586,10 +629,10 @@
 
     invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_e
+    :cond_f
     iget-object v2, p0, Lcom/android/server/notification/ValidateNotificationPeople$PeopleRankingReconsideration;->mRecord:Lcom/android/server/notification/NotificationRecord;
 
-    if-eqz v2, :cond_11
+    if-eqz v2, :cond_12
 
     iget-object v2, p0, Lcom/android/server/notification/ValidateNotificationPeople$PeopleRankingReconsideration;->this$0:Lcom/android/server/notification/ValidateNotificationPeople;
 
@@ -609,13 +652,13 @@
 
     const/4 v7, 0x0
 
-    if-lez v5, :cond_f
+    if-lez v5, :cond_10
 
     move v5, v6
 
     goto :goto_4
 
-    :cond_f
+    :cond_10
     move v5, v7
 
     :goto_4
@@ -623,16 +666,16 @@
 
     cmpl-float v4, v4, v8
 
-    if-nez v4, :cond_10
+    if-nez v4, :cond_11
 
     goto :goto_5
 
-    :cond_10
+    :cond_11
     move v6, v7
 
     :goto_5
     invoke-virtual {v2, v3, v5, v6, v7}, Lcom/android/server/notification/NotificationUsageStats;->registerPeopleAffinity(Lcom/android/server/notification/NotificationRecord;ZZZ)V
 
-    :cond_11
+    :cond_12
     return-void
 .end method

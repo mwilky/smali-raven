@@ -36,7 +36,7 @@
 
     iget-object v0, p0, Lcom/android/server/vcn/VcnGatewayConnection$RetryTimeoutState;->this$0:Lcom/android/server/vcn/VcnGatewayConnection;
 
-    invoke-static {v0}, Lcom/android/server/vcn/VcnGatewayConnection;->access$3100(Lcom/android/server/vcn/VcnGatewayConnection;)I
+    invoke-static {v0}, Lcom/android/server/vcn/VcnGatewayConnection;->access$3000(Lcom/android/server/vcn/VcnGatewayConnection;)I
 
     move-result v0
 
@@ -82,7 +82,7 @@
 
     iget-object v0, p0, Lcom/android/server/vcn/VcnGatewayConnection$RetryTimeoutState;->this$0:Lcom/android/server/vcn/VcnGatewayConnection;
 
-    invoke-static {v0}, Lcom/android/server/vcn/VcnGatewayConnection;->access$3108(Lcom/android/server/vcn/VcnGatewayConnection;)I
+    invoke-static {v0}, Lcom/android/server/vcn/VcnGatewayConnection;->access$3008(Lcom/android/server/vcn/VcnGatewayConnection;)I
 
     iget-object v0, p0, Lcom/android/server/vcn/VcnGatewayConnection$RetryTimeoutState;->this$0:Lcom/android/server/vcn/VcnGatewayConnection;
 
@@ -115,7 +115,7 @@
 
     move-result-wide v1
 
-    invoke-static {v0, v1, v2}, Lcom/android/server/vcn/VcnGatewayConnection;->access$3800(Lcom/android/server/vcn/VcnGatewayConnection;J)V
+    invoke-static {v0, v1, v2}, Lcom/android/server/vcn/VcnGatewayConnection;->access$3700(Lcom/android/server/vcn/VcnGatewayConnection;J)V
 
     :goto_0
     return-void
@@ -126,7 +126,7 @@
 
     iget-object v0, p0, Lcom/android/server/vcn/VcnGatewayConnection$RetryTimeoutState;->this$0:Lcom/android/server/vcn/VcnGatewayConnection;
 
-    invoke-static {v0}, Lcom/android/server/vcn/VcnGatewayConnection;->access$3900(Lcom/android/server/vcn/VcnGatewayConnection;)V
+    invoke-static {v0}, Lcom/android/server/vcn/VcnGatewayConnection;->access$3800(Lcom/android/server/vcn/VcnGatewayConnection;)V
 
     return-void
 .end method

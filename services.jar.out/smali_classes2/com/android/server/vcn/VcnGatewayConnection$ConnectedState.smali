@@ -68,7 +68,7 @@
 
     iget-object v0, p0, Lcom/android/server/vcn/VcnGatewayConnection$ConnectedState;->this$0:Lcom/android/server/vcn/VcnGatewayConnection;
 
-    invoke-static {v0}, Lcom/android/server/vcn/VcnGatewayConnection;->access$3600(Lcom/android/server/vcn/VcnGatewayConnection;)Landroid/net/IpSecManager$IpSecTunnelInterface;
+    invoke-static {v0}, Lcom/android/server/vcn/VcnGatewayConnection;->access$3500(Lcom/android/server/vcn/VcnGatewayConnection;)Landroid/net/IpSecManager$IpSecTunnelInterface;
 
     move-result-object v3
 
@@ -96,7 +96,7 @@
 
     iget-object v0, p0, Lcom/android/server/vcn/VcnGatewayConnection$ConnectedState;->this$0:Lcom/android/server/vcn/VcnGatewayConnection;
 
-    invoke-static {v0}, Lcom/android/server/vcn/VcnGatewayConnection;->access$3600(Lcom/android/server/vcn/VcnGatewayConnection;)Landroid/net/IpSecManager$IpSecTunnelInterface;
+    invoke-static {v0}, Lcom/android/server/vcn/VcnGatewayConnection;->access$3500(Lcom/android/server/vcn/VcnGatewayConnection;)Landroid/net/IpSecManager$IpSecTunnelInterface;
 
     move-result-object v3
 
@@ -116,7 +116,7 @@
 
     iget-object v0, p0, Lcom/android/server/vcn/VcnGatewayConnection$ConnectedState;->this$0:Lcom/android/server/vcn/VcnGatewayConnection;
 
-    invoke-static {v0}, Lcom/android/server/vcn/VcnGatewayConnection;->access$3600(Lcom/android/server/vcn/VcnGatewayConnection;)Landroid/net/IpSecManager$IpSecTunnelInterface;
+    invoke-static {v0}, Lcom/android/server/vcn/VcnGatewayConnection;->access$3500(Lcom/android/server/vcn/VcnGatewayConnection;)Landroid/net/IpSecManager$IpSecTunnelInterface;
 
     move-result-object v0
 
@@ -128,7 +128,7 @@
 
     iget-object v2, p0, Lcom/android/server/vcn/VcnGatewayConnection$ConnectedState;->this$0:Lcom/android/server/vcn/VcnGatewayConnection;
 
-    invoke-static {v2}, Lcom/android/server/vcn/VcnGatewayConnection;->access$3700(Lcom/android/server/vcn/VcnGatewayConnection;)Lcom/android/server/vcn/VcnGatewayConnection$VcnChildSessionConfiguration;
+    invoke-static {v2}, Lcom/android/server/vcn/VcnGatewayConnection;->access$3600(Lcom/android/server/vcn/VcnGatewayConnection;)Lcom/android/server/vcn/VcnGatewayConnection$VcnChildSessionConfiguration;
 
     move-result-object v2
 
@@ -204,7 +204,7 @@
 
     iget-object v1, p0, Lcom/android/server/vcn/VcnGatewayConnection$ConnectedState;->this$0:Lcom/android/server/vcn/VcnGatewayConnection;
 
-    invoke-static {v1}, Lcom/android/server/vcn/VcnGatewayConnection;->access$3700(Lcom/android/server/vcn/VcnGatewayConnection;)Lcom/android/server/vcn/VcnGatewayConnection$VcnChildSessionConfiguration;
+    invoke-static {v1}, Lcom/android/server/vcn/VcnGatewayConnection;->access$3600(Lcom/android/server/vcn/VcnGatewayConnection;)Lcom/android/server/vcn/VcnGatewayConnection$VcnChildSessionConfiguration;
 
     move-result-object v1
 
@@ -212,7 +212,7 @@
 
     iget-object v1, p0, Lcom/android/server/vcn/VcnGatewayConnection$ConnectedState;->this$0:Lcom/android/server/vcn/VcnGatewayConnection;
 
-    invoke-static {v1}, Lcom/android/server/vcn/VcnGatewayConnection;->access$3600(Lcom/android/server/vcn/VcnGatewayConnection;)Landroid/net/IpSecManager$IpSecTunnelInterface;
+    invoke-static {v1}, Lcom/android/server/vcn/VcnGatewayConnection;->access$3500(Lcom/android/server/vcn/VcnGatewayConnection;)Landroid/net/IpSecManager$IpSecTunnelInterface;
 
     move-result-object v1
 
@@ -224,7 +224,7 @@
 
     iget-object v3, p0, Lcom/android/server/vcn/VcnGatewayConnection$ConnectedState;->this$0:Lcom/android/server/vcn/VcnGatewayConnection;
 
-    invoke-static {v3}, Lcom/android/server/vcn/VcnGatewayConnection;->access$3700(Lcom/android/server/vcn/VcnGatewayConnection;)Lcom/android/server/vcn/VcnGatewayConnection$VcnChildSessionConfiguration;
+    invoke-static {v3}, Lcom/android/server/vcn/VcnGatewayConnection;->access$3600(Lcom/android/server/vcn/VcnGatewayConnection;)Lcom/android/server/vcn/VcnGatewayConnection$VcnChildSessionConfiguration;
 
     move-result-object v3
 
@@ -293,7 +293,7 @@
 
     iget-object v0, p0, Lcom/android/server/vcn/VcnGatewayConnection$ConnectedState;->this$0:Lcom/android/server/vcn/VcnGatewayConnection;
 
-    invoke-static {v0}, Lcom/android/server/vcn/VcnGatewayConnection;->access$3600(Lcom/android/server/vcn/VcnGatewayConnection;)Landroid/net/IpSecManager$IpSecTunnelInterface;
+    invoke-static {v0}, Lcom/android/server/vcn/VcnGatewayConnection;->access$3500(Lcom/android/server/vcn/VcnGatewayConnection;)Landroid/net/IpSecManager$IpSecTunnelInterface;
 
     move-result-object v0
 
@@ -302,7 +302,7 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/server/vcn/VcnGatewayConnection$ConnectedState;->this$0:Lcom/android/server/vcn/VcnGatewayConnection;
 
-    invoke-static {v0}, Lcom/android/server/vcn/VcnGatewayConnection;->access$3200(Lcom/android/server/vcn/VcnGatewayConnection;)Landroid/net/IpSecManager;
+    invoke-static {v0}, Lcom/android/server/vcn/VcnGatewayConnection;->access$3100(Lcom/android/server/vcn/VcnGatewayConnection;)Landroid/net/IpSecManager;
 
     move-result-object v1
 
@@ -322,7 +322,7 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Lcom/android/server/vcn/VcnGatewayConnection;->access$3602(Lcom/android/server/vcn/VcnGatewayConnection;Landroid/net/IpSecManager$IpSecTunnelInterface;)Landroid/net/IpSecManager$IpSecTunnelInterface;
+    invoke-static {v0, v1}, Lcom/android/server/vcn/VcnGatewayConnection;->access$3502(Lcom/android/server/vcn/VcnGatewayConnection;Landroid/net/IpSecManager$IpSecTunnelInterface;)Landroid/net/IpSecManager$IpSecTunnelInterface;
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Landroid/net/IpSecManager$ResourceUnavailableException; {:try_start_0 .. :try_end_0} :catch_0
@@ -389,7 +389,7 @@
     :pswitch_4
     iget-object v0, p0, Lcom/android/server/vcn/VcnGatewayConnection$ConnectedState;->this$0:Lcom/android/server/vcn/VcnGatewayConnection;
 
-    invoke-static {v0}, Lcom/android/server/vcn/VcnGatewayConnection;->access$3700(Lcom/android/server/vcn/VcnGatewayConnection;)Lcom/android/server/vcn/VcnGatewayConnection$VcnChildSessionConfiguration;
+    invoke-static {v0}, Lcom/android/server/vcn/VcnGatewayConnection;->access$3600(Lcom/android/server/vcn/VcnGatewayConnection;)Lcom/android/server/vcn/VcnGatewayConnection$VcnChildSessionConfiguration;
 
     move-result-object v0
 
@@ -401,7 +401,7 @@
 
     iget-object v2, v2, Lcom/android/server/vcn/VcnGatewayConnection$EventSetupCompletedInfo;->childSessionConfig:Lcom/android/server/vcn/VcnGatewayConnection$VcnChildSessionConfiguration;
 
-    invoke-static {v1, v2}, Lcom/android/server/vcn/VcnGatewayConnection;->access$3702(Lcom/android/server/vcn/VcnGatewayConnection;Lcom/android/server/vcn/VcnGatewayConnection$VcnChildSessionConfiguration;)Lcom/android/server/vcn/VcnGatewayConnection$VcnChildSessionConfiguration;
+    invoke-static {v1, v2}, Lcom/android/server/vcn/VcnGatewayConnection;->access$3602(Lcom/android/server/vcn/VcnGatewayConnection;Lcom/android/server/vcn/VcnGatewayConnection$VcnChildSessionConfiguration;)Lcom/android/server/vcn/VcnGatewayConnection$VcnChildSessionConfiguration;
 
     iget-object v1, p0, Lcom/android/server/vcn/VcnGatewayConnection$ConnectedState;->this$0:Lcom/android/server/vcn/VcnGatewayConnection;
 
@@ -411,13 +411,13 @@
 
     iget-object v2, p0, Lcom/android/server/vcn/VcnGatewayConnection$ConnectedState;->this$0:Lcom/android/server/vcn/VcnGatewayConnection;
 
-    invoke-static {v2}, Lcom/android/server/vcn/VcnGatewayConnection;->access$3600(Lcom/android/server/vcn/VcnGatewayConnection;)Landroid/net/IpSecManager$IpSecTunnelInterface;
+    invoke-static {v2}, Lcom/android/server/vcn/VcnGatewayConnection;->access$3500(Lcom/android/server/vcn/VcnGatewayConnection;)Landroid/net/IpSecManager$IpSecTunnelInterface;
 
     move-result-object v2
 
     iget-object v3, p0, Lcom/android/server/vcn/VcnGatewayConnection$ConnectedState;->this$0:Lcom/android/server/vcn/VcnGatewayConnection;
 
-    invoke-static {v3}, Lcom/android/server/vcn/VcnGatewayConnection;->access$3700(Lcom/android/server/vcn/VcnGatewayConnection;)Lcom/android/server/vcn/VcnGatewayConnection$VcnChildSessionConfiguration;
+    invoke-static {v3}, Lcom/android/server/vcn/VcnGatewayConnection;->access$3600(Lcom/android/server/vcn/VcnGatewayConnection;)Lcom/android/server/vcn/VcnGatewayConnection$VcnChildSessionConfiguration;
 
     move-result-object v3
 
@@ -438,7 +438,7 @@
 
     iget-object v1, p0, Lcom/android/server/vcn/VcnGatewayConnection$ConnectedState;->this$0:Lcom/android/server/vcn/VcnGatewayConnection;
 
-    invoke-static {v1}, Lcom/android/server/vcn/VcnGatewayConnection;->access$3600(Lcom/android/server/vcn/VcnGatewayConnection;)Landroid/net/IpSecManager$IpSecTunnelInterface;
+    invoke-static {v1}, Lcom/android/server/vcn/VcnGatewayConnection;->access$3500(Lcom/android/server/vcn/VcnGatewayConnection;)Landroid/net/IpSecManager$IpSecTunnelInterface;
 
     move-result-object v4
 

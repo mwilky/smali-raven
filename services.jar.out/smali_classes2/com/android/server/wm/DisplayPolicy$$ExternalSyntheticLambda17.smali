@@ -67,7 +67,7 @@
 
     check-cast v7, Lcom/android/server/statusbar/StatusBarManagerInternal;
 
-    invoke-static/range {v0 .. v7}, Lcom/android/server/wm/DisplayPolicy;->lambda$updateSystemBarAttributes$19(II[Lcom/android/internal/view/AppearanceRegion;ZILandroid/view/InsetsVisibilities;Ljava/lang/String;Lcom/android/server/statusbar/StatusBarManagerInternal;)V
+    invoke-static/range {v0 .. v7}, Lcom/android/server/wm/DisplayPolicy;->lambda$updateSystemBarAttributes$21(II[Lcom/android/internal/view/AppearanceRegion;ZILandroid/view/InsetsVisibilities;Ljava/lang/String;Lcom/android/server/statusbar/StatusBarManagerInternal;)V
 
     return-void
 .end method

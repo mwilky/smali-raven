@@ -27,7 +27,7 @@
 
     iget v0, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda12;->f$0:I
 
-    invoke-static {v0}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->lambda$updateServiceUidForAudioPolicy$13(I)V
+    invoke-static {v0}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->lambda$updateServiceUidForAudioPolicy$14(I)V
 
     return-void
 .end method

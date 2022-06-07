@@ -35,9 +35,9 @@
 .method public final accept(Ljava/lang/Object;)V
     .locals 0
 
-    check-cast p1, Lcom/android/server/wm/TaskFragment;
+    check-cast p1, Lcom/android/server/wm/WindowState;
 
-    invoke-static {p1}, Lcom/android/server/wm/RootWindowContainer;->lambda$applySleepTokens$20(Lcom/android/server/wm/TaskFragment;)V
+    invoke-static {p1}, Lcom/android/server/wm/RootWindowContainer;->lambda$static$1(Lcom/android/server/wm/WindowState;)V
 
     return-void
 .end method

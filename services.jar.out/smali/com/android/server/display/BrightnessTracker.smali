@@ -81,6 +81,8 @@
 
 .field private static final MSG_BRIGHTNESS_CONFIG_CHANGED:I = 0x4
 
+.field private static final MSG_SENSOR_CHANGED:I = 0x5
+
 .field private static final MSG_START_SENSOR_LISTENER:I = 0x3
 
 .field private static final MSG_STOP_SENSOR_LISTENER:I = 0x2
@@ -144,6 +146,8 @@
         }
     .end annotation
 .end field
+
+.field private mLightSensor:Landroid/hardware/Sensor;
 
 .field private mNoFramesToSample:I
 
@@ -385,6 +389,14 @@
     iget-boolean v0, p0, Lcom/android/server/display/BrightnessTracker;->mColorSamplingEnabled:Z
 
     return v0
+.end method
+
+.method static synthetic access$2000(Lcom/android/server/display/BrightnessTracker;Landroid/hardware/Sensor;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/display/BrightnessTracker;->handleSensorChanged(Landroid/hardware/Sensor;)V
+
+    return-void
 .end method
 
 .method static synthetic access$400(Lcom/android/server/display/BrightnessTracker;Landroid/hardware/SensorEvent;)V
@@ -1166,6 +1178,49 @@
     throw v0
 .end method
 
+.method private handleSensorChanged(Landroid/hardware/Sensor;)V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/server/display/BrightnessTracker;->mLightSensor:Landroid/hardware/Sensor;
+
+    if-eq v0, p1, :cond_0
+
+    iput-object p1, p0, Lcom/android/server/display/BrightnessTracker;->mLightSensor:Landroid/hardware/Sensor;
+
+    invoke-direct {p0}, Lcom/android/server/display/BrightnessTracker;->stopSensorListener()V
+
+    iget-object v0, p0, Lcom/android/server/display/BrightnessTracker;->mDataCollectionLock:Ljava/lang/Object;
+
+    monitor-enter v0
+
+    :try_start_0
+    iget-object v1, p0, Lcom/android/server/display/BrightnessTracker;->mLastSensorReadings:Ljava/util/Deque;
+
+    invoke-interface {v1}, Ljava/util/Deque;->clear()V
+
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-direct {p0}, Lcom/android/server/display/BrightnessTracker;->startSensorListener()V
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v1
+
+    :try_start_1
+    monitor-exit v0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    throw v1
+
+    :cond_0
+    :goto_0
+    return-void
+.end method
+
 .method private readAmbientBrightnessStats()V
     .locals 5
 
@@ -1524,11 +1579,19 @@
 .end method
 
 .method private startSensorListener()V
-    .locals 4
+    .locals 5
 
     iget-boolean v0, p0, Lcom/android/server/display/BrightnessTracker;->mSensorRegistered:Z
 
     if-nez v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/display/BrightnessTracker;->mLightSensor:Landroid/hardware/Sensor;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/display/BrightnessTracker;->mAmbientBrightnessStatsTracker:Lcom/android/server/display/AmbientBrightnessStatsTracker;
+
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/server/display/BrightnessTracker;->mInjector:Lcom/android/server/display/BrightnessTracker$Injector;
 
@@ -1564,11 +1627,13 @@
 
     iget-object v2, p0, Lcom/android/server/display/BrightnessTracker;->mSensorListener:Lcom/android/server/display/BrightnessTracker$SensorListener;
 
+    iget-object v3, p0, Lcom/android/server/display/BrightnessTracker;->mLightSensor:Landroid/hardware/Sensor;
+
     invoke-virtual {v0}, Lcom/android/server/display/BrightnessTracker$Injector;->getBackgroundHandler()Landroid/os/Handler;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v0, v1, v2, v3}, Lcom/android/server/display/BrightnessTracker$Injector;->registerSensorListener(Landroid/content/Context;Landroid/hardware/SensorEventListener;Landroid/os/Handler;)V
+    invoke-virtual {v0, v1, v2, v3, v4}, Lcom/android/server/display/BrightnessTracker$Injector;->registerSensorListener(Landroid/content/Context;Landroid/hardware/SensorEventListener;Landroid/hardware/Sensor;Landroid/os/Handler;)V
 
     :cond_0
     return-void
@@ -1813,6 +1878,24 @@
     iget-boolean v2, p0, Lcom/android/server/display/BrightnessTracker;->mStarted:Z
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "  mLightSensor="
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v2, p0, Lcom/android/server/display/BrightnessTracker;->mLightSensor:Landroid/hardware/Sensor;
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -3110,6 +3193,24 @@
     const/4 v1, 0x4
 
     invoke-virtual {v0, v1, p1}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
+
+    return-void
+.end method
+
+.method public setLightSensor(Landroid/hardware/Sensor;)V
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/server/display/BrightnessTracker;->mBgHandler:Landroid/os/Handler;
+
+    const/4 v1, 0x5
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v1, v2, v2, p1}, Landroid/os/Handler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object v0
 

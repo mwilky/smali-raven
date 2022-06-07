@@ -33,6 +33,8 @@
 
 .field private final mImmersiveModeConfirmationsUri:Landroid/net/Uri;
 
+.field private final mMaximumObscuringOpacityForTouchUri:Landroid/net/Uri;
+
 .field private final mPointerLocationUri:Landroid/net/Uri;
 
 .field private final mPolicyControlUri:Landroid/net/Uri;
@@ -48,7 +50,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/android/server/wm/WindowManagerService;)V
-    .locals 17
+    .locals 18
 
     move-object/from16 v0, p0
 
@@ -180,6 +182,16 @@
 
     iput-object v14, v0, Lcom/android/server/wm/WindowManagerService$SettingsObserver;->mDisplaySettingsPathUri:Landroid/net/Uri;
 
+    const-string v15, "maximum_obscuring_opacity_for_touch"
+
+    invoke-static {v15}, Landroid/provider/Settings$Global;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v15
+
+    iput-object v15, v0, Lcom/android/server/wm/WindowManagerService$SettingsObserver;->mMaximumObscuringOpacityForTouchUri:Landroid/net/Uri;
+
+    move-object/from16 v16, v15
+
     iget-object v15, v1, Lcom/android/server/wm/WindowManagerService;->mContext:Landroid/content/Context;
 
     invoke-virtual {v15}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -188,7 +200,7 @@
 
     const/4 v1, 0x0
 
-    move-object/from16 v16, v14
+    move-object/from16 v17, v14
 
     const/4 v14, -0x1
 
@@ -226,6 +238,10 @@
 
     invoke-virtual {v15, v13, v1, v0, v14}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
 
+    move-object/from16 v2, v17
+
+    invoke-virtual {v15, v2, v1, v0, v14}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
+
     move-object/from16 v2, v16
 
     invoke-virtual {v15, v2, v1, v0, v14}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
@@ -257,6 +273,8 @@
     invoke-virtual {p0, v0}, Lcom/android/server/wm/WindowManagerService$SettingsObserver;->updateSystemUiSettings(Z)V
 
     invoke-virtual {p0}, Lcom/android/server/wm/WindowManagerService$SettingsObserver;->updatePointerLocation()V
+
+    invoke-virtual {p0}, Lcom/android/server/wm/WindowManagerService$SettingsObserver;->updateMaximumObscuringOpacityForTouch()V
 
     return-void
 .end method
@@ -290,7 +308,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_c
+    if-nez v0, :cond_d
 
     iget-object v0, p0, Lcom/android/server/wm/WindowManagerService$SettingsObserver;->mPolicyControlUri:Landroid/net/Uri;
 
@@ -396,7 +414,7 @@
     return-void
 
     :cond_8
-    iget-object v0, p0, Lcom/android/server/wm/WindowManagerService$SettingsObserver;->mWindowAnimationScaleUri:Landroid/net/Uri;
+    iget-object v0, p0, Lcom/android/server/wm/WindowManagerService$SettingsObserver;->mMaximumObscuringOpacityForTouchUri:Landroid/net/Uri;
 
     invoke-virtual {v0, p2}, Landroid/net/Uri;->equals(Ljava/lang/Object;)Z
 
@@ -404,12 +422,12 @@
 
     if-eqz v0, :cond_9
 
-    const/4 v0, 0x0
+    invoke-virtual {p0}, Lcom/android/server/wm/WindowManagerService$SettingsObserver;->updateMaximumObscuringOpacityForTouch()V
 
-    goto :goto_0
+    return-void
 
     :cond_9
-    iget-object v0, p0, Lcom/android/server/wm/WindowManagerService$SettingsObserver;->mTransitionAnimationScaleUri:Landroid/net/Uri;
+    iget-object v0, p0, Lcom/android/server/wm/WindowManagerService$SettingsObserver;->mWindowAnimationScaleUri:Landroid/net/Uri;
 
     invoke-virtual {v0, p2}, Landroid/net/Uri;->equals(Ljava/lang/Object;)Z
 
@@ -417,18 +435,31 @@
 
     if-eqz v0, :cond_a
 
-    const/4 v0, 0x1
+    const/4 v0, 0x0
 
     goto :goto_0
 
     :cond_a
-    iget-object v0, p0, Lcom/android/server/wm/WindowManagerService$SettingsObserver;->mAnimationDurationScaleUri:Landroid/net/Uri;
+    iget-object v0, p0, Lcom/android/server/wm/WindowManagerService$SettingsObserver;->mTransitionAnimationScaleUri:Landroid/net/Uri;
 
     invoke-virtual {v0, p2}, Landroid/net/Uri;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
     if-eqz v0, :cond_b
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_b
+    iget-object v0, p0, Lcom/android/server/wm/WindowManagerService$SettingsObserver;->mAnimationDurationScaleUri:Landroid/net/Uri;
+
+    invoke-virtual {v0, p2}, Landroid/net/Uri;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_c
 
     const/4 v0, 0x2
 
@@ -453,10 +484,10 @@
 
     return-void
 
-    :cond_b
+    :cond_c
     return-void
 
-    :cond_c
+    :cond_d
     :goto_1
     const/4 v0, 0x1
 
@@ -734,6 +765,32 @@
 
     :cond_2
     :goto_0
+    return-void
+.end method
+
+.method updateMaximumObscuringOpacityForTouch()V
+    .locals 4
+
+    iget-object v0, p0, Lcom/android/server/wm/WindowManagerService$SettingsObserver;->this$0:Lcom/android/server/wm/WindowManagerService;
+
+    iget-object v0, v0, Lcom/android/server/wm/WindowManagerService;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/server/wm/WindowManagerService$SettingsObserver;->this$0:Lcom/android/server/wm/WindowManagerService;
+
+    const-string v2, "maximum_obscuring_opacity_for_touch"
+
+    const v3, 0x3f4ccccd    # 0.8f
+
+    invoke-static {v0, v2, v3}, Landroid/provider/Settings$Global;->getFloat(Landroid/content/ContentResolver;Ljava/lang/String;F)F
+
+    move-result v2
+
+    iput v2, v1, Lcom/android/server/wm/WindowManagerService;->mMaximumObscuringOpacityForTouch:F
+
     return-void
 .end method
 

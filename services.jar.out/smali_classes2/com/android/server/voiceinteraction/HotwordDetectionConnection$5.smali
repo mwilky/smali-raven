@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->lambda$handleExternalSourceHotwordDetection$9$HotwordDetectionConnection(Landroid/os/ParcelFileDescriptor;Landroid/media/AudioFormat;Landroid/os/PersistableBundle;Landroid/os/ParcelFileDescriptor;Ljava/io/InputStream;Landroid/service/voice/IMicrophoneHotwordDetectionVoiceInteractionCallback;Landroid/service/voice/IHotwordDetectionService;)V
+    value = Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->lambda$handleExternalSourceHotwordDetection$10$HotwordDetectionConnection(Landroid/os/ParcelFileDescriptor;Landroid/media/AudioFormat;Landroid/os/PersistableBundle;Landroid/os/ParcelFileDescriptor;Ljava/io/InputStream;Landroid/service/voice/IMicrophoneHotwordDetectionVoiceInteractionCallback;Landroid/service/voice/IHotwordDetectionService;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -57,11 +57,11 @@
 
     iget-object v0, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$5;->val$serviceAudioSink:Landroid/os/ParcelFileDescriptor;
 
-    invoke-static {v0}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->access$1300(Ljava/io/Closeable;)V
+    invoke-static {v0}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->access$1500(Ljava/io/Closeable;)V
 
     iget-object v0, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$5;->val$serviceAudioSource:Landroid/os/ParcelFileDescriptor;
 
-    invoke-static {v0}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->access$1300(Ljava/io/Closeable;)V
+    invoke-static {v0}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->access$1500(Ljava/io/Closeable;)V
 
     iget-object v0, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$5;->this$0:Lcom/android/server/voiceinteraction/HotwordDetectionConnection;
 
@@ -128,7 +128,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$5;->val$audioSource:Ljava/io/InputStream;
 
-    invoke-static {v0}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->access$1300(Ljava/io/Closeable;)V
+    invoke-static {v0}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->access$1500(Ljava/io/Closeable;)V
 
     return-void
 .end method
@@ -143,15 +143,15 @@
 
     iget-object v0, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$5;->val$serviceAudioSink:Landroid/os/ParcelFileDescriptor;
 
-    invoke-static {v0}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->access$1300(Ljava/io/Closeable;)V
+    invoke-static {v0}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->access$1500(Ljava/io/Closeable;)V
 
     iget-object v0, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$5;->val$serviceAudioSource:Landroid/os/ParcelFileDescriptor;
 
-    invoke-static {v0}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->access$1300(Ljava/io/Closeable;)V
+    invoke-static {v0}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->access$1500(Ljava/io/Closeable;)V
 
     iget-object v0, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$5;->val$audioSource:Ljava/io/InputStream;
 
-    invoke-static {v0}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->access$1300(Ljava/io/Closeable;)V
+    invoke-static {v0}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->access$1500(Ljava/io/Closeable;)V
 
     iget-object v0, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$5;->this$0:Lcom/android/server/voiceinteraction/HotwordDetectionConnection;
 

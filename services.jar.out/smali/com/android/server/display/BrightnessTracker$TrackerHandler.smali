@@ -51,6 +51,17 @@
     :pswitch_0
     iget-object v0, p0, Lcom/android/server/display/BrightnessTracker$TrackerHandler;->this$0:Lcom/android/server/display/BrightnessTracker;
 
+    iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+
+    check-cast v1, Landroid/hardware/Sensor;
+
+    invoke-static {v0, v1}, Lcom/android/server/display/BrightnessTracker;->access$2000(Lcom/android/server/display/BrightnessTracker;Landroid/hardware/Sensor;)V
+
+    goto/16 :goto_2
+
+    :pswitch_1
+    iget-object v0, p0, Lcom/android/server/display/BrightnessTracker$TrackerHandler;->this$0:Lcom/android/server/display/BrightnessTracker;
+
     iget-object v3, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v3, Landroid/hardware/display/BrightnessConfiguration;
@@ -120,7 +131,7 @@
 
     goto :goto_2
 
-    :pswitch_1
+    :pswitch_2
     iget-object v0, p0, Lcom/android/server/display/BrightnessTracker$TrackerHandler;->this$0:Lcom/android/server/display/BrightnessTracker;
 
     invoke-static {v0}, Lcom/android/server/display/BrightnessTracker;->access$1400(Lcom/android/server/display/BrightnessTracker;)V
@@ -131,7 +142,7 @@
 
     goto :goto_2
 
-    :pswitch_2
+    :pswitch_3
     iget-object v0, p0, Lcom/android/server/display/BrightnessTracker$TrackerHandler;->this$0:Lcom/android/server/display/BrightnessTracker;
 
     invoke-static {v0}, Lcom/android/server/display/BrightnessTracker;->access$1600(Lcom/android/server/display/BrightnessTracker;)V
@@ -142,7 +153,7 @@
 
     goto :goto_2
 
-    :pswitch_3
+    :pswitch_4
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Lcom/android/server/display/BrightnessTracker$BrightnessChangeValues;
@@ -177,7 +188,7 @@
 
     goto :goto_2
 
-    :pswitch_4
+    :pswitch_5
     iget-object v0, p0, Lcom/android/server/display/BrightnessTracker$TrackerHandler;->this$0:Lcom/android/server/display/BrightnessTracker;
 
     iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
@@ -196,8 +207,11 @@
     :goto_2
     return-void
 
+    nop
+
     :pswitch_data_0
     .packed-switch 0x0
+        :pswitch_5
         :pswitch_4
         :pswitch_3
         :pswitch_2

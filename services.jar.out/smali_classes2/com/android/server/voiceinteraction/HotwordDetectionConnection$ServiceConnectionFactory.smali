@@ -48,7 +48,7 @@
     return-void
 .end method
 
-.method static synthetic access$600(Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnectionFactory;)I
+.method static synthetic access$800(Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnectionFactory;)I
     .locals 1
 
     iget v0, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnectionFactory;->mRestartCount:I
@@ -83,6 +83,8 @@
 
     iput v7, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnectionFactory;->mRestartCount:I
 
+    rem-int/lit8 v7, v0, 0xa
+
     move-object v0, v8
 
     invoke-direct/range {v0 .. v7}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnection;-><init>(Lcom/android/server/voiceinteraction/HotwordDetectionConnection;Landroid/content/Context;Landroid/content/Intent;IILjava/util/function/Function;I)V
@@ -91,17 +93,17 @@
 
     iget-object v1, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnectionFactory;->this$0:Lcom/android/server/voiceinteraction/HotwordDetectionConnection;
 
-    invoke-static {v1}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->access$700(Lcom/android/server/voiceinteraction/HotwordDetectionConnection;)Landroid/os/IBinder;
+    invoke-static {v1}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->access$900(Lcom/android/server/voiceinteraction/HotwordDetectionConnection;)Landroid/os/IBinder;
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->access$800(Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnection;Landroid/os/IBinder;)V
+    invoke-static {v0, v1}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->access$1000(Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnection;Landroid/os/IBinder;)V
 
-    invoke-static {v0}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->access$900(Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnection;)V
+    invoke-static {v0}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->access$1100(Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnection;)V
 
     iget-object v1, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnectionFactory;->this$0:Lcom/android/server/voiceinteraction/HotwordDetectionConnection;
 
-    invoke-static {v1, v0}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->access$1000(Lcom/android/server/voiceinteraction/HotwordDetectionConnection;Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnection;)V
+    invoke-static {v1, v0}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->access$1200(Lcom/android/server/voiceinteraction/HotwordDetectionConnection;Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnection;)V
 
     return-object v0
 .end method

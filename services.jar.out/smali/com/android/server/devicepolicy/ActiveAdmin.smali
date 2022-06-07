@@ -1409,7 +1409,7 @@
 
     invoke-virtual {p1, v1}, Landroid/util/IndentingPrintWriter;->println(Z)V
 
-    const-string v1, "isNetworkLoggingEnabled="
+    const-string/jumbo v1, "isNetworkLoggingEnabled="
 
     invoke-virtual {p1, v1}, Landroid/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
 
@@ -1524,7 +1524,7 @@
 
     invoke-virtual {p1, v1}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/Object;)V
 
-    const-string v1, "isParent="
+    const-string/jumbo v1, "isParent="
 
     invoke-virtual {p1, v1}, Landroid/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
 

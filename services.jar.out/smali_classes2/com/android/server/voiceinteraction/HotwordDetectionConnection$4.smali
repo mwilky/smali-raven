@@ -56,40 +56,88 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$4;->this$0:Lcom/android/server/voiceinteraction/HotwordDetectionConnection;
 
+    invoke-static {v1}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->access$500(Lcom/android/server/voiceinteraction/HotwordDetectionConnection;)Ljava/util/concurrent/ScheduledFuture;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$4;->this$0:Lcom/android/server/voiceinteraction/HotwordDetectionConnection;
+
+    invoke-static {v1}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->access$500(Lcom/android/server/voiceinteraction/HotwordDetectionConnection;)Ljava/util/concurrent/ScheduledFuture;
+
+    move-result-object v1
+
+    const/4 v2, 0x1
+
+    invoke-interface {v1, v2}, Ljava/util/concurrent/ScheduledFuture;->cancel(Z)Z
+
+    :cond_0
+    iget-object v1, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$4;->this$0:Lcom/android/server/voiceinteraction/HotwordDetectionConnection;
+
+    invoke-static {v1}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->access$600(Lcom/android/server/voiceinteraction/HotwordDetectionConnection;)I
+
+    move-result v1
+
+    const/4 v2, 0x5
+
+    invoke-static {v1, v2}, Lcom/android/server/voiceinteraction/HotwordMetricsLogger;->writeKeyphraseTriggerEvent(II)V
+
+    iget-object v1, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$4;->this$0:Lcom/android/server/voiceinteraction/HotwordDetectionConnection;
+
     invoke-static {v1}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->access$400(Lcom/android/server/voiceinteraction/HotwordDetectionConnection;)Z
 
     move-result v1
 
-    if-nez v1, :cond_0
+    const/4 v2, 0x3
+
+    if-nez v1, :cond_1
 
     const-string v1, "HotwordDetectionConnection"
 
-    const-string v2, "Ignoring #onDetected due to a process restart"
+    const-string v3, "Ignoring #onDetected due to a process restart"
 
-    invoke-static {v1, v2}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v3}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v1, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$4;->this$0:Lcom/android/server/voiceinteraction/HotwordDetectionConnection;
+
+    invoke-static {v1}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->access$600(Lcom/android/server/voiceinteraction/HotwordDetectionConnection;)I
+
+    move-result v1
+
+    invoke-static {v1, v2}, Lcom/android/server/voiceinteraction/HotwordMetricsLogger;->writeKeyphraseTriggerEvent(II)V
 
     monitor-exit v0
 
     return-void
 
-    :cond_0
+    :cond_1
     iget-object v1, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$4;->this$0:Lcom/android/server/voiceinteraction/HotwordDetectionConnection;
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    invoke-static {v1, v2}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->access$402(Lcom/android/server/voiceinteraction/HotwordDetectionConnection;Z)Z
+    invoke-static {v1, v3}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->access$402(Lcom/android/server/voiceinteraction/HotwordDetectionConnection;Z)Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    :try_start_1
     iget-object v1, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$4;->this$0:Lcom/android/server/voiceinteraction/HotwordDetectionConnection;
 
     invoke-static {v1}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->access$100(Lcom/android/server/voiceinteraction/HotwordDetectionConnection;)V
+    :try_end_1
+    .catch Ljava/lang/SecurityException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
+    nop
+
+    :try_start_2
     iget-object v1, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$4;->val$externalCallback:Lcom/android/internal/app/IHotwordRecognitionStatusCallback;
 
     iget-object v2, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$4;->val$recognitionEvent:Landroid/hardware/soundtrigger/SoundTrigger$KeyphraseRecognitionEvent;
 
     invoke-interface {v1, v2, p1}, Lcom/android/internal/app/IHotwordRecognitionStatusCallback;->onKeyphraseDetected(Landroid/hardware/soundtrigger/SoundTrigger$KeyphraseRecognitionEvent;Landroid/service/voice/HotwordDetectedResult;)V
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_2
 
     const-string v1, "HotwordDetectionConnection"
 
@@ -123,7 +171,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2
 
     const-string v1, "HotwordDetectionConnection"
 
@@ -143,17 +191,32 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_1
+    :cond_2
     monitor-exit v0
 
     return-void
+
+    :catch_0
+    move-exception v1
+
+    iget-object v3, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$4;->this$0:Lcom/android/server/voiceinteraction/HotwordDetectionConnection;
+
+    invoke-static {v3}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->access$600(Lcom/android/server/voiceinteraction/HotwordDetectionConnection;)I
+
+    move-result v3
+
+    invoke-static {v3, v2}, Lcom/android/server/voiceinteraction/HotwordMetricsLogger;->writeKeyphraseTriggerEvent(II)V
+
+    nop
+
+    throw v1
 
     :catchall_0
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     throw v1
 .end method
@@ -175,11 +238,40 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$4;->this$0:Lcom/android/server/voiceinteraction/HotwordDetectionConnection;
 
+    invoke-static {v1}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->access$500(Lcom/android/server/voiceinteraction/HotwordDetectionConnection;)Ljava/util/concurrent/ScheduledFuture;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$4;->this$0:Lcom/android/server/voiceinteraction/HotwordDetectionConnection;
+
+    invoke-static {v1}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->access$500(Lcom/android/server/voiceinteraction/HotwordDetectionConnection;)Ljava/util/concurrent/ScheduledFuture;
+
+    move-result-object v1
+
+    const/4 v2, 0x1
+
+    invoke-interface {v1, v2}, Ljava/util/concurrent/ScheduledFuture;->cancel(Z)Z
+
+    :cond_0
+    iget-object v1, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$4;->this$0:Lcom/android/server/voiceinteraction/HotwordDetectionConnection;
+
+    invoke-static {v1}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->access$600(Lcom/android/server/voiceinteraction/HotwordDetectionConnection;)I
+
+    move-result v1
+
+    const/4 v2, 0x6
+
+    invoke-static {v1, v2}, Lcom/android/server/voiceinteraction/HotwordMetricsLogger;->writeKeyphraseTriggerEvent(II)V
+
+    iget-object v1, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$4;->this$0:Lcom/android/server/voiceinteraction/HotwordDetectionConnection;
+
     invoke-static {v1}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->access$400(Lcom/android/server/voiceinteraction/HotwordDetectionConnection;)Z
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1
 
     const-string v1, "HotwordDetectionConnection"
 
@@ -187,11 +279,21 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    iget-object v1, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$4;->this$0:Lcom/android/server/voiceinteraction/HotwordDetectionConnection;
+
+    invoke-static {v1}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->access$600(Lcom/android/server/voiceinteraction/HotwordDetectionConnection;)I
+
+    move-result v1
+
+    const/4 v2, 0x3
+
+    invoke-static {v1, v2}, Lcom/android/server/voiceinteraction/HotwordMetricsLogger;->writeKeyphraseTriggerEvent(II)V
+
     monitor-exit v0
 
     return-void
 
-    :cond_0
+    :cond_1
     iget-object v1, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$4;->this$0:Lcom/android/server/voiceinteraction/HotwordDetectionConnection;
 
     const/4 v2, 0x0
@@ -208,9 +310,9 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_2
 
     const-string v1, "HotwordDetectionConnection"
 
@@ -230,7 +332,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_1
+    :cond_2
     monitor-exit v0
 
     return-void

@@ -18,13 +18,15 @@
 
 .field public final synthetic f$5:Ljava/lang/String;
 
-.field public final synthetic f$6:[I
+.field public final synthetic f$6:J
 
-.field public final synthetic f$7:Landroid/view/Surface;
+.field public final synthetic f$7:[I
+
+.field public final synthetic f$8:Landroid/view/Surface;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/biometrics/sensors/face/hidl/Face10;ILandroid/os/IBinder;Landroid/hardware/face/IFaceServiceReceiver;[BLjava/lang/String;[ILandroid/view/Surface;)V
+.method public synthetic constructor <init>(Lcom/android/server/biometrics/sensors/face/hidl/Face10;ILandroid/os/IBinder;Landroid/hardware/face/IFaceServiceReceiver;[BLjava/lang/String;J[ILandroid/view/Surface;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,9 +43,11 @@
 
     iput-object p6, p0, Lcom/android/server/biometrics/sensors/face/hidl/Face10$$ExternalSyntheticLambda11;->f$5:Ljava/lang/String;
 
-    iput-object p7, p0, Lcom/android/server/biometrics/sensors/face/hidl/Face10$$ExternalSyntheticLambda11;->f$6:[I
+    iput-wide p7, p0, Lcom/android/server/biometrics/sensors/face/hidl/Face10$$ExternalSyntheticLambda11;->f$6:J
 
-    iput-object p8, p0, Lcom/android/server/biometrics/sensors/face/hidl/Face10$$ExternalSyntheticLambda11;->f$7:Landroid/view/Surface;
+    iput-object p9, p0, Lcom/android/server/biometrics/sensors/face/hidl/Face10$$ExternalSyntheticLambda11;->f$7:[I
+
+    iput-object p10, p0, Lcom/android/server/biometrics/sensors/face/hidl/Face10$$ExternalSyntheticLambda11;->f$8:Landroid/view/Surface;
 
     return-void
 .end method
@@ -51,7 +55,7 @@
 
 # virtual methods
 .method public final run()V
-    .locals 8
+    .locals 10
 
     iget-object v0, p0, Lcom/android/server/biometrics/sensors/face/hidl/Face10$$ExternalSyntheticLambda11;->f$0:Lcom/android/server/biometrics/sensors/face/hidl/Face10;
 
@@ -65,11 +69,13 @@
 
     iget-object v5, p0, Lcom/android/server/biometrics/sensors/face/hidl/Face10$$ExternalSyntheticLambda11;->f$5:Ljava/lang/String;
 
-    iget-object v6, p0, Lcom/android/server/biometrics/sensors/face/hidl/Face10$$ExternalSyntheticLambda11;->f$6:[I
+    iget-wide v6, p0, Lcom/android/server/biometrics/sensors/face/hidl/Face10$$ExternalSyntheticLambda11;->f$6:J
 
-    iget-object v7, p0, Lcom/android/server/biometrics/sensors/face/hidl/Face10$$ExternalSyntheticLambda11;->f$7:Landroid/view/Surface;
+    iget-object v8, p0, Lcom/android/server/biometrics/sensors/face/hidl/Face10$$ExternalSyntheticLambda11;->f$7:[I
 
-    invoke-virtual/range {v0 .. v7}, Lcom/android/server/biometrics/sensors/face/hidl/Face10;->lambda$scheduleEnroll$5$Face10(ILandroid/os/IBinder;Landroid/hardware/face/IFaceServiceReceiver;[BLjava/lang/String;[ILandroid/view/Surface;)V
+    iget-object v9, p0, Lcom/android/server/biometrics/sensors/face/hidl/Face10$$ExternalSyntheticLambda11;->f$8:Landroid/view/Surface;
+
+    invoke-virtual/range {v0 .. v9}, Lcom/android/server/biometrics/sensors/face/hidl/Face10;->lambda$scheduleEnroll$5$Face10(ILandroid/os/IBinder;Landroid/hardware/face/IFaceServiceReceiver;[BLjava/lang/String;J[ILandroid/view/Surface;)V
 
     return-void
 .end method

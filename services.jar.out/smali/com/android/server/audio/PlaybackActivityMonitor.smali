@@ -557,17 +557,24 @@
 .method private checkVolumeForPrivilegedAlarm(Landroid/media/AudioPlaybackConfiguration;I)V
     .locals 6
 
+    const/4 v0, 0x5
+
+    if-ne p2, v0, :cond_0
+
+    return-void
+
+    :cond_0
     const/4 v0, 0x2
 
-    if-eq p2, v0, :cond_0
+    if-eq p2, v0, :cond_1
 
     invoke-virtual {p1}, Landroid/media/AudioPlaybackConfiguration;->getPlayerState()I
 
     move-result v1
 
-    if-ne v1, v0, :cond_2
+    if-ne v1, v0, :cond_3
 
-    :cond_0
+    :cond_1
     invoke-virtual {p1}, Landroid/media/AudioPlaybackConfiguration;->getAudioAttributes()Landroid/media/AudioAttributes;
 
     move-result-object v1
@@ -580,7 +587,7 @@
 
     and-int/2addr v1, v2
 
-    if-ne v1, v2, :cond_2
+    if-ne v1, v2, :cond_3
 
     invoke-virtual {p1}, Landroid/media/AudioPlaybackConfiguration;->getAudioAttributes()Landroid/media/AudioAttributes;
 
@@ -592,7 +599,7 @@
 
     const/4 v2, 0x4
 
-    if-ne v1, v2, :cond_2
+    if-ne v1, v2, :cond_3
 
     iget-object v1, p0, Lcom/android/server/audio/PlaybackActivityMonitor;->mContext:Landroid/content/Context;
 
@@ -610,15 +617,15 @@
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_3
 
-    if-ne p2, v0, :cond_1
+    if-ne p2, v0, :cond_2
 
     invoke-virtual {p1}, Landroid/media/AudioPlaybackConfiguration;->getPlayerState()I
 
     move-result v1
 
-    if-eq v1, v0, :cond_1
+    if-eq v1, v0, :cond_2
 
     iget v1, p0, Lcom/android/server/audio/PlaybackActivityMonitor;->mPrivilegedAlarmActiveCount:I
 
@@ -626,7 +633,7 @@
 
     iput v3, p0, Lcom/android/server/audio/PlaybackActivityMonitor;->mPrivilegedAlarmActiveCount:I
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_3
 
     invoke-static {v2, v0}, Landroid/media/AudioSystem;->getStreamVolumeIndex(II)I
 
@@ -640,14 +647,14 @@
 
     goto :goto_0
 
-    :cond_1
-    if-eq p2, v0, :cond_2
+    :cond_2
+    if-eq p2, v0, :cond_3
 
     invoke-virtual {p1}, Landroid/media/AudioPlaybackConfiguration;->getPlayerState()I
 
     move-result v1
 
-    if-ne v1, v0, :cond_2
+    if-ne v1, v0, :cond_3
 
     iget v1, p0, Lcom/android/server/audio/PlaybackActivityMonitor;->mPrivilegedAlarmActiveCount:I
 
@@ -655,7 +662,7 @@
 
     iput v1, p0, Lcom/android/server/audio/PlaybackActivityMonitor;->mPrivilegedAlarmActiveCount:I
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_3
 
     invoke-static {v2, v0}, Landroid/media/AudioSystem;->getStreamVolumeIndex(II)I
 
@@ -663,13 +670,13 @@
 
     iget v3, p0, Lcom/android/server/audio/PlaybackActivityMonitor;->mMaxAlarmVolume:I
 
-    if-ne v1, v3, :cond_2
+    if-ne v1, v3, :cond_3
 
     iget v1, p0, Lcom/android/server/audio/PlaybackActivityMonitor;->mSavedAlarmVolume:I
 
     invoke-static {v2, v1, v0}, Landroid/media/AudioSystem;->setStreamVolumeIndexAS(III)I
 
-    :cond_2
+    :cond_3
     :goto_0
     return-void
 .end method

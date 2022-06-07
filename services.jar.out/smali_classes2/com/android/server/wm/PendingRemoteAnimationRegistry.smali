@@ -77,14 +77,14 @@
 
 
 # virtual methods
-.method addPendingAnimation(Ljava/lang/String;Landroid/view/RemoteAnimationAdapter;)V
+.method addPendingAnimation(Ljava/lang/String;Landroid/view/RemoteAnimationAdapter;Landroid/os/IBinder;)V
     .locals 2
 
     iget-object v0, p0, Lcom/android/server/wm/PendingRemoteAnimationRegistry;->mEntries:Landroid/util/ArrayMap;
 
     new-instance v1, Lcom/android/server/wm/PendingRemoteAnimationRegistry$Entry;
 
-    invoke-direct {v1, p0, p1, p2}, Lcom/android/server/wm/PendingRemoteAnimationRegistry$Entry;-><init>(Lcom/android/server/wm/PendingRemoteAnimationRegistry;Ljava/lang/String;Landroid/view/RemoteAnimationAdapter;)V
+    invoke-direct {v1, p0, p1, p2, p3}, Lcom/android/server/wm/PendingRemoteAnimationRegistry$Entry;-><init>(Lcom/android/server/wm/PendingRemoteAnimationRegistry;Ljava/lang/String;Landroid/view/RemoteAnimationAdapter;Landroid/os/IBinder;)V
 
     invoke-virtual {v0, p1, v1}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -92,7 +92,7 @@
 .end method
 
 .method overrideOptionsIfNeeded(Ljava/lang/String;Landroid/app/ActivityOptions;)Landroid/app/ActivityOptions;
-    .locals 2
+    .locals 3
 
     iget-object v0, p0, Lcom/android/server/wm/PendingRemoteAnimationRegistry;->mEntries:Landroid/util/ArrayMap;
 
@@ -123,9 +123,16 @@
     invoke-virtual {p2, v1}, Landroid/app/ActivityOptions;->setRemoteAnimationAdapter(Landroid/view/RemoteAnimationAdapter;)V
 
     :goto_0
-    iget-object v1, p0, Lcom/android/server/wm/PendingRemoteAnimationRegistry;->mEntries:Landroid/util/ArrayMap;
+    iget-object v1, v0, Lcom/android/server/wm/PendingRemoteAnimationRegistry$Entry;->launchCookie:Landroid/os/IBinder;
 
-    invoke-virtual {v1, p1}, Landroid/util/ArrayMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    if-eqz v1, :cond_2
+
+    invoke-virtual {p2, v1}, Landroid/app/ActivityOptions;->setLaunchCookie(Landroid/os/IBinder;)V
+
+    :cond_2
+    iget-object v2, p0, Lcom/android/server/wm/PendingRemoteAnimationRegistry;->mEntries:Landroid/util/ArrayMap;
+
+    invoke-virtual {v2, p1}, Landroid/util/ArrayMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     return-object p2
 .end method

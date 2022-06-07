@@ -2890,6 +2890,92 @@
 
 .field public static final HIDDEN_API_USED__ACCESS_METHOD__REFLECTION:I = 0x1
 
+.field public static final HOTWORD_DETECTION_SERVICE_INIT_RESULT_REPORTED:I = 0x1af
+
+.field public static final HOTWORD_DETECTION_SERVICE_INIT_RESULT_REPORTED__DETECTOR_TYPE__NORMAL_DETECTOR:I = 0x0
+
+.field public static final HOTWORD_DETECTION_SERVICE_INIT_RESULT_REPORTED__DETECTOR_TYPE__TRUSTED_DETECTOR_DSP:I = 0x1
+
+.field public static final HOTWORD_DETECTION_SERVICE_INIT_RESULT_REPORTED__DETECTOR_TYPE__TRUSTED_DETECTOR_SOFTWARE:I = 0x2
+
+.field public static final HOTWORD_DETECTION_SERVICE_INIT_RESULT_REPORTED__RESULT__CALLBACK_INIT_STATE_ERROR:I = 0x1
+
+.field public static final HOTWORD_DETECTION_SERVICE_INIT_RESULT_REPORTED__RESULT__CALLBACK_INIT_STATE_SUCCESS:I = 0x0
+
+.field public static final HOTWORD_DETECTION_SERVICE_INIT_RESULT_REPORTED__RESULT__CALLBACK_INIT_STATE_UNKNOWN_NO_VALUE:I = 0x2
+
+.field public static final HOTWORD_DETECTION_SERVICE_INIT_RESULT_REPORTED__RESULT__CALLBACK_INIT_STATE_UNKNOWN_OVER_MAX_CUSTOM_VALUE:I = 0x3
+
+.field public static final HOTWORD_DETECTION_SERVICE_INIT_RESULT_REPORTED__RESULT__CALLBACK_INIT_STATE_UNKNOWN_TIMEOUT:I = 0x4
+
+.field public static final HOTWORD_DETECTION_SERVICE_RESTARTED:I = 0x1b0
+
+.field public static final HOTWORD_DETECTION_SERVICE_RESTARTED__DETECTOR_TYPE__NORMAL_DETECTOR:I = 0x0
+
+.field public static final HOTWORD_DETECTION_SERVICE_RESTARTED__DETECTOR_TYPE__TRUSTED_DETECTOR_DSP:I = 0x1
+
+.field public static final HOTWORD_DETECTION_SERVICE_RESTARTED__DETECTOR_TYPE__TRUSTED_DETECTOR_SOFTWARE:I = 0x2
+
+.field public static final HOTWORD_DETECTION_SERVICE_RESTARTED__REASON__AUDIO_SERVICE_DIED:I = 0x1
+
+.field public static final HOTWORD_DETECTION_SERVICE_RESTARTED__REASON__CRASH:I = 0x3
+
+.field public static final HOTWORD_DETECTION_SERVICE_RESTARTED__REASON__SCHEDULE:I = 0x2
+
+.field public static final HOTWORD_DETECTION_SERVICE_RESTARTED__REASON__UNKNOWN:I = 0x0
+
+.field public static final HOTWORD_DETECTOR_CREATE_REQUESTED:I = 0x1ae
+
+.field public static final HOTWORD_DETECTOR_CREATE_REQUESTED__DETECTOR_TYPE__NORMAL_DETECTOR:I = 0x0
+
+.field public static final HOTWORD_DETECTOR_CREATE_REQUESTED__DETECTOR_TYPE__TRUSTED_DETECTOR_DSP:I = 0x1
+
+.field public static final HOTWORD_DETECTOR_CREATE_REQUESTED__DETECTOR_TYPE__TRUSTED_DETECTOR_SOFTWARE:I = 0x2
+
+.field public static final HOTWORD_DETECTOR_EVENTS:I = 0x1b2
+
+.field public static final HOTWORD_DETECTOR_EVENTS__DETECTOR_TYPE__NORMAL_DETECTOR:I = 0x0
+
+.field public static final HOTWORD_DETECTOR_EVENTS__DETECTOR_TYPE__TRUSTED_DETECTOR_DSP:I = 0x1
+
+.field public static final HOTWORD_DETECTOR_EVENTS__DETECTOR_TYPE__TRUSTED_DETECTOR_SOFTWARE:I = 0x2
+
+.field public static final HOTWORD_DETECTOR_EVENTS__EVENT__CALLBACK_UPDATE_STATE_AFTER_TIMEOUT:I = 0x5
+
+.field public static final HOTWORD_DETECTOR_EVENTS__EVENT__DID_NOT_CALL_START_RECOGNITION:I = 0x6
+
+.field public static final HOTWORD_DETECTOR_EVENTS__EVENT__ON_CONNECTED:I = 0x2
+
+.field public static final HOTWORD_DETECTOR_EVENTS__EVENT__REQUEST_BIND_SERVICE:I = 0x1
+
+.field public static final HOTWORD_DETECTOR_EVENTS__EVENT__REQUEST_BIND_SERVICE_FAIL:I = 0x3
+
+.field public static final HOTWORD_DETECTOR_EVENTS__EVENT__REQUEST_UPDATE_STATE:I = 0x4
+
+.field public static final HOTWORD_DETECTOR_EVENTS__EVENT__UNKNOWN:I = 0x0
+
+.field public static final HOTWORD_DETECTOR_KEYPHRASE_TRIGGERED:I = 0x1b1
+
+.field public static final HOTWORD_DETECTOR_KEYPHRASE_TRIGGERED__DETECTOR_TYPE__NORMAL_DETECTOR:I = 0x0
+
+.field public static final HOTWORD_DETECTOR_KEYPHRASE_TRIGGERED__DETECTOR_TYPE__TRUSTED_DETECTOR_DSP:I = 0x1
+
+.field public static final HOTWORD_DETECTOR_KEYPHRASE_TRIGGERED__DETECTOR_TYPE__TRUSTED_DETECTOR_SOFTWARE:I = 0x2
+
+.field public static final HOTWORD_DETECTOR_KEYPHRASE_TRIGGERED__RESULT__DETECTED:I = 0x5
+
+.field public static final HOTWORD_DETECTOR_KEYPHRASE_TRIGGERED__RESULT__DETECT_EXCEPTION:I = 0x3
+
+.field public static final HOTWORD_DETECTOR_KEYPHRASE_TRIGGERED__RESULT__DETECT_TIMEOUT:I = 0x2
+
+.field public static final HOTWORD_DETECTOR_KEYPHRASE_TRIGGERED__RESULT__FAILED_TO_INFORM_SERVICE:I = 0x1
+
+.field public static final HOTWORD_DETECTOR_KEYPHRASE_TRIGGERED__RESULT__KEYPHRASE_TRIGGER:I = 0x0
+
+.field public static final HOTWORD_DETECTOR_KEYPHRASE_TRIGGERED__RESULT__REJECTED:I = 0x6
+
+.field public static final HOTWORD_DETECTOR_KEYPHRASE_TRIGGERED__RESULT__SERVICE_CRASH:I = 0x4
+
 .field public static final INPUTDEVICE_REGISTERED:I = 0x15f
 
 .field public static final INSTALLED_INCREMENTAL_PACKAGE:I = 0x2782
@@ -7734,6 +7820,13 @@
 
     invoke-virtual {v0, p3}, Landroid/util/StatsEvent$Builder;->writeInt(I)Landroid/util/StatsEvent$Builder;
 
+    const/16 v2, 0x1b2
+
+    if-ne v2, p0, :cond_3
+
+    invoke-virtual {v0, v1, v1}, Landroid/util/StatsEvent$Builder;->addBooleanAnnotation(BZ)Landroid/util/StatsEvent$Builder;
+
+    :cond_3
     invoke-virtual {v0}, Landroid/util/StatsEvent$Builder;->usePooledBuffer()Landroid/util/StatsEvent$Builder;
 
     invoke-virtual {v0}, Landroid/util/StatsEvent$Builder;->build()Landroid/util/StatsEvent;
@@ -10714,6 +10807,41 @@
     :cond_0
     invoke-virtual {v0, p2}, Landroid/util/StatsEvent$Builder;->writeBoolean(Z)Landroid/util/StatsEvent$Builder;
 
+    invoke-virtual {v0}, Landroid/util/StatsEvent$Builder;->usePooledBuffer()Landroid/util/StatsEvent$Builder;
+
+    invoke-virtual {v0}, Landroid/util/StatsEvent$Builder;->build()Landroid/util/StatsEvent;
+
+    move-result-object v1
+
+    invoke-static {v1}, Landroid/util/StatsLog;->write(Landroid/util/StatsEvent;)V
+
+    return-void
+.end method
+
+.method public static write(IIZI)V
+    .locals 2
+
+    invoke-static {}, Landroid/util/StatsEvent;->newBuilder()Landroid/util/StatsEvent$Builder;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p0}, Landroid/util/StatsEvent$Builder;->setAtomId(I)Landroid/util/StatsEvent$Builder;
+
+    invoke-virtual {v0, p1}, Landroid/util/StatsEvent$Builder;->writeInt(I)Landroid/util/StatsEvent$Builder;
+
+    invoke-virtual {v0, p2}, Landroid/util/StatsEvent$Builder;->writeBoolean(Z)Landroid/util/StatsEvent$Builder;
+
+    invoke-virtual {v0, p3}, Landroid/util/StatsEvent$Builder;->writeInt(I)Landroid/util/StatsEvent$Builder;
+
+    const/16 v1, 0x1ae
+
+    if-ne v1, p0, :cond_0
+
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1, v1}, Landroid/util/StatsEvent$Builder;->addBooleanAnnotation(BZ)Landroid/util/StatsEvent$Builder;
+
+    :cond_0
     invoke-virtual {v0}, Landroid/util/StatsEvent$Builder;->usePooledBuffer()Landroid/util/StatsEvent$Builder;
 
     invoke-virtual {v0}, Landroid/util/StatsEvent$Builder;->build()Landroid/util/StatsEvent;

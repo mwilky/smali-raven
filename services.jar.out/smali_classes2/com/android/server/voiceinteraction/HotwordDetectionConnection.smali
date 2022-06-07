@@ -16,17 +16,33 @@
 # static fields
 .field static final DEBUG:Z = false
 
+.field private static final KEY_RESTART_PERIOD_IN_SECONDS:Ljava/lang/String; = "restart_period_in_seconds"
+
+.field private static final MAX_ISOLATED_PROCESS_NUMBER:I = 0xa
+
 .field private static final MAX_UPDATE_TIMEOUT_DURATION:Ljava/time/Duration;
 
 .field private static final MAX_UPDATE_TIMEOUT_MILLIS:J = 0x1770L
+
+.field private static final METRICS_INIT_CALLBACK_STATE_ERROR:I = 0x1
+
+.field private static final METRICS_INIT_CALLBACK_STATE_SUCCESS:I = 0x0
+
+.field private static final METRICS_INIT_UNKNOWN_NO_VALUE:I = 0x2
+
+.field private static final METRICS_INIT_UNKNOWN_OVER_MAX_CUSTOM_VALUE:I = 0x3
+
+.field private static final METRICS_INIT_UNKNOWN_TIMEOUT:I = 0x4
 
 .field private static final OP_MESSAGE:Ljava/lang/String; = "Providing hotword detection result to VoiceInteractionService"
 
 .field private static final RESET_DEBUG_HOTWORD_LOGGING_TIMEOUT_MILLIS:J = 0x36ee80L
 
+.field private static final RESTART_PERIOD_SECONDS:I
+
 .field private static final TAG:Ljava/lang/String; = "HotwordDetectionConnection"
 
-.field private static final VALIDATION_TIMEOUT_MILLIS:J = 0xbb8L
+.field private static final VALIDATION_TIMEOUT_MILLIS:J = 0xfa0L
 
 
 # instance fields
@@ -38,7 +54,16 @@
 
 .field private final mCallback:Lcom/android/internal/app/IHotwordRecognitionStatusCallback;
 
-.field private mCancellationTaskFuture:Ljava/util/concurrent/ScheduledFuture;
+.field private mCancellationKeyPhraseDetectionFuture:Ljava/util/concurrent/ScheduledFuture;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/concurrent/ScheduledFuture<",
+            "*>;"
+        }
+    .end annotation
+.end field
+
+.field private final mCancellationTaskFuture:Ljava/util/concurrent/ScheduledFuture;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/concurrent/ScheduledFuture<",
@@ -63,6 +88,8 @@
 .end field
 
 .field final mDetectionComponentName:Landroid/content/ComponentName;
+
+.field private final mDetectorType:I
 
 .field volatile mIdentity:Landroid/service/voice/VoiceInteractionManagerInternal$HotwordDetectionServiceIdentity;
 
@@ -101,7 +128,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 2
+    .locals 3
 
     nop
 
@@ -113,11 +140,25 @@
 
     sput-object v0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->MAX_UPDATE_TIMEOUT_DURATION:Ljava/time/Duration;
 
+    nop
+
+    const-string v0, "voice_interaction"
+
+    const-string v1, "restart_period_in_seconds"
+
+    const/16 v2, 0xe10
+
+    invoke-static {v0, v1, v2}, Landroid/provider/DeviceConfig;->getInt(Ljava/lang/String;Ljava/lang/String;I)I
+
+    move-result v0
+
+    sput v0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->RESTART_PERIOD_SECONDS:I
+
     return-void
 .end method
 
-.method constructor <init>(Ljava/lang/Object;Landroid/content/Context;ILandroid/media/permission/Identity;Landroid/content/ComponentName;IZLandroid/os/PersistableBundle;Landroid/os/SharedMemory;Lcom/android/internal/app/IHotwordRecognitionStatusCallback;)V
-    .locals 19
+.method constructor <init>(Ljava/lang/Object;Landroid/content/Context;ILandroid/media/permission/Identity;Landroid/content/ComponentName;IZLandroid/os/PersistableBundle;Landroid/os/SharedMemory;Lcom/android/internal/app/IHotwordRecognitionStatusCallback;I)V
+    .locals 18
 
     move-object/from16 v0, p0
 
@@ -163,31 +204,35 @@
 
     iput-boolean v5, v0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->mDebugHotwordLogging:Z
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1
 
-    move-object/from16 v3, p1
+    move-object/from16 v11, p1
 
-    iput-object v3, v0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->mLock:Ljava/lang/Object;
+    iput-object v11, v0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->mLock:Ljava/lang/Object;
 
-    move-object/from16 v11, p2
+    move-object/from16 v12, p2
 
-    iput-object v11, v0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->mContext:Landroid/content/Context;
+    iput-object v12, v0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->mContext:Landroid/content/Context;
 
-    move/from16 v12, p3
+    move/from16 v13, p3
 
-    iput v12, v0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->mVoiceInteractionServiceUid:I
+    iput v13, v0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->mVoiceInteractionServiceUid:I
 
-    move-object/from16 v13, p4
+    move-object/from16 v14, p4
 
-    iput-object v13, v0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->mVoiceInteractorIdentity:Landroid/media/permission/Identity;
+    iput-object v14, v0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->mVoiceInteractorIdentity:Landroid/media/permission/Identity;
 
     iput-object v1, v0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->mDetectionComponentName:Landroid/content/ComponentName;
 
-    move/from16 v14, p6
+    move/from16 v15, p6
 
-    iput v14, v0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->mUser:I
+    iput v15, v0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->mUser:I
 
     iput-object v2, v0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->mCallback:Lcom/android/internal/app/IHotwordRecognitionStatusCallback;
+
+    move/from16 v10, p11
+
+    iput v10, v0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->mDetectorType:I
 
     new-instance v5, Landroid/content/Intent;
 
@@ -195,17 +240,17 @@
 
     invoke-direct {v5, v6}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    move-object v15, v5
+    move-object v8, v5
 
-    invoke-virtual {v15, v1}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
+    invoke-virtual {v8, v1}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
 
     invoke-direct/range {p0 .. p0}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->initAudioFlingerLocked()V
 
     new-instance v5, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnectionFactory;
 
-    move/from16 v10, p7
+    move/from16 v9, p7
 
-    invoke-direct {v5, v0, v15, v10}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnectionFactory;-><init>(Lcom/android/server/voiceinteraction/HotwordDetectionConnection;Landroid/content/Intent;Z)V
+    invoke-direct {v5, v0, v8, v9}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnectionFactory;-><init>(Lcom/android/server/voiceinteraction/HotwordDetectionConnection;Landroid/content/Intent;Z)V
 
     iput-object v5, v0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->mServiceConnectionFactory:Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnectionFactory;
 
@@ -221,56 +266,74 @@
 
     iput-object v5, v0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->mLastRestartInstant:Ljava/time/Instant;
 
-    move-object/from16 v8, p8
+    move-object/from16 v6, p8
 
-    move-object/from16 v9, p9
+    move-object/from16 v7, p9
 
-    invoke-direct {v0, v8, v9}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->updateStateAfterProcessStart(Landroid/os/PersistableBundle;Landroid/os/SharedMemory;)V
+    invoke-direct {v0, v6, v7}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->updateStateAfterProcessStart(Landroid/os/PersistableBundle;Landroid/os/SharedMemory;)V
 
-    new-instance v5, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda13;
+    sget v5, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->RESTART_PERIOD_SECONDS:I
 
-    invoke-direct {v5, v0}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda13;-><init>(Lcom/android/server/voiceinteraction/HotwordDetectionConnection;)V
+    if-gtz v5, :cond_0
 
-    const-wide/16 v6, 0x1e
+    iput-object v3, v0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->mCancellationTaskFuture:Ljava/util/concurrent/ScheduledFuture;
 
-    const-wide/16 v16, 0x1e
+    move-object v1, v8
 
-    sget-object v18, Ljava/util/concurrent/TimeUnit;->MINUTES:Ljava/util/concurrent/TimeUnit;
+    goto :goto_0
 
-    move-wide/from16 v8, v16
+    :cond_0
+    new-instance v3, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda14;
 
-    move-object/from16 v10, v18
+    invoke-direct {v3, v0}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda14;-><init>(Lcom/android/server/voiceinteraction/HotwordDetectionConnection;)V
+
+    int-to-long v1, v5
+
+    move-object/from16 v16, v8
+
+    int-to-long v8, v5
+
+    sget-object v17, Ljava/util/concurrent/TimeUnit;->SECONDS:Ljava/util/concurrent/TimeUnit;
+
+    move-object v5, v3
+
+    move-wide v6, v1
+
+    move-object/from16 v1, v16
+
+    move-object/from16 v10, v17
 
     invoke-interface/range {v4 .. v10}, Ljava/util/concurrent/ScheduledExecutorService;->scheduleAtFixedRate(Ljava/lang/Runnable;JJLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;
 
-    move-result-object v4
+    move-result-object v2
 
-    iput-object v4, v0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->mCancellationTaskFuture:Ljava/util/concurrent/ScheduledFuture;
+    iput-object v2, v0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->mCancellationTaskFuture:Ljava/util/concurrent/ScheduledFuture;
 
+    :goto_0
     return-void
 
-    :cond_0
-    move-object/from16 v3, p1
+    :cond_1
+    move-object/from16 v11, p1
 
-    move-object/from16 v11, p2
+    move-object/from16 v12, p2
 
-    move/from16 v12, p3
+    move/from16 v13, p3
 
-    move-object/from16 v13, p4
+    move-object/from16 v14, p4
 
-    move/from16 v14, p6
+    move/from16 v15, p6
 
-    const-string v4, "HotwordDetectionConnection"
+    const-string v1, "HotwordDetectionConnection"
 
-    const-string v5, "Callback is null while creating connection"
+    const-string v2, "Callback is null while creating connection"
 
-    invoke-static {v4, v5}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    new-instance v4, Ljava/lang/IllegalArgumentException;
+    new-instance v1, Ljava/lang/IllegalArgumentException;
 
-    invoke-direct {v4, v5}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v4
+    throw v1
 .end method
 
 .method static synthetic access$000(Lcom/android/server/voiceinteraction/HotwordDetectionConnection;)Z
@@ -297,7 +360,23 @@
     return-void
 .end method
 
-.method static synthetic access$1000(Lcom/android/server/voiceinteraction/HotwordDetectionConnection;Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnection;)V
+.method static synthetic access$1000(Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnection;Landroid/os/IBinder;)V
+    .locals 0
+
+    invoke-static {p0, p1}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->updateAudioFlinger(Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnection;Landroid/os/IBinder;)V
+
+    return-void
+.end method
+
+.method static synthetic access$1100(Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnection;)V
+    .locals 0
+
+    invoke-static {p0}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->updateContentCaptureManager(Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnection;)V
+
+    return-void
+.end method
+
+.method static synthetic access$1200(Lcom/android/server/voiceinteraction/HotwordDetectionConnection;Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnection;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->updateServiceIdentity(Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnection;)V
@@ -305,7 +384,7 @@
     return-void
 .end method
 
-.method static synthetic access$1100(Lcom/android/server/voiceinteraction/HotwordDetectionConnection;)Lcom/android/internal/app/IHotwordRecognitionStatusCallback;
+.method static synthetic access$1300(Lcom/android/server/voiceinteraction/HotwordDetectionConnection;)Lcom/android/internal/app/IHotwordRecognitionStatusCallback;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->mCallback:Lcom/android/internal/app/IHotwordRecognitionStatusCallback;
@@ -313,7 +392,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$1200(Lcom/android/server/voiceinteraction/HotwordDetectionConnection;I)V
+.method static synthetic access$1400(Lcom/android/server/voiceinteraction/HotwordDetectionConnection;I)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->updateServiceUidForAudioPolicy(I)V
@@ -321,7 +400,7 @@
     return-void
 .end method
 
-.method static synthetic access$1300(Ljava/io/Closeable;)V
+.method static synthetic access$1500(Ljava/io/Closeable;)V
     .locals 0
 
     invoke-static {p0}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->bestEffortClose(Ljava/io/Closeable;)V
@@ -329,10 +408,20 @@
     return-void
 .end method
 
-.method static synthetic access$1400(Lcom/android/server/voiceinteraction/HotwordDetectionConnection;)Ljava/util/concurrent/atomic/AtomicBoolean;
+.method static synthetic access$1600(Lcom/android/server/voiceinteraction/HotwordDetectionConnection;)Ljava/util/concurrent/atomic/AtomicBoolean;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->mUpdateStateAfterStartFinished:Ljava/util/concurrent/atomic/AtomicBoolean;
+
+    return-object v0
+.end method
+
+.method static synthetic access$1700(Landroid/os/Bundle;)Landroid/util/Pair;
+    .locals 1
+
+    invoke-static {p0}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->getInitStatusAndMetricsResult(Landroid/os/Bundle;)Landroid/util/Pair;
+
+    move-result-object v0
 
     return-object v0
 .end method
@@ -369,7 +458,23 @@
     return p1
 .end method
 
-.method static synthetic access$500(Lcom/android/server/voiceinteraction/HotwordDetectionConnection;Landroid/hardware/soundtrigger/SoundTrigger$KeyphraseRecognitionEvent;Lcom/android/internal/app/IHotwordRecognitionStatusCallback;)V
+.method static synthetic access$500(Lcom/android/server/voiceinteraction/HotwordDetectionConnection;)Ljava/util/concurrent/ScheduledFuture;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->mCancellationKeyPhraseDetectionFuture:Ljava/util/concurrent/ScheduledFuture;
+
+    return-object v0
+.end method
+
+.method static synthetic access$600(Lcom/android/server/voiceinteraction/HotwordDetectionConnection;)I
+    .locals 1
+
+    iget v0, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->mDetectorType:I
+
+    return v0
+.end method
+
+.method static synthetic access$700(Lcom/android/server/voiceinteraction/HotwordDetectionConnection;Landroid/hardware/soundtrigger/SoundTrigger$KeyphraseRecognitionEvent;Lcom/android/internal/app/IHotwordRecognitionStatusCallback;)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->detectFromDspSource(Landroid/hardware/soundtrigger/SoundTrigger$KeyphraseRecognitionEvent;Lcom/android/internal/app/IHotwordRecognitionStatusCallback;)V
@@ -377,7 +482,7 @@
     return-void
 .end method
 
-.method static synthetic access$700(Lcom/android/server/voiceinteraction/HotwordDetectionConnection;)Landroid/os/IBinder;
+.method static synthetic access$900(Lcom/android/server/voiceinteraction/HotwordDetectionConnection;)Landroid/os/IBinder;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->mAudioFlinger:Landroid/os/IBinder;
@@ -385,24 +490,8 @@
     return-object v0
 .end method
 
-.method static synthetic access$800(Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnection;Landroid/os/IBinder;)V
-    .locals 0
-
-    invoke-static {p0, p1}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->updateAudioFlinger(Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnection;Landroid/os/IBinder;)V
-
-    return-void
-.end method
-
-.method static synthetic access$900(Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnection;)V
-    .locals 0
-
-    invoke-static {p0}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->updateContentCaptureManager(Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnection;)V
-
-    return-void
-.end method
-
 .method private audioServerDied()V
-    .locals 2
+    .locals 3
 
     const-string v0, "HotwordDetectionConnection"
 
@@ -418,6 +507,12 @@
     invoke-direct {p0}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->initAudioFlingerLocked()V
 
     invoke-direct {p0}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->restartProcessLocked()V
+
+    iget v1, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->mDetectorType:I
+
+    const/4 v2, 0x1
+
+    invoke-static {v1, v2}, Lcom/android/server/voiceinteraction/HotwordMetricsLogger;->writeServiceRestartEvent(II)V
 
     monitor-exit v0
 
@@ -536,9 +631,9 @@
 
     iget-object v2, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->mRemoteHotwordDetectionService:Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnection;
 
-    new-instance v3, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda2;
+    new-instance v3, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda8;
 
-    invoke-direct {v3, p1, v0}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda2;-><init>(Landroid/hardware/soundtrigger/SoundTrigger$KeyphraseRecognitionEvent;Landroid/service/voice/IDspHotwordDetectionCallback;)V
+    invoke-direct {v3, p0, p1, v0}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda8;-><init>(Lcom/android/server/voiceinteraction/HotwordDetectionConnection;Landroid/hardware/soundtrigger/SoundTrigger$KeyphraseRecognitionEvent;Landroid/service/voice/IDspHotwordDetectionCallback;)V
 
     invoke-virtual {v2, v3}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnection;->run(Lcom/android/internal/infra/ServiceConnector$VoidJob;)Z
 
@@ -580,9 +675,9 @@
 
     iget-object v2, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->mRemoteHotwordDetectionService:Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnection;
 
-    new-instance v3, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda3;
+    new-instance v3, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda2;
 
-    invoke-direct {v3, p1, v0}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda3;-><init>(Landroid/hardware/soundtrigger/SoundTrigger$KeyphraseRecognitionEvent;Landroid/service/voice/IDspHotwordDetectionCallback;)V
+    invoke-direct {v3, p1, v0}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda2;-><init>(Landroid/hardware/soundtrigger/SoundTrigger$KeyphraseRecognitionEvent;Landroid/service/voice/IDspHotwordDetectionCallback;)V
 
     invoke-virtual {v2, v3}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnection;->run(Lcom/android/internal/infra/ServiceConnector$VoidJob;)Z
 
@@ -653,6 +748,99 @@
     return-void
 .end method
 
+.method private static getInitStatusAndMetricsResult(Landroid/os/Bundle;)Landroid/util/Pair;
+    .locals 5
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/os/Bundle;",
+            ")",
+            "Landroid/util/Pair<",
+            "Ljava/lang/Integer;",
+            "Ljava/lang/Integer;",
+            ">;"
+        }
+    .end annotation
+
+    const/4 v0, 0x2
+
+    const/16 v1, 0x64
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    if-nez p0, :cond_0
+
+    new-instance v1, Landroid/util/Pair;
+
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v0
+
+    invoke-direct {v1, v2, v0}, Landroid/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    return-object v1
+
+    :cond_0
+    const-string v3, "initialization_status"
+
+    invoke-virtual {p0, v3, v1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
+
+    move-result v3
+
+    invoke-static {}, Landroid/service/voice/HotwordDetectionService;->getMaxCustomInitializationStatus()I
+
+    move-result v4
+
+    if-le v3, v4, :cond_2
+
+    new-instance v4, Landroid/util/Pair;
+
+    if-ne v3, v1, :cond_1
+
+    goto :goto_0
+
+    :cond_1
+    const/4 v0, 0x3
+
+    :goto_0
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v0
+
+    invoke-direct {v4, v2, v0}, Landroid/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    return-object v4
+
+    :cond_2
+    if-nez v3, :cond_3
+
+    const/4 v0, 0x0
+
+    goto :goto_1
+
+    :cond_3
+    const/4 v0, 0x1
+
+    :goto_1
+    nop
+
+    new-instance v1, Landroid/util/Pair;
+
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    invoke-direct {v1, v2, v4}, Landroid/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    return-object v1
+.end method
+
 .method private handleExternalSourceHotwordDetection(Landroid/os/ParcelFileDescriptor;Landroid/media/AudioFormat;Landroid/os/PersistableBundle;Landroid/service/voice/IMicrophoneHotwordDetectionVoiceInteractionCallback;)V
     .locals 16
 
@@ -700,9 +888,9 @@
 
     iget-object v0, v9, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->mAudioCopyExecutor:Ljava/util/concurrent/Executor;
 
-    new-instance v1, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda15;
+    new-instance v1, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda16;
 
-    invoke-direct {v1, v9, v11, v13}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda15;-><init>(Lcom/android/server/voiceinteraction/HotwordDetectionConnection;Ljava/io/InputStream;Landroid/os/ParcelFileDescriptor;)V
+    invoke-direct {v1, v9, v11, v13}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda16;-><init>(Lcom/android/server/voiceinteraction/HotwordDetectionConnection;Ljava/io/InputStream;Landroid/os/ParcelFileDescriptor;)V
 
     invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
@@ -819,33 +1007,6 @@
     throw v1
 .end method
 
-.method static synthetic lambda$detectFromDspSource$6(Landroid/hardware/soundtrigger/SoundTrigger$KeyphraseRecognitionEvent;Landroid/service/voice/IDspHotwordDetectionCallback;Landroid/service/voice/IHotwordDetectionService;)V
-    .locals 6
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/lang/Exception;
-        }
-    .end annotation
-
-    nop
-
-    invoke-virtual {p0}, Landroid/hardware/soundtrigger/SoundTrigger$KeyphraseRecognitionEvent;->getCaptureFormat()Landroid/media/AudioFormat;
-
-    move-result-object v2
-
-    const-wide/16 v3, 0xbb8
-
-    move-object v0, p2
-
-    move-object v1, p0
-
-    move-object v5, p1
-
-    invoke-interface/range {v0 .. v5}, Landroid/service/voice/IHotwordDetectionService;->detectFromDspSource(Landroid/hardware/soundtrigger/SoundTrigger$KeyphraseRecognitionEvent;Landroid/media/AudioFormat;JLandroid/service/voice/IDspHotwordDetectionCallback;)V
-
-    return-void
-.end method
-
 .method static synthetic lambda$detectFromDspSourceForTest$5(Landroid/hardware/soundtrigger/SoundTrigger$KeyphraseRecognitionEvent;Landroid/service/voice/IDspHotwordDetectionCallback;Landroid/service/voice/IHotwordDetectionService;)V
     .locals 6
     .annotation system Ldalvik/annotation/Throws;
@@ -860,7 +1021,7 @@
 
     move-result-object v2
 
-    const-wide/16 v3, 0xbb8
+    const-wide/16 v3, 0xfa0
 
     move-object v0, p2
 
@@ -898,7 +1059,7 @@
     return-void
 .end method
 
-.method static synthetic lambda$updateAudioFlinger$10(Landroid/os/IBinder;Landroid/service/voice/IHotwordDetectionService;)V
+.method static synthetic lambda$updateAudioFlinger$11(Landroid/os/IBinder;Landroid/service/voice/IHotwordDetectionService;)V
     .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -911,7 +1072,7 @@
     return-void
 .end method
 
-.method static synthetic lambda$updateContentCaptureManager$11(Landroid/view/contentcapture/IContentCaptureManager;Landroid/service/voice/IHotwordDetectionService;)V
+.method static synthetic lambda$updateContentCaptureManager$12(Landroid/view/contentcapture/IContentCaptureManager;Landroid/service/voice/IHotwordDetectionService;)V
     .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -930,7 +1091,7 @@
     return-void
 .end method
 
-.method static synthetic lambda$updateServiceUidForAudioPolicy$13(I)V
+.method static synthetic lambda$updateServiceUidForAudioPolicy$14(I)V
     .locals 1
 
     const-class v0, Landroid/media/AudioManagerInternal;
@@ -1092,9 +1253,9 @@
 
     iget-object v1, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->mRemoteHotwordDetectionService:Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnection;
 
-    new-instance v2, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda6;
+    new-instance v2, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda5;
 
-    invoke-direct {v2, v0}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda6;-><init>(Landroid/service/voice/IDspHotwordDetectionCallback;)V
+    invoke-direct {v2, v0}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda5;-><init>(Landroid/service/voice/IDspHotwordDetectionCallback;)V
 
     invoke-virtual {v1, v2}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnection;->run(Lcom/android/internal/infra/ServiceConnector$VoidJob;)Z
 
@@ -1150,9 +1311,9 @@
 .method private static updateAudioFlinger(Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnection;Landroid/os/IBinder;)V
     .locals 1
 
-    new-instance v0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda4;
+    new-instance v0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda3;
 
-    invoke-direct {v0, p1}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda4;-><init>(Landroid/os/IBinder;)V
+    invoke-direct {v0, p1}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda3;-><init>(Landroid/os/IBinder;)V
 
     invoke-virtual {p0, v0}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnection;->run(Lcom/android/internal/infra/ServiceConnector$VoidJob;)Z
 
@@ -1174,9 +1335,9 @@
 
     move-result-object v1
 
-    new-instance v2, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda7;
+    new-instance v2, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda6;
 
-    invoke-direct {v2, v1}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda7;-><init>(Landroid/view/contentcapture/IContentCaptureManager;)V
+    invoke-direct {v2, v1}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda6;-><init>(Landroid/view/contentcapture/IContentCaptureManager;)V
 
     invoke-virtual {p0, v2}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnection;->run(Lcom/android/internal/infra/ServiceConnector$VoidJob;)Z
 
@@ -1186,9 +1347,9 @@
 .method private updateServiceIdentity(Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnection;)V
     .locals 1
 
-    new-instance v0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda8;
+    new-instance v0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda7;
 
-    invoke-direct {v0, p0}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda8;-><init>(Lcom/android/server/voiceinteraction/HotwordDetectionConnection;)V
+    invoke-direct {v0, p0}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda7;-><init>(Lcom/android/server/voiceinteraction/HotwordDetectionConnection;)V
 
     invoke-virtual {p1, v0}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnection;->run(Lcom/android/internal/infra/ServiceConnector$VoidJob;)Z
 
@@ -1230,9 +1391,9 @@
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda16;
+    new-instance v1, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda17;
 
-    invoke-direct {v1, p0}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda16;-><init>(Lcom/android/server/voiceinteraction/HotwordDetectionConnection;)V
+    invoke-direct {v1, p0}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda17;-><init>(Lcom/android/server/voiceinteraction/HotwordDetectionConnection;)V
 
     invoke-virtual {v0, v1}, Lcom/android/internal/infra/AndroidFuture;->whenComplete(Ljava/util/function/BiConsumer;)Lcom/android/internal/infra/AndroidFuture;
 
@@ -1280,24 +1441,37 @@
 
     iget-object v1, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->mCancellationTaskFuture:Ljava/util/concurrent/ScheduledFuture;
 
+    if-eqz v1, :cond_0
+
     const/4 v2, 0x1
 
     invoke-interface {v1, v2}, Ljava/util/concurrent/ScheduledFuture;->cancel(Z)Z
 
+    :cond_0
     iget-object v1, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->mAudioFlinger:Landroid/os/IBinder;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     iget-object v2, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->mAudioServerDeathRecipient:Landroid/os/IBinder$DeathRecipient;
 
     invoke-interface {v1, v2, v0}, Landroid/os/IBinder;->unlinkToDeath(Landroid/os/IBinder$DeathRecipient;I)Z
 
-    :cond_0
+    :cond_1
     return-void
 .end method
 
 .method public dump(Ljava/lang/String;Ljava/io/PrintWriter;)V
     .locals 2
+
+    invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    const-string v0, "RESTART_PERIOD_SECONDS="
+
+    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    sget v0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->RESTART_PERIOD_SECONDS:I
+
+    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(I)V
 
     invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
@@ -1369,7 +1543,7 @@
 
     iget-object v1, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->mServiceConnectionFactory:Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnectionFactory;
 
-    invoke-static {v1}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnectionFactory;->access$600(Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnectionFactory;)I
+    invoke-static {v1}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnectionFactory;->access$800(Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnectionFactory;)I
 
     move-result v1
 
@@ -1432,7 +1606,62 @@
     throw v1
 .end method
 
-.method public synthetic lambda$enforcePermissionsForDataDelivery$14$HotwordDetectionConnection()V
+.method public synthetic lambda$detectFromDspSource$6$HotwordDetectionConnection()V
+    .locals 2
+
+    iget v0, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->mDetectorType:I
+
+    const/4 v1, 0x2
+
+    invoke-static {v0, v1}, Lcom/android/server/voiceinteraction/HotwordMetricsLogger;->writeKeyphraseTriggerEvent(II)V
+
+    return-void
+.end method
+
+.method public synthetic lambda$detectFromDspSource$7$HotwordDetectionConnection(Landroid/hardware/soundtrigger/SoundTrigger$KeyphraseRecognitionEvent;Landroid/service/voice/IDspHotwordDetectionCallback;Landroid/service/voice/IHotwordDetectionService;)V
+    .locals 7
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/Exception;
+        }
+    .end annotation
+
+    iget-object v0, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->mScheduledExecutorService:Ljava/util/concurrent/ScheduledExecutorService;
+
+    new-instance v1, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda13;
+
+    invoke-direct {v1, p0}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda13;-><init>(Lcom/android/server/voiceinteraction/HotwordDetectionConnection;)V
+
+    sget-object v2, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
+
+    const-wide/16 v3, 0xfa0
+
+    invoke-interface {v0, v1, v3, v4, v2}, Ljava/util/concurrent/ScheduledExecutorService;->schedule(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->mCancellationKeyPhraseDetectionFuture:Ljava/util/concurrent/ScheduledFuture;
+
+    nop
+
+    invoke-virtual {p1}, Landroid/hardware/soundtrigger/SoundTrigger$KeyphraseRecognitionEvent;->getCaptureFormat()Landroid/media/AudioFormat;
+
+    move-result-object v3
+
+    const-wide/16 v4, 0xfa0
+
+    move-object v1, p3
+
+    move-object v2, p1
+
+    move-object v6, p2
+
+    invoke-interface/range {v1 .. v6}, Landroid/service/voice/IHotwordDetectionService;->detectFromDspSource(Landroid/hardware/soundtrigger/SoundTrigger$KeyphraseRecognitionEvent;Landroid/media/AudioFormat;JLandroid/service/voice/IDspHotwordDetectionCallback;)V
+
+    return-void
+.end method
+
+.method public synthetic lambda$enforcePermissionsForDataDelivery$15$HotwordDetectionConnection()V
     .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1461,7 +1690,48 @@
     return-void
 .end method
 
-.method public synthetic lambda$handleExternalSourceHotwordDetection$8$HotwordDetectionConnection(Ljava/io/InputStream;Landroid/os/ParcelFileDescriptor;)V
+.method public synthetic lambda$handleExternalSourceHotwordDetection$10$HotwordDetectionConnection(Landroid/os/ParcelFileDescriptor;Landroid/media/AudioFormat;Landroid/os/PersistableBundle;Landroid/os/ParcelFileDescriptor;Ljava/io/InputStream;Landroid/service/voice/IMicrophoneHotwordDetectionVoiceInteractionCallback;Landroid/service/voice/IHotwordDetectionService;)V
+    .locals 7
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/Exception;
+        }
+    .end annotation
+
+    new-instance v6, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$5;
+
+    move-object v0, v6
+
+    move-object v1, p0
+
+    move-object v2, p4
+
+    move-object v3, p1
+
+    move-object v4, p5
+
+    move-object v5, p6
+
+    invoke-direct/range {v0 .. v5}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$5;-><init>(Lcom/android/server/voiceinteraction/HotwordDetectionConnection;Landroid/os/ParcelFileDescriptor;Landroid/os/ParcelFileDescriptor;Ljava/io/InputStream;Landroid/service/voice/IMicrophoneHotwordDetectionVoiceInteractionCallback;)V
+
+    const/4 v2, 0x2
+
+    move-object v0, p7
+
+    move-object v1, p1
+
+    move-object v3, p2
+
+    move-object v4, p3
+
+    move-object v5, v6
+
+    invoke-interface/range {v0 .. v5}, Landroid/service/voice/IHotwordDetectionService;->detectFromMicrophoneSource(Landroid/os/ParcelFileDescriptor;ILandroid/media/AudioFormat;Landroid/os/PersistableBundle;Landroid/service/voice/IDspHotwordDetectionCallback;)V
+
+    return-void
+.end method
+
+.method public synthetic lambda$handleExternalSourceHotwordDetection$9$HotwordDetectionConnection(Ljava/io/InputStream;Landroid/os/ParcelFileDescriptor;)V
     .locals 7
 
     move-object v0, p1
@@ -1648,49 +1918,8 @@
     throw v0
 .end method
 
-.method public synthetic lambda$handleExternalSourceHotwordDetection$9$HotwordDetectionConnection(Landroid/os/ParcelFileDescriptor;Landroid/media/AudioFormat;Landroid/os/PersistableBundle;Landroid/os/ParcelFileDescriptor;Ljava/io/InputStream;Landroid/service/voice/IMicrophoneHotwordDetectionVoiceInteractionCallback;Landroid/service/voice/IHotwordDetectionService;)V
-    .locals 7
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/lang/Exception;
-        }
-    .end annotation
-
-    new-instance v6, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$5;
-
-    move-object v0, v6
-
-    move-object v1, p0
-
-    move-object v2, p4
-
-    move-object v3, p1
-
-    move-object v4, p5
-
-    move-object v5, p6
-
-    invoke-direct/range {v0 .. v5}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$5;-><init>(Lcom/android/server/voiceinteraction/HotwordDetectionConnection;Landroid/os/ParcelFileDescriptor;Landroid/os/ParcelFileDescriptor;Ljava/io/InputStream;Landroid/service/voice/IMicrophoneHotwordDetectionVoiceInteractionCallback;)V
-
-    const/4 v2, 0x2
-
-    move-object v0, p7
-
-    move-object v1, p1
-
-    move-object v3, p2
-
-    move-object v4, p3
-
-    move-object v5, v6
-
-    invoke-interface/range {v0 .. v5}, Landroid/service/voice/IHotwordDetectionService;->detectFromMicrophoneSource(Landroid/os/ParcelFileDescriptor;ILandroid/media/AudioFormat;Landroid/os/PersistableBundle;Landroid/service/voice/IDspHotwordDetectionCallback;)V
-
-    return-void
-.end method
-
 .method public synthetic lambda$new$0$HotwordDetectionConnection()V
-    .locals 2
+    .locals 3
 
     const-string v0, "HotwordDetectionConnection"
 
@@ -1704,6 +1933,12 @@
 
     :try_start_0
     invoke-direct {p0}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->restartProcessLocked()V
+
+    iget v1, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->mDetectorType:I
+
+    const/4 v2, 0x2
+
+    invoke-static {v1, v2}, Lcom/android/server/voiceinteraction/HotwordMetricsLogger;->writeServiceRestartEvent(II)V
 
     monitor-exit v0
 
@@ -1719,7 +1954,7 @@
     throw v1
 .end method
 
-.method public synthetic lambda$setDebugHotwordLoggingLocked$7$HotwordDetectionConnection()V
+.method public synthetic lambda$setDebugHotwordLoggingLocked$8$HotwordDetectionConnection()V
     .locals 2
 
     const-string v0, "HotwordDetectionConnection"
@@ -1751,7 +1986,7 @@
     throw v1
 .end method
 
-.method public synthetic lambda$updateServiceIdentity$12$HotwordDetectionConnection(Landroid/service/voice/IHotwordDetectionService;)V
+.method public synthetic lambda$updateServiceIdentity$13$HotwordDetectionConnection(Landroid/service/voice/IHotwordDetectionService;)V
     .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1786,6 +2021,14 @@
 
     :try_start_0
     invoke-interface {p3, p1, p2, v1}, Landroid/service/voice/IHotwordDetectionService;->updateState(Landroid/os/PersistableBundle;Landroid/os/SharedMemory;Landroid/os/IRemoteCallback;)V
+
+    iget v2, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->mDetectorType:I
+
+    const/4 v3, 0x4
+
+    iget v4, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->mVoiceInteractionServiceUid:I
+
+    invoke-static {v2, v3, v4}, Lcom/android/server/voiceinteraction/HotwordMetricsLogger;->writeDetectorEvent(III)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -1805,7 +2048,7 @@
 .end method
 
 .method public synthetic lambda$updateStateAfterProcessStart$2$HotwordDetectionConnection(Ljava/lang/Void;Ljava/lang/Throwable;)V
-    .locals 3
+    .locals 4
 
     instance-of v0, p2, Ljava/util/concurrent/TimeoutException;
 
@@ -1833,9 +2076,15 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->mCallback:Lcom/android/internal/app/IHotwordRecognitionStatusCallback;
 
-    const/16 v2, 0x64
+    const/16 v3, 0x64
 
-    invoke-interface {v0, v2}, Lcom/android/internal/app/IHotwordRecognitionStatusCallback;->onStatusReported(I)V
+    invoke-interface {v0, v3}, Lcom/android/internal/app/IHotwordRecognitionStatusCallback;->onStatusReported(I)V
+
+    iget v0, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->mDetectorType:I
+
+    const/4 v3, 0x4
+
+    invoke-static {v0, v3}, Lcom/android/server/voiceinteraction/HotwordMetricsLogger;->writeServiceInitResultEvent(II)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -1844,9 +2093,13 @@
     :catch_0
     move-exception v0
 
-    const-string v2, "Failed to report initialization status UNKNOWN"
+    const-string v3, "Failed to report initialization status UNKNOWN"
 
-    invoke-static {v1, v2, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v1, v3, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    iget v1, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->mDetectorType:I
+
+    invoke-static {v1, v2}, Lcom/android/server/voiceinteraction/HotwordMetricsLogger;->writeServiceInitResultEvent(II)V
 
     :goto_0
     goto :goto_1
@@ -1904,9 +2157,9 @@
 
     iget-object v0, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->mScheduledExecutorService:Ljava/util/concurrent/ScheduledExecutorService;
 
-    new-instance v1, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda14;
+    new-instance v1, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda15;
 
-    invoke-direct {v1, p0}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda14;-><init>(Lcom/android/server/voiceinteraction/HotwordDetectionConnection;)V
+    invoke-direct {v1, p0}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda15;-><init>(Lcom/android/server/voiceinteraction/HotwordDetectionConnection;)V
 
     const-wide/32 v2, 0x36ee80
 
@@ -2049,9 +2302,9 @@
     :cond_0
     iget-object v0, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->mRemoteHotwordDetectionService:Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnection;
 
-    new-instance v1, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda5;
+    new-instance v1, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda4;
 
-    invoke-direct {v1, p1, p2}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda5;-><init>(Landroid/os/PersistableBundle;Landroid/os/SharedMemory;)V
+    invoke-direct {v1, p1, p2}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda4;-><init>(Landroid/os/PersistableBundle;Landroid/os/SharedMemory;)V
 
     invoke-virtual {v0, v1}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnection;->run(Lcom/android/internal/infra/ServiceConnector$VoidJob;)Z
 

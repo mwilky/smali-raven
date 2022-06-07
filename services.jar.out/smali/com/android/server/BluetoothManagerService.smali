@@ -202,6 +202,8 @@
 
 .field private final mReceiver:Landroid/content/BroadcastReceiver;
 
+.field private mShutdownInProgress:Z
+
 .field private mState:I
 
 .field private final mStateChangeCallbacks:Landroid/os/RemoteCallbackList;
@@ -240,6 +242,8 @@
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/server/BluetoothManagerService;->mQuietEnable:Z
+
+    iput-boolean v0, p0, Lcom/android/server/BluetoothManagerService;->mShutdownInProgress:Z
 
     new-instance v1, Ljava/util/LinkedList;
 
@@ -311,7 +315,7 @@
 
     move-result-object v2
 
-    const v4, 0x1110189
+    const v4, 0x111018a
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -455,6 +459,10 @@
     invoke-virtual {v4, v7}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
     const-string v7, "android.bluetooth.hearingaid.profile.action.CONNECTION_STATE_CHANGED"
+
+    invoke-virtual {v4, v7}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    const-string v7, "android.intent.action.ACTION_SHUTDOWN"
 
     invoke-virtual {v4, v7}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
@@ -608,38 +616,28 @@
 .method static synthetic access$1000(Lcom/android/server/BluetoothManagerService;)Z
     .locals 1
 
-    invoke-direct {p0}, Lcom/android/server/BluetoothManagerService;->isDeviceProvisioned()Z
-
-    move-result v0
+    iget-boolean v0, p0, Lcom/android/server/BluetoothManagerService;->mEnable:Z
 
     return v0
 .end method
 
-.method static synthetic access$1100(Lcom/android/server/BluetoothManagerService;)V
+.method static synthetic access$1002(Lcom/android/server/BluetoothManagerService;Z)Z
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/server/BluetoothManagerService;->disableBleScanMode()V
+    iput-boolean p1, p0, Lcom/android/server/BluetoothManagerService;->mEnable:Z
 
-    return-void
+    return p1
 .end method
 
-.method static synthetic access$1200(Lcom/android/server/BluetoothManagerService;)V
+.method static synthetic access$1102(Lcom/android/server/BluetoothManagerService;Z)Z
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/server/BluetoothManagerService;->clearBleApps()V
+    iput-boolean p1, p0, Lcom/android/server/BluetoothManagerService;->mEnableExternal:Z
 
-    return-void
+    return p1
 .end method
 
-.method static synthetic access$1300(Lcom/android/server/BluetoothManagerService;)Ljava/util/concurrent/locks/ReentrantReadWriteLock;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/BluetoothManagerService;->mBluetoothLock:Ljava/util/concurrent/locks/ReentrantReadWriteLock;
-
-    return-object v0
-.end method
-
-.method static synthetic access$1400(Lcom/android/server/BluetoothManagerService;)Landroid/bluetooth/IBluetooth;
+.method static synthetic access$1200(Lcom/android/server/BluetoothManagerService;)Landroid/bluetooth/IBluetooth;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/BluetoothManagerService;->mBluetooth:Landroid/bluetooth/IBluetooth;
@@ -647,7 +645,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$1402(Lcom/android/server/BluetoothManagerService;Landroid/bluetooth/IBluetooth;)Landroid/bluetooth/IBluetooth;
+.method static synthetic access$1202(Lcom/android/server/BluetoothManagerService;Landroid/bluetooth/IBluetooth;)Landroid/bluetooth/IBluetooth;
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/BluetoothManagerService;->mBluetooth:Landroid/bluetooth/IBluetooth;
@@ -655,7 +653,67 @@
     return-object p1
 .end method
 
-.method static synthetic access$1500(Lcom/android/server/BluetoothManagerService;ILjava/lang/String;Z)V
+.method static synthetic access$1300(Lcom/android/server/BluetoothManagerService;)I
+    .locals 1
+
+    iget v0, p0, Lcom/android/server/BluetoothManagerService;->mState:I
+
+    return v0
+.end method
+
+.method static synthetic access$1302(Lcom/android/server/BluetoothManagerService;I)I
+    .locals 0
+
+    iput p1, p0, Lcom/android/server/BluetoothManagerService;->mState:I
+
+    return p1
+.end method
+
+.method static synthetic access$1400(Lcom/android/server/BluetoothManagerService;)Ljava/util/Map;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/BluetoothManagerService;->mBleApps:Ljava/util/Map;
+
+    return-object v0
+.end method
+
+.method static synthetic access$1500(Lcom/android/server/BluetoothManagerService;Landroid/os/IBinder;ZLjava/lang/String;)I
+    .locals 1
+
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/server/BluetoothManagerService;->updateBleAppCount(Landroid/os/IBinder;ZLjava/lang/String;)I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method static synthetic access$1600(Lcom/android/server/BluetoothManagerService;)Z
+    .locals 1
+
+    invoke-direct {p0}, Lcom/android/server/BluetoothManagerService;->isDeviceProvisioned()Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method static synthetic access$1700(Lcom/android/server/BluetoothManagerService;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/server/BluetoothManagerService;->disableBleScanMode()V
+
+    return-void
+.end method
+
+.method static synthetic access$1800(Lcom/android/server/BluetoothManagerService;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/server/BluetoothManagerService;->clearBleApps()V
+
+    return-void
+.end method
+
+.method static synthetic access$1900(Lcom/android/server/BluetoothManagerService;ILjava/lang/String;Z)V
     .locals 0
 
     invoke-direct {p0, p1, p2, p3}, Lcom/android/server/BluetoothManagerService;->addActiveLog(ILjava/lang/String;Z)V
@@ -671,7 +729,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$2100(Lcom/android/server/BluetoothManagerService;)Z
+.method static synthetic access$2500(Lcom/android/server/BluetoothManagerService;)Z
     .locals 1
 
     iget-boolean v0, p0, Lcom/android/server/BluetoothManagerService;->mBinding:Z
@@ -679,7 +737,7 @@
     return v0
 .end method
 
-.method static synthetic access$2102(Lcom/android/server/BluetoothManagerService;Z)Z
+.method static synthetic access$2502(Lcom/android/server/BluetoothManagerService;Z)Z
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/server/BluetoothManagerService;->mBinding:Z
@@ -687,7 +745,7 @@
     return p1
 .end method
 
-.method static synthetic access$2200(Lcom/android/server/BluetoothManagerService;)Lcom/android/server/BluetoothManagerService$BluetoothServiceConnection;
+.method static synthetic access$2600(Lcom/android/server/BluetoothManagerService;)Lcom/android/server/BluetoothManagerService$BluetoothServiceConnection;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/BluetoothManagerService;->mConnection:Lcom/android/server/BluetoothManagerService$BluetoothServiceConnection;
@@ -695,23 +753,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$2300(Lcom/android/server/BluetoothManagerService;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/server/BluetoothManagerService;->mEnable:Z
-
-    return v0
-.end method
-
-.method static synthetic access$2302(Lcom/android/server/BluetoothManagerService;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/server/BluetoothManagerService;->mEnable:Z
-
-    return p1
-.end method
-
-.method static synthetic access$2400(Lcom/android/server/BluetoothManagerService;I)V
+.method static synthetic access$2700(Lcom/android/server/BluetoothManagerService;I)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/BluetoothManagerService;->persistBluetoothSetting(I)V
@@ -719,7 +761,7 @@
     return-void
 .end method
 
-.method static synthetic access$2500(Lcom/android/server/BluetoothManagerService;)Z
+.method static synthetic access$2800(Lcom/android/server/BluetoothManagerService;)Z
     .locals 1
 
     iget-boolean v0, p0, Lcom/android/server/BluetoothManagerService;->mQuietEnable:Z
@@ -727,7 +769,7 @@
     return v0
 .end method
 
-.method static synthetic access$2502(Lcom/android/server/BluetoothManagerService;Z)Z
+.method static synthetic access$2802(Lcom/android/server/BluetoothManagerService;Z)Z
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/server/BluetoothManagerService;->mQuietEnable:Z
@@ -735,46 +777,12 @@
     return p1
 .end method
 
-.method static synthetic access$2600(Lcom/android/server/BluetoothManagerService;Z)V
+.method static synthetic access$2900(Lcom/android/server/BluetoothManagerService;Z)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/BluetoothManagerService;->handleEnable(Z)V
 
     return-void
-.end method
-
-.method static synthetic access$2700(Lcom/android/server/BluetoothManagerService;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/server/BluetoothManagerService;->handleDisable()V
-
-    return-void
-.end method
-
-.method static synthetic access$2800(Lcom/android/server/BluetoothManagerService;)I
-    .locals 1
-
-    iget v0, p0, Lcom/android/server/BluetoothManagerService;->mState:I
-
-    return v0
-.end method
-
-.method static synthetic access$2802(Lcom/android/server/BluetoothManagerService;I)I
-    .locals 0
-
-    iput p1, p0, Lcom/android/server/BluetoothManagerService;->mState:I
-
-    return p1
-.end method
-
-.method static synthetic access$2900(Lcom/android/server/BluetoothManagerService;)I
-    .locals 1
-
-    invoke-direct {p0}, Lcom/android/server/BluetoothManagerService;->getServiceRestartMs()I
-
-    move-result v0
-
-    return v0
 .end method
 
 .method static synthetic access$300(Lcom/android/server/BluetoothManagerService;IZ)V
@@ -785,15 +793,25 @@
     return-void
 .end method
 
-.method static synthetic access$3002(Lcom/android/server/BluetoothManagerService;Z)Z
+.method static synthetic access$3000(Lcom/android/server/BluetoothManagerService;)V
     .locals 0
 
-    iput-boolean p1, p0, Lcom/android/server/BluetoothManagerService;->mEnableExternal:Z
+    invoke-direct {p0}, Lcom/android/server/BluetoothManagerService;->handleDisable()V
 
-    return p1
+    return-void
 .end method
 
-.method static synthetic access$3102(Lcom/android/server/BluetoothManagerService;Z)Z
+.method static synthetic access$3100(Lcom/android/server/BluetoothManagerService;)I
+    .locals 1
+
+    invoke-direct {p0}, Lcom/android/server/BluetoothManagerService;->getServiceRestartMs()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method static synthetic access$3202(Lcom/android/server/BluetoothManagerService;Z)Z
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/server/BluetoothManagerService;->mQuietEnableExternal:Z
@@ -801,7 +819,7 @@
     return p1
 .end method
 
-.method static synthetic access$3200(Lcom/android/server/BluetoothManagerService;ZILjava/lang/String;)V
+.method static synthetic access$3300(Lcom/android/server/BluetoothManagerService;ZILjava/lang/String;)V
     .locals 0
 
     invoke-direct {p0, p1, p2, p3}, Lcom/android/server/BluetoothManagerService;->sendEnableMsg(ZILjava/lang/String;)V
@@ -809,7 +827,7 @@
     return-void
 .end method
 
-.method static synthetic access$3300(Lcom/android/server/BluetoothManagerService;)Landroid/os/RemoteCallbackList;
+.method static synthetic access$3400(Lcom/android/server/BluetoothManagerService;)Landroid/os/RemoteCallbackList;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/BluetoothManagerService;->mStateChangeCallbacks:Landroid/os/RemoteCallbackList;
@@ -817,7 +835,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$3400(Lcom/android/server/BluetoothManagerService;)Ljava/util/Map;
+.method static synthetic access$3500(Lcom/android/server/BluetoothManagerService;)Ljava/util/Map;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/BluetoothManagerService;->mProfileServices:Ljava/util/Map;
@@ -825,7 +843,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$3602(Lcom/android/server/BluetoothManagerService;Landroid/bluetooth/IBluetoothGatt;)Landroid/bluetooth/IBluetoothGatt;
+.method static synthetic access$3702(Lcom/android/server/BluetoothManagerService;Landroid/bluetooth/IBluetoothGatt;)Landroid/bluetooth/IBluetoothGatt;
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/BluetoothManagerService;->mBluetoothGatt:Landroid/bluetooth/IBluetoothGatt;
@@ -833,7 +851,7 @@
     return-object p1
 .end method
 
-.method static synthetic access$3700(Lcom/android/server/BluetoothManagerService;)V
+.method static synthetic access$3800(Lcom/android/server/BluetoothManagerService;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/BluetoothManagerService;->continueFromBleOnState()V
@@ -841,22 +859,12 @@
     return-void
 .end method
 
-.method static synthetic access$3802(Lcom/android/server/BluetoothManagerService;Landroid/os/IBinder;)Landroid/os/IBinder;
+.method static synthetic access$3902(Lcom/android/server/BluetoothManagerService;Landroid/os/IBinder;)Landroid/os/IBinder;
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/BluetoothManagerService;->mBluetoothBinder:Landroid/os/IBinder;
 
     return-object p1
-.end method
-
-.method static synthetic access$3900(Lcom/android/server/BluetoothManagerService;)Z
-    .locals 1
-
-    invoke-direct {p0}, Lcom/android/server/BluetoothManagerService;->isNameAndAddressSet()Z
-
-    move-result v0
-
-    return v0
 .end method
 
 .method static synthetic access$400(Lcom/android/server/BluetoothManagerService;)Landroid/content/Context;
@@ -867,7 +875,17 @@
     return-object v0
 .end method
 
-.method static synthetic access$4000(Lcom/android/server/BluetoothManagerService;)Landroid/bluetooth/IBluetoothCallback;
+.method static synthetic access$4000(Lcom/android/server/BluetoothManagerService;)Z
+    .locals 1
+
+    invoke-direct {p0}, Lcom/android/server/BluetoothManagerService;->isNameAndAddressSet()Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method static synthetic access$4100(Lcom/android/server/BluetoothManagerService;)Landroid/bluetooth/IBluetoothCallback;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/BluetoothManagerService;->mBluetoothCallback:Landroid/bluetooth/IBluetoothCallback;
@@ -875,7 +893,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$4100(Lcom/android/server/BluetoothManagerService;)V
+.method static synthetic access$4200(Lcom/android/server/BluetoothManagerService;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/BluetoothManagerService;->sendBluetoothServiceUpCallback()V
@@ -883,7 +901,7 @@
     return-void
 .end method
 
-.method static synthetic access$4200(Lcom/android/server/BluetoothManagerService;Ljava/util/Set;)Z
+.method static synthetic access$4300(Lcom/android/server/BluetoothManagerService;Ljava/util/Set;)Z
     .locals 1
 
     invoke-direct {p0, p1}, Lcom/android/server/BluetoothManagerService;->waitForState(Ljava/util/Set;)Z
@@ -893,7 +911,7 @@
     return v0
 .end method
 
-.method static synthetic access$4300(Lcom/android/server/BluetoothManagerService;II)V
+.method static synthetic access$4400(Lcom/android/server/BluetoothManagerService;II)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/server/BluetoothManagerService;->bluetoothStateChangeHandler(II)V
@@ -901,7 +919,7 @@
     return-void
 .end method
 
-.method static synthetic access$4400(Lcom/android/server/BluetoothManagerService;Z)V
+.method static synthetic access$4500(Lcom/android/server/BluetoothManagerService;Z)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/BluetoothManagerService;->recoverBluetoothServiceFromError(Z)V
@@ -909,7 +927,7 @@
     return-void
 .end method
 
-.method static synthetic access$4500(Lcom/android/server/BluetoothManagerService;)I
+.method static synthetic access$4600(Lcom/android/server/BluetoothManagerService;)I
     .locals 1
 
     iget v0, p0, Lcom/android/server/BluetoothManagerService;->mErrorRecoveryRetryCounter:I
@@ -917,7 +935,7 @@
     return v0
 .end method
 
-.method static synthetic access$4502(Lcom/android/server/BluetoothManagerService;I)I
+.method static synthetic access$4602(Lcom/android/server/BluetoothManagerService;I)I
     .locals 0
 
     iput p1, p0, Lcom/android/server/BluetoothManagerService;->mErrorRecoveryRetryCounter:I
@@ -925,7 +943,7 @@
     return p1
 .end method
 
-.method static synthetic access$4508(Lcom/android/server/BluetoothManagerService;)I
+.method static synthetic access$4608(Lcom/android/server/BluetoothManagerService;)I
     .locals 2
 
     iget v0, p0, Lcom/android/server/BluetoothManagerService;->mErrorRecoveryRetryCounter:I
@@ -937,7 +955,7 @@
     return v0
 .end method
 
-.method static synthetic access$4600(Lcom/android/server/BluetoothManagerService;)V
+.method static synthetic access$4700(Lcom/android/server/BluetoothManagerService;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/BluetoothManagerService;->addCrashLog()V
@@ -945,7 +963,7 @@
     return-void
 .end method
 
-.method static synthetic access$4700(Lcom/android/server/BluetoothManagerService;)V
+.method static synthetic access$4800(Lcom/android/server/BluetoothManagerService;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/BluetoothManagerService;->sendBluetoothServiceDownCallback()V
@@ -953,7 +971,7 @@
     return-void
 .end method
 
-.method static synthetic access$4802(Lcom/android/server/BluetoothManagerService;Z)Z
+.method static synthetic access$4902(Lcom/android/server/BluetoothManagerService;Z)Z
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/server/BluetoothManagerService;->mUnbinding:Z
@@ -961,18 +979,18 @@
     return p1
 .end method
 
-.method static synthetic access$4900(Lcom/android/server/BluetoothManagerService;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/server/BluetoothManagerService;->unbindAllBluetoothProfileServices()V
-
-    return-void
-.end method
-
 .method static synthetic access$500(Lcom/android/server/BluetoothManagerService;ILjava/lang/String;)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/server/BluetoothManagerService;->sendDisableMsg(ILjava/lang/String;)V
+
+    return-void
+.end method
+
+.method static synthetic access$5000(Lcom/android/server/BluetoothManagerService;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/server/BluetoothManagerService;->unbindAllBluetoothProfileServices()V
 
     return-void
 .end method
@@ -993,22 +1011,28 @@
     return-object v0
 .end method
 
-.method static synthetic access$800(Lcom/android/server/BluetoothManagerService;)Ljava/util/Map;
+.method static synthetic access$800(Lcom/android/server/BluetoothManagerService;)Z
     .locals 1
 
-    iget-object v0, p0, Lcom/android/server/BluetoothManagerService;->mBleApps:Ljava/util/Map;
-
-    return-object v0
-.end method
-
-.method static synthetic access$900(Lcom/android/server/BluetoothManagerService;Landroid/os/IBinder;ZLjava/lang/String;)I
-    .locals 1
-
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/server/BluetoothManagerService;->updateBleAppCount(Landroid/os/IBinder;ZLjava/lang/String;)I
-
-    move-result v0
+    iget-boolean v0, p0, Lcom/android/server/BluetoothManagerService;->mShutdownInProgress:Z
 
     return v0
+.end method
+
+.method static synthetic access$802(Lcom/android/server/BluetoothManagerService;Z)Z
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/server/BluetoothManagerService;->mShutdownInProgress:Z
+
+    return p1
+.end method
+
+.method static synthetic access$900(Lcom/android/server/BluetoothManagerService;)Ljava/util/concurrent/locks/ReentrantReadWriteLock;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/BluetoothManagerService;->mBluetoothLock:Ljava/util/concurrent/locks/ReentrantReadWriteLock;
+
+    return-object v0
 .end method
 
 .method private addActiveLog(ILjava/lang/String;Z)V
@@ -4272,7 +4296,7 @@
     invoke-static {v5, v6, v4}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :goto_1
-    invoke-static {v3}, Lcom/android/server/BluetoothManagerService$ProfileServiceConnections;->access$1900(Lcom/android/server/BluetoothManagerService$ProfileServiceConnections;)V
+    invoke-static {v3}, Lcom/android/server/BluetoothManagerService$ProfileServiceConnections;->access$2300(Lcom/android/server/BluetoothManagerService$ProfileServiceConnections;)V
 
     goto :goto_0
 
@@ -4737,7 +4761,7 @@
 
     move-object v2, v5
 
-    invoke-static {v2}, Lcom/android/server/BluetoothManagerService$ProfileServiceConnections;->access$1600(Lcom/android/server/BluetoothManagerService$ProfileServiceConnections;)Z
+    invoke-static {v2}, Lcom/android/server/BluetoothManagerService$ProfileServiceConnections;->access$2000(Lcom/android/server/BluetoothManagerService$ProfileServiceConnections;)Z
 
     move-result v5
 
@@ -7694,9 +7718,9 @@
     return-void
 
     :cond_0
-    invoke-static {v2, p2}, Lcom/android/server/BluetoothManagerService$ProfileServiceConnections;->access$1700(Lcom/android/server/BluetoothManagerService$ProfileServiceConnections;Landroid/bluetooth/IBluetoothProfileServiceConnection;)V
+    invoke-static {v2, p2}, Lcom/android/server/BluetoothManagerService$ProfileServiceConnections;->access$2100(Lcom/android/server/BluetoothManagerService$ProfileServiceConnections;Landroid/bluetooth/IBluetoothProfileServiceConnection;)V
 
-    invoke-static {v2}, Lcom/android/server/BluetoothManagerService$ProfileServiceConnections;->access$1800(Lcom/android/server/BluetoothManagerService$ProfileServiceConnections;)Z
+    invoke-static {v2}, Lcom/android/server/BluetoothManagerService$ProfileServiceConnections;->access$2200(Lcom/android/server/BluetoothManagerService$ProfileServiceConnections;)Z
 
     move-result v3
     :try_end_0

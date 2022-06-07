@@ -22,6 +22,8 @@
 
 .field final mDisplayId:I
 
+.field private mFocusGrantToken:Landroid/os/IBinder;
+
 .field final mHostActivityRecord:Lcom/android/server/wm/ActivityRecord;
 
 .field final mHostWindowState:Lcom/android/server/wm/WindowState;
@@ -40,7 +42,7 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/wm/Session;Lcom/android/server/wm/WindowManagerService;Landroid/view/IWindow;Lcom/android/server/wm/WindowState;IIII)V
+.method constructor <init>(Lcom/android/server/wm/Session;Lcom/android/server/wm/WindowManagerService;Landroid/view/IWindow;Lcom/android/server/wm/WindowState;IIIILandroid/os/IBinder;)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -72,6 +74,8 @@
     iput p7, p0, Lcom/android/server/wm/EmbeddedWindowController$EmbeddedWindow;->mWindowType:I
 
     iput p8, p0, Lcom/android/server/wm/EmbeddedWindowController$EmbeddedWindow;->mDisplayId:I
+
+    iput-object p9, p0, Lcom/android/server/wm/EmbeddedWindowController$EmbeddedWindow;->mFocusGrantToken:Landroid/os/IBinder;
 
     return-void
 .end method
@@ -125,10 +129,37 @@
     return v0
 .end method
 
+.method getFocusGrantToken()Landroid/os/IBinder;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/wm/EmbeddedWindowController$EmbeddedWindow;->mFocusGrantToken:Landroid/os/IBinder;
+
+    return-object v0
+.end method
+
 .method public getIWindow()Landroid/view/IWindow;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/wm/EmbeddedWindowController$EmbeddedWindow;->mClient:Landroid/view/IWindow;
+
+    return-object v0
+.end method
+
+.method getInputChannelToken()Landroid/os/IBinder;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/wm/EmbeddedWindowController$EmbeddedWindow;->mInputChannel:Landroid/view/InputChannel;
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Landroid/view/InputChannel;->getToken()Landroid/os/IBinder;
+
+    move-result-object v0
+
+    return-object v0
+
+    :cond_0
+    const/4 v0, 0x0
 
     return-object v0
 .end method

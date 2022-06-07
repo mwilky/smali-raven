@@ -125,60 +125,77 @@
     return v0
 .end method
 
-.method static synthetic lambda$runDumpVisibleWindowViews$0(Ljava/util/ArrayList;Lcom/android/server/wm/WindowState;)V
-    .locals 5
+.method static synthetic lambda$runDumpVisibleWindowViews$0(ILjava/util/ArrayList;Lcom/android/server/wm/WindowState;)V
+    .locals 6
 
-    invoke-virtual {p1}, Lcom/android/server/wm/WindowState;->isVisible()Z
+    iget-object v0, p2, Lcom/android/server/wm/WindowState;->mSession:Lcom/android/server/wm/Session;
 
-    move-result v0
+    iget v0, v0, Lcom/android/server/wm/Session;->mUid:I
 
-    if-eqz v0, :cond_0
+    if-ne v0, p0, :cond_0
 
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
     const/4 v0, 0x0
 
+    :goto_0
+    invoke-virtual {p2}, Lcom/android/server/wm/WindowState;->isVisible()Z
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    if-eqz v0, :cond_2
+
+    :cond_1
+    const/4 v1, 0x0
+
     :try_start_0
-    new-instance v1, Lcom/android/internal/os/ByteTransferPipe;
+    new-instance v2, Lcom/android/internal/os/ByteTransferPipe;
 
-    invoke-direct {v1}, Lcom/android/internal/os/ByteTransferPipe;-><init>()V
+    invoke-direct {v2}, Lcom/android/internal/os/ByteTransferPipe;-><init>()V
 
-    move-object v0, v1
+    move-object v1, v2
 
-    iget-object v1, p1, Lcom/android/server/wm/WindowState;->mClient:Landroid/view/IWindow;
+    iget-object v2, p2, Lcom/android/server/wm/WindowState;->mClient:Landroid/view/IWindow;
 
-    const-string v2, "DUMP_ENCODED"
+    const-string v3, "DUMP_ENCODED"
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
-    invoke-virtual {v0}, Lcom/android/internal/os/ByteTransferPipe;->getWriteFd()Landroid/os/ParcelFileDescriptor;
+    invoke-virtual {v1}, Lcom/android/internal/os/ByteTransferPipe;->getWriteFd()Landroid/os/ParcelFileDescriptor;
 
-    move-result-object v4
+    move-result-object v5
 
-    invoke-interface {v1, v2, v3, v4}, Landroid/view/IWindow;->executeCommand(Ljava/lang/String;Ljava/lang/String;Landroid/os/ParcelFileDescriptor;)V
+    invoke-interface {v2, v3, v4, v5}, Landroid/view/IWindow;->executeCommand(Ljava/lang/String;Ljava/lang/String;Landroid/os/ParcelFileDescriptor;)V
 
-    invoke-virtual {p1}, Lcom/android/server/wm/WindowState;->getName()Ljava/lang/String;
+    invoke-virtual {p2}, Lcom/android/server/wm/WindowState;->getName()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-static {v1, v0}, Landroid/util/Pair;->create(Ljava/lang/Object;Ljava/lang/Object;)Landroid/util/Pair;
+    invoke-static {v2, v1}, Landroid/util/Pair;->create(Ljava/lang/Object;Ljava/lang/Object;)Landroid/util/Pair;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {p0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_0
+    goto :goto_1
 
     :catch_0
-    move-exception v1
+    move-exception v2
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_2
 
-    invoke-virtual {v0}, Lcom/android/internal/os/ByteTransferPipe;->kill()V
+    invoke-virtual {v1}, Lcom/android/internal/os/ByteTransferPipe;->kill()V
 
-    :cond_0
-    :goto_0
+    :cond_2
+    :goto_1
     return-void
 .end method
 
@@ -1374,7 +1391,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
     const/4 v0, 0x0
 
@@ -1407,13 +1424,35 @@
 
     iget-object v4, p0, Lcom/android/server/wm/WindowManagerShellCommand;->mInternal:Lcom/android/server/wm/WindowManagerService;
 
-    iget-object v4, v4, Lcom/android/server/wm/WindowManagerService;->mRoot:Lcom/android/server/wm/RootWindowContainer;
+    iget-object v4, v4, Lcom/android/server/wm/WindowManagerService;->mAtmService:Lcom/android/server/wm/ActivityTaskManagerService;
 
-    new-instance v5, Lcom/android/server/wm/WindowManagerShellCommand$$ExternalSyntheticLambda0;
+    invoke-virtual {v4}, Lcom/android/server/wm/ActivityTaskManagerService;->getRecentTasks()Lcom/android/server/wm/RecentTasks;
 
-    invoke-direct {v5, v2}, Lcom/android/server/wm/WindowManagerShellCommand$$ExternalSyntheticLambda0;-><init>(Ljava/util/ArrayList;)V
+    move-result-object v4
 
-    invoke-virtual {v4, v5, v0}, Lcom/android/server/wm/RootWindowContainer;->forAllWindows(Ljava/util/function/Consumer;Z)V
+    if-eqz v4, :cond_0
+
+    invoke-virtual {v4}, Lcom/android/server/wm/RecentTasks;->getRecentsComponentUid()I
+
+    move-result v5
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v5, -0x1
+
+    :goto_0
+    nop
+
+    iget-object v6, p0, Lcom/android/server/wm/WindowManagerShellCommand;->mInternal:Lcom/android/server/wm/WindowManagerService;
+
+    iget-object v6, v6, Lcom/android/server/wm/WindowManagerService;->mRoot:Lcom/android/server/wm/RootWindowContainer;
+
+    new-instance v7, Lcom/android/server/wm/WindowManagerShellCommand$$ExternalSyntheticLambda0;
+
+    invoke-direct {v7, v5, v2}, Lcom/android/server/wm/WindowManagerShellCommand$$ExternalSyntheticLambda0;-><init>(ILjava/util/ArrayList;)V
+
+    invoke-virtual {v6, v7, v0}, Lcom/android/server/wm/RootWindowContainer;->forAllWindows(Ljava/util/function/Consumer;Z)V
 
     monitor-exit v3
     :try_end_2
@@ -1426,12 +1465,12 @@
 
     move-result-object v3
 
-    :goto_0
+    :goto_1
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_1
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1470,20 +1509,20 @@
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_1
 
-    goto :goto_0
+    goto :goto_1
 
     :catch_0
     move-exception v5
 
-    goto :goto_0
+    goto :goto_1
 
-    :cond_0
+    :cond_1
     :try_start_6
     invoke-virtual {v1}, Ljava/util/zip/ZipOutputStream;->close()V
     :try_end_6
     .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_1
 
-    goto :goto_2
+    goto :goto_3
 
     :catchall_0
     move-exception v4
@@ -1508,7 +1547,7 @@
     :try_end_9
     .catchall {:try_start_9 .. :try_end_9} :catchall_2
 
-    goto :goto_1
+    goto :goto_2
 
     :catchall_2
     move-exception v3
@@ -1516,7 +1555,7 @@
     :try_start_a
     invoke-virtual {v2, v3}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
 
-    :goto_1
+    :goto_2
     throw v2
     :try_end_a
     .catch Ljava/io/IOException; {:try_start_a .. :try_end_a} :catch_1
@@ -1544,10 +1583,10 @@
 
     invoke-virtual {p1, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    :goto_2
+    :goto_3
     return v0
 
-    :cond_1
+    :cond_2
     new-instance v0, Ljava/lang/SecurityException;
 
     const-string v1, "Requires DUMP permission"

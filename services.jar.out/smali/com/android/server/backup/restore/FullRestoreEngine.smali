@@ -86,6 +86,8 @@
 
 .field private final mPipesLock:Ljava/lang/Object;
 
+.field private mReadOnlyParent:Lcom/android/server/backup/FileMetadata;
+
 .field private mTargetApp:Landroid/content/pm/ApplicationInfo;
 
 .field private final mUserId:I
@@ -94,6 +96,84 @@
 
 
 # direct methods
+.method constructor <init>()V
+    .locals 2
+
+    invoke-direct {p0}, Lcom/android/server/backup/restore/RestoreEngine;-><init>()V
+
+    new-instance v0, Lcom/android/server/backup/restore/RestoreDeleteObserver;
+
+    invoke-direct {v0}, Lcom/android/server/backup/restore/RestoreDeleteObserver;-><init>()V
+
+    iput-object v0, p0, Lcom/android/server/backup/restore/FullRestoreEngine;->mDeleteObserver:Lcom/android/server/backup/restore/RestoreDeleteObserver;
+
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/android/server/backup/restore/FullRestoreEngine;->mObbConnection:Lcom/android/server/backup/fullbackup/FullBackupObbConnection;
+
+    new-instance v1, Ljava/util/HashMap;
+
+    invoke-direct {v1}, Ljava/util/HashMap;-><init>()V
+
+    iput-object v1, p0, Lcom/android/server/backup/restore/FullRestoreEngine;->mPackagePolicies:Ljava/util/HashMap;
+
+    new-instance v1, Ljava/util/HashMap;
+
+    invoke-direct {v1}, Ljava/util/HashMap;-><init>()V
+
+    iput-object v1, p0, Lcom/android/server/backup/restore/FullRestoreEngine;->mPackageInstallers:Ljava/util/HashMap;
+
+    new-instance v1, Ljava/util/HashMap;
+
+    invoke-direct {v1}, Ljava/util/HashMap;-><init>()V
+
+    iput-object v1, p0, Lcom/android/server/backup/restore/FullRestoreEngine;->mManifestSignatures:Ljava/util/HashMap;
+
+    new-instance v1, Ljava/util/HashSet;
+
+    invoke-direct {v1}, Ljava/util/HashSet;-><init>()V
+
+    iput-object v1, p0, Lcom/android/server/backup/restore/FullRestoreEngine;->mClearedPackages:Ljava/util/HashSet;
+
+    iput-object v0, p0, Lcom/android/server/backup/restore/FullRestoreEngine;->mPipes:[Landroid/os/ParcelFileDescriptor;
+
+    new-instance v1, Ljava/lang/Object;
+
+    invoke-direct {v1}, Ljava/lang/Object;-><init>()V
+
+    iput-object v1, p0, Lcom/android/server/backup/restore/FullRestoreEngine;->mPipesLock:Ljava/lang/Object;
+
+    iput-object v0, p0, Lcom/android/server/backup/restore/FullRestoreEngine;->mWidgetData:[B
+
+    iput-object v0, p0, Lcom/android/server/backup/restore/FullRestoreEngine;->mReadOnlyParent:Lcom/android/server/backup/FileMetadata;
+
+    const/4 v1, 0x0
+
+    iput-boolean v1, p0, Lcom/android/server/backup/restore/FullRestoreEngine;->mIsAdbRestore:Z
+
+    iput-boolean v1, p0, Lcom/android/server/backup/restore/FullRestoreEngine;->mAllowApks:Z
+
+    iput v1, p0, Lcom/android/server/backup/restore/FullRestoreEngine;->mEphemeralOpToken:I
+
+    iput v1, p0, Lcom/android/server/backup/restore/FullRestoreEngine;->mUserId:I
+
+    iput-object v0, p0, Lcom/android/server/backup/restore/FullRestoreEngine;->mBackupEligibilityRules:Lcom/android/server/backup/utils/BackupEligibilityRules;
+
+    iput-object v0, p0, Lcom/android/server/backup/restore/FullRestoreEngine;->mAgentTimeoutParameters:Lcom/android/server/backup/BackupAgentTimeoutParameters;
+
+    iput-object v0, p0, Lcom/android/server/backup/restore/FullRestoreEngine;->mBuffer:[B
+
+    iput-object v0, p0, Lcom/android/server/backup/restore/FullRestoreEngine;->mBackupManagerService:Lcom/android/server/backup/UserBackupManagerService;
+
+    iput-object v0, p0, Lcom/android/server/backup/restore/FullRestoreEngine;->mMonitor:Landroid/app/backup/IBackupManagerMonitor;
+
+    iput-object v0, p0, Lcom/android/server/backup/restore/FullRestoreEngine;->mMonitorTask:Lcom/android/server/backup/BackupRestoreTask;
+
+    iput-object v0, p0, Lcom/android/server/backup/restore/FullRestoreEngine;->mOnlyPackage:Landroid/content/pm/PackageInfo;
+
+    return-void
+.end method
+
 .method public constructor <init>(Lcom/android/server/backup/UserBackupManagerService;Lcom/android/server/backup/BackupRestoreTask;Landroid/app/backup/IFullBackupRestoreObserver;Landroid/app/backup/IBackupManagerMonitor;Landroid/content/pm/PackageInfo;ZIZLcom/android/server/backup/utils/BackupEligibilityRules;)V
     .locals 2
 
@@ -143,6 +223,8 @@
 
     iput-object v0, p0, Lcom/android/server/backup/restore/FullRestoreEngine;->mWidgetData:[B
 
+    iput-object v0, p0, Lcom/android/server/backup/restore/FullRestoreEngine;->mReadOnlyParent:Lcom/android/server/backup/FileMetadata;
+
     iput-object p1, p0, Lcom/android/server/backup/restore/FullRestoreEngine;->mBackupManagerService:Lcom/android/server/backup/UserBackupManagerService;
 
     iput p7, p0, Lcom/android/server/backup/restore/FullRestoreEngine;->mEphemeralOpToken:I
@@ -190,6 +272,40 @@
     return-void
 .end method
 
+.method private static getPathWithTrailingSeparator(Ljava/lang/String;)Ljava/lang/String;
+    .locals 2
+
+    sget-object v0, Ljava/io/File;->separator:Ljava/lang/String;
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    move-object v0, p0
+
+    goto :goto_0
+
+    :cond_0
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    sget-object v1, Ljava/io/File;->separator:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    :goto_0
+    return-object v0
+.end method
+
 .method private static isCanonicalFilePath(Ljava/lang/String;)Z
     .locals 1
 
@@ -220,6 +336,40 @@
     :goto_0
     const/4 v0, 0x0
 
+    return v0
+.end method
+
+.method private static isReadOnlyDir(Lcom/android/server/backup/FileMetadata;)Z
+    .locals 4
+
+    iget v0, p0, Lcom/android/server/backup/FileMetadata;->type:I
+
+    const/4 v1, 0x2
+
+    if-ne v0, v1, :cond_0
+
+    iget-wide v0, p0, Lcom/android/server/backup/FileMetadata;->mode:J
+
+    sget v2, Landroid/system/OsConstants;->S_IWUSR:I
+
+    int-to-long v2, v2
+
+    and-long/2addr v0, v2
+
+    const-wide/16 v2, 0x0
+
+    cmp-long v0, v0, v2
+
+    if-nez v0, :cond_0
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
     return v0
 .end method
 
@@ -278,6 +428,56 @@
 
     :cond_2
     return v1
+.end method
+
+.method private static isValidParent(Lcom/android/server/backup/FileMetadata;Lcom/android/server/backup/FileMetadata;)Z
+    .locals 2
+
+    if-eqz p0, :cond_0
+
+    iget-object v0, p1, Lcom/android/server/backup/FileMetadata;->packageName:Ljava/lang/String;
+
+    iget-object v1, p0, Lcom/android/server/backup/FileMetadata;->packageName:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p1, Lcom/android/server/backup/FileMetadata;->domain:Ljava/lang/String;
+
+    iget-object v1, p0, Lcom/android/server/backup/FileMetadata;->domain:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p1, Lcom/android/server/backup/FileMetadata;->path:Ljava/lang/String;
+
+    iget-object v1, p0, Lcom/android/server/backup/FileMetadata;->path:Ljava/lang/String;
+
+    invoke-static {v1}, Lcom/android/server/backup/restore/FullRestoreEngine;->getPathWithTrailingSeparator(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    return v0
 .end method
 
 .method static synthetic lambda$restoreOneFile$0(J)V
@@ -628,7 +828,7 @@
 
     move-object v5, v0
 
-    if-eqz v5, :cond_21
+    if-eqz v5, :cond_22
 
     iget-object v0, v5, Lcom/android/server/backup/FileMetadata;->packageName:Ljava/lang/String;
 
@@ -1413,13 +1613,22 @@
     move-result-object v0
 
     invoke-static {v15, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_f
-    .catch Ljava/io/IOException; {:try_start_f .. :try_end_f} :catch_1b
 
     const/4 v4, 0x0
 
     :cond_10
-    if-eqz v4, :cond_1b
+    invoke-virtual {v1, v3}, Lcom/android/server/backup/restore/FullRestoreEngine;->shouldSkipReadOnlyDir(Lcom/android/server/backup/FileMetadata;)Z
+
+    move-result v0
+    :try_end_f
+    .catch Ljava/io/IOException; {:try_start_f .. :try_end_f} :catch_1b
+
+    if-eqz v0, :cond_11
+
+    const/4 v4, 0x0
+
+    :cond_11
+    if-eqz v4, :cond_1c
 
     const/4 v8, 0x1
 
@@ -1436,7 +1645,7 @@
 
     move v14, v0
 
-    if-eqz v14, :cond_11
+    if-eqz v14, :cond_12
 
     :try_start_11
     iget-object v0, v1, Lcom/android/server/backup/restore/FullRestoreEngine;->mAgentTimeoutParameters:Lcom/android/server/backup/BackupAgentTimeoutParameters;
@@ -1451,7 +1660,7 @@
 
     goto :goto_8
 
-    :cond_11
+    :cond_12
     :try_start_12
     iget-object v0, v1, Lcom/android/server/backup/restore/FullRestoreEngine;->mAgentTimeoutParameters:Lcom/android/server/backup/BackupAgentTimeoutParameters;
 
@@ -1498,7 +1707,7 @@
 
     const-string v2, " : "
 
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_13
 
     :try_start_14
     new-instance v0, Ljava/lang/StringBuilder;
@@ -1662,7 +1871,7 @@
 
     goto/16 :goto_b
 
-    :cond_12
+    :cond_13
     move/from16 v49, v4
 
     move/from16 v45, v8
@@ -1681,7 +1890,7 @@
     .catch Ljava/io/IOException; {:try_start_18 .. :try_end_18} :catch_11
     .catch Landroid/os/RemoteException; {:try_start_18 .. :try_end_18} :catch_10
 
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_14
 
     :try_start_19
     new-instance v0, Ljava/lang/StringBuilder;
@@ -1767,7 +1976,7 @@
 
     goto/16 :goto_b
 
-    :cond_13
+    :cond_14
     :try_start_1a
     iget-object v0, v1, Lcom/android/server/backup/restore/FullRestoreEngine;->mTargetApp:Landroid/content/pm/ApplicationInfo;
 
@@ -1782,7 +1991,7 @@
     .catch Ljava/io/IOException; {:try_start_1a .. :try_end_1a} :catch_11
     .catch Landroid/os/RemoteException; {:try_start_1a .. :try_end_1a} :catch_10
 
-    if-eqz v0, :cond_14
+    if-eqz v0, :cond_15
 
     :try_start_1b
     const-string/jumbo v0, "system process agent - spinning a thread"
@@ -1828,7 +2037,7 @@
 
     goto :goto_9
 
-    :cond_14
+    :cond_15
     :try_start_1c
     iget-object v0, v1, Lcom/android/server/backup/restore/FullRestoreEngine;->mAgent:Landroid/app/IBackupAgent;
 
@@ -1982,7 +2191,7 @@
     move v4, v0
 
     :goto_c
-    if-eqz v4, :cond_19
+    if-eqz v4, :cond_1a
 
     const/4 v0, 0x1
 
@@ -2009,7 +2218,7 @@
 
     cmp-long v0, v9, v6
 
-    if-lez v0, :cond_18
+    if-lez v0, :cond_19
 
     :try_start_20
     array-length v0, v12
@@ -2020,7 +2229,7 @@
 
     cmp-long v0, v9, v6
 
-    if-lez v0, :cond_15
+    if-lez v0, :cond_16
 
     :try_start_21
     array-length v0, v12
@@ -2029,7 +2238,7 @@
 
     goto :goto_e
 
-    :cond_15
+    :cond_16
     long-to-int v0, v9
 
     :goto_e
@@ -2050,18 +2259,18 @@
 
     move v14, v0
 
-    if-gtz v14, :cond_16
+    if-gtz v14, :cond_17
 
     goto :goto_10
 
-    :cond_16
+    :cond_17
     move/from16 v17, v6
 
     int-to-long v6, v14
 
     sub-long/2addr v9, v6
 
-    if-eqz v5, :cond_17
+    if-eqz v5, :cond_18
 
     const/4 v6, 0x0
 
@@ -2104,7 +2313,7 @@
 
     const/4 v5, 0x0
 
-    :cond_17
+    :cond_18
     :goto_f
     move-object/from16 v48, v11
 
@@ -2121,7 +2330,7 @@
 
     goto :goto_12
 
-    :cond_18
+    :cond_19
     move-object/from16 v11, v48
 
     :goto_10
@@ -2145,7 +2354,7 @@
 
     goto :goto_11
 
-    :cond_19
+    :cond_1a
     move/from16 v6, p6
 
     move-object/from16 v11, v48
@@ -2153,7 +2362,7 @@
     move-wide/from16 v9, v46
 
     :goto_11
-    if-nez v8, :cond_1a
+    if-nez v8, :cond_1b
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -2205,7 +2414,7 @@
 
     move-object v2, v13
 
-    if-eqz p4, :cond_1c
+    if-eqz p4, :cond_1d
 
     const/4 v0, -0x2
 
@@ -2217,7 +2426,7 @@
 
     return v5
 
-    :cond_1a
+    :cond_1b
     move-object v2, v13
 
     goto :goto_14
@@ -2246,16 +2455,16 @@
 
     goto :goto_17
 
-    :cond_1b
+    :cond_1c
     move/from16 v6, p6
 
     move/from16 v49, v4
 
     move-object v2, v13
 
-    :cond_1c
+    :cond_1d
     :goto_14
-    if-nez v4, :cond_20
+    if-nez v4, :cond_21
 
     iget-wide v7, v3, Lcom/android/server/backup/FileMetadata;->size:J
 
@@ -2272,7 +2481,7 @@
 
     cmp-long v0, v7, v9
 
-    if-lez v0, :cond_1f
+    if-lez v0, :cond_20
 
     array-length v0, v12
 
@@ -2280,7 +2489,7 @@
 
     cmp-long v0, v7, v9
 
-    if-lez v0, :cond_1d
+    if-lez v0, :cond_1e
 
     array-length v0, v12
     :try_end_26
@@ -2288,7 +2497,7 @@
 
     goto :goto_16
 
-    :cond_1d
+    :cond_1e
     long-to-int v0, v7
 
     :goto_16
@@ -2309,11 +2518,11 @@
 
     cmp-long v16, v9, v13
 
-    if-gtz v16, :cond_1e
+    if-gtz v16, :cond_1f
 
     goto :goto_18
 
-    :cond_1e
+    :cond_1f
     sub-long/2addr v7, v9
 
     goto :goto_15
@@ -2323,7 +2532,7 @@
 
     goto :goto_17
 
-    :cond_1f
+    :cond_20
     move-object/from16 v5, p1
 
     goto :goto_18
@@ -2333,7 +2542,7 @@
 
     goto :goto_13
 
-    :cond_20
+    :cond_21
     move-object/from16 v5, p1
 
     goto :goto_18
@@ -2363,7 +2572,7 @@
 
     goto :goto_1a
 
-    :cond_21
+    :cond_22
     move/from16 v6, p6
 
     move-object v3, v5
@@ -2426,7 +2635,7 @@
     move-object v2, v9
 
     :goto_1c
-    if-nez v3, :cond_22
+    if-nez v3, :cond_23
 
     invoke-direct/range {p0 .. p0}, Lcom/android/server/backup/restore/FullRestoreEngine;->tearDownPipes()V
 
@@ -2434,7 +2643,7 @@
 
     invoke-virtual {v1, v4}, Lcom/android/server/backup/restore/FullRestoreEngine;->setRunning(Z)V
 
-    if-eqz p2, :cond_23
+    if-eqz p2, :cond_24
 
     iget-object v0, v1, Lcom/android/server/backup/restore/FullRestoreEngine;->mTargetApp:Landroid/content/pm/ApplicationInfo;
 
@@ -2444,22 +2653,24 @@
 
     goto :goto_1d
 
-    :cond_22
+    :cond_23
     const/4 v4, 0x0
 
-    :cond_23
+    :cond_24
     :goto_1d
-    if-eqz v3, :cond_24
+    if-eqz v3, :cond_25
 
     move/from16 v14, v24
 
     goto :goto_1e
 
-    :cond_24
+    :cond_25
     move v14, v4
 
     :goto_1e
     return v14
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x1
@@ -2499,4 +2710,64 @@
     :cond_0
     :goto_0
     return-void
+.end method
+
+.method shouldSkipReadOnlyDir(Lcom/android/server/backup/FileMetadata;)Z
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/server/backup/restore/FullRestoreEngine;->mReadOnlyParent:Lcom/android/server/backup/FileMetadata;
+
+    invoke-static {v0, p1}, Lcom/android/server/backup/restore/FullRestoreEngine;->isValidParent(Lcom/android/server/backup/FileMetadata;Lcom/android/server/backup/FileMetadata;)Z
+
+    move-result v0
+
+    const/4 v1, 0x1
+
+    if-eqz v0, :cond_0
+
+    return v1
+
+    :cond_0
+    invoke-static {p1}, Lcom/android/server/backup/restore/FullRestoreEngine;->isReadOnlyDir(Lcom/android/server/backup/FileMetadata;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    iput-object p1, p0, Lcom/android/server/backup/restore/FullRestoreEngine;->mReadOnlyParent:Lcom/android/server/backup/FileMetadata;
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "Skipping restore of "
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v2, p1, Lcom/android/server/backup/FileMetadata;->path:Ljava/lang/String;
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v2, " and its contents as read-only dirs are currently not supported."
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v2, "BackupManagerService"
+
+    invoke-static {v2, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v1
+
+    :cond_1
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/android/server/backup/restore/FullRestoreEngine;->mReadOnlyParent:Lcom/android/server/backup/FileMetadata;
+
+    const/4 v0, 0x0
+
+    return v0
 .end method

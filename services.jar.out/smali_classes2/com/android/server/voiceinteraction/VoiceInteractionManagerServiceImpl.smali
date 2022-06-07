@@ -31,6 +31,8 @@
 
 .field final mContext:Landroid/content/Context;
 
+.field mDetectorType:I
+
 .field mDisabledShowContext:I
 
 .field final mHandler:Landroid/os/Handler;
@@ -276,6 +278,19 @@
     const/4 v0, 0x0
 
     return-object v0
+.end method
+
+.method private logDetectorCreateEventIfNeeded(Lcom/android/internal/app/IHotwordRecognitionStatusCallback;IZI)V
+    .locals 1
+
+    if-eqz p1, :cond_0
+
+    const/4 v0, 0x1
+
+    invoke-static {p2, v0, p4}, Lcom/android/server/voiceinteraction/HotwordMetricsLogger;->writeDetectorCreateEvent(IZI)V
+
+    :cond_0
+    return-void
 .end method
 
 
@@ -550,6 +565,18 @@
     iget-object v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mService:Landroid/service/voice/IVoiceInteractionService;
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V
+
+    const-string v0, "  mDetectorType="
+
+    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    iget v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mDetectorType:I
+
+    invoke-static {v0}, Landroid/service/voice/HotwordDetector;->detectorTypeToString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     iget-object v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mHotwordDetectionConnection:Lcom/android/server/voiceinteraction/HotwordDetectionConnection;
 
@@ -2175,12 +2202,16 @@
     return-void
 .end method
 
-.method public updateStateLocked(Landroid/media/permission/Identity;Landroid/os/PersistableBundle;Landroid/os/SharedMemory;Lcom/android/internal/app/IHotwordRecognitionStatusCallback;)V
-    .locals 15
+.method public updateStateLocked(Landroid/media/permission/Identity;Landroid/os/PersistableBundle;Landroid/os/SharedMemory;Lcom/android/internal/app/IHotwordRecognitionStatusCallback;I)V
+    .locals 18
 
-    move-object v0, p0
+    move-object/from16 v0, p0
 
-    move-object/from16 v12, p3
+    move-object/from16 v13, p3
+
+    move-object/from16 v14, p4
+
+    move/from16 v15, p5
 
     const-string v1, "VoiceInteractionServiceManager"
 
@@ -2188,29 +2219,41 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
+    iget-object v2, v0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mInfo:Landroid/service/voice/VoiceInteractionServiceInfo;
+
+    invoke-virtual {v2}, Landroid/service/voice/VoiceInteractionServiceInfo;->getServiceInfo()Landroid/content/pm/ServiceInfo;
+
+    move-result-object v2
+
+    iget-object v2, v2, Landroid/content/pm/ServiceInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+
+    iget v12, v2, Landroid/content/pm/ApplicationInfo;->uid:I
+
     iget-object v2, v0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mHotwordDetectionComponentName:Landroid/content/ComponentName;
+
+    const/4 v3, 0x0
 
     if-eqz v2, :cond_7
 
-    iget v3, v0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mUser:I
+    iget v4, v0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mUser:I
 
-    invoke-static {v2, v3}, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->getServiceInfoLocked(Landroid/content/ComponentName;I)Landroid/content/pm/ServiceInfo;
+    invoke-static {v2, v4}, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->getServiceInfoLocked(Landroid/content/ComponentName;I)Landroid/content/pm/ServiceInfo;
 
-    move-result-object v13
+    move-result-object v11
 
-    if-eqz v13, :cond_6
+    if-eqz v11, :cond_6
 
-    invoke-virtual {p0, v13}, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->isIsolatedProcessLocked(Landroid/content/pm/ServiceInfo;)Z
+    invoke-virtual {v0, v11}, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->isIsolatedProcessLocked(Landroid/content/pm/ServiceInfo;)Z
 
     move-result v2
 
     if-eqz v2, :cond_5
 
-    iget-object v2, v13, Landroid/content/pm/ServiceInfo;->permission:Ljava/lang/String;
+    iget-object v2, v11, Landroid/content/pm/ServiceInfo;->permission:Ljava/lang/String;
 
-    const-string v3, "android.permission.BIND_HOTWORD_DETECTION_SERVICE"
+    const-string v4, "android.permission.BIND_HOTWORD_DETECTION_SERVICE"
 
-    invoke-virtual {v3, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v4, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
@@ -2222,25 +2265,25 @@
 
     move-result-object v2
 
-    iget-object v4, v0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mInfo:Landroid/service/voice/VoiceInteractionServiceInfo;
+    iget-object v5, v0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mInfo:Landroid/service/voice/VoiceInteractionServiceInfo;
 
-    invoke-virtual {v4}, Landroid/service/voice/VoiceInteractionServiceInfo;->getServiceInfo()Landroid/content/pm/ServiceInfo;
+    invoke-virtual {v5}, Landroid/service/voice/VoiceInteractionServiceInfo;->getServiceInfo()Landroid/content/pm/ServiceInfo;
 
-    move-result-object v4
+    move-result-object v5
 
-    iget-object v4, v4, Landroid/content/pm/ServiceInfo;->packageName:Ljava/lang/String;
+    iget-object v5, v5, Landroid/content/pm/ServiceInfo;->packageName:Ljava/lang/String;
 
-    invoke-virtual {v2, v3, v4}, Landroid/content/pm/PackageManager;->checkPermission(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v2, v4, v5}, Landroid/content/pm/PackageManager;->checkPermission(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v2
 
     if-eqz v2, :cond_3
 
-    if-eqz v12, :cond_1
+    if-eqz v13, :cond_1
 
     sget v2, Landroid/system/OsConstants;->PROT_READ:I
 
-    invoke-virtual {v12, v2}, Landroid/os/SharedMemory;->setProtect(I)Z
+    invoke-virtual {v13, v2}, Landroid/os/SharedMemory;->setProtect(I)Z
 
     move-result v2
 
@@ -2253,6 +2296,8 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
+    invoke-direct {v0, v14, v15, v3, v12}, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->logDetectorCreateEventIfNeeded(Lcom/android/internal/app/IHotwordRecognitionStatusCallback;IZI)V
+
     new-instance v1, Ljava/lang/IllegalStateException;
 
     invoke-direct {v1, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
@@ -2261,11 +2306,17 @@
 
     :cond_1
     :goto_0
+    iput v15, v0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mDetectorType:I
+
+    const/4 v1, 0x1
+
+    invoke-direct {v0, v14, v15, v1, v12}, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->logDetectorCreateEventIfNeeded(Lcom/android/internal/app/IHotwordRecognitionStatusCallback;IZI)V
+
     iget-object v1, v0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mHotwordDetectionConnection:Lcom/android/server/voiceinteraction/HotwordDetectionConnection;
 
     if-nez v1, :cond_2
 
-    new-instance v14, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;
+    new-instance v10, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;
 
     iget-object v2, v0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mServiceStub:Lcom/android/server/voiceinteraction/VoiceInteractionManagerService$VoiceInteractionManagerServiceStub;
 
@@ -2287,96 +2338,132 @@
 
     const/4 v8, 0x0
 
-    move-object v1, v14
+    move-object v1, v10
 
     move-object/from16 v5, p1
 
     move-object/from16 v9, p2
 
+    move-object/from16 v16, v10
+
     move-object/from16 v10, p3
+
+    move-object/from16 v17, v11
 
     move-object/from16 v11, p4
 
-    invoke-direct/range {v1 .. v11}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;-><init>(Ljava/lang/Object;Landroid/content/Context;ILandroid/media/permission/Identity;Landroid/content/ComponentName;IZLandroid/os/PersistableBundle;Landroid/os/SharedMemory;Lcom/android/internal/app/IHotwordRecognitionStatusCallback;)V
+    move v14, v12
 
-    iput-object v14, v0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mHotwordDetectionConnection:Lcom/android/server/voiceinteraction/HotwordDetectionConnection;
+    move/from16 v12, p5
+
+    invoke-direct/range {v1 .. v12}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;-><init>(Ljava/lang/Object;Landroid/content/Context;ILandroid/media/permission/Identity;Landroid/content/ComponentName;IZLandroid/os/PersistableBundle;Landroid/os/SharedMemory;Lcom/android/internal/app/IHotwordRecognitionStatusCallback;I)V
+
+    move-object/from16 v1, v16
+
+    iput-object v1, v0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mHotwordDetectionConnection:Lcom/android/server/voiceinteraction/HotwordDetectionConnection;
 
     move-object/from16 v2, p2
 
     goto :goto_1
 
     :cond_2
+    move-object/from16 v17, v11
+
+    move v14, v12
+
     iget-object v1, v0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mHotwordDetectionConnection:Lcom/android/server/voiceinteraction/HotwordDetectionConnection;
 
     move-object/from16 v2, p2
 
-    invoke-virtual {v1, v2, v12}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->updateStateLocked(Landroid/os/PersistableBundle;Landroid/os/SharedMemory;)V
+    invoke-virtual {v1, v2, v13}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->updateStateLocked(Landroid/os/PersistableBundle;Landroid/os/SharedMemory;)V
 
     :goto_1
     return-void
 
     :cond_3
-    move-object/from16 v2, p2
+    move v14, v12
 
-    const-string v3, "Voice interaction service should not hold permission android.permission.BIND_HOTWORD_DETECTION_SERVICE"
+    const-string v4, "Voice interaction service should not hold permission android.permission.BIND_HOTWORD_DETECTION_SERVICE"
 
-    invoke-static {v1, v3}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v4}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-object/from16 v5, p4
+
+    move v6, v14
+
+    invoke-direct {v0, v5, v15, v3, v6}, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->logDetectorCreateEventIfNeeded(Lcom/android/internal/app/IHotwordRecognitionStatusCallback;IZI)V
 
     new-instance v1, Ljava/lang/SecurityException;
 
-    invoke-direct {v1, v3}, Ljava/lang/SecurityException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v4}, Ljava/lang/SecurityException;-><init>(Ljava/lang/String;)V
 
     throw v1
 
     :cond_4
-    move-object/from16 v2, p2
+    move v6, v12
 
-    const-string v3, "Hotword detection service does not require permission android.permission.BIND_HOTWORD_DETECTION_SERVICE"
+    move-object v5, v14
 
-    invoke-static {v1, v3}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    const-string v4, "Hotword detection service does not require permission android.permission.BIND_HOTWORD_DETECTION_SERVICE"
+
+    invoke-static {v1, v4}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-direct {v0, v5, v15, v3, v6}, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->logDetectorCreateEventIfNeeded(Lcom/android/internal/app/IHotwordRecognitionStatusCallback;IZI)V
 
     new-instance v1, Ljava/lang/SecurityException;
 
-    invoke-direct {v1, v3}, Ljava/lang/SecurityException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v4}, Ljava/lang/SecurityException;-><init>(Ljava/lang/String;)V
 
     throw v1
 
     :cond_5
-    move-object/from16 v2, p2
+    move v6, v12
 
-    const-string v3, "Hotword detection service not in isolated process"
+    move-object v5, v14
 
-    invoke-static {v1, v3}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    const-string v4, "Hotword detection service not in isolated process"
+
+    invoke-static {v1, v4}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-direct {v0, v5, v15, v3, v6}, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->logDetectorCreateEventIfNeeded(Lcom/android/internal/app/IHotwordRecognitionStatusCallback;IZI)V
 
     new-instance v1, Ljava/lang/IllegalStateException;
 
-    invoke-direct {v1, v3}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v4}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
     throw v1
 
     :cond_6
-    move-object/from16 v2, p2
+    move v6, v12
 
-    const-string v3, "Hotword detection service info not found"
+    move-object v5, v14
 
-    invoke-static {v1, v3}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    const-string v4, "Hotword detection service info not found"
+
+    invoke-static {v1, v4}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-direct {v0, v5, v15, v3, v6}, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->logDetectorCreateEventIfNeeded(Lcom/android/internal/app/IHotwordRecognitionStatusCallback;IZI)V
 
     new-instance v1, Ljava/lang/IllegalStateException;
 
-    invoke-direct {v1, v3}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v4}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
     throw v1
 
     :cond_7
-    move-object/from16 v2, p2
+    move v6, v12
 
-    const-string v3, "Hotword detection service name not found"
+    move-object v5, v14
 
-    invoke-static {v1, v3}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    const-string v4, "Hotword detection service name not found"
+
+    invoke-static {v1, v4}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-direct {v0, v5, v15, v3, v6}, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->logDetectorCreateEventIfNeeded(Lcom/android/internal/app/IHotwordRecognitionStatusCallback;IZI)V
 
     new-instance v1, Ljava/lang/IllegalStateException;
 
-    invoke-direct {v1, v3}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v4}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
     throw v1
 .end method

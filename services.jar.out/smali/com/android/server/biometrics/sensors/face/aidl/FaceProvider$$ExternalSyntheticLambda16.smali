@@ -10,6 +10,8 @@
 
 .field public final synthetic f$1:I
 
+.field public final synthetic f$10:Z
+
 .field public final synthetic f$2:Landroid/os/IBinder;
 
 .field public final synthetic f$3:Landroid/hardware/face/IFaceServiceReceiver;
@@ -20,15 +22,15 @@
 
 .field public final synthetic f$6:Ljava/lang/String;
 
-.field public final synthetic f$7:[I
+.field public final synthetic f$7:J
 
-.field public final synthetic f$8:Landroid/view/Surface;
+.field public final synthetic f$8:[I
 
-.field public final synthetic f$9:Z
+.field public final synthetic f$9:Landroid/view/Surface;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider;ILandroid/os/IBinder;Landroid/hardware/face/IFaceServiceReceiver;I[BLjava/lang/String;[ILandroid/view/Surface;Z)V
+.method public synthetic constructor <init>(Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider;ILandroid/os/IBinder;Landroid/hardware/face/IFaceServiceReceiver;I[BLjava/lang/String;J[ILandroid/view/Surface;Z)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -47,11 +49,13 @@
 
     iput-object p7, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda16;->f$6:Ljava/lang/String;
 
-    iput-object p8, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda16;->f$7:[I
+    iput-wide p8, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda16;->f$7:J
 
-    iput-object p9, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda16;->f$8:Landroid/view/Surface;
+    iput-object p10, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda16;->f$8:[I
 
-    iput-boolean p10, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda16;->f$9:Z
+    iput-object p11, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda16;->f$9:Landroid/view/Surface;
+
+    iput-boolean p12, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda16;->f$10:Z
 
     return-void
 .end method
@@ -59,7 +63,7 @@
 
 # virtual methods
 .method public final run()V
-    .locals 10
+    .locals 12
 
     iget-object v0, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda16;->f$0:Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider;
 
@@ -75,13 +79,15 @@
 
     iget-object v6, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda16;->f$6:Ljava/lang/String;
 
-    iget-object v7, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda16;->f$7:[I
+    iget-wide v7, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda16;->f$7:J
 
-    iget-object v8, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda16;->f$8:Landroid/view/Surface;
+    iget-object v9, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda16;->f$8:[I
 
-    iget-boolean v9, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda16;->f$9:Z
+    iget-object v10, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda16;->f$9:Landroid/view/Surface;
 
-    invoke-virtual/range {v0 .. v9}, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider;->lambda$scheduleEnroll$5$FaceProvider(ILandroid/os/IBinder;Landroid/hardware/face/IFaceServiceReceiver;I[BLjava/lang/String;[ILandroid/view/Surface;Z)V
+    iget-boolean v11, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda16;->f$10:Z
+
+    invoke-virtual/range {v0 .. v11}, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider;->lambda$scheduleEnroll$5$FaceProvider(ILandroid/os/IBinder;Landroid/hardware/face/IFaceServiceReceiver;I[BLjava/lang/String;J[ILandroid/view/Surface;Z)V
 
     return-void
 .end method

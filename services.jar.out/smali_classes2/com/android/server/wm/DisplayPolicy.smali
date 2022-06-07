@@ -18,6 +18,8 @@
 
 .field static final ANIMATION_STYLEABLE:I = 0x0
 
+.field private static final LEGACY_TASKBAR_GESTURE_INSETS:Z = false
+
 .field private static final MSG_DISABLE_POINTER_LOCATION:I = 0x5
 
 .field private static final MSG_DISPOSE_INPUT_CONSUMER:I = 0x3
@@ -2443,7 +2445,73 @@
     return v0
 .end method
 
-.method static synthetic lambda$addWindowLw$10(Lcom/android/server/wm/DisplayFrames;Lcom/android/server/wm/WindowState;Landroid/graphics/Rect;)V
+.method private synthetic lambda$addWindowLw$10(Lcom/android/server/wm/DisplayFrames;Lcom/android/server/wm/WindowState;Landroid/graphics/Rect;)V
+    .locals 2
+
+    iget-object v0, p1, Lcom/android/server/wm/DisplayFrames;->mDisplayCutoutSafe:Landroid/graphics/Rect;
+
+    iget v0, v0, Landroid/graphics/Rect;->left:I
+
+    const/4 v1, 0x0
+
+    invoke-static {v0, v1}, Ljava/lang/Math;->max(II)I
+
+    move-result v0
+
+    iput v1, p3, Landroid/graphics/Rect;->left:I
+
+    iput v1, p3, Landroid/graphics/Rect;->top:I
+
+    iget v1, p1, Lcom/android/server/wm/DisplayFrames;->mDisplayHeight:I
+
+    iput v1, p3, Landroid/graphics/Rect;->bottom:I
+
+    iget v1, p0, Lcom/android/server/wm/DisplayPolicy;->mLeftGestureInset:I
+
+    add-int/2addr v1, v0
+
+    iput v1, p3, Landroid/graphics/Rect;->right:I
+
+    return-void
+.end method
+
+.method private synthetic lambda$addWindowLw$11(Lcom/android/server/wm/DisplayFrames;Lcom/android/server/wm/WindowState;Landroid/graphics/Rect;)V
+    .locals 2
+
+    iget-object v0, p1, Lcom/android/server/wm/DisplayFrames;->mDisplayCutoutSafe:Landroid/graphics/Rect;
+
+    iget v0, v0, Landroid/graphics/Rect;->right:I
+
+    iget-object v1, p1, Lcom/android/server/wm/DisplayFrames;->mUnrestricted:Landroid/graphics/Rect;
+
+    iget v1, v1, Landroid/graphics/Rect;->right:I
+
+    invoke-static {v0, v1}, Ljava/lang/Math;->min(II)I
+
+    move-result v0
+
+    iget v1, p0, Lcom/android/server/wm/DisplayPolicy;->mRightGestureInset:I
+
+    sub-int v1, v0, v1
+
+    iput v1, p3, Landroid/graphics/Rect;->left:I
+
+    const/4 v1, 0x0
+
+    iput v1, p3, Landroid/graphics/Rect;->top:I
+
+    iget v1, p1, Lcom/android/server/wm/DisplayFrames;->mDisplayHeight:I
+
+    iput v1, p3, Landroid/graphics/Rect;->bottom:I
+
+    iget v1, p1, Lcom/android/server/wm/DisplayFrames;->mDisplayWidth:I
+
+    iput v1, p3, Landroid/graphics/Rect;->right:I
+
+    return-void
+.end method
+
+.method static synthetic lambda$addWindowLw$12(Lcom/android/server/wm/DisplayFrames;Lcom/android/server/wm/WindowState;Landroid/graphics/Rect;)V
     .locals 1
 
     iget v0, p0, Lcom/android/server/wm/DisplayFrames;->mRotation:I
@@ -2487,7 +2555,7 @@
     return-void
 .end method
 
-.method static synthetic lambda$updateSystemBarAttributes$18(IILjava/lang/String;Lcom/android/server/statusbar/StatusBarManagerInternal;)V
+.method static synthetic lambda$updateSystemBarAttributes$20(IILjava/lang/String;Lcom/android/server/statusbar/StatusBarManagerInternal;)V
     .locals 0
 
     invoke-interface {p3, p0, p1, p2}, Lcom/android/server/statusbar/StatusBarManagerInternal;->setDisableFlags(IILjava/lang/String;)V
@@ -2495,7 +2563,7 @@
     return-void
 .end method
 
-.method static synthetic lambda$updateSystemBarAttributes$19(II[Lcom/android/internal/view/AppearanceRegion;ZILandroid/view/InsetsVisibilities;Ljava/lang/String;Lcom/android/server/statusbar/StatusBarManagerInternal;)V
+.method static synthetic lambda$updateSystemBarAttributes$21(II[Lcom/android/internal/view/AppearanceRegion;ZILandroid/view/InsetsVisibilities;Ljava/lang/String;Lcom/android/server/statusbar/StatusBarManagerInternal;)V
     .locals 8
 
     move-object v0, p7
@@ -3831,18 +3899,20 @@
 .end method
 
 .method public adjustWindowParamsLw(Lcom/android/server/wm/WindowState;Landroid/view/WindowManager$LayoutParams;)V
-    .locals 5
+    .locals 7
 
     iget v0, p2, Landroid/view/WindowManager$LayoutParams;->type:I
+
+    const/4 v1, 0x2
+
+    const/4 v2, 0x3
 
     sparse-switch v0, :sswitch_data_0
 
     goto/16 :goto_0
 
     :sswitch_0
-    const/4 v0, 0x3
-
-    iput v0, p2, Landroid/view/WindowManager$LayoutParams;->layoutInDisplayCutoutMode:I
+    iput v2, p2, Landroid/view/WindowManager$LayoutParams;->layoutInDisplayCutoutMode:I
 
     goto/16 :goto_0
 
@@ -3855,50 +3925,48 @@
 
     iget v0, p2, Landroid/view/WindowManager$LayoutParams;->flags:I
 
-    const v1, -0x40001
+    const v3, -0x40001
 
-    and-int/2addr v0, v1
+    and-int/2addr v0, v3
 
     iput v0, p2, Landroid/view/WindowManager$LayoutParams;->flags:I
 
     goto :goto_0
 
     :sswitch_2
-    iget-wide v0, p2, Landroid/view/WindowManager$LayoutParams;->hideTimeoutMilliseconds:J
+    iget-wide v3, p2, Landroid/view/WindowManager$LayoutParams;->hideTimeoutMilliseconds:J
 
-    const-wide/16 v2, 0x0
+    const-wide/16 v5, 0x0
 
-    cmp-long v0, v0, v2
+    cmp-long v0, v3, v5
 
-    const-wide/16 v1, 0x1004
+    const-wide/16 v3, 0x1004
 
     if-ltz v0, :cond_0
 
-    iget-wide v3, p2, Landroid/view/WindowManager$LayoutParams;->hideTimeoutMilliseconds:J
+    iget-wide v5, p2, Landroid/view/WindowManager$LayoutParams;->hideTimeoutMilliseconds:J
 
-    cmp-long v0, v3, v1
+    cmp-long v0, v5, v3
 
     if-lez v0, :cond_1
 
     :cond_0
-    iput-wide v1, p2, Landroid/view/WindowManager$LayoutParams;->hideTimeoutMilliseconds:J
+    iput-wide v3, p2, Landroid/view/WindowManager$LayoutParams;->hideTimeoutMilliseconds:J
 
     :cond_1
     iget-object v0, p0, Lcom/android/server/wm/DisplayPolicy;->mAccessibilityManager:Landroid/view/accessibility/AccessibilityManager;
 
-    iget-wide v1, p2, Landroid/view/WindowManager$LayoutParams;->hideTimeoutMilliseconds:J
+    iget-wide v3, p2, Landroid/view/WindowManager$LayoutParams;->hideTimeoutMilliseconds:J
 
-    long-to-int v1, v1
+    long-to-int v3, v3
 
-    const/4 v2, 0x2
-
-    invoke-virtual {v0, v1, v2}, Landroid/view/accessibility/AccessibilityManager;->getRecommendedTimeoutMillis(II)I
+    invoke-virtual {v0, v3, v1}, Landroid/view/accessibility/AccessibilityManager;->getRecommendedTimeoutMillis(II)I
 
     move-result v0
 
-    int-to-long v0, v0
+    int-to-long v3, v0
 
-    iput-wide v0, p2, Landroid/view/WindowManager$LayoutParams;->hideTimeoutMilliseconds:J
+    iput-wide v3, p2, Landroid/view/WindowManager$LayoutParams;->hideTimeoutMilliseconds:J
 
     iget v0, p2, Landroid/view/WindowManager$LayoutParams;->flags:I
 
@@ -3931,9 +3999,9 @@
 
     iget v0, v0, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
 
-    const/high16 v1, 0x20000
+    const/high16 v3, 0x20000
 
-    and-int/2addr v0, v1
+    and-int/2addr v0, v3
 
     if-eqz v0, :cond_3
 
@@ -3978,18 +4046,98 @@
 
     :cond_3
     :goto_0
-    iget-object v0, p0, Lcom/android/server/wm/DisplayPolicy;->mStatusBarAlt:Lcom/android/server/wm/WindowState;
+    iget v0, p2, Landroid/view/WindowManager$LayoutParams;->type:I
 
-    if-ne v0, p1, :cond_4
-
-    invoke-direct {p0, p2}, Lcom/android/server/wm/DisplayPolicy;->getAltBarPosition(Landroid/view/WindowManager$LayoutParams;)I
+    invoke-static {v0}, Landroid/view/WindowManager$LayoutParams;->isSystemAlertWindowType(I)Z
 
     move-result v0
 
-    iput v0, p0, Lcom/android/server/wm/DisplayPolicy;->mStatusBarAltPosition:I
+    if-eqz v0, :cond_4
+
+    iget-object v0, p0, Lcom/android/server/wm/DisplayPolicy;->mService:Lcom/android/server/wm/WindowManagerService;
+
+    iget v0, v0, Lcom/android/server/wm/WindowManagerService;->mMaximumObscuringOpacityForTouch:F
+
+    iget v3, p2, Landroid/view/WindowManager$LayoutParams;->alpha:F
+
+    cmpl-float v3, v3, v0
+
+    if-lez v3, :cond_4
+
+    iget v3, p2, Landroid/view/WindowManager$LayoutParams;->flags:I
+
+    and-int/lit8 v3, v3, 0x10
+
+    if-eqz v3, :cond_4
+
+    iget v3, p2, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
+
+    const/high16 v4, 0x20000000
+
+    and-int/2addr v3, v4
+
+    if-nez v3, :cond_4
+
+    const/4 v3, 0x5
+
+    new-array v3, v3, [Ljava/lang/Object;
+
+    const/4 v4, 0x0
+
+    iget-object v5, p2, Landroid/view/WindowManager$LayoutParams;->packageName:Ljava/lang/String;
+
+    aput-object v5, v3, v4
+
+    const/4 v4, 0x1
+
+    iget v5, p2, Landroid/view/WindowManager$LayoutParams;->type:I
+
+    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v5
+
+    aput-object v5, v3, v4
+
+    iget v4, p2, Landroid/view/WindowManager$LayoutParams;->alpha:F
+
+    invoke-static {v4}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+
+    move-result-object v4
+
+    aput-object v4, v3, v1
+
+    invoke-static {v0}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+
+    move-result-object v1
+
+    aput-object v1, v3, v2
+
+    const/4 v1, 0x4
+
+    invoke-static {v0}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+
+    move-result-object v2
+
+    aput-object v2, v3, v1
+
+    const-string v1, "App %s has a system alert window (type = %d) with FLAG_NOT_TOUCHABLE and LayoutParams.alpha = %.2f > %.2f, setting alpha to %.2f to let touches pass through (if this is isn\'t desirable, remove flag FLAG_NOT_TOUCHABLE)."
+
+    invoke-static {v1, v3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string v2, "WindowManager"
+
+    invoke-static {v2, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    iput v0, p2, Landroid/view/WindowManager$LayoutParams;->alpha:F
+
+    iget-object v1, p1, Lcom/android/server/wm/WindowState;->mWinAnimator:Lcom/android/server/wm/WindowStateAnimator;
+
+    iput v0, v1, Lcom/android/server/wm/WindowStateAnimator;->mAlpha:F
 
     :cond_4
-    iget-object v0, p0, Lcom/android/server/wm/DisplayPolicy;->mNavigationBarAlt:Lcom/android/server/wm/WindowState;
+    iget-object v0, p0, Lcom/android/server/wm/DisplayPolicy;->mStatusBarAlt:Lcom/android/server/wm/WindowState;
 
     if-ne v0, p1, :cond_5
 
@@ -3997,10 +4145,10 @@
 
     move-result v0
 
-    iput v0, p0, Lcom/android/server/wm/DisplayPolicy;->mNavigationBarAltPosition:I
+    iput v0, p0, Lcom/android/server/wm/DisplayPolicy;->mStatusBarAltPosition:I
 
     :cond_5
-    iget-object v0, p0, Lcom/android/server/wm/DisplayPolicy;->mClimateBarAlt:Lcom/android/server/wm/WindowState;
+    iget-object v0, p0, Lcom/android/server/wm/DisplayPolicy;->mNavigationBarAlt:Lcom/android/server/wm/WindowState;
 
     if-ne v0, p1, :cond_6
 
@@ -4008,10 +4156,10 @@
 
     move-result v0
 
-    iput v0, p0, Lcom/android/server/wm/DisplayPolicy;->mClimateBarAltPosition:I
+    iput v0, p0, Lcom/android/server/wm/DisplayPolicy;->mNavigationBarAltPosition:I
 
     :cond_6
-    iget-object v0, p0, Lcom/android/server/wm/DisplayPolicy;->mExtraNavBarAlt:Lcom/android/server/wm/WindowState;
+    iget-object v0, p0, Lcom/android/server/wm/DisplayPolicy;->mClimateBarAlt:Lcom/android/server/wm/WindowState;
 
     if-ne v0, p1, :cond_7
 
@@ -4019,9 +4167,20 @@
 
     move-result v0
 
-    iput v0, p0, Lcom/android/server/wm/DisplayPolicy;->mExtraNavBarAltPosition:I
+    iput v0, p0, Lcom/android/server/wm/DisplayPolicy;->mClimateBarAltPosition:I
 
     :cond_7
+    iget-object v0, p0, Lcom/android/server/wm/DisplayPolicy;->mExtraNavBarAlt:Lcom/android/server/wm/WindowState;
+
+    if-ne v0, p1, :cond_8
+
+    invoke-direct {p0, p2}, Lcom/android/server/wm/DisplayPolicy;->getAltBarPosition(Landroid/view/WindowManager$LayoutParams;)I
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/server/wm/DisplayPolicy;->mExtraNavBarAltPosition:I
+
+    :cond_8
     return-void
 
     nop
@@ -6589,7 +6748,7 @@
     return-void
 .end method
 
-.method public synthetic lambda$callStatusBarSafely$20$DisplayPolicy(Ljava/util/function/Consumer;)V
+.method public synthetic lambda$callStatusBarSafely$22$DisplayPolicy(Ljava/util/function/Consumer;)V
     .locals 1
 
     invoke-virtual {p0}, Lcom/android/server/wm/DisplayPolicy;->getStatusBarManagerInternal()Lcom/android/server/statusbar/StatusBarManagerInternal;
@@ -6604,7 +6763,7 @@
     return-void
 .end method
 
-.method public synthetic lambda$getImeSourceFrameProvider$11$DisplayPolicy(Lcom/android/server/wm/DisplayFrames;Lcom/android/server/wm/WindowState;Landroid/graphics/Rect;)V
+.method public synthetic lambda$getImeSourceFrameProvider$13$DisplayPolicy(Lcom/android/server/wm/DisplayFrames;Lcom/android/server/wm/WindowState;Landroid/graphics/Rect;)V
     .locals 3
 
     iget-object v0, p0, Lcom/android/server/wm/DisplayPolicy;->mNavigationBar:Lcom/android/server/wm/WindowState;
@@ -6686,7 +6845,7 @@
     throw v1
 .end method
 
-.method public synthetic lambda$notifyDisplayReady$17$DisplayPolicy()V
+.method public synthetic lambda$notifyDisplayReady$19$DisplayPolicy()V
     .locals 3
 
     invoke-direct {p0}, Lcom/android/server/wm/DisplayPolicy;->getDisplayId()I
@@ -6718,7 +6877,7 @@
     return-void
 .end method
 
-.method public synthetic lambda$simulateLayoutDisplay$12$DisplayPolicy(Lcom/android/server/wm/DisplayFrames;Lcom/android/server/wm/InsetsSourceProvider;Landroid/graphics/Rect;)V
+.method public synthetic lambda$simulateLayoutDisplay$14$DisplayPolicy(Lcom/android/server/wm/DisplayFrames;Lcom/android/server/wm/InsetsSourceProvider;Landroid/graphics/Rect;)V
     .locals 1
 
     iget-object v0, p2, Lcom/android/server/wm/InsetsSourceProvider;->mWin:Lcom/android/server/wm/WindowState;
@@ -6728,7 +6887,7 @@
     return-void
 .end method
 
-.method public synthetic lambda$simulateLayoutDisplay$13$DisplayPolicy(Lcom/android/server/wm/DisplayFrames;Landroid/graphics/Rect;)V
+.method public synthetic lambda$simulateLayoutDisplay$15$DisplayPolicy(Lcom/android/server/wm/DisplayFrames;Landroid/graphics/Rect;)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/server/wm/DisplayPolicy;->layoutNavigationBar(Lcom/android/server/wm/DisplayFrames;Landroid/graphics/Rect;)I
@@ -6736,7 +6895,7 @@
     return-void
 .end method
 
-.method public synthetic lambda$simulateLayoutDisplay$14$DisplayPolicy(Lcom/android/server/wm/DisplayFrames;Landroid/graphics/Rect;)V
+.method public synthetic lambda$simulateLayoutDisplay$16$DisplayPolicy(Lcom/android/server/wm/DisplayFrames;Landroid/graphics/Rect;)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/server/wm/DisplayPolicy;->layoutStatusBar(Lcom/android/server/wm/DisplayFrames;Landroid/graphics/Rect;)V
@@ -6744,7 +6903,7 @@
     return-void
 .end method
 
-.method public synthetic lambda$simulateLayoutDisplay$15$DisplayPolicy(Lcom/android/server/wm/DisplayFrames;Landroid/graphics/Rect;)V
+.method public synthetic lambda$simulateLayoutDisplay$17$DisplayPolicy(Lcom/android/server/wm/DisplayFrames;Landroid/graphics/Rect;)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/wm/DisplayPolicy;->mExtraNavBarAlt:Lcom/android/server/wm/WindowState;
@@ -6754,7 +6913,7 @@
     return-void
 .end method
 
-.method public synthetic lambda$simulateLayoutDisplay$16$DisplayPolicy(Lcom/android/server/wm/DisplayFrames;Landroid/graphics/Rect;)V
+.method public synthetic lambda$simulateLayoutDisplay$18$DisplayPolicy(Lcom/android/server/wm/DisplayFrames;Landroid/graphics/Rect;)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/wm/DisplayPolicy;->mClimateBarAlt:Lcom/android/server/wm/WindowState;

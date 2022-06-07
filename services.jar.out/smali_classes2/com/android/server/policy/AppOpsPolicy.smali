@@ -222,17 +222,33 @@
 
     invoke-virtual {v1, v2}, Landroid/content/pm/PackageManager;->hasSystemFeature(Ljava/lang/String;)Z
 
-    move-result v1
+    move-result v2
 
-    if-nez v1, :cond_0
+    if-nez v2, :cond_2
 
-    const-class v1, Landroid/app/AppOpsManager;
+    const-string v2, "android.hardware.microphone"
 
-    invoke-virtual {v7, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-virtual {v1, v2}, Landroid/content/pm/PackageManager;->hasSystemFeature(Ljava/lang/String;)Z
 
-    move-result-object v1
+    move-result v2
 
-    check-cast v1, Landroid/app/AppOpsManager;
+    if-nez v2, :cond_1
+
+    const-string v2, "android.software.connectionservice"
+
+    invoke-virtual {v1, v2}, Landroid/content/pm/PackageManager;->hasSystemFeature(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    const-class v2, Landroid/app/AppOpsManager;
+
+    invoke-virtual {v7, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/app/AppOpsManager;
 
     const/16 v9, 0x64
 
@@ -240,15 +256,15 @@
 
     const/4 v12, 0x0
 
-    const/4 v2, -0x1
+    const/4 v3, -0x1
 
-    move-object v8, v1
+    move-object v8, v2
 
     move-object v11, v14
 
-    move-object v3, v13
+    move-object v4, v13
 
-    move v13, v2
+    move v13, v3
 
     invoke-virtual/range {v8 .. v13}, Landroid/app/AppOpsManager;->setUserRestrictionForUser(IZLandroid/os/IBinder;Landroid/os/PackageTagsList;I)V
 
@@ -261,7 +277,17 @@
     goto :goto_0
 
     :cond_0
-    move-object v3, v13
+    move-object v4, v13
+
+    goto :goto_0
+
+    :cond_1
+    move-object v4, v13
+
+    goto :goto_0
+
+    :cond_2
+    move-object v4, v13
 
     :goto_0
     return-void

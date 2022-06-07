@@ -4,6 +4,10 @@
 
 
 # instance fields
+.field private ambientBrightnessChangeThresholds:Lcom/android/server/display/config/Thresholds;
+
+.field private displayBrightnessChangeThresholds:Lcom/android/server/display/config/Thresholds;
+
 .field private highBrightnessMode:Lcom/android/server/display/config/HighBrightnessMode;
 
 .field private lightSensor:Lcom/android/server/display/config/SensorDetails;
@@ -65,9 +69,9 @@
 
     const/4 v6, 0x3
 
-    if-eq v3, v5, :cond_b
+    if-eq v3, v5, :cond_d
 
-    if-eq v4, v6, :cond_b
+    if-eq v4, v6, :cond_d
 
     invoke-interface {p0}, Lorg/xmlpull/v1/XmlPullParser;->getEventType()I
 
@@ -174,7 +178,7 @@
 
     invoke-virtual {v0, v5}, Lcom/android/server/display/config/DisplayConfiguration;->setScreenBrightnessRampFastDecrease(Ljava/math/BigDecimal;)V
 
-    goto :goto_1
+    goto/16 :goto_1
 
     :cond_5
     const-string/jumbo v5, "screenBrightnessRampFastIncrease"
@@ -195,7 +199,7 @@
 
     invoke-virtual {v0, v5}, Lcom/android/server/display/config/DisplayConfiguration;->setScreenBrightnessRampFastIncrease(Ljava/math/BigDecimal;)V
 
-    goto :goto_1
+    goto/16 :goto_1
 
     :cond_6
     const-string/jumbo v5, "screenBrightnessRampSlowDecrease"
@@ -274,17 +278,51 @@
     goto :goto_1
 
     :cond_a
+    const-string v5, "displayBrightnessChangeThresholds"
+
+    invoke-virtual {v3, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_b
+
+    invoke-static {p0}, Lcom/android/server/display/config/Thresholds;->read(Lorg/xmlpull/v1/XmlPullParser;)Lcom/android/server/display/config/Thresholds;
+
+    move-result-object v5
+
+    invoke-virtual {v0, v5}, Lcom/android/server/display/config/DisplayConfiguration;->setDisplayBrightnessChangeThresholds(Lcom/android/server/display/config/Thresholds;)V
+
+    goto :goto_1
+
+    :cond_b
+    const-string v5, "ambientBrightnessChangeThresholds"
+
+    invoke-virtual {v3, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_c
+
+    invoke-static {p0}, Lcom/android/server/display/config/Thresholds;->read(Lorg/xmlpull/v1/XmlPullParser;)Lcom/android/server/display/config/Thresholds;
+
+    move-result-object v5
+
+    invoke-virtual {v0, v5}, Lcom/android/server/display/config/DisplayConfiguration;->setAmbientBrightnessChangeThresholds(Lcom/android/server/display/config/Thresholds;)V
+
+    goto :goto_1
+
+    :cond_c
     invoke-static {p0}, Lcom/android/server/display/config/XmlParser;->skip(Lorg/xmlpull/v1/XmlPullParser;)V
 
     :goto_1
     goto/16 :goto_0
 
-    :cond_b
-    if-ne v4, v6, :cond_c
+    :cond_d
+    if-ne v4, v6, :cond_e
 
     return-object v0
 
-    :cond_c
+    :cond_e
     new-instance v3, Ljavax/xml/datatype/DatatypeConfigurationException;
 
     const-string v5, "DisplayConfiguration is not closed"
@@ -296,6 +334,22 @@
 
 
 # virtual methods
+.method public final getAmbientBrightnessChangeThresholds()Lcom/android/server/display/config/Thresholds;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/display/config/DisplayConfiguration;->ambientBrightnessChangeThresholds:Lcom/android/server/display/config/Thresholds;
+
+    return-object v0
+.end method
+
+.method public final getDisplayBrightnessChangeThresholds()Lcom/android/server/display/config/Thresholds;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/display/config/DisplayConfiguration;->displayBrightnessChangeThresholds:Lcom/android/server/display/config/Thresholds;
+
+    return-object v0
+.end method
+
 .method public getHighBrightnessMode()Lcom/android/server/display/config/HighBrightnessMode;
     .locals 1
 
@@ -374,6 +428,40 @@
     iget-object v0, p0, Lcom/android/server/display/config/DisplayConfiguration;->screenBrightnessRampSlowIncrease:Ljava/math/BigDecimal;
 
     return-object v0
+.end method
+
+.method hasAmbientBrightnessChangeThresholds()Z
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/display/config/DisplayConfiguration;->ambientBrightnessChangeThresholds:Lcom/android/server/display/config/Thresholds;
+
+    if-nez v0, :cond_0
+
+    const/4 v0, 0x0
+
+    return v0
+
+    :cond_0
+    const/4 v0, 0x1
+
+    return v0
+.end method
+
+.method hasDisplayBrightnessChangeThresholds()Z
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/display/config/DisplayConfiguration;->displayBrightnessChangeThresholds:Lcom/android/server/display/config/Thresholds;
+
+    if-nez v0, :cond_0
+
+    const/4 v0, 0x0
+
+    return v0
+
+    :cond_0
+    const/4 v0, 0x1
+
+    return v0
 .end method
 
 .method hasHighBrightnessMode()Z
@@ -544,6 +632,22 @@
     const/4 v0, 0x1
 
     return v0
+.end method
+
+.method public final setAmbientBrightnessChangeThresholds(Lcom/android/server/display/config/Thresholds;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/server/display/config/DisplayConfiguration;->ambientBrightnessChangeThresholds:Lcom/android/server/display/config/Thresholds;
+
+    return-void
+.end method
+
+.method public final setDisplayBrightnessChangeThresholds(Lcom/android/server/display/config/Thresholds;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/server/display/config/DisplayConfiguration;->displayBrightnessChangeThresholds:Lcom/android/server/display/config/Thresholds;
+
+    return-void
 .end method
 
 .method public setHighBrightnessMode(Lcom/android/server/display/config/HighBrightnessMode;)V

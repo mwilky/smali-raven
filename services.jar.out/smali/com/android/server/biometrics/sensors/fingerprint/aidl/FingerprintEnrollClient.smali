@@ -36,7 +36,7 @@
 
 
 # direct methods
-.method constructor <init>(Landroid/content/Context;Lcom/android/server/biometrics/sensors/HalClientMonitor$LazyDaemon;Landroid/os/IBinder;Lcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;I[BLjava/lang/String;Lcom/android/server/biometrics/sensors/BiometricUtils;ILandroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;Landroid/hardware/fingerprint/IUdfpsOverlayController;Landroid/hardware/fingerprint/ISidefpsController;II)V
+.method constructor <init>(Landroid/content/Context;Lcom/android/server/biometrics/sensors/HalClientMonitor$LazyDaemon;Landroid/os/IBinder;JLcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;I[BLjava/lang/String;Lcom/android/server/biometrics/sensors/BiometricUtils;ILandroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;Landroid/hardware/fingerprint/IUdfpsOverlayController;Landroid/hardware/fingerprint/ISidefpsController;II)V
     .locals 16
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -46,6 +46,7 @@
             "Landroid/hardware/biometrics/fingerprint/ISession;",
             ">;",
             "Landroid/os/IBinder;",
+            "J",
             "Lcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;",
             "I[B",
             "Ljava/lang/String;",
@@ -61,9 +62,9 @@
 
     move-object/from16 v13, p0
 
-    move/from16 v14, p14
+    move/from16 v14, p16
 
-    invoke-virtual/range {p10 .. p10}, Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;->isAnyUdfpsType()Z
+    invoke-virtual/range {p12 .. p12}, Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;->isAnyUdfpsType()Z
 
     move-result v0
 
@@ -83,45 +84,49 @@
 
     move-object/from16 v3, p3
 
-    move-object/from16 v4, p4
+    move-object/from16 v4, p6
 
-    move/from16 v5, p5
+    move/from16 v5, p7
 
-    move-object/from16 v6, p6
+    move-object/from16 v6, p8
 
-    move-object/from16 v7, p7
+    move-object/from16 v7, p9
 
-    move-object/from16 v8, p8
+    move-object/from16 v8, p10
 
-    move/from16 v11, p9
+    move/from16 v11, p11
 
     invoke-direct/range {v0 .. v12}, Lcom/android/server/biometrics/sensors/EnrollClient;-><init>(Landroid/content/Context;Lcom/android/server/biometrics/sensors/HalClientMonitor$LazyDaemon;Landroid/os/IBinder;Lcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;I[BLjava/lang/String;Lcom/android/server/biometrics/sensors/BiometricUtils;IIIZ)V
 
-    move-object/from16 v0, p10
+    move-wide/from16 v0, p4
 
-    iput-object v0, v13, Lcom/android/server/biometrics/sensors/fingerprint/aidl/FingerprintEnrollClient;->mSensorProps:Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;
+    invoke-virtual {v13, v0, v1}, Lcom/android/server/biometrics/sensors/fingerprint/aidl/FingerprintEnrollClient;->setRequestId(J)V
 
-    new-instance v1, Lcom/android/server/biometrics/sensors/SensorOverlays;
+    move-object/from16 v2, p12
 
-    move-object/from16 v2, p11
+    iput-object v2, v13, Lcom/android/server/biometrics/sensors/fingerprint/aidl/FingerprintEnrollClient;->mSensorProps:Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;
 
-    move-object/from16 v3, p12
+    new-instance v3, Lcom/android/server/biometrics/sensors/SensorOverlays;
 
-    invoke-direct {v1, v2, v3}, Lcom/android/server/biometrics/sensors/SensorOverlays;-><init>(Landroid/hardware/fingerprint/IUdfpsOverlayController;Landroid/hardware/fingerprint/ISidefpsController;)V
+    move-object/from16 v4, p13
 
-    iput-object v1, v13, Lcom/android/server/biometrics/sensors/fingerprint/aidl/FingerprintEnrollClient;->mSensorOverlays:Lcom/android/server/biometrics/sensors/SensorOverlays;
+    move-object/from16 v5, p14
 
-    move/from16 v1, p13
+    invoke-direct {v3, v4, v5}, Lcom/android/server/biometrics/sensors/SensorOverlays;-><init>(Landroid/hardware/fingerprint/IUdfpsOverlayController;Landroid/hardware/fingerprint/ISidefpsController;)V
 
-    iput v1, v13, Lcom/android/server/biometrics/sensors/fingerprint/aidl/FingerprintEnrollClient;->mMaxTemplatesPerUser:I
+    iput-object v3, v13, Lcom/android/server/biometrics/sensors/fingerprint/aidl/FingerprintEnrollClient;->mSensorOverlays:Lcom/android/server/biometrics/sensors/SensorOverlays;
+
+    move/from16 v3, p15
+
+    iput v3, v13, Lcom/android/server/biometrics/sensors/fingerprint/aidl/FingerprintEnrollClient;->mMaxTemplatesPerUser:I
 
     iput v14, v13, Lcom/android/server/biometrics/sensors/fingerprint/aidl/FingerprintEnrollClient;->mEnrollReason:I
 
     if-ne v14, v15, :cond_0
 
-    const/4 v4, 0x0
+    const/4 v6, 0x0
 
-    invoke-virtual {v13, v4}, Lcom/android/server/biometrics/sensors/fingerprint/aidl/FingerprintEnrollClient;->setShouldLog(Z)V
+    invoke-virtual {v13, v6}, Lcom/android/server/biometrics/sensors/fingerprint/aidl/FingerprintEnrollClient;->setShouldLog(Z)V
 
     :cond_0
     return-void

@@ -39,7 +39,7 @@
 
     iget-object v0, p0, Lcom/android/server/display/RampAnimator$DualRampAnimator$1;->this$0:Lcom/android/server/display/RampAnimator$DualRampAnimator;
 
-    invoke-static {v0}, Lcom/android/server/display/RampAnimator$DualRampAnimator;->access$1100(Lcom/android/server/display/RampAnimator$DualRampAnimator;)Lcom/android/server/display/RampAnimator$Listener;
+    invoke-static {v0}, Lcom/android/server/display/RampAnimator$DualRampAnimator;->access$1000(Lcom/android/server/display/RampAnimator$DualRampAnimator;)Lcom/android/server/display/RampAnimator$Listener;
 
     move-result-object v0
 
@@ -55,7 +55,7 @@
 
     iget-object v0, p0, Lcom/android/server/display/RampAnimator$DualRampAnimator$1;->this$0:Lcom/android/server/display/RampAnimator$DualRampAnimator;
 
-    invoke-static {v0}, Lcom/android/server/display/RampAnimator$DualRampAnimator;->access$1100(Lcom/android/server/display/RampAnimator$DualRampAnimator;)Lcom/android/server/display/RampAnimator$Listener;
+    invoke-static {v0}, Lcom/android/server/display/RampAnimator$DualRampAnimator;->access$1000(Lcom/android/server/display/RampAnimator$DualRampAnimator;)Lcom/android/server/display/RampAnimator$Listener;
 
     move-result-object v0
 

@@ -45,7 +45,7 @@
 
     iget-wide v3, p0, Lcom/android/server/biometrics/sensors/fingerprint/aidl/FingerprintProvider$$ExternalSyntheticLambda9;->f$3:J
 
-    invoke-virtual {v0, v1, v2, v3, v4}, Lcom/android/server/biometrics/sensors/fingerprint/aidl/FingerprintProvider;->lambda$cancelAuthentication$10$FingerprintProvider(ILandroid/os/IBinder;J)V
+    invoke-virtual {v0, v1, v2, v3, v4}, Lcom/android/server/biometrics/sensors/fingerprint/aidl/FingerprintProvider;->lambda$cancelEnrollment$6$FingerprintProvider(ILandroid/os/IBinder;J)V
 
     return-void
 .end method

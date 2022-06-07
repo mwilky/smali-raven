@@ -2108,13 +2108,13 @@
     return v2
 
     :cond_12
-    if-eqz v8, :cond_15
+    if-eqz v8, :cond_16
 
     invoke-virtual {p1}, Lcom/android/server/wm/WindowState;->isOnScreen()Z
 
     move-result v10
 
-    if-eqz v10, :cond_15
+    if-eqz v10, :cond_16
 
     iget-object v10, p0, Lcom/android/server/wm/WallpaperController;->mWallpaperTarget:Lcom/android/server/wm/WindowState;
 
@@ -2124,31 +2124,38 @@
 
     move-result v10
 
-    if-eqz v10, :cond_15
+    if-eqz v10, :cond_16
 
     :cond_13
-    iget-object v1, p0, Lcom/android/server/wm/WallpaperController;->mFindResults:Lcom/android/server/wm/WallpaperController$FindWallpaperTargetResult;
+    iget-object v10, p0, Lcom/android/server/wm/WallpaperController;->mFindResults:Lcom/android/server/wm/WallpaperController$FindWallpaperTargetResult;
 
-    invoke-virtual {v1, p1}, Lcom/android/server/wm/WallpaperController$FindWallpaperTargetResult;->setWallpaperTarget(Lcom/android/server/wm/WindowState;)V
+    invoke-virtual {v10, p1}, Lcom/android/server/wm/WallpaperController$FindWallpaperTargetResult;->setWallpaperTarget(Lcom/android/server/wm/WindowState;)V
 
-    iget-object v1, p0, Lcom/android/server/wm/WallpaperController;->mWallpaperTarget:Lcom/android/server/wm/WindowState;
+    iget-object v10, p0, Lcom/android/server/wm/WallpaperController;->mWallpaperTarget:Lcom/android/server/wm/WindowState;
 
-    if-ne p1, v1, :cond_14
+    if-ne p1, v10, :cond_14
 
     invoke-virtual {p1, v3}, Lcom/android/server/wm/WindowState;->isAnimating(I)Z
 
     :cond_14
-    iget-object v1, p0, Lcom/android/server/wm/WallpaperController;->mFindResults:Lcom/android/server/wm/WallpaperController$FindWallpaperTargetResult;
+    iget-object v3, p0, Lcom/android/server/wm/WallpaperController;->mFindResults:Lcom/android/server/wm/WallpaperController$FindWallpaperTargetResult;
 
     invoke-virtual {p1}, Lcom/android/server/wm/WindowState;->hasWallpaperForLetterboxBackground()Z
 
-    move-result v3
+    move-result v10
 
-    invoke-virtual {v1, v3}, Lcom/android/server/wm/WallpaperController$FindWallpaperTargetResult;->setIsWallpaperTargetForLetterbox(Z)V
+    invoke-virtual {v3, v10}, Lcom/android/server/wm/WallpaperController$FindWallpaperTargetResult;->setIsWallpaperTargetForLetterbox(Z)V
 
-    return v2
+    iget-object v3, p1, Lcom/android/server/wm/WindowState;->mActivityRecord:Lcom/android/server/wm/ActivityRecord;
+
+    if-eqz v3, :cond_15
+
+    move v1, v2
 
     :cond_15
+    return v1
+
+    :cond_16
     return v1
 .end method
 

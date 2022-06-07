@@ -34,11 +34,15 @@
 
 .field private final mRemoteBugreportFinishedReceiver:Landroid/content/BroadcastReceiver;
 
+.field private final mRemoteBugreportNonce:Ljava/util/concurrent/atomic/AtomicLong;
+
 .field private final mRemoteBugreportServiceIsActive:Ljava/util/concurrent/atomic/AtomicBoolean;
 
 .field private final mRemoteBugreportSharingAccepted:Ljava/util/concurrent/atomic/AtomicBoolean;
 
 .field private final mRemoteBugreportTimeoutRunnable:Ljava/lang/Runnable;
+
+.field private final mRng:Ljava/security/SecureRandom;
 
 .field private final mService:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
 
@@ -48,6 +52,18 @@
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    new-instance v0, Ljava/security/SecureRandom;
+
+    invoke-direct {v0}, Ljava/security/SecureRandom;-><init>()V
+
+    iput-object v0, p0, Lcom/android/server/devicepolicy/RemoteBugreportManager;->mRng:Ljava/security/SecureRandom;
+
+    new-instance v0, Ljava/util/concurrent/atomic/AtomicLong;
+
+    invoke-direct {v0}, Ljava/util/concurrent/atomic/AtomicLong;-><init>()V
+
+    iput-object v0, p0, Lcom/android/server/devicepolicy/RemoteBugreportManager;->mRemoteBugreportNonce:Ljava/util/concurrent/atomic/AtomicLong;
 
     new-instance v0, Ljava/util/concurrent/atomic/AtomicBoolean;
 
@@ -495,90 +511,135 @@
 .end method
 
 .method private onBugreportFinished(Landroid/content/Intent;)V
-    .locals 8
+    .locals 10
 
+    const-string v0, "android.intent.extra.REMOTE_BUGREPORT_NONCE"
+
+    const-wide/16 v1, 0x0
+
+    invoke-virtual {p1, v0, v1, v2}, Landroid/content/Intent;->getLongExtra(Ljava/lang/String;J)J
+
+    move-result-wide v3
+
+    cmp-long v0, v3, v1
+
+    const-string v1, "DevicePolicyManager"
+
+    if-eqz v0, :cond_3
+
+    iget-object v0, p0, Lcom/android/server/devicepolicy/RemoteBugreportManager;->mRemoteBugreportNonce:Ljava/util/concurrent/atomic/AtomicLong;
+
+    invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicLong;->get()J
+
+    move-result-wide v5
+
+    cmp-long v0, v5, v3
+
+    if-eqz v0, :cond_0
+
+    goto :goto_1
+
+    :cond_0
     iget-object v0, p0, Lcom/android/server/devicepolicy/RemoteBugreportManager;->mHandler:Landroid/os/Handler;
 
-    iget-object v1, p0, Lcom/android/server/devicepolicy/RemoteBugreportManager;->mRemoteBugreportTimeoutRunnable:Ljava/lang/Runnable;
+    iget-object v2, p0, Lcom/android/server/devicepolicy/RemoteBugreportManager;->mRemoteBugreportTimeoutRunnable:Ljava/lang/Runnable;
 
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
+    invoke-virtual {v0, v2}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
     iget-object v0, p0, Lcom/android/server/devicepolicy/RemoteBugreportManager;->mRemoteBugreportServiceIsActive:Ljava/util/concurrent/atomic/AtomicBoolean;
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    invoke-virtual {v0, v1}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
+    invoke-virtual {v0, v2}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
 
     invoke-virtual {p1}, Landroid/content/Intent;->getData()Landroid/net/Uri;
 
     move-result-object v0
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     invoke-virtual {v0}, Landroid/net/Uri;->toString()Ljava/lang/String;
 
-    move-result-object v1
-
-    :cond_0
-    const-string v2, "android.intent.extra.REMOTE_BUGREPORT_HASH"
-
-    invoke-virtual {p1, v2}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
-
     move-result-object v2
 
-    iget-object v3, p0, Lcom/android/server/devicepolicy/RemoteBugreportManager;->mRemoteBugreportSharingAccepted:Ljava/util/concurrent/atomic/AtomicBoolean;
-
-    invoke-virtual {v3}, Ljava/util/concurrent/atomic/AtomicBoolean;->get()Z
-
-    move-result v3
-
-    const v4, 0x28700e57
-
-    const-string v5, "DevicePolicyManager"
-
-    if-eqz v3, :cond_1
-
-    invoke-direct {p0, v1, v2}, Lcom/android/server/devicepolicy/RemoteBugreportManager;->shareBugreportWithDeviceOwnerIfExists(Ljava/lang/String;Ljava/lang/String;)V
-
-    iget-object v3, p0, Lcom/android/server/devicepolicy/RemoteBugreportManager;->mInjector:Lcom/android/server/devicepolicy/DevicePolicyManagerService$Injector;
-
-    invoke-virtual {v3}, Lcom/android/server/devicepolicy/DevicePolicyManagerService$Injector;->getNotificationManager()Landroid/app/NotificationManager;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v5, v4}, Landroid/app/NotificationManager;->cancel(Ljava/lang/String;I)V
-
-    goto :goto_0
-
     :cond_1
-    iget-object v3, p0, Lcom/android/server/devicepolicy/RemoteBugreportManager;->mService:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
+    const-string v5, "android.intent.extra.REMOTE_BUGREPORT_HASH"
 
-    invoke-virtual {v3, v1, v2}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->setDeviceOwnerRemoteBugreportUriAndHash(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p1, v5}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
-    iget-object v3, p0, Lcom/android/server/devicepolicy/RemoteBugreportManager;->mInjector:Lcom/android/server/devicepolicy/DevicePolicyManagerService$Injector;
+    move-result-object v5
 
-    invoke-virtual {v3}, Lcom/android/server/devicepolicy/DevicePolicyManagerService$Injector;->getNotificationManager()Landroid/app/NotificationManager;
+    iget-object v6, p0, Lcom/android/server/devicepolicy/RemoteBugreportManager;->mRemoteBugreportSharingAccepted:Ljava/util/concurrent/atomic/AtomicBoolean;
 
-    move-result-object v3
+    invoke-virtual {v6}, Ljava/util/concurrent/atomic/AtomicBoolean;->get()Z
 
-    const/4 v6, 0x3
+    move-result v6
 
-    invoke-direct {p0, v6}, Lcom/android/server/devicepolicy/RemoteBugreportManager;->buildNotification(I)Landroid/app/Notification;
+    const v7, 0x28700e57
+
+    if-eqz v6, :cond_2
+
+    invoke-direct {p0, v2, v5}, Lcom/android/server/devicepolicy/RemoteBugreportManager;->shareBugreportWithDeviceOwnerIfExists(Ljava/lang/String;Ljava/lang/String;)V
+
+    iget-object v6, p0, Lcom/android/server/devicepolicy/RemoteBugreportManager;->mInjector:Lcom/android/server/devicepolicy/DevicePolicyManagerService$Injector;
+
+    invoke-virtual {v6}, Lcom/android/server/devicepolicy/DevicePolicyManagerService$Injector;->getNotificationManager()Landroid/app/NotificationManager;
 
     move-result-object v6
 
-    sget-object v7, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
+    invoke-virtual {v6, v1, v7}, Landroid/app/NotificationManager;->cancel(Ljava/lang/String;I)V
 
-    invoke-virtual {v3, v5, v4, v6, v7}, Landroid/app/NotificationManager;->notifyAsUser(Ljava/lang/String;ILandroid/app/Notification;Landroid/os/UserHandle;)V
+    goto :goto_0
+
+    :cond_2
+    iget-object v6, p0, Lcom/android/server/devicepolicy/RemoteBugreportManager;->mService:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
+
+    invoke-virtual {v6, v2, v5}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->setDeviceOwnerRemoteBugreportUriAndHash(Ljava/lang/String;Ljava/lang/String;)V
+
+    iget-object v6, p0, Lcom/android/server/devicepolicy/RemoteBugreportManager;->mInjector:Lcom/android/server/devicepolicy/DevicePolicyManagerService$Injector;
+
+    invoke-virtual {v6}, Lcom/android/server/devicepolicy/DevicePolicyManagerService$Injector;->getNotificationManager()Landroid/app/NotificationManager;
+
+    move-result-object v6
+
+    const/4 v8, 0x3
+
+    invoke-direct {p0, v8}, Lcom/android/server/devicepolicy/RemoteBugreportManager;->buildNotification(I)Landroid/app/Notification;
+
+    move-result-object v8
+
+    sget-object v9, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
+
+    invoke-virtual {v6, v1, v7, v8, v9}, Landroid/app/NotificationManager;->notifyAsUser(Ljava/lang/String;ILandroid/app/Notification;Landroid/os/UserHandle;)V
 
     :goto_0
-    iget-object v3, p0, Lcom/android/server/devicepolicy/RemoteBugreportManager;->mContext:Landroid/content/Context;
+    iget-object v1, p0, Lcom/android/server/devicepolicy/RemoteBugreportManager;->mContext:Landroid/content/Context;
 
-    iget-object v4, p0, Lcom/android/server/devicepolicy/RemoteBugreportManager;->mRemoteBugreportFinishedReceiver:Landroid/content/BroadcastReceiver;
+    iget-object v6, p0, Lcom/android/server/devicepolicy/RemoteBugreportManager;->mRemoteBugreportFinishedReceiver:Landroid/content/BroadcastReceiver;
 
-    invoke-virtual {v3, v4}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
+    invoke-virtual {v1, v6}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
+
+    return-void
+
+    :cond_3
+    :goto_1
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "Invalid nonce provided, ignoring "
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, v3, v4}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v1, v0}, Lcom/android/server/utils/Slogf;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 .end method
@@ -931,7 +992,7 @@
 .end method
 
 .method public requestBugreport()Z
-    .locals 9
+    .locals 11
 
     iget-object v0, p0, Lcom/android/server/devicepolicy/RemoteBugreportManager;->mRemoteBugreportServiceIsActive:Ljava/util/concurrent/atomic/AtomicBoolean;
 
@@ -943,7 +1004,7 @@
 
     const-string v2, "DevicePolicyManager"
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2
 
     iget-object v0, p0, Lcom/android/server/devicepolicy/RemoteBugreportManager;->mService:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
 
@@ -962,20 +1023,37 @@
 
     move-result-wide v3
 
+    :cond_1
     :try_start_0
+    iget-object v0, p0, Lcom/android/server/devicepolicy/RemoteBugreportManager;->mRng:Ljava/security/SecureRandom;
+
+    invoke-virtual {v0}, Ljava/security/SecureRandom;->nextLong()J
+
+    move-result-wide v5
+
+    const-wide/16 v7, 0x0
+
+    cmp-long v0, v5, v7
+
+    if-eqz v0, :cond_1
+
     iget-object v0, p0, Lcom/android/server/devicepolicy/RemoteBugreportManager;->mInjector:Lcom/android/server/devicepolicy/DevicePolicyManagerService$Injector;
 
     invoke-virtual {v0}, Lcom/android/server/devicepolicy/DevicePolicyManagerService$Injector;->getIActivityManager()Landroid/app/IActivityManager;
 
     move-result-object v0
 
-    invoke-interface {v0}, Landroid/app/IActivityManager;->requestRemoteBugReport()V
+    invoke-interface {v0, v5, v6}, Landroid/app/IActivityManager;->requestRemoteBugReport(J)V
+
+    iget-object v0, p0, Lcom/android/server/devicepolicy/RemoteBugreportManager;->mRemoteBugreportNonce:Ljava/util/concurrent/atomic/AtomicLong;
+
+    invoke-virtual {v0, v5, v6}, Ljava/util/concurrent/atomic/AtomicLong;->set(J)V
 
     iget-object v0, p0, Lcom/android/server/devicepolicy/RemoteBugreportManager;->mRemoteBugreportServiceIsActive:Ljava/util/concurrent/atomic/AtomicBoolean;
 
-    const/4 v5, 0x1
+    const/4 v7, 0x1
 
-    invoke-virtual {v0, v5}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
+    invoke-virtual {v0, v7}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
 
     iget-object v0, p0, Lcom/android/server/devicepolicy/RemoteBugreportManager;->mRemoteBugreportSharingAccepted:Ljava/util/concurrent/atomic/AtomicBoolean;
 
@@ -989,23 +1067,23 @@
 
     move-result-object v0
 
-    const v6, 0x28700e57
+    const v8, 0x28700e57
 
-    invoke-direct {p0, v5}, Lcom/android/server/devicepolicy/RemoteBugreportManager;->buildNotification(I)Landroid/app/Notification;
+    invoke-direct {p0, v7}, Lcom/android/server/devicepolicy/RemoteBugreportManager;->buildNotification(I)Landroid/app/Notification;
 
-    move-result-object v7
+    move-result-object v9
 
-    sget-object v8, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
+    sget-object v10, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
 
-    invoke-virtual {v0, v2, v6, v7, v8}, Landroid/app/NotificationManager;->notifyAsUser(Ljava/lang/String;ILandroid/app/Notification;Landroid/os/UserHandle;)V
+    invoke-virtual {v0, v2, v8, v9, v10}, Landroid/app/NotificationManager;->notifyAsUser(Ljava/lang/String;ILandroid/app/Notification;Landroid/os/UserHandle;)V
 
     iget-object v0, p0, Lcom/android/server/devicepolicy/RemoteBugreportManager;->mHandler:Landroid/os/Handler;
 
-    iget-object v6, p0, Lcom/android/server/devicepolicy/RemoteBugreportManager;->mRemoteBugreportTimeoutRunnable:Ljava/lang/Runnable;
+    iget-object v8, p0, Lcom/android/server/devicepolicy/RemoteBugreportManager;->mRemoteBugreportTimeoutRunnable:Ljava/lang/Runnable;
 
-    const-wide/32 v7, 0x927c0
+    const-wide/32 v9, 0x927c0
 
-    invoke-virtual {v0, v6, v7, v8}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+    invoke-virtual {v0, v8, v9, v10}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -1016,7 +1094,7 @@
 
     invoke-virtual {v0, v3, v4}, Lcom/android/server/devicepolicy/DevicePolicyManagerService$Injector;->binderRestoreCallingIdentity(J)V
 
-    return v5
+    return v7
 
     :catchall_0
     move-exception v0
@@ -1048,7 +1126,7 @@
 
     throw v0
 
-    :cond_1
+    :cond_2
     :goto_1
     const-string v0, "Remote bugreport wasn\'t started because there\'s already one running"
 

@@ -27,7 +27,7 @@
 
     iget-object v0, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda11;->f$0:Lcom/android/server/voiceinteraction/HotwordDetectionConnection;
 
-    invoke-virtual {v0}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->lambda$enforcePermissionsForDataDelivery$14$HotwordDetectionConnection()V
+    invoke-virtual {v0}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->lambda$enforcePermissionsForDataDelivery$15$HotwordDetectionConnection()V
 
     return-void
 .end method

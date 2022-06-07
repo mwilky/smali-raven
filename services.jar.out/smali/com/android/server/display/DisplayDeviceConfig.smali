@@ -43,6 +43,10 @@
 # instance fields
 .field private final mAmbientLightSensor:Lcom/android/server/display/DisplayDeviceConfig$SensorData;
 
+.field private mAmbientLuxBrighteningMinThreshold:F
+
+.field private mAmbientLuxDarkeningMinThreshold:F
+
 .field private mBacklight:[F
 
 .field private mBacklightMaximum:F
@@ -103,6 +107,10 @@
     .end annotation
 .end field
 
+.field private mScreenBrighteningMinThreshold:F
+
+.field private mScreenDarkeningMinThreshold:F
+
 
 # direct methods
 .method private constructor <init>(Landroid/content/Context;)V
@@ -145,6 +153,16 @@
     iput v0, p0, Lcom/android/server/display/DisplayDeviceConfig;->mBrightnessRampSlowDecrease:F
 
     iput v0, p0, Lcom/android/server/display/DisplayDeviceConfig;->mBrightnessRampSlowIncrease:F
+
+    const/4 v0, 0x0
+
+    iput v0, p0, Lcom/android/server/display/DisplayDeviceConfig;->mScreenBrighteningMinThreshold:F
+
+    iput v0, p0, Lcom/android/server/display/DisplayDeviceConfig;->mScreenDarkeningMinThreshold:F
+
+    iput v0, p0, Lcom/android/server/display/DisplayDeviceConfig;->mAmbientLuxBrighteningMinThreshold:F
+
+    iput v0, p0, Lcom/android/server/display/DisplayDeviceConfig;->mAmbientLuxDarkeningMinThreshold:F
 
     const/4 v0, 0x0
 
@@ -836,6 +854,8 @@
 
     invoke-direct {p0, v1}, Lcom/android/server/display/DisplayDeviceConfig;->loadProxSensorFromDdc(Lcom/android/server/display/config/DisplayConfiguration;)V
 
+    invoke-direct {p0, v1}, Lcom/android/server/display/DisplayDeviceConfig;->loadBrightnessChangeThresholds(Lcom/android/server/display/config/DisplayConfiguration;)V
+
     goto :goto_0
 
     :cond_2
@@ -1021,6 +1041,100 @@
     invoke-direct {p0}, Lcom/android/server/display/DisplayDeviceConfig;->loadAmbientLightSensorFromConfigXml()V
 
     :goto_0
+    return-void
+.end method
+
+.method private loadBrightnessChangeThresholds(Lcom/android/server/display/config/DisplayConfiguration;)V
+    .locals 7
+
+    invoke-virtual {p1}, Lcom/android/server/display/config/DisplayConfiguration;->getDisplayBrightnessChangeThresholds()Lcom/android/server/display/config/Thresholds;
+
+    move-result-object v0
+
+    invoke-virtual {p1}, Lcom/android/server/display/config/DisplayConfiguration;->getAmbientBrightnessChangeThresholds()Lcom/android/server/display/config/Thresholds;
+
+    move-result-object v1
+
+    if-eqz v0, :cond_1
+
+    nop
+
+    invoke-virtual {v0}, Lcom/android/server/display/config/Thresholds;->getBrighteningThresholds()Lcom/android/server/display/config/BrightnessThresholds;
+
+    move-result-object v2
+
+    nop
+
+    invoke-virtual {v0}, Lcom/android/server/display/config/Thresholds;->getDarkeningThresholds()Lcom/android/server/display/config/BrightnessThresholds;
+
+    move-result-object v3
+
+    invoke-virtual {v2}, Lcom/android/server/display/config/BrightnessThresholds;->getMinimum()Ljava/math/BigDecimal;
+
+    move-result-object v4
+
+    invoke-virtual {v3}, Lcom/android/server/display/config/BrightnessThresholds;->getMinimum()Ljava/math/BigDecimal;
+
+    move-result-object v5
+
+    if-eqz v4, :cond_0
+
+    invoke-virtual {v4}, Ljava/math/BigDecimal;->floatValue()F
+
+    move-result v6
+
+    iput v6, p0, Lcom/android/server/display/DisplayDeviceConfig;->mScreenBrighteningMinThreshold:F
+
+    :cond_0
+    if-eqz v5, :cond_1
+
+    invoke-virtual {v5}, Ljava/math/BigDecimal;->floatValue()F
+
+    move-result v6
+
+    iput v6, p0, Lcom/android/server/display/DisplayDeviceConfig;->mScreenDarkeningMinThreshold:F
+
+    :cond_1
+    if-eqz v1, :cond_3
+
+    nop
+
+    invoke-virtual {v1}, Lcom/android/server/display/config/Thresholds;->getBrighteningThresholds()Lcom/android/server/display/config/BrightnessThresholds;
+
+    move-result-object v2
+
+    nop
+
+    invoke-virtual {v1}, Lcom/android/server/display/config/Thresholds;->getDarkeningThresholds()Lcom/android/server/display/config/BrightnessThresholds;
+
+    move-result-object v3
+
+    invoke-virtual {v2}, Lcom/android/server/display/config/BrightnessThresholds;->getMinimum()Ljava/math/BigDecimal;
+
+    move-result-object v4
+
+    invoke-virtual {v3}, Lcom/android/server/display/config/BrightnessThresholds;->getMinimum()Ljava/math/BigDecimal;
+
+    move-result-object v5
+
+    if-eqz v4, :cond_2
+
+    invoke-virtual {v4}, Ljava/math/BigDecimal;->floatValue()F
+
+    move-result v6
+
+    iput v6, p0, Lcom/android/server/display/DisplayDeviceConfig;->mAmbientLuxBrighteningMinThreshold:F
+
+    :cond_2
+    if-eqz v5, :cond_3
+
+    invoke-virtual {v5}, Ljava/math/BigDecimal;->floatValue()F
+
+    move-result v6
+
+    iput v6, p0, Lcom/android/server/display/DisplayDeviceConfig;->mAmbientLuxDarkeningMinThreshold:F
+
+    :cond_3
     return-void
 .end method
 
@@ -1972,6 +2086,22 @@
     return-object v0
 .end method
 
+.method public getAmbientLuxBrighteningMinThreshold()F
+    .locals 1
+
+    iget v0, p0, Lcom/android/server/display/DisplayDeviceConfig;->mAmbientLuxBrighteningMinThreshold:F
+
+    return v0
+.end method
+
+.method public getAmbientLuxDarkeningMinThreshold()F
+    .locals 1
+
+    iget v0, p0, Lcom/android/server/display/DisplayDeviceConfig;->mAmbientLuxDarkeningMinThreshold:F
+
+    return v0
+.end method
+
 .method public getBacklight()[F
     .locals 1
 
@@ -2134,6 +2264,22 @@
     iget-object v0, p0, Lcom/android/server/display/DisplayDeviceConfig;->mRefreshRateLimitations:Ljava/util/List;
 
     return-object v0
+.end method
+
+.method public getScreenBrighteningMinThreshold()F
+    .locals 1
+
+    iget v0, p0, Lcom/android/server/display/DisplayDeviceConfig;->mScreenBrighteningMinThreshold:F
+
+    return v0
+.end method
+
+.method public getScreenDarkeningMinThreshold()F
+    .locals 1
+
+    iget v0, p0, Lcom/android/server/display/DisplayDeviceConfig;->mScreenDarkeningMinThreshold:F
+
+    return v0
 .end method
 
 .method public hasQuirk(Ljava/lang/String;)Z
@@ -2328,6 +2474,38 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     iget v1, p0, Lcom/android/server/display/DisplayDeviceConfig;->mBrightnessRampSlowIncrease:F
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+
+    const-string v1, ", mScreenDarkeningMinThreshold="
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget v1, p0, Lcom/android/server/display/DisplayDeviceConfig;->mScreenDarkeningMinThreshold:F
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+
+    const-string v1, ", mScreenBrighteningMinThreshold="
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget v1, p0, Lcom/android/server/display/DisplayDeviceConfig;->mScreenBrighteningMinThreshold:F
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+
+    const-string v1, ", mAmbientLuxDarkeningMinThreshold="
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget v1, p0, Lcom/android/server/display/DisplayDeviceConfig;->mAmbientLuxDarkeningMinThreshold:F
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+
+    const-string v1, ", mAmbientLuxBrighteningMinThreshold="
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget v1, p0, Lcom/android/server/display/DisplayDeviceConfig;->mAmbientLuxBrighteningMinThreshold:F
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 

@@ -33,7 +33,7 @@
 
     iget-object v1, p0, Lcom/android/server/wm/DisplayPolicy$$ExternalSyntheticLambda15;->f$1:Ljava/util/function/Consumer;
 
-    invoke-virtual {v0, v1}, Lcom/android/server/wm/DisplayPolicy;->lambda$callStatusBarSafely$20$DisplayPolicy(Ljava/util/function/Consumer;)V
+    invoke-virtual {v0, v1}, Lcom/android/server/wm/DisplayPolicy;->lambda$callStatusBarSafely$22$DisplayPolicy(Ljava/util/function/Consumer;)V
 
     return-void
 .end method

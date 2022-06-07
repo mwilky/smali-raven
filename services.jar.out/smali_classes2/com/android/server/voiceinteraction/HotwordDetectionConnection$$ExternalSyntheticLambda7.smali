@@ -6,16 +6,16 @@
 
 
 # instance fields
-.field public final synthetic f$0:Landroid/view/contentcapture/IContentCaptureManager;
+.field public final synthetic f$0:Lcom/android/server/voiceinteraction/HotwordDetectionConnection;
 
 
 # direct methods
-.method public synthetic constructor <init>(Landroid/view/contentcapture/IContentCaptureManager;)V
+.method public synthetic constructor <init>(Lcom/android/server/voiceinteraction/HotwordDetectionConnection;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda7;->f$0:Landroid/view/contentcapture/IContentCaptureManager;
+    iput-object p1, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda7;->f$0:Lcom/android/server/voiceinteraction/HotwordDetectionConnection;
 
     return-void
 .end method
@@ -25,11 +25,11 @@
 .method public final runNoResult(Ljava/lang/Object;)V
     .locals 1
 
-    iget-object v0, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda7;->f$0:Landroid/view/contentcapture/IContentCaptureManager;
+    iget-object v0, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda7;->f$0:Lcom/android/server/voiceinteraction/HotwordDetectionConnection;
 
     check-cast p1, Landroid/service/voice/IHotwordDetectionService;
 
-    invoke-static {v0, p1}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->lambda$updateContentCaptureManager$11(Landroid/view/contentcapture/IContentCaptureManager;Landroid/service/voice/IHotwordDetectionService;)V
+    invoke-virtual {v0, p1}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->lambda$updateServiceIdentity$13$HotwordDetectionConnection(Landroid/service/voice/IHotwordDetectionService;)V
 
     return-void
 .end method

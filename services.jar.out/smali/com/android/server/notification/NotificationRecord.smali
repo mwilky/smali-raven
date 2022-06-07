@@ -124,6 +124,16 @@
     .end annotation
 .end field
 
+.field private mPhoneNumbers:Landroid/util/ArraySet;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroid/util/ArraySet<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private mPkgAllowedAsConvo:Z
 
 .field private mPostSilently:Z
@@ -4857,6 +4867,22 @@
     return-object v0
 .end method
 
+.method public getPhoneNumbers()Landroid/util/ArraySet;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Landroid/util/ArraySet<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+
+    iget-object v0, p0, Lcom/android/server/notification/NotificationRecord;->mPhoneNumbers:Landroid/util/ArraySet;
+
+    return-object v0
+.end method
+
 .method public getRankingScore()F
     .locals 1
 
@@ -5505,6 +5531,50 @@
 
     invoke-direct {p0, p1, v0}, Lcom/android/server/notification/NotificationRecord;->visitGrantableUri(Landroid/net/Uri;Z)V
 
+    return-void
+.end method
+
+.method public mergePhoneNumbers(Landroid/util/ArraySet;)V
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/util/ArraySet<",
+            "Ljava/lang/String;",
+            ">;)V"
+        }
+    .end annotation
+
+    if-eqz p1, :cond_2
+
+    invoke-virtual {p1}, Landroid/util/ArraySet;->size()I
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/server/notification/NotificationRecord;->mPhoneNumbers:Landroid/util/ArraySet;
+
+    if-nez v0, :cond_1
+
+    new-instance v0, Landroid/util/ArraySet;
+
+    invoke-direct {v0}, Landroid/util/ArraySet;-><init>()V
+
+    iput-object v0, p0, Lcom/android/server/notification/NotificationRecord;->mPhoneNumbers:Landroid/util/ArraySet;
+
+    :cond_1
+    iget-object v0, p0, Lcom/android/server/notification/NotificationRecord;->mPhoneNumbers:Landroid/util/ArraySet;
+
+    invoke-virtual {v0, p1}, Landroid/util/ArraySet;->addAll(Landroid/util/ArraySet;)V
+
+    return-void
+
+    :cond_2
+    :goto_0
     return-void
 .end method
 

@@ -207,6 +207,8 @@
 
     if-eqz v0, :cond_0
 
+    if-eqz p1, :cond_0
+
     invoke-virtual {v0, p1}, Lcom/android/server/wm/TaskDisplayArea;->setBackgroundColor(I)V
 
     new-instance v1, Ljava/util/concurrent/atomic/AtomicInteger;

@@ -364,6 +364,14 @@
     return-object v0
 .end method
 
+.method static synthetic access$2000(Lcom/android/server/VcnManagementService;Ljava/lang/String;Ljava/lang/Throwable;)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/server/VcnManagementService;->logDbg(Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    return-void
+.end method
+
 .method static synthetic access$300()Ljava/lang/String;
     .locals 1
 
@@ -812,38 +820,6 @@
     return-void
 .end method
 
-.method static synthetic lambda$notifyAllPermissionedStatusCallbacksLocked$3(Lcom/android/server/VcnManagementService$VcnStatusCallbackInfo;I)V
-    .locals 1
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/lang/Exception;
-        }
-    .end annotation
-
-    iget-object v0, p0, Lcom/android/server/VcnManagementService$VcnStatusCallbackInfo;->mCallback:Landroid/net/vcn/IVcnStatusCallback;
-
-    invoke-interface {v0, p1}, Landroid/net/vcn/IVcnStatusCallback;->onVcnStatusChanged(I)V
-
-    return-void
-.end method
-
-.method static synthetic lambda$notifyAllPolicyListenersLocked$2(Lcom/android/server/VcnManagementService$PolicyListenerBinderDeath;)V
-    .locals 1
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/lang/Exception;
-        }
-    .end annotation
-
-    invoke-static {p0}, Lcom/android/server/VcnManagementService$PolicyListenerBinderDeath;->access$2100(Lcom/android/server/VcnManagementService$PolicyListenerBinderDeath;)Landroid/net/vcn/IVcnUnderlyingNetworkPolicyListener;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Landroid/net/vcn/IVcnUnderlyingNetworkPolicyListener;->onPolicyChanged()V
-
-    return-void
-.end method
-
 .method private logDbg(Ljava/lang/String;)V
     .locals 1
 
@@ -1026,9 +1002,9 @@
 
     if-eqz v2, :cond_0
 
-    new-instance v2, Lcom/android/server/VcnManagementService$$ExternalSyntheticLambda1;
+    new-instance v2, Lcom/android/server/VcnManagementService$$ExternalSyntheticLambda5;
 
-    invoke-direct {v2, v1, p2}, Lcom/android/server/VcnManagementService$$ExternalSyntheticLambda1;-><init>(Lcom/android/server/VcnManagementService$VcnStatusCallbackInfo;I)V
+    invoke-direct {v2, p0, v1, p2}, Lcom/android/server/VcnManagementService$$ExternalSyntheticLambda5;-><init>(Lcom/android/server/VcnManagementService;Lcom/android/server/VcnManagementService$VcnStatusCallbackInfo;I)V
 
     invoke-static {v2}, Landroid/os/Binder;->withCleanCallingIdentity(Lcom/android/internal/util/FunctionalUtils$ThrowingRunnable;)V
 
@@ -1065,9 +1041,9 @@
 
     check-cast v1, Lcom/android/server/VcnManagementService$PolicyListenerBinderDeath;
 
-    new-instance v2, Lcom/android/server/VcnManagementService$$ExternalSyntheticLambda0;
+    new-instance v2, Lcom/android/server/VcnManagementService$$ExternalSyntheticLambda4;
 
-    invoke-direct {v2, v1}, Lcom/android/server/VcnManagementService$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/VcnManagementService$PolicyListenerBinderDeath;)V
+    invoke-direct {v2, p0, v1}, Lcom/android/server/VcnManagementService$$ExternalSyntheticLambda4;-><init>(Lcom/android/server/VcnManagementService;Lcom/android/server/VcnManagementService$PolicyListenerBinderDeath;)V
 
     invoke-static {v2}, Landroid/os/Binder;->withCleanCallingIdentity(Lcom/android/internal/util/FunctionalUtils$ThrowingRunnable;)V
 
@@ -1326,9 +1302,9 @@
 
     invoke-static {v0, v1}, Lcom/android/net/module/util/PermissionUtils;->enforceAnyPermissionOf(Landroid/content/Context;[Ljava/lang/String;)V
 
-    new-instance v0, Lcom/android/server/VcnManagementService$$ExternalSyntheticLambda2;
+    new-instance v0, Lcom/android/server/VcnManagementService$$ExternalSyntheticLambda0;
 
-    invoke-direct {v0, p0, p1}, Lcom/android/server/VcnManagementService$$ExternalSyntheticLambda2;-><init>(Lcom/android/server/VcnManagementService;Landroid/net/vcn/IVcnUnderlyingNetworkPolicyListener;)V
+    invoke-direct {v0, p0, p1}, Lcom/android/server/VcnManagementService$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/VcnManagementService;Landroid/net/vcn/IVcnUnderlyingNetworkPolicyListener;)V
 
     invoke-static {v0}, Landroid/os/Binder;->withCleanCallingIdentity(Lcom/android/internal/util/FunctionalUtils$ThrowingRunnable;)V
 
@@ -1382,9 +1358,9 @@
 
     invoke-direct {p0, p1, p2}, Lcom/android/server/VcnManagementService;->enforceCallingUserAndCarrierPrivilege(Landroid/os/ParcelUuid;Ljava/lang/String;)V
 
-    new-instance v0, Lcom/android/server/VcnManagementService$$ExternalSyntheticLambda4;
+    new-instance v0, Lcom/android/server/VcnManagementService$$ExternalSyntheticLambda2;
 
-    invoke-direct {v0, p0, p1}, Lcom/android/server/VcnManagementService$$ExternalSyntheticLambda4;-><init>(Lcom/android/server/VcnManagementService;Landroid/os/ParcelUuid;)V
+    invoke-direct {v0, p0, p1}, Lcom/android/server/VcnManagementService$$ExternalSyntheticLambda2;-><init>(Lcom/android/server/VcnManagementService;Landroid/os/ParcelUuid;)V
 
     invoke-static {v0}, Landroid/os/Binder;->withCleanCallingIdentity(Lcom/android/internal/util/FunctionalUtils$ThrowingRunnable;)V
 
@@ -2069,7 +2045,7 @@
 
     iget-object v7, p0, Lcom/android/server/VcnManagementService;->mTrackingNetworkCallback:Lcom/android/server/VcnManagementService$TrackingNetworkCallback;
 
-    invoke-static {v7, v5}, Lcom/android/server/VcnManagementService$TrackingNetworkCallback;->access$2000(Lcom/android/server/VcnManagementService$TrackingNetworkCallback;Landroid/net/NetworkCapabilities;)Z
+    invoke-static {v7, v5}, Lcom/android/server/VcnManagementService$TrackingNetworkCallback;->access$2100(Lcom/android/server/VcnManagementService$TrackingNetworkCallback;Landroid/net/NetworkCapabilities;)Z
 
     move-result v7
 
@@ -2253,6 +2229,64 @@
 
     invoke-direct {p0, v3, v2}, Lcom/android/server/VcnManagementService;->logWtf(Ljava/lang/String;Ljava/lang/Throwable;)V
 
+    return-void
+.end method
+
+.method public synthetic lambda$notifyAllPermissionedStatusCallbacksLocked$3$VcnManagementService(Lcom/android/server/VcnManagementService$VcnStatusCallbackInfo;I)V
+    .locals 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/Exception;
+        }
+    .end annotation
+
+    :try_start_0
+    iget-object v0, p1, Lcom/android/server/VcnManagementService$VcnStatusCallbackInfo;->mCallback:Landroid/net/vcn/IVcnStatusCallback;
+
+    invoke-interface {v0, p2}, Landroid/net/vcn/IVcnStatusCallback;->onVcnStatusChanged(I)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v0
+
+    const-string v1, "VcnStatusCallback threw on VCN status change"
+
+    invoke-direct {p0, v1, v0}, Lcom/android/server/VcnManagementService;->logDbg(Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    :goto_0
+    return-void
+.end method
+
+.method public synthetic lambda$notifyAllPolicyListenersLocked$2$VcnManagementService(Lcom/android/server/VcnManagementService$PolicyListenerBinderDeath;)V
+    .locals 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/Exception;
+        }
+    .end annotation
+
+    :try_start_0
+    invoke-static {p1}, Lcom/android/server/VcnManagementService$PolicyListenerBinderDeath;->access$2200(Lcom/android/server/VcnManagementService$PolicyListenerBinderDeath;)Landroid/net/vcn/IVcnUnderlyingNetworkPolicyListener;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Landroid/net/vcn/IVcnUnderlyingNetworkPolicyListener;->onPolicyChanged()V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v0
+
+    const-string v1, "VcnStatusCallback threw on VCN status change"
+
+    invoke-direct {p0, v1, v0}, Lcom/android/server/VcnManagementService;->logDbg(Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    :goto_0
     return-void
 .end method
 
@@ -2610,9 +2644,9 @@
 
     invoke-static {v0, v1}, Lcom/android/net/module/util/PermissionUtils;->enforceAnyPermissionOf(Landroid/content/Context;[Ljava/lang/String;)V
 
-    new-instance v0, Lcom/android/server/VcnManagementService$$ExternalSyntheticLambda3;
+    new-instance v0, Lcom/android/server/VcnManagementService$$ExternalSyntheticLambda1;
 
-    invoke-direct {v0, p0, p1}, Lcom/android/server/VcnManagementService$$ExternalSyntheticLambda3;-><init>(Lcom/android/server/VcnManagementService;Landroid/net/vcn/IVcnUnderlyingNetworkPolicyListener;)V
+    invoke-direct {v0, p0, p1}, Lcom/android/server/VcnManagementService$$ExternalSyntheticLambda1;-><init>(Lcom/android/server/VcnManagementService;Landroid/net/vcn/IVcnUnderlyingNetworkPolicyListener;)V
 
     invoke-static {v0}, Landroid/os/Binder;->withCleanCallingIdentity(Lcom/android/internal/util/FunctionalUtils$ThrowingRunnable;)V
 
@@ -2700,9 +2734,9 @@
 
     invoke-direct {p0, p1, p3}, Lcom/android/server/VcnManagementService;->enforceCallingUserAndCarrierPrivilege(Landroid/os/ParcelUuid;Ljava/lang/String;)V
 
-    new-instance v0, Lcom/android/server/VcnManagementService$$ExternalSyntheticLambda5;
+    new-instance v0, Lcom/android/server/VcnManagementService$$ExternalSyntheticLambda3;
 
-    invoke-direct {v0, p0, p1, p2}, Lcom/android/server/VcnManagementService$$ExternalSyntheticLambda5;-><init>(Lcom/android/server/VcnManagementService;Landroid/os/ParcelUuid;Landroid/net/vcn/VcnConfig;)V
+    invoke-direct {v0, p0, p1, p2}, Lcom/android/server/VcnManagementService$$ExternalSyntheticLambda3;-><init>(Lcom/android/server/VcnManagementService;Landroid/os/ParcelUuid;Landroid/net/vcn/VcnConfig;)V
 
     invoke-static {v0}, Landroid/os/Binder;->withCleanCallingIdentity(Lcom/android/internal/util/FunctionalUtils$ThrowingRunnable;)V
 

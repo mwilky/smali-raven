@@ -88,6 +88,12 @@
 
     invoke-virtual {p0, v0}, Lcom/android/server/wm/DisplayArea$Dimmable;->getBounds(Landroid/graphics/Rect;)V
 
+    iget-object v0, p0, Lcom/android/server/wm/DisplayArea$Dimmable;->mTmpDimBoundsRect:Landroid/graphics/Rect;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1, v1}, Landroid/graphics/Rect;->offsetTo(II)V
+
     sget-object v0, Lcom/android/server/wm/DisplayArea$Dimmable$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/server/wm/DisplayArea$Dimmable$$ExternalSyntheticLambda0;
 
     invoke-virtual {p0, v0}, Lcom/android/server/wm/DisplayArea$Dimmable;->forAllTasks(Ljava/util/function/Function;)Z

@@ -122,9 +122,11 @@
     move-object/from16 v0, p4
 
     :goto_0
-    const/4 v1, 0x0
+    move/from16 v1, p0
 
     if-eqz p2, :cond_1
+
+    nop
 
     invoke-interface/range {p2 .. p2}, Ljava/util/Collection;->size()I
 
@@ -133,6 +135,10 @@
     move/from16 v3, p3
 
     invoke-static {v2, v3}, Lcom/android/server/broadcastradio/hal2/ProgramInfoCache;->roundUpFraction(II)I
+
+    move-result v2
+
+    invoke-static {v1, v2}, Ljava/lang/Math;->max(II)I
 
     move-result v1
 
@@ -676,6 +682,12 @@
     move-result v2
 
     if-ne v1, v2, :cond_6
+
+    invoke-virtual {p1}, Landroid/hardware/radio/ProgramList$Chunk;->isPurge()Z
+
+    move-result v1
+
+    if-nez v1, :cond_6
 
     const/4 v1, 0x0
 

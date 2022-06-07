@@ -6,20 +6,16 @@
 
 
 # instance fields
-.field public final synthetic f$0:Landroid/os/PersistableBundle;
-
-.field public final synthetic f$1:Landroid/os/SharedMemory;
+.field public final synthetic f$0:Landroid/service/voice/IDspHotwordDetectionCallback;
 
 
 # direct methods
-.method public synthetic constructor <init>(Landroid/os/PersistableBundle;Landroid/os/SharedMemory;)V
+.method public synthetic constructor <init>(Landroid/service/voice/IDspHotwordDetectionCallback;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda5;->f$0:Landroid/os/PersistableBundle;
-
-    iput-object p2, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda5;->f$1:Landroid/os/SharedMemory;
+    iput-object p1, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda5;->f$0:Landroid/service/voice/IDspHotwordDetectionCallback;
 
     return-void
 .end method
@@ -27,15 +23,13 @@
 
 # virtual methods
 .method public final runNoResult(Ljava/lang/Object;)V
-    .locals 2
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda5;->f$0:Landroid/os/PersistableBundle;
-
-    iget-object v1, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda5;->f$1:Landroid/os/SharedMemory;
+    iget-object v0, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda5;->f$0:Landroid/service/voice/IDspHotwordDetectionCallback;
 
     check-cast p1, Landroid/service/voice/IHotwordDetectionService;
 
-    invoke-static {v0, v1, p1}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->lambda$updateStateLocked$3(Landroid/os/PersistableBundle;Landroid/os/SharedMemory;Landroid/service/voice/IHotwordDetectionService;)V
+    invoke-static {v0, p1}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->lambda$startListeningFromMicLocked$4(Landroid/service/voice/IDspHotwordDetectionCallback;Landroid/service/voice/IHotwordDetectionService;)V
 
     return-void
 .end method

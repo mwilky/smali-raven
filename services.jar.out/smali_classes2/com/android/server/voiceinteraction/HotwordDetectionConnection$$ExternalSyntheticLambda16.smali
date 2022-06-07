@@ -2,36 +2,44 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Ljava/util/function/BiConsumer;
+.implements Ljava/lang/Runnable;
 
 
 # instance fields
 .field public final synthetic f$0:Lcom/android/server/voiceinteraction/HotwordDetectionConnection;
 
+.field public final synthetic f$1:Ljava/io/InputStream;
+
+.field public final synthetic f$2:Landroid/os/ParcelFileDescriptor;
+
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/voiceinteraction/HotwordDetectionConnection;)V
+.method public synthetic constructor <init>(Lcom/android/server/voiceinteraction/HotwordDetectionConnection;Ljava/io/InputStream;Landroid/os/ParcelFileDescriptor;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda16;->f$0:Lcom/android/server/voiceinteraction/HotwordDetectionConnection;
 
+    iput-object p2, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda16;->f$1:Ljava/io/InputStream;
+
+    iput-object p3, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda16;->f$2:Landroid/os/ParcelFileDescriptor;
+
     return-void
 .end method
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 1
+.method public final run()V
+    .locals 3
 
     iget-object v0, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda16;->f$0:Lcom/android/server/voiceinteraction/HotwordDetectionConnection;
 
-    check-cast p1, Ljava/lang/Void;
+    iget-object v1, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda16;->f$1:Ljava/io/InputStream;
 
-    check-cast p2, Ljava/lang/Throwable;
+    iget-object v2, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda16;->f$2:Landroid/os/ParcelFileDescriptor;
 
-    invoke-virtual {v0, p1, p2}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->lambda$updateStateAfterProcessStart$2$HotwordDetectionConnection(Ljava/lang/Void;Ljava/lang/Throwable;)V
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->lambda$handleExternalSourceHotwordDetection$9$HotwordDetectionConnection(Ljava/io/InputStream;Landroid/os/ParcelFileDescriptor;)V
 
     return-void
 .end method

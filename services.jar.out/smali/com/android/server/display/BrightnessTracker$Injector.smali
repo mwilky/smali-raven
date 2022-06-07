@@ -392,8 +392,8 @@
     return-void
 .end method
 
-.method public registerSensorListener(Landroid/content/Context;Landroid/hardware/SensorEventListener;Landroid/os/Handler;)V
-    .locals 3
+.method public registerSensorListener(Landroid/content/Context;Landroid/hardware/SensorEventListener;Landroid/hardware/Sensor;Landroid/os/Handler;)V
+    .locals 2
 
     const-class v0, Landroid/hardware/SensorManager;
 
@@ -403,15 +403,9 @@
 
     check-cast v0, Landroid/hardware/SensorManager;
 
-    const/4 v1, 0x5
+    const/4 v1, 0x3
 
-    invoke-virtual {v0, v1}, Landroid/hardware/SensorManager;->getDefaultSensor(I)Landroid/hardware/Sensor;
-
-    move-result-object v1
-
-    const/4 v2, 0x3
-
-    invoke-virtual {v0, p2, v1, v2, p3}, Landroid/hardware/SensorManager;->registerListener(Landroid/hardware/SensorEventListener;Landroid/hardware/Sensor;ILandroid/os/Handler;)Z
+    invoke-virtual {v0, p2, p3, v1, p4}, Landroid/hardware/SensorManager;->registerListener(Landroid/hardware/SensorEventListener;Landroid/hardware/Sensor;ILandroid/os/Handler;)Z
 
     return-void
 .end method

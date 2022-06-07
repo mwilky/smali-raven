@@ -2703,11 +2703,7 @@
 
     invoke-super/range {p0 .. p5}, Lcom/android/server/notification/ManagedServices;->setPackageOrComponentEnabled(Ljava/lang/String;IZZZ)V
 
-    iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$NotificationListeners;->this$0:Lcom/android/server/notification/NotificationManagerService;
-
-    invoke-virtual {v0}, Lcom/android/server/notification/NotificationManagerService;->getContext()Landroid/content/Context;
-
-    move-result-object v0
+    iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$NotificationListeners;->mContext:Landroid/content/Context;
 
     new-instance v1, Landroid/content/Intent;
 
@@ -2721,7 +2717,9 @@
 
     move-result-object v1
 
-    sget-object v2, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
+    invoke-static {p2}, Landroid/os/UserHandle;->of(I)Landroid/os/UserHandle;
+
+    move-result-object v2
 
     const/4 v3, 0x0
 

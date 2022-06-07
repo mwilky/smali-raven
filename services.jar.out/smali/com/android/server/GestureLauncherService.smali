@@ -22,6 +22,10 @@
 
 .field private static final DBG_CAMERA_LIFT:Z = false
 
+.field private static final EMERGENCY_GESTURE_POWER_BUTTON_COOLDOWN_PERIOD_MS_DEFAULT:I = 0xbb8
+
+.field static final EMERGENCY_GESTURE_POWER_BUTTON_COOLDOWN_PERIOD_MS_MAX:I = 0x1388
+
 .field private static final EMERGENCY_GESTURE_POWER_TAP_COUNT_THRESHOLD:I = 0x5
 
 .field static final POWER_SHORT_TAP_SEQUENCE_MAX_INTERVAL_MS:J = 0x1f4L
@@ -56,7 +60,11 @@
 
 .field private mEmergencyGestureEnabled:Z
 
+.field private mEmergencyGesturePowerButtonCooldownPeriodMs:I
+
 .field private final mGestureListener:Lcom/android/server/GestureLauncherService$GestureEventListener;
+
+.field private mLastEmergencyGestureTriggered:J
 
 .field private mLastPowerDown:J
 
@@ -354,6 +362,30 @@
     iget-object v0, p0, Lcom/android/server/GestureLauncherService;->mMetricsLogger:Lcom/android/internal/logging/MetricsLogger;
 
     return-object v0
+.end method
+
+.method static getEmergencyGesturePowerButtonCooldownPeriodMs(Landroid/content/Context;I)I
+    .locals 3
+
+    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string v1, "emergency_gesture_power_button_cooldown_period_ms"
+
+    const/16 v2, 0xbb8
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+
+    const/16 v1, 0x1388
+
+    invoke-static {v0, v1}, Ljava/lang/Math;->min(II)I
+
+    move-result v1
+
+    return v1
 .end method
 
 .method static isCameraDoubleTapPowerEnabled(Landroid/content/res/Resources;)Z
@@ -958,6 +990,24 @@
 
     invoke-virtual {v0, v1, v4, v2, v3}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
 
+    iget-object v0, p0, Lcom/android/server/GestureLauncherService;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string v1, "emergency_gesture_power_button_cooldown_period_ms"
+
+    invoke-static {v1}, Landroid/provider/Settings$Global;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/server/GestureLauncherService;->mSettingObserver:Landroid/database/ContentObserver;
+
+    iget v3, p0, Lcom/android/server/GestureLauncherService;->mUserId:I
+
+    invoke-virtual {v0, v1, v4, v2, v3}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
+
     return-void
 .end method
 
@@ -1199,297 +1249,396 @@
 .method public interceptPowerKeyDown(Landroid/view/KeyEvent;ZLandroid/util/MutableBoolean;)Z
     .locals 12
 
+    iget-boolean v0, p0, Lcom/android/server/GestureLauncherService;->mEmergencyGestureEnabled:Z
+
+    const/4 v1, 0x2
+
+    const/4 v2, 0x0
+
+    const/4 v3, 0x1
+
+    if-eqz v0, :cond_0
+
+    iget v0, p0, Lcom/android/server/GestureLauncherService;->mEmergencyGesturePowerButtonCooldownPeriodMs:I
+
+    if-ltz v0, :cond_0
+
+    invoke-virtual {p1}, Landroid/view/KeyEvent;->getEventTime()J
+
+    move-result-wide v4
+
+    iget-wide v6, p0, Lcom/android/server/GestureLauncherService;->mLastEmergencyGestureTriggered:J
+
+    sub-long/2addr v4, v6
+
+    iget v0, p0, Lcom/android/server/GestureLauncherService;->mEmergencyGesturePowerButtonCooldownPeriodMs:I
+
+    int-to-long v6, v0
+
+    cmp-long v4, v4, v6
+
+    if-gez v4, :cond_0
+
+    const-string v4, "GestureLauncherService"
+
+    const-string v5, "Suppressing power button: within %dms cooldown period after Emergency Gesture. Begin=%dms, end=%dms."
+
+    const/4 v6, 0x3
+
+    new-array v6, v6, [Ljava/lang/Object;
+
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v0
+
+    aput-object v0, v6, v2
+
+    iget-wide v7, p0, Lcom/android/server/GestureLauncherService;->mLastEmergencyGestureTriggered:J
+
+    invoke-static {v7, v8}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v0
+
+    aput-object v0, v6, v3
+
+    iget-wide v7, p0, Lcom/android/server/GestureLauncherService;->mLastEmergencyGestureTriggered:J
+
+    iget v0, p0, Lcom/android/server/GestureLauncherService;->mEmergencyGesturePowerButtonCooldownPeriodMs:I
+
+    int-to-long v9, v0
+
+    add-long/2addr v7, v9
+
+    invoke-static {v7, v8}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v0
+
+    aput-object v0, v6, v1
+
+    invoke-static {v5, v6}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v4, v0}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    iput-boolean v2, p3, Landroid/util/MutableBoolean;->value:Z
+
+    return v3
+
+    :cond_0
     invoke-virtual {p1}, Landroid/view/KeyEvent;->isLongPress()Z
 
     move-result v0
 
-    const/4 v1, 0x0
+    if-eqz v0, :cond_1
 
-    if-eqz v0, :cond_0
+    iput-boolean v2, p3, Landroid/util/MutableBoolean;->value:Z
 
-    return v1
+    return v2
 
-    :cond_0
+    :cond_1
     const/4 v0, 0x0
 
-    const/4 v2, 0x0
+    const/4 v4, 0x0
 
-    const/4 v3, 0x0
+    const/4 v5, 0x0
 
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p1}, Landroid/view/KeyEvent;->getEventTime()J
 
-    move-result-wide v4
+    move-result-wide v6
 
-    iget-wide v6, p0, Lcom/android/server/GestureLauncherService;->mLastPowerDown:J
+    iget-wide v8, p0, Lcom/android/server/GestureLauncherService;->mLastPowerDown:J
 
-    sub-long/2addr v4, v6
+    sub-long/2addr v6, v8
 
     invoke-virtual {p1}, Landroid/view/KeyEvent;->getEventTime()J
 
-    move-result-wide v6
+    move-result-wide v8
 
-    iput-wide v6, p0, Lcom/android/server/GestureLauncherService;->mLastPowerDown:J
+    iput-wide v8, p0, Lcom/android/server/GestureLauncherService;->mLastPowerDown:J
 
-    const-wide/16 v6, 0x1f4
+    const-wide/16 v8, 0x1f4
 
-    cmp-long v6, v4, v6
+    cmp-long v8, v6, v8
 
-    const-wide/16 v7, 0x12c
+    const-wide/16 v9, 0x12c
 
-    const/4 v9, 0x1
+    if-ltz v8, :cond_2
 
-    if-ltz v6, :cond_1
+    iput v3, p0, Lcom/android/server/GestureLauncherService;->mPowerButtonConsecutiveTaps:I
 
-    iput v9, p0, Lcom/android/server/GestureLauncherService;->mPowerButtonConsecutiveTaps:I
-
-    iput v9, p0, Lcom/android/server/GestureLauncherService;->mPowerButtonSlowConsecutiveTaps:I
-
-    goto :goto_0
-
-    :cond_1
-    cmp-long v6, v4, v7
-
-    if-ltz v6, :cond_2
-
-    iput v9, p0, Lcom/android/server/GestureLauncherService;->mPowerButtonConsecutiveTaps:I
-
-    iget v6, p0, Lcom/android/server/GestureLauncherService;->mPowerButtonSlowConsecutiveTaps:I
-
-    add-int/2addr v6, v9
-
-    iput v6, p0, Lcom/android/server/GestureLauncherService;->mPowerButtonSlowConsecutiveTaps:I
+    iput v3, p0, Lcom/android/server/GestureLauncherService;->mPowerButtonSlowConsecutiveTaps:I
 
     goto :goto_0
 
     :cond_2
-    iget v6, p0, Lcom/android/server/GestureLauncherService;->mPowerButtonConsecutiveTaps:I
+    cmp-long v8, v6, v9
 
-    add-int/2addr v6, v9
+    if-ltz v8, :cond_3
 
-    iput v6, p0, Lcom/android/server/GestureLauncherService;->mPowerButtonConsecutiveTaps:I
+    iput v3, p0, Lcom/android/server/GestureLauncherService;->mPowerButtonConsecutiveTaps:I
 
-    iget v6, p0, Lcom/android/server/GestureLauncherService;->mPowerButtonSlowConsecutiveTaps:I
+    iget v8, p0, Lcom/android/server/GestureLauncherService;->mPowerButtonSlowConsecutiveTaps:I
 
-    add-int/2addr v6, v9
+    add-int/2addr v8, v3
 
-    iput v6, p0, Lcom/android/server/GestureLauncherService;->mPowerButtonSlowConsecutiveTaps:I
+    iput v8, p0, Lcom/android/server/GestureLauncherService;->mPowerButtonSlowConsecutiveTaps:I
 
-    :goto_0
-    iget-boolean v6, p0, Lcom/android/server/GestureLauncherService;->mEmergencyGestureEnabled:Z
-
-    if-eqz v6, :cond_4
-
-    iget v6, p0, Lcom/android/server/GestureLauncherService;->mPowerButtonConsecutiveTaps:I
-
-    if-le v6, v9, :cond_3
-
-    move v3, p2
+    goto :goto_0
 
     :cond_3
-    const/4 v10, 0x5
+    iget v8, p0, Lcom/android/server/GestureLauncherService;->mPowerButtonConsecutiveTaps:I
 
-    if-ne v6, v10, :cond_4
+    add-int/2addr v8, v3
 
-    const/4 v2, 0x1
+    iput v8, p0, Lcom/android/server/GestureLauncherService;->mPowerButtonConsecutiveTaps:I
 
-    :cond_4
-    iget-boolean v6, p0, Lcom/android/server/GestureLauncherService;->mCameraDoubleTapPowerEnabled:Z
+    iget v8, p0, Lcom/android/server/GestureLauncherService;->mPowerButtonSlowConsecutiveTaps:I
 
-    if-eqz v6, :cond_5
+    add-int/2addr v8, v3
 
-    cmp-long v6, v4, v7
+    iput v8, p0, Lcom/android/server/GestureLauncherService;->mPowerButtonSlowConsecutiveTaps:I
 
-    if-gez v6, :cond_5
+    :goto_0
+    iget-boolean v8, p0, Lcom/android/server/GestureLauncherService;->mEmergencyGestureEnabled:Z
 
-    iget v6, p0, Lcom/android/server/GestureLauncherService;->mPowerButtonConsecutiveTaps:I
-
-    const/4 v7, 0x2
-
-    if-ne v6, v7, :cond_5
-
-    const/4 v0, 0x1
-
-    move v3, p2
-
-    :cond_5
-    monitor-exit p0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    iget v6, p0, Lcom/android/server/GestureLauncherService;->mPowerButtonConsecutiveTaps:I
-
-    if-gt v6, v9, :cond_6
-
-    iget v6, p0, Lcom/android/server/GestureLauncherService;->mPowerButtonSlowConsecutiveTaps:I
-
-    if-le v6, v9, :cond_7
-
-    :cond_6
-    const-string v6, "GestureLauncherService"
-
-    new-instance v7, Ljava/lang/StringBuilder;
-
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+    if-eqz v8, :cond_5
 
     iget v8, p0, Lcom/android/server/GestureLauncherService;->mPowerButtonConsecutiveTaps:I
 
-    int-to-long v10, v8
+    if-le v8, v3, :cond_4
 
-    invoke-static {v10, v11}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+    move v5, p2
 
-    move-result-object v8
+    :cond_4
+    const/4 v11, 0x5
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    if-ne v8, v11, :cond_5
 
-    const-string v8, " consecutive power button taps detected, "
+    const/4 v4, 0x1
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    :cond_5
+    iget-boolean v8, p0, Lcom/android/server/GestureLauncherService;->mCameraDoubleTapPowerEnabled:Z
 
-    iget v8, p0, Lcom/android/server/GestureLauncherService;->mPowerButtonSlowConsecutiveTaps:I
+    if-eqz v8, :cond_6
 
-    int-to-long v10, v8
+    cmp-long v8, v6, v9
 
-    invoke-static {v10, v11}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+    if-gez v8, :cond_6
 
-    move-result-object v8
+    iget v8, p0, Lcom/android/server/GestureLauncherService;->mPowerButtonConsecutiveTaps:I
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    if-ne v8, v1, :cond_6
 
-    const-string v8, " consecutive slow power button taps detected"
+    const/4 v0, 0x1
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move v1, p2
 
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move v5, v1
 
-    move-result-object v7
+    :cond_6
+    monitor-exit p0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
-    invoke-static {v6, v7}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+    iget v1, p0, Lcom/android/server/GestureLauncherService;->mPowerButtonConsecutiveTaps:I
+
+    if-gt v1, v3, :cond_7
+
+    iget v1, p0, Lcom/android/server/GestureLauncherService;->mPowerButtonSlowConsecutiveTaps:I
+
+    if-le v1, v3, :cond_8
 
     :cond_7
-    if-eqz v0, :cond_8
+    const-string v1, "GestureLauncherService"
 
-    const-string v6, "GestureLauncherService"
+    new-instance v8, Ljava/lang/StringBuilder;
 
-    new-instance v7, Ljava/lang/StringBuilder;
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+    iget v9, p0, Lcom/android/server/GestureLauncherService;->mPowerButtonConsecutiveTaps:I
 
-    const-string v8, "Power button double tap gesture detected, launching camera. Interval="
+    int-to-long v9, v9
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {v9, v10}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    invoke-virtual {v7, v4, v5}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    move-result-object v9
 
-    const-string/jumbo v8, "ms"
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v9, " consecutive power button taps detected, "
 
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    iget v9, p0, Lcom/android/server/GestureLauncherService;->mPowerButtonSlowConsecutiveTaps:I
 
-    invoke-static {v6, v7}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+    int-to-long v9, v9
 
-    invoke-virtual {p0, v1, v9}, Lcom/android/server/GestureLauncherService;->handleCameraGesture(ZI)Z
+    invoke-static {v9, v10}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v9
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string v9, " consecutive slow power button taps detected"
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v1, v8}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_8
+    if-eqz v0, :cond_9
+
+    const-string v1, "GestureLauncherService"
+
+    new-instance v8, Ljava/lang/StringBuilder;
+
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v9, "Power button double tap gesture detected, launching camera. Interval="
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v8, v6, v7}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    const-string/jumbo v9, "ms"
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v1, v8}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {p0, v2, v3}, Lcom/android/server/GestureLauncherService;->handleCameraGesture(ZI)Z
 
     move-result v0
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_a
 
-    iget-object v6, p0, Lcom/android/server/GestureLauncherService;->mMetricsLogger:Lcom/android/internal/logging/MetricsLogger;
+    iget-object v1, p0, Lcom/android/server/GestureLauncherService;->mMetricsLogger:Lcom/android/internal/logging/MetricsLogger;
 
-    const/16 v7, 0xff
+    const/16 v8, 0xff
 
-    long-to-int v8, v4
+    long-to-int v9, v6
 
-    invoke-virtual {v6, v7, v8}, Lcom/android/internal/logging/MetricsLogger;->action(II)V
+    invoke-virtual {v1, v8, v9}, Lcom/android/internal/logging/MetricsLogger;->action(II)V
 
-    iget-object v6, p0, Lcom/android/server/GestureLauncherService;->mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
+    iget-object v1, p0, Lcom/android/server/GestureLauncherService;->mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
 
-    sget-object v7, Lcom/android/server/GestureLauncherService$GestureLauncherEvent;->GESTURE_CAMERA_DOUBLE_TAP_POWER:Lcom/android/server/GestureLauncherService$GestureLauncherEvent;
+    sget-object v8, Lcom/android/server/GestureLauncherService$GestureLauncherEvent;->GESTURE_CAMERA_DOUBLE_TAP_POWER:Lcom/android/server/GestureLauncherService$GestureLauncherEvent;
 
-    invoke-interface {v6, v7}, Lcom/android/internal/logging/UiEventLogger;->log(Lcom/android/internal/logging/UiEventLogger$UiEventEnum;)V
+    invoke-interface {v1, v8}, Lcom/android/internal/logging/UiEventLogger;->log(Lcom/android/internal/logging/UiEventLogger$UiEventEnum;)V
 
     goto :goto_1
 
-    :cond_8
-    if-eqz v2, :cond_9
+    :cond_9
+    if-eqz v4, :cond_a
 
-    const-string v6, "GestureLauncherService"
+    const-string v1, "GestureLauncherService"
 
-    const-string v7, "Emergency gesture detected, launching."
+    const-string v8, "Emergency gesture detected, launching."
 
-    invoke-static {v6, v7}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v8}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-virtual {p0}, Lcom/android/server/GestureLauncherService;->handleEmergencyGesture()Z
 
-    move-result v2
+    move-result v4
 
-    iget-object v6, p0, Lcom/android/server/GestureLauncherService;->mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
+    iget-object v1, p0, Lcom/android/server/GestureLauncherService;->mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
 
-    sget-object v7, Lcom/android/server/GestureLauncherService$GestureLauncherEvent;->GESTURE_EMERGENCY_TAP_POWER:Lcom/android/server/GestureLauncherService$GestureLauncherEvent;
+    sget-object v8, Lcom/android/server/GestureLauncherService$GestureLauncherEvent;->GESTURE_EMERGENCY_TAP_POWER:Lcom/android/server/GestureLauncherService$GestureLauncherEvent;
 
-    invoke-interface {v6, v7}, Lcom/android/internal/logging/UiEventLogger;->log(Lcom/android/internal/logging/UiEventLogger$UiEventEnum;)V
+    invoke-interface {v1, v8}, Lcom/android/internal/logging/UiEventLogger;->log(Lcom/android/internal/logging/UiEventLogger$UiEventEnum;)V
 
-    :cond_9
-    :goto_1
-    iget-object v6, p0, Lcom/android/server/GestureLauncherService;->mMetricsLogger:Lcom/android/internal/logging/MetricsLogger;
+    if-eqz v4, :cond_a
 
-    const-string/jumbo v7, "power_consecutive_short_tap_count"
+    monitor-enter p0
 
-    iget v8, p0, Lcom/android/server/GestureLauncherService;->mPowerButtonSlowConsecutiveTaps:I
+    :try_start_1
+    invoke-virtual {p1}, Landroid/view/KeyEvent;->getEventTime()J
 
-    invoke-virtual {v6, v7, v8}, Lcom/android/internal/logging/MetricsLogger;->histogram(Ljava/lang/String;I)V
+    move-result-wide v8
 
-    iget-object v6, p0, Lcom/android/server/GestureLauncherService;->mMetricsLogger:Lcom/android/internal/logging/MetricsLogger;
+    iput-wide v8, p0, Lcom/android/server/GestureLauncherService;->mLastEmergencyGestureTriggered:J
 
-    const-string/jumbo v7, "power_double_tap_interval"
+    monitor-exit p0
 
-    long-to-int v8, v4
-
-    invoke-virtual {v6, v7, v8}, Lcom/android/internal/logging/MetricsLogger;->histogram(Ljava/lang/String;I)V
-
-    if-nez v0, :cond_b
-
-    if-eqz v2, :cond_a
-
-    goto :goto_2
-
-    :cond_a
-    move v6, v1
-
-    goto :goto_3
-
-    :cond_b
-    :goto_2
-    move v6, v9
-
-    :goto_3
-    iput-boolean v6, p3, Landroid/util/MutableBoolean;->value:Z
-
-    if-eqz v3, :cond_c
-
-    invoke-direct {p0}, Lcom/android/server/GestureLauncherService;->isUserSetupComplete()Z
-
-    move-result v6
-
-    if-eqz v6, :cond_c
-
-    move v1, v9
-
-    :cond_c
-    return v1
+    goto :goto_1
 
     :catchall_0
     move-exception v1
 
-    :try_start_1
     monitor-exit p0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    throw v1
+
+    :cond_a
+    :goto_1
+    iget-object v1, p0, Lcom/android/server/GestureLauncherService;->mMetricsLogger:Lcom/android/internal/logging/MetricsLogger;
+
+    const-string/jumbo v8, "power_consecutive_short_tap_count"
+
+    iget v9, p0, Lcom/android/server/GestureLauncherService;->mPowerButtonSlowConsecutiveTaps:I
+
+    invoke-virtual {v1, v8, v9}, Lcom/android/internal/logging/MetricsLogger;->histogram(Ljava/lang/String;I)V
+
+    iget-object v1, p0, Lcom/android/server/GestureLauncherService;->mMetricsLogger:Lcom/android/internal/logging/MetricsLogger;
+
+    const-string/jumbo v8, "power_double_tap_interval"
+
+    long-to-int v9, v6
+
+    invoke-virtual {v1, v8, v9}, Lcom/android/internal/logging/MetricsLogger;->histogram(Ljava/lang/String;I)V
+
+    if-nez v0, :cond_c
+
+    if-eqz v4, :cond_b
+
+    goto :goto_2
+
+    :cond_b
+    move v1, v2
+
+    goto :goto_3
+
+    :cond_c
+    :goto_2
+    move v1, v3
+
+    :goto_3
+    iput-boolean v1, p3, Landroid/util/MutableBoolean;->value:Z
+
+    if-eqz v5, :cond_d
+
+    invoke-direct {p0}, Lcom/android/server/GestureLauncherService;->isUserSetupComplete()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_d
+
+    move v2, v3
+
+    :cond_d
+    return v2
+
+    :catchall_1
+    move-exception v1
+
+    :try_start_2
+    monitor-exit p0
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
     throw v1
 .end method
@@ -1553,6 +1702,8 @@
     invoke-virtual {p0}, Lcom/android/server/GestureLauncherService;->updateCameraDoubleTapPowerEnabled()V
 
     invoke-virtual {p0}, Lcom/android/server/GestureLauncherService;->updateEmergencyGestureEnabled()V
+
+    invoke-virtual {p0}, Lcom/android/server/GestureLauncherService;->updateEmergencyGesturePowerButtonCooldownPeriodMs()V
 
     invoke-static {}, Landroid/app/ActivityManager;->getCurrentUser()I
 
@@ -1633,6 +1784,36 @@
 
     :try_start_0
     iput-boolean v0, p0, Lcom/android/server/GestureLauncherService;->mEmergencyGestureEnabled:Z
+
+    monitor-exit p0
+
+    return-void
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit p0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw v1
+.end method
+
+.method updateEmergencyGesturePowerButtonCooldownPeriodMs()V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/server/GestureLauncherService;->mContext:Landroid/content/Context;
+
+    iget v1, p0, Lcom/android/server/GestureLauncherService;->mUserId:I
+
+    invoke-static {v0, v1}, Lcom/android/server/GestureLauncherService;->getEmergencyGesturePowerButtonCooldownPeriodMs(Landroid/content/Context;I)I
+
+    move-result v0
+
+    monitor-enter p0
+
+    :try_start_0
+    iput v0, p0, Lcom/android/server/GestureLauncherService;->mEmergencyGesturePowerButtonCooldownPeriodMs:I
 
     monitor-exit p0
 

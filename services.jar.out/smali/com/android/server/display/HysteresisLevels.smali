@@ -6,10 +6,6 @@
 # static fields
 .field private static final DEBUG:Z = false
 
-.field private static final DEFAULT_BRIGHTENING_HYSTERESIS:F = 0.1f
-
-.field private static final DEFAULT_DARKENING_HYSTERESIS:F = 0.2f
-
 .field private static final TAG:Ljava/lang/String; = "HysteresisLevels"
 
 
@@ -18,11 +14,15 @@
 
 .field private final mDarkeningThresholds:[F
 
+.field private final mMinBrightening:F
+
+.field private final mMinDarkening:F
+
 .field private final mThresholdLevels:[F
 
 
 # direct methods
-.method constructor <init>([I[I[I)V
+.method constructor <init>([I[I[IFF)V
     .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -62,6 +62,10 @@
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/server/display/HysteresisLevels;->mThresholdLevels:[F
+
+    iput p4, p0, Lcom/android/server/display/HysteresisLevels;->mMinDarkening:F
+
+    iput p5, p0, Lcom/android/server/display/HysteresisLevels;->mMinBrightening:F
 
     return-void
 
@@ -212,7 +216,7 @@
 .end method
 
 .method public getBrighteningThreshold(F)F
-    .locals 2
+    .locals 3
 
     iget-object v0, p0, Lcom/android/server/display/HysteresisLevels;->mBrighteningThresholds:[F
 
@@ -226,11 +230,19 @@
 
     mul-float/2addr v1, p1
 
+    iget v2, p0, Lcom/android/server/display/HysteresisLevels;->mMinBrightening:F
+
+    add-float/2addr v2, p1
+
+    invoke-static {v1, v2}, Ljava/lang/Math;->max(FF)F
+
+    move-result v1
+
     return v1
 .end method
 
 .method public getDarkeningThreshold(F)F
-    .locals 2
+    .locals 3
 
     iget-object v0, p0, Lcom/android/server/display/HysteresisLevels;->mDarkeningThresholds:[F
 
@@ -244,5 +256,19 @@
 
     mul-float/2addr v1, p1
 
-    return v1
+    iget v2, p0, Lcom/android/server/display/HysteresisLevels;->mMinDarkening:F
+
+    sub-float v2, p1, v2
+
+    invoke-static {v1, v2}, Ljava/lang/Math;->min(FF)F
+
+    move-result v1
+
+    const/4 v2, 0x0
+
+    invoke-static {v1, v2}, Ljava/lang/Math;->max(FF)F
+
+    move-result v2
+
+    return v2
 .end method

@@ -7,7 +7,7 @@
 .method public abstract cancelAuthentication(ILandroid/os/IBinder;J)V
 .end method
 
-.method public abstract cancelEnrollment(ILandroid/os/IBinder;)V
+.method public abstract cancelEnrollment(ILandroid/os/IBinder;J)V
 .end method
 
 .method public abstract containsSensor(I)Z
@@ -77,7 +77,7 @@
 .method public abstract scheduleAuthenticate(ILandroid/os/IBinder;JIILcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;Ljava/lang/String;JZIZ)V
 .end method
 
-.method public abstract scheduleEnroll(ILandroid/os/IBinder;[BILandroid/hardware/fingerprint/IFingerprintServiceReceiver;Ljava/lang/String;I)V
+.method public abstract scheduleEnroll(ILandroid/os/IBinder;[BILandroid/hardware/fingerprint/IFingerprintServiceReceiver;Ljava/lang/String;I)J
 .end method
 
 .method public abstract scheduleFingerDetect(ILandroid/os/IBinder;ILcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;Ljava/lang/String;I)J

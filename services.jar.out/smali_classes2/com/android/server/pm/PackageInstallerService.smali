@@ -3499,7 +3499,7 @@
 .end method
 
 .method public freeStageDirs(Ljava/lang/String;)V
-    .locals 10
+    .locals 12
 
     invoke-direct {p0, p1}, Lcom/android/server/pm/PackageInstallerService;->getStagingDirsOnVolume(Ljava/lang/String;)Landroid/util/ArraySet;
 
@@ -3523,7 +3523,7 @@
 
     move-result v5
 
-    if-ge v4, v5, :cond_4
+    if-ge v4, v5, :cond_5
 
     iget-object v5, p0, Lcom/android/server/pm/PackageInstallerService;->mSessions:Landroid/util/SparseArray;
 
@@ -3541,7 +3541,7 @@
 
     if-nez v6, :cond_0
 
-    goto :goto_2
+    goto :goto_3
 
     :cond_0
     iget-wide v6, v5, Lcom/android/server/pm/PackageInstallerSession;->createdMillis:J
@@ -3552,7 +3552,7 @@
 
     cmp-long v8, v6, v8
 
-    if-ltz v8, :cond_3
+    if-ltz v8, :cond_4
 
     invoke-virtual {v5}, Lcom/android/server/pm/PackageInstallerSession;->hasParentSessionId()Z
 
@@ -3578,28 +3578,64 @@
     check-cast v8, Lcom/android/server/pm/PackageInstallerSession;
 
     :goto_1
+    if-nez v8, :cond_2
+
+    const-string v9, "PackageInstaller"
+
+    new-instance v10, Ljava/lang/StringBuilder;
+
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v11, "freeStageDirs: found an orphaned session: "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget v11, v5, Lcom/android/server/pm/PackageInstallerSession;->sessionId:I
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v11, " parent="
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v5}, Lcom/android/server/pm/PackageInstallerSession;->getParentSessionId()I
+
+    move-result v11
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v9, v10}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_2
+
+    :cond_2
     invoke-virtual {v8}, Lcom/android/server/pm/PackageInstallerSession;->isDestroyed()Z
 
     move-result v9
 
-    if-nez v9, :cond_2
+    if-nez v9, :cond_3
 
     invoke-virtual {v8}, Lcom/android/server/pm/PackageInstallerSession;->abandon()V
 
-    :cond_2
-    goto :goto_2
-
     :cond_3
+    :goto_2
+    goto :goto_3
+
+    :cond_4
     iget-object v8, v5, Lcom/android/server/pm/PackageInstallerSession;->stageDir:Ljava/io/File;
 
     invoke-virtual {v0, v8}, Landroid/util/ArraySet;->remove(Ljava/lang/Object;)Z
 
-    :goto_2
+    :goto_3
     add-int/lit8 v4, v4, 0x1
 
     goto :goto_0
 
-    :cond_4
+    :cond_5
     monitor-exit v3
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0

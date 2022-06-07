@@ -92,6 +92,10 @@
 
     invoke-virtual {v0}, Lcom/android/server/GestureLauncherService;->updateEmergencyGestureEnabled()V
 
+    iget-object v0, p0, Lcom/android/server/GestureLauncherService$1;->this$0:Lcom/android/server/GestureLauncherService;
+
+    invoke-virtual {v0}, Lcom/android/server/GestureLauncherService;->updateEmergencyGesturePowerButtonCooldownPeriodMs()V
+
     :cond_0
     return-void
 .end method
