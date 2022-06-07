@@ -55,7 +55,7 @@
 
     invoke-direct {v1, p0}, Lcom/android/settings/display/TwilightLocationDialog$$ExternalSyntheticLambda0;-><init>(Landroid/content/Context;)V
 
-    const p0, 0x7f04143c
+    const p0, 0x7f04143e
 
     invoke-virtual {v0, p0, v1}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -69,7 +69,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f04143d
+    const v0, 0x7f04143f
 
     invoke-virtual {p0, v0}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 

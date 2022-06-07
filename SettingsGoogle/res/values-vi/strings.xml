@@ -2522,8 +2522,8 @@ Dữ liệu sao lưu sẽ không tính vào phần bộ nhớ trên Drive của 
     <string name="fullbackup_erase_dialog_message">Dừng sao lưu dữ liệu thiết bị (chẳng hạn như mật khẩu Wi-Fi và lịch sử cuộc gọi) và dữ liệu ứng dụng (chẳng hạn như cài đặt và tệp được ứng dụng lưu trữ), đồng thời xóa tất cả các bản sao trên Google Drive?</string>
     <string name="gadget_picker_title">Chọn tiện ích</string>
     <string name="game_controller_settings_category">Trình điều khiển trò chơi</string>
-    <string name="game_dashboard_always_on_summary">Hiện lối tắt trên Trang tổng quan trò chơi trong các trò chơi</string>
-    <string name="game_dashboard_always_on_title">Trang tổng quan trò chơi</string>
+    <string name="game_dashboard_always_on_summary">Hiện biểu tượng trong tất cả các trò chơi (không cần vuốt lên hoặc vuốt xuống)</string>
+    <string name="game_dashboard_always_on_title">Biểu tượng nổi trên Trang tổng quan trò chơi</string>
     <string name="game_dashboard_dnd_rule_name">Trò chơi</string>
     <string name="game_dashboard_dnd_summary">Chỉ nhận thông báo của những người và ứng dụng quan trọng khi đang chơi trò chơi</string>
     <string name="game_dashboard_dnd_title">Không làm phiền lúc chơi trò chơi</string>
@@ -3474,7 +3474,7 @@ Khi chuyển sang %1$s, dịch vụ %2$s của bạn sẽ không bị hủy."</s
     <string name="network_connection_request_dialog_showall">Hiển thị tất cả</string>
     <string name="network_connection_request_dialog_summary">Ứng dụng %1$s muốn dùng mạng Wi-Fi tạm thời để kết nối với thiết bị của bạn</string>
     <string name="network_connection_request_dialog_title">Kết nối với thiết bị</string>
-    <string name="network_connection_searching_message">Đang tìm kiếm thiết bị...</string>
+    <string name="network_connection_searching_message">Đang tìm thiết bị...</string>
     <string name="network_connection_timeout_dialog_message">Không tìm thấy thiết bị nào. Đảm bảo rằng các thiết bị đang bật và sẵn sàng kết nối.</string>
     <string name="network_connection_timeout_dialog_ok">Thử lại</string>
     <string name="network_could_not_connect">Không thể kết nối</string>
@@ -4569,8 +4569,10 @@ Lưu ý: Bạn không thể sử dụng vân tay của mình để mở khóa th
     <string name="security_settings_udfps_enroll_repeat_a11y_message">Thao tác này giúp ghi lại được nhiều vân tay hơn</string>
     <string name="security_settings_udfps_enroll_repeat_message">Chạm và giữ mỗi khi biểu tượng vân tay di chuyển. Thao tác này giúp ghi lại được nhiều vân tay hơn.</string>
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">Đi theo biểu tượng vân tay</string>
-    <string name="security_settings_udfps_enroll_start_message">Giữ thẳng ngón tay trên cảm biến cho đến khi bạn cảm thấy rung</string>
+    <string name="security_settings_udfps_enroll_start_message">Áp vân tay vào cảm biến cho đến khi bạn cảm thấy rung</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">Vui lòng chạm lần nữa</string>
+    <string name="security_settings_udfps_side_fingerprint_help">Đặt vân tay ở phần bên của ngón tay lên cảm biến rồi giữ, sau đó chuyển sang phần bên kia</string>
+    <string name="security_settings_udfps_tip_fingerprint_help">Nhấc ngón tay lên rồi chạm lại</string>
     <string name="security_settings_work_fingerprint_preference_title">Pixel Imprint cho công việc</string>
     <string name="security_status_title">Trạng thái bảo mật</string>
     <string name="see_less">Ẩn bớt</string>
@@ -5123,8 +5125,8 @@ Một giải pháp đồng bộ hóa dữ liệu của Google cho phép quyền 
     <string name="system_alert_window_summary">%1$d/%2$d ứng dụng được phép hiện trên các ứng dụng khác</string>
     <string name="system_app">(Hệ thống)</string>
     <string name="system_dashboard_summary">Ngôn ngữ, cử chỉ, ngày giờ, bản sao lưu</string>
-    <string name="system_default_app">(Mặc định của hệ thống)</string>
-    <string name="system_default_app_subtext">Giá trị mặc định của hệ thống</string>
+    <string name="system_default_app">(Theo chế độ mặc định của hệ thống)</string>
+    <string name="system_default_app_subtext">Theo chế độ mặc định của hệ thống</string>
     <string name="system_package">Không thể cài đặt bản cập nhật hệ thống trên phương tiện bên ngoài.</string>
     <string name="system_ui_settings">Hiện Bộ điều chỉnh SystemUI</string>
     <string name="system_update_settings_list_item_summary" />
@@ -5531,6 +5533,7 @@ Mọi người dùng đều có thể cập nhật ứng dụng cho tất cả n
     <string name="verify_apps_over_usb_title">Xác minh ứng dụng qua USB</string>
     <string name="version_text">phiên bản %1$s</string>
     <string name="vibrate_for_calls_settings_not_available_summary">Chế độ rung khi có cuộc gọi không có sẵn vì điện thoại được đặt ở chế độ im lặng</string>
+    <string name="vibrate_icon_title">Luôn hiện biểu tượng khi ở chế độ rung</string>
     <string name="vibrate_in_silent_title">Rung khi im lặng</string>
     <string name="vibrate_input_devices">Chuyển hướng rung</string>
     <string name="vibrate_input_devices_summary">Chuyển hướng rung sang bộ điều khiển trò chơi khi được kết nối.</string>
@@ -5873,7 +5876,7 @@ Việc đặt mạng này là mạng ẩn sẽ không thay đổi các chế đ�
     <string name="wifi_hotspot_title">Đăng nhập để kết nối?</string>
     <string name="wifi_in_airplane_mode">Ở chế độ trên máy bay</string>
     <string name="wifi_install_credentials">Cài đặt chứng chỉ</string>
-    <string name="wifi_ip_address">Địa chỉa IP</string>
+    <string name="wifi_ip_address">Địa chỉ IP</string>
     <string name="wifi_ip_settings">Cài đặt IP</string>
     <string name="wifi_ip_settings_invalid_dns">Hãy nhập địa chỉ DNS hợp lệ.</string>
     <string name="wifi_ip_settings_invalid_gateway">Hãy nhập địa chỉ cổng hợp lệ.</string>

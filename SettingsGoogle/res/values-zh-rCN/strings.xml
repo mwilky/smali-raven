@@ -9,7 +9,7 @@
     <string name="ambient_display_tap_screen_title">点按手机即显示</string>
     <string name="ambient_display_title">点按两次即显示</string>
     <string name="ambient_display_wake_screen_title">唤醒显示屏</string>
-    <string name="auto_brightness_title">自动调节亮度</string>
+    <string name="auto_brightness_title">自适应亮度</string>
     <string name="aware_category_display" />
     <string name="aware_category_gesture" />
     <string name="aware_display_settings_title">闲置时锁定屏幕</string>
@@ -438,7 +438,7 @@
     <string name="activity_not_found">您的手机上未安装相应应用。</string>
     <string name="activity_picker_label">选择活动</string>
     <string name="adaptive_battery_main_switch_title">使用“自适应电池”</string>
-    <string name="adaptive_brightness_main_switch_title">使用“自动调节亮度”</string>
+    <string name="adaptive_brightness_main_switch_title">使用“自适应亮度”</string>
     <string name="adaptive_charging">自适应充电</string>
     <string name="adaptive_charging_description">夜晚稳定充电，养护电池，延长使用寿命。您可以设定闹钟，让设备在您起床前充满电。</string>
     <string name="adaptive_charging_time_estimate"><b>正在自适应充电</b> • %1$s前充满</string>
@@ -748,7 +748,7 @@
     <string name="audio_category_title">音频</string>
     <string name="audio_record_proc_title">降噪</string>
     <string name="auto_brightness_default_title">默认</string>
-    <string name="auto_brightness_description">系统会根据您的环境和活动自动调节屏幕亮度。您可以手动移动滑块，帮助“自动调节亮度”功能了解您偏好的亮度。</string>
+    <string name="auto_brightness_description">系统会根据您的环境和活动自动调节屏幕亮度。您可以手动移动滑块，帮助“自适应亮度”功能了解您偏好的亮度。</string>
     <string name="auto_brightness_disclaimer">根据环境光线情况优化亮度。开启此功能后，您仍然可以暂时调整亮度。</string>
     <string name="auto_brightness_high_title">高</string>
     <string name="auto_brightness_low_title">低</string>
@@ -1569,7 +1569,7 @@
     <string name="color_gray">灰色</string>
     <string name="color_green">绿色</string>
     <string name="color_magenta">紫红色</string>
-    <string name="color_mode_option_automatic">自动调节</string>
+    <string name="color_mode_option_automatic">自适应</string>
     <string name="color_mode_option_boosted">增强色</string>
     <string name="color_mode_option_natural">自然色</string>
     <string name="color_mode_option_saturated">饱和色</string>
@@ -2224,7 +2224,7 @@
     <string name="emergency_tone_title">紧急拨号信号</string>
     <string name="emergency_tone_vibrate">振动</string>
     <string name="empty_networks_list">未找到网络。</string>
-    <string name="enable_2g_summary">使用 2G 移动网络连接。拨打紧急电话时，2G 网络将始终保持开启状态。</string>
+    <string name="enable_2g_summary">使用 2G 移动网络连接。您始终都能通过 2G 网络拨打紧急电话。</string>
     <string name="enable_2g_title">允许启用 2G</string>
     <string name="enable_adb">USB 调试</string>
     <string name="enable_adb_summary">连接 USB 后启用调试模式</string>
@@ -2522,8 +2522,8 @@
     <string name="fullbackup_erase_dialog_message">要停止备份设备数据（例如 WLAN 密码和通话记录）和应用数据（例如应用存储的设置和文件），并清除 Google 云端硬盘上的所有副本吗？</string>
     <string name="gadget_picker_title">选择小工具</string>
     <string name="game_controller_settings_category">游戏控制器</string>
-    <string name="game_dashboard_always_on_summary">在游戏中显示游戏信息中心快捷方式</string>
-    <string name="game_dashboard_always_on_title">游戏信息中心</string>
+    <string name="game_dashboard_always_on_summary">在所有游戏中显示此图标（无需用户向上或向下滑动）</string>
+    <string name="game_dashboard_always_on_title">悬浮式“游戏信息中心”图标</string>
     <string name="game_dashboard_dnd_rule_name">游戏</string>
     <string name="game_dashboard_dnd_summary">玩游戏时仅接收来自重要联系人和重要应用的通知</string>
     <string name="game_dashboard_dnd_title">游戏勿扰模式</string>
@@ -2779,7 +2779,7 @@
     <string name="keywords_default_payment_app">付款, 默认</string>
     <string name="keywords_device_feedback">错误</string>
     <string name="keywords_display_adaptive_sleep">智能、调暗屏幕、休眠、电池、超时、感知、显示、屏幕、闲置</string>
-    <string name="keywords_display_auto_brightness">降低屏幕亮度, 触摸屏, 电池, 智能亮度, 动态亮度, 自动调节亮度</string>
+    <string name="keywords_display_auto_brightness">降低屏幕亮度, 触摸屏, 电池, 智能亮度, 动态亮度, 自适应亮度</string>
     <string name="keywords_display_cast_screen">投影, 投射, 屏幕镜像, 屏幕共享, 镜像, 共享屏幕, 屏幕投射</string>
     <string name="keywords_display_font_size">字体大小</string>
     <string name="keywords_display_night_display">屏幕变暗, 调暗屏幕, 夜间, 色调, night shift, 夜视模式, 亮度, 屏幕颜色, 颜色, 色彩</string>
@@ -3610,7 +3610,7 @@
     <string name="notification_assistant_security_warning_summary">"在 Android 12 中，增强型通知功能取代了 Android 自适应通知功能。增强型通知功能可以显示建议的操作和回复，并可将通知整理得井井有条。
 
 增强型通知功能可以访问通知内容，包括联系人名称和消息等个人信息。该功能还可以关闭或响应通知，例如接听来电以及控制勿扰模式。"</string>
-    <string name="notification_assistant_security_warning_title">要向%1$s授予通知使用权吗？</string>
+    <string name="notification_assistant_security_warning_title">要向“%1$s”授予通知使用权吗？</string>
     <string name="notification_assistant_summary">接收建议的操作、回复等内容</string>
     <string name="notification_assistant_title">增强型通知</string>
     <string name="notification_badge_title">允许使用通知圆点</string>
@@ -3662,10 +3662,10 @@
     <string name="notification_listener_disable_warning_confirm">停用</string>
     <string name="notification_listener_disable_warning_summary">如果您停用%1$s的通知使用权，勿扰模式的使用权可能也会遭到停用。</string>
     <string name="notification_listener_not_allowed">不允许</string>
-    <string name="notification_listener_security_warning_summary">"“%1$s”将可读取所有通知（包括联系人姓名和您收到的消息内容等个人信息），而且还能暂停/关闭通知或触发通知中的按钮（包括接听来电）。
+    <string name="notification_listener_security_warning_summary">"“%1$s”将可读取所有通知（包括联系人姓名和您收到的消息正文等个人信息），而且还能暂停/关闭通知或触发通知中的操作按钮（包括接听来电）。
 
-该应用因此还能开启或关闭“勿扰”模式，并可以更改相关设置。"</string>
-    <string name="notification_listener_security_warning_title">要向%1$s授予通知使用权吗？</string>
+另外，此应用还将能开启或关闭勿扰模式，以及更改相关设置。"</string>
+    <string name="notification_listener_security_warning_title">要向“%1$s”授予通知使用权吗？</string>
     <string name="notification_listener_type_title">允许的通知类型</string>
     <string name="notification_log_channel">频道</string>
     <string name="notification_log_details_actions">操作</string>
@@ -4572,6 +4572,8 @@
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">跟随指纹图标重复轻触指纹传感器</string>
     <string name="security_settings_udfps_enroll_start_message">将手指平放在传感器上，感觉到振动后再移开</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">再试一次</string>
+    <string name="security_settings_udfps_side_fingerprint_help">将指纹的一侧放在传感器上并按住，然后切换到另一侧</string>
+    <string name="security_settings_udfps_tip_fingerprint_help">移开手指，然后再次触摸传感器</string>
     <string name="security_settings_work_fingerprint_preference_title">工作资料的 Pixel Imprint</string>
     <string name="security_status_title">安全状态</string>
     <string name="see_less">隐藏部分</string>
@@ -5532,6 +5534,7 @@ PIN 码可能不正确。"</string>
     <string name="verify_apps_over_usb_title">通过 USB 验证应用</string>
     <string name="version_text">版本 %1$s</string>
     <string name="vibrate_for_calls_settings_not_available_summary">手机已设为静音，因此“来电振动”设置无法使用</string>
+    <string name="vibrate_icon_title">使用振动模式时一律显示振动图标</string>
     <string name="vibrate_in_silent_title">静音时振动</string>
     <string name="vibrate_input_devices">重定向振动</string>
     <string name="vibrate_input_devices_summary">连接后将振动传到游戏控制器</string>

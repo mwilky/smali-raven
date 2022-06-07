@@ -522,7 +522,7 @@ Administrátor může sledovat a spravovat nastavení, přístup, aplikace a d
     <string name="alarm_ringtone_title">Výchozí zvuk budíku</string>
     <string name="alarm_template">v %1$s</string>
     <string name="alarm_template_far">v %1$s</string>
-    <string name="alarm_volume_option_title">Hlasitost budíku</string>
+    <string name="alarm_volume_option_title">Hlasitost budíků</string>
     <string name="alarm_volume_title">Budík</string>
     <string name="alarms_and_reminders_footer_title">"Povolte aplikaci nastavovat budíky a plánovat akce závislé na čase. Aplikace poběží na pozadí, což může vést k vyšší spotřebě baterie.
 
@@ -2522,8 +2522,8 @@ Zálohovaná data se do kvóty úložiště na Disku nezapočítávají. Velké 
     <string name="fullbackup_erase_dialog_message">Zastavit zálohování dat zařízení (jako jsou hesla sítí Wi-Fi a historie volání) a dat aplikací (jako jsou nastavení a soubory uložené aplikacemi) a vymazat všechny kopie na Disku Google?</string>
     <string name="gadget_picker_title">Zvolte gadget</string>
     <string name="game_controller_settings_category">Herní ovladače</string>
-    <string name="game_dashboard_always_on_summary">Zobrazovat ve hrách zkratku Herního panelu</string>
-    <string name="game_dashboard_always_on_title">Herní panel</string>
+    <string name="game_dashboard_always_on_summary">Zobrazit ikonu ve všech hrách (bez přejetí nahoru nebo dolů)</string>
+    <string name="game_dashboard_always_on_title">Plovoucí ikona Herního panelu</string>
     <string name="game_dashboard_dnd_rule_name">Hry</string>
     <string name="game_dashboard_dnd_summary">Při hraní přijímat pouze oznámení od důležitých lidí a z důležitých aplikací</string>
     <string name="game_dashboard_dnd_title">Nerušit ve hrách</string>
@@ -4572,6 +4572,8 @@ Poznámka: Otisk prstu nelze použít k odemykání tohoto zařízení. Další
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">Sledujte ikonu otisku prstu</string>
     <string name="security_settings_udfps_enroll_start_message">Držte prst rovně na snímači, dokud neucítíte vibraci</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">Ještě jednou</string>
+    <string name="security_settings_udfps_side_fingerprint_help">Umístěte boční stranu prstu na snímač a podržte ho, poté ho „překulte“ na druhou stranu</string>
+    <string name="security_settings_udfps_tip_fingerprint_help">Zvedněte prst a dotkněte se znovu</string>
     <string name="security_settings_work_fingerprint_preference_title">Pixel Imprint pro práci</string>
     <string name="security_status_title">Stav zabezpečení</string>
     <string name="see_less">Zobrazit méně</string>
@@ -5532,6 +5534,7 @@ Jakýkoli uživatel může aktualizovat aplikace všech ostatních uživatelů."
     <string name="verify_apps_over_usb_title">Ověřovat aplikace z USB</string>
     <string name="version_text">verze %1$s</string>
     <string name="vibrate_for_calls_settings_not_available_summary">Vibrace u hovorů nejsou k dispozici, protože telefon je nastavený na tichý režim.</string>
+    <string name="vibrate_icon_title">Vždy zobrazovat ikonu v režimu vibrací</string>
     <string name="vibrate_in_silent_title">Vibrovat v tichém režimu</string>
     <string name="vibrate_input_devices">Vibrace při přesměrování</string>
     <string name="vibrate_input_devices_summary">Odeslat vibrace do herního ovladače, je-li připojen</string>
@@ -6190,7 +6193,7 @@ Chcete tuto možnost povolit všem aplikacím, které chtějí vyhledávat sít�
     <string name="zen_mode_bypassing_apps_summary_some">Některá oznámení</string>
     <string name="zen_mode_bypassing_apps_title">Aplikace</string>
     <string name="zen_mode_calls">Volání</string>
-    <string name="zen_mode_calls_footer">Pokud chcete, aby povolená volání vydávala zvuk, zkontrolujte, zda je zařízení nastavené na vyzvánění.</string>
+    <string name="zen_mode_calls_footer">Pokud chcete, aby povolená volání vydávala zvuk, zkontrolujte, zda je zařízení nastaveno na vyzvánění.</string>
     <string name="zen_mode_calls_header">Hovory, které smí vyrušovat</string>
     <string name="zen_mode_calls_list">hovory</string>
     <string name="zen_mode_calls_summary_two">%1$s a %2$s</string>
@@ -6245,7 +6248,7 @@ Chcete tuto možnost povolit všem aplikacím, které chtějí vyhledávat sít�
     <string name="zen_mode_media_list_first">média</string>
     <string name="zen_mode_media_summary">Zvuky videí, her a dalších médií</string>
     <string name="zen_mode_messages">Zprávy</string>
-    <string name="zen_mode_messages_footer">Pokud chcete, aby povolené zprávy vydávaly zvuk, zkontrolujte, zda je zařízení nastavené na vyzvánění.</string>
+    <string name="zen_mode_messages_footer">Pokud chcete, aby povolené zprávy vydávaly zvuk, zkontrolujte, zda je zařízení nastaveno na vyzvánění.</string>
     <string name="zen_mode_messages_header">Zprávy, které smí vyrušovat</string>
     <string name="zen_mode_messages_list">zprávy</string>
     <string name="zen_mode_messages_title">Zprávy</string>

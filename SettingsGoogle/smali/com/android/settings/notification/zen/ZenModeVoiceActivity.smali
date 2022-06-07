@@ -32,18 +32,18 @@
     goto :goto_0
 
     :cond_0
-    const v0, 0x7f041894
+    const v0, 0x7f041897
 
     const v1, 0x7f12005f
 
     const v2, 0x7f12005e
 
-    const v3, 0x7f041893
+    const v3, 0x7f041896
 
     goto :goto_0
 
     :cond_1
-    const v1, 0x7f041895
+    const v1, 0x7f041898
 
     move v2, v0
 

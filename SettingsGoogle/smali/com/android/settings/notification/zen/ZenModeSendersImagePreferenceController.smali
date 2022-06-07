@@ -112,7 +112,7 @@
     :goto_0
     iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f041838
+    const v1, 0x7f04183b
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -139,7 +139,7 @@
     :goto_1
     iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f041839
+    const v1, 0x7f04183c
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -166,7 +166,7 @@
     :goto_2
     iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f04183c
+    const v1, 0x7f04183f
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -191,12 +191,12 @@
 
     if-eqz p1, :cond_7
 
-    const p1, 0x7f041848
+    const p1, 0x7f04184b
 
     goto :goto_4
 
     :cond_7
-    const p1, 0x7f041847
+    const p1, 0x7f04184a
 
     :goto_4
     invoke-virtual {v1, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;

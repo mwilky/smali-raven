@@ -28,7 +28,7 @@
     <string name="display_white_balance_title">Prikaz ravnovesja beline</string>
     <string name="double_tap_power_for_camera_title">Hitro odpiranje fotoaparata</string>
     <string name="double_twist_for_camera_mode_title">Zasuk fotoaparata za selfije</string>
-    <string name="doze_always_on_summary">Poveča porabo baterije.</string>
+    <string name="doze_always_on_summary">Poveča porabo baterije</string>
     <string name="doze_always_on_title">Vedno pokaži uro in informacije</string>
     <string name="doze_summary">Ko zaslon ni osvetljen, se vklopi ob novih obvestilih.</string>
     <string name="doze_title">Prebudi zaslon ob obvestilih</string>
@@ -2522,8 +2522,8 @@ Varnostno kopirani podatki se ne bodo šteli v vašo omejitev prostora za shranj
     <string name="fullbackup_erase_dialog_message">Ali želite zaustaviti varnostno kopiranje podatkov naprave (kot so gesla za Wi-Fi in zgodovina klicev) in podatkov aplikacij (na primer nastavitev in datotek, ki jih shranjujejo aplikacije) ter iz Googla Drive izbrisati vse kopije?</string>
     <string name="gadget_picker_title">Izberi pripomoček</string>
     <string name="game_controller_settings_category">Krmilnik za igre</string>
-    <string name="game_dashboard_always_on_summary">Prikaži bližnjico na nadzorni plošči igre v igrah.</string>
-    <string name="game_dashboard_always_on_title">Nadzorna plošča igre</string>
+    <string name="game_dashboard_always_on_summary">Pokaži ikono v vseh igrah (brez vlečenja navzgor ali navzdol)</string>
+    <string name="game_dashboard_always_on_title">Plavajoča ikona nadzorne plošče igre</string>
     <string name="game_dashboard_dnd_rule_name">Igre</string>
     <string name="game_dashboard_dnd_summary">Med igranjem igre prejemajte samo obvestila pomembnih oseb in aplikacij.</string>
     <string name="game_dashboard_dnd_title">Način Ne moti za igre</string>
@@ -2970,10 +2970,10 @@ Nastavitev lahko pozneje spremenite v Nastavitve > Aplikacije in obvestila."</st
     <string name="lock_screen_notifications_interstitial_message_profile">Kako naj se obvestila o profilu prikazujejo, ko je naprava zaklenjena?</string>
     <string name="lock_screen_notifications_interstitial_title">Zaklenjen zaslon</string>
     <string name="lock_screen_notifications_interstitial_title_profile">Obvestila o profilu</string>
-    <string name="lock_screen_notifications_summary_disable">Sploh ne prikazuj obvestil.</string>
+    <string name="lock_screen_notifications_summary_disable">Sploh ne prikazuj obvestil</string>
     <string name="lock_screen_notifications_summary_hide">Prikaži občutljivo vsebino samo na odklenjenem zaslonu.</string>
     <string name="lock_screen_notifications_summary_hide_profile">Skrivanje občutljive vsebine za delovni profil</string>
-    <string name="lock_screen_notifications_summary_show">Pokaži vso vsebino obvestil.</string>
+    <string name="lock_screen_notifications_summary_show">Prikaži vso vsebino obvestil</string>
     <string name="lock_screen_notifications_summary_show_profile">Pokaži vso vsebino obvestil za delovni profil</string>
     <string name="lock_screen_notifs_redact">Občutljiva obvestila</string>
     <string name="lock_screen_notifs_redact_summary">Prikaži občutljivo vsebino na zaklenjenem zaslonu.</string>
@@ -3243,7 +3243,7 @@ V napravi so prisotni drugi uporabniki.
     <string name="me_card_title">Moj Pixel</string>
     <string name="media_category">Predstavnosti</string>
     <string name="media_controls_hide_player">Skrij predvajalnik</string>
-    <string name="media_controls_recommendations_description">Glede na vašo dejavnost.</string>
+    <string name="media_controls_recommendations_description">Priporočila temeljijo glede na vašo dejavnost.</string>
     <string name="media_controls_recommendations_title">Prikaži priporočila glede predstavnosti</string>
     <string name="media_controls_resume_description">Predvajalnik predstavnosti ostane odprt v hitrih nastavitvah, da je omogočeno hitro nadaljevanje predvajanja.</string>
     <string name="media_controls_resume_title">Pripni predvajalnik predstavnosti</string>
@@ -4571,6 +4571,8 @@ Opomba: prstnega odtisa ne morete uporabiti za odklepanje naprave. Za več infor
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">Sledite ikoni prstnega odtisa</string>
     <string name="security_settings_udfps_enroll_start_message">Držite prst plosko na tipalu, dokler ne začutite vibriranja.</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">Še enkrat</string>
+    <string name="security_settings_udfps_side_fingerprint_help">Stranski del prstnega odtisa položite na tipalo prstnih odtisov in ga pridržite, nato zamenjajte stran.</string>
+    <string name="security_settings_udfps_tip_fingerprint_help">Dvignite in se spet dotaknite</string>
     <string name="security_settings_work_fingerprint_preference_title">Pixel Imprint za službo</string>
     <string name="security_status_title">Stanje varnosti</string>
     <string name="see_less">Pokaži manj</string>
@@ -5531,6 +5533,7 @@ Vsak uporabnik lahko posodobi aplikacije za vse druge uporabnike."</string>
     <string name="verify_apps_over_usb_title">Preveri aplikacije prek USB-ja</string>
     <string name="version_text">različica %1$s</string>
     <string name="vibrate_for_calls_settings_not_available_summary">Vibriranje za klice ni na voljo, ker je telefon nastavljen na tiho.</string>
+    <string name="vibrate_icon_title">Vedno pokaži ikono v načinu vibriranja</string>
     <string name="vibrate_in_silent_title">Vibriraj v tihem načinu</string>
     <string name="vibrate_input_devices">Preusmeritev vibriranja</string>
     <string name="vibrate_input_devices_summary">Pošiljanje vibriranja v krmilnik za igre, ko je povezan</string>
@@ -6201,8 +6204,8 @@ Dovolite to vsem aplikacijam, ki želijo iskati?"</string>
     <string name="zen_mode_conversations_section_title">Pogovori, ki lahko preglasijo</string>
     <string name="zen_mode_conversations_title">Pogovori</string>
     <string name="zen_mode_custom_behavior_category_title">Za »%1$s«</string>
-    <string name="zen_mode_custom_behavior_summary">Ustvarite nastavitve po meri za ta razpored.</string>
-    <string name="zen_mode_custom_behavior_summary_default">Uporabi privzete nastavitve.</string>
+    <string name="zen_mode_custom_behavior_summary">Ustvari nastavitve po meri za ta razpored</string>
+    <string name="zen_mode_custom_behavior_summary_default">Uporabi privzete nastavitve</string>
     <string name="zen_mode_custom_behavior_title">Vedenje načina »Ne moti«</string>
     <string name="zen_mode_custom_calls_footer">Dohodni klici za »%1$s« so blokirani. Nastavitve lahko prilagodite tako, da boste dosegljivi za prijatelje, družinske člane ali druge stike.</string>
     <string name="zen_mode_custom_messages_footer">Dohodna sporočila za »%1$s« so blokirana. Nastavitve lahko prilagodite tako, da boste dosegljivi za prijatelje, družinske člane ali druge stike.</string>

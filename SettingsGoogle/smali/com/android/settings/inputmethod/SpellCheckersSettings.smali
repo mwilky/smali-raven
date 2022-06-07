@@ -139,7 +139,7 @@
 
     if-nez p1, :cond_0
 
-    const p1, 0x7f0412c4
+    const p1, 0x7f0412c6
 
     invoke-virtual {p0, p1}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -150,7 +150,7 @@
     :cond_0
     if-nez p2, :cond_1
 
-    const p1, 0x7f0414d1
+    const p1, 0x7f0414d3
 
     invoke-virtual {p0, p1}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -218,7 +218,7 @@
     goto :goto_1
 
     :cond_1
-    const v1, 0x7f0412c4
+    const v1, 0x7f0412c6
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -383,7 +383,7 @@
 
     invoke-virtual {v0, v1}, Landroidx/appcompat/app/AlertDialog$Builder;->setTitle(I)Landroidx/appcompat/app/AlertDialog$Builder;
 
-    const v1, 0x7f0412c8
+    const v1, 0x7f0412ca
 
     const/4 v2, 0x1
 
@@ -697,7 +697,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0412c5
+    const v2, 0x7f0412c7
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

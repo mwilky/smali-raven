@@ -93,7 +93,7 @@
     <string name="one_handed_title">Modaliteti i përdorimit me një dorë</string>
     <string name="vibration_haptics_settings_not_available_summary">Dridhja dhe reagimi me prekje janë të padisponueshme sepse telefoni është vendosur në heshtje</string>
     <string name="vibration_haptics_strength_category_title">Fuqia e dridhjeve dhe e prekjes</string>
-    <string name="peak_refresh_rate_title">Ekrani me butësi</string>
+    <string name="peak_refresh_rate_title">Smooth Display</string>
     <string name="peak_refresh_rate_summary">Rrit automatikisht shpejtësinë e rifreskimit nga 60 në 90 Hz për disa përmbajtje. Rrit përdorimin e baterisë.</string>
     <string name="accessibility_vibration_settings_title">Dridhja dhe prekja</string>
     <string name="columbus_title">\"Trokit shpejt\" për të filluar veprimet</string>
@@ -451,7 +451,7 @@ Për të ndërruar mes veçorive, rrëshqit shpejt lart me 3 gishta dhe mbaje t�
     <string name="adaptive_sleep_contextual_slice_title">Aktivizo vëmendjen ndaj ekranit</string>
     <string name="adaptive_sleep_description">Parandalon fikjen e ekranit nëse shikon tek ai</string>
     <string name="adaptive_sleep_manage_permission_button">Menaxho autorizimet</string>
-    <string name="adaptive_sleep_privacy">Vëmendja ndaj ekranit përdor kamerën e përparme për të parë nëse dikush po shikon tek ekrani. Funksionon në pajisje dhe imazhet nuk dërgohen apo ruhen asnjëherë te Google.</string>
+    <string name="adaptive_sleep_privacy">\"Vëmendja ndaj ekranit\" përdor kamerën e përparme për të parë nëse dikush po shikon tek ekrani. Funksionon në pajisje dhe imazhet nuk ruhen apo dërgohen asnjëherë te Google.</string>
     <string name="adaptive_sleep_summary_no_permission">Kërkohet qasja në kamerë për vëmendjen e ekranit. Trokit për të menaxhuar autorizimet për \"Shërbimet e personalizimit të pajisjes\"</string>
     <string name="adaptive_sleep_summary_off">Joaktiv</string>
     <string name="adaptive_sleep_summary_on">Aktiv / Ekrani nuk do të fiket nëse shikon tek ai</string>
@@ -2522,8 +2522,8 @@ Të dhënat e rezervimit nuk do të ndikojnë në kuotat e hapësirës ruajtëse
     <string name="fullbackup_erase_dialog_message">Ndalo rezervimin e të dhënave të pajisjes (si p.sh. fjalëkalimet e Wi-Fi dhe historikun e telefonatave) dhe të dhënat e aplikacioneve (si p.sh. cilësimet dhe skedarët e ruajtur nga aplikacionet) dhe spastro të gjitha kopjet në Diskun e Google?</string>
     <string name="gadget_picker_title">Zgjidh veglën</string>
     <string name="game_controller_settings_category">Kontrolluesi i lojës</string>
-    <string name="game_dashboard_always_on_summary">Shfaq shkurtoren e \"Panelit të lojës\" te lojërat</string>
-    <string name="game_dashboard_always_on_title">Paneli i lojës</string>
+    <string name="game_dashboard_always_on_summary">Shfaq ikonën në të gjitha lojërat (pa rrëshqitur shpejt lart ose poshtë)</string>
+    <string name="game_dashboard_always_on_title">Ikona pluskuese e \"Panelit të lojës\"</string>
     <string name="game_dashboard_dnd_rule_name">Lojërat</string>
     <string name="game_dashboard_dnd_summary">Merr njoftime vetëm nga persona dhe aplikacione të rëndësishme kur luan një lojë</string>
     <string name="game_dashboard_dnd_title">Modaliteti \"Mos shqetëso\" për lojërat</string>
@@ -3746,14 +3746,14 @@ Kjo do t'i japë aplikacionit aftësinë për të aktivizuar ose çaktivizuar \"
     <string name="oem_unlock_enable_summary">Lejo shkyçjen e ngarkimit të sistemit</string>
     <string name="okay">Në rregull</string>
     <string name="one_cacrt">një certifikatë CA</string>
-    <string name="one_handed_action_pull_down_screen_summary">Kreu i ekranit do të lëvizë në rrezen e gishtit të madh të dorës.</string>
-    <string name="one_handed_action_pull_down_screen_title">Tërhiqe ekranin në rreze</string>
+    <string name="one_handed_action_pull_down_screen_summary">Pjesa e sipërme e ekranit do të lëvizë brenda rrezes së kapjes të gishtit të madh të dorës.</string>
+    <string name="one_handed_action_pull_down_screen_title">Tërhiq ekranin brenda rreze së kapjes</string>
     <string name="one_handed_action_show_notification_summary">Njoftimet dhe cilësimet do të shfaqen.</string>
     <string name="one_handed_action_show_notification_title">Shfaq njoftimet</string>
     <string name="one_handed_mode_enabled">Përdor modalitetin e përdorimit me një dorë</string>
     <string name="one_handed_mode_intro_text">Për të përdorur modalitetin e përdorimit me një dorë, rrëshqit shpejt poshtë nga buza e poshtme e ekranit. Për ta përdorur këtë veçori, sigurohu që të jetë aktivizuar navigimi me gjeste në cilësimet e navigimit të sistemit.</string>
     <string name="one_handed_mode_shortcut_title">Shkurtorja e modalitetit të përdorimit me një dorë</string>
-    <string name="one_handed_mode_swipe_down_category">Rrëshqit shpejt poshtë te</string>
+    <string name="one_handed_mode_swipe_down_category">Rrëshqit shpejt poshtë te opsionet:</string>
     <string name="one_handed_mode_use_shortcut_category">Përdor shkurtoren për</string>
     <string name="one_usercrt">certifikatë për një përdorues</string>
     <string name="one_userkey">çelës për një përdorues</string>
@@ -4067,7 +4067,7 @@ Shtyp njëherësh \"Energjinë\" dhe \"Volumin lart\"."</string>
     <string name="reduce_bright_colors_intensity_preference_title">Intensiteti</string>
     <string name="reduce_bright_colors_intensity_start_label">Më i errët</string>
     <string name="reduce_bright_colors_persist_preference_title">Mbaje të aktivizuar pasi pajisja të riniset</string>
-    <string name="reduce_bright_colors_preference_subtitle">"Bëje ekranin më të zbehtë në mënyrë që të jetë më komod për t'u lexuar.&lt;br/>&lt;br/> Kjo mund të jetë e dobishme kur: &lt;ol> &lt;li> Ndriçimi minimal i parazgjedhur i telefonit tënd është përsëri tepër i ndritshëm&lt;/li> &lt;li> Po e përdor telefonin në situata të errëta, si natën ose në një dhomë të errët përpara gjumit&lt;/li> &lt;/ol>"</string>
+    <string name="reduce_bright_colors_preference_subtitle">Bëje ekranin më të zbehtë për ta bërë leximin më komod.&lt;br/>&lt;br/> Kjo mund të jetë e dobishme kur: &lt;ol> &lt;li> Ndriçimi minimal i parazgjedhur i telefonit tënd është përsëri tepër i ndritshëm&lt;/li> &lt;li> Po e përdor telefonin në situata të errëta, si natën ose në një dhomë të errët përpara gjumit&lt;/li> &lt;/ol></string>
     <string name="reduce_bright_colors_preference_summary">Errësoje ekranin përtej ndriçimit minimal të telefonit tënd</string>
     <string name="reduce_bright_colors_preference_title">Shumë më i zbehtë</string>
     <string name="reduce_bright_colors_shortcut_title">Shkurtorja për veçorinë \"shumë më i zbehtë\"</string>
@@ -4572,6 +4572,8 @@ Shënim. Nuk mund ta përdorësh gjurmën tënde të gishtit për ta shkyçur k�
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">Ndiq ikonën e gjurmës së gishtit</string>
     <string name="security_settings_udfps_enroll_start_message">Mbaje gjurmën e gishtit mbi sensor derisa të ndjesh një dridhje</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">Edhe një herë</string>
+    <string name="security_settings_udfps_side_fingerprint_help">Vendos anën e gjurmës së gishtit në sensor dhe mbaje, më pas kalo në anën tjetër</string>
+    <string name="security_settings_udfps_tip_fingerprint_help">Ngrije dhe më pas prek përsëri</string>
     <string name="security_settings_work_fingerprint_preference_title">Pixel Imprint për punën</string>
     <string name="security_status_title">Statusi i sigurisë</string>
     <string name="see_less">Shiko më pak</string>
@@ -4803,7 +4805,7 @@ Kod PIN i gabuar."</string>
     <string name="smart_forwarding_summary_enabled">Transferimi inteligjent është aktivizuar</string>
     <string name="smart_forwarding_title">Transferimi inteligjent</string>
     <string name="smart_notifications_title">Njoftimet me përshtatje</string>
-    <string name="smart_rotate_text_headline">\"Zbulimi i fytyrës\" përdor kamerën e përparme për të përmirësuar saktësinë e \"Rrotullo automatikisht\". Imazhet nuk ruhen as nuk dërgohen asnjëherë te Google.</string>
+    <string name="smart_rotate_text_headline">\"Zbulimi i fytyrës\" përdor kamerën e përparme për të përmirësuar saktësinë e rrotullimit automatik. Imazhet nuk ruhen apo dërgohen asnjëherë te Google.</string>
     <string name="sms_application_title">Aplikacioni për SMS</string>
     <string name="sms_change_default_dialog_text">Të përdoret %1$s në vend të %2$s si aplikacioni për SMS?</string>
     <string name="sms_change_default_dialog_title">Të ndryshohet aplikacioni i SMS-ve?</string>
@@ -4827,7 +4829,7 @@ Kod PIN i gabuar."</string>
     <string name="sound_settings_summary_silent">Zilja u vendos në heshtje</string>
     <string name="sound_settings_summary_vibrate">Zilja u caktua me dridhje</string>
     <string name="sound_work_settings">Tingujt e profilit të punës</string>
-    <string name="spatial_audio_title">Zë hapësinor</string>
+    <string name="spatial_audio_title">Audio hapësinore</string>
     <string name="special_access">Qasja e veçantë e apl.</string>
     <string name="special_access_more">Shiko më shumë</string>
     <string name="speed_label_fast">E shpejtë</string>
@@ -5532,6 +5534,7 @@ Kur shton një përdorues të ri, ai person duhet të konfigurojë hapësirën e
     <string name="verify_apps_over_usb_title">Verifiko apl. përmes USB-së</string>
     <string name="version_text">versioni %1$s</string>
     <string name="vibrate_for_calls_settings_not_available_summary">\"Dridhja për telefonatat\" nuk ofrohet sepse telefoni është vendosur në heshtje</string>
+    <string name="vibrate_icon_title">Shfaq gjithmonë ikonën në modalitetin me dridhje</string>
     <string name="vibrate_in_silent_title">Dridhje kur është \"në heshtje\"</string>
     <string name="vibrate_input_devices">Ridrejto dridhjen</string>
     <string name="vibrate_input_devices_summary">Dërgoji dridhjet te kontrolluesi i lojës kur të lidhet</string>

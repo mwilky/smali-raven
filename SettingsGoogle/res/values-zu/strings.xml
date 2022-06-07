@@ -2522,8 +2522,8 @@ Idatha eyenziwe isipele ngeke ibalwe ngokubhekiswe ku-quota yesitoreji sakho seD
     <string name="fullbackup_erase_dialog_message">Misa ukwenza isipele idatha yedivayisi (efana namaphasiwedi we-Wi-Fi nomlando wekholi) nedatha yohlelo lokusebenza (efana nezilungiselelo namafayela agcinwe yizinhlelo zokusebenza, uphinde ususe wonke amakhophi ku-Google Drayivu?</string>
     <string name="gadget_picker_title">Khetha igajethi</string>
     <string name="game_controller_settings_category">Isilawuli somdlalo</string>
-    <string name="game_dashboard_always_on_summary">Bonisa isinqamuleli Sedeshibhodi Yegeyimu kumageyimu</string>
-    <string name="game_dashboard_always_on_title">Ideshibhodi Yegeyimu</string>
+    <string name="game_dashboard_always_on_summary">Bonisa isithonjana kuwo wonke amageyimu (ngaphandle kokuswayiphela phezulu noma phansi)</string>
+    <string name="game_dashboard_always_on_title">Isithonjana esintantayo Sedeshibhodi Yegemu</string>
     <string name="game_dashboard_dnd_rule_name">Amageyimu</string>
     <string name="game_dashboard_dnd_summary">Yaziswa kuphela ngabantu ababalulekile nama-app lapho udlala igeyimu</string>
     <string name="game_dashboard_dnd_title">Okuthi Ungaphazamisi kwamageyimu</string>
@@ -4572,6 +4572,8 @@ Yazi: Awukwazi ukusebenzisa izigxivizo zakho zeminwe ukuze uvule le divayisi. Uk
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">Landela isithonjana sezigxivizo zeminwe</string>
     <string name="security_settings_udfps_enroll_start_message">Gcina isigxivizo somunwe wakho siphansi kunzwa kuze kube yilapho uzwa ukudlidliza</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">Kanye futhi</string>
+    <string name="security_settings_udfps_side_fingerprint_help">Beka uhlangothi lwesigxivizo sakho somunwe kunzwa uphinde ubambe, bese ushintshela kolunye uhlangothi</string>
+    <string name="security_settings_udfps_tip_fingerprint_help">Phakamisa, bese uthinte futhi</string>
     <string name="security_settings_work_fingerprint_preference_title">I-Pixel Imprint yomsebenzi</string>
     <string name="security_status_title">Isimo sokuphepha</string>
     <string name="see_less">Buka okuncane</string>
@@ -5532,6 +5534,7 @@ Noma yimuphi umsebenzisi angabuyekeza izinhlelo zokusebenza kubo bonke abasebenz
     <string name="verify_apps_over_usb_title">Qiniseka izinhlelo zokusebenza nge-USB</string>
     <string name="version_text">Inguqulo %1$s</string>
     <string name="vibrate_for_calls_settings_not_available_summary">Ukudlidliza kwamakholi akutholakali ngoba ifoni yakho isethwe ukuba ithule</string>
+    <string name="vibrate_icon_title">Bonisa njalo isithonjana lapho usebenzisa imodi yokudlidliza</string>
     <string name="vibrate_in_silent_title">Idlidliza uma ithulile</string>
     <string name="vibrate_input_devices">Qondisa kabusha ukudlidliza</string>
     <string name="vibrate_input_devices_summary">Thumela ukudlidliza kwesilawuli segeyimu uma kuxhunyiwe</string>
@@ -6181,7 +6184,7 @@ Vumela lokhu ngazo zonke izinhlelo zokusebenza ezifuna ukuskena?"</string>
     <string name="zen_mode_bypassing_apps_add_header">Khetha izinhlelo zokusebenza eziningi</string>
     <string name="zen_mode_bypassing_apps_all_summary">Zonke izaziso</string>
     <string name="zen_mode_bypassing_apps_footer">Abantu abakhethiwe basengakuthola, ngisho noma ungavumeli izinhlelo zokusebenza ukuphazamisa</string>
-    <string name="zen_mode_bypassing_apps_header">Izinhlelo zokusebenza ezingaphazamisa</string>
+    <string name="zen_mode_bypassing_apps_header">Ama-app angaphazamisa</string>
     <string name="zen_mode_bypassing_apps_none">Azikho izinhlelo zokusebenza ezikhethiwe</string>
     <string name="zen_mode_bypassing_apps_some_summary">Ezinye izaziso</string>
     <string name="zen_mode_bypassing_apps_subtext">{count,plural,offset:2 =0{Azikho izinhlelo zokusebenza ezingaphazamisa}=1{I-{app_1} ingaphazamisa}=2{I-{app_1} ne-{app_2} zingaphazamisa}=3{I-{app_1}, i-{app_2}, ne-{app_3} zingaphazamisa}one{I-{app_1}, i-{app_2}, kanye nezingu-# ezengeziwe zingaphazamisa}other{I-{app_1}, i-{app_2}, kanye nezingu-# ezengeziwe zingaphazamisa}}</string>

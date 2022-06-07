@@ -5,7 +5,7 @@
     <string name="adaptive_sleep_title">Vnímavá obrazovka</string>
     <string name="additional_system_update_settings_list_item_title">Ďalšie aktualizácie systému</string>
     <string name="ambient_display_category_triggers">Kedy zobrazovať</string>
-    <string name="ambient_display_pickup_title">Kontrola telefónu zdvihnutím</string>
+    <string name="ambient_display_pickup_title">Kontrolovať telefón zdvihnutím</string>
     <string name="ambient_display_tap_screen_title">Kontrolovať telefón klepnutím</string>
     <string name="ambient_display_title">Kontrola telefónu dvojitým klepnutím</string>
     <string name="ambient_display_wake_screen_title">Prebudiť obrazovku</string>
@@ -30,7 +30,7 @@
     <string name="double_twist_for_camera_mode_title">Otočiť fotoaparát na selfie</string>
     <string name="doze_always_on_summary">Zvýšená spotreba batérie</string>
     <string name="doze_always_on_title">Vždy zobrazovať čas a údaje</string>
-    <string name="doze_summary">Keď je obrazovka tmavá, zapne sa v prípade nových upozornení</string>
+    <string name="doze_summary">Keď je obrazovka tmavá, pri nových upozorneniach sa zapne</string>
     <string name="doze_title">Prebudiť obraz. na upozornenia</string>
     <string name="fingerprint_swipe_for_notifications_title">Zobraziť upozornenia odtlačkom prsta</string>
     <string name="gesture_preference_title">Gestá</string>
@@ -102,7 +102,7 @@
     <string name="vibrate_for_calls_category_title">Hovory</string>
     <string name="lockscreen_privacy_wallet_setting_toggle">Zobraziť peňaženku</string>
     <string name="lockscreen_privacy_controls_setting_toggle">Zobraziť ovládanie zariadení</string>
-    <string name="lockscreen_privacy_wallet_summary">Povoľte prístup k peňaženke z uzamknutej obrazovky a rýchlych nastavení</string>
+    <string name="lockscreen_privacy_wallet_summary">Povoliť prístup k peňaženke z uzamknutej obrazovky a rýchlych nastavení</string>
     <string name="lockscreen_privacy_controls_summary">Prístup k ovládacím prvkom pri uzamknutí</string>
     <string name="lockscreen_double_line_clock_summary">Zobrazovať hodiny na dva riadky (keď sú k dispozícii)</string>
     <string name="lockscreen_double_line_clock_setting_toggle">Hodiny na dva riadky</string>
@@ -554,9 +554,9 @@ Miniaplikácia: %2$s
     <string name="amber_alerts_title">Upozornenia Amber</string>
     <string name="ambient_camera_battery_saver_off">Vypnúť šetrič batérie</string>
     <string name="ambient_camera_summary_battery_saver_on">Dočasne vypnuté šetričom batérie</string>
-    <string name="ambient_display_pickup_summary">Ak chcete zistiť čas, skontrolovať upozornenia a získať ďalšie informácie, zdvihnite telefón.</string>
+    <string name="ambient_display_pickup_summary">Zobraziť čas, kontrolovať upozornenia a získať ďalšie informácie zdvihnutím telefónu</string>
     <string name="ambient_display_screen_title">Ambientné zobrazenie</string>
-    <string name="ambient_display_summary">Ak chcete zistiť čas, skontrolovať upozornenia a získať ďalšie informácie, klepnite dvakrát na obrazovku.</string>
+    <string name="ambient_display_summary">Zobraziť čas, kontrolovať upozornenia a získať ďalšie informácie dvojitým klepnutím na obrazovku</string>
     <string name="ambient_display_tap_screen_summary">Zobraziť čas, kontrolovať upozornenia a získať ďalšie informácie klepnutím na obrazovku</string>
     <string name="ambient_display_wake_screen_footer"><annotation link="link">Predvoľby</annotation></string>
     <string name="ambient_display_wake_screen_summary" />
@@ -1452,7 +1452,7 @@ Ak si nainštalujete certifikát CA, vlastník certifikátu by mohol získať pr
     <string name="camera_double_tap_power_gesture_desc">Rýchlo otvárať fotoaparát bez odomknutia obrazovky</string>
     <string name="camera_double_tap_power_gesture_title">Fotoaparát dvojitým stlačením vypínača</string>
     <string name="camera_laser_sensor_switch">Laserový snímač fotoaparátu</string>
-    <string name="camera_toggle_title">Prístup k fotoaparátu</string>
+    <string name="camera_toggle_title">Prístup ku kamere</string>
     <string name="cancel">Zrušiť</string>
     <string name="cancel_lock_screen_dialog_button_label">Zrušiť</string>
     <string name="cannot_change_apn_toast">Tento názov prístupového bodu sa nedá zmeniť.</string>
@@ -1834,7 +1834,7 @@ Ak chcete ďalej používať svoj telefón, musíte obnoviť jeho výrobné nast
     <string name="dark_ui_settings_dark_summary">Na tmavý motív sa prepnú aj podporované aplikácie</string>
     <string name="dark_ui_settings_dialog_acknowledge">Dobre</string>
     <string name="dark_ui_status_title">Stav</string>
-    <string name="dark_ui_summary_off_auto_mode_auto">Zapne sa automaticky pri západe slnka</string>
+    <string name="dark_ui_summary_off_auto_mode_auto">Zapnúť automaticky pri západe slnka</string>
     <string name="dark_ui_summary_off_auto_mode_custom">Zapne sa automaticky o %1$s</string>
     <string name="dark_ui_summary_off_auto_mode_never">Nikdy sa automaticky nezapne</string>
     <string name="dark_ui_summary_on_auto_mode_auto">Vypne sa automaticky pri východe slnka</string>
@@ -2522,8 +2522,8 @@ Zálohované údaje sa nezapočítavajú do kvóty úložiska. Veľké súbory a
     <string name="fullbackup_erase_dialog_message">Zastaviť zálohovanie údajov zariadenia (ako sú heslá sietí Wi‑Fi a história hovorov) a údajov aplikácií (ako sú nastavenia a súbory uložené aplikáciami) a vymazať všetky kópie na Disku Google?</string>
     <string name="gadget_picker_title">Vyberte modul gadget</string>
     <string name="game_controller_settings_category">Herné ovládače</string>
-    <string name="game_dashboard_always_on_summary">Zobrazovať v hrách odkaz na herný panel</string>
-    <string name="game_dashboard_always_on_title">Herný panel</string>
+    <string name="game_dashboard_always_on_summary">Zobrazovať ikonu vo všetkých hrách (bez potiahnutia nahor alebo nadol)</string>
+    <string name="game_dashboard_always_on_title">Plávajúca ikona herného panela</string>
     <string name="game_dashboard_dnd_rule_name">Hry</string>
     <string name="game_dashboard_dnd_summary">Dostávajte počas hrania hier upozornenia iba od dôležitých ľudí a aplikácií</string>
     <string name="game_dashboard_dnd_title">Režim bez vyrušení pre hry</string>
@@ -3552,7 +3552,7 @@ Nahradí sa tým vaša predvolená platobná aplikácia %2$s."</string>
     <string name="night_display_suggestion_title">Nastavenie harmonogramu Nočného režimu</string>
     <string name="night_display_summary_off_auto_mode_custom">Zapne sa automaticky o %1$s</string>
     <string name="night_display_summary_off_auto_mode_never">Nikdy sa automaticky nezapne</string>
-    <string name="night_display_summary_off_auto_mode_twilight">Zapne sa automaticky pri západe slnka</string>
+    <string name="night_display_summary_off_auto_mode_twilight">Zapnúť automaticky pri západe slnka</string>
     <string name="night_display_summary_on_auto_mode_custom">Vypne sa automaticky o %1$s</string>
     <string name="night_display_summary_on_auto_mode_never">Nikdy sa automaticky nevypne</string>
     <string name="night_display_summary_on_auto_mode_twilight">Vypne sa automaticky pri východe slnka</string>
@@ -3794,7 +3794,7 @@ Aplikácia tým získa aj možnosť vypnúť alebo zapnúť režim bez vyrušen�
     <string name="permission_bar_chart_title">Používanie povolení za posledných 24 hodín</string>
     <string name="permissions_label">Povolenia</string>
     <string name="permissions_usage_summary">Zobraziť, ktoré aplikácie nedávno použili povolenia</string>
-    <string name="permissions_usage_title">Panel na ochranu súkromia</string>
+    <string name="permissions_usage_title">Panel ochrany súkromia</string>
     <string name="permit_draw_overlay">Povoliť zobrazenie cez iné aplikácie</string>
     <string name="permit_manage_external_storage">Povoliť prístup na správu všetkých súborov</string>
     <string name="permit_usage_access">Povoliť prístup k údajom o používaní</string>
@@ -4571,6 +4571,8 @@ Poznámka: Odtlačok prsta nie je možné použiť na odomknutie tohto zariadeni
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">Sledujte ikonu odtlačku prsta</string>
     <string name="security_settings_udfps_enroll_start_message">Držte prst na senzore, kým nezacítite vibrovanie</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">Ešte raz</string>
+    <string name="security_settings_udfps_side_fingerprint_help">Umiestnite bočnú stranu odtlačku prsta na senzor, chvíľu ho tam podržte a potom priložte opačnú stranu</string>
+    <string name="security_settings_udfps_tip_fingerprint_help">Zdvihnite a opäť priložte</string>
     <string name="security_settings_work_fingerprint_preference_title">Pixel Imprint pre prácu</string>
     <string name="security_status_title">Stav zabezpečenia</string>
     <string name="see_less">Zobraziť menej</string>
@@ -4802,7 +4804,7 @@ Zrejme ste zadali nesprávny kód PIN."</string>
     <string name="smart_forwarding_summary_enabled">Inteligentné presmerovanie je aktivované</string>
     <string name="smart_forwarding_title">Inteligentné presmerovanie</string>
     <string name="smart_notifications_title">Prispôsobivé upozornenia</string>
-    <string name="smart_rotate_text_headline">Rozpoznávanie tváre zlepšuje presnosť automatického otáčania pomocou predného fotoaparátu. Obrázky sa nikdy neukladajú ani neodosielajú Googlu.</string>
+    <string name="smart_rotate_text_headline">Rozpoznávanie tváre zlepšuje presnosť automatického otáčania pomocou prednej kamery. Obrázky sa nikdy neukladajú ani neodosielajú Googlu.</string>
     <string name="sms_application_title">Aplikácia na SMS</string>
     <string name="sms_change_default_dialog_text">Použiť aplikáciu %1$s namiesto %2$s ako aplikáciu na SMS?</string>
     <string name="sms_change_default_dialog_title">Zmeniť aplikáciu na SMS?</string>
@@ -5531,6 +5533,7 @@ Akýkoľvek používateľ môže aktualizovať aplikácie všetkých ostatných 
     <string name="verify_apps_over_usb_title">Overovať aplikácie z USB</string>
     <string name="version_text">verzia %1$s</string>
     <string name="vibrate_for_calls_settings_not_available_summary">Vibrácie pri hovoroch nie k dispozícii, pretože v telefóne je zapnutý tichý režim</string>
+    <string name="vibrate_icon_title">Vždy zobrazovať ikonu v režime vibrovania</string>
     <string name="vibrate_in_silent_title">Vibrovať v tichom režime</string>
     <string name="vibrate_input_devices">Presmerovať vibrácie</string>
     <string name="vibrate_input_devices_summary">Posielať vibrácie do herného ovládača, keď je pripojený</string>
@@ -6244,7 +6247,7 @@ Chcete túto možnosť povoliť všetkým aplikáciám, ktoré chcú vyhľadáva
     <string name="zen_mode_media_list_first">Médiá</string>
     <string name="zen_mode_media_summary">Zvuky z videí, hier a ďalších médií</string>
     <string name="zen_mode_messages">Správy</string>
-    <string name="zen_mode_messages_footer">Skontrolujte, či je v zariadení zapnuté zvonenie, aby na povolené správy upozorňovalo zvukom</string>
+    <string name="zen_mode_messages_footer">Skontrolujte, či má zariadenie zapnuté zvonenie, aby na povolené správy upozorňovalo zvukom</string>
     <string name="zen_mode_messages_header">Správy, ktoré môžu vyrušiť</string>
     <string name="zen_mode_messages_list">správy</string>
     <string name="zen_mode_messages_title">Správy</string>
@@ -6293,7 +6296,7 @@ Keď vypnete režim bez vyrušení, zmeškané upozornenia zobrazíte potiahnut�
     <string name="zen_mode_rule_summary_provider_combination">"%1$s
 %2$s"</string>
     <string name="zen_mode_rule_type_unknown">Neznáme</string>
-    <string name="zen_mode_schedule_alarm_summary">Plán sa vypne, keď zazvoní budík</string>
+    <string name="zen_mode_schedule_alarm_summary">Vypnúť plán, keď zazvoní budík</string>
     <string name="zen_mode_schedule_alarm_title">Budík môže prepísať čas ukončenia</string>
     <string name="zen_mode_schedule_category_title">Plán</string>
     <string name="zen_mode_schedule_delete">Odstrániť</string>

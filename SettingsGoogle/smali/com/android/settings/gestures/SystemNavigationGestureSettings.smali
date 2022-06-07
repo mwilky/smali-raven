@@ -662,13 +662,13 @@
 
     new-instance v1, Lcom/android/settings/utils/CandidateInfoExtra;
 
-    const v3, 0x7f04139c
+    const v3, 0x7f04139e
 
     invoke-virtual {p0, v3}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v3
 
-    const v4, 0x7f04139b
+    const v4, 0x7f04139d
 
     invoke-virtual {p0, v4}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 

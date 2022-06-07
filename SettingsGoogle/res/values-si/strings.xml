@@ -2522,8 +2522,8 @@ Codec තේරීම: පසුධාවන ගුණත්වය"</string>
     <string name="fullbackup_erase_dialog_message">උපාංග දත්ත (Wi-Fi මුරපද සහ ඇමතුම් ඉතිහාසය යනාදී) සහ යෙදුම් දත්ත (යෙදුම් මගින් ගබඩා කළ සැකසීම් සහ ගොනු යනාදී) උපස්ථ කිරීම සහ Google Drive වල සියලු පිටපත් මැකීම නවත්වන්නද?</string>
     <string name="gadget_picker_title">ගැජටය තෝරන්න</string>
     <string name="game_controller_settings_category">ක්‍රීඩා පාලකය</string>
-    <string name="game_dashboard_always_on_summary">ක්‍රීඩා තුළ ක්‍රීඩා උපකරණ පුවරු කෙටි මඟ පෙන්වන්න</string>
-    <string name="game_dashboard_always_on_title">ක්‍රීඩා උපකරණ පුවරුව</string>
+    <string name="game_dashboard_always_on_summary">සියලු ක්‍රීඩාවල නිරූපකය පෙන්වන්න (ඉහළට හෝ පහළට ස්වයිප් නොකර)</string>
+    <string name="game_dashboard_always_on_title">ක්‍රීඩා උපකරණ පුවරුව පාවෙන නිරූපකය</string>
     <string name="game_dashboard_dnd_rule_name">ක්‍රීඩාවේ යෙදීම්</string>
     <string name="game_dashboard_dnd_summary">ක්‍රීඩාවක් කරන විට වැදගත් පුද්ගලයන් සහ යෙදුම් විසින් පමණක් දැනුම් දෙනු ලැබේ</string>
     <string name="game_dashboard_dnd_title">ක්‍රීඩා සඳහා බාධා නොකිරීම</string>
@@ -4572,6 +4572,8 @@ g.co/pixel/faceunlock හිදී තව දැන ගන්න"</string>
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">ඇඟිලි සලකුණු නිරූපකය අනුගමනය කරන්න</string>
     <string name="security_settings_udfps_enroll_start_message">ඔබට කම්පනයක් දැනෙන තුරු සංවේදකය මත ඔබගේ ඇඟිලි සලකුණ තබන්න</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">තව එක් වරක්</string>
+    <string name="security_settings_udfps_side_fingerprint_help">ඔබගේ ඇඟිලි සලකුණුණෙහි පැත්ත සංවේදකය මත තබා අල්ලාගෙන සිටින්න, අනතුරුව අනෙක් පැත්තට මාරු කරන්න</string>
+    <string name="security_settings_udfps_tip_fingerprint_help">ඔසවා, පසුව නැවත ස්පර්ශ කරන්න</string>
     <string name="security_settings_work_fingerprint_preference_title">කාර්යාලය සඳහා Pixel Imprint</string>
     <string name="security_status_title">ආරක්ෂක තත්ත්වය</string>
     <string name="see_less">අඩුවෙන් බලන්න</string>
@@ -5532,6 +5534,7 @@ g.co/pixel/faceunlock හිදී තව දැන ගන්න"</string>
     <string name="verify_apps_over_usb_title">USB ඔස්සේ යෙදුම් සත්‍යාපනය කරගන්න</string>
     <string name="version_text">%1$s අනුවාදය</string>
     <string name="vibrate_for_calls_settings_not_available_summary">දුරකථනය නිශ්ශබ්දව තැබීමට සකසා ඇති නිසා ඇමතුම් සඳහා කම්පනය ලබා ගත නොහැකිය</string>
+    <string name="vibrate_icon_title">කම්පන ප්‍රකාරය තුළ තිබෙන සැම විට නිරූපකය පෙන්වන්න</string>
     <string name="vibrate_in_silent_title">නිශ්ශබ්ධ විටදී කම්පනය කරන්න</string>
     <string name="vibrate_input_devices">කම්පනය ප්‍රතියොමු කරන්න</string>
     <string name="vibrate_input_devices_summary">ක්‍රීඩා පාලකයට සම්බන්ධ විට කම්පනය යවන්න.</string>

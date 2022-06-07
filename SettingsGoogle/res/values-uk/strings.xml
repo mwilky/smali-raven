@@ -94,7 +94,7 @@
     <string name="vibration_haptics_settings_not_available_summary">Вібрація й вібровідгук недоступні, оскільки на телефоні ввімкнено беззвучний режим</string>
     <string name="vibration_haptics_strength_category_title">Сила вібрації та вібровідгуку</string>
     <string name="peak_refresh_rate_title">Плавне відображення</string>
-    <string name="peak_refresh_rate_summary">Автоматично збільшує частоту оновлення певного вмісту з 60 до 90 Гц. Підвищує використання заряду акумулятора.</string>
+    <string name="peak_refresh_rate_summary">Автоматично збільшує частоту оновлення певного контенту з 60 до 90 Гц. Підвищує використання заряду акумулятора.</string>
     <string name="accessibility_vibration_settings_title">Вібрація та вібровідгук</string>
     <string name="columbus_title">Подвійний дотик для виконання дій</string>
     <string name="emergency_gesture_screen_title">Екстрені виклики</string>
@@ -104,7 +104,7 @@
     <string name="lockscreen_privacy_controls_setting_toggle">Показувати елементи керування пристроями</string>
     <string name="lockscreen_privacy_wallet_summary">Дозволити доступ до гаманця із заблокованого екрана та швидких налаштувань</string>
     <string name="lockscreen_privacy_controls_summary">Доступ до елементів керування на заблокованому екрані</string>
-    <string name="lockscreen_double_line_clock_summary">Показувати двосторонній годинник за наявності</string>
+    <string name="lockscreen_double_line_clock_summary">Показувати дворядковий годинник, коли можливо</string>
     <string name="lockscreen_double_line_clock_setting_toggle">Дворядковий годинник</string>
     <string name="abc_activity_chooser_view_see_all">Показати всі</string>
     <string name="abc_activitychooserview_choose_application">Вибрати програму</string>
@@ -2522,8 +2522,8 @@
     <string name="fullbackup_erase_dialog_message">Не створювати резервні копії даних пристроїв (як-от паролів Wi-Fi та історії дзвінків) і додатків (як-от налаштувань і збережених файлів) та стерти всі копії на Google Диску?</string>
     <string name="gadget_picker_title">Вибрати віджет</string>
     <string name="game_controller_settings_category">Ігровий контролер</string>
-    <string name="game_dashboard_always_on_summary">Показувати ярлик ігрової панелі в іграх</string>
-    <string name="game_dashboard_always_on_title">Ігрова панель</string>
+    <string name="game_dashboard_always_on_summary">Показувати значок у всіх іграх (без проведення пальцем угору чи вниз)</string>
+    <string name="game_dashboard_always_on_title">Плаваючий значок ігрової панелі</string>
     <string name="game_dashboard_dnd_rule_name">Ігри</string>
     <string name="game_dashboard_dnd_summary">Коли ввімкнено гру, отримувати сповіщення лише від важливих людей і додатків</string>
     <string name="game_dashboard_dnd_title">Режим \"Не турбувати\" для ігор</string>
@@ -4572,6 +4572,8 @@
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">Стежте за значком відбитка пальця</string>
     <string name="security_settings_udfps_enroll_start_message">Утримуйте палець на сенсорі рівно, доки не відчуєте вібрацію</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">Повторіть</string>
+    <string name="security_settings_udfps_side_fingerprint_help">Прикладіть до датчика й трохи потримайте одну сторону кінчика пальця, а потім зробіть те саме з іншою стороною</string>
+    <string name="security_settings_udfps_tip_fingerprint_help">Підніміть і знову прикладіть палець</string>
     <string name="security_settings_work_fingerprint_preference_title">Pixel Imprint для роботи</string>
     <string name="security_status_title">Статус безпеки</string>
     <string name="see_less">Показати менше</string>
@@ -4827,7 +4829,7 @@
     <string name="sound_settings_summary_silent">Звук дзвінка вимкнено</string>
     <string name="sound_settings_summary_vibrate">Вібрацію під час дзвінка ввімкнено</string>
     <string name="sound_work_settings">Звуки робочого профілю</string>
-    <string name="spatial_audio_title">Просторовий звук</string>
+    <string name="spatial_audio_title">Просторове звучання</string>
     <string name="special_access">Спеціальний доступ</string>
     <string name="special_access_more">Показати більше</string>
     <string name="speed_label_fast">Швидка</string>
@@ -5532,6 +5534,7 @@
     <string name="verify_apps_over_usb_title">Встановлення через USB</string>
     <string name="version_text">версія %1$s</string>
     <string name="vibrate_for_calls_settings_not_available_summary">Вібрація під час викликів недоступна, оскільки на телефоні ввімкнено беззвучний режим</string>
+    <string name="vibrate_icon_title">Завжди показувати значок у режимі вібрації</string>
     <string name="vibrate_in_silent_title">Вібр. в беззвуч. реж.</string>
     <string name="vibrate_input_devices">Переспрямувати вібросигнал</string>
     <string name="vibrate_input_devices_summary">Надсилати вібросигнал на ігровий контролер, коли є з’єднання</string>

@@ -163,7 +163,7 @@
     :cond_4
     if-nez p1, :cond_5
 
-    const p1, 0x7f04139d
+    const p1, 0x7f04139f
 
     invoke-virtual {p0, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -172,7 +172,7 @@
     return-object p0
 
     :cond_5
-    const p1, 0x7f04139e
+    const p1, 0x7f0413a0    # 1.7556E38f
 
     invoke-virtual {p0, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

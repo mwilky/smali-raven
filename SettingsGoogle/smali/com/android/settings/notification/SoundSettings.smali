@@ -96,7 +96,7 @@
 .end method
 
 .method private static buildPreferenceControllers(Landroid/content/Context;Lcom/android/settings/notification/SoundSettings;Lcom/android/settingslib/core/lifecycle/Lifecycle;)Ljava/util/List;
-    .locals 10
+    .locals 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -168,6 +168,10 @@
 
     invoke-direct {v9, p0, p1, p2}, Lcom/android/settings/notification/EmergencyTonePreferenceController;-><init>(Landroid/content/Context;Lcom/android/settings/SettingsPreferenceFragment;Lcom/android/settingslib/core/lifecycle/Lifecycle;)V
 
+    new-instance v10, Lcom/android/settings/notification/VibrateIconPreferenceController;
+
+    invoke-direct {v10, p0, p1, p2}, Lcom/android/settings/notification/VibrateIconPreferenceController;-><init>(Landroid/content/Context;Lcom/android/settings/SettingsPreferenceFragment;Lcom/android/settingslib/core/lifecycle/Lifecycle;)V
+
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     invoke-interface {v0, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
@@ -177,6 +181,8 @@
     invoke-interface {v0, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     invoke-interface {v0, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    invoke-interface {v0, v10}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     invoke-interface {v0, v6}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
@@ -192,7 +198,7 @@
 
     invoke-direct {p1, p0, p2}, Lcom/android/settings/widget/PreferenceCategoryController;-><init>(Landroid/content/Context;Ljava/lang/String;)V
 
-    const/16 p0, 0x9
+    const/16 p0, 0xa
 
     new-array p0, p0, [Lcom/android/settingslib/core/AbstractPreferenceController;
 
@@ -218,17 +224,21 @@
 
     const/4 p2, 0x5
 
-    aput-object v6, p0, p2
+    aput-object v10, p0, p2
 
     const/4 p2, 0x6
 
-    aput-object v7, p0, p2
+    aput-object v6, p0, p2
 
     const/4 p2, 0x7
 
-    aput-object v8, p0, p2
+    aput-object v7, p0, p2
 
     const/16 p2, 0x8
+
+    aput-object v8, p0, p2
+
+    const/16 p2, 0x9
 
     aput-object v9, p0, p2
 

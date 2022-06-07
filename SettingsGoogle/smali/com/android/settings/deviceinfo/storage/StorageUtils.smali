@@ -208,7 +208,7 @@
 
     move-result-object p1
 
-    const p2, 0x7f041320
+    const p2, 0x7f041322
 
     invoke-virtual {p0, p2}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -420,7 +420,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f041308
+    const p1, 0x7f04130a
 
     invoke-virtual {p0, p1}, Lcom/android/settings/core/SubSettingLauncher;->setTitleRes(I)Lcom/android/settings/core/SubSettingLauncher;
 

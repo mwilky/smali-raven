@@ -75,6 +75,8 @@
 
 .field mInternetUpdater:Lcom/android/settings/network/InternetUpdater;
 
+.field mIsAdmin:Z
+
 .field protected mIsRestricted:Z
 
 .field private mIsViewLoading:Z
@@ -230,7 +232,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .locals 2
 
     const-string v0, "no_config_wifi"
 
@@ -246,17 +248,19 @@
 
     iput-boolean v0, p0, Lcom/android/settings/network/NetworkProviderSettings;->mIsWifiEntryListStale:Z
 
-    new-instance v0, Lcom/android/settings/network/NetworkProviderSettings$$ExternalSyntheticLambda6;
+    new-instance v1, Lcom/android/settings/network/NetworkProviderSettings$$ExternalSyntheticLambda6;
 
-    invoke-direct {v0, p0}, Lcom/android/settings/network/NetworkProviderSettings$$ExternalSyntheticLambda6;-><init>(Lcom/android/settings/network/NetworkProviderSettings;)V
+    invoke-direct {v1, p0}, Lcom/android/settings/network/NetworkProviderSettings$$ExternalSyntheticLambda6;-><init>(Lcom/android/settings/network/NetworkProviderSettings;)V
 
-    iput-object v0, p0, Lcom/android/settings/network/NetworkProviderSettings;->mUpdateWifiEntryPreferencesRunnable:Ljava/lang/Runnable;
+    iput-object v1, p0, Lcom/android/settings/network/NetworkProviderSettings;->mUpdateWifiEntryPreferencesRunnable:Ljava/lang/Runnable;
 
-    new-instance v0, Lcom/android/settings/network/NetworkProviderSettings$$ExternalSyntheticLambda8;
+    new-instance v1, Lcom/android/settings/network/NetworkProviderSettings$$ExternalSyntheticLambda8;
 
-    invoke-direct {v0, p0}, Lcom/android/settings/network/NetworkProviderSettings$$ExternalSyntheticLambda8;-><init>(Lcom/android/settings/network/NetworkProviderSettings;)V
+    invoke-direct {v1, p0}, Lcom/android/settings/network/NetworkProviderSettings$$ExternalSyntheticLambda8;-><init>(Lcom/android/settings/network/NetworkProviderSettings;)V
 
-    iput-object v0, p0, Lcom/android/settings/network/NetworkProviderSettings;->mHideProgressBarRunnable:Ljava/lang/Runnable;
+    iput-object v1, p0, Lcom/android/settings/network/NetworkProviderSettings;->mHideProgressBarRunnable:Ljava/lang/Runnable;
+
+    iput-boolean v0, p0, Lcom/android/settings/network/NetworkProviderSettings;->mIsAdmin:Z
 
     return-void
 .end method
@@ -810,6 +814,31 @@
     return-void
 .end method
 
+.method private isAdminUser()Z
+    .locals 1
+
+    const-class v0, Landroid/os/UserManager;
+
+    invoke-virtual {p0, v0}, Lcom/android/settings/SettingsPreferenceFragment;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Landroid/os/UserManager;
+
+    if-nez p0, :cond_0
+
+    const/4 p0, 0x1
+
+    return p0
+
+    :cond_0
+    invoke-virtual {p0}, Landroid/os/UserManager;->isAdminUser()Z
+
+    move-result p0
+
+    return p0
+.end method
+
 .method private static isDisabledByWrongPassword(Lcom/android/wifitrackerlib/WifiEntry;)Z
     .locals 2
 
@@ -1117,7 +1146,7 @@
 
     invoke-direct {v0, v1}, Lcom/android/settings/core/SubSettingLauncher;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f0415d0
+    const v1, 0x7f0415d3
 
     invoke-virtual {v0, v1}, Lcom/android/settings/core/SubSettingLauncher;->setTitleRes(I)Lcom/android/settings/core/SubSettingLauncher;
 
@@ -1425,7 +1454,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f041668
+    const v1, 0x7f04166b
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -1582,6 +1611,80 @@
 
 
 # virtual methods
+.method addForgetMenuIfSuitable(Landroid/view/ContextMenu;)V
+    .locals 2
+
+    iget-boolean p0, p0, Lcom/android/settings/network/NetworkProviderSettings;->mIsAdmin:Z
+
+    if-eqz p0, :cond_0
+
+    const/4 p0, 0x4
+
+    const v0, 0x7f04097a
+
+    const/4 v1, 0x0
+
+    invoke-interface {p1, v1, p0, v1, v0}, Landroid/view/ContextMenu;->add(IIII)Landroid/view/MenuItem;
+
+    :cond_0
+    return-void
+.end method
+
+.method addShareMenuIfSuitable(Landroid/view/ContextMenu;)V
+    .locals 2
+
+    iget-boolean p0, p0, Lcom/android/settings/network/NetworkProviderSettings;->mIsAdmin:Z
+
+    const/4 v0, 0x0
+
+    if-eqz p0, :cond_0
+
+    const/4 p0, 0x7
+
+    const v1, 0x7f041208
+
+    invoke-interface {p1, v0, p0, v0, v1}, Landroid/view/ContextMenu;->add(IIII)Landroid/view/MenuItem;
+
+    return-void
+
+    :cond_0
+    const-string p0, "NetworkProviderSettings"
+
+    const-string p1, "Don\'t add the Wi-Fi share menu because the user is not an admin."
+
+    invoke-static {p0, p1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    const p0, 0x534e4554
+
+    const/4 p1, 0x3
+
+    new-array p1, p1, [Ljava/lang/Object;
+
+    const-string v1, "206986392"
+
+    aput-object v1, p1, v0
+
+    const/4 v0, 0x1
+
+    const/4 v1, -0x1
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    aput-object v1, p1, v0
+
+    const/4 v0, 0x2
+
+    const-string v1, "User is not an admin"
+
+    aput-object v1, p1, v0
+
+    invoke-static {p0, p1}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
+
+    return-void
+.end method
+
 .method changeNextButtonState(Z)V
     .locals 1
 
@@ -2165,6 +2268,12 @@
 
     iput-boolean p1, p0, Lcom/android/settings/network/NetworkProviderSettings;->mIsRestricted:Z
 
+    invoke-direct {p0}, Lcom/android/settings/network/NetworkProviderSettings;->isAdminUser()Z
+
+    move-result p1
+
+    iput-boolean p1, p0, Lcom/android/settings/network/NetworkProviderSettings;->mIsAdmin:Z
+
     return-void
 .end method
 
@@ -2224,7 +2333,7 @@
 
     if-eqz p2, :cond_1
 
-    const p2, 0x7f04160e
+    const p2, 0x7f041611
 
     invoke-interface {p1, v0, p3, v0, p2}, Landroid/view/ContextMenu;->add(IIII)Landroid/view/MenuItem;
 
@@ -2235,36 +2344,37 @@
 
     move-result p2
 
+    if-eqz p2, :cond_3
+
+    iget-object p2, p0, Lcom/android/settings/network/NetworkProviderSettings;->mSelectedWifiEntry:Lcom/android/wifitrackerlib/WifiEntry;
+
+    invoke-virtual {p2}, Lcom/android/wifitrackerlib/WifiEntry;->canShare()Z
+
+    move-result p2
+
     if-eqz p2, :cond_2
 
-    const/4 p2, 0x7
+    invoke-virtual {p0, p1}, Lcom/android/settings/network/NetworkProviderSettings;->addShareMenuIfSuitable(Landroid/view/ContextMenu;)V
 
-    const v1, 0x7f041206
-
-    invoke-interface {p1, v0, p2, v0, v1}, Landroid/view/ContextMenu;->add(IIII)Landroid/view/MenuItem;
-
+    :cond_2
     const/4 p2, 0x3
 
     const/4 v1, 0x1
 
-    const v2, 0x7f04161f
+    const v2, 0x7f041622
 
     invoke-interface {p1, v0, p2, v1, v2}, Landroid/view/ContextMenu;->add(IIII)Landroid/view/MenuItem;
 
-    :cond_2
+    :cond_3
     invoke-direct {p0}, Lcom/android/settings/network/NetworkProviderSettings;->canForgetNetwork()Z
 
     move-result p2
 
-    if-eqz p2, :cond_3
+    if-eqz p2, :cond_4
 
-    const/4 p2, 0x4
+    invoke-virtual {p0, p1}, Lcom/android/settings/network/NetworkProviderSettings;->addForgetMenuIfSuitable(Landroid/view/ContextMenu;)V
 
-    const v1, 0x7f04097a
-
-    invoke-interface {p1, v0, p2, v0, v1}, Landroid/view/ContextMenu;->add(IIII)Landroid/view/MenuItem;
-
-    :cond_3
+    :cond_4
     iget-object p2, p0, Lcom/android/settings/network/NetworkProviderSettings;->mSelectedWifiEntry:Lcom/android/wifitrackerlib/WifiEntry;
 
     invoke-virtual {p2}, Lcom/android/wifitrackerlib/WifiEntry;->getWifiConfiguration()Landroid/net/wifi/WifiConfiguration;
@@ -2279,18 +2389,18 @@
 
     move-result p2
 
-    if-eqz p2, :cond_4
+    if-eqz p2, :cond_5
 
     return-void
 
-    :cond_4
+    :cond_5
     iget-object p2, p0, Lcom/android/settings/network/NetworkProviderSettings;->mSelectedWifiEntry:Lcom/android/wifitrackerlib/WifiEntry;
 
     invoke-virtual {p2}, Lcom/android/wifitrackerlib/WifiEntry;->isSaved()Z
 
     move-result p2
 
-    if-eqz p2, :cond_5
+    if-eqz p2, :cond_6
 
     iget-object p0, p0, Lcom/android/settings/network/NetworkProviderSettings;->mSelectedWifiEntry:Lcom/android/wifitrackerlib/WifiEntry;
 
@@ -2298,15 +2408,15 @@
 
     move-result p0
 
-    if-eq p0, p3, :cond_5
+    if-eq p0, p3, :cond_6
 
     const/4 p0, 0x5
 
-    const p2, 0x7f0416ac
+    const p2, 0x7f0416af
 
     invoke-interface {p1, v0, p0, v0, p2}, Landroid/view/ContextMenu;->add(IIII)Landroid/view/MenuItem;
 
-    :cond_5
+    :cond_6
     return-void
 .end method
 
@@ -2790,7 +2900,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f041672
+    const p1, 0x7f041675
 
     invoke-static {p0, p1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -3158,12 +3268,12 @@
 
     if-eqz v1, :cond_0
 
-    const v1, 0x7f04160c
+    const v1, 0x7f04160f
 
     goto :goto_0
 
     :cond_0
-    const v1, 0x7f04160b
+    const v1, 0x7f04160e
 
     :goto_0
     invoke-virtual {p0, v1}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
@@ -3288,7 +3398,7 @@
 
     invoke-direct {p1, v4, v3}, Lcom/android/settings/utils/AnnotationSpan$LinkInfo;-><init>(Ljava/lang/String;Landroid/view/View$OnClickListener;)V
 
-    const v3, 0x7f0416e0
+    const v3, 0x7f0416e3
 
     invoke-virtual {v0, v3}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -3349,7 +3459,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f04142e
+    const v0, 0x7f041430
 
     invoke-virtual {p0, v0, v1}, Landroidx/appcompat/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
 
@@ -3622,7 +3732,7 @@
 
     invoke-virtual {v0, v3}, Landroidx/preference/Preference;->setSelectable(Z)V
 
-    const v1, 0x7f04166a
+    const v1, 0x7f04166d
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setSummary(I)V
 

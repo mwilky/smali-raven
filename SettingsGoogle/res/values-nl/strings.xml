@@ -603,7 +603,7 @@ Houd de apparaten bij elkaar (meestal met de achterkanten tegen elkaar aan) en t
     <string name="app_and_notification_dashboard_summary">Assistent, recente apps, standaard-apps</string>
     <string name="app_and_notification_dashboard_title">Apps en meldingen</string>
     <string name="app_cellular_data_usage">Datagebruik van app</string>
-    <string name="app_default_dashboard_title">Standaard apps</string>
+    <string name="app_default_dashboard_title">Standaard-apps</string>
     <string name="app_disable_dlg_positive">App uitzetten</string>
     <string name="app_disable_dlg_text">Als je deze app uitzet, werken Android en andere apps mogelijk niet meer zoals bedoeld. Je kunt deze app niet verwijderen omdat deze vooraf geïnstalleerd was op je apparaat. Door de app uit te zetten verberg je deze ook op je apparaat.</string>
     <string name="app_disable_notifications_dlg_title">Meldingen uitzetten?</string>
@@ -1410,7 +1410,7 @@ Dit is van invloed op andere apps of gesprekken die als bubbel mogen worden geto
     <string name="bug_report_handler_title">Verwerkende app voor bugrapport</string>
     <string name="bugreport_in_power">Snelle link naar bugrapport</string>
     <string name="bugreport_in_power_summary">Toon een knop in het aan/uit-menu om een bugrapport te maken</string>
-    <string name="build_number">Build-nummer</string>
+    <string name="build_number">Buildnummer</string>
     <string name="builtin_keyboard_settings_summary">Instellingen voor vast toetsenbord</string>
     <string name="builtin_keyboard_settings_title">Fysiek toetsenbord</string>
     <string name="button_confirm_convert_fbe">Wissen en converteren</string>
@@ -1822,10 +1822,10 @@ Als je je telefoon weer wilt gebruiken, moet je de fabrieksinstellingen herstell
     <string name="dark_ui_activation_off_auto">Uitzetten tot zonsondergang</string>
     <string name="dark_ui_activation_off_custom">Uitzetten tot %1$s</string>
     <string name="dark_ui_activation_off_manual">Nu uitzetten</string>
-    <string name="dark_ui_activation_on_auto">Aanzetten tot zonsopgang</string>
+    <string name="dark_ui_activation_on_auto">Aanzetten tot zonsopkomst</string>
     <string name="dark_ui_activation_on_custom">Aanzetten tot %1$s</string>
     <string name="dark_ui_activation_on_manual">Nu aanzetten</string>
-    <string name="dark_ui_auto_mode_auto">Van zonsondergang tot zonsopgang</string>
+    <string name="dark_ui_auto_mode_auto">Van zonsondergang tot zonsopkomst</string>
     <string name="dark_ui_auto_mode_custom">Op aangepaste tijd</string>
     <string name="dark_ui_auto_mode_never">Geen</string>
     <string name="dark_ui_auto_mode_title">Schema</string>
@@ -1837,7 +1837,7 @@ Als je je telefoon weer wilt gebruiken, moet je de fabrieksinstellingen herstell
     <string name="dark_ui_summary_off_auto_mode_auto">Wordt automatisch aangezet bij zonsondergang</string>
     <string name="dark_ui_summary_off_auto_mode_custom">Wordt automatisch aangezet om %1$s</string>
     <string name="dark_ui_summary_off_auto_mode_never">Wordt nooit automatisch aangezet</string>
-    <string name="dark_ui_summary_on_auto_mode_auto">Wordt automatisch uitgezet bij zonsopgang</string>
+    <string name="dark_ui_summary_on_auto_mode_auto">Wordt automatisch uitgezet bij zonsopkomst</string>
     <string name="dark_ui_summary_on_auto_mode_custom">Wordt automatisch uitgezet om %1$s</string>
     <string name="dark_ui_summary_on_auto_mode_never">Wordt nooit automatisch uitgezet</string>
     <string name="dark_ui_text">"Het donkere thema gebruikt een zwarte achtergrond zodat je batterij langer meegaat. Schema's voor het donkere thema worden pas aangezet als je scherm uitstaat."</string>
@@ -2469,7 +2469,7 @@ Neem contact op met je kredietverstrekker voor meer informatie."</string>
     <string name="fingerprint_last_delete_title">Alle vingerafdrukken verwijderen?</string>
     <string name="fingerprint_manage_category_title">Vingerafdrukbeheer</string>
     <string name="fingerprint_swipe_for_notifications_suggestion_title">Snel meldingen bekijken</string>
-    <string name="fingerprint_swipe_for_notifications_summary">Swipe omlaag over de vingerafdruksensor achter op je telefoon om je meldingen te bekijken.</string>
+    <string name="fingerprint_swipe_for_notifications_summary">Swipe omlaag over de vingerafdruksensor achter op je telefoon om je meldingen te checken.</string>
     <string name="fingerprint_unlock_set_unlock_password">Nexus Imprint + wachtwoord</string>
     <string name="fingerprint_unlock_set_unlock_pattern">Nexus Imprint + patroon</string>
     <string name="fingerprint_unlock_set_unlock_pin">Nexus Imprint + pincode</string>
@@ -2522,8 +2522,8 @@ Back-upgegevens tellen niet mee voor je Drive-opslagquotum. Er wordt geen back-u
     <string name="fullbackup_erase_dialog_message">Wil je stoppen met het maken van back-ups van apparaatgegevens (zoals wifi-wachtwoorden en gespreksgeschiedenis) en app-gegevens (zoals instellingen en bestanden die zijn opgeslagen door apps), en alle kopieën in Google Drive wissen?</string>
     <string name="gadget_picker_title">Gadget kiezen</string>
     <string name="game_controller_settings_category">Gamecontroller</string>
-    <string name="game_dashboard_always_on_summary">Toon Game Dashboard-snelkoppeling in games</string>
-    <string name="game_dashboard_always_on_title">Game Dashboard</string>
+    <string name="game_dashboard_always_on_summary">Het icoon tonen in alle games (zonder omhoog of omlaag te swipen)</string>
+    <string name="game_dashboard_always_on_title">Zwevend icoon voor Game Dashboard</string>
     <string name="game_dashboard_dnd_rule_name">Gamen</string>
     <string name="game_dashboard_dnd_summary">Alleen meldingen van belangrijke mensen en apps ontvangen als je een game speelt</string>
     <string name="game_dashboard_dnd_title">"'Niet storen' voor games"</string>
@@ -3539,11 +3539,11 @@ Deze app vervangt %2$s als standaard betaal-app."</string>
     <string name="night_display_activation_off_twilight">Uitzetten tot zonsondergang</string>
     <string name="night_display_activation_on_custom">Aanzetten tot %1$s</string>
     <string name="night_display_activation_on_manual">Nu aanzetten</string>
-    <string name="night_display_activation_on_twilight">Aanzetten tot zonsopgang</string>
+    <string name="night_display_activation_on_twilight">Aanzetten tot zonsopkomst</string>
     <string name="night_display_auto_mode_custom">Op aangepaste tijd</string>
     <string name="night_display_auto_mode_never">Geen</string>
     <string name="night_display_auto_mode_title">Schema</string>
-    <string name="night_display_auto_mode_twilight">Van zonsondergang tot zonsopgang</string>
+    <string name="night_display_auto_mode_twilight">Van zonsondergang tot zonsopkomst</string>
     <string name="night_display_end_time_title">Eindtijd</string>
     <string name="night_display_not_currently_on">Nachtverlichting staat uit</string>
     <string name="night_display_start_time_title">Begintijd</string>
@@ -3555,7 +3555,7 @@ Deze app vervangt %2$s als standaard betaal-app."</string>
     <string name="night_display_summary_off_auto_mode_twilight">Wordt automatisch aangezet bij zonsondergang</string>
     <string name="night_display_summary_on_auto_mode_custom">Wordt automatisch uitgezet om %1$s</string>
     <string name="night_display_summary_on_auto_mode_never">Wordt nooit automatisch uitgezet</string>
-    <string name="night_display_summary_on_auto_mode_twilight">Wordt automatisch uitgezet bij zonsopgang</string>
+    <string name="night_display_summary_on_auto_mode_twilight">Wordt automatisch uitgezet bij zonsopkomst</string>
     <string name="night_display_temperature_title">Intensiteit</string>
     <string name="night_display_text">Met Nachtverlichting krijgt je scherm een oranje tint. Zo kun je het scherm beter zien bij weinig licht en val je makkelijker in slaap.</string>
     <string name="night_light_main_switch_title">Nachtverlichting gebruiken</string>
@@ -4520,7 +4520,7 @@ Dit kan met alle vingerafdrukken die zijn toegevoegd aan je telefoon, dus wees v
 Deze dingen kunnen worden gedaan met alle vingerafdrukken die zijn toegevoegd aan je apparaat, dus wees voorzichtig met wie je toevoegt.
 
 Opmerking: Je kunt je vingerafdruk niet gebruiken om dit apparaat te ontgrendelen. Neem contact op met de beheerder van je organisatie voor meer informatie."</string>
-    <string name="security_settings_fingerprint_enroll_introduction_no_thanks">Nee</string>
+    <string name="security_settings_fingerprint_enroll_introduction_no_thanks">Nee, bedankt</string>
     <string name="security_settings_fingerprint_enroll_introduction_title">Je vingerafdruk instellen</string>
     <string name="security_settings_fingerprint_enroll_introduction_title_unlock_disabled">Ontgrend. met Nexus Imprint</string>
     <string name="security_settings_fingerprint_enroll_lift_touch_again">Til je vinger op en raak de sensor opnieuw aan</string>
@@ -4561,7 +4561,7 @@ Opmerking: Je kunt je vingerafdruk niet gebruiken om dit apparaat te ontgrendele
     <string name="security_settings_title">Beveiliging</string>
     <string name="security_settings_udfps_enroll_a11y">Beweeg je vinger over het scherm om de sensor te vinden. Raak de vingerafdruksensor aan en houd deze vast</string>
     <string name="security_settings_udfps_enroll_edge_message">Leg de zijkant van je vingerafdruk op de sensor en houd vast. Doe dan hetzelfde aan de andere kant.</string>
-    <string name="security_settings_udfps_enroll_edge_title">Gebruik tot slot de randen van je vinger</string>
+    <string name="security_settings_udfps_enroll_edge_title">Scan nu de randen van je vinger</string>
     <string name="security_settings_udfps_enroll_find_sensor_message">De vingerafdruksensor bevindt zich op je scherm. Je legt je vingerafdruk vast op het volgende scherm.</string>
     <string name="security_settings_udfps_enroll_find_sensor_start_button">Starten</string>
     <string name="security_settings_udfps_enroll_find_sensor_title">Je vingerafdruk instellen</string>
@@ -4570,8 +4570,10 @@ Opmerking: Je kunt je vingerafdruk niet gebruiken om dit apparaat te ontgrendele
     <string name="security_settings_udfps_enroll_repeat_a11y_message">Zo kan er meer van je vingerafdruk worden geregistreerd</string>
     <string name="security_settings_udfps_enroll_repeat_message">Tik en houd vast elke keer dat het vingerafdrukicoon beweegt. Zo kan er meer van je vingerafdruk worden geregistreerd.</string>
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">Volg het vingerafdrukicoon</string>
-    <string name="security_settings_udfps_enroll_start_message">Houd je vinger plat op de sensor totdat je een trilling voelt</string>
+    <string name="security_settings_udfps_enroll_start_message">Houd je vinger plat op de sensor totdat je een trilling voelt.</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">Nog een keer</string>
+    <string name="security_settings_udfps_side_fingerprint_help">Leg de zijkant van je vingerafdruk op de sensor en houd vast. Doe dan hetzelfde aan de andere kant.</string>
+    <string name="security_settings_udfps_tip_fingerprint_help">Raak de sensor opnieuw aan</string>
     <string name="security_settings_work_fingerprint_preference_title">Pixel Imprint voor werk</string>
     <string name="security_status_title">Beveiligingsstatus</string>
     <string name="see_less">Minder tonen</string>
@@ -5251,7 +5253,7 @@ Een benadering van Google voor de synchronisatie van gegevens, zodat je altijd e
     <string name="turn_off_wifi">Wifi uitzetten</string>
     <string name="turn_on_wifi">Wifi aanzetten</string>
     <string name="twilight_mode_launch_location">Locatie-instellingen</string>
-    <string name="twilight_mode_location_off_dialog_message">Apparaatlocatie is vereist om de tijden voor zonsondergang en zonsopgang te bepalen</string>
+    <string name="twilight_mode_location_off_dialog_message">Apparaatlocatie is vereist om de tijden voor zonsondergang en zonsopkomst te bepalen</string>
     <string name="tx_link_speed">%1$d Mbps</string>
     <string name="tx_wifi_speed">Linksnelheid voor verzenden</string>
     <string name="uninstall_all_users_text">Verwijderen voor alle gebruikers</string>
@@ -5532,6 +5534,7 @@ Elke gebruiker kan apps updaten voor alle andere gebruikers."</string>
     <string name="verify_apps_over_usb_title">Apps verifiëren via USB</string>
     <string name="version_text">versie %1$s</string>
     <string name="vibrate_for_calls_settings_not_available_summary">Trillen voor gesprekken is niet beschikbaar omdat de telefoon op stil is gezet</string>
+    <string name="vibrate_icon_title">Icoon altijd tonen in trilmodus</string>
     <string name="vibrate_in_silent_title">Trillen indien stil</string>
     <string name="vibrate_input_devices">Trilling omleiden</string>
     <string name="vibrate_input_devices_summary">Trilling verzenden naar gamecontroller wanneer deze is aangesloten</string>
@@ -5667,7 +5670,7 @@ Tijdens een audiogesprek kun je internet niet gebruiken en werken bepaalde apps 
     <string name="webview_license_title">Systeemlicentie voor WebView</string>
     <string name="webview_uninstalled_for_user">(verwijderd voor gebruiker %s)</string>
     <string name="wfc_disclaimer_agree_button_text">DOORGAAN</string>
-    <string name="wfc_disclaimer_disagree_text">NEE</string>
+    <string name="wfc_disclaimer_disagree_text">NEE, BEDANKT</string>
     <string name="wfc_disclaimer_emergency_limitation_desc_text">"Noodoproepen via wifi worden niet ondersteund door je provider.
 Het apparaat schakelt automatisch over naar een mobiel netwerk om een noodoproep te plaatsen.
 Noodoproepen zijn alleen mogelijk in gebieden met mobiele dekking."</string>
@@ -6315,7 +6318,7 @@ Als je Niet storen uitzet, kun je de gemiste meldingen zien door vanaf de bovenk
     <string name="zen_mode_settings_dnd_manual_end_time">Niet storen staat aan tot %s</string>
     <string name="zen_mode_settings_dnd_manual_indefinite">Niet storen blijft aan totdat je deze functie uitzet</string>
     <string name="zen_mode_settings_schedules_summary">{count,plural, =0{Geen}=1{1 planning ingesteld}other{# planningen ingesteld}}</string>
-    <string name="zen_mode_settings_summary">Alleen meldingen van belangrijke mensen en apps ontvangen</string>
+    <string name="zen_mode_settings_summary">Krijg alleen meldingen van belangrijke mensen en apps</string>
     <string name="zen_mode_settings_summary_off">Nooit</string>
     <string name="zen_mode_settings_title">Niet storen</string>
     <string name="zen_mode_settings_turn_on_dialog_title">Zet Niet storen aan.</string>

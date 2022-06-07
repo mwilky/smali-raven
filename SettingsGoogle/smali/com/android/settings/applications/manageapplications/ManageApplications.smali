@@ -356,7 +356,7 @@
 
     if-eqz p0, :cond_2
 
-    const v1, 0x7f041484
+    const v1, 0x7f041486
 
     goto/16 :goto_1
 
@@ -390,7 +390,7 @@
 
     if-eqz p0, :cond_4
 
-    const v1, 0x7f0413b6
+    const v1, 0x7f0413b8
 
     goto/16 :goto_1
 
@@ -407,7 +407,7 @@
 
     if-eqz p0, :cond_5
 
-    const v1, 0x7f0417af
+    const v1, 0x7f0417b2
 
     goto :goto_1
 
@@ -782,7 +782,7 @@
     :pswitch_7
     const-class v0, Lcom/android/settings/applications/appinfo/WriteSettingsDetails;
 
-    const v1, 0x7f0417b5
+    const v1, 0x7f0417b8
 
     invoke-direct {p0, v0, v1}, Lcom/android/settings/applications/manageapplications/ManageApplications;->startAppInfoFragment(Ljava/lang/Class;I)V
 
@@ -811,7 +811,7 @@
     :pswitch_a
     const-class v0, Lcom/android/settings/applications/UsageAccessDetails;
 
-    const v1, 0x7f041484
+    const v1, 0x7f041486
 
     invoke-direct {p0, v0, v1}, Lcom/android/settings/applications/manageapplications/ManageApplications;->startAppInfoFragment(Ljava/lang/Class;I)V
 
@@ -820,7 +820,7 @@
     :pswitch_b
     const-class v0, Lcom/android/settings/applications/AppStorageSettings;
 
-    const v1, 0x7f04131c
+    const v1, 0x7f04131e
 
     invoke-direct {p0, v0, v1}, Lcom/android/settings/applications/manageapplications/ManageApplications;->startAppInfoFragment(Ljava/lang/Class;I)V
 

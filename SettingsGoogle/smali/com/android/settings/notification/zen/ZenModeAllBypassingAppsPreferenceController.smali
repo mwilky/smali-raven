@@ -454,14 +454,14 @@
 
     if-le v3, v4, :cond_3
 
-    const v1, 0x7f041807
+    const v1, 0x7f04180a
 
     invoke-virtual {v5, v1}, Landroidx/preference/Preference;->setSummary(I)V
 
     goto :goto_1
 
     :cond_3
-    const v1, 0x7f041806
+    const v1, 0x7f041809
 
     invoke-virtual {v5, v1}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -495,7 +495,7 @@
 
     invoke-virtual {p1, v1}, Landroidx/preference/Preference;->setKey(Ljava/lang/String;)V
 
-    const v1, 0x7f041802
+    const v1, 0x7f041805
 
     invoke-virtual {p1, v1}, Landroidx/preference/Preference;->setTitle(I)V
 

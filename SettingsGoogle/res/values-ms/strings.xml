@@ -100,7 +100,7 @@
     <string name="emergency_gesture_screen_title">SOS Kecemasan</string>
     <string name="abc_action_mode_done">Selesai</string>
     <string name="vibrate_for_calls_category_title">Panggilan</string>
-    <string name="lockscreen_privacy_wallet_setting_toggle">Tunjukkan wallet</string>
+    <string name="lockscreen_privacy_wallet_setting_toggle">Tunjukkan dompet</string>
     <string name="lockscreen_privacy_controls_setting_toggle">Tunjukkan kawalan peranti</string>
     <string name="lockscreen_privacy_wallet_summary">Benarkan akses kepada wallet daripada skrin kunci dan tetapan pantas</string>
     <string name="lockscreen_privacy_controls_summary">Akses kawalan apabila dikunci</string>
@@ -983,7 +983,7 @@ Setelah peranti anda ditetapkan semula, jalankan proses persediaan dan pilih unt
     <string name="battery_saver_pref_auto_routine_summary">Akan dihidupkan berdasarkan rutin anda</string>
     <string name="battery_saver_schedule_settings_title">Tetapkan jadual</string>
     <string name="battery_saver_seekbar_title_placeholder">Hidupkan</string>
-    <string name="battery_saver_sticky_description_new">Penjimat Bateri dimatikan apabila telefon anda dicas di atas ^1%</string>
+    <string name="battery_saver_sticky_description_new">Penjimat Bateri dimatikan apabila telefon anda dicas melebihi ^1%</string>
     <string name="battery_saver_sticky_title_new">Matikan apabila dicas</string>
     <string name="battery_saver_turn_on_automatically_never">Tidak sekali-kali</string>
     <string name="battery_saver_turn_on_automatically_pct">pada %1$s bateri</string>
@@ -2522,8 +2522,8 @@ Data sandaran tidak dikira dalam kuota storan Drive anda. Fail yang besar atau f
     <string name="fullbackup_erase_dialog_message">Berhenti menyandarkan data peranti (seperti kata laluan Wi-Fi dan sejarah panggilan) dan data apl (seperti tetapan dan fail yang disimpan oleh apl), serta padamkan semua salinan di Google Drive?</string>
     <string name="gadget_picker_title">Pilih alat</string>
     <string name="game_controller_settings_category">Pengawal Permainan</string>
-    <string name="game_dashboard_always_on_summary">Tunjukkan pintasan Papan Pemuka Permainan dalam permainan</string>
-    <string name="game_dashboard_always_on_title">Papan Pemuka Permainan</string>
+    <string name="game_dashboard_always_on_summary">Tunjukkan ikon dalam semua permainan (tanpa meleret ke atas atau ke bawah)</string>
+    <string name="game_dashboard_always_on_title">Ikon terapung Papan Pemuka Permainan</string>
     <string name="game_dashboard_dnd_rule_name">Permainan</string>
     <string name="game_dashboard_dnd_summary">Dapatkan pemberitahuan oleh orang dan apl penting sahaja semasa bermain permainan</string>
     <string name="game_dashboard_dnd_title">Jangan Ganggu untuk permainan</string>
@@ -4572,6 +4572,8 @@ Perhatian: Anda tidak boleh menggunakan cap jari untuk membuka kunci peranti ini
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">Ikut ikon cap jari</string>
     <string name="security_settings_udfps_enroll_start_message">Terus letakkan cap jari anda dengan rata pada penderia sehingga anda merasakan getaran</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">Sekali lagi</string>
+    <string name="security_settings_udfps_side_fingerprint_help">Letakkan bahagian tepi cap jari anda pada penderia dan tahan, kemudian alih ke bahagian yang lain</string>
+    <string name="security_settings_udfps_tip_fingerprint_help">Angkat jari, kemudian sentuh lagi</string>
     <string name="security_settings_work_fingerprint_preference_title">Pixel Imprint untuk kerja</string>
     <string name="security_status_title">Status keselamatan</string>
     <string name="see_less">Lihat kurang</string>
@@ -5532,6 +5534,7 @@ Mana-mana pengguna boleh mengemas kini apl untuk semua pengguna lain."</string>
     <string name="verify_apps_over_usb_title">Sahkan apl melalui USB</string>
     <string name="version_text">versi %1$s</string>
     <string name="vibrate_for_calls_settings_not_available_summary">Getaran untuk panggilan tidak tersedia kerana telefon ditetapkan kepada senyap</string>
+    <string name="vibrate_icon_title">Sentiasa tunjukkan ikon semasa dalam mod getar</string>
     <string name="vibrate_in_silent_title">Getar apabila senyap</string>
     <string name="vibrate_input_devices">Ubah hala getaran</string>
     <string name="vibrate_input_devices_summary">Hantar getaran ke pengawal permainan apabila disambungkan</string>

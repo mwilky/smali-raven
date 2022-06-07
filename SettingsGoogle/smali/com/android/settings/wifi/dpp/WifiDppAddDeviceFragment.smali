@@ -464,7 +464,7 @@
 .method private showErrorUi(ILandroid/content/Intent;Z)V
     .locals 6
 
-    const v0, 0x7f04164c
+    const v0, 0x7f04164f
 
     const/4 v1, 0x0
 
@@ -479,7 +479,7 @@
     throw p0
 
     :pswitch_0
-    const v0, 0x7f041656
+    const v0, 0x7f041659
 
     invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
@@ -495,7 +495,7 @@
     goto/16 :goto_0
 
     :pswitch_2
-    const v0, 0x7f041651
+    const v0, 0x7f041654
 
     invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
@@ -550,7 +550,7 @@
     throw p0
 
     :pswitch_5
-    const v0, 0x7f041653
+    const v0, 0x7f041656
 
     invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
@@ -559,7 +559,7 @@
     goto :goto_0
 
     :pswitch_6
-    const v0, 0x7f041650
+    const v0, 0x7f041653
 
     invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
@@ -568,7 +568,7 @@
     goto :goto_0
 
     :pswitch_7
-    const v0, 0x7f041652
+    const v0, 0x7f041655
 
     const/4 v2, 0x1
 
@@ -596,7 +596,7 @@
     throw p0
 
     :pswitch_9
-    const v0, 0x7f04164d
+    const v0, 0x7f041650
 
     invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
@@ -605,7 +605,7 @@
     goto :goto_0
 
     :pswitch_a
-    const v0, 0x7f04164e
+    const v0, 0x7f041651
 
     invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
@@ -614,14 +614,14 @@
     goto :goto_0
 
     :pswitch_b
-    const v0, 0x7f04164f
+    const v0, 0x7f041652
 
     invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v0
 
     :goto_0
-    const v2, 0x7f04164a
+    const v2, 0x7f04164d
 
     new-array v3, v1, [Ljava/lang/Object;
 
@@ -695,7 +695,7 @@
 
     iget-object p2, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeBaseFragment;->mSummary:Landroid/widget/TextView;
 
-    const v0, 0x7f04165e
+    const v0, 0x7f041661
 
     invoke-virtual {p2, v0}, Landroid/widget/TextView;->setText(I)V
 
@@ -754,7 +754,7 @@
 
     new-array v1, v0, [Ljava/lang/Object;
 
-    const v2, 0x7f041660
+    const v2, 0x7f041663
 
     invoke-virtual {p0, v2, v1}, Lcom/android/settings/wifi/dpp/WifiDppQrCodeBaseFragment;->setHeaderTitle(I[Ljava/lang/Object;)V
 
@@ -786,7 +786,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f04163f
+    const v3, 0x7f041642
 
     invoke-virtual {v1, v2, v3}, Lcom/google/android/setupcompat/template/FooterButton;->setText(Landroid/content/Context;I)V
 
@@ -889,7 +889,7 @@
 
     iget-object p0, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeBaseFragment;->mSummary:Landroid/widget/TextView;
 
-    const v0, 0x7f04165e
+    const v0, 0x7f041661
 
     invoke-virtual {p0, v0}, Landroid/widget/TextView;->setText(I)V
 
@@ -898,7 +898,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeBaseFragment;->mSummary:Landroid/widget/TextView;
 
-    const v1, 0x7f041642
+    const v1, 0x7f041645
 
     const/4 v2, 0x1
 
@@ -1064,7 +1064,7 @@
 
     if-eqz v1, :cond_0
 
-    const v0, 0x7f04164b
+    const v0, 0x7f04164e
 
     new-array v1, v2, [Ljava/lang/Object;
 
@@ -1128,7 +1128,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f04165d
+    const v1, 0x7f041660
 
     invoke-virtual {p1, v0, v1}, Lcom/google/android/setupcompat/template/FooterButton;->setText(Landroid/content/Context;I)V
 

@@ -451,7 +451,7 @@
         <item>Petita</item>
         <item>Predeterminat</item>
         <item>Gran</item>
-        <item>Més grans possible</item>
+        <item>El més gran</item>
     </string-array>
     <string-array name="hdcp_checking_summaries">
         <item>No utilitzis mai la comprovació HDCP</item>
@@ -612,14 +612,6 @@
         <item>Desactivat</item>
         <item>Dibuixa àrea retall no rectangular en blau</item>
         <item>Marca ordres de dibuix provats en verd</item>
-    </string-array>
-    <string-array name="sim_color_light">
-        <item>\@color/SIM_color_cyan</item>
-        <item>\@color/SIM_color_blue800</item>
-        <item>\@color/SIM_color_green800</item>
-        <item>\@color/SIM_color_purple800</item>
-        <item>\@color/SIM_color_pink800</item>
-        <item>\@color/SIM_color_orange</item>
     </string-array>
     <string-array name="swipe_direction_values">
         <item>1</item>

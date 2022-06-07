@@ -93,7 +93,7 @@
     <string name="one_handed_title">Vienos rankos režimas</string>
     <string name="vibration_haptics_settings_not_available_summary">Vibravimas ir lietimo technologija nepasiekiami, nes telefonas nutildytas</string>
     <string name="vibration_haptics_strength_category_title">Vibravimo ir lietimo technologijos stiprumas</string>
-    <string name="peak_refresh_rate_title">Smooth Display</string>
+    <string name="peak_refresh_rate_title">Ekrano glodinimas</string>
     <string name="peak_refresh_rate_summary">Automatiškai padidinamas kai kurio turinio atnaujinimo dažnis nuo 60 iki 90 Hz. Vartojama daugiau akumuliatoriaus energijos.</string>
     <string name="accessibility_vibration_settings_title">Vibravimas ir lietimo technologija</string>
     <string name="columbus_title">Veiksmų pradžia naudojant „Quick Tap“</string>
@@ -2522,8 +2522,8 @@ Atsarginių kopijų duomenys nebus įtraukti skaičiuojant Disko saugyklos kvot�
     <string name="fullbackup_erase_dialog_message">Nebekurti įrenginio duomenų (pvz., „Wi-Fi“ slaptažodžių ir skambučių istorijos) ir programų duomenų (pvz., programų saugomų nustatymų ir failų) atsarginių kopijų ir ištrinti visas kopijas iš „Google“ disko?</string>
     <string name="gadget_picker_title">Pasirinkti programėlę</string>
     <string name="game_controller_settings_category">Žaidimų valdiklis</string>
-    <string name="game_dashboard_always_on_summary">Rodyti žaidimų informacijos suvestinės spartųjį klavišą žaidimuose</string>
-    <string name="game_dashboard_always_on_title">Žaidimų informacijos suvestinė</string>
+    <string name="game_dashboard_always_on_summary">Rodyti piktogramą visuose žaidimuose (neperbraukiant aukštyn ar žemyn)</string>
+    <string name="game_dashboard_always_on_title">Žaidimų informacijos suvestinės slankioji piktograma</string>
     <string name="game_dashboard_dnd_rule_name">Žaidimai</string>
     <string name="game_dashboard_dnd_summary">Gaukite tik svarbių žmonių ir programų pranešimus, kai žaidžiate</string>
     <string name="game_dashboard_dnd_title">Netrukdymo režimas žaidžiant</string>
@@ -4572,6 +4572,8 @@ Pastaba: naudodami piršto antspaudą šio įrenginio atrakinti negalite. Daugia
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">Stebėkite kontrolinio kodo piktogramą</string>
     <string name="security_settings_udfps_enroll_start_message">Laikykite pirštą prispaustą prie jutiklio, kol pajusite vibraciją</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">Dar kartą</string>
+    <string name="security_settings_udfps_side_fingerprint_help">Padėkite vieną piršto šoną ant jutiklio ir palaikykite, tada tą patį atlikite su kitu šonu</string>
+    <string name="security_settings_udfps_tip_fingerprint_help">Patraukite ir vėl prilieskite</string>
     <string name="security_settings_work_fingerprint_preference_title">„Pixel Imprint“, skirtas darbo profiliui</string>
     <string name="security_status_title">Saugos būsena</string>
     <string name="see_less">Žr. mažiau</string>
@@ -5532,6 +5534,7 @@ Bet kuris naudotojas gali atnaujinti visų kitų naudotojų programas."</string>
     <string name="verify_apps_over_usb_title">Patvirtinti progr. naudojant USB</string>
     <string name="version_text">%1$s versija</string>
     <string name="vibrate_for_calls_settings_not_available_summary">Parinktis „Vibruoti, kai skambina“ nepasiekiama, nes telefonas nutildytas</string>
+    <string name="vibrate_icon_title">Visada rodyti piktogramą vibravimo režimu</string>
     <string name="vibrate_in_silent_title">Vibruoti, kai veikia tyliuoju režimu</string>
     <string name="vibrate_input_devices">Nukreipti vibravimą</string>
     <string name="vibrate_input_devices_summary">Siųsti vibraciją į žaidimų valdiklį, kai jis prijungtas</string>
@@ -6315,7 +6318,7 @@ Išjungę „Netrukdymo“ režimą praleistus pranešimus rasite perbraukę že
     <string name="zen_mode_settings_dnd_manual_end_time">Netrukdymo režimas įjungtas iki %s</string>
     <string name="zen_mode_settings_dnd_manual_indefinite">Netrukdymo režimas bus įjungtas, kol jį išjungsite</string>
     <string name="zen_mode_settings_schedules_summary">{count,plural, =0{Nė vieno}=1{Nustatytas 1 tvarkaraštis}one{Nustatytas # tvarkaraštis}few{Nustatyti # tvarkaraščiai}many{Nustatyta # tvarkaraščio}other{Nustatyta # tvarkaraščių}}</string>
-    <string name="zen_mode_settings_summary">Gauti pranešimus tik iš svarbių žmonių ar įvykių</string>
+    <string name="zen_mode_settings_summary">Gauti pranešimus tik iš svarbių žmonių ar programų</string>
     <string name="zen_mode_settings_summary_off">Niekada</string>
     <string name="zen_mode_settings_title">Netrukdymo režimas</string>
     <string name="zen_mode_settings_turn_on_dialog_title">Netrukdymo režimo įjungimas</string>

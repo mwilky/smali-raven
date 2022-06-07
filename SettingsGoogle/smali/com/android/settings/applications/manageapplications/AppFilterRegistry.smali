@@ -107,7 +107,7 @@
 
     const/4 v2, 0x2
 
-    const v3, 0x7f0412b0
+    const v3, 0x7f0412b2
 
     invoke-direct {p0, v1, v2, v3}, Lcom/android/settings/applications/manageapplications/AppFilterItem;-><init>(Lcom/android/settingslib/applications/ApplicationsState$AppFilter;II)V
 
@@ -119,7 +119,7 @@
 
     const/4 v2, 0x3
 
-    const v3, 0x7f0412af
+    const v3, 0x7f0412b1
 
     invoke-direct {p0, v1, v2, v3}, Lcom/android/settings/applications/manageapplications/AppFilterItem;-><init>(Lcom/android/settingslib/applications/ApplicationsState$AppFilter;II)V
 

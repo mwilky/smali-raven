@@ -279,7 +279,7 @@
 
     invoke-virtual {v7, v4}, Landroidx/preference/Preference;->setEnabled(Z)V
 
-    const v6, 0x7f0417ba
+    const v6, 0x7f0417bd
 
     invoke-virtual {p0, v6}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -390,7 +390,7 @@
 
     invoke-super {p0, p1, p2}, Lcom/android/settings/widget/EmptyTextSettings;->onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
 
-    const p1, 0x7f0417bb
+    const p1, 0x7f0417be
 
     invoke-virtual {p0, p1}, Lcom/android/settings/widget/EmptyTextSettings;->setEmptyText(I)V
 

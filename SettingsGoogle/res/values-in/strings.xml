@@ -59,7 +59,7 @@
     <string name="lockscreen_bypass_title">Lewati layar kunci</string>
     <string name="lock_screen_notifications_title">Privasi</string>
     <string name="lockscreen_settings_title">Layar kunci</string>
-    <string name="lockscreen_settings_what_to_show_category">Untuk ditampilkan</string>
+    <string name="lockscreen_settings_what_to_show_category">Elemen yang ditampilkan</string>
     <string name="night_display_title">Cahaya Malam</string>
     <string name="owner_info_settings_summary">Tidak ada</string>
     <string name="owner_info_settings_title">Tambahkan teks di layar kunci</string>
@@ -68,7 +68,7 @@
     <string name="reset_dashboard_summary">Jaringan, aplikasi, atau perangkat dapat direset</string>
     <string name="reset_dashboard_title">Opsi reset</string>
     <string name="abc_action_menu_overflow_description">Opsi lain</string>
-    <string name="screensaver_settings_title">Screen saver</string>
+    <string name="screensaver_settings_title">Screensaver</string>
     <string name="screen_timeout">Waktu tunggu layar</string>
     <string name="screen_zoom_title">Ukuran tampilan</string>
     <string name="show_operator_name_summary">Tampilkan nama jaringan di status bar</string>
@@ -100,7 +100,7 @@
     <string name="emergency_gesture_screen_title">Darurat SOS</string>
     <string name="abc_action_mode_done">Selesai</string>
     <string name="vibrate_for_calls_category_title">Panggilan</string>
-    <string name="lockscreen_privacy_wallet_setting_toggle">Tampilkan dompet</string>
+    <string name="lockscreen_privacy_wallet_setting_toggle">Tampilkan Wallet</string>
     <string name="lockscreen_privacy_controls_setting_toggle">Tampilkan kontrol perangkat</string>
     <string name="lockscreen_privacy_wallet_summary">Izinkan akses ke dompet dari layar kunci dan setelan cepat</string>
     <string name="lockscreen_privacy_controls_summary">Kontrol akses saat terkunci</string>
@@ -438,7 +438,7 @@ Untuk beralih antarfitur, geser ke atas dengan 3 jari dan tahan."</string>
     <string name="activity_not_found">Aplikasi tidak dipasang pada ponsel Anda.</string>
     <string name="activity_picker_label">Pilih kegiatan</string>
     <string name="adaptive_battery_main_switch_title">Menggunakan baterai adaptif</string>
-    <string name="adaptive_brightness_main_switch_title">Menggunakan kecerahan adaptif</string>
+    <string name="adaptive_brightness_main_switch_title">Gunakan kecerahan adaptif</string>
     <string name="adaptive_charging">Pengisian Daya Adaptif</string>
     <string name="adaptive_charging_description">Mengisi daya semalaman dengan stabil agar masa pakai baterai dapat tahan lama. Menggunakan alarm untuk mengisi daya sepenuhnya hingga saatnya bangun.</string>
     <string name="adaptive_charging_time_estimate"><b>Pengisian daya adaptif</b> • Penuh pukul %1$s</string>
@@ -451,7 +451,7 @@ Untuk beralih antarfitur, geser ke atas dengan 3 jari dan tahan."</string>
     <string name="adaptive_sleep_contextual_slice_title">Aktifkan fokus ke layar</string>
     <string name="adaptive_sleep_description">Mencegah layar mati jika Anda sedang melihatnya</string>
     <string name="adaptive_sleep_manage_permission_button">Kelola izin</string>
-    <string name="adaptive_sleep_privacy">Fitur fokus ke layar menggunakan kamera depan untuk mengetahui apakah seseorang sedang melihat layar. Fitur ini berjalan di perangkat, dan gambar tidak pernah disimpan atau dikirimkan ke Google.</string>
+    <string name="adaptive_sleep_privacy">Fitur fokus ke layar menggunakan kamera depan untuk mengetahui apakah seseorang sedang melihat layar. Fitur ini berjalan di perangkat, dan gambar tidak pernah disimpan atau dikirim ke Google.</string>
     <string name="adaptive_sleep_summary_no_permission">Perlu akses kamera untuk fokus ke layar. Ketuk guna mengelola izin untuk Layanan Personalisasi Perangkat</string>
     <string name="adaptive_sleep_summary_off">Nonaktif</string>
     <string name="adaptive_sleep_summary_on">Aktif / Layar tidak akan mati jika Anda sedang melihatnya</string>
@@ -609,7 +609,7 @@ Cukup tempelkan perangkat (biasanya saling membelakangi), lalu ketuk layar. Kont
     <string name="app_disable_notifications_dlg_title">Matikan notifikasi?</string>
     <string name="app_factory_reset">Uninstal pembaruan</string>
     <string name="app_info_storage_title">Ruang penyimpanan yang digunakan</string>
-    <string name="app_install_details_group_title">Toko Aplikasi</string>
+    <string name="app_install_details_group_title">App Store</string>
     <string name="app_install_details_summary">Aplikasi diinstal dari %1$s</string>
     <string name="app_install_details_title">Detail aplikasi</string>
     <string name="app_install_location_summary">Ubah lokasi pemasangan yang diinginkan untuk apl baru.</string>
@@ -735,7 +735,7 @@ Cukup tempelkan perangkat (biasanya saling membelakangi), lalu ketuk layar. Kont
     <string name="assisted_gps">Gunakan GPS berbantuan</string>
     <string name="assisted_gps_disabled">Gunakan server untuk membantu GPS (hapus centang untuk memperbaiki kinerja GPS)</string>
     <string name="assisted_gps_enabled">Gunakan server untuk membantu GPS (hapus centang untuk mengurangi penggunaan jaringan)</string>
-    <string name="asst_capabilities_actions_replies_summary">Otomatis tampilkan saran tindakan &amp; balasan</string>
+    <string name="asst_capabilities_actions_replies_summary">Otomatis menampilkan saran tindakan &amp; balasan</string>
     <string name="asst_capabilities_actions_replies_title">Saran tindakan dan balasan</string>
     <string name="asst_capability_prioritizer_summary">Otomatis setel notifikasi dengan prioritas yang lebih rendah ke Senyap</string>
     <string name="asst_capability_prioritizer_title">Prioritas notifikasi adaptif</string>
@@ -1570,7 +1570,7 @@ Jika Anda menginstal Sertifikat CA, pemilik sertifikat tersebut dapat mengakses 
     <string name="color_green">Hijau</string>
     <string name="color_magenta">Magenta</string>
     <string name="color_mode_option_automatic">Adaptif</string>
-    <string name="color_mode_option_boosted">Ditingkatkan</string>
+    <string name="color_mode_option_boosted">Dipertajam</string>
     <string name="color_mode_option_natural">Alami</string>
     <string name="color_mode_option_saturated">Disaturasi</string>
     <string name="color_mode_summary_automatic">Sesuaikan antara warna yang jernih dan akurat</string>
@@ -2135,7 +2135,7 @@ Jika masalah tersebut terus berlanjut, aplikasi mungkin perlu di-uninstal untuk 
     <string name="display_dashboard_summary">Tema gelap, ukuran font, kecerahan</string>
     <string name="display_label">Layar</string>
     <string name="display_order_text">Urutkan menurut:</string>
-    <string name="display_settings_title">Tampilan</string>
+    <string name="display_settings_title">Layar</string>
     <string name="display_summary">Tidur setelah %1$s dalam keadaan tidak aktif</string>
     <string name="display_summary_example">Tidur setelah 10 menit tidak aktif</string>
     <string name="display_vr_pref_low_persistence">Kurangi buram (disarankan)</string>
@@ -2522,8 +2522,8 @@ Data cadangan tidak dihitung dari kuota penyimpanan Drive. File besar, atau file
     <string name="fullbackup_erase_dialog_message">Berhenti mencadangkan data perangkat (seperti sandi Wi-Fi dan histori panggilan) dan data aplikasi (seperti setelan dan file yang disimpan oleh aplikasi), serta hapus semua salinan di Google Drive?</string>
     <string name="gadget_picker_title">Pilih gadget</string>
     <string name="game_controller_settings_category">Pengendali Game</string>
-    <string name="game_dashboard_always_on_summary">Tampilkan pintasan Dasbor Game dalam game</string>
-    <string name="game_dashboard_always_on_title">Dasbor Game</string>
+    <string name="game_dashboard_always_on_summary">Menampilkan ikon di semua game (tanpa perlu menggeser ke atas atau bawah)</string>
+    <string name="game_dashboard_always_on_title">Ikon mengambang Dasbor Game</string>
     <string name="game_dashboard_dnd_rule_name">Bermain game</string>
     <string name="game_dashboard_dnd_summary">Hanya mendapatkan notifikasi dari aplikasi dan orang yang penting saat bermain game</string>
     <string name="game_dashboard_dnd_title">Fitur Jangan Ganggu untuk game</string>
@@ -3552,7 +3552,7 @@ Ini menggantikan %2$s sebagai aplikasi pembayaran default."</string>
     <string name="night_display_suggestion_title">Setel jadwal Cahaya Malam</string>
     <string name="night_display_summary_off_auto_mode_custom">Akan aktif otomatis pada %1$s</string>
     <string name="night_display_summary_off_auto_mode_never">Tidak akan aktif otomatis</string>
-    <string name="night_display_summary_off_auto_mode_twilight">Akan aktif otomatis saat matahari terbenam</string>
+    <string name="night_display_summary_off_auto_mode_twilight">Akan aktif otomatis saat malam</string>
     <string name="night_display_summary_on_auto_mode_custom">Akan nonaktif otomatis pukul %1$s</string>
     <string name="night_display_summary_on_auto_mode_never">Tidak akan nonaktif otomatis</string>
     <string name="night_display_summary_on_auto_mode_twilight">Akan nonaktif otomatis saat matahari terbit</string>
@@ -4303,7 +4303,7 @@ Untuk menggunakan penyematan aplikasi: \u0009
     <string name="screen_zoom_summary_small">Kecil</string>
     <string name="screen_zoom_summary_very_large">Lebih besar</string>
     <string name="screensaver_settings_button">Setelan</string>
-    <string name="screensaver_settings_current">Screen saver saat ini</string>
+    <string name="screensaver_settings_current">Screensaver saat ini</string>
     <string name="screensaver_settings_disabled_prompt">Untuk mengontrol yang terjadi saat ponsel dipasang ke dok dan/atau sedang tidur, aktifkan screen saver.</string>
     <string name="screensaver_settings_dream_start">Mulai sekarang</string>
     <string name="screensaver_settings_summary_dock">Selagi di dok</string>
@@ -4572,6 +4572,8 @@ Catatan: Anda tidak dapat menggunakan sidik jari untuk membuka kunci perangkat. 
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">Ikuti ikon sidik jari</string>
     <string name="security_settings_udfps_enroll_start_message">Letakkan sidik jari Anda rata pada sensor hingga terasa getaran</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">Sekali lagi</string>
+    <string name="security_settings_udfps_side_fingerprint_help">Posisikan sisi sidik jari Anda pada sensor, kemudian tahan, lalu beralihlah ke sisi lainnya</string>
+    <string name="security_settings_udfps_tip_fingerprint_help">Angkat, kemudian sentuh lagi</string>
     <string name="security_settings_work_fingerprint_preference_title">Pixel Imprint untuk profil kerja</string>
     <string name="security_status_title">Status keamanan</string>
     <string name="see_less">Lihat lebih sedikit</string>
@@ -4603,7 +4605,7 @@ Catatan: Anda tidak dapat menggunakan sidik jari untuk membuka kunci perangkat. 
     <string name="service_manage_description">%1$s: sedang digunakan. Ketuk Setelan untuk mengontrolnya.</string>
     <string name="service_restarting">Memulai ulang</string>
     <string name="service_started_by_app">Dimulai oleh apl.</string>
-    <string name="service_stop">Berhenti</string>
+    <string name="service_stop">Hentikan</string>
     <string name="service_stop_description">Layanan ini dimulai oleh aplikasinya. Menghentikan layanan dapat mengakibatkan gagalnya apl.</string>
     <string name="services_subtitle">Layanan</string>
     <string name="set_data_limit">Setel batas data</string>
@@ -5532,6 +5534,7 @@ Pengguna mana pun dapat memperbarui aplikasi untuk semua pengguna lain."</string
     <string name="verify_apps_over_usb_title">Verifikasi aplikasi melalui USB</string>
     <string name="version_text">versi %1$s</string>
     <string name="vibrate_for_calls_settings_not_available_summary">Fitur getar untuk panggilan tidak tersedia karena ponsel disetel ke mode senyap</string>
+    <string name="vibrate_icon_title">Selalu tampilkan ikon saat dalam mode getar</string>
     <string name="vibrate_in_silent_title">Getar saat senyap</string>
     <string name="vibrate_input_devices">Mengalihkan getaran</string>
     <string name="vibrate_input_devices_summary">Kirim getaran ke pengontrol game saat terhubung</string>
@@ -6122,7 +6125,7 @@ Izinkan ini untuk semua aplikasi yang ingin memindai?"</string>
     <string name="zen_calls_summary_repeat_only">Hanya dari penelepon berulang</string>
     <string name="zen_calls_summary_starred_repeat">Dari kontak berbintang dan penelepon berulang</string>
     <string name="zen_category_apps">Aplikasi</string>
-    <string name="zen_category_behavior">Apa yang dapat mengganggu fitur Jangan Ganggu</string>
+    <string name="zen_category_behavior">Apa yang dapat mengganggu mode Jangan Ganggu</string>
     <string name="zen_category_duration">Durasi untuk Setelan Cepat</string>
     <string name="zen_category_exceptions">Alarm &amp; gangguan lainnya</string>
     <string name="zen_category_people">Orang</string>
@@ -6144,7 +6147,7 @@ Izinkan ini untuk semua aplikasi yang ingin memindai?"</string>
     <string name="zen_mode_alarms_list_first">Alarm</string>
     <string name="zen_mode_alarms_summary">Dari timer, alarm, sistem keamanan, dan aplikasi lainnya</string>
     <string name="zen_mode_all_callers">semua orang</string>
-    <string name="zen_mode_all_calls_summary">Semua panggilan dapat ditampilkan</string>
+    <string name="zen_mode_all_calls_summary">Semua panggilan akan dihubungkan</string>
     <string name="zen_mode_all_messages_summary">Semua pesan dapat ditampilkan</string>
     <string name="zen_mode_and_condition">%1$s. %2$s</string>
     <string name="zen_mode_app_set_behavior">Setelan ini tidak dapat diubah untuk saat ini. Aplikasi (%1$s) otomatis mengaktifkan Jangan Ganggu dengan perilaku kustom.</string>
@@ -6191,7 +6194,7 @@ Izinkan ini untuk semua aplikasi yang ingin memindai?"</string>
     <string name="zen_mode_bypassing_apps_title">Aplikasi</string>
     <string name="zen_mode_calls">Panggilan telepon</string>
     <string name="zen_mode_calls_footer">Untuk memastikan panggilan yang diizinkan mengeluarkan suara, pastikan perangkat disetel untuk berdering</string>
-    <string name="zen_mode_calls_header">Panggilan telepon yang dapat mengganggu</string>
+    <string name="zen_mode_calls_header">Panggilan telepon yang diizinkan masuk</string>
     <string name="zen_mode_calls_list">panggilan telepon</string>
     <string name="zen_mode_calls_summary_two">%1$s dan %2$s</string>
     <string name="zen_mode_calls_title">Panggilan telepon</string>
@@ -6246,7 +6249,7 @@ Izinkan ini untuk semua aplikasi yang ingin memindai?"</string>
     <string name="zen_mode_media_summary">Suara dari video, game, dan media lainnya</string>
     <string name="zen_mode_messages">Pesan</string>
     <string name="zen_mode_messages_footer">Untuk memastikan pesan yang diizinkan mengeluarkan suara, pastikan perangkat disetel untuk berdering</string>
-    <string name="zen_mode_messages_header">Pesan yang dapat mengganggu</string>
+    <string name="zen_mode_messages_header">Pesan yang diizinkan masuk</string>
     <string name="zen_mode_messages_list">pesan</string>
     <string name="zen_mode_messages_title">Pesan</string>
     <string name="zen_mode_no_exceptions">Tidak ada</string>

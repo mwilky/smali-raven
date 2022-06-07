@@ -48,7 +48,7 @@
 
     invoke-virtual {p0, v0}, Landroidx/appcompat/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroidx/appcompat/app/AlertDialog$Builder;
 
-    const v0, 0x7f041411
+    const v0, 0x7f041413
 
     const/4 v1, 0x0
 

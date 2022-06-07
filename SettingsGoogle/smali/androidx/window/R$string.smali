@@ -9059,3633 +9059,3639 @@
 
 .field public static final security_settings_udfps_enroll_title_one_more_time:I = 0x7f0411bc
 
-.field public static final security_settings_work_fingerprint_preference_title:I = 0x7f0411bd
+.field public static final security_settings_udfps_side_fingerprint_help:I = 0x7f0411bd
 
-.field public static final security_status_title:I = 0x7f0411be
+.field public static final security_settings_udfps_tip_fingerprint_help:I = 0x7f0411be
 
-.field public static final see_less:I = 0x7f0411bf
+.field public static final security_settings_work_fingerprint_preference_title:I = 0x7f0411bf
 
-.field public static final see_more:I = 0x7f0411c0
+.field public static final security_status_title:I = 0x7f0411c0
 
-.field public static final select_all:I = 0x7f0411c1
+.field public static final see_less:I = 0x7f0411c1
 
-.field public static final select_application:I = 0x7f0411c2
+.field public static final see_more:I = 0x7f0411c2
 
-.field public static final select_automatically:I = 0x7f0411c3
+.field public static final select_all:I = 0x7f0411c3
 
-.field public static final select_device_admin_msg:I = 0x7f0411c4
+.field public static final select_application:I = 0x7f0411c4
 
-.field public static final select_invalid_bug_report_handler_toast_text:I = 0x7f0411c5
+.field public static final select_automatically:I = 0x7f0411c5
 
-.field public static final select_logd_size_dialog_title:I = 0x7f0411c6
+.field public static final select_device_admin_msg:I = 0x7f0411c6
 
-.field public static final select_logd_size_title:I = 0x7f0411c7
+.field public static final select_invalid_bug_report_handler_toast_text:I = 0x7f0411c7
 
-.field public static final select_logpersist_dialog_title:I = 0x7f0411c8
+.field public static final select_logd_size_dialog_title:I = 0x7f0411c8
 
-.field public static final select_logpersist_title:I = 0x7f0411c9
+.field public static final select_logd_size_title:I = 0x7f0411c9
 
-.field public static final select_private_dns_configuration_dialog_title:I = 0x7f0411ca
+.field public static final select_logpersist_dialog_title:I = 0x7f0411ca
 
-.field public static final select_private_dns_configuration_title:I = 0x7f0411cb
+.field public static final select_logpersist_title:I = 0x7f0411cb
 
-.field public static final select_sim_for_calls:I = 0x7f0411cc
+.field public static final select_private_dns_configuration_dialog_title:I = 0x7f0411cc
 
-.field public static final select_sim_for_data:I = 0x7f0411cd
+.field public static final select_private_dns_configuration_title:I = 0x7f0411cd
 
-.field public static final select_sim_for_sms:I = 0x7f0411ce
+.field public static final select_sim_for_calls:I = 0x7f0411ce
 
-.field public static final select_to_speak_summary:I = 0x7f0411cf
+.field public static final select_sim_for_data:I = 0x7f0411cf
 
-.field public static final select_usb_configuration_dialog_title:I = 0x7f0411d0
+.field public static final select_sim_for_sms:I = 0x7f0411d0
 
-.field public static final select_usb_configuration_title:I = 0x7f0411d1
+.field public static final select_to_speak_summary:I = 0x7f0411d1
 
-.field public static final select_webview_provider_dialog_title:I = 0x7f0411d2
+.field public static final select_usb_configuration_dialog_title:I = 0x7f0411d2
 
-.field public static final select_webview_provider_title:I = 0x7f0411d3
+.field public static final select_usb_configuration_title:I = 0x7f0411d3
 
-.field public static final select_webview_provider_toast_text:I = 0x7f0411d4
+.field public static final select_webview_provider_dialog_title:I = 0x7f0411d4
 
-.field public static final sensors_off_quick_settings_title:I = 0x7f0411d5
+.field public static final select_webview_provider_title:I = 0x7f0411d5
 
-.field public static final service_background_processes:I = 0x7f0411d6
+.field public static final select_webview_provider_toast_text:I = 0x7f0411d6
 
-.field public static final service_client_name:I = 0x7f0411d7
+.field public static final sensors_off_quick_settings_title:I = 0x7f0411d7
 
-.field public static final service_foreground_processes:I = 0x7f0411d8
+.field public static final service_background_processes:I = 0x7f0411d8
 
-.field public static final service_manage:I = 0x7f0411d9
+.field public static final service_client_name:I = 0x7f0411d9
 
-.field public static final service_manage_description:I = 0x7f0411da
+.field public static final service_foreground_processes:I = 0x7f0411da
 
-.field public static final service_process_name:I = 0x7f0411db
+.field public static final service_manage:I = 0x7f0411db
 
-.field public static final service_restarting:I = 0x7f0411dc
+.field public static final service_manage_description:I = 0x7f0411dc
 
-.field public static final service_started_by_app:I = 0x7f0411dd
+.field public static final service_process_name:I = 0x7f0411dd
 
-.field public static final service_stop:I = 0x7f0411de
+.field public static final service_restarting:I = 0x7f0411de
 
-.field public static final service_stop_description:I = 0x7f0411df
+.field public static final service_started_by_app:I = 0x7f0411df
 
-.field public static final services_subtitle:I = 0x7f0411e0
+.field public static final service_stop:I = 0x7f0411e0
 
-.field public static final set_data_limit:I = 0x7f0411e1
+.field public static final service_stop_description:I = 0x7f0411e1
 
-.field public static final set_data_warning:I = 0x7f0411e2
+.field public static final services_subtitle:I = 0x7f0411e2
 
-.field public static final settings_backup:I = 0x7f0411e3
+.field public static final set_data_limit:I = 0x7f0411e3
 
-.field public static final settings_backup_summary:I = 0x7f0411e4
+.field public static final set_data_warning:I = 0x7f0411e4
 
-.field public static final settings_button:I = 0x7f0411e5
+.field public static final settings_backup:I = 0x7f0411e5
 
-.field public static final settings_label:I = 0x7f0411e6
+.field public static final settings_backup_summary:I = 0x7f0411e6
 
-.field public static final settings_label_launcher:I = 0x7f0411e7
+.field public static final settings_button:I = 0x7f0411e7
 
-.field public static final settings_license_activity_loading:I = 0x7f0411e8
+.field public static final settings_label:I = 0x7f0411e8
 
-.field public static final settings_license_activity_title:I = 0x7f0411e9
+.field public static final settings_label_launcher:I = 0x7f0411e9
 
-.field public static final settings_license_activity_unavailable:I = 0x7f0411ea
+.field public static final settings_license_activity_loading:I = 0x7f0411ea
 
-.field public static final settings_manual_activity_title:I = 0x7f0411eb
+.field public static final settings_license_activity_title:I = 0x7f0411eb
 
-.field public static final settings_manual_activity_unavailable:I = 0x7f0411ec
+.field public static final settings_license_activity_unavailable:I = 0x7f0411ec
 
-.field public static final settings_package:I = 0x7f0411ed
+.field public static final settings_manual_activity_title:I = 0x7f0411ed
 
-.field public static final settings_panel_title:I = 0x7f0411ee
+.field public static final settings_manual_activity_unavailable:I = 0x7f0411ee
 
-.field public static final settings_safetylegal_activity_loading:I = 0x7f0411ef
+.field public static final settings_package:I = 0x7f0411ef
 
-.field public static final settings_safetylegal_activity_title:I = 0x7f0411f0
+.field public static final settings_panel_title:I = 0x7f0411f0
 
-.field public static final settings_safetylegal_activity_unreachable:I = 0x7f0411f1
+.field public static final settings_safetylegal_activity_loading:I = 0x7f0411f1
 
-.field public static final settings_safetylegal_title:I = 0x7f0411f2
+.field public static final settings_safetylegal_activity_title:I = 0x7f0411f2
 
-.field public static final settings_shortcut:I = 0x7f0411f3
+.field public static final settings_safetylegal_activity_unreachable:I = 0x7f0411f3
 
-.field public static final settingslib_config_bodyFontFamily:I = 0x7f0411f4
+.field public static final settings_safetylegal_title:I = 0x7f0411f4
 
-.field public static final settingslib_config_bodyFontFamilyMedium:I = 0x7f0411f5
+.field public static final settings_shortcut:I = 0x7f0411f5
 
-.field public static final settingslib_config_headlineFontFamily:I = 0x7f0411f6
+.field public static final settingslib_config_bodyFontFamily:I = 0x7f0411f6
 
-.field public static final settingslib_config_headlineFontFamilyMedium:I = 0x7f0411f7
+.field public static final settingslib_config_bodyFontFamilyMedium:I = 0x7f0411f7
 
-.field public static final settingslib_learn_more_text:I = 0x7f0411f8
+.field public static final settingslib_config_headlineFontFamily:I = 0x7f0411f8
 
-.field public static final setup_fingerprint_enroll_enrolling_skip_message:I = 0x7f0411f9
+.field public static final settingslib_config_headlineFontFamilyMedium:I = 0x7f0411f9
 
-.field public static final setup_fingerprint_enroll_enrolling_skip_title:I = 0x7f0411fa
+.field public static final settingslib_learn_more_text:I = 0x7f0411fa
 
-.field public static final setup_fingerprint_enroll_finish_message:I = 0x7f0411fb
+.field public static final setup_fingerprint_enroll_enrolling_skip_message:I = 0x7f0411fb
 
-.field public static final setup_fingerprint_enroll_skip_after_adding_lock_text:I = 0x7f0411fc
+.field public static final setup_fingerprint_enroll_enrolling_skip_title:I = 0x7f0411fc
 
-.field public static final setup_fingerprint_enroll_skip_title:I = 0x7f0411fd
+.field public static final setup_fingerprint_enroll_finish_message:I = 0x7f0411fd
 
-.field public static final setup_lock_settings_options_button_label:I = 0x7f0411fe
+.field public static final setup_fingerprint_enroll_skip_after_adding_lock_text:I = 0x7f0411fe
 
-.field public static final setup_lock_settings_options_dialog_title:I = 0x7f0411ff
+.field public static final setup_fingerprint_enroll_skip_title:I = 0x7f0411ff
 
-.field public static final setup_lock_settings_picker_message:I = 0x7f041200
+.field public static final setup_lock_settings_options_button_label:I = 0x7f041200
 
-.field public static final setup_lock_settings_picker_title:I = 0x7f041201
+.field public static final setup_lock_settings_options_dialog_title:I = 0x7f041201
 
-.field public static final setup_suggestion_summary:I = 0x7f041202
+.field public static final setup_lock_settings_picker_message:I = 0x7f041202
 
-.field public static final setup_suggestion_title:I = 0x7f041203
+.field public static final setup_lock_settings_picker_title:I = 0x7f041203
 
-.field public static final severe_threats_summary:I = 0x7f041204
+.field public static final setup_suggestion_summary:I = 0x7f041204
 
-.field public static final severe_threats_title:I = 0x7f041205
+.field public static final setup_suggestion_title:I = 0x7f041205
 
-.field public static final share:I = 0x7f041206
+.field public static final severe_threats_summary:I = 0x7f041206
 
-.field public static final share_remote_bugreport_action:I = 0x7f041207
+.field public static final severe_threats_title:I = 0x7f041207
 
-.field public static final share_remote_bugreport_dialog_message:I = 0x7f041208
+.field public static final share:I = 0x7f041208
 
-.field public static final share_remote_bugreport_dialog_message_finished:I = 0x7f041209
+.field public static final share_remote_bugreport_action:I = 0x7f041209
 
-.field public static final share_remote_bugreport_dialog_title:I = 0x7f04120a
+.field public static final share_remote_bugreport_dialog_message:I = 0x7f04120a
 
-.field public static final shared_data_delete_failure_text:I = 0x7f04120b
+.field public static final share_remote_bugreport_dialog_message_finished:I = 0x7f04120b
 
-.field public static final shared_data_no_accessors_dialog_text:I = 0x7f04120c
+.field public static final share_remote_bugreport_dialog_title:I = 0x7f04120c
 
-.field public static final shared_data_no_blobs_text:I = 0x7f04120d
+.field public static final shared_data_delete_failure_text:I = 0x7f04120d
 
-.field public static final shared_data_query_failure_text:I = 0x7f04120e
+.field public static final shared_data_no_accessors_dialog_text:I = 0x7f04120e
 
-.field public static final shared_data_summary:I = 0x7f04120f
+.field public static final shared_data_no_blobs_text:I = 0x7f04120f
 
-.field public static final shared_data_title:I = 0x7f041210
+.field public static final shared_data_query_failure_text:I = 0x7f041210
 
-.field public static final sharing_remote_bugreport_dialog_message:I = 0x7f041211
+.field public static final shared_data_summary:I = 0x7f041211
 
-.field public static final short_summary_font_size:I = 0x7f041212
+.field public static final shared_data_title:I = 0x7f041212
 
-.field public static final show_all_anrs:I = 0x7f041213
+.field public static final sharing_remote_bugreport_dialog_message:I = 0x7f041213
 
-.field public static final show_all_anrs_summary:I = 0x7f041214
+.field public static final short_summary_font_size:I = 0x7f041214
 
-.field public static final show_all_apps:I = 0x7f041215
+.field public static final show_all_anrs:I = 0x7f041215
 
-.field public static final show_background_processes:I = 0x7f041216
+.field public static final show_all_anrs_summary:I = 0x7f041216
 
-.field public static final show_clip_access_notification:I = 0x7f041217
+.field public static final show_all_apps:I = 0x7f041217
 
-.field public static final show_clip_access_notification_summary:I = 0x7f041218
+.field public static final show_background_processes:I = 0x7f041218
 
-.field public static final show_dev_already:I = 0x7f041219
+.field public static final show_clip_access_notification:I = 0x7f041219
 
-.field public static final show_dev_on:I = 0x7f04121a
+.field public static final show_clip_access_notification_summary:I = 0x7f04121a
 
-.field public static final show_first_crash_dialog:I = 0x7f04121b
+.field public static final show_dev_already:I = 0x7f04121b
 
-.field public static final show_first_crash_dialog_summary:I = 0x7f04121c
+.field public static final show_dev_on:I = 0x7f04121c
 
-.field public static final show_hw_layers_updates:I = 0x7f04121d
+.field public static final show_first_crash_dialog:I = 0x7f04121d
 
-.field public static final show_hw_layers_updates_summary:I = 0x7f04121e
+.field public static final show_first_crash_dialog_summary:I = 0x7f04121e
 
-.field public static final show_hw_screen_updates:I = 0x7f04121f
+.field public static final show_hw_layers_updates:I = 0x7f04121f
 
-.field public static final show_hw_screen_updates_summary:I = 0x7f041220
+.field public static final show_hw_layers_updates_summary:I = 0x7f041220
 
-.field public static final show_ime:I = 0x7f041221
+.field public static final show_hw_screen_updates:I = 0x7f041221
 
-.field public static final show_ime_summary:I = 0x7f041222
+.field public static final show_hw_screen_updates_summary:I = 0x7f041222
 
-.field public static final show_non_rect_clip:I = 0x7f041223
+.field public static final show_ime:I = 0x7f041223
 
-.field public static final show_notification_channel_warnings:I = 0x7f041224
+.field public static final show_ime_summary:I = 0x7f041224
 
-.field public static final show_notification_channel_warnings_summary:I = 0x7f041225
+.field public static final show_non_rect_clip:I = 0x7f041225
+
+.field public static final show_notification_channel_warnings:I = 0x7f041226
+
+.field public static final show_notification_channel_warnings_summary:I = 0x7f041227
 
 .field public static final show_operator_name_summary:I = 0x7f04004c
 
 .field public static final show_operator_name_title:I = 0x7f04004d
 
-.field public static final show_owner_info_on_lockscreen_label:I = 0x7f041226
+.field public static final show_owner_info_on_lockscreen_label:I = 0x7f041228
 
-.field public static final show_password:I = 0x7f041227
+.field public static final show_password:I = 0x7f041229
 
-.field public static final show_password_summary:I = 0x7f041228
+.field public static final show_password_summary:I = 0x7f04122a
 
-.field public static final show_profile_info_on_lockscreen_label:I = 0x7f041229
+.field public static final show_profile_info_on_lockscreen_label:I = 0x7f04122b
 
-.field public static final show_refresh_rate:I = 0x7f04122a
+.field public static final show_refresh_rate:I = 0x7f04122c
 
-.field public static final show_refresh_rate_summary:I = 0x7f04122b
+.field public static final show_refresh_rate_summary:I = 0x7f04122d
 
-.field public static final show_running_services:I = 0x7f04122c
+.field public static final show_running_services:I = 0x7f04122e
 
-.field public static final show_screen_updates:I = 0x7f04122d
+.field public static final show_screen_updates:I = 0x7f04122f
 
-.field public static final show_screen_updates_summary:I = 0x7f04122e
+.field public static final show_screen_updates_summary:I = 0x7f041230
 
-.field public static final show_touches:I = 0x7f04122f
+.field public static final show_touches:I = 0x7f041231
 
-.field public static final show_touches_summary:I = 0x7f041230
+.field public static final show_touches_summary:I = 0x7f041232
 
-.field public static final silent_notifications_status_bar:I = 0x7f041231
+.field public static final silent_notifications_status_bar:I = 0x7f041233
 
-.field public static final sim_action_continue:I = 0x7f041232
+.field public static final sim_action_continue:I = 0x7f041234
 
-.field public static final sim_action_enable_dsds_text:I = 0x7f041233
+.field public static final sim_action_enable_dsds_text:I = 0x7f041235
 
-.field public static final sim_action_enable_dsds_title:I = 0x7f041234
+.field public static final sim_action_enable_dsds_title:I = 0x7f041236
 
-.field public static final sim_action_enable_sim_fail_text:I = 0x7f041235
+.field public static final sim_action_enable_sim_fail_text:I = 0x7f041237
 
-.field public static final sim_action_enable_sim_fail_title:I = 0x7f041236
+.field public static final sim_action_enable_sim_fail_title:I = 0x7f041238
 
-.field public static final sim_action_enable_sub_dialog_title:I = 0x7f041237
+.field public static final sim_action_enable_sub_dialog_title:I = 0x7f041239
 
-.field public static final sim_action_enable_sub_dialog_title_without_carrier_name:I = 0x7f041238
+.field public static final sim_action_enable_sub_dialog_title_without_carrier_name:I = 0x7f04123a
 
-.field public static final sim_action_enabling_sim_without_carrier_name:I = 0x7f041239
+.field public static final sim_action_enabling_sim_without_carrier_name:I = 0x7f04123b
 
-.field public static final sim_action_no_thanks:I = 0x7f04123a
+.field public static final sim_action_no_thanks:I = 0x7f04123c
 
-.field public static final sim_action_reboot:I = 0x7f04123b
+.field public static final sim_action_reboot:I = 0x7f04123d
 
-.field public static final sim_action_restart_text:I = 0x7f04123c
+.field public static final sim_action_restart_text:I = 0x7f04123e
 
-.field public static final sim_action_restart_title:I = 0x7f04123d
+.field public static final sim_action_restart_title:I = 0x7f04123f
 
-.field public static final sim_action_switch_psim_dialog_title:I = 0x7f04123e
+.field public static final sim_action_switch_psim_dialog_title:I = 0x7f041240
 
-.field public static final sim_action_switch_sub_dialog_confirm:I = 0x7f04123f
+.field public static final sim_action_switch_sub_dialog_confirm:I = 0x7f041241
 
-.field public static final sim_action_switch_sub_dialog_progress:I = 0x7f041240
+.field public static final sim_action_switch_sub_dialog_progress:I = 0x7f041242
 
-.field public static final sim_action_switch_sub_dialog_text:I = 0x7f041241
+.field public static final sim_action_switch_sub_dialog_text:I = 0x7f041243
 
-.field public static final sim_action_switch_sub_dialog_text_downloaded:I = 0x7f041242
+.field public static final sim_action_switch_sub_dialog_text_downloaded:I = 0x7f041244
 
-.field public static final sim_action_switch_sub_dialog_text_single_sim:I = 0x7f041243
+.field public static final sim_action_switch_sub_dialog_text_single_sim:I = 0x7f041245
 
-.field public static final sim_action_switch_sub_dialog_title:I = 0x7f041244
+.field public static final sim_action_switch_sub_dialog_title:I = 0x7f041246
 
-.field public static final sim_action_yes:I = 0x7f041245
+.field public static final sim_action_yes:I = 0x7f041247
 
-.field public static final sim_bad_pin:I = 0x7f041246
+.field public static final sim_bad_pin:I = 0x7f041248
 
-.field public static final sim_call_back_title:I = 0x7f041247
+.field public static final sim_call_back_title:I = 0x7f041249
 
-.field public static final sim_calls_always_use:I = 0x7f041248
+.field public static final sim_calls_always_use:I = 0x7f04124a
 
-.field public static final sim_calls_ask_first_prefs_title:I = 0x7f041249
+.field public static final sim_calls_ask_first_prefs_title:I = 0x7f04124b
 
-.field public static final sim_card:I = 0x7f04124a
+.field public static final sim_card:I = 0x7f04124c
 
-.field public static final sim_card_label:I = 0x7f04124b
+.field public static final sim_card_label:I = 0x7f04124d
 
-.field public static final sim_card_number_title:I = 0x7f04124c
+.field public static final sim_card_number_title:I = 0x7f04124e
 
-.field public static final sim_card_select_title:I = 0x7f04124d
+.field public static final sim_card_select_title:I = 0x7f04124f
 
-.field public static final sim_cards_changed_message:I = 0x7f04124e
+.field public static final sim_cards_changed_message:I = 0x7f041250
 
-.field public static final sim_cards_changed_message_summary:I = 0x7f04124f
+.field public static final sim_cards_changed_message_summary:I = 0x7f041251
 
-.field public static final sim_category_active_sim:I = 0x7f041250
+.field public static final sim_category_active_sim:I = 0x7f041252
 
-.field public static final sim_category_default_active_sim:I = 0x7f041251
+.field public static final sim_category_default_active_sim:I = 0x7f041253
 
-.field public static final sim_category_inactive_sim:I = 0x7f041252
+.field public static final sim_category_inactive_sim:I = 0x7f041254
 
-.field public static final sim_category_title:I = 0x7f041253
+.field public static final sim_category_title:I = 0x7f041255
 
-.field public static final sim_cellular_data_unavailable:I = 0x7f041254
+.field public static final sim_cellular_data_unavailable:I = 0x7f041256
 
-.field public static final sim_cellular_data_unavailable_summary:I = 0x7f041255
+.field public static final sim_cellular_data_unavailable_summary:I = 0x7f041257
 
-.field public static final sim_change_data_message:I = 0x7f041256
+.field public static final sim_change_data_message:I = 0x7f041258
 
-.field public static final sim_change_data_ok:I = 0x7f041257
+.field public static final sim_change_data_ok:I = 0x7f041259
 
-.field public static final sim_change_data_title:I = 0x7f041258
+.field public static final sim_change_data_title:I = 0x7f04125a
 
-.field public static final sim_change_failed:I = 0x7f041259
+.field public static final sim_change_failed:I = 0x7f04125b
 
-.field public static final sim_change_pin:I = 0x7f04125a
+.field public static final sim_change_pin:I = 0x7f04125c
 
-.field public static final sim_change_succeeded:I = 0x7f04125b
+.field public static final sim_change_succeeded:I = 0x7f04125d
 
-.field public static final sim_combination_warning_notification_title:I = 0x7f04125c
+.field public static final sim_combination_warning_notification_title:I = 0x7f04125e
 
-.field public static final sim_disable_sim_lock:I = 0x7f04125d
+.field public static final sim_disable_sim_lock:I = 0x7f04125f
 
-.field public static final sim_editor_carrier:I = 0x7f04125e
+.field public static final sim_editor_carrier:I = 0x7f041260
 
-.field public static final sim_editor_color:I = 0x7f04125f
+.field public static final sim_editor_color:I = 0x7f041261
 
-.field public static final sim_editor_name:I = 0x7f041260
+.field public static final sim_editor_name:I = 0x7f041262
 
-.field public static final sim_editor_number:I = 0x7f041261
+.field public static final sim_editor_number:I = 0x7f041263
 
-.field public static final sim_editor_title:I = 0x7f041262
+.field public static final sim_editor_title:I = 0x7f041264
 
-.field public static final sim_enable_sim_lock:I = 0x7f041263
+.field public static final sim_enable_sim_lock:I = 0x7f041265
 
-.field public static final sim_enter_cancel:I = 0x7f041264
+.field public static final sim_enter_cancel:I = 0x7f041266
 
-.field public static final sim_enter_new:I = 0x7f041265
+.field public static final sim_enter_new:I = 0x7f041267
 
-.field public static final sim_enter_ok:I = 0x7f041266
+.field public static final sim_enter_ok:I = 0x7f041268
 
-.field public static final sim_enter_old:I = 0x7f041267
+.field public static final sim_enter_old:I = 0x7f041269
 
-.field public static final sim_enter_pin:I = 0x7f041268
+.field public static final sim_enter_pin:I = 0x7f04126a
 
-.field public static final sim_lock_failed:I = 0x7f041269
+.field public static final sim_lock_failed:I = 0x7f04126b
 
-.field public static final sim_lock_off:I = 0x7f04126a
+.field public static final sim_lock_off:I = 0x7f04126c
 
-.field public static final sim_lock_on:I = 0x7f04126b
+.field public static final sim_lock_on:I = 0x7f04126d
 
-.field public static final sim_lock_settings:I = 0x7f04126c
+.field public static final sim_lock_settings:I = 0x7f04126e
 
-.field public static final sim_lock_settings_category:I = 0x7f04126d
+.field public static final sim_lock_settings_category:I = 0x7f04126f
 
-.field public static final sim_lock_settings_summary_off:I = 0x7f04126e
+.field public static final sim_lock_settings_summary_off:I = 0x7f041270
 
-.field public static final sim_lock_settings_summary_on:I = 0x7f04126f
+.field public static final sim_lock_settings_summary_on:I = 0x7f041271
 
-.field public static final sim_lock_settings_title:I = 0x7f041270
+.field public static final sim_lock_settings_title:I = 0x7f041272
 
-.field public static final sim_multi_sims_summary:I = 0x7f041271
+.field public static final sim_multi_sims_summary:I = 0x7f041273
 
-.field public static final sim_multi_sims_title:I = 0x7f041272
+.field public static final sim_multi_sims_title:I = 0x7f041274
 
-.field public static final sim_name_hint:I = 0x7f041273
+.field public static final sim_name_hint:I = 0x7f041275
 
-.field public static final sim_no_inserted_msg:I = 0x7f041274
+.field public static final sim_no_inserted_msg:I = 0x7f041276
 
-.field public static final sim_notification_summary:I = 0x7f041275
+.field public static final sim_notification_summary:I = 0x7f041277
 
-.field public static final sim_notification_title:I = 0x7f041276
+.field public static final sim_notification_title:I = 0x7f041278
 
-.field public static final sim_other_call_settings:I = 0x7f041277
+.field public static final sim_other_call_settings:I = 0x7f041279
 
-.field public static final sim_outgoing_call_title:I = 0x7f041278
+.field public static final sim_outgoing_call_title:I = 0x7f04127a
 
-.field public static final sim_pin_change:I = 0x7f041279
+.field public static final sim_pin_change:I = 0x7f04127b
 
-.field public static final sim_pin_disable_failed:I = 0x7f04127a
+.field public static final sim_pin_disable_failed:I = 0x7f04127c
 
-.field public static final sim_pin_enable_failed:I = 0x7f04127b
+.field public static final sim_pin_enable_failed:I = 0x7f04127d
 
-.field public static final sim_pin_toggle:I = 0x7f04127c
+.field public static final sim_pin_toggle:I = 0x7f04127e
 
-.field public static final sim_pins_dont_match:I = 0x7f04127d
+.field public static final sim_pins_dont_match:I = 0x7f04127f
 
-.field public static final sim_preferred_message:I = 0x7f04127e
+.field public static final sim_preferred_message:I = 0x7f041280
 
-.field public static final sim_preferred_title:I = 0x7f04127f
+.field public static final sim_preferred_title:I = 0x7f041281
 
-.field public static final sim_reenter_new:I = 0x7f041280
+.field public static final sim_reenter_new:I = 0x7f041282
 
-.field public static final sim_select_card:I = 0x7f041281
+.field public static final sim_select_card:I = 0x7f041283
 
-.field public static final sim_selection_channel_title:I = 0x7f041282
+.field public static final sim_selection_channel_title:I = 0x7f041284
 
-.field public static final sim_selection_required_pref:I = 0x7f041283
+.field public static final sim_selection_required_pref:I = 0x7f041285
 
-.field public static final sim_settings_summary:I = 0x7f041284
+.field public static final sim_settings_summary:I = 0x7f041286
 
-.field public static final sim_settings_title:I = 0x7f041285
+.field public static final sim_settings_title:I = 0x7f041287
 
-.field public static final sim_setup_channel_id:I = 0x7f041286
+.field public static final sim_setup_channel_id:I = 0x7f041288
 
-.field public static final sim_setup_wizard_title:I = 0x7f041287
+.field public static final sim_setup_wizard_title:I = 0x7f041289
 
-.field public static final sim_signal_strength:I = 0x7f041288
+.field public static final sim_signal_strength:I = 0x7f04128a
 
-.field public static final sim_status_title:I = 0x7f041289
+.field public static final sim_status_title:I = 0x7f04128b
 
-.field public static final sim_status_title_sim_slot:I = 0x7f04128a
+.field public static final sim_status_title_sim_slot:I = 0x7f04128c
 
-.field public static final sim_switch_button:I = 0x7f04128b
+.field public static final sim_switch_button:I = 0x7f04128d
 
-.field public static final sim_switch_channel_id:I = 0x7f04128c
+.field public static final sim_switch_channel_id:I = 0x7f04128e
 
-.field public static final simulate_color_space:I = 0x7f04128d
+.field public static final simulate_color_space:I = 0x7f04128f
 
-.field public static final skip_anyway_button_label:I = 0x7f04128e
+.field public static final skip_anyway_button_label:I = 0x7f041290
 
-.field public static final skip_label:I = 0x7f04128f
+.field public static final skip_label:I = 0x7f041291
 
-.field public static final skip_lock_screen_dialog_button_label:I = 0x7f041290
+.field public static final skip_lock_screen_dialog_button_label:I = 0x7f041292
 
-.field public static final slot_number:I = 0x7f041291
+.field public static final slot_number:I = 0x7f041293
 
-.field public static final smart_battery_footer:I = 0x7f041292
+.field public static final smart_battery_footer:I = 0x7f041294
 
-.field public static final smart_battery_manager_title:I = 0x7f041293
+.field public static final smart_battery_manager_title:I = 0x7f041295
 
-.field public static final smart_battery_summary:I = 0x7f041294
+.field public static final smart_battery_summary:I = 0x7f041296
 
-.field public static final smart_battery_title:I = 0x7f041295
+.field public static final smart_battery_title:I = 0x7f041297
 
-.field public static final smart_forwarding_failed_not_activated_text:I = 0x7f041296
+.field public static final smart_forwarding_failed_not_activated_text:I = 0x7f041298
 
-.field public static final smart_forwarding_failed_text:I = 0x7f041297
+.field public static final smart_forwarding_failed_text:I = 0x7f041299
 
-.field public static final smart_forwarding_failed_title:I = 0x7f041298
+.field public static final smart_forwarding_failed_title:I = 0x7f04129a
 
-.field public static final smart_forwarding_input_mdn_dialog_title:I = 0x7f041299
+.field public static final smart_forwarding_input_mdn_dialog_title:I = 0x7f04129b
 
-.field public static final smart_forwarding_input_mdn_title:I = 0x7f04129a
+.field public static final smart_forwarding_input_mdn_title:I = 0x7f04129c
 
-.field public static final smart_forwarding_missing_alert_dialog_text:I = 0x7f04129b
+.field public static final smart_forwarding_missing_alert_dialog_text:I = 0x7f04129d
 
-.field public static final smart_forwarding_missing_mdn_text:I = 0x7f04129c
+.field public static final smart_forwarding_missing_mdn_text:I = 0x7f04129e
 
-.field public static final smart_forwarding_ongoing_text:I = 0x7f04129d
+.field public static final smart_forwarding_ongoing_text:I = 0x7f04129f
 
-.field public static final smart_forwarding_ongoing_title:I = 0x7f04129e
+.field public static final smart_forwarding_ongoing_title:I = 0x7f0412a0
 
-.field public static final smart_forwarding_summary_disabled:I = 0x7f04129f
+.field public static final smart_forwarding_summary_disabled:I = 0x7f0412a1
 
-.field public static final smart_forwarding_summary_enabled:I = 0x7f0412a0
+.field public static final smart_forwarding_summary_enabled:I = 0x7f0412a2
 
-.field public static final smart_forwarding_title:I = 0x7f0412a1
+.field public static final smart_forwarding_title:I = 0x7f0412a3
 
-.field public static final smart_notifications_title:I = 0x7f0412a2
+.field public static final smart_notifications_title:I = 0x7f0412a4
 
-.field public static final smart_rotate_text_headline:I = 0x7f0412a3
+.field public static final smart_rotate_text_headline:I = 0x7f0412a5
 
-.field public static final sms_application_title:I = 0x7f0412a4
+.field public static final sms_application_title:I = 0x7f0412a6
 
-.field public static final sms_change_default_dialog_text:I = 0x7f0412a5
+.field public static final sms_change_default_dialog_text:I = 0x7f0412a7
 
-.field public static final sms_change_default_dialog_title:I = 0x7f0412a6
+.field public static final sms_change_default_dialog_title:I = 0x7f0412a8
 
-.field public static final sms_change_default_no_previous_dialog_text:I = 0x7f0412a7
+.field public static final sms_change_default_no_previous_dialog_text:I = 0x7f0412a9
 
-.field public static final sms_preference:I = 0x7f0412a8
+.field public static final sms_preference:I = 0x7f0412aa
 
-.field public static final sms_preference_title:I = 0x7f0412a9
+.field public static final sms_preference_title:I = 0x7f0412ab
 
-.field public static final snooze_options_title:I = 0x7f0412aa
+.field public static final snooze_options_title:I = 0x7f0412ac
 
-.field public static final sometimes_running:I = 0x7f0412ab
+.field public static final sometimes_running:I = 0x7f0412ad
 
-.field public static final sort_avg_use:I = 0x7f0412ac
+.field public static final sort_avg_use:I = 0x7f0412ae
 
-.field public static final sort_max_use:I = 0x7f0412ad
+.field public static final sort_max_use:I = 0x7f0412af
 
-.field public static final sort_order_alpha:I = 0x7f0412ae
+.field public static final sort_order_alpha:I = 0x7f0412b0
 
-.field public static final sort_order_frequent_notification:I = 0x7f0412af
+.field public static final sort_order_frequent_notification:I = 0x7f0412b1
 
-.field public static final sort_order_recent_notification:I = 0x7f0412b0
+.field public static final sort_order_recent_notification:I = 0x7f0412b2
 
-.field public static final sort_order_size:I = 0x7f0412b1
+.field public static final sort_order_size:I = 0x7f0412b3
 
-.field public static final sound_category_call_ringtone_vibrate_title:I = 0x7f0412b2
+.field public static final sound_category_call_ringtone_vibrate_title:I = 0x7f0412b4
 
-.field public static final sound_dashboard_summary:I = 0x7f0412b3
+.field public static final sound_dashboard_summary:I = 0x7f0412b5
 
-.field public static final sound_effects_enable_title:I = 0x7f0412b4
+.field public static final sound_effects_enable_title:I = 0x7f0412b6
 
-.field public static final sound_settings:I = 0x7f0412b5
+.field public static final sound_settings:I = 0x7f0412b7
 
-.field public static final sound_settings_example_summary:I = 0x7f0412b6
+.field public static final sound_settings_example_summary:I = 0x7f0412b8
 
-.field public static final sound_settings_summary:I = 0x7f0412b7
+.field public static final sound_settings_summary:I = 0x7f0412b9
 
-.field public static final sound_settings_summary_silent:I = 0x7f0412b8
+.field public static final sound_settings_summary_silent:I = 0x7f0412ba
 
-.field public static final sound_settings_summary_vibrate:I = 0x7f0412b9
+.field public static final sound_settings_summary_vibrate:I = 0x7f0412bb
 
-.field public static final sound_work_settings:I = 0x7f0412ba
+.field public static final sound_work_settings:I = 0x7f0412bc
 
-.field public static final spatial_audio_title:I = 0x7f0412bb
+.field public static final spatial_audio_title:I = 0x7f0412bd
 
-.field public static final special_access:I = 0x7f0412bc
+.field public static final special_access:I = 0x7f0412be
 
-.field public static final special_access_more:I = 0x7f0412bd
+.field public static final special_access_more:I = 0x7f0412bf
 
-.field public static final speed_label_fast:I = 0x7f0412be
+.field public static final speed_label_fast:I = 0x7f0412c0
 
-.field public static final speed_label_medium:I = 0x7f0412bf
+.field public static final speed_label_medium:I = 0x7f0412c1
 
-.field public static final speed_label_okay:I = 0x7f0412c0
+.field public static final speed_label_okay:I = 0x7f0412c2
 
-.field public static final speed_label_slow:I = 0x7f0412c1
+.field public static final speed_label_slow:I = 0x7f0412c3
 
-.field public static final speed_label_very_fast:I = 0x7f0412c2
+.field public static final speed_label_very_fast:I = 0x7f0412c4
 
-.field public static final speed_label_very_slow:I = 0x7f0412c3
+.field public static final speed_label_very_slow:I = 0x7f0412c5
 
-.field public static final spell_checker_not_selected:I = 0x7f0412c4
+.field public static final spell_checker_not_selected:I = 0x7f0412c6
 
-.field public static final spell_checker_primary_switch_title:I = 0x7f0412c5
+.field public static final spell_checker_primary_switch_title:I = 0x7f0412c7
 
-.field public static final spellchecker_language:I = 0x7f0412c6
+.field public static final spellchecker_language:I = 0x7f0412c8
 
-.field public static final spellchecker_quick_settings:I = 0x7f0412c7
+.field public static final spellchecker_quick_settings:I = 0x7f0412c9
 
-.field public static final spellchecker_security_warning:I = 0x7f0412c8
+.field public static final spellchecker_security_warning:I = 0x7f0412ca
 
-.field public static final spellcheckers_settings_for_work_title:I = 0x7f0412c9
+.field public static final spellcheckers_settings_for_work_title:I = 0x7f0412cb
 
-.field public static final spellcheckers_settings_title:I = 0x7f0412ca
+.field public static final spellcheckers_settings_title:I = 0x7f0412cc
 
-.field public static final ssid_label:I = 0x7f0412cb
+.field public static final ssid_label:I = 0x7f0412cd
 
-.field public static final ssl_ca_cert_warning:I = 0x7f0412cc
+.field public static final ssl_ca_cert_warning:I = 0x7f0412ce
 
-.field public static final ssl_ca_cert_warning_message:I = 0x7f0412cd
+.field public static final ssl_ca_cert_warning_message:I = 0x7f0412cf
 
-.field public static final standby_bucket_summary:I = 0x7f0412ce
+.field public static final standby_bucket_summary:I = 0x7f0412d0
 
-.field public static final starting_android:I = 0x7f0412cf
+.field public static final starting_android:I = 0x7f0412d1
 
-.field public static final status_awake_time:I = 0x7f0412d0
+.field public static final status_awake_time:I = 0x7f0412d2
 
-.field public static final status_bar_notification_info_overflow:I = 0x7f0412d1
+.field public static final status_bar_notification_info_overflow:I = 0x7f0412d3
 
-.field public static final status_bt_address:I = 0x7f0412d2
+.field public static final status_bt_address:I = 0x7f0412d4
 
-.field public static final status_data_network_type:I = 0x7f0412d3
+.field public static final status_data_network_type:I = 0x7f0412d5
 
-.field public static final status_data_state:I = 0x7f0412d4
+.field public static final status_data_state:I = 0x7f0412d6
 
-.field public static final status_device_wifi_mac_address:I = 0x7f0412d5
+.field public static final status_device_wifi_mac_address:I = 0x7f0412d7
 
-.field public static final status_esim_id:I = 0x7f0412d6
+.field public static final status_esim_id:I = 0x7f0412d8
 
-.field public static final status_icc_id:I = 0x7f0412d7
+.field public static final status_icc_id:I = 0x7f0412d9
 
-.field public static final status_iccid:I = 0x7f0412d8
+.field public static final status_iccid:I = 0x7f0412da
 
-.field public static final status_imei:I = 0x7f0412d9
+.field public static final status_imei:I = 0x7f0412db
 
-.field public static final status_imei_sv:I = 0x7f0412da
+.field public static final status_imei_sv:I = 0x7f0412dc
 
-.field public static final status_latest_area_info:I = 0x7f0412db
+.field public static final status_latest_area_info:I = 0x7f0412dd
 
-.field public static final status_meid_number:I = 0x7f0412dc
+.field public static final status_meid_number:I = 0x7f0412de
 
-.field public static final status_min_number:I = 0x7f0412dd
+.field public static final status_min_number:I = 0x7f0412df
 
-.field public static final status_msid_number:I = 0x7f0412de
+.field public static final status_msid_number:I = 0x7f0412e0
 
-.field public static final status_number:I = 0x7f0412df
+.field public static final status_number:I = 0x7f0412e1
 
-.field public static final status_number_sim_slot:I = 0x7f0412e0
+.field public static final status_number_sim_slot:I = 0x7f0412e2
 
-.field public static final status_number_sim_status:I = 0x7f0412e1
+.field public static final status_number_sim_status:I = 0x7f0412e3
 
-.field public static final status_operator:I = 0x7f0412e2
+.field public static final status_operator:I = 0x7f0412e4
 
-.field public static final status_prl_version:I = 0x7f0412e3
+.field public static final status_prl_version:I = 0x7f0412e5
 
-.field public static final status_roaming:I = 0x7f0412e4
+.field public static final status_roaming:I = 0x7f0412e6
 
-.field public static final status_serial_number:I = 0x7f0412e5
+.field public static final status_serial_number:I = 0x7f0412e7
 
-.field public static final status_service_state:I = 0x7f0412e6
+.field public static final status_service_state:I = 0x7f0412e8
 
-.field public static final status_signal_strength:I = 0x7f0412e7
+.field public static final status_signal_strength:I = 0x7f0412e9
 
-.field public static final status_unavailable:I = 0x7f0412e8
+.field public static final status_unavailable:I = 0x7f0412ea
 
-.field public static final status_up_time:I = 0x7f0412e9
+.field public static final status_up_time:I = 0x7f0412eb
 
-.field public static final status_voice_network_type:I = 0x7f0412ea
+.field public static final status_voice_network_type:I = 0x7f0412ec
 
-.field public static final status_wifi_mac_address:I = 0x7f0412eb
+.field public static final status_wifi_mac_address:I = 0x7f0412ed
 
-.field public static final storage_apps:I = 0x7f0412ec
+.field public static final storage_apps:I = 0x7f0412ee
 
-.field public static final storage_audio:I = 0x7f0412ed
+.field public static final storage_audio:I = 0x7f0412ef
 
-.field public static final storage_category:I = 0x7f0412ee
+.field public static final storage_category:I = 0x7f0412f0
 
-.field public static final storage_default_internal_storage:I = 0x7f0412ef
+.field public static final storage_default_internal_storage:I = 0x7f0412f1
 
-.field public static final storage_detail_dialog_system:I = 0x7f0412f0
+.field public static final storage_detail_dialog_system:I = 0x7f0412f2
 
-.field public static final storage_dialog_unmountable:I = 0x7f0412f1
+.field public static final storage_dialog_unmountable:I = 0x7f0412f3
 
-.field public static final storage_dialog_unmounted:I = 0x7f0412f2
+.field public static final storage_dialog_unmounted:I = 0x7f0412f4
 
-.field public static final storage_documents_and_other:I = 0x7f0412f3
+.field public static final storage_documents_and_other:I = 0x7f0412f5
 
-.field public static final storage_external_title:I = 0x7f0412f4
+.field public static final storage_external_title:I = 0x7f0412f6
 
-.field public static final storage_files:I = 0x7f0412f5
+.field public static final storage_files:I = 0x7f0412f7
 
-.field public static final storage_format_failure:I = 0x7f0412f6
+.field public static final storage_format_failure:I = 0x7f0412f8
 
-.field public static final storage_format_success:I = 0x7f0412f7
+.field public static final storage_format_success:I = 0x7f0412f9
 
-.field public static final storage_free_up_space_summary:I = 0x7f0412f8
+.field public static final storage_free_up_space_summary:I = 0x7f0412fa
 
-.field public static final storage_free_up_space_title:I = 0x7f0412f9
+.field public static final storage_free_up_space_title:I = 0x7f0412fb
 
-.field public static final storage_games:I = 0x7f0412fa
+.field public static final storage_games:I = 0x7f0412fc
 
-.field public static final storage_images:I = 0x7f0412fb
+.field public static final storage_images:I = 0x7f0412fd
 
-.field public static final storage_internal_forget_confirm:I = 0x7f0412fc
+.field public static final storage_internal_forget_confirm:I = 0x7f0412fe
 
-.field public static final storage_internal_forget_confirm_title:I = 0x7f0412fd
+.field public static final storage_internal_forget_confirm_title:I = 0x7f0412ff
 
-.field public static final storage_internal_forget_details:I = 0x7f0412fe
+.field public static final storage_internal_forget_details:I = 0x7f041300
 
-.field public static final storage_internal_format_details:I = 0x7f0412ff
+.field public static final storage_internal_format_details:I = 0x7f041301
 
-.field public static final storage_internal_title:I = 0x7f041300
+.field public static final storage_internal_title:I = 0x7f041302
 
-.field public static final storage_internal_unmount_details:I = 0x7f041301
+.field public static final storage_internal_unmount_details:I = 0x7f041303
 
-.field public static final storage_label:I = 0x7f041302
+.field public static final storage_label:I = 0x7f041304
 
-.field public static final storage_low_summary:I = 0x7f041303
+.field public static final storage_low_summary:I = 0x7f041305
 
-.field public static final storage_low_title:I = 0x7f041304
+.field public static final storage_low_title:I = 0x7f041306
 
-.field public static final storage_manager_indicator:I = 0x7f041305
+.field public static final storage_manager_indicator:I = 0x7f041307
 
-.field public static final storage_manager_indicator_off:I = 0x7f041306
+.field public static final storage_manager_indicator_off:I = 0x7f041308
 
-.field public static final storage_manager_indicator_on:I = 0x7f041307
+.field public static final storage_manager_indicator_on:I = 0x7f041309
 
-.field public static final storage_menu_forget:I = 0x7f041308
+.field public static final storage_menu_forget:I = 0x7f04130a
 
-.field public static final storage_menu_format:I = 0x7f041309
+.field public static final storage_menu_format:I = 0x7f04130b
 
-.field public static final storage_menu_format_private:I = 0x7f04130a
+.field public static final storage_menu_format_private:I = 0x7f04130c
 
-.field public static final storage_menu_format_public:I = 0x7f04130b
+.field public static final storage_menu_format_public:I = 0x7f04130d
 
-.field public static final storage_menu_free:I = 0x7f04130c
+.field public static final storage_menu_free:I = 0x7f04130e
 
-.field public static final storage_menu_manage:I = 0x7f04130d
+.field public static final storage_menu_manage:I = 0x7f04130f
 
-.field public static final storage_menu_migrate:I = 0x7f04130e
+.field public static final storage_menu_migrate:I = 0x7f041310
 
-.field public static final storage_menu_mount:I = 0x7f04130f
+.field public static final storage_menu_mount:I = 0x7f041311
 
-.field public static final storage_menu_rename:I = 0x7f041310
+.field public static final storage_menu_rename:I = 0x7f041312
 
-.field public static final storage_menu_set_up:I = 0x7f041311
+.field public static final storage_menu_set_up:I = 0x7f041313
 
-.field public static final storage_menu_unmount:I = 0x7f041312
+.field public static final storage_menu_unmount:I = 0x7f041314
 
-.field public static final storage_mount_failure:I = 0x7f041313
+.field public static final storage_mount_failure:I = 0x7f041315
 
-.field public static final storage_mount_success:I = 0x7f041314
+.field public static final storage_mount_success:I = 0x7f041316
 
-.field public static final storage_movies_tv:I = 0x7f041315
+.field public static final storage_movies_tv:I = 0x7f041317
 
-.field public static final storage_music_audio:I = 0x7f041316
+.field public static final storage_music_audio:I = 0x7f041318
 
-.field public static final storage_other_apps:I = 0x7f041317
+.field public static final storage_other_apps:I = 0x7f041319
 
-.field public static final storage_other_users:I = 0x7f041318
+.field public static final storage_other_users:I = 0x7f04131a
 
-.field public static final storage_percent_full:I = 0x7f041319
+.field public static final storage_percent_full:I = 0x7f04131b
 
-.field public static final storage_photos_videos:I = 0x7f04131a
+.field public static final storage_photos_videos:I = 0x7f04131c
 
-.field public static final storage_rename_title:I = 0x7f04131b
+.field public static final storage_rename_title:I = 0x7f04131d
 
-.field public static final storage_settings:I = 0x7f04131c
+.field public static final storage_settings:I = 0x7f04131e
 
-.field public static final storage_settings_for_app:I = 0x7f04131d
+.field public static final storage_settings_for_app:I = 0x7f04131f
 
-.field public static final storage_settings_summary:I = 0x7f04131e
+.field public static final storage_settings_summary:I = 0x7f041320
 
-.field public static final storage_settings_title:I = 0x7f04131f
+.field public static final storage_settings_title:I = 0x7f041321
 
-.field public static final storage_size_large:I = 0x7f041320
+.field public static final storage_size_large:I = 0x7f041322
 
-.field public static final storage_size_large_alternate:I = 0x7f041321
+.field public static final storage_size_large_alternate:I = 0x7f041323
 
-.field public static final storage_summary:I = 0x7f041322
+.field public static final storage_summary:I = 0x7f041324
 
-.field public static final storage_summary_format:I = 0x7f041323
+.field public static final storage_summary_format:I = 0x7f041325
 
-.field public static final storage_summary_with_sdcard:I = 0x7f041324
+.field public static final storage_summary_with_sdcard:I = 0x7f041326
 
-.field public static final storage_system:I = 0x7f041325
+.field public static final storage_system:I = 0x7f041327
 
-.field public static final storage_title_usb:I = 0x7f041326
+.field public static final storage_title_usb:I = 0x7f041328
 
-.field public static final storage_total_summary:I = 0x7f041327
+.field public static final storage_total_summary:I = 0x7f041329
 
-.field public static final storage_trash:I = 0x7f041328
+.field public static final storage_trash:I = 0x7f04132a
 
-.field public static final storage_trash_dialog_ask_message:I = 0x7f041329
+.field public static final storage_trash_dialog_ask_message:I = 0x7f04132b
 
-.field public static final storage_trash_dialog_confirm:I = 0x7f04132a
+.field public static final storage_trash_dialog_confirm:I = 0x7f04132c
 
-.field public static final storage_trash_dialog_empty_message:I = 0x7f04132b
+.field public static final storage_trash_dialog_empty_message:I = 0x7f04132d
 
-.field public static final storage_trash_dialog_title:I = 0x7f04132c
+.field public static final storage_trash_dialog_title:I = 0x7f04132e
 
-.field public static final storage_type_external:I = 0x7f04132d
+.field public static final storage_type_external:I = 0x7f04132f
 
-.field public static final storage_type_internal:I = 0x7f04132e
+.field public static final storage_type_internal:I = 0x7f041330
 
-.field public static final storage_unmount_failure:I = 0x7f04132f
+.field public static final storage_unmount_failure:I = 0x7f041331
 
-.field public static final storage_unmount_success:I = 0x7f041330
+.field public static final storage_unmount_success:I = 0x7f041332
 
-.field public static final storage_usage_summary:I = 0x7f041331
+.field public static final storage_usage_summary:I = 0x7f041333
 
-.field public static final storage_usb_settings:I = 0x7f041332
+.field public static final storage_usb_settings:I = 0x7f041334
 
-.field public static final storage_used:I = 0x7f041333
+.field public static final storage_used:I = 0x7f041335
 
-.field public static final storage_videos:I = 0x7f041334
+.field public static final storage_videos:I = 0x7f041336
 
-.field public static final storage_volume_total:I = 0x7f041335
+.field public static final storage_volume_total:I = 0x7f041337
 
-.field public static final storage_volume_used:I = 0x7f041336
+.field public static final storage_volume_used:I = 0x7f041338
 
-.field public static final storage_wizard_format_confirm_body:I = 0x7f041337
+.field public static final storage_wizard_format_confirm_body:I = 0x7f041339
 
-.field public static final storage_wizard_format_confirm_next:I = 0x7f041338
+.field public static final storage_wizard_format_confirm_next:I = 0x7f04133a
 
-.field public static final storage_wizard_format_confirm_public_body:I = 0x7f041339
+.field public static final storage_wizard_format_confirm_public_body:I = 0x7f04133b
 
-.field public static final storage_wizard_format_confirm_public_title:I = 0x7f04133a
+.field public static final storage_wizard_format_confirm_public_title:I = 0x7f04133c
 
-.field public static final storage_wizard_format_confirm_title:I = 0x7f04133b
+.field public static final storage_wizard_format_confirm_title:I = 0x7f04133d
 
-.field public static final storage_wizard_format_confirm_v2_action:I = 0x7f04133c
+.field public static final storage_wizard_format_confirm_v2_action:I = 0x7f04133e
 
-.field public static final storage_wizard_format_confirm_v2_body:I = 0x7f04133d
+.field public static final storage_wizard_format_confirm_v2_body:I = 0x7f04133f
 
-.field public static final storage_wizard_format_confirm_v2_title:I = 0x7f04133e
+.field public static final storage_wizard_format_confirm_v2_title:I = 0x7f041340
 
-.field public static final storage_wizard_format_progress_body:I = 0x7f04133f
+.field public static final storage_wizard_format_progress_body:I = 0x7f041341
 
-.field public static final storage_wizard_format_progress_title:I = 0x7f041340
+.field public static final storage_wizard_format_progress_title:I = 0x7f041342
 
-.field public static final storage_wizard_init_external_summary:I = 0x7f041341
+.field public static final storage_wizard_init_external_summary:I = 0x7f041343
 
-.field public static final storage_wizard_init_external_title:I = 0x7f041342
+.field public static final storage_wizard_init_external_title:I = 0x7f041344
 
-.field public static final storage_wizard_init_internal_summary:I = 0x7f041343
+.field public static final storage_wizard_init_internal_summary:I = 0x7f041345
 
-.field public static final storage_wizard_init_internal_title:I = 0x7f041344
+.field public static final storage_wizard_init_internal_title:I = 0x7f041346
 
-.field public static final storage_wizard_init_title:I = 0x7f041345
+.field public static final storage_wizard_init_title:I = 0x7f041347
 
-.field public static final storage_wizard_init_v2_external_action:I = 0x7f041346
+.field public static final storage_wizard_init_v2_external_action:I = 0x7f041348
 
-.field public static final storage_wizard_init_v2_external_summary:I = 0x7f041347
+.field public static final storage_wizard_init_v2_external_summary:I = 0x7f041349
 
-.field public static final storage_wizard_init_v2_external_title:I = 0x7f041348
+.field public static final storage_wizard_init_v2_external_title:I = 0x7f04134a
 
-.field public static final storage_wizard_init_v2_internal_action:I = 0x7f041349
+.field public static final storage_wizard_init_v2_internal_action:I = 0x7f04134b
 
-.field public static final storage_wizard_init_v2_internal_summary:I = 0x7f04134a
+.field public static final storage_wizard_init_v2_internal_summary:I = 0x7f04134c
 
-.field public static final storage_wizard_init_v2_internal_title:I = 0x7f04134b
+.field public static final storage_wizard_init_v2_internal_title:I = 0x7f04134d
 
-.field public static final storage_wizard_init_v2_later:I = 0x7f04134c
+.field public static final storage_wizard_init_v2_later:I = 0x7f04134e
 
-.field public static final storage_wizard_init_v2_or:I = 0x7f04134d
+.field public static final storage_wizard_init_v2_or:I = 0x7f04134f
 
-.field public static final storage_wizard_init_v2_title:I = 0x7f04134e
+.field public static final storage_wizard_init_v2_title:I = 0x7f041350
 
-.field public static final storage_wizard_migrate_body:I = 0x7f04134f
+.field public static final storage_wizard_migrate_body:I = 0x7f041351
 
-.field public static final storage_wizard_migrate_confirm_body:I = 0x7f041350
+.field public static final storage_wizard_migrate_confirm_body:I = 0x7f041352
 
-.field public static final storage_wizard_migrate_confirm_next:I = 0x7f041351
+.field public static final storage_wizard_migrate_confirm_next:I = 0x7f041353
 
-.field public static final storage_wizard_migrate_confirm_title:I = 0x7f041352
+.field public static final storage_wizard_migrate_confirm_title:I = 0x7f041354
 
-.field public static final storage_wizard_migrate_details:I = 0x7f041353
+.field public static final storage_wizard_migrate_details:I = 0x7f041355
 
-.field public static final storage_wizard_migrate_later:I = 0x7f041354
+.field public static final storage_wizard_migrate_later:I = 0x7f041356
 
-.field public static final storage_wizard_migrate_now:I = 0x7f041355
+.field public static final storage_wizard_migrate_now:I = 0x7f041357
 
-.field public static final storage_wizard_migrate_progress_title:I = 0x7f041356
+.field public static final storage_wizard_migrate_progress_title:I = 0x7f041358
 
-.field public static final storage_wizard_migrate_progress_v2_title:I = 0x7f041357
+.field public static final storage_wizard_migrate_progress_v2_title:I = 0x7f041359
 
-.field public static final storage_wizard_migrate_title:I = 0x7f041358
+.field public static final storage_wizard_migrate_title:I = 0x7f04135a
 
-.field public static final storage_wizard_migrate_v2_body:I = 0x7f041359
+.field public static final storage_wizard_migrate_v2_body:I = 0x7f04135b
 
-.field public static final storage_wizard_migrate_v2_checklist:I = 0x7f04135a
+.field public static final storage_wizard_migrate_v2_checklist:I = 0x7f04135c
 
-.field public static final storage_wizard_migrate_v2_checklist_apps:I = 0x7f04135b
+.field public static final storage_wizard_migrate_v2_checklist_apps:I = 0x7f04135d
 
-.field public static final storage_wizard_migrate_v2_checklist_battery:I = 0x7f04135c
+.field public static final storage_wizard_migrate_v2_checklist_battery:I = 0x7f04135e
 
-.field public static final storage_wizard_migrate_v2_checklist_media:I = 0x7f04135d
+.field public static final storage_wizard_migrate_v2_checklist_media:I = 0x7f04135f
 
-.field public static final storage_wizard_migrate_v2_later:I = 0x7f04135e
+.field public static final storage_wizard_migrate_v2_later:I = 0x7f041360
 
-.field public static final storage_wizard_migrate_v2_now:I = 0x7f04135f
+.field public static final storage_wizard_migrate_v2_now:I = 0x7f041361
 
-.field public static final storage_wizard_migrate_v2_title:I = 0x7f041360
+.field public static final storage_wizard_migrate_v2_title:I = 0x7f041362
 
-.field public static final storage_wizard_move_confirm_body:I = 0x7f041361
+.field public static final storage_wizard_move_confirm_body:I = 0x7f041363
 
-.field public static final storage_wizard_move_confirm_title:I = 0x7f041362
+.field public static final storage_wizard_move_confirm_title:I = 0x7f041364
 
-.field public static final storage_wizard_move_progress_body:I = 0x7f041363
+.field public static final storage_wizard_move_progress_body:I = 0x7f041365
 
-.field public static final storage_wizard_move_progress_cancel:I = 0x7f041364
+.field public static final storage_wizard_move_progress_cancel:I = 0x7f041366
 
-.field public static final storage_wizard_move_progress_title:I = 0x7f041365
+.field public static final storage_wizard_move_progress_title:I = 0x7f041367
 
-.field public static final storage_wizard_move_unlock:I = 0x7f041366
+.field public static final storage_wizard_move_unlock:I = 0x7f041368
 
-.field public static final storage_wizard_ready_external_body:I = 0x7f041367
+.field public static final storage_wizard_ready_external_body:I = 0x7f041369
 
-.field public static final storage_wizard_ready_internal_body:I = 0x7f041368
+.field public static final storage_wizard_ready_internal_body:I = 0x7f04136a
 
-.field public static final storage_wizard_ready_title:I = 0x7f041369
+.field public static final storage_wizard_ready_title:I = 0x7f04136b
 
-.field public static final storage_wizard_ready_v2_external_body:I = 0x7f04136a
+.field public static final storage_wizard_ready_v2_external_body:I = 0x7f04136c
 
-.field public static final storage_wizard_ready_v2_internal_body:I = 0x7f04136b
+.field public static final storage_wizard_ready_v2_internal_body:I = 0x7f04136d
 
-.field public static final storage_wizard_ready_v2_internal_moved_body:I = 0x7f04136c
+.field public static final storage_wizard_ready_v2_internal_moved_body:I = 0x7f04136e
 
-.field public static final storage_wizard_slow_body:I = 0x7f04136d
+.field public static final storage_wizard_slow_body:I = 0x7f04136f
 
-.field public static final storage_wizard_slow_v2_body:I = 0x7f04136e
+.field public static final storage_wizard_slow_v2_body:I = 0x7f041370
 
-.field public static final storage_wizard_slow_v2_continue:I = 0x7f04136f
+.field public static final storage_wizard_slow_v2_continue:I = 0x7f041371
 
-.field public static final storage_wizard_slow_v2_start_over:I = 0x7f041370
+.field public static final storage_wizard_slow_v2_start_over:I = 0x7f041372
 
-.field public static final storage_wizard_slow_v2_title:I = 0x7f041371
+.field public static final storage_wizard_slow_v2_title:I = 0x7f041373
 
-.field public static final storageuse_settings_summary:I = 0x7f041372
+.field public static final storageuse_settings_summary:I = 0x7f041374
 
-.field public static final storageuse_settings_title:I = 0x7f041373
+.field public static final storageuse_settings_title:I = 0x7f041375
 
-.field public static final strict_mode:I = 0x7f041374
+.field public static final strict_mode:I = 0x7f041376
 
-.field public static final strict_mode_summary:I = 0x7f041375
+.field public static final strict_mode_summary:I = 0x7f041377
 
-.field public static final style_and_wallpaper_settings_title:I = 0x7f041376
+.field public static final style_and_wallpaper_settings_title:I = 0x7f041378
 
-.field public static final style_suggestion_summary:I = 0x7f041377
+.field public static final style_suggestion_summary:I = 0x7f041379
 
-.field public static final style_suggestion_title:I = 0x7f041378
+.field public static final style_suggestion_title:I = 0x7f04137a
 
-.field public static final subscription_available:I = 0x7f041379
+.field public static final subscription_available:I = 0x7f04137b
 
-.field public static final sudFontSecondary:I = 0x7f04137a
+.field public static final sudFontSecondary:I = 0x7f04137c
 
-.field public static final sudFontSecondaryMedium:I = 0x7f04137b
+.field public static final sudFontSecondaryMedium:I = 0x7f04137d
 
-.field public static final sud_back_button_label:I = 0x7f04137c
+.field public static final sud_back_button_label:I = 0x7f04137e
 
-.field public static final sud_more_button_label:I = 0x7f04137d
+.field public static final sud_more_button_label:I = 0x7f04137f
 
-.field public static final sud_next_button_label:I = 0x7f04137e
+.field public static final sud_next_button_label:I = 0x7f041380
 
-.field public static final suggested_fingerprint_lock_settings_summary:I = 0x7f04137f
+.field public static final suggested_fingerprint_lock_settings_summary:I = 0x7f041381
 
-.field public static final suggested_fingerprint_lock_settings_title:I = 0x7f041380
+.field public static final suggested_fingerprint_lock_settings_title:I = 0x7f041382
 
-.field public static final suggested_lock_settings_summary:I = 0x7f041381
+.field public static final suggested_lock_settings_summary:I = 0x7f041383
 
-.field public static final suggested_lock_settings_title:I = 0x7f041382
+.field public static final suggested_lock_settings_title:I = 0x7f041384
 
-.field public static final suggestion_additional_fingerprints:I = 0x7f041383
+.field public static final suggestion_additional_fingerprints:I = 0x7f041385
 
-.field public static final suggestion_additional_fingerprints_summary:I = 0x7f041384
+.field public static final suggestion_additional_fingerprints_summary:I = 0x7f041386
 
-.field public static final suggestion_button_close:I = 0x7f041385
+.field public static final suggestion_button_close:I = 0x7f041387
 
-.field public static final suggestion_button_text:I = 0x7f041386
+.field public static final suggestion_button_text:I = 0x7f041388
 
-.field public static final suggestion_remove:I = 0x7f041387
+.field public static final suggestion_remove:I = 0x7f041389
 
-.field public static final suggestions_more_title:I = 0x7f041388
+.field public static final suggestions_more_title:I = 0x7f04138a
 
-.field public static final suggestions_summary:I = 0x7f041389
+.field public static final suggestions_summary:I = 0x7f04138b
 
-.field public static final suggestions_title:I = 0x7f04138a
+.field public static final suggestions_title:I = 0x7f04138c
 
-.field public static final suggestions_title_v2:I = 0x7f04138b
+.field public static final suggestions_title_v2:I = 0x7f04138d
 
-.field public static final sum_carrier_select:I = 0x7f04138c
+.field public static final sum_carrier_select:I = 0x7f04138e
 
-.field public static final summary_collapsed_preference_list:I = 0x7f04138d
+.field public static final summary_collapsed_preference_list:I = 0x7f04138f
 
-.field public static final summary_divider_text:I = 0x7f04138e
+.field public static final summary_divider_text:I = 0x7f041390
 
-.field public static final summary_empty:I = 0x7f04138f
+.field public static final summary_empty:I = 0x7f041391
 
-.field public static final summary_font_size:I = 0x7f041390
+.field public static final summary_font_size:I = 0x7f041392
 
 .field public static final summary_placeholder:I = 0x7f04004e
 
-.field public static final summary_range_symbol_combination:I = 0x7f041391
+.field public static final summary_range_symbol_combination:I = 0x7f041393
 
-.field public static final summary_range_verbal_combination:I = 0x7f041392
+.field public static final summary_range_verbal_combination:I = 0x7f041394
 
-.field public static final summary_two_lines_placeholder:I = 0x7f041393
+.field public static final summary_two_lines_placeholder:I = 0x7f041395
 
-.field public static final supplicant_state_label:I = 0x7f041394
+.field public static final supplicant_state_label:I = 0x7f041396
 
-.field public static final support_summary:I = 0x7f041395
+.field public static final support_summary:I = 0x7f041397
 
-.field public static final swipe_direction_ltr:I = 0x7f041396
+.field public static final swipe_direction_ltr:I = 0x7f041398
 
-.field public static final swipe_direction_rtl:I = 0x7f041397
+.field public static final swipe_direction_rtl:I = 0x7f041399
 
-.field public static final swipe_direction_title:I = 0x7f041398
+.field public static final swipe_direction_title:I = 0x7f04139a
 
-.field public static final swipe_up_to_switch_apps_suggestion_summary:I = 0x7f041399
+.field public static final swipe_up_to_switch_apps_suggestion_summary:I = 0x7f04139b
 
-.field public static final swipe_up_to_switch_apps_suggestion_title:I = 0x7f04139a
+.field public static final swipe_up_to_switch_apps_suggestion_title:I = 0x7f04139c
 
-.field public static final swipe_up_to_switch_apps_summary:I = 0x7f04139b
+.field public static final swipe_up_to_switch_apps_summary:I = 0x7f04139d
 
-.field public static final swipe_up_to_switch_apps_title:I = 0x7f04139c
+.field public static final swipe_up_to_switch_apps_title:I = 0x7f04139e
 
-.field public static final switch_off_text:I = 0x7f04139d
+.field public static final switch_off_text:I = 0x7f04139f
 
-.field public static final switch_on_text:I = 0x7f04139e
+.field public static final switch_on_text:I = 0x7f0413a0
 
-.field public static final switch_sim_dialog_no_switch_text:I = 0x7f04139f
+.field public static final switch_sim_dialog_no_switch_text:I = 0x7f0413a1
 
-.field public static final switch_sim_dialog_no_switch_title:I = 0x7f0413a0
+.field public static final switch_sim_dialog_no_switch_title:I = 0x7f0413a2
 
-.field public static final switch_sim_dialog_text:I = 0x7f0413a1
+.field public static final switch_sim_dialog_text:I = 0x7f0413a3
 
-.field public static final switch_sim_dialog_title:I = 0x7f0413a2
+.field public static final switch_sim_dialog_title:I = 0x7f0413a4
 
-.field public static final switch_to_removable_notification:I = 0x7f0413a3
+.field public static final switch_to_removable_notification:I = 0x7f0413a5
 
-.field public static final switch_to_removable_notification_no_carrier_name:I = 0x7f0413a4
+.field public static final switch_to_removable_notification_no_carrier_name:I = 0x7f0413a6
 
-.field public static final sync_active:I = 0x7f0413a5
+.field public static final sync_active:I = 0x7f0413a7
 
-.field public static final sync_automatically:I = 0x7f0413a6
+.field public static final sync_automatically:I = 0x7f0413a8
 
-.field public static final sync_calendar:I = 0x7f0413a7
+.field public static final sync_calendar:I = 0x7f0413a9
 
-.field public static final sync_contacts:I = 0x7f0413a8
+.field public static final sync_contacts:I = 0x7f0413aa
 
-.field public static final sync_disabled:I = 0x7f0413a9
+.field public static final sync_disabled:I = 0x7f0413ab
 
-.field public static final sync_enabled:I = 0x7f0413aa
+.field public static final sync_enabled:I = 0x7f0413ac
 
-.field public static final sync_error:I = 0x7f0413ab
+.field public static final sync_error:I = 0x7f0413ad
 
-.field public static final sync_failed:I = 0x7f0413ac
+.field public static final sync_failed:I = 0x7f0413ae
 
-.field public static final sync_gmail:I = 0x7f0413ad
+.field public static final sync_gmail:I = 0x7f0413af
 
-.field public static final sync_in_progress:I = 0x7f0413ae
+.field public static final sync_in_progress:I = 0x7f0413b0
 
-.field public static final sync_is_failing:I = 0x7f0413af
+.field public static final sync_is_failing:I = 0x7f0413b1
 
-.field public static final sync_menu_sync_cancel:I = 0x7f0413b0
+.field public static final sync_menu_sync_cancel:I = 0x7f0413b2
 
-.field public static final sync_menu_sync_now:I = 0x7f0413b1
+.field public static final sync_menu_sync_now:I = 0x7f0413b3
 
-.field public static final sync_one_time_sync:I = 0x7f0413b2
+.field public static final sync_one_time_sync:I = 0x7f0413b4
 
-.field public static final sync_plug:I = 0x7f0413b3
+.field public static final sync_plug:I = 0x7f0413b5
 
-.field public static final system_alert_window_access_title:I = 0x7f0413b4
+.field public static final system_alert_window_access_title:I = 0x7f0413b6
 
-.field public static final system_alert_window_apps_title:I = 0x7f0413b5
+.field public static final system_alert_window_apps_title:I = 0x7f0413b7
 
-.field public static final system_alert_window_settings:I = 0x7f0413b6
+.field public static final system_alert_window_settings:I = 0x7f0413b8
 
-.field public static final system_alert_window_summary:I = 0x7f0413b7
+.field public static final system_alert_window_summary:I = 0x7f0413b9
 
-.field public static final system_app:I = 0x7f0413b8
+.field public static final system_app:I = 0x7f0413ba
 
-.field public static final system_dashboard_summary:I = 0x7f0413b9
+.field public static final system_dashboard_summary:I = 0x7f0413bb
 
-.field public static final system_default_app:I = 0x7f0413ba
+.field public static final system_default_app:I = 0x7f0413bc
 
-.field public static final system_default_app_subtext:I = 0x7f0413bb
+.field public static final system_default_app_subtext:I = 0x7f0413bd
 
 .field public static final system_navigation_title:I = 0x7f04004f
 
-.field public static final system_package:I = 0x7f0413bc
+.field public static final system_package:I = 0x7f0413be
 
-.field public static final system_ui_settings:I = 0x7f0413bd
+.field public static final system_ui_settings:I = 0x7f0413bf
 
-.field public static final system_update_settings_list_item_summary:I = 0x7f0413be
+.field public static final system_update_settings_list_item_summary:I = 0x7f0413c0
 
 .field public static final system_update_settings_list_item_title:I = 0x7f040050
 
-.field public static final take_call_on_title:I = 0x7f0413bf
+.field public static final take_call_on_title:I = 0x7f0413c1
 
-.field public static final talkback_summary:I = 0x7f0413c0
+.field public static final talkback_summary:I = 0x7f0413c2
 
-.field public static final talkback_title:I = 0x7f0413c1
+.field public static final talkback_title:I = 0x7f0413c3
 
-.field public static final tap_a_network_to_connect:I = 0x7f0413c2
+.field public static final tap_a_network_to_connect:I = 0x7f0413c4
 
-.field public static final tap_to_sign_up:I = 0x7f0413c3
+.field public static final tap_to_sign_up:I = 0x7f0413c5
 
 .field public static final tap_to_wake:I = 0x7f040051
 
 .field public static final tap_to_wake_summary:I = 0x7f040052
 
-.field public static final terms_title:I = 0x7f0413c4
+.field public static final terms_title:I = 0x7f0413c6
 
-.field public static final testing:I = 0x7f0413c5
+.field public static final testing:I = 0x7f0413c7
 
-.field public static final testing_phone_info:I = 0x7f0413c6
+.field public static final testing_phone_info:I = 0x7f0413c8
 
-.field public static final testing_sim_toolkit:I = 0x7f0413c7
+.field public static final testing_sim_toolkit:I = 0x7f0413c9
 
-.field public static final testing_usage_stats:I = 0x7f0413c8
+.field public static final testing_usage_stats:I = 0x7f0413ca
 
-.field public static final testing_wifi_info:I = 0x7f0413c9
+.field public static final testing_wifi_info:I = 0x7f0413cb
 
-.field public static final tether_settings_disabled_on_data_saver:I = 0x7f0413ca
+.field public static final tether_settings_disabled_on_data_saver:I = 0x7f0413cc
 
-.field public static final tether_settings_summary_all:I = 0x7f0413cb
+.field public static final tether_settings_summary_all:I = 0x7f0413cd
 
-.field public static final tether_settings_summary_bluetooth_and_ethernet:I = 0x7f0413cc
+.field public static final tether_settings_summary_bluetooth_and_ethernet:I = 0x7f0413ce
 
-.field public static final tether_settings_summary_bluetooth_tethering_only:I = 0x7f0413cd
+.field public static final tether_settings_summary_bluetooth_tethering_only:I = 0x7f0413cf
 
-.field public static final tether_settings_summary_ethernet_tethering_only:I = 0x7f0413ce
+.field public static final tether_settings_summary_ethernet_tethering_only:I = 0x7f0413d0
 
-.field public static final tether_settings_summary_hotspot_and_bluetooth:I = 0x7f0413cf
+.field public static final tether_settings_summary_hotspot_and_bluetooth:I = 0x7f0413d1
 
-.field public static final tether_settings_summary_hotspot_and_bluetooth_and_ethernet:I = 0x7f0413d0
+.field public static final tether_settings_summary_hotspot_and_bluetooth_and_ethernet:I = 0x7f0413d2
 
-.field public static final tether_settings_summary_hotspot_and_ethernet:I = 0x7f0413d1
+.field public static final tether_settings_summary_hotspot_and_ethernet:I = 0x7f0413d3
 
-.field public static final tether_settings_summary_hotspot_and_usb:I = 0x7f0413d2
+.field public static final tether_settings_summary_hotspot_and_usb:I = 0x7f0413d4
 
-.field public static final tether_settings_summary_hotspot_and_usb_and_bluetooth:I = 0x7f0413d3
+.field public static final tether_settings_summary_hotspot_and_usb_and_bluetooth:I = 0x7f0413d5
 
-.field public static final tether_settings_summary_hotspot_and_usb_and_ethernet:I = 0x7f0413d4
+.field public static final tether_settings_summary_hotspot_and_usb_and_ethernet:I = 0x7f0413d6
 
-.field public static final tether_settings_summary_hotspot_off_tether_on:I = 0x7f0413d5
+.field public static final tether_settings_summary_hotspot_off_tether_on:I = 0x7f0413d7
 
-.field public static final tether_settings_summary_hotspot_on_tether_off:I = 0x7f0413d6
+.field public static final tether_settings_summary_hotspot_on_tether_off:I = 0x7f0413d8
 
-.field public static final tether_settings_summary_hotspot_on_tether_on:I = 0x7f0413d7
+.field public static final tether_settings_summary_hotspot_on_tether_on:I = 0x7f0413d9
 
-.field public static final tether_settings_summary_hotspot_only:I = 0x7f0413d8
+.field public static final tether_settings_summary_hotspot_only:I = 0x7f0413da
 
-.field public static final tether_settings_summary_off:I = 0x7f0413d9
+.field public static final tether_settings_summary_off:I = 0x7f0413db
 
-.field public static final tether_settings_summary_usb_and_bluetooth:I = 0x7f0413da
+.field public static final tether_settings_summary_usb_and_bluetooth:I = 0x7f0413dc
 
-.field public static final tether_settings_summary_usb_and_bluetooth_and_ethernet:I = 0x7f0413db
+.field public static final tether_settings_summary_usb_and_bluetooth_and_ethernet:I = 0x7f0413dd
 
-.field public static final tether_settings_summary_usb_and_ethernet:I = 0x7f0413dc
+.field public static final tether_settings_summary_usb_and_ethernet:I = 0x7f0413de
 
-.field public static final tether_settings_summary_usb_tethering_only:I = 0x7f0413dd
+.field public static final tether_settings_summary_usb_tethering_only:I = 0x7f0413df
 
-.field public static final tether_settings_title_all:I = 0x7f0413de
+.field public static final tether_settings_title_all:I = 0x7f0413e0
 
-.field public static final tether_settings_title_bluetooth:I = 0x7f0413df
+.field public static final tether_settings_title_bluetooth:I = 0x7f0413e1
 
-.field public static final tether_settings_title_usb:I = 0x7f0413e0
+.field public static final tether_settings_title_usb:I = 0x7f0413e2
 
-.field public static final tether_settings_title_usb_bluetooth:I = 0x7f0413e1
+.field public static final tether_settings_title_usb_bluetooth:I = 0x7f0413e3
 
-.field public static final tether_settings_title_wifi:I = 0x7f0413e2
+.field public static final tether_settings_title_wifi:I = 0x7f0413e4
 
-.field public static final tethering_footer_info:I = 0x7f0413e3
+.field public static final tethering_footer_info:I = 0x7f0413e5
 
-.field public static final tethering_footer_info_sta_ap_concurrency:I = 0x7f0413e4
+.field public static final tethering_footer_info_sta_ap_concurrency:I = 0x7f0413e6
 
-.field public static final tethering_hardware_offload:I = 0x7f0413e5
+.field public static final tethering_hardware_offload:I = 0x7f0413e7
 
-.field public static final tethering_hardware_offload_summary:I = 0x7f0413e6
+.field public static final tethering_hardware_offload_summary:I = 0x7f0413e8
 
-.field public static final tethering_help_button_text:I = 0x7f0413e7
+.field public static final tethering_help_button_text:I = 0x7f0413e9
 
-.field public static final tethering_interface_options:I = 0x7f0413e8
+.field public static final tethering_interface_options:I = 0x7f0413ea
 
-.field public static final tethering_settings_not_available:I = 0x7f0413e9
+.field public static final tethering_settings_not_available:I = 0x7f0413eb
 
-.field public static final theme_customization_device_default:I = 0x7f0413ea
+.field public static final theme_customization_device_default:I = 0x7f0413ec
 
-.field public static final time_format_category_title:I = 0x7f0413eb
+.field public static final time_format_category_title:I = 0x7f0413ed
 
-.field public static final time_picker_title:I = 0x7f0413ec
+.field public static final time_picker_title:I = 0x7f0413ee
 
-.field public static final time_remaining_warning_subtext:I = 0x7f0413ed
+.field public static final time_remaining_warning_subtext:I = 0x7f0413ef
 
-.field public static final time_remaining_warning_text:I = 0x7f0413ee
+.field public static final time_remaining_warning_text:I = 0x7f0413f0
 
-.field public static final time_spent_in_app_pref_title:I = 0x7f0413ef
+.field public static final time_spent_in_app_pref_title:I = 0x7f0413f1
 
-.field public static final time_unit_just_now:I = 0x7f0413f0
+.field public static final time_unit_just_now:I = 0x7f0413f2
 
-.field public static final time_zone_auto_stub:I = 0x7f0413f1
+.field public static final time_zone_auto_stub:I = 0x7f0413f3
 
-.field public static final tips_help_url_gesture:I = 0x7f0413f2
+.field public static final tips_help_url_gesture:I = 0x7f0413f4
 
-.field public static final tips_suggestion_summary:I = 0x7f0413f3
+.field public static final tips_suggestion_summary:I = 0x7f0413f5
 
-.field public static final tips_suggestion_title:I = 0x7f0413f4
+.field public static final tips_suggestion_title:I = 0x7f0413f6
 
-.field public static final title_convert_fbe:I = 0x7f0413f5
+.field public static final title_convert_fbe:I = 0x7f0413f7
 
 .field public static final title_font_size:I = 0x7f040053
 
-.field public static final to_switch_networks_disconnect_ethernet:I = 0x7f0413f6
+.field public static final to_switch_networks_disconnect_ethernet:I = 0x7f0413f8
 
-.field public static final total_memory:I = 0x7f0413f7
+.field public static final total_memory:I = 0x7f0413f9
 
-.field public static final total_size_label:I = 0x7f0413f8
+.field public static final total_size_label:I = 0x7f0413fa
 
-.field public static final touch_filtered_warning:I = 0x7f0413f9
+.field public static final touch_filtered_warning:I = 0x7f0413fb
 
 .field public static final touch_sensitivity_summary:I = 0x7f040054
 
 .field public static final touch_sensitivity_title:I = 0x7f040055
 
-.field public static final touch_sounds_title:I = 0x7f0413fa
+.field public static final touch_sounds_title:I = 0x7f0413fc
 
-.field public static final track_frame_time:I = 0x7f0413fb
+.field public static final track_frame_time:I = 0x7f0413fd
 
-.field public static final track_frame_time_keywords:I = 0x7f0413fc
+.field public static final track_frame_time_keywords:I = 0x7f0413fe
 
-.field public static final traffic_light_face_enrolling_title_accessibility:I = 0x7f0413fd
+.field public static final traffic_light_face_enrolling_title_accessibility:I = 0x7f0413ff
 
-.field public static final transcode_default:I = 0x7f0413fe
+.field public static final transcode_default:I = 0x7f041400
 
-.field public static final transcode_disable_cache:I = 0x7f0413ff
+.field public static final transcode_disable_cache:I = 0x7f041401
 
-.field public static final transcode_enable_all:I = 0x7f041400
+.field public static final transcode_enable_all:I = 0x7f041402
 
-.field public static final transcode_notification:I = 0x7f041401
+.field public static final transcode_notification:I = 0x7f041403
 
-.field public static final transcode_settings_title:I = 0x7f041402
+.field public static final transcode_settings_title:I = 0x7f041404
 
-.field public static final transcode_user_control:I = 0x7f041403
+.field public static final transcode_user_control:I = 0x7f041405
 
-.field public static final transition_animation_scale_title:I = 0x7f041404
+.field public static final transition_animation_scale_title:I = 0x7f041406
 
-.field public static final trigger_carrier_provisioning:I = 0x7f041405
+.field public static final trigger_carrier_provisioning:I = 0x7f041407
 
-.field public static final trust_lost_locks_screen_summary:I = 0x7f041406
+.field public static final trust_lost_locks_screen_summary:I = 0x7f041408
 
-.field public static final trust_lost_locks_screen_title:I = 0x7f041407
+.field public static final trust_lost_locks_screen_title:I = 0x7f041409
 
-.field public static final trusted_credentials:I = 0x7f041408
+.field public static final trusted_credentials:I = 0x7f04140a
 
-.field public static final trusted_credentials_disable_confirmation:I = 0x7f041409
+.field public static final trusted_credentials_disable_confirmation:I = 0x7f04140b
 
-.field public static final trusted_credentials_disable_label:I = 0x7f04140a
+.field public static final trusted_credentials_disable_label:I = 0x7f04140c
 
-.field public static final trusted_credentials_enable_confirmation:I = 0x7f04140b
+.field public static final trusted_credentials_enable_confirmation:I = 0x7f04140d
 
-.field public static final trusted_credentials_enable_label:I = 0x7f04140c
+.field public static final trusted_credentials_enable_label:I = 0x7f04140e
 
-.field public static final trusted_credentials_remove_confirmation:I = 0x7f04140d
+.field public static final trusted_credentials_remove_confirmation:I = 0x7f04140f
 
-.field public static final trusted_credentials_remove_label:I = 0x7f04140e
+.field public static final trusted_credentials_remove_label:I = 0x7f041410
 
-.field public static final trusted_credentials_summary:I = 0x7f04140f
+.field public static final trusted_credentials_summary:I = 0x7f041411
 
-.field public static final trusted_credentials_system_tab:I = 0x7f041410
+.field public static final trusted_credentials_system_tab:I = 0x7f041412
 
-.field public static final trusted_credentials_trust_label:I = 0x7f041411
+.field public static final trusted_credentials_trust_label:I = 0x7f041413
 
-.field public static final trusted_credentials_user_tab:I = 0x7f041412
+.field public static final trusted_credentials_user_tab:I = 0x7f041414
 
-.field public static final tts_default_lang_summary:I = 0x7f041413
+.field public static final tts_default_lang_summary:I = 0x7f041415
 
-.field public static final tts_default_lang_title:I = 0x7f041414
+.field public static final tts_default_lang_title:I = 0x7f041416
 
-.field public static final tts_default_pitch_summary:I = 0x7f041415
+.field public static final tts_default_pitch_summary:I = 0x7f041417
 
-.field public static final tts_default_pitch_title:I = 0x7f041416
+.field public static final tts_default_pitch_title:I = 0x7f041418
 
-.field public static final tts_default_rate_summary:I = 0x7f041417
+.field public static final tts_default_rate_summary:I = 0x7f041419
 
-.field public static final tts_default_rate_title:I = 0x7f041418
+.field public static final tts_default_rate_title:I = 0x7f04141a
 
-.field public static final tts_default_sample_string:I = 0x7f041419
+.field public static final tts_default_sample_string:I = 0x7f04141b
 
-.field public static final tts_engine_network_required:I = 0x7f04141a
+.field public static final tts_engine_network_required:I = 0x7f04141c
 
-.field public static final tts_engine_preference_section_title:I = 0x7f04141b
+.field public static final tts_engine_preference_section_title:I = 0x7f04141d
 
-.field public static final tts_engine_preference_title:I = 0x7f04141c
+.field public static final tts_engine_preference_title:I = 0x7f04141e
 
-.field public static final tts_engine_section_title:I = 0x7f04141d
+.field public static final tts_engine_section_title:I = 0x7f04141f
 
-.field public static final tts_engine_security_warning:I = 0x7f04141e
+.field public static final tts_engine_security_warning:I = 0x7f041420
 
-.field public static final tts_engine_settings_button:I = 0x7f04141f
+.field public static final tts_engine_settings_button:I = 0x7f041421
 
-.field public static final tts_engine_settings_title:I = 0x7f041420
+.field public static final tts_engine_settings_title:I = 0x7f041422
 
-.field public static final tts_general_section_title:I = 0x7f041421
+.field public static final tts_general_section_title:I = 0x7f041423
 
-.field public static final tts_install_data_summary:I = 0x7f041422
+.field public static final tts_install_data_summary:I = 0x7f041424
 
-.field public static final tts_install_data_title:I = 0x7f041423
+.field public static final tts_install_data_title:I = 0x7f041425
 
-.field public static final tts_install_voice_title:I = 0x7f041424
+.field public static final tts_install_voice_title:I = 0x7f041426
 
-.field public static final tts_install_voices_cancel:I = 0x7f041425
+.field public static final tts_install_voices_cancel:I = 0x7f041427
 
-.field public static final tts_install_voices_open:I = 0x7f041426
+.field public static final tts_install_voices_open:I = 0x7f041428
 
-.field public static final tts_install_voices_text:I = 0x7f041427
+.field public static final tts_install_voices_text:I = 0x7f041429
 
-.field public static final tts_install_voices_title:I = 0x7f041428
+.field public static final tts_install_voices_title:I = 0x7f04142a
 
-.field public static final tts_lang_not_selected:I = 0x7f041429
+.field public static final tts_lang_not_selected:I = 0x7f04142b
 
-.field public static final tts_lang_use_system:I = 0x7f04142a
+.field public static final tts_lang_use_system:I = 0x7f04142c
 
-.field public static final tts_play:I = 0x7f04142b
+.field public static final tts_play:I = 0x7f04142d
 
-.field public static final tts_play_example_summary:I = 0x7f04142c
+.field public static final tts_play_example_summary:I = 0x7f04142e
 
-.field public static final tts_play_example_title:I = 0x7f04142d
+.field public static final tts_play_example_title:I = 0x7f04142f
 
-.field public static final tts_reset:I = 0x7f04142e
+.field public static final tts_reset:I = 0x7f041430
 
-.field public static final tts_reset_speech_pitch_summary:I = 0x7f04142f
+.field public static final tts_reset_speech_pitch_summary:I = 0x7f041431
 
-.field public static final tts_reset_speech_pitch_title:I = 0x7f041430
+.field public static final tts_reset_speech_pitch_title:I = 0x7f041432
 
-.field public static final tts_settings:I = 0x7f041431
+.field public static final tts_settings:I = 0x7f041433
 
-.field public static final tts_settings_title:I = 0x7f041432
+.field public static final tts_settings_title:I = 0x7f041434
 
-.field public static final tts_sliders_title:I = 0x7f041433
+.field public static final tts_sliders_title:I = 0x7f041435
 
-.field public static final tts_spoken_language:I = 0x7f041434
+.field public static final tts_spoken_language:I = 0x7f041436
 
-.field public static final tts_status_checking:I = 0x7f041435
+.field public static final tts_status_checking:I = 0x7f041437
 
-.field public static final tts_status_not_supported:I = 0x7f041436
+.field public static final tts_status_not_supported:I = 0x7f041438
 
-.field public static final tts_status_ok:I = 0x7f041437
+.field public static final tts_status_ok:I = 0x7f041439
 
-.field public static final tts_status_requires_network:I = 0x7f041438
+.field public static final tts_status_requires_network:I = 0x7f04143a
 
-.field public static final tts_status_title:I = 0x7f041439
+.field public static final tts_status_title:I = 0x7f04143b
 
-.field public static final turn_off_wifi:I = 0x7f04143a
+.field public static final turn_off_wifi:I = 0x7f04143c
 
-.field public static final turn_on_wifi:I = 0x7f04143b
+.field public static final turn_on_wifi:I = 0x7f04143d
 
-.field public static final twilight_mode_launch_location:I = 0x7f04143c
+.field public static final twilight_mode_launch_location:I = 0x7f04143e
 
-.field public static final twilight_mode_location_off_dialog_message:I = 0x7f04143d
+.field public static final twilight_mode_location_off_dialog_message:I = 0x7f04143f
 
-.field public static final tx_link_speed:I = 0x7f04143e
+.field public static final tx_link_speed:I = 0x7f041440
 
-.field public static final tx_link_speed_label:I = 0x7f04143f
+.field public static final tx_link_speed_label:I = 0x7f041441
 
-.field public static final tx_wifi_speed:I = 0x7f041440
+.field public static final tx_wifi_speed:I = 0x7f041442
 
-.field public static final uninstall_all_users_text:I = 0x7f041441
+.field public static final uninstall_all_users_text:I = 0x7f041443
 
-.field public static final uninstall_certs_credential_management_app:I = 0x7f041442
+.field public static final uninstall_certs_credential_management_app:I = 0x7f041444
 
-.field public static final uninstall_device_admin:I = 0x7f041443
+.field public static final uninstall_device_admin:I = 0x7f041445
 
-.field public static final uninstall_text:I = 0x7f041444
+.field public static final uninstall_text:I = 0x7f041446
 
-.field public static final unknown:I = 0x7f041445
+.field public static final unknown:I = 0x7f041447
 
-.field public static final unknown_app:I = 0x7f041446
+.field public static final unknown_app:I = 0x7f041448
 
-.field public static final unknown_unavailability_setting_summary:I = 0x7f041447
+.field public static final unknown_unavailability_setting_summary:I = 0x7f041449
 
-.field public static final unlock_change_lock_password_title:I = 0x7f041448
+.field public static final unlock_change_lock_password_title:I = 0x7f04144a
 
-.field public static final unlock_change_lock_pattern_title:I = 0x7f041449
+.field public static final unlock_change_lock_pattern_title:I = 0x7f04144b
 
-.field public static final unlock_change_lock_pin_title:I = 0x7f04144a
+.field public static final unlock_change_lock_pin_title:I = 0x7f04144c
 
-.field public static final unlock_disable_frp_warning_content_password:I = 0x7f04144b
+.field public static final unlock_disable_frp_warning_content_password:I = 0x7f04144d
 
-.field public static final unlock_disable_frp_warning_content_password_face:I = 0x7f04144c
+.field public static final unlock_disable_frp_warning_content_password_face:I = 0x7f04144e
 
-.field public static final unlock_disable_frp_warning_content_password_face_fingerprint:I = 0x7f04144d
+.field public static final unlock_disable_frp_warning_content_password_face_fingerprint:I = 0x7f04144f
 
-.field public static final unlock_disable_frp_warning_content_password_fingerprint:I = 0x7f04144e
+.field public static final unlock_disable_frp_warning_content_password_fingerprint:I = 0x7f041450
 
-.field public static final unlock_disable_frp_warning_content_pattern:I = 0x7f04144f
+.field public static final unlock_disable_frp_warning_content_pattern:I = 0x7f041451
 
-.field public static final unlock_disable_frp_warning_content_pattern_face:I = 0x7f041450
+.field public static final unlock_disable_frp_warning_content_pattern_face:I = 0x7f041452
 
-.field public static final unlock_disable_frp_warning_content_pattern_face_fingerprint:I = 0x7f041451
+.field public static final unlock_disable_frp_warning_content_pattern_face_fingerprint:I = 0x7f041453
 
-.field public static final unlock_disable_frp_warning_content_pattern_fingerprint:I = 0x7f041452
+.field public static final unlock_disable_frp_warning_content_pattern_fingerprint:I = 0x7f041454
 
-.field public static final unlock_disable_frp_warning_content_pin:I = 0x7f041453
+.field public static final unlock_disable_frp_warning_content_pin:I = 0x7f041455
 
-.field public static final unlock_disable_frp_warning_content_pin_face:I = 0x7f041454
+.field public static final unlock_disable_frp_warning_content_pin_face:I = 0x7f041456
 
-.field public static final unlock_disable_frp_warning_content_pin_face_fingerprint:I = 0x7f041455
+.field public static final unlock_disable_frp_warning_content_pin_face_fingerprint:I = 0x7f041457
 
-.field public static final unlock_disable_frp_warning_content_pin_fingerprint:I = 0x7f041456
+.field public static final unlock_disable_frp_warning_content_pin_fingerprint:I = 0x7f041458
 
-.field public static final unlock_disable_frp_warning_content_unknown:I = 0x7f041457
+.field public static final unlock_disable_frp_warning_content_unknown:I = 0x7f041459
 
-.field public static final unlock_disable_frp_warning_content_unknown_face:I = 0x7f041458
+.field public static final unlock_disable_frp_warning_content_unknown_face:I = 0x7f04145a
 
-.field public static final unlock_disable_frp_warning_content_unknown_face_fingerprint:I = 0x7f041459
+.field public static final unlock_disable_frp_warning_content_unknown_face_fingerprint:I = 0x7f04145b
 
-.field public static final unlock_disable_frp_warning_content_unknown_fingerprint:I = 0x7f04145a
+.field public static final unlock_disable_frp_warning_content_unknown_fingerprint:I = 0x7f04145c
 
-.field public static final unlock_disable_frp_warning_ok:I = 0x7f04145b
+.field public static final unlock_disable_frp_warning_ok:I = 0x7f04145d
 
-.field public static final unlock_disable_frp_warning_title:I = 0x7f04145c
+.field public static final unlock_disable_frp_warning_title:I = 0x7f04145e
 
-.field public static final unlock_disable_frp_warning_title_profile:I = 0x7f04145d
+.field public static final unlock_disable_frp_warning_title_profile:I = 0x7f04145f
 
-.field public static final unlock_disable_lock_title:I = 0x7f04145e
+.field public static final unlock_disable_lock_title:I = 0x7f041460
 
-.field public static final unlock_footer_high_complexity_requested:I = 0x7f04145f
+.field public static final unlock_footer_high_complexity_requested:I = 0x7f041461
 
-.field public static final unlock_footer_low_complexity_requested:I = 0x7f041460
+.field public static final unlock_footer_low_complexity_requested:I = 0x7f041462
 
-.field public static final unlock_footer_medium_complexity_requested:I = 0x7f041461
+.field public static final unlock_footer_medium_complexity_requested:I = 0x7f041463
 
-.field public static final unlock_footer_none_complexity_requested:I = 0x7f041462
+.field public static final unlock_footer_none_complexity_requested:I = 0x7f041464
 
-.field public static final unlock_set_do_later_title:I = 0x7f041463
+.field public static final unlock_set_do_later_title:I = 0x7f041465
 
-.field public static final unlock_set_unlock_disabled_summary:I = 0x7f041464
+.field public static final unlock_set_unlock_disabled_summary:I = 0x7f041466
 
-.field public static final unlock_set_unlock_launch_picker_change_summary:I = 0x7f041465
+.field public static final unlock_set_unlock_launch_picker_change_summary:I = 0x7f041467
 
-.field public static final unlock_set_unlock_launch_picker_change_title:I = 0x7f041466
+.field public static final unlock_set_unlock_launch_picker_change_title:I = 0x7f041468
 
-.field public static final unlock_set_unlock_launch_picker_enable_summary:I = 0x7f041467
+.field public static final unlock_set_unlock_launch_picker_enable_summary:I = 0x7f041469
 
-.field public static final unlock_set_unlock_launch_picker_summary_lock_after_timeout:I = 0x7f041468
+.field public static final unlock_set_unlock_launch_picker_summary_lock_after_timeout:I = 0x7f04146a
 
-.field public static final unlock_set_unlock_launch_picker_summary_lock_immediately:I = 0x7f041469
+.field public static final unlock_set_unlock_launch_picker_summary_lock_immediately:I = 0x7f04146b
 
-.field public static final unlock_set_unlock_launch_picker_title:I = 0x7f04146a
+.field public static final unlock_set_unlock_launch_picker_title:I = 0x7f04146c
 
-.field public static final unlock_set_unlock_launch_picker_title_profile:I = 0x7f04146b
+.field public static final unlock_set_unlock_launch_picker_title_profile:I = 0x7f04146d
 
-.field public static final unlock_set_unlock_mode_none:I = 0x7f04146c
+.field public static final unlock_set_unlock_mode_none:I = 0x7f04146e
 
-.field public static final unlock_set_unlock_mode_off:I = 0x7f04146d
+.field public static final unlock_set_unlock_mode_off:I = 0x7f04146f
 
-.field public static final unlock_set_unlock_mode_password:I = 0x7f04146e
+.field public static final unlock_set_unlock_mode_password:I = 0x7f041470
 
-.field public static final unlock_set_unlock_mode_pattern:I = 0x7f04146f
+.field public static final unlock_set_unlock_mode_pattern:I = 0x7f041471
 
-.field public static final unlock_set_unlock_mode_pin:I = 0x7f041470
+.field public static final unlock_set_unlock_mode_pin:I = 0x7f041472
 
-.field public static final unlock_set_unlock_none_summary:I = 0x7f041471
+.field public static final unlock_set_unlock_none_summary:I = 0x7f041473
 
-.field public static final unlock_set_unlock_none_title:I = 0x7f041472
+.field public static final unlock_set_unlock_none_title:I = 0x7f041474
 
-.field public static final unlock_set_unlock_off_summary:I = 0x7f041473
+.field public static final unlock_set_unlock_off_summary:I = 0x7f041475
 
-.field public static final unlock_set_unlock_off_title:I = 0x7f041474
+.field public static final unlock_set_unlock_off_title:I = 0x7f041476
 
-.field public static final unlock_set_unlock_password_summary:I = 0x7f041475
+.field public static final unlock_set_unlock_password_summary:I = 0x7f041477
 
-.field public static final unlock_set_unlock_password_title:I = 0x7f041476
+.field public static final unlock_set_unlock_password_title:I = 0x7f041478
 
-.field public static final unlock_set_unlock_pattern_summary:I = 0x7f041477
+.field public static final unlock_set_unlock_pattern_summary:I = 0x7f041479
 
-.field public static final unlock_set_unlock_pattern_title:I = 0x7f041478
+.field public static final unlock_set_unlock_pattern_title:I = 0x7f04147a
 
-.field public static final unlock_set_unlock_pin_summary:I = 0x7f041479
+.field public static final unlock_set_unlock_pin_summary:I = 0x7f04147b
 
-.field public static final unlock_set_unlock_pin_title:I = 0x7f04147a
+.field public static final unlock_set_unlock_pin_title:I = 0x7f04147c
 
-.field public static final unlock_setup_wizard_fingerprint_details:I = 0x7f04147b
+.field public static final unlock_setup_wizard_fingerprint_details:I = 0x7f04147d
 
-.field public static final unmount_inform_text:I = 0x7f04147c
+.field public static final unmount_inform_text:I = 0x7f04147e
 
-.field public static final unrestricted_app_summary:I = 0x7f04147d
+.field public static final unrestricted_app_summary:I = 0x7f04147f
 
-.field public static final unrestricted_app_title:I = 0x7f04147e
+.field public static final unrestricted_app_title:I = 0x7f041480
 
-.field public static final unrestricted_data_saver:I = 0x7f04147f
+.field public static final unrestricted_data_saver:I = 0x7f041481
 
-.field public static final unsupported_setting_summary:I = 0x7f041480
+.field public static final unsupported_setting_summary:I = 0x7f041482
 
-.field public static final unused_apps:I = 0x7f041481
+.field public static final unused_apps:I = 0x7f041483
 
-.field public static final unused_apps_switch:I = 0x7f041482
+.field public static final unused_apps_switch:I = 0x7f041484
 
-.field public static final usage:I = 0x7f041483
+.field public static final usage:I = 0x7f041485
 
-.field public static final usage_access:I = 0x7f041484
+.field public static final usage_access:I = 0x7f041486
 
-.field public static final usage_access_description:I = 0x7f041485
+.field public static final usage_access_description:I = 0x7f041487
 
-.field public static final usage_access_title:I = 0x7f041486
+.field public static final usage_access_title:I = 0x7f041488
 
-.field public static final usage_stats_label:I = 0x7f041487
+.field public static final usage_stats_label:I = 0x7f041489
 
-.field public static final usage_time_label:I = 0x7f041488
+.field public static final usage_time_label:I = 0x7f04148a
 
-.field public static final usage_type_actual_power:I = 0x7f041489
+.field public static final usage_type_actual_power:I = 0x7f04148b
 
-.field public static final usage_type_audio:I = 0x7f04148a
+.field public static final usage_type_audio:I = 0x7f04148c
 
-.field public static final usage_type_camera:I = 0x7f04148b
+.field public static final usage_type_camera:I = 0x7f04148d
 
-.field public static final usage_type_computed_power:I = 0x7f04148c
+.field public static final usage_type_computed_power:I = 0x7f04148e
 
-.field public static final usage_type_cpu:I = 0x7f04148d
+.field public static final usage_type_cpu:I = 0x7f04148f
 
-.field public static final usage_type_cpu_foreground:I = 0x7f04148e
+.field public static final usage_type_cpu_foreground:I = 0x7f041490
 
-.field public static final usage_type_data_recv:I = 0x7f04148f
+.field public static final usage_type_data_recv:I = 0x7f041491
 
-.field public static final usage_type_data_send:I = 0x7f041490
+.field public static final usage_type_data_send:I = 0x7f041492
 
-.field public static final usage_type_data_wifi_recv:I = 0x7f041491
+.field public static final usage_type_data_wifi_recv:I = 0x7f041493
 
-.field public static final usage_type_data_wifi_send:I = 0x7f041492
+.field public static final usage_type_data_wifi_send:I = 0x7f041494
 
-.field public static final usage_type_flashlight:I = 0x7f041493
+.field public static final usage_type_flashlight:I = 0x7f041495
 
-.field public static final usage_type_gps:I = 0x7f041494
+.field public static final usage_type_gps:I = 0x7f041496
 
-.field public static final usage_type_no_coverage:I = 0x7f041495
+.field public static final usage_type_no_coverage:I = 0x7f041497
 
-.field public static final usage_type_on_time:I = 0x7f041496
+.field public static final usage_type_on_time:I = 0x7f041498
 
-.field public static final usage_type_phone:I = 0x7f041497
+.field public static final usage_type_phone:I = 0x7f041499
 
-.field public static final usage_type_radio_active:I = 0x7f041498
+.field public static final usage_type_radio_active:I = 0x7f04149a
 
-.field public static final usage_type_total_battery_capacity:I = 0x7f041499
+.field public static final usage_type_total_battery_capacity:I = 0x7f04149b
 
-.field public static final usage_type_video:I = 0x7f04149a
+.field public static final usage_type_video:I = 0x7f04149c
 
-.field public static final usage_type_wake_lock:I = 0x7f04149b
+.field public static final usage_type_wake_lock:I = 0x7f04149d
 
-.field public static final usage_type_wifi_running:I = 0x7f04149c
+.field public static final usage_type_wifi_running:I = 0x7f04149e
 
-.field public static final usb_audio_disable_routing:I = 0x7f04149d
+.field public static final usb_audio_disable_routing:I = 0x7f04149f
 
-.field public static final usb_audio_disable_routing_summary:I = 0x7f04149e
+.field public static final usb_audio_disable_routing_summary:I = 0x7f0414a0
 
-.field public static final usb_connection_category:I = 0x7f04149f
+.field public static final usb_connection_category:I = 0x7f0414a1
 
-.field public static final usb_control_device:I = 0x7f0414a0
+.field public static final usb_control_device:I = 0x7f0414a2
 
-.field public static final usb_control_host:I = 0x7f0414a1
+.field public static final usb_control_host:I = 0x7f0414a3
 
-.field public static final usb_control_title:I = 0x7f0414a2
+.field public static final usb_control_title:I = 0x7f0414a4
 
-.field public static final usb_default_info:I = 0x7f0414a3
+.field public static final usb_default_info:I = 0x7f0414a5
 
-.field public static final usb_default_label:I = 0x7f0414a4
+.field public static final usb_default_label:I = 0x7f0414a6
 
-.field public static final usb_file_transfer_title:I = 0x7f0414a5
+.field public static final usb_file_transfer_title:I = 0x7f0414a7
 
-.field public static final usb_midi_summary:I = 0x7f0414a6
+.field public static final usb_midi_summary:I = 0x7f0414a8
 
-.field public static final usb_midi_title:I = 0x7f0414a7
+.field public static final usb_midi_title:I = 0x7f0414a9
 
-.field public static final usb_mtp_summary:I = 0x7f0414a8
+.field public static final usb_mtp_summary:I = 0x7f0414aa
 
-.field public static final usb_mtp_title:I = 0x7f0414a9
+.field public static final usb_mtp_title:I = 0x7f0414ab
 
-.field public static final usb_power_title:I = 0x7f0414aa
+.field public static final usb_power_title:I = 0x7f0414ac
 
-.field public static final usb_pref:I = 0x7f0414ab
+.field public static final usb_pref:I = 0x7f0414ad
 
-.field public static final usb_preference:I = 0x7f0414ac
+.field public static final usb_preference:I = 0x7f0414ae
 
-.field public static final usb_ptp_summary:I = 0x7f0414ad
+.field public static final usb_ptp_summary:I = 0x7f0414af
 
-.field public static final usb_ptp_title:I = 0x7f0414ae
+.field public static final usb_ptp_title:I = 0x7f0414b0
 
-.field public static final usb_summary_MIDI:I = 0x7f0414af
+.field public static final usb_summary_MIDI:I = 0x7f0414b1
 
-.field public static final usb_summary_MIDI_power:I = 0x7f0414b0
+.field public static final usb_summary_MIDI_power:I = 0x7f0414b2
 
-.field public static final usb_summary_charging_only:I = 0x7f0414b1
+.field public static final usb_summary_charging_only:I = 0x7f0414b3
 
-.field public static final usb_summary_file_transfers:I = 0x7f0414b2
+.field public static final usb_summary_file_transfers:I = 0x7f0414b4
 
-.field public static final usb_summary_file_transfers_power:I = 0x7f0414b3
+.field public static final usb_summary_file_transfers_power:I = 0x7f0414b5
 
-.field public static final usb_summary_photo_transfers:I = 0x7f0414b4
+.field public static final usb_summary_photo_transfers:I = 0x7f0414b6
 
-.field public static final usb_summary_photo_transfers_power:I = 0x7f0414b5
+.field public static final usb_summary_photo_transfers_power:I = 0x7f0414b7
 
-.field public static final usb_summary_power_only:I = 0x7f0414b6
+.field public static final usb_summary_power_only:I = 0x7f0414b8
 
-.field public static final usb_summary_tether:I = 0x7f0414b7
+.field public static final usb_summary_tether:I = 0x7f0414b9
 
-.field public static final usb_summary_tether_power:I = 0x7f0414b8
+.field public static final usb_summary_tether_power:I = 0x7f0414ba
 
-.field public static final usb_switching:I = 0x7f0414b9
+.field public static final usb_switching:I = 0x7f0414bb
 
-.field public static final usb_switching_failed:I = 0x7f0414ba
+.field public static final usb_switching_failed:I = 0x7f0414bc
 
-.field public static final usb_tethering_button_text:I = 0x7f0414bb
+.field public static final usb_tethering_button_text:I = 0x7f0414bd
 
-.field public static final usb_tethering_subtext:I = 0x7f0414bc
+.field public static final usb_tethering_subtext:I = 0x7f0414be
 
-.field public static final usb_title:I = 0x7f0414bd
+.field public static final usb_title:I = 0x7f0414bf
 
-.field public static final usb_transcode_files:I = 0x7f0414be
+.field public static final usb_transcode_files:I = 0x7f0414c0
 
-.field public static final usb_transcode_files_summary:I = 0x7f0414bf
+.field public static final usb_transcode_files_summary:I = 0x7f0414c1
 
-.field public static final usb_use:I = 0x7f0414c0
+.field public static final usb_use:I = 0x7f0414c2
 
-.field public static final usb_use_MIDI:I = 0x7f0414c1
+.field public static final usb_use_MIDI:I = 0x7f0414c3
 
-.field public static final usb_use_MIDI_desc:I = 0x7f0414c2
+.field public static final usb_use_MIDI_desc:I = 0x7f0414c4
 
-.field public static final usb_use_charging_only:I = 0x7f0414c3
+.field public static final usb_use_charging_only:I = 0x7f0414c5
 
-.field public static final usb_use_charging_only_desc:I = 0x7f0414c4
+.field public static final usb_use_charging_only_desc:I = 0x7f0414c6
 
-.field public static final usb_use_file_transfers:I = 0x7f0414c5
+.field public static final usb_use_file_transfers:I = 0x7f0414c7
 
-.field public static final usb_use_file_transfers_desc:I = 0x7f0414c6
+.field public static final usb_use_file_transfers_desc:I = 0x7f0414c8
 
-.field public static final usb_use_photo_transfers:I = 0x7f0414c7
+.field public static final usb_use_photo_transfers:I = 0x7f0414c9
 
-.field public static final usb_use_photo_transfers_desc:I = 0x7f0414c8
+.field public static final usb_use_photo_transfers_desc:I = 0x7f0414ca
 
-.field public static final usb_use_power_only:I = 0x7f0414c9
+.field public static final usb_use_power_only:I = 0x7f0414cb
 
-.field public static final usb_use_tethering:I = 0x7f0414ca
+.field public static final usb_use_tethering:I = 0x7f0414cc
 
-.field public static final use_location_summary:I = 0x7f0414cb
+.field public static final use_location_summary:I = 0x7f0414cd
 
-.field public static final use_location_title:I = 0x7f0414cc
+.field public static final use_location_title:I = 0x7f0414ce
 
-.field public static final use_open_wifi_automatically_summary:I = 0x7f0414cd
+.field public static final use_open_wifi_automatically_summary:I = 0x7f0414cf
 
-.field public static final use_open_wifi_automatically_summary_scorer_unsupported_disabled:I = 0x7f0414ce
+.field public static final use_open_wifi_automatically_summary_scorer_unsupported_disabled:I = 0x7f0414d0
 
-.field public static final use_open_wifi_automatically_summary_scoring_disabled:I = 0x7f0414cf
+.field public static final use_open_wifi_automatically_summary_scoring_disabled:I = 0x7f0414d1
 
-.field public static final use_open_wifi_automatically_title:I = 0x7f0414d0
+.field public static final use_open_wifi_automatically_title:I = 0x7f0414d2
 
-.field public static final use_system_language_to_select_input_method_subtypes:I = 0x7f0414d1
+.field public static final use_system_language_to_select_input_method_subtypes:I = 0x7f0414d3
 
-.field public static final use_wifi_hotsopt_main_switch_title:I = 0x7f0414d2
+.field public static final use_wifi_hotsopt_main_switch_title:I = 0x7f0414d4
 
-.field public static final user_account_title:I = 0x7f0414d3
+.field public static final user_account_title:I = 0x7f0414d5
 
-.field public static final user_add_max_count:I = 0x7f0414d4
+.field public static final user_add_max_count:I = 0x7f0414d6
 
 .field public static final user_add_on_lockscreen_menu:I = 0x7f040056
 
-.field public static final user_add_profile_item_summary:I = 0x7f0414d5
+.field public static final user_add_profile_item_summary:I = 0x7f0414d7
 
-.field public static final user_add_profile_item_title:I = 0x7f0414d6
+.field public static final user_add_profile_item_title:I = 0x7f0414d8
 
-.field public static final user_add_user_item_summary:I = 0x7f0414d7
+.field public static final user_add_user_item_summary:I = 0x7f0414d9
 
-.field public static final user_add_user_item_title:I = 0x7f0414d8
+.field public static final user_add_user_item_title:I = 0x7f0414da
 
-.field public static final user_add_user_menu:I = 0x7f0414d9
+.field public static final user_add_user_menu:I = 0x7f0414db
 
-.field public static final user_add_user_message_long:I = 0x7f0414da
+.field public static final user_add_user_message_long:I = 0x7f0414dc
 
-.field public static final user_add_user_message_short:I = 0x7f0414db
+.field public static final user_add_user_message_short:I = 0x7f0414dd
 
-.field public static final user_add_user_or_profile_menu:I = 0x7f0414dc
+.field public static final user_add_user_or_profile_menu:I = 0x7f0414de
 
-.field public static final user_add_user_title:I = 0x7f0414dd
+.field public static final user_add_user_title:I = 0x7f0414df
 
-.field public static final user_add_user_type_title:I = 0x7f0414de
+.field public static final user_add_user_type_title:I = 0x7f0414e0
 
-.field public static final user_adding_new_user:I = 0x7f0414df
+.field public static final user_adding_new_user:I = 0x7f0414e1
 
-.field public static final user_admin:I = 0x7f0414e0
+.field public static final user_admin:I = 0x7f0414e2
 
-.field public static final user_cannot_add_accounts_message:I = 0x7f0414e1
+.field public static final user_cannot_add_accounts_message:I = 0x7f0414e3
 
-.field public static final user_cannot_manage_message:I = 0x7f0414e2
+.field public static final user_cannot_manage_message:I = 0x7f0414e4
 
-.field public static final user_certificate:I = 0x7f0414e3
+.field public static final user_certificate:I = 0x7f0414e5
 
-.field public static final user_confirm_remove_message:I = 0x7f0414e4
+.field public static final user_confirm_remove_message:I = 0x7f0414e6
 
-.field public static final user_confirm_remove_self_message:I = 0x7f0414e5
+.field public static final user_confirm_remove_self_message:I = 0x7f0414e7
 
-.field public static final user_confirm_remove_self_title:I = 0x7f0414e6
+.field public static final user_confirm_remove_self_title:I = 0x7f0414e8
 
-.field public static final user_confirm_remove_title:I = 0x7f0414e7
+.field public static final user_confirm_remove_title:I = 0x7f0414e9
 
-.field public static final user_credential_none_installed:I = 0x7f0414e8
+.field public static final user_credential_none_installed:I = 0x7f0414ea
 
-.field public static final user_credential_removed:I = 0x7f0414e9
+.field public static final user_credential_removed:I = 0x7f0414eb
 
-.field public static final user_credential_title:I = 0x7f0414ea
+.field public static final user_credential_title:I = 0x7f0414ec
 
-.field public static final user_credentials:I = 0x7f0414eb
+.field public static final user_credentials:I = 0x7f0414ed
 
-.field public static final user_credentials_summary:I = 0x7f0414ec
+.field public static final user_credentials_summary:I = 0x7f0414ee
 
-.field public static final user_delete_button:I = 0x7f0414ed
+.field public static final user_delete_button:I = 0x7f0414ef
 
-.field public static final user_delete_user_description:I = 0x7f0414ee
+.field public static final user_delete_user_description:I = 0x7f0414f0
 
-.field public static final user_dict_settings_add_dialog_confirm:I = 0x7f0414ef
+.field public static final user_dict_settings_add_dialog_confirm:I = 0x7f0414f1
 
-.field public static final user_dict_settings_add_dialog_less_options:I = 0x7f0414f0
+.field public static final user_dict_settings_add_dialog_less_options:I = 0x7f0414f2
 
-.field public static final user_dict_settings_add_dialog_more_options:I = 0x7f0414f1
+.field public static final user_dict_settings_add_dialog_more_options:I = 0x7f0414f3
 
-.field public static final user_dict_settings_add_dialog_title:I = 0x7f0414f2
+.field public static final user_dict_settings_add_dialog_title:I = 0x7f0414f4
 
-.field public static final user_dict_settings_add_locale_option_name:I = 0x7f0414f3
+.field public static final user_dict_settings_add_locale_option_name:I = 0x7f0414f5
 
-.field public static final user_dict_settings_add_menu_title:I = 0x7f0414f4
+.field public static final user_dict_settings_add_menu_title:I = 0x7f0414f6
 
-.field public static final user_dict_settings_add_screen_title:I = 0x7f0414f5
+.field public static final user_dict_settings_add_screen_title:I = 0x7f0414f7
 
-.field public static final user_dict_settings_add_shortcut_hint:I = 0x7f0414f6
+.field public static final user_dict_settings_add_shortcut_hint:I = 0x7f0414f8
 
-.field public static final user_dict_settings_add_shortcut_option_name:I = 0x7f0414f7
+.field public static final user_dict_settings_add_shortcut_option_name:I = 0x7f0414f9
 
-.field public static final user_dict_settings_add_word_hint:I = 0x7f0414f8
+.field public static final user_dict_settings_add_word_hint:I = 0x7f0414fa
 
-.field public static final user_dict_settings_add_word_option_name:I = 0x7f0414f9
+.field public static final user_dict_settings_add_word_option_name:I = 0x7f0414fb
 
-.field public static final user_dict_settings_all_languages:I = 0x7f0414fa
+.field public static final user_dict_settings_all_languages:I = 0x7f0414fc
 
-.field public static final user_dict_settings_context_menu_delete_title:I = 0x7f0414fb
+.field public static final user_dict_settings_context_menu_delete_title:I = 0x7f0414fd
 
-.field public static final user_dict_settings_context_menu_edit_title:I = 0x7f0414fc
+.field public static final user_dict_settings_context_menu_edit_title:I = 0x7f0414fe
 
-.field public static final user_dict_settings_edit_dialog_title:I = 0x7f0414fd
+.field public static final user_dict_settings_edit_dialog_title:I = 0x7f0414ff
 
-.field public static final user_dict_settings_empty_text:I = 0x7f0414fe
+.field public static final user_dict_settings_empty_text:I = 0x7f041500
 
-.field public static final user_dict_settings_for_work_title:I = 0x7f0414ff
+.field public static final user_dict_settings_for_work_title:I = 0x7f041501
 
-.field public static final user_dict_settings_more_languages:I = 0x7f041500
+.field public static final user_dict_settings_more_languages:I = 0x7f041502
 
-.field public static final user_dict_settings_summary:I = 0x7f041501
+.field public static final user_dict_settings_summary:I = 0x7f041503
 
-.field public static final user_dict_settings_title:I = 0x7f041502
+.field public static final user_dict_settings_title:I = 0x7f041504
 
-.field public static final user_enable_calling:I = 0x7f041503
+.field public static final user_enable_calling:I = 0x7f041505
 
-.field public static final user_enable_calling_and_sms_confirm_message:I = 0x7f041504
+.field public static final user_enable_calling_and_sms_confirm_message:I = 0x7f041506
 
-.field public static final user_enable_calling_and_sms_confirm_title:I = 0x7f041505
+.field public static final user_enable_calling_and_sms_confirm_title:I = 0x7f041507
 
-.field public static final user_enable_calling_confirm_message:I = 0x7f041506
+.field public static final user_enable_calling_confirm_message:I = 0x7f041508
 
-.field public static final user_enable_calling_confirm_title:I = 0x7f041507
+.field public static final user_enable_calling_confirm_title:I = 0x7f041509
 
-.field public static final user_enable_calling_sms:I = 0x7f041508
+.field public static final user_enable_calling_sms:I = 0x7f04150a
 
-.field public static final user_exit_guest_confirm_message:I = 0x7f041509
+.field public static final user_exit_guest_confirm_message:I = 0x7f04150b
 
-.field public static final user_exit_guest_confirm_title:I = 0x7f04150a
+.field public static final user_exit_guest_confirm_title:I = 0x7f04150c
 
-.field public static final user_exit_guest_dialog_remove:I = 0x7f04150b
+.field public static final user_exit_guest_dialog_remove:I = 0x7f04150d
 
-.field public static final user_exit_guest_title:I = 0x7f04150c
+.field public static final user_exit_guest_title:I = 0x7f04150e
 
-.field public static final user_guest:I = 0x7f04150d
+.field public static final user_guest:I = 0x7f04150f
 
-.field public static final user_image_choose_photo:I = 0x7f04150e
+.field public static final user_image_choose_photo:I = 0x7f041510
 
-.field public static final user_image_photo_selector:I = 0x7f04150f
+.field public static final user_image_photo_selector:I = 0x7f041511
 
-.field public static final user_image_take_photo:I = 0x7f041510
+.field public static final user_image_take_photo:I = 0x7f041512
 
-.field public static final user_info_settings_title:I = 0x7f041511
+.field public static final user_info_settings_title:I = 0x7f041513
 
-.field public static final user_installed_services_category_title:I = 0x7f041512
+.field public static final user_installed_services_category_title:I = 0x7f041514
 
-.field public static final user_list_title:I = 0x7f041513
+.field public static final user_list_title:I = 0x7f041515
 
-.field public static final user_lockscreen_settings:I = 0x7f041514
+.field public static final user_lockscreen_settings:I = 0x7f041516
 
-.field public static final user_need_lock_message:I = 0x7f041515
+.field public static final user_need_lock_message:I = 0x7f041517
 
-.field public static final user_new_profile_name:I = 0x7f041516
+.field public static final user_new_profile_name:I = 0x7f041518
 
-.field public static final user_new_user_name:I = 0x7f041517
+.field public static final user_new_user_name:I = 0x7f041519
 
-.field public static final user_nickname:I = 0x7f041518
+.field public static final user_nickname:I = 0x7f04151a
 
-.field public static final user_picture_title:I = 0x7f041519
+.field public static final user_picture_title:I = 0x7f04151b
 
-.field public static final user_profile_confirm_remove_message:I = 0x7f04151a
+.field public static final user_profile_confirm_remove_message:I = 0x7f04151c
 
-.field public static final user_profile_confirm_remove_title:I = 0x7f04151b
+.field public static final user_profile_confirm_remove_title:I = 0x7f04151d
 
-.field public static final user_remove_user:I = 0x7f04151c
+.field public static final user_remove_user:I = 0x7f04151e
 
-.field public static final user_remove_user_menu:I = 0x7f04151d
+.field public static final user_remove_user_menu:I = 0x7f04151f
 
-.field public static final user_rename:I = 0x7f04151e
+.field public static final user_rename:I = 0x7f041520
 
-.field public static final user_restrictions_controlled_by:I = 0x7f04151f
+.field public static final user_restrictions_controlled_by:I = 0x7f041521
 
-.field public static final user_restrictions_title:I = 0x7f041520
+.field public static final user_restrictions_title:I = 0x7f041522
 
-.field public static final user_set_lock_button:I = 0x7f041521
+.field public static final user_set_lock_button:I = 0x7f041523
 
-.field public static final user_settings_footer_text:I = 0x7f041522
+.field public static final user_settings_footer_text:I = 0x7f041524
 
-.field public static final user_settings_title:I = 0x7f041523
+.field public static final user_settings_title:I = 0x7f041525
 
-.field public static final user_setup_button_setup_later:I = 0x7f041524
+.field public static final user_setup_button_setup_later:I = 0x7f041526
 
-.field public static final user_setup_button_setup_now:I = 0x7f041525
+.field public static final user_setup_button_setup_now:I = 0x7f041527
 
-.field public static final user_setup_dialog_message:I = 0x7f041526
+.field public static final user_setup_dialog_message:I = 0x7f041528
 
-.field public static final user_setup_dialog_title:I = 0x7f041527
+.field public static final user_setup_dialog_title:I = 0x7f041529
 
-.field public static final user_setup_profile_dialog_message:I = 0x7f041528
+.field public static final user_setup_profile_dialog_message:I = 0x7f04152a
 
-.field public static final user_summary_managed_profile_not_set_up:I = 0x7f041529
+.field public static final user_summary_managed_profile_not_set_up:I = 0x7f04152b
 
-.field public static final user_summary_not_set_up:I = 0x7f04152a
+.field public static final user_summary_not_set_up:I = 0x7f04152c
 
-.field public static final user_summary_restricted_not_set_up:I = 0x7f04152b
+.field public static final user_summary_restricted_not_set_up:I = 0x7f04152d
 
-.field public static final user_summary_restricted_profile:I = 0x7f04152c
+.field public static final user_summary_restricted_profile:I = 0x7f04152e
 
-.field public static final user_switch_to_user:I = 0x7f04152d
+.field public static final user_switch_to_user:I = 0x7f04152f
 
-.field public static final user_you:I = 0x7f04152e
+.field public static final user_you:I = 0x7f041530
 
-.field public static final users_summary:I = 0x7f04152f
+.field public static final users_summary:I = 0x7f041531
 
-.field public static final uwb_settings_summary:I = 0x7f041530
+.field public static final uwb_settings_summary:I = 0x7f041532
 
-.field public static final uwb_settings_summary_airplane_mode:I = 0x7f041531
+.field public static final uwb_settings_summary_airplane_mode:I = 0x7f041533
 
-.field public static final uwb_settings_title:I = 0x7f041532
+.field public static final uwb_settings_title:I = 0x7f041534
 
-.field public static final v7_preference_off:I = 0x7f041533
+.field public static final v7_preference_off:I = 0x7f041535
 
-.field public static final v7_preference_on:I = 0x7f041534
+.field public static final v7_preference_on:I = 0x7f041536
 
-.field public static final verify_apps_over_usb_summary:I = 0x7f041535
+.field public static final verify_apps_over_usb_summary:I = 0x7f041537
 
-.field public static final verify_apps_over_usb_title:I = 0x7f041536
+.field public static final verify_apps_over_usb_title:I = 0x7f041538
 
-.field public static final version_text:I = 0x7f041537
+.field public static final version_text:I = 0x7f041539
 
 .field public static final vibrate_for_calls_category_title:I = 0x7f040069
 
-.field public static final vibrate_for_calls_settings_not_available_summary:I = 0x7f041538
+.field public static final vibrate_for_calls_settings_not_available_summary:I = 0x7f04153a
 
-.field public static final vibrate_in_silent_title:I = 0x7f041539
+.field public static final vibrate_icon_title:I = 0x7f04153b
 
-.field public static final vibrate_input_devices:I = 0x7f04153a
+.field public static final vibrate_in_silent_title:I = 0x7f04153c
 
-.field public static final vibrate_input_devices_summary:I = 0x7f04153b
+.field public static final vibrate_input_devices:I = 0x7f04153d
 
-.field public static final vibrate_on_touch_summary:I = 0x7f04153c
+.field public static final vibrate_input_devices_summary:I = 0x7f04153e
 
-.field public static final vibrate_on_touch_title:I = 0x7f04153d
+.field public static final vibrate_on_touch_summary:I = 0x7f04153f
 
-.field public static final vibrate_when_ringing_option_always_vibrate:I = 0x7f04153e
+.field public static final vibrate_on_touch_title:I = 0x7f041540
 
-.field public static final vibrate_when_ringing_option_never_vibrate:I = 0x7f04153f
+.field public static final vibrate_when_ringing_option_always_vibrate:I = 0x7f041541
 
-.field public static final vibrate_when_ringing_option_ramping_ringer:I = 0x7f041540
+.field public static final vibrate_when_ringing_option_never_vibrate:I = 0x7f041542
+
+.field public static final vibrate_when_ringing_option_ramping_ringer:I = 0x7f041543
 
 .field public static final vibrate_when_ringing_title:I = 0x7f04005e
 
 .field public static final vibration_haptics_settings_not_available_summary:I = 0x7f040061
 
-.field public static final vibration_haptics_settings_not_available_title:I = 0x7f041541
+.field public static final vibration_haptics_settings_not_available_title:I = 0x7f041544
 
 .field public static final vibration_haptics_strength_category_title:I = 0x7f040062
 
-.field public static final video_calling_settings_title:I = 0x7f041542
+.field public static final video_calling_settings_title:I = 0x7f041545
 
-.field public static final view_saved_network:I = 0x7f041543
+.field public static final view_saved_network:I = 0x7f041546
 
-.field public static final virtual_keyboard_category:I = 0x7f041544
+.field public static final virtual_keyboard_category:I = 0x7f041547
 
-.field public static final virtual_keyboards_for_work_title:I = 0x7f041545
+.field public static final virtual_keyboards_for_work_title:I = 0x7f041548
 
-.field public static final vision_settings_description:I = 0x7f041546
+.field public static final vision_settings_description:I = 0x7f041549
 
-.field public static final vision_settings_suggestion_title:I = 0x7f041547
+.field public static final vision_settings_suggestion_title:I = 0x7f04154a
 
-.field public static final vision_settings_title:I = 0x7f041548
+.field public static final vision_settings_title:I = 0x7f04154b
 
-.field public static final voice_input_output_settings:I = 0x7f041549
+.field public static final voice_input_output_settings:I = 0x7f04154c
 
-.field public static final voice_input_output_settings_title:I = 0x7f04154a
+.field public static final voice_input_output_settings_title:I = 0x7f04154d
 
-.field public static final voice_input_settings:I = 0x7f04154b
+.field public static final voice_input_settings:I = 0x7f04154e
 
-.field public static final voice_input_settings_title:I = 0x7f04154c
+.field public static final voice_input_settings_title:I = 0x7f04154f
 
-.field public static final voice_interaction_security_warning:I = 0x7f04154d
+.field public static final voice_interaction_security_warning:I = 0x7f041550
 
-.field public static final voice_interactor_preference_summary:I = 0x7f04154e
+.field public static final voice_interactor_preference_summary:I = 0x7f041551
 
-.field public static final voice_recognizer_preference_summary:I = 0x7f04154f
+.field public static final voice_recognizer_preference_summary:I = 0x7f041552
 
-.field public static final voice_search_settings_title:I = 0x7f041550
+.field public static final voice_search_settings_title:I = 0x7f041553
 
-.field public static final voice_service_preference_section_title:I = 0x7f041551
+.field public static final voice_service_preference_section_title:I = 0x7f041554
 
-.field public static final volte_5G_limited_text:I = 0x7f041552
+.field public static final volte_5G_limited_text:I = 0x7f041555
 
-.field public static final volte_5G_limited_title:I = 0x7f041553
+.field public static final volte_5G_limited_title:I = 0x7f041556
 
-.field public static final volume_alarm_description:I = 0x7f041554
+.field public static final volume_alarm_description:I = 0x7f041557
 
-.field public static final volume_alarm_mute:I = 0x7f041555
+.field public static final volume_alarm_mute:I = 0x7f041558
 
-.field public static final volume_connectivity_panel_title:I = 0x7f041556
+.field public static final volume_connectivity_panel_title:I = 0x7f041559
 
-.field public static final volume_media_description:I = 0x7f041557
+.field public static final volume_media_description:I = 0x7f04155a
 
-.field public static final volume_media_mute:I = 0x7f041558
+.field public static final volume_media_mute:I = 0x7f04155b
 
-.field public static final volume_notification_description:I = 0x7f041559
+.field public static final volume_notification_description:I = 0x7f04155c
 
-.field public static final volume_notification_mute:I = 0x7f04155a
+.field public static final volume_notification_mute:I = 0x7f04155d
 
-.field public static final volume_ring_description:I = 0x7f04155b
+.field public static final volume_ring_description:I = 0x7f04155e
 
-.field public static final volume_ring_mute:I = 0x7f04155c
+.field public static final volume_ring_mute:I = 0x7f04155f
 
-.field public static final vpn_always_on_invalid_reason_dns:I = 0x7f04155d
+.field public static final vpn_always_on_invalid_reason_dns:I = 0x7f041560
 
-.field public static final vpn_always_on_invalid_reason_no_dns:I = 0x7f04155e
+.field public static final vpn_always_on_invalid_reason_no_dns:I = 0x7f041561
 
-.field public static final vpn_always_on_invalid_reason_other:I = 0x7f04155f
+.field public static final vpn_always_on_invalid_reason_other:I = 0x7f041562
 
-.field public static final vpn_always_on_invalid_reason_server:I = 0x7f041560
+.field public static final vpn_always_on_invalid_reason_server:I = 0x7f041563
 
-.field public static final vpn_always_on_invalid_reason_type:I = 0x7f041561
+.field public static final vpn_always_on_invalid_reason_type:I = 0x7f041564
 
-.field public static final vpn_always_on_summary:I = 0x7f041562
+.field public static final vpn_always_on_summary:I = 0x7f041565
 
-.field public static final vpn_always_on_summary_active:I = 0x7f041563
+.field public static final vpn_always_on_summary_active:I = 0x7f041566
 
-.field public static final vpn_always_on_summary_not_supported:I = 0x7f041564
+.field public static final vpn_always_on_summary_not_supported:I = 0x7f041567
 
-.field public static final vpn_cancel:I = 0x7f041565
+.field public static final vpn_cancel:I = 0x7f041568
 
-.field public static final vpn_cant_connect_message:I = 0x7f041566
+.field public static final vpn_cant_connect_message:I = 0x7f041569
 
-.field public static final vpn_cant_connect_title:I = 0x7f041567
+.field public static final vpn_cant_connect_title:I = 0x7f04156a
 
-.field public static final vpn_connect:I = 0x7f041568
+.field public static final vpn_connect:I = 0x7f04156b
 
-.field public static final vpn_connect_to:I = 0x7f041569
+.field public static final vpn_connect_to:I = 0x7f04156c
 
-.field public static final vpn_create:I = 0x7f04156a
+.field public static final vpn_create:I = 0x7f04156d
 
-.field public static final vpn_disconnect:I = 0x7f04156b
+.field public static final vpn_disconnect:I = 0x7f04156e
 
-.field public static final vpn_disconnect_confirm:I = 0x7f04156c
+.field public static final vpn_disconnect_confirm:I = 0x7f04156f
 
-.field public static final vpn_disconnected:I = 0x7f04156d
+.field public static final vpn_disconnected:I = 0x7f041570
 
-.field public static final vpn_disconnected_summary:I = 0x7f04156e
+.field public static final vpn_disconnected_summary:I = 0x7f041571
 
-.field public static final vpn_dns_servers:I = 0x7f04156f
+.field public static final vpn_dns_servers:I = 0x7f041572
 
-.field public static final vpn_done:I = 0x7f041570
+.field public static final vpn_done:I = 0x7f041573
 
-.field public static final vpn_edit:I = 0x7f041571
+.field public static final vpn_edit:I = 0x7f041574
 
-.field public static final vpn_first_always_on_vpn_message:I = 0x7f041572
+.field public static final vpn_first_always_on_vpn_message:I = 0x7f041575
 
-.field public static final vpn_forget:I = 0x7f041573
+.field public static final vpn_forget:I = 0x7f041576
 
-.field public static final vpn_forget_long:I = 0x7f041574
+.field public static final vpn_forget_long:I = 0x7f041577
 
-.field public static final vpn_insecure_dialog_subtitle:I = 0x7f041575
+.field public static final vpn_insecure_dialog_subtitle:I = 0x7f041578
 
-.field public static final vpn_insecure_summary:I = 0x7f041576
+.field public static final vpn_insecure_summary:I = 0x7f041579
 
-.field public static final vpn_ipsec_ca_cert:I = 0x7f041577
+.field public static final vpn_ipsec_ca_cert:I = 0x7f04157a
 
-.field public static final vpn_ipsec_identifier:I = 0x7f041578
+.field public static final vpn_ipsec_identifier:I = 0x7f04157b
 
-.field public static final vpn_ipsec_secret:I = 0x7f041579
+.field public static final vpn_ipsec_secret:I = 0x7f04157c
 
-.field public static final vpn_ipsec_server_cert:I = 0x7f04157a
+.field public static final vpn_ipsec_server_cert:I = 0x7f04157d
 
-.field public static final vpn_ipsec_user_cert:I = 0x7f04157b
+.field public static final vpn_ipsec_user_cert:I = 0x7f04157e
 
-.field public static final vpn_l2tp_secret:I = 0x7f04157c
+.field public static final vpn_l2tp_secret:I = 0x7f04157f
 
-.field public static final vpn_lockdown_config_error:I = 0x7f04157d
+.field public static final vpn_lockdown_config_error:I = 0x7f041580
 
-.field public static final vpn_lockdown_none:I = 0x7f04157e
+.field public static final vpn_lockdown_none:I = 0x7f041581
 
-.field public static final vpn_lockdown_summary:I = 0x7f04157f
+.field public static final vpn_lockdown_summary:I = 0x7f041582
 
-.field public static final vpn_menu_delete:I = 0x7f041580
+.field public static final vpn_menu_delete:I = 0x7f041583
 
-.field public static final vpn_menu_edit:I = 0x7f041581
+.field public static final vpn_menu_edit:I = 0x7f041584
 
-.field public static final vpn_menu_lockdown:I = 0x7f041582
+.field public static final vpn_menu_lockdown:I = 0x7f041585
 
-.field public static final vpn_missing_cert:I = 0x7f041583
+.field public static final vpn_missing_cert:I = 0x7f041586
 
-.field public static final vpn_mppe:I = 0x7f041584
+.field public static final vpn_mppe:I = 0x7f041587
 
-.field public static final vpn_name:I = 0x7f041585
+.field public static final vpn_name:I = 0x7f041588
 
-.field public static final vpn_no_ca_cert:I = 0x7f041586
+.field public static final vpn_no_ca_cert:I = 0x7f041589
 
-.field public static final vpn_no_network:I = 0x7f041587
+.field public static final vpn_no_network:I = 0x7f04158a
 
-.field public static final vpn_no_server_cert:I = 0x7f041588
+.field public static final vpn_no_server_cert:I = 0x7f04158b
 
-.field public static final vpn_no_vpns_added:I = 0x7f041589
+.field public static final vpn_no_vpns_added:I = 0x7f04158c
 
-.field public static final vpn_not_used:I = 0x7f04158a
+.field public static final vpn_not_used:I = 0x7f04158d
 
-.field public static final vpn_password:I = 0x7f04158b
+.field public static final vpn_password:I = 0x7f04158e
 
-.field public static final vpn_replace:I = 0x7f04158c
+.field public static final vpn_replace:I = 0x7f04158f
 
-.field public static final vpn_replace_always_on_vpn_disable_message:I = 0x7f04158d
+.field public static final vpn_replace_always_on_vpn_disable_message:I = 0x7f041590
 
-.field public static final vpn_replace_always_on_vpn_enable_message:I = 0x7f04158e
+.field public static final vpn_replace_always_on_vpn_enable_message:I = 0x7f041591
 
-.field public static final vpn_replace_vpn_message:I = 0x7f04158f
+.field public static final vpn_replace_vpn_message:I = 0x7f041592
 
-.field public static final vpn_replace_vpn_title:I = 0x7f041590
+.field public static final vpn_replace_vpn_title:I = 0x7f041593
 
-.field public static final vpn_require_connection:I = 0x7f041591
+.field public static final vpn_require_connection:I = 0x7f041594
 
-.field public static final vpn_require_connection_title:I = 0x7f041592
+.field public static final vpn_require_connection_title:I = 0x7f041595
 
-.field public static final vpn_routes:I = 0x7f041593
+.field public static final vpn_routes:I = 0x7f041596
 
-.field public static final vpn_save:I = 0x7f041594
+.field public static final vpn_save:I = 0x7f041597
 
-.field public static final vpn_save_login:I = 0x7f041595
+.field public static final vpn_save_login:I = 0x7f041598
 
-.field public static final vpn_search_domains:I = 0x7f041596
+.field public static final vpn_search_domains:I = 0x7f041599
 
-.field public static final vpn_server:I = 0x7f041597
+.field public static final vpn_server:I = 0x7f04159a
 
-.field public static final vpn_set_vpn_title:I = 0x7f041598
+.field public static final vpn_set_vpn_title:I = 0x7f04159b
 
-.field public static final vpn_settings_insecure_single:I = 0x7f041599
+.field public static final vpn_settings_insecure_single:I = 0x7f04159c
 
-.field public static final vpn_settings_multiple_insecure_multiple_total:I = 0x7f04159a
+.field public static final vpn_settings_multiple_insecure_multiple_total:I = 0x7f04159d
 
-.field public static final vpn_settings_not_available:I = 0x7f04159b
+.field public static final vpn_settings_not_available:I = 0x7f04159e
 
-.field public static final vpn_settings_single_insecure_multiple_total:I = 0x7f04159c
+.field public static final vpn_settings_single_insecure_multiple_total:I = 0x7f04159f
 
-.field public static final vpn_settings_title:I = 0x7f04159d
+.field public static final vpn_settings_title:I = 0x7f0415a0
 
-.field public static final vpn_show_options:I = 0x7f04159e
+.field public static final vpn_show_options:I = 0x7f0415a1
 
-.field public static final vpn_title:I = 0x7f04159f
+.field public static final vpn_title:I = 0x7f0415a2
 
-.field public static final vpn_turn_on:I = 0x7f0415a0
+.field public static final vpn_turn_on:I = 0x7f0415a3
 
-.field public static final vpn_type:I = 0x7f0415a1
+.field public static final vpn_type:I = 0x7f0415a4
 
-.field public static final vpn_username:I = 0x7f0415a2
+.field public static final vpn_username:I = 0x7f0415a5
 
-.field public static final vpn_version:I = 0x7f0415a3
+.field public static final vpn_version:I = 0x7f0415a6
 
-.field public static final vr_listener_security_warning_summary:I = 0x7f0415a4
+.field public static final vr_listener_security_warning_summary:I = 0x7f0415a7
 
-.field public static final vr_listener_security_warning_title:I = 0x7f0415a5
+.field public static final vr_listener_security_warning_title:I = 0x7f0415a8
 
-.field public static final vr_listeners_title:I = 0x7f0415a6
+.field public static final vr_listeners_title:I = 0x7f0415a9
 
-.field public static final wait_for_debugger:I = 0x7f0415a7
+.field public static final wait_for_debugger:I = 0x7f0415aa
 
-.field public static final wait_for_debugger_summary:I = 0x7f0415a8
+.field public static final wait_for_debugger_summary:I = 0x7f0415ab
 
-.field public static final wake_screen_aware_disabled_info_dialog_content:I = 0x7f0415a9
+.field public static final wake_screen_aware_disabled_info_dialog_content:I = 0x7f0415ac
 
-.field public static final wake_screen_aware_off_dialog_content:I = 0x7f0415aa
+.field public static final wake_screen_aware_off_dialog_content:I = 0x7f0415ad
 
-.field public static final wake_screen_aware_off_dialog_title:I = 0x7f0415ab
+.field public static final wake_screen_aware_off_dialog_title:I = 0x7f0415ae
 
-.field public static final wake_screen_suggestion_summary:I = 0x7f0415ac
+.field public static final wake_screen_suggestion_summary:I = 0x7f0415af
 
-.field public static final wake_screen_suggestion_title:I = 0x7f0415ad
+.field public static final wake_screen_suggestion_title:I = 0x7f0415b0
 
-.field public static final wallpaper_attributions:I = 0x7f0415ae
+.field public static final wallpaper_attributions:I = 0x7f0415b1
 
-.field public static final wallpaper_attributions_values:I = 0x7f0415af
+.field public static final wallpaper_attributions_values:I = 0x7f0415b2
 
-.field public static final wallpaper_dashboard_summary:I = 0x7f0415b0
+.field public static final wallpaper_dashboard_summary:I = 0x7f0415b3
 
-.field public static final wallpaper_settings_fragment_title:I = 0x7f0415b1
+.field public static final wallpaper_settings_fragment_title:I = 0x7f0415b4
 
-.field public static final wallpaper_settings_summary_custom:I = 0x7f0415b2
+.field public static final wallpaper_settings_summary_custom:I = 0x7f0415b5
 
-.field public static final wallpaper_settings_summary_default:I = 0x7f0415b3
+.field public static final wallpaper_settings_summary_default:I = 0x7f0415b6
 
 .field public static final wallpaper_settings_title:I = 0x7f040057
 
-.field public static final wallpaper_suggestion_summary:I = 0x7f0415b4
+.field public static final wallpaper_suggestion_summary:I = 0x7f0415b7
 
-.field public static final wallpaper_suggestion_title:I = 0x7f0415b5
+.field public static final wallpaper_suggestion_title:I = 0x7f0415b8
 
-.field public static final warning_button_text:I = 0x7f0415b6
+.field public static final warning_button_text:I = 0x7f0415b9
 
-.field public static final web_action_enable_summary:I = 0x7f0415b7
+.field public static final web_action_enable_summary:I = 0x7f0415ba
 
-.field public static final web_action_enable_title:I = 0x7f0415b8
+.field public static final web_action_enable_title:I = 0x7f0415bb
 
-.field public static final web_action_section_title:I = 0x7f0415b9
+.field public static final web_action_section_title:I = 0x7f0415bc
 
-.field public static final webview_disabled_for_user:I = 0x7f0415ba
+.field public static final webview_disabled_for_user:I = 0x7f0415bd
 
-.field public static final webview_license_title:I = 0x7f0415bb
+.field public static final webview_license_title:I = 0x7f0415be
 
-.field public static final webview_uninstalled_for_user:I = 0x7f0415bc
+.field public static final webview_uninstalled_for_user:I = 0x7f0415bf
 
-.field public static final wfc_disclaimer_agree_button_text:I = 0x7f0415bd
+.field public static final wfc_disclaimer_agree_button_text:I = 0x7f0415c0
 
-.field public static final wfc_disclaimer_disagree_text:I = 0x7f0415be
+.field public static final wfc_disclaimer_disagree_text:I = 0x7f0415c1
 
-.field public static final wfc_disclaimer_emergency_limitation_desc_text:I = 0x7f0415bf
+.field public static final wfc_disclaimer_emergency_limitation_desc_text:I = 0x7f0415c2
 
-.field public static final wfc_disclaimer_emergency_limitation_title_text:I = 0x7f0415c0
+.field public static final wfc_disclaimer_emergency_limitation_title_text:I = 0x7f0415c3
 
-.field public static final wfc_disclaimer_location_desc_text:I = 0x7f0415c1
+.field public static final wfc_disclaimer_location_desc_text:I = 0x7f0415c4
 
-.field public static final wfc_disclaimer_location_title_text:I = 0x7f0415c2
+.field public static final wfc_disclaimer_location_title_text:I = 0x7f0415c5
 
-.field public static final wfc_disclaimer_title_text:I = 0x7f0415c3
+.field public static final wfc_disclaimer_title_text:I = 0x7f0415c6
 
-.field public static final widget_picker_title:I = 0x7f0415c4
+.field public static final widget_picker_title:I = 0x7f0415c7
 
-.field public static final wifi:I = 0x7f0415c5
+.field public static final wifi:I = 0x7f0415c8
 
-.field public static final wifi_access_points:I = 0x7f0415c6
+.field public static final wifi_access_points:I = 0x7f0415c9
 
-.field public static final wifi_add_app_network_save_failed_summary:I = 0x7f0415c7
+.field public static final wifi_add_app_network_save_failed_summary:I = 0x7f0415ca
 
-.field public static final wifi_add_app_networks_saved_summary:I = 0x7f0415c8
+.field public static final wifi_add_app_networks_saved_summary:I = 0x7f0415cb
 
-.field public static final wifi_add_app_networks_saving_summary:I = 0x7f0415c9
+.field public static final wifi_add_app_networks_saving_summary:I = 0x7f0415cc
 
-.field public static final wifi_add_app_networks_summary:I = 0x7f0415ca
+.field public static final wifi_add_app_networks_summary:I = 0x7f0415cd
 
-.field public static final wifi_add_app_networks_title:I = 0x7f0415cb
+.field public static final wifi_add_app_networks_title:I = 0x7f0415ce
 
-.field public static final wifi_add_app_single_network_saved_summary:I = 0x7f0415cc
+.field public static final wifi_add_app_single_network_saved_summary:I = 0x7f0415cf
 
-.field public static final wifi_add_app_single_network_saving_summary:I = 0x7f0415cd
+.field public static final wifi_add_app_single_network_saving_summary:I = 0x7f0415d0
 
-.field public static final wifi_add_app_single_network_summary:I = 0x7f0415ce
+.field public static final wifi_add_app_single_network_summary:I = 0x7f0415d1
 
-.field public static final wifi_add_app_single_network_title:I = 0x7f0415cf
+.field public static final wifi_add_app_single_network_title:I = 0x7f0415d2
 
-.field public static final wifi_add_network:I = 0x7f0415d0
+.field public static final wifi_add_network:I = 0x7f0415d3
 
-.field public static final wifi_advanced_device_mac_address_title:I = 0x7f0415d1
+.field public static final wifi_advanced_device_mac_address_title:I = 0x7f0415d4
 
-.field public static final wifi_advanced_ip_address_title:I = 0x7f0415d2
+.field public static final wifi_advanced_ip_address_title:I = 0x7f0415d5
 
-.field public static final wifi_advanced_not_available:I = 0x7f0415d3
+.field public static final wifi_advanced_not_available:I = 0x7f0415d6
 
-.field public static final wifi_advanced_randomized_mac_address_disconnected_title:I = 0x7f0415d4
+.field public static final wifi_advanced_randomized_mac_address_disconnected_title:I = 0x7f0415d7
 
-.field public static final wifi_advanced_randomized_mac_address_title:I = 0x7f0415d5
+.field public static final wifi_advanced_randomized_mac_address_title:I = 0x7f0415d8
 
-.field public static final wifi_advanced_settings_label:I = 0x7f0415d6
+.field public static final wifi_advanced_settings_label:I = 0x7f0415d9
 
-.field public static final wifi_advanced_ssid_title:I = 0x7f0415d7
+.field public static final wifi_advanced_ssid_title:I = 0x7f0415da
 
-.field public static final wifi_advanced_titlebar:I = 0x7f0415d8
+.field public static final wifi_advanced_titlebar:I = 0x7f0415db
 
-.field public static final wifi_advanced_toggle_description:I = 0x7f0415d9
+.field public static final wifi_advanced_toggle_description:I = 0x7f0415dc
 
-.field public static final wifi_advanced_toggle_description_collapsed:I = 0x7f0415da
+.field public static final wifi_advanced_toggle_description_collapsed:I = 0x7f0415dd
 
-.field public static final wifi_ap_2G:I = 0x7f0415db
+.field public static final wifi_ap_2G:I = 0x7f0415de
 
-.field public static final wifi_ap_5G:I = 0x7f0415dc
+.field public static final wifi_ap_5G:I = 0x7f0415df
 
-.field public static final wifi_ap_band_config:I = 0x7f0415dd
+.field public static final wifi_ap_band_config:I = 0x7f0415e0
 
-.field public static final wifi_ap_band_select_one:I = 0x7f0415de
+.field public static final wifi_ap_band_select_one:I = 0x7f0415e1
 
-.field public static final wifi_ap_choose_2G:I = 0x7f0415df
+.field public static final wifi_ap_choose_2G:I = 0x7f0415e2
 
-.field public static final wifi_ap_choose_5G:I = 0x7f0415e0
+.field public static final wifi_ap_choose_5G:I = 0x7f0415e3
 
-.field public static final wifi_ap_choose_auto:I = 0x7f0415e1
+.field public static final wifi_ap_choose_auto:I = 0x7f0415e4
 
-.field public static final wifi_ap_prefer_5G:I = 0x7f0415e2
+.field public static final wifi_ap_prefer_5G:I = 0x7f0415e5
 
-.field public static final wifi_ap_unable_to_handle_new_sta:I = 0x7f0415e3
+.field public static final wifi_ap_unable_to_handle_new_sta:I = 0x7f0415e6
 
-.field public static final wifi_api_test:I = 0x7f0415e4
+.field public static final wifi_api_test:I = 0x7f0415e7
 
-.field public static final wifi_ask_disable:I = 0x7f0415e5
+.field public static final wifi_ask_disable:I = 0x7f0415e8
 
-.field public static final wifi_ask_enable:I = 0x7f0415e6
+.field public static final wifi_ask_enable:I = 0x7f0415e9
 
-.field public static final wifi_auto_connect_summary:I = 0x7f0415e7
+.field public static final wifi_auto_connect_summary:I = 0x7f0415ea
 
-.field public static final wifi_auto_connect_title:I = 0x7f0415e8
+.field public static final wifi_auto_connect_title:I = 0x7f0415eb
 
-.field public static final wifi_avoid_poor_network_detection_summary:I = 0x7f0415e9
+.field public static final wifi_avoid_poor_network_detection_summary:I = 0x7f0415ec
 
-.field public static final wifi_badging_thresholds_default:I = 0x7f0415ea
+.field public static final wifi_badging_thresholds_default:I = 0x7f0415ed
 
-.field public static final wifi_band_24ghz:I = 0x7f0415eb
+.field public static final wifi_band_24ghz:I = 0x7f0415ee
 
-.field public static final wifi_band_5ghz:I = 0x7f0415ec
+.field public static final wifi_band_5ghz:I = 0x7f0415ef
 
-.field public static final wifi_band_6ghz:I = 0x7f0415ed
+.field public static final wifi_band_6ghz:I = 0x7f0415f0
 
-.field public static final wifi_calling_main_switch_title:I = 0x7f0415ee
+.field public static final wifi_calling_main_switch_title:I = 0x7f0415f1
 
-.field public static final wifi_calling_mode_cellular_preferred_summary:I = 0x7f0415ef
+.field public static final wifi_calling_mode_cellular_preferred_summary:I = 0x7f0415f2
 
-.field public static final wifi_calling_mode_dialog_title:I = 0x7f0415f0
+.field public static final wifi_calling_mode_dialog_title:I = 0x7f0415f3
 
-.field public static final wifi_calling_mode_title:I = 0x7f0415f1
+.field public static final wifi_calling_mode_title:I = 0x7f0415f4
 
-.field public static final wifi_calling_mode_wifi_only_summary:I = 0x7f0415f2
+.field public static final wifi_calling_mode_wifi_only_summary:I = 0x7f0415f5
 
-.field public static final wifi_calling_mode_wifi_preferred_summary:I = 0x7f0415f3
+.field public static final wifi_calling_mode_wifi_preferred_summary:I = 0x7f0415f6
 
-.field public static final wifi_calling_not_supported:I = 0x7f0415f4
+.field public static final wifi_calling_not_supported:I = 0x7f0415f7
 
-.field public static final wifi_calling_off_explanation:I = 0x7f0415f5
+.field public static final wifi_calling_off_explanation:I = 0x7f0415f8
 
-.field public static final wifi_calling_off_explanation_2:I = 0x7f0415f6
+.field public static final wifi_calling_off_explanation_2:I = 0x7f0415f9
 
-.field public static final wifi_calling_pref_managed_by_carrier:I = 0x7f0415f7
+.field public static final wifi_calling_pref_managed_by_carrier:I = 0x7f0415fa
 
-.field public static final wifi_calling_roaming_mode_dialog_title:I = 0x7f0415f8
+.field public static final wifi_calling_roaming_mode_dialog_title:I = 0x7f0415fb
 
-.field public static final wifi_calling_roaming_mode_summary:I = 0x7f0415f9
+.field public static final wifi_calling_roaming_mode_summary:I = 0x7f0415fc
 
-.field public static final wifi_calling_roaming_mode_title:I = 0x7f0415fa
+.field public static final wifi_calling_roaming_mode_title:I = 0x7f0415fd
 
-.field public static final wifi_calling_settings_activation_instructions:I = 0x7f0415fb
+.field public static final wifi_calling_settings_activation_instructions:I = 0x7f0415fe
 
-.field public static final wifi_calling_settings_title:I = 0x7f0415fc
+.field public static final wifi_calling_settings_title:I = 0x7f0415ff
 
-.field public static final wifi_calling_suggestion_summary:I = 0x7f0415fd
+.field public static final wifi_calling_suggestion_summary:I = 0x7f041600
 
-.field public static final wifi_calling_suggestion_title:I = 0x7f0415fe
+.field public static final wifi_calling_suggestion_title:I = 0x7f041601
 
-.field public static final wifi_calling_summary:I = 0x7f0415ff
+.field public static final wifi_calling_summary:I = 0x7f041602
 
-.field public static final wifi_calling_turn_on:I = 0x7f041600
+.field public static final wifi_calling_turn_on:I = 0x7f041603
 
-.field public static final wifi_cancel:I = 0x7f041601
+.field public static final wifi_cancel:I = 0x7f041604
 
-.field public static final wifi_cant_connect:I = 0x7f041602
+.field public static final wifi_cant_connect:I = 0x7f041605
 
-.field public static final wifi_cant_connect_to_ap:I = 0x7f041603
+.field public static final wifi_cant_connect_to_ap:I = 0x7f041606
 
-.field public static final wifi_carrier_connect:I = 0x7f041604
+.field public static final wifi_carrier_connect:I = 0x7f041607
 
-.field public static final wifi_carrier_content:I = 0x7f041605
+.field public static final wifi_carrier_content:I = 0x7f041608
 
-.field public static final wifi_cellular_data_fallback_summary:I = 0x7f041606
+.field public static final wifi_cellular_data_fallback_summary:I = 0x7f041609
 
-.field public static final wifi_cellular_data_fallback_title:I = 0x7f041607
+.field public static final wifi_cellular_data_fallback_title:I = 0x7f04160a
 
-.field public static final wifi_certificate:I = 0x7f041608
+.field public static final wifi_certificate:I = 0x7f04160b
 
-.field public static final wifi_check_password_try_again:I = 0x7f041609
+.field public static final wifi_check_password_try_again:I = 0x7f04160c
 
-.field public static final wifi_config_info:I = 0x7f04160a
+.field public static final wifi_config_info:I = 0x7f04160d
 
-.field public static final wifi_configure_settings_preference_summary_wakeup_off:I = 0x7f04160b
+.field public static final wifi_configure_settings_preference_summary_wakeup_off:I = 0x7f04160e
 
-.field public static final wifi_configure_settings_preference_summary_wakeup_on:I = 0x7f04160c
+.field public static final wifi_configure_settings_preference_summary_wakeup_on:I = 0x7f04160f
 
-.field public static final wifi_configure_settings_preference_title:I = 0x7f04160d
+.field public static final wifi_configure_settings_preference_title:I = 0x7f041610
 
-.field public static final wifi_connect:I = 0x7f04160e
+.field public static final wifi_connect:I = 0x7f041611
 
-.field public static final wifi_connected_low_quality:I = 0x7f04160f
+.field public static final wifi_connected_low_quality:I = 0x7f041612
 
-.field public static final wifi_connected_no_internet:I = 0x7f041610
+.field public static final wifi_connected_no_internet:I = 0x7f041613
 
-.field public static final wifi_connected_to_message:I = 0x7f041611
+.field public static final wifi_connected_to_message:I = 0x7f041614
 
-.field public static final wifi_connecting:I = 0x7f041612
+.field public static final wifi_connecting:I = 0x7f041615
 
-.field public static final wifi_connecting_to_message:I = 0x7f041613
+.field public static final wifi_connecting_to_message:I = 0x7f041616
 
-.field public static final wifi_data_template:I = 0x7f041614
+.field public static final wifi_data_template:I = 0x7f041617
 
-.field public static final wifi_data_usage:I = 0x7f041615
+.field public static final wifi_data_usage:I = 0x7f041618
 
-.field public static final wifi_details_dns:I = 0x7f041616
+.field public static final wifi_details_dns:I = 0x7f041619
 
-.field public static final wifi_details_ipv6_address_header:I = 0x7f041617
+.field public static final wifi_details_ipv6_address_header:I = 0x7f04161a
 
-.field public static final wifi_details_subnet_mask:I = 0x7f041618
+.field public static final wifi_details_subnet_mask:I = 0x7f04161b
 
-.field public static final wifi_details_title:I = 0x7f041619
+.field public static final wifi_details_title:I = 0x7f04161c
 
-.field public static final wifi_disabled_by_recommendation_provider:I = 0x7f04161a
+.field public static final wifi_disabled_by_recommendation_provider:I = 0x7f04161d
 
-.field public static final wifi_disabled_generic:I = 0x7f04161b
+.field public static final wifi_disabled_generic:I = 0x7f04161e
 
-.field public static final wifi_disabled_network_failure:I = 0x7f04161c
+.field public static final wifi_disabled_network_failure:I = 0x7f04161f
 
-.field public static final wifi_disabled_password_failure:I = 0x7f04161d
+.field public static final wifi_disabled_password_failure:I = 0x7f041620
 
-.field public static final wifi_disabled_wifi_failure:I = 0x7f04161e
+.field public static final wifi_disabled_wifi_failure:I = 0x7f041621
 
-.field public static final wifi_disconnect_button_text:I = 0x7f04161f
+.field public static final wifi_disconnect_button_text:I = 0x7f041622
 
-.field public static final wifi_disconnected:I = 0x7f041620
+.field public static final wifi_disconnected:I = 0x7f041623
 
-.field public static final wifi_disconnected_from:I = 0x7f041621
+.field public static final wifi_disconnected_from:I = 0x7f041624
 
-.field public static final wifi_display_autonomous_go:I = 0x7f041622
+.field public static final wifi_display_autonomous_go:I = 0x7f041625
 
-.field public static final wifi_display_certification:I = 0x7f041623
+.field public static final wifi_display_certification:I = 0x7f041626
 
-.field public static final wifi_display_certification_heading:I = 0x7f041624
+.field public static final wifi_display_certification_heading:I = 0x7f041627
 
-.field public static final wifi_display_certification_summary:I = 0x7f041625
+.field public static final wifi_display_certification_summary:I = 0x7f041628
 
-.field public static final wifi_display_details:I = 0x7f041626
+.field public static final wifi_display_details:I = 0x7f041629
 
-.field public static final wifi_display_enable_menu_item:I = 0x7f041627
+.field public static final wifi_display_enable_menu_item:I = 0x7f04162a
 
-.field public static final wifi_display_listen_channel:I = 0x7f041628
+.field public static final wifi_display_listen_channel:I = 0x7f04162b
 
-.field public static final wifi_display_listen_mode:I = 0x7f041629
+.field public static final wifi_display_listen_mode:I = 0x7f04162c
 
-.field public static final wifi_display_no_devices_found:I = 0x7f04162a
+.field public static final wifi_display_no_devices_found:I = 0x7f04162d
 
-.field public static final wifi_display_operating_channel:I = 0x7f04162b
+.field public static final wifi_display_operating_channel:I = 0x7f04162e
 
-.field public static final wifi_display_options_done:I = 0x7f04162c
+.field public static final wifi_display_options_done:I = 0x7f04162f
 
-.field public static final wifi_display_options_forget:I = 0x7f04162d
+.field public static final wifi_display_options_forget:I = 0x7f041630
 
-.field public static final wifi_display_options_name:I = 0x7f04162e
+.field public static final wifi_display_options_name:I = 0x7f041631
 
-.field public static final wifi_display_options_title:I = 0x7f04162f
+.field public static final wifi_display_options_title:I = 0x7f041632
 
-.field public static final wifi_display_pause:I = 0x7f041630
+.field public static final wifi_display_pause:I = 0x7f041633
 
-.field public static final wifi_display_resume:I = 0x7f041631
+.field public static final wifi_display_resume:I = 0x7f041634
 
-.field public static final wifi_display_session_info:I = 0x7f041632
+.field public static final wifi_display_session_info:I = 0x7f041635
 
-.field public static final wifi_display_settings_title:I = 0x7f041633
+.field public static final wifi_display_settings_title:I = 0x7f041636
 
-.field public static final wifi_display_status_connected:I = 0x7f041634
+.field public static final wifi_display_status_connected:I = 0x7f041637
 
-.field public static final wifi_display_status_connecting:I = 0x7f041635
+.field public static final wifi_display_status_connecting:I = 0x7f041638
 
-.field public static final wifi_display_status_in_use:I = 0x7f041636
+.field public static final wifi_display_status_in_use:I = 0x7f041639
 
-.field public static final wifi_display_status_not_available:I = 0x7f041637
+.field public static final wifi_display_status_not_available:I = 0x7f04163a
 
-.field public static final wifi_display_wps_config:I = 0x7f041638
+.field public static final wifi_display_wps_config:I = 0x7f04163b
 
-.field public static final wifi_dns1:I = 0x7f041639
+.field public static final wifi_dns1:I = 0x7f04163c
 
-.field public static final wifi_dns1_hint:I = 0x7f04163a
+.field public static final wifi_dns1_hint:I = 0x7f04163d
 
-.field public static final wifi_dns2:I = 0x7f04163b
+.field public static final wifi_dns2:I = 0x7f04163e
 
-.field public static final wifi_dns2_hint:I = 0x7f04163c
+.field public static final wifi_dns2_hint:I = 0x7f04163f
 
-.field public static final wifi_do_not_provide_eap_user_cert:I = 0x7f04163d
+.field public static final wifi_do_not_provide_eap_user_cert:I = 0x7f041640
 
-.field public static final wifi_do_not_validate_eap_server:I = 0x7f04163e
+.field public static final wifi_do_not_validate_eap_server:I = 0x7f041641
 
-.field public static final wifi_dpp_add_another_device:I = 0x7f04163f
+.field public static final wifi_dpp_add_another_device:I = 0x7f041642
 
-.field public static final wifi_dpp_add_device:I = 0x7f041640
+.field public static final wifi_dpp_add_device:I = 0x7f041643
 
-.field public static final wifi_dpp_add_device_to_network:I = 0x7f041641
+.field public static final wifi_dpp_add_device_to_network:I = 0x7f041644
 
-.field public static final wifi_dpp_add_device_to_wifi:I = 0x7f041642
+.field public static final wifi_dpp_add_device_to_wifi:I = 0x7f041645
 
-.field public static final wifi_dpp_center_qr_code:I = 0x7f041643
+.field public static final wifi_dpp_center_qr_code:I = 0x7f041646
 
-.field public static final wifi_dpp_check_connection_try_again:I = 0x7f041644
+.field public static final wifi_dpp_check_connection_try_again:I = 0x7f041647
 
-.field public static final wifi_dpp_choose_different_network:I = 0x7f041645
+.field public static final wifi_dpp_choose_different_network:I = 0x7f041648
 
-.field public static final wifi_dpp_choose_network:I = 0x7f041646
+.field public static final wifi_dpp_choose_network:I = 0x7f041649
 
-.field public static final wifi_dpp_choose_network_to_connect_device:I = 0x7f041647
+.field public static final wifi_dpp_choose_network_to_connect_device:I = 0x7f04164a
 
-.field public static final wifi_dpp_connect_network_using_qr_code:I = 0x7f041648
+.field public static final wifi_dpp_connect_network_using_qr_code:I = 0x7f04164b
 
-.field public static final wifi_dpp_connecting:I = 0x7f041649
+.field public static final wifi_dpp_connecting:I = 0x7f04164c
 
-.field public static final wifi_dpp_could_not_add_device:I = 0x7f04164a
+.field public static final wifi_dpp_could_not_add_device:I = 0x7f04164d
 
-.field public static final wifi_dpp_device_found:I = 0x7f04164b
+.field public static final wifi_dpp_device_found:I = 0x7f04164e
 
-.field public static final wifi_dpp_failure_authentication_or_configuration:I = 0x7f04164c
+.field public static final wifi_dpp_failure_authentication_or_configuration:I = 0x7f04164f
 
-.field public static final wifi_dpp_failure_cannot_find_network:I = 0x7f04164d
+.field public static final wifi_dpp_failure_cannot_find_network:I = 0x7f041650
 
-.field public static final wifi_dpp_failure_enrollee_authentication:I = 0x7f04164e
+.field public static final wifi_dpp_failure_enrollee_authentication:I = 0x7f041651
 
-.field public static final wifi_dpp_failure_enrollee_rejected_configuration:I = 0x7f04164f
+.field public static final wifi_dpp_failure_enrollee_rejected_configuration:I = 0x7f041652
 
-.field public static final wifi_dpp_failure_generic:I = 0x7f041650
+.field public static final wifi_dpp_failure_generic:I = 0x7f041653
 
-.field public static final wifi_dpp_failure_not_compatible:I = 0x7f041651
+.field public static final wifi_dpp_failure_not_compatible:I = 0x7f041654
 
-.field public static final wifi_dpp_failure_not_supported:I = 0x7f041652
+.field public static final wifi_dpp_failure_not_supported:I = 0x7f041655
 
-.field public static final wifi_dpp_failure_timeout:I = 0x7f041653
+.field public static final wifi_dpp_failure_timeout:I = 0x7f041656
 
-.field public static final wifi_dpp_hotspot_password:I = 0x7f041654
+.field public static final wifi_dpp_hotspot_password:I = 0x7f041657
 
-.field public static final wifi_dpp_lockscreen_title:I = 0x7f041655
+.field public static final wifi_dpp_lockscreen_title:I = 0x7f041658
 
-.field public static final wifi_dpp_qr_code_is_not_valid_format:I = 0x7f041656
+.field public static final wifi_dpp_qr_code_is_not_valid_format:I = 0x7f041659
 
-.field public static final wifi_dpp_scan_open_network_qr_code_with_another_device:I = 0x7f041657
+.field public static final wifi_dpp_scan_open_network_qr_code_with_another_device:I = 0x7f04165a
 
-.field public static final wifi_dpp_scan_qr_code:I = 0x7f041658
+.field public static final wifi_dpp_scan_qr_code:I = 0x7f04165b
 
-.field public static final wifi_dpp_scan_qr_code_join_network:I = 0x7f041659
+.field public static final wifi_dpp_scan_qr_code_join_network:I = 0x7f04165c
 
-.field public static final wifi_dpp_scan_qr_code_join_unknown_network:I = 0x7f04165a
+.field public static final wifi_dpp_scan_qr_code_join_unknown_network:I = 0x7f04165d
 
-.field public static final wifi_dpp_scan_qr_code_with_another_device:I = 0x7f04165b
+.field public static final wifi_dpp_scan_qr_code_with_another_device:I = 0x7f04165e
 
-.field public static final wifi_dpp_share_hotspot:I = 0x7f04165c
+.field public static final wifi_dpp_share_hotspot:I = 0x7f04165f
 
-.field public static final wifi_dpp_share_wifi:I = 0x7f04165d
+.field public static final wifi_dpp_share_wifi:I = 0x7f041660
 
-.field public static final wifi_dpp_sharing_wifi_with_this_device:I = 0x7f04165e
+.field public static final wifi_dpp_sharing_wifi_with_this_device:I = 0x7f041661
 
-.field public static final wifi_dpp_wifi_password:I = 0x7f04165f
+.field public static final wifi_dpp_wifi_password:I = 0x7f041662
 
-.field public static final wifi_dpp_wifi_shared_with_device:I = 0x7f041660
+.field public static final wifi_dpp_wifi_shared_with_device:I = 0x7f041663
 
-.field public static final wifi_eap_anonymous:I = 0x7f041661
+.field public static final wifi_eap_anonymous:I = 0x7f041664
 
-.field public static final wifi_eap_ca_cert:I = 0x7f041662
+.field public static final wifi_eap_ca_cert:I = 0x7f041665
 
-.field public static final wifi_eap_domain:I = 0x7f041663
+.field public static final wifi_eap_domain:I = 0x7f041666
 
-.field public static final wifi_eap_identity:I = 0x7f041664
+.field public static final wifi_eap_identity:I = 0x7f041667
 
-.field public static final wifi_eap_method:I = 0x7f041665
+.field public static final wifi_eap_method:I = 0x7f041668
 
-.field public static final wifi_eap_ocsp:I = 0x7f041666
+.field public static final wifi_eap_ocsp:I = 0x7f041669
 
-.field public static final wifi_eap_user_cert:I = 0x7f041667
+.field public static final wifi_eap_user_cert:I = 0x7f04166a
 
-.field public static final wifi_empty_list_user_restricted:I = 0x7f041668
+.field public static final wifi_empty_list_user_restricted:I = 0x7f04166b
 
-.field public static final wifi_empty_list_wifi_off:I = 0x7f041669
+.field public static final wifi_empty_list_wifi_off:I = 0x7f04166c
 
-.field public static final wifi_empty_list_wifi_on:I = 0x7f04166a
+.field public static final wifi_empty_list_wifi_on:I = 0x7f04166d
 
-.field public static final wifi_enhanced_mac_randomization:I = 0x7f04166b
+.field public static final wifi_enhanced_mac_randomization:I = 0x7f04166e
 
-.field public static final wifi_enhanced_mac_randomization_summary:I = 0x7f04166c
+.field public static final wifi_enhanced_mac_randomization_summary:I = 0x7f04166f
 
-.field public static final wifi_error:I = 0x7f04166d
+.field public static final wifi_error:I = 0x7f041670
 
-.field public static final wifi_expiry_time:I = 0x7f04166e
+.field public static final wifi_expiry_time:I = 0x7f041671
 
-.field public static final wifi_fail_to_scan:I = 0x7f04166f
+.field public static final wifi_fail_to_scan:I = 0x7f041672
 
-.field public static final wifi_failed_connect_message:I = 0x7f041670
+.field public static final wifi_failed_connect_message:I = 0x7f041673
 
-.field public static final wifi_failed_forget_message:I = 0x7f041671
+.field public static final wifi_failed_forget_message:I = 0x7f041674
 
-.field public static final wifi_failed_save_message:I = 0x7f041672
+.field public static final wifi_failed_save_message:I = 0x7f041675
 
-.field public static final wifi_forget:I = 0x7f041673
+.field public static final wifi_forget:I = 0x7f041676
 
-.field public static final wifi_forget_dialog_message:I = 0x7f041674
+.field public static final wifi_forget_dialog_message:I = 0x7f041677
 
-.field public static final wifi_forget_dialog_title:I = 0x7f041675
+.field public static final wifi_forget_dialog_title:I = 0x7f041678
 
-.field public static final wifi_frequency:I = 0x7f041676
+.field public static final wifi_frequency:I = 0x7f041679
 
-.field public static final wifi_gateway:I = 0x7f041677
+.field public static final wifi_gateway:I = 0x7f04167a
 
-.field public static final wifi_gateway_hint:I = 0x7f041678
+.field public static final wifi_gateway_hint:I = 0x7f04167b
 
-.field public static final wifi_hidden_network:I = 0x7f041679
+.field public static final wifi_hidden_network:I = 0x7f04167c
 
-.field public static final wifi_hidden_network_warning:I = 0x7f04167a
+.field public static final wifi_hidden_network_warning:I = 0x7f04167d
 
-.field public static final wifi_hotspot_ap_band_title:I = 0x7f04167b
+.field public static final wifi_hotspot_ap_band_title:I = 0x7f04167e
 
-.field public static final wifi_hotspot_auto_off_summary:I = 0x7f04167c
+.field public static final wifi_hotspot_auto_off_summary:I = 0x7f04167f
 
-.field public static final wifi_hotspot_auto_off_title:I = 0x7f04167d
+.field public static final wifi_hotspot_auto_off_title:I = 0x7f041680
 
-.field public static final wifi_hotspot_checkbox_text:I = 0x7f04167e
+.field public static final wifi_hotspot_checkbox_text:I = 0x7f041681
 
-.field public static final wifi_hotspot_configure_ap_text:I = 0x7f04167f
+.field public static final wifi_hotspot_configure_ap_text:I = 0x7f041682
 
-.field public static final wifi_hotspot_configure_ap_text_summary:I = 0x7f041680
+.field public static final wifi_hotspot_configure_ap_text_summary:I = 0x7f041683
 
-.field public static final wifi_hotspot_connect:I = 0x7f041681
+.field public static final wifi_hotspot_connect:I = 0x7f041684
 
-.field public static final wifi_hotspot_footer_info_local_only:I = 0x7f041682
+.field public static final wifi_hotspot_footer_info_local_only:I = 0x7f041685
 
-.field public static final wifi_hotspot_footer_info_regular:I = 0x7f041683
+.field public static final wifi_hotspot_footer_info_regular:I = 0x7f041686
 
-.field public static final wifi_hotspot_maximize_compatibility:I = 0x7f041684
+.field public static final wifi_hotspot_maximize_compatibility:I = 0x7f041687
 
-.field public static final wifi_hotspot_maximize_compatibility_dual_ap_summary:I = 0x7f041685
+.field public static final wifi_hotspot_maximize_compatibility_dual_ap_summary:I = 0x7f041688
 
-.field public static final wifi_hotspot_maximize_compatibility_single_ap_summary:I = 0x7f041686
+.field public static final wifi_hotspot_maximize_compatibility_single_ap_summary:I = 0x7f041689
 
-.field public static final wifi_hotspot_message:I = 0x7f041687
+.field public static final wifi_hotspot_message:I = 0x7f04168a
 
-.field public static final wifi_hotspot_name_summary_connected:I = 0x7f041688
+.field public static final wifi_hotspot_name_summary_connected:I = 0x7f04168b
 
-.field public static final wifi_hotspot_name_summary_connecting:I = 0x7f041689
+.field public static final wifi_hotspot_name_summary_connecting:I = 0x7f04168c
 
-.field public static final wifi_hotspot_name_title:I = 0x7f04168a
+.field public static final wifi_hotspot_name_title:I = 0x7f04168d
 
-.field public static final wifi_hotspot_no_password_subtext:I = 0x7f04168b
+.field public static final wifi_hotspot_no_password_subtext:I = 0x7f04168e
 
-.field public static final wifi_hotspot_off_subtext:I = 0x7f04168c
+.field public static final wifi_hotspot_off_subtext:I = 0x7f04168f
 
-.field public static final wifi_hotspot_on_local_only_subtext:I = 0x7f04168d
+.field public static final wifi_hotspot_on_local_only_subtext:I = 0x7f041690
 
-.field public static final wifi_hotspot_password_title:I = 0x7f04168e
+.field public static final wifi_hotspot_password_title:I = 0x7f041691
 
-.field public static final wifi_hotspot_switch_off_text:I = 0x7f04168f
+.field public static final wifi_hotspot_switch_off_text:I = 0x7f041692
 
-.field public static final wifi_hotspot_switch_on_text:I = 0x7f041690
+.field public static final wifi_hotspot_switch_on_text:I = 0x7f041693
 
-.field public static final wifi_hotspot_tethering_on_subtext:I = 0x7f041691
+.field public static final wifi_hotspot_tethering_on_subtext:I = 0x7f041694
 
-.field public static final wifi_hotspot_title:I = 0x7f041692
+.field public static final wifi_hotspot_title:I = 0x7f041695
 
-.field public static final wifi_in_airplane_mode:I = 0x7f041693
+.field public static final wifi_in_airplane_mode:I = 0x7f041696
 
-.field public static final wifi_install_credentials:I = 0x7f041694
+.field public static final wifi_install_credentials:I = 0x7f041697
 
-.field public static final wifi_ip_address:I = 0x7f041695
+.field public static final wifi_ip_address:I = 0x7f041698
 
-.field public static final wifi_ip_address_hint:I = 0x7f041696
+.field public static final wifi_ip_address_hint:I = 0x7f041699
 
-.field public static final wifi_ip_settings:I = 0x7f041697
+.field public static final wifi_ip_settings:I = 0x7f04169a
 
-.field public static final wifi_ip_settings_invalid_dns:I = 0x7f041698
+.field public static final wifi_ip_settings_invalid_dns:I = 0x7f04169b
 
-.field public static final wifi_ip_settings_invalid_gateway:I = 0x7f041699
+.field public static final wifi_ip_settings_invalid_gateway:I = 0x7f04169c
 
-.field public static final wifi_ip_settings_invalid_ip_address:I = 0x7f04169a
+.field public static final wifi_ip_settings_invalid_ip_address:I = 0x7f04169d
 
-.field public static final wifi_ip_settings_invalid_network_prefix_length:I = 0x7f04169b
+.field public static final wifi_ip_settings_invalid_network_prefix_length:I = 0x7f04169e
 
-.field public static final wifi_ip_settings_menu_cancel:I = 0x7f04169c
+.field public static final wifi_ip_settings_menu_cancel:I = 0x7f04169f
 
-.field public static final wifi_ip_settings_menu_save:I = 0x7f04169d
+.field public static final wifi_ip_settings_menu_save:I = 0x7f0416a0
 
-.field public static final wifi_is_off:I = 0x7f04169e
+.field public static final wifi_is_off:I = 0x7f0416a1
 
-.field public static final wifi_limit_optimizations_summary:I = 0x7f04169f
+.field public static final wifi_limit_optimizations_summary:I = 0x7f0416a2
 
-.field public static final wifi_limited_connection:I = 0x7f0416a0
+.field public static final wifi_limited_connection:I = 0x7f0416a3
 
-.field public static final wifi_menu_advanced:I = 0x7f0416a1
+.field public static final wifi_menu_advanced:I = 0x7f0416a4
 
-.field public static final wifi_menu_configure:I = 0x7f0416a2
+.field public static final wifi_menu_configure:I = 0x7f0416a5
 
-.field public static final wifi_menu_connect:I = 0x7f0416a3
+.field public static final wifi_menu_connect:I = 0x7f0416a6
 
-.field public static final wifi_menu_forget:I = 0x7f0416a4
+.field public static final wifi_menu_forget:I = 0x7f0416a7
 
-.field public static final wifi_menu_modify:I = 0x7f0416a5
+.field public static final wifi_menu_modify:I = 0x7f0416a8
 
-.field public static final wifi_menu_more_options:I = 0x7f0416a6
+.field public static final wifi_menu_more_options:I = 0x7f0416a9
 
-.field public static final wifi_menu_p2p:I = 0x7f0416a7
+.field public static final wifi_menu_p2p:I = 0x7f0416aa
 
-.field public static final wifi_menu_remember:I = 0x7f0416a8
+.field public static final wifi_menu_remember:I = 0x7f0416ab
 
-.field public static final wifi_menu_scan:I = 0x7f0416a9
+.field public static final wifi_menu_scan:I = 0x7f0416ac
 
-.field public static final wifi_metered_label:I = 0x7f0416aa
+.field public static final wifi_metered_label:I = 0x7f0416ad
 
-.field public static final wifi_metered_title:I = 0x7f0416ab
+.field public static final wifi_metered_title:I = 0x7f0416ae
 
-.field public static final wifi_modify:I = 0x7f0416ac
+.field public static final wifi_modify:I = 0x7f0416af
 
-.field public static final wifi_more:I = 0x7f0416ad
+.field public static final wifi_more:I = 0x7f0416b0
 
-.field public static final wifi_multiple_cert_added:I = 0x7f0416ae
+.field public static final wifi_multiple_cert_added:I = 0x7f0416b1
 
-.field public static final wifi_network_prefix_length:I = 0x7f0416af
+.field public static final wifi_network_prefix_length:I = 0x7f0416b2
 
-.field public static final wifi_network_prefix_length_hint:I = 0x7f0416b0
+.field public static final wifi_network_prefix_length_hint:I = 0x7f0416b3
 
-.field public static final wifi_no_domain_warning:I = 0x7f0416b1
+.field public static final wifi_no_domain_warning:I = 0x7f0416b4
 
-.field public static final wifi_no_internet:I = 0x7f0416b2
+.field public static final wifi_no_internet:I = 0x7f0416b5
 
-.field public static final wifi_no_internet_no_reconnect:I = 0x7f0416b3
+.field public static final wifi_no_internet_no_reconnect:I = 0x7f0416b6
 
-.field public static final wifi_no_related_sim_card:I = 0x7f0416b4
+.field public static final wifi_no_related_sim_card:I = 0x7f0416b7
 
-.field public static final wifi_no_sim_card:I = 0x7f0416b5
+.field public static final wifi_no_sim_card:I = 0x7f0416b8
 
-.field public static final wifi_no_user_cert_warning:I = 0x7f0416b6
+.field public static final wifi_no_user_cert_warning:I = 0x7f0416b9
 
-.field public static final wifi_not_in_range:I = 0x7f0416b7
+.field public static final wifi_not_in_range:I = 0x7f0416ba
 
-.field public static final wifi_not_in_range_message:I = 0x7f0416b8
+.field public static final wifi_not_in_range_message:I = 0x7f0416bb
 
-.field public static final wifi_notify_open_networks:I = 0x7f0416b9
+.field public static final wifi_notify_open_networks:I = 0x7f0416bc
 
-.field public static final wifi_notify_open_networks_summary:I = 0x7f0416ba
+.field public static final wifi_notify_open_networks_summary:I = 0x7f0416bd
 
-.field public static final wifi_on_time:I = 0x7f0416bb
+.field public static final wifi_on_time:I = 0x7f0416be
 
-.field public static final wifi_p2p_cancel_connect_message:I = 0x7f0416bc
+.field public static final wifi_p2p_cancel_connect_message:I = 0x7f0416bf
 
-.field public static final wifi_p2p_cancel_connect_title:I = 0x7f0416bd
+.field public static final wifi_p2p_cancel_connect_title:I = 0x7f0416c0
 
-.field public static final wifi_p2p_delete_group_message:I = 0x7f0416be
+.field public static final wifi_p2p_delete_group_message:I = 0x7f0416c1
 
-.field public static final wifi_p2p_device_info:I = 0x7f0416bf
+.field public static final wifi_p2p_device_info:I = 0x7f0416c2
 
-.field public static final wifi_p2p_disconnect_message:I = 0x7f0416c0
+.field public static final wifi_p2p_disconnect_message:I = 0x7f0416c3
 
-.field public static final wifi_p2p_disconnect_multiple_message:I = 0x7f0416c1
+.field public static final wifi_p2p_disconnect_multiple_message:I = 0x7f0416c4
 
-.field public static final wifi_p2p_disconnect_title:I = 0x7f0416c2
+.field public static final wifi_p2p_disconnect_title:I = 0x7f0416c5
 
-.field public static final wifi_p2p_failed_connect_message:I = 0x7f0416c3
+.field public static final wifi_p2p_failed_connect_message:I = 0x7f0416c6
 
-.field public static final wifi_p2p_failed_rename_message:I = 0x7f0416c4
+.field public static final wifi_p2p_failed_rename_message:I = 0x7f0416c7
 
-.field public static final wifi_p2p_menu_rename:I = 0x7f0416c5
+.field public static final wifi_p2p_menu_rename:I = 0x7f0416c8
 
-.field public static final wifi_p2p_menu_search:I = 0x7f0416c6
+.field public static final wifi_p2p_menu_search:I = 0x7f0416c9
 
-.field public static final wifi_p2p_menu_searching:I = 0x7f0416c7
+.field public static final wifi_p2p_menu_searching:I = 0x7f0416ca
 
-.field public static final wifi_p2p_peer_devices:I = 0x7f0416c8
+.field public static final wifi_p2p_peer_devices:I = 0x7f0416cb
 
-.field public static final wifi_p2p_persist_network:I = 0x7f0416c9
+.field public static final wifi_p2p_persist_network:I = 0x7f0416cc
 
-.field public static final wifi_p2p_remembered_groups:I = 0x7f0416ca
+.field public static final wifi_p2p_remembered_groups:I = 0x7f0416cd
 
-.field public static final wifi_p2p_settings_title:I = 0x7f0416cb
+.field public static final wifi_p2p_settings_title:I = 0x7f0416ce
 
-.field public static final wifi_passpoint_expired:I = 0x7f0416cc
+.field public static final wifi_passpoint_expired:I = 0x7f0416cf
 
-.field public static final wifi_password:I = 0x7f0416cd
+.field public static final wifi_password:I = 0x7f0416d0
 
-.field public static final wifi_poor_network_detection:I = 0x7f0416ce
+.field public static final wifi_poor_network_detection:I = 0x7f0416d1
 
-.field public static final wifi_poor_network_detection_summary:I = 0x7f0416cf
+.field public static final wifi_poor_network_detection_summary:I = 0x7f0416d2
 
-.field public static final wifi_privacy_settings:I = 0x7f0416d0
+.field public static final wifi_privacy_settings:I = 0x7f0416d3
 
-.field public static final wifi_privacy_settings_ephemeral_summary:I = 0x7f0416d1
+.field public static final wifi_privacy_settings_ephemeral_summary:I = 0x7f0416d4
 
-.field public static final wifi_quick_toggle_summary:I = 0x7f0416d2
+.field public static final wifi_quick_toggle_summary:I = 0x7f0416d5
 
-.field public static final wifi_quick_toggle_title:I = 0x7f0416d3
+.field public static final wifi_quick_toggle_title:I = 0x7f0416d6
 
-.field public static final wifi_remembered:I = 0x7f0416d4
+.field public static final wifi_remembered:I = 0x7f0416d7
 
-.field public static final wifi_require_sim_card_to_connect:I = 0x7f0416d5
+.field public static final wifi_require_sim_card_to_connect:I = 0x7f0416d8
 
-.field public static final wifi_require_specific_sim_card_to_connect:I = 0x7f0416d6
+.field public static final wifi_require_specific_sim_card_to_connect:I = 0x7f0416d9
 
-.field public static final wifi_sap_no_channel_error:I = 0x7f0416d7
+.field public static final wifi_sap_no_channel_error:I = 0x7f0416da
 
-.field public static final wifi_save:I = 0x7f0416d8
+.field public static final wifi_save:I = 0x7f0416db
 
-.field public static final wifi_saved_access_points_label:I = 0x7f0416d9
+.field public static final wifi_saved_access_points_label:I = 0x7f0416dc
 
-.field public static final wifi_saved_other_networks_tab:I = 0x7f0416da
+.field public static final wifi_saved_other_networks_tab:I = 0x7f0416dd
 
-.field public static final wifi_scan_always_confirm_allow:I = 0x7f0416db
+.field public static final wifi_scan_always_confirm_allow:I = 0x7f0416de
 
-.field public static final wifi_scan_always_confirm_deny:I = 0x7f0416dc
+.field public static final wifi_scan_always_confirm_deny:I = 0x7f0416df
 
-.field public static final wifi_scan_always_turn_on_message_unknown:I = 0x7f0416dd
+.field public static final wifi_scan_always_turn_on_message_unknown:I = 0x7f0416e0
 
-.field public static final wifi_scan_always_turnoff_message:I = 0x7f0416de
+.field public static final wifi_scan_always_turnoff_message:I = 0x7f0416e1
 
-.field public static final wifi_scan_always_turnon_message:I = 0x7f0416df
+.field public static final wifi_scan_always_turnon_message:I = 0x7f0416e2
 
-.field public static final wifi_scan_notify_message:I = 0x7f0416e0
+.field public static final wifi_scan_notify_message:I = 0x7f0416e3
 
-.field public static final wifi_scan_notify_remember_choice:I = 0x7f0416e1
+.field public static final wifi_scan_notify_remember_choice:I = 0x7f0416e4
 
-.field public static final wifi_scan_notify_text:I = 0x7f0416e2
+.field public static final wifi_scan_notify_text:I = 0x7f0416e5
 
-.field public static final wifi_scan_notify_text_scanning_off:I = 0x7f0416e3
+.field public static final wifi_scan_notify_text_scanning_off:I = 0x7f0416e6
 
-.field public static final wifi_scan_throttling:I = 0x7f0416e4
+.field public static final wifi_scan_throttling:I = 0x7f0416e7
 
-.field public static final wifi_scan_throttling_summary:I = 0x7f0416e5
+.field public static final wifi_scan_throttling_summary:I = 0x7f0416e8
 
-.field public static final wifi_security:I = 0x7f0416e6
+.field public static final wifi_security:I = 0x7f0416e9
 
-.field public static final wifi_security_eap:I = 0x7f0416e7
+.field public static final wifi_security_eap:I = 0x7f0416ea
 
-.field public static final wifi_security_eap_suiteb:I = 0x7f0416e8
+.field public static final wifi_security_eap_suiteb:I = 0x7f0416eb
 
-.field public static final wifi_security_eap_wpa:I = 0x7f0416e9
+.field public static final wifi_security_eap_wpa:I = 0x7f0416ec
 
-.field public static final wifi_security_eap_wpa2_wpa3:I = 0x7f0416ea
+.field public static final wifi_security_eap_wpa2_wpa3:I = 0x7f0416ed
 
-.field public static final wifi_security_eap_wpa3:I = 0x7f0416eb
+.field public static final wifi_security_eap_wpa3:I = 0x7f0416ee
 
-.field public static final wifi_security_eap_wpa_wpa2:I = 0x7f0416ec
+.field public static final wifi_security_eap_wpa_wpa2:I = 0x7f0416ef
 
-.field public static final wifi_security_none:I = 0x7f0416ed
+.field public static final wifi_security_none:I = 0x7f0416f0
 
-.field public static final wifi_security_none_owe:I = 0x7f0416ee
+.field public static final wifi_security_none_owe:I = 0x7f0416f1
 
-.field public static final wifi_security_owe:I = 0x7f0416ef
+.field public static final wifi_security_owe:I = 0x7f0416f2
 
-.field public static final wifi_security_passpoint:I = 0x7f0416f0
+.field public static final wifi_security_passpoint:I = 0x7f0416f3
 
-.field public static final wifi_security_psk_generic:I = 0x7f0416f1
+.field public static final wifi_security_psk_generic:I = 0x7f0416f4
 
-.field public static final wifi_security_psk_sae:I = 0x7f0416f2
+.field public static final wifi_security_psk_sae:I = 0x7f0416f5
 
-.field public static final wifi_security_sae:I = 0x7f0416f3
+.field public static final wifi_security_sae:I = 0x7f0416f6
 
-.field public static final wifi_security_short_eap:I = 0x7f0416f4
+.field public static final wifi_security_short_eap:I = 0x7f0416f7
 
-.field public static final wifi_security_short_eap_suiteb:I = 0x7f0416f5
+.field public static final wifi_security_short_eap_suiteb:I = 0x7f0416f8
 
-.field public static final wifi_security_short_eap_wpa:I = 0x7f0416f6
+.field public static final wifi_security_short_eap_wpa:I = 0x7f0416f9
 
-.field public static final wifi_security_short_eap_wpa2_wpa3:I = 0x7f0416f7
+.field public static final wifi_security_short_eap_wpa2_wpa3:I = 0x7f0416fa
 
-.field public static final wifi_security_short_none_owe:I = 0x7f0416f8
+.field public static final wifi_security_short_none_owe:I = 0x7f0416fb
 
-.field public static final wifi_security_short_owe:I = 0x7f0416f9
+.field public static final wifi_security_short_owe:I = 0x7f0416fc
 
-.field public static final wifi_security_short_psk_generic:I = 0x7f0416fa
+.field public static final wifi_security_short_psk_generic:I = 0x7f0416fd
 
-.field public static final wifi_security_short_psk_sae:I = 0x7f0416fb
+.field public static final wifi_security_short_psk_sae:I = 0x7f0416fe
 
-.field public static final wifi_security_short_sae:I = 0x7f0416fc
+.field public static final wifi_security_short_sae:I = 0x7f0416ff
 
-.field public static final wifi_security_short_wep:I = 0x7f0416fd
+.field public static final wifi_security_short_wep:I = 0x7f041700
 
-.field public static final wifi_security_short_wpa:I = 0x7f0416fe
+.field public static final wifi_security_short_wpa:I = 0x7f041701
 
-.field public static final wifi_security_short_wpa2:I = 0x7f0416ff
+.field public static final wifi_security_short_wpa2:I = 0x7f041702
 
-.field public static final wifi_security_short_wpa_wpa2:I = 0x7f041700
+.field public static final wifi_security_short_wpa_wpa2:I = 0x7f041703
 
-.field public static final wifi_security_wep:I = 0x7f041701
+.field public static final wifi_security_wep:I = 0x7f041704
 
-.field public static final wifi_security_wpa:I = 0x7f041702
+.field public static final wifi_security_wpa:I = 0x7f041705
 
-.field public static final wifi_security_wpa2:I = 0x7f041703
+.field public static final wifi_security_wpa2:I = 0x7f041706
 
-.field public static final wifi_security_wpa_wpa2:I = 0x7f041704
+.field public static final wifi_security_wpa_wpa2:I = 0x7f041707
 
-.field public static final wifi_select_network:I = 0x7f041705
+.field public static final wifi_select_network:I = 0x7f041708
 
-.field public static final wifi_setting_on_during_sleep_title:I = 0x7f041706
+.field public static final wifi_setting_on_during_sleep_title:I = 0x7f041709
 
-.field public static final wifi_setting_sleep_policy_error:I = 0x7f041707
+.field public static final wifi_setting_sleep_policy_error:I = 0x7f04170a
 
-.field public static final wifi_setting_sleep_policy_title:I = 0x7f041708
+.field public static final wifi_setting_sleep_policy_title:I = 0x7f04170b
 
-.field public static final wifi_settings:I = 0x7f041709
+.field public static final wifi_settings:I = 0x7f04170c
 
-.field public static final wifi_settings_category:I = 0x7f04170a
+.field public static final wifi_settings_category:I = 0x7f04170d
 
-.field public static final wifi_settings_primary_switch_title:I = 0x7f04170b
+.field public static final wifi_settings_primary_switch_title:I = 0x7f04170e
 
-.field public static final wifi_settings_scanning_required_enabled:I = 0x7f04170c
+.field public static final wifi_settings_scanning_required_enabled:I = 0x7f04170f
 
-.field public static final wifi_settings_scanning_required_info:I = 0x7f04170d
+.field public static final wifi_settings_scanning_required_info:I = 0x7f041710
 
-.field public static final wifi_settings_scanning_required_summary:I = 0x7f04170e
+.field public static final wifi_settings_scanning_required_summary:I = 0x7f041711
 
-.field public static final wifi_settings_scanning_required_title:I = 0x7f04170f
+.field public static final wifi_settings_scanning_required_title:I = 0x7f041712
 
-.field public static final wifi_settings_scanning_required_turn_on:I = 0x7f041710
+.field public static final wifi_settings_scanning_required_turn_on:I = 0x7f041713
 
-.field public static final wifi_settings_summary:I = 0x7f041711
+.field public static final wifi_settings_summary:I = 0x7f041714
 
-.field public static final wifi_settings_title:I = 0x7f041712
+.field public static final wifi_settings_title:I = 0x7f041715
 
-.field public static final wifi_setup_detail:I = 0x7f041713
+.field public static final wifi_setup_detail:I = 0x7f041716
 
-.field public static final wifi_setup_wps:I = 0x7f041714
+.field public static final wifi_setup_wps:I = 0x7f041717
 
-.field public static final wifi_shared:I = 0x7f041715
+.field public static final wifi_shared:I = 0x7f041718
 
-.field public static final wifi_show_advanced:I = 0x7f041716
+.field public static final wifi_show_advanced:I = 0x7f041719
 
-.field public static final wifi_show_password:I = 0x7f041717
+.field public static final wifi_show_password:I = 0x7f04171a
 
-.field public static final wifi_sign_in_button_text:I = 0x7f041718
+.field public static final wifi_sign_in_button_text:I = 0x7f04171b
 
-.field public static final wifi_signal:I = 0x7f041719
+.field public static final wifi_signal:I = 0x7f04171c
 
-.field public static final wifi_speed:I = 0x7f04171a
+.field public static final wifi_speed:I = 0x7f04171d
 
-.field public static final wifi_ssid:I = 0x7f04171b
+.field public static final wifi_ssid:I = 0x7f04171e
 
-.field public static final wifi_ssid_hint:I = 0x7f04171c
+.field public static final wifi_ssid_hint:I = 0x7f04171f
 
-.field public static final wifi_ssid_too_long:I = 0x7f04171d
+.field public static final wifi_ssid_too_long:I = 0x7f041720
 
-.field public static final wifi_starting:I = 0x7f04171e
+.field public static final wifi_starting:I = 0x7f041721
 
-.field public static final wifi_state_disabled:I = 0x7f04171f
+.field public static final wifi_state_disabled:I = 0x7f041722
 
-.field public static final wifi_state_disabling:I = 0x7f041720
+.field public static final wifi_state_disabling:I = 0x7f041723
 
-.field public static final wifi_state_enabled:I = 0x7f041721
+.field public static final wifi_state_enabled:I = 0x7f041724
 
-.field public static final wifi_state_enabling:I = 0x7f041722
+.field public static final wifi_state_enabling:I = 0x7f041725
 
-.field public static final wifi_state_label:I = 0x7f041723
+.field public static final wifi_state_label:I = 0x7f041726
 
-.field public static final wifi_state_unknown:I = 0x7f041724
+.field public static final wifi_state_unknown:I = 0x7f041727
 
-.field public static final wifi_status:I = 0x7f041725
+.field public static final wifi_status:I = 0x7f041728
 
-.field public static final wifi_status_mac_randomized:I = 0x7f041726
+.field public static final wifi_status_mac_randomized:I = 0x7f041729
 
-.field public static final wifi_status_no_internet:I = 0x7f041727
+.field public static final wifi_status_no_internet:I = 0x7f04172a
 
-.field public static final wifi_status_sign_in_required:I = 0x7f041728
+.field public static final wifi_status_sign_in_required:I = 0x7f04172b
 
-.field public static final wifi_status_test:I = 0x7f041729
+.field public static final wifi_status_test:I = 0x7f04172c
 
-.field public static final wifi_stopping:I = 0x7f04172a
+.field public static final wifi_stopping:I = 0x7f04172d
 
-.field public static final wifi_subscribed_access_points_tab:I = 0x7f04172b
+.field public static final wifi_subscribed_access_points_tab:I = 0x7f04172e
 
-.field public static final wifi_subscription:I = 0x7f04172c
+.field public static final wifi_subscription:I = 0x7f04172f
 
-.field public static final wifi_subscription_summary:I = 0x7f04172d
+.field public static final wifi_subscription_summary:I = 0x7f041730
 
-.field public static final wifi_suspend_efficiency_title:I = 0x7f04172e
+.field public static final wifi_suspend_efficiency_title:I = 0x7f041731
 
-.field public static final wifi_suspend_optimizations:I = 0x7f04172f
+.field public static final wifi_suspend_optimizations:I = 0x7f041732
 
-.field public static final wifi_suspend_optimizations_summary:I = 0x7f041730
+.field public static final wifi_suspend_optimizations_summary:I = 0x7f041733
 
-.field public static final wifi_switch_away_when_unvalidated:I = 0x7f041731
+.field public static final wifi_switch_away_when_unvalidated:I = 0x7f041734
 
-.field public static final wifi_tap_to_sign_in:I = 0x7f041732
+.field public static final wifi_tap_to_sign_in:I = 0x7f041735
 
-.field public static final wifi_tether_configure_ap_text:I = 0x7f041733
+.field public static final wifi_tether_configure_ap_text:I = 0x7f041736
 
-.field public static final wifi_tether_configure_ssid_default:I = 0x7f041734
+.field public static final wifi_tether_configure_ssid_default:I = 0x7f041737
 
-.field public static final wifi_tether_enabled_subtext:I = 0x7f041735
+.field public static final wifi_tether_enabled_subtext:I = 0x7f041738
 
-.field public static final wifi_tether_failed_subtext:I = 0x7f041736
+.field public static final wifi_tether_failed_subtext:I = 0x7f041739
 
-.field public static final wifi_tether_starting:I = 0x7f041737
+.field public static final wifi_tether_starting:I = 0x7f04173a
 
-.field public static final wifi_tether_stopping:I = 0x7f041738
+.field public static final wifi_tether_stopping:I = 0x7f04173b
 
-.field public static final wifi_time_remaining:I = 0x7f041739
+.field public static final wifi_time_remaining:I = 0x7f04173c
 
-.field public static final wifi_turned_on_message:I = 0x7f04173a
+.field public static final wifi_turned_on_message:I = 0x7f04173d
 
-.field public static final wifi_type_11AC:I = 0x7f04173b
+.field public static final wifi_type_11AC:I = 0x7f04173e
 
-.field public static final wifi_type_11AX:I = 0x7f04173c
+.field public static final wifi_type_11AX:I = 0x7f04173f
 
-.field public static final wifi_type_11N:I = 0x7f04173d
+.field public static final wifi_type_11N:I = 0x7f041740
 
-.field public static final wifi_type_title:I = 0x7f04173e
+.field public static final wifi_type_title:I = 0x7f041741
 
-.field public static final wifi_unchanged:I = 0x7f04173f
+.field public static final wifi_unchanged:I = 0x7f041742
 
-.field public static final wifi_unmetered_label:I = 0x7f041740
+.field public static final wifi_unmetered_label:I = 0x7f041743
 
-.field public static final wifi_unspecified:I = 0x7f041741
+.field public static final wifi_unspecified:I = 0x7f041744
 
-.field public static final wifi_update:I = 0x7f041742
+.field public static final wifi_update:I = 0x7f041745
 
-.field public static final wifi_use_system_certs:I = 0x7f041743
+.field public static final wifi_use_system_certs:I = 0x7f041746
 
-.field public static final wifi_venue_website_button_text:I = 0x7f041744
+.field public static final wifi_venue_website_button_text:I = 0x7f041747
 
-.field public static final wifi_verbose_logging:I = 0x7f041745
+.field public static final wifi_verbose_logging:I = 0x7f041748
 
-.field public static final wifi_verbose_logging_summary:I = 0x7f041746
+.field public static final wifi_verbose_logging_summary:I = 0x7f041749
 
-.field public static final wifi_wakeup:I = 0x7f041747
+.field public static final wifi_wakeup:I = 0x7f04174a
 
-.field public static final wifi_wakeup_summary:I = 0x7f041748
+.field public static final wifi_wakeup_summary:I = 0x7f04174b
 
-.field public static final wifi_wakeup_summary_no_location:I = 0x7f041749
+.field public static final wifi_wakeup_summary_no_location:I = 0x7f04174c
 
-.field public static final wifi_wakeup_summary_scanning_disabled:I = 0x7f04174a
+.field public static final wifi_wakeup_summary_scanning_disabled:I = 0x7f04174d
 
-.field public static final wifi_wakeup_summary_scoring_disabled:I = 0x7f04174b
+.field public static final wifi_wakeup_summary_scoring_disabled:I = 0x7f04174e
 
-.field public static final wifi_wps_available_first_item:I = 0x7f04174c
+.field public static final wifi_wps_available_first_item:I = 0x7f04174f
 
-.field public static final wifi_wps_available_second_item:I = 0x7f04174d
+.field public static final wifi_wps_available_second_item:I = 0x7f041750
 
-.field public static final wifitrackerlib_auto_connect_disable:I = 0x7f04174e
+.field public static final wifitrackerlib_auto_connect_disable:I = 0x7f041751
 
-.field public static final wifitrackerlib_available_via_app:I = 0x7f04174f
+.field public static final wifitrackerlib_available_via_app:I = 0x7f041752
 
-.field public static final wifitrackerlib_certinstaller_package:I = 0x7f041750
+.field public static final wifitrackerlib_certinstaller_package:I = 0x7f041753
 
-.field public static final wifitrackerlib_connected_via_app:I = 0x7f041751
+.field public static final wifitrackerlib_connected_via_app:I = 0x7f041754
 
-.field public static final wifitrackerlib_connected_via_network_scorer:I = 0x7f041752
+.field public static final wifitrackerlib_connected_via_network_scorer:I = 0x7f041755
 
-.field public static final wifitrackerlib_connected_via_network_scorer_default:I = 0x7f041753
+.field public static final wifitrackerlib_connected_via_network_scorer_default:I = 0x7f041756
 
-.field public static final wifitrackerlib_connected_with_wsu_authenticator:I = 0x7f041754
+.field public static final wifitrackerlib_connected_with_wsu_authenticator:I = 0x7f041757
 
-.field public static final wifitrackerlib_help_url_imsi_protection:I = 0x7f041755
+.field public static final wifitrackerlib_help_url_imsi_protection:I = 0x7f041758
 
-.field public static final wifitrackerlib_imsi_protection_warning:I = 0x7f041756
+.field public static final wifitrackerlib_imsi_protection_warning:I = 0x7f041759
 
-.field public static final wifitrackerlib_no_attribution_annotation_packages:I = 0x7f041757
+.field public static final wifitrackerlib_no_attribution_annotation_packages:I = 0x7f04175a
 
-.field public static final wifitrackerlib_osu_completing_sign_up:I = 0x7f041758
+.field public static final wifitrackerlib_osu_completing_sign_up:I = 0x7f04175b
 
-.field public static final wifitrackerlib_osu_connect_failed:I = 0x7f041759
+.field public static final wifitrackerlib_osu_connect_failed:I = 0x7f04175c
 
-.field public static final wifitrackerlib_osu_opening_provider:I = 0x7f04175a
+.field public static final wifitrackerlib_osu_opening_provider:I = 0x7f04175d
 
-.field public static final wifitrackerlib_osu_sign_up_complete:I = 0x7f04175b
+.field public static final wifitrackerlib_osu_sign_up_complete:I = 0x7f04175e
 
-.field public static final wifitrackerlib_osu_sign_up_failed:I = 0x7f04175c
+.field public static final wifitrackerlib_osu_sign_up_failed:I = 0x7f04175f
 
-.field public static final wifitrackerlib_private_dns_broken:I = 0x7f04175d
+.field public static final wifitrackerlib_private_dns_broken:I = 0x7f041760
 
-.field public static final wifitrackerlib_saved_network:I = 0x7f04175e
+.field public static final wifitrackerlib_saved_network:I = 0x7f041761
 
-.field public static final wifitrackerlib_settings_package:I = 0x7f04175f
+.field public static final wifitrackerlib_settings_package:I = 0x7f041762
 
-.field public static final wifitrackerlib_speed_label_fast:I = 0x7f041760
+.field public static final wifitrackerlib_speed_label_fast:I = 0x7f041763
 
-.field public static final wifitrackerlib_speed_label_medium:I = 0x7f041761
+.field public static final wifitrackerlib_speed_label_medium:I = 0x7f041764
 
-.field public static final wifitrackerlib_speed_label_okay:I = 0x7f041762
+.field public static final wifitrackerlib_speed_label_okay:I = 0x7f041765
 
-.field public static final wifitrackerlib_speed_label_slow:I = 0x7f041763
+.field public static final wifitrackerlib_speed_label_slow:I = 0x7f041766
 
-.field public static final wifitrackerlib_speed_label_very_fast:I = 0x7f041764
+.field public static final wifitrackerlib_speed_label_very_fast:I = 0x7f041767
 
-.field public static final wifitrackerlib_speed_label_very_slow:I = 0x7f041765
+.field public static final wifitrackerlib_speed_label_very_slow:I = 0x7f041768
 
-.field public static final wifitrackerlib_summary_separator:I = 0x7f041766
+.field public static final wifitrackerlib_summary_separator:I = 0x7f041769
 
-.field public static final wifitrackerlib_tap_to_renew_subscription_and_connect:I = 0x7f041767
+.field public static final wifitrackerlib_tap_to_renew_subscription_and_connect:I = 0x7f04176a
 
-.field public static final wifitrackerlib_tap_to_sign_up:I = 0x7f041768
+.field public static final wifitrackerlib_tap_to_sign_up:I = 0x7f04176b
 
-.field public static final wifitrackerlib_wifi_ap_unable_to_handle_new_sta:I = 0x7f041769
+.field public static final wifitrackerlib_wifi_ap_unable_to_handle_new_sta:I = 0x7f04176c
 
-.field public static final wifitrackerlib_wifi_check_password_try_again:I = 0x7f04176a
+.field public static final wifitrackerlib_wifi_check_password_try_again:I = 0x7f04176d
 
-.field public static final wifitrackerlib_wifi_connected_cannot_provide_internet:I = 0x7f04176b
+.field public static final wifitrackerlib_wifi_connected_cannot_provide_internet:I = 0x7f04176e
 
-.field public static final wifitrackerlib_wifi_disabled_generic:I = 0x7f04176c
+.field public static final wifitrackerlib_wifi_disabled_generic:I = 0x7f04176f
 
-.field public static final wifitrackerlib_wifi_disabled_network_failure:I = 0x7f04176d
+.field public static final wifitrackerlib_wifi_disabled_network_failure:I = 0x7f041770
 
-.field public static final wifitrackerlib_wifi_disabled_password_failure:I = 0x7f04176e
+.field public static final wifitrackerlib_wifi_disabled_password_failure:I = 0x7f041771
 
-.field public static final wifitrackerlib_wifi_disconnected:I = 0x7f04176f
+.field public static final wifitrackerlib_wifi_disconnected:I = 0x7f041772
 
-.field public static final wifitrackerlib_wifi_limited_connection:I = 0x7f041770
+.field public static final wifitrackerlib_wifi_limited_connection:I = 0x7f041773
 
-.field public static final wifitrackerlib_wifi_mbo_assoc_disallowed_cannot_connect:I = 0x7f041771
+.field public static final wifitrackerlib_wifi_mbo_assoc_disallowed_cannot_connect:I = 0x7f041774
 
-.field public static final wifitrackerlib_wifi_mbo_assoc_disallowed_max_num_sta_associated:I = 0x7f041772
+.field public static final wifitrackerlib_wifi_mbo_assoc_disallowed_max_num_sta_associated:I = 0x7f041775
 
-.field public static final wifitrackerlib_wifi_mbo_oce_assoc_disallowed_insufficient_rssi:I = 0x7f041773
+.field public static final wifitrackerlib_wifi_mbo_oce_assoc_disallowed_insufficient_rssi:I = 0x7f041776
 
-.field public static final wifitrackerlib_wifi_metered_label:I = 0x7f041774
+.field public static final wifitrackerlib_wifi_metered_label:I = 0x7f041777
 
-.field public static final wifitrackerlib_wifi_network_not_found:I = 0x7f041775
+.field public static final wifitrackerlib_wifi_network_not_found:I = 0x7f041778
 
-.field public static final wifitrackerlib_wifi_no_internet:I = 0x7f041776
+.field public static final wifitrackerlib_wifi_no_internet:I = 0x7f041779
 
-.field public static final wifitrackerlib_wifi_no_internet_no_reconnect:I = 0x7f041777
+.field public static final wifitrackerlib_wifi_no_internet_no_reconnect:I = 0x7f04177a
 
-.field public static final wifitrackerlib_wifi_passpoint_expired:I = 0x7f041778
+.field public static final wifitrackerlib_wifi_passpoint_expired:I = 0x7f04177b
 
-.field public static final wifitrackerlib_wifi_poor_channel_conditions:I = 0x7f041779
+.field public static final wifitrackerlib_wifi_poor_channel_conditions:I = 0x7f04177c
 
-.field public static final wifitrackerlib_wifi_remembered:I = 0x7f04177a
+.field public static final wifitrackerlib_wifi_remembered:I = 0x7f04177d
 
-.field public static final wifitrackerlib_wifi_security_eap_suiteb:I = 0x7f04177b
+.field public static final wifitrackerlib_wifi_security_eap_suiteb:I = 0x7f04177e
 
-.field public static final wifitrackerlib_wifi_security_eap_wpa3:I = 0x7f04177c
+.field public static final wifitrackerlib_wifi_security_eap_wpa3:I = 0x7f04177f
 
-.field public static final wifitrackerlib_wifi_security_eap_wpa_wpa2:I = 0x7f04177d
+.field public static final wifitrackerlib_wifi_security_eap_wpa_wpa2:I = 0x7f041780
 
-.field public static final wifitrackerlib_wifi_security_eap_wpa_wpa2_wpa3:I = 0x7f04177e
+.field public static final wifitrackerlib_wifi_security_eap_wpa_wpa2_wpa3:I = 0x7f041781
 
-.field public static final wifitrackerlib_wifi_security_none:I = 0x7f04177f
+.field public static final wifitrackerlib_wifi_security_none:I = 0x7f041782
 
-.field public static final wifitrackerlib_wifi_security_owe:I = 0x7f041780
+.field public static final wifitrackerlib_wifi_security_owe:I = 0x7f041783
 
-.field public static final wifitrackerlib_wifi_security_passpoint:I = 0x7f041781
+.field public static final wifitrackerlib_wifi_security_passpoint:I = 0x7f041784
 
-.field public static final wifitrackerlib_wifi_security_sae:I = 0x7f041782
+.field public static final wifitrackerlib_wifi_security_sae:I = 0x7f041785
 
-.field public static final wifitrackerlib_wifi_security_short_eap_suiteb:I = 0x7f041783
+.field public static final wifitrackerlib_wifi_security_short_eap_suiteb:I = 0x7f041786
 
-.field public static final wifitrackerlib_wifi_security_short_eap_wpa3:I = 0x7f041784
+.field public static final wifitrackerlib_wifi_security_short_eap_wpa3:I = 0x7f041787
 
-.field public static final wifitrackerlib_wifi_security_short_eap_wpa_wpa2:I = 0x7f041785
+.field public static final wifitrackerlib_wifi_security_short_eap_wpa_wpa2:I = 0x7f041788
 
-.field public static final wifitrackerlib_wifi_security_short_eap_wpa_wpa2_wpa3:I = 0x7f041786
+.field public static final wifitrackerlib_wifi_security_short_eap_wpa_wpa2_wpa3:I = 0x7f041789
 
-.field public static final wifitrackerlib_wifi_security_short_owe:I = 0x7f041787
+.field public static final wifitrackerlib_wifi_security_short_owe:I = 0x7f04178a
 
-.field public static final wifitrackerlib_wifi_security_short_sae:I = 0x7f041788
+.field public static final wifitrackerlib_wifi_security_short_sae:I = 0x7f04178b
 
-.field public static final wifitrackerlib_wifi_security_short_wpa_wpa2:I = 0x7f041789
+.field public static final wifitrackerlib_wifi_security_short_wpa_wpa2:I = 0x7f04178c
 
-.field public static final wifitrackerlib_wifi_security_short_wpa_wpa2_wpa3:I = 0x7f04178a
+.field public static final wifitrackerlib_wifi_security_short_wpa_wpa2_wpa3:I = 0x7f04178d
 
-.field public static final wifitrackerlib_wifi_security_wep:I = 0x7f04178b
+.field public static final wifitrackerlib_wifi_security_wep:I = 0x7f04178e
 
-.field public static final wifitrackerlib_wifi_security_wpa_wpa2:I = 0x7f04178c
+.field public static final wifitrackerlib_wifi_security_wpa_wpa2:I = 0x7f04178f
 
-.field public static final wifitrackerlib_wifi_security_wpa_wpa2_wpa3:I = 0x7f04178d
+.field public static final wifitrackerlib_wifi_security_wpa_wpa2_wpa3:I = 0x7f041790
 
-.field public static final wifitrackerlib_wifi_unmetered_label:I = 0x7f04178e
+.field public static final wifitrackerlib_wifi_unmetered_label:I = 0x7f041791
 
-.field public static final wifitrackerlib_wifi_wont_autoconnect_for_now:I = 0x7f04178f
+.field public static final wifitrackerlib_wifi_wont_autoconnect_for_now:I = 0x7f041792
 
-.field public static final wifitrackerlib_wsu_entry_summary_not_provisioned:I = 0x7f041790
+.field public static final wifitrackerlib_wsu_entry_summary_not_provisioned:I = 0x7f041793
 
-.field public static final wifitrackerlib_wsu_entry_summary_provision_error:I = 0x7f041791
+.field public static final wifitrackerlib_wsu_entry_summary_provision_error:I = 0x7f041794
 
-.field public static final wifitrackerlib_wsu_entry_summary_provisioning:I = 0x7f041792
+.field public static final wifitrackerlib_wsu_entry_summary_provisioning:I = 0x7f041795
 
-.field public static final window_animation_scale_title:I = 0x7f041793
+.field public static final window_animation_scale_title:I = 0x7f041796
 
-.field public static final window_blurs:I = 0x7f041794
+.field public static final window_blurs:I = 0x7f041797
 
-.field public static final winscope_trace_quick_settings_title:I = 0x7f041795
+.field public static final winscope_trace_quick_settings_title:I = 0x7f041798
 
-.field public static final wireless_debugging_main_switch_title:I = 0x7f041796
+.field public static final wireless_debugging_main_switch_title:I = 0x7f041799
 
-.field public static final wireless_networks_settings_title:I = 0x7f041797
+.field public static final wireless_networks_settings_title:I = 0x7f04179a
 
-.field public static final wizard_back:I = 0x7f041798
+.field public static final wizard_back:I = 0x7f04179b
 
-.field public static final wizard_finish:I = 0x7f041799
+.field public static final wizard_finish:I = 0x7f04179c
 
-.field public static final wizard_next:I = 0x7f04179a
+.field public static final wizard_next:I = 0x7f04179d
 
-.field public static final work_alarm_ringtone_title:I = 0x7f04179b
+.field public static final work_alarm_ringtone_title:I = 0x7f04179e
 
-.field public static final work_mode_label:I = 0x7f04179c
+.field public static final work_mode_label:I = 0x7f04179f
 
-.field public static final work_mode_off_summary:I = 0x7f04179d
+.field public static final work_mode_off_summary:I = 0x7f0417a0
 
-.field public static final work_mode_on_summary:I = 0x7f04179e
+.field public static final work_mode_on_summary:I = 0x7f0417a1
 
-.field public static final work_notification_ringtone_title:I = 0x7f04179f
+.field public static final work_notification_ringtone_title:I = 0x7f0417a2
 
-.field public static final work_policy_privacy_settings:I = 0x7f0417a0
+.field public static final work_policy_privacy_settings:I = 0x7f0417a3
 
-.field public static final work_policy_privacy_settings_summary:I = 0x7f0417a1
+.field public static final work_policy_privacy_settings_summary:I = 0x7f0417a4
 
-.field public static final work_profile_app_subtext:I = 0x7f0417a2
+.field public static final work_profile_app_subtext:I = 0x7f0417a5
 
-.field public static final work_profile_confirm_remove_message:I = 0x7f0417a3
+.field public static final work_profile_confirm_remove_message:I = 0x7f0417a6
 
-.field public static final work_profile_confirm_remove_title:I = 0x7f0417a4
+.field public static final work_profile_confirm_remove_title:I = 0x7f0417a7
 
-.field public static final work_profile_notification_access_blocked_summary:I = 0x7f0417a5
+.field public static final work_profile_notification_access_blocked_summary:I = 0x7f0417a8
 
-.field public static final work_profile_usage_access_warning:I = 0x7f0417a6
+.field public static final work_profile_usage_access_warning:I = 0x7f0417a9
 
-.field public static final work_ringtone_title:I = 0x7f0417a7
+.field public static final work_ringtone_title:I = 0x7f0417aa
 
-.field public static final work_sim_title:I = 0x7f0417a8
+.field public static final work_sim_title:I = 0x7f0417ab
 
-.field public static final work_sound_same_as_personal:I = 0x7f0417a9
+.field public static final work_sound_same_as_personal:I = 0x7f0417ac
 
-.field public static final work_sync_dialog_message:I = 0x7f0417aa
+.field public static final work_sync_dialog_message:I = 0x7f0417ad
 
-.field public static final work_sync_dialog_title:I = 0x7f0417ab
+.field public static final work_sync_dialog_title:I = 0x7f0417ae
 
-.field public static final work_sync_dialog_yes:I = 0x7f0417ac
+.field public static final work_sync_dialog_yes:I = 0x7f0417af
 
-.field public static final work_use_personal_sounds_summary:I = 0x7f0417ad
+.field public static final work_use_personal_sounds_summary:I = 0x7f0417b0
 
-.field public static final work_use_personal_sounds_title:I = 0x7f0417ae
+.field public static final work_use_personal_sounds_title:I = 0x7f0417b1
 
-.field public static final write_settings:I = 0x7f0417af
+.field public static final write_settings:I = 0x7f0417b2
 
-.field public static final write_settings_description:I = 0x7f0417b0
+.field public static final write_settings_description:I = 0x7f0417b3
 
-.field public static final write_settings_off:I = 0x7f0417b1
+.field public static final write_settings_off:I = 0x7f0417b4
 
-.field public static final write_settings_on:I = 0x7f0417b2
+.field public static final write_settings_on:I = 0x7f0417b5
 
-.field public static final write_settings_summary:I = 0x7f0417b3
+.field public static final write_settings_summary:I = 0x7f0417b6
 
-.field public static final write_settings_title:I = 0x7f0417b4
+.field public static final write_settings_title:I = 0x7f0417b7
 
-.field public static final write_system_settings:I = 0x7f0417b5
+.field public static final write_system_settings:I = 0x7f0417b8
 
-.field public static final wrong_pin_code_one:I = 0x7f0417b6
+.field public static final wrong_pin_code_one:I = 0x7f0417b9
 
-.field public static final wrong_pin_code_pukked:I = 0x7f0417b7
+.field public static final wrong_pin_code_pukked:I = 0x7f0417ba
 
-.field public static final yes:I = 0x7f0417b8
+.field public static final yes:I = 0x7f0417bb
 
-.field public static final zen_access_detail_switch:I = 0x7f0417b9
+.field public static final zen_access_detail_switch:I = 0x7f0417bc
 
-.field public static final zen_access_disabled_package_warning:I = 0x7f0417ba
+.field public static final zen_access_disabled_package_warning:I = 0x7f0417bd
 
-.field public static final zen_access_empty_text:I = 0x7f0417bb
+.field public static final zen_access_empty_text:I = 0x7f0417be
 
-.field public static final zen_access_revoke_warning_dialog_summary:I = 0x7f0417bc
+.field public static final zen_access_revoke_warning_dialog_summary:I = 0x7f0417bf
 
-.field public static final zen_access_revoke_warning_dialog_title:I = 0x7f0417bd
+.field public static final zen_access_revoke_warning_dialog_title:I = 0x7f0417c0
 
-.field public static final zen_access_warning_dialog_summary:I = 0x7f0417be
+.field public static final zen_access_warning_dialog_summary:I = 0x7f0417c1
 
-.field public static final zen_access_warning_dialog_title:I = 0x7f0417bf
+.field public static final zen_access_warning_dialog_title:I = 0x7f0417c2
 
-.field public static final zen_alarm_warning:I = 0x7f0417c0
+.field public static final zen_alarm_warning:I = 0x7f0417c3
 
-.field public static final zen_alarm_warning_indef:I = 0x7f0417c1
+.field public static final zen_alarm_warning_indef:I = 0x7f0417c4
 
-.field public static final zen_calls_summary_contacts_repeat:I = 0x7f0417c2
+.field public static final zen_calls_summary_contacts_repeat:I = 0x7f0417c5
 
-.field public static final zen_calls_summary_repeat_only:I = 0x7f0417c3
+.field public static final zen_calls_summary_repeat_only:I = 0x7f0417c6
 
-.field public static final zen_calls_summary_starred_repeat:I = 0x7f0417c4
+.field public static final zen_calls_summary_starred_repeat:I = 0x7f0417c7
 
-.field public static final zen_category_apps:I = 0x7f0417c5
+.field public static final zen_category_apps:I = 0x7f0417c8
 
-.field public static final zen_category_behavior:I = 0x7f0417c6
+.field public static final zen_category_behavior:I = 0x7f0417c9
 
-.field public static final zen_category_duration:I = 0x7f0417c7
+.field public static final zen_category_duration:I = 0x7f0417ca
 
-.field public static final zen_category_exceptions:I = 0x7f0417c8
+.field public static final zen_category_exceptions:I = 0x7f0417cb
 
-.field public static final zen_category_people:I = 0x7f0417c9
+.field public static final zen_category_people:I = 0x7f0417cc
 
-.field public static final zen_category_schedule:I = 0x7f0417ca
+.field public static final zen_category_schedule:I = 0x7f0417cd
 
-.field public static final zen_custom_settings_dialog_ok:I = 0x7f0417cb
+.field public static final zen_custom_settings_dialog_ok:I = 0x7f0417ce
 
-.field public static final zen_custom_settings_dialog_review_schedule:I = 0x7f0417cc
+.field public static final zen_custom_settings_dialog_review_schedule:I = 0x7f0417cf
 
-.field public static final zen_custom_settings_dialog_title:I = 0x7f0417cd
+.field public static final zen_custom_settings_dialog_title:I = 0x7f0417d0
 
-.field public static final zen_custom_settings_duration_header:I = 0x7f0417ce
+.field public static final zen_custom_settings_duration_header:I = 0x7f0417d1
 
-.field public static final zen_custom_settings_notifications_header:I = 0x7f0417cf
+.field public static final zen_custom_settings_notifications_header:I = 0x7f0417d2
 
-.field public static final zen_event_rule_enabled_toast:I = 0x7f0417d0
+.field public static final zen_event_rule_enabled_toast:I = 0x7f0417d3
 
-.field public static final zen_event_rule_type_name:I = 0x7f0417d1
+.field public static final zen_event_rule_type_name:I = 0x7f0417d4
 
-.field public static final zen_interruption_level_priority:I = 0x7f0417d2
+.field public static final zen_interruption_level_priority:I = 0x7f0417d5
 
-.field public static final zen_mode_add:I = 0x7f0417d3
+.field public static final zen_mode_add:I = 0x7f0417d6
 
-.field public static final zen_mode_add_event_rule:I = 0x7f0417d4
+.field public static final zen_mode_add_event_rule:I = 0x7f0417d7
 
-.field public static final zen_mode_add_rule:I = 0x7f0417d5
+.field public static final zen_mode_add_rule:I = 0x7f0417d8
 
-.field public static final zen_mode_add_time_rule:I = 0x7f0417d6
+.field public static final zen_mode_add_time_rule:I = 0x7f0417d9
 
-.field public static final zen_mode_alarms:I = 0x7f0417d7
+.field public static final zen_mode_alarms:I = 0x7f0417da
 
-.field public static final zen_mode_alarms_list:I = 0x7f0417d8
+.field public static final zen_mode_alarms_list:I = 0x7f0417db
 
-.field public static final zen_mode_alarms_list_first:I = 0x7f0417d9
+.field public static final zen_mode_alarms_list_first:I = 0x7f0417dc
 
-.field public static final zen_mode_alarms_summary:I = 0x7f0417da
+.field public static final zen_mode_alarms_summary:I = 0x7f0417dd
 
-.field public static final zen_mode_all_callers:I = 0x7f0417db
+.field public static final zen_mode_all_callers:I = 0x7f0417de
 
-.field public static final zen_mode_all_calls_summary:I = 0x7f0417dc
+.field public static final zen_mode_all_calls_summary:I = 0x7f0417df
 
-.field public static final zen_mode_all_messages_summary:I = 0x7f0417dd
+.field public static final zen_mode_all_messages_summary:I = 0x7f0417e0
 
-.field public static final zen_mode_and_condition:I = 0x7f0417de
+.field public static final zen_mode_and_condition:I = 0x7f0417e1
 
-.field public static final zen_mode_app_set_behavior:I = 0x7f0417df
+.field public static final zen_mode_app_set_behavior:I = 0x7f0417e2
 
-.field public static final zen_mode_automatic_rule_settings_page_title:I = 0x7f0417e0
+.field public static final zen_mode_automatic_rule_settings_page_title:I = 0x7f0417e3
 
-.field public static final zen_mode_automation_settings_page_title:I = 0x7f0417e1
+.field public static final zen_mode_automation_settings_page_title:I = 0x7f0417e4
 
-.field public static final zen_mode_automation_settings_title:I = 0x7f0417e2
+.field public static final zen_mode_automation_settings_title:I = 0x7f0417e5
 
-.field public static final zen_mode_automation_suggestion_summary:I = 0x7f0417e3
+.field public static final zen_mode_automation_suggestion_summary:I = 0x7f0417e6
 
-.field public static final zen_mode_automation_suggestion_title:I = 0x7f0417e4
+.field public static final zen_mode_automation_suggestion_title:I = 0x7f0417e7
 
-.field public static final zen_mode_behavior_alarms_only:I = 0x7f0417e5
+.field public static final zen_mode_behavior_alarms_only:I = 0x7f0417e8
 
-.field public static final zen_mode_behavior_summary_custom:I = 0x7f0417e6
+.field public static final zen_mode_behavior_summary_custom:I = 0x7f0417e9
 
-.field public static final zen_mode_block_effect_ambient:I = 0x7f0417e7
+.field public static final zen_mode_block_effect_ambient:I = 0x7f0417ea
 
-.field public static final zen_mode_block_effect_badge:I = 0x7f0417e8
+.field public static final zen_mode_block_effect_badge:I = 0x7f0417eb
 
-.field public static final zen_mode_block_effect_intent:I = 0x7f0417e9
+.field public static final zen_mode_block_effect_intent:I = 0x7f0417ec
 
-.field public static final zen_mode_block_effect_light:I = 0x7f0417ea
+.field public static final zen_mode_block_effect_light:I = 0x7f0417ed
 
-.field public static final zen_mode_block_effect_list:I = 0x7f0417eb
+.field public static final zen_mode_block_effect_list:I = 0x7f0417ee
 
-.field public static final zen_mode_block_effect_peek:I = 0x7f0417ec
+.field public static final zen_mode_block_effect_peek:I = 0x7f0417ef
 
-.field public static final zen_mode_block_effect_sound:I = 0x7f0417ed
+.field public static final zen_mode_block_effect_sound:I = 0x7f0417f0
 
-.field public static final zen_mode_block_effect_status:I = 0x7f0417ee
+.field public static final zen_mode_block_effect_status:I = 0x7f0417f1
 
-.field public static final zen_mode_block_effect_summary_all:I = 0x7f0417ef
+.field public static final zen_mode_block_effect_summary_all:I = 0x7f0417f2
 
-.field public static final zen_mode_block_effect_summary_none:I = 0x7f0417f0
+.field public static final zen_mode_block_effect_summary_none:I = 0x7f0417f3
 
-.field public static final zen_mode_block_effect_summary_screen_off:I = 0x7f0417f1
+.field public static final zen_mode_block_effect_summary_screen_off:I = 0x7f0417f4
 
-.field public static final zen_mode_block_effect_summary_screen_on:I = 0x7f0417f2
+.field public static final zen_mode_block_effect_summary_screen_on:I = 0x7f0417f5
 
-.field public static final zen_mode_block_effect_summary_some:I = 0x7f0417f3
+.field public static final zen_mode_block_effect_summary_some:I = 0x7f0417f6
 
-.field public static final zen_mode_block_effect_summary_sound:I = 0x7f0417f4
+.field public static final zen_mode_block_effect_summary_sound:I = 0x7f0417f7
 
-.field public static final zen_mode_block_effects_screen_off:I = 0x7f0417f5
+.field public static final zen_mode_block_effects_screen_off:I = 0x7f0417f8
 
-.field public static final zen_mode_block_effects_screen_on:I = 0x7f0417f6
+.field public static final zen_mode_block_effects_screen_on:I = 0x7f0417f9
 
-.field public static final zen_mode_blocked_effects_footer:I = 0x7f0417f7
+.field public static final zen_mode_blocked_effects_footer:I = 0x7f0417fa
 
-.field public static final zen_mode_button_turn_off:I = 0x7f0417f8
+.field public static final zen_mode_button_turn_off:I = 0x7f0417fb
 
-.field public static final zen_mode_button_turn_on:I = 0x7f0417f9
+.field public static final zen_mode_button_turn_on:I = 0x7f0417fc
 
-.field public static final zen_mode_bypassing_app_channels_header:I = 0x7f0417fa
+.field public static final zen_mode_bypassing_app_channels_header:I = 0x7f0417fd
 
-.field public static final zen_mode_bypassing_app_channels_toggle_all:I = 0x7f0417fb
+.field public static final zen_mode_bypassing_app_channels_toggle_all:I = 0x7f0417fe
 
-.field public static final zen_mode_bypassing_apps:I = 0x7f0417fc
+.field public static final zen_mode_bypassing_apps:I = 0x7f0417ff
 
-.field public static final zen_mode_bypassing_apps_add:I = 0x7f0417fd
+.field public static final zen_mode_bypassing_apps_add:I = 0x7f041800
 
-.field public static final zen_mode_bypassing_apps_add_header:I = 0x7f0417fe
+.field public static final zen_mode_bypassing_apps_add_header:I = 0x7f041801
 
-.field public static final zen_mode_bypassing_apps_all_summary:I = 0x7f0417ff
+.field public static final zen_mode_bypassing_apps_all_summary:I = 0x7f041802
 
-.field public static final zen_mode_bypassing_apps_footer:I = 0x7f041800
+.field public static final zen_mode_bypassing_apps_footer:I = 0x7f041803
 
-.field public static final zen_mode_bypassing_apps_header:I = 0x7f041801
+.field public static final zen_mode_bypassing_apps_header:I = 0x7f041804
 
-.field public static final zen_mode_bypassing_apps_none:I = 0x7f041802
+.field public static final zen_mode_bypassing_apps_none:I = 0x7f041805
 
-.field public static final zen_mode_bypassing_apps_some_summary:I = 0x7f041803
+.field public static final zen_mode_bypassing_apps_some_summary:I = 0x7f041806
 
-.field public static final zen_mode_bypassing_apps_subtext:I = 0x7f041804
+.field public static final zen_mode_bypassing_apps_subtext:I = 0x7f041807
 
-.field public static final zen_mode_bypassing_apps_subtext_none:I = 0x7f041805
+.field public static final zen_mode_bypassing_apps_subtext_none:I = 0x7f041808
 
-.field public static final zen_mode_bypassing_apps_summary_all:I = 0x7f041806
+.field public static final zen_mode_bypassing_apps_summary_all:I = 0x7f041809
 
-.field public static final zen_mode_bypassing_apps_summary_some:I = 0x7f041807
+.field public static final zen_mode_bypassing_apps_summary_some:I = 0x7f04180a
 
-.field public static final zen_mode_bypassing_apps_title:I = 0x7f041808
+.field public static final zen_mode_bypassing_apps_title:I = 0x7f04180b
 
-.field public static final zen_mode_calls:I = 0x7f041809
+.field public static final zen_mode_calls:I = 0x7f04180c
 
-.field public static final zen_mode_calls_footer:I = 0x7f04180a
+.field public static final zen_mode_calls_footer:I = 0x7f04180d
 
-.field public static final zen_mode_calls_header:I = 0x7f04180b
+.field public static final zen_mode_calls_header:I = 0x7f04180e
 
-.field public static final zen_mode_calls_list:I = 0x7f04180c
+.field public static final zen_mode_calls_list:I = 0x7f04180f
 
-.field public static final zen_mode_calls_summary_one:I = 0x7f04180d
+.field public static final zen_mode_calls_summary_one:I = 0x7f041810
 
-.field public static final zen_mode_calls_summary_two:I = 0x7f04180e
+.field public static final zen_mode_calls_summary_two:I = 0x7f041811
 
-.field public static final zen_mode_calls_title:I = 0x7f04180f
+.field public static final zen_mode_calls_title:I = 0x7f041812
 
-.field public static final zen_mode_choose_rule_type:I = 0x7f041810
+.field public static final zen_mode_choose_rule_type:I = 0x7f041813
 
-.field public static final zen_mode_contacts_callers:I = 0x7f041811
+.field public static final zen_mode_contacts_callers:I = 0x7f041814
 
-.field public static final zen_mode_contacts_count:I = 0x7f041812
+.field public static final zen_mode_contacts_count:I = 0x7f041815
 
-.field public static final zen_mode_conversations_count:I = 0x7f041813
+.field public static final zen_mode_conversations_count:I = 0x7f041816
 
-.field public static final zen_mode_conversations_section_title:I = 0x7f041814
+.field public static final zen_mode_conversations_section_title:I = 0x7f041817
 
-.field public static final zen_mode_conversations_title:I = 0x7f041815
+.field public static final zen_mode_conversations_title:I = 0x7f041818
 
-.field public static final zen_mode_custom_behavior_category_title:I = 0x7f041816
+.field public static final zen_mode_custom_behavior_category_title:I = 0x7f041819
 
-.field public static final zen_mode_custom_behavior_summary:I = 0x7f041817
+.field public static final zen_mode_custom_behavior_summary:I = 0x7f04181a
 
-.field public static final zen_mode_custom_behavior_summary_default:I = 0x7f041818
+.field public static final zen_mode_custom_behavior_summary_default:I = 0x7f04181b
 
-.field public static final zen_mode_custom_behavior_title:I = 0x7f041819
+.field public static final zen_mode_custom_behavior_title:I = 0x7f04181c
 
-.field public static final zen_mode_custom_calls_footer:I = 0x7f04181a
+.field public static final zen_mode_custom_calls_footer:I = 0x7f04181d
 
-.field public static final zen_mode_custom_messages_footer:I = 0x7f04181b
+.field public static final zen_mode_custom_messages_footer:I = 0x7f04181e
 
-.field public static final zen_mode_delete_automatic_rules:I = 0x7f04181c
+.field public static final zen_mode_delete_automatic_rules:I = 0x7f04181f
 
-.field public static final zen_mode_delete_rule:I = 0x7f04181d
+.field public static final zen_mode_delete_rule:I = 0x7f041820
 
-.field public static final zen_mode_delete_rule_button:I = 0x7f04181e
+.field public static final zen_mode_delete_rule_button:I = 0x7f041821
 
-.field public static final zen_mode_delete_rule_confirmation:I = 0x7f04181f
+.field public static final zen_mode_delete_rule_confirmation:I = 0x7f041822
 
-.field public static final zen_mode_duration_always_prompt_title:I = 0x7f041820
+.field public static final zen_mode_duration_always_prompt_title:I = 0x7f041823
 
-.field public static final zen_mode_duration_settings_title:I = 0x7f041821
+.field public static final zen_mode_duration_settings_title:I = 0x7f041824
 
-.field public static final zen_mode_duration_summary_always_prompt:I = 0x7f041822
+.field public static final zen_mode_duration_summary_always_prompt:I = 0x7f041825
 
-.field public static final zen_mode_duration_summary_forever:I = 0x7f041823
+.field public static final zen_mode_duration_summary_forever:I = 0x7f041826
 
-.field public static final zen_mode_duration_summary_time_hours:I = 0x7f041824
+.field public static final zen_mode_duration_summary_time_hours:I = 0x7f041827
 
-.field public static final zen_mode_duration_summary_time_minutes:I = 0x7f041825
+.field public static final zen_mode_duration_summary_time_minutes:I = 0x7f041828
 
-.field public static final zen_mode_enable_dialog_turn_on:I = 0x7f041826
+.field public static final zen_mode_enable_dialog_turn_on:I = 0x7f041829
 
-.field public static final zen_mode_end_time:I = 0x7f041827
+.field public static final zen_mode_end_time:I = 0x7f04182a
 
-.field public static final zen_mode_end_time_next_day_summary_format:I = 0x7f041828
+.field public static final zen_mode_end_time_next_day_summary_format:I = 0x7f04182b
 
-.field public static final zen_mode_event_rule_calendar:I = 0x7f041829
+.field public static final zen_mode_event_rule_calendar:I = 0x7f04182c
 
-.field public static final zen_mode_event_rule_calendar_any:I = 0x7f04182a
+.field public static final zen_mode_event_rule_calendar_any:I = 0x7f04182d
 
-.field public static final zen_mode_event_rule_reply:I = 0x7f04182b
+.field public static final zen_mode_event_rule_reply:I = 0x7f04182e
 
-.field public static final zen_mode_event_rule_reply_any_except_no:I = 0x7f04182c
+.field public static final zen_mode_event_rule_reply_any_except_no:I = 0x7f04182f
 
-.field public static final zen_mode_event_rule_reply_yes:I = 0x7f04182d
+.field public static final zen_mode_event_rule_reply_yes:I = 0x7f041830
 
-.field public static final zen_mode_event_rule_reply_yes_or_maybe:I = 0x7f04182e
+.field public static final zen_mode_event_rule_reply_yes_or_maybe:I = 0x7f041831
 
-.field public static final zen_mode_event_rule_summary_any_calendar:I = 0x7f04182f
+.field public static final zen_mode_event_rule_summary_any_calendar:I = 0x7f041832
 
-.field public static final zen_mode_event_rule_summary_calendar_template:I = 0x7f041830
+.field public static final zen_mode_event_rule_summary_calendar_template:I = 0x7f041833
 
-.field public static final zen_mode_event_rule_summary_reply_template:I = 0x7f041831
+.field public static final zen_mode_event_rule_summary_reply_template:I = 0x7f041834
 
-.field public static final zen_mode_events:I = 0x7f041832
+.field public static final zen_mode_events:I = 0x7f041835
 
-.field public static final zen_mode_events_list:I = 0x7f041833
+.field public static final zen_mode_events_list:I = 0x7f041836
 
-.field public static final zen_mode_events_list_first:I = 0x7f041834
+.field public static final zen_mode_events_list_first:I = 0x7f041837
 
-.field public static final zen_mode_events_summary:I = 0x7f041835
+.field public static final zen_mode_events_summary:I = 0x7f041838
 
-.field public static final zen_mode_forever:I = 0x7f041836
+.field public static final zen_mode_forever:I = 0x7f041839
 
-.field public static final zen_mode_from_all_conversations:I = 0x7f041837
+.field public static final zen_mode_from_all_conversations:I = 0x7f04183a
 
-.field public static final zen_mode_from_anyone:I = 0x7f041838
+.field public static final zen_mode_from_anyone:I = 0x7f04183b
 
-.field public static final zen_mode_from_contacts:I = 0x7f041839
+.field public static final zen_mode_from_contacts:I = 0x7f04183c
 
-.field public static final zen_mode_from_important_conversations:I = 0x7f04183a
+.field public static final zen_mode_from_important_conversations:I = 0x7f04183d
 
-.field public static final zen_mode_from_no_conversations:I = 0x7f04183b
+.field public static final zen_mode_from_no_conversations:I = 0x7f04183e
 
-.field public static final zen_mode_from_starred:I = 0x7f04183c
+.field public static final zen_mode_from_starred:I = 0x7f04183f
 
-.field public static final zen_mode_media:I = 0x7f04183d
+.field public static final zen_mode_media:I = 0x7f041840
 
-.field public static final zen_mode_media_list:I = 0x7f04183e
+.field public static final zen_mode_media_list:I = 0x7f041841
 
-.field public static final zen_mode_media_list_first:I = 0x7f04183f
+.field public static final zen_mode_media_list_first:I = 0x7f041842
 
-.field public static final zen_mode_media_summary:I = 0x7f041840
+.field public static final zen_mode_media_summary:I = 0x7f041843
 
-.field public static final zen_mode_messages:I = 0x7f041841
+.field public static final zen_mode_messages:I = 0x7f041844
 
-.field public static final zen_mode_messages_footer:I = 0x7f041842
+.field public static final zen_mode_messages_footer:I = 0x7f041845
 
-.field public static final zen_mode_messages_header:I = 0x7f041843
+.field public static final zen_mode_messages_header:I = 0x7f041846
 
-.field public static final zen_mode_messages_list:I = 0x7f041844
+.field public static final zen_mode_messages_list:I = 0x7f041847
 
-.field public static final zen_mode_messages_title:I = 0x7f041845
+.field public static final zen_mode_messages_title:I = 0x7f041848
 
-.field public static final zen_mode_no_exceptions:I = 0x7f041846
+.field public static final zen_mode_no_exceptions:I = 0x7f041849
 
-.field public static final zen_mode_none_calls:I = 0x7f041847
+.field public static final zen_mode_none_calls:I = 0x7f04184a
 
-.field public static final zen_mode_none_messages:I = 0x7f041848
+.field public static final zen_mode_none_messages:I = 0x7f04184b
 
-.field public static final zen_mode_other_options:I = 0x7f041849
+.field public static final zen_mode_other_options:I = 0x7f04184c
 
-.field public static final zen_mode_other_sounds_summary:I = 0x7f04184a
+.field public static final zen_mode_other_sounds_summary:I = 0x7f04184d
 
-.field public static final zen_mode_people_all:I = 0x7f04184b
+.field public static final zen_mode_people_all:I = 0x7f04184e
 
-.field public static final zen_mode_people_calls_messages_section_title:I = 0x7f04184c
+.field public static final zen_mode_people_calls_messages_section_title:I = 0x7f04184f
 
-.field public static final zen_mode_people_none:I = 0x7f04184d
+.field public static final zen_mode_people_none:I = 0x7f041850
 
-.field public static final zen_mode_people_some:I = 0x7f04184e
+.field public static final zen_mode_people_some:I = 0x7f041851
 
-.field public static final zen_mode_qs_set_behavior:I = 0x7f04184f
+.field public static final zen_mode_qs_set_behavior:I = 0x7f041852
 
-.field public static final zen_mode_reminders:I = 0x7f041850
+.field public static final zen_mode_reminders:I = 0x7f041853
 
-.field public static final zen_mode_reminders_list:I = 0x7f041851
+.field public static final zen_mode_reminders_list:I = 0x7f041854
 
-.field public static final zen_mode_reminders_list_first:I = 0x7f041852
+.field public static final zen_mode_reminders_list_first:I = 0x7f041855
 
-.field public static final zen_mode_reminders_summary:I = 0x7f041853
+.field public static final zen_mode_reminders_summary:I = 0x7f041856
 
-.field public static final zen_mode_repeat_callers:I = 0x7f041854
+.field public static final zen_mode_repeat_callers:I = 0x7f041857
 
-.field public static final zen_mode_repeat_callers_list:I = 0x7f041855
+.field public static final zen_mode_repeat_callers_list:I = 0x7f041858
 
-.field public static final zen_mode_repeat_callers_summary:I = 0x7f041856
+.field public static final zen_mode_repeat_callers_summary:I = 0x7f041859
 
-.field public static final zen_mode_repeat_callers_title:I = 0x7f041857
+.field public static final zen_mode_repeat_callers_title:I = 0x7f04185a
 
-.field public static final zen_mode_restrict_notifications_category:I = 0x7f041858
+.field public static final zen_mode_restrict_notifications_category:I = 0x7f04185b
 
-.field public static final zen_mode_restrict_notifications_custom:I = 0x7f041859
+.field public static final zen_mode_restrict_notifications_custom:I = 0x7f04185c
 
-.field public static final zen_mode_restrict_notifications_disable_custom:I = 0x7f04185a
+.field public static final zen_mode_restrict_notifications_disable_custom:I = 0x7f04185d
 
-.field public static final zen_mode_restrict_notifications_enable_custom:I = 0x7f04185b
+.field public static final zen_mode_restrict_notifications_enable_custom:I = 0x7f04185e
 
-.field public static final zen_mode_restrict_notifications_hide:I = 0x7f04185c
+.field public static final zen_mode_restrict_notifications_hide:I = 0x7f04185f
 
-.field public static final zen_mode_restrict_notifications_hide_footer:I = 0x7f04185d
+.field public static final zen_mode_restrict_notifications_hide_footer:I = 0x7f041860
 
-.field public static final zen_mode_restrict_notifications_hide_summary:I = 0x7f04185e
+.field public static final zen_mode_restrict_notifications_hide_summary:I = 0x7f041861
 
-.field public static final zen_mode_restrict_notifications_mute:I = 0x7f04185f
+.field public static final zen_mode_restrict_notifications_mute:I = 0x7f041862
 
-.field public static final zen_mode_restrict_notifications_mute_footer:I = 0x7f041860
+.field public static final zen_mode_restrict_notifications_mute_footer:I = 0x7f041863
 
-.field public static final zen_mode_restrict_notifications_mute_summary:I = 0x7f041861
+.field public static final zen_mode_restrict_notifications_mute_summary:I = 0x7f041864
 
-.field public static final zen_mode_restrict_notifications_summary_custom:I = 0x7f041862
+.field public static final zen_mode_restrict_notifications_summary_custom:I = 0x7f041865
 
-.field public static final zen_mode_restrict_notifications_summary_hidden:I = 0x7f041863
+.field public static final zen_mode_restrict_notifications_summary_hidden:I = 0x7f041866
 
-.field public static final zen_mode_restrict_notifications_summary_muted:I = 0x7f041864
+.field public static final zen_mode_restrict_notifications_summary_muted:I = 0x7f041867
 
-.field public static final zen_mode_restrict_notifications_title:I = 0x7f041865
+.field public static final zen_mode_restrict_notifications_title:I = 0x7f041868
 
-.field public static final zen_mode_rule_delete_button:I = 0x7f041866
+.field public static final zen_mode_rule_delete_button:I = 0x7f041869
 
-.field public static final zen_mode_rule_name:I = 0x7f041867
+.field public static final zen_mode_rule_name:I = 0x7f04186a
 
-.field public static final zen_mode_rule_name_edit:I = 0x7f041868
+.field public static final zen_mode_rule_name_edit:I = 0x7f04186b
 
-.field public static final zen_mode_rule_name_hint:I = 0x7f041869
+.field public static final zen_mode_rule_name_hint:I = 0x7f04186c
 
-.field public static final zen_mode_rule_name_warning:I = 0x7f04186a
+.field public static final zen_mode_rule_name_warning:I = 0x7f04186d
 
-.field public static final zen_mode_rule_not_found_text:I = 0x7f04186b
+.field public static final zen_mode_rule_not_found_text:I = 0x7f04186e
 
-.field public static final zen_mode_rule_rename_button:I = 0x7f04186c
+.field public static final zen_mode_rule_rename_button:I = 0x7f04186f
 
-.field public static final zen_mode_rule_summary_enabled_combination:I = 0x7f04186d
+.field public static final zen_mode_rule_summary_enabled_combination:I = 0x7f041870
 
-.field public static final zen_mode_rule_summary_provider_combination:I = 0x7f04186e
+.field public static final zen_mode_rule_summary_provider_combination:I = 0x7f041871
 
-.field public static final zen_mode_rule_type_unknown:I = 0x7f04186f
+.field public static final zen_mode_rule_type_unknown:I = 0x7f041872
 
-.field public static final zen_mode_schedule_alarm_summary:I = 0x7f041870
+.field public static final zen_mode_schedule_alarm_summary:I = 0x7f041873
 
-.field public static final zen_mode_schedule_alarm_title:I = 0x7f041871
+.field public static final zen_mode_schedule_alarm_title:I = 0x7f041874
 
-.field public static final zen_mode_schedule_category_title:I = 0x7f041872
+.field public static final zen_mode_schedule_category_title:I = 0x7f041875
 
-.field public static final zen_mode_schedule_delete:I = 0x7f041873
+.field public static final zen_mode_schedule_delete:I = 0x7f041876
 
-.field public static final zen_mode_schedule_rule_days:I = 0x7f041874
+.field public static final zen_mode_schedule_rule_days:I = 0x7f041877
 
-.field public static final zen_mode_schedule_rule_days_all:I = 0x7f041875
+.field public static final zen_mode_schedule_rule_days_all:I = 0x7f041878
 
-.field public static final zen_mode_schedule_rule_days_none:I = 0x7f041876
+.field public static final zen_mode_schedule_rule_days_none:I = 0x7f041879
 
-.field public static final zen_mode_schedule_title:I = 0x7f041877
+.field public static final zen_mode_schedule_title:I = 0x7f04187a
 
-.field public static final zen_mode_screen_off:I = 0x7f041878
+.field public static final zen_mode_screen_off:I = 0x7f04187b
 
-.field public static final zen_mode_screen_off_summary:I = 0x7f041879
+.field public static final zen_mode_screen_off_summary:I = 0x7f04187c
 
-.field public static final zen_mode_screen_off_summary_no_led:I = 0x7f04187a
+.field public static final zen_mode_screen_off_summary_no_led:I = 0x7f04187d
 
-.field public static final zen_mode_screen_on:I = 0x7f04187b
+.field public static final zen_mode_screen_on:I = 0x7f04187e
 
-.field public static final zen_mode_screen_on_summary:I = 0x7f04187c
+.field public static final zen_mode_screen_on_summary:I = 0x7f04187f
 
-.field public static final zen_mode_settings_category:I = 0x7f04187d
+.field public static final zen_mode_settings_category:I = 0x7f041880
 
-.field public static final zen_mode_settings_dnd_automatic_rule:I = 0x7f04187e
+.field public static final zen_mode_settings_dnd_automatic_rule:I = 0x7f041881
 
-.field public static final zen_mode_settings_dnd_automatic_rule_app:I = 0x7f04187f
+.field public static final zen_mode_settings_dnd_automatic_rule_app:I = 0x7f041882
 
-.field public static final zen_mode_settings_dnd_custom_settings_footer:I = 0x7f041880
+.field public static final zen_mode_settings_dnd_custom_settings_footer:I = 0x7f041883
 
-.field public static final zen_mode_settings_dnd_custom_settings_footer_link:I = 0x7f041881
+.field public static final zen_mode_settings_dnd_custom_settings_footer_link:I = 0x7f041884
 
-.field public static final zen_mode_settings_dnd_manual_end_time:I = 0x7f041882
+.field public static final zen_mode_settings_dnd_manual_end_time:I = 0x7f041885
 
-.field public static final zen_mode_settings_dnd_manual_indefinite:I = 0x7f041883
+.field public static final zen_mode_settings_dnd_manual_indefinite:I = 0x7f041886
 
-.field public static final zen_mode_settings_schedules_summary:I = 0x7f041884
+.field public static final zen_mode_settings_schedules_summary:I = 0x7f041887
 
-.field public static final zen_mode_settings_summary:I = 0x7f041885
+.field public static final zen_mode_settings_summary:I = 0x7f041888
 
-.field public static final zen_mode_settings_summary_off:I = 0x7f041886
+.field public static final zen_mode_settings_summary_off:I = 0x7f041889
 
-.field public static final zen_mode_settings_title:I = 0x7f041887
+.field public static final zen_mode_settings_title:I = 0x7f04188a
 
-.field public static final zen_mode_settings_turn_on_dialog_title:I = 0x7f041888
+.field public static final zen_mode_settings_turn_on_dialog_title:I = 0x7f04188b
 
-.field public static final zen_mode_slice_subtitle:I = 0x7f041889
+.field public static final zen_mode_slice_subtitle:I = 0x7f04188c
 
-.field public static final zen_mode_sound_summary_off:I = 0x7f04188a
+.field public static final zen_mode_sound_summary_off:I = 0x7f04188d
 
-.field public static final zen_mode_sound_summary_on:I = 0x7f04188b
+.field public static final zen_mode_sound_summary_on:I = 0x7f04188e
 
-.field public static final zen_mode_sound_summary_on_with_info:I = 0x7f04188c
+.field public static final zen_mode_sound_summary_on_with_info:I = 0x7f04188f
 
-.field public static final zen_mode_sounds_none:I = 0x7f04188d
+.field public static final zen_mode_sounds_none:I = 0x7f041890
 
-.field public static final zen_mode_starred_callers:I = 0x7f04188e
+.field public static final zen_mode_starred_callers:I = 0x7f041891
 
-.field public static final zen_mode_starred_contacts_empty_name:I = 0x7f04188f
+.field public static final zen_mode_starred_contacts_empty_name:I = 0x7f041892
 
-.field public static final zen_mode_starred_contacts_summary_contacts:I = 0x7f041890
+.field public static final zen_mode_starred_contacts_summary_contacts:I = 0x7f041893
 
-.field public static final zen_mode_starred_contacts_title:I = 0x7f041891
+.field public static final zen_mode_starred_contacts_title:I = 0x7f041894
 
-.field public static final zen_mode_start_time:I = 0x7f041892
+.field public static final zen_mode_start_time:I = 0x7f041895
 
-.field public static final zen_mode_summary_alarms_only_by_time:I = 0x7f041893
+.field public static final zen_mode_summary_alarms_only_by_time:I = 0x7f041896
 
-.field public static final zen_mode_summary_alarms_only_indefinite:I = 0x7f041894
+.field public static final zen_mode_summary_alarms_only_indefinite:I = 0x7f041897
 
-.field public static final zen_mode_summary_always:I = 0x7f041895
+.field public static final zen_mode_summary_always:I = 0x7f041898
 
-.field public static final zen_mode_summary_combination:I = 0x7f041896
+.field public static final zen_mode_summary_combination:I = 0x7f041899
 
-.field public static final zen_mode_system:I = 0x7f041897
+.field public static final zen_mode_system:I = 0x7f04189a
 
-.field public static final zen_mode_system_list:I = 0x7f041898
+.field public static final zen_mode_system_list:I = 0x7f04189b
 
-.field public static final zen_mode_system_list_first:I = 0x7f041899
+.field public static final zen_mode_system_list_first:I = 0x7f04189c
 
-.field public static final zen_mode_system_summary:I = 0x7f04189a
+.field public static final zen_mode_system_summary:I = 0x7f04189d
 
-.field public static final zen_mode_unknown_app_set_behavior:I = 0x7f04189b
+.field public static final zen_mode_unknown_app_set_behavior:I = 0x7f04189e
 
-.field public static final zen_mode_use_automatic_rule:I = 0x7f04189c
+.field public static final zen_mode_use_automatic_rule:I = 0x7f04189f
 
-.field public static final zen_mode_visual_interruptions_settings_title:I = 0x7f04189d
+.field public static final zen_mode_visual_interruptions_settings_title:I = 0x7f0418a0
 
-.field public static final zen_mode_visual_signals_settings_subtitle:I = 0x7f04189e
+.field public static final zen_mode_visual_signals_settings_subtitle:I = 0x7f0418a1
 
-.field public static final zen_mode_what_to_block_title:I = 0x7f04189f
+.field public static final zen_mode_what_to_block_title:I = 0x7f0418a2
 
-.field public static final zen_mode_when:I = 0x7f0418a0
+.field public static final zen_mode_when:I = 0x7f0418a3
 
-.field public static final zen_mode_when_every_night:I = 0x7f0418a1
+.field public static final zen_mode_when_every_night:I = 0x7f0418a4
 
-.field public static final zen_mode_when_never:I = 0x7f0418a2
+.field public static final zen_mode_when_never:I = 0x7f0418a5
 
-.field public static final zen_mode_when_weeknights:I = 0x7f0418a3
+.field public static final zen_mode_when_weeknights:I = 0x7f0418a6
 
-.field public static final zen_msg_event_reminder_footer:I = 0x7f0418a4
+.field public static final zen_msg_event_reminder_footer:I = 0x7f0418a7
 
-.field public static final zen_msg_event_reminder_title:I = 0x7f0418a5
+.field public static final zen_msg_event_reminder_title:I = 0x7f0418a8
 
-.field public static final zen_onboarding_current_setting_summary:I = 0x7f0418a6
+.field public static final zen_onboarding_current_setting_summary:I = 0x7f0418a9
 
-.field public static final zen_onboarding_current_setting_title:I = 0x7f0418a7
+.field public static final zen_onboarding_current_setting_title:I = 0x7f0418aa
 
-.field public static final zen_onboarding_dnd_visual_disturbances_description:I = 0x7f0418a8
+.field public static final zen_onboarding_dnd_visual_disturbances_description:I = 0x7f0418ab
 
-.field public static final zen_onboarding_dnd_visual_disturbances_header:I = 0x7f0418a9
+.field public static final zen_onboarding_dnd_visual_disturbances_header:I = 0x7f0418ac
 
-.field public static final zen_onboarding_more_options:I = 0x7f0418aa
+.field public static final zen_onboarding_more_options:I = 0x7f0418ad
 
-.field public static final zen_onboarding_new_setting_summary:I = 0x7f0418ab
+.field public static final zen_onboarding_new_setting_summary:I = 0x7f0418ae
 
-.field public static final zen_onboarding_new_setting_title:I = 0x7f0418ac
+.field public static final zen_onboarding_new_setting_title:I = 0x7f0418af
 
-.field public static final zen_onboarding_ok:I = 0x7f0418ad
+.field public static final zen_onboarding_ok:I = 0x7f0418b0
 
-.field public static final zen_onboarding_screen_off_summary:I = 0x7f0418ae
+.field public static final zen_onboarding_screen_off_summary:I = 0x7f0418b1
 
-.field public static final zen_onboarding_screen_off_title:I = 0x7f0418af
+.field public static final zen_onboarding_screen_off_title:I = 0x7f0418b2
 
-.field public static final zen_onboarding_screen_on_summary:I = 0x7f0418b0
+.field public static final zen_onboarding_screen_on_summary:I = 0x7f0418b3
 
-.field public static final zen_onboarding_screen_on_title:I = 0x7f0418b1
+.field public static final zen_onboarding_screen_on_title:I = 0x7f0418b4
 
-.field public static final zen_onboarding_settings:I = 0x7f0418b2
+.field public static final zen_onboarding_settings:I = 0x7f0418b5
 
-.field public static final zen_schedule_rule_enabled_toast:I = 0x7f0418b3
+.field public static final zen_schedule_rule_enabled_toast:I = 0x7f0418b6
 
-.field public static final zen_schedule_rule_type_name:I = 0x7f0418b4
+.field public static final zen_schedule_rule_type_name:I = 0x7f0418b7
 
-.field public static final zen_settings_general:I = 0x7f0418b5
+.field public static final zen_settings_general:I = 0x7f0418b8
 
-.field public static final zen_sound_footer:I = 0x7f0418b6
+.field public static final zen_sound_footer:I = 0x7f0418b9
 
-.field public static final zen_suggestion_summary:I = 0x7f0418b7
+.field public static final zen_suggestion_summary:I = 0x7f0418ba
 
-.field public static final zen_suggestion_title:I = 0x7f0418b8
+.field public static final zen_suggestion_title:I = 0x7f0418bb
 
-.field public static final zone_auto_title:I = 0x7f0418b9
+.field public static final zone_auto_title:I = 0x7f0418bc
 
-.field public static final zone_change_to_from_dst:I = 0x7f0418ba
+.field public static final zone_change_to_from_dst:I = 0x7f0418bd
 
-.field public static final zone_info_exemplar_location_and_offset:I = 0x7f0418bb
+.field public static final zone_info_exemplar_location_and_offset:I = 0x7f0418be
 
-.field public static final zone_info_footer:I = 0x7f0418bc
+.field public static final zone_info_footer:I = 0x7f0418bf
 
-.field public static final zone_info_footer_no_dst:I = 0x7f0418bd
+.field public static final zone_info_footer_no_dst:I = 0x7f0418c0
 
-.field public static final zone_info_offset_and_name:I = 0x7f0418be
+.field public static final zone_info_offset_and_name:I = 0x7f0418c1
 
-.field public static final zone_menu_by_offset:I = 0x7f0418bf
+.field public static final zone_menu_by_offset:I = 0x7f0418c2
 
-.field public static final zone_menu_by_region:I = 0x7f0418c0
+.field public static final zone_menu_by_region:I = 0x7f0418c3
 
-.field public static final zone_time_type_dst:I = 0x7f0418c1
+.field public static final zone_time_type_dst:I = 0x7f0418c4
 
-.field public static final zone_time_type_standard:I = 0x7f0418c2
+.field public static final zone_time_type_standard:I = 0x7f0418c5
 
 
 # direct methods

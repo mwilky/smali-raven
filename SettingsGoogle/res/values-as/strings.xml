@@ -4,7 +4,7 @@
     <string name="accelerometer_title">স্বয়ং-ঘূৰ্ণন স্ক্ৰীন</string>
     <string name="adaptive_sleep_title">স্ক্ৰীনৰ সতর্কতা</string>
     <string name="additional_system_update_settings_list_item_title">অতিৰিক্ত ছিষ্টেম আপডেইটসমূহ</string>
-    <string name="ambient_display_category_triggers">কেতিয়া দেখুওৱাব</string>
+    <string name="ambient_display_category_triggers">"কেতিয়া দেখুওৱা হ'ব"</string>
     <string name="ambient_display_pickup_title">ফ’ন চাবলৈ তোলক</string>
     <string name="ambient_display_tap_screen_title">ফ’নটো পৰীক্ষা কৰিবলৈ টিপক</string>
     <string name="ambient_display_title">"ফ'ন চাবলৈ দুবাৰ টুকুৰিয়াওক"</string>
@@ -59,10 +59,10 @@
     <string name="lockscreen_bypass_title">লক স্ক্ৰীন এৰি যাওক</string>
     <string name="lock_screen_notifications_title">গোপনীয়তা</string>
     <string name="lockscreen_settings_title">লক স্ক্ৰীন</string>
-    <string name="lockscreen_settings_what_to_show_category">কি কি দেখুওৱাব লাগে</string>
+    <string name="lockscreen_settings_what_to_show_category">"কি দেখুওৱা হ'ব"</string>
     <string name="night_display_title">ৰাতিৰ পোহৰ</string>
     <string name="owner_info_settings_summary">নাই</string>
-    <string name="owner_info_settings_title">লক স্ক্ৰীনত পাঠ যোগ কৰক</string>
+    <string name="owner_info_settings_title">লক স্ক্ৰীনত পাঠ যোগ দিয়ক</string>
     <string name="power_menu_setting_name">পাৱাৰ বুটামটো টিপি ধৰি ৰাখক</string>
     <string name="profile_section_header">কৰ্মস্থান সম্পৰ্কীয় জাননীসমূহ</string>
     <string name="reset_dashboard_summary">নেটৱৰ্ক, এপ্ বা ডিভাইচ ৰিছেট কৰিব পৰা যায়</string>
@@ -518,7 +518,7 @@
     <string name="advanced_security_title">উচ্চখাপৰ ছেটিংসমূহ</string>
     <string name="advanced_settings">উচ্চখাপৰ ছেটিং</string>
     <string name="advanced_settings_summary">ছেটিঙৰ অধিক বিকল্প সক্ষম কৰক</string>
-    <string name="airplane_mode">"এয়াৰপ্লেইন ম'ড"</string>
+    <string name="airplane_mode">এয়াৰপ্লে’ন ম’ড</string>
     <string name="alarm_ringtone_title">"এলাৰ্মৰ ডিফ'ল্ট ধ্বনি"</string>
     <string name="alarm_template">%1$s বজাত</string>
     <string name="alarm_template_far">%1$s বজাত</string>
@@ -697,7 +697,7 @@
     <string name="assist_flash_title">ফ্লাশ্ব স্ক্ৰীন</string>
     <string name="assist_footer">আপুনি স্ক্ৰীনত চাই থকা তথ্য অনুসৰি সহায়ক এপে আপোনাক সহায় কৰিব পাৰে। কিছুমান এপে লঞ্চাৰ আৰু ধ্বনি ইনপুট দুয়োটা সেৱাই আগবঢ়াব পাৰে যাৰ দ্বাৰা আপুনি একীকৃত সহায় লাভ কৰিব পাৰে।</string>
     <string name="assist_gesture_enrollment_continue_to_assistant">Assistantৰ ব্যৱহাৰ অব্যাহত ৰাখক</string>
-    <string name="assist_gesture_enrollment_do_it_later">এইটো পিছত কৰিব</string>
+    <string name="assist_gesture_enrollment_do_it_later">এইটো পাছত কৰিব</string>
     <string name="assist_gesture_enrollment_seekbar_light">মিহিকৈ হেঁচা দিয়া</string>
     <string name="assist_gesture_enrollment_seekbar_strong">দৃঢ়ভাৱে হেঁচা দিয়া</string>
     <string name="assist_gesture_enrollment_settings">ছেটিং</string>
@@ -1538,7 +1538,7 @@
     <string name="character_counter_content_description">%2$dটাৰ ভিতৰত %1$dটা বৰ্ণ লিখা হৈছে</string>
     <string name="character_counter_overflowed_content_description">%2$dটাৰ ভিতৰত %1$dটা বৰ্ণৰ সীমা অতিক্ৰম কৰিছে</string>
     <string name="charge_length_format">%1$s আগত</string>
-    <string name="charging_sounds_title">চ্চাৰ্জ কৰাৰ ধ্বনি আৰু কম্পন</string>
+    <string name="charging_sounds_title">চাৰ্জ কৰাৰ ধ্বনি আৰু কম্পন</string>
     <string name="checkbox_notification_same_as_incoming_call">জাননীসমূহৰ বাবে অন্তৰ্গামী কল ভলিউম ব্যৱহাৰ কৰক</string>
     <string name="checking_decryption">পৰীক্ষা কৰি থকা হৈছে…</string>
     <string name="choose_network_title">নেটৱৰ্ক বাছনি কৰক</string>
@@ -1573,7 +1573,7 @@
     <string name="color_mode_option_boosted">বৃদ্ধি কৰা</string>
     <string name="color_mode_option_natural">প্ৰাকৃতিক</string>
     <string name="color_mode_option_saturated">সংপৃক্ত</string>
-    <string name="color_mode_summary_automatic">উজ্জ্বল আৰু সঠীক ৰংৰ মাজত মিলাওক</string>
+    <string name="color_mode_summary_automatic">উজ্জ্বল আৰু সঠিক ৰঙৰ মাজত মিলাওক</string>
     <string name="color_mode_summary_natural">মাত্ৰ সঠীক ৰংৰবোৰ ব্যৱহাৰ কৰক</string>
     <string name="color_none">একো নাই</string>
     <string name="color_orange">কমলা</string>
@@ -2393,7 +2393,7 @@
     <string name="face_add_max">আপুনি %dলৈকে মুখমণ্ডল যোগ কৰিব পাৰে</string>
     <string name="face_enrolling_center_head">আপোনাৰ মুখাৱয়ব ভিতৰৰ ফ্ৰে’মটোত খাপ খুৱাওক</string>
     <string name="face_enrolling_description">আটাইবোৰ টাইল আঁতৰাই আপোনাৰ মুখমণ্ডল সকলো কোণৰ পৰা কেপচ্চাৰ কৰক।</string>
-    <string name="face_enrolling_do_it_later">এইটো পিছত কৰিব</string>
+    <string name="face_enrolling_do_it_later">এইটো পাছত কৰিব</string>
     <string name="face_enrolling_gaze_dialog_cancel">বাতিল কৰক</string>
     <string name="face_enrolling_gaze_dialog_continue">চকু মেলি নৰখাকৈ ছেট আপ কৰক</string>
     <string name="face_enrolling_gaze_dialog_message">আপুনি নিজৰ দুচকু মেলিব নলগাকৈয়ে ফেচ আনলক ছেট আপ কৰিবলৈ বিচাৰে নেকি? আপুনি যদি এই ধৰণে ছেট আপ কৰে, তেন্তে অন্য লোকে আপোনাৰ অজ্ঞাতে আপোনাৰ ফ’নটো আপোনাৰ মুখৰ ফালে পোনাই সেইটো আনলক কৰিব পাৰিব।</string>
@@ -2522,8 +2522,8 @@
     <string name="fullbackup_erase_dialog_message">ডিভাইচ ডেটা (যেনে ৱাই-ফাই পাছৱর্ডবোৰ আৰু কলৰ ইতিহাস) আৰু এপ্ ডেটা (যেনে এপবোৰে সঞ্চয় কৰা ছেটিং আৰু ফাইলবোৰ)ৰ বেক আপ লোৱা বন্ধ কৰাৰ লগতে Google Driveৰ আটাইবোৰ প্ৰতিলিপি মচিবনে?</string>
     <string name="gadget_picker_title">গেজেট বাছনি কৰক</string>
     <string name="game_controller_settings_category">গেইম নিয়ন্ত্ৰক</string>
-    <string name="game_dashboard_always_on_summary">"গে'মত গে’ম ডেশ্বব’ৰ্ডৰ শ্বৰ্টকাট দেখুৱাওক"</string>
-    <string name="game_dashboard_always_on_title">গে’ম ডেশ্বব’ৰ্ড</string>
+    <string name="game_dashboard_always_on_summary">সকলো খেলতে সকলো চিহ্ন দেখুৱাওক (ওপৰলৈ বা তললৈ ছোৱাইপ নকৰাকৈ)</string>
+    <string name="game_dashboard_always_on_title">"গেম ডেশ্বব'ৰ্ডৰ ওপঙা চিহ্ন"</string>
     <string name="game_dashboard_dnd_rule_name">গে’মিং</string>
     <string name="game_dashboard_dnd_summary">গে’ম খেলি থকা অৱস্থাত কেৱল গুৰুত্বপূৰ্ণ লোক আৰু এপ্‌সমূহৰ পৰা জাননী পাওক</string>
     <string name="game_dashboard_dnd_title">গে’ম খেলি থকা অৱস্থাত অসুবিধা নিদিব সুবিধাৰ ব্যৱহাৰ</string>
@@ -3542,7 +3542,7 @@
     <string name="night_display_activation_on_twilight">সূৰ্যোদয় নোহোৱালৈকে অন কৰি ৰাখক</string>
     <string name="night_display_auto_mode_custom">কাষ্টম সময়ত অন হয়</string>
     <string name="night_display_auto_mode_never">নাই</string>
-    <string name="night_display_auto_mode_title">সূচী</string>
+    <string name="night_display_auto_mode_title">সময়সূচী</string>
     <string name="night_display_auto_mode_twilight">সূৰ্যাস্তৰ পৰা সূৰ্যোদয়লৈ অন হয়</string>
     <string name="night_display_end_time_title">সমাপ্ত হোৱাৰ সময়</string>
     <string name="night_display_not_currently_on">ৰাতিৰ লাইট বৰ্তমান অন নাই</string>
@@ -4277,7 +4277,7 @@
     <string name="screen_pinning_unlock_pin">আনপিন কৰোতে পাছৱৰ্ড বিচাৰক</string>
     <string name="screen_reader_category_title">স্ক্ৰীন ৰীডাৰ</string>
     <string name="screen_time_summary_usage_today">আজি %1$s</string>
-    <string name="screen_timeout_summary">নিস্ক্ৰিয় হৈ থকাৰ %1$s পিছৰ</string>
+    <string name="screen_timeout_summary">%1$s নিস্ক্ৰিয় হৈ থকাৰ পাছত</string>
     <string name="screen_timeout_title">স্ক্ৰীন অফ হৈ যায়</string>
     <string name="screen_usage_summary">সম্পূৰ্ণকৈ চ্চাৰ্জ হোৱাৰ পাছত স্ক্ৰীন অন হৈ থকা সময়</string>
     <string name="screen_zoom_conversation_icon_alex">অ</string>
@@ -4494,7 +4494,7 @@ g.co/pixel/faceunlockত অধিক জানক।"</string>
 
 আপুনি এতিয়াও ক্ৰয়ৰ আৰু এপৰ এক্সেছৰ অনুমতি দিবলৈ ফিংগাৰপ্ৰিণ্ট ব্যৱহাৰ কৰি থাকিব পাৰে। "<annotation id="url">অধিক জানক</annotation></string>
     <string name="security_settings_fingerprint_enroll_done">সম্পন্ন হ’ল</string>
-    <string name="security_settings_fingerprint_enroll_enrolling_skip">এইটো পিছত কৰিব</string>
+    <string name="security_settings_fingerprint_enroll_enrolling_skip">এইটো পাছত কৰিব</string>
     <string name="security_settings_fingerprint_enroll_error_dialog_title">"ছেটআপ সম্পূৰ্ণ নহ'ল"</string>
     <string name="security_settings_fingerprint_enroll_error_generic_dialog_message">"ফিংগাৰপ্ৰিণ্ট যোগ দিব পৰা নগ'ল। পুনৰ চেষ্টা কৰক বা বেলেগ এটা আঙুলি ব্যৱহাৰ কৰক।"</string>
     <string name="security_settings_fingerprint_enroll_error_timeout_dialog_message">ফিংগাৰপ্ৰিণ্ট অন্তৰ্ভুক্ত কৰাৰ সময় উকলিল। পুনৰাই চেষ্টা কৰক।</string>
@@ -4531,7 +4531,7 @@ g.co/pixel/faceunlockত অধিক জানক।"</string>
     <string name="security_settings_fingerprint_enroll_start_title">ছেন্সৰটো স্পৰ্শ কৰক</string>
     <string name="security_settings_fingerprint_enroll_touch_dialog_message">"আপোনাৰ ফ'নটোৰ পিছফালে থকা ছেন্সৰটো স্পৰ্শ কৰক৷ আপোনাৰ তৰ্জনী আঙুলি ব্যৱহাৰ কৰক৷"</string>
     <string name="security_settings_fingerprint_enroll_touch_dialog_title">"অ'হ, এইটো ছেন্সৰ নহয় দেই"</string>
-    <string name="security_settings_fingerprint_enroll_udfps_title">ফিংগাৰপ্ৰিণ্ট ছেন্সটোৰ স্পৰ্শ কৰি ধৰি ৰাখক</string>
+    <string name="security_settings_fingerprint_enroll_udfps_title">ফিংগাৰপ্ৰিণ্ট ছেন্সৰটোত স্পৰ্শ কৰি ধৰি ৰাখক</string>
     <string name="security_settings_fingerprint_preference_summary_none">ফিংগাৰপ্ৰিণ্ট ছেট আপ কৰিবলৈ টিপক</string>
     <string name="security_settings_fingerprint_preference_title">Nexus Imprint</string>
     <string name="security_settings_fingerprint_v2_enroll_acquire_already_enrolled">এই ফিংগাৰপ্ৰিণ্টটো ইতিমধ্যে যোগ দিয়া হৈছে</string>
@@ -4559,7 +4559,7 @@ g.co/pixel/faceunlockত অধিক জানক।"</string>
 "<annotation id="url">অধিক জানক</annotation></string>
     <string name="security_settings_summary">"মোৰ অৱস্থান, স্ক্ৰীন আনলক, ছিম কাৰ্ডৰ লক, ক্ৰিডেনশ্বিয়েল ষ্ট'ৰেজৰ লক ছেট কৰক"</string>
     <string name="security_settings_title">সুৰক্ষা</string>
-    <string name="security_settings_udfps_enroll_a11y">ছেন্সৰটো বিচাৰিবলৈ আপোনাৰ আঙুলিটো স্ক্ৰীনখনৰ চাৰিওফালে ঘূৰাওক। ফিংগাৰপ্ৰিণ্ট ছেন্সটোৰ স্পৰ্শ কৰি ধৰি ৰাখক।</string>
+    <string name="security_settings_udfps_enroll_a11y">ছেন্সৰটো বিচাৰিবলৈ আপোনাৰ আঙুলিটো স্ক্ৰীনখনৰ চাৰিওফালে ঘূৰাওক। ফিংগাৰপ্ৰিণ্ট ছেন্সৰটোত স্পৰ্শ কৰি ধৰি ৰাখক।</string>
     <string name="security_settings_udfps_enroll_edge_message">আপোনাৰ ফিংগাৰপ্ৰিণ্টৰ কাষটো ছেন্সৰটোত ৰাখি অলপ সময় ধৰি থাকক, তাৰ পাছত আনটো কাষ ৰাখক</string>
     <string name="security_settings_udfps_enroll_edge_title">অৱশেষত, আপোনাৰ আঙুলিটোৰ কাষকেইটা ব্যৱহাৰ কৰক</string>
     <string name="security_settings_udfps_enroll_find_sensor_message">ফিংগাৰপ্ৰিণ্ট ছেন্সৰটো আপোনাৰ স্ক্ৰীনত আছে। আপুনি পৰৱৰ্তী স্ক্ৰীনখনত নিজৰ ফিংগাৰপ্ৰিণ্ট কেপচাৰ কৰিব।</string>
@@ -4572,6 +4572,8 @@ g.co/pixel/faceunlockত অধিক জানক।"</string>
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">ফিংগাৰপ্ৰিণ্টৰ চিহ্নটো অনুসৰণ কৰক</string>
     <string name="security_settings_udfps_enroll_start_message">আপুনি এটা কম্পন অনুভৱ নকৰালৈকে নিজৰ আঙুলিৰ সমান অংশটো ছেন্সৰটোত ৰাখক</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">আৰু এবাৰ</string>
+    <string name="security_settings_udfps_side_fingerprint_help">আপোনাৰ ফিংগাৰপ্ৰিণ্টৰ কাষটো ছেন্সৰটোত ৰাখি অলপ সময় ধৰি থাকক, তাৰ পাছত আনটো কাষ ৰাখক</string>
+    <string name="security_settings_udfps_tip_fingerprint_help">ওপৰলৈ উঠাওক, তাৰ পাছত পুনৰ স্পৰ্শ কৰক</string>
     <string name="security_settings_work_fingerprint_preference_title">কৰ্মস্থানৰ বাবে Pixel সাঁচ</string>
     <string name="security_status_title">সুৰক্ষা স্থিতি</string>
     <string name="see_less">কমকৈ চাওক</string>
@@ -5532,6 +5534,7 @@ g.co/pixel/faceunlockত অধিক জানক।"</string>
     <string name="verify_apps_over_usb_title">ইউএছবিৰ যোগেৰে এপৰ সত্যাপন কৰক</string>
     <string name="version_text">সংস্কৰণ %1$s</string>
     <string name="vibrate_for_calls_settings_not_available_summary">ফ’নটো নীৰৱ হিচাপে ছেট কৰি থোৱাৰ কাৰণে কল আহিলে কম্পন হোৱা সুবিধাটো উপলব্ধ নহয়</string>
+    <string name="vibrate_icon_title">কম্পন ম’ডত থকাৰ সময়ত সদায় চিহ্নটো দেখুৱাওক</string>
     <string name="vibrate_in_silent_title">"নীৰৱ হৈ থাকোতে কম্পন হ'ব"</string>
     <string name="vibrate_input_devices">কম্পনক পুনৰ নিৰ্দেশিত কৰক</string>
     <string name="vibrate_input_devices_summary">"গেইম নিয়ন্ত্ৰক সংযোজিত হ'লে তালৈ কম্পন পঠিয়াওক"</string>

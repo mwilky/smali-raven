@@ -502,7 +502,7 @@
 
     iput-object v1, p0, Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;->mAllNotificationsToggle:Lcom/android/settingslib/RestrictedSwitchPreference;
 
-    const v0, 0x7f0417fb
+    const v0, 0x7f0417fe    # 1.7558267E38f
 
     invoke-virtual {v1, v0}, Landroidx/preference/Preference;->setTitle(I)V
 

@@ -180,7 +180,7 @@
 
     sget-object v0, Lcom/android/settings/network/InternetPreferenceController;->sSummaryMap:Ljava/util/Map;
 
-    const v1, 0x7f0413f6
+    const v1, 0x7f0413f8
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 

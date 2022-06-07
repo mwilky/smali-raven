@@ -2278,18 +2278,18 @@ Detta gör det lättare att skydda data på borttappade eller stulna enheter. Vi
     <string name="encryption_interstitial_message_password_for_fingerprint">"Förutom att låsa upp enheten med fingeravtryck kan du skydda den med ett lösenord som måste anges vid start. Enheten kan inte ta emot samtal, meddelanden eller aviseringar (inklusive alarm) innan den har startats.
 
 Detta gör det lättare att skydda data på borttappade eller stulna enheter. Vill du att lösenordet ska krävas när enheten startas?"</string>
-    <string name="encryption_interstitial_message_pattern">"Du kan skydda enheten ytterligare genom att kräva att det grafiska lösenordet måste anges när den startas. Innan enheten startar går det inte att ta emot samtal, meddelanden eller aviseringar, inklusive alarm. 
+    <string name="encryption_interstitial_message_pattern">"Du kan skydda enheten ytterligare genom att kräva att mönstret måste anges när den startas. Innan enheten startar går det inte att ta emot samtal, meddelanden eller aviseringar, inklusive alarm. 
 
-Detta gör det lättare att skydda data på borttappade eller stulna enheter. Vill du att det grafiska lösenordet ska krävas när enheten startar?"</string>
+Detta gör det lättare att skydda data på borttappade eller stulna enheter. Vill du att mönstret ska krävas när enheten startar?"</string>
     <string name="encryption_interstitial_message_pattern_for_biometrics">"Förutom att låsa upp enheten med biometri kan du skydda den med ett mönster som måste anges vid start. Innan enheten startar går det inte att ta emot samtal, meddelanden eller aviseringar, inklusive alarm.
 
 Detta gör det lättare att skydda data på borttappade eller stulna enheter. Vill du att mönster ska krävas när enheten startar?"</string>
-    <string name="encryption_interstitial_message_pattern_for_face">"Förutom att låsa upp enheten med ditt ansikte kan du skydda enheten ytterligare genom att kräva att det grafiska lösenordet måste anges när den startas. Enheten kan inte ta emot samtal, meddelanden eller aviseringar (inklusive alarm) innan den har startats.
+    <string name="encryption_interstitial_message_pattern_for_face">"Förutom att låsa upp enheten med ditt ansikte kan du skydda enheten ytterligare genom att kräva att mönstret måste anges när den startas. Enheten kan inte ta emot samtal, meddelanden eller aviseringar (inklusive alarm) innan den har startats.
 
-Detta gör det lättare att skydda data på borttappade eller stulna enheter. Vill du att det grafiska lösenordet ska krävas när enheten startar?"</string>
-    <string name="encryption_interstitial_message_pattern_for_fingerprint">"Förutom att använda fingeravtryck kan du skydda enheten ytterligare genom att kräva att det grafiska lösenordet måste anges när den startas. Innan enheten startar går det inte att ta emot samtal, meddelanden eller aviseringar, inklusive alarm.
+Detta gör det lättare att skydda data på borttappade eller stulna enheter. Vill du att mönstret ska krävas när enheten startar?"</string>
+    <string name="encryption_interstitial_message_pattern_for_fingerprint">"Förutom att använda fingeravtryck kan du skydda enheten ytterligare genom att kräva att mönstret måste anges när den startas. Innan enheten startar går det inte att ta emot samtal, meddelanden eller aviseringar, inklusive alarm.
 
-Detta gör det lättare att skydda data på borttappade eller stulna enheter. Vill du att det grafiska lösenordet ska krävas när enheten startar?"</string>
+Detta gör det lättare att skydda data på borttappade eller stulna enheter. Vill du att mönstret ska krävas när enheten startar?"</string>
     <string name="encryption_interstitial_message_pin">"Du kan skydda enheten ytterligare genom att kräva att pinkoden måste anges när den startas. Innan enheten startar går det inte att ta emot samtal, meddelanden eller aviseringar, inklusive alarm. 
 
 Detta gör det lättare att skydda data på borttappade eller stulna enheter. Vill du att pinkoden ska krävas när enheten startar?"</string>
@@ -2511,7 +2511,7 @@ Det tycktes inte finnas några hästar eller några slags djur; männen drog omk
     <string name="force_stop_dlg_title">Vill du framtvinga avslutning?</string>
     <string name="forget">Glöm</string>
     <string name="forget_passpoint_dialog_message">Du kan förlora kvarstående tid eller data. Hör med operatören innan du raderar.</string>
-    <string name="forgot_password_text">Administratören kan hjälpa dig att återställa pinkoden, lösenordet eller det grafiska lösenordet</string>
+    <string name="forgot_password_text">Administratören kan hjälpa dig att återställa pinkoden, lösenordet eller mönstret</string>
     <string name="forgot_password_title">Kontakta IT-administratören</string>
     <string name="free_memory">Ledigt</string>
     <string name="fullbackup_data_summary">"Säkerhetskopiera data på enheten (t.ex. wifi-lösenord och samtalshistorik) och appdata (t.ex. inställningar och filer som har sparats i appar) automatiskt på Google Drive.
@@ -2522,8 +2522,8 @@ Säkerhetskopierad data räknas inte in i ditt lagringsutrymme på Drive. Stora 
     <string name="fullbackup_erase_dialog_message">Vill du sluta säkerhetskopiera enhetsdata (t.ex. wifi-lösenord och samtalshistorik) och appdata (t.ex. inställningar och filer som har sparats i appar), och radera alla kopior på Google Drive?</string>
     <string name="gadget_picker_title">Välj gadget</string>
     <string name="game_controller_settings_category">Spelkontroller</string>
-    <string name="game_dashboard_always_on_summary">Visa genväg i Spelöversikt i spel</string>
-    <string name="game_dashboard_always_on_title">Spelöversikt</string>
+    <string name="game_dashboard_always_on_summary">Visa ikonen i alla spel (utan att svepa uppåt eller nedåt)</string>
+    <string name="game_dashboard_always_on_title">Flytande ikon för Spelöversikt</string>
     <string name="game_dashboard_dnd_rule_name">Spel</string>
     <string name="game_dashboard_dnd_summary">Få bara aviseringar från viktiga personer och appar när du spelar</string>
     <string name="game_dashboard_dnd_title">Stör ej för spel</string>
@@ -3077,24 +3077,24 @@ En pinkod skyddar telefonen om den kommer bort eller blir stulen."</string>
     <string name="lockpassword_confirm_your_password_generic_profile">Ange lösenordet för jobbprofilen om du vill fortsätta</string>
     <string name="lockpassword_confirm_your_password_header">Ange ditt lösenord igen</string>
     <string name="lockpassword_confirm_your_password_header_frp">Bekräfta lösenordet</string>
-    <string name="lockpassword_confirm_your_pattern_details_frp">Mobilen återställdes till standardinställningarna. Ange det tidigare grafiska lösenordet.</string>
-    <string name="lockpassword_confirm_your_pattern_generic">Ange det grafiska lösenordet för enheten om du vill fortsätta</string>
-    <string name="lockpassword_confirm_your_pattern_generic_profile">Ange det grafiska lösenordet för jobbprofilen om du vill fortsätta</string>
+    <string name="lockpassword_confirm_your_pattern_details_frp">Mobilen återställdes till standardinställningarna. Ange det tidigare mönstret.</string>
+    <string name="lockpassword_confirm_your_pattern_generic">Ange mönstret för enheten om du vill fortsätta</string>
+    <string name="lockpassword_confirm_your_pattern_generic_profile">Ange mönstret för jobbprofilen om du vill fortsätta</string>
     <string name="lockpassword_confirm_your_pattern_header">Bekräfta mönster</string>
-    <string name="lockpassword_confirm_your_pattern_header_frp">Bekräfta det grafiska lösenordet</string>
+    <string name="lockpassword_confirm_your_pattern_header_frp">Bekräfta mönstret</string>
     <string name="lockpassword_confirm_your_pin_details_frp">Mobilen återställdes till standardinställningarna. Ange den tidigare pinkoden.</string>
     <string name="lockpassword_confirm_your_pin_generic">Ange pinkoden för enheten om du vill fortsätta</string>
     <string name="lockpassword_confirm_your_pin_generic_profile">Ange pinkoden för jobbprofilen om du vill fortsätta</string>
     <string name="lockpassword_confirm_your_pin_header">Ange din pinkod igen</string>
     <string name="lockpassword_confirm_your_pin_header_frp">Bekräfta pinkoden</string>
     <string name="lockpassword_confirm_your_work_password_header">Ange lösenordet för jobbprofilen</string>
-    <string name="lockpassword_confirm_your_work_pattern_header">Ange det grafiska lösenordet</string>
+    <string name="lockpassword_confirm_your_work_pattern_header">Ange mönstret</string>
     <string name="lockpassword_confirm_your_work_pin_header">Ange pinkoden för jobbprofilen</string>
     <string name="lockpassword_continue_label">Fortsätt</string>
     <string name="lockpassword_credential_changed">Skärmlåset har redan bytts. Testa igen med det nya skärmlåset.</string>
-    <string name="lockpassword_draw_your_pattern_again_header">Rita det grafiska lösenordet igen</string>
+    <string name="lockpassword_draw_your_pattern_again_header">Rita mönstret igen</string>
     <string name="lockpassword_forgot_password">Har du glömt lösenordet?</string>
-    <string name="lockpassword_forgot_pattern">Har du glömt det grafiska lösenordet?</string>
+    <string name="lockpassword_forgot_pattern">Har du glömt mönstret?</string>
     <string name="lockpassword_forgot_pin">Har du glömt pinkoden?</string>
     <string name="lockpassword_illegal_character">Får inte innehålla ogiltiga tecken</string>
     <string name="lockpassword_invalid_password">Fel lösenord</string>
@@ -3111,10 +3111,10 @@ En pinkod skyddar telefonen om den kommer bort eller blir stulen."</string>
     <string name="lockpassword_reenter_your_profile_password_header">Ange lösenordet för jobbet igen</string>
     <string name="lockpassword_reenter_your_profile_pin_header">Ange pinkoden för jobbet igen</string>
     <string name="lockpassword_strong_auth_required_device_password">Ange enhetens lösenord för att öka säkerheten.</string>
-    <string name="lockpassword_strong_auth_required_device_pattern">Använd det grafiska lösenordet för enheten för att öka säkerheten</string>
+    <string name="lockpassword_strong_auth_required_device_pattern">Använd mönstret för enheten för att öka säkerheten</string>
     <string name="lockpassword_strong_auth_required_device_pin">Ange enhetens pinkod för att öka säkerheten</string>
     <string name="lockpassword_strong_auth_required_work_password">Ange lösenordet för jobbprofilen för att öka säkerheten</string>
-    <string name="lockpassword_strong_auth_required_work_pattern">Använd det grafiska lösenordet för jobbprofilen för att öka säkerheten</string>
+    <string name="lockpassword_strong_auth_required_work_pattern">Använd mönstret för jobbprofilen för att öka säkerheten</string>
     <string name="lockpassword_strong_auth_required_work_pin">Ange pinkoden för jobbprofilen för att öka säkerheten</string>
     <string name="lockpattern_change_lock_pattern_label">Byt mönster</string>
     <string name="lockpattern_change_lock_pin_label">Ändra PIN-kod för upplåsning</string>
@@ -3124,7 +3124,7 @@ En pinkod skyddar telefonen om den kommer bort eller blir stulen."</string>
     <string name="lockpattern_need_to_confirm">Rita ditt grafiska lösenord igen för att bekräfta</string>
     <string name="lockpattern_need_to_unlock_wrong">Fel mönster</string>
     <string name="lockpattern_pattern_confirmed_header">Ditt nya grafiska lösenord</string>
-    <string name="lockpattern_pattern_entered_header">Det grafiska lösenordet har registrerats</string>
+    <string name="lockpattern_pattern_entered_header">Mönstret har registrerats</string>
     <string name="lockpattern_recording_incorrect_too_short">Anslut minst %d punkter. Försök igen.</string>
     <string name="lockpattern_recording_inprogress">Lyft fingret när du är klar</string>
     <string name="lockpattern_recording_intro_footer">Tryck på Menu om du vill ha hjälp.</string>
@@ -3138,7 +3138,7 @@ En pinkod skyddar telefonen om den kommer bort eller blir stulen."</string>
     <string name="lockpattern_settings_enable_tactile_feedback_title">Vibrera vid tryck</string>
     <string name="lockpattern_settings_enable_title">Begär mönster</string>
     <string name="lockpattern_settings_enable_visible_pattern_title">Gör mönster synligt</string>
-    <string name="lockpattern_settings_enable_visible_pattern_title_profile">Gör det grafiska lösenordet för profilen synligt</string>
+    <string name="lockpattern_settings_enable_visible_pattern_title_profile">Gör mönstret för profilen synligt</string>
     <string name="lockpattern_settings_help_how_to_record">Så här ritar du ett mönster</string>
     <string name="lockpattern_settings_power_button_instantly_locks_summary">Utom när den hålls olåst av %1$s</string>
     <string name="lockpattern_settings_require_cred_before_startup">Säker start</string>
@@ -4413,7 +4413,7 @@ När du använder ansiktslås uppdateras ansiktsmodellen med hjälp av bilder. D
     <string name="security_settings_face_enroll_introduction_info_consent_looking">Om ditt barn tittar på telefonen kan barnet oavsiktligt låsa upp den. Telefonen kanske kan låsas upp av någon som är mycket lik ditt barn, till exempel ett syskon, eller om någon håller upp den framför barnets ansikte.</string>
     <string name="security_settings_face_enroll_introduction_info_gaze">Dina ögon kan behöva vara öppna för att låsa upp telefonen med ansiktslåset eller verifiera din identitet. Du kan när som helst aktivera inställningen i Inställningar.</string>
     <string name="security_settings_face_enroll_introduction_info_glasses">Glasögon eller solglasögon i en ljus ton är okej.</string>
-    <string name="security_settings_face_enroll_introduction_info_less_secure">Att låsa upp telefonen med ansiktet kan vara mindre säkert än ett starkt grafiskt lösenord eller en stark pinkod.</string>
+    <string name="security_settings_face_enroll_introduction_info_less_secure">Att låsa upp telefonen med ansiktet kan vara mindre säkert än ett starkt mönster eller en stark pinkod.</string>
     <string name="security_settings_face_enroll_introduction_info_looking">Om du tittar på telefonen kan du oavsiktligt låsa upp den. Telefonen kanske kan låsas upp av någon som är mycket lik dig, till exempel ett syskon, eller om någon håller upp den framför ditt ansikte.</string>
     <string name="security_settings_face_enroll_introduction_info_title">Kom ihåg</string>
     <string name="security_settings_face_enroll_introduction_message">Lås upp telefonen eller verifiera din identitet med ditt ansikte, till exempel när du loggar in i appar eller godkänner ett köp.</string>
@@ -4476,7 +4476,7 @@ Telefonen kanske kan låsas upp av någon som är mycket lik dig, till exempel e
 Efter borttagningen behöver du pinkod, lösenord eller mönster för att låsa upp telefonen och för autentisering i appar."</string>
     <string name="security_settings_face_settings_remove_dialog_details_convenience">"Ansiktsmodellen raderas permanent på ett säkert sätt.
 
-Efter borttagningen behöver du pinkod, lösenord eller grafiskt lösenord för att låsa upp telefonen."</string>
+Efter borttagningen behöver du pinkod, lösenord eller mönster för att låsa upp telefonen."</string>
     <string name="security_settings_face_settings_remove_dialog_title">Vill du radera ansiktsmodellen?</string>
     <string name="security_settings_face_settings_remove_face_model">Radera ansiktsmodell</string>
     <string name="security_settings_face_settings_require_attention">Du måste ha ögonen öppna</string>
@@ -4531,7 +4531,7 @@ Obs! Det går inte att låsa upp den här enheten med ett fingeravtryck. Kontakt
     <string name="security_settings_fingerprint_enroll_start_title">Tryck på sensorn</string>
     <string name="security_settings_fingerprint_enroll_touch_dialog_message">Tryck på sensorn på mobilens baksida. Använd pekfingret.</string>
     <string name="security_settings_fingerprint_enroll_touch_dialog_title">Hoppsan! Det där är inte sensorn</string>
-    <string name="security_settings_fingerprint_enroll_udfps_title">Tryck länge på fingeravtryckssensorn</string>
+    <string name="security_settings_fingerprint_enroll_udfps_title">Håll fingret på sensorn</string>
     <string name="security_settings_fingerprint_preference_summary_none">Tryck här om du vill konfigurera fingeravtryck</string>
     <string name="security_settings_fingerprint_preference_title">Nexus Imprint</string>
     <string name="security_settings_fingerprint_v2_enroll_acquire_already_enrolled">Detta fingeravtryck har redan lagts till</string>
@@ -4572,6 +4572,8 @@ Obs! Det går inte att låsa upp den här enheten med ett fingeravtryck. Kontakt
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">Följ ikonen för fingeravtryck</string>
     <string name="security_settings_udfps_enroll_start_message">Håll fingret på sensorn tills du känner en vibration</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">En gång till</string>
+    <string name="security_settings_udfps_side_fingerprint_help">Placera sidan av fingerspetsen på sensorn, håll kvar och byt sedan till andra sidan</string>
+    <string name="security_settings_udfps_tip_fingerprint_help">Lyft och tryck sedan igen</string>
     <string name="security_settings_work_fingerprint_preference_title">Pixel Imprint för jobbet</string>
     <string name="security_status_title">Säkerhetsstatus</string>
     <string name="see_less">Visa färre</string>
@@ -5532,6 +5534,7 @@ Alla användare kan uppdatera appar för samtliga användares räkning."</string
     <string name="verify_apps_over_usb_title">Verifiera appar via USB</string>
     <string name="version_text">version %1$s</string>
     <string name="vibrate_for_calls_settings_not_available_summary">Vibrera vid samtal är inte tillgängligt eftersom telefonen är inställd på ljudlöst</string>
+    <string name="vibrate_icon_title">Visa alltid en ikon i vibrationsläget</string>
     <string name="vibrate_in_silent_title">Vibrera vid tyst</string>
     <string name="vibrate_input_devices">Omdirigera vibration</string>
     <string name="vibrate_input_devices_summary">Styr vibrationer till spelkontrollen när en sådan är ansluten</string>

@@ -2522,8 +2522,8 @@ Afritunargögn nota ekki geymslukvótann þinn á Drive. Stórar skrár eða skr
     <string name="fullbackup_erase_dialog_message">Viltu hætta að taka afrit af gögnum tækisins (s.s. Wi-Fi aðgangsorðum og símtalaferli) og forritagögnum (s.s. stillingum og skrám sem forrit vista) og eyða öllum afritum af Google Drive?</string>
     <string name="gadget_picker_title">Veldu græju</string>
     <string name="game_controller_settings_category">Leikjafjarstýring</string>
-    <string name="game_dashboard_always_on_summary">Sýna leikjastjórnborðsflýtileið í leikjum</string>
-    <string name="game_dashboard_always_on_title">Leikjastjórnborð</string>
+    <string name="game_dashboard_always_on_summary">Sýna táknið í öllum leikjum (án þess að strjúka upp eða niður)</string>
+    <string name="game_dashboard_always_on_title">Fljótandi tákn leikjastjórnborðs</string>
     <string name="game_dashboard_dnd_rule_name">Leikir</string>
     <string name="game_dashboard_dnd_summary">Fáðu aðeins tilkynningar frá mikilvægu fólki og forritum þegar þú spilar leik</string>
     <string name="game_dashboard_dnd_title">„Ónáðið ekki“ fyrir leiki</string>
@@ -4572,6 +4572,8 @@ Athugaðu: Þú getur ekki notað fingrafarið til að taka lásinn af þessu t�
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">Fylgdu fingrafarstákninu</string>
     <string name="security_settings_udfps_enroll_start_message">Ýttu fingrinum beint á lesarann þar til þú finnur fyrir titringi</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">Einu sinni enn</string>
+    <string name="security_settings_udfps_side_fingerprint_help">Settu hlið fingrafarsins á fingrafaralesarann og haltu fingrinum þar. Skiptu svo yfir á hina hliðina</string>
+    <string name="security_settings_udfps_tip_fingerprint_help">Lyftu og snertu svo aftur</string>
     <string name="security_settings_work_fingerprint_preference_title">Pixel Imprint fyrir vinnu</string>
     <string name="security_status_title">Öryggisstaða</string>
     <string name="see_less">Sjá minna</string>
@@ -5532,6 +5534,7 @@ Hvaða notandi sem er getur uppfært forrit fyrir alla aðra notendur."</string>
     <string name="verify_apps_over_usb_title">Staðfesta forrit gegnum USB</string>
     <string name="version_text">útgáfa %1$s</string>
     <string name="vibrate_for_calls_settings_not_available_summary">Ekki er hægt að nota titring við hringingar vegna þess að síminn er í hljóðlausri stillingu</string>
+    <string name="vibrate_icon_title">Sýna alltaf tákn þegar kveikt er á titringi</string>
     <string name="vibrate_in_silent_title">Titra þegar slökkt er á hljóði</string>
     <string name="vibrate_input_devices">Endurbeina titringi</string>
     <string name="vibrate_input_devices_summary">Senda titring í leikjafjarstýringu þegar hún er tengd</string>
@@ -6223,7 +6226,7 @@ Leyfa þetta fyrir öll forrit sem vilja leita að neti?"</string>
     <string name="zen_mode_event_rule_calendar">Meðan viðburðir standa yfir, fyrir</string>
     <string name="zen_mode_event_rule_calendar_any">Öll dagatöl</string>
     <string name="zen_mode_event_rule_reply">Þar sem svarið er</string>
-    <string name="zen_mode_event_rule_reply_any_except_no">„Já“, „Kannski“ eða „Ekki svarað“</string>
+    <string name="zen_mode_event_rule_reply_any_except_no">Já, Kannski eða Ekki svarað</string>
     <string name="zen_mode_event_rule_reply_yes">Já</string>
     <string name="zen_mode_event_rule_reply_yes_or_maybe">Já eða Kannski</string>
     <string name="zen_mode_event_rule_summary_any_calendar">öll dagatöl</string>

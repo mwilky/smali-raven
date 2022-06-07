@@ -235,7 +235,7 @@
     return-object p0
 
     :cond_1
-    const v0, 0x7f041445
+    const v0, 0x7f041447
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getText(I)Ljava/lang/CharSequence;
 
@@ -269,7 +269,7 @@
     return-object p0
 
     :cond_1
-    const v0, 0x7f041445
+    const v0, 0x7f041447
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getText(I)Ljava/lang/CharSequence;
 
@@ -486,7 +486,7 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    const v1, 0x7f04135d
+    const v1, 0x7f04135f
 
     invoke-virtual {p0, v1}, Landroid/app/Activity;->getText(I)Ljava/lang/CharSequence;
 
@@ -596,7 +596,7 @@
 
     invoke-direct {v0, p0}, Lcom/google/android/setupcompat/template/FooterButton$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f041798
+    const v1, 0x7f04179b
 
     invoke-virtual {v0, v1}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setText(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -634,7 +634,7 @@
 
     invoke-direct {v0, p0}, Lcom/google/android/setupcompat/template/FooterButton$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f04179a
+    const v1, 0x7f04179d
 
     invoke-virtual {v0, v1}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setText(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 

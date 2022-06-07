@@ -1314,7 +1314,7 @@
             </intent-filter>
             <meta-data android:name="com.android.settings.PRIMARY_PROFILE_CONTROLLED" android:value="true"/>
         </activity>
-        <activity android:exported="true" android:icon="@drawable/ic_suggestion_security" android:name="com.android.settings.password.ScreenLockSuggestionActivity">
+        <activity android:exported="false" android:icon="@drawable/ic_suggestion_security" android:name="com.android.settings.password.ScreenLockSuggestionActivity">
             <intent-filter android:priority="1">
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="com.android.settings.suggested.category.FIRST_IMPRESSION"/>

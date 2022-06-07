@@ -104,7 +104,7 @@
     <string name="lockscreen_privacy_controls_setting_toggle">إظهار عناصر التحكّم في الجهاز</string>
     <string name="lockscreen_privacy_wallet_summary">السماح بالوصول إلى المحفظة من شاشة القفل والإعدادات السريعة</string>
     <string name="lockscreen_privacy_controls_summary">يمكنك الوصول إلى عناصر التحكّم عندما تكون الشاشة مُقفَلة.</string>
-    <string name="lockscreen_double_line_clock_summary">إظهار الساعة بخطين عندما تكون متاحة.</string>
+    <string name="lockscreen_double_line_clock_summary">إظهار الساعة بخطين عندما تكون متاحة</string>
     <string name="lockscreen_double_line_clock_setting_toggle">ساعة بخطين</string>
     <string name="abc_activity_chooser_view_see_all">عرض الكل</string>
     <string name="abc_activitychooserview_choose_application">اختيار تطبيق</string>
@@ -341,7 +341,7 @@
     <string name="accessibility_shortcut_type_software_gesture">التمرير سريعًا بإصبعين إلى أعلى الشاشة من أسفلها</string>
     <string name="accessibility_shortcut_type_triple_tap">النقر ثلاث مرات على الشاشة</string>
     <string name="accessibility_shortcuts_settings_title">اختصارات تسهيل الاستخدام</string>
-    <string name="accessibility_summary_shortcut_disabled">غير مفعَّل</string>
+    <string name="accessibility_summary_shortcut_disabled">غير مفعَّلة</string>
     <string name="accessibility_summary_shortcut_enabled">الاختصار مفعَّل</string>
     <string name="accessibility_summary_state_disabled">غير مفعّل</string>
     <string name="accessibility_summary_state_enabled">مفعّل</string>
@@ -358,7 +358,7 @@
     <string name="accessibility_timeout_2mins">دقيقتان</string>
     <string name="accessibility_timeout_30secs">30 ثانية</string>
     <string name="accessibility_timeout_default">تلقائي</string>
-    <string name="accessibility_toggle_high_text_contrast_preference_title">نص ذو درجة تباين عالية</string>
+    <string name="accessibility_toggle_high_text_contrast_preference_title">نص بدرجة تباين عالية</string>
     <string name="accessibility_toggle_large_pointer_icon_title">مؤشر الماوس الكبير</string>
     <string name="accessibility_toggle_primary_balance_left_label">يسار</string>
     <string name="accessibility_toggle_primary_balance_right_label">يمين</string>
@@ -388,7 +388,7 @@
     <string name="accessibility_tutorial_dialog_message_triple">لبدء استخدام ميزة التكبير أو إيقافها، انقر ثلاث مرات في أي مكان على الشاشة.</string>
     <string name="accessibility_tutorial_dialog_message_volume">لاستخدام هذه الميزة، اضغط مع الاستمرار على كلا مفتاحَي مستوى الصوت.</string>
     <string name="accessibility_tutorial_dialog_title_button">استخدام زر أدوات تسهيل الاستخدام في الفتح</string>
-    <string name="accessibility_tutorial_dialog_title_gesture">الفتح بحركة واحدة</string>
+    <string name="accessibility_tutorial_dialog_title_gesture">استخدام إيماءة للفتح</string>
     <string name="accessibility_tutorial_dialog_title_gesture_settings">استخدام إيماءة تسهيل الاستخدام</string>
     <string name="accessibility_tutorial_dialog_title_triple">انقر على الشاشة ثلاث مرات لفتحها.</string>
     <string name="accessibility_tutorial_dialog_title_volume">اضغط مع الاستمرار على مفتاحَي مستوى الصوت للفتح</string>
@@ -1392,7 +1392,7 @@
     <string name="bubble_app_setting_excluded_conversation_title">إظهار فقاعات المحادثات لكل المحادثات إلا</string>
     <string name="bubble_app_setting_none">عدم السماح بأي فقاعات</string>
     <string name="bubble_app_setting_selected">إظهار فقاعات المحادثات للمحادثات المحدَّدة</string>
-    <string name="bubble_app_setting_selected_conversation_title">محادثات</string>
+    <string name="bubble_app_setting_selected_conversation_title">المحادثات</string>
     <string name="bubble_app_setting_unbubble_conversation">إيقاف فقاعات المحادثات لهذه المحادثة</string>
     <string name="bubbles_app_toggle_summary">السماح لتطبيق %1$s بعرض بعض الإشعارات في شكل فقاعات محادثات</string>
     <string name="bubbles_app_toggle_title">فقاعات المحادثات</string>
@@ -1737,7 +1737,7 @@
     <string name="conversation_section_switch_summary">السماح للتطبيق باستخدام قسم المحادثات</string>
     <string name="conversation_section_switch_title">قسم المحادثات</string>
     <string name="conversation_settings_clear_recents">محو المحادثات الأخيرة</string>
-    <string name="conversations_category_title">محادثات</string>
+    <string name="conversations_category_title">المحادثات</string>
     <string name="convert_to_fbe_warning">"تحويل قسم البيانات إلى ترميز على الملف.
  !!تحذير!! سيؤدي هذا إلى محو جميع بياناتك.
  لا تزال هذه الميزة في مرحلة ألفا، وقد لا تعمل على نحو سليم.
@@ -1834,7 +1834,7 @@
     <string name="dark_ui_settings_dark_summary">سيتم تبديل التطبيقات المتوافقة أيضًا إلى المظهر الداكن</string>
     <string name="dark_ui_settings_dialog_acknowledge">حسنًا</string>
     <string name="dark_ui_status_title">الحالة</string>
-    <string name="dark_ui_summary_off_auto_mode_auto">سيتم تفعيل الوضع تلقائيًا عند غروب الشمس</string>
+    <string name="dark_ui_summary_off_auto_mode_auto">سيتم التفعيل تلقائيًا عند غروب الشمس.</string>
     <string name="dark_ui_summary_off_auto_mode_custom">سيتم تفعيل الإعداد تلقائيًا في %1$s.</string>
     <string name="dark_ui_summary_off_auto_mode_never">لن يتم مطلقًا تفعيل الوضع تلقائيًا.</string>
     <string name="dark_ui_summary_on_auto_mode_auto">سيتم إيقاف الوضع تلقائيًا عند شروق الشمس</string>
@@ -1881,7 +1881,7 @@
     <string name="data_usage_app_restricted">محظور</string>
     <string name="data_usage_app_settings">إعدادات التطبيق</string>
     <string name="data_usage_app_summary_title">‏بيانات الجوّال وWi‑Fi</string>
-    <string name="data_usage_auto_sync_off_dialog">لن يغيّر هذا الإجراء عملية الحفاظ على استخدامات البيانات والبطارية، ولكن ستحتاج إلى مزامنة كل حساب يدويًا لجمع المعلومات الحديثة ولن تتلقّى إشعارات عند إتمام التحديثات.</string>
+    <string name="data_usage_auto_sync_off_dialog">سيؤدي ذلك إلى توفير استخدام البيانات والبطارية، ولكن ستحتاج إلى مزامنة كل حساب يدويًا لجمع المعلومات الحديثة ولن تتلقّى إشعارات عند إتمام التحديثات.</string>
     <string name="data_usage_auto_sync_off_dialog_title">هل تريد إيقاف مزامنة البيانات تلقائيًا؟</string>
     <string name="data_usage_auto_sync_on_dialog">"‏أي تغييرات تجريها على حساباتك على الويب سيتم نسخها إلى هاتفك تلقائيًا.
 
@@ -1980,7 +1980,7 @@
     <string name="date_time_24hour_auto">استخدام التنسيق التلقائي المحلي</string>
     <string name="date_time_24hour_title">تنسيق ٢٤ ساعة</string>
     <string name="date_time_auto">ضبط الوقت تلقائيًا</string>
-    <string name="date_time_search_region">منطقة البحث</string>
+    <string name="date_time_search_region">البحث عن منطقة</string>
     <string name="date_time_select_fixed_offset_time_zones">‏اختيار فارق الوقت عن UTC</string>
     <string name="date_time_select_region">المنطقة</string>
     <string name="date_time_set_date_title">التاريخ</string>
@@ -2522,8 +2522,8 @@
     <string name="fullbackup_erase_dialog_message">‏هل تريد إيقاف الاحتفاظ بنسخة احتياطية من بيانات الجهاز (مثل كلمات مرور Wi-Fi وسجل المكالمات) وبيانات التطبيقات (مثل الإعدادات والملفات التي تخزنها التطبيقات) بالإضافة إلى محو بيانات جميع النسخ الموجودة على Google Drive؟</string>
     <string name="gadget_picker_title">اختيار أداة</string>
     <string name="game_controller_settings_category">وحدة التحكم في الألعاب</string>
-    <string name="game_dashboard_always_on_summary">إظهار \"اختصار لوحة بيانات الألعاب\" في الألعاب</string>
-    <string name="game_dashboard_always_on_title">لوحة بيانات الألعاب</string>
+    <string name="game_dashboard_always_on_summary">إظهار الرمز في كل الألعاب (بدون التمرير السريع للأعلى أو للأسفل)</string>
+    <string name="game_dashboard_always_on_title">الرمز العائم لـ \"لوحة بيانات الألعاب\"</string>
     <string name="game_dashboard_dnd_rule_name">ألعاب فيديو</string>
     <string name="game_dashboard_dnd_summary">عدم الحصول على إشعار إلا من الأشخاص المهمين والتطبيقات المهمة أثناء لعب لعبة</string>
     <string name="game_dashboard_dnd_title">عدم الإزعاج أثناء اللعب</string>
@@ -2607,8 +2607,8 @@
     <string name="header_category_wireless_networks">اللاسلكي والشبكات</string>
     <string name="header_data_and_synchronization">البيانات والمزامنة</string>
     <string name="heavy_weight_stop_description">لا يمكن إيقاف هذا التطبيق بشكل آمن. في حالة إيقافه، ربما تفقد بعض عملك الحالي.</string>
-    <string name="help_feedback_label">المساعدة والملاحظات والآراء</string>
-    <string name="help_label">المساعدة والملاحظات والآراء</string>
+    <string name="help_feedback_label">المساعدة والملاحظات</string>
+    <string name="help_label">المساعدة والملاحظات</string>
     <string name="hide_extra_apps">عرض استخدام التطبيق</string>
     <string name="hide_silent_icons_summary">لا تظهر الرموز من الإشعارات الهادئة في شريط الحالة.</string>
     <string name="hide_silent_icons_title">إخفاء الرموز من الإشعارات الهادئة</string>
@@ -3260,7 +3260,7 @@
     <string name="media_output_group_panel_single_device_summary">تم اختيار جهاز واحد.</string>
     <string name="media_output_group_panel_title">إضافة مخرجات</string>
     <string name="media_output_label_title">تشغيل %s على</string>
-    <string name="media_output_panel_stop_casting_button">إيقاف الإرسال</string>
+    <string name="media_output_panel_stop_casting_button">إيقاف البث</string>
     <string name="media_output_panel_summary_of_playing_device">يتمّ تشعيل الوسائط الآن على %1$s.</string>
     <string name="media_output_panel_title">تبديل جهاز إخراج الصوت</string>
     <string name="media_output_summary">هاتف</string>
@@ -3530,8 +3530,8 @@
     <string name="nfc_payment_use_default">استخدام التطبيق التلقائي</string>
     <string name="nfc_quick_toggle_summary">‏السماح بتبادل البيانات عند لمس الهاتف لجهاز من خلال تقنية \"الاتصالات القريبة المدى\" (NFC)</string>
     <string name="nfc_quick_toggle_title">‏الاتصالات القريبة المدى (NFC)</string>
-    <string name="nfc_secure_settings_title">‏يجب فتح قفل الجهاز لاستخدام تقنية الاتصالات القريبة المدى (NFC)</string>
-    <string name="nfc_secure_toggle_summary">‏السماح باستخدام الاتصالات القريبة المدى (NFC) عندما تكون الشاشة مفتوحة فقط</string>
+    <string name="nfc_secure_settings_title">‏يجب فتح قفل الجهاز لاستخدام تقنية الاتصال القصير المدى (NFC)</string>
+    <string name="nfc_secure_toggle_summary">‏السماح باستخدام الاتصال القصير المدى (NFC) عندما تكون الشاشة مفتوحة فقط.</string>
     <string name="nfc_setting_off">غير مفعّلة</string>
     <string name="nfc_setting_on">مفعّلة</string>
     <string name="night_display_activation_off_custom">إيقاف الميزة حتى %1$s</string>
@@ -3552,7 +3552,7 @@
     <string name="night_display_suggestion_title">تحديد جدول زمني للإضاءة الليلية</string>
     <string name="night_display_summary_off_auto_mode_custom">سيتم التفعيل تلقائيًا في %1$s</string>
     <string name="night_display_summary_off_auto_mode_never">لن يتم تفعيل الميزة تلقائيًا على الإطلاق.</string>
-    <string name="night_display_summary_off_auto_mode_twilight">سيتم التفعيل تلقائيًا عند غروب الشمس</string>
+    <string name="night_display_summary_off_auto_mode_twilight">سيتم التفعيل تلقائيًا عند غروب الشمس.</string>
     <string name="night_display_summary_on_auto_mode_custom">سيتم الإيقاف تلقائيًا عند الساعة %1$s</string>
     <string name="night_display_summary_on_auto_mode_never">لن يتم الإيقاف تلقائيًا مطلقًا</string>
     <string name="night_display_summary_on_auto_mode_twilight">سيتم الإيقاف تلقائيًا عند شروق الشمس</string>
@@ -4348,7 +4348,7 @@
     <string name="security_dashboard_summary">\"قفل الشاشة\" و\"العثور على جهازي\" وأمان التطبيقات</string>
     <string name="security_dismiss_dialog_dismiss_button">إغلاق</string>
     <string name="security_dismiss_dialog_title">هل تريد إغلاق هذا التحذير؟</string>
-    <string name="security_enable_widgets_disabled_summary">تم إيقاف الإعداد بواسطة المشرف</string>
+    <string name="security_enable_widgets_disabled_summary">أوقف المشرف هذا الإعداد</string>
     <string name="security_enable_widgets_title">تفعيل الأدوات</string>
     <string name="security_passwords_title">الخصوصية</string>
     <string name="security_patch">‏تحديث أمان نظام Android</string>
@@ -4561,7 +4561,7 @@
     <string name="security_settings_title">الأمان</string>
     <string name="security_settings_udfps_enroll_a11y">يمكنك تحريك إصبعك على الشاشة للعثور على المستشعر. انقر مع الاستمرار على مستشعر بصمات الإصبع.</string>
     <string name="security_settings_udfps_enroll_edge_message">ضع جانب بصمة الإصبع على المستشعر واضغط مع الاستمرار ثم بدِّل إلى الجانب الآخر.</string>
-    <string name="security_settings_udfps_enroll_edge_title">في النهاية، استخدِم حواف إصبعك.</string>
+    <string name="security_settings_udfps_enroll_edge_title">وأخيرًا، استخدِم حواف إصبعك.</string>
     <string name="security_settings_udfps_enroll_find_sensor_message">مستشعر بصمات الإصبع على شاشتك. ستسجِّل بصمة إصبعك في الشاشة التالية.</string>
     <string name="security_settings_udfps_enroll_find_sensor_start_button">بدء</string>
     <string name="security_settings_udfps_enroll_find_sensor_title">كيفية إعداد بصمة إصبعك</string>
@@ -4570,8 +4570,10 @@
     <string name="security_settings_udfps_enroll_repeat_a11y_message">يساعد هذا على التقاط قدر أكبر من بصمة إصبعك.</string>
     <string name="security_settings_udfps_enroll_repeat_message">انقر مع الاستمرار في كل مرة يتحرك فيها رمز بصمة الإصبع. يساعد هذا على التقاط قدر أكبر من بصمة إصبعك.</string>
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">اتّبِع رمز بصمة الإصبع</string>
-    <string name="security_settings_udfps_enroll_start_message">ثبِّت بصمة إصبعك على جهاز الاستشعار تمامًا حتى يتم اهتزاز الجهاز.</string>
+    <string name="security_settings_udfps_enroll_start_message">ثبِّت بصمة إصبعك على جهاز الاستشعار إلى أن يهتزّ الجهاز.</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">مرة أخرى</string>
+    <string name="security_settings_udfps_side_fingerprint_help">ضع جانب بصمة الإصبع على المستشعر واضغط مع الاستمرار ثم بدِّل إلى الجانب الآخر.</string>
+    <string name="security_settings_udfps_tip_fingerprint_help">ارفع إصبعك ثم المس المستشعر مرة أخرى</string>
     <string name="security_settings_work_fingerprint_preference_title">‏Pixel Imprint للملف الشخصي للعمل</string>
     <string name="security_status_title">حالة الأمان</string>
     <string name="see_less">عرض عناصر أقل</string>
@@ -4953,7 +4955,7 @@
     <string name="storage_summary_with_sdcard">وحدة التخزين الداخلية: %1$s مستخدمة - %2$s متاحة</string>
     <string name="storage_system">النظام</string>
     <string name="storage_title_usb">‏اتصال USB بالكمبيوتر</string>
-    <string name="storage_total_summary">المجموع: %1$s %2$s</string>
+    <string name="storage_total_summary">الإجماليّ: %1$s %2$s</string>
     <string name="storage_trash">المهملات</string>
     <string name="storage_trash_dialog_ask_message">هناك %1$s من الملفات في المهملات. سيتم حذف كل الملفات نهائيًا ولن تتمكن من استعادتها.</string>
     <string name="storage_trash_dialog_confirm">إفراغ المهملات</string>
@@ -5132,7 +5134,7 @@
     <string name="take_call_on_title">تلقي المكالمة على</string>
     <string name="talkback_summary">إن تطبيق قارئ الشاشة مُصمَّم في الأساس من أجل الأشخاص الكفيفين والذين يعانون من ضعف في النظر.</string>
     <string name="talkback_title">Talkback</string>
-    <string name="tap_a_network_to_connect">انقر على إحدى الشبكات للاتصال بالإنترنت</string>
+    <string name="tap_a_network_to_connect">انقر على إحدى الشبكات للاتصال بالإنترنت.</string>
     <string name="tap_to_sign_up">انقر للاشتراك.</string>
     <string name="terms_title">الأحكام والشروط</string>
     <string name="testing">الاختبار</string>
@@ -5532,6 +5534,7 @@
     <string name="verify_apps_over_usb_title">‏التحقق من التطبيقات عبر USB</string>
     <string name="version_text">الإصدار %1$s</string>
     <string name="vibrate_for_calls_settings_not_available_summary">ميزة الاهتزاز مع المكالمات غير متاحة لأن الهاتف في الوضع الصامت.</string>
+    <string name="vibrate_icon_title">إظهار الرمز دائمًا عندما يكون وضع الاهتزاز مفعّلاً</string>
     <string name="vibrate_in_silent_title">اهتزاز عند تفعيل الوضع صامت</string>
     <string name="vibrate_input_devices">إعادة توجيه الاهتزاز</string>
     <string name="vibrate_input_devices_summary">إرسال الاهتزاز إلى وحدة التحكم في الألعاب عند الاتصال</string>

@@ -541,7 +541,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f041444
+    const v1, 0x7f041446
 
     invoke-virtual {v0, v1}, Lcom/android/settingslib/widget/ActionButtonsPreference;->setButton2Text(I)Lcom/android/settingslib/widget/ActionButtonsPreference;
 

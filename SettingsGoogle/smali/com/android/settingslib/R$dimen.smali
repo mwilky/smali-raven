@@ -16,6 +16,6 @@
 
 .field public static final signal_icon_size:I = 0x7f0b0331
 
-.field public static final update_user_photo_popup_min_width:I = 0x7f0b03e6
+.field public static final update_user_photo_popup_min_width:I = 0x7f0b03e7
 
-.field public static final wifi_preference_badge_padding:I = 0x7f0b0403
+.field public static final wifi_preference_badge_padding:I = 0x7f0b0404

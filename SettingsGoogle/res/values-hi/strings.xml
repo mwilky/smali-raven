@@ -9,7 +9,7 @@
     <string name="ambient_display_tap_screen_title">फ़ोन की स्क्रीन देखने के लिए टैप करें</string>
     <string name="ambient_display_title">फ़ोन देखने के लिए दो बार टैप करें</string>
     <string name="ambient_display_wake_screen_title">चालू करने का डिसप्ले</string>
-    <string name="auto_brightness_title">आस-पास की रोशनी के हिसाब से स्क्रीन की चमक</string>
+    <string name="auto_brightness_title">आस-पास की लाइट के हिसाब से स्क्रीन की रोशनी</string>
     <string name="aware_category_display" />
     <string name="aware_category_gesture" />
     <string name="aware_display_settings_title">इस्तेमाल में न होने पर लॉक स्क्रीन</string>
@@ -30,8 +30,8 @@
     <string name="double_twist_for_camera_mode_title">सेल्फ़ी के लिए कैमरा पलटें</string>
     <string name="doze_always_on_summary">बैटरी खर्च बढ़ाता है</string>
     <string name="doze_always_on_title">समय और जानकारी हमेशा दिखाएं</string>
-    <string name="doze_summary">जब स्क्रीन गहरे रंग की हो, तब यह नई सूचनाओं के लिए चालू हो जाती है</string>
-    <string name="doze_title">सूचनाएं मिलने पर स्क्रीन जगाएं</string>
+    <string name="doze_summary">जब स्क्रीन गहरे रंग की हो, तब यह नई सूचनाएं मिलने पर चालू हो जाती है</string>
+    <string name="doze_title">सूचनाएं मिलने पर स्क्रीन चालू करें</string>
     <string name="fingerprint_swipe_for_notifications_title">सूचनाओं के लिए फ़िंगरप्रिंट स्वाइप करें</string>
     <string name="gesture_preference_title">हाथ के जेस्चर (हाव-भाव)</string>
     <string name="gesture_prevent_ringing_screen_title">घंटी बजने से रोकें</string>
@@ -62,7 +62,7 @@
     <string name="lockscreen_settings_what_to_show_category">लाॅक स्क्रीन पर क्या दिखाएं</string>
     <string name="night_display_title">नाइट लाइट</string>
     <string name="owner_info_settings_summary">कोई नहीं</string>
-    <string name="owner_info_settings_title">लॉक स्क्रीन पर टेक्स्ट दिखाएं</string>
+    <string name="owner_info_settings_title">लॉक स्क्रीन पर टेक्स्ट जोड़ें</string>
     <string name="power_menu_setting_name">पावर बटन को दबाकर रखें</string>
     <string name="profile_section_header">वर्क प्रोफ़ाइल सूचनाएं</string>
     <string name="reset_dashboard_summary">नेटवर्क, ऐप्लिकेशन या डिवाइस रीसेट किए जा सकते हैं</string>
@@ -104,8 +104,8 @@
     <string name="lockscreen_privacy_controls_setting_toggle">डिवाइस कंट्रोल दिखाएं</string>
     <string name="lockscreen_privacy_wallet_summary">लॉक स्क्रीन और फटाफट सेटिंग से वॉलेट ऐक्सेस करने की अनुमति दें</string>
     <string name="lockscreen_privacy_controls_summary">स्क्रीन लॉक होने पर कंट्रोल को ऐक्सेस करें</string>
-    <string name="lockscreen_double_line_clock_summary">उपलब्ध होने पर, दो समय क्षेत्र वाली घड़ी दिखाएं</string>
-    <string name="lockscreen_double_line_clock_setting_toggle">दो समय क्षेत्र वाली घड़ी</string>
+    <string name="lockscreen_double_line_clock_summary">उपलब्ध होने पर, दो लाइन में समय दिखाएं</string>
+    <string name="lockscreen_double_line_clock_setting_toggle">दो लाइन में समय दिखाएं</string>
     <string name="abc_activity_chooser_view_see_all">सभी देखें</string>
     <string name="abc_activitychooserview_choose_application">कोई ऐप्लिकेशन चुनें</string>
     <string name="abc_capital_off">बंद</string>
@@ -341,7 +341,7 @@
     <string name="accessibility_shortcut_type_software_gesture">नीचे से ऊपर की ओर दो उंगलियों से स्वाइप करें</string>
     <string name="accessibility_shortcut_type_triple_tap">स्क्रीन पर तीन बार टैप करें</string>
     <string name="accessibility_shortcuts_settings_title">सुलभता शॉर्टकट</string>
-    <string name="accessibility_summary_shortcut_disabled">बंद है</string>
+    <string name="accessibility_summary_shortcut_disabled">बंद</string>
     <string name="accessibility_summary_shortcut_enabled">शॉर्टकट चालू है</string>
     <string name="accessibility_summary_state_disabled">बंद है</string>
     <string name="accessibility_summary_state_enabled">चालू है</string>
@@ -415,7 +415,7 @@
     <string name="accessor_expires_text">लीज़ %s को खत्म होगी</string>
     <string name="accessor_info_title">ऐप्लिकेशन का शेयर किया गया डेटा</string>
     <string name="accessor_no_description_text">ऐप्लिकेशन से कोई जानकारी नहीं मिली.</string>
-    <string name="account_dashboard_default_summary">सेव किए गए पासवर्ड, ऑटोमैटिक भरना, सिंक किए गए खाते</string>
+    <string name="account_dashboard_default_summary">सेव किए गए पासवर्ड, अपने-आप भरना, सिंक किए गए खाते</string>
     <string name="account_dashboard_title">पासवर्ड और खाते</string>
     <string name="account_for_section_header">%1$s के खाते</string>
     <string name="account_settings">खाते</string>
@@ -438,7 +438,7 @@
     <string name="activity_not_found">"आपके फ़ोन पर ऐप्लिकेशन  इंस्टॉल नहीं है."</string>
     <string name="activity_picker_label">गतिविधि चुनें</string>
     <string name="adaptive_battery_main_switch_title">ज़रूरत के हिसाब से बैटरी का इस्तेमाल करने की सुविधा आज़माएं</string>
-    <string name="adaptive_brightness_main_switch_title">आस-पास की रोशनी के हिसाब से स्क्रीन की चमक की सुविधा का इस्तेमाल करें</string>
+    <string name="adaptive_brightness_main_switch_title">आस-पास की लाइट के हिसाब से स्क्रीन की रोशनी की सुविधा का इस्तेमाल करें</string>
     <string name="adaptive_charging">अडैप्टिव चार्जिंग की सुविधा</string>
     <string name="adaptive_charging_description">आपकी बैटरी लाइफ़ को लंबे समय तक बनाए रखने के लिए, यह सुविधा फ़ोन को इस तरह से चार्ज करती है कि जब सुबह आपका अलार्म बजे, तब तक बैटरी पूरी तरह से चार्ज हो गई हो.</string>
     <string name="adaptive_charging_time_estimate"><b>अडैप्टिव चार्जिंग की सुविधा</b> • %1$s में पूरा चार्ज हो जाएगा</string>
@@ -449,7 +449,7 @@
     <string name="adaptive_sleep_camera_lock_summary">स्क्रीन चालू रखने की सुविधा के लिए, कैमरा अनलॉक होना ज़रूरी है</string>
     <string name="adaptive_sleep_contextual_slice_summary">जब तक आप स्क्रीन देख रहें हैं, तब तक स्क्रीन चालू रखें</string>
     <string name="adaptive_sleep_contextual_slice_title">स्क्रीन चालू रखने की सुविधा चालू करें</string>
-    <string name="adaptive_sleep_description">जब तक आप स्क्रीन की तरफ़ देखते रहेंगे, स्क्रीन बंद नहीं होगी</string>
+    <string name="adaptive_sleep_description">स्क्रीन की तरफ़ देखते रहने तक, स्क्रीन बंद नहीं होगी</string>
     <string name="adaptive_sleep_manage_permission_button">अनुमतियां मैनेज करें</string>
     <string name="adaptive_sleep_privacy">स्क्रीन चालू रखने की सुविधा, सामने वाले कैमरे का इस्तेमाल करके यह पता लगाती है कि कोई स्क्रीन देख रहा है या नहीं. यह डिवाइस पर काम करती है. इसमें न तो इमेज सेव होती है और न ही Google को भेजी जाती है.</string>
     <string name="adaptive_sleep_summary_no_permission">स्क्रीन चालू रखने की सुविधा का इस्तेमाल करने के लिए, कैमरा ऐक्सेस करने की ज़रूरत होती है. डिवाइस को मनमुताबिक बनाने की सेवाओं की अनुमतियां मैनेज करने के लिए, टैप करें</string>
@@ -554,7 +554,7 @@
     <string name="amber_alerts_title">AMBER अलर्ट</string>
     <string name="ambient_camera_battery_saver_off">बैटरी सेवर की सुविधा बंद करें</string>
     <string name="ambient_camera_summary_battery_saver_on">कुछ समय के लिए बंद किया गया है, क्योंकि बैटरी सेवर चालू है</string>
-    <string name="ambient_display_pickup_summary">समय, सूचनाएं, और दूसरी जानकारी देखने के लिए, अपना फ़ोन उठाएं</string>
+    <string name="ambient_display_pickup_summary">समय, सूचनाएं, और दूसरी जानकारी देखने के लिए, अपना फ़ोन उठाएं.</string>
     <string name="ambient_display_screen_title">हमेशा चालू स्क्रीन दिखाएं</string>
     <string name="ambient_display_summary">समय, सूचनाएं और दूसरी जानकारी देखने के लिए, फ़ोन की स्क्रीन पर दो बार टैप करें.</string>
     <string name="ambient_display_tap_screen_summary">समय, सूचनाएं, और दूसरी जानकारी देखने के लिए फ़ोन की स्क्रीन पर टैप करें.</string>
@@ -748,7 +748,7 @@
     <string name="audio_category_title">ऑडियो</string>
     <string name="audio_record_proc_title">शोर रद्दीकरण</string>
     <string name="auto_brightness_default_title">डिफ़ॉल्ट</string>
-    <string name="auto_brightness_description">आपकी गतिविधियों और आपके आस-पास मौजूद रोशनी के हिसाब से आपके डिवाइस की स्क्रीन की चमक अपने आप सेट हो जाएगी. आपके आस-पास मौजूद रोशनी के हिसाब से स्क्रीन की चमक अपने आप बदलने वाली इस सुविधा को आप अपनी पसंद के हिसाब से ढाल सकते हैं. ऐसा करने के लिए स्लाइडर को आगे-पीछे करें और मैन्युअल रूप से स्क्रीन की चमक सेट करें.</string>
+    <string name="auto_brightness_description">आपकी गतिविधियों और आपके की लाइट के हिसाब से आपके डिवाइस की स्क्रीन की रोशनी अपने-आप सेट हो जाएगी. आपके आस-पास की लाइट के हिसाब से स्क्रीन की रोशनी अपने-आप बदलने वाली इस सुविधा को अपनी पसंद के हिसाब से ढाला जा सकता है. ऐसा करने के लिए स्लाइडर को आगे-पीछे करें और मैन्युअल रूप से स्क्रीन की रोशनी सेट करें.</string>
     <string name="auto_brightness_disclaimer">मौजूदा रोशनी के लिए स्क्रीन की चमक का स्तर अनुकूलित करें. इस सुविधा के चालू होने पर, आप अब भी स्क्रीन की रोशनी कुछ समय के लिए एडजस्ट कर सकते हैं.</string>
     <string name="auto_brightness_high_title">उच्च</string>
     <string name="auto_brightness_low_title">कम</string>
@@ -1834,7 +1834,7 @@
     <string name="dark_ui_settings_dark_summary">ऐप्लिकेशन भी गहरे रंग की थीम में बदल जाएंगे</string>
     <string name="dark_ui_settings_dialog_acknowledge">ठीक है</string>
     <string name="dark_ui_status_title">स्थिति</string>
-    <string name="dark_ui_summary_off_auto_mode_auto">शाम होने पर अपने-आप चालू हो जाएगा</string>
+    <string name="dark_ui_summary_off_auto_mode_auto">शाम होने पर अपने-आप चालू हो जाएगी</string>
     <string name="dark_ui_summary_off_auto_mode_custom">%1$s पर अपने-आप चालू हो जाएगा</string>
     <string name="dark_ui_summary_off_auto_mode_never">कभी भी अपने-आप चालू नहीं होगी</string>
     <string name="dark_ui_summary_on_auto_mode_auto">सुबह होने पर अपने-आप बंद हो जाएगा</string>
@@ -2522,8 +2522,8 @@
     <string name="fullbackup_erase_dialog_message">डिवाइस डेटा (जैसे वाई-फ़ाई पासवर्ड और कॉल इतिहास) और ऐप्लिकेशन डेटा (जैसे सेटिंग और ऐप्लिकेशन द्वारा संग्रहित फ़ाइलों) का बैक अप लेना बंद करें, साथ ही Google डिस्क से सभी प्रतियां मिटाएं?</string>
     <string name="gadget_picker_title">गैजेट चुनें</string>
     <string name="game_controller_settings_category">गेमनियंत्रक</string>
-    <string name="game_dashboard_always_on_summary">सभी गेम में, गेम डैशबोर्ड का शॉर्टकट दिखाएं</string>
-    <string name="game_dashboard_always_on_title">गेम डैशबोर्ड</string>
+    <string name="game_dashboard_always_on_summary">ऊपर या नीचे की ओर स्वाइप किए बिना, सभी गेम में आइकॉन दिखाएं</string>
+    <string name="game_dashboard_always_on_title">गेम डैशबोर्ड का फ़्लोटिंग आइकॉन</string>
     <string name="game_dashboard_dnd_rule_name">गेमिंग</string>
     <string name="game_dashboard_dnd_summary">किसी गेम को खेलते समय, सिर्फ़ ज़रूरी लोगों और ऐप्लिकेशन से सूचना पाएं</string>
     <string name="game_dashboard_dnd_title">"गेम के लिए 'परेशान न करें' सुविधा"</string>
@@ -2648,7 +2648,7 @@
     <string name="immediately_destroy_activities_summary">उपयोगकर्ता के छोड़ते ही हर गतिविधि को खत्म करें</string>
     <string name="important_bubble">अहम बातचीत को बबल करें</string>
     <string name="important_conversation_behavior_summary">"अहम बातचीत, पुल-डाउन शेड में सबसे ऊपर दिखती हैं. आप इन्हें बबल पर भी सेट कर सकते हैं और 'परेशान न करें' मोड को रोक सकते हैं."</string>
-    <string name="important_conversations">प्राथमिकता वाली बातचीत</string>
+    <string name="important_conversations">अहम बातचीत</string>
     <string name="important_conversations_summary">बातचीत सेक्शन में सबसे ऊपर दिखाएं</string>
     <string name="important_conversations_summary_bubbles">बातचीत सेक्शन में सबसे ऊपर, फ्लोटिंग बबल्स के तौर पर दिखती है</string>
     <string name="ims_reg_status_not_registered">रजिस्टर नहीं है</string>
@@ -3546,18 +3546,18 @@
     <string name="night_display_auto_mode_twilight">सूर्यास्त से सूर्योदय तक चालू रहती है</string>
     <string name="night_display_end_time_title">खत्म होने का समय</string>
     <string name="night_display_not_currently_on">नाइट लाइट इस समय चालू नहीं है</string>
-    <string name="night_display_start_time_title">शुरू करने का समय</string>
+    <string name="night_display_start_time_title">शुरू होने का समय</string>
     <string name="night_display_status_title">स्थिति</string>
     <string name="night_display_suggestion_summary">हर रात, कमरे की रोशनी के हिसाब से स्क्रीन का रंग और चमक अपने आप बदलें</string>
     <string name="night_display_suggestion_title">नाइट लाइट शेड्यूल सेट करें</string>
     <string name="night_display_summary_off_auto_mode_custom">%1$s बजे अपने आप चालू हो जाएगा</string>
     <string name="night_display_summary_off_auto_mode_never">कभी भी अपने-आप चालू नहीं होगी</string>
-    <string name="night_display_summary_off_auto_mode_twilight">सूर्यास्त होने पर अपने आप चालू हो जाएगा</string>
+    <string name="night_display_summary_off_auto_mode_twilight">शाम होने पर अपने-आप चालू हो जाएगी</string>
     <string name="night_display_summary_on_auto_mode_custom">%1$s बजे अपने आप बंद हो जाएगा</string>
     <string name="night_display_summary_on_auto_mode_never">कभी भी अपने आप बंद नहीं होगा</string>
     <string name="night_display_summary_on_auto_mode_twilight">सूर्योदय होने पर अपने आप बंद हो जाएगा</string>
     <string name="night_display_temperature_title">स्क्रीन की चमक</string>
-    <string name="night_display_text">नाइट लाइट आपकी स्क्रीन को हल्का सुनहरा कर देती है. इससे कम रोशनी में अपनी स्क्रीन देखना या पढ़ना आसान हो जाता है. साथ ही, इससे आप आसानी से सो सकते हैं.</string>
+    <string name="night_display_text">नाइट लाइट आपकी स्क्रीन को हल्का सुनहरा कर देती है. इससे कम रोशनी में भी स्क्रीन देखना या पढ़ना आसान हो जाता है. साथ ही, इससे आसानी से नींद भी आ जाती है.</string>
     <string name="night_light_main_switch_title">नाइट लाइट सुविधा का इस्तेमाल करें</string>
     <string name="no">नहीं</string>
     <string name="no_5g_in_dsds_text">इस फ़ोन में अगर दो सिम इस्तेमाल किए जाते हैं, तो 5G नेटवर्क की सुविधा काम नहीं करेगी. हालांकि, आप 4G तक के नेटवर्क इस्तेमाल कर सकते हैं. <annotation id="url">ज़्यादा जानें</annotation></string>
@@ -4572,6 +4572,8 @@
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">फ़िंगरप्रिंट आइकॉन को दबाते रहें</string>
     <string name="security_settings_udfps_enroll_start_message">अपने फ़िंगरप्रिंट को सेंसर पर तब तक रखें, जब तक आपको वाइब्रेशन न महसूस हो</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">एक बार और छुएं</string>
+    <string name="security_settings_udfps_side_fingerprint_help">पहले अपनी उंगली के एक किनारे को सेंसर पर कुछ देर के लिए रखें और फिर दूसरी तरफ़ से भी ऐसा करें</string>
+    <string name="security_settings_udfps_tip_fingerprint_help">हटाएं, फिर दोबारा छुएं</string>
     <string name="security_settings_work_fingerprint_preference_title">वर्क प्रोफ़ाइल के लिए Pixel Imprint की सुविधा</string>
     <string name="security_status_title">सुरक्षा स्थिति</string>
     <string name="see_less">कम देखें</string>
@@ -5250,7 +5252,7 @@
     <string name="tts_status_title">डिफ़ॉल्ट भाषा स्थिति</string>
     <string name="turn_off_wifi">वाई-फ़ाई बंद करें</string>
     <string name="turn_on_wifi">वाई-फ़ाई चालू करें</string>
-    <string name="twilight_mode_launch_location">जगह की सेटिंग</string>
+    <string name="twilight_mode_launch_location">जगह की जानकारी की सेटिंग</string>
     <string name="twilight_mode_location_off_dialog_message">सूरज उगने और डूबने का समय पता लगाने के लिए, आपके डिवाइस की जगह की जानकारी की ज़रूरत होती है.</string>
     <string name="tx_link_speed">%1$d Mbps</string>
     <string name="tx_wifi_speed">ट्रांसमिट लिंक की रफ़्तार</string>
@@ -5532,6 +5534,7 @@
     <string name="verify_apps_over_usb_title">यूएसबी पर ऐप्लिकेशन की पुष्टि करें</string>
     <string name="version_text">वर्शन %1$s</string>
     <string name="vibrate_for_calls_settings_not_available_summary">फ़ोन के साइलेंट मोड पर होने की वजह से, कॉल आने पर वाइब्रेट होने की सुविधा उपलब्ध नहीं है</string>
+    <string name="vibrate_icon_title">वाइब्रेशन मोड के चालू होने का आइकॉन हमेशा दिखाएं</string>
     <string name="vibrate_in_silent_title">शांत होने पर कंपन (वाइब्रेशन) करे</string>
     <string name="vibrate_input_devices">वाइब्रेशन रिडायरेक्ट करें</string>
     <string name="vibrate_input_devices_summary">कनेक्ट होने पर, गेम कंट्रोलर पर वाइब्रेशन हो</string>
@@ -6203,8 +6206,8 @@
     <string name="zen_mode_conversations_title">बातचीत</string>
     <string name="zen_mode_custom_behavior_category_title">‘%1$s’ के लिए</string>
     <string name="zen_mode_custom_behavior_summary">इस शेड्यूल के लिए पसंद के मुताबिक सेटिंग बनाएं</string>
-    <string name="zen_mode_custom_behavior_summary_default">डिफ़ॉल्‍ट सेटिंग का इस्तेमाल करें</string>
-    <string name="zen_mode_custom_behavior_title">परेशान न करें मोड की सेटिंग</string>
+    <string name="zen_mode_custom_behavior_summary_default">डिफ़ॉल्‍ट सेटिंग का इस्तेमाल किया जा रहा है</string>
+    <string name="zen_mode_custom_behavior_title">"'परेशान न करें' मोड की सेटिंग"</string>
     <string name="zen_mode_custom_calls_footer">‘%1$s’ के लिए आने वाले कॉल ब्लॉक कर दिए गए हैं. आप सेटिंग में बदलाव करके दोस्तों, परिवार के लोगों, या दूसरे संपर्कों को आप तक पहुंचने की मंज़ूरी दे सकते हैं.</string>
     <string name="zen_mode_custom_messages_footer">‘%1$s’ के लिए आने वाले मैसेज ब्लॉक कर दिए गए हैं. आप सेटिंग में अपने हिसाब से बदलाव करके दोस्तों, परिवार के सदस्यों या दूसरे लोगों को आपसे संपर्क करने की मंज़ूरी दे सकते हैं.</string>
     <string name="zen_mode_delete_automatic_rules">शेड्यूल मिटाएं</string>
@@ -6214,12 +6217,12 @@
     <string name="zen_mode_duration_always_prompt_title">हर बार पूछें</string>
     <string name="zen_mode_duration_settings_title">अवधि</string>
     <string name="zen_mode_duration_summary_always_prompt">हर बार पूछें</string>
-    <string name="zen_mode_duration_summary_forever">जब तक आप बंद नहीं करते</string>
+    <string name="zen_mode_duration_summary_forever">जब तक बंद नहीं की जाती</string>
     <string name="zen_mode_duration_summary_time_hours">{count,plural, =1{1 घंटा}one{# घंटा}other{# घंटे}}</string>
     <string name="zen_mode_duration_summary_time_minutes">{count,plural, =1{1 मिनट}one{# मिनट}other{# मिनट}}</string>
     <string name="zen_mode_enable_dialog_turn_on">चालू करें</string>
     <string name="zen_mode_end_time">खत्म होने का समय</string>
-    <string name="zen_mode_end_time_next_day_summary_format">%s अगले दिन</string>
+    <string name="zen_mode_end_time_next_day_summary_format">अगले दिन %s</string>
     <string name="zen_mode_event_rule_calendar">इसके लिए इवेंट के दौरान</string>
     <string name="zen_mode_event_rule_calendar_any">कोई भी कैलेंडर</string>
     <string name="zen_mode_event_rule_reply">जहां जवाब यह है</string>
@@ -6237,7 +6240,7 @@
     <string name="zen_mode_from_all_conversations">सभी बातचीत</string>
     <string name="zen_mode_from_anyone">कोई भी</string>
     <string name="zen_mode_from_contacts">संपर्क</string>
-    <string name="zen_mode_from_important_conversations">प्राथमिकता वाली बातचीत</string>
+    <string name="zen_mode_from_important_conversations">अहम बातचीत</string>
     <string name="zen_mode_from_no_conversations">कोई भी नहीं</string>
     <string name="zen_mode_from_starred">स्टार के निशान वाले संपर्क</string>
     <string name="zen_mode_media">मीडिया साउंड</string>
@@ -6272,14 +6275,14 @@
     <string name="zen_mode_restrict_notifications_disable_custom">पसंद के मुताबिक बनाई गई सेटिंग हटाएं</string>
     <string name="zen_mode_restrict_notifications_enable_custom">पसंद के मुताबिक बनाई गई सेटिंग चालू करें</string>
     <string name="zen_mode_restrict_notifications_hide">सूचनाएं आने पर न तो स्क्रीन पर कुछ दिखे और न ही आवाज़ आए</string>
-    <string name="zen_mode_restrict_notifications_hide_footer">"आपका फ़ोन नई या मौजूदा सूचनाएं न तो दिखाएगा और न ही उनके लिए आवाज़ करेगा या वाइब्रेट होगा. ध्यान रखें कि फ़ोन की गतिविधि के लिए ज़रूरी सूचनाएं और स्थिति अब भी दिखाई देंगी.
+    <string name="zen_mode_restrict_notifications_hide_footer">"आपका फ़ोन नई या मौजूदा सूचनाएं न तो दिखाएगा और न ही उनके लिए आवाज़ करेगा या वाइब्रेट होगा. ध्यान रखें कि फ़ोन की गतिविधि के लिए ज़रूरी सूचनाएं और स्थिति अब भी दिखेंगी.
 
-जब आप 'परेशान न करें' सेवा को बंद करें, तो आपको स्क्रीन पर सबसे ऊपर से नीचे की ओर स्वाइप करने पर छूटी हुई सूचनाएं दिखाई देंगी."</string>
-    <string name="zen_mode_restrict_notifications_hide_summary">अगर आप यह सेटिंग चुनते हैं, तो सूचनाएं आने पर न तो स्क्रीन पर कुछ दिखाई देगा और न ही आवाज़ सुनाई देगी</string>
+जब आप 'परेशान न करें' सेवा को बंद करें, तो आपको स्क्रीन पर सबसे ऊपर से नीचे की ओर स्वाइप करने पर छूटी हुई सूचनाएं दिखेंगी."</string>
+    <string name="zen_mode_restrict_notifications_hide_summary">इस सेटिंग को चुनने से, सूचनाएं आने पर न तो स्क्रीन पर कुछ दिखेगा और न ही आवाज़ सुनाई देगी</string>
     <string name="zen_mode_restrict_notifications_mute">सूचनाएं आने पर कोई आवाज़ सुनाई न दे</string>
-    <string name="zen_mode_restrict_notifications_mute_footer">सूचनाएं मिलने पर आपका फ़ोन आवाज़ या वाइब्रेट नहीं करेगा.</string>
-    <string name="zen_mode_restrict_notifications_mute_summary">अगर आप यह सेटिंग चुनते हैं, तो आपको डिवाइस की स्क्रीन पर सूचनाएं दिखाई देंगी</string>
-    <string name="zen_mode_restrict_notifications_summary_custom">कुछ सूचनाएं दिखाई नहीं देंगी</string>
+    <string name="zen_mode_restrict_notifications_mute_footer">सूचनाएं आने पर, आपका फ़ोन आवाज़ या वाइब्रेट नहीं करेगा.</string>
+    <string name="zen_mode_restrict_notifications_mute_summary">इस सेटिंग को चुनने से, डिवाइस की स्क्रीन पर सूचनाएं दिखेंगी</string>
+    <string name="zen_mode_restrict_notifications_summary_custom">कुछ सरफ़ेस पर सूचनाएं नहीं दिखेंगी</string>
     <string name="zen_mode_restrict_notifications_summary_hidden">सूचनाएं आने पर न तो स्क्रीन पर कुछ दिखे और न ही कोई आवाज़ सुनाई दे</string>
     <string name="zen_mode_restrict_notifications_summary_muted">सूचनाएं आने पर कोई आवाज़ सुनाई न दे</string>
     <string name="zen_mode_restrict_notifications_title">"'दिखाई न देने वाली सूचनाएं' दिखाने के लिए विकल्प"</string>
@@ -6328,7 +6331,7 @@
     <string name="zen_mode_starred_contacts_empty_name">(कोई नाम नहीं)</string>
     <string name="zen_mode_starred_contacts_summary_contacts">{count,plural,offset:2 =0{कोई संपर्क नहीं}=1{{contact_1}}=2{{contact_1} और {contact_2}}=3{{contact_1}, {contact_2}, और {contact_3}}one{{contact_1}, {contact_2}, और # अन्य संपर्क}other{{contact_1}, {contact_2}, और # अन्य संपर्क}}</string>
     <string name="zen_mode_starred_contacts_title">स्टार के निशान वाले संपर्क</string>
-    <string name="zen_mode_start_time">शुरू करने का समय</string>
+    <string name="zen_mode_start_time">शुरू होने का समय</string>
     <string name="zen_mode_summary_alarms_only_by_time">केवल %1$s तक के लिए अलार्म को बदलें</string>
     <string name="zen_mode_summary_alarms_only_indefinite">अनिश्‍चित काल के लिए केवल अलार्म को बदलें</string>
     <string name="zen_mode_summary_always">हमेशा बाधित करें में बदलें</string>

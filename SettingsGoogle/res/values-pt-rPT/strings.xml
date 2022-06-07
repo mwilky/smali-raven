@@ -438,7 +438,7 @@ Para alternar entre funcionalidades, deslize rapidamente com três dedos para ci
     <string name="activity_not_found">A aplicação não está instalada no telemóvel.</string>
     <string name="activity_picker_label">Escolher atividade</string>
     <string name="adaptive_battery_main_switch_title">Utilizar bateria adaptável</string>
-    <string name="adaptive_brightness_main_switch_title">Utilizar luminosidade adaptável</string>
+    <string name="adaptive_brightness_main_switch_title">Usar luminosidade adaptável</string>
     <string name="adaptive_charging">Carregamento adaptável</string>
     <string name="adaptive_charging_description">Efetue o carregamento regularmente durante a noite para preservar a autonomia da bateria a longo prazo. Utiliza o alarme para carregar por completo até à ativação.</string>
     <string name="adaptive_charging_time_estimate"><b>Carregamento adaptável</b> • Completo até à(s) %1$s</string>
@@ -784,7 +784,7 @@ Basta aproximar os dispositivos um do outro (normalmente, de costas) e, em segui
     <string name="auto_rotate_option_face_based">Ativada – Com base no rosto</string>
     <string name="auto_rotate_option_off">Desativado</string>
     <string name="auto_rotate_option_on">Ativado</string>
-    <string name="auto_rotate_settings_primary_switch_title">Utilizar a rotação automática</string>
+    <string name="auto_rotate_settings_primary_switch_title">Usar rotação automática</string>
     <string name="auto_rotate_summary_no_permission">É necessário o acesso à câmara para a deteção facial. Toque para gerir as autorizações dos Serviços de personalização do dispositivo</string>
     <string name="auto_rotate_switch_face_based">Ativar deteção facial</string>
     <string name="auto_sync_account_summary">Permitir que as apps atualizem os dados automaticamente</string>
@@ -1546,7 +1546,7 @@ Se instalar um certificado da AC (autoridade de certificação), o proprietário
     <string name="choose_sim_activating">A ativar…</string>
     <string name="choose_sim_could_not_activate">Não foi possível ativar neste momento</string>
     <string name="choose_sim_item_summary_unknown">Número desconhecido</string>
-    <string name="choose_sim_text">{count,plural, =1{Está disponível 1 número neste dispositivo, mas apenas pode utilizar um de cada vez}=2{Estão disponíveis 2 números neste dispositivo, mas apenas pode utilizar um de cada vez}one{Está(ão) disponível(is) # número(s) neste dispositivo, mas apenas pode utilizar um de cada vez}other{Estão disponíveis # números neste dispositivo, mas apenas pode utilizar um de cada vez}}</string>
+    <string name="choose_sim_text">{count,plural, =1{Está disponível 1 número neste dispositivo, mas apenas pode utilizar um de cada vez}=2{Estão disponíveis 2 números neste dispositivo, mas apenas pode utilizar um de cada vez}other{Estão disponíveis # números neste dispositivo, mas apenas pode utilizar um de cada vez}}</string>
     <string name="choose_sim_title">Escolha um número para utilizar</string>
     <string name="choose_spell_checker">Escolher corretor ortográfico</string>
     <string name="choose_timezone">Escolher o fuso horário</string>
@@ -1816,7 +1816,7 @@ Para voltar a utilizar o telemóvel, é necessário efetuar uma reposição para
     <string name="daltonizer_mode_tritanomaly_title">Tritanomalia</string>
     <string name="daltonizer_type">Modo de correção</string>
     <string name="daltonizer_type_overridden">Substituído por %1$s</string>
-    <string name="dark_theme_main_switch_title">Utilizar tema escuro</string>
+    <string name="dark_theme_main_switch_title">Usar tema escuro</string>
     <string name="dark_theme_slice_subtitle">Ajuda a aumentar a autonomia da bateria.</string>
     <string name="dark_theme_slice_title">Experimente o tema escuro</string>
     <string name="dark_ui_activation_off_auto">Desativar até ao pôr do sol</string>
@@ -2522,8 +2522,8 @@ Os dados das cópias de segurança não contam para a quota de armazenamento do 
     <string name="fullbackup_erase_dialog_message">Pretende parar de fazer cópias de segurança dos dados do dispositivo (como palavras-passe de Wi-Fi e o histórico de chamadas) e dos dados das aplicações (como as definições e os ficheiros armazenados pelas aplicações) e apagar todas as cópias no Google Drive?</string>
     <string name="gadget_picker_title">Escolher gadget</string>
     <string name="game_controller_settings_category">Controlador de Jogos</string>
-    <string name="game_dashboard_always_on_summary">Mostrar o atalho do Painel de jogo nos jogos</string>
-    <string name="game_dashboard_always_on_title">Painel de jogo</string>
+    <string name="game_dashboard_always_on_summary">Apresente o ícone em todos os jogos (sem deslizar rapidamente para cima nem para baixo)</string>
+    <string name="game_dashboard_always_on_title">Ícone flutuante do Painel de jogo</string>
     <string name="game_dashboard_dnd_rule_name">A jogar</string>
     <string name="game_dashboard_dnd_summary">Receba notificações apenas de apps e pessoas importantes quando estiver a jogar</string>
     <string name="game_dashboard_dnd_title">Não incomodar para jogos</string>
@@ -3516,7 +3516,7 @@ Mudar para o operador %1$s não cancela o seu serviço no operador %2$s."</strin
     <string name="nfc_payment_default">Pagamento predefinido</string>
     <string name="nfc_payment_default_not_set">Não definida</string>
     <string name="nfc_payment_favor_default">Sempre</string>
-    <string name="nfc_payment_favor_open">Exceto enquanto outra app de pagamento está aberta</string>
+    <string name="nfc_payment_favor_open">Exceto enquanto outra app de pagamentos está aberta</string>
     <string name="nfc_payment_how_it_works">Como funciona</string>
     <string name="nfc_payment_no_apps">Pague com o seu telemóvel em lojas</string>
     <string name="nfc_payment_pay_with">Num terminal sem contacto, pague com:</string>
@@ -3558,7 +3558,7 @@ Esta substitui a app %2$s como app de pagamento predefinida."</string>
     <string name="night_display_summary_on_auto_mode_twilight">Desativa-se automaticamente ao nascer do sol</string>
     <string name="night_display_temperature_title">Intensidade</string>
     <string name="night_display_text">A Luz noturna aplica uma tonalidade âmbar ao ecrã que torna mais fácil olhar para ele ou ler com pouca luz. Também pode ajudar a adormecer mais facilmente.</string>
-    <string name="night_light_main_switch_title">Utilizar Luz noturna</string>
+    <string name="night_light_main_switch_title">Usar Luz noturna</string>
     <string name="no">Não</string>
     <string name="no_5g_in_dsds_text">Quando utiliza 2 SIMs, este telemóvel fica limitado ao 4G. <annotation id="url">Saiba mais</annotation></string>
     <string name="no_application">Nenhuma</string>
@@ -3979,7 +3979,7 @@ prima os botões ligar/desligar e aumentar volume em simultâneo."</string>
     <string name="private_dns_mode_off">Desativado</string>
     <string name="private_dns_mode_on">Ativado</string>
     <string name="private_dns_mode_opportunistic">Automático</string>
-    <string name="private_dns_mode_provider">Nome de anfitrião do fornecedor DNS privado</string>
+    <string name="private_dns_mode_provider">Nome do anfitrião do fornecedor DNS privado</string>
     <string name="private_dns_mode_provider_failure">Não foi possível estabelecer ligação</string>
     <string name="private_dns_mode_provider_hostname_hint">Introduza nome - anfitrião do fornecedor DNS</string>
     <string name="privileged_action_disable_fail_text">Ocorreu um erro e não foi possível desativar o operador.</string>
@@ -4029,7 +4029,7 @@ prima os botões ligar/desligar e aumentar volume em simultâneo."</string>
     <string name="proxy_error_invalid_host">O nome de anfitrião que introduziu não é válido.</string>
     <string name="proxy_error_invalid_port">A porta introduzida não é válida.</string>
     <string name="proxy_exclusionlist_label">Ignorar proxy para</string>
-    <string name="proxy_hostname_label">Nome de anfitrião do proxy</string>
+    <string name="proxy_hostname_label">Nome do anfitrião do proxy</string>
     <string name="proxy_port_label">Porta proxy</string>
     <string name="proxy_settings_label">Definições de proxy</string>
     <string name="proxy_settings_title">Proxy</string>
@@ -4050,8 +4050,8 @@ prima os botões ligar/desligar e aumentar volume em simultâneo."</string>
     <string name="radioInfo_unknown">Desconhecida</string>
     <string name="radio_controls_summary">Gerir Wi-Fi, Bluetooth, modo de avião, redes móveis e VPNs</string>
     <string name="radio_info_http_client_test">Teste de Cliente HTTP:</string>
-    <string name="radio_info_ping_hostname_v4">Nome de anfitrião de ping (www.google.com) IPv4:</string>
-    <string name="radio_info_ping_hostname_v6">Nome de anfitrião de ping (www.google.com) IPv6:</string>
+    <string name="radio_info_ping_hostname_v4">Nome do anfitrião de ping (www.google.com) IPv4:</string>
+    <string name="radio_info_ping_hostname_v6">Nome do anfitrião de ping (www.google.com) IPv6:</string>
     <string name="rarely_running">Raramente em execução (%s)</string>
     <string name="really_remove_account_message">A remoção desta conta elimina todas as mensagens, contactos e outros dados do telemóvel!</string>
     <string name="really_remove_account_title">Remover a conta?</string>
@@ -4572,6 +4572,8 @@ Nota: não é possível utilizar a sua impressão digital para desbloquear este 
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">Siga o ícone da impressão digital</string>
     <string name="security_settings_udfps_enroll_start_message">Mantenha toda a impressão digital no sensor até sentir uma vibração</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">Mais uma vez</string>
+    <string name="security_settings_udfps_side_fingerprint_help">Coloque o lado da sua impressão digital no sensor, mantenha essa posição e, em seguida, mude para o outro lado</string>
+    <string name="security_settings_udfps_tip_fingerprint_help">Levante e toque novamente</string>
     <string name="security_settings_work_fingerprint_preference_title">Pixel Imprint para o trabalho</string>
     <string name="security_status_title">Estado de segurança</string>
     <string name="see_less">Ver menos</string>
@@ -5532,6 +5534,7 @@ Qualquer utilizador pode atualizar aplicações para todos os outros utilizadore
     <string name="verify_apps_over_usb_title">Verificar aplicações de USB</string>
     <string name="version_text">versão %1$s</string>
     <string name="vibrate_for_calls_settings_not_available_summary">A vibração ao receber chamadas está indisponível porque o telemóvel está no modo silencioso</string>
+    <string name="vibrate_icon_title">Mostrar sempre o ícone no modo de vibração</string>
     <string name="vibrate_in_silent_title">Vibrar quando estiver em silêncio</string>
     <string name="vibrate_input_devices">Redirecionar vibração</string>
     <string name="vibrate_input_devices_summary">Enviar a vibração para o controlador do jogo, quando ligado.</string>
@@ -6184,7 +6187,7 @@ Permitir esta opção para todas as aplicações que pretenderem verificar?"</st
     <string name="zen_mode_bypassing_apps_header">Apps que podem interromper</string>
     <string name="zen_mode_bypassing_apps_none">Nenhuma app selecionada</string>
     <string name="zen_mode_bypassing_apps_some_summary">Algumas notificações</string>
-    <string name="zen_mode_bypassing_apps_subtext">{count,plural,offset:2 =0{Nenhuma app pode interromper}=1{A app {app_1} pode interromper}=2{As apps {app_1} e {app_2} podem interromper}=3{As apps {app_1}, {app_2} e {app_3} podem interromper}one{As apps {app_1}, {app_2} e mais # podem interromper}other{As apps {app_1}, {app_2} e mais # podem interromper}}</string>
+    <string name="zen_mode_bypassing_apps_subtext">{count,plural,offset:2 =0{Nenhuma app pode interromper}=1{A app {app_1} pode interromper}=2{As apps {app_1} e {app_2} podem interromper}=3{As apps {app_1}, {app_2} e {app_3} podem interromper}other{As apps {app_1}, {app_2} e mais # podem interromper}}</string>
     <string name="zen_mode_bypassing_apps_subtext_none">Nenhuma app pode interromper</string>
     <string name="zen_mode_bypassing_apps_summary_all">Todas as notificações</string>
     <string name="zen_mode_bypassing_apps_summary_some">Algumas notificações</string>
@@ -6197,8 +6200,8 @@ Permitir esta opção para todas as aplicações que pretenderem verificar?"</st
     <string name="zen_mode_calls_title">Chamadas</string>
     <string name="zen_mode_choose_rule_type">Escolher o tipo de horário</string>
     <string name="zen_mode_contacts_callers">contactos</string>
-    <string name="zen_mode_contacts_count">{count,plural, =0{Nenhum}=1{1 contacto}one{# contacto(s)}other{# contactos}}</string>
-    <string name="zen_mode_conversations_count">{count,plural, =0{Nenhuma}=1{1 conversa}one{# conversa(s)}other{# conversas}}</string>
+    <string name="zen_mode_contacts_count">{count,plural, =0{Nenhum}=1{1 contacto}other{# contactos}}</string>
+    <string name="zen_mode_conversations_count">{count,plural, =0{Nenhuma}=1{1 conversa}other{# conversas}}</string>
     <string name="zen_mode_conversations_section_title">Conversas que podem interromper</string>
     <string name="zen_mode_conversations_title">Conversas</string>
     <string name="zen_mode_custom_behavior_category_title">Para \"%1$s\"</string>
@@ -6215,8 +6218,8 @@ Permitir esta opção para todas as aplicações que pretenderem verificar?"</st
     <string name="zen_mode_duration_settings_title">Duração</string>
     <string name="zen_mode_duration_summary_always_prompt">Perguntar sempre</string>
     <string name="zen_mode_duration_summary_forever">Até desativar</string>
-    <string name="zen_mode_duration_summary_time_hours">{count,plural, =1{1 hora}one{# hora(s)}other{# horas}}</string>
-    <string name="zen_mode_duration_summary_time_minutes">{count,plural, =1{1 minuto}one{# minuto(s)}other{# minutos}}</string>
+    <string name="zen_mode_duration_summary_time_hours">{count,plural, =1{1 hora}other{# horas}}</string>
+    <string name="zen_mode_duration_summary_time_minutes">{count,plural, =1{1 minuto}other{# minutos}}</string>
     <string name="zen_mode_enable_dialog_turn_on">Ativar</string>
     <string name="zen_mode_end_time">Hora de fim</string>
     <string name="zen_mode_end_time_next_day_summary_format">%s do dia seguinte</string>
@@ -6253,7 +6256,7 @@ Permitir esta opção para todas as aplicações que pretenderem verificar?"</st
     <string name="zen_mode_none_calls">Nenhuma</string>
     <string name="zen_mode_none_messages">Nenhuma</string>
     <string name="zen_mode_other_options">outras opções</string>
-    <string name="zen_mode_other_sounds_summary">{count,plural,offset:2 =0{Nada pode interromper}=1{O som de {sound_category_1} pode interromper}=2{Os sons de {sound_category_1} e {sound_category_2} podem interromper}=3{Os sons de {sound_category_1}, {sound_category_2} e {sound_category_3} podem interromper}one{Os sons de {sound_category_1}, {sound_category_2} e mais # podem interromper}other{Os sons de {sound_category_1}, {sound_category_2} e mais # podem interromper}}</string>
+    <string name="zen_mode_other_sounds_summary">{count,plural,offset:2 =0{Nada pode interromper}=1{O som de {sound_category_1} pode interromper}=2{Os sons de {sound_category_1} e {sound_category_2} podem interromper}=3{Os sons de {sound_category_1}, {sound_category_2} e {sound_category_3} podem interromper}other{Os sons de {sound_category_1}, {sound_category_2} e mais # podem interromper}}</string>
     <string name="zen_mode_people_all">Todas as pessoas podem interromper</string>
     <string name="zen_mode_people_calls_messages_section_title">Quem pode interromper</string>
     <string name="zen_mode_people_none">Ninguém pode interromper</string>
@@ -6314,19 +6317,19 @@ Quando desativa a funcionalidade Não incomodar, pode encontrar as notificaçõe
     <string name="zen_mode_settings_dnd_custom_settings_footer_link">" "<annotation id="link">Ver definições personalizadas</annotation></string>
     <string name="zen_mode_settings_dnd_manual_end_time">O modo Não incomodar está ativado até à(s) %s.</string>
     <string name="zen_mode_settings_dnd_manual_indefinite">O modo Não incomodar continua ativo até o desativar.</string>
-    <string name="zen_mode_settings_schedules_summary">{count,plural, =0{Nenhum}=1{1 horário definido}one{# horário(s) definido(s)}other{# horários definidos}}</string>
-    <string name="zen_mode_settings_summary">Receber notificações apenas de pessoas e apps importantes</string>
+    <string name="zen_mode_settings_schedules_summary">{count,plural, =0{Nenhum}=1{1 horário definido}other{# horários definidos}}</string>
+    <string name="zen_mode_settings_summary">Receba notificações apenas de pessoas e apps importantes</string>
     <string name="zen_mode_settings_summary_off">Nunca</string>
     <string name="zen_mode_settings_title">Não incomodar</string>
     <string name="zen_mode_settings_turn_on_dialog_title">Ativar o modo Não incomodar</string>
     <string name="zen_mode_slice_subtitle">Limite as interrupções</string>
-    <string name="zen_mode_sound_summary_off">{count,plural, =0{Desativado}=1{Desativado/1 horário pode ser ativado automaticamente}one{Desativado/# horário(s) pode(m) ser ativado(s) automaticamente}other{Desativado/# horários podem ser ativados automaticamente}}</string>
+    <string name="zen_mode_sound_summary_off">{count,plural, =0{Desativado}=1{Desativado/1 horário pode ser ativado automaticamente}other{Desativado/# horários podem ser ativados automaticamente}}</string>
     <string name="zen_mode_sound_summary_on">Ativado</string>
     <string name="zen_mode_sound_summary_on_with_info">Ativado/%1$s</string>
     <string name="zen_mode_sounds_none">Nada pode interromper</string>
     <string name="zen_mode_starred_callers">contactos com estrela</string>
     <string name="zen_mode_starred_contacts_empty_name">(Sem nome)</string>
-    <string name="zen_mode_starred_contacts_summary_contacts">{count,plural,offset:2 =0{Nenhum}=1{{contact_1}}=2{{contact_1} e {contact_2}}=3{{contact_1}, {contact_2} e {contact_3}}one{{contact_1}, {contact_2} e mais #}other{{contact_1}, {contact_2} e mais #}}</string>
+    <string name="zen_mode_starred_contacts_summary_contacts">{count,plural,offset:2 =0{Nenhum}=1{{contact_1}}=2{{contact_1} e {contact_2}}=3{{contact_1}, {contact_2} e {contact_3}}other{{contact_1}, {contact_2} e mais #}}</string>
     <string name="zen_mode_starred_contacts_title">Contactos com estrela</string>
     <string name="zen_mode_start_time">Hora de início</string>
     <string name="zen_mode_summary_alarms_only_by_time">Alterar para alarmes apenas, até %1$s</string>
@@ -6338,7 +6341,7 @@ Quando desativa a funcionalidade Não incomodar, pode encontrar as notificaçõe
     <string name="zen_mode_system_list_first">Sons de toque</string>
     <string name="zen_mode_system_summary">Sons do teclado e outros botões</string>
     <string name="zen_mode_unknown_app_set_behavior">Não é possível alterar estas definições neste momento. Uma aplicação ativou automaticamente o modo Não incomodar com comportamento personalizado.</string>
-    <string name="zen_mode_use_automatic_rule">Utilizar horário</string>
+    <string name="zen_mode_use_automatic_rule">Usar horário</string>
     <string name="zen_mode_visual_interruptions_settings_title">Bloquear perturbações visuais</string>
     <string name="zen_mode_visual_signals_settings_subtitle">Permitir sinais visuais</string>
     <string name="zen_mode_what_to_block_title">Restrições personalizadas</string>

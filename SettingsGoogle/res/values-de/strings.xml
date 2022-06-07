@@ -102,10 +102,10 @@
     <string name="vibrate_for_calls_category_title">Anrufe</string>
     <string name="lockscreen_privacy_wallet_setting_toggle">Geldbörse anzeigen</string>
     <string name="lockscreen_privacy_controls_setting_toggle">Gerätesteuerung anzeigen</string>
-    <string name="lockscreen_privacy_wallet_summary">Zugriff auf Geldbörse aus Sperrbildschirm und Schnelleinstellungen erlauben</string>
+    <string name="lockscreen_privacy_wallet_summary">Zugriff auf Geldbörse vom Sperrbildschirm und aus den Schnelleinstellungen erlauben</string>
     <string name="lockscreen_privacy_controls_summary">Zugriffssteuerung bei Sperre</string>
-    <string name="lockscreen_double_line_clock_summary">Uhr in zwei Zeilen anzeigen, wenn verfügbar</string>
-    <string name="lockscreen_double_line_clock_setting_toggle">Uhr in zwei Zeilen</string>
+    <string name="lockscreen_double_line_clock_summary">Uhrzeit in zwei Zeilen anzeigen, wenn verfügbar</string>
+    <string name="lockscreen_double_line_clock_setting_toggle">Uhrzeit in zwei Zeilen</string>
     <string name="abc_activity_chooser_view_see_all">Alle anzeigen</string>
     <string name="abc_activitychooserview_choose_application">App auswählen</string>
     <string name="abc_capital_off">AUS</string>
@@ -284,7 +284,7 @@ Die Schaltfläche „Bedienungshilfen“ wird unverankert über anderen Apps auf
 "<li>Zum Anpassen des Zooms ziehe zwei oder mehr Finger zusammen bzw. auseinander</li></ul>"
 
 "<b>Wenn du vorübergehend heranzoomen möchtest</b>", starte die Vergrößerung und tippe dann auf eine beliebige Stelle auf dem Bildschirm und halte sie gedrückt.
-"<ul><li>Wenn du dich im Bildschirm bewegen möchtest, ziehe den Bildschirm</li>"
+"<ul><li>Wenn du den angezeigten Bildschirmausschnitt verschieben möchtest, ziehe den Bildschirm</li>"
 "<li>Zum Herauszoomen hebe den Finger</li></ul>"
 
 In die Tastatur oder Navigationsleiste kann nicht hineingezoomt werden."</string>
@@ -292,7 +292,7 @@ In die Tastatur oder Navigationsleiste kann nicht hineingezoomt werden."</string
     <string name="accessibility_screen_magnification_short_summary">Zum Zoomen dreimal tippen</string>
     <string name="accessibility_screen_magnification_shortcut_title">Kurzbefehl für Vergrößerung</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">Mit Tastenkombination und 3-mal Tippen vergrößern</string>
-    <string name="accessibility_screen_magnification_summary">Du kannst auf dem Display schnell heranzoomen, um Inhalte zu vergrößern.&lt;br/>&lt;br/> &lt;b>So zoomst du heran:&lt;/b>&lt;br/> {0,number,integer}. Starte die Vergrößerung über die Verknüpfung&lt;br/> {1,number,integer}. Tippe auf das Display&lt;br/> {2,number,integer}. Ziehe mit zwei Fingern, um den angezeigten Bildschirmausschnitt zu verschieben&lt;br/> {3,number,integer}. Ziehe zwei Finger auseinander oder zusammen, um den Zoom anzupassen&lt;br/> {4,number,integer}. Beende die Vergrößerung über die Verknüpfung&lt;br/>&lt;br/> &lt;b>So zoomst du vorübergehend heran:&lt;/b>&lt;br/> {0,number,integer}. Starte die Vergrößerung über die Verknüpfung&lt;br/> {1,number,integer}. Halte eine beliebige Stelle auf dem Display gedrückt&lt;br/> {2,number,integer}. Ziehe mit dem Finger, um den angezeigten Bildschirmausschnitt zu ändern&lt;br/> {3,number,integer}. Hebe den Finger, um die Vergrößerung zu beenden</string>
+    <string name="accessibility_screen_magnification_summary">Du kannst auf dem Display schnell heranzoomen, um Inhalte zu vergrößern.&lt;br/>&lt;br/> &lt;b>So zoomst du heran:&lt;/b>&lt;br/> {0,number,integer}. Starte die Vergrößerung über die Verknüpfung&lt;br/> {1,number,integer}. Tippe auf das Display&lt;br/> {2,number,integer}. Ziehe mit zwei Fingern, um den angezeigten Bildschirmausschnitt zu verschieben&lt;br/> {3,number,integer}. Ziehe zwei Finger auseinander oder zusammen, um den Zoom anzupassen&lt;br/> {4,number,integer}. Beende die Vergrößerung über die Verknüpfung&lt;br/>&lt;br/> &lt;b>So zoomst du vorübergehend heran:&lt;/b>&lt;br/> {0,number,integer}. Starte die Vergrößerung über die Verknüpfung&lt;br/> {1,number,integer}. Halte eine beliebige Stelle auf dem Display gedrückt&lt;br/> {2,number,integer}. Ziehe mit dem Finger, um den angezeigten Bildschirmausschnitt zu verschieben&lt;br/> {3,number,integer}. Hebe den Finger, um die Vergrößerung zu beenden</string>
     <string name="accessibility_screen_magnification_title">Vergrößerung</string>
     <string name="accessibility_screen_option">Optionen</string>
     <string name="accessibility_service_action_perform_description">Die Funktion kann deine Interaktionen mit einer App oder einem Hardwaresensor verfolgen und in deinem Namen mit Apps interagieren.</string>
@@ -551,7 +551,7 @@ Widget: %2$s
     <string name="always_allow_bind_appwidgets_text">Du hast dieser App das Erstellen von Widgets und den Zugriff auf deine Daten erlaubt.</string>
     <string name="always_running">Immer ausgeführt (%s)</string>
     <string name="amber_alerts_summary">Bulletins über Kindesentführungen erhalten</string>
-    <string name="amber_alerts_title">AMBER-Benachrichtigungen</string>
+    <string name="amber_alerts_title">AMBER Alerts</string>
     <string name="ambient_camera_battery_saver_off">Energiesparmodus ausschalten</string>
     <string name="ambient_camera_summary_battery_saver_on">Wegen Energiesparmodus vorübergehend deaktiviert</string>
     <string name="ambient_display_pickup_summary">Wenn du das Smartphone in die Hand nimmst, werden die Uhrzeit, Benachrichtigungen und andere Informationen angezeigt.</string>
@@ -1256,7 +1256,7 @@ Dein Gerät war bisher noch nicht mit %2$s verbunden."</string>
     <string name="bluetooth_opp_profile_summary_not_connected">Nicht mit Dateiübertragungsserver verbunden</string>
     <string name="bluetooth_opp_profile_summary_use_for">Für Dateiübertragung verwenden</string>
     <string name="bluetooth_paired_device_title">Meine Geräte</string>
-    <string name="bluetooth_pairing">Verbindung wird hergestellt…</string>
+    <string name="bluetooth_pairing">Wird gekoppelt…</string>
     <string name="bluetooth_pairing_accept">Koppeln</string>
     <string name="bluetooth_pairing_accept_all_caps">KOPPELN</string>
     <string name="bluetooth_pairing_decline">Abbrechen</string>
@@ -1557,7 +1557,7 @@ Wenn du ein CA-Zertifikat installierst, hat dessen Inhaber Zugriff auf deine Dat
     <string name="clear_data_dlg_text">Die Daten dieser App werden endgültig gelöscht. Dazu gehören Dateien, Einstellungen, Datenbanken und sonstige App-Daten.</string>
     <string name="clear_data_dlg_title">App-Daten löschen?</string>
     <string name="clear_failed_dlg_text">Speicherinhalt der App konnte nicht gelöscht werden.</string>
-    <string name="clear_instant_app_confirmation">Möchtest du diese Instant-App entfernen?</string>
+    <string name="clear_instant_app_confirmation">Möchtest du diese Instant App entfernen?</string>
     <string name="clear_instant_app_data">App löschen</string>
     <string name="clear_text_end_icon_content_description">Text löschen</string>
     <string name="clear_uri_btn_text">Zugriff löschen</string>
@@ -2432,7 +2432,7 @@ Bitte starte dein Gerät neu und versuch es dann noch einmal."</string>
     <string name="filter_dlg_title">Filteroptionen auswählen</string>
     <string name="filter_enabled_apps">Installierte Apps</string>
     <string name="filter_install_sources_apps">Installation anderer Apps erlaubt</string>
-    <string name="filter_instant_apps">Instant-Apps</string>
+    <string name="filter_instant_apps">Instant Apps</string>
     <string name="filter_manage_external_storage">Auf alle Dateien zugreifen</string>
     <string name="filter_notif_all_apps">Apps: alle</string>
     <string name="filter_notif_blocked_apps">Deaktiviert</string>
@@ -2521,8 +2521,8 @@ Sicherungsdaten werden nicht auf dein Speicherkontingent bei Google Drive angere
     <string name="fullbackup_erase_dialog_message">Soll das Sichern von Gerätedaten, wie z. B. WLAN-Passwörtern und der Anrufliste, sowie App-Daten, wie z. B. Einstellungen und von Apps gespeicherten Dateien, beendet werden und sollen alle Kopien bei Google Drive gelöscht werden?</string>
     <string name="gadget_picker_title">Gadget auswählen</string>
     <string name="game_controller_settings_category">Gamecontroller</string>
-    <string name="game_dashboard_always_on_summary">„Dashboard für Spiele“-Schaltfläche in Spielen anzeigen</string>
-    <string name="game_dashboard_always_on_title">Dashboard für Spiele</string>
+    <string name="game_dashboard_always_on_summary">Symbol in allen Spielen anzeigen (ohne nach oben oder unten zu wischen)</string>
+    <string name="game_dashboard_always_on_title">Schwebendes „Dashboard für Spiele“-Symbol</string>
     <string name="game_dashboard_dnd_rule_name">Gaming</string>
     <string name="game_dashboard_dnd_summary">Beim Spielen nur Benachrichtigungen von wichtigen Personen und Apps erhalten</string>
     <string name="game_dashboard_dnd_title">„Bitte nicht stören“ für Spiele</string>
@@ -2675,11 +2675,11 @@ Du kannst diese Einstellung jederzeit unter „Einstellungen“ > „Apps &amp; 
     <string name="install_applications_title">Alle App-Quellen zulassen</string>
     <string name="install_other_apps">Installieren unbekannter Apps</string>
     <string name="install_text">Installieren</string>
-    <string name="install_type_instant">Instant-App</string>
+    <string name="install_type_instant">Instant App</string>
     <string name="install_unknown_applications">Installation von Apps aus anderen Quellen als dem Play Store zulassen</string>
     <string name="installed">Installiert</string>
     <string name="instant_app_details_summary">Weitere Informationen im %1$s</string>
-    <string name="instant_apps_settings">Instant-Apps-Einstellungen</string>
+    <string name="instant_apps_settings">Instant Apps-Einstellungen</string>
     <string name="insufficient_storage">Nicht genügend Speicherplatz</string>
     <string name="intent_sender_account_label">Konto:</string>
     <string name="intent_sender_action_label">Action:</string>
@@ -3616,7 +3616,7 @@ Die Funktion hat Zugriff auf alle Benachrichtigungen, darunter auch personenbezo
     <string name="notification_badging_title">Benachrich­ti­gungs­punkt auf App-Symbol</string>
     <string name="notification_block_title">Blockieren</string>
     <string name="notification_bubbles_title">Bubbles</string>
-    <string name="notification_channel_badge_title">App-Benachrichtigungs­punkt anzeigen</string>
+    <string name="notification_channel_badge_title">App-Benach­richtigungs­punkt anzeigen</string>
     <string name="notification_channel_sound_title">Ton</string>
     <string name="notification_channel_summary_default">Kann klingeln oder vibrieren, abhängig von den Telefoneinstellungen</string>
     <string name="notification_channel_summary_high">Bei entsperrtem Gerät Benachrichtigungen als Banner oben auf dem Bildschirm anzeigen</string>
@@ -3819,7 +3819,7 @@ Zusätzlich wird die App in die Lage versetzt, die „Bitte nicht stören“-Fun
     <string name="platform_compat_default_enabled_title">Standardmäßig aktivierte Änderungen</string>
     <string name="platform_compat_dialog_text_no_apps">Die Kompatibilität kann nur bei debug-fähigen Apps geändert werden. Installiere eine debug-fähige App und versuch es noch einmal.</string>
     <string name="platform_compat_dialog_title_no_apps">Keine Apps verfügbar</string>
-    <string name="please_select_phase2">Phase 2-Authentifizierung</string>
+    <string name="please_select_phase2">Phase-2-Authentifizierung</string>
     <string name="pointer_location">Zeigerposition</string>
     <string name="pointer_location_summary">Overlay mit aktuellen Daten zu Tippaktionen anzeigen</string>
     <string name="pointer_speed">Zeigergeschwindigkeit</string>
@@ -4570,6 +4570,8 @@ Hinweis: Dieses Gerät kann nicht mit deinem Fingerabdruck entsperrt werden. Wei
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">Dem Fingerabdruck-Symbol folgen</string>
     <string name="security_settings_udfps_enroll_start_message">Lege deinen Finger so lange auf den Sensor, bis du eine Vibration spürst</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">Noch mal</string>
+    <string name="security_settings_udfps_side_fingerprint_help">Halte nacheinander beide Seiten der Fingerkuppe einen Moment lang auf den Sensor</string>
+    <string name="security_settings_udfps_tip_fingerprint_help">Hebe den Finger an und lege ihn dann noch mal auf den Sensor</string>
     <string name="security_settings_work_fingerprint_preference_title">Pixel Imprint für die Arbeit</string>
     <string name="security_status_title">Sicherheitsstatus</string>
     <string name="see_less">Weniger anzeigen</string>
@@ -4825,7 +4827,7 @@ Möglicherweise falsche PIN."</string>
     <string name="sound_settings_summary_silent">Klingelton auf lautlos gestellt</string>
     <string name="sound_settings_summary_vibrate">Klingelton auf Vibrieren gestellt</string>
     <string name="sound_work_settings">Töne für Arbeitsprofil</string>
-    <string name="spatial_audio_title">Raumklang</string>
+    <string name="spatial_audio_title">Spatial Audio</string>
     <string name="special_access">Spezieller App-Zugriff</string>
     <string name="special_access_more">Mehr anzeigen</string>
     <string name="speed_label_fast">Schnell</string>
@@ -5108,7 +5110,7 @@ Versuche, ein schnelleres Speichergerät (^3) zu verwenden oder verwende stattde
     <string name="sync_error">Synchronisierungsfehler</string>
     <string name="sync_failed">Fehler bei der Synchronisierung</string>
     <string name="sync_gmail">Gmail</string>
-    <string name="sync_in_progress">Synchronisieren…</string>
+    <string name="sync_in_progress">Wird synchronisiert…</string>
     <string name="sync_is_failing">Bei der Synchronisierung treten momentan Probleme auf. Sie wird in Kürze fortgesetzt.</string>
     <string name="sync_menu_sync_cancel">Synchronisierung abbrechen</string>
     <string name="sync_menu_sync_now">Jetzt synchronisieren</string>
@@ -5447,7 +5449,7 @@ Jeder Nutzer kann Apps für alle anderen Nutzer aktualisieren."</string>
     <string name="user_certificate">VPN- &amp; App-Nutzerzertifikat</string>
     <string name="user_confirm_remove_message">Sämtliche Apps und Daten werden gelöscht.</string>
     <string name="user_confirm_remove_self_message">Dein Profil und deine Daten werden vom Telefon entfernt. Du kannst diese Aktion nicht rückgängig machen.</string>
-    <string name="user_confirm_remove_self_title">Sich selbst löschen?</string>
+    <string name="user_confirm_remove_self_title">Dich selbst löschen?</string>
     <string name="user_confirm_remove_title">Diesen Nutzer löschen?</string>
     <string name="user_credential_none_installed">Keine Nutzeranmeldedaten installiert</string>
     <string name="user_credential_removed">Anmeldedaten entfernt: %s</string>
@@ -5530,6 +5532,7 @@ Jeder Nutzer kann Apps für alle anderen Nutzer aktualisieren."</string>
     <string name="verify_apps_over_usb_title">Über USB installierte Apps prüfen</string>
     <string name="version_text">Version %1$s</string>
     <string name="vibrate_for_calls_settings_not_available_summary">Vibrationsfunktion für Anrufe nicht verfügbar, da das Smartphone auf lautlos gestellt ist</string>
+    <string name="vibrate_icon_title">Im Vibrationsmodus immer Symbol anzeigen</string>
     <string name="vibrate_in_silent_title">Im Lautlos-Modus vibrieren</string>
     <string name="vibrate_input_devices">Vibration weiterleiten</string>
     <string name="vibrate_input_devices_summary">Vibration an Gamecontroller senden, sofern eine Verbindung besteht</string>
@@ -5659,8 +5662,8 @@ Während eines Sprachanrufs kannst du das Internet nicht nutzen und manche Apps 
     <string name="wallpaper_suggestion_title">Hintergrund ändern</string>
     <string name="warning_button_text">Warnung</string>
     <string name="web_action_enable_summary">Links in Apps öffnen, ohne dass die Apps dazu installiert sein müssen</string>
-    <string name="web_action_enable_title">Instant-Apps</string>
-    <string name="web_action_section_title">Instant-Apps</string>
+    <string name="web_action_enable_title">Instant Apps</string>
+    <string name="web_action_section_title">Instant Apps</string>
     <string name="webview_disabled_for_user">(für Nutzer %s deaktiviert)</string>
     <string name="webview_license_title">System-WebView-Lizenz</string>
     <string name="webview_uninstalled_for_user">(für Nutzer %s deinstalliert)</string>

@@ -266,112 +266,112 @@
 
 .field public static final screen_zoom_summary_very_large:I = 0x7f0410e1
 
-.field public static final speed_label_fast:I = 0x7f0412be
+.field public static final speed_label_fast:I = 0x7f0412c0
 
-.field public static final speed_label_okay:I = 0x7f0412c0
+.field public static final speed_label_okay:I = 0x7f0412c2
 
-.field public static final speed_label_slow:I = 0x7f0412c1
+.field public static final speed_label_slow:I = 0x7f0412c3
 
-.field public static final speed_label_very_fast:I = 0x7f0412c2
+.field public static final speed_label_very_fast:I = 0x7f0412c4
 
-.field public static final status_unavailable:I = 0x7f0412e8
+.field public static final status_unavailable:I = 0x7f0412ea
 
-.field public static final tether_settings_title_all:I = 0x7f0413de
+.field public static final tether_settings_title_all:I = 0x7f0413e0
 
-.field public static final tether_settings_title_bluetooth:I = 0x7f0413df
+.field public static final tether_settings_title_bluetooth:I = 0x7f0413e1
 
-.field public static final tether_settings_title_usb:I = 0x7f0413e0
+.field public static final tether_settings_title_usb:I = 0x7f0413e2
 
-.field public static final tether_settings_title_usb_bluetooth:I = 0x7f0413e1
+.field public static final tether_settings_title_usb_bluetooth:I = 0x7f0413e3
 
-.field public static final tether_settings_title_wifi:I = 0x7f0413e2
+.field public static final tether_settings_title_wifi:I = 0x7f0413e4
 
-.field public static final time_unit_just_now:I = 0x7f0413f0
+.field public static final time_unit_just_now:I = 0x7f0413f2
 
-.field public static final use_system_language_to_select_input_method_subtypes:I = 0x7f0414d1
+.field public static final use_system_language_to_select_input_method_subtypes:I = 0x7f0414d3
 
-.field public static final user_guest:I = 0x7f04150d
+.field public static final user_guest:I = 0x7f04150f
 
-.field public static final user_image_choose_photo:I = 0x7f04150e
+.field public static final user_image_choose_photo:I = 0x7f041510
 
-.field public static final user_image_take_photo:I = 0x7f041510
+.field public static final user_image_take_photo:I = 0x7f041512
 
-.field public static final wifi_connected_low_quality:I = 0x7f04160f
+.field public static final wifi_connected_low_quality:I = 0x7f041612
 
-.field public static final wifi_connected_no_internet:I = 0x7f041610
+.field public static final wifi_connected_no_internet:I = 0x7f041613
 
-.field public static final wifi_fail_to_scan:I = 0x7f04166f
+.field public static final wifi_fail_to_scan:I = 0x7f041672
 
-.field public static final wifi_limited_connection:I = 0x7f0416a0
+.field public static final wifi_limited_connection:I = 0x7f0416a3
 
-.field public static final wifi_security_eap:I = 0x7f0416e7
+.field public static final wifi_security_eap:I = 0x7f0416ea
 
-.field public static final wifi_security_eap_suiteb:I = 0x7f0416e8
+.field public static final wifi_security_eap_suiteb:I = 0x7f0416eb
 
-.field public static final wifi_security_eap_wpa:I = 0x7f0416e9
+.field public static final wifi_security_eap_wpa:I = 0x7f0416ec
 
-.field public static final wifi_security_eap_wpa2_wpa3:I = 0x7f0416ea
+.field public static final wifi_security_eap_wpa2_wpa3:I = 0x7f0416ed
 
-.field public static final wifi_security_none:I = 0x7f0416ed
+.field public static final wifi_security_none:I = 0x7f0416f0
 
-.field public static final wifi_security_none_owe:I = 0x7f0416ee
+.field public static final wifi_security_none_owe:I = 0x7f0416f1
 
-.field public static final wifi_security_owe:I = 0x7f0416ef
+.field public static final wifi_security_owe:I = 0x7f0416f2
 
-.field public static final wifi_security_psk_generic:I = 0x7f0416f1
+.field public static final wifi_security_psk_generic:I = 0x7f0416f4
 
-.field public static final wifi_security_psk_sae:I = 0x7f0416f2
+.field public static final wifi_security_psk_sae:I = 0x7f0416f5
 
-.field public static final wifi_security_sae:I = 0x7f0416f3
+.field public static final wifi_security_sae:I = 0x7f0416f6
 
-.field public static final wifi_security_short_eap:I = 0x7f0416f4
+.field public static final wifi_security_short_eap:I = 0x7f0416f7
 
-.field public static final wifi_security_short_eap_suiteb:I = 0x7f0416f5
+.field public static final wifi_security_short_eap_suiteb:I = 0x7f0416f8
 
-.field public static final wifi_security_short_eap_wpa:I = 0x7f0416f6
+.field public static final wifi_security_short_eap_wpa:I = 0x7f0416f9
 
-.field public static final wifi_security_short_eap_wpa2_wpa3:I = 0x7f0416f7
+.field public static final wifi_security_short_eap_wpa2_wpa3:I = 0x7f0416fa
 
-.field public static final wifi_security_short_none_owe:I = 0x7f0416f8
+.field public static final wifi_security_short_none_owe:I = 0x7f0416fb
 
-.field public static final wifi_security_short_owe:I = 0x7f0416f9
+.field public static final wifi_security_short_owe:I = 0x7f0416fc
 
-.field public static final wifi_security_short_psk_generic:I = 0x7f0416fa
+.field public static final wifi_security_short_psk_generic:I = 0x7f0416fd
 
-.field public static final wifi_security_short_psk_sae:I = 0x7f0416fb
+.field public static final wifi_security_short_psk_sae:I = 0x7f0416fe
 
-.field public static final wifi_security_short_sae:I = 0x7f0416fc
+.field public static final wifi_security_short_sae:I = 0x7f0416ff
 
-.field public static final wifi_security_short_wep:I = 0x7f0416fd
+.field public static final wifi_security_short_wep:I = 0x7f041700
 
-.field public static final wifi_security_short_wpa:I = 0x7f0416fe
+.field public static final wifi_security_short_wpa:I = 0x7f041701
 
-.field public static final wifi_security_short_wpa2:I = 0x7f0416ff
+.field public static final wifi_security_short_wpa2:I = 0x7f041702
 
-.field public static final wifi_security_short_wpa_wpa2:I = 0x7f041700
+.field public static final wifi_security_short_wpa_wpa2:I = 0x7f041703
 
-.field public static final wifi_security_wep:I = 0x7f041701
+.field public static final wifi_security_wep:I = 0x7f041704
 
-.field public static final wifi_security_wpa:I = 0x7f041702
+.field public static final wifi_security_wpa:I = 0x7f041705
 
-.field public static final wifi_security_wpa2:I = 0x7f041703
+.field public static final wifi_security_wpa2:I = 0x7f041706
 
-.field public static final wifi_security_wpa_wpa2:I = 0x7f041704
+.field public static final wifi_security_wpa_wpa2:I = 0x7f041707
 
-.field public static final wifi_status_no_internet:I = 0x7f041727
+.field public static final wifi_status_no_internet:I = 0x7f04172a
 
-.field public static final wifi_status_sign_in_required:I = 0x7f041728
+.field public static final wifi_status_sign_in_required:I = 0x7f04172b
 
-.field public static final zen_alarm_warning:I = 0x7f0417c0
+.field public static final zen_alarm_warning:I = 0x7f0417c3
 
-.field public static final zen_alarm_warning_indef:I = 0x7f0417c1
+.field public static final zen_alarm_warning_indef:I = 0x7f0417c4
 
-.field public static final zen_mode_duration_always_prompt_title:I = 0x7f041820
+.field public static final zen_mode_duration_always_prompt_title:I = 0x7f041823
 
-.field public static final zen_mode_duration_settings_title:I = 0x7f041821
+.field public static final zen_mode_duration_settings_title:I = 0x7f041824
 
-.field public static final zen_mode_enable_dialog_turn_on:I = 0x7f041826
+.field public static final zen_mode_enable_dialog_turn_on:I = 0x7f041829
 
-.field public static final zen_mode_forever:I = 0x7f041836
+.field public static final zen_mode_forever:I = 0x7f041839
 
-.field public static final zen_mode_settings_turn_on_dialog_title:I = 0x7f041888
+.field public static final zen_mode_settings_turn_on_dialog_title:I = 0x7f04188b

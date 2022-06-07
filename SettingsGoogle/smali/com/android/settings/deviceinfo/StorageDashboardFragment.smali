@@ -316,7 +316,7 @@
 
     :cond_1
     :goto_0
-    const v0, 0x7f0412f1
+    const v0, 0x7f0412f3
 
     invoke-virtual {p1}, Lcom/android/settings/deviceinfo/storage/StorageEntry;->getDiskId()Ljava/lang/String;
 

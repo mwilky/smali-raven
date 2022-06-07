@@ -218,7 +218,7 @@
     <string name="accessibility_dialog_button_stop">നിർത്തുക</string>
     <string name="accessibility_disable_animations">ആനിമേഷനുകൾ നീക്കം ചെയ്യുക</string>
     <string name="accessibility_display_daltonizer_preference_subtitle">നിങ്ങളുടെ ഉപകരണത്തിൽ നിറങ്ങൾ എങ്ങനെ പ്രദർശിപ്പിക്കണമെന്ന് ക്രമീകരിക്കുക. ഇനിപ്പറയുന്ന കാര്യങ്ങൾ ചെയ്യാൻ ആഗ്രഹിക്കുമ്പോൾ ഇത് സഹായകരമാകും:&lt;br/>&lt;br/> &lt;ol> &lt;li>&amp;nbsp;നിറങ്ങൾ കൂടുതൽ കൃത്യമായി കാണാൻ&lt;/li> &lt;li>&amp;nbsp;ഫോക്കസ് ചെയ്യാൻ നിങ്ങളെ സഹായിക്കുന്നതിന് നിറങ്ങൾ നീക്കം ചെയ്യാൻ&lt;/li> &lt;/ol></string>
-    <string name="accessibility_display_daltonizer_preference_title">നിറം ക്രമീകരിക്കൽ</string>
+    <string name="accessibility_display_daltonizer_preference_title">നിറം ശരിയാക്കൽ</string>
     <string name="accessibility_display_inversion_preference_subtitle">നിറം വിപരീതമാക്കൽ തെളിച്ചമുള്ള സ്ക്രീനുകളെ ഇരുണ്ടതാക്കുന്നു.&lt;br/>&lt;br/> ശ്രദ്ധിക്കുക: &lt;ol> &lt;li> നിറം വിപരീതമാക്കൽ ഇരുണ്ട സ്ക്രീനുകളെ തെളിച്ചമുള്ളതാക്കുന്നു.&lt;/li> &lt;li> മീഡിയയിലും ചിത്രത്തിലും നിറങ്ങൾ മാറും.&lt;/li> &lt;li> ഇരുണ്ട പശ്ചാത്തലം പ്രദർശിപ്പിക്കാൻ ഡാർക്ക് തീം ഉപയോഗിക്കാം. പിന്തുണയുള്ള ആപ്പുകളിൽ ഡാർക്ക് തീം പ്രവർത്തിക്കുന്നു. നിറം വിപരീതമാക്കൽ എല്ലാ ആപ്പുകളിലും പ്രവർത്തിക്കുന്നു.&lt;/li> &lt;/ol></string>
     <string name="accessibility_display_inversion_preference_title">നിറം വിപരീതമാക്കൽ</string>
     <string name="accessibility_display_inversion_shortcut_title">നിറം വിപരീതമാക്കൽ കുറുക്കുവഴി</string>
@@ -1325,7 +1325,7 @@
     <string name="bluetooth_scanning_on_info_message">"Bluetooth ഓണാക്കിയിരിക്കുമ്പോൾ, സമീപമുള്ള മറ്റ് Bluetooth ഉപകരണങ്ങളുമായി നിങ്ങളുടെ ഉപകരണത്തിന് ആശയവിനിമയം നടത്താനാകും.
 
 ഉപകരണ അനുഭവം മെച്ചപ്പെടുത്താൻ, Bluetooth ഓഫാക്കിയിരിക്കുമ്പോൾ പോലും ആപ്പുകൾക്കും സേവനങ്ങൾക്കും സമീപമുള്ള ഉപകരണങ്ങൾ കണ്ടെത്താൻ ഏത് സമയത്തും സ്‌കാൻ ചെയ്യാനാകും. ഉദാഹരണത്തിന്, ലൊക്കേഷൻ അധിഷ്‌ഠിത ഫീച്ചറുകളും സേവനങ്ങളും മെച്ചപ്പെടുത്താൻ ഇത് ഉപയോഗിക്കാം. "<annotation id="link">Bluetooth സ്കാനിംഗ് ക്രമീകരണത്തിൽ</annotation> നിങ്ങൾക്ക് ഇത് മാറ്റാനാകും.</string>
-    <string name="bluetooth_search_for_devices">പുതുക്കുക</string>
+    <string name="bluetooth_search_for_devices">റീഫ്രഷ് ചെയ്യുക</string>
     <string name="bluetooth_searching_for_devices">തിരയുന്നു...</string>
     <string name="bluetooth_select_a2dp_codec_bits_per_sample">ഓരോ സാമ്പിളിലെയും Bluetooth ഓഡിയോ ബിറ്റുകൾ</string>
     <string name="bluetooth_select_a2dp_codec_bits_per_sample_dialog_title">"Bluetooth Audio Codec
@@ -2522,8 +2522,8 @@ CA സർട്ടിഫിക്കറ്റ് ഇൻസ്‌റ്റാൾ 
     <string name="fullbackup_erase_dialog_message">ഉപകരണ വിവരവും (വൈഫൈ പാസ്‌വേഡുകളും കോൾ ചരിത്രവും) ആപ്പ് വിവരവും (ആപ്പുകൾ സംഭരിച്ച ക്രമീകരണവും പോലുള്ളവ) ബാക്കപ്പുചെയ്യുന്നത് നിർത്തുകയും Google ഡ്രൈവിലെ എല്ലാ പകർപ്പുകളും മായ്‌ക്കുകയും ചെയ്യണോ?</string>
     <string name="gadget_picker_title">ഗാഡ്ജറ്റ് തിരഞ്ഞെടുക്കുക</string>
     <string name="game_controller_settings_category">ഗെയിം കൺട്രോളർ</string>
-    <string name="game_dashboard_always_on_summary">ഗെയിമുകളിൽ ഗെയിം ഡാഷ്ബോർഡ് ഷോർട്ട്കട്ട് കാണിക്കുക</string>
-    <string name="game_dashboard_always_on_title">ഗെയിം ഡാഷ്ബോർഡ്</string>
+    <string name="game_dashboard_always_on_summary">ഐക്കൺ എല്ലാ ഗെയിമുകളിലും കാണിക്കുക (മുകളിലേക്കോ താഴേക്കോ സ്വൈപ്പ് ചെയ്യാതെ)</string>
+    <string name="game_dashboard_always_on_title">ഗെയിം ഡാഷ്ബോർഡ് ചലിക്കുന്ന ഐക്കൺ</string>
     <string name="game_dashboard_dnd_rule_name">ഗെയിമിംഗ്</string>
     <string name="game_dashboard_dnd_summary">ഗെയിം കളിക്കുമ്പോൾ പ്രധാനപ്പെട്ട ആളുകളിൽ നിന്നും ആപ്പുകളിൽ നിന്നും മാത്രം അറിയിപ്പുകൾ നേടുക</string>
     <string name="game_dashboard_dnd_title">"ഗെയിമുകൾക്കുള്ള 'ശല്യപ്പെടുത്തരുത് മോഡ്'"</string>
@@ -3321,7 +3321,7 @@ CA സർട്ടിഫിക്കറ്റ് ഇൻസ്‌റ്റാൾ 
     <string name="menu_show_percentage">ശതമാനങ്ങൾ കാണിക്കുക</string>
     <string name="menu_show_system">സിസ്റ്റം കാണിക്കുക</string>
     <string name="menu_stats_last_unplugged">%1$s എന്നതിനായി അവസാനം പ്ലഗുചെയ്‌തത് മാറ്റിയപ്പോൾ</string>
-    <string name="menu_stats_refresh">പുതുക്കുക</string>
+    <string name="menu_stats_refresh">റീഫ്രഷ് ചെയ്യുക</string>
     <string name="menu_stats_total">ആകെ ഉപയോഗങ്ങൾ</string>
     <string name="menu_stats_unplugged">അൺപ്ലഗ്ഗുചെയ്‌തതിന് ശേഷമുള്ള %1$s</string>
     <string name="menu_use_uss">Uss ഉപയോഗിക്കുക</string>
@@ -4531,7 +4531,7 @@ g.co/pixel/faceunlock -ൽ കൂടുതലറിയുക."</string>
     <string name="security_settings_fingerprint_enroll_start_title">സെൻസർ സ്പർശിക്കുക</string>
     <string name="security_settings_fingerprint_enroll_touch_dialog_message">നിങ്ങളുടെ ഫോണിന്റെ പിൻവശത്തെ സെൻസർ സ്പർശിക്കുക. ചൂണ്ടുവിരൽ ഉപയോഗിക്കുക.</string>
     <string name="security_settings_fingerprint_enroll_touch_dialog_title">ക്ഷമിക്കണം, അത് സെൻസർ അല്ല</string>
-    <string name="security_settings_fingerprint_enroll_udfps_title">വിരലടയാള സെൻസറിൽ സ്‌പർശിച്ചുപിടിക്കുക</string>
+    <string name="security_settings_fingerprint_enroll_udfps_title">ഫിംഗർപ്രിന്റ് സെൻസറിൽ സ്‌പർശിച്ചുപിടിക്കുക</string>
     <string name="security_settings_fingerprint_preference_summary_none">ഫിംഗർപ്രിന്റ് സജ്ജീകരിക്കാൻ ടാപ്പ് ചെയ്യുക</string>
     <string name="security_settings_fingerprint_preference_title">Nexus Imprint</string>
     <string name="security_settings_fingerprint_v2_enroll_acquire_already_enrolled">ഈ ഫിംഗർപ്രിന്റ് ഇതിനകം ചേർത്തിട്ടുണ്ട്</string>
@@ -4572,6 +4572,8 @@ g.co/pixel/faceunlock -ൽ കൂടുതലറിയുക."</string>
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">ഫിംഗർപ്രിന്റ് ഐക്കൺ പിന്തുടരുക</string>
     <string name="security_settings_udfps_enroll_start_message">വൈബ്രേഷൻ അനുഭവപ്പെടുന്നത് വരെ സെൻസറിൽ നിങ്ങളുടെ ഫിംഗർപ്രിന്റ് ചേർത്തുപിടിക്കുക</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">ഒരിക്കൽ കൂടി</string>
+    <string name="security_settings_udfps_side_fingerprint_help">നിങ്ങളുടെ ഫിംഗർപ്രിന്റിന്റെ വശം സെൻസറിൽ വച്ച് അമർത്തിപ്പിടിക്കുക, തുടർന്ന് മറ്റേ വശം നൽകുക</string>
+    <string name="security_settings_udfps_tip_fingerprint_help">വിരലെടുക്കുക, വീണ്ടും സ്‌പർശിക്കുക</string>
     <string name="security_settings_work_fingerprint_preference_title">ഔദ്യോഗിക പ്രൊഫൈലിനുള്ള Pixel Imprint</string>
     <string name="security_status_title">സുരക്ഷാ നില</string>
     <string name="see_less">കുറച്ച് കാണുക</string>
@@ -4590,7 +4592,7 @@ g.co/pixel/faceunlock -ൽ കൂടുതലറിയുക."</string>
     <string name="select_sim_for_calls">ഇത് ഉപയോഗിച്ച് വിളിക്കുക</string>
     <string name="select_sim_for_data">ഡാറ്റയ്‌ക്കായി ഒരു SIM തിരഞ്ഞെടുക്കുക</string>
     <string name="select_sim_for_sms">SMS-നായി ഒരു SIM തിരഞ്ഞെടുക്കുക</string>
-    <string name="select_to_speak_summary">നിങ്ങളുടെ സ്ക്രീനിലെ ഇനങ്ങൾ ഉറക്കെ വായിക്കുന്നത് കേൾക്കാൻ അവയിൽ ടാപ്പ് ചെയ്യുക</string>
+    <string name="select_to_speak_summary">നിങ്ങളുടെ സ്ക്രീനിലെ ഇനങ്ങൾ ഉറക്കെ വായിച്ചുകേൾക്കാൻ അവയിൽ ടാപ്പ് ചെയ്യുക</string>
     <string name="select_usb_configuration_dialog_title">USB കോൺഫിഗറേഷൻ തിരഞ്ഞെടുക്കൂ</string>
     <string name="select_usb_configuration_title">USB കോൺഫിഗറേഷൻ തിരഞ്ഞെടുക്കൂ</string>
     <string name="select_webview_provider_dialog_title">WebView നടപ്പാക്കൽ സജ്ജമാക്കുക</string>
@@ -5532,6 +5534,7 @@ g.co/pixel/faceunlock -ൽ കൂടുതലറിയുക."</string>
     <string name="verify_apps_over_usb_title">USB വഴി ആപ്പ് പരിശോധിച്ചുറപ്പിക്കൂ</string>
     <string name="version_text">പതിപ്പ് %1$s</string>
     <string name="vibrate_for_calls_settings_not_available_summary">ഫോൺ നിശബ്ദ മോഡിൽ സജ്ജീകരിച്ചിരിക്കുന്നതിനാൽ കോളുകൾക്ക് വൈബ്രേറ്റ് ചെയ്യൽ ലഭ്യമല്ല</string>
+    <string name="vibrate_icon_title">വൈബ്രേറ്റ് മോഡിൽ എല്ലായ്‌പ്പോഴും ഐക്കൺ കാണിക്കുക</string>
     <string name="vibrate_in_silent_title">നിശബ്‌ദമായിരിക്കുമ്പോൾ വൈബ്രേറ്റുചെയ്യുക</string>
     <string name="vibrate_input_devices">വൈബ്രേഷൻ റീഡയറക്റ്റ് ചെയ്യുക</string>
     <string name="vibrate_input_devices_summary">കണക്‌റ്റ് ചെയ്‌തിരിക്കുമ്പോൾ, ഗെയിം കൺട്രോളറിലേക്ക് വൈബ്രേഷൻ അയയ്‌ക്കുക</string>

@@ -301,7 +301,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f04128f
+    const v4, 0x7f041291
 
     invoke-virtual {v0, v3, v4}, Lcom/google/android/setupcompat/template/FooterButton;->setText(Landroid/content/Context;I)V
 

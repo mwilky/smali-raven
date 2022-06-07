@@ -2522,8 +2522,8 @@ Codec પસંદગી ટ્રિગર કરો: પ્લેબૅક ક
     <string name="fullbackup_erase_dialog_message">ડિવાઇસ ડેટા (જેમ કે વાઇ-ફાઇ પાસવર્ડ અને કૉલ ઇતિહાસ) અને ઍપ ડેટા (જેમ કે સેટિંગ અને ઍપ દ્વારા સ્ટોર થયેલી ફાઇલો)નું બૅકઅપ લેવાનું રોકીએ, ઉપરાંત Google Drive પરની તમામ કૉપિ કાઢી નાખીએ?</string>
     <string name="gadget_picker_title">ગેજેટ પસંદ કરો</string>
     <string name="game_controller_settings_category">રમત નિયંત્રક</string>
-    <string name="game_dashboard_always_on_summary">ગેમમાં ગેમ ડૅશબોર્ડનો શૉર્ટકટ બતાવો</string>
-    <string name="game_dashboard_always_on_title">ગેમ ડૅશબોર્ડ</string>
+    <string name="game_dashboard_always_on_summary">બધી ગેમમાં આઇકન બતાવો (ઉપર કે નીચે સ્વાઇપ કર્યા વિના)</string>
+    <string name="game_dashboard_always_on_title">ગેમ ડૅશબોર્ડનું ફ્લોટિંગ આઇકન</string>
     <string name="game_dashboard_dnd_rule_name">ગેમિંગ</string>
     <string name="game_dashboard_dnd_summary">ગેમ રમતી વખતે, માત્ર મહત્ત્વપૂર્ણ લોકો અને ઍપના નોટિફિકેશન મેળવો</string>
     <string name="game_dashboard_dnd_title">"ગેમ માટે 'ખલેલ પાડશો નહીં'"</string>
@@ -3783,7 +3783,7 @@ Codec પસંદગી ટ્રિગર કરો: પ્લેબૅક ક
     <string name="owner_info_settings_status">%1$d / %2$d</string>
     <string name="packages_subtitle">સમાવિષ્ટ પૅકેજીસ</string>
     <string name="page_tab_title_summary">તમામ</string>
-    <string name="page_tab_title_support">ટિપ અને સહાય</string>
+    <string name="page_tab_title_support">ટિપ અને સપોર્ટ</string>
     <string name="partial_connectivity_text">મર્યાદિત કનેક્ટિવિટીના કારણે કેટલીક ઍપ અને સેવાઓ કદાચ બરાબર કાર્ય નહીં કરે. છતાં ઉપયોગ કરીએ?</string>
     <string name="passpoint_content">%1$s ઓળખપત્ર</string>
     <string name="passpoint_label">આ દ્વારા સાચવેલ</string>
@@ -4572,6 +4572,8 @@ g.co/pixel/faceunlock પર વધુ જાણો."</string>
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">ફિંગરપ્રિન્ટના આઇકનને ફૉલો કરો</string>
     <string name="security_settings_udfps_enroll_start_message">જ્યાં સુધી તમને વાઇબ્રેશન ન અનુભવાય, ત્યાં સુધી સેન્સર પર તમારી ફિંગરપ્રિન્ટ દબાવી રાખો</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">ફરી એક વાર કરો</string>
+    <string name="security_settings_udfps_side_fingerprint_help">તમારી આંગળીને સેન્સર પર મૂકો અને દબાવી રાખો, પછી આંગળીના બીજા ભાગોને સેન્સર પર મૂકો</string>
+    <string name="security_settings_udfps_tip_fingerprint_help">ઉપાડો, પછી ફરી ટચ કરો</string>
     <string name="security_settings_work_fingerprint_preference_title">ઑફિસ માટે Pixel Imprintની સુવિધા</string>
     <string name="security_status_title">સુરક્ષાની સ્થિતિ</string>
     <string name="see_less">ઓછું જુઓ</string>
@@ -4827,7 +4829,7 @@ g.co/pixel/faceunlock પર વધુ જાણો."</string>
     <string name="sound_settings_summary_silent">રિંગર શાંત પર સેટ કરેલ છે</string>
     <string name="sound_settings_summary_vibrate">રિંગર વાઇબ્રેટ પર સેટ કરેલ છે</string>
     <string name="sound_work_settings">ઑફિસની પ્રોફાઇલના સાઉન્ડ</string>
-    <string name="spatial_audio_title">સ્થાનિક ઑડિયો</string>
+    <string name="spatial_audio_title">દિશાનુસાર ઑડિયો</string>
     <string name="special_access">વિશેષ ઍપનો ઍક્સેસ</string>
     <string name="special_access_more">વધુ જુઓ</string>
     <string name="speed_label_fast">ઝડપી</string>
@@ -5532,6 +5534,7 @@ g.co/pixel/faceunlock પર વધુ જાણો."</string>
     <string name="verify_apps_over_usb_title">USB પર ઍપ ચકાસો</string>
     <string name="version_text">વર્ઝન %1$s</string>
     <string name="vibrate_for_calls_settings_not_available_summary">ફોન સાઇલન્ટ મોડ પર સેટ કરેલો હોવાથી કૉલ માટે વાઇબ્રેટ થવાનું સેટિંગ ઉપલબ્ધ નથી</string>
+    <string name="vibrate_icon_title">વાઇબ્રેટ મોડમાં હોય ત્યારે હંમેશાં આઇકન બતાવો</string>
     <string name="vibrate_in_silent_title">શાંત હોય ત્યારે વાઇબ્રેટ કરો</string>
     <string name="vibrate_input_devices">વાઇબ્રેશનને રીડાયરેક્ટ કરો</string>
     <string name="vibrate_input_devices_summary">કનેક્ટેડ હોય ત્યારે ગેમ નિયંત્રક પર વાઇબ્રેશનને મોકલો</string>
@@ -6244,11 +6247,11 @@ g.co/pixel/faceunlock પર વધુ જાણો."</string>
     <string name="zen_mode_media_list">મીડિયા</string>
     <string name="zen_mode_media_list_first">મીડિયા</string>
     <string name="zen_mode_media_summary">વીડિયો, ગેમ અને અન્ય મીડિયાના સાઉન્ડ</string>
-    <string name="zen_mode_messages">સંદેશા</string>
-    <string name="zen_mode_messages_footer">જે સંદેશાની મંજૂરી આપી હોય તેમાં સાઉન્ડ આવે તેની ખાતરી કરવા માટે, ડિવાઇસ રિંગ વાગે તેમ સેટ કરેલું હોવાનું ચેક કરો</string>
-    <string name="zen_mode_messages_header">વિક્ષેપ ઊભો કરી શકે તેવા સંદેશા</string>
-    <string name="zen_mode_messages_list">સંદેશા</string>
-    <string name="zen_mode_messages_title">સંદેશા</string>
+    <string name="zen_mode_messages">મેસેજ</string>
+    <string name="zen_mode_messages_footer">જે મેસેજની મંજૂરી આપી હોય તેમાં સાઉન્ડ આવે તેની ખાતરી કરવા માટે, ડિવાઇસ રિંગ વાગે તેમ સેટ કરેલું હોવાનું ચેક કરો</string>
+    <string name="zen_mode_messages_header">વિક્ષેપ ઊભો કરી શકે તેવા મેસેજ</string>
+    <string name="zen_mode_messages_list">મેસેજ</string>
+    <string name="zen_mode_messages_title">મેસેજ</string>
     <string name="zen_mode_no_exceptions">કોઈ અપવાદ નથી</string>
     <string name="zen_mode_none_calls">કોઈ નહીં</string>
     <string name="zen_mode_none_messages">કોઈ નહીં</string>

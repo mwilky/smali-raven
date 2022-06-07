@@ -285,7 +285,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f041615
+    const v0, 0x7f041618
 
     invoke-virtual {p0, v0}, Lcom/android/settings/core/SubSettingLauncher;->setTitleRes(I)Lcom/android/settings/core/SubSettingLauncher;
 
@@ -580,7 +580,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b03f0
+    const v4, 0x7f0b03f1
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

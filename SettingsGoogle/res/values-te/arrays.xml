@@ -613,14 +613,6 @@
         <item>దీర్ఘచతురస్రం కాని క్లిప్ ప్రాంతాన్ని నీలి రంగులో గీయండి</item>
         <item>పరీక్షించబడిన డ్రాయింగ్ ఆదేశాలను పచ్చ రంగులో హైలైట్ చేయండి</item>
     </string-array>
-    <string-array name="sim_color_light">
-        <item>\@color/SIM_color_cyan</item>
-        <item>\@color/SIM_color_blue800</item>
-        <item>\@color/SIM_color_green800</item>
-        <item>\@color/SIM_color_purple800</item>
-        <item>\@color/SIM_color_pink800</item>
-        <item>\@color/SIM_color_orange</item>
-    </string-array>
     <string-array name="swipe_direction_values">
         <item>1</item>
         <item>0</item>

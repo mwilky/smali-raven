@@ -187,7 +187,7 @@
 .method public showInvalidChoiceToast(Landroid/content/Context;)V
     .locals 1
 
-    const p0, 0x7f0411d4
+    const p0, 0x7f0411d6
 
     const/4 v0, 0x0
 

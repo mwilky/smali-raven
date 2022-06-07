@@ -2522,8 +2522,8 @@ Data ya nakala haitajumuishwa katika kiwango cha nafasi yako kwenye Hifadhi ya G
     <string name="fullbackup_erase_dialog_message">Je, ungependa kuacha kuhifadhi nakala ya data ya kifaa (kama vile manenosiri ya Wi-Fi na rekodi ya simu zilizopigwa) na data ya programu (kama vile mipangilio na faili zilizohifadhiwa na programu), na pia kufuta nakala zote zilizo kwenye Hifadhi ya Google?</string>
     <string name="gadget_picker_title">Chagua kitufe</string>
     <string name="game_controller_settings_category">Kidhibiti cha Mchezo</string>
-    <string name="game_dashboard_always_on_summary">Onyesha Njia ya mkato ya Dashibodi ya michezo katika michezo</string>
-    <string name="game_dashboard_always_on_title">Dashibodi ya michezo</string>
+    <string name="game_dashboard_always_on_summary">Onyesha aikoni kwenye michezo yote (bila kutelezesha kidole juu au chini)</string>
+    <string name="game_dashboard_always_on_title">Aikoni inayoelea ya Dashibodi ya michezo</string>
     <string name="game_dashboard_dnd_rule_name">Michezo ya Video</string>
     <string name="game_dashboard_dnd_summary">Pata arifa za watu na programu muhimu pekee unapocheza mchezo</string>
     <string name="game_dashboard_dnd_title">Hali ya Usinisumbue kwenye michezo</string>
@@ -3564,7 +3564,7 @@ Hii inachukua nafasi ya %2$s kuwa programu yako chaguomsingi ya kulipa."</string
     <string name="no_application">Hakuna chochote</string>
     <string name="no_applications">Hakuna programu yoyote.</string>
     <string name="no_battery_summary">Betri haijatumika tangu mwisho ilipojazwa chaji</string>
-    <string name="no_battery_summary_24hr">Hakuna matumizi ya betri katika saa 24 zilizopita</string>
+    <string name="no_battery_summary_24hr">Betri haijatumika katika saa 24 zilizopita</string>
     <string name="no_carrier_update_now_text">Imesasishwa sasa hivi</string>
     <string name="no_carrier_update_text">Imesasishwa ^2 zilizopita</string>
     <string name="no_certificate_management_app">Hamna</string>
@@ -4572,6 +4572,8 @@ Kumbuka: Huwezi kutumia alama ya kidole chako kufungua kifaa hiki. Wasiliana na 
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">Fuata aikoni ya alama ya kidole</string>
     <string name="security_settings_udfps_enroll_start_message">Usiinue kidole chako kwenye kitambuzi hadi utakapohisi mtetemo</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">Gusa mara nyingine</string>
+    <string name="security_settings_udfps_side_fingerprint_help">Weka upande mmoja wa kidole chako kwenye kitambuzi na ushikilie, kisha uweke upande wa pili</string>
+    <string name="security_settings_udfps_tip_fingerprint_help">Inua, kisha uguse tena</string>
     <string name="security_settings_work_fingerprint_preference_title">Pixel Imprint kwenye wasifu wa kazini</string>
     <string name="security_status_title">Hali ya usalama</string>
     <string name="see_less">Angalia chache</string>
@@ -4827,7 +4829,7 @@ Kubadili SIM hakutaghairi huduma yako ya %1$s."</string>
     <string name="sound_settings_summary_silent">Programu inayotoa milio ya simu imewekwa katika hali ya kimya</string>
     <string name="sound_settings_summary_vibrate">Programu inayotoa milio ya simu imewekwa katika hali ya kutetema</string>
     <string name="sound_work_settings">Sauti za wasifu wa kazini</string>
-    <string name="spatial_audio_title">Sauti bora</string>
+    <string name="spatial_audio_title">Sauti inayojirekebisha</string>
     <string name="special_access">Idhini maalum za programu</string>
     <string name="special_access_more">Angalia zaidi</string>
     <string name="speed_label_fast">Haraka</string>
@@ -5531,6 +5533,7 @@ Mtumiaji yoyote anaweza kusasisha programu kwa niaba ya wengine wote."</string>
     <string name="verify_apps_over_usb_title">Thibitisha programu kupitia USB</string>
     <string name="version_text">Toleo %1$s</string>
     <string name="vibrate_for_calls_settings_not_available_summary">Hakuna mtetemo simu zinapopigwa kwa sababu simu imewekwa katika hali ya kimya</string>
+    <string name="vibrate_icon_title">Onyesha aikoni kila wakati ikiwa katika hali ya mtetemo</string>
     <string name="vibrate_in_silent_title">Tetema wakati imenyamaza</string>
     <string name="vibrate_input_devices">Elekeza mtetemo</string>
     <string name="vibrate_input_devices_summary">Elekeza mitetemo kwenye kidhibiti cha mchezo wakati kimeunganishwa</string>

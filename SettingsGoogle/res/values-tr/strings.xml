@@ -2522,8 +2522,8 @@ Yedek veriler Drive depolama kotanıza dahil edilmez. Büyük dosyalar veya geli
     <string name="fullbackup_erase_dialog_message">"Cihaz verilerinin (kablosuz ağ şifreleri ve çağrı geçmişi gibi) ve uygulama verilerinin (uygulamalar tarafından depolanan ayarlar ve dosyalar gibi) yedeklenmesi durdurulsun ve Google Drive'daki tüm kopyaları silinsin mi?"</string>
     <string name="gadget_picker_title">Gadget seç</string>
     <string name="game_controller_settings_category">Oyun Denetleyici</string>
-    <string name="game_dashboard_always_on_summary">Oyun Paneli kısayolunu oyunlarda göster</string>
-    <string name="game_dashboard_always_on_title">Oyun Paneli</string>
+    <string name="game_dashboard_always_on_summary">Tüm oyunlarda simgeyi göster (yukarı veya aşağı kaydırmadan)</string>
+    <string name="game_dashboard_always_on_title">Oyun Paneli kayan simgesi</string>
     <string name="game_dashboard_dnd_rule_name">Oyun</string>
     <string name="game_dashboard_dnd_summary">Oyun oynarken yalnızca önemli kişiler ve uygulamalardan gelen bildirimleri alın</string>
     <string name="game_dashboard_dnd_title">Oyunlar için Rahatsız Etmeyin</string>
@@ -4570,8 +4570,10 @@ Not: Bu cihazın kilidini açmak için parmak izinizi kullanamazsınız. Daha fa
     <string name="security_settings_udfps_enroll_repeat_a11y_message">Bu şekilde parmak iziniz daha fazla yakalanabilir</string>
     <string name="security_settings_udfps_enroll_repeat_message">Parmak izi simgesi her hareket ettiğinde dokunup basılı tutun. Bu şekilde parmak iziniz daha fazla yakalanabilir</string>
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">Parmak izi simgesini takip edin</string>
-    <string name="security_settings_udfps_enroll_start_message">Bir titreşim hissedene kadar parmak izinizi sensörün üzerinde tutun</string>
+    <string name="security_settings_udfps_enroll_start_message">Bir titreşim hissedene kadar parmak izinizi sensörün üzerinde düz tutun</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">Bir kez daha</string>
+    <string name="security_settings_udfps_side_fingerprint_help">Parmak izinizin yan tarafını sensöre yerleştirip basılı tuttuktan sonra diğer tarafa geçin</string>
+    <string name="security_settings_udfps_tip_fingerprint_help">Kaldırın, tekrar dokunun</string>
     <string name="security_settings_work_fingerprint_preference_title">İş profili için Pixel Imprint</string>
     <string name="security_status_title">Güvenlik durumu</string>
     <string name="see_less">Daha az göster</string>
@@ -5123,7 +5125,7 @@ Google'ın, kişilerinize, randevularınıza ve diğer bilgilerinize istediğini
     <string name="system_alert_window_settings">Diğer uygulamaların üzerinde göster</string>
     <string name="system_alert_window_summary">%1$d/%2$d uyg. diğer uyg. üzerinde gösterilmesine izin veriliyor</string>
     <string name="system_app">(Sistem)</string>
-    <string name="system_dashboard_summary">Diller, hareketler, saat, yedek</string>
+    <string name="system_dashboard_summary">Diller, hareketler, saat, yedekleme</string>
     <string name="system_default_app">(Sistem varsayılanı)</string>
     <string name="system_default_app_subtext">Sistem varsayılanı</string>
     <string name="system_package">Sistem güncellemeleri, harici medyaya yüklenemez.</string>
@@ -5532,6 +5534,7 @@ Herhangi bir kullanıcı, diğer tüm kullanıcılar için uygulamaları güncel
     <string name="verify_apps_over_usb_title">"USB'den yüklenen uygulamaları doğrula"</string>
     <string name="version_text">sürüm %1$s</string>
     <string name="vibrate_for_calls_settings_not_available_summary">Telefon sessize ayarlandığından aramalarda titreşim kullanılamıyor</string>
+    <string name="vibrate_icon_title">Titreşim modundayken simgeyi her zaman göster</string>
     <string name="vibrate_in_silent_title">Sessizken titreştir</string>
     <string name="vibrate_input_devices">Titreşimi yönlendir</string>
     <string name="vibrate_input_devices_summary">Bağlandığında oyun denetleyiciye titreşim gönder</string>

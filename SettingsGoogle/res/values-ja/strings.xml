@@ -63,7 +63,7 @@
     <string name="night_display_title">夜間モード</string>
     <string name="owner_info_settings_summary">なし</string>
     <string name="owner_info_settings_title">ロック画面にテキストを追加</string>
-    <string name="power_menu_setting_name">電源ボタンを長押しする</string>
+    <string name="power_menu_setting_name">電源ボタンを長押し</string>
     <string name="profile_section_header">仕事用プロファイルの通知</string>
     <string name="reset_dashboard_summary">ネットワーク、アプリ、デバイスをリセットできます</string>
     <string name="reset_dashboard_title">リセット オプション</string>
@@ -976,7 +976,7 @@
     <string name="battery_saver_button_turn_on">今すぐ ON にする</string>
     <string name="battery_saver_link_a11y">詳しくは、バッテリー セーバーについての説明をご覧ください</string>
     <string name="battery_saver_main_switch_title">バッテリー セーバーの使用</string>
-    <string name="battery_saver_master_switch_title">バッテリー セーバーの使用</string>
+    <string name="battery_saver_master_switch_title">バッテリー セーバーを使用する</string>
     <string name="battery_saver_off_scheduled_summary">%1$s で ON になります</string>
     <string name="battery_saver_off_summary">OFF</string>
     <string name="battery_saver_on_summary">ON</string>
@@ -2231,7 +2231,7 @@ Googleアカウントなど、アカウントによっては、スマートフ�
     <string name="enable_adb_wireless">ワイヤレス デバッグ</string>
     <string name="enable_adb_wireless_summary">Wi-Fi 接続時にデバッグモード</string>
     <string name="enable_compatibility">アプリを拡大/縮小</string>
-    <string name="enable_freeform_support">フリーフォーム ウィンドウの有効化</string>
+    <string name="enable_freeform_support">フリーフォーム ウィンドウを有効にする</string>
     <string name="enable_freeform_support_summary">試験運用機能のフリーフォーム ウィンドウのサポートを有効にします。</string>
     <string name="enable_gnss_raw_meas_full_tracking">GNSS 計測の完全実行を強制</string>
     <string name="enable_gnss_raw_meas_full_tracking_summary">デューティ サイクリングを無効にした状態で、すべての GNSS コンステレーションと頻度をトラッキングします</string>
@@ -2522,8 +2522,8 @@ Googleアカウントなど、アカウントによっては、スマートフ�
     <string name="fullbackup_erase_dialog_message">デバイスのデータ（Wi-Fi のパスワードや通話履歴など）とアプリのデータ（アプリで保存された設定やファイルなど）のバックアップを停止し、Google ドライブ上のすべてのコピーを消去しますか？</string>
     <string name="gadget_picker_title">ガジェットを選択</string>
     <string name="game_controller_settings_category">ゲーム用コントローラ</string>
-    <string name="game_dashboard_always_on_summary">ゲーム内に「ゲーム ダッシュボード」のショートカットを表示します</string>
-    <string name="game_dashboard_always_on_title">ゲーム ダッシュボード</string>
+    <string name="game_dashboard_always_on_summary">すべてのゲームで（上または下にスワイプせずに）アイコンが表示されます</string>
+    <string name="game_dashboard_always_on_title">ゲーム ダッシュボードのフローティング アイコン</string>
     <string name="game_dashboard_dnd_rule_name">ゲームをプレイ中</string>
     <string name="game_dashboard_dnd_summary">ゲームのプレイ中に、大切な人やアプリからの通知のみ受け取ります</string>
     <string name="game_dashboard_dnd_title">ゲームでのサイレント モード</string>
@@ -3501,7 +3501,7 @@ PIN は紛失・盗難時にスマートフォンを保護します。"</string>
     <string name="next_label">次へ</string>
     <string name="next_page_content_description">次へ</string>
     <string name="nfc_and_payment_settings_no_payment_installed_summary">使用するには、まずお支払いアプリをインストールしてください</string>
-    <string name="nfc_and_payment_settings_payment_off_nfc_off_summary">NFC がオフのため使用できません</string>
+    <string name="nfc_and_payment_settings_payment_off_nfc_off_summary">NFC が OFF のため使用できません</string>
     <string name="nfc_disabled_summary">NFC が OFF のため使用できません</string>
     <string name="nfc_disclaimer_content">NFC がこのデバイスと他の付近のデバイスまたはターゲット（決済デバイス、アクセス リーダー、インタラクティブ広告またはタグなど）の間でデータのやり取りを行います。</string>
     <string name="nfc_disclaimer_title">NFC を ON にする</string>
@@ -3736,7 +3736,7 @@ PIN は紛失・盗難時にスマートフォンを保護します。"</string>
     <string name="notifications_title">通知</string>
     <string name="nr_advanced_calling_summary">音声通話に 5G を使用する</string>
     <string name="nr_advanced_calling_title">Vo5G</string>
-    <string name="number_of_device_admins_none">アクティブなアプリはありません</string>
+    <string name="number_of_device_admins_none">実行中のアプリはありません</string>
     <string name="oem_lock_info_message">デバイス保護機能を有効にするには、デバイスを再起動してください。</string>
     <string name="oem_unlock_enable">OEM ロック解除</string>
     <string name="oem_unlock_enable_disabled_summary_bootloader_unlocked">ブートローダーは既にロック解除されています</string>
@@ -3931,7 +3931,7 @@ PIN は紛失・盗難時にスマートフォンを保護します。"</string>
     <string name="premium_sms_access">プレミアム SMS へのアクセス</string>
     <string name="premium_sms_none">プレミアム SMS へのアクセスをリクエストしたインストール済みアプリはありません</string>
     <string name="premium_sms_warning">プレミアム SMS で料金が発生した場合は、携帯通信会社の請求に加算されます。アプリで権限を有効にすると、そのアプリを使用してプレミアム SMS を送信できるようになります。</string>
-    <string name="prevent_ringing_main_switch_title">ショートカットを使用</string>
+    <string name="prevent_ringing_main_switch_title">着信音ミュート用のショートカットを使用する</string>
     <string name="prevent_ringing_option_mute">ミュート</string>
     <string name="prevent_ringing_option_mute_summary">ミュート</string>
     <string name="prevent_ringing_option_none">何もしない</string>
@@ -4560,8 +4560,8 @@ PIN は紛失・盗難時にスマートフォンを保護します。"</string>
     <string name="security_settings_summary">現在地、画面ロック、SIMカードロック、認証情報ストレージのロック</string>
     <string name="security_settings_title">セキュリティ</string>
     <string name="security_settings_udfps_enroll_a11y">画面上で指を移動すると、センサーが見つかります。指紋認証センサーを長押ししてください。</string>
-    <string name="security_settings_udfps_enroll_edge_message">指紋をセンサーに当てて長押しし、指を離してから別の部分を当ててください</string>
-    <string name="security_settings_udfps_enroll_edge_title">最後に指の縁の部分を使用してください</string>
+    <string name="security_settings_udfps_enroll_edge_message">指の一方の端をセンサーに押し当て、その後他方の端を押し当てます</string>
+    <string name="security_settings_udfps_enroll_edge_title">最後に指の端を押し当ててください</string>
     <string name="security_settings_udfps_enroll_find_sensor_message">指紋認証センサーは画面上にあります。次の画面で指紋を登録します。</string>
     <string name="security_settings_udfps_enroll_find_sensor_start_button">開始</string>
     <string name="security_settings_udfps_enroll_find_sensor_title">指紋の登録方法</string>
@@ -4570,8 +4570,10 @@ PIN は紛失・盗難時にスマートフォンを保護します。"</string>
     <string name="security_settings_udfps_enroll_repeat_a11y_message">これで指紋を正しく登録できるようになります。</string>
     <string name="security_settings_udfps_enroll_repeat_message">指紋アイコンの動きに合わせて長押ししてください。これで指紋を正しく登録できるようになります。</string>
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">指紋アイコンに合わせて操作</string>
-    <string name="security_settings_udfps_enroll_start_message">振動を感じるまでセンサーから指を離さないでください</string>
+    <string name="security_settings_udfps_enroll_start_message">振動を感じるまでセンサーに指を平らに押し当てます</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">もう一度</string>
+    <string name="security_settings_udfps_side_fingerprint_help">指紋をセンサーに当てて長押しし、指を離してから別の部分を当ててください</string>
+    <string name="security_settings_udfps_tip_fingerprint_help">指を離してからもう一度触れる</string>
     <string name="security_settings_work_fingerprint_preference_title">仕事用の Pixel Imprint</string>
     <string name="security_status_title">セキュリティ ステータス</string>
     <string name="see_less">一部を表示</string>
@@ -4709,7 +4711,7 @@ PIN は紛失・盗難時にスマートフォンを保護します。"</string>
     <string name="sim_action_switch_sub_dialog_title">%1$s に切り替えますか？</string>
     <string name="sim_action_yes">はい</string>
     <string name="sim_bad_pin">PINが正しくありません</string>
-    <string name="sim_call_back_title">デフォルトのSIMからコールバック</string>
+    <string name="sim_call_back_title">デフォルトの SIM からかけ直す</string>
     <string name="sim_calls_always_use">このSIMを常に通話に使用する</string>
     <string name="sim_calls_ask_first_prefs_title">その都度確認</string>
     <string name="sim_card">SIM</string>
@@ -5532,6 +5534,7 @@ PIN を削除すると、デバイスに保存されている指紋モデルも�
     <string name="verify_apps_over_usb_title">USB 経由のアプリも検証</string>
     <string name="version_text">バージョン%1$s</string>
     <string name="vibrate_for_calls_settings_not_available_summary">スマートフォンがマナーモードに設定されているため、着信時のバイブレーションは利用できません</string>
+    <string name="vibrate_icon_title">バイブレーション モードのときにアイコンを常に表示</string>
     <string name="vibrate_in_silent_title">マナーモード時のバイブレーション</string>
     <string name="vibrate_input_devices">リダイレクトのバイブレーション</string>
     <string name="vibrate_input_devices_summary">接続時にバイブレーションをゲーム用コントローラに送信</string>

@@ -211,10 +211,10 @@
         <item quantity="few">Dostop do lokacije imajo %1$d od %2$d aplikacij.</item>
     </plurals>
     <plurals name="location_settings_summary_location_on">
-        <item quantity="other">Vklopljeno – dostop do lokacije ima %1$d aplikacij</item>
-        <item quantity="one">Vklopljeno – dostop do lokacije ima %1$d aplikacija</item>
-        <item quantity="two">Vklopljeno – dostop do lokacije imata %1$d aplikaciji</item>
-        <item quantity="few">Vklopljeno – dostop do lokacije imajo %1$d aplikacije</item>
+        <item quantity="other">Vklopljeno – dostop do lokacije ima %1$d aplikacij.</item>
+        <item quantity="one">Vklopljeno – dostop do lokacije ima %1$d aplikacija.</item>
+        <item quantity="two">Vklopljeno – dostop do lokacije imata %1$d aplikaciji.</item>
+        <item quantity="few">Vklopljeno – dostop do lokacije imajo %1$d aplikacije.</item>
     </plurals>
     <plurals name="lockpassword_password_requires_letters">
         <item quantity="other">Vsebovati mora vsaj %d črk</item>

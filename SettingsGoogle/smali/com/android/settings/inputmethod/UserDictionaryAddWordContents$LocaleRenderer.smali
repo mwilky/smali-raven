@@ -30,7 +30,7 @@
 
     if-nez p2, :cond_0
 
-    const p2, 0x7f041500
+    const p2, 0x7f041502
 
     invoke-virtual {p1, p2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -49,7 +49,7 @@
 
     if-eqz v0, :cond_1
 
-    const p2, 0x7f0414fa
+    const p2, 0x7f0414fc
 
     invoke-virtual {p1, p2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

@@ -194,7 +194,7 @@
 
     iget-object p0, p0, Lcom/android/settings/wifi/slice/WifiSlice;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f041613
+    const v0, 0x7f041616
 
     new-array v2, v2, [Ljava/lang/Object;
 
@@ -213,7 +213,7 @@
     :cond_1
     iget-object p0, p0, Lcom/android/settings/wifi/slice/WifiSlice;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f041611
+    const v0, 0x7f041614
 
     new-array v2, v2, [Ljava/lang/Object;
 

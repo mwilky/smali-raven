@@ -33,13 +33,13 @@
 
     if-nez p2, :cond_0
 
-    const p1, 0x7f0413a0    # 1.7556E38f
+    const p1, 0x7f0413a2
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
     move-result-object p1
 
-    const p2, 0x7f04139f
+    const p2, 0x7f0413a1
 
     invoke-virtual {p0, p2}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -66,7 +66,7 @@
 
     invoke-virtual {p1, p2}, Lcom/android/settings/network/SwitchToEuiccSubscriptionSidecar;->run(I)V
 
-    const p1, 0x7f041240
+    const p1, 0x7f041242
 
     const/4 p2, 0x1
 
@@ -141,7 +141,7 @@
 
     const/4 v3, 0x1
 
-    const p1, 0x7f0413a2
+    const p1, 0x7f0413a4
 
     const/4 v1, 0x1
 
@@ -159,7 +159,7 @@
 
     move-result-object v4
 
-    const p1, 0x7f0413a1
+    const p1, 0x7f0413a3
 
     new-array v0, v1, [Ljava/lang/Object;
 

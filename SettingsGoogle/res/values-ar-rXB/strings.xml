@@ -2526,8 +2526,8 @@
     <string name="fullbackup_erase_dialog_message">‏‮Stop‬‏ ‏‮backing‬‏ ‏‮up‬‏ ‏‮device‬‏ ‏‮data‬‏ ‏‮(such‬‏ ‏‮as‬‏ ‏‮Wi-Fi‬‏ ‏‮passwords‬‏ ‏‮and‬‏ ‏‮call‬‏ ‏‮history)‬‏ ‏‮and‬‏ ‏‮app‬‏ ‏‮data‬‏ ‏‮(such‬‏ ‏‮as‬‏ ‏‮settings‬‏ ‏‮and‬‏ ‏‮files‬‏ ‏‮stored‬‏ ‏‮by‬‏ ‏‮apps),‬‏ ‏‮plus‬‏ ‏‮erase‬‏ ‏‮all‬‏ ‏‮copies‬‏ ‏‮on‬‏ ‏‮remote‬‏ ‏‮servers?‬‏</string>
     <string name="gadget_picker_title">‏‮Choose‬‏ ‏‮gadget‬‏</string>
     <string name="game_controller_settings_category">‏‮Game‬‏ ‏‮Controller‬‏</string>
-    <string name="game_dashboard_always_on_summary">‏‮Show‬‏ ‏‮Game‬‏ ‏‮Dashboard‬‏ ‏‮shortcut‬‏ ‏‮in‬‏ ‏‮games‬‏</string>
-    <string name="game_dashboard_always_on_title">‏‮Game‬‏ ‏‮Dashboard‬‏</string>
+    <string name="game_dashboard_always_on_summary">‏‮Show‬‏ ‏‮the‬‏ ‏‮icon‬‏ ‏‮in‬‏ ‏‮all‬‏ ‏‮games‬‏ ‏‮(without‬‏ ‏‮swiping‬‏ ‏‮up‬‏ ‏‮or‬‏ ‏‮down)‬‏</string>
+    <string name="game_dashboard_always_on_title">‏‮Game‬‏ ‏‮Dashboard‬‏ ‏‮floating‬‏ ‏‮icon‬‏</string>
     <string name="game_dashboard_dnd_rule_name">‏‮Gaming‬‏</string>
     <string name="game_dashboard_dnd_summary">‏‮Only‬‏ ‏‮get‬‏ ‏‮notified‬‏ ‏‮by‬‏ ‏‮important‬‏ ‏‮people‬‏ ‏‮and‬‏ ‏‮apps‬‏ ‏‮when‬‏ ‏‮playing‬‏ ‏‮a‬‏ ‏‮game‬‏</string>
     <string name="game_dashboard_dnd_title">‏‮Do‬‏ ‏‮Not‬‏ ‏‮Disturb‬‏ ‏‮for‬‏ ‏‮games‬‏</string>
@@ -4579,6 +4579,8 @@
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">‏‮Follow‬‏ ‏‮the‬‏ ‏‮fingerprint‬‏ ‏‮icon‬‏</string>
     <string name="security_settings_udfps_enroll_start_message">‏‮Keep‬‏ ‏‮your‬‏ ‏‮fingerprint‬‏ ‏‮flat‬‏ ‏‮on‬‏ ‏‮the‬‏ ‏‮sensor‬‏ ‏‮until‬‏ ‏‮you‬‏ ‏‮feel‬‏ ‏‮a‬‏ ‏‮vibration‬‏</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">‏‮One‬‏ ‏‮more‬‏ ‏‮time‬‏</string>
+    <string name="security_settings_udfps_side_fingerprint_help">‏‮Place‬‏ ‏‮the‬‏ ‏‮side‬‏ ‏‮of‬‏ ‏‮your‬‏ ‏‮fingerprint‬‏ ‏‮on‬‏ ‏‮the‬‏ ‏‮sensor‬‏ ‏‮and‬‏ ‏‮hold,‬‏ ‏‮then‬‏ ‏‮switch‬‏ ‏‮to‬‏ ‏‮the‬‏ ‏‮other‬‏ ‏‮side‬‏</string>
+    <string name="security_settings_udfps_tip_fingerprint_help">‏‮Lift,‬‏ ‏‮then‬‏ ‏‮touch‬‏ ‏‮again‬‏</string>
     <string name="security_settings_work_fingerprint_preference_title">‏‮Fingerprint‬‏ ‏‮for‬‏ ‏‮work‬‏</string>
     <string name="security_status_title">‏‮Security‬‏ ‏‮status‬‏</string>
     <string name="see_less">‏‮See‬‏ ‏‮less‬‏</string>
@@ -5548,6 +5550,7 @@ To manage this ^2, go to "<b>Settings > Storage</b>‏‮.‬‏</string>
     <string name="verify_apps_over_usb_title">‏‮Verify‬‏ ‏‮apps‬‏ ‏‮over‬‏ ‏‮USB‬‏</string>
     <string name="version_text">‏‮version‬‏ %1$s</string>
     <string name="vibrate_for_calls_settings_not_available_summary">‏‮Vibrate‬‏ ‏‮for‬‏ ‏‮calls‬‏ ‏‮is‬‏ ‏‮unavailable‬‏ ‏‮because‬‏ ‏‮phone‬‏ ‏‮is‬‏ ‏‮set‬‏ ‏‮to‬‏ ‏‮silent‬‏</string>
+    <string name="vibrate_icon_title">‏‮Always‬‏ ‏‮show‬‏ ‏‮icon‬‏ ‏‮when‬‏ ‏‮in‬‏ ‏‮vibrate‬‏ ‏‮mode‬‏</string>
     <string name="vibrate_in_silent_title">‏‮Vibrate‬‏ ‏‮when‬‏ ‏‮silent‬‏</string>
     <string name="vibrate_input_devices">‏‮Redirect‬‏ ‏‮vibration‬‏</string>
     <string name="vibrate_input_devices_summary">‏‮Send‬‏ ‏‮vibration‬‏ ‏‮to‬‏ ‏‮game‬‏ ‏‮controller‬‏ ‏‮when‬‏ ‏‮connected‬‏</string>

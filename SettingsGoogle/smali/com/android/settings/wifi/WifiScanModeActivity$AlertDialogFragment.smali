@@ -94,7 +94,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f0416dd
+    const v0, 0x7f0416e0
 
     invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -103,7 +103,7 @@
     goto :goto_0
 
     :cond_0
-    const v0, 0x7f0416df
+    const v0, 0x7f0416e2
 
     const/4 v1, 0x1
 
@@ -124,7 +124,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f0416db
+    const v0, 0x7f0416de
 
     new-instance v1, Lcom/android/settings/wifi/WifiScanModeActivity$AlertDialogFragment$2;
 
@@ -134,7 +134,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f0416dc
+    const v0, 0x7f0416df
 
     new-instance v1, Lcom/android/settings/wifi/WifiScanModeActivity$AlertDialogFragment$1;
 

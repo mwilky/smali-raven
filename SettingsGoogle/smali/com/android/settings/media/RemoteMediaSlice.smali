@@ -226,7 +226,7 @@
 
     iget-object v3, p0, Lcom/android/settings/media/RemoteMediaSlice;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f0412b5
+    const v4, 0x7f0412b7
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 

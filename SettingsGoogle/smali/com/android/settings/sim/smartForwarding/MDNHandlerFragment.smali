@@ -177,19 +177,19 @@
 
     invoke-direct {v0, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const p0, 0x7f041298
+    const p0, 0x7f04129a
 
     invoke-virtual {v0, p0}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object p0
 
-    const v0, 0x7f04129c
+    const v0, 0x7f04129e
 
     invoke-virtual {p0, v0}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object p0
 
-    const v0, 0x7f04129b
+    const v0, 0x7f04129d
 
     sget-object v1, Lcom/android/settings/sim/smartForwarding/MDNHandlerFragment$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/settings/sim/smartForwarding/MDNHandlerFragment$$ExternalSyntheticLambda0;
 
@@ -270,7 +270,7 @@
 
     move-result-object p3
 
-    const v0, 0x7f04129a
+    const v0, 0x7f04129c
 
     invoke-virtual {p3, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

@@ -2217,7 +2217,7 @@ As dit aanhou gebeur, sal jy dalk die program moet deïnstalleer om die batteryw
     <string name="emergency_gesture_switchbar_title">Gebruik nood-SOS</string>
     <string name="emergency_info_summary">Inligting en kontakte vir %1$s</string>
     <string name="emergency_info_title">Noodinligting</string>
-    <string name="emergency_settings_preference_title">Veiligheid &amp; noodgeval</string>
+    <string name="emergency_settings_preference_title">Veiligheid en noodgeval</string>
     <string name="emergency_tone_alert">Tone</string>
     <string name="emergency_tone_silent">Stilte</string>
     <string name="emergency_tone_summary">"Stel gedrag wanneer 'n noodoproep gemaak word"</string>
@@ -2522,8 +2522,8 @@ Rugsteundata sal nie deel vorm van jou Drive-bergingkwota nie. Groot lêers, of 
     <string name="fullbackup_erase_dialog_message">Staak die rugsteun van toesteldata (soos Wi-Fi-wagwoorde en oproepgeskiedenis) en programdata (soos instellings en lêers wat deur programme geberg is), en vee ook alle kopieë in Google Drive uit?</string>
     <string name="gadget_picker_title">Kies apparaat</string>
     <string name="game_controller_settings_category">Speletjiekontroleerder</string>
-    <string name="game_dashboard_always_on_summary">Wys Spelkontroleskerm-kortpad in speletjies</string>
-    <string name="game_dashboard_always_on_title">Spelkontroleskerm</string>
+    <string name="game_dashboard_always_on_summary">Wys die ikoon in alle speletjies (sonder om op of af te swiep)</string>
+    <string name="game_dashboard_always_on_title">Spelkontroleskerm se swewende ikoon</string>
     <string name="game_dashboard_dnd_rule_name">Speletjies</string>
     <string name="game_dashboard_dnd_summary">"Ontvang slegs kennisgewings vanaf belangrike mense en programme wanneer jy 'n speletjie speel"</string>
     <string name="game_dashboard_dnd_title">Moenie Steur Nie vir speletjies</string>
@@ -4572,6 +4572,8 @@ Let wel: Jy kan nie jou vingerafdruk gebruik om hierdie toestel te ontsluit nie.
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">Volg die vingerafdrukikoon</string>
     <string name="security_settings_udfps_enroll_start_message">"Hou jou vingerafdruk plat op die sensor totdat jy 'n vibrasie voel"</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">Nog een keer</string>
+    <string name="security_settings_udfps_side_fingerprint_help">Plaas die kant van jou vingerafdruk op die sensor en hou; ruil dan om na die ander kant</string>
+    <string name="security_settings_udfps_tip_fingerprint_help">Lig en raak dan weer</string>
     <string name="security_settings_work_fingerprint_preference_title">Pixel Imprint vir werk</string>
     <string name="security_status_title">Sekuriteitstatus</string>
     <string name="see_less">Sien minder</string>
@@ -5532,6 +5534,7 @@ Enige gebruiker kan programme vir al die ander gebruikers opdateer."</string>
     <string name="verify_apps_over_usb_title">Verifieer programme oor USB</string>
     <string name="version_text">weergawe %1$s</string>
     <string name="vibrate_for_calls_settings_not_available_summary">Vibreer vir oproepe is nie beskikbaar nie omdat foon op stil gestel is</string>
+    <string name="vibrate_icon_title">Wys ikoon altyd wanneer dit in vibrasiemodus is</string>
     <string name="vibrate_in_silent_title">Vibreer wanneer stil</string>
     <string name="vibrate_input_devices">Herlei vibrasie</string>
     <string name="vibrate_input_devices_summary">Stuur vibrasie na speletjiebeheerder wanneer dit gekoppel is</string>

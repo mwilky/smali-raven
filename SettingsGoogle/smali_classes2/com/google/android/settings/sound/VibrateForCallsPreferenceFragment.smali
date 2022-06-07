@@ -70,7 +70,7 @@
 
     const-string v1, "never_vibrate"
 
-    const v2, 0x7f04153f
+    const v2, 0x7f041542
 
     invoke-direct {v0, p0, v1, v2}, Lcom/google/android/settings/sound/VibrateForCallsPreferenceFragment$VibrateForCallsCandidateInfo;-><init>(Lcom/google/android/settings/sound/VibrateForCallsPreferenceFragment;Ljava/lang/String;I)V
 
@@ -82,7 +82,7 @@
 
     const-string v1, "always_vibrate"
 
-    const v2, 0x7f04153e
+    const v2, 0x7f041541
 
     invoke-direct {v0, p0, v1, v2}, Lcom/google/android/settings/sound/VibrateForCallsPreferenceFragment$VibrateForCallsCandidateInfo;-><init>(Lcom/google/android/settings/sound/VibrateForCallsPreferenceFragment;Ljava/lang/String;I)V
 
@@ -94,7 +94,7 @@
 
     const-string v1, "ramping_ringer"
 
-    const v2, 0x7f041540
+    const v2, 0x7f041543
 
     invoke-direct {v0, p0, v1, v2}, Lcom/google/android/settings/sound/VibrateForCallsPreferenceFragment$VibrateForCallsCandidateInfo;-><init>(Lcom/google/android/settings/sound/VibrateForCallsPreferenceFragment;Ljava/lang/String;I)V
 
@@ -437,7 +437,7 @@
 
     iget-object v0, p0, Lcom/google/android/settings/sound/VibrateForCallsPreferenceFragment;->mFooter:Lcom/android/settingslib/widget/FooterPreference;
 
-    const v2, 0x7f041538
+    const v2, 0x7f04153a
 
     invoke-virtual {v0, v2}, Landroidx/preference/Preference;->setTitle(I)V
 

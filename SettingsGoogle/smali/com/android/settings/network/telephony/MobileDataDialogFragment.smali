@@ -248,7 +248,7 @@
 
     move-result-object v1
 
-    const v4, 0x7f041283
+    const v4, 0x7f041285
 
     if-nez v1, :cond_0
 
@@ -314,7 +314,7 @@
 
     invoke-direct {v4, v0}, Landroidx/appcompat/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v5, 0x7f041258
+    const v5, 0x7f04125a
 
     new-array v6, v3, [Ljava/lang/Object;
 
@@ -330,7 +330,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f041256
+    const v5, 0x7f041258
 
     const/4 v6, 0x2
 
@@ -348,7 +348,7 @@
 
     move-result-object v1
 
-    const v4, 0x7f041257
+    const v4, 0x7f041259
 
     new-array v3, v3, [Ljava/lang/Object;
 

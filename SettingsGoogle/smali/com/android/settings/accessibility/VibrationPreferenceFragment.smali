@@ -154,7 +154,7 @@
 
     new-instance v2, Lcom/android/settings/accessibility/VibrationPreferenceFragment$VibrationIntensityCandidateInfo;
 
-    const v3, 0x7f04139d
+    const v3, 0x7f04139f
 
     invoke-direct {v2, p0, v1, v3, v0}, Lcom/android/settings/accessibility/VibrationPreferenceFragment$VibrationIntensityCandidateInfo;-><init>(Lcom/android/settings/accessibility/VibrationPreferenceFragment;Ljava/lang/String;II)V
 
@@ -164,7 +164,7 @@
 
     new-instance v0, Lcom/android/settings/accessibility/VibrationPreferenceFragment$VibrationIntensityCandidateInfo;
 
-    const v1, 0x7f04139e
+    const v1, 0x7f0413a0    # 1.7556E38f
 
     invoke-virtual {p0}, Lcom/android/settings/accessibility/VibrationPreferenceFragment;->getDefaultVibrationIntensity()I
 

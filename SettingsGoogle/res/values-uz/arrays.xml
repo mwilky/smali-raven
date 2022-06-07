@@ -110,7 +110,7 @@
         <item>SIPdan foydalanish</item>
         <item>Chiquvchi qo‘ng‘iroq jarayoni</item>
         <item>Barmoq izi</item>
-        <item>Tana sezgichlari</item>
+        <item>Tana sensorlari</item>
         <item>Tarqatma xabarlarni o‘qish</item>
         <item>Soxta joylashuv</item>
         <item>Xotirani o‘qish</item>
@@ -177,7 +177,7 @@
         <item>SIPdan foydalanish</item>
         <item>chiquvchi qo‘ng‘iroq jarayoni</item>
         <item>barmoq izi</item>
-        <item>tana sezgichlari</item>
+        <item>tana sensorlari</item>
         <item>tarqatma xabarlarni o‘qish</item>
         <item>soxta joylashuv</item>
         <item>xotirani o‘qish</item>
@@ -612,14 +612,6 @@
         <item>O‘ch.</item>
         <item>To‘g‘ri burchakli bo‘lmagan kesishmalarni ko‘k bilan</item>
         <item>Chizmaning sinov buyruqlarini yashil bilan</item>
-    </string-array>
-    <string-array name="sim_color_light">
-        <item>\@color/SIM_color_cyan</item>
-        <item>\@color/SIM_color_blue800</item>
-        <item>\@color/SIM_color_green800</item>
-        <item>\@color/SIM_color_purple800</item>
-        <item>\@color/SIM_color_pink800</item>
-        <item>\@color/SIM_color_orange</item>
     </string-array>
     <string-array name="swipe_direction_values">
         <item>1</item>

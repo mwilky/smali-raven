@@ -966,7 +966,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f0411da
+    const v2, 0x7f0411dc
 
     new-array v3, p3, [Ljava/lang/Object;
 
@@ -989,7 +989,7 @@
 
     if-eqz p1, :cond_9
 
-    const v0, 0x7f0411df
+    const v0, 0x7f0411e1
 
     goto :goto_2
 
@@ -1019,12 +1019,12 @@
 
     if-eqz v0, :cond_a
 
-    const v0, 0x7f0411d9
+    const v0, 0x7f0411db
 
     goto :goto_4
 
     :cond_a
-    const v0, 0x7f0411de
+    const v0, 0x7f0411e0
 
     :goto_4
     invoke-virtual {p4, v0}, Landroid/app/Activity;->getText(I)Ljava/lang/CharSequence;

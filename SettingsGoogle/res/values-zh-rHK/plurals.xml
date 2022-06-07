@@ -141,8 +141,8 @@
         <item quantity="one">%1$d 個應用程式 (共 %2$d 個) 可存取位置資訊</item>
     </plurals>
     <plurals name="location_settings_summary_location_on">
-        <item quantity="other">開 - %1$d 個應用程式可存取位置資訊</item>
-        <item quantity="one">開 - %1$d 個應用程式可存取位置資訊</item>
+        <item quantity="other">已開啟 - %1$d 個應用程式可存取位置資訊</item>
+        <item quantity="one">已開啟 - %1$d 個應用程式可存取位置資訊</item>
     </plurals>
     <plurals name="lockpassword_password_requires_letters">
         <item quantity="other">必須包含最少 %d 個字母</item>
@@ -241,8 +241,8 @@
         <item quantity="one">~每星期 %d 個通知</item>
     </plurals>
     <plurals name="number_of_device_admins">
-        <item quantity="other">%d 個使用中的應用程式</item>
-        <item quantity="one">%d 個使用中的應用程式</item>
+        <item quantity="other">有 %d 個應用程式正在使用</item>
+        <item quantity="one">有 %d 個應用程式正在使用</item>
     </plurals>
     <plurals name="number_of_urls">
         <item quantity="other">%d 個網址</item>

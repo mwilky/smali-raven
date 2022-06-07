@@ -786,7 +786,7 @@
     <string name="auto_rotate_option_on">Вклучено</string>
     <string name="auto_rotate_settings_primary_switch_title">Користи „Автоматско ротирање“</string>
     <string name="auto_rotate_summary_no_permission">Потребен е пристап до камерата за откривање лица. Допрете за да управувате со дозволите за „Услугите за персонализација на уредот“</string>
-    <string name="auto_rotate_switch_face_based">Овозможи откривање лица</string>
+    <string name="auto_rotate_switch_face_based">Овозможи „Откривање лица“</string>
     <string name="auto_sync_account_summary">Дозволи им на апликациите автоматски да ги освежуваат податоците</string>
     <string name="auto_sync_account_title">Автоматско синхронизирање на податоците од апликациите</string>
     <string name="auto_sync_personal_account_title">Автоматска синхронизација на лични податоци</string>
@@ -2522,8 +2522,8 @@
     <string name="fullbackup_erase_dialog_message">Дали да се престане со создавање резервна копија на податоците за уредот (како што се лозинки за Wi-Fi и историја на повици) и податоците за апликациите (како што се поставки и датотеки што ги складирале апликациите) и да се избришат сите копии на Google Drive?</string>
     <string name="gadget_picker_title">Избери украсна програма</string>
     <string name="game_controller_settings_category">Контролор на игра</string>
-    <string name="game_dashboard_always_on_summary">Прикажувај ја кратенката за „Контролната табла за игри“ во игри</string>
-    <string name="game_dashboard_always_on_title">Контролна табла за игри</string>
+    <string name="game_dashboard_always_on_summary">Прикажувај ја иконата во сите игри (без лизгање нагоре или надолу)</string>
+    <string name="game_dashboard_always_on_title">Лебдечка икона на „Контролната табла за игри“</string>
     <string name="game_dashboard_dnd_rule_name">Игри</string>
     <string name="game_dashboard_dnd_summary">Добивајте известувања само од важните луѓе и апликации кога играте</string>
     <string name="game_dashboard_dnd_title">„Не вознемирувај“ за игри</string>
@@ -2618,10 +2618,10 @@
     <string name="high_power_filter_on">Не се оптимизирани</string>
     <string name="high_power_off">Се оптимизира користењето на батеријата</string>
     <string name="high_power_on">Не е оптимизирано</string>
-    <string name="high_power_prompt_body">"Ако дозволите %1$s секогаш да се извршува во заднина, тоа може да го намали траењето на батеријата. 
+    <string name="high_power_prompt_body">"Ако дозволите %1$s секогаш да работи во заднина, тоа може да го намали траењето на батеријата. 
 
 Ова може да го промените подоцна во „Поставки > Апликации и известувања“."</string>
-    <string name="high_power_prompt_title">Да се извршува во заднина?</string>
+    <string name="high_power_prompt_title">Да работи во заднина?</string>
     <string name="high_power_system">Оптимизација на батеријата не е достапна</string>
     <string name="history_details_title">Детали на историја</string>
     <string name="history_toggled_on_summary">Неодамнешните и одложените известувања ќе се појавуваат тука</string>
@@ -4560,7 +4560,7 @@ PIN-кодот го заштитува телефонот ако го изгуб
     <string name="security_settings_summary">Постави „Моја локација“, отклучување на екран, заклучување на SIM картичка, заклучување на меморија со акредитиви</string>
     <string name="security_settings_title">Безбедност</string>
     <string name="security_settings_udfps_enroll_a11y">Движете го прстот низ екранот за да го најдете сензорот. Допрете и задржете ја иконата за отпечаток</string>
-    <string name="security_settings_udfps_enroll_edge_message">Поставете го отпечаток странично на сензорот и задржете, а потоа направете исто со другата страна</string>
+    <string name="security_settings_udfps_enroll_edge_message">Поставете го отпечатокот странично на сензорот и задржете, а потоа направете исто со другата страна</string>
     <string name="security_settings_udfps_enroll_edge_title">За крај, користете ги рабовите на прстот</string>
     <string name="security_settings_udfps_enroll_find_sensor_message">Сензорот за отпечатоци се наоѓа на вашиот екран. Отпечатокот ќе го снимите на следниот екран.</string>
     <string name="security_settings_udfps_enroll_find_sensor_start_button">Започнете</string>
@@ -4571,6 +4571,8 @@ PIN-кодот го заштитува телефонот ако го изгуб
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">Следете ја иконата за отпечаток</string>
     <string name="security_settings_udfps_enroll_start_message">Задржете го отпечатокот рамно на сензорот додека не почувствувате вибрации</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">Уште еднаш</string>
+    <string name="security_settings_udfps_side_fingerprint_help">Поставете го отпечатокот странично на сензорот и задржете, а потоа направете исто со другата страна</string>
+    <string name="security_settings_udfps_tip_fingerprint_help">Подигнете и допрете повторно</string>
     <string name="security_settings_work_fingerprint_preference_title">Pixel Imprint за работа</string>
     <string name="security_status_title">Безбедносен статус</string>
     <string name="see_less">Види помалку</string>
@@ -5531,6 +5533,7 @@ PIN-кодот го заштитува телефонот ако го изгуб
     <string name="verify_apps_over_usb_title">Потврди апликации преку USB</string>
     <string name="version_text">верзија %1$s</string>
     <string name="vibrate_for_calls_settings_not_available_summary">„Вибрирај за повици“ не е достапно бидејќи телефонот е поставен во безгласен режим</string>
+    <string name="vibrate_icon_title">Секогаш прикажувај икона во режим на вибрации</string>
     <string name="vibrate_in_silent_title">Вибрира кога е на тивко</string>
     <string name="vibrate_input_devices">Пренасочување вибрации</string>
     <string name="vibrate_input_devices_summary">Испрати вибрации кон контролорот на игра кога е поврзан</string>
@@ -6202,7 +6205,7 @@ PIN-кодот го заштитува телефонот ако го изгуб
     <string name="zen_mode_conversations_title">Разговори</string>
     <string name="zen_mode_custom_behavior_category_title">За „%1$s“</string>
     <string name="zen_mode_custom_behavior_summary">Создајте приспособени поставки за распоредов</string>
-    <string name="zen_mode_custom_behavior_summary_default">Користете стандардни поставки</string>
+    <string name="zen_mode_custom_behavior_summary_default">Користи стандардни поставки</string>
     <string name="zen_mode_custom_behavior_title">Однесување на „Не вознемирувај“</string>
     <string name="zen_mode_custom_calls_footer">За „%1$s“, дојдовните повици се блокирани. Може да ги приспособите поставките за да им дозволите на пријателите, семејството или другите контакти да ве добијат.</string>
     <string name="zen_mode_custom_messages_footer">За „%1$s“, дојдовните пораки се блокирани. Може да ги приспособите поставките за да им дозволите на пријателите, семејството или другите контакти да ве добијат.</string>

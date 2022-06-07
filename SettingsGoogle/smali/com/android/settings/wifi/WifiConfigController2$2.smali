@@ -85,7 +85,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f041678
+    const v0, 0x7f04167b
 
     invoke-virtual {p1, v0}, Landroid/widget/TextView;->setHint(I)V
 
@@ -108,7 +108,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f0416b0
+    const v0, 0x7f0416b3
 
     invoke-virtual {p1, v0}, Landroid/widget/TextView;->setHint(I)V
 
@@ -131,7 +131,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f04163a
+    const v0, 0x7f04163d
 
     invoke-virtual {p1, v0}, Landroid/widget/TextView;->setHint(I)V
 

@@ -90,7 +90,7 @@
     return-object p0
 
     :cond_2
-    const p1, 0x7f0413bc
+    const p1, 0x7f0413be
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -173,7 +173,7 @@
 
     invoke-virtual {p0, v1}, Lcom/android/settings/deviceinfo/StorageWizardBase;->setIcon(I)V
 
-    const v1, 0x7f041365
+    const v1, 0x7f041367
 
     const/4 v2, 0x1
 
@@ -185,7 +185,7 @@
 
     invoke-virtual {p0, v1, v3}, Lcom/android/settings/deviceinfo/StorageWizardBase;->setHeaderText(I[Ljava/lang/CharSequence;)V
 
-    const v1, 0x7f041363
+    const v1, 0x7f041365
 
     const/4 v3, 0x2
 

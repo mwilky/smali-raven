@@ -669,7 +669,7 @@ Basta aproximar os dispositivos (normalmente de costas um para o outro) e tocar 
     <string name="app_restrictions_custom_label">Definir restrições do app</string>
     <string name="app_sees_restricted_accounts">Este app pode acessar suas contas</string>
     <string name="app_sees_restricted_accounts_and_controlled_by">Este app pode acessar suas contas. Controlado por %1$s</string>
-    <string name="app_settings_link">Configurações adicionais no app</string>
+    <string name="app_settings_link">Configurações avançadas no app</string>
     <string name="app_usage_cycle">Ciclo de uso de dados móveis</string>
     <string name="app_usage_preference">Preferências de uso de apps</string>
     <string name="application_info_label">Informações do app</string>
@@ -1822,15 +1822,15 @@ Para continuar usando seu telefone, é necessário restaurar as configurações 
     <string name="dark_ui_activation_on_custom">Ativar até %1$s</string>
     <string name="dark_ui_activation_on_manual">Ativar agora</string>
     <string name="dark_ui_auto_mode_auto">Ativ. do anoitecer ao amanhecer</string>
-    <string name="dark_ui_auto_mode_custom">Ativado nos horários definidos</string>
-    <string name="dark_ui_auto_mode_never">Nenhum</string>
-    <string name="dark_ui_auto_mode_title">Programar</string>
+    <string name="dark_ui_auto_mode_custom">Ativada nos horários definidos</string>
+    <string name="dark_ui_auto_mode_never">Nenhuma</string>
+    <string name="dark_ui_auto_mode_title">Programação</string>
     <string name="dark_ui_mode_disabled_summary_dark_theme_off">Temporariamente ativado devido à Economia de bateria</string>
     <string name="dark_ui_mode_disabled_summary_dark_theme_on">Desativado temporariamente pela Economia de bateria</string>
     <string name="dark_ui_settings_dark_summary">Os apps compatíveis também mudarão para o tema escuro</string>
     <string name="dark_ui_settings_dialog_acknowledge">Ok</string>
     <string name="dark_ui_status_title">Status</string>
-    <string name="dark_ui_summary_off_auto_mode_auto">Será ativada automaticamente ao anoitecer</string>
+    <string name="dark_ui_summary_off_auto_mode_auto">Será ativado automaticamente ao anoitecer</string>
     <string name="dark_ui_summary_off_auto_mode_custom">Será ativado automaticamente: %1$s</string>
     <string name="dark_ui_summary_off_auto_mode_never">Nunca será ativado automaticamente</string>
     <string name="dark_ui_summary_on_auto_mode_auto">Será desativado automaticamente ao amanhecer</string>
@@ -2130,7 +2130,7 @@ Se isso continuar acontecendo, talvez seja necessário desinstalá-lo para melho
     <string name="display_cutout_emulation_keywords">corte de tela, entalhe</string>
     <string name="display_dashboard_summary">Tema escuro, tamanho da fonte, brilho</string>
     <string name="display_label">Tela</string>
-    <string name="display_order_text">Classificar por:</string>
+    <string name="display_order_text">Ordenar por:</string>
     <string name="display_settings_title">Tela</string>
     <string name="display_summary">Entrar no modo de suspensão após %1$s de inatividade</string>
     <string name="display_summary_example">Entrar no modo de suspensão após 10 minutos de inatividade</string>
@@ -2516,8 +2516,8 @@ Dados de backup não afetam sua cota de armazenamento do Google Drive. Arquivos 
     <string name="fullbackup_erase_dialog_message">Interromper o backup dos dados do dispositivo (como senhas de Wi-Fi e histórico de chamadas) e dos dados de apps (como configurações e arquivos armazenados por apps) e limpar todas as cópias no Google Drive?</string>
     <string name="gadget_picker_title">Escolher o gadget</string>
     <string name="game_controller_settings_category">Controlador de jogos</string>
-    <string name="game_dashboard_always_on_summary">Mostrar o atalho do Painel de jogo em jogos</string>
-    <string name="game_dashboard_always_on_title">Painel de jogo</string>
+    <string name="game_dashboard_always_on_summary">Mostrar o ícone em todos os jogos, sem deslizar para cima ou para baixo</string>
+    <string name="game_dashboard_always_on_title">Ícone flutuante do Painel de jogo</string>
     <string name="game_dashboard_dnd_rule_name">Jogos</string>
     <string name="game_dashboard_dnd_summary">Receber notificações apenas de pessoas e apps importantes quando estiver jogando</string>
     <string name="game_dashboard_dnd_title">Não perturbe para jogos</string>
@@ -2965,7 +2965,7 @@ Você poderá alterar essa opção mais tarde em Configurar > Apps e notificaç�
     <string name="lock_screen_notifications_summary_disable">Não mostrar nenhuma notificação</string>
     <string name="lock_screen_notifications_summary_hide">Só mostrar conteúdo confidencial quando desbloqueado</string>
     <string name="lock_screen_notifications_summary_hide_profile">Ocultar conteúdo de trabalho confidencial</string>
-    <string name="lock_screen_notifications_summary_show">Mostra todo o conteúdo das notificações</string>
+    <string name="lock_screen_notifications_summary_show">Mostrar todo o conteúdo das notificações</string>
     <string name="lock_screen_notifications_summary_show_profile">Mostre todo o conteúdo de notificação de trabalho</string>
     <string name="lock_screen_notifs_redact">Notificações confidenciais</string>
     <string name="lock_screen_notifs_redact_summary">Mostrar conteúdo confidencial quando bloqueado</string>
@@ -3499,7 +3499,7 @@ Isso substitui %2$s como seu app de pagamento padrão."</string>
     <string name="night_display_suggestion_title">Programar o Modo noturno</string>
     <string name="night_display_summary_off_auto_mode_custom">Será ativada automaticamente às %1$s</string>
     <string name="night_display_summary_off_auto_mode_never">Nunca será ativado automaticamente</string>
-    <string name="night_display_summary_off_auto_mode_twilight">Será ativada automaticamente ao anoitecer</string>
+    <string name="night_display_summary_off_auto_mode_twilight">Será ativado automaticamente ao anoitecer</string>
     <string name="night_display_summary_on_auto_mode_custom">Será desativado automaticamente às %1$s</string>
     <string name="night_display_summary_on_auto_mode_never">Nunca será desativado automaticamente</string>
     <string name="night_display_summary_on_auto_mode_twilight">Será desativado automaticamente ao amanhecer</string>
@@ -4174,7 +4174,7 @@ Essa configuração afeta todos os usuários do smartphone."</string>
     <string name="runningservicedetails_settings_title">App em execução</string>
     <string name="runningservicedetails_stop_dlg_text">Se você interromper este serviço, alguns recursos de seu tablet podem parar de funcionar corretamente até que você o desligue e ligue novamente.</string>
     <string name="runningservicedetails_stop_dlg_title">Interromper o serviço do sistema?</string>
-    <string name="runningservices_settings_summary">Visualizar e controlar os serviços em execução no momento</string>
+    <string name="runningservices_settings_summary">Ver e controlar os serviços em execução no momento</string>
     <string name="runningservices_settings_title">Serviços em execução</string>
     <string name="runtime_permissions_summary_control_app_access">Controla o acesso de apps aos seus dados</string>
     <string name="runtime_permissions_summary_no_permissions_granted">Nenhuma permissão concedida</string>
@@ -4517,6 +4517,8 @@ Observação: Não é possível usar sua impressão digital para desbloquear est
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">Siga o ícone de impressão digital</string>
     <string name="security_settings_udfps_enroll_start_message">Mantenha a impressão digital no sensor até sentir uma vibração</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">Mais uma vez</string>
+    <string name="security_settings_udfps_side_fingerprint_help">Coloque a lateral da sua impressão digital no sensor e mantenha o dedo parado por alguns instantes. Depois, mude para o outro lado</string>
+    <string name="security_settings_udfps_tip_fingerprint_help">Tire o dedo e toque novamente</string>
     <string name="security_settings_work_fingerprint_preference_title">Pixel Imprint para o trabalho</string>
     <string name="security_status_title">Status da segurança</string>
     <string name="see_less">Ver menos</string>
@@ -4580,7 +4582,7 @@ Observação: Não é possível usar sua impressão digital para desbloquear est
     <string name="setup_lock_settings_picker_message">Para impedir que outras pessoas usem este smartphone sem sua autorização, ative os recursos de proteção de dispositivo. Escolha o bloqueio de tela que você quer usar.</string>
     <string name="setup_lock_settings_picker_title">Proteger o smartphone</string>
     <string name="setup_suggestion_summary">Copie dados, pague com o smartphone e muito mais</string>
-    <string name="setup_suggestion_title">Conclua a configuração</string>
+    <string name="setup_suggestion_title">Termine a configuração</string>
     <string name="severe_threats_summary">Receber alertas para ameaças graves, materiais ou à vida</string>
     <string name="severe_threats_title">Ameaças graves</string>
     <string name="share">Compartilhar</string>
@@ -4757,12 +4759,12 @@ PIN possivelmente incorreto."</string>
     <string name="sms_preference_title">SMS</string>
     <string name="snooze_options_title">Permitir adiar notificações</string>
     <string name="sometimes_running">Às vezes em execução (%s)</string>
-    <string name="sort_avg_use">Classificar por uso médio</string>
-    <string name="sort_max_use">Classificar por uso máximo</string>
-    <string name="sort_order_alpha">Classificar por nome</string>
+    <string name="sort_avg_use">Ordenar por uso médio</string>
+    <string name="sort_max_use">Ordenar por uso máximo</string>
+    <string name="sort_order_alpha">Ordenar por nome</string>
     <string name="sort_order_frequent_notification">Mais frequentes</string>
     <string name="sort_order_recent_notification">Mais recentes</string>
-    <string name="sort_order_size">Classificar por tamanho</string>
+    <string name="sort_order_size">Ordenar por tamanho</string>
     <string name="sound_category_call_ringtone_vibrate_title">Toque e vibração de chamadas</string>
     <string name="sound_dashboard_summary">Volume, retorno tátil, Não perturbe</string>
     <string name="sound_effects_enable_title">Sons de toque</string>
@@ -5004,7 +5006,7 @@ Tente usar um ^3 mais rápido ou use esse ^4 apenas como armazenamento portátil
     <string name="storage_wizard_slow_v2_continue">Continuar</string>
     <string name="storage_wizard_slow_v2_start_over">Recomeçar</string>
     <string name="storage_wizard_slow_v2_title">^1 lento</string>
-    <string name="storageuse_settings_summary">Visualizar armazenamento usado pelos apps</string>
+    <string name="storageuse_settings_summary">Ver armazenamento usado pelos apps</string>
     <string name="storageuse_settings_title">Uso do armazenamento</string>
     <string name="strict_mode">Modo restrito ativado</string>
     <string name="strict_mode_summary">Piscar tela se apps demorarem no processo principal</string>
@@ -5477,6 +5479,7 @@ Qualquer usuário pode atualizar apps para os demais usuários."</string>
     <string name="verify_apps_over_usb_title">Verificar apps por USB</string>
     <string name="version_text">versão %1$s</string>
     <string name="vibrate_for_calls_settings_not_available_summary">A opção \"Vibrar para chamadas\" está indisponível porque o smartphone está no modo silencioso.</string>
+    <string name="vibrate_icon_title">Sempre mostrar o ícone no modo de vibração</string>
     <string name="vibrate_in_silent_title">Vibrar no modo silencioso</string>
     <string name="vibrate_input_devices">Redirecionar vibração</string>
     <string name="vibrate_input_devices_summary">Enviar vibração para o controlador de jogo quando conectado</string>
@@ -6217,17 +6220,17 @@ Permitir isto para todos os apps que quiserem verificar?"</string>
     <string name="zen_mode_restrict_notifications_disable_custom">Remover configuração personalizada</string>
     <string name="zen_mode_restrict_notifications_enable_custom">Ativar configuração personalizada</string>
     <string name="zen_mode_restrict_notifications_hide">Ocultar avisos visuais ou sonoros de notificações</string>
-    <string name="zen_mode_restrict_notifications_hide_footer">"Seu smartphone não mostrará notificações novas ou existentes nem emitirá sons ou vibrações para elas. Lembre-se de que as notificações essenciais à atividade e ao status do smartphone ainda serão exibidas.
+    <string name="zen_mode_restrict_notifications_hide_footer">"Seu smartphone não vai mostrar notificações novas ou existentes nem emitir sons ou vibrações para elas. Lembre-se de que as notificações essenciais à atividade e ao status do smartphone ainda serão exibidas.
 
 Depois de desativar o Não perturbe, deslize de cima para baixo na tela para ver as notificações perdidas."</string>
     <string name="zen_mode_restrict_notifications_hide_summary">Você não verá nem ouvirá notificações</string>
     <string name="zen_mode_restrict_notifications_mute">Desativar som de notificações</string>
-    <string name="zen_mode_restrict_notifications_mute_footer">Quando houver notificações, o smartphone não emitirá nenhum som ou vibração.</string>
+    <string name="zen_mode_restrict_notifications_mute_footer">O smartphone não vai emitir nenhum som ou vibrar ao receber notificações.</string>
     <string name="zen_mode_restrict_notifications_mute_summary">Você verá as notificações na sua tela</string>
     <string name="zen_mode_restrict_notifications_summary_custom">Parcialmente ocultas</string>
     <string name="zen_mode_restrict_notifications_summary_hidden">Ocultar avisos visuais ou sonoros de notificações</string>
     <string name="zen_mode_restrict_notifications_summary_muted">Desativar som de notificações</string>
-    <string name="zen_mode_restrict_notifications_title">Exibir opções para notificações ocultas</string>
+    <string name="zen_mode_restrict_notifications_title">Mostrar opções para notificações ocultas</string>
     <string name="zen_mode_rule_delete_button">Excluir</string>
     <string name="zen_mode_rule_name">Nome da programação</string>
     <string name="zen_mode_rule_name_edit">Editar</string>

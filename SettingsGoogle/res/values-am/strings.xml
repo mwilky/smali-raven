@@ -2522,8 +2522,8 @@
     <string name="fullbackup_erase_dialog_message">የመሣሪያ ውሂብ (እንደ የWi-Fi ይለፍ ቃላት እና የጥሪ ታሪክ ያለ) እና የመተግበሪያ ውሂብ (እንደ በመተግበሪያዎች የተከማቹ ቅንብሮች እና ፋይሎች ያሉ) ምትኬ ማስቀመጥ ቆሞ በGoogle Drive ላይ ያሉ ሁሉም ቅጂዎች ይደምሰሱ?</string>
     <string name="gadget_picker_title">መሣሪያ ምረጥ</string>
     <string name="game_controller_settings_category">የጨዋታ መቆጣጠሪያ</string>
-    <string name="game_dashboard_always_on_summary">በጨዋታዎች ውስጥ የጨዋታ ዳሽቦርድ አቋራጭ አሳይ</string>
-    <string name="game_dashboard_always_on_title">የጨዋታ ዳሽቦርድ</string>
+    <string name="game_dashboard_always_on_summary">አዶውን በሁሉም ጨዋታዎች ውስጥ ያሳዩ (ወደላይ ወይም ወደታች ሳያንሸራትቱ)</string>
+    <string name="game_dashboard_always_on_title">የጨዋታ ዳሽቦርድ ተንሳፋፊ አዶ</string>
     <string name="game_dashboard_dnd_rule_name">ጨዋታ</string>
     <string name="game_dashboard_dnd_summary">ጨዋታ በሚጫወቱበት ጊዜ አስፈላጊ ከሆኑ ሰዎች እና መተግበሪያዎች ብቻ ማሳወቂያን ያግኙ</string>
     <string name="game_dashboard_dnd_title">አትረብሽ ለጨዋታዎች</string>
@@ -4572,6 +4572,8 @@ g.co/pixel/faceunlock ላይ የበለጠ ይወቁ።"</string>
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">የጣት አሻራ አዶውን ይከተሉ</string>
     <string name="security_settings_udfps_enroll_start_message">ንዝረት እስከሚሰማዎት ድረስ የእርስዎን የጣት አሻራ በዳሳሹ ላይ ያቆዩት</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">አንድ ሌላ ተጨማሪ ጊዜ</string>
+    <string name="security_settings_udfps_side_fingerprint_help">የጣት አሻራዎን ጎን በዳሳሹ ላይ አስቀምጠው ይያዙት፣ ከዚያ ወደ ሌላኛው ጎን ይቀይሩ</string>
+    <string name="security_settings_udfps_tip_fingerprint_help">ያንሱ፣ በመቀጠል መልሰው ይንኩ</string>
     <string name="security_settings_work_fingerprint_preference_title">Pixel Imprint ለሥራ</string>
     <string name="security_status_title">የደህንነት ሁኔታ</string>
     <string name="see_less">ያነሰ ይመልከቱ</string>
@@ -5532,6 +5534,7 @@ g.co/pixel/faceunlock ላይ የበለጠ ይወቁ።"</string>
     <string name="verify_apps_over_usb_title">መተግበሪያዎች በUSB በኩል ያረጋግጡ</string>
     <string name="version_text">ሥሪት%1$s</string>
     <string name="vibrate_for_calls_settings_not_available_summary">ስልክ ጸጥ እንዲል ተደርጎ ስለተቀናበረ ለስልክ ጥሪዎች መንዘር አይገኝም</string>
+    <string name="vibrate_icon_title">በንዝረት ሁነታ ላይ ሲሆኑ ሁልጊዜ አዶን አሳይ</string>
     <string name="vibrate_in_silent_title">ፀጥ ሲል ንዘር</string>
     <string name="vibrate_input_devices">ንዝረትን አዙር</string>
     <string name="vibrate_input_devices_summary">ሲገናኝ ንዝረትን ወደ የጨዋታ መቆጣጠሪያ ላክ</string>

@@ -380,9 +380,9 @@
         <item>Oletus</item>
         <item>Sans Serif</item>
         <item>Sans Serif, tiivistetty</item>
-        <item>Sans Serif Monospace</item>
+        <item>Sans Serif, tasalevyinen</item>
         <item>Serif</item>
-        <item>Serif Monospace</item>
+        <item>Serif, tasalevyinen</item>
         <item>Casual</item>
         <item>Kursiivi</item>
         <item>Isot kirjaimet</item>
@@ -613,14 +613,6 @@
         <item>Piirrä ei-suorakulm. leikealue sinisellä</item>
         <item>Korosta testatut piirtokom. vihreällä</item>
     </string-array>
-    <string-array name="sim_color_light">
-        <item>\@color/SIM_color_cyan</item>
-        <item>\@color/SIM_color_blue800</item>
-        <item>\@color/SIM_color_green800</item>
-        <item>\@color/SIM_color_purple800</item>
-        <item>\@color/SIM_color_pink800</item>
-        <item>\@color/SIM_color_orange</item>
-    </string-array>
     <string-array name="swipe_direction_values">
         <item>1</item>
         <item>0</item>
@@ -655,8 +647,8 @@
         <item>Nopea</item>
         <item>Nopeampi</item>
         <item>Hyvin nopea</item>
-        <item>Nopea</item>
-        <item>Erittäin nopea</item>
+        <item>Vauhdikas</item>
+        <item>Erittäin vauhdikas</item>
         <item>Nopein</item>
     </string-array>
     <string-array name="usage_stats_display_order_types">

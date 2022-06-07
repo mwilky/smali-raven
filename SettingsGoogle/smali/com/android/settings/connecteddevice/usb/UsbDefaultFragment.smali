@@ -511,7 +511,7 @@
 
     invoke-direct {p2, p0}, Lcom/android/settingslib/widget/FooterPreference$Builder;-><init>(Landroid/content/Context;)V
 
-    const p0, 0x7f0414a3
+    const p0, 0x7f0414a5
 
     invoke-virtual {p2, p0}, Lcom/android/settingslib/widget/FooterPreference$Builder;->setTitle(I)Lcom/android/settingslib/widget/FooterPreference$Builder;
 

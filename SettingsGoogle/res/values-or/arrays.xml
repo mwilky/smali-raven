@@ -77,7 +77,7 @@
         <item>SMS/MMS ପଠାନ୍ତୁ</item>
         <item>SMS/MMS ପଢ଼ନ୍ତୁ</item>
         <item>SMS/MMS ଲେଖନ୍ତୁ</item>
-        <item>ସେଟିଙ୍ଗଗୁଡ଼ିକ ବଦଳାନ୍ତୁ</item>
+        <item>ସେଟିଂସ ବଦଳାନ୍ତୁ</item>
         <item>ଉପର ଭାଗରେ ଆଙ୍କନ୍ତୁ</item>
         <item>ବିଜ୍ଞପ୍ତି ଆକସେସ୍‌ କରନ୍ତୁ</item>
         <item>କ୍ୟାମେରା</item>
@@ -144,7 +144,7 @@
         <item>SMS ପଠାନ୍ତୁ</item>
         <item>ICC SMS ପଢ଼ନ୍ତୁ</item>
         <item>ICC SMS ଲେଖନ୍ତୁ</item>
-        <item>ସେଟିଙ୍ଗରେ ସଂଶୋଧନ କରନ୍ତୁ</item>
+        <item>ସେଟିଂସ ପରିବର୍ତ୍ତନ କରନ୍ତୁ</item>
         <item>ସ୍କ୍ରୀନ୍‌ର ଉପର ଭାଗରେ ଆଙ୍କନ୍ତୁ</item>
         <item>ବିଜ୍ଞପ୍ତିଗୁଡ଼ିକୁ ଆକ୍‌ସେସ୍‌ କରନ୍ତୁ</item>
         <item>କ୍ୟାମେରା</item>
@@ -612,14 +612,6 @@
         <item>ବନ୍ଦ</item>
         <item>ଅଣ-ଆୟତାକାର କ୍ଲିପ୍ କ୍ଷେତ୍ର ନୀଳ ରଙ୍ଗରେ ଆଙ୍କନ୍ତୁ</item>
         <item>ଟେଷ୍ଟ ହୋଇଥିବା ଅଙ୍କନ କମାଣ୍ଡଗୁଡ଼ିକୁ ସବୁଜରେ ଚିହ୍ନିତ କରନ୍ତୁ</item>
-    </string-array>
-    <string-array name="sim_color_light">
-        <item>\@color/SIM_color_cyan</item>
-        <item>\@color/SIM_color_blue800</item>
-        <item>\@color/SIM_color_green800</item>
-        <item>\@color/SIM_color_purple800</item>
-        <item>\@color/SIM_color_pink800</item>
-        <item>\@color/SIM_color_orange</item>
     </string-array>
     <string-array name="swipe_direction_values">
         <item>1</item>

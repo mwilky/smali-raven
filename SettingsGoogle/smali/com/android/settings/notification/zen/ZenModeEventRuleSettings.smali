@@ -349,7 +349,7 @@
 
     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
-    const v3, 0x7f04182a
+    const v3, 0x7f04182d
 
     invoke-virtual {p0, v3}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -653,7 +653,7 @@
 
     new-array v3, v2, [Ljava/lang/CharSequence;
 
-    const v4, 0x7f04182c
+    const v4, 0x7f04182f
 
     invoke-virtual {p0, v4}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -663,7 +663,7 @@
 
     aput-object v4, v3, v5
 
-    const v4, 0x7f04182e
+    const v4, 0x7f041831
 
     invoke-virtual {p0, v4}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -671,7 +671,7 @@
 
     aput-object v4, v3, v0
 
-    const v4, 0x7f04182d
+    const v4, 0x7f041830
 
     invoke-virtual {p0, v4}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 

@@ -70,7 +70,7 @@
 
     invoke-virtual {p0, p1}, Lcom/android/settings/deviceinfo/StorageWizardBase;->setIcon(I)V
 
-    const p1, 0x7f041357
+    const p1, 0x7f041359
 
     const/4 v0, 0x0
 

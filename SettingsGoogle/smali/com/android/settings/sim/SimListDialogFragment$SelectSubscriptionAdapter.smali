@@ -208,7 +208,7 @@
 
     if-nez p1, :cond_2
 
-    const p1, 0x7f041249
+    const p1, 0x7f04124b
 
     invoke-virtual {p3, p1}, Landroid/widget/TextView;->setText(I)V
 

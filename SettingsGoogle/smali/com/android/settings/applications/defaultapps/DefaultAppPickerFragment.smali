@@ -44,7 +44,7 @@
 
     if-eqz p0, :cond_1
 
-    const p0, 0x7f0413b8
+    const p0, 0x7f0413ba
 
     invoke-virtual {p1, p0}, Landroidx/preference/Preference;->setSummary(I)V
 

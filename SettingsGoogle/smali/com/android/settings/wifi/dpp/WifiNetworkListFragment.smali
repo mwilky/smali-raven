@@ -330,7 +330,7 @@
 
     iget-object p1, p0, Lcom/android/settings/wifi/dpp/WifiNetworkListFragment;->mAddPreference:Landroidx/preference/Preference;
 
-    const p2, 0x7f0415d0
+    const p2, 0x7f0415d3
 
     invoke-virtual {p1, p2}, Landroidx/preference/Preference;->setTitle(I)V
 
@@ -436,7 +436,7 @@
 
     invoke-direct {p1, v0}, Lcom/android/settings/core/SubSettingLauncher;-><init>(Landroid/content/Context;)V
 
-    const v0, 0x7f0415d0
+    const v0, 0x7f0415d3
 
     invoke-virtual {p1, v0}, Lcom/android/settings/core/SubSettingLauncher;->setTitleRes(I)Lcom/android/settings/core/SubSettingLauncher;
 

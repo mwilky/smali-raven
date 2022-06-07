@@ -5,8 +5,8 @@
     <string name="adaptive_sleep_title">Pantalla atenta</string>
     <string name="additional_system_update_settings_list_item_title">Otras actualizaciones del sistema</string>
     <string name="ambient_display_category_triggers">Cuándo debe mostrarse</string>
-    <string name="ambient_display_pickup_title">Levantar el teléfono para consultarlo</string>
-    <string name="ambient_display_tap_screen_title">Tocar para consultar el teléfono</string>
+    <string name="ambient_display_pickup_title">Levantar teléfono para consultarlo</string>
+    <string name="ambient_display_tap_screen_title">Tocar teléfono para consultarlo</string>
     <string name="ambient_display_title">Doble toque para consultar el teléfono</string>
     <string name="ambient_display_wake_screen_title">Activar pantalla</string>
     <string name="auto_brightness_title">Brillo adaptativo</string>
@@ -89,13 +89,13 @@
     <string name="keywords_ring_vibration">háptica, vibrar, teléfono, llamada, sensibilidad, tono</string>
     <string name="keywords_touch_vibration">háptica, vibrar, pantalla, sensibilidad</string>
     <string name="vibrate_when_ringing_title">Vibrar en llamadas</string>
-    <string name="accessibility_vibration_settings_screen_title">Utilizar vibración y respuesta táctil</string>
+    <string name="accessibility_vibration_settings_screen_title">Utilizar vibración y vibración al pulsar</string>
     <string name="one_handed_title">Modo una mano</string>
-    <string name="vibration_haptics_settings_not_available_summary">La vibración y la respuesta táctil no están disponibles porque el teléfono está en silencio</string>
-    <string name="vibration_haptics_strength_category_title">Intensidad de la vibración y la respuesta táctil</string>
+    <string name="vibration_haptics_settings_not_available_summary">La vibración y la vibración al pulsar no están disponibles porque el teléfono está en silencio</string>
+    <string name="vibration_haptics_strength_category_title">Intensidad de la vibración y la vibración al pulsar</string>
     <string name="peak_refresh_rate_title">Pantalla fluida</string>
     <string name="peak_refresh_rate_summary">Aumenta automáticamente la tasa de refresco de 60 a 90 Hz en determinados tipos de contenido. Aumenta el uso de la batería.</string>
-    <string name="accessibility_vibration_settings_title">Vibración y respuesta táctil</string>
+    <string name="accessibility_vibration_settings_title">Vibración y vibración al pulsar</string>
     <string name="columbus_title">Usar Toque rápido para iniciar acciones</string>
     <string name="emergency_gesture_screen_title">Emergencia SOS</string>
     <string name="abc_action_mode_done">Listo</string>
@@ -104,8 +104,8 @@
     <string name="lockscreen_privacy_controls_setting_toggle">Mostrar controles del dispositivo</string>
     <string name="lockscreen_privacy_wallet_summary">Permite el acceso a la cartera desde la pantalla de bloqueo y los ajustes rápidos</string>
     <string name="lockscreen_privacy_controls_summary">Accede a los controles con la pantalla bloqueada</string>
-    <string name="lockscreen_double_line_clock_summary">Mostrar el reloj analógico cuando esté disponible</string>
-    <string name="lockscreen_double_line_clock_setting_toggle">Reloj analógico</string>
+    <string name="lockscreen_double_line_clock_summary">Muestra el reloj en dos líneas cuando está disponible</string>
+    <string name="lockscreen_double_line_clock_setting_toggle">Reloj en dos líneas</string>
     <string name="abc_activity_chooser_view_see_all">Ver todo</string>
     <string name="abc_activitychooserview_choose_application">Seleccionar una aplicación</string>
     <string name="abc_capital_off">DESACTIVADO</string>
@@ -235,7 +235,7 @@ Esta opción no funciona con todas las aplicaciones."</string>
     <string name="accessibility_hearingaid_pair_instructions_message">Para emparejar audífonos, toca tu dispositivo en la siguiente pantalla. Comprueba que tus audífonos estén en modo de emparejamiento.</string>
     <string name="accessibility_hearingaid_title">Audífonos</string>
     <string name="accessibility_introduction_title">Información de %1$s</string>
-    <string name="accessibility_keyboard_haptics_title">Respuesta táctil del teclado</string>
+    <string name="accessibility_keyboard_haptics_title">Vibración al pulsar teclado</string>
     <string name="accessibility_lock_screen_progress">%1$d de %2$d caracteres utilizados</string>
     <string name="accessibility_long_press_timeout_preference_title">Retraso al mantener pulsado</string>
     <string name="accessibility_magnification_area_settings_all_summary">Cambia entre pantalla completa y parcial</string>
@@ -399,7 +399,7 @@ Para pasar de una función a otra, desliza hacia arriba con tres dedos y mantén
     <string name="accessibility_vibration_intensity_medium">Media</string>
     <string name="accessibility_vibration_intensity_off">Desactivado</string>
     <string name="accessibility_vibration_preferences_file">Preferencias de vibración</string>
-    <string name="accessibility_vibration_summary">Tono (%1$s), notificación (%2$s) y respuesta táctil (%3$s)</string>
+    <string name="accessibility_vibration_summary">Tono (%1$s), notificación (%2$s) y vibración al pulsar (%3$s)</string>
     <string name="accessibility_vibration_summary_high">Alta para notificaciones y llamadas</string>
     <string name="accessibility_vibration_summary_low">Baja para notificaciones y llamadas</string>
     <string name="accessibility_vibration_summary_medium">Media para notificaciones y llamadas</string>
@@ -465,7 +465,7 @@ Para pasar de una función a otra, desliza hacia arriba con tres dedos y mantén
     <string name="adb_pair_method_code_title">Emparejar dispositivo con código de sincronización</string>
     <string name="adb_pair_method_qrcode_summary">Empareja nuevos dispositivos con el escáner de códigos QR</string>
     <string name="adb_pair_method_qrcode_title">Emparejar dispositivo con código QR</string>
-    <string name="adb_paired_devices_title">Dispositivos vinculados</string>
+    <string name="adb_paired_devices_title">Dispositivos emparejados</string>
     <string name="adb_pairing_device_dialog_failed_msg">Asegúrate de que el dispositivo esté conectado a la misma red.</string>
     <string name="adb_pairing_device_dialog_failed_title">No se ha podido emparejar</string>
     <string name="adb_pairing_device_dialog_pairing_code_label">Código de vinculación de Wi‑Fi</string>
@@ -522,7 +522,7 @@ El administrador puede supervisar y administrar los ajustes, el acceso, las apli
     <string name="alarm_ringtone_title">Sonido de alarma predeterminado</string>
     <string name="alarm_template">Hora: %1$s</string>
     <string name="alarm_template_far">Fecha: %1$s</string>
-    <string name="alarm_volume_option_title">Volumen de alarma</string>
+    <string name="alarm_volume_option_title">Volumen de alarmas</string>
     <string name="alarm_volume_title">Alarma</string>
     <string name="alarms_and_reminders_footer_title">"Permite que esta aplicación programe alarmas y otras acciones que se llevan a cabo a una hora determinada. Esto hace que la aplicación siga activa en segundo plano, lo que puede usar más batería.
 
@@ -784,7 +784,7 @@ Solo tienes que juntar los dispositivos (normalmente, por la parte de atrás) y 
     <string name="auto_rotate_option_face_based">Activado: basado en caras</string>
     <string name="auto_rotate_option_off">Desactivado</string>
     <string name="auto_rotate_option_on">Activado</string>
-    <string name="auto_rotate_settings_primary_switch_title">Girar automáticamente</string>
+    <string name="auto_rotate_settings_primary_switch_title">Usar giro automático</string>
     <string name="auto_rotate_summary_no_permission">Se requiere acceso a la cámara para usar Detección de caras. Toca para gestionar los permisos de Servicios de personalización del dispositivo</string>
     <string name="auto_rotate_switch_face_based">Habilitar Detección de caras</string>
     <string name="auto_sync_account_summary">Permite que las aplicaciones actualicen los datos automáticamente</string>
@@ -1248,7 +1248,7 @@ Es la primera vez que te conectas a %2$s."</string>
     <string name="bluetooth_no_devices_found">No hay dispositivos Bluetooth cercanos.</string>
     <string name="bluetooth_not_visible_to_other_devices">Oculto para otros dispositivos Bluetooth</string>
     <string name="bluetooth_notif_message">Toca para emparejar con %1$s.</string>
-    <string name="bluetooth_notif_ticker">Solicitud de vinculación de Bluetooth</string>
+    <string name="bluetooth_notif_ticker">Solicitud de emparejamiento por Bluetooth</string>
     <string name="bluetooth_notif_title">Solicitud de vinculación</string>
     <string name="bluetooth_off_footer">Activa el Bluetooth para establecer conexión con otros dispositivos.</string>
     <string name="bluetooth_on_time">Tiempo de conexión Wi-Fi</string>
@@ -1434,7 +1434,7 @@ Si instalas un certificado AC, su propietario podría acceder a datos que hayas 
     <string name="call_manager_title">Administrador de llamadas</string>
     <string name="call_settings_summary">Configurar buzón, llamada en espera, desvío e identificador</string>
     <string name="call_settings_title">Ajustes de llamadas</string>
-    <string name="call_volume_option_title">Volumen de llamada</string>
+    <string name="call_volume_option_title">Volumen de llamadas</string>
     <string name="calls_and_sms">Llamadas y SMS</string>
     <string name="calls_and_sms_ask_every_time">Preguntar siempre</string>
     <string name="calls_and_sms_category">Llamadas por Wi-Fi</string>
@@ -1539,7 +1539,7 @@ Si instalas un certificado AC, su propietario podría acceder a datos que hayas 
     <string name="character_counter_overflowed_content_description">Límite de caracteres superado (%1$d de %2$d)</string>
     <string name="charge_length_format">Hace %1$s</string>
     <string name="charging_sounds_title">Vibración y sonidos de carga</string>
-    <string name="checkbox_notification_same_as_incoming_call">Utilizar volumen de llamada entrante para notificaciones</string>
+    <string name="checkbox_notification_same_as_incoming_call">Usar volumen de llamada entrante para notificaciones</string>
     <string name="checking_decryption">Comprobando...</string>
     <string name="choose_network_title">Elegir red</string>
     <string name="choose_profile">Seleccionar perfil</string>
@@ -1686,7 +1686,7 @@ Si instalas un certificado AC, su propietario podría acceder a datos que hayas 
     <string name="connected_devices_dashboard_android_auto_no_nfc_no_driving_mode">Bluetooth, Android Auto</string>
     <string name="connected_devices_dashboard_android_auto_no_nfc_summary">Bluetooth, Android Auto, modo de conducción</string>
     <string name="connected_devices_dashboard_android_auto_summary">Bluetooth, Android Auto, modo de conducción, NFC</string>
-    <string name="connected_devices_dashboard_default_summary">Bluetooth y emparejamiento</string>
+    <string name="connected_devices_dashboard_default_summary">Bluetooth, emparejamiento</string>
     <string name="connected_devices_dashboard_no_driving_mode_no_nfc_summary">Bluetooth</string>
     <string name="connected_devices_dashboard_no_driving_mode_summary">Bluetooth, NFC</string>
     <string name="connected_devices_dashboard_no_nfc_summary">Bluetooth, modo de conducción</string>
@@ -1959,7 +1959,7 @@ Esta configuración afecta a todos los usuarios del teléfono."</string>
     <string name="data_usage_tab_mobile">Móviles</string>
     <string name="data_usage_tab_wifi">Wi-Fi</string>
     <string name="data_usage_template">%1$s usados (%2$s)</string>
-    <string name="data_usage_title">Datos principales</string>
+    <string name="data_usage_title">Datos primarios</string>
     <string name="data_usage_total_during_range">%2$s: unos %1$s usados</string>
     <string name="data_usage_total_during_range_mobile">%2$s: unos %1$s usados (según el cálculo del teléfono). El cálculo del uso de datos del operador puede variar.</string>
     <string name="data_usage_uninstalled_apps">Aplicaciones eliminadas</string>
@@ -2069,7 +2069,7 @@ Esta configuración afecta a todos los usuarios del teléfono."</string>
     <string name="device_status_summary">Número de teléfono, señal, etc.</string>
     <string name="device_usage_list_summary">Uso del dispositivo desde la carga completa</string>
     <string name="devices_title">Dispositivos</string>
-    <string name="dial_pad_tones_title">Tonos del teclado</string>
+    <string name="dial_pad_tones_title">Tonos del teclado telefónico</string>
     <string name="dialog_aware_settings_message" />
     <string name="dialog_aware_settings_ok" />
     <string name="dialog_aware_settings_title" />
@@ -2225,7 +2225,7 @@ Si el problema persiste, desinstala la aplicación para mejorar el rendimiento d
     <string name="emergency_tone_vibrate">Vibraciones</string>
     <string name="empty_networks_list">No se ha encontrado ninguna red.</string>
     <string name="enable_2g_summary">Usar conexiones móviles 2G. En las llamadas de emergencia, el 2G siempre está activado.</string>
-    <string name="enable_2g_title">Permitir el 2G</string>
+    <string name="enable_2g_title">Permitir 2G</string>
     <string name="enable_adb">Depuración por USB</string>
     <string name="enable_adb_summary">Activa el modo de depuración cuando el dispositivo esté conectado por USB</string>
     <string name="enable_adb_wireless">Depuración inalámbrica</string>
@@ -2522,8 +2522,8 @@ Los datos de la copia de seguridad no se tienen en cuenta al calcular el espacio
     <string name="fullbackup_erase_dialog_message">¿Quieres detener la copia de seguridad de los datos del dispositivo (como las contraseñas de redes Wi-Fi y el historial de llamadas) y de las aplicaciones (como los ajustes y los archivos guardados) y borrar todas las copias de Google Drive?</string>
     <string name="gadget_picker_title">Seleccionar gadget</string>
     <string name="game_controller_settings_category">Mandos de videojuegos</string>
-    <string name="game_dashboard_always_on_summary">Mostrar acceso directo al Panel de juego en los juegos</string>
-    <string name="game_dashboard_always_on_title">Panel de juego</string>
+    <string name="game_dashboard_always_on_summary">Mostrar el icono en todos los juegos (sin tener que deslizar el dedo hacia arriba ni hacia abajo)</string>
+    <string name="game_dashboard_always_on_title">Icono flotante del Panel de juego</string>
     <string name="game_dashboard_dnd_rule_name">Juegos</string>
     <string name="game_dashboard_dnd_summary">Recibe notificaciones solo de personas y de aplicaciones importantes cuando estés jugando</string>
     <string name="game_dashboard_dnd_title">No molestar al jugar</string>
@@ -3245,7 +3245,7 @@ Hay otros usuarios presentes en este dispositivo.
     <string name="media_controls_hide_player">Ocultar reproductor</string>
     <string name="media_controls_recommendations_description">Según tu actividad</string>
     <string name="media_controls_recommendations_title">Mostrar recomendaciones de contenido multimedia</string>
-    <string name="media_controls_resume_description">Para que puedas seguir rápidamente por donde lo habías dejado, el reproductor multimedia se queda abierto en los ajustes rápidos</string>
+    <string name="media_controls_resume_description">Para seguir rápidamente por donde lo habías dejado, el reproductor multimedia se queda abierto en los ajustes rápidos</string>
     <string name="media_controls_resume_title">Fijar reproductor multimedia</string>
     <string name="media_controls_show_player">Mostrar reproductor</string>
     <string name="media_controls_title">Multimedia</string>
@@ -3478,8 +3478,8 @@ Cambiar a %1$s no cancelará tu servicio de %2$s."</string>
     <string name="network_connection_timeout_dialog_message">No se ha encontrado ningún dispositivo. Comprueba que estén encendidos y listos para conectarse.</string>
     <string name="network_connection_timeout_dialog_ok">Reintentar</string>
     <string name="network_could_not_connect">No se ha podido conectar</string>
-    <string name="network_dashboard_summary_mobile">Datos móviles, Wi‑Fi y puntos de acceso</string>
-    <string name="network_dashboard_summary_no_mobile">Wi‑Fi y puntos de acceso</string>
+    <string name="network_dashboard_summary_mobile">Datos móviles, Wi‑Fi, puntos de acceso</string>
+    <string name="network_dashboard_summary_no_mobile">Wi‑Fi, puntos de acceso</string>
     <string name="network_dashboard_title">Redes e Internet</string>
     <string name="network_disconnected">Desconectado</string>
     <string name="network_lte">LTE (recomendado)</string>
@@ -3564,7 +3564,7 @@ Esto reemplazará a %2$s como tu aplicación de pago predeterminada."</string>
     <string name="no_application">Ninguna</string>
     <string name="no_applications">No hay aplicaciones.</string>
     <string name="no_battery_summary">No ha usado batería desde la última carga completa</string>
-    <string name="no_battery_summary_24hr">No se ha usado la batería en las últimas 24 horas</string>
+    <string name="no_battery_summary_24hr">No ha usado batería en las últimas 24 horas</string>
     <string name="no_carrier_update_now_text">Actualizado justo ahora</string>
     <string name="no_carrier_update_text">Actualizado hace ^2</string>
     <string name="no_certificate_management_app">Ninguna</string>
@@ -4401,12 +4401,12 @@ Para consultar más información, visita g.co/pixel/faceunlock."</string>
 
 Para consultar más información, visita g.co/pixel/faceunlock."</string>
     <string name="security_settings_face_enroll_introduction_control_title">Tú decides</string>
-    <string name="security_settings_face_enroll_introduction_how_consent_message">"Desbloqueo Facial crea un modelo único de la cara de tu hijo/a para verificar su identidad. Para crear este modelo facial durante la configuración, se sacan fotos de la cara de tu hijo/a desde distintos ángulos.
+    <string name="security_settings_face_enroll_introduction_how_consent_message">"Desbloqueo facial crea un modelo único de la cara de tu hijo/a para verificar su identidad. Para crear este modelo facial durante la configuración, se sacan fotos de la cara de tu hijo/a desde distintos ángulos.
 
-Cuando usa Desbloqueo Facial, se utilizan imágenes para actualizar su modelo facial. Las imágenes usadas para crear su modelo facial no se guardan, pero el modelo se almacena de manera segura en el teléfono y nunca sale de él. Todos los procesos se llevan a cabo de forma segura en el teléfono."</string>
-    <string name="security_settings_face_enroll_introduction_how_message">"Desbloqueo Facial crea un modelo único de tu cara para verificar tu identidad. Para crear este modelo facial durante la configuración, se sacan fotos de tu cara desde distintos ángulos.
+Cuando usa Desbloqueo facial, se utilizan imágenes para actualizar su modelo facial. Las imágenes usadas para crear su modelo facial no se guardan, pero el modelo se almacena de manera segura en el teléfono y nunca sale de él. Todos los procesos se llevan a cabo de forma segura en el teléfono."</string>
+    <string name="security_settings_face_enroll_introduction_how_message">"Desbloqueo facial crea un modelo único de tu cara para verificar tu identidad. Para crear este modelo facial durante la configuración, se sacan fotos de tu cara desde distintos ángulos.
 
-Cuando uses Desbloqueo Facial, se utilizan imágenes para actualizar tu modelo facial. Las imágenes usadas para crear tu modelo facial no se guardan, pero el modelo se almacena de manera segura en tu teléfono y nunca sale de él. Todos los procesos se llevan a cabo de forma segura en el teléfono."</string>
+Cuando usas Desbloqueo facial, se utilizan imágenes para actualizar tu modelo facial. Las imágenes usadas para crear tu modelo facial no se guardan, pero el modelo se almacena de manera segura en tu teléfono y nunca sale de él. Todos los procesos se llevan a cabo de forma segura en el teléfono."</string>
     <string name="security_settings_face_enroll_introduction_how_title">Cómo funciona</string>
     <string name="security_settings_face_enroll_introduction_info_consent_gaze">Desbloqueo facial necesita que tu hijo/a tenga los ojos abiertos para poder desbloquear el teléfono o verificar su identidad. Tú y tu hijo/a podéis activar esta opción en cualquier momento desde Ajustes.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_glasses">Si tu hijo/a lleva gafas normalmente, puede usaras durante la configuración.</string>
@@ -4572,6 +4572,8 @@ Nota: No puedes usar tu huella digital para desbloquear este dispositivo. Para o
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">Sigue el icono de la huella digital</string>
     <string name="security_settings_udfps_enroll_start_message">Mantén toda tu huella digital en el sensor hasta que notes una vibración</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">Otra vez</string>
+    <string name="security_settings_udfps_side_fingerprint_help">Coloca el dedo de lado en el sensor, mantenlo pulsado y después gíralo para colocar el otro lado</string>
+    <string name="security_settings_udfps_tip_fingerprint_help">Levanta el dedo y toca de nuevo</string>
     <string name="security_settings_work_fingerprint_preference_title">Pixel Imprint para el trabajo</string>
     <string name="security_status_title">Estado de seguridad</string>
     <string name="see_less">Ver menos</string>
@@ -4819,7 +4821,7 @@ Es posible que el PIN no sea correcto."</string>
     <string name="sort_order_recent_notification">Más recientes</string>
     <string name="sort_order_size">Ordenar por tamaño</string>
     <string name="sound_category_call_ringtone_vibrate_title">Tono de llamada y vibración</string>
-    <string name="sound_dashboard_summary">Volumen, respuesta táctil, No molestar</string>
+    <string name="sound_dashboard_summary">Volumen, vibración al pulsar, No molestar</string>
     <string name="sound_effects_enable_title">Sonar al tocar</string>
     <string name="sound_settings">Sonido y vibración</string>
     <string name="sound_settings_example_summary">El volumen del tono de llamada y de las notificaciones está al 80 %</string>
@@ -5085,7 +5087,7 @@ Prueba a utilizar una ^3 más rápida o utiliza esta ^4 como almacenamiento port
     <string name="summary_divider_text">", "</string>
     <string name="summary_range_symbol_combination">%1$s-%2$s</string>
     <string name="summary_range_verbal_combination">De %1$s a %2$s</string>
-    <string name="support_summary">Artículos de ayuda y asistencia por teléfono y chat</string>
+    <string name="support_summary">Artículos de ayuda, asistencia por teléfono y chat</string>
     <string name="swipe_direction_ltr">Desliza el dedo a la derecha para ignorar la notificación y a la izquierda para mostrar el menú</string>
     <string name="swipe_direction_rtl">Desliza el dedo a la izquierda para ignorar la notificación y a la derecha para mostrar el menú</string>
     <string name="swipe_direction_title">Acciones al deslizar el dedo</string>
@@ -5532,6 +5534,7 @@ Cualquier usuario puede actualizar las aplicaciones del resto de usuarios."</str
     <string name="verify_apps_over_usb_title">Verificar aplicaciones por USB</string>
     <string name="version_text">versión %1$s</string>
     <string name="vibrate_for_calls_settings_not_available_summary">La función Vibrar en llamadas no está disponible porque el teléfono está en silencio</string>
+    <string name="vibrate_icon_title">Mostrar siempre el icono en el modo vibración</string>
     <string name="vibrate_in_silent_title">Vibrar en modo silencio</string>
     <string name="vibrate_input_devices">Redirigir vibración</string>
     <string name="vibrate_input_devices_summary">Enviar vibración al mando para juegos cuando esté conectado</string>
@@ -6153,7 +6156,7 @@ Configurar la red como oculta no cambiará la configuración del router."</strin
     <string name="zen_mode_automation_settings_title">Programaciones</string>
     <string name="zen_mode_automation_suggestion_summary">Definir reglas de No molestar</string>
     <string name="zen_mode_automation_suggestion_title">Silenciar teléfono en ciertos momentos</string>
-    <string name="zen_mode_behavior_alarms_only">Pueden interrumpirte alarmas y sonidos multimedia</string>
+    <string name="zen_mode_behavior_alarms_only">Las alarmas y los sonidos multimedia pueden interrumpirte</string>
     <string name="zen_mode_behavior_summary_custom">Personalizado</string>
     <string name="zen_mode_block_effect_ambient">No consultar si hay notificaciones</string>
     <string name="zen_mode_block_effect_badge">Ocultar los puntos de notificación en los iconos de las aplicaciones</string>
@@ -6219,7 +6222,7 @@ Configurar la red como oculta no cambiará la configuración del router."</strin
     <string name="zen_mode_duration_summary_time_minutes">{count,plural, =1{1 minuto}other{# minutos}}</string>
     <string name="zen_mode_enable_dialog_turn_on">Activar</string>
     <string name="zen_mode_end_time">Hora de finalización</string>
-    <string name="zen_mode_end_time_next_day_summary_format">Día siguiente a las %s</string>
+    <string name="zen_mode_end_time_next_day_summary_format">%s del día siguiente</string>
     <string name="zen_mode_event_rule_calendar">Durante eventos de</string>
     <string name="zen_mode_event_rule_calendar_any">Cualquier calendario</string>
     <string name="zen_mode_event_rule_reply">Cuando la respuesta sea</string>
@@ -6232,7 +6235,7 @@ Configurar la red como oculta no cambiará la configuración del router."</strin
     <string name="zen_mode_events">Eventos de calendario</string>
     <string name="zen_mode_events_list">eventos</string>
     <string name="zen_mode_events_list_first">Eventos</string>
-    <string name="zen_mode_events_summary">De eventos futuros del calendario</string>
+    <string name="zen_mode_events_summary">De próximos eventos del calendario</string>
     <string name="zen_mode_forever">Hasta que lo desactives</string>
     <string name="zen_mode_from_all_conversations">Todas las conversaciones</string>
     <string name="zen_mode_from_anyone">Todo el mundo</string>
@@ -6265,7 +6268,7 @@ Configurar la red como oculta no cambiará la configuración del router."</strin
     <string name="zen_mode_reminders_summary">De tareas y recordatorios</string>
     <string name="zen_mode_repeat_callers">Llamadas repetidas</string>
     <string name="zen_mode_repeat_callers_list">llamadas repetidas</string>
-    <string name="zen_mode_repeat_callers_summary">Si es la segunda llamada de una misma persona y la primera fue hace menos de %d minutos</string>
+    <string name="zen_mode_repeat_callers_summary">Si la misma persona llama por segunda vez en un periodo de %d minutos</string>
     <string name="zen_mode_repeat_callers_title">Permitir llamadas repetidas</string>
     <string name="zen_mode_restrict_notifications_category">Cuando el modo No molestar esté activado</string>
     <string name="zen_mode_restrict_notifications_custom">Personalizado</string>
@@ -6323,7 +6326,7 @@ Cuando desactives el modo No molestar, desliza el dedo hacia abajo desde la part
     <string name="zen_mode_sound_summary_off">{count,plural, =0{Desactivado}=1{Desactivado / 1 programación puede activarlo automáticamente}other{Desactivado / # programaciones pueden activarlo automáticamente}}</string>
     <string name="zen_mode_sound_summary_on">Activado</string>
     <string name="zen_mode_sound_summary_on_with_info">Activado / %1$s</string>
-    <string name="zen_mode_sounds_none">Nada puede interrumpirte</string>
+    <string name="zen_mode_sounds_none">Nada puede interrumpirme</string>
     <string name="zen_mode_starred_callers">contactos destacados</string>
     <string name="zen_mode_starred_contacts_empty_name">(Sin nombre)</string>
     <string name="zen_mode_starred_contacts_summary_contacts">{count,plural,offset:2 =0{Nadie}=1{{contact_1}}=2{{contact_1} y {contact_2}}=3{{contact_1}, {contact_2} y {contact_3}}other{{contact_1}, {contact_2} y # más}}</string>
@@ -6336,7 +6339,7 @@ Cuando desactives el modo No molestar, desliza el dedo hacia abajo desde la part
     <string name="zen_mode_system">Sonidos al tocar</string>
     <string name="zen_mode_system_list">sonidos al tocar</string>
     <string name="zen_mode_system_list_first">Sonidos al tocar</string>
-    <string name="zen_mode_system_summary">Sonidos del teclado y de otros botones</string>
+    <string name="zen_mode_system_summary">Sonidos del teclado y otros botones</string>
     <string name="zen_mode_unknown_app_set_behavior">Estas opciones no se pueden modificar en este momento. Una aplicación ha activado automáticamente el modo No molestar con funcionamiento personalizado.</string>
     <string name="zen_mode_use_automatic_rule">Usar programación</string>
     <string name="zen_mode_visual_interruptions_settings_title">Bloquear interrupciones visuales</string>

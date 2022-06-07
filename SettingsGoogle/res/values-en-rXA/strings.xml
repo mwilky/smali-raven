@@ -2526,8 +2526,8 @@ Föŕ ḿöŕé ðéţåîļš, çöñţåçţ ýöûŕ öŕĝåñîžåţîöñ
     <string name="fullbackup_erase_dialog_message">[Šţöþ ɓåçķîñĝ ûþ ðéVîçé ðåţå (šûçĥ åš Ŵî-Fî þåššŵöŕðš åñð çåļļ ĥîšţöŕý) åñð åþþ ðåţå (šûçĥ åš šéţţîñĝš åñð ƒîļéš šţöŕéð ɓý åþþš), þļûš éŕåšé åļļ çöþîéš öñ ŕéḿöţé šéŕVéŕš¿ one two three four five six seven eight nine ten eleven twelve thirteen fourteen fiveteen sixteen seventeen nineteen twenty one two three four five six seven eight nine ten]</string>
     <string name="gadget_picker_title">[Çĥööšé ĝåðĝéţ one two]</string>
     <string name="game_controller_settings_category">[Ĝåḿé Çöñţŕöļļéŕ one two three]</string>
-    <string name="game_dashboard_always_on_summary">[Šĥöŵ Ĝåḿé Ðåšĥɓöåŕð šĥöŕţçûţ îñ ĝåḿéš one two three four five]</string>
-    <string name="game_dashboard_always_on_title">[Ĝåḿé Ðåšĥɓöåŕð one two three]</string>
+    <string name="game_dashboard_always_on_summary">[Šĥöŵ ţĥé îçöñ îñ åļļ ĝåḿéš (ŵîţĥöûţ šŵîþîñĝ ûþ öŕ ðöŵñ) one two three four five six seven]</string>
+    <string name="game_dashboard_always_on_title">[Ĝåḿé Ðåšĥɓöåŕð ƒļöåţîñĝ îçöñ one two three four]</string>
     <string name="game_dashboard_dnd_rule_name">[Ĝåḿîñĝ one two]</string>
     <string name="game_dashboard_dnd_summary">[Öñļý ĝéţ ñöţîƒîéð ɓý îḿþöŕţåñţ þéöþļé åñð åþþš ŵĥéñ þļåýîñĝ å ĝåḿé one two three four five six seven eight]</string>
     <string name="game_dashboard_dnd_title">[Ðö Ñöţ Ðîšţûŕɓ ƒöŕ ĝåḿéš one two three]</string>
@@ -4579,6 +4579,8 @@ Fļîþ ýöûŕ þĥöñé öVéŕ ţö ţŕý. one two three four five six sev
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">[Föļļöŵ ţĥé ƒîñĝéŕþŕîñţ îçöñ one two three four]</string>
     <string name="security_settings_udfps_enroll_start_message">[Ķééþ ýöûŕ ƒîñĝéŕþŕîñţ ƒļåţ öñ ţĥé šéñšöŕ ûñţîļ ýöû ƒééļ å Vîɓŕåţîöñ one two three four five six seven eight]</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">[Öñé ḿöŕé ţîḿé one two]</string>
+    <string name="security_settings_udfps_side_fingerprint_help">[Þļåçé ţĥé šîðé öƒ ýöûŕ ƒîñĝéŕþŕîñţ öñ ţĥé šéñšöŕ åñð ĥöļð, ţĥéñ šŵîţçĥ ţö ţĥé öţĥéŕ šîðé one two three four five six seven eight nine ten]</string>
+    <string name="security_settings_udfps_tip_fingerprint_help">[Ļîƒţ, ţĥéñ ţöûçĥ åĝåîñ one two three]</string>
     <string name="security_settings_work_fingerprint_preference_title">[Fîñĝéŕþŕîñţ ƒöŕ ŵöŕķ one two three]</string>
     <string name="security_status_title">[Šéçûŕîţý šţåţûš one two three]</string>
     <string name="see_less">[Šéé ļéšš one two]</string>
@@ -5548,6 +5550,7 @@ To manage this ^2, go to "<b>Settings > Storage</b>. one two three four]</string
     <string name="verify_apps_over_usb_title">[νéŕîƒý åþþš öVéŕ ÛŠβ one two three]</string>
     <string name="version_text">[Véŕšîöñ %1$s one two]</string>
     <string name="vibrate_for_calls_settings_not_available_summary">[νîɓŕåţé ƒöŕ çåļļš îš ûñåVåîļåɓļé ɓéçåûšé þĥöñé îš šéţ ţö šîļéñţ one two three four five six seven]</string>
+    <string name="vibrate_icon_title">[Åļŵåýš šĥöŵ îçöñ ŵĥéñ îñ Vîɓŕåţé ḿöðé one two three four five]</string>
     <string name="vibrate_in_silent_title">[νîɓŕåţé ŵĥéñ šîļéñţ one two three]</string>
     <string name="vibrate_input_devices">[Ŕéðîŕéçţ Vîɓŕåţîöñ one two three]</string>
     <string name="vibrate_input_devices_summary">[Šéñð Vîɓŕåţîöñ ţö ĝåḿé çöñţŕöļļéŕ ŵĥéñ çöññéçţéð one two three four five six]</string>

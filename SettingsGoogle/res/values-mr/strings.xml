@@ -93,7 +93,7 @@
     <string name="one_handed_title">एकहाती मोड</string>
     <string name="vibration_haptics_settings_not_available_summary">फोन सायलंटवर सेट केलेला असल्यामुळे व्हायब्रेशन आणि हॅप्टिक उपलब्ध नाहीत</string>
     <string name="vibration_haptics_strength_category_title">व्हायब्रेशन आणि हॅप्टिक स्ट्रेंथ</string>
-    <string name="peak_refresh_rate_title">Smooth Display</string>
+    <string name="peak_refresh_rate_title">स्मूथ डिस्प्ले</string>
     <string name="peak_refresh_rate_summary">काही आशयासाठी रिफ्रेश रेट ६० ते ९० Hz पर्यंत आपोआप वाढवते. बॅटरी वापर वाढवते.</string>
     <string name="accessibility_vibration_settings_title">व्हायब्रेशन आणि हॅप्टिक</string>
     <string name="columbus_title">कृती सुरू करण्यासाठी, क्विक टॅप करा</string>
@@ -600,7 +600,7 @@
     <string name="apn_settings_not_available">या वापरकर्त्यासाठी अ‍ॅक्सेस बिंदू नाव सेटिंग्ज उपलब्ध नाहीत</string>
     <string name="apn_type">APN प्रकार</string>
     <string name="apn_user">वापरकर्ता नाव</string>
-    <string name="app_and_notification_dashboard_summary">असिस्टंट, अलीकडील अ‍ॅप्स, डीफॉल्ट अ‍ॅप्स</string>
+    <string name="app_and_notification_dashboard_summary">Assistant, अलीकडील अ‍ॅप्स, डीफॉल्ट अ‍ॅप्स</string>
     <string name="app_and_notification_dashboard_title">अ‍ॅप्स आणि सूचना</string>
     <string name="app_cellular_data_usage">अ‍ॅप डेटा वापर</string>
     <string name="app_default_dashboard_title">डीफॉल्ट अ‍ॅप्स</string>
@@ -748,7 +748,7 @@
     <string name="audio_category_title">ऑडिओ</string>
     <string name="audio_record_proc_title">नॉइझ कॅंसलेशन</string>
     <string name="auto_brightness_default_title">डीफॉल्ट</string>
-    <string name="auto_brightness_description">तुमच्या स्क्रीनचा ब्राइटनेस तुमच्या वातावरण आणि ॲक्टिव्हिटीशी आपोआप अ‍ॅडजस्ट होईल. अ‍ॅडॅप्टिव्ह ब्राइटनेसला तुमची प्राधान्ये जाणून घेण्यात मदत करण्यासाठी तुम्ही स्लाइडर मॅन्युअली हलवू शकता.</string>
+    <string name="auto_brightness_description">तुमच्या स्क्रीनचा ब्राइटनेस तुमच्या वातावरण आणि अ‍ॅक्टिव्हिटीशी आपोआप अ‍ॅडजस्ट होईल. अडॅप्टिव्ह ब्राइटनेसला तुमची प्राधान्ये जाणून घेण्यात मदत करण्यासाठी तुम्ही स्लाइडर मॅन्युअली हलवू शकता.</string>
     <string name="auto_brightness_disclaimer">उपलब्ध प्रकाशासाठी उज्ज्वलता स्तर अनुकूल करा. हे वैशिष्ट्य सुरू असताना, तुम्ही तरीही उज्ज्वलता तात्पुरती समायोजित करू शकता.</string>
     <string name="auto_brightness_high_title">जास्त</string>
     <string name="auto_brightness_low_title">कमी</string>
@@ -1569,7 +1569,7 @@
     <string name="color_gray">राखाडी</string>
     <string name="color_green">हिरवा</string>
     <string name="color_magenta">किरमिजी तांबडा</string>
-    <string name="color_mode_option_automatic">ॲडॅप्टिव्ह</string>
+    <string name="color_mode_option_automatic">अडॅप्टिव्ह</string>
     <string name="color_mode_option_boosted">बूस्ट केलेला</string>
     <string name="color_mode_option_natural">नैसर्गिक</string>
     <string name="color_mode_option_saturated">सॅच्युरेटेड</string>
@@ -2522,8 +2522,8 @@
     <string name="fullbackup_erase_dialog_message">डिव्हाइस डेटाचा (वाय-फाय पासवर्ड आणि कॉल इतिहास यासारख्या) आणि (अ‍ॅप्सद्वारे स्टोअर केलेल्या सेटिंग्ज आणि फाइल यासारख्या) अ‍ॅप डेटाचा बॅकअप घेणे थांबवून, Google ड्राइव्हवरील सर्व प्रती मिटवायच्या?</string>
     <string name="gadget_picker_title">गॅझेट निवडा</string>
     <string name="game_controller_settings_category">गेम नियंत्रक</string>
-    <string name="game_dashboard_always_on_summary">गेममध्ये गेम डॅशबोर्ड शॉर्टकट दाखवा</string>
-    <string name="game_dashboard_always_on_title">गेम डॅशबोर्ड</string>
+    <string name="game_dashboard_always_on_summary">सर्व गेममध्ये आयकन दाखवा (वरती किंवा खाली स्‍वाइप न करता)</string>
+    <string name="game_dashboard_always_on_title">गेम डॅशबोर्ड चा फ्लोटिंग आयकन</string>
     <string name="game_dashboard_dnd_rule_name">गेमिंग</string>
     <string name="game_dashboard_dnd_summary">गेम खेळताना फक्त महत्त्वाचे लोक आणि ॲप्स यांकडून सूचना मिळवा</string>
     <string name="game_dashboard_dnd_title">गेमसाठी व्यत्यय आणू नका</string>
@@ -4572,6 +4572,8 @@ g.co/pixel/faceunlock येथे अधिक जाणून घ्या."</
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">फिंगरप्रिंट आयकन फॉलो करा</string>
     <string name="security_settings_udfps_enroll_start_message">तुम्हाला व्हायब्रेशन जाणवेपर्यंत तुमचे फिंगरप्रिंट सेन्सरवर चपटे ठेवा</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">आणखी एकदा</string>
+    <string name="security_settings_udfps_side_fingerprint_help">तुमची फिंगरप्रिंट घ्यायची असलेली एक बाजू सेन्सरवर ठेवा आणि धरून ठेवा, त्यानंतर दुसऱ्या बाजूवर स्विच करा</string>
+    <string name="security_settings_udfps_tip_fingerprint_help">उचला, त्यानंतर पुन्हा स्पर्श करा</string>
     <string name="security_settings_work_fingerprint_preference_title">ऑफिससाठी Pixel Imprint</string>
     <string name="security_status_title">सुरक्षा स्थिती</string>
     <string name="see_less">कमी पहा</string>
@@ -5531,6 +5533,7 @@ g.co/pixel/faceunlock येथे अधिक जाणून घ्या."</
     <string name="verify_apps_over_usb_title">USB वर अ‍ॅप्स पडताळून पहा</string>
     <string name="version_text">आवृत्ती %1$s</string>
     <string name="vibrate_for_calls_settings_not_available_summary">फोन सायलंटवर सेट केला असल्यामुळे कॉलसाठी व्हायब्रेट करा उपलब्ध नाही</string>
+    <string name="vibrate_icon_title">व्हायब्रेट मोडमध्ये असताना नेहमी आयकन दाखवा</string>
     <string name="vibrate_in_silent_title">शांत असताना व्हायब्रेट</string>
     <string name="vibrate_input_devices">व्हायब्रेट पुनर्निर्देशित करा</string>
     <string name="vibrate_input_devices_summary">कनेक्ट केले असताना गेम नियंत्रकाला व्हायब्रेशन पाठवा</string>
@@ -6141,7 +6144,7 @@ g.co/pixel/faceunlock येथे अधिक जाणून घ्या."</
     <string name="zen_mode_alarms">अलार्म</string>
     <string name="zen_mode_alarms_list">अलार्म</string>
     <string name="zen_mode_alarms_list_first">अलार्म</string>
-    <string name="zen_mode_alarms_summary">टायमर, अलार्म, सुरक्षा सिस्टम आणि इतर ॲप्स मधील</string>
+    <string name="zen_mode_alarms_summary">टायमर, अलार्म, सुरक्षा सिस्टीम आणि इतर ॲप्समधील</string>
     <string name="zen_mode_all_callers">कोणीही</string>
     <string name="zen_mode_all_calls_summary">सर्व कॉल तुमच्यापर्यंत पोहोचू शकतील</string>
     <string name="zen_mode_all_messages_summary">सर्व मेसेज तुमच्यापर्यंत पोहोचू शकतील</string>
@@ -6206,7 +6209,7 @@ g.co/pixel/faceunlock येथे अधिक जाणून घ्या."</
     <string name="zen_mode_custom_behavior_title">व्यत्यय आणू नका स्थिती</string>
     <string name="zen_mode_custom_calls_footer">‘%1$s’ साठी इनकमिंग कॉल ब्लॉक केले आहेत. तुमच्या मित्रमैत्रिणींना, कुटुंबीयांना किंवा इतर संपर्कांना तुमच्याशी संपर्क साधण्याची अनुमती देण्यासाठी तुम्ही सेटिंग्ज अ‍ॅडजस्ट करू शकता.</string>
     <string name="zen_mode_custom_messages_footer">‘%1$s’ साठी इनकमिंग मेसेज ब्लॉक केले आहेत. तुमच्या मित्रमैत्रिणींना, कुटुंबीयांना किंवा इतर संपर्कांना तुमच्याशी संपर्क साधण्याची अनुमती देण्यासाठी तुम्ही सेटिंग्ज अ‍ॅडजस्ट करू शकता.</string>
-    <string name="zen_mode_delete_automatic_rules">शेड्युल रद्द करा</string>
+    <string name="zen_mode_delete_automatic_rules">शेड्युल हटवा</string>
     <string name="zen_mode_delete_rule">शेड्युल हटवा</string>
     <string name="zen_mode_delete_rule_button">हटवा</string>
     <string name="zen_mode_delete_rule_confirmation">\"%1$s\" नियम हटवायचा?</string>

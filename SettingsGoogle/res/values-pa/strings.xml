@@ -28,7 +28,7 @@
     <string name="display_white_balance_title">ਸਫ਼ੈਦ ਸੰਤੁਲਨ ਦਿਖਾਓ</string>
     <string name="double_tap_power_for_camera_title">ਤੁਰੰਤ ਕੈਮਰਾ ਖੋਲ੍ਹੋ</string>
     <string name="double_twist_for_camera_mode_title">ਸੈਲਫ਼ੀ ਲਈ ਕੈਮਰਾ ਫਲਿੱਪ ਕਰੋ</string>
-    <string name="doze_always_on_summary">ਬੈਟਰੀ ਵਰਤੋਂ ਵਧ ਜਾਵੇਗੀ</string>
+    <string name="doze_always_on_summary">ਬੈਟਰੀ ਵਰਤੋਂ ਵੱਧ ਜਾਵੇਗੀ</string>
     <string name="doze_always_on_title">ਸਮਾਂ ਅਤੇ ਜਾਣਕਾਰੀ ਹਮੇਸ਼ਾਂ ਦਿਖਾਓ</string>
     <string name="doze_summary">ਜਦੋਂ ਸਕ੍ਰੀਨ ਗੂੜ੍ਹੀ ਹੁੰਦੀ ਹੈ, ਤਾਂ ਇਹ ਨਵੀਂਆਂ ਸੂਚਨਾਵਾਂ ਲਈ ਚਾਲੂ ਹੋ ਜਾਂਦੀ ਹੈ</string>
     <string name="doze_title">ਸੂਚਨਾਵਾਂ ਲਈ ਸਕ੍ਰੀਨ ਕਿਰਿਆਸ਼ੀਲ ਕਰੋ</string>
@@ -415,13 +415,13 @@
     <string name="accessor_expires_text">ਲੀਜ਼ ਦੀ ਮਿਆਦ %s ਨੂੰ ਮੁੱਕ ਜਾਵੇਗੀ</string>
     <string name="accessor_info_title">ਡਾਟਾ ਸਾਂਝਾ ਕਰਨ ਵਾਲੀਆਂ ਐਪਾਂ</string>
     <string name="accessor_no_description_text">ਐਪ ਵੱਲੋਂ ਕੋਈ ਵਰਣਨ ਮੁਹੱਈਆ ਨਹੀਂ ਕਰਵਾਇਆ ਗਿਆ।</string>
-    <string name="account_dashboard_default_summary">ਰੱਖਿਅਤ ਕੀਤੇ ਪਾਸਵਰਡ, ਆਟੋਫਿਲ, ਸਮਾਲੀਕਿਰਤ ਖਾਤੇ</string>
+    <string name="account_dashboard_default_summary">ਰੱਖਿਅਤ ਕੀਤੇ ਪਾਸਵਰਡ, ਆਟੋਫਿਲ, ਸਿੰਕ ਕੀਤੇ ਖਾਤੇ</string>
     <string name="account_dashboard_title">ਪਾਸਵਰਡ ਅਤੇ ਖਾਤੇ</string>
     <string name="account_for_section_header">%1$s ਦੇ ਖਾਤੇ</string>
     <string name="account_settings">ਖਾਤੇ</string>
-    <string name="account_settings_menu_auto_sync">" ਡਾਟਾ  ਸਵੈ-ਸਮਕਾਲੀਕਿਰਤ ਕਰੋ"</string>
-    <string name="account_settings_menu_auto_sync_personal">ਨਿੱਜੀ ਡਾਟਾ ਸਵੈ-ਸਮਕਾਲੀਕਿਰਤ ਕਰੋ</string>
-    <string name="account_settings_menu_auto_sync_work">ਕੰਮ ਸੰਬੰਧੀ ਡਾਟਾ ਸਵੈ-ਸਮਕਾਲੀਕਿਰਤ ਕਰੋ</string>
+    <string name="account_settings_menu_auto_sync">ਡਾਟਾ ਸਵੈ-ਸਿੰਕ ਕਰੋ</string>
+    <string name="account_settings_menu_auto_sync_personal">ਨਿੱਜੀ ਡਾਟਾ ਸਵੈ-ਸਿੰਕ ਕਰੋ</string>
+    <string name="account_settings_menu_auto_sync_work">ਕੰਮ ਸੰਬੰਧੀ ਡਾਟਾ ਸਵੈ-ਸਿੰਕ ਕਰੋ</string>
     <string name="account_settings_title">ਖਾਤੇ</string>
     <string name="account_sync_settings_title">ਸਿੰਕ ਕਰੋ</string>
     <string name="account_sync_summary_all_off">ਸਾਰੀਆਂ ਆਈਟਮਾਂ ਲਈ ਸਿੰਕ ਬੰਦ ਹੈ</string>
@@ -763,7 +763,7 @@
     <string name="auto_brightness_summary_on">ਚਾਲੂ</string>
     <string name="auto_brightness_summary_very_high">ਤਰਜੀਹੀ ਚਮਕ ਬਹੁਤ ਉੱਚ ਹੈ</string>
     <string name="auto_brightness_summary_very_low">ਤਰਜੀਹੀ ਚਮਕ ਬਹੁਤ ਘੱਟ ਹੈ</string>
-    <string name="auto_brightness_very_high_summary">ਬੈਟਰੀ ਵਰਤੋਂ ਵਧ ਜਾਵੇਗੀ</string>
+    <string name="auto_brightness_very_high_summary">ਬੈਟਰੀ ਵਰਤੋਂ ਵੱਧ ਜਾਵੇਗੀ</string>
     <string name="auto_brightness_very_high_title">ਬਹੁਤ ਉੱਚ</string>
     <string name="auto_brightness_very_low_title">ਬਹੁਤ ਘੱਟ</string>
     <string name="auto_caps">ਆਟੋ-ਕੈਪਿਟਲਾਈਜ਼ੇਸ਼ਨ</string>
@@ -789,8 +789,8 @@
     <string name="auto_rotate_switch_face_based">ਚਿਹਰਾ ਪਛਾਣ ਨੂੰ ਚਾਲੂ ਕਰੋ</string>
     <string name="auto_sync_account_summary">"ਐਪਾਂ ਨੂੰ ਸਵੈਚਲਿਤ ਤੌਰ 'ਤੇ ਡਾਟਾ ਰਿਫ੍ਰੈਸ਼ ਕਰਨ ਦਿਓ"</string>
     <string name="auto_sync_account_title">"ਐਪ ਡਾਟੇ ਦਾ ਸਵੈਚਲਿਤ ਤੌਰ 'ਤੇ ਸਿੰਕ ਕਰੋ"</string>
-    <string name="auto_sync_personal_account_title">"ਨਿੱਜੀ  ਡਾਟੇ  ਨੂੰ ਸਵੈਚਲਿਤ ਤੌਰ 'ਤੇ ਸਮਕਾਲੀਕਿਰਤ ਕਰੋ"</string>
-    <string name="auto_sync_work_account_title">"ਕਾਰਜ  ਡਾਟੇ  ਨੂੰ ਸਵੈਚਲਿਤ ਤੌਰ 'ਤੇ ਸਮਕਾਲੀਕਿਰਤ ਕਰੋ"</string>
+    <string name="auto_sync_personal_account_title">"ਨਿੱਜੀ  ਡਾਟੇ  ਨੂੰ ਸਵੈਚਲਿਤ ਤੌਰ 'ਤੇ ਸਿੰਕ ਕਰੋ"</string>
+    <string name="auto_sync_work_account_title">"ਕਾਰਜ  ਡਾਟੇ  ਨੂੰ ਸਵੈਚਲਿਤ ਤੌਰ 'ਤੇ ਸਿੰਕ ਕਰੋ"</string>
     <string name="autofill_app">ਆਟੋਫਿਲ ਸੇਵਾ</string>
     <string name="autofill_confirmation_message">"&lt;b>ਪੱਕਾ ਕਰੋ ਕਿ ਤੁਸੀਂ ਇਸ ਐਪ 'ਤੇ ਭਰੋਸਾ ਕਰਦੇ ਹੋ&lt;/b> &lt;br/> &lt;br/> &lt;xliff:g id=app_name example=Google Autofill>%1$s&lt;/xliff:g> ਆਪਣੇ-ਆਪ ਭਰੀਆਂ ਜਾ ਸਕਣ ਵਾਲੀਆਂ ਚੀਜ਼ਾਂ ਦਾ ਪਤਾ ਲਗਾਉਣ ਲਈ ਤੁਹਾਡੀ ਸਕ੍ਰੀਨ 'ਤੇ ਮੌਜੂਦ ਚੀਜ਼ਾਂ ਦੀ ਵਰਤੋਂ ਕਰਦਾ ਹੈ।"</string>
     <string name="autofill_keywords">ਆਟੋ, ਫਿਲ, ਆਟੋਫਿਲ, ਪਾਸਵਰਡ</string>
@@ -813,7 +813,7 @@
     <string name="automatic_storage_manager_preference_title">ਸਮਾਰਟ ਸਟੋਰੇਜ</string>
     <string name="automatic_storage_manager_primary_switch_title">ਸਮਾਰਟ ਸਟੋਰੇਜ ਵਰਤੋ</string>
     <string name="automatic_storage_manager_settings">ਸਮਾਰਟ ਸਟੋਰੇਜ</string>
-    <string name="automatic_storage_manager_text">ਜਦੋਂ ਸਟੋਰੇਜ ਲਗਭਗ ਭਰੀ ਹੋਵੇ, ਤਾਂ ਬੈਕਅੱਪ ਲਈਆਂ ਗਈਆਂ ਫ਼ੋਟੋਆਂ ਅਤੇ ਵੀਡੀਓ ਹਟਾਓ। ਤੁਸੀਂ ਉਹਨਾਂ ਨੂੰ ਹਾਲੇ ਵੀ Google Photos ਵਿੱਚ ਲੱਭ ਸਕਦੇ ਹੋ।</string>
+    <string name="automatic_storage_manager_text">ਜਦੋਂ ਸਟੋਰੇਜ ਲਗਭਗ ਭਰੀ ਹੋਵੇ, ਤਾਂ ਬੈਕਅੱਪ ਲਈਆਂ ਗਈਆਂ ਫ਼ੋਟੋਆਂ ਅਤੇ ਵੀਡੀਓ ਹਟਾਓ। ਤੁਸੀਂ ਉਨ੍ਹਾਂ ਨੂੰ ਹਾਲੇ ਵੀ Google Photos ਵਿੱਚ ਲੱਭ ਸਕਦੇ ਹੋ।</string>
     <string name="automatic_system_heap_dump_summary">"ਇਸ ਵੱਲੋਂ ਬਹੁਤ ਜ਼ਿਆਦਾ ਮੈਮੋਰੀ ਵਰਤਣ 'ਤੇ Android ਸਿਸਟਮ ਲਈ ਹੀਪ ਡੰਪ ਸਵੈਚਲਿਤ ਤੌਰ 'ਤੇ ਕੈਪਚਰ ਕਰੋ"</string>
     <string name="automatic_system_heap_dump_title">"ਸਿਸਟਮ ਦੇ ਹੀਪ ਡੰਪਾਂ ਨੂੰ ਸਵੈਚਲਿਤ ਤੌਰ 'ਤੇ ਕੈਪਚਰ ਕਰੋ"</string>
     <string name="available_via_carrier">%1$s ਰਾਹੀਂ ਉਪਲਬਧ</string>
@@ -885,9 +885,9 @@
     <string name="backup_suggestion_get_started">ਹੋਰ ਜਾਣੋ</string>
     <string name="backup_suggestion_item_summary">Android ਜਾਂ iPhone® ਡੀਵਾਈਸ ਤੋਂ ਕਾਪੀ ਕਰੋ</string>
     <string name="backup_suggestion_item_title">ਪੁਰਾਣੇ ਫ਼ੋਨ ਦਾ ਡਾਟਾ ਚਾਹੀਦਾ ਹੈ?</string>
-    <string name="backup_suggestion_missing_description">"ਜੇਕਰ ਤੁਹਾਨੂੰ SMS ਸੁਨੇਹਿਆਂ ਅਤੇ ਫ਼ੋਟੋਆਂ ਵਰਗਾ ਤੁਹਾਡਾ ਕੁਝ ਡਾਟਾ ਨਹੀਂ ਦਿਖਾਈ ਦੇ ਰਿਹਾ ਹੈ, ਤਾਂ ਤੁਸੀਂ ਇੱਕ ਕੇਬਲ ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਉਸਨੂੰ ਆਪਣੇ Pixel ਵਿੱਚ ਤਬਦੀਲ ਕਰ ਸਕਦੇ ਹੋ।
+    <string name="backup_suggestion_missing_description">"ਜੇ ਤੁਹਾਨੂੰ SMS ਸੁਨੇਹਿਆਂ ਅਤੇ ਫ਼ੋਟੋਆਂ ਵਰਗਾ ਤੁਹਾਡਾ ਕੁਝ ਡਾਟਾ ਦਿਖਾਈ ਨਹੀਂ ਦਿੰਦਾ, ਤਾਂ ਤੁਸੀਂ ਇੱਕ ਕੇਬਲ ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਉਸਨੂੰ ਆਪਣੇ Pixel ਵਿੱਚ ਟ੍ਰਾਂਸਫ਼ਰ ਕਰ ਸਕਦੇ ਹੋ।
 
-ਸ਼ੁਰੂਆਤ ਕਰਨ ਲਈ, ਤੁਹਾਡੇ Pixel ਨੂੰ ਰੀਸੈੱਟ ਕਰਨ ਦੀ ਲੋੜ ਪਵੇਗੀ। ਵਿਉਂਤਬੱਧ ਸੈਟਿੰਗਾਂ ਅਤੇ ਕਲਾਊਡ ਨਾਲ ਸਮਕਾਲੀਕਿਰਤ ਨਹੀਂ ਕੀਤੀ ਗਈ ਸਮੱਗਰੀ ਸਮੇਤ ਇਸ ਫ਼ੋਨ ਦੇ ਸਾਰੇ ਡਾਟੇ ਨੂੰ ਮਿਟਾ ਦਿੱਤਾ ਜਾਵੇਗਾ।"</string>
+ਸ਼ੁਰੂਆਤ ਕਰਨ ਲਈ, ਤੁਹਾਡੇ Pixel ਨੂੰ ਰੀਸੈੱਟ ਕਰਨ ਦੀ ਲੋੜ ਪਵੇਗੀ। ਵਿਉਂਤਬੱਧ ਸੈਟਿੰਗਾਂ ਅਤੇ ਕਲਾਊਡ ਨਾਲ ਸਿੰਕ ਨਹੀਂ ਕੀਤੀ ਗਈ ਕਿਸੇ ਵੀ ਤਰ੍ਹਾਂ ਦੀ ਸਮੱਗਰੀ ਸਮੇਤ ਇਸ ਫ਼ੋਨ ਦੇ ਸਾਰੇ ਡਾਟੇ ਨੂੰ ਮਿਟਾ ਦਿੱਤਾ ਜਾਵੇਗਾ।"</string>
     <string name="backup_suggestion_missing_title">"ਪੁਰਾਣੇ ਫ਼ੋਨ ਦਾ  ਡਾਟਾ  ਚਾਹੀਦਾ ਹੈ?"</string>
     <string name="backup_suggestion_next">ਅੱਗੇ</string>
     <string name="backup_suggestion_other_ways_to_copy">ਡਾਟਾ ਕਾਪੀ ਕਰਨ ਲਈ ਹੋਰ ਤਰੀਕੇ</string>
@@ -1919,7 +1919,7 @@
     <string name="data_usage_list_mobile">ਮੋਬਾਈਲ</string>
     <string name="data_usage_list_none">ਕੋਈ ਨਹੀਂ</string>
     <string name="data_usage_menu_allow_background">"ਪਿਛੋਕੜ  ਡਾਟਾ  ਦੀ ਆਗਿਆ ਦਿਓ"</string>
-    <string name="data_usage_menu_auto_sync">" ਡਾਟਾ  ਸਵੈ-ਸਮਕਾਲੀਕਿਰਤ ਕਰੋ"</string>
+    <string name="data_usage_menu_auto_sync">ਡਾਟਾ ਸਵੈ-ਸਿੰਕ ਕਰੋ</string>
     <string name="data_usage_menu_hide_ethernet">ਈਥਰਨੈਟ ਵਰਤੋਂ ਲੁਕਾਓ</string>
     <string name="data_usage_menu_hide_wifi">ਵਾਈ‑ਫਾਈ ਲੁਕਾਓ</string>
     <string name="data_usage_menu_metered">ਨੈੱਟਵਰਕ ਪ੍ਰਤਿਬੰਧ</string>
@@ -2225,7 +2225,7 @@
     <string name="emergency_tone_vibrate">ਥਰਥਰਾਹਟਾਂ</string>
     <string name="empty_networks_list">ਕੋਈ ਨੈੱਟਵਰਕ ਨਹੀਂ ਮਿਲੇ।</string>
     <string name="enable_2g_summary">2G ਸੈਲਿਊਲਰ ਕਨੈਕਸ਼ਨਾਂ ਦੀ ਵਰਤੋਂ ਕਰੋ। ਸੰਕਟਕਾਲੀਨ ਕਾਲਾਂ ਲਈ, 2G ਹਮੇਸ਼ਾਂ ਚਾਲੂ ਹੁੰਦਾ ਹੈ।</string>
-    <string name="enable_2g_title">2G ਨੂੰ ਇਜਾਜ਼ਤ ਦਿਓ</string>
+    <string name="enable_2g_title">2G ਨੂੰ ਆਗਿਆ ਦਿਓ</string>
     <string name="enable_adb">USB ਡੀਬੱਗਿੰਗ</string>
     <string name="enable_adb_summary">"USB ਕਨੈਕਟ ਕੀਤੇ ਜਾਣ 'ਤੇ ਡੀਬੱਗ ਮੋਡ"</string>
     <string name="enable_adb_wireless">ਵਾਇਰਲੈੱਸ ਡੀਬੱਗਿੰਗ</string>
@@ -2514,16 +2514,16 @@
     <string name="forgot_password_text">ਉਹ ਤੁਹਾਨੂੰ ਆਪਣਾ ਪਿੰਨ, ਪੈਟਰਨ ਜਾਂ ਪਾਸਵਰਡ ਰੀਸੈੱਟ ਕਰਨ ਵਿੱਚ ਮਦਦ ਕਰ ਸਕਦੇ ਹਨ</string>
     <string name="forgot_password_title">ਆਪਣੇ IT ਪ੍ਰਸ਼ਾਸਕ ਨਾਲ ਸੰਪਰਕ ਕਰੋ</string>
     <string name="free_memory">ਫ੍ਰੀ</string>
-    <string name="fullbackup_data_summary">"Google ਡਰਾਈਵ ਵਿੱਚ ਡੀਵਾਈਸ ਡਾਟੇ (ਜਿਵੇਂ ਕਿ ਵਾਈ-ਫਾਈ ਪਾਸਵਰਡਾਂ ਅਤੇ ਕਾਲ ਇਤਿਹਾਸ) ਅਤੇ ਐਪ ਡਾਟੇ (ਜਿਵੇਂ ਕਿ ਐਪਾਂ ਵੱਲੋਂ ਸਟੋਰ ਕੀਤੀਆਂ ਗਈਆਂ ਸੈਟਿੰਗਾਂ ਅਤੇ ਫ਼ਾਈਲਾਂ) ਦਾ ਆਪਣੇ ਆਪ ਬੈਕਅੱਪ ਲਓ।
+    <string name="fullbackup_data_summary">"Google Drive ਵਿੱਚ ਡੀਵਾਈਸ ਡਾਟੇ (ਜਿਵੇਂ ਕਿ ਵਾਈ-ਫਾਈ ਪਾਸਵਰਡਾਂ ਅਤੇ ਕਾਲ ਇਤਿਹਾਸ) ਅਤੇ ਐਪ ਡਾਟੇ (ਜਿਵੇਂ ਕਿ ਐਪਾਂ ਵੱਲੋਂ ਸਟੋਰ ਕੀਤੀਆਂ ਗਈਆਂ ਸੈਟਿੰਗਾਂ ਅਤੇ ਫ਼ਾਈਲਾਂ) ਦਾ ਸਵੈਚਲਿਤ ਤੌਰ 'ਤੇ ਬੈਕਅੱਪ ਲਓ।
 
-ਜਦੋਂ ਤੁਸੀਂ ਸਵੈਚਲਿਤ ਬੈਕਅੱਪ ਨੂੰ ਚਾਲੂ ਕਰਦੇ ਹੋ, ਤਾਂ ਡੀਵਾਈਸ ਅਤੇ ਐਪ ਡਾਟਾ ਮਿਆਦੀ ਤੌਰ 'ਤੇ Google ਡਰਾਈਵ ਦੇ ਨਿੱਜੀ ਫੋਲਡਰ ਵਿੱਚ ਰੱਖਿਅਤ ਕੀਤਾ ਜਾਂਦਾ ਹੈ। ਐਪ ਡਾਟਾ ਕੋਈ ਵੀ ਇਹੋ ਜਿਹਾ ਡਾਟਾ ਹੋ ਸਕਦਾ ਹੈ ਜਿਸ ਨੂੰ ਐਪ ਦੁਆਰਾ ਰੱਖਿਅਤ ਕੀਤਾ ਗਿਆ ਹੋਵੇ (ਵਿਕਾਸਕਾਰ ਸੈਟਿੰਗਾਂ ਦੇ ਅਧਾਰ 'ਤੇ), ਜਿਸ ਵਿੱਚ ਸੰਭਾਵੀ ਤੌਰ 'ਤੇ ਸੰਪਰਕਾਂ, ਸੁਨੇਹਿਆਂ, ਅਤੇ ਫ਼ੋਟੋਆਂ ਵਰਗਾ ਸੰਵੇਦਨਸ਼ੀਲ ਡਾਟਾ ਵੀ ਸ਼ਾਮਲ ਹੈ।
+ਜਦੋਂ ਤੁਸੀਂ ਸਵੈਚਲਿਤ ਬੈਕਅੱਪ ਨੂੰ ਚਾਲੂ ਕਰਦੇ ਹੋ, ਤਾਂ ਡੀਵਾਈਸ ਅਤੇ ਐਪ ਡਾਟਾ ਸਮੇਂ ਸਮੇਂ 'ਤੇ Google Drive ਦੇ ਨਿੱਜੀ ਫੋਲਡਰ ਵਿੱਚ ਰੱਖਿਅਤ ਕੀਤਾ ਜਾਂਦਾ ਹੈ। ਐਪ ਡਾਟਾ ਕੋਈ ਵੀ ਇਹੋ ਜਿਹਾ ਡਾਟਾ ਹੋ ਸਕਦਾ ਹੈ ਜਿਸ ਨੂੰ ਐਪ ਵੱਲੋਂ ਰੱਖਿਅਤ ਕੀਤਾ ਗਿਆ ਹੋਵੇ (ਵਿਕਾਸਕਾਰ ਸੈਟਿੰਗਾਂ ਦੇ ਅਧਾਰ 'ਤੇ), ਜਿਸ ਵਿੱਚ ਸੰਭਾਵੀ ਤੌਰ 'ਤੇ ਸੰਪਰਕਾਂ, ਸੁਨੇਹਿਆਂ, ਅਤੇ ਫ਼ੋਟੋਆਂ ਵਰਗਾ ਸੰਵੇਦਨਸ਼ੀਲ ਡਾਟਾ ਵੀ ਸ਼ਾਮਲ ਹੈ।
 
-ਬੈਕਅੱਪ ਡਾਟੇ ਨੂੰ ਤੁਹਾਡੇ ਡਰਾਈਵ ਸਟੋਰੇਜ ਕੋਟੇ ਵਿੱਚ ਨਹੀਂ ਗਿਣਿਆ ਜਾਂਦਾ ਹੈ। ਵੱਡੀਆਂ ਫ਼ਾਈਲਾਂ ਜਾਂ ਇਹੋ ਜਿਹੀਆਂ ਫ਼ਾਈਲਾਂ ਜਿੰਨ੍ਹਾਂ ਨੂੰ ਵਿਕਾਸਕਾਰ ਨੇ ਬਾਹਰ ਰੱਖਣਾ ਚੁਣਿਆ ਹੋਵੇ, ਉਹਨਾਂ ਦਾ ਬੈਕਅੱਪ ਨਹੀਂ ਲਿਆ ਜਾਵੇਗਾ।"</string>
+ਬੈਕਅੱਪ ਡਾਟੇ ਨੂੰ ਤੁਹਾਡੇ Drive ਸਟੋਰੇਜ ਕੋਟੇ ਵਿੱਚ ਨਹੀਂ ਗਿਣਿਆ ਜਾਂਦਾ ਹੈ। ਵੱਡੀਆਂ ਫ਼ਾਈਲਾਂ ਜਾਂ ਇਹੋ ਜਿਹੀਆਂ ਫ਼ਾਈਲਾਂ ਜਿਨ੍ਹਾਂ ਨੂੰ ਵਿਕਾਸਕਾਰ ਨੇ ਬਾਹਰ ਰੱਖਣਾ ਚੁਣਿਆ ਹੋਵੇ, ਉਨ੍ਹਾਂ ਦਾ ਬੈਕਅੱਪ ਨਹੀਂ ਲਿਆ ਜਾਵੇਗਾ।"</string>
     <string name="fullbackup_erase_dialog_message">"ਕੀ ਡੀਵਾਈਸ ਡਾਟੇ (ਜਿਵੇਂ ਕਿ ਵਾਈ-ਫਾਈ ਪਾਸਵਰਡ ਅਤੇ ਕਾਲ ਇਤਿਹਾਸ) ਅਤੇ ਐਪ ਡਾਟੇ (ਜਿਵੇਂ ਕਿ ਐਪਾਂ ਦੁਆਰਾ ਸਟੋਰ ਕੀਤੀਆਂ ਗਈਆਂ ਸੈਟਿੰਗਾਂ ਅਤੇ ਫ਼ਾਈਲਾਂ) ਦਾ ਬੈਕਅੱਪ ਲੈਣਾ ਬੰਦ ਕਰਨਾ ਹੈ, ਨਾਲ ਹੀ Google ਡਰਾਈਵ 'ਤੇ ਸਾਰੀਆਂ ਕਾਪੀਆਂ ਨੂੰ ਮਿਟਾਉਣਾ ਹੈ?"</string>
     <string name="gadget_picker_title">ਗੈਜੇਟ ਚੁਣੋ</string>
     <string name="game_controller_settings_category">ਗੇਮ ਕੰਟ੍ਰੋਲਰ</string>
-    <string name="game_dashboard_always_on_summary">ਗੇਮਾਂ ਵਿੱਚ ਗੇਮ ਡੈਸ਼ਬੋਰਡ ਸ਼ਾਰਟਕੱਟ ਦਿਖਾਓ</string>
-    <string name="game_dashboard_always_on_title">ਗੇਮ ਡੈਸ਼ਬੋਰਡ</string>
+    <string name="game_dashboard_always_on_summary">ਸਾਰੀਆਂ ਗੇਮਾਂ ਵਿੱਚ ਪ੍ਰਤੀਕ ਦਿਖਾਓ (ਉੱਪਰ ਜਾਂ ਹੇਠਾਂ ਵੱਲ ਸਵਾਈਪ ਕੀਤੇ ਬਿਨਾਂ)</string>
+    <string name="game_dashboard_always_on_title">ਗੇਮ ਡੈਸ਼ਬੋਰਡ ਦਾ ਫਲੋਟਿੰਗ ਪ੍ਰਤੀਕ</string>
     <string name="game_dashboard_dnd_rule_name">ਗੇਮਿੰਗ</string>
     <string name="game_dashboard_dnd_summary">ਗੇਮ ਖੇਡਣ ਵੇਲੇ ਸਿਰਫ਼ ਮਹੱਤਵਪੂਰਨ ਲੋਕਾਂ ਅਤੇ ਐਪਾਂ ਵੱਲੋਂ ਸੂਚਨਾ ਪ੍ਰਾਪਤ ਕਰੋ</string>
     <string name="game_dashboard_dnd_title">"ਗੇਮਾਂ ਲਈ 'ਪਰੇਸ਼ਾਨ ਨਾ ਕਰੋ'"</string>
@@ -3516,7 +3516,7 @@
     <string name="nfc_payment_default">"ਭੁਗਤਾਨ ਲਈ ਪੂਰਵ-ਨਿਰਧਾਰਿਤ ਤੌਰ 'ਤੇ ਸੈੱਟ"</string>
     <string name="nfc_payment_default_not_set">ਸੈੱਟ ਨਹੀਂ ਹੈ</string>
     <string name="nfc_payment_favor_default">ਹਮੇਸ਼ਾਂ</string>
-    <string name="nfc_payment_favor_open">ਸਿਵਾਏ ਇਸਦੇ ਜਦੋਂ ਦੂਜਾ ਭੁਗਤਾਨ ਐਪ ਖੁੱਲ੍ਹਾ ਹੋਵੇ</string>
+    <string name="nfc_payment_favor_open">ਸਿਵਾਏ ਇਸਦੇ ਜਦੋਂ ਦੂਜੀ ਭੁਗਤਾਨ ਐਪ ਖੁੱਲ੍ਹੀ ਹੋਵੇ</string>
     <string name="nfc_payment_how_it_works">ਇਹ ਕਿਵੇਂ ਕੰਮ ਕਰਦਾ ਹੈ</string>
     <string name="nfc_payment_no_apps">ਸਟੋਰਾਂ ਵਿੱਚ ਆਪਣੇ ਫ਼ੋਨ ਨਾਲ ਭੁਗਤਾਨ ਕਰੋ</string>
     <string name="nfc_payment_pay_with">ਸੰਪਰਕ-ਰਹਿਤ ਟਰਮੀਨਲ ਵਿਖੇ, ਇਸ ਨਾਲ ਭੁਗਤਾਨ ਕਰੋ:</string>
@@ -4043,7 +4043,7 @@
     <string name="radioInfo_data_suspended">ਮੁਅੱਤਲ ਕੀਤਾ</string>
     <string name="radioInfo_roaming_in">ਰੋਮਿੰਗ</string>
     <string name="radioInfo_roaming_not">ਰੋਮਿੰਗ ਨਹੀਂ</string>
-    <string name="radioInfo_service_emergency">ਸਿਰਫ਼ ਸੰਕਟਕਾਲੀਨ ਕਾਲਾਂ</string>
+    <string name="radioInfo_service_emergency">ਸਿਰਫ਼ ਐਮਰਜੈਂਸੀ ਕਾਲਾਂ</string>
     <string name="radioInfo_service_in">ਸੇਵਾ ਵਿੱਚ</string>
     <string name="radioInfo_service_off">ਰੇਡੀਓ ਬੰਦ</string>
     <string name="radioInfo_service_out">ਸੇਵਾ ਵਿੱਚ ਨਹੀਂ</string>
@@ -4572,6 +4572,8 @@ g.co/pixel/faceunlock 'ਤੇ ਹੋਰ ਜਾਣੋ।"</string>
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">ਫਿੰਗਰਪ੍ਰਿੰਟ ਪ੍ਰਤੀਕ ਦੀਆਂ ਹਿਦਾਇਤਾਂ ਦੀ ਪਾਲਣਾ ਕਰੋ</string>
     <string name="security_settings_udfps_enroll_start_message">"ਆਪਣੇ ਫਿੰਗਰਪ੍ਰਿੰਟ ਨੂੰ ਉਦੋਂ ਤੱਕ ਸੈਂਸਰ 'ਤੇ ਸਿੱਧਾ ਰੱਖੋ ਜਦੋਂ ਤੱਕ ਤੁਹਾਨੂੰ ਥਰਥਰਾਹਟ ਮਹਿਸੂਸ ਨਹੀਂ ਹੁੰਦੀ"</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">ਇੱਕ ਵਾਰ ਹੋਰ</string>
+    <string name="security_settings_udfps_side_fingerprint_help">"ਆਪਣੀ ਉਂਗਲ ਦੇ ਇੱਕ ਪਾਸੇ ਨੂੰ ਸੈਂਸਰ 'ਤੇ ਲਗਾ ਕੇ ਰੱਖੋ, ਫਿਰ ਦੂਜੇ ਪਾਸੇ ਨੂੰ ਲਗਾਓ"</string>
+    <string name="security_settings_udfps_tip_fingerprint_help">ਚੁੱਕੋ, ਫਿਰ ਦੁਬਾਰਾ ਸਪਰਸ਼ ਕਰੋ</string>
     <string name="security_settings_work_fingerprint_preference_title">ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਲਈ Pixel Imprint</string>
     <string name="security_status_title">ਸੁਰੱਖਿਆ ਸਥਿਤੀ</string>
     <string name="see_less">ਘੱਟ ਵੇਖੋ</string>
@@ -4827,7 +4829,7 @@ g.co/pixel/faceunlock 'ਤੇ ਹੋਰ ਜਾਣੋ।"</string>
     <string name="sound_settings_summary_silent">"ਰਿੰਗਰ ਸ਼ਾਂਤ 'ਤੇ ਸੈੱਟ ਹੈ"</string>
     <string name="sound_settings_summary_vibrate">"ਰਿੰਗਰ ਥਰਥਰਾਹਟ 'ਤੇ ਸੈੱਟ ਹੈ"</string>
     <string name="sound_work_settings">ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਧੁਨੀਆਂ</string>
-    <string name="spatial_audio_title">ਸਥਾਨ-ਅਨੁਕੂਲ ਆਡੀਓ</string>
+    <string name="spatial_audio_title">ਸਪੇਸ਼ਿਅਲ ਆਡੀਓ</string>
     <string name="special_access">ਵਿਸ਼ੇਸ਼ ਐਪ ਪਹੁੰਚ</string>
     <string name="special_access_more">ਹੋਰ ਦੇਖੋ</string>
     <string name="speed_label_fast">ਤੇਜ਼</string>
@@ -4917,7 +4919,7 @@ g.co/pixel/faceunlock 'ਤੇ ਹੋਰ ਜਾਣੋ।"</string>
 
 ਇਸ ^1 ਨੂੰ ਸਿਰਫ਼ ਇਸ ਡੀਵਾਈਸ 'ਤੇ ਕੰਮ ਕਰਨ ਲਈ ਫਾਰਮੈਟ ਕੀਤਾ ਗਿਆ ਹੈ। ਇਹ ਕਿਸੇ ਹੋਰ ਡੀਵਾਈਸ 'ਤੇ ਕੰਮ ਨਹੀਂ ਕਰੇਗਾ।"</string>
     <string name="storage_label">ਸਟੋਰੇਜ</string>
-    <string name="storage_low_summary">ਕੁਝ ਸਿਸਟਮ ਫੰਕਸ਼ਨ, ਜਿਵੇਂ ਸਮਕਾਲੀਕਿਰਤ ਕਰਨਾ, ਸਹੀ ਢੰਗ ਨਾਲ ਕੰਮ ਨਹੀਂ ਵੀ ਕਰ ਸਕਦੇ। ਆਈਟਮਾਂ ਮਿਟਾ ਕੇ ਜਾਂ ਅਨਪਿੰਨ ਕਰਕੇ ਸਪੇਸ ਖਾਲੀ ਕਰਨ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰੋ, ਜਿਵੇਂ ਐਪਾਂ ਜਾਂ ਮੀਡੀਆ ਸਮੱਗਰੀ।</string>
+    <string name="storage_low_summary">ਕੁਝ ਸਿਸਟਮ ਫੰਕਸ਼ਨ, ਜਿਵੇਂ ਸਿੰਕ ਕਰਨਾ, ਸਹੀ ਢੰਗ ਨਾਲ ਕੰਮ ਨਹੀਂ ਵੀ ਕਰ ਸਕਦੇ। ਆਈਟਮਾਂ ਮਿਟਾ ਕੇ ਜਾਂ ਅਣਪਿੰਨ ਕਰਕੇ ਜਗ੍ਹਾ ਖਾਲੀ ਕਰਨ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰੋ, ਜਿਵੇਂ ਐਪਾਂ ਜਾਂ ਮੀਡੀਆ ਸਮੱਗਰੀ।</string>
     <string name="storage_low_title">ਸਟੋਰੇਜ ਦੀ ਜਗ੍ਹਾ ਖਾਲੀ ਹੋ ਰਹੀ ਹੈ</string>
     <string name="storage_manager_indicator">ਸਮਾਰਟ ਸਟੋਰੇਜ: ^1</string>
     <string name="storage_manager_indicator_off">ਬੰਦ</string>
@@ -5532,6 +5534,7 @@ g.co/pixel/faceunlock 'ਤੇ ਹੋਰ ਜਾਣੋ।"</string>
     <string name="verify_apps_over_usb_title">"USB 'ਤੇ ਐਪਾਂ ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ"</string>
     <string name="version_text">ਵਰਜਨ %1$s</string>
     <string name="vibrate_for_calls_settings_not_available_summary">"ਫ਼ੋਨ ਸ਼ਾਂਤ ਮੋਡ 'ਤੇ ਸੈੱਟ ਹੋਣ ਕਰਕੇ ਕਾਲਾਂ ਲਈ ਥਰਥਰਾਹਟ ਉਪਲਬਧ ਨਹੀਂ ਹੈ"</string>
+    <string name="vibrate_icon_title">"ਥਰਥਰਾਹਟ ਮੋਡ ਵਿੱਚ ਹੋਣ 'ਤੇ ਹਮੇਸ਼ਾਂ ਪ੍ਰਤੀਕ ਦਿਖਾਓ"</string>
     <string name="vibrate_in_silent_title">ਸ਼ਾਂਤ ਹੋਣ ਵੇਲੇ ਥਰਥਰਾਹਟ ਕਰੋ</string>
     <string name="vibrate_input_devices">ਥਰਥਰਾਹਟ ਰੀਡਾਇਰੈਕਟ ਕਰੋ</string>
     <string name="vibrate_input_devices_summary">"ਕਨੈਕਟ ਕੀਤੇ ਜਾਣ 'ਤੇ ਗੇਮ ਕੰਟਰੋਲਰ 'ਤੇ ਥਰਥਰਾਹਟ ਕਰੋ"</string>
@@ -6190,7 +6193,7 @@ g.co/pixel/faceunlock 'ਤੇ ਹੋਰ ਜਾਣੋ।"</string>
     <string name="zen_mode_bypassing_apps_summary_some">ਕੁਝ ਸੂਚਨਾਵਾਂ</string>
     <string name="zen_mode_bypassing_apps_title">ਐਪਾਂ</string>
     <string name="zen_mode_calls">ਕਾਲਾਂ</string>
-    <string name="zen_mode_calls_footer">"ਇਹ ਪੱਕਾ ਕਰਨ ਲਈ ਕਿ ਮਨਜ਼ੂਰਸ਼ੁਦਾ ਕਾਲਾਂ ਲਈ ਧੁਨੀ ਵਜਦੀ ਹੈ, ਜਾਂਚ ਕਰੋ ਕਿ ਤੁਹਾਡਾ ਡੀਵਾਈਸ ਘੰਟੀ 'ਤੇ ਸੈੱਟ ਹੈ"</string>
+    <string name="zen_mode_calls_footer">"ਇਹ ਪੱਕਾ ਕਰਨ ਲਈ ਕਿ ਮਨਜ਼ੂਰਸ਼ੁਦਾ ਕਾਲਾਂ ਲਈ ਧੁਨੀ ਵੱਜਦੀ ਹੈ, ਜਾਂਚ ਕਰੋ ਕਿ ਤੁਹਾਡਾ ਡੀਵਾਈਸ ਘੰਟੀ 'ਤੇ ਸੈੱਟ ਹੈ"</string>
     <string name="zen_mode_calls_header">ਕਾਲਾਂ ਜੋ ਵਿਘਨ ਪਾ ਸਕਦੀਆਂ ਹਨ</string>
     <string name="zen_mode_calls_list">ਕਾਲਾਂ</string>
     <string name="zen_mode_calls_summary_two">%1$s ਅਤੇ %2$s</string>
@@ -6272,17 +6275,17 @@ g.co/pixel/faceunlock 'ਤੇ ਹੋਰ ਜਾਣੋ।"</string>
     <string name="zen_mode_restrict_notifications_disable_custom">ਵਿਉਂਤੀ ਸੈਟਿੰਗ ਹਟਾਓ</string>
     <string name="zen_mode_restrict_notifications_enable_custom">ਵਿਉਂਤੀ ਸੈਟਿੰਗ ਚਾਲੂ ਕਰੋ</string>
     <string name="zen_mode_restrict_notifications_hide">ਸੂਚਨਾਵਾਂ ਦੇ ਕੋਈ ਦ੍ਰਿਸ਼ਟੀਗਤ ਸੰਕੇਤ ਜਾਂ ਧੁਨੀ ਨਹੀਂ</string>
-    <string name="zen_mode_restrict_notifications_hide_footer">"ਤੁਹਾਡਾ ਫ਼ੋਨ ਨਵੀਆਂ ਜਾਂ ਮੌਜੂਦਾ ਸੂਚਨਾਵਾਂ ਨਹੀਂ ਦਿਖਾਵੇਗਾ, ਉਹਨਾਂ ਲਈ ਥਰਥਰਾਹਟ ਨਹੀਂ ਕਰੇਗਾ ਜਾਂ ਧੁਨੀ ਨਹੀਂ ਵਜਾਵੇਗਾ। ਧਿਆਨ ਵਿੱਚ ਰੱਖੋ, ਫ਼ੋਨ ਸਰਗਰਮੀ ਅਤੇ ਸਥਿਤੀ ਦੀਆਂ ਅਤਿ ਜ਼ਰੂਰੀ ਸੂਚਨਾਵਾਂ ਹਾਲੇ ਵੀ ਦਿਸਣਗੀਆਂ।
+    <string name="zen_mode_restrict_notifications_hide_footer">"ਤੁਹਾਡਾ ਫ਼ੋਨ ਨਵੀਆਂ ਜਾਂ ਮੌਜੂਦਾ ਸੂਚਨਾਵਾਂ ਨਹੀਂ ਦਿਖਾਵੇਗਾ, ਉਨ੍ਹਾਂ ਲਈ ਥਰਥਰਾਹਟ ਨਹੀਂ ਕਰੇਗਾ ਜਾਂ ਧੁਨੀ ਨਹੀਂ ਵਜਾਏਗਾ। ਧਿਆਨ ਵਿੱਚ ਰੱਖੋ, ਫ਼ੋਨ ਸਰਗਰਮੀ ਅਤੇ ਸਥਿਤੀ ਦੀਆਂ ਅਤਿ ਜ਼ਰੂਰੀ ਸੂਚਨਾਵਾਂ ਹਾਲੇ ਵੀ ਦਿਸਣਗੀਆਂ।
 
 ਜਦੋਂ ਤੁਸੀਂ 'ਪਰੇਸ਼ਾਨ ਨਾ ਕਰੋ' ਨੂੰ ਬੰਦ ਕਰੋਗੇ, ਤਾਂ ਤੁਹਾਡੀ ਸਕ੍ਰੀਨ ਨੂੰ ਉੱਪਰੋਂ ਥੱਲੇ ਵੱਲ ਸਵਾਈਪ ਕਰਨ 'ਤੇ ਖੁੰਝੀਆਂ ਸੂਚਨਾਵਾਂ ਦਿਸਣਗੀਆਂ।"</string>
     <string name="zen_mode_restrict_notifications_hide_summary">ਤੁਹਾਨੂੰ ਸੂਚਨਾਵਾਂ ਨਾ ਹੀ ਦਿਸਣਗੀਆਂ ਅਤੇ ਨਾ ਹੀ ਸੁਣਨਗੀਆਂ</string>
     <string name="zen_mode_restrict_notifications_mute">ਸੂਚਨਾਵਾਂ ਦੀ ਕੋਈ ਧੁਨੀ ਨਹੀਂ</string>
-    <string name="zen_mode_restrict_notifications_mute_footer">"ਸੂਚਨਾਵਾਂ ਆਉਣ 'ਤੇ ਤੁਹਾਡਾ ਫ਼ੋਨ ਕੋਈ ਧੁਨੀ ਨਹੀਂ ਵਜਾਵੇਗਾ ਜਾਂ ਥਰਥਰਾਹਟ ਨਹੀਂ ਕਰੇਗਾ।"</string>
+    <string name="zen_mode_restrict_notifications_mute_footer">"ਸੂਚਨਾਵਾਂ ਆਉਣ 'ਤੇ ਤੁਹਾਡਾ ਫ਼ੋਨ ਕੋਈ ਧੁਨੀ ਨਹੀਂ ਵਜਾਏਗਾ ਜਾਂ ਥਰਥਰਾਹਟ ਨਹੀਂ ਕਰੇਗਾ।"</string>
     <string name="zen_mode_restrict_notifications_mute_summary">"ਤੁਸੀਂ ਆਪਣੀ ਸਕ੍ਰੀਨ 'ਤੇ ਸੂਚਨਾਵਾਂ ਦੇਖੋਗੇ"</string>
     <string name="zen_mode_restrict_notifications_summary_custom">"ਅਧੂਰੇ ਤੌਰ 'ਤੇ ਲੁਕਾਓ"</string>
     <string name="zen_mode_restrict_notifications_summary_hidden">ਸੂਚਨਾਵਾਂ ਦੇ ਕੋਈ ਦ੍ਰਿਸ਼ਟੀਗਤ ਸੰਕੇਤ ਜਾਂ ਧੁਨੀ ਨਹੀਂ</string>
     <string name="zen_mode_restrict_notifications_summary_muted">ਸੂਚਨਾਵਾਂ ਦੀ ਕੋਈ ਧੁਨੀ ਨਹੀਂ</string>
-    <string name="zen_mode_restrict_notifications_title">ਲੁਕੀਆਂ ਹੋਈਆਂ ਸੂਚਨਾਵਾਂ ਨੂੰ ਦਿਖਾਉਣ ਸਬੰਧੀ ਵਿਕਲਪ</string>
+    <string name="zen_mode_restrict_notifications_title">ਲੁਕੀਆਂ ਹੋਈਆਂ ਸੂਚਨਾਵਾਂ ਨੂੰ ਦਿਖਾਉਣ ਸੰਬੰਧੀ ਵਿਕਲਪ</string>
     <string name="zen_mode_rule_delete_button">ਮਿਟਾਓ</string>
     <string name="zen_mode_rule_name">ਸਮਾਂ-ਸੂਚੀ ਦਾ ਨਾਮ</string>
     <string name="zen_mode_rule_name_edit">ਸੰਪਾਦਨ ਕਰੋ</string>

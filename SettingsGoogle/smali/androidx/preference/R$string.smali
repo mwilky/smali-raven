@@ -12,4 +12,4 @@
 
 .field public static final preference_copied:I = 0x7f040f5a
 
-.field public static final summary_collapsed_preference_list:I = 0x7f04138d
+.field public static final summary_collapsed_preference_list:I = 0x7f04138f

@@ -87,7 +87,7 @@
 
     iput-object v0, p0, Lcom/android/settings/connecteddevice/usb/UsbDetailsTranscodeMtpController;->mSwitchPreference:Landroidx/preference/SwitchPreference;
 
-    const p1, 0x7f0414be
+    const p1, 0x7f0414c0
 
     invoke-virtual {v0, p1}, Landroidx/preference/Preference;->setTitle(I)V
 
@@ -97,7 +97,7 @@
 
     iget-object p1, p0, Lcom/android/settings/connecteddevice/usb/UsbDetailsTranscodeMtpController;->mSwitchPreference:Landroidx/preference/SwitchPreference;
 
-    const v0, 0x7f0414bf
+    const v0, 0x7f0414c1
 
     invoke-virtual {p1, v0}, Landroidx/preference/TwoStatePreference;->setSummaryOn(I)V
 

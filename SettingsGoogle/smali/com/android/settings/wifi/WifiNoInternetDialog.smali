@@ -60,7 +60,7 @@
 
     const v3, 0x7f040e12
 
-    const v4, 0x7f0417b8
+    const v4, 0x7f0417bb
 
     const-string v5, "android.net.action.PROMPT_PARTIAL_CONNECTIVITY"
 

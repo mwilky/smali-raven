@@ -264,9 +264,9 @@
 
     invoke-virtual {p0, p2}, Landroid/widget/LinearLayout;->setBackgroundColor(I)V
 
-    const p2, 0x7f04139e
+    const p2, 0x7f0413a0    # 1.7556E38f
 
-    const p3, 0x7f04139d
+    const p3, 0x7f04139f
 
     invoke-virtual {p0, p2, p3}, Lcom/android/settings/widget/SwitchBar;->setSwitchBarText(II)V
 

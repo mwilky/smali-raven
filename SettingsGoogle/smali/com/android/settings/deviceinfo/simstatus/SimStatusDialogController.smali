@@ -1729,7 +1729,7 @@
 
     iget-object p0, p0, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;->mRes:Landroid/content/res/Resources;
 
-    const v5, 0x7f041288
+    const v5, 0x7f04128a
 
     const/4 v6, 0x2
 
