@@ -36,44 +36,50 @@
 
 .field public static final image_view:I = 0x7f0b02e1
 
-.field public static final list_icon:I = 0x7f0b0365
+.field public static final indeterminateBar:I = 0x7f0b02e3
 
-.field public static final list_item_1:I = 0x7f0b0367
+.field public static final list_icon:I = 0x7f0b0366
 
-.field public static final list_item_2:I = 0x7f0b0368
+.field public static final list_item_1:I = 0x7f0b0368
 
-.field public static final list_item_3:I = 0x7f0b0369
+.field public static final list_item_2:I = 0x7f0b0369
 
-.field public static final loyalty_program_logo:I = 0x7f0b037e
+.field public static final list_item_3:I = 0x7f0b036a
 
-.field public static final loyalty_program_name:I = 0x7f0b037f
+.field public static final loading_screen:I = 0x7f0b036c
 
-.field public static final match_time_summary:I = 0x7f0b0389
+.field public static final loading_screen_icon:I = 0x7f0b036d
 
-.field public static final seat_value:I = 0x7f0b056d
+.field public static final loyalty_program_logo:I = 0x7f0b0381
 
-.field public static final second_competitor_logo:I = 0x7f0b056e
+.field public static final loyalty_program_name:I = 0x7f0b0382
 
-.field public static final second_competitor_score:I = 0x7f0b056f
+.field public static final match_time_summary:I = 0x7f0b038c
 
-.field public static final second_sub_card:I = 0x7f0b0570
+.field public static final seat_value:I = 0x7f0b0570
 
-.field public static final smartspace_card_pager:I = 0x7f0b05ab
+.field public static final second_competitor_logo:I = 0x7f0b0571
 
-.field public static final smartspace_extras_group:I = 0x7f0b05ac
+.field public static final second_competitor_score:I = 0x7f0b0572
 
-.field public static final smartspace_page_indicator:I = 0x7f0b05ad
+.field public static final second_sub_card:I = 0x7f0b0573
 
-.field public static final sub_card_icon:I = 0x7f0b05e9
+.field public static final smartspace_card_pager:I = 0x7f0b05ae
 
-.field public static final sub_card_text:I = 0x7f0b05ea
+.field public static final smartspace_extras_group:I = 0x7f0b05af
 
-.field public static final subtitle_text:I = 0x7f0b05f0
+.field public static final smartspace_page_indicator:I = 0x7f0b05b0
 
-.field public static final temperature_value:I = 0x7f0b0609
+.field public static final sub_card_icon:I = 0x7f0b05ec
 
-.field public static final timestamp:I = 0x7f0b062b
+.field public static final sub_card_text:I = 0x7f0b05ed
 
-.field public static final title_text:I = 0x7f0b0635
+.field public static final subtitle_text:I = 0x7f0b05f3
 
-.field public static final weather_icon:I = 0x7f0b06dd
+.field public static final temperature_value:I = 0x7f0b060c
+
+.field public static final timestamp:I = 0x7f0b062e
+
+.field public static final title_text:I = 0x7f0b0638
+
+.field public static final weather_icon:I = 0x7f0b06e0

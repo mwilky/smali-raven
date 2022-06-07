@@ -10,10 +10,10 @@
 
 
 # direct methods
-.method public static synthetic $r8$lambda$ErtV2XcidL3kGI6m25icJATlADk(Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo;ZLcom/android/systemui/plugins/BcSmartspaceDataPlugin$IntentStarter;Landroid/app/smartspace/SmartspaceAction;ZLandroid/view/View$OnClickListener;Lcom/android/systemui/plugins/BcSmartspaceDataPlugin$SmartspaceEventNotifier;Ljava/lang/String;Landroid/app/smartspace/SmartspaceTarget;Landroid/view/View;)V
+.method public static synthetic $r8$lambda$9zh3Z9kOVTmnU2qd7oOV-54cyjw(Lcom/google/android/systemui/smartspace/logging/BcSmartspaceCardLoggingInfo;IZLcom/android/systemui/plugins/BcSmartspaceDataPlugin$IntentStarter;Landroid/app/smartspace/SmartspaceAction;ZLandroid/view/View$OnClickListener;Lcom/android/systemui/plugins/BcSmartspaceDataPlugin$SmartspaceEventNotifier;Ljava/lang/String;Landroid/app/smartspace/SmartspaceTarget;Landroid/view/View;)V
     .locals 0
 
-    invoke-static/range {p0 .. p9}, Lcom/google/android/systemui/smartspace/BcSmartSpaceUtil;->lambda$setOnClickListener$0(Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo;ZLcom/android/systemui/plugins/BcSmartspaceDataPlugin$IntentStarter;Landroid/app/smartspace/SmartspaceAction;ZLandroid/view/View$OnClickListener;Lcom/android/systemui/plugins/BcSmartspaceDataPlugin$SmartspaceEventNotifier;Ljava/lang/String;Landroid/app/smartspace/SmartspaceTarget;Landroid/view/View;)V
+    invoke-static/range {p0 .. p10}, Lcom/google/android/systemui/smartspace/BcSmartSpaceUtil;->lambda$setOnClickListener$0(Lcom/google/android/systemui/smartspace/logging/BcSmartspaceCardLoggingInfo;IZLcom/android/systemui/plugins/BcSmartspaceDataPlugin$IntentStarter;Landroid/app/smartspace/SmartspaceAction;ZLandroid/view/View$OnClickListener;Lcom/android/systemui/plugins/BcSmartspaceDataPlugin$SmartspaceEventNotifier;Ljava/lang/String;Landroid/app/smartspace/SmartspaceTarget;Landroid/view/View;)V
 
     return-void
 .end method
@@ -47,6 +47,70 @@
 
     invoke-direct {v0, p0}, Lcom/google/android/systemui/smartspace/BcSmartSpaceUtil$1;-><init>(Ljava/lang/String;)V
 
+    return-object v0
+.end method
+
+.method static getDimensionRatio(Landroid/os/Bundle;)Ljava/lang/String;
+    .locals 4
+
+    const/4 v0, 0x0
+
+    if-eqz p0, :cond_2
+
+    const-string v1, "imageRatioWidth"
+
+    invoke-virtual {p0, v1}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    const-string v2, "imageRatioHeight"
+
+    invoke-virtual {p0, v2}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {p0, v1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
+
+    move-result v1
+
+    invoke-virtual {p0, v2}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
+
+    move-result p0
+
+    if-lez v1, :cond_2
+
+    if-gtz p0, :cond_1
+
+    goto :goto_0
+
+    :cond_1
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v1, ":"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+
+    :cond_2
+    :goto_0
     return-object v0
 .end method
 
@@ -238,59 +302,72 @@
     return p0
 .end method
 
-.method private static synthetic lambda$setOnClickListener$0(Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo;ZLcom/android/systemui/plugins/BcSmartspaceDataPlugin$IntentStarter;Landroid/app/smartspace/SmartspaceAction;ZLandroid/view/View$OnClickListener;Lcom/android/systemui/plugins/BcSmartspaceDataPlugin$SmartspaceEventNotifier;Ljava/lang/String;Landroid/app/smartspace/SmartspaceTarget;Landroid/view/View;)V
+.method private static synthetic lambda$setOnClickListener$0(Lcom/google/android/systemui/smartspace/logging/BcSmartspaceCardLoggingInfo;IZLcom/android/systemui/plugins/BcSmartspaceDataPlugin$IntentStarter;Landroid/app/smartspace/SmartspaceAction;ZLandroid/view/View$OnClickListener;Lcom/android/systemui/plugins/BcSmartspaceDataPlugin$SmartspaceEventNotifier;Ljava/lang/String;Landroid/app/smartspace/SmartspaceTarget;Landroid/view/View;)V
     .locals 1
-
-    if-eqz p0, :cond_0
-
-    sget-object v0, Lcom/google/android/systemui/smartspace/BcSmartspaceEvent;->SMARTSPACE_CARD_CLICK:Lcom/google/android/systemui/smartspace/BcSmartspaceEvent;
-
-    invoke-static {v0, p0}, Lcom/google/android/systemui/smartspace/BcSmartspaceLogger;->log(Lcom/google/android/systemui/smartspace/EventEnum;Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo;)V
-
-    :cond_0
-    sget-object p0, Lcom/google/android/systemui/smartspace/BcSmartSpaceUtil;->sFalsingManager:Lcom/android/systemui/plugins/FalsingManager;
-
-    const/4 v0, 0x1
 
     if-eqz p0, :cond_1
 
-    invoke-interface {p0, v0}, Lcom/android/systemui/plugins/FalsingManager;->isFalseTap(I)Z
+    invoke-virtual {p0}, Lcom/google/android/systemui/smartspace/logging/BcSmartspaceCardLoggingInfo;->getSubcardInfo()Lcom/google/android/systemui/smartspace/logging/BcSmartspaceSubcardLoggingInfo;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0}, Lcom/google/android/systemui/smartspace/logging/BcSmartspaceCardLoggingInfo;->getSubcardInfo()Lcom/google/android/systemui/smartspace/logging/BcSmartspaceSubcardLoggingInfo;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Lcom/google/android/systemui/smartspace/logging/BcSmartspaceSubcardLoggingInfo;->setClickedSubcardIndex(I)V
+
+    :cond_0
+    sget-object p1, Lcom/google/android/systemui/smartspace/BcSmartspaceEvent;->SMARTSPACE_CARD_CLICK:Lcom/google/android/systemui/smartspace/BcSmartspaceEvent;
+
+    invoke-static {p1, p0}, Lcom/google/android/systemui/smartspace/logging/BcSmartspaceCardLogger;->log(Lcom/google/android/systemui/smartspace/EventEnum;Lcom/google/android/systemui/smartspace/logging/BcSmartspaceCardLoggingInfo;)V
+
+    :cond_1
+    sget-object p0, Lcom/google/android/systemui/smartspace/BcSmartSpaceUtil;->sFalsingManager:Lcom/android/systemui/plugins/FalsingManager;
+
+    const/4 p1, 0x1
+
+    if-eqz p0, :cond_2
+
+    invoke-interface {p0, p1}, Lcom/android/systemui/plugins/FalsingManager;->isFalseTap(I)Z
 
     move-result p0
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_2
 
     return-void
 
-    :cond_1
-    if-nez p1, :cond_2
-
-    invoke-interface {p2, p3, p9, p4}, Lcom/android/systemui/plugins/BcSmartspaceDataPlugin$IntentStarter;->startFromAction(Landroid/app/smartspace/SmartspaceAction;Landroid/view/View;Z)V
-
     :cond_2
-    if-eqz p5, :cond_3
+    if-nez p2, :cond_3
 
-    invoke-interface {p5, p9}, Landroid/view/View$OnClickListener;->onClick(Landroid/view/View;)V
+    invoke-interface {p3, p4, p10, p5}, Lcom/android/systemui/plugins/BcSmartspaceDataPlugin$IntentStarter;->startFromAction(Landroid/app/smartspace/SmartspaceAction;Landroid/view/View;Z)V
 
     :cond_3
-    if-nez p6, :cond_4
+    if-eqz p6, :cond_4
+
+    invoke-interface {p6, p10}, Landroid/view/View$OnClickListener;->onClick(Landroid/view/View;)V
+
+    :cond_4
+    if-nez p7, :cond_5
 
     const-string p0, "Cannot notify target interaction smartspace event: event notifier null."
 
-    invoke-static {p7, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p8, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
-    :cond_4
+    :cond_5
     new-instance p0, Landroid/app/smartspace/SmartspaceTargetEvent$Builder;
 
-    invoke-direct {p0, v0}, Landroid/app/smartspace/SmartspaceTargetEvent$Builder;-><init>(I)V
+    invoke-direct {p0, p1}, Landroid/app/smartspace/SmartspaceTargetEvent$Builder;-><init>(I)V
 
-    invoke-virtual {p0, p8}, Landroid/app/smartspace/SmartspaceTargetEvent$Builder;->setSmartspaceTarget(Landroid/app/smartspace/SmartspaceTarget;)Landroid/app/smartspace/SmartspaceTargetEvent$Builder;
+    invoke-virtual {p0, p9}, Landroid/app/smartspace/SmartspaceTargetEvent$Builder;->setSmartspaceTarget(Landroid/app/smartspace/SmartspaceTarget;)Landroid/app/smartspace/SmartspaceTargetEvent$Builder;
 
     move-result-object p0
 
-    invoke-virtual {p3}, Landroid/app/smartspace/SmartspaceAction;->getId()Ljava/lang/String;
+    invoke-virtual {p4}, Landroid/app/smartspace/SmartspaceAction;->getId()Ljava/lang/String;
 
     move-result-object p1
 
@@ -302,7 +379,7 @@
 
     move-result-object p0
 
-    invoke-interface {p6, p0}, Lcom/android/systemui/plugins/BcSmartspaceDataPlugin$SmartspaceEventNotifier;->notifySmartspaceEvent(Landroid/app/smartspace/SmartspaceTargetEvent;)V
+    invoke-interface {p7, p0}, Lcom/android/systemui/plugins/BcSmartspaceDataPlugin$SmartspaceEventNotifier;->notifySmartspaceEvent(Landroid/app/smartspace/SmartspaceTargetEvent;)V
 
     :goto_0
     return-void
@@ -324,8 +401,8 @@
     return-void
 .end method
 
-.method public static setOnClickListener(Landroid/view/View;Landroid/app/smartspace/SmartspaceTarget;Landroid/app/smartspace/SmartspaceAction;Landroid/view/View$OnClickListener;Lcom/android/systemui/plugins/BcSmartspaceDataPlugin$SmartspaceEventNotifier;Ljava/lang/String;Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo;)V
-    .locals 12
+.method public static setOnClickListener(Landroid/view/View;Landroid/app/smartspace/SmartspaceTarget;Landroid/app/smartspace/SmartspaceAction;Landroid/view/View$OnClickListener;Ljava/lang/String;Lcom/android/systemui/plugins/BcSmartspaceDataPlugin$SmartspaceEventNotifier;Lcom/google/android/systemui/smartspace/logging/BcSmartspaceCardLoggingInfo;I)V
+    .locals 13
 
     move-object v0, p0
 
@@ -333,7 +410,7 @@
 
     if-nez p2, :cond_0
 
-    goto :goto_1
+    goto :goto_2
 
     :cond_0
     invoke-virtual {p2}, Landroid/app/smartspace/SmartspaceAction;->getExtras()Landroid/os/Bundle;
@@ -358,12 +435,12 @@
 
     if-eqz v1, :cond_1
 
-    move v6, v2
+    move v7, v2
 
     goto :goto_0
 
     :cond_1
-    move v6, v3
+    move v7, v3
 
     :goto_0
     invoke-virtual {p2}, Landroid/app/smartspace/SmartspaceAction;->getIntent()Landroid/content/Intent;
@@ -378,55 +455,86 @@
 
     if-nez v1, :cond_2
 
-    move v3, v2
+    move v4, v2
+
+    goto :goto_1
 
     :cond_2
+    move v4, v3
+
+    :goto_1
     sget-object v1, Lcom/google/android/systemui/smartspace/BcSmartSpaceUtil;->sIntentStarter:Lcom/android/systemui/plugins/BcSmartspaceDataPlugin$IntentStarter;
 
     if-nez v1, :cond_3
 
-    invoke-static/range {p5 .. p5}, Lcom/google/android/systemui/smartspace/BcSmartSpaceUtil;->defaultIntentStarter(Ljava/lang/String;)Lcom/android/systemui/plugins/BcSmartspaceDataPlugin$IntentStarter;
+    invoke-static/range {p4 .. p4}, Lcom/google/android/systemui/smartspace/BcSmartSpaceUtil;->defaultIntentStarter(Ljava/lang/String;)Lcom/android/systemui/plugins/BcSmartspaceDataPlugin$IntentStarter;
 
     move-result-object v1
 
     :cond_3
-    move-object v4, v1
+    move-object v5, v1
 
-    new-instance v11, Lcom/google/android/systemui/smartspace/BcSmartSpaceUtil$$ExternalSyntheticLambda0;
+    new-instance v12, Lcom/google/android/systemui/smartspace/BcSmartSpaceUtil$$ExternalSyntheticLambda0;
 
-    move-object v1, v11
+    move-object v1, v12
 
     move-object/from16 v2, p6
 
-    move-object v5, p2
+    move/from16 v3, p7
 
-    move-object v7, p3
+    move-object v6, p2
 
-    move-object/from16 v8, p4
+    move-object/from16 v8, p3
 
     move-object/from16 v9, p5
 
-    move-object v10, p1
+    move-object/from16 v10, p4
 
-    invoke-direct/range {v1 .. v10}, Lcom/google/android/systemui/smartspace/BcSmartSpaceUtil$$ExternalSyntheticLambda0;-><init>(Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo;ZLcom/android/systemui/plugins/BcSmartspaceDataPlugin$IntentStarter;Landroid/app/smartspace/SmartspaceAction;ZLandroid/view/View$OnClickListener;Lcom/android/systemui/plugins/BcSmartspaceDataPlugin$SmartspaceEventNotifier;Ljava/lang/String;Landroid/app/smartspace/SmartspaceTarget;)V
+    move-object v11, p1
 
-    invoke-virtual {p0, v11}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-direct/range {v1 .. v11}, Lcom/google/android/systemui/smartspace/BcSmartSpaceUtil$$ExternalSyntheticLambda0;-><init>(Lcom/google/android/systemui/smartspace/logging/BcSmartspaceCardLoggingInfo;IZLcom/android/systemui/plugins/BcSmartspaceDataPlugin$IntentStarter;Landroid/app/smartspace/SmartspaceAction;ZLandroid/view/View$OnClickListener;Lcom/android/systemui/plugins/BcSmartspaceDataPlugin$SmartspaceEventNotifier;Ljava/lang/String;Landroid/app/smartspace/SmartspaceTarget;)V
+
+    invoke-virtual {p0, v12}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     return-void
 
     :cond_4
-    :goto_1
+    :goto_2
     const-string v0, "No tap action can be set up"
 
-    move-object/from16 v1, p5
+    move-object/from16 v1, p4
 
     invoke-static {v1, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 .end method
 
-.method public static setOnClickListener(Landroid/view/View;Landroid/app/smartspace/SmartspaceTarget;Landroid/app/smartspace/SmartspaceAction;Ljava/lang/String;Lcom/android/systemui/plugins/BcSmartspaceDataPlugin$SmartspaceEventNotifier;Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo;)V
-    .locals 7
+.method public static setOnClickListener(Landroid/view/View;Landroid/app/smartspace/SmartspaceTarget;Landroid/app/smartspace/SmartspaceAction;Ljava/lang/String;Lcom/android/systemui/plugins/BcSmartspaceDataPlugin$SmartspaceEventNotifier;Lcom/google/android/systemui/smartspace/logging/BcSmartspaceCardLoggingInfo;)V
+    .locals 8
+
+    const/4 v3, 0x0
+
+    const/4 v7, 0x0
+
+    move-object v0, p0
+
+    move-object v1, p1
+
+    move-object v2, p2
+
+    move-object v4, p3
+
+    move-object v5, p4
+
+    move-object v6, p5
+
+    invoke-static/range {v0 .. v7}, Lcom/google/android/systemui/smartspace/BcSmartSpaceUtil;->setOnClickListener(Landroid/view/View;Landroid/app/smartspace/SmartspaceTarget;Landroid/app/smartspace/SmartspaceAction;Landroid/view/View$OnClickListener;Ljava/lang/String;Lcom/android/systemui/plugins/BcSmartspaceDataPlugin$SmartspaceEventNotifier;Lcom/google/android/systemui/smartspace/logging/BcSmartspaceCardLoggingInfo;I)V
+
+    return-void
+.end method
+
+.method public static setOnClickListener(Landroid/view/View;Landroid/app/smartspace/SmartspaceTarget;Landroid/app/smartspace/SmartspaceAction;Ljava/lang/String;Lcom/android/systemui/plugins/BcSmartspaceDataPlugin$SmartspaceEventNotifier;Lcom/google/android/systemui/smartspace/logging/BcSmartspaceCardLoggingInfo;I)V
+    .locals 8
 
     const/4 v3, 0x0
 
@@ -436,13 +544,15 @@
 
     move-object v2, p2
 
-    move-object v4, p4
+    move-object v4, p3
 
-    move-object v5, p3
+    move-object v5, p4
 
     move-object v6, p5
 
-    invoke-static/range {v0 .. v6}, Lcom/google/android/systemui/smartspace/BcSmartSpaceUtil;->setOnClickListener(Landroid/view/View;Landroid/app/smartspace/SmartspaceTarget;Landroid/app/smartspace/SmartspaceAction;Landroid/view/View$OnClickListener;Lcom/android/systemui/plugins/BcSmartspaceDataPlugin$SmartspaceEventNotifier;Ljava/lang/String;Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo;)V
+    move v7, p6
+
+    invoke-static/range {v0 .. v7}, Lcom/google/android/systemui/smartspace/BcSmartSpaceUtil;->setOnClickListener(Landroid/view/View;Landroid/app/smartspace/SmartspaceTarget;Landroid/app/smartspace/SmartspaceAction;Landroid/view/View$OnClickListener;Ljava/lang/String;Lcom/android/systemui/plugins/BcSmartspaceDataPlugin$SmartspaceEventNotifier;Lcom/google/android/systemui/smartspace/logging/BcSmartspaceCardLoggingInfo;I)V
 
     return-void
 .end method

@@ -75,13 +75,21 @@
 
     invoke-virtual {p1, p2}, Lcom/google/android/systemui/power/BatteryInfoBroadcast;->notifyBatteryStatusChanged(Landroid/content/Intent;)V
 
+    iget-object p1, p0, Lcom/google/android/systemui/power/PowerNotificationWarningsGoogleImpl$1;->this$0:Lcom/google/android/systemui/power/PowerNotificationWarningsGoogleImpl;
+
+    invoke-static {p1}, Lcom/google/android/systemui/power/PowerNotificationWarningsGoogleImpl;->access$100(Lcom/google/android/systemui/power/PowerNotificationWarningsGoogleImpl;)Lcom/google/android/systemui/power/BatteryDefenderNotification;
+
+    move-result-object p1
+
+    invoke-virtual {p1, p2}, Lcom/google/android/systemui/power/BatteryDefenderNotification;->dispatchIntent(Landroid/content/Intent;)V
+
     iget-object p0, p0, Lcom/google/android/systemui/power/PowerNotificationWarningsGoogleImpl$1;->this$0:Lcom/google/android/systemui/power/PowerNotificationWarningsGoogleImpl;
 
-    invoke-static {p0}, Lcom/google/android/systemui/power/PowerNotificationWarningsGoogleImpl;->access$100(Lcom/google/android/systemui/power/PowerNotificationWarningsGoogleImpl;)Lcom/google/android/systemui/power/BatteryDefenderNotification;
+    invoke-static {p0}, Lcom/google/android/systemui/power/PowerNotificationWarningsGoogleImpl;->access$200(Lcom/google/android/systemui/power/PowerNotificationWarningsGoogleImpl;)Lcom/google/android/systemui/power/AdaptiveChargingNotification;
 
     move-result-object p0
 
-    invoke-virtual {p0, p2}, Lcom/google/android/systemui/power/BatteryDefenderNotification;->dispatchIntent(Landroid/content/Intent;)V
+    invoke-virtual {p0, p2}, Lcom/google/android/systemui/power/AdaptiveChargingNotification;->dispatchIntent(Landroid/content/Intent;)V
 
     :cond_1
     :goto_0

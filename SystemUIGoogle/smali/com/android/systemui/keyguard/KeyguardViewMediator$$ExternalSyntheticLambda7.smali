@@ -8,22 +8,26 @@
 # instance fields
 .field public final synthetic f$0:Lcom/android/systemui/keyguard/KeyguardViewMediator;
 
-.field public final synthetic f$1:Landroid/view/IRemoteAnimationFinishedCallback;
+.field public final synthetic f$1:Landroid/os/UserManager;
 
-.field public final synthetic f$2:[Landroid/view/RemoteAnimationTarget;
+.field public final synthetic f$2:Landroid/os/UserHandle;
+
+.field public final synthetic f$3:I
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/systemui/keyguard/KeyguardViewMediator;Landroid/view/IRemoteAnimationFinishedCallback;[Landroid/view/RemoteAnimationTarget;)V
+.method public synthetic constructor <init>(Lcom/android/systemui/keyguard/KeyguardViewMediator;Landroid/os/UserManager;Landroid/os/UserHandle;I)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda7;->f$0:Lcom/android/systemui/keyguard/KeyguardViewMediator;
 
-    iput-object p2, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda7;->f$1:Landroid/view/IRemoteAnimationFinishedCallback;
+    iput-object p2, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda7;->f$1:Landroid/os/UserManager;
 
-    iput-object p3, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda7;->f$2:[Landroid/view/RemoteAnimationTarget;
+    iput-object p3, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda7;->f$2:Landroid/os/UserHandle;
+
+    iput p4, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda7;->f$3:I
 
     return-void
 .end method
@@ -31,15 +35,17 @@
 
 # virtual methods
 .method public final run()V
-    .locals 2
+    .locals 3
 
     iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda7;->f$0:Lcom/android/systemui/keyguard/KeyguardViewMediator;
 
-    iget-object v1, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda7;->f$1:Landroid/view/IRemoteAnimationFinishedCallback;
+    iget-object v1, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda7;->f$1:Landroid/os/UserManager;
 
-    iget-object p0, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda7;->f$2:[Landroid/view/RemoteAnimationTarget;
+    iget-object v2, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda7;->f$2:Landroid/os/UserHandle;
 
-    invoke-static {v0, v1, p0}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->$r8$lambda$Gum5Nk10mw3bohg7j38n2wL1aNs(Lcom/android/systemui/keyguard/KeyguardViewMediator;Landroid/view/IRemoteAnimationFinishedCallback;[Landroid/view/RemoteAnimationTarget;)V
+    iget p0, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda7;->f$3:I
+
+    invoke-static {v0, v1, v2, p0}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->$r8$lambda$UCV7GWo5LJY5h7xPs6jhxlx5Z44(Lcom/android/systemui/keyguard/KeyguardViewMediator;Landroid/os/UserManager;Landroid/os/UserHandle;I)V
 
     return-void
 .end method

@@ -237,6 +237,9 @@
     <string name="accessor_no_description_text">Nincs megadva leírás az alkalmazásnál.</string>
     <string name="active_input_method_subtypes">Aktív beviteli módok</string>
     <string name="activity_launch_on_secondary_display_failed_text">Az alkalmazást nem lehet másodlagos kijelzőn elindítani.</string>
+    <string name="adaptive_charging_notify_des">A teljes töltöttséget ekkor éri el az akkumulátor: %1$s. Folyamatos töltés az akkumulátor élettartamának megőrzése érdekében.</string>
+    <string name="adaptive_charging_notify_title">Az adaptív töltés be van kapcsolva</string>
+    <string name="adaptive_charging_notify_turn_off_once">Kikapcsolás egyszer</string>
     <string name="adaptive_charging_time_estimate">%1$s • Adaptív töltés (teljes töltöttség ekkorra: %2$s)</string>
     <string name="adb_device_fingerprint_title_format">Ujjlenyomat az eszközön: %1$s</string>
     <string name="adb_device_forget">Elfelejtés</string>
@@ -301,6 +304,7 @@ Ha ez az engedély ki van kapcsolva, az alkalmazás által beállított ébreszt
     <string name="basic_status">Beszélgetés megnyitása</string>
     <string name="battery">Akkumulátor</string>
     <string name="battery_detail_switch_title">Akkumulátorkímélő mód</string>
+    <string name="battery_health_notify_learn_more">További információ</string>
     <string name="battery_info_status_charging">Töltés</string>
     <string name="battery_info_status_charging_fast">Gyorstöltés</string>
     <string name="battery_info_status_charging_slow">Lassú töltés</string>
@@ -616,7 +620,6 @@ Ha a folytatást választja, szolgáltatója adathasználati díjat számíthat 
     <string name="debug_networking_category">Hálózatok</string>
     <string name="debug_view_attributes">Nézetattribútum vizsgálatának engedélyezése</string>
     <string name="defender_notify_des">Az akkumulátor élettartamának megőrzése érdekében telefonja korlátozza a töltést</string>
-    <string name="defender_notify_learn_more">További információ</string>
     <string name="defender_notify_resume_charge">Töltés folytatása</string>
     <string name="defender_notify_title">Töltés ideiglenesen korlátozva</string>
     <string name="defender_post_notify_des">A töltés %1$s százalékra korlátozva %2$s és %3$s között az akkumulátor állapotának megőrzése érdekében.</string>
@@ -1701,9 +1704,13 @@ Koppintson, ha további információra van szüksége."</string>
     <string name="upcoming_birthday_status_content_description">Hamarosan %1$s születésnapja lesz</string>
     <string name="url_menu_copy">Másolás</string>
     <string name="url_menu_share">Megosztás</string>
-    <string name="usb_accessory_confirm_prompt">Megnyitja a(z) %1$s alkalmazást a(z) %2$s kezeléséhez?</string>
+    <string name="usb_accessory_confirm_prompt">Megnyitja a(z) %1$s appot a(z) %2$s kezeléséhez?</string>
     <string name="usb_accessory_permission_prompt">Engedélyezi a(z) %1$s számára, hogy hozzáférjen a következőhöz: %2$s?</string>
     <string name="usb_accessory_uri_prompt">A telepített alkalmazások nem működnek ezzel az USB-kiegészítővel. Bővebben: %1$s</string>
+    <string name="usb_audio_device_confirm_prompt_title">Megnyitja a(z) %1$s appot a(z) %2$s kezeléséhez?</string>
+    <string name="usb_audio_device_permission_prompt_title">%1$s hozzáférhet ehhez: %2$s?</string>
+    <string name="usb_audio_device_prompt">Ha a(z) %1$s alkalmazást használja ezzel az eszközzel, előfordulhat, hogy nem hallja meg a hívásokat, értesítéseket és riasztásokat.</string>
+    <string name="usb_audio_device_prompt_warn">Ez az alkalmazás nem rendelkezik rögzítési engedéllyel, de ezzel az USB-eszközzel képes a hangfelvételre. Ha a(z) %1$s alkalmazást használja ezzel az eszközzel, előfordulhat, hogy nem hallja meg a hívásokat, értesítéseket és riasztásokat.</string>
     <string name="usb_audio_disable_routing">Hangátirányítás tiltása</string>
     <string name="usb_audio_disable_routing_summary">Hangátirányítás tiltása az USB-s hangeszközöknél</string>
     <string name="usb_contaminant_message">"Az eszköz folyadéktól és szennyeződésektől való megóvása érdekében az USB-portot letiltottuk, így az nem észleli a kiegészítőket.

@@ -237,6 +237,9 @@
     <string name="accessor_no_description_text">Ilovaga hech qanday tavsif bermagan.</string>
     <string name="active_input_method_subtypes">Faol matn kiritish usullari</string>
     <string name="activity_launch_on_secondary_display_failed_text">Bu ilova qo‘shimcha ekranlarda ishga tushmaydi.</string>
+    <string name="adaptive_charging_notify_des">Batareya toʻliq quvvat olishiga %1$s qoldi. Batareya yaroqliligini uzaytirish uchun barqaror quvvatlanmoqda.</string>
+    <string name="adaptive_charging_notify_title">Moslashuvchan quvvatlash yoniq</string>
+    <string name="adaptive_charging_notify_turn_off_once">Bir marta faolsizlantirish</string>
     <string name="adaptive_charging_time_estimate">%1$s • Moslashuvchan quvvatlash (qoldi:%2$s)</string>
     <string name="adb_device_fingerprint_title_format">Qurilmadagi barmoq izi: %1$s</string>
     <string name="adb_device_forget">Olib tashlash</string>
@@ -301,6 +304,7 @@ Agar bu ruxsat oʻchirilsa, ushbu ilova tomonidan rejalashtirilgan mavjud signal
     <string name="basic_status">Suhbatni ochish</string>
     <string name="battery">Batareya</string>
     <string name="battery_detail_switch_title">Quvvat tejash</string>
+    <string name="battery_health_notify_learn_more">Batafsil</string>
     <string name="battery_info_status_charging">Quvvat olmoqda</string>
     <string name="battery_info_status_charging_fast">Tezkor quvvat olmoqda</string>
     <string name="battery_info_status_charging_slow">Sekin quvvat olmoqda</string>
@@ -616,7 +620,6 @@ Davom ettiradigan bo‘lsangiz, trafik uchun to‘lov olinishi mumkin."</string>
     <string name="debug_networking_category">Tarmoqlar</string>
     <string name="debug_view_attributes">Alomatlar tekshiruvini yoqish</string>
     <string name="defender_notify_des">Batareyaga ziyon yetkazmaslik uchun telefon quvvatlanishi cheklandi</string>
-    <string name="defender_notify_learn_more">Batafsil</string>
     <string name="defender_notify_resume_charge">Davom ettirish</string>
     <string name="defender_notify_title">Quvvatlash vaqtincha cheklangan</string>
     <string name="defender_post_notify_des">Quvvatlash %2$s va %3$s orasida batareya yaroqliligini uzaytirish uchun %1$s ga cheklandi</string>
@@ -1704,6 +1707,10 @@ Batafsil axborot uchun bosing"</string>
     <string name="usb_accessory_confirm_prompt">%2$s bilan ishlash uchun %1$s ochilsinmi?</string>
     <string name="usb_accessory_permission_prompt">%1$s ilovasiga %2$s qurilmasidan foydalanishga ruxsat berilsinmi?</string>
     <string name="usb_accessory_uri_prompt">Bu USB jihoz bilan ishlash uchun dastur o‘rnatilmagan.Ushbu jihoz haqida: %1$s</string>
+    <string name="usb_audio_device_confirm_prompt_title">%2$s bilan ishlash uchun %1$s ochilsinmi?</string>
+    <string name="usb_audio_device_permission_prompt_title">%1$s uchun %2$s ishlatish ruxsati berilsinmi?</string>
+    <string name="usb_audio_device_prompt">Bu qurilma %1$s orqali boshqarilsa, chaqiruv, bildirishnoma va signallar eshitilmay qolishi mumkin.</string>
+    <string name="usb_audio_device_prompt_warn">Bu ilovaga yozib olish ruxsati berilmagan, lekin shu USB orqali ovozlarni yozib olishi mumkin. Bu qurilma %1$s orqali boshqarilsa, chaqiruv, bildirishnoma va signallar eshitilmay qolishi mumkin.</string>
     <string name="usb_audio_disable_routing">Audio uzatishni o‘ch. qo‘yish (USB)</string>
     <string name="usb_audio_disable_routing_summary">Tashqi USB qurilmaga avto-yo‘naltirishni o‘ch. qo‘yish</string>
     <string name="usb_contaminant_message">"Qurilmangizni suyuqlik va turli parchalardan himoya qilish uchun USB port faolsizlashtiriladi va hech qanday aksessuarni aniqlay olmaydi.
@@ -1851,7 +1858,7 @@ Wi‑Fi Manzil (BSSID):
     <string name="wifi_verbose_logging">Batafsil Wi-Fi jurnali</string>
     <string name="wifi_verbose_logging_summary">Wi-Fi ulanishini tanlashda har bir SSID uchun jurnalda ko‘rsatilsin</string>
     <string name="wifi_wont_autoconnect_for_now">Wi-Fi hozir avtomatik ulanmaydi</string>
-    <string name="wifitrackerlib_auto_connect_disable">Avtomatik ulanish yoqilmagan</string>
+    <string name="wifitrackerlib_auto_connect_disable">Avtomatik ulanmaydi</string>
     <string name="wifitrackerlib_available_via_app">%1$s ilovasi orqali mavjud</string>
     <string name="wifitrackerlib_connected_via_app">%1$s orqali ulandi</string>
     <string name="wifitrackerlib_connected_via_network_scorer">%1$s orqali avtomatik ulandi</string>

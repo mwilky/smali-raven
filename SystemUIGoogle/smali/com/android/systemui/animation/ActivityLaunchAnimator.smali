@@ -402,15 +402,13 @@
 
     invoke-static {v3, v4}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    const/4 v4, 0x0
-
     const-string v6, "ActivityLaunchAnimator"
 
     if-eqz v2, :cond_8
 
     if-nez p2, :cond_0
 
-    goto/16 :goto_6
+    goto/16 :goto_5
 
     :cond_0
     iget-object v7, v1, Lcom/android/systemui/animation/ActivityLaunchAnimator;->callback:Lcom/android/systemui/animation/ActivityLaunchAnimator$Callback;
@@ -439,7 +437,7 @@
     :goto_0
     if-nez v12, :cond_2
 
-    new-instance v4, Landroid/view/RemoteAnimationAdapter;
+    new-instance v16, Landroid/view/RemoteAnimationAdapter;
 
     sget-object v8, Lcom/android/systemui/animation/ActivityLaunchAnimator;->TIMINGS:Lcom/android/systemui/animation/LaunchAnimator$Timings;
 
@@ -453,28 +451,28 @@
 
     const/16 v13, 0x96
 
-    move-object/from16 v16, v6
+    int-to-long v4, v13
 
-    int-to-long v5, v13
+    sub-long v4, v8, v4
 
-    sub-long v5, v8, v5
-
-    move-object v8, v4
+    move-object/from16 v8, v16
 
     move-object v9, v14
 
     move v15, v12
 
-    move-wide v12, v5
+    move-wide v12, v4
 
     invoke-direct/range {v8 .. v13}, Landroid/view/RemoteAnimationAdapter;-><init>(Landroid/view/IRemoteAnimationRunner;JJ)V
+
+    move-object/from16 v4, v16
 
     goto :goto_1
 
     :cond_2
-    move-object/from16 v16, v6
-
     move v15, v12
+
+    const/4 v4, 0x0
 
     :goto_1
     if-eqz v0, :cond_3
@@ -486,7 +484,9 @@
 
     move-result-object v5
 
-    invoke-interface {v5, v0, v4}, Landroid/app/IActivityTaskManager;->registerRemoteAnimationForNextActivityStart(Ljava/lang/String;Landroid/view/RemoteAnimationAdapter;)V
+    const/4 v8, 0x0
+
+    invoke-interface {v5, v0, v4, v8}, Landroid/app/IActivityTaskManager;->registerRemoteAnimationForNextActivityStart(Ljava/lang/String;Landroid/view/RemoteAnimationAdapter;Landroid/os/IBinder;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -497,17 +497,10 @@
 
     const-string v5, "Unable to register the remote animation"
 
-    move-object/from16 v6, v16
-
     invoke-static {v6, v5, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    goto :goto_3
 
     :cond_3
     :goto_2
-    move-object/from16 v6, v16
-
-    :goto_3
     invoke-interface {v3, v4}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -530,25 +523,25 @@
 
     if-eqz v15, :cond_4
 
-    goto :goto_4
+    goto :goto_3
 
     :cond_4
-    const/4 v5, 0x0
+    const/4 v4, 0x0
 
-    goto :goto_5
+    goto :goto_4
 
     :cond_5
-    :goto_4
-    const/4 v5, 0x1
+    :goto_3
+    const/4 v4, 0x1
 
-    :goto_5
+    :goto_4
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "launchResult="
+    const-string v5, "launchResult="
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -556,7 +549,7 @@
 
     invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
     const-string v0, " hideKeyguardWithAnimation="
 
@@ -570,9 +563,9 @@
 
     invoke-static {v6, v0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-direct {v1, v2, v5}, Lcom/android/systemui/animation/ActivityLaunchAnimator;->callOnIntentStartedOnMainThread(Lcom/android/systemui/animation/ActivityLaunchAnimator$Controller;Z)V
+    invoke-direct {v1, v2, v4}, Lcom/android/systemui/animation/ActivityLaunchAnimator;->callOnIntentStartedOnMainThread(Lcom/android/systemui/animation/ActivityLaunchAnimator$Controller;Z)V
 
-    if-eqz v5, :cond_6
+    if-eqz v4, :cond_6
 
     invoke-virtual {v14}, Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;->postTimeout$frameworks__base__packages__SystemUI__animation__android_common__SystemUIAnimationLib()V
 
@@ -593,23 +586,25 @@
     throw v0
 
     :cond_8
-    :goto_6
+    :goto_5
     const-string v0, "Starting intent with no animation"
 
     invoke-static {v6, v0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-interface {v3, v4}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
+    const/4 v0, 0x0
+
+    invoke-interface {v3, v0}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     if-nez v2, :cond_9
 
-    goto :goto_7
+    goto :goto_6
 
     :cond_9
     const/4 v3, 0x0
 
     invoke-direct {v1, v2, v3}, Lcom/android/systemui/animation/ActivityLaunchAnimator;->callOnIntentStartedOnMainThread(Lcom/android/systemui/animation/ActivityLaunchAnimator$Controller;Z)V
 
-    :goto_7
+    :goto_6
     return-void
 .end method
 

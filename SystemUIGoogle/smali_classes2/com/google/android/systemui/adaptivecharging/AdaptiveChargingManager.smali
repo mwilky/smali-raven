@@ -97,6 +97,48 @@
     return-void
 .end method
 
+.method private getLocale()Ljava/util/Locale;
+    .locals 1
+
+    iget-object p0, p0, Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Landroid/content/res/Configuration;->getLocales()Landroid/os/LocaleList;
+
+    move-result-object p0
+
+    if-eqz p0, :cond_0
+
+    invoke-virtual {p0}, Landroid/os/LocaleList;->isEmpty()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, v0}, Landroid/os/LocaleList;->get(I)Ljava/util/Locale;
+
+    move-result-object p0
+
+    goto :goto_0
+
+    :cond_0
+    invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
+
+    move-result-object p0
+
+    :goto_0
+    return-object p0
+.end method
+
 .method private static initHalInterface(Landroid/os/IHwBinder$DeathRecipient;)Lvendor/google/google_battery/V1_1/IGoogleBattery;
     .locals 4
 
@@ -140,6 +182,28 @@
     const/4 p0, 0x0
 
     return-object p0
+.end method
+
+.method public static isActive(Ljava/lang/String;I)Z
+    .locals 0
+
+    invoke-static {p0}, Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager;->isStageActiveOrEnabled(Ljava/lang/String;)Z
+
+    move-result p0
+
+    if-eqz p0, :cond_0
+
+    if-lez p1, :cond_0
+
+    const/4 p0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    :goto_0
+    return p0
 .end method
 
 .method public static isStageActive(Ljava/lang/String;)Z
@@ -198,6 +262,44 @@
 
 
 # virtual methods
+.method public formatTimeToFull(J)Ljava/lang/String;
+    .locals 1
+
+    iget-object v0, p0, Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Landroid/text/format/DateFormat;->is24HourFormat(Landroid/content/Context;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const-string v0, "Hm"
+
+    goto :goto_0
+
+    :cond_0
+    const-string v0, "hma"
+
+    :goto_0
+    invoke-direct {p0}, Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager;->getLocale()Ljava/util/Locale;
+
+    move-result-object p0
+
+    invoke-static {p0, v0}, Landroid/text/format/DateFormat;->getBestDateTimePattern(Ljava/util/Locale;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-static {p0, p1, p2}, Landroid/text/format/DateFormat;->format(Ljava/lang/CharSequence;J)Ljava/lang/CharSequence;
+
+    move-result-object p0
+
+    invoke-interface {p0}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method hasAdaptiveChargingFeature()Z
     .locals 1
 
@@ -318,4 +420,67 @@
 
     :goto_0
     return-void
+.end method
+
+.method public setAdaptiveChargingDeadline(I)Z
+    .locals 5
+
+    const/4 v0, 0x0
+
+    invoke-static {v0}, Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager;->initHalInterface(Landroid/os/IHwBinder$DeathRecipient;)Lvendor/google/google_battery/V1_1/IGoogleBattery;
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    if-nez v1, :cond_0
+
+    return v2
+
+    :cond_0
+    :try_start_0
+    invoke-interface {v1, p1}, Lvendor/google/google_battery/V1_0/IGoogleBattery;->setChargingDeadline(I)B
+
+    move-result p1
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    if-nez p1, :cond_1
+
+    const/4 p1, 0x1
+
+    move v2, p1
+
+    goto :goto_0
+
+    :catch_0
+    move-exception p1
+
+    const-string v3, "AdaptiveChargingManager"
+
+    const-string v4, "setChargingDeadline failed: "
+
+    invoke-static {v3, v4, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    :cond_1
+    :goto_0
+    invoke-direct {p0, v1, v0}, Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager;->destroyHalInterface(Lvendor/google/google_battery/V1_1/IGoogleBattery;Landroid/os/IHwBinder$DeathRecipient;)V
+
+    return v2
+.end method
+
+.method public shouldShowNotification()Z
+    .locals 2
+
+    const-string p0, "adaptive_charging"
+
+    const-string v0, "adaptive_charging_notification"
+
+    const/4 v1, 0x0
+
+    invoke-static {p0, v0, v1}, Landroid/provider/DeviceConfig;->getBoolean(Ljava/lang/String;Ljava/lang/String;Z)Z
+
+    move-result p0
+
+    return p0
 .end method

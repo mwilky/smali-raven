@@ -237,6 +237,9 @@
     <string name="accessor_no_description_text">Uygulama tarafından sağlanan açıklama yok.</string>
     <string name="active_input_method_subtypes">Etkin giriş yöntemleri</string>
     <string name="activity_launch_on_secondary_display_failed_text">Uygulama ikincil ekranlarda başlatılmayı desteklemiyor.</string>
+    <string name="adaptive_charging_notify_des">Pil, saat %1$s olduğunda dolacak. Pil sağlığınızı korumak için yavaş yavaş şarj oluyor.</string>
+    <string name="adaptive_charging_notify_title">Uyarlamalı Şarj açık</string>
+    <string name="adaptive_charging_notify_turn_off_once">Bir kez kapat</string>
     <string name="adaptive_charging_time_estimate">%1$s • Uyarlamalı şarj (tam şarj zamanı: %2$s)</string>
     <string name="adb_device_fingerprint_title_format">Cihaz parmak izi: %1$s</string>
     <string name="adb_device_forget">Unut</string>
@@ -281,7 +284,7 @@ Bu izin verilmezse bu uygulama tarafından programlanmış mevcut alarmlar ve za
     <string name="all_network_unavailable">Kullanılabilir ağ yok</string>
     <string name="allow_mock_location">Sahte konumlara izin ver</string>
     <string name="allow_mock_location_summary">Sahte konumlara izin ver</string>
-    <string name="always_use_accessory">%2$s bağlandığında %1$s uygulamasını her zaman aç</string>
+    <string name="always_use_accessory">%2$s bağlandığında her zaman %1$s uygulamasını aç</string>
     <string name="always_use_device">%2$s bağlandığında %1$s uygulamasını her zaman aç</string>
     <string name="animator_duration_scale_title">Animatör süre ölçeği</string>
     <string name="anniversary_status">Yıl dönümü</string>
@@ -301,6 +304,7 @@ Bu izin verilmezse bu uygulama tarafından programlanmış mevcut alarmlar ve za
     <string name="basic_status">Görüşmeyi aç</string>
     <string name="battery">Pil</string>
     <string name="battery_detail_switch_title">Pil Tasarrufu</string>
+    <string name="battery_health_notify_learn_more">Daha fazla bilgi</string>
     <string name="battery_info_status_charging">Şarj oluyor</string>
     <string name="battery_info_status_charging_fast">Hızlı şarj oluyor</string>
     <string name="battery_info_status_charging_slow">Yavaş şarj oluyor</string>
@@ -616,7 +620,6 @@ Devam ettirirseniz veri kullanımı için sizden ödeme alınabilir."</string>
     <string name="debug_networking_category">Ağ işlemleri</string>
     <string name="debug_view_attributes">Görünüm özelliği incelemeyi etkinleştir</string>
     <string name="defender_notify_des">Telefonunuz pil sağlığını korumaya yardımcı olmak için şarjı sınırlandırmaktadır</string>
-    <string name="defender_notify_learn_more">Daha fazla bilgi</string>
     <string name="defender_notify_resume_charge">Şarja devam et</string>
     <string name="defender_notify_title">Şarj etme geçici olarak sınırlı</string>
     <string name="defender_post_notify_des">Pilinizi korumak için %2$s-%3$s saatleri arasında şarj kapasitesi %1$s ile sınırlandırılacaktır</string>
@@ -1704,6 +1707,10 @@ Daha fazla bilgi için dokunun"</string>
     <string name="usb_accessory_confirm_prompt">%2$s aksesuarını işlemek için %1$s uygulaması açılsın mı?</string>
     <string name="usb_accessory_permission_prompt">%1$s uygulamasının %2$s aksesuarına erişmesine izin verilsin mi?</string>
     <string name="usb_accessory_uri_prompt">Bu USB aksesuarıyla çalışan yüklü uygulama yok. Bu aksesuar hakkında bilgi için: %1$s</string>
+    <string name="usb_audio_device_confirm_prompt_title">%2$s aksesuarını işlemek için %1$s uygulaması açılsın mı?</string>
+    <string name="usb_audio_device_permission_prompt_title">%1$s uygulamasının %2$s cihazına erişmesine izin verilsin mi?</string>
+    <string name="usb_audio_device_prompt">%1$s uygulamasının bu cihazla kullanılması aramaları, bildirimleri ve alarmları duymayı engelleyebilir.</string>
+    <string name="usb_audio_device_prompt_warn">Bu uygulamaya ses kaydetme izni verilmedi ancak bu USB cihazı üzerinden sesleri yakalayabilir. %1$s uygulamasının bu cihazla kullanılması aramaları, bildirimleri ve alarmları duymayı engelleyebilir.</string>
     <string name="usb_audio_disable_routing">USB ses yönlendirmesini kapat</string>
     <string name="usb_audio_disable_routing_summary">USB ses çevre birimlerine otomatik yönlendirmeyi kapat</string>
     <string name="usb_contaminant_message">"Cihazınızı sıvılardan veya tozlardan korumak için USB bağlantı noktası devre dışı bırakıldı ve aksesuarları algılamayacak.

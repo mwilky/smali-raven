@@ -237,6 +237,9 @@
     <string name="accessor_no_description_text">Ứng dụng này không cung cấp thông tin mô tả nào.</string>
     <string name="active_input_method_subtypes">Phương thức nhập đang hoạt động</string>
     <string name="activity_launch_on_secondary_display_failed_text">Ứng dụng không hỗ trợ khởi chạy trên màn hình phụ.</string>
+    <string name="adaptive_charging_notify_des">Pin sẽ đầy sau %1$s. Hãy sạc đều đặn để duy trì độ bền của pin.</string>
+    <string name="adaptive_charging_notify_title">Tính năng Sạc thích ứng đang bật</string>
+    <string name="adaptive_charging_notify_turn_off_once">Tắt một lần</string>
     <string name="adaptive_charging_time_estimate">%1$s • Sạc thích ứng (pin sẽ đầy vào %2$s)</string>
     <string name="adb_device_fingerprint_title_format">Vân tay trên thiết bị: %1$s</string>
     <string name="adb_device_forget">Xóa</string>
@@ -301,6 +304,7 @@ Nếu không cấp quyền này, các chuông báo và sự kiện theo thời g
     <string name="basic_status">Mở cuộc trò chuyện</string>
     <string name="battery">Pin</string>
     <string name="battery_detail_switch_title">Trình tiết kiệm pin</string>
+    <string name="battery_health_notify_learn_more">Tìm hiểu thêm</string>
     <string name="battery_info_status_charging">Đang sạc</string>
     <string name="battery_info_status_charging_fast">Đang sạc nhanh</string>
     <string name="battery_info_status_charging_slow">Đang sạc chậm</string>
@@ -616,7 +620,6 @@ Nếu tiếp tục, bạn có thể bị tính phí sử dụng dữ liệu."</s
     <string name="debug_networking_category">Mạng</string>
     <string name="debug_view_attributes">Cho phép kiểm tra thuộc tính của chế độ xem</string>
     <string name="defender_notify_des">Điện thoại của bạn đang hạn chế sạc để duy trì độ bền của pin</string>
-    <string name="defender_notify_learn_more">Tìm hiểu thêm</string>
     <string name="defender_notify_resume_charge">Tiếp tục sạc</string>
     <string name="defender_notify_title">Chức năng sạc tạm thời bị hạn chế</string>
     <string name="defender_post_notify_des">Mức sạc bị hạn chế ở %1$s từ %2$s đến %3$s để duy trì độ bền của pin</string>
@@ -1704,6 +1707,10 @@ Hãy nhấn để biết thêm thông tin"</string>
     <string name="usb_accessory_confirm_prompt">Mở %1$s để điều khiển %2$s?</string>
     <string name="usb_accessory_permission_prompt">Cho phép %1$s truy cập %2$s?</string>
     <string name="usb_accessory_uri_prompt">Không có ứng dụng được cài đặt nào hoạt động với phụ kiện USB này. Tìm hiểu thêm về phụ kiện này tại %1$s</string>
+    <string name="usb_audio_device_confirm_prompt_title">Mở %1$s để điều khiển %2$s?</string>
+    <string name="usb_audio_device_permission_prompt_title">Cho phép %1$s truy cập vào %2$s?</string>
+    <string name="usb_audio_device_prompt">Việc sử dụng %1$s cùng với thiết bị này có thể giúp bạn tránh phải nghe cuộc gọi, thông báo và chuông báo.</string>
+    <string name="usb_audio_device_prompt_warn">Ứng dụng này chưa được cấp quyền ghi âm nhưng vẫn có thể ghi âm thông qua thiết bị USB này. Việc sử dụng %1$s cùng với thiết bị này có thể giúp bạn tránh phải nghe cuộc gọi, thông báo và chuông báo.</string>
     <string name="usb_audio_disable_routing">Tắt chế độ định tuyến âm thanh USB</string>
     <string name="usb_audio_disable_routing_summary">Tắt chế độ tự động định tuyến tới thiết bị âm thanh ngoại vi USB</string>
     <string name="usb_contaminant_message">"Để bảo vệ thiết bị của bạn khỏi chất lỏng hay mảnh vỡ, cổng USB sẽ tắt và không phát hiện được bất kỳ phụ kiện nào.
@@ -1832,7 +1839,7 @@ Mọi người dùng đều có thể cập nhật ứng dụng cho tất cả n
     <string name="wifi_failed_connect_message">Không kết nối được với mạng</string>
     <string name="wifi_hotspot_switch_off_text">Đang tắt</string>
     <string name="wifi_hotspot_switch_on_text">Đang bật</string>
-    <string name="wifi_is_off">Wi-Fi tắt</string>
+    <string name="wifi_is_off">Wi-Fi đang tắt</string>
     <string name="wifi_limited_connection">Kết nối giới hạn</string>
     <string name="wifi_metered_label">Đo lượng dữ liệu</string>
     <string name="wifi_no_internet">Không có quyền truy cập Internet</string>

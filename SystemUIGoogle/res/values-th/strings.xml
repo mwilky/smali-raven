@@ -237,6 +237,9 @@
     <string name="accessor_no_description_text">แอปไม่ได้ให้คำอธิบายไว้</string>
     <string name="active_input_method_subtypes">วิธีการป้อนข้อมูลที่ใช้งาน</string>
     <string name="activity_launch_on_secondary_display_failed_text">แอปไม่รองรับการเรียกใช้ในจอแสดงผลรอง</string>
+    <string name="adaptive_charging_notify_des">แบตเตอรี่จะเต็มภายในเวลา %1$s กำลังชาร์จอย่างต่อเนื่องเพื่อรักษาประสิทธิภาพของแบตเตอรี่</string>
+    <string name="adaptive_charging_notify_title">การชาร์จแบบปรับอัตโนมัติเปิดอยู่</string>
+    <string name="adaptive_charging_notify_turn_off_once">ปิดเฉพาะครั้งนี้</string>
     <string name="adaptive_charging_time_estimate">%1$s • กำลังชาร์จแบบปรับอัตโนมัติ (จะเต็มภายใน %2$s)</string>
     <string name="adb_device_fingerprint_title_format">ลายนิ้วมือของอุปกรณ์: %1$s</string>
     <string name="adb_device_forget">ไม่จำ</string>
@@ -301,6 +304,7 @@
     <string name="basic_status">เปิดการสนทนา</string>
     <string name="battery">แบตเตอรี่</string>
     <string name="battery_detail_switch_title">โหมดประหยัดแบตเตอรี่</string>
+    <string name="battery_health_notify_learn_more">ดูข้อมูลเพิ่มเติม</string>
     <string name="battery_info_status_charging">กำลังชาร์จ</string>
     <string name="battery_info_status_charging_fast">กำลังชาร์จอย่างเร็ว</string>
     <string name="battery_info_status_charging_slow">กำลังชาร์จอย่างช้าๆ</string>
@@ -616,7 +620,6 @@
     <string name="debug_networking_category">เครือข่าย</string>
     <string name="debug_view_attributes">เปิดใช้การตรวจสอบแอตทริบิวต์มุมมอง</string>
     <string name="defender_notify_des">โทรศัพท์จำกัดการชาร์จเพื่อช่วยรักษาประสิทธิภาพของแบตเตอรี่</string>
-    <string name="defender_notify_learn_more">ดูข้อมูลเพิ่มเติม</string>
     <string name="defender_notify_resume_charge">ชาร์จต่อ</string>
     <string name="defender_notify_title">จำกัดการชาร์จชั่วคราว</string>
     <string name="defender_post_notify_des">จำกัดการชาร์จไว้ที่ %1$s ตั้งแต่ %2$s ถึง %3$s เพื่อรักษาประสิทธิภาพของแบตเตอรี่</string>
@@ -1704,6 +1707,10 @@
     <string name="usb_accessory_confirm_prompt">เปิด %1$s เพื่อจัดการ %2$s ไหม</string>
     <string name="usb_accessory_permission_prompt">อนุญาตให้ %1$s เข้าถึง %2$s ไหม</string>
     <string name="usb_accessory_uri_prompt">แอปพลิเคชันที่ติดตั้งใช้กับอุปกรณ์ USB นี้ไม่ได้ ดูข้อมูลเพิ่มเติมเกี่ยวกับอุปกรณ์เสริมนี้ที่ %1$s</string>
+    <string name="usb_audio_device_confirm_prompt_title">เปิด %1$s เพื่อจัดการ %2$s ใช่ไหม</string>
+    <string name="usb_audio_device_permission_prompt_title">อนุญาตให้ %1$s เข้าถึง %2$s ใช่ไหม</string>
+    <string name="usb_audio_device_prompt">การใช้ %1$s กับอุปกรณ์นี้อาจทำให้คุณไม่ได้ยินเสียงสายเรียกเข้า การแจ้งเตือน และการปลุก</string>
+    <string name="usb_audio_device_prompt_warn">แอปนี้ไม่ได้รับอนุญาตให้อัดเสียงแต่จะอัดเสียงผ่านอุปกรณ์ USB นี้ได้ การใช้ %1$s กับอุปกรณ์นี้อาจทำให้คุณไม่ได้ยินเสียงสายเรียกเข้า การแจ้งเตือน และการปลุก</string>
     <string name="usb_audio_disable_routing">ปิดการกำหนดเส้นทางเสียงทาง USB</string>
     <string name="usb_audio_disable_routing_summary">ปิดการกำหนดเส้นทางโดยอัตโนมัติไปยังอุปกรณ์ต่อพ่วงเสียงทาง USB</string>
     <string name="usb_contaminant_message">"พอร์ต USB ปิดใช้อยู่และจะไม่ตรวจหาอุปกรณ์เสริมใดๆ เพื่อปกป้องอุปกรณ์จากของเหลวและฝุ่นละออง 
@@ -1840,7 +1847,7 @@
     <string name="wifi_not_in_range">ไม่อยู่ในพื้นที่ให้บริการ</string>
     <string name="wifi_passpoint_expired">หมดอายุแล้ว</string>
     <string name="wifi_remembered">บันทึกแล้ว</string>
-    <string name="wifi_scan_notify_message">เพื่อปรับปรุงประสบการณ์การใช้อุปกรณ์ แอปและบริการต่างๆ จะยังคงสแกนหาเครือข่าย Wi‑Fi ได้ทุกเมื่อแม้ว่า Wi‑Fi จะปิดอยู่ คุณเปลี่ยนตัวเลือกนี้ได้ในการตั้งค่าการสแกนหา Wi-Fi <annotation id="link">เปลี่ยน</annotation></string>
+    <string name="wifi_scan_notify_message">เพื่อปรับปรุงประสบการณ์การใช้อุปกรณ์ แอปและบริการต่างๆ จะยังคงสแกนหาเครือข่าย Wi‑Fi ได้ทุกเมื่อแม้ว่า Wi‑Fi จะปิดอยู่ คุณเปลี่ยนตัวเลือกนี้ได้ในการตั้งค่าการสแกนหา Wi-Fi <annotation id="link">เปลี่ยนการตั้งค่า</annotation></string>
     <string name="wifi_scan_throttling">การควบคุมการสแกนหา Wi‑Fi</string>
     <string name="wifi_scan_throttling_summary">ลดการเปลืองแบตเตอรี่และเพิ่มประสิทธิภาพเครือข่าย</string>
     <string name="wifi_security_none">ไม่มี</string>

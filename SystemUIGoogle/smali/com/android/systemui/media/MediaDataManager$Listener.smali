@@ -21,13 +21,13 @@
 
 
 # virtual methods
-.method public abstract onMediaDataLoaded(Ljava/lang/String;Ljava/lang/String;Lcom/android/systemui/media/MediaData;ZI)V
+.method public abstract onMediaDataLoaded(Ljava/lang/String;Ljava/lang/String;Lcom/android/systemui/media/MediaData;ZIZ)V
 .end method
 
 .method public abstract onMediaDataRemoved(Ljava/lang/String;)V
 .end method
 
-.method public abstract onSmartspaceMediaDataLoaded(Ljava/lang/String;Lcom/android/systemui/media/SmartspaceMediaData;ZZ)V
+.method public abstract onSmartspaceMediaDataLoaded(Ljava/lang/String;Lcom/android/systemui/media/SmartspaceMediaData;Z)V
 .end method
 
 .method public abstract onSmartspaceMediaDataRemoved(Ljava/lang/String;Z)V

@@ -141,7 +141,7 @@
 
     iget-object v0, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
 
-    invoke-static {v0}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->access$23500(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;)Landroid/os/Handler;
+    invoke-static {v0}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->access$23600(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;)Landroid/os/Handler;
 
     move-result-object v5
 

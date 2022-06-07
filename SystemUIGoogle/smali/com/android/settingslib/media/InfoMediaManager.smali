@@ -98,7 +98,7 @@
 
     move-result-object p1
 
-    const p2, 0x111017b
+    const p2, 0x111017c
 
     invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -1400,6 +1400,109 @@
     invoke-static {v2, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     return v1
+.end method
+
+.method isRoutingSessionAvailableForVolumeControl()Z
+    .locals 6
+
+    iget-boolean v0, p0, Lcom/android/settingslib/media/InfoMediaManager;->mVolumeAdjustmentForRemoteGroupSessions:Z
+
+    const/4 v1, 0x1
+
+    if-eqz v0, :cond_0
+
+    return v1
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/settingslib/media/InfoMediaManager;->mRouterManager:Landroid/media/MediaRouter2Manager;
+
+    iget-object v2, p0, Lcom/android/settingslib/media/InfoMediaManager;->mPackageName:Ljava/lang/String;
+
+    invoke-virtual {v0, v2}, Landroid/media/MediaRouter2Manager;->getRoutingSessions(Ljava/lang/String;)Ljava/util/List;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v0
+
+    const/4 v2, 0x0
+
+    move v3, v2
+
+    :cond_1
+    :goto_0
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_3
+
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Landroid/media/RoutingSessionInfo;
+
+    invoke-virtual {v4}, Landroid/media/RoutingSessionInfo;->isSystemSession()Z
+
+    move-result v5
+
+    if-nez v5, :cond_1
+
+    invoke-virtual {v4}, Landroid/media/RoutingSessionInfo;->getSelectedRoutes()Ljava/util/List;
+
+    move-result-object v3
+
+    invoke-interface {v3}, Ljava/util/List;->size()I
+
+    move-result v3
+
+    if-le v3, v1, :cond_2
+
+    move v0, v1
+
+    move v3, v0
+
+    goto :goto_1
+
+    :cond_2
+    move v3, v1
+
+    goto :goto_0
+
+    :cond_3
+    move v0, v2
+
+    :goto_1
+    if-nez v3, :cond_4
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "No routing session for "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object p0, p0, Lcom/android/settingslib/media/InfoMediaManager;->mPackageName:Ljava/lang/String;
+
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    const-string v0, "InfoMediaManager"
+
+    invoke-static {v0, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v2
+
+    :cond_4
+    xor-int/lit8 p0, v0, 0x1
+
+    return p0
 .end method
 
 .method releaseSession()Z

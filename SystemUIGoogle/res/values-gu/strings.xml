@@ -237,6 +237,9 @@
     <string name="accessor_no_description_text">ઍપ દ્વારા કોઈ વર્ણન આપવામાં આવ્યું નથી.</string>
     <string name="active_input_method_subtypes">ઇનપુટ પદ્ધતિઓ સક્રિય કરો</string>
     <string name="activity_launch_on_secondary_display_failed_text">ઍપ્લિકેશન ગૌણ ડિસ્પ્લે પર લૉન્ચનું સમર્થન કરતી નથી.</string>
+    <string name="adaptive_charging_notify_des">બૅટરી %1$s સુધીમાં સંપૂર્ણ ચાર્જ થશે. બૅટરીની કાર્યક્ષમતાને બહેતર બનાવવા માટે સતત ચાર્જ કરી રહ્યાં છીએ.</string>
+    <string name="adaptive_charging_notify_title">અડૅપ્ટિવ ચાર્જિંગ ચાલુ છે</string>
+    <string name="adaptive_charging_notify_turn_off_once">એક વાર બંધ કરો</string>
     <string name="adaptive_charging_time_estimate">%1$s • અડૅપ્ટિવ ચાર્જિંગ (%2$s સુધી પૂર્ણ ચાર્જ થઈ જશે)</string>
     <string name="adb_device_fingerprint_title_format">ડિવાઇસ ફિંગરપ્રિન્ટ: %1$s</string>
     <string name="adb_device_forget">ભૂલી જાઓ</string>
@@ -301,6 +304,7 @@
     <string name="basic_status">વાતચીત ખોલો</string>
     <string name="battery">બૅટરી</string>
     <string name="battery_detail_switch_title">બૅટરી સેવર</string>
+    <string name="battery_health_notify_learn_more">વધુ જાણો</string>
     <string name="battery_info_status_charging">ચાર્જ થઈ રહ્યું છે</string>
     <string name="battery_info_status_charging_fast">ઝડપથી ચાર્જ થાય છે</string>
     <string name="battery_info_status_charging_slow">ધીમેથી ચાર્જ થાય છે</string>
@@ -616,7 +620,6 @@ Codec પસંદગી ટ્રિગર કરો: પ્લેબૅક ક
     <string name="debug_networking_category">નેટવર્કિંગ</string>
     <string name="debug_view_attributes">લક્ષણ નિરીક્ષણ જોવાનું ચાલુ કરો</string>
     <string name="defender_notify_des">બૅટરીની કાર્યક્ષમતાને બહેતર બનાવવામાં સહાય કરવા માટે, તમારા ફોનને ચાર્જ કરવાનું મર્યાદિત કરવામાં આવ્યું છે</string>
-    <string name="defender_notify_learn_more">વધુ જાણો</string>
     <string name="defender_notify_resume_charge">ચાર્જ કરવાનું ફરી શરૂ કરો</string>
     <string name="defender_notify_title">ચાર્જ કરવાનું થોડા સમય માટે મર્યાદિત કરવામાં આવ્યું છે</string>
     <string name="defender_post_notify_des">બૅટરીની કાર્યક્ષમતાને બહેતર બનાવવા માટે %2$sથી %3$s સુધી, ચાર્જ કરવાનું %1$s સુધી મર્યાદિત કરવામાં આવ્યું હતું</string>
@@ -1036,7 +1039,7 @@ Codec પસંદગી ટ્રિગર કરો: પ્લેબૅક ક
     <string name="media_output_dialog_pairing_new">નવા ડિવાઇસ સાથે જોડાણ કરો</string>
     <string name="media_output_dialog_single_device">1 ડિવાઇસ પસંદ કર્યું</string>
     <string name="media_projection_action_text">હવે શરૂ કરો</string>
-    <string name="media_projection_dialog_service_text">રેકોર્ડ અથવા કાસ્ટ કરતી વખતે, આ સુવિધા આપતી સેવાને તમારી સ્ક્રીન પર દેખાતી હોય અથવા તમારા ડિવાઇસ પર ચલાવવામાં આવતી હોય તેવી બધી માહિતીનો ઍક્સેસ હશે. આમાં પાસવર્ડ, ચુકવણીની વિગતો, ફોટા, સંદેશા અને તમે ચલાવો છો તે ઑડિયો જેવી માહિતીનો સમાવેશ થાય છે.</string>
+    <string name="media_projection_dialog_service_text">રેકોર્ડ અથવા કાસ્ટ કરતી વખતે, આ સુવિધા આપતી સેવાને તમારી સ્ક્રીન પર દેખાતી હોય અથવા તમારા ડિવાઇસ પર ચલાવવામાં આવતી હોય તેવી બધી માહિતીનો ઍક્સેસ હશે. આમાં પાસવર્ડ, ચુકવણીની વિગતો, ફોટા, મેસેજ અને તમે ચલાવો છો તે ઑડિયો જેવી માહિતીનો સમાવેશ થાય છે.</string>
     <string name="media_projection_dialog_service_title">શું રેકોર્ડ અથવા કાસ્ટ કરવાનું શરૂ કરીએ?</string>
     <string name="media_projection_dialog_text">રેકોર્ડ અથવા કાસ્ટ કરતી વખતે, %sને તમારી સ્ક્રીન પર દેખાતી હોય અથવા તમારા ડિવાઇસ પર ચલાવવામાં આવતી હોય તેવી બધી માહિતીનો ઍક્સેસ હશે. આમાં પાસવર્ડ, ચુકવણીની વિગતો, ફોટા, સંદેશા અને તમે ચલાવો છો તે ઑડિયો જેવી માહિતીનો સમાવેશ થાય છે.</string>
     <string name="media_projection_dialog_title">%s વડે રેકોર્ડ અથવા કાસ્ટ કરવાનું શરૂ કરીએ?</string>
@@ -1397,7 +1400,7 @@ Codec પસંદગી ટ્રિગર કરો: પ્લેબૅક ક
     <string name="quick_settings_done">થઈ ગયું</string>
     <string name="quick_settings_financed_disclosure_named_management">આ ડિવાઇસ %s દ્વારા પ્રદાન કરવામાં આવેલું છે</string>
     <string name="quick_settings_flashlight_camera_in_use">કૅમેરાનો ઉપયોગ થાય છે</string>
-    <string name="quick_settings_flashlight_label">ફ્લેશલાઇટ</string>
+    <string name="quick_settings_flashlight_label">ફ્લૅશલાઇટ</string>
     <string name="quick_settings_hotspot_label">હૉટસ્પૉટ</string>
     <string name="quick_settings_hotspot_secondary_label_data_saver_enabled">ડેટા સેવર ચાલુ છે</string>
     <string name="quick_settings_hotspot_secondary_label_transient">ચાલુ કરી રહ્યાં છીએ…</string>
@@ -1481,7 +1484,7 @@ Codec પસંદગી ટ્રિગર કરો: પ્લેબૅક ક
     <string name="screenrecord_background_processing_label">સ્ક્રીન રેકૉર્ડિંગ ચાલુ છે</string>
     <string name="screenrecord_channel_description">સ્ક્રીન રેકોર્ડિંગ સત્ર માટે ચાલુ નોટિફિકેશન</string>
     <string name="screenrecord_delete_error">સ્ક્રીન રેકોર્ડિંગ ડિલીટ કરવામાં ભૂલ આવી</string>
-    <string name="screenrecord_description">રેકોર્ડ કરતી વખતે, Android System તમારી સ્ક્રીન પર દેખાતી હોય અથવા તમારા ડિવાઇસ પર ચલાવવામાં આવતી હોય તેવી કોઈપણ સંવેદનશીલ માહિતીને કૅપ્ચર કરી શકે છે. આમાં પાસવર્ડ, ચુકવણીની માહિતી, ફોટા, સંદેશા અને ઑડિયોનો સમાવેશ થાય છે.</string>
+    <string name="screenrecord_description">રેકોર્ડ કરતી વખતે, Android System તમારી સ્ક્રીન પર દેખાતી હોય અથવા તમારા ડિવાઇસ પર ચલાવવામાં આવતી હોય તેવી કોઈપણ સંવેદનશીલ માહિતીને કૅપ્ચર કરી શકે છે. આમાં પાસવર્ડ, ચુકવણીની માહિતી, ફોટા, મેસેજ અને ઑડિયોનો સમાવેશ થાય છે.</string>
     <string name="screenrecord_device_audio_and_mic_label">ડિવાઇસનો ઑડિયો અને માઇક્રોફોન</string>
     <string name="screenrecord_device_audio_description">મ્યુઝિક, કૉલ અને રિંગટોન જેવા તમારા ડિવાઇસના સાઉન્ડ</string>
     <string name="screenrecord_device_audio_label">ડિવાઇસનો ઑડિયો</string>
@@ -1704,6 +1707,10 @@ Codec પસંદગી ટ્રિગર કરો: પ્લેબૅક ક
     <string name="usb_accessory_confirm_prompt">%2$sને હૅન્ડલ કરવા માટે %1$sને ખોલીએ?</string>
     <string name="usb_accessory_permission_prompt">%2$sના ઍક્સેસ માટે %1$sને મંજૂરી આપીએ?</string>
     <string name="usb_accessory_uri_prompt">કોઈપણ ઇન્સ્ટોલ કરેલી ઍપ્લિકેશનો આ USB ઍક્સેસરી સાથે કામ કરતી નથી. આ ઍક્સેસરી વિશે %1$s પર વધુ જાણો.</string>
+    <string name="usb_audio_device_confirm_prompt_title">%2$sને હૅન્ડલ કરવા માટે %1$sને ખોલીએ?</string>
+    <string name="usb_audio_device_permission_prompt_title">%2$sના ઍક્સેસ માટે %1$sને મંજૂરી આપીએ?</string>
+    <string name="usb_audio_device_prompt">આ ડિવાઇસ સાથે %1$sનો ઉપયોગ કરવાથી કૉલ, નોટિફિકેશન અને અલાર્મ ન સંભળાય તેમ બની શકે.</string>
+    <string name="usb_audio_device_prompt_warn">આ ઍપને રેકોર્ડ કરવાની પરવાનગી આપવામાં આવી નથી પરંતુ તે આ USB ડિવાઇસ મારફતે ઑડિયો કૅપ્ચર કરી શકે છે. આ ડિવાઇસ સાથે %1$sનો ઉપયોગ કરવાથી કૉલ, નોટિફિકેશન અને અલાર્મ ન સંભળાય તેમ બની શકે.</string>
     <string name="usb_audio_disable_routing">USB ઑડિયો રૂટિંગ બંધ કરો</string>
     <string name="usb_audio_disable_routing_summary">USB ઑડિયો પેરિફિરલ પર ઑટોમૅટિક રીતે થતા રૂટિંગને બંધ કરો</string>
     <string name="usb_contaminant_message">"પ્રવાહી અથવા ધૂળથી તમારા ડિવાઇસનું રક્ષણ કરવા માટે, USB પોર્ટ બંધ કરવામાં આવ્યો છે અને કોઈ ઍક્સેસરી શોધશે નહીં.

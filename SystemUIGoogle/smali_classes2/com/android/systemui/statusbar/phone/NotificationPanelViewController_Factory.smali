@@ -438,6 +438,16 @@
     .end annotation
 .end field
 
+.field private final notificationShadeWindowControllerProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/NotificationShadeWindowController;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private final notificationStackScrollLayoutControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -681,7 +691,7 @@
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -727,6 +737,9 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/plugins/statusbar/StatusBarStateController;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/NotificationShadeWindowController;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/doze/DozeLog;",
@@ -950,217 +963,221 @@
 
     move-object/from16 v1, p15
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->dozeLogProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->notificationShadeWindowControllerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p16
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->dozeParametersProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->dozeLogProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p17
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->commandQueueProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->dozeParametersProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p18
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->vibratorHelperProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->commandQueueProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p19
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->latencyTrackerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->vibratorHelperProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p20
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->powerManagerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->latencyTrackerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p21
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->accessibilityManagerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->powerManagerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p22
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->displayIdProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->accessibilityManagerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p23
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->keyguardUpdateMonitorProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->displayIdProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p24
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->metricsLoggerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->keyguardUpdateMonitorProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p25
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->activityManagerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->metricsLoggerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p26
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->configurationControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->activityManagerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p27
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->flingAnimationUtilsBuilderProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->configurationControllerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p28
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->statusBarTouchableRegionManagerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->flingAnimationUtilsBuilderProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p29
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->conversationNotificationManagerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->statusBarTouchableRegionManagerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p30
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->mediaHierarchyManagerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->conversationNotificationManagerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p31
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->statusBarKeyguardViewManagerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->mediaHierarchyManagerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p32
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->notificationsQSContainerControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->statusBarKeyguardViewManagerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p33
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->notificationStackScrollLayoutControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->notificationsQSContainerControllerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p34
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->keyguardStatusViewComponentFactoryProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->notificationStackScrollLayoutControllerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p35
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->keyguardQsUserSwitchComponentFactoryProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->keyguardStatusViewComponentFactoryProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p36
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->keyguardUserSwitcherComponentFactoryProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->keyguardQsUserSwitchComponentFactoryProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p37
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->keyguardStatusBarViewComponentFactoryProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->keyguardUserSwitcherComponentFactoryProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p38
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->lockscreenShadeTransitionControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->keyguardStatusBarViewComponentFactoryProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p39
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->qsDetailDisplayerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->lockscreenShadeTransitionControllerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p40
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->groupManagerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->qsDetailDisplayerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p41
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->notificationIconAreaControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->groupManagerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p42
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->authControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->notificationIconAreaControllerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p43
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->scrimControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->authControllerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p44
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->userManagerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->scrimControllerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p45
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->mediaDataManagerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->userManagerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p46
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->notificationShadeDepthControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->mediaDataManagerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p47
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->ambientStateProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->notificationShadeDepthControllerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p48
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->lockIconViewControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->ambientStateProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p49
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->keyguardMediaControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->lockIconViewControllerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p50
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->privacyDotViewControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->keyguardMediaControllerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p51
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->tapAgainViewControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->privacyDotViewControllerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p52
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->navigationModeControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->tapAgainViewControllerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p53
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->fragmentServiceProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->navigationModeControllerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p54
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->contentResolverProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->fragmentServiceProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p55
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->quickAccessWalletControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->contentResolverProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p56
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->recordingControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->quickAccessWalletControllerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p57
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->uiExecutorProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->recordingControllerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p58
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->secureSettingsProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->uiExecutorProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p59
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->splitShadeHeaderControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->secureSettingsProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p60
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->unlockedScreenOffAnimationControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->splitShadeHeaderControllerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p61
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->lockscreenGestureLoggerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->unlockedScreenOffAnimationControllerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p62
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->panelExpansionStateManagerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->lockscreenGestureLoggerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p63
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->remoteInputManagerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->panelExpansionStateManagerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p64
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->unfoldComponentProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->remoteInputManagerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p65
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->controlsComponentProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->unfoldComponentProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p66
+
+    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->controlsComponentProvider:Ljavax/inject/Provider;
+
+    move-object/from16 v1, p67
 
     iput-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->featureFlagsProvider:Ljavax/inject/Provider;
 
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;
-    .locals 68
+.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;
+    .locals 69
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1205,6 +1222,9 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/plugins/statusbar/StatusBarStateController;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/NotificationShadeWindowController;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/doze/DozeLog;",
@@ -1499,17 +1519,19 @@
 
     move-object/from16 v66, p65
 
-    new-instance v67, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;
+    move-object/from16 v67, p66
 
-    move-object/from16 v0, v67
+    new-instance v68, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;
 
-    invoke-direct/range {v0 .. v66}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+    move-object/from16 v0, v68
 
-    return-object v67
+    invoke-direct/range {v0 .. v67}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+
+    return-object v68
 .end method
 
-.method public static newInstance(Lcom/android/systemui/statusbar/phone/NotificationPanelView;Landroid/content/res/Resources;Landroid/os/Handler;Landroid/view/LayoutInflater;Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;Lcom/android/systemui/statusbar/PulseExpansionHandler;Lcom/android/systemui/statusbar/notification/DynamicPrivacyController;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/classifier/FalsingCollector;Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/doze/DozeLog;Lcom/android/systemui/statusbar/phone/DozeParameters;Lcom/android/systemui/statusbar/CommandQueue;Lcom/android/systemui/statusbar/VibratorHelper;Lcom/android/internal/util/LatencyTracker;Landroid/os/PowerManager;Landroid/view/accessibility/AccessibilityManager;ILcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/internal/logging/MetricsLogger;Landroid/app/ActivityManager;Lcom/android/systemui/statusbar/policy/ConfigurationController;Ljavax/inject/Provider;Lcom/android/systemui/statusbar/phone/StatusBarTouchableRegionManager;Lcom/android/systemui/statusbar/notification/ConversationNotificationManager;Lcom/android/systemui/media/MediaHierarchyManager;Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;Lcom/android/systemui/statusbar/phone/NotificationsQSContainerController;Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;Lcom/android/keyguard/dagger/KeyguardStatusViewComponent$Factory;Lcom/android/keyguard/dagger/KeyguardQsUserSwitchComponent$Factory;Lcom/android/keyguard/dagger/KeyguardUserSwitcherComponent$Factory;Lcom/android/keyguard/dagger/KeyguardStatusBarViewComponent$Factory;Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;Lcom/android/systemui/qs/QSDetailDisplayer;Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;Lcom/android/systemui/biometrics/AuthController;Lcom/android/systemui/statusbar/phone/ScrimController;Landroid/os/UserManager;Lcom/android/systemui/media/MediaDataManager;Lcom/android/systemui/statusbar/NotificationShadeDepthController;Lcom/android/systemui/statusbar/notification/stack/AmbientState;Lcom/android/keyguard/LockIconViewController;Lcom/android/systemui/media/KeyguardMediaController;Lcom/android/systemui/statusbar/events/PrivacyDotViewController;Lcom/android/systemui/statusbar/phone/TapAgainViewController;Lcom/android/systemui/navigationbar/NavigationModeController;Lcom/android/systemui/fragments/FragmentService;Landroid/content/ContentResolver;Lcom/android/systemui/wallet/controller/QuickAccessWalletController;Lcom/android/systemui/screenrecord/RecordingController;Ljava/util/concurrent/Executor;Lcom/android/systemui/util/settings/SecureSettings;Lcom/android/systemui/statusbar/phone/SplitShadeHeaderController;Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;Lcom/android/systemui/statusbar/phone/LockscreenGestureLogger;Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionStateManager;Lcom/android/systemui/statusbar/NotificationRemoteInputManager;Ljava/util/Optional;Lcom/android/systemui/controls/dagger/ControlsComponent;Lcom/android/systemui/flags/FeatureFlags;)Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;
-    .locals 68
+.method public static newInstance(Lcom/android/systemui/statusbar/phone/NotificationPanelView;Landroid/content/res/Resources;Landroid/os/Handler;Landroid/view/LayoutInflater;Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;Lcom/android/systemui/statusbar/PulseExpansionHandler;Lcom/android/systemui/statusbar/notification/DynamicPrivacyController;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/classifier/FalsingCollector;Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/NotificationShadeWindowController;Lcom/android/systemui/doze/DozeLog;Lcom/android/systemui/statusbar/phone/DozeParameters;Lcom/android/systemui/statusbar/CommandQueue;Lcom/android/systemui/statusbar/VibratorHelper;Lcom/android/internal/util/LatencyTracker;Landroid/os/PowerManager;Landroid/view/accessibility/AccessibilityManager;ILcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/internal/logging/MetricsLogger;Landroid/app/ActivityManager;Lcom/android/systemui/statusbar/policy/ConfigurationController;Ljavax/inject/Provider;Lcom/android/systemui/statusbar/phone/StatusBarTouchableRegionManager;Lcom/android/systemui/statusbar/notification/ConversationNotificationManager;Lcom/android/systemui/media/MediaHierarchyManager;Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;Lcom/android/systemui/statusbar/phone/NotificationsQSContainerController;Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;Lcom/android/keyguard/dagger/KeyguardStatusViewComponent$Factory;Lcom/android/keyguard/dagger/KeyguardQsUserSwitchComponent$Factory;Lcom/android/keyguard/dagger/KeyguardUserSwitcherComponent$Factory;Lcom/android/keyguard/dagger/KeyguardStatusBarViewComponent$Factory;Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;Lcom/android/systemui/qs/QSDetailDisplayer;Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;Lcom/android/systemui/biometrics/AuthController;Lcom/android/systemui/statusbar/phone/ScrimController;Landroid/os/UserManager;Lcom/android/systemui/media/MediaDataManager;Lcom/android/systemui/statusbar/NotificationShadeDepthController;Lcom/android/systemui/statusbar/notification/stack/AmbientState;Lcom/android/keyguard/LockIconViewController;Lcom/android/systemui/media/KeyguardMediaController;Lcom/android/systemui/statusbar/events/PrivacyDotViewController;Lcom/android/systemui/statusbar/phone/TapAgainViewController;Lcom/android/systemui/navigationbar/NavigationModeController;Lcom/android/systemui/fragments/FragmentService;Landroid/content/ContentResolver;Lcom/android/systemui/wallet/controller/QuickAccessWalletController;Lcom/android/systemui/screenrecord/RecordingController;Ljava/util/concurrent/Executor;Lcom/android/systemui/util/settings/SecureSettings;Lcom/android/systemui/statusbar/phone/SplitShadeHeaderController;Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;Lcom/android/systemui/statusbar/phone/LockscreenGestureLogger;Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionStateManager;Lcom/android/systemui/statusbar/NotificationRemoteInputManager;Ljava/util/Optional;Lcom/android/systemui/controls/dagger/ControlsComponent;Lcom/android/systemui/flags/FeatureFlags;)Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;
+    .locals 69
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1527,6 +1549,7 @@
             "Lcom/android/systemui/statusbar/notification/NotificationEntryManager;",
             "Lcom/android/systemui/statusbar/policy/KeyguardStateController;",
             "Lcom/android/systemui/plugins/statusbar/StatusBarStateController;",
+            "Lcom/android/systemui/statusbar/NotificationShadeWindowController;",
             "Lcom/android/systemui/doze/DozeLog;",
             "Lcom/android/systemui/statusbar/phone/DozeParameters;",
             "Lcom/android/systemui/statusbar/CommandQueue;",
@@ -1630,9 +1653,9 @@
 
     move-object/from16 v21, p20
 
-    move/from16 v22, p21
+    move-object/from16 v22, p21
 
-    move-object/from16 v23, p22
+    move/from16 v23, p22
 
     move-object/from16 v24, p23
 
@@ -1720,19 +1743,21 @@
 
     move-object/from16 v66, p65
 
-    new-instance v67, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;
+    move-object/from16 v67, p66
 
-    move-object/from16 v0, v67
+    new-instance v68, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;
 
-    invoke-direct/range {v0 .. v66}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;-><init>(Lcom/android/systemui/statusbar/phone/NotificationPanelView;Landroid/content/res/Resources;Landroid/os/Handler;Landroid/view/LayoutInflater;Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;Lcom/android/systemui/statusbar/PulseExpansionHandler;Lcom/android/systemui/statusbar/notification/DynamicPrivacyController;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/classifier/FalsingCollector;Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/doze/DozeLog;Lcom/android/systemui/statusbar/phone/DozeParameters;Lcom/android/systemui/statusbar/CommandQueue;Lcom/android/systemui/statusbar/VibratorHelper;Lcom/android/internal/util/LatencyTracker;Landroid/os/PowerManager;Landroid/view/accessibility/AccessibilityManager;ILcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/internal/logging/MetricsLogger;Landroid/app/ActivityManager;Lcom/android/systemui/statusbar/policy/ConfigurationController;Ljavax/inject/Provider;Lcom/android/systemui/statusbar/phone/StatusBarTouchableRegionManager;Lcom/android/systemui/statusbar/notification/ConversationNotificationManager;Lcom/android/systemui/media/MediaHierarchyManager;Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;Lcom/android/systemui/statusbar/phone/NotificationsQSContainerController;Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;Lcom/android/keyguard/dagger/KeyguardStatusViewComponent$Factory;Lcom/android/keyguard/dagger/KeyguardQsUserSwitchComponent$Factory;Lcom/android/keyguard/dagger/KeyguardUserSwitcherComponent$Factory;Lcom/android/keyguard/dagger/KeyguardStatusBarViewComponent$Factory;Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;Lcom/android/systemui/qs/QSDetailDisplayer;Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;Lcom/android/systemui/biometrics/AuthController;Lcom/android/systemui/statusbar/phone/ScrimController;Landroid/os/UserManager;Lcom/android/systemui/media/MediaDataManager;Lcom/android/systemui/statusbar/NotificationShadeDepthController;Lcom/android/systemui/statusbar/notification/stack/AmbientState;Lcom/android/keyguard/LockIconViewController;Lcom/android/systemui/media/KeyguardMediaController;Lcom/android/systemui/statusbar/events/PrivacyDotViewController;Lcom/android/systemui/statusbar/phone/TapAgainViewController;Lcom/android/systemui/navigationbar/NavigationModeController;Lcom/android/systemui/fragments/FragmentService;Landroid/content/ContentResolver;Lcom/android/systemui/wallet/controller/QuickAccessWalletController;Lcom/android/systemui/screenrecord/RecordingController;Ljava/util/concurrent/Executor;Lcom/android/systemui/util/settings/SecureSettings;Lcom/android/systemui/statusbar/phone/SplitShadeHeaderController;Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;Lcom/android/systemui/statusbar/phone/LockscreenGestureLogger;Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionStateManager;Lcom/android/systemui/statusbar/NotificationRemoteInputManager;Ljava/util/Optional;Lcom/android/systemui/controls/dagger/ControlsComponent;Lcom/android/systemui/flags/FeatureFlags;)V
+    move-object/from16 v0, v68
 
-    return-object v67
+    invoke-direct/range {v0 .. v67}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;-><init>(Lcom/android/systemui/statusbar/phone/NotificationPanelView;Landroid/content/res/Resources;Landroid/os/Handler;Landroid/view/LayoutInflater;Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;Lcom/android/systemui/statusbar/PulseExpansionHandler;Lcom/android/systemui/statusbar/notification/DynamicPrivacyController;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/classifier/FalsingCollector;Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/NotificationShadeWindowController;Lcom/android/systemui/doze/DozeLog;Lcom/android/systemui/statusbar/phone/DozeParameters;Lcom/android/systemui/statusbar/CommandQueue;Lcom/android/systemui/statusbar/VibratorHelper;Lcom/android/internal/util/LatencyTracker;Landroid/os/PowerManager;Landroid/view/accessibility/AccessibilityManager;ILcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/internal/logging/MetricsLogger;Landroid/app/ActivityManager;Lcom/android/systemui/statusbar/policy/ConfigurationController;Ljavax/inject/Provider;Lcom/android/systemui/statusbar/phone/StatusBarTouchableRegionManager;Lcom/android/systemui/statusbar/notification/ConversationNotificationManager;Lcom/android/systemui/media/MediaHierarchyManager;Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;Lcom/android/systemui/statusbar/phone/NotificationsQSContainerController;Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;Lcom/android/keyguard/dagger/KeyguardStatusViewComponent$Factory;Lcom/android/keyguard/dagger/KeyguardQsUserSwitchComponent$Factory;Lcom/android/keyguard/dagger/KeyguardUserSwitcherComponent$Factory;Lcom/android/keyguard/dagger/KeyguardStatusBarViewComponent$Factory;Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;Lcom/android/systemui/qs/QSDetailDisplayer;Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;Lcom/android/systemui/biometrics/AuthController;Lcom/android/systemui/statusbar/phone/ScrimController;Landroid/os/UserManager;Lcom/android/systemui/media/MediaDataManager;Lcom/android/systemui/statusbar/NotificationShadeDepthController;Lcom/android/systemui/statusbar/notification/stack/AmbientState;Lcom/android/keyguard/LockIconViewController;Lcom/android/systemui/media/KeyguardMediaController;Lcom/android/systemui/statusbar/events/PrivacyDotViewController;Lcom/android/systemui/statusbar/phone/TapAgainViewController;Lcom/android/systemui/navigationbar/NavigationModeController;Lcom/android/systemui/fragments/FragmentService;Landroid/content/ContentResolver;Lcom/android/systemui/wallet/controller/QuickAccessWalletController;Lcom/android/systemui/screenrecord/RecordingController;Ljava/util/concurrent/Executor;Lcom/android/systemui/util/settings/SecureSettings;Lcom/android/systemui/statusbar/phone/SplitShadeHeaderController;Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;Lcom/android/systemui/statusbar/phone/LockscreenGestureLogger;Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionStateManager;Lcom/android/systemui/statusbar/NotificationRemoteInputManager;Ljava/util/Optional;Lcom/android/systemui/controls/dagger/ControlsComponent;Lcom/android/systemui/flags/FeatureFlags;)V
+
+    return-object v68
 .end method
 
 
 # virtual methods
 .method public get()Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;
-    .locals 68
+    .locals 69
 
     move-object/from16 v0, p0
 
@@ -1876,7 +1901,7 @@
 
     check-cast v15, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
 
-    iget-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->dozeLogProvider:Ljavax/inject/Provider;
+    iget-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->notificationShadeWindowControllerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -1884,9 +1909,9 @@
 
     move-object/from16 v16, v1
 
-    check-cast v16, Lcom/android/systemui/doze/DozeLog;
+    check-cast v16, Lcom/android/systemui/statusbar/NotificationShadeWindowController;
 
-    iget-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->dozeParametersProvider:Ljavax/inject/Provider;
+    iget-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->dozeLogProvider:Ljavax/inject/Provider;
 
     invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -1894,9 +1919,9 @@
 
     move-object/from16 v17, v1
 
-    check-cast v17, Lcom/android/systemui/statusbar/phone/DozeParameters;
+    check-cast v17, Lcom/android/systemui/doze/DozeLog;
 
-    iget-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->commandQueueProvider:Ljavax/inject/Provider;
+    iget-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->dozeParametersProvider:Ljavax/inject/Provider;
 
     invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -1904,9 +1929,9 @@
 
     move-object/from16 v18, v1
 
-    check-cast v18, Lcom/android/systemui/statusbar/CommandQueue;
+    check-cast v18, Lcom/android/systemui/statusbar/phone/DozeParameters;
 
-    iget-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->vibratorHelperProvider:Ljavax/inject/Provider;
+    iget-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->commandQueueProvider:Ljavax/inject/Provider;
 
     invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -1914,9 +1939,9 @@
 
     move-object/from16 v19, v1
 
-    check-cast v19, Lcom/android/systemui/statusbar/VibratorHelper;
+    check-cast v19, Lcom/android/systemui/statusbar/CommandQueue;
 
-    iget-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->latencyTrackerProvider:Ljavax/inject/Provider;
+    iget-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->vibratorHelperProvider:Ljavax/inject/Provider;
 
     invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -1924,9 +1949,9 @@
 
     move-object/from16 v20, v1
 
-    check-cast v20, Lcom/android/internal/util/LatencyTracker;
+    check-cast v20, Lcom/android/systemui/statusbar/VibratorHelper;
 
-    iget-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->powerManagerProvider:Ljavax/inject/Provider;
+    iget-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->latencyTrackerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -1934,9 +1959,9 @@
 
     move-object/from16 v21, v1
 
-    check-cast v21, Landroid/os/PowerManager;
+    check-cast v21, Lcom/android/internal/util/LatencyTracker;
 
-    iget-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->accessibilityManagerProvider:Ljavax/inject/Provider;
+    iget-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->powerManagerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -1944,7 +1969,17 @@
 
     move-object/from16 v22, v1
 
-    check-cast v22, Landroid/view/accessibility/AccessibilityManager;
+    check-cast v22, Landroid/os/PowerManager;
+
+    iget-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->accessibilityManagerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object/from16 v23, v1
+
+    check-cast v23, Landroid/view/accessibility/AccessibilityManager;
 
     iget-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->displayIdProvider:Ljavax/inject/Provider;
 
@@ -1956,7 +1991,7 @@
 
     invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
 
-    move-result v23
+    move-result v24
 
     iget-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->keyguardUpdateMonitorProvider:Ljavax/inject/Provider;
 
@@ -1964,9 +1999,9 @@
 
     move-result-object v1
 
-    move-object/from16 v24, v1
+    move-object/from16 v25, v1
 
-    check-cast v24, Lcom/android/keyguard/KeyguardUpdateMonitor;
+    check-cast v25, Lcom/android/keyguard/KeyguardUpdateMonitor;
 
     iget-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->metricsLoggerProvider:Ljavax/inject/Provider;
 
@@ -1974,9 +2009,9 @@
 
     move-result-object v1
 
-    move-object/from16 v25, v1
+    move-object/from16 v26, v1
 
-    check-cast v25, Lcom/android/internal/logging/MetricsLogger;
+    check-cast v26, Lcom/android/internal/logging/MetricsLogger;
 
     iget-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->activityManagerProvider:Ljavax/inject/Provider;
 
@@ -1984,9 +2019,9 @@
 
     move-result-object v1
 
-    move-object/from16 v26, v1
+    move-object/from16 v27, v1
 
-    check-cast v26, Landroid/app/ActivityManager;
+    check-cast v27, Landroid/app/ActivityManager;
 
     iget-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->configurationControllerProvider:Ljavax/inject/Provider;
 
@@ -1994,13 +2029,13 @@
 
     move-result-object v1
 
-    move-object/from16 v27, v1
+    move-object/from16 v28, v1
 
-    check-cast v27, Lcom/android/systemui/statusbar/policy/ConfigurationController;
+    check-cast v28, Lcom/android/systemui/statusbar/policy/ConfigurationController;
 
     iget-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->flingAnimationUtilsBuilderProvider:Ljavax/inject/Provider;
 
-    move-object/from16 v28, v1
+    move-object/from16 v29, v1
 
     iget-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->statusBarTouchableRegionManagerProvider:Ljavax/inject/Provider;
 
@@ -2008,9 +2043,9 @@
 
     move-result-object v1
 
-    move-object/from16 v29, v1
+    move-object/from16 v30, v1
 
-    check-cast v29, Lcom/android/systemui/statusbar/phone/StatusBarTouchableRegionManager;
+    check-cast v30, Lcom/android/systemui/statusbar/phone/StatusBarTouchableRegionManager;
 
     iget-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->conversationNotificationManagerProvider:Ljavax/inject/Provider;
 
@@ -2018,9 +2053,9 @@
 
     move-result-object v1
 
-    move-object/from16 v30, v1
+    move-object/from16 v31, v1
 
-    check-cast v30, Lcom/android/systemui/statusbar/notification/ConversationNotificationManager;
+    check-cast v31, Lcom/android/systemui/statusbar/notification/ConversationNotificationManager;
 
     iget-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->mediaHierarchyManagerProvider:Ljavax/inject/Provider;
 
@@ -2028,9 +2063,9 @@
 
     move-result-object v1
 
-    move-object/from16 v31, v1
+    move-object/from16 v32, v1
 
-    check-cast v31, Lcom/android/systemui/media/MediaHierarchyManager;
+    check-cast v32, Lcom/android/systemui/media/MediaHierarchyManager;
 
     iget-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->statusBarKeyguardViewManagerProvider:Ljavax/inject/Provider;
 
@@ -2038,9 +2073,9 @@
 
     move-result-object v1
 
-    move-object/from16 v32, v1
+    move-object/from16 v33, v1
 
-    check-cast v32, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;
+    check-cast v33, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;
 
     iget-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->notificationsQSContainerControllerProvider:Ljavax/inject/Provider;
 
@@ -2048,9 +2083,9 @@
 
     move-result-object v1
 
-    move-object/from16 v33, v1
+    move-object/from16 v34, v1
 
-    check-cast v33, Lcom/android/systemui/statusbar/phone/NotificationsQSContainerController;
+    check-cast v34, Lcom/android/systemui/statusbar/phone/NotificationsQSContainerController;
 
     iget-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->notificationStackScrollLayoutControllerProvider:Ljavax/inject/Provider;
 
@@ -2058,9 +2093,9 @@
 
     move-result-object v1
 
-    move-object/from16 v34, v1
+    move-object/from16 v35, v1
 
-    check-cast v34, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;
+    check-cast v35, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;
 
     iget-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->keyguardStatusViewComponentFactoryProvider:Ljavax/inject/Provider;
 
@@ -2068,9 +2103,9 @@
 
     move-result-object v1
 
-    move-object/from16 v35, v1
+    move-object/from16 v36, v1
 
-    check-cast v35, Lcom/android/keyguard/dagger/KeyguardStatusViewComponent$Factory;
+    check-cast v36, Lcom/android/keyguard/dagger/KeyguardStatusViewComponent$Factory;
 
     iget-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->keyguardQsUserSwitchComponentFactoryProvider:Ljavax/inject/Provider;
 
@@ -2078,9 +2113,9 @@
 
     move-result-object v1
 
-    move-object/from16 v36, v1
+    move-object/from16 v37, v1
 
-    check-cast v36, Lcom/android/keyguard/dagger/KeyguardQsUserSwitchComponent$Factory;
+    check-cast v37, Lcom/android/keyguard/dagger/KeyguardQsUserSwitchComponent$Factory;
 
     iget-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->keyguardUserSwitcherComponentFactoryProvider:Ljavax/inject/Provider;
 
@@ -2088,9 +2123,9 @@
 
     move-result-object v1
 
-    move-object/from16 v37, v1
+    move-object/from16 v38, v1
 
-    check-cast v37, Lcom/android/keyguard/dagger/KeyguardUserSwitcherComponent$Factory;
+    check-cast v38, Lcom/android/keyguard/dagger/KeyguardUserSwitcherComponent$Factory;
 
     iget-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->keyguardStatusBarViewComponentFactoryProvider:Ljavax/inject/Provider;
 
@@ -2098,9 +2133,9 @@
 
     move-result-object v1
 
-    move-object/from16 v38, v1
+    move-object/from16 v39, v1
 
-    check-cast v38, Lcom/android/keyguard/dagger/KeyguardStatusBarViewComponent$Factory;
+    check-cast v39, Lcom/android/keyguard/dagger/KeyguardStatusBarViewComponent$Factory;
 
     iget-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->lockscreenShadeTransitionControllerProvider:Ljavax/inject/Provider;
 
@@ -2108,9 +2143,9 @@
 
     move-result-object v1
 
-    move-object/from16 v39, v1
+    move-object/from16 v40, v1
 
-    check-cast v39, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;
+    check-cast v40, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;
 
     iget-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->qsDetailDisplayerProvider:Ljavax/inject/Provider;
 
@@ -2118,9 +2153,9 @@
 
     move-result-object v1
 
-    move-object/from16 v40, v1
+    move-object/from16 v41, v1
 
-    check-cast v40, Lcom/android/systemui/qs/QSDetailDisplayer;
+    check-cast v41, Lcom/android/systemui/qs/QSDetailDisplayer;
 
     iget-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->groupManagerProvider:Ljavax/inject/Provider;
 
@@ -2128,9 +2163,9 @@
 
     move-result-object v1
 
-    move-object/from16 v41, v1
+    move-object/from16 v42, v1
 
-    check-cast v41, Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;
+    check-cast v42, Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;
 
     iget-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->notificationIconAreaControllerProvider:Ljavax/inject/Provider;
 
@@ -2138,9 +2173,9 @@
 
     move-result-object v1
 
-    move-object/from16 v42, v1
+    move-object/from16 v43, v1
 
-    check-cast v42, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;
+    check-cast v43, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;
 
     iget-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->authControllerProvider:Ljavax/inject/Provider;
 
@@ -2148,9 +2183,9 @@
 
     move-result-object v1
 
-    move-object/from16 v43, v1
+    move-object/from16 v44, v1
 
-    check-cast v43, Lcom/android/systemui/biometrics/AuthController;
+    check-cast v44, Lcom/android/systemui/biometrics/AuthController;
 
     iget-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->scrimControllerProvider:Ljavax/inject/Provider;
 
@@ -2158,9 +2193,9 @@
 
     move-result-object v1
 
-    move-object/from16 v44, v1
+    move-object/from16 v45, v1
 
-    check-cast v44, Lcom/android/systemui/statusbar/phone/ScrimController;
+    check-cast v45, Lcom/android/systemui/statusbar/phone/ScrimController;
 
     iget-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->userManagerProvider:Ljavax/inject/Provider;
 
@@ -2168,9 +2203,9 @@
 
     move-result-object v1
 
-    move-object/from16 v45, v1
+    move-object/from16 v46, v1
 
-    check-cast v45, Landroid/os/UserManager;
+    check-cast v46, Landroid/os/UserManager;
 
     iget-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->mediaDataManagerProvider:Ljavax/inject/Provider;
 
@@ -2178,9 +2213,9 @@
 
     move-result-object v1
 
-    move-object/from16 v46, v1
+    move-object/from16 v47, v1
 
-    check-cast v46, Lcom/android/systemui/media/MediaDataManager;
+    check-cast v47, Lcom/android/systemui/media/MediaDataManager;
 
     iget-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->notificationShadeDepthControllerProvider:Ljavax/inject/Provider;
 
@@ -2188,9 +2223,9 @@
 
     move-result-object v1
 
-    move-object/from16 v47, v1
+    move-object/from16 v48, v1
 
-    check-cast v47, Lcom/android/systemui/statusbar/NotificationShadeDepthController;
+    check-cast v48, Lcom/android/systemui/statusbar/NotificationShadeDepthController;
 
     iget-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->ambientStateProvider:Ljavax/inject/Provider;
 
@@ -2198,9 +2233,9 @@
 
     move-result-object v1
 
-    move-object/from16 v48, v1
+    move-object/from16 v49, v1
 
-    check-cast v48, Lcom/android/systemui/statusbar/notification/stack/AmbientState;
+    check-cast v49, Lcom/android/systemui/statusbar/notification/stack/AmbientState;
 
     iget-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->lockIconViewControllerProvider:Ljavax/inject/Provider;
 
@@ -2208,9 +2243,9 @@
 
     move-result-object v1
 
-    move-object/from16 v49, v1
+    move-object/from16 v50, v1
 
-    check-cast v49, Lcom/android/keyguard/LockIconViewController;
+    check-cast v50, Lcom/android/keyguard/LockIconViewController;
 
     iget-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->keyguardMediaControllerProvider:Ljavax/inject/Provider;
 
@@ -2218,9 +2253,9 @@
 
     move-result-object v1
 
-    move-object/from16 v50, v1
+    move-object/from16 v51, v1
 
-    check-cast v50, Lcom/android/systemui/media/KeyguardMediaController;
+    check-cast v51, Lcom/android/systemui/media/KeyguardMediaController;
 
     iget-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->privacyDotViewControllerProvider:Ljavax/inject/Provider;
 
@@ -2228,9 +2263,9 @@
 
     move-result-object v1
 
-    move-object/from16 v51, v1
+    move-object/from16 v52, v1
 
-    check-cast v51, Lcom/android/systemui/statusbar/events/PrivacyDotViewController;
+    check-cast v52, Lcom/android/systemui/statusbar/events/PrivacyDotViewController;
 
     iget-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->tapAgainViewControllerProvider:Ljavax/inject/Provider;
 
@@ -2238,9 +2273,9 @@
 
     move-result-object v1
 
-    move-object/from16 v52, v1
+    move-object/from16 v53, v1
 
-    check-cast v52, Lcom/android/systemui/statusbar/phone/TapAgainViewController;
+    check-cast v53, Lcom/android/systemui/statusbar/phone/TapAgainViewController;
 
     iget-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->navigationModeControllerProvider:Ljavax/inject/Provider;
 
@@ -2248,9 +2283,9 @@
 
     move-result-object v1
 
-    move-object/from16 v53, v1
+    move-object/from16 v54, v1
 
-    check-cast v53, Lcom/android/systemui/navigationbar/NavigationModeController;
+    check-cast v54, Lcom/android/systemui/navigationbar/NavigationModeController;
 
     iget-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->fragmentServiceProvider:Ljavax/inject/Provider;
 
@@ -2258,9 +2293,9 @@
 
     move-result-object v1
 
-    move-object/from16 v54, v1
+    move-object/from16 v55, v1
 
-    check-cast v54, Lcom/android/systemui/fragments/FragmentService;
+    check-cast v55, Lcom/android/systemui/fragments/FragmentService;
 
     iget-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->contentResolverProvider:Ljavax/inject/Provider;
 
@@ -2268,9 +2303,9 @@
 
     move-result-object v1
 
-    move-object/from16 v55, v1
+    move-object/from16 v56, v1
 
-    check-cast v55, Landroid/content/ContentResolver;
+    check-cast v56, Landroid/content/ContentResolver;
 
     iget-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->quickAccessWalletControllerProvider:Ljavax/inject/Provider;
 
@@ -2278,9 +2313,9 @@
 
     move-result-object v1
 
-    move-object/from16 v56, v1
+    move-object/from16 v57, v1
 
-    check-cast v56, Lcom/android/systemui/wallet/controller/QuickAccessWalletController;
+    check-cast v57, Lcom/android/systemui/wallet/controller/QuickAccessWalletController;
 
     iget-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->recordingControllerProvider:Ljavax/inject/Provider;
 
@@ -2288,9 +2323,9 @@
 
     move-result-object v1
 
-    move-object/from16 v57, v1
+    move-object/from16 v58, v1
 
-    check-cast v57, Lcom/android/systemui/screenrecord/RecordingController;
+    check-cast v58, Lcom/android/systemui/screenrecord/RecordingController;
 
     iget-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->uiExecutorProvider:Ljavax/inject/Provider;
 
@@ -2298,9 +2333,9 @@
 
     move-result-object v1
 
-    move-object/from16 v58, v1
+    move-object/from16 v59, v1
 
-    check-cast v58, Ljava/util/concurrent/Executor;
+    check-cast v59, Ljava/util/concurrent/Executor;
 
     iget-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->secureSettingsProvider:Ljavax/inject/Provider;
 
@@ -2308,9 +2343,9 @@
 
     move-result-object v1
 
-    move-object/from16 v59, v1
+    move-object/from16 v60, v1
 
-    check-cast v59, Lcom/android/systemui/util/settings/SecureSettings;
+    check-cast v60, Lcom/android/systemui/util/settings/SecureSettings;
 
     iget-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->splitShadeHeaderControllerProvider:Ljavax/inject/Provider;
 
@@ -2318,9 +2353,9 @@
 
     move-result-object v1
 
-    move-object/from16 v60, v1
+    move-object/from16 v61, v1
 
-    check-cast v60, Lcom/android/systemui/statusbar/phone/SplitShadeHeaderController;
+    check-cast v61, Lcom/android/systemui/statusbar/phone/SplitShadeHeaderController;
 
     iget-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->unlockedScreenOffAnimationControllerProvider:Ljavax/inject/Provider;
 
@@ -2328,9 +2363,9 @@
 
     move-result-object v1
 
-    move-object/from16 v61, v1
+    move-object/from16 v62, v1
 
-    check-cast v61, Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;
+    check-cast v62, Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;
 
     iget-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->lockscreenGestureLoggerProvider:Ljavax/inject/Provider;
 
@@ -2338,9 +2373,9 @@
 
     move-result-object v1
 
-    move-object/from16 v62, v1
+    move-object/from16 v63, v1
 
-    check-cast v62, Lcom/android/systemui/statusbar/phone/LockscreenGestureLogger;
+    check-cast v63, Lcom/android/systemui/statusbar/phone/LockscreenGestureLogger;
 
     iget-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->panelExpansionStateManagerProvider:Ljavax/inject/Provider;
 
@@ -2348,9 +2383,9 @@
 
     move-result-object v1
 
-    move-object/from16 v63, v1
+    move-object/from16 v64, v1
 
-    check-cast v63, Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionStateManager;
+    check-cast v64, Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionStateManager;
 
     iget-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->remoteInputManagerProvider:Ljavax/inject/Provider;
 
@@ -2358,9 +2393,9 @@
 
     move-result-object v1
 
-    move-object/from16 v64, v1
+    move-object/from16 v65, v1
 
-    check-cast v64, Lcom/android/systemui/statusbar/NotificationRemoteInputManager;
+    check-cast v65, Lcom/android/systemui/statusbar/NotificationRemoteInputManager;
 
     iget-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->unfoldComponentProvider:Ljavax/inject/Provider;
 
@@ -2368,9 +2403,9 @@
 
     move-result-object v1
 
-    move-object/from16 v65, v1
+    move-object/from16 v66, v1
 
-    check-cast v65, Ljava/util/Optional;
+    check-cast v66, Ljava/util/Optional;
 
     iget-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->controlsComponentProvider:Ljavax/inject/Provider;
 
@@ -2378,9 +2413,9 @@
 
     move-result-object v1
 
-    move-object/from16 v66, v1
+    move-object/from16 v67, v1
 
-    check-cast v66, Lcom/android/systemui/controls/dagger/ControlsComponent;
+    check-cast v67, Lcom/android/systemui/controls/dagger/ControlsComponent;
 
     iget-object v0, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->featureFlagsProvider:Ljavax/inject/Provider;
 
@@ -2388,11 +2423,11 @@
 
     move-result-object v0
 
-    move-object/from16 v67, v0
+    move-object/from16 v68, v0
 
-    check-cast v67, Lcom/android/systemui/flags/FeatureFlags;
+    check-cast v68, Lcom/android/systemui/flags/FeatureFlags;
 
-    invoke-static/range {v2 .. v67}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->newInstance(Lcom/android/systemui/statusbar/phone/NotificationPanelView;Landroid/content/res/Resources;Landroid/os/Handler;Landroid/view/LayoutInflater;Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;Lcom/android/systemui/statusbar/PulseExpansionHandler;Lcom/android/systemui/statusbar/notification/DynamicPrivacyController;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/classifier/FalsingCollector;Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/doze/DozeLog;Lcom/android/systemui/statusbar/phone/DozeParameters;Lcom/android/systemui/statusbar/CommandQueue;Lcom/android/systemui/statusbar/VibratorHelper;Lcom/android/internal/util/LatencyTracker;Landroid/os/PowerManager;Landroid/view/accessibility/AccessibilityManager;ILcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/internal/logging/MetricsLogger;Landroid/app/ActivityManager;Lcom/android/systemui/statusbar/policy/ConfigurationController;Ljavax/inject/Provider;Lcom/android/systemui/statusbar/phone/StatusBarTouchableRegionManager;Lcom/android/systemui/statusbar/notification/ConversationNotificationManager;Lcom/android/systemui/media/MediaHierarchyManager;Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;Lcom/android/systemui/statusbar/phone/NotificationsQSContainerController;Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;Lcom/android/keyguard/dagger/KeyguardStatusViewComponent$Factory;Lcom/android/keyguard/dagger/KeyguardQsUserSwitchComponent$Factory;Lcom/android/keyguard/dagger/KeyguardUserSwitcherComponent$Factory;Lcom/android/keyguard/dagger/KeyguardStatusBarViewComponent$Factory;Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;Lcom/android/systemui/qs/QSDetailDisplayer;Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;Lcom/android/systemui/biometrics/AuthController;Lcom/android/systemui/statusbar/phone/ScrimController;Landroid/os/UserManager;Lcom/android/systemui/media/MediaDataManager;Lcom/android/systemui/statusbar/NotificationShadeDepthController;Lcom/android/systemui/statusbar/notification/stack/AmbientState;Lcom/android/keyguard/LockIconViewController;Lcom/android/systemui/media/KeyguardMediaController;Lcom/android/systemui/statusbar/events/PrivacyDotViewController;Lcom/android/systemui/statusbar/phone/TapAgainViewController;Lcom/android/systemui/navigationbar/NavigationModeController;Lcom/android/systemui/fragments/FragmentService;Landroid/content/ContentResolver;Lcom/android/systemui/wallet/controller/QuickAccessWalletController;Lcom/android/systemui/screenrecord/RecordingController;Ljava/util/concurrent/Executor;Lcom/android/systemui/util/settings/SecureSettings;Lcom/android/systemui/statusbar/phone/SplitShadeHeaderController;Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;Lcom/android/systemui/statusbar/phone/LockscreenGestureLogger;Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionStateManager;Lcom/android/systemui/statusbar/NotificationRemoteInputManager;Ljava/util/Optional;Lcom/android/systemui/controls/dagger/ControlsComponent;Lcom/android/systemui/flags/FeatureFlags;)Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;
+    invoke-static/range {v2 .. v68}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController_Factory;->newInstance(Lcom/android/systemui/statusbar/phone/NotificationPanelView;Landroid/content/res/Resources;Landroid/os/Handler;Landroid/view/LayoutInflater;Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;Lcom/android/systemui/statusbar/PulseExpansionHandler;Lcom/android/systemui/statusbar/notification/DynamicPrivacyController;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/classifier/FalsingCollector;Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/NotificationShadeWindowController;Lcom/android/systemui/doze/DozeLog;Lcom/android/systemui/statusbar/phone/DozeParameters;Lcom/android/systemui/statusbar/CommandQueue;Lcom/android/systemui/statusbar/VibratorHelper;Lcom/android/internal/util/LatencyTracker;Landroid/os/PowerManager;Landroid/view/accessibility/AccessibilityManager;ILcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/internal/logging/MetricsLogger;Landroid/app/ActivityManager;Lcom/android/systemui/statusbar/policy/ConfigurationController;Ljavax/inject/Provider;Lcom/android/systemui/statusbar/phone/StatusBarTouchableRegionManager;Lcom/android/systemui/statusbar/notification/ConversationNotificationManager;Lcom/android/systemui/media/MediaHierarchyManager;Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;Lcom/android/systemui/statusbar/phone/NotificationsQSContainerController;Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;Lcom/android/keyguard/dagger/KeyguardStatusViewComponent$Factory;Lcom/android/keyguard/dagger/KeyguardQsUserSwitchComponent$Factory;Lcom/android/keyguard/dagger/KeyguardUserSwitcherComponent$Factory;Lcom/android/keyguard/dagger/KeyguardStatusBarViewComponent$Factory;Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;Lcom/android/systemui/qs/QSDetailDisplayer;Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;Lcom/android/systemui/biometrics/AuthController;Lcom/android/systemui/statusbar/phone/ScrimController;Landroid/os/UserManager;Lcom/android/systemui/media/MediaDataManager;Lcom/android/systemui/statusbar/NotificationShadeDepthController;Lcom/android/systemui/statusbar/notification/stack/AmbientState;Lcom/android/keyguard/LockIconViewController;Lcom/android/systemui/media/KeyguardMediaController;Lcom/android/systemui/statusbar/events/PrivacyDotViewController;Lcom/android/systemui/statusbar/phone/TapAgainViewController;Lcom/android/systemui/navigationbar/NavigationModeController;Lcom/android/systemui/fragments/FragmentService;Landroid/content/ContentResolver;Lcom/android/systemui/wallet/controller/QuickAccessWalletController;Lcom/android/systemui/screenrecord/RecordingController;Ljava/util/concurrent/Executor;Lcom/android/systemui/util/settings/SecureSettings;Lcom/android/systemui/statusbar/phone/SplitShadeHeaderController;Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;Lcom/android/systemui/statusbar/phone/LockscreenGestureLogger;Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionStateManager;Lcom/android/systemui/statusbar/NotificationRemoteInputManager;Ljava/util/Optional;Lcom/android/systemui/controls/dagger/ControlsComponent;Lcom/android/systemui/flags/FeatureFlags;)Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;
 
     move-result-object v0
 

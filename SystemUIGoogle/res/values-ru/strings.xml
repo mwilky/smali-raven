@@ -237,6 +237,9 @@
     <string name="accessor_no_description_text">Описание не предоставлено приложением.</string>
     <string name="active_input_method_subtypes">Активные способы ввода</string>
     <string name="activity_launch_on_secondary_display_failed_text">Приложение не поддерживает запуск на дополнительных экранах</string>
+    <string name="adaptive_charging_notify_des">Зарядка будет завершена к %1$s. Она проходит постепенно, чтобы продлить срок службы батареи.</string>
+    <string name="adaptive_charging_notify_title">Адаптивная зарядка включена</string>
+    <string name="adaptive_charging_notify_turn_off_once">Отключить один раз</string>
     <string name="adaptive_charging_time_estimate">%1$s • Адаптивная зарядка (завершится к %2$s)</string>
     <string name="adb_device_fingerprint_title_format">Цифровой отпечаток устройства: %1$s</string>
     <string name="adb_device_forget">Удалить</string>
@@ -301,6 +304,7 @@
     <string name="basic_status">Открытый чат</string>
     <string name="battery">Батарея</string>
     <string name="battery_detail_switch_title">Режим энергосбережения</string>
+    <string name="battery_health_notify_learn_more">Подробнее</string>
     <string name="battery_info_status_charging">Идет зарядка</string>
     <string name="battery_info_status_charging_fast">Быстрая зарядка</string>
     <string name="battery_info_status_charging_slow">Медленная зарядка</string>
@@ -616,7 +620,6 @@
     <string name="debug_networking_category">Сети</string>
     <string name="debug_view_attributes">Включить проверку атрибутов</string>
     <string name="defender_notify_des">Чтобы увеличить срок службы батареи, телефон ограничивает зарядку.</string>
-    <string name="defender_notify_learn_more">Подробнее</string>
     <string name="defender_notify_resume_charge">Продолжить зарядку</string>
     <string name="defender_notify_title">Зарядка временно ограничена</string>
     <string name="defender_post_notify_des">С %2$s до %3$s зарядка была ограничена до %1$s, чтобы продлить срок службы батареи.</string>
@@ -1036,7 +1039,7 @@
     <string name="media_output_dialog_pairing_new">Подключить новое устройство</string>
     <string name="media_output_dialog_single_device">Выбрано 1 устройство</string>
     <string name="media_projection_action_text">Начать</string>
-    <string name="media_projection_dialog_service_text">Во время записи или трансляции у сервиса, предоставляющего эту функцию, будет доступ ко всей информации, которая видна на экране или проигрывается на устройстве, включая пароли, сведения о платежах, фотографии, сообщения и воспроизводимые звуки.</string>
+    <string name="media_projection_dialog_service_text">Во время записи или трансляции у сервиса, предоставляющего эту функцию, будет доступ ко всей информации, которая видна на экране или воспроизводится на устройстве, включая пароли, сведения о платежах, фотографии, сообщения и звуки.</string>
     <string name="media_projection_dialog_service_title">Начать запись или трансляцию?</string>
     <string name="media_projection_dialog_text">Во время записи или трансляции у приложения \"%s\" будет доступ ко всей информации, которая видна на экране или воспроизводится с устройства, в том числе к паролям, сведениям о платежах, фотографиям, сообщениям и прослушиваемым аудиозаписям.</string>
     <string name="media_projection_dialog_title">Начать запись или трансляцию через приложение \"%s\"?</string>
@@ -1704,6 +1707,10 @@
     <string name="usb_accessory_confirm_prompt">Открыть приложение \"%1$s\" для управления устройством \"%2$s\"?</string>
     <string name="usb_accessory_permission_prompt">Предоставить приложению \"%1$s\" доступ к устройству \"%2$s\"?</string>
     <string name="usb_accessory_uri_prompt">Приложения не поддерживают это USB-устройство. Подробнее о нем читайте здесь: %1$s.</string>
+    <string name="usb_audio_device_confirm_prompt_title">Открыть приложение \"%1$s\" для управления устройством \"%2$s\"?</string>
+    <string name="usb_audio_device_permission_prompt_title">Разрешить приложению \"%1$s\" доступ к устройству \"%2$s\"?</string>
+    <string name="usb_audio_device_prompt">Во время использования приложения \"%1$s\" с этим устройством вы можете не услышать звуков уведомлений, звонков и будильников.</string>
+    <string name="usb_audio_device_prompt_warn">Приложению не разрешено вести запись, однако оно может записывать аудио с помощью этого USB-устройства. Во время использования приложения \"%1$s\" с этим устройством вы можете не услышать звуков уведомлений, звонков и будильников.</string>
     <string name="usb_audio_disable_routing">Откл. передачу аудио (USB)</string>
     <string name="usb_audio_disable_routing_summary">Откл. автом. маршрутизацию на внеш. USB-устройства</string>
     <string name="usb_contaminant_message">"Чтобы внутрь устройства не попала вода или грязь, USB-порт был отключен. Сейчас через него нельзя подсоединять другие устройства.

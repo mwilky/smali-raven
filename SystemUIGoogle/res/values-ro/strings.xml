@@ -237,6 +237,9 @@
     <string name="accessor_no_description_text">Aplicația nu oferă nicio descriere.</string>
     <string name="active_input_method_subtypes">Metode active de introducere de text</string>
     <string name="activity_launch_on_secondary_display_failed_text">Aplicația nu acceptă lansare pe ecrane secundare.</string>
+    <string name="adaptive_charging_notify_des">Bateria se va încărca în %1$s. Încărcare constantă pentru a păstra autonomia bateriei.</string>
+    <string name="adaptive_charging_notify_title">S-a activat încărcarea adaptabilă</string>
+    <string name="adaptive_charging_notify_turn_off_once">Dezactivați o dată</string>
     <string name="adaptive_charging_time_estimate">%1$s • Încărcare adaptativă (timp rămas: %2$s)</string>
     <string name="adb_device_fingerprint_title_format">Amprenta pentru dispozitiv: %1$s</string>
     <string name="adb_device_forget">Ștergeți</string>
@@ -301,6 +304,7 @@ Dacă permisiunea este dezactivată, alarmele și evenimentele dependente de tim
     <string name="basic_status">Deschideți conversația</string>
     <string name="battery">Baterie</string>
     <string name="battery_detail_switch_title">Economisirea bateriei</string>
+    <string name="battery_health_notify_learn_more">Aflați mai multe</string>
     <string name="battery_info_status_charging">Se încarcă</string>
     <string name="battery_info_status_charging_fast">Se încarcă rapid</string>
     <string name="battery_info_status_charging_slow">Se încarcă lent</string>
@@ -616,7 +620,6 @@ Dacă reluați, este posibil să se aplice taxe pentru utilizarea datelor."</str
     <string name="debug_networking_category">Conectare la rețele</string>
     <string name="debug_view_attributes">Activați inspectarea atributelor de vizualizare</string>
     <string name="defender_notify_des">Telefonul dvs. limitează încărcarea pentru a conserva buna funcționare a bateriei</string>
-    <string name="defender_notify_learn_more">Aflați mai multe</string>
     <string name="defender_notify_resume_charge">Reluați încărcarea</string>
     <string name="defender_notify_title">Încărcare limitată temporar</string>
     <string name="defender_post_notify_des">Încărcarea a fost limitată la %1$s între %2$s și %3$s pentru a menține buna funcționare a bateriei</string>
@@ -1704,6 +1707,10 @@ Atingeți pentru mai multe informații"</string>
     <string name="usb_accessory_confirm_prompt">Deschideți %1$s ca să gestioneze %2$s?</string>
     <string name="usb_accessory_permission_prompt">Permiteți %1$s să acceseze %2$s?</string>
     <string name="usb_accessory_uri_prompt">Aplic. instal. nu funcț. cu acest acces. USB. Aflați despre acest accesoriu la %1$s</string>
+    <string name="usb_audio_device_confirm_prompt_title">Deschideți %1$s ca să gestioneze %2$s?</string>
+    <string name="usb_audio_device_permission_prompt_title">Permiteți ca %1$s să acceseze %2$s?</string>
+    <string name="usb_audio_device_prompt">Dacă folosiți %1$s cu acest dispozitiv, acest lucru vă poate împiedica să auziți apeluri, notificări și alarme.</string>
+    <string name="usb_audio_device_prompt_warn">Permisiunea de înregistrare nu a fost acordată aplicației, dar aceasta poate să înregistreze conținut audio prin intermediul acestui dispozitiv USB. Dacă folosiți %1$s cu acest dispozitiv, acest lucru vă poate împiedica să auziți apeluri, notificări și alarme.</string>
     <string name="usb_audio_disable_routing">Dezactivați rutarea audio USB</string>
     <string name="usb_audio_disable_routing_summary">Dezact. rutarea automată către perif. audio USB</string>
     <string name="usb_contaminant_message">"Pentru a vă proteja dispozitivul de lichide sau reziduuri, portul USB este dezactivat și nu va detecta niciun accesoriu.

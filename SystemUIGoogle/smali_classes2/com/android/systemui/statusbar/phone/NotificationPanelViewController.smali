@@ -666,7 +666,7 @@
     return-void
 .end method
 
-.method public constructor <init>(Lcom/android/systemui/statusbar/phone/NotificationPanelView;Landroid/content/res/Resources;Landroid/os/Handler;Landroid/view/LayoutInflater;Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;Lcom/android/systemui/statusbar/PulseExpansionHandler;Lcom/android/systemui/statusbar/notification/DynamicPrivacyController;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/classifier/FalsingCollector;Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/doze/DozeLog;Lcom/android/systemui/statusbar/phone/DozeParameters;Lcom/android/systemui/statusbar/CommandQueue;Lcom/android/systemui/statusbar/VibratorHelper;Lcom/android/internal/util/LatencyTracker;Landroid/os/PowerManager;Landroid/view/accessibility/AccessibilityManager;ILcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/internal/logging/MetricsLogger;Landroid/app/ActivityManager;Lcom/android/systemui/statusbar/policy/ConfigurationController;Ljavax/inject/Provider;Lcom/android/systemui/statusbar/phone/StatusBarTouchableRegionManager;Lcom/android/systemui/statusbar/notification/ConversationNotificationManager;Lcom/android/systemui/media/MediaHierarchyManager;Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;Lcom/android/systemui/statusbar/phone/NotificationsQSContainerController;Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;Lcom/android/keyguard/dagger/KeyguardStatusViewComponent$Factory;Lcom/android/keyguard/dagger/KeyguardQsUserSwitchComponent$Factory;Lcom/android/keyguard/dagger/KeyguardUserSwitcherComponent$Factory;Lcom/android/keyguard/dagger/KeyguardStatusBarViewComponent$Factory;Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;Lcom/android/systemui/qs/QSDetailDisplayer;Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;Lcom/android/systemui/biometrics/AuthController;Lcom/android/systemui/statusbar/phone/ScrimController;Landroid/os/UserManager;Lcom/android/systemui/media/MediaDataManager;Lcom/android/systemui/statusbar/NotificationShadeDepthController;Lcom/android/systemui/statusbar/notification/stack/AmbientState;Lcom/android/keyguard/LockIconViewController;Lcom/android/systemui/media/KeyguardMediaController;Lcom/android/systemui/statusbar/events/PrivacyDotViewController;Lcom/android/systemui/statusbar/phone/TapAgainViewController;Lcom/android/systemui/navigationbar/NavigationModeController;Lcom/android/systemui/fragments/FragmentService;Landroid/content/ContentResolver;Lcom/android/systemui/wallet/controller/QuickAccessWalletController;Lcom/android/systemui/screenrecord/RecordingController;Ljava/util/concurrent/Executor;Lcom/android/systemui/util/settings/SecureSettings;Lcom/android/systemui/statusbar/phone/SplitShadeHeaderController;Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;Lcom/android/systemui/statusbar/phone/LockscreenGestureLogger;Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionStateManager;Lcom/android/systemui/statusbar/NotificationRemoteInputManager;Ljava/util/Optional;Lcom/android/systemui/controls/dagger/ControlsComponent;Lcom/android/systemui/flags/FeatureFlags;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/phone/NotificationPanelView;Landroid/content/res/Resources;Landroid/os/Handler;Landroid/view/LayoutInflater;Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;Lcom/android/systemui/statusbar/PulseExpansionHandler;Lcom/android/systemui/statusbar/notification/DynamicPrivacyController;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/classifier/FalsingCollector;Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/NotificationShadeWindowController;Lcom/android/systemui/doze/DozeLog;Lcom/android/systemui/statusbar/phone/DozeParameters;Lcom/android/systemui/statusbar/CommandQueue;Lcom/android/systemui/statusbar/VibratorHelper;Lcom/android/internal/util/LatencyTracker;Landroid/os/PowerManager;Landroid/view/accessibility/AccessibilityManager;ILcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/internal/logging/MetricsLogger;Landroid/app/ActivityManager;Lcom/android/systemui/statusbar/policy/ConfigurationController;Ljavax/inject/Provider;Lcom/android/systemui/statusbar/phone/StatusBarTouchableRegionManager;Lcom/android/systemui/statusbar/notification/ConversationNotificationManager;Lcom/android/systemui/media/MediaHierarchyManager;Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;Lcom/android/systemui/statusbar/phone/NotificationsQSContainerController;Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;Lcom/android/keyguard/dagger/KeyguardStatusViewComponent$Factory;Lcom/android/keyguard/dagger/KeyguardQsUserSwitchComponent$Factory;Lcom/android/keyguard/dagger/KeyguardUserSwitcherComponent$Factory;Lcom/android/keyguard/dagger/KeyguardStatusBarViewComponent$Factory;Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;Lcom/android/systemui/qs/QSDetailDisplayer;Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;Lcom/android/systemui/biometrics/AuthController;Lcom/android/systemui/statusbar/phone/ScrimController;Landroid/os/UserManager;Lcom/android/systemui/media/MediaDataManager;Lcom/android/systemui/statusbar/NotificationShadeDepthController;Lcom/android/systemui/statusbar/notification/stack/AmbientState;Lcom/android/keyguard/LockIconViewController;Lcom/android/systemui/media/KeyguardMediaController;Lcom/android/systemui/statusbar/events/PrivacyDotViewController;Lcom/android/systemui/statusbar/phone/TapAgainViewController;Lcom/android/systemui/navigationbar/NavigationModeController;Lcom/android/systemui/fragments/FragmentService;Landroid/content/ContentResolver;Lcom/android/systemui/wallet/controller/QuickAccessWalletController;Lcom/android/systemui/screenrecord/RecordingController;Ljava/util/concurrent/Executor;Lcom/android/systemui/util/settings/SecureSettings;Lcom/android/systemui/statusbar/phone/SplitShadeHeaderController;Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;Lcom/android/systemui/statusbar/phone/LockscreenGestureLogger;Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionStateManager;Lcom/android/systemui/statusbar/NotificationRemoteInputManager;Ljava/util/Optional;Lcom/android/systemui/controls/dagger/ControlsComponent;Lcom/android/systemui/flags/FeatureFlags;)V
     .locals 16
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -685,6 +685,7 @@
             "Lcom/android/systemui/statusbar/notification/NotificationEntryManager;",
             "Lcom/android/systemui/statusbar/policy/KeyguardStateController;",
             "Lcom/android/systemui/plugins/statusbar/StatusBarStateController;",
+            "Lcom/android/systemui/statusbar/NotificationShadeWindowController;",
             "Lcom/android/systemui/doze/DozeLog;",
             "Lcom/android/systemui/statusbar/phone/DozeParameters;",
             "Lcom/android/systemui/statusbar/CommandQueue;",
@@ -745,27 +746,27 @@
         }
     .end annotation
 
-    move-object/from16 v14, p0
+    move-object/from16 v15, p0
 
-    move-object/from16 v15, p1
+    move-object/from16 v14, p1
 
     move-object/from16 v13, p6
 
-    move-object/from16 v12, p38
+    move-object/from16 v12, p39
 
-    move-object/from16 v11, p43
+    move-object/from16 v11, p44
 
     move-object/from16 v5, p14
 
     check-cast v5, Lcom/android/systemui/statusbar/SysuiStatusBarStateController;
 
-    invoke-interface/range {p27 .. p27}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    invoke-interface/range {p28 .. p28}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object v0
 
-    move-object v9, v0
+    move-object v10, v0
 
-    check-cast v9, Lcom/android/wm/shell/animation/FlingAnimationUtils$Builder;
+    check-cast v10, Lcom/android/wm/shell/animation/FlingAnimationUtils$Builder;
 
     move-object/from16 v0, p0
 
@@ -773,129 +774,131 @@
 
     move-object/from16 v2, p9
 
-    move-object/from16 v3, p15
+    move-object/from16 v3, p16
 
     move-object/from16 v4, p13
 
-    move-object/from16 v6, p18
+    move-object/from16 v6, p15
 
-    move-object/from16 v7, p31
+    move-object/from16 v7, p19
 
-    move-object/from16 v8, p19
+    move-object/from16 v8, p32
 
-    move-object/from16 v10, p28
+    move-object/from16 v9, p20
 
-    move-object/from16 v11, p61
+    move-object/from16 v11, p29
 
     move-object/from16 v12, p62
 
-    move-object/from16 v13, p47
+    move-object/from16 v13, p63
 
-    invoke-direct/range {v0 .. v13}, Lcom/android/systemui/statusbar/phone/PanelViewController;-><init>(Lcom/android/systemui/statusbar/phone/PanelView;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/doze/DozeLog;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/statusbar/SysuiStatusBarStateController;Lcom/android/systemui/statusbar/VibratorHelper;Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;Lcom/android/internal/util/LatencyTracker;Lcom/android/wm/shell/animation/FlingAnimationUtils$Builder;Lcom/android/systemui/statusbar/phone/StatusBarTouchableRegionManager;Lcom/android/systemui/statusbar/phone/LockscreenGestureLogger;Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionStateManager;Lcom/android/systemui/statusbar/notification/stack/AmbientState;)V
+    move-object/from16 v14, p48
+
+    invoke-direct/range {v0 .. v14}, Lcom/android/systemui/statusbar/phone/PanelViewController;-><init>(Lcom/android/systemui/statusbar/phone/PanelView;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/doze/DozeLog;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/statusbar/SysuiStatusBarStateController;Lcom/android/systemui/statusbar/NotificationShadeWindowController;Lcom/android/systemui/statusbar/VibratorHelper;Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;Lcom/android/internal/util/LatencyTracker;Lcom/android/wm/shell/animation/FlingAnimationUtils$Builder;Lcom/android/systemui/statusbar/phone/StatusBarTouchableRegionManager;Lcom/android/systemui/statusbar/phone/LockscreenGestureLogger;Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionStateManager;Lcom/android/systemui/statusbar/notification/stack/AmbientState;)V
 
     new-instance v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$OnHeightChangedListener;
 
     const/4 v1, 0x0
 
-    invoke-direct {v0, v14, v1}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$OnHeightChangedListener;-><init>(Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$1;)V
+    invoke-direct {v0, v15, v1}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$OnHeightChangedListener;-><init>(Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$1;)V
 
-    iput-object v0, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mOnHeightChangedListener:Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$OnHeightChangedListener;
+    iput-object v0, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mOnHeightChangedListener:Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$OnHeightChangedListener;
 
     new-instance v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$OnClickListener;
 
-    invoke-direct {v0, v14, v1}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$OnClickListener;-><init>(Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$1;)V
+    invoke-direct {v0, v15, v1}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$OnClickListener;-><init>(Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$1;)V
 
-    iput-object v0, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mOnClickListener:Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$OnClickListener;
+    iput-object v0, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mOnClickListener:Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$OnClickListener;
 
     new-instance v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$OnOverscrollTopChangedListener;
 
-    invoke-direct {v0, v14, v1}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$OnOverscrollTopChangedListener;-><init>(Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$1;)V
+    invoke-direct {v0, v15, v1}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$OnOverscrollTopChangedListener;-><init>(Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$1;)V
 
-    iput-object v0, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mOnOverscrollTopChangedListener:Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$OnOverscrollTopChangedListener;
+    iput-object v0, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mOnOverscrollTopChangedListener:Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$OnOverscrollTopChangedListener;
 
     new-instance v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$KeyguardAffordanceHelperCallback;
 
-    invoke-direct {v0, v14, v1}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$KeyguardAffordanceHelperCallback;-><init>(Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$1;)V
+    invoke-direct {v0, v15, v1}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$KeyguardAffordanceHelperCallback;-><init>(Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$1;)V
 
-    iput-object v0, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mKeyguardAffordanceHelperCallback:Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$KeyguardAffordanceHelperCallback;
+    iput-object v0, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mKeyguardAffordanceHelperCallback:Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$KeyguardAffordanceHelperCallback;
 
     new-instance v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$OnEmptySpaceClickListener;
 
-    invoke-direct {v0, v14, v1}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$OnEmptySpaceClickListener;-><init>(Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$1;)V
+    invoke-direct {v0, v15, v1}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$OnEmptySpaceClickListener;-><init>(Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$1;)V
 
-    iput-object v0, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mOnEmptySpaceClickListener:Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$OnEmptySpaceClickListener;
+    iput-object v0, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mOnEmptySpaceClickListener:Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$OnEmptySpaceClickListener;
 
     new-instance v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$MyOnHeadsUpChangedListener;
 
-    invoke-direct {v0, v14, v1}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$MyOnHeadsUpChangedListener;-><init>(Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$1;)V
+    invoke-direct {v0, v15, v1}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$MyOnHeadsUpChangedListener;-><init>(Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$1;)V
 
-    iput-object v0, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mOnHeadsUpChangedListener:Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$MyOnHeadsUpChangedListener;
+    iput-object v0, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mOnHeadsUpChangedListener:Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$MyOnHeadsUpChangedListener;
 
     new-instance v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$HeightListener;
 
-    invoke-direct {v0, v14, v1}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$HeightListener;-><init>(Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$1;)V
+    invoke-direct {v0, v15, v1}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$HeightListener;-><init>(Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$1;)V
 
-    iput-object v0, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mHeightListener:Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$HeightListener;
+    iput-object v0, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mHeightListener:Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$HeightListener;
 
     new-instance v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$ConfigurationListener;
 
-    invoke-direct {v0, v14, v1}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$ConfigurationListener;-><init>(Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$1;)V
+    invoke-direct {v0, v15, v1}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$ConfigurationListener;-><init>(Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$1;)V
 
-    iput-object v0, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mConfigurationListener:Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$ConfigurationListener;
+    iput-object v0, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mConfigurationListener:Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$ConfigurationListener;
 
     new-instance v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$StatusBarStateListener;
 
-    invoke-direct {v0, v14, v1}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$StatusBarStateListener;-><init>(Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$1;)V
+    invoke-direct {v0, v15, v1}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$StatusBarStateListener;-><init>(Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$1;)V
 
-    iput-object v0, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mStatusBarStateListener:Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$StatusBarStateListener;
+    iput-object v0, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mStatusBarStateListener:Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$StatusBarStateListener;
 
     const/4 v0, 0x1
 
-    iput-boolean v0, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mQsExpansionEnabledPolicy:Z
+    iput-boolean v0, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mQsExpansionEnabledPolicy:Z
 
-    iput-boolean v0, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mQsExpansionEnabledAmbient:Z
+    iput-boolean v0, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mQsExpansionEnabledAmbient:Z
 
     const/4 v2, 0x0
 
-    iput v2, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mDisplayTopInset:I
+    iput v2, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mDisplayTopInset:I
 
-    iput v2, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mDisplayRightInset:I
+    iput v2, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mDisplayRightInset:I
 
     new-instance v3, Lcom/android/systemui/statusbar/phone/KeyguardClockPositionAlgorithm;
 
     invoke-direct {v3}, Lcom/android/systemui/statusbar/phone/KeyguardClockPositionAlgorithm;-><init>()V
 
-    iput-object v3, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mClockPositionAlgorithm:Lcom/android/systemui/statusbar/phone/KeyguardClockPositionAlgorithm;
+    iput-object v3, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mClockPositionAlgorithm:Lcom/android/systemui/statusbar/phone/KeyguardClockPositionAlgorithm;
 
     new-instance v3, Lcom/android/systemui/statusbar/phone/KeyguardClockPositionAlgorithm$Result;
 
     invoke-direct {v3}, Lcom/android/systemui/statusbar/phone/KeyguardClockPositionAlgorithm$Result;-><init>()V
 
-    iput-object v3, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mClockPositionResult:Lcom/android/systemui/statusbar/phone/KeyguardClockPositionAlgorithm$Result;
+    iput-object v3, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mClockPositionResult:Lcom/android/systemui/statusbar/phone/KeyguardClockPositionAlgorithm$Result;
 
-    iput-boolean v0, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mQsScrimEnabled:Z
+    iput-boolean v0, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mQsScrimEnabled:Z
 
     const/4 v3, -0x1
 
-    iput v3, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mLastOrientation:I
+    iput v3, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mLastOrientation:I
 
     const-string v3, "lockscreen_affordance"
 
-    iput-object v3, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mLastCameraLaunchSource:Ljava/lang/String;
+    iput-object v3, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mLastCameraLaunchSource:Ljava/lang/String;
 
     new-instance v3, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$$ExternalSyntheticLambda8;
 
-    invoke-direct {v3, v14}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$$ExternalSyntheticLambda8;-><init>(Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;)V
+    invoke-direct {v3, v15}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$$ExternalSyntheticLambda8;-><init>(Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;)V
 
-    iput-object v3, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mHeadsUpExistenceChangedRunnable:Ljava/lang/Runnable;
+    iput-object v3, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mHeadsUpExistenceChangedRunnable:Ljava/lang/Runnable;
 
-    iput-boolean v0, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mHideIconsDuringLaunchAnimation:Z
+    iput-boolean v0, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mHideIconsDuringLaunchAnimation:Z
 
     new-instance v3, Ljava/util/ArrayList;
 
     invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object v3, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mTrackingHeadsUpListeners:Ljava/util/ArrayList;
+    iput-object v3, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mTrackingHeadsUpListeners:Ljava/util/ArrayList;
 
     sget-object v5, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$$ExternalSyntheticLambda9;->INSTANCE:Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$$ExternalSyntheticLambda9;
 
@@ -913,7 +916,7 @@
 
     move-result-object v3
 
-    iput-object v3, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mPanelAlphaAnimator:Lcom/android/systemui/statusbar/notification/AnimatableProperty;
+    iput-object v3, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mPanelAlphaAnimator:Lcom/android/systemui/statusbar/notification/AnimatableProperty;
 
     new-instance v4, Lcom/android/systemui/statusbar/notification/stack/AnimationProperties;
 
@@ -935,7 +938,7 @@
 
     move-result-object v4
 
-    iput-object v4, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mPanelAlphaOutPropertiesAnimator:Lcom/android/systemui/statusbar/notification/stack/AnimationProperties;
+    iput-object v4, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mPanelAlphaOutPropertiesAnimator:Lcom/android/systemui/statusbar/notification/stack/AnimationProperties;
 
     new-instance v4, Lcom/android/systemui/statusbar/notification/stack/AnimationProperties;
 
@@ -949,7 +952,7 @@
 
     new-instance v5, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$$ExternalSyntheticLambda11;
 
-    invoke-direct {v5, v14}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$$ExternalSyntheticLambda11;-><init>(Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;)V
+    invoke-direct {v5, v15}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$$ExternalSyntheticLambda11;-><init>(Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;)V
 
     invoke-virtual {v4, v5}, Lcom/android/systemui/statusbar/notification/stack/AnimationProperties;->setAnimationEndAction(Ljava/util/function/Consumer;)Lcom/android/systemui/statusbar/notification/stack/AnimationProperties;
 
@@ -965,285 +968,287 @@
 
     move-result-object v3
 
-    iput-object v3, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mPanelAlphaInPropertiesAnimator:Lcom/android/systemui/statusbar/notification/stack/AnimationProperties;
+    iput-object v3, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mPanelAlphaInPropertiesAnimator:Lcom/android/systemui/statusbar/notification/stack/AnimationProperties;
 
     new-instance v3, Landroid/graphics/Rect;
 
     invoke-direct {v3}, Landroid/graphics/Rect;-><init>()V
 
-    iput-object v3, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mQsClippingAnimationEndBounds:Landroid/graphics/Rect;
+    iput-object v3, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mQsClippingAnimationEndBounds:Landroid/graphics/Rect;
 
-    iput-object v1, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mQsClippingAnimation:Landroid/animation/ValueAnimator;
+    iput-object v1, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mQsClippingAnimation:Landroid/animation/ValueAnimator;
 
     new-instance v3, Landroid/graphics/Rect;
 
     invoke-direct {v3}, Landroid/graphics/Rect;-><init>()V
 
-    iput-object v3, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mKeyguardStatusAreaClipBounds:Landroid/graphics/Rect;
+    iput-object v3, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mKeyguardStatusAreaClipBounds:Landroid/graphics/Rect;
 
     new-instance v3, Landroid/graphics/Region;
 
     invoke-direct {v3}, Landroid/graphics/Region;-><init>()V
 
-    iput-object v3, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mQsInterceptRegion:Landroid/graphics/Region;
+    iput-object v3, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mQsInterceptRegion:Landroid/graphics/Region;
 
     const/high16 v3, 0x3f800000    # 1.0f
 
-    iput v3, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mKeyguardOnlyContentAlpha:F
+    iput v3, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mKeyguardOnlyContentAlpha:F
 
-    iput-boolean v0, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mStatusViewCentered:Z
+    iput-boolean v0, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mStatusViewCentered:Z
 
     new-instance v3, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$1;
 
-    invoke-direct {v3, v14}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$1;-><init>(Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;)V
+    invoke-direct {v3, v15}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$1;-><init>(Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;)V
 
-    iput-object v3, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mAccessibilityDelegate:Landroid/view/View$AccessibilityDelegate;
+    iput-object v3, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mAccessibilityDelegate:Landroid/view/View$AccessibilityDelegate;
 
     new-instance v3, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$2;
 
-    invoke-direct {v3, v14}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$2;-><init>(Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;)V
+    invoke-direct {v3, v15}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$2;-><init>(Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;)V
 
-    iput-object v3, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mFalsingTapListener:Lcom/android/systemui/plugins/FalsingManager$FalsingTapListener;
+    iput-object v3, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mFalsingTapListener:Lcom/android/systemui/plugins/FalsingManager$FalsingTapListener;
 
     new-instance v3, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$6;
 
-    invoke-direct {v3, v14}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$6;-><init>(Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;)V
+    invoke-direct {v3, v15}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$6;-><init>(Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;)V
 
-    iput-object v3, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mAnimateKeyguardBottomAreaInvisibleEndRunnable:Ljava/lang/Runnable;
+    iput-object v3, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mAnimateKeyguardBottomAreaInvisibleEndRunnable:Ljava/lang/Runnable;
 
     new-instance v3, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$$ExternalSyntheticLambda4;
 
-    invoke-direct {v3, v14}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$$ExternalSyntheticLambda4;-><init>(Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;)V
+    invoke-direct {v3, v15}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$$ExternalSyntheticLambda4;-><init>(Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;)V
 
-    iput-object v3, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mScrollListener:Lcom/android/systemui/plugins/qs/QS$ScrollListener;
+    iput-object v3, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mScrollListener:Lcom/android/systemui/plugins/qs/QS$ScrollListener;
 
     new-instance v3, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$11;
 
-    invoke-direct {v3, v14}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$11;-><init>(Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;)V
+    invoke-direct {v3, v15}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$11;-><init>(Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;)V
 
-    iput-object v3, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mFragmentListener:Lcom/android/systemui/fragments/FragmentHostManager$FragmentListener;
+    iput-object v3, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mFragmentListener:Lcom/android/systemui/fragments/FragmentHostManager$FragmentListener;
 
     new-instance v3, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$12;
 
-    invoke-direct {v3, v14}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$12;-><init>(Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;)V
+    invoke-direct {v3, v15}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$12;-><init>(Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;)V
 
-    iput-object v3, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mMaybeHideExpandedRunnable:Ljava/lang/Runnable;
+    iput-object v3, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mMaybeHideExpandedRunnable:Ljava/lang/Runnable;
 
     new-instance v3, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$14;
 
-    invoke-direct {v3, v14}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$14;-><init>(Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;)V
+    invoke-direct {v3, v15}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$14;-><init>(Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;)V
 
-    iput-object v3, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mStatusBarViewTouchEventHandler:Lcom/android/systemui/statusbar/phone/PhoneStatusBarView$TouchEventHandler;
+    iput-object v3, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mStatusBarViewTouchEventHandler:Lcom/android/systemui/statusbar/phone/PhoneStatusBarView$TouchEventHandler;
 
     new-instance v3, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$15;
 
-    invoke-direct {v3, v14}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$15;-><init>(Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;)V
+    invoke-direct {v3, v15}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$15;-><init>(Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;)V
 
-    iput-object v3, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mNotificationPanelViewStateProvider:Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$NotificationPanelViewStateProvider;
+    iput-object v3, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mNotificationPanelViewStateProvider:Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$NotificationPanelViewStateProvider;
 
-    iput v2, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mCurrentPanelState:I
+    iput v2, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mCurrentPanelState:I
 
-    iput-object v15, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mView:Lcom/android/systemui/statusbar/phone/NotificationPanelView;
+    move-object/from16 v3, p1
 
-    move-object/from16 v3, p18
+    iput-object v3, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mView:Lcom/android/systemui/statusbar/phone/NotificationPanelView;
 
-    iput-object v3, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mVibratorHelper:Lcom/android/systemui/statusbar/VibratorHelper;
+    move-object/from16 v4, p19
 
-    move-object/from16 v3, p49
+    iput-object v4, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mVibratorHelper:Lcom/android/systemui/statusbar/VibratorHelper;
 
-    iput-object v3, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mKeyguardMediaController:Lcom/android/systemui/media/KeyguardMediaController;
+    move-object/from16 v4, p50
 
-    move-object/from16 v3, p50
+    iput-object v4, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mKeyguardMediaController:Lcom/android/systemui/media/KeyguardMediaController;
 
-    iput-object v3, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mPrivacyDotViewController:Lcom/android/systemui/statusbar/events/PrivacyDotViewController;
+    move-object/from16 v4, p51
 
-    move-object/from16 v3, p55
+    iput-object v4, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mPrivacyDotViewController:Lcom/android/systemui/statusbar/events/PrivacyDotViewController;
 
-    iput-object v3, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mQuickAccessWalletController:Lcom/android/systemui/wallet/controller/QuickAccessWalletController;
+    move-object/from16 v4, p56
 
-    move-object/from16 v3, p65
+    iput-object v4, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mQuickAccessWalletController:Lcom/android/systemui/wallet/controller/QuickAccessWalletController;
 
-    iput-object v3, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mControlsComponent:Lcom/android/systemui/controls/dagger/ControlsComponent;
+    move-object/from16 v4, p66
 
-    move-object/from16 v3, p24
+    iput-object v4, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mControlsComponent:Lcom/android/systemui/controls/dagger/ControlsComponent;
 
-    iput-object v3, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mMetricsLogger:Lcom/android/internal/logging/MetricsLogger;
+    move-object/from16 v4, p25
 
-    move-object/from16 v3, p25
+    iput-object v4, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mMetricsLogger:Lcom/android/internal/logging/MetricsLogger;
 
-    iput-object v3, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mActivityManager:Landroid/app/ActivityManager;
+    move-object/from16 v4, p26
 
-    move-object/from16 v3, p26
+    iput-object v4, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mActivityManager:Landroid/app/ActivityManager;
 
-    iput-object v3, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mConfigurationController:Lcom/android/systemui/statusbar/policy/ConfigurationController;
+    move-object/from16 v4, p27
 
-    move-object/from16 v3, p27
+    iput-object v4, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mConfigurationController:Lcom/android/systemui/statusbar/policy/ConfigurationController;
 
-    iput-object v3, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mFlingAnimationUtilsBuilder:Ljavax/inject/Provider;
+    move-object/from16 v4, p28
 
-    move-object/from16 v3, p30
+    iput-object v4, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mFlingAnimationUtilsBuilder:Ljavax/inject/Provider;
 
-    iput-object v3, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mMediaHierarchyManager:Lcom/android/systemui/media/MediaHierarchyManager;
+    move-object/from16 v4, p31
 
-    move-object/from16 v3, p31
+    iput-object v4, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mMediaHierarchyManager:Lcom/android/systemui/media/MediaHierarchyManager;
 
-    iput-object v3, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mStatusBarKeyguardViewManager:Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;
+    move-object/from16 v4, p32
 
-    move-object/from16 v3, p32
+    iput-object v4, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mStatusBarKeyguardViewManager:Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;
 
-    iput-object v3, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mNotificationsQSContainerController:Lcom/android/systemui/statusbar/phone/NotificationsQSContainerController;
+    move-object/from16 v4, p33
 
-    invoke-virtual/range {p32 .. p32}, Lcom/android/systemui/util/ViewController;->init()V
+    iput-object v4, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mNotificationsQSContainerController:Lcom/android/systemui/statusbar/phone/NotificationsQSContainerController;
 
-    move-object/from16 v3, p33
+    invoke-virtual/range {p33 .. p33}, Lcom/android/systemui/util/ViewController;->init()V
 
-    iput-object v3, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mNotificationStackScrollLayoutController:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;
+    move-object/from16 v4, p34
 
-    move-object/from16 v3, p40
+    iput-object v4, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mNotificationStackScrollLayoutController:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;
 
-    iput-object v3, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mGroupManager:Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;
+    move-object/from16 v4, p41
 
-    move-object/from16 v3, p41
+    iput-object v4, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mGroupManager:Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;
 
-    iput-object v3, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mNotificationIconAreaController:Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;
+    move-object/from16 v4, p42
 
-    move-object/from16 v3, p34
+    iput-object v4, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mNotificationIconAreaController:Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;
 
-    iput-object v3, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mKeyguardStatusViewComponentFactory:Lcom/android/keyguard/dagger/KeyguardStatusViewComponent$Factory;
+    move-object/from16 v4, p35
 
-    move-object/from16 v3, p37
+    iput-object v4, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mKeyguardStatusViewComponentFactory:Lcom/android/keyguard/dagger/KeyguardStatusViewComponent$Factory;
 
-    iput-object v3, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mKeyguardStatusBarViewComponentFactory:Lcom/android/keyguard/dagger/KeyguardStatusBarViewComponent$Factory;
+    move-object/from16 v4, p38
 
-    move-object/from16 v3, p46
+    iput-object v4, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mKeyguardStatusBarViewComponentFactory:Lcom/android/keyguard/dagger/KeyguardStatusBarViewComponent$Factory;
 
-    iput-object v3, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mDepthController:Lcom/android/systemui/statusbar/NotificationShadeDepthController;
+    move-object/from16 v4, p47
 
-    move-object/from16 v3, p54
+    iput-object v4, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mDepthController:Lcom/android/systemui/statusbar/NotificationShadeDepthController;
 
-    iput-object v3, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mContentResolver:Landroid/content/ContentResolver;
+    move-object/from16 v4, p55
 
-    move-object/from16 v3, p35
+    iput-object v4, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mContentResolver:Landroid/content/ContentResolver;
 
-    iput-object v3, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mKeyguardQsUserSwitchComponentFactory:Lcom/android/keyguard/dagger/KeyguardQsUserSwitchComponent$Factory;
+    move-object/from16 v4, p36
 
-    move-object/from16 v3, p36
+    iput-object v4, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mKeyguardQsUserSwitchComponentFactory:Lcom/android/keyguard/dagger/KeyguardQsUserSwitchComponent$Factory;
 
-    iput-object v3, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mKeyguardUserSwitcherComponentFactory:Lcom/android/keyguard/dagger/KeyguardUserSwitcherComponent$Factory;
+    move-object/from16 v4, p37
 
-    move-object/from16 v3, p39
+    iput-object v4, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mKeyguardUserSwitcherComponentFactory:Lcom/android/keyguard/dagger/KeyguardUserSwitcherComponent$Factory;
 
-    iput-object v3, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mQSDetailDisplayer:Lcom/android/systemui/qs/QSDetailDisplayer;
+    move-object/from16 v4, p40
 
-    move-object/from16 v3, p53
+    iput-object v4, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mQSDetailDisplayer:Lcom/android/systemui/qs/QSDetailDisplayer;
 
-    iput-object v3, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mFragmentService:Lcom/android/systemui/fragments/FragmentService;
+    move-object/from16 v4, p54
 
-    new-instance v3, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$SettingsChangeObserver;
+    iput-object v4, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mFragmentService:Lcom/android/systemui/fragments/FragmentService;
 
-    move-object/from16 v4, p3
+    new-instance v4, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$SettingsChangeObserver;
 
-    invoke-direct {v3, v14, v4}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$SettingsChangeObserver;-><init>(Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;Landroid/os/Handler;)V
+    move-object/from16 v5, p3
 
-    iput-object v3, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mSettingsChangeObserver:Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$SettingsChangeObserver;
+    invoke-direct {v4, v15, v5}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$SettingsChangeObserver;-><init>(Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;Landroid/os/Handler;)V
 
-    iget-object v3, v14, Lcom/android/systemui/statusbar/phone/PanelViewController;->mResources:Landroid/content/res/Resources;
+    iput-object v4, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mSettingsChangeObserver:Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$SettingsChangeObserver;
 
-    invoke-static {v3}, Lcom/android/systemui/util/Utils;->shouldUseSplitNotificationShade(Landroid/content/res/Resources;)Z
+    iget-object v4, v15, Lcom/android/systemui/statusbar/phone/PanelViewController;->mResources:Landroid/content/res/Resources;
 
-    move-result v3
+    invoke-static {v4}, Lcom/android/systemui/util/Utils;->shouldUseSplitNotificationShade(Landroid/content/res/Resources;)Z
 
-    iput-boolean v3, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mShouldUseSplitNotificationShade:Z
+    move-result v4
 
-    invoke-virtual {v15, v0}, Landroid/widget/FrameLayout;->setWillNotDraw(Z)V
+    iput-boolean v4, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mShouldUseSplitNotificationShade:Z
 
-    move-object/from16 v3, p59
+    invoke-virtual {v3, v0}, Landroid/widget/FrameLayout;->setWillNotDraw(Z)V
 
-    iput-object v3, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mSplitShadeHeaderController:Lcom/android/systemui/statusbar/phone/SplitShadeHeaderController;
+    move-object/from16 v4, p60
 
-    move-object/from16 v3, p4
+    iput-object v4, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mSplitShadeHeaderController:Lcom/android/systemui/statusbar/phone/SplitShadeHeaderController;
 
-    iput-object v3, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mLayoutInflater:Landroid/view/LayoutInflater;
+    move-object/from16 v4, p4
 
-    move-object/from16 v3, p9
+    iput-object v4, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mLayoutInflater:Landroid/view/LayoutInflater;
 
-    iput-object v3, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mFalsingManager:Lcom/android/systemui/plugins/FalsingManager;
+    move-object/from16 v4, p9
 
-    move-object/from16 v3, p10
+    iput-object v4, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mFalsingManager:Lcom/android/systemui/plugins/FalsingManager;
 
-    iput-object v3, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mFalsingCollector:Lcom/android/systemui/classifier/FalsingCollector;
+    move-object/from16 v4, p10
 
-    move-object/from16 v3, p20
+    iput-object v4, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mFalsingCollector:Lcom/android/systemui/classifier/FalsingCollector;
 
-    iput-object v3, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mPowerManager:Landroid/os/PowerManager;
+    move-object/from16 v4, p21
 
-    move-object/from16 v3, p5
+    iput-object v4, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mPowerManager:Landroid/os/PowerManager;
 
-    iput-object v3, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mWakeUpCoordinator:Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;
+    move-object/from16 v4, p5
 
-    move-object/from16 v3, p21
+    iput-object v4, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mWakeUpCoordinator:Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;
 
-    iput-object v3, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mAccessibilityManager:Landroid/view/accessibility/AccessibilityManager;
+    move-object/from16 v4, p22
+
+    iput-object v4, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mAccessibilityManager:Landroid/view/accessibility/AccessibilityManager;
 
     invoke-direct/range {p0 .. p0}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->determineAccessibilityPaneTitle()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v15, v3}, Landroid/widget/FrameLayout;->setAccessibilityPaneTitle(Ljava/lang/CharSequence;)V
+    invoke-virtual {v3, v4}, Landroid/widget/FrameLayout;->setAccessibilityPaneTitle(Ljava/lang/CharSequence;)V
 
-    const/16 v3, 0xff
+    const/16 v4, 0xff
 
-    invoke-virtual {v14, v3, v2}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->setPanelAlpha(IZ)V
+    invoke-virtual {v15, v4, v2}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->setPanelAlpha(IZ)V
 
-    move-object/from16 v3, p17
+    move-object/from16 v4, p18
 
-    iput-object v3, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mCommandQueue:Lcom/android/systemui/statusbar/CommandQueue;
+    iput-object v4, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mCommandQueue:Lcom/android/systemui/statusbar/CommandQueue;
 
-    move-object/from16 v3, p56
+    move-object/from16 v4, p57
 
-    iput-object v3, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mRecordingController:Lcom/android/systemui/screenrecord/RecordingController;
+    iput-object v4, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mRecordingController:Lcom/android/systemui/screenrecord/RecordingController;
 
-    move/from16 v3, p22
+    move/from16 v4, p23
 
-    iput v3, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mDisplayId:I
+    iput v4, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mDisplayId:I
 
-    move-object/from16 v3, p6
+    move-object/from16 v4, p6
 
-    iput-object v3, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mPulseExpansionHandler:Lcom/android/systemui/statusbar/PulseExpansionHandler;
+    iput-object v4, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mPulseExpansionHandler:Lcom/android/systemui/statusbar/PulseExpansionHandler;
 
-    move-object/from16 v4, p16
+    move-object/from16 v5, p17
 
-    iput-object v4, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mDozeParameters:Lcom/android/systemui/statusbar/phone/DozeParameters;
+    iput-object v5, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mDozeParameters:Lcom/android/systemui/statusbar/phone/DozeParameters;
 
-    move-object/from16 v4, p43
+    move-object/from16 v5, p44
 
-    iput-object v4, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mScrimController:Lcom/android/systemui/statusbar/phone/ScrimController;
+    iput-object v5, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mScrimController:Lcom/android/systemui/statusbar/phone/ScrimController;
 
-    iget-boolean v5, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mShouldUseSplitNotificationShade:Z
+    iget-boolean v7, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mShouldUseSplitNotificationShade:Z
 
-    xor-int/2addr v0, v5
+    xor-int/2addr v0, v7
 
-    invoke-virtual {v4, v0}, Lcom/android/systemui/statusbar/phone/ScrimController;->setClipsQsScrim(Z)V
-
-    move-object/from16 v0, p44
-
-    iput-object v0, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mUserManager:Landroid/os/UserManager;
+    invoke-virtual {v5, v0}, Lcom/android/systemui/statusbar/phone/ScrimController;->setClipsQsScrim(Z)V
 
     move-object/from16 v0, p45
 
-    iput-object v0, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mMediaDataManager:Lcom/android/systemui/media/MediaDataManager;
+    iput-object v0, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mUserManager:Landroid/os/UserManager;
 
-    move-object/from16 v0, p51
+    move-object/from16 v0, p46
 
-    iput-object v0, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mTapAgainViewController:Lcom/android/systemui/statusbar/phone/TapAgainViewController;
+    iput-object v0, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mMediaDataManager:Lcom/android/systemui/media/MediaDataManager;
 
-    move-object/from16 v0, p57
+    move-object/from16 v0, p52
 
-    iput-object v0, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mUiExecutor:Ljava/util/concurrent/Executor;
+    iput-object v0, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mTapAgainViewController:Lcom/android/systemui/statusbar/phone/TapAgainViewController;
 
     move-object/from16 v0, p58
 
-    iput-object v0, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mSecureSettings:Lcom/android/systemui/util/settings/SecureSettings;
+    iput-object v0, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mUiExecutor:Ljava/util/concurrent/Executor;
+
+    move-object/from16 v0, p59
+
+    iput-object v0, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mSecureSettings:Lcom/android/systemui/util/settings/SecureSettings;
 
     const-class v0, Lcom/android/systemui/model/SysUiState;
 
@@ -1253,13 +1258,13 @@
 
     check-cast v0, Lcom/android/systemui/model/SysUiState;
 
-    iput-object v0, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mSysUiState:Lcom/android/systemui/model/SysUiState;
+    iput-object v0, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mSysUiState:Lcom/android/systemui/model/SysUiState;
 
     new-instance v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$$ExternalSyntheticLambda7;
 
-    invoke-direct {v0, v14}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$$ExternalSyntheticLambda7;-><init>(Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;)V
+    invoke-direct {v0, v15}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$$ExternalSyntheticLambda7;-><init>(Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;)V
 
-    invoke-virtual {v3, v0}, Lcom/android/systemui/statusbar/PulseExpansionHandler;->setPulseExpandAbortListener(Ljava/lang/Runnable;)V
+    invoke-virtual {v4, v0}, Lcom/android/systemui/statusbar/PulseExpansionHandler;->setPulseExpandAbortListener(Ljava/lang/Runnable;)V
 
     invoke-virtual/range {p1 .. p1}, Landroid/widget/FrameLayout;->getContext()Landroid/content/Context;
 
@@ -1269,37 +1274,37 @@
 
     move-result v0
 
-    iput v0, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mThemeResId:I
+    iput v0, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mThemeResId:I
 
     move-object/from16 v0, p8
 
-    iput-object v0, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mKeyguardBypassController:Lcom/android/systemui/statusbar/phone/KeyguardBypassController;
+    iput-object v0, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mKeyguardBypassController:Lcom/android/systemui/statusbar/phone/KeyguardBypassController;
 
-    move-object/from16 v0, p23
+    move-object/from16 v0, p24
 
-    iput-object v0, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
+    iput-object v0, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    move-object/from16 v0, p38
+    move-object/from16 v0, p39
 
-    iput-object v0, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mLockscreenShadeTransitionController:Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;
+    iput-object v0, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mLockscreenShadeTransitionController:Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;
 
-    invoke-virtual {v0, v14}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->setNotificationPanelController(Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;)V
+    invoke-virtual {v0, v15}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->setNotificationPanelController(Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;)V
 
     new-instance v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$DynamicPrivacyControlListener;
 
-    invoke-direct {v0, v14, v1}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$DynamicPrivacyControlListener;-><init>(Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$1;)V
+    invoke-direct {v0, v15, v1}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$DynamicPrivacyControlListener;-><init>(Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$1;)V
 
-    move-object/from16 v3, p7
+    move-object/from16 v4, p7
 
-    invoke-virtual {v3, v0}, Lcom/android/systemui/statusbar/notification/DynamicPrivacyController;->addListener(Lcom/android/systemui/statusbar/notification/DynamicPrivacyController$Listener;)V
+    invoke-virtual {v4, v0}, Lcom/android/systemui/statusbar/notification/DynamicPrivacyController;->addListener(Lcom/android/systemui/statusbar/notification/DynamicPrivacyController$Listener;)V
 
     new-instance v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$$ExternalSyntheticLambda6;
 
-    invoke-direct {v0, v14}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$$ExternalSyntheticLambda6;-><init>(Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;)V
+    invoke-direct {v0, v15}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$$ExternalSyntheticLambda6;-><init>(Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;)V
 
-    move-object/from16 v3, p62
+    move-object/from16 v4, p63
 
-    invoke-virtual {v3, v0}, Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionStateManager;->addStateListener(Lcom/android/systemui/statusbar/phone/panelstate/PanelStateListener;)V
+    invoke-virtual {v4, v0}, Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionStateManager;->addStateListener(Lcom/android/systemui/statusbar/phone/panelstate/PanelStateListener;)V
 
     const/4 v0, 0x2
 
@@ -1311,55 +1316,55 @@
 
     move-result-object v0
 
-    iput-object v0, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mBottomAreaShadeAlphaAnimator:Landroid/animation/ValueAnimator;
+    iput-object v0, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mBottomAreaShadeAlphaAnimator:Landroid/animation/ValueAnimator;
 
-    new-instance v3, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$$ExternalSyntheticLambda0;
+    new-instance v4, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$$ExternalSyntheticLambda0;
 
-    invoke-direct {v3, v14}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;)V
+    invoke-direct {v4, v15}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;)V
 
-    invoke-virtual {v0, v3}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
+    invoke-virtual {v0, v4}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
 
-    const-wide/16 v3, 0xa0
+    const-wide/16 v4, 0xa0
 
-    invoke-virtual {v0, v3, v4}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
+    invoke-virtual {v0, v4, v5}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
 
     invoke-virtual {v0, v6}, Landroid/animation/ValueAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
 
     move-object/from16 v0, p11
 
-    iput-object v0, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mLockscreenUserManager:Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;
+    iput-object v0, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mLockscreenUserManager:Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;
 
     move-object/from16 v0, p12
 
-    iput-object v0, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mEntryManager:Lcom/android/systemui/statusbar/notification/NotificationEntryManager;
+    iput-object v0, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mEntryManager:Lcom/android/systemui/statusbar/notification/NotificationEntryManager;
 
-    move-object/from16 v0, p29
+    move-object/from16 v0, p30
 
-    iput-object v0, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mConversationNotificationManager:Lcom/android/systemui/statusbar/notification/ConversationNotificationManager;
+    iput-object v0, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mConversationNotificationManager:Lcom/android/systemui/statusbar/notification/ConversationNotificationManager;
 
-    move-object/from16 v0, p42
+    move-object/from16 v0, p43
 
-    iput-object v0, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mAuthController:Lcom/android/systemui/biometrics/AuthController;
+    iput-object v0, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mAuthController:Lcom/android/systemui/biometrics/AuthController;
 
-    move-object/from16 v0, p48
+    move-object/from16 v0, p49
 
-    iput-object v0, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mLockIconViewController:Lcom/android/keyguard/LockIconViewController;
+    iput-object v0, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mLockIconViewController:Lcom/android/keyguard/LockIconViewController;
 
-    move-object/from16 v0, p60
+    move-object/from16 v0, p61
 
-    iput-object v0, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mUnlockedScreenOffAnimationController:Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;
+    iput-object v0, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mUnlockedScreenOffAnimationController:Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;
 
-    move-object/from16 v0, p63
+    move-object/from16 v0, p64
 
-    iput-object v0, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mRemoteInputManager:Lcom/android/systemui/statusbar/NotificationRemoteInputManager;
+    iput-object v0, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mRemoteInputManager:Lcom/android/systemui/statusbar/NotificationRemoteInputManager;
 
     new-instance v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$$ExternalSyntheticLambda3;
 
-    invoke-direct {v0, v14}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$$ExternalSyntheticLambda3;-><init>(Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;)V
+    invoke-direct {v0, v15}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$$ExternalSyntheticLambda3;-><init>(Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;)V
 
-    move-object/from16 v3, p52
+    move-object/from16 v4, p53
 
-    invoke-virtual {v3, v0}, Lcom/android/systemui/navigationbar/NavigationModeController;->addListener(Lcom/android/systemui/navigationbar/NavigationModeController$ModeChangedListener;)I
+    invoke-virtual {v4, v0}, Lcom/android/systemui/navigationbar/NavigationModeController;->addListener(Lcom/android/systemui/navigationbar/NavigationModeController$ModeChangedListener;)I
 
     move-result v0
 
@@ -1367,15 +1372,15 @@
 
     move-result v0
 
-    iput-boolean v0, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mIsGestureNavigation:Z
+    iput-boolean v0, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mIsGestureNavigation:Z
 
-    invoke-virtual {v15, v2}, Landroid/widget/FrameLayout;->setBackgroundColor(I)V
+    invoke-virtual {v3, v2}, Landroid/widget/FrameLayout;->setBackgroundColor(I)V
 
     new-instance v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$OnAttachStateChangeListener;
 
-    invoke-direct {v0, v14, v1}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$OnAttachStateChangeListener;-><init>(Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$1;)V
+    invoke-direct {v0, v15, v1}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$OnAttachStateChangeListener;-><init>(Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$1;)V
 
-    invoke-virtual {v15, v0}, Landroid/widget/FrameLayout;->addOnAttachStateChangeListener(Landroid/view/View$OnAttachStateChangeListener;)V
+    invoke-virtual {v3, v0}, Landroid/widget/FrameLayout;->addOnAttachStateChangeListener(Landroid/view/View$OnAttachStateChangeListener;)V
 
     invoke-virtual/range {p1 .. p1}, Landroid/widget/FrameLayout;->isAttachedToWindow()Z
 
@@ -1383,14 +1388,14 @@
 
     if-eqz v2, :cond_0
 
-    invoke-virtual {v0, v15}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$OnAttachStateChangeListener;->onViewAttachedToWindow(Landroid/view/View;)V
+    invoke-virtual {v0, v3}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$OnAttachStateChangeListener;->onViewAttachedToWindow(Landroid/view/View;)V
 
     :cond_0
     new-instance v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$OnApplyWindowInsetsListener;
 
-    invoke-direct {v0, v14, v1}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$OnApplyWindowInsetsListener;-><init>(Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$1;)V
+    invoke-direct {v0, v15, v1}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$OnApplyWindowInsetsListener;-><init>(Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$1;)V
 
-    invoke-virtual {v15, v0}, Landroid/widget/FrameLayout;->setOnApplyWindowInsetsListener(Landroid/view/View$OnApplyWindowInsetsListener;)V
+    invoke-virtual {v3, v0}, Landroid/widget/FrameLayout;->setOnApplyWindowInsetsListener(Landroid/view/View$OnApplyWindowInsetsListener;)V
 
     sget v0, Lcom/android/systemui/R$integer;->keyguard_max_notification_count:I
 
@@ -1400,27 +1405,27 @@
 
     move-result v0
 
-    iput v0, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mMaxKeyguardNotifications:I
+    iput v0, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mMaxKeyguardNotifications:I
 
     sget-object v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$$ExternalSyntheticLambda17;->INSTANCE:Lcom/android/systemui/statusbar/phone/NotificationPanelViewController$$ExternalSyntheticLambda17;
 
-    move-object/from16 v1, p64
+    move-object/from16 v1, p65
 
     invoke-virtual {v1, v0}, Ljava/util/Optional;->map(Ljava/util/function/Function;)Ljava/util/Optional;
 
     move-result-object v0
 
-    iput-object v0, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mKeyguardUnfoldTransition:Ljava/util/Optional;
+    iput-object v0, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mKeyguardUnfoldTransition:Ljava/util/Optional;
 
     invoke-direct/range {p0 .. p0}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->updateUserSwitcherFlags()V
 
     invoke-direct/range {p0 .. p0}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->onFinishInflate()V
 
-    invoke-virtual/range {p66 .. p66}, Lcom/android/systemui/flags/FeatureFlags;->useCombinedQSHeaders()Z
+    invoke-virtual/range {p67 .. p67}, Lcom/android/systemui/flags/FeatureFlags;->useCombinedQSHeaders()Z
 
     move-result v0
 
-    iput-boolean v0, v14, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mUseCombinedQSHeaders:Z
+    iput-boolean v0, v15, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mUseCombinedQSHeaders:Z
 
     return-void
 
@@ -7505,7 +7510,7 @@
 
     iget-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mMediaDataManager:Lcom/android/systemui/media/MediaDataManager;
 
-    invoke-virtual {v1}, Lcom/android/systemui/media/MediaDataManager;->hasActiveMedia()Z
+    invoke-virtual {v1}, Lcom/android/systemui/media/MediaDataManager;->hasActiveMediaOrRecommendation()Z
 
     move-result v1
 
@@ -7529,7 +7534,7 @@
 
     iget-object v2, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mMediaDataManager:Lcom/android/systemui/media/MediaDataManager;
 
-    invoke-virtual {v2}, Lcom/android/systemui/media/MediaDataManager;->hasActiveMedia()Z
+    invoke-virtual {v2}, Lcom/android/systemui/media/MediaDataManager;->hasActiveMediaOrRecommendation()Z
 
     move-result v2
 
@@ -7984,7 +7989,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mMediaDataManager:Lcom/android/systemui/media/MediaDataManager;
 
-    invoke-virtual {v0}, Lcom/android/systemui/media/MediaDataManager;->hasActiveMedia()Z
+    invoke-virtual {v0}, Lcom/android/systemui/media/MediaDataManager;->hasActiveMediaOrRecommendation()Z
 
     move-result v0
 
@@ -12260,7 +12265,7 @@
 
     iget-object p2, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mMediaDataManager:Lcom/android/systemui/media/MediaDataManager;
 
-    invoke-virtual {p2}, Lcom/android/systemui/media/MediaDataManager;->hasActiveMedia()Z
+    invoke-virtual {p2}, Lcom/android/systemui/media/MediaDataManager;->hasActiveMediaOrRecommendation()Z
 
     move-result p2
 

@@ -237,6 +237,9 @@
     <string name="accessor_no_description_text">האפליקציה לא סיפקה תיאור.</string>
     <string name="active_input_method_subtypes">שיטות קלט פעילות</string>
     <string name="activity_launch_on_secondary_display_failed_text">האפליקציה אינה תומכת בהפעלה במסכים משניים.</string>
+    <string name="adaptive_charging_notify_des">הסוללה תיטען במלואה עד %1$s. הסוללה נטענת בצורה אחידה כדי לשמור על התקינות שלה.</string>
+    <string name="adaptive_charging_notify_title">הטעינה הדינמית מופעלת</string>
+    <string name="adaptive_charging_notify_turn_off_once">השבתה פעם אחת</string>
     <string name="adaptive_charging_time_estimate">%1$s • טעינה דינמית (טעינה מלאה בשעה %2$s)</string>
     <string name="adb_device_fingerprint_title_format">המזהה הייחודי של המכשיר: %1$s</string>
     <string name="adb_device_forget">הסרה</string>
@@ -301,6 +304,7 @@
     <string name="basic_status">פתיחת שיחה</string>
     <string name="battery">סוללה</string>
     <string name="battery_detail_switch_title">חיסכון בסוללה</string>
+    <string name="battery_health_notify_learn_more">מידע נוסף</string>
     <string name="battery_info_status_charging">בטעינה</string>
     <string name="battery_info_status_charging_fast">הסוללה נטענת מהר</string>
     <string name="battery_info_status_charging_slow">הסוללה נטענת לאט</string>
@@ -616,7 +620,6 @@
     <string name="debug_networking_category">תקשורת רשתות</string>
     <string name="debug_view_attributes">לאפשר בדיקת תכונת תצוגה</string>
     <string name="defender_notify_des">הטעינה בטלפון מוגבלת כדי לשמור על תקינות הסוללה</string>
-    <string name="defender_notify_learn_more">מידע נוסף</string>
     <string name="defender_notify_resume_charge">המשך הטעינה</string>
     <string name="defender_notify_title">הטעינה מוגבלת באופן זמני</string>
     <string name="defender_post_notify_des">כדי לשמור על תקינות הסוללה, הטעינה הוגבלה ל-%1$s משעה %2$s עד %3$s</string>
@@ -1704,6 +1707,10 @@
     <string name="usb_accessory_confirm_prompt">לפתוח את %1$s כדי לעבוד עם %2$s?</string>
     <string name="usb_accessory_permission_prompt">האם לתת לאפליקציה %1$s גישה אל %2$s?</string>
     <string name="usb_accessory_uri_prompt">‏אין אפליקציות מותקנות הפועלות עם אביזר ה-USB. למידע נוסף על האביזר הזה: %1$s</string>
+    <string name="usb_audio_device_confirm_prompt_title">האם לפתוח את %1$s כדי לעבוד עם %2$s?</string>
+    <string name="usb_audio_device_permission_prompt_title">האם לתת לאפליקציה %1$s גישה אל %2$s?</string>
+    <string name="usb_audio_device_prompt">השימוש באפליקציה %1$s עם המכשיר הזה יכול למנוע ממך לשמוע שיחות, התראות או שעונים מעוררים.</string>
+    <string name="usb_audio_device_prompt_warn">‏לאפליקציה הזו אין הרשאת הקלטה, אבל אפשר להקליט אודיו באמצעות מכשיר ה-USB הזה. השימוש באפליקציה %1$s עם המכשיר הזה יכול למנוע ממך לשמוע שיחות, התראות או שעונים מעוררים.</string>
     <string name="usb_audio_disable_routing">‏השבתת ניתוב אודיו ב-USB</string>
     <string name="usb_audio_disable_routing_summary">‏השבתת ניתוב אוטומטי אל התקני אודיו חיצוניים ב-USB</string>
     <string name="usb_contaminant_message">"‏כדי להגן על המכשיר שלך מנוזלים או חלקיקים, יציאת ה-USB מושבתת ולא מזהה אביזרים כלל.

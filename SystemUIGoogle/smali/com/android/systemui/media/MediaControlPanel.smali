@@ -362,6 +362,53 @@
     return-void
 .end method
 
+.method private getAppName(Landroid/app/smartspace/SmartspaceAction;)Ljava/lang/String;
+    .locals 0
+
+    if-eqz p1, :cond_1
+
+    invoke-virtual {p1}, Landroid/app/smartspace/SmartspaceAction;->getIntent()Landroid/content/Intent;
+
+    move-result-object p0
+
+    if-eqz p0, :cond_1
+
+    invoke-virtual {p1}, Landroid/app/smartspace/SmartspaceAction;->getIntent()Landroid/content/Intent;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
+
+    move-result-object p0
+
+    if-nez p0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {p1}, Landroid/app/smartspace/SmartspaceAction;->getIntent()Landroid/content/Intent;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
+
+    move-result-object p0
+
+    const-string p1, "KEY_SMARTSPACE_APP_NAME"
+
+    invoke-virtual {p0, p1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+
+    :cond_1
+    :goto_0
+    const/4 p0, 0x0
+
+    return-object p0
+.end method
+
 .method private getGrayscaleFilter()Landroid/graphics/ColorMatrixColorFilter;
     .locals 1
 
@@ -550,7 +597,7 @@
 .end method
 
 .method private synthetic lambda$bindPlayer$11(Ljava/lang/String;Lcom/android/systemui/media/MediaData;Landroid/view/View;)V
-    .locals 6
+    .locals 5
 
     iget-object p3, p0, Lcom/android/systemui/media/MediaControlPanel;->mFalsingManager:Lcom/android/systemui/plugins/FalsingManager;
 
@@ -567,13 +614,11 @@
     :cond_0
     const/16 p3, 0x2f9
 
-    const/4 v0, 0x0
-
-    invoke-direct {p0, p3, v0}, Lcom/android/systemui/media/MediaControlPanel;->logSmartspaceCardReported(IZ)V
+    invoke-direct {p0, p3}, Lcom/android/systemui/media/MediaControlPanel;->logSmartspaceCardReported(I)V
 
     iget-object p3, p0, Lcom/android/systemui/media/MediaControlPanel;->mKey:Ljava/lang/String;
 
-    const-string v1, "MediaControlPanel"
+    const-string v0, "MediaControlPanel"
 
     if-eqz p3, :cond_1
 
@@ -589,13 +634,13 @@
 
     iget-object p3, p0, Lcom/android/systemui/media/MediaControlPanel;->mKey:Ljava/lang/String;
 
-    sget-wide v2, Lcom/android/systemui/media/MediaViewController;->GUTS_ANIMATION_DURATION:J
+    sget-wide v1, Lcom/android/systemui/media/MediaViewController;->GUTS_ANIMATION_DURATION:J
 
-    const-wide/16 v4, 0x64
+    const-wide/16 v3, 0x64
 
-    add-long/2addr v2, v4
+    add-long/2addr v1, v3
 
-    invoke-virtual {p2, p3, v2, v3}, Lcom/android/systemui/media/MediaDataManager;->dismissMediaData(Ljava/lang/String;J)Z
+    invoke-virtual {p2, p3, v1, v2}, Lcom/android/systemui/media/MediaDataManager;->dismissMediaData(Ljava/lang/String;J)Z
 
     move-result p2
 
@@ -617,11 +662,13 @@
 
     move-result-object p2
 
-    invoke-static {v1, p2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, p2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-object p0, p0, Lcom/android/systemui/media/MediaControlPanel;->mMediaCarouselController:Lcom/android/systemui/media/MediaCarouselController;
 
-    invoke-virtual {p0, p1, v0, v0}, Lcom/android/systemui/media/MediaCarouselController;->removePlayer(Ljava/lang/String;ZZ)V
+    const/4 p2, 0x0
+
+    invoke-virtual {p0, p1, p2, p2}, Lcom/android/systemui/media/MediaCarouselController;->removePlayer(Ljava/lang/String;ZZ)V
 
     goto :goto_0
 
@@ -648,7 +695,7 @@
 
     move-result-object p0
 
-    invoke-static {v1, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_2
     :goto_0
@@ -684,9 +731,7 @@
     :cond_1
     const/16 p2, 0x2f8
 
-    const/4 v0, 0x0
-
-    invoke-direct {p0, p2, v0}, Lcom/android/systemui/media/MediaControlPanel;->logSmartspaceCardReported(IZ)V
+    invoke-direct {p0, p2}, Lcom/android/systemui/media/MediaControlPanel;->logSmartspaceCardReported(I)V
 
     iget-object p2, p0, Lcom/android/systemui/media/MediaControlPanel;->mActivityStarter:Lcom/android/systemui/plugins/ActivityStarter;
 
@@ -751,9 +796,7 @@
 
     const/16 p2, 0x2f8
 
-    const/4 v0, 0x0
-
-    invoke-direct {p0, p2, v0}, Lcom/android/systemui/media/MediaControlPanel;->logSmartspaceCardReported(IZ)V
+    invoke-direct {p0, p2}, Lcom/android/systemui/media/MediaControlPanel;->logSmartspaceCardReported(I)V
 
     invoke-interface {p1}, Ljava/lang/Runnable;->run()V
 
@@ -798,7 +841,7 @@
     :cond_0
     const/16 p2, 0x2f9
 
-    invoke-direct {p0, p2, v0}, Lcom/android/systemui/media/MediaControlPanel;->logSmartspaceCardReported(IZ)V
+    invoke-direct {p0, p2}, Lcom/android/systemui/media/MediaControlPanel;->logSmartspaceCardReported(I)V
 
     invoke-direct {p0}, Lcom/android/systemui/media/MediaControlPanel;->closeGuts()V
 
@@ -875,13 +918,11 @@
 .end method
 
 .method private synthetic lambda$new$0()Lkotlin/Unit;
-    .locals 2
+    .locals 1
 
     const/16 v0, 0x2f8
 
-    const/4 v1, 0x0
-
-    invoke-direct {p0, v0, v1}, Lcom/android/systemui/media/MediaControlPanel;->logSmartspaceCardReported(IZ)V
+    invoke-direct {p0, v0}, Lcom/android/systemui/media/MediaControlPanel;->logSmartspaceCardReported(I)V
 
     sget-object p0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
@@ -910,7 +951,7 @@
 
     move-result v1
 
-    invoke-direct {p0, p4, v0, p1, v1}, Lcom/android/systemui/media/MediaControlPanel;->logSmartspaceCardReported(IZII)V
+    invoke-direct {p0, p4, p1, v1}, Lcom/android/systemui/media/MediaControlPanel;->logSmartspaceCardReported(III)V
 
     invoke-direct {p0, p2}, Lcom/android/systemui/media/MediaControlPanel;->shouldSmartspaceRecItemOpenInForeground(Landroid/app/smartspace/SmartspaceAction;)Z
 
@@ -993,18 +1034,18 @@
     return-void
 .end method
 
-.method private logSmartspaceCardReported(IZ)V
+.method private logSmartspaceCardReported(I)V
     .locals 1
 
     const/4 v0, 0x0
 
-    invoke-direct {p0, p1, p2, v0, v0}, Lcom/android/systemui/media/MediaControlPanel;->logSmartspaceCardReported(IZII)V
+    invoke-direct {p0, p1, v0, v0}, Lcom/android/systemui/media/MediaControlPanel;->logSmartspaceCardReported(III)V
 
     return-void
 .end method
 
-.method private logSmartspaceCardReported(IZII)V
-    .locals 8
+.method private logSmartspaceCardReported(III)V
+    .locals 7
 
     iget-object v0, p0, Lcom/android/systemui/media/MediaControlPanel;->mMediaCarouselController:Lcom/android/systemui/media/MediaCarouselController;
 
@@ -1014,7 +1055,7 @@
 
     const/4 v1, 0x1
 
-    new-array v5, v1, [I
+    new-array v4, v1, [I
 
     invoke-virtual {p0}, Lcom/android/systemui/media/MediaControlPanel;->getSurfaceForSmartspaceLogging()I
 
@@ -1022,17 +1063,15 @@
 
     const/4 v1, 0x0
 
-    aput p0, v5, v1
+    aput p0, v4, v1
 
     move v1, p1
 
-    move v4, p2
+    move v5, p2
 
     move v6, p3
 
-    move v7, p4
-
-    invoke-virtual/range {v0 .. v7}, Lcom/android/systemui/media/MediaCarouselController;->logSmartspaceCardReported(IIIZ[III)V
+    invoke-virtual/range {v0 .. v6}, Lcom/android/systemui/media/MediaCarouselController;->logSmartspaceCardReported(III[III)V
 
     return-void
 .end method
@@ -2392,7 +2431,7 @@
 
     const-string v3, "MediaControlPanel"
 
-    if-eqz v2, :cond_7
+    if-eqz v2, :cond_9
 
     invoke-interface {v2}, Ljava/util/List;->isEmpty()Z
 
@@ -2400,7 +2439,7 @@
 
     if-eqz v4, :cond_1
 
-    goto/16 :goto_4
+    goto/16 :goto_5
 
     :cond_1
     :try_start_0
@@ -2450,48 +2489,109 @@
 
     invoke-virtual {v8, v7}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    invoke-virtual {v5, v4}, Landroid/content/pm/PackageManager;->getApplicationLabel(Landroid/content/pm/ApplicationInfo;)Ljava/lang/CharSequence;
+    invoke-virtual/range {p1 .. p1}, Lcom/android/systemui/media/SmartspaceMediaData;->getCardAction()Landroid/app/smartspace/SmartspaceAction;
+
+    move-result-object v7
+
+    invoke-direct {v0, v7}, Lcom/android/systemui/media/MediaControlPanel;->getAppName(Landroid/app/smartspace/SmartspaceAction;)Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v7}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_3
+
+    invoke-virtual/range {p1 .. p1}, Lcom/android/systemui/media/SmartspaceMediaData;->getPackageName()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-virtual {v5, v7}, Landroid/content/pm/PackageManager;->getLaunchIntentForPackage(Ljava/lang/String;)Landroid/content/Intent;
+
+    move-result-object v7
+
+    if-eqz v7, :cond_2
+
+    invoke-virtual {v7, v5, v6}, Landroid/content/Intent;->resolveActivityInfo(Landroid/content/pm/PackageManager;I)Landroid/content/pm/ActivityInfo;
 
     move-result-object v4
 
-    invoke-interface {v4}, Ljava/lang/CharSequence;->length()I
+    invoke-virtual {v4, v5}, Landroid/content/pm/ActivityInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
 
-    move-result v5
+    move-result-object v7
 
-    if-eqz v5, :cond_2
-
-    iget-object v5, v0, Lcom/android/systemui/media/MediaControlPanel;->mRecommendationViewHolder:Lcom/android/systemui/media/RecommendationViewHolder;
-
-    invoke-virtual {v5}, Lcom/android/systemui/media/RecommendationViewHolder;->getCardText()Landroid/widget/TextView;
-
-    move-result-object v5
-
-    invoke-virtual {v5, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    goto :goto_0
 
     :cond_2
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v8, "Package "
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual/range {p1 .. p1}, Lcom/android/systemui/media/SmartspaceMediaData;->getPackageName()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v8, " does not have a main launcher activity. Fallback to full app name"
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v3, v7}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {v5, v4}, Landroid/content/pm/PackageManager;->getApplicationLabel(Landroid/content/pm/ApplicationInfo;)Ljava/lang/CharSequence;
+
+    move-result-object v7
+
+    :cond_3
+    :goto_0
+    invoke-static {v7}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_4
+
+    iget-object v4, v0, Lcom/android/systemui/media/MediaControlPanel;->mRecommendationViewHolder:Lcom/android/systemui/media/RecommendationViewHolder;
+
+    invoke-virtual {v4}, Lcom/android/systemui/media/RecommendationViewHolder;->getCardText()Landroid/widget/TextView;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v7}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    :cond_4
     invoke-virtual/range {p1 .. p1}, Lcom/android/systemui/media/SmartspaceMediaData;->getCardAction()Landroid/app/smartspace/SmartspaceAction;
 
-    move-result-object v5
+    move-result-object v4
 
-    const/4 v7, -0x1
+    const/4 v5, -0x1
 
-    invoke-direct {v0, v1, v5, v7}, Lcom/android/systemui/media/MediaControlPanel;->setSmartspaceRecItemOnClickListener(Landroid/view/View;Landroid/app/smartspace/SmartspaceAction;I)V
+    invoke-direct {v0, v1, v4, v5}, Lcom/android/systemui/media/MediaControlPanel;->setSmartspaceRecItemOnClickListener(Landroid/view/View;Landroid/app/smartspace/SmartspaceAction;I)V
 
-    iget-object v5, v0, Lcom/android/systemui/media/MediaControlPanel;->mContext:Landroid/content/Context;
+    iget-object v4, v0, Lcom/android/systemui/media/MediaControlPanel;->mContext:Landroid/content/Context;
 
-    sget v7, Lcom/android/systemui/R$string;->controls_media_smartspace_rec_description:I
+    sget v5, Lcom/android/systemui/R$string;->controls_media_smartspace_rec_description:I
 
     const/4 v8, 0x1
 
     new-array v9, v8, [Ljava/lang/Object;
 
-    aput-object v4, v9, v6
+    aput-object v7, v9, v6
 
-    invoke-virtual {v5, v7, v9}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {v4, v5, v9}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-virtual {v1, v5}, Landroid/view/ViewGroup;->setContentDescription(Ljava/lang/CharSequence;)V
+    invoke-virtual {v1, v4}, Landroid/view/ViewGroup;->setContentDescription(Ljava/lang/CharSequence;)V
 
     iget-object v1, v0, Lcom/android/systemui/media/MediaControlPanel;->mRecommendationViewHolder:Lcom/android/systemui/media/RecommendationViewHolder;
 
@@ -2499,17 +2599,17 @@
 
     move-result-object v1
 
+    iget-object v4, v0, Lcom/android/systemui/media/MediaControlPanel;->mRecommendationViewHolder:Lcom/android/systemui/media/RecommendationViewHolder;
+
+    invoke-virtual {v4}, Lcom/android/systemui/media/RecommendationViewHolder;->getMediaCoverContainers()Ljava/util/List;
+
+    move-result-object v4
+
     iget-object v5, v0, Lcom/android/systemui/media/MediaControlPanel;->mRecommendationViewHolder:Lcom/android/systemui/media/RecommendationViewHolder;
 
-    invoke-virtual {v5}, Lcom/android/systemui/media/RecommendationViewHolder;->getMediaCoverContainers()Ljava/util/List;
+    invoke-virtual {v5}, Lcom/android/systemui/media/RecommendationViewHolder;->getMediaCoverItemsResIds()Ljava/util/List;
 
     move-result-object v5
-
-    iget-object v7, v0, Lcom/android/systemui/media/MediaControlPanel;->mRecommendationViewHolder:Lcom/android/systemui/media/RecommendationViewHolder;
-
-    invoke-virtual {v7}, Lcom/android/systemui/media/RecommendationViewHolder;->getMediaCoverItemsResIds()Ljava/util/List;
-
-    move-result-object v7
 
     iget-object v9, v0, Lcom/android/systemui/media/MediaControlPanel;->mRecommendationViewHolder:Lcom/android/systemui/media/RecommendationViewHolder;
 
@@ -2543,10 +2643,10 @@
 
     move v14, v13
 
-    :goto_0
-    if-ge v13, v12, :cond_6
+    :goto_1
+    if-ge v13, v12, :cond_8
 
-    if-ge v14, v12, :cond_6
+    if-ge v14, v12, :cond_8
 
     invoke-interface {v2, v13}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
@@ -2558,7 +2658,7 @@
 
     move-result-object v16
 
-    if-nez v16, :cond_3
+    if-nez v16, :cond_5
 
     const-string v15, "No media cover is provided. Skipping this item..."
 
@@ -2568,17 +2668,17 @@
 
     move-object/from16 v18, v2
 
-    move-object/from16 v20, v5
+    move-object/from16 v20, v4
 
     move v2, v6
 
-    move v5, v8
+    move v4, v8
 
     move/from16 v19, v12
 
-    goto/16 :goto_3
+    goto/16 :goto_4
 
-    :cond_3
+    :cond_5
     invoke-interface {v1, v14}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v16
@@ -2593,7 +2693,7 @@
 
     invoke-virtual {v8, v6}, Landroid/widget/ImageView;->setImageIcon(Landroid/graphics/drawable/Icon;)V
 
-    invoke-interface {v5, v14}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v4, v14}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v6
 
@@ -2625,7 +2725,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_6
 
     iget-object v1, v0, Lcom/android/systemui/media/MediaControlPanel;->mContext:Landroid/content/Context;
 
@@ -2645,7 +2745,7 @@
 
     const/4 v15, 0x1
 
-    aput-object v4, v6, v15
+    aput-object v7, v6, v15
 
     invoke-virtual {v1, v2, v6}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -2653,15 +2753,15 @@
 
     invoke-virtual {v8, v1}, Landroid/widget/ImageView;->setContentDescription(Ljava/lang/CharSequence;)V
 
-    move-object/from16 v20, v5
+    move-object/from16 v20, v4
 
     move/from16 v19, v12
 
-    const/4 v5, 0x3
+    const/4 v4, 0x3
 
-    goto :goto_1
+    goto :goto_2
 
-    :cond_4
+    :cond_6
     const/4 v2, 0x1
 
     const/16 v16, 0x0
@@ -2670,13 +2770,13 @@
 
     sget v2, Lcom/android/systemui/R$string;->controls_media_smartspace_rec_item_description:I
 
-    move-object/from16 v20, v5
+    move-object/from16 v20, v4
 
     move/from16 v19, v12
 
-    const/4 v5, 0x3
+    const/4 v4, 0x3
 
-    new-array v12, v5, [Ljava/lang/Object;
+    new-array v12, v4, [Ljava/lang/Object;
 
     invoke-virtual {v15}, Landroid/app/smartspace/SmartspaceAction;->getTitle()Ljava/lang/CharSequence;
 
@@ -2690,7 +2790,7 @@
 
     const/4 v1, 0x2
 
-    aput-object v4, v12, v1
+    aput-object v7, v12, v1
 
     invoke-virtual {v6, v2, v12}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -2698,66 +2798,10 @@
 
     invoke-virtual {v8, v1}, Landroid/widget/ImageView;->setContentDescription(Ljava/lang/CharSequence;)V
 
-    :goto_1
-    if-ge v14, v5, :cond_5
-
-    invoke-interface {v7, v14}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Ljava/lang/Integer;
-
-    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
-
-    move-result v1
-
-    invoke-direct {v0, v11, v1, v15}, Lcom/android/systemui/media/MediaControlPanel;->setVisibleAndAlpha(Landroidx/constraintlayout/widget/ConstraintSet;IZ)V
-
-    invoke-interface {v9, v14}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Ljava/lang/Integer;
-
-    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
-
-    move-result v1
-
-    invoke-direct {v0, v11, v1, v15}, Lcom/android/systemui/media/MediaControlPanel;->setVisibleAndAlpha(Landroidx/constraintlayout/widget/ConstraintSet;IZ)V
-
-    const/4 v2, 0x0
-
-    goto :goto_2
-
-    :cond_5
-    invoke-interface {v7, v14}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Ljava/lang/Integer;
-
-    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
-
-    move-result v1
-
-    const/4 v2, 0x0
-
-    invoke-direct {v0, v11, v1, v2}, Lcom/android/systemui/media/MediaControlPanel;->setVisibleAndAlpha(Landroidx/constraintlayout/widget/ConstraintSet;IZ)V
-
-    invoke-interface {v9, v14}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Ljava/lang/Integer;
-
-    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
-
-    move-result v1
-
-    invoke-direct {v0, v11, v1, v2}, Lcom/android/systemui/media/MediaControlPanel;->setVisibleAndAlpha(Landroidx/constraintlayout/widget/ConstraintSet;IZ)V
-
     :goto_2
-    invoke-interface {v7, v14}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    if-ge v14, v4, :cond_7
+
+    invoke-interface {v5, v14}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -2767,9 +2811,7 @@
 
     move-result v1
 
-    const/4 v5, 0x1
-
-    invoke-direct {v0, v10, v1, v5}, Lcom/android/systemui/media/MediaControlPanel;->setVisibleAndAlpha(Landroidx/constraintlayout/widget/ConstraintSet;IZ)V
+    invoke-direct {v0, v11, v1, v15}, Lcom/android/systemui/media/MediaControlPanel;->setVisibleAndAlpha(Landroidx/constraintlayout/widget/ConstraintSet;IZ)V
 
     invoke-interface {v9, v14}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
@@ -2781,16 +2823,74 @@
 
     move-result v1
 
-    invoke-direct {v0, v10, v1, v5}, Lcom/android/systemui/media/MediaControlPanel;->setVisibleAndAlpha(Landroidx/constraintlayout/widget/ConstraintSet;IZ)V
+    invoke-direct {v0, v11, v1, v15}, Lcom/android/systemui/media/MediaControlPanel;->setVisibleAndAlpha(Landroidx/constraintlayout/widget/ConstraintSet;IZ)V
+
+    const/4 v2, 0x0
+
+    goto :goto_3
+
+    :cond_7
+    invoke-interface {v5, v14}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/lang/Integer;
+
+    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
+
+    move-result v1
+
+    const/4 v2, 0x0
+
+    invoke-direct {v0, v11, v1, v2}, Lcom/android/systemui/media/MediaControlPanel;->setVisibleAndAlpha(Landroidx/constraintlayout/widget/ConstraintSet;IZ)V
+
+    invoke-interface {v9, v14}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/lang/Integer;
+
+    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
+
+    move-result v1
+
+    invoke-direct {v0, v11, v1, v2}, Lcom/android/systemui/media/MediaControlPanel;->setVisibleAndAlpha(Landroidx/constraintlayout/widget/ConstraintSet;IZ)V
+
+    :goto_3
+    invoke-interface {v5, v14}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/lang/Integer;
+
+    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
+
+    move-result v1
+
+    const/4 v4, 0x1
+
+    invoke-direct {v0, v10, v1, v4}, Lcom/android/systemui/media/MediaControlPanel;->setVisibleAndAlpha(Landroidx/constraintlayout/widget/ConstraintSet;IZ)V
+
+    invoke-interface {v9, v14}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/lang/Integer;
+
+    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
+
+    move-result v1
+
+    invoke-direct {v0, v10, v1, v4}, Lcom/android/systemui/media/MediaControlPanel;->setVisibleAndAlpha(Landroidx/constraintlayout/widget/ConstraintSet;IZ)V
 
     add-int/lit8 v14, v14, 0x1
 
-    :goto_3
+    :goto_4
     add-int/lit8 v13, v13, 0x1
 
     move v6, v2
 
-    move v8, v5
+    move v8, v4
 
     move-object/from16 v1, v17
 
@@ -2798,11 +2898,11 @@
 
     move/from16 v12, v19
 
-    move-object/from16 v5, v20
+    move-object/from16 v4, v20
 
-    goto/16 :goto_0
+    goto/16 :goto_1
 
-    :cond_6
+    :cond_8
     iput v14, v0, Lcom/android/systemui/media/MediaControlPanel;->mSmartspaceMediaItemsCount:I
 
     iget-object v1, v0, Lcom/android/systemui/media/MediaControlPanel;->mRecommendationViewHolder:Lcom/android/systemui/media/RecommendationViewHolder;
@@ -2838,8 +2938,8 @@
 
     return-void
 
-    :cond_7
-    :goto_4
+    :cond_9
+    :goto_5
     const-string v0, "Empty media recommendations"
 
     invoke-static {v3, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I

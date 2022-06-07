@@ -237,6 +237,9 @@
     <string name="accessor_no_description_text">Geen beskrywing is deur die program voorsien nie.</string>
     <string name="active_input_method_subtypes">Aktiewe invoermetodes</string>
     <string name="activity_launch_on_secondary_display_failed_text">Program steun nie begin op sekondêre skerms nie.</string>
+    <string name="adaptive_charging_notify_des">Battery is vol teen %1$s. Laai geleidelik om battery gesond te hou.</string>
+    <string name="adaptive_charging_notify_title">Aanpasbare laaiproses is aan</string>
+    <string name="adaptive_charging_notify_turn_off_once">Skakel een keer af</string>
     <string name="adaptive_charging_time_estimate">%1$s • Aanpasbare laaiproses (vol teen %2$s)</string>
     <string name="adb_device_fingerprint_title_format">Toestelvingerafdruk: %1$s</string>
     <string name="adb_device_forget">Vergeet</string>
@@ -301,6 +304,7 @@ As hierdie toestemming af is, sal bestaande wekkers en tydgegronde geleenthede w
     <string name="basic_status">Maak gesprek oop</string>
     <string name="battery">Battery</string>
     <string name="battery_detail_switch_title">Batterybespaarder</string>
+    <string name="battery_health_notify_learn_more">Kom meer te wete</string>
     <string name="battery_info_status_charging">Laai</string>
     <string name="battery_info_status_charging_fast">Laai tans vinnig</string>
     <string name="battery_info_status_charging_slow">Laai tans stadig</string>
@@ -616,7 +620,6 @@ As jy voortgaan, kan heffings vir datagebruik geld."</string>
     <string name="debug_networking_category">Inligtingruiling</string>
     <string name="debug_view_attributes">Aktiveer aansigkenmerkinspeksie</string>
     <string name="defender_notify_des">Jou foon beperk tans die laaiproses om die battery gesond te hou</string>
-    <string name="defender_notify_learn_more">Kom meer te wete</string>
     <string name="defender_notify_resume_charge">Hervat laaiproses</string>
     <string name="defender_notify_title">Laaiproses word tydelik beperk</string>
     <string name="defender_post_notify_des">Laaiproses is beperk tot %1$s van %2$s tot %3$s om die battery gesond te hou</string>
@@ -1704,6 +1707,10 @@ Tik vir meer inligting"</string>
     <string name="usb_accessory_confirm_prompt">Maak %1$s oop om %2$s te hanteer?</string>
     <string name="usb_accessory_permission_prompt">Gee %1$s toegang tot %2$s?</string>
     <string name="usb_accessory_uri_prompt">Geen geïnstalleerde programme werk met hierdie USB-toebehoorsel nie. Vind meer uit oor hierdie toebehoorsel by %1$s</string>
+    <string name="usb_audio_device_confirm_prompt_title">Maak %1$s oop om %2$s te hanteer?</string>
+    <string name="usb_audio_device_permission_prompt_title">Gee %1$s toegang tot %2$s?</string>
+    <string name="usb_audio_device_prompt">As jy %1$s met hierdie toestel gebruik, kan dit verhinder dat jy oproepe, kennisgewings en wekkers hoor.</string>
+    <string name="usb_audio_device_prompt_warn">Opneemtoestemming is nie aan hierdie program verleen nie, maar dit kan oudio deur hierdie USB-toestel opneem. As jy %1$s met hierdie toestel gebruik, kan dit verhinder dat jy oproepe, kennisgewings en wekkers hoor.</string>
     <string name="usb_audio_disable_routing">Deaktiveer USB-oudioroetering</string>
     <string name="usb_audio_disable_routing_summary">Deaktiveer outoroetering na USB-oudiorandtoestelle</string>
     <string name="usb_contaminant_message">"Die USB-poort is gedeaktiveer om jou toestel teen vloeistowwe en vuilgoed te beskerm en dit sal nie enige bykomstighede bespeur nie.

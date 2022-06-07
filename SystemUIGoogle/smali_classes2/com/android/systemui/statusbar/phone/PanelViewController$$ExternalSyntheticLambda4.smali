@@ -8,18 +8,18 @@
 # instance fields
 .field public final synthetic f$0:Lcom/android/systemui/statusbar/phone/PanelViewController;
 
-.field public final synthetic f$1:Landroid/view/View;
+.field public final synthetic f$1:F
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/systemui/statusbar/phone/PanelViewController;Landroid/view/View;)V
+.method public synthetic constructor <init>(Lcom/android/systemui/statusbar/phone/PanelViewController;F)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/phone/PanelViewController$$ExternalSyntheticLambda4;->f$0:Lcom/android/systemui/statusbar/phone/PanelViewController;
 
-    iput-object p2, p0, Lcom/android/systemui/statusbar/phone/PanelViewController$$ExternalSyntheticLambda4;->f$1:Landroid/view/View;
+    iput p2, p0, Lcom/android/systemui/statusbar/phone/PanelViewController$$ExternalSyntheticLambda4;->f$1:F
 
     return-void
 .end method
@@ -31,9 +31,9 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/PanelViewController$$ExternalSyntheticLambda4;->f$0:Lcom/android/systemui/statusbar/phone/PanelViewController;
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/phone/PanelViewController$$ExternalSyntheticLambda4;->f$1:Landroid/view/View;
+    iget p0, p0, Lcom/android/systemui/statusbar/phone/PanelViewController$$ExternalSyntheticLambda4;->f$1:F
 
-    invoke-static {v0, p0}, Lcom/android/systemui/statusbar/phone/PanelViewController;->$r8$lambda$eSEmw4TX0_Q9GLYNGrJsgpxez7c(Lcom/android/systemui/statusbar/phone/PanelViewController;Landroid/view/View;)V
+    invoke-static {v0, p0}, Lcom/android/systemui/statusbar/phone/PanelViewController;->$r8$lambda$wje_BUgRPe9L3pk-4QVqmk3dGhg(Lcom/android/systemui/statusbar/phone/PanelViewController;F)V
 
     return-void
 .end method

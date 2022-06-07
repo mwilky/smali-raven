@@ -107,59 +107,59 @@
 
 .field public static final image:I = 0x7f0b02df
 
-.field public static final manage_button:I = 0x7f0b0385
+.field public static final manage_button:I = 0x7f0b0388
 
-.field public static final manage_education_view:I = 0x7f0b0386
+.field public static final manage_education_view:I = 0x7f0b0389
 
-.field public static final menu_container:I = 0x7f0b03c7
+.field public static final menu_container:I = 0x7f0b03ca
 
-.field public static final minimized_dock_shadow:I = 0x7f0b03ce
+.field public static final minimized_dock_shadow:I = 0x7f0b03d1
 
-.field public static final one_handed_tutorial_description:I = 0x7f0b046c
+.field public static final one_handed_tutorial_description:I = 0x7f0b046f
 
-.field public static final one_handed_tutorial_image:I = 0x7f0b046d
+.field public static final one_handed_tutorial_image:I = 0x7f0b0470
 
-.field public static final one_handed_tutorial_title:I = 0x7f0b046f
+.field public static final one_handed_tutorial_title:I = 0x7f0b0472
 
-.field public static final physics_animator_tag:I = 0x7f0b049c
+.field public static final physics_animator_tag:I = 0x7f0b049f
 
-.field public static final pointer_view:I = 0x7f0b04ab
+.field public static final pointer_view:I = 0x7f0b04ae
 
-.field public static final reorder_animator_tag:I = 0x7f0b0501
+.field public static final reorder_animator_tag:I = 0x7f0b0504
 
-.field public static final resize_handle:I = 0x7f0b0504
+.field public static final resize_handle:I = 0x7f0b0507
 
-.field public static final scale_x_dynamicanimation_tag:I = 0x7f0b052e
+.field public static final scale_x_dynamicanimation_tag:I = 0x7f0b0531
 
-.field public static final scale_y_dynamicanimation_tag:I = 0x7f0b0532
+.field public static final scale_y_dynamicanimation_tag:I = 0x7f0b0535
 
-.field public static final settings:I = 0x7f0b0584
+.field public static final settings:I = 0x7f0b0587
 
-.field public static final size_compat_hint:I = 0x7f0b05a0
+.field public static final size_compat_hint:I = 0x7f0b05a3
 
-.field public static final size_compat_restart_button:I = 0x7f0b05a1
+.field public static final size_compat_restart_button:I = 0x7f0b05a4
 
-.field public static final split_resizing_icon:I = 0x7f0b05c1
+.field public static final split_resizing_icon:I = 0x7f0b05c4
 
-.field public static final stack_education_description:I = 0x7f0b05c9
+.field public static final stack_education_description:I = 0x7f0b05cc
 
-.field public static final stack_education_layout:I = 0x7f0b05ca
+.field public static final stack_education_layout:I = 0x7f0b05cd
 
-.field public static final stack_education_title:I = 0x7f0b05cb
+.field public static final stack_education_title:I = 0x7f0b05ce
 
-.field public static final target_animator_tag:I = 0x7f0b0608
+.field public static final target_animator_tag:I = 0x7f0b060b
 
-.field public static final top_end_container:I = 0x7f0b063c
+.field public static final top_end_container:I = 0x7f0b063f
 
-.field public static final translation_x_dynamicanimation_tag:I = 0x7f0b065d
+.field public static final translation_x_dynamicanimation_tag:I = 0x7f0b0660
 
-.field public static final translation_y_dynamicanimation_tag:I = 0x7f0b0661
+.field public static final translation_y_dynamicanimation_tag:I = 0x7f0b0664
 
-.field public static final tv_pip_menu_action_buttons:I = 0x7f0b0672
+.field public static final tv_pip_menu_action_buttons:I = 0x7f0b0675
 
-.field public static final tv_pip_menu_close_button:I = 0x7f0b0673
+.field public static final tv_pip_menu_close_button:I = 0x7f0b0676
 
-.field public static final tv_pip_menu_fullscreen_button:I = 0x7f0b0674
+.field public static final tv_pip_menu_fullscreen_button:I = 0x7f0b0677
 
 
 # direct methods

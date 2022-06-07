@@ -237,6 +237,9 @@
     <string name="accessor_no_description_text">"Aucune description fournie par l'application."</string>
     <string name="active_input_method_subtypes">Modes de saisie actifs</string>
     <string name="activity_launch_on_secondary_display_failed_text">"L'application ne peut pas être lancée sur des écrans secondaires."</string>
+    <string name="adaptive_charging_notify_des">Recharge terminée dans %1$s. La vitesse de recharge est maintenue constante pour préserver la santé de la pile.</string>
+    <string name="adaptive_charging_notify_title">La recharge adaptative est activée</string>
+    <string name="adaptive_charging_notify_turn_off_once">Désactiver une fois</string>
     <string name="adaptive_charging_time_estimate">"%1$s • Recharge adaptative (pile chargée d'ici %2$s)"</string>
     <string name="adb_device_fingerprint_title_format">"Empreinte digitale d'appareil : %1$s"</string>
     <string name="adb_device_forget">Supprimer</string>
@@ -301,6 +304,7 @@ Si cette autorisation est désactivée, les alarmes existantes et les événemen
     <string name="basic_status">Ouvrir la conversation</string>
     <string name="battery">Pile</string>
     <string name="battery_detail_switch_title">Économiseur de pile</string>
+    <string name="battery_health_notify_learn_more">En savoir plus</string>
     <string name="battery_info_status_charging">Charge en cours…</string>
     <string name="battery_info_status_charging_fast">Recharge rapide</string>
     <string name="battery_info_status_charging_slow">Recharge lente</string>
@@ -616,7 +620,6 @@ Si vous rétablissez la connexion de données cellulaires, des frais peuvent s'a
     <string name="debug_networking_category">Réseautage</string>
     <string name="debug_view_attributes">"Activer l'inspection d'attribut d'affichage"</string>
     <string name="defender_notify_des">Votre téléphone limite la recharge pour aider à préserver la santé de la pile</string>
-    <string name="defender_notify_learn_more">En savoir plus</string>
     <string name="defender_notify_resume_charge">Reprendre la recharge</string>
     <string name="defender_notify_title">Recharge temporairement limitée</string>
     <string name="defender_post_notify_des">De %2$s à %3$s, la recharge était limitée à %1$s pour préserver la santé de la pile</string>
@@ -1591,7 +1594,7 @@ Si vous avez des questions, communiquez avec %2$s."</string>
     <string name="status_bar_settings_auto_rotation">"Rotation auto de l'écran"</string>
     <string name="status_bar_work">Profil professionnel</string>
     <string name="status_before_loading">Le contenu sera bientôt affiché</string>
-    <string name="status_unavailable">Non accessible</string>
+    <string name="status_unavailable">Non disponible</string>
     <string name="storage_category">Stockage</string>
     <string name="stream_accessibility">Accessibilité</string>
     <string name="stream_alarm">Alarme</string>
@@ -1704,6 +1707,10 @@ Touchez pour en savoir plus"</string>
     <string name="usb_accessory_confirm_prompt">Ouvrir %1$s pour utiliser %2$s?</string>
     <string name="usb_accessory_permission_prompt">Autoriser %1$s à accéder à %2$s?</string>
     <string name="usb_accessory_uri_prompt">Aucune application installée compatible avec accessoire USB. En savoir plus sur %1$s</string>
+    <string name="usb_audio_device_confirm_prompt_title">Ouvrir %1$s pour utiliser %2$s?</string>
+    <string name="usb_audio_device_permission_prompt_title">Autoriser %1$s à accéder à %2$s?</string>
+    <string name="usb_audio_device_prompt">"L'utilisation de %1$s avec cet appareil peut empêcher d'entendre les appels, les notifications et les alarmes."</string>
+    <string name="usb_audio_device_prompt_warn">"Cette application n'a pas été autorisée à effectuer des enregistrements, mais elle pourrait capturer du contenu audio par l'intermédiaire de cet appareil USB. L'utilisation de %1$s avec cet appareil peut empêcher d'entendre les appels, les notifications et les alarmes."</string>
     <string name="usb_audio_disable_routing">Désact. routage audio USB</string>
     <string name="usb_audio_disable_routing_summary">Désactiver routage automatique appareils audio USB</string>
     <string name="usb_contaminant_message">"Pour protéger votre appareil des liquides et des débris, le port USB est désactivé et ne pourra pas détecter les accessoires.

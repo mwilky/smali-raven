@@ -237,6 +237,9 @@
     <string name="accessor_no_description_text">အက်ပ်ကပေးထားသော အကြောင်းအရာ မရှိပါ။</string>
     <string name="active_input_method_subtypes">ရနိုင်သောထည့်သွင်းရန်နည်းလမ်းများ</string>
     <string name="activity_launch_on_secondary_display_failed_text">ဤအက်ပ်အနေဖြင့် ဖွင့်ရန်စနစ်ကို ဒုတိယဖန်သားပြင်မှ အသုံးပြုရန် ပံ့ပိုးမထားပါ။</string>
+    <string name="adaptive_charging_notify_des">%1$s ကြာပြီးလျှင် ဘက်ထရီအားပြည့်မည်။ ဘက်ထရီသက်တမ်းခံရန် ပုံမှန်သာ အားသွင်းနေသည်။</string>
+    <string name="adaptive_charging_notify_title">အလိုက်သင့်အားသွင်းခြင်းကို ဖွင့်ထားသည်</string>
+    <string name="adaptive_charging_notify_turn_off_once">တစ်ကြိမ်ပိတ်ရန်</string>
     <string name="adaptive_charging_time_estimate">%1$s • အလိုက်သင့်အားသွင်းခြင်း (%2$s တွင်အားပြည့်မည်)</string>
     <string name="adb_device_fingerprint_title_format">စက်ပစ္စည်း လက်ဗွေ- %1$s</string>
     <string name="adb_device_forget">မေ့ပစ်ရန်</string>
@@ -301,6 +304,7 @@
     <string name="basic_status">စကားဝိုင်းကို ဖွင့်ရန်</string>
     <string name="battery">ဘက်ထရီ</string>
     <string name="battery_detail_switch_title">ဘက်ထရီ အားထိန်း</string>
+    <string name="battery_health_notify_learn_more">ပိုမိုလေ့လာရန်</string>
     <string name="battery_info_status_charging">အားသွင်းနေပါသည်</string>
     <string name="battery_info_status_charging_fast">အမြန် အားသွင်းနေသည်</string>
     <string name="battery_info_status_charging_slow">နှေးကွေးစွာ အားသွင်း</string>
@@ -610,13 +614,12 @@
     <string name="debug_hw_drawing_category">ဟာ့ဒ်ဝဲ အရှိန်မြှင့် ပုံဖော်ခြင်း</string>
     <string name="debug_hw_overdraw">GPU ပိုသုံးစွဲမှု ပြင်ဆင်ခြင်း</string>
     <string name="debug_input_category">ထည့်သွင်းရန်</string>
-    <string name="debug_layout">ဖွဲ့စည်းပုံဘောင်များ ပြခြင်း</string>
+    <string name="debug_layout">ပြကွက်၏ဘောင်များ ပြခြင်း</string>
     <string name="debug_layout_summary">ဖြတ်ပိုင်းအနားသတ်များ၊ အနားများ စသဖြင့် ပြပါ။</string>
     <string name="debug_monitoring_category">စောင့်ကြည့်စစ်ဆေးခြင်း</string>
     <string name="debug_networking_category">ချိတ်ဆက်ဆောင်ရွက်ခြင်း</string>
     <string name="debug_view_attributes">ရည်ညွှန်းချက်စိစစ်ခြင်း မြင်ကွင်း</string>
     <string name="defender_notify_des">ဘက်ထရီသက်တမ်း ကြာရှည်ခံနိုင်စေရန် သင့်ဖုန်းက အားသွင်းခြင်းကို ကန့်သတ်ထားသည်</string>
-    <string name="defender_notify_learn_more">ပိုမိုလေ့လာရန်</string>
     <string name="defender_notify_resume_charge">ဆက်အားသွင်းရန်</string>
     <string name="defender_notify_title">အားသွင်းခြင်းကို လောလောဆယ် ကန့်သတ်ထားသည်</string>
     <string name="defender_post_notify_des">ဘက်ထရီသက်တမ်း ပိုကြာစေရန် %2$s မှ %3$s အတွင်း %1$s အထိသာ အားသွင်းပါမည်</string>
@@ -632,7 +635,7 @@
     <string name="development_settings_enable">ဆော့ဖ်ဝဲရေးသူအတွက် ရွေးစရာများကို ဖွင့်ပါ</string>
     <string name="development_settings_not_available">ဤအသုံးပြုသူအတွက် ဆော့ဖ်ဝဲရေးသူ ရွေးစရာများ မရနိုင်ပါ</string>
     <string name="development_settings_summary">အပလီကေးရှင်းတိုးတက်မှုအတွက် ရွေးချယ်မှုကိုသတ်မှတ်သည်</string>
-    <string name="development_settings_title">ဆော့ဖ်ဝဲရေးသူအတွက် ရွေးစရာများ</string>
+    <string name="development_settings_title">ဆော့ဝဲလ်ရေးသူ ရွေးစရာများ</string>
     <string name="direct_boot_unaware_dialog_message">မှတ်ချက် − ပြန်လည်စတင်ပြီးနောက် သင့်ဖုန်းကိုလော့ခ်မဖွင့်မချင်း ဤအက်ပ်ကို အသုံးပြု၍မရပါ</string>
     <string name="disable_carrier_button_text">eSIM ကို ပိတ်ရန်</string>
     <string name="disable_overlays">HW ထပ်ဆင့်ခြင်းများပိတ်ခြင်း</string>
@@ -666,7 +669,7 @@
     <string name="enable_bluetooth_message">ကီးဘုတ်ကို တပ်ဘလက်နှင့် ချိတ်ဆက်ရန်၊ ပမထဦးစွာ ဘလူးတုသ်ကို ဖွင့်ပါ။</string>
     <string name="enable_bluetooth_title">ဘလူးတုသ် ဖွင့်ရမလား။</string>
     <string name="enable_demo_mode">သရုပ်ပြမုဒ်ကို ဖွင့်ရန်</string>
-    <string name="enable_freeform_support">အခမဲ့ပုံစံ ဝင်းဒိုးကို ဖွင့်ပါ</string>
+    <string name="enable_freeform_support">ရွှေ့နိုင်ပြင်နိုင်သော ဝင်းဒိုးများ ဖွင့်ရန်</string>
     <string name="enable_freeform_support_summary">ပုံစံမျိုးစုံဝင်းဒိုးများ စမ်းသပ်မှုအတွက် အထောက်အပံ့ကို ဖွင့်ပါ</string>
     <string name="enable_gpu_debug_layers">GPU အမှားရှာအလွှာဖွင့်ရန်</string>
     <string name="enable_gpu_debug_layers_summary">အမှားရှာအက်ပ်များအတွက် GPU အမှားရှာအလွှာများ ထည့်သွင်းခွင့်ပြုပါ</string>
@@ -815,7 +818,7 @@
     <string name="invalid_charger_text">သင့်စက်ပစ္စည်းနှင့် အတူပါလာသည့် အားသွင်းကိရိယာကို အသုံးပြုပါ</string>
     <string name="invalid_charger_title">USB ဖြင့် အားသွင်း၍မရပါ</string>
     <string name="item_view_role_description">တဘ်</string>
-    <string name="keep_screen_on">ဖွင့်လျက်သား</string>
+    <string name="keep_screen_on">ဖွင့်ထားခြင်း</string>
     <string name="keep_screen_on_summary">အားသွင်းနေချိန် ဖန်သားပြင် ပိတ်သွားမည် မဟုတ်ပါ</string>
     <string name="keyboard_key_back">နောက်သို့</string>
     <string name="keyboard_key_backspace">နောက်ပြန်ဖျက်ပါ</string>
@@ -1481,7 +1484,7 @@
     <string name="screenrecord_background_processing_label">ဖန်သားပြင်ရိုက်ကူးနေသည်</string>
     <string name="screenrecord_channel_description">ဖန်သားပြင် ရိုက်ကူးသည့် စက်ရှင်အတွက် ဆက်တိုက်လာနေသော အကြောင်းကြားချက်</string>
     <string name="screenrecord_delete_error">ဖန်သားပြင် ရိုက်ကူးမှု ဖျက်ရာတွင် အမှားအယွင်းရှိနေသည်</string>
-    <string name="screenrecord_description">ရိုက်ကူးနေစဉ်အတွင်း Android စနစ်သည် သင့်မျက်နှာပြင်ပေါ်တွင် မြင်နိုင်သော သို့မဟုတ် သင့်စက်ပစ္စည်းတွင် ဖွင့်ထားသော အရေးကြီးသည့် အချက်အလက်မှန်သမျှကို ရိုက်ကူးနိုင်သည်။ ၎င်းတွင် စကားဝှက်များ၊ ငွေပေးချေမှု အချက်အလက်၊ ဓာတ်ပုံများ၊ မက်ဆေ့ဂျ်များနှင့် အသံများ ပါဝင်သည်။</string>
+    <string name="screenrecord_description">ရိုက်ကူးနေစဉ်အတွင်း Android စနစ်သည် သင့်ဖန်သားပြင်ပေါ်တွင် မြင်နိုင်သော (သို့) သင့်စက်ပစ္စည်းတွင် ဖွင့်ထားသော အရေးကြီးသည့် အချက်အလက်များကို ရိုက်ယူနိုင်သည်။ ၎င်းတွင် စကားဝှက်၊ ငွေပေးချေမှု အချက်အလက်၊ ဓာတ်ပုံ၊ မက်ဆေ့ဂျ်နှင့် အသံများ ပါဝင်သည်။</string>
     <string name="screenrecord_device_audio_and_mic_label">စက်ပစ္စည်းအသံနှင့် မိုက်ခရိုဖုန်း</string>
     <string name="screenrecord_device_audio_description">သီချင်း၊ ဖုန်းခေါ်ဆိုမှုနှင့် ဖုန်းမြည်သံကဲ့သို့ သင့်စက်ပစ္စည်းမှ အသံ</string>
     <string name="screenrecord_device_audio_label">စက်ပစ္စည်းအသံ</string>
@@ -1704,6 +1707,10 @@
     <string name="usb_accessory_confirm_prompt">%2$s ဆောင်ရွက်ရန် %1$s ကို ဖွင့်လိုပါသလား။</string>
     <string name="usb_accessory_permission_prompt">%2$s အား ဝင်သုံးရန် %1$s ကို ခွင့်ပြုပါသလား။</string>
     <string name="usb_accessory_uri_prompt">ဒီUSBပစ္စည်းနှင့်ဘယ်အပ်ပလီကေးရှင်းမှ အလုပ်မလုပ်ပါ။ ပိုမိုသိရန် %1$sတွင် လေ့လာပါ</string>
+    <string name="usb_audio_device_confirm_prompt_title">%2$s ဆောင်ရွက်ရန် %1$s ကို ဖွင့်လိုပါသလား။</string>
+    <string name="usb_audio_device_permission_prompt_title">%2$s ဝင်သုံးရန် %1$s ကို ခွင့်ပြုမလား။</string>
+    <string name="usb_audio_device_prompt">ဤစက်ဖြင့် %1$s အသုံးပြုခြင်းက ဖုန်းအဝင်၊ အကြောင်းကြားချက်နှင့် နှိုးစက်သံ မကြားခြင်းများ ဖြစ်စေနိုင်သည်။</string>
+    <string name="usb_audio_device_prompt_warn">ဤအက်ပ်ကို အသံဖမ်းခွင့် ပေးမထားသော်လည်း ၎င်းသည် ဤ USB စက်ပစ္စည်းမှတစ်ဆင့် အသံများကို ဖမ်းယူနိုင်ပါသည်။ ဤစက်ဖြင့် %1$s အသုံးပြုခြင်းက ဖုန်းအဝင်၊ အကြောင်းကြားချက်နှင့် နှိုးစက်သံ မကြားခြင်းများ ဖြစ်စေနိုင်သည်။</string>
     <string name="usb_audio_disable_routing">USB အသံလမ်းကြောင်း ပိတ်ခြင်း</string>
     <string name="usb_audio_disable_routing_summary">USB အသံစက်ပစ္စည်းများသို့ အလိုအလျောက် ချိတ်ဆက်ခြင်းကို ပိတ်ရန်</string>
     <string name="usb_contaminant_message">"USB ပို့တ်ကို ပိတ်၍ သင့်ကိရိယာသို့ အရည် သို့မဟုတ် အမှိုက်စများ မဝင်စေရန် ကာကွယ်ပါ၊ မည်သည့် အပိုပစ္စည်းကိုမျှ အာရုံခံသိရှိနိုင်တော့မည် မဟုတ်ပါ။
@@ -1717,7 +1724,7 @@ USB ပို့တ်ကို ပြန်အသုံးပြုနိုင
     <string name="usb_debugging_secondary_user_message">ဤစက်ပစ္စည်းသို့ လက်ရှိဝင်ရောက်ထားသည့် အသုံးပြုသူသည် USB အမှားပြင်ဆင်ခြင်းကို ဖွင့်၍မရပါ။ ဤဝန်ဆောင်မှုကို အသုံးပြုရန် အဓိကအသုံးပြုသူအဖြစ်သို့ ပြောင်းပါ။</string>
     <string name="usb_debugging_secondary_user_title">USB အမှားပြင်ဆင်ခြင်း ခွင့်မပြုပါ</string>
     <string name="usb_debugging_title">USB အမှားရှာဖွေပြင်ဆင်ခြင်း ခွင့်ပြုပါမည်လား?</string>
-    <string name="usb_device_confirm_prompt">%2$s ဆောင်ရွက်ရန် %1$s ကို ဖွင့်လိုပါသလား။</string>
+    <string name="usb_device_confirm_prompt">%2$s စီမံရန် %1$s ကို ဖွင့်လိုပါသလား။</string>
     <string name="usb_device_confirm_prompt_warn">"%2$s ကို သုံးရန် %1$s ကို ဖွင့်မလား။
 ဤအက်ပ်ကို အသံဖမ်းခွင့် ပေးမထားသော်လည်း ၎င်းသည် ဤ USB စက်ပစ္စည်းမှတစ်ဆင့် အသံများကို ဖမ်းယူနိုင်ပါသည်။"</string>
     <string name="usb_device_permission_prompt">%2$s အား ဝင်သုံးရန် %1$s ကို ခွင့်ပြုပါသလား။</string>
@@ -1842,7 +1849,7 @@ Wi‑Fi လိပ်စာ (BSSID)
     <string name="wifi_remembered">သိမ်းဆည်းပြီး</string>
     <string name="wifi_scan_notify_message">စက်ပစ္စည်းကို ပိုမိုကောင်းမွန်စွာ အသုံးပြုနိုင်ရန် Wi-Fi ပိတ်ထားသည့်တိုင် အက်ပ်နှင့် ဝန်ဆောင်မှုများက Wi-Fi ကွန်ရက်များကို အချိန်မရွေး စကင်ဖတ်နိုင်သည်။ ၎င်းကို Wi-Fi ရှာဖွေခြင်း ဆက်တင်များတွင် ပြောင်းနိုင်သည်။ <annotation id="link">ပြောင်းရန်</annotation></string>
     <string name="wifi_scan_throttling">Wi‑Fi ရှာဖွေခြင်း ထိန်းချုပ်မှု</string>
-    <string name="wifi_scan_throttling_summary">ဘက်ထရီ အသုံးပြုမှုကို လျှော့ကျစေပြီး ကွန်ရက်စွမ်းဆောင်ရည်ကို ပိုမိုကောင်းမွန်စေသည်</string>
+    <string name="wifi_scan_throttling_summary">ဘက်ထရီအသုံးပြုမှု လျှော့ချပြီး ကွန်ရက်စွမ်းဆောင်ရည် ပိုမိုကောင်းမွန်သည်</string>
     <string name="wifi_security_none">မရှိ</string>
     <string name="wifi_status_mac_randomized">MAC ကို ကျပန်းပေးထားသည်</string>
     <string name="wifi_status_no_internet">အင်တာနက် မရှိပါ</string>

@@ -237,6 +237,9 @@
     <string name="accessor_no_description_text">በመተግበሪያው ምንም ዝርዝር መረጃ አልተሰጠም።</string>
     <string name="active_input_method_subtypes">የገባሪ ግቤት ዘዴ</string>
     <string name="activity_launch_on_secondary_display_failed_text">መተግበሪያ በሁለተኛ ማሳያዎች ላይ ማስጀመርን አይደግፍም።</string>
+    <string name="adaptive_charging_notify_des">ባትሪ እስከ %1$s ድረስ ይሞላል። የባትሪ ዕድሜን ለማራዘም ያለማቋረጥ ኃይልን በመሙላት ላይ።</string>
+    <string name="adaptive_charging_notify_title">ተስማሚ ኃይል መሙላት በርቷል</string>
+    <string name="adaptive_charging_notify_turn_off_once">አንዴ አጥፋ</string>
     <string name="adaptive_charging_time_estimate">%1$s • ተስማሚ ኃይል አሞላል (እስከ %2$s ድረስ የሚሞላ)</string>
     <string name="adb_device_fingerprint_title_format">የመሣሪያ አሻራ፦ %1$s</string>
     <string name="adb_device_forget">እርሳ</string>
@@ -301,6 +304,7 @@
     <string name="basic_status">ውይይት ይክፈቱ</string>
     <string name="battery">ባትሪ</string>
     <string name="battery_detail_switch_title">ባትሪ ቆጣቢ</string>
+    <string name="battery_health_notify_learn_more">የበለጠ መረዳት</string>
     <string name="battery_info_status_charging">ኃይል በመሙላት ላይ</string>
     <string name="battery_info_status_charging_fast">ኃይል በፍጥነት በመሙላት ላይ</string>
     <string name="battery_info_status_charging_slow">ኃይል በዝግታ በመሙላት ላይ</string>
@@ -616,7 +620,6 @@
     <string name="debug_networking_category">አውታረ መረብ</string>
     <string name="debug_view_attributes">የእይታ አይነታ ምርመራን አንቃ</string>
     <string name="defender_notify_des">የባትሪ ጤናን ጠብቆ ለማቆየት እንዲረዳ ስልክዎ የኃይል መሙላትን እየገደበ ነው</string>
-    <string name="defender_notify_learn_more">የበለጠ መረዳት</string>
     <string name="defender_notify_resume_charge">ኃይል መሙላትን ከቆመበት ቀጥል</string>
     <string name="defender_notify_title">ኃይል መሙላት ለጊዜው ተገድቧል</string>
     <string name="defender_post_notify_des">የባትሪ ዕድሜን ለማራዘም ኃይል መሙላት ከ%2$s እስከ %3$s ድረስ በ%1$s ተገድቧል</string>
@@ -1704,6 +1707,10 @@
     <string name="usb_accessory_confirm_prompt">%2$sን እንዲይዘው %1$s ይክፈት?</string>
     <string name="usb_accessory_permission_prompt">%1$s %2$sን እንዲደርስበት ይፈቀድለት?</string>
     <string name="usb_accessory_uri_prompt">ምንም የተጫኑ መተግበሪያዎች ከዚህ የUSB ተቀጥላ ጋር አይሰሩም። በ%1$s ስለዚህ ተቀጥላ የበለጠ ለመረዳት።</string>
+    <string name="usb_audio_device_confirm_prompt_title">%2$sን እንዲይዘው %1$s ይክፈት?</string>
+    <string name="usb_audio_device_permission_prompt_title">%1$s %2$sን እንዲደርስበት ይፈቀድለት?</string>
+    <string name="usb_audio_device_prompt">%1$sን ከዚህ መሣሪያ ጋር መጠቀም ጥሪዎችን፣ ማሳወቂያዎችን እና ማንቂያዎችን ከመስማት ሊከለክል ይችላል።</string>
+    <string name="usb_audio_device_prompt_warn">ይህ መተግበሪያ የመቅረጽ ፈቃድ አልተሰጠውም፣ ነገር ግን በዚህ ዩኤስቢ መሣሪያ በኩል ኦዲዮን መቅረጽ ይችላል። %1$sን ከዚህ መሣሪያ ጋር መጠቀም ጥሪዎችን፣ ማሳወቂያዎችን እና ማንቂያዎችን ከመስማት ሊከለክል ይችላል።</string>
     <string name="usb_audio_disable_routing">የUSB ተሰሚ ማዛወር ያሰናክሉ</string>
     <string name="usb_audio_disable_routing_summary">በራስ-ሰር ወደ የUSB ተሰሚ ተገጣሚዎች ማሳወር ያሰናክሉ</string>
     <string name="usb_contaminant_message">"መሣሪያዎን ከፈሳሽ ወይም ፍርስራሽ ለመጠበቅ ሲባል የዩኤስቢ ወደቡ ተሰናክሏል፣ እና ማናቸውም ተቀጥላዎችን አያገኝም።

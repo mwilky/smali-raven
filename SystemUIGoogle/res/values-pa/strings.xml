@@ -237,6 +237,9 @@
     <string name="accessor_no_description_text">ਐਪ ਵੱਲੋਂ ਕੋਈ ਵਰਣਨ ਮੁਹੱਈਆ ਨਹੀਂ ਕਰਵਾਇਆ ਗਿਆ।</string>
     <string name="active_input_method_subtypes">ਸਰਗਰਮ ਇਨਪੁਟ ਵਿਧੀਆਂ</string>
     <string name="activity_launch_on_secondary_display_failed_text">"ਐਪ ਸੈਕੰਡਰੀ ਡਿਸਪਲੇਆਂ 'ਤੇ ਲਾਂਚ ਕਰਨ ਦਾ ਸਮਰਥਨ ਨਹੀਂ ਕਰਦੀ"</string>
+    <string name="adaptive_charging_notify_des">%1$s ਤੱਕ ਬੈਟਰੀ ਪੂਰੀ ਚਾਰਜ ਹੋ ਜਾਵੇਗੀ। ਬੈਟਰੀ ਦੀ ਕਾਰਗੁਜ਼ਾਰੀ ਨੂੰ ਬਿਹਤਰ ਬਣਾਉਣ ਲਈ ਹੌਲੀ-ਹੌਲੀ ਚਾਰਜ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ।</string>
+    <string name="adaptive_charging_notify_title">ਅਡੈਪਟਿਵ ਚਾਰਜਿੰਗ ਚਾਲੂ ਹੈ</string>
+    <string name="adaptive_charging_notify_turn_off_once">ਇੱਕ ਵਾਰ ਬੰਦ ਕਰੋ</string>
     <string name="adaptive_charging_time_estimate">%1$s • ਅਡੈਪਟਿਵ ਚਾਰਜਿੰਗ (%2$s ਤੱਕ ਪੂਰੀ ਚਾਰਜ ਹੋ ਜਾਵੇਗੀ)</string>
     <string name="adb_device_fingerprint_title_format">ਡੀਵਾਈਸ ਫਿੰਗਰਪ੍ਰਿੰਟ: %1$s</string>
     <string name="adb_device_forget">ਭੁੱਲ ਜਾਓ</string>
@@ -301,6 +304,7 @@
     <string name="basic_status">ਗੱਲਬਾਤ ਖੋਲ੍ਹੋ</string>
     <string name="battery">ਬੈਟਰੀ</string>
     <string name="battery_detail_switch_title">ਬੈਟਰੀ ਸੇਵਰ</string>
+    <string name="battery_health_notify_learn_more">ਹੋਰ ਜਾਣੋ</string>
     <string name="battery_info_status_charging">ਚਾਰਜ ਹੋ ਰਹੀ ਹੈ</string>
     <string name="battery_info_status_charging_fast">ਤੇਜ਼ ਚਾਰਜ ਹੋ ਰਹੀ ਹੈ</string>
     <string name="battery_info_status_charging_slow">ਹੌਲੀ ਚਾਰਜ ਹੋ ਰਹੀ ਹੈ</string>
@@ -533,7 +537,7 @@
     <string name="controls_favorite_rearrange">ਕੰਟਰੋਲਾਂ ਨੂੰ ਮੁੜ-ਵਿਵਸਥਿਤ ਕਰਨ ਲਈ ਫੜ੍ਹ ਕੇ ਘਸੀਟੋ</string>
     <string name="controls_favorite_removed">ਸਾਰੇ ਕੰਟਰੋਲ ਹਟਾਏ ਗਏ</string>
     <string name="controls_favorite_see_other_apps">ਹੋਰ ਐਪਾਂ ਦੇਖੋ</string>
-    <string name="controls_favorite_subtitle">ਪਹੁੰਚ ਕਰਨ ਲਈ ਤਤਕਾਲ ਸੈਟਿੰਗਾਂ ਤੋਂ ਕੰਟਰੋਲ ਚੁਣੋ</string>
+    <string name="controls_favorite_subtitle">ਤਤਕਾਲ ਸੈਟਿੰਗਾਂ ਤੋਂ ਪਹੁੰਚ ਕਰਨ ਲਈ ਕੰਟਰੋਲ ਚੁਣੋ</string>
     <string name="controls_favorite_toast_no_changes">ਤਬਦੀਲੀਆਂ ਨੂੰ ਰੱਖਿਅਤ ਨਹੀਂ ਕੀਤਾ ਗਿਆ</string>
     <string name="controls_media_active_session">ਮੌਜੂਦਾ ਮੀਡੀਆ ਸੈਸ਼ਨ ਲੁਕਾਇਆ ਨਹੀਂ ਜਾ ਸਕਦਾ।</string>
     <string name="controls_media_close_session">ਕੀ ਇਹ ਮੀਡੀਆ ਸੈਸ਼ਨ ਲੁਕਾਉਣਾ ਹੈ?</string>
@@ -616,7 +620,6 @@
     <string name="debug_networking_category">ਨੈੱਟਵਰਕਿੰਗ</string>
     <string name="debug_view_attributes">"'ਵਿਸ਼ੇਸ਼ਤਾ ਨਿਰੀਖਣ ਦੇਖੋ' ਨੂੰ ਚਾਲੂ ਕਰੋ"</string>
     <string name="defender_notify_des">ਬੈਟਰੀ ਦੀ ਕਾਰਗੁਜ਼ਾਰੀ ਨੂੰ ਬਿਹਤਰ ਬਣਾਉਣ ਲਈ ਤੁਹਾਡੇ ਫ਼ੋਨ ਨੂੰ ਕੁਝ ਸਮੇਂ ਲਈ ਚਾਰਜ ਨਹੀਂ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ</string>
-    <string name="defender_notify_learn_more">ਹੋਰ ਜਾਣੋ</string>
     <string name="defender_notify_resume_charge">ਚਾਰਜਿੰਗ ਮੁੜ-ਚਾਲੂ ਕਰੋ</string>
     <string name="defender_notify_title">ਚਾਰਜਿੰਗ ਕੁਝ ਸਮੇਂ ਲਈ ਰੋਕੀ ਗਈ</string>
     <string name="defender_post_notify_des">"ਬੈਟਰੀ ਦੀ ਕਾਰਗੁਜ਼ਾਰੀ ਨੂੰ ਬਿਹਤਰ ਬਣਾਉਣ ਲਈ, %2$s ਤੋਂ %3$s ਤੱਕ ਚਾਰਜਿੰਗ ਨੂੰ %1$s 'ਤੇ ਸੀਮਤ ਕੀਤਾ ਗਿਆ"</string>
@@ -1704,6 +1707,10 @@
     <string name="usb_accessory_confirm_prompt">ਕੀ %2$s ਨੂੰ ਵਰਤਣ ਲਈ %1$s ਖੋਲ੍ਹਣੀ ਹੈ?</string>
     <string name="usb_accessory_permission_prompt">ਕੀ %2$s ਤੱਕ %1$s ਨੂੰ ਪਹੁੰਚ ਕਰਨ ਦੇਣੀ ਹੈ?</string>
     <string name="usb_accessory_uri_prompt">ਕੋਈ ਇੰਸਟੌਲ ਕੀਤੇ ਐਪਸ ਇਸ USB ਐਕਸੈਸਰੀ ਨਾਲ ਕੰਮ ਨਹੀਂ ਕਰਦੇ। %1$s ਤੇ ਇਸ ਐਕਸੈਸਰੀ ਬਾਰੇ ਹੋਰ ਜਾਣੋ</string>
+    <string name="usb_audio_device_confirm_prompt_title">ਕੀ %2$s ਨੂੰ ਵਰਤਣ ਲਈ %1$s ਖੋਲ੍ਹਣੀ ਹੈ?</string>
+    <string name="usb_audio_device_permission_prompt_title">ਕੀ %1$s ਨੂੰ %2$s ਤੱਕ ਪਹੁੰਚ ਕਰਨ ਦੀ ਆਗਿਆ ਦੇਣੀ ਹੈ?</string>
+    <string name="usb_audio_device_prompt">"ਸ਼ਾਇਦ ਇਸ ਡੀਵਾਈਸ ਨਾਲ %1$s ਦੀ ਵਰਤੋਂ ਕਰਨ 'ਤੇ ਕਾਲਾਂ, ਸੂਚਨਾਵਾਂ ਅਤੇ ਅਲਾਰਮਾਂ ਦੀ ਅਵਾਜ਼ ਸੁਣਾਈ ਨਾ ਦੇਵੇ।"</string>
+    <string name="usb_audio_device_prompt_warn">"ਇਸ ਐਪ ਨੂੰ ਰਿਕਾਰਡ ਕਰਨ ਦੀ ਇਜਾਜ਼ਤ ਨਹੀਂ ਦਿੱਤੀ ਗਈ ਪਰ ਇਹ USB ਡੀਵਾਈਸ ਰਾਹੀਂ ਆਡੀਓ ਕੈਪਚਰ ਕਰ ਸਕਦੀ ਹੈ। ਸ਼ਾਇਦ ਇਸ ਡੀਵਾਈਸ ਨਾਲ %1$s ਦੀ ਵਰਤੋਂ ਕਰਨ 'ਤੇ ਕਾਲਾਂ, ਸੂਚਨਾਵਾਂ ਅਤੇ ਅਲਾਰਮਾਂ ਦੀ ਅਵਾਜ਼ ਸੁਣਾਈ ਨਾ ਦੇਵੇ।"</string>
     <string name="usb_audio_disable_routing">USB ਆਡੀਓ ਰੂਟਿੰਗ ਨੂੰ ਬੰਦ ਕਰੋ</string>
     <string name="usb_audio_disable_routing_summary">USB ਆਡੀਓ ਪੈਰੀਫਰਲ ਲਈ ਸਵੈਚਲਿਤ ਰੂਟਿੰਗ ਬੰਦ ਕਰੋ</string>
     <string name="usb_contaminant_message">"ਤੁਹਾਡੇ ਡੀਵਾਈਸ ਨੂੰ ਪਾਣੀ ਅਤੇ ਧੂੜ-ਮਿੱਟੀ ਤੋਂ ਬਚਾਉਣ ਲਈ, USB ਪੋਰਟ ਨੂੰ ਬੰਦ ਕੀਤਾ ਗਿਆ ਹੈ ਅਤੇ ਕੋਈ ਵੀ ਐਕਸੈਸਰੀ ਪਛਾਣੀ ਨਹੀਂ ਜਾਵੇਗੀ।

@@ -237,6 +237,9 @@
     <string name="accessor_no_description_text">Ayikho incazelo enikezwe yilolu hlelo lokusebenza.</string>
     <string name="active_input_method_subtypes">Izindlela zokufakwayo okusebenzayo</string>
     <string name="activity_launch_on_secondary_display_failed_text">Uhlelo lokusebenza alusekeli ukuqalisa kuzibonisi zesibili.</string>
+    <string name="adaptive_charging_notify_des">Ibhethri ligcwele ngo-%1$s. Ukushaja kahle ukuvikela impilo yebhethri.</string>
+    <string name="adaptive_charging_notify_title">Ukushaja okuzivumelana nezimo kuvuliwe</string>
+    <string name="adaptive_charging_notify_turn_off_once">Vala kanye</string>
     <string name="adaptive_charging_time_estimate">%1$s • Ukushaja kwe-adaptive (izogcwala ngo-%2$s)</string>
     <string name="adb_device_fingerprint_title_format">Izigxivizo zeminwe zedivayisi: %1$s</string>
     <string name="adb_device_forget">Khohlwa</string>
@@ -301,6 +304,7 @@ Uma le mvume ivaliwe, ama-alamu asele nemicimbi esekelwe esikhathini ehlelwe yil
     <string name="basic_status">Vula ingxoxo</string>
     <string name="battery">Ibhethri</string>
     <string name="battery_detail_switch_title">Isilondolozi sebhethri</string>
+    <string name="battery_health_notify_learn_more">Funda kabanzi</string>
     <string name="battery_info_status_charging">Iyashaja</string>
     <string name="battery_info_status_charging_fast">Ishaja ngokushesha</string>
     <string name="battery_info_status_charging_slow">Ishaja kancane</string>
@@ -616,7 +620,6 @@ Uma uqhubeka futhi, izindleko zingasebenza ekusetshenzisweni kwedatha."</string>
     <string name="debug_networking_category">Ukunethiwekha</string>
     <string name="debug_view_attributes">Nika amandla ukubuka</string>
     <string name="defender_notify_des">Ifoni yakho ikhawulela ukushaja ukukusiza wonge impilo yebhethri</string>
-    <string name="defender_notify_learn_more">Funda kabanzi</string>
     <string name="defender_notify_resume_charge">Qalisa kabusha ukukhokhisa</string>
     <string name="defender_notify_title">Ukushaja kukhawulelwe okwesikhashana</string>
     <string name="defender_post_notify_des">Ukushaja kukhawulelwe ku-%1$s kusuka ku-%2$s ukuya ku-%3$s ukonga impilo yebhethri</string>
@@ -1704,6 +1707,10 @@ Thepha ukuze uthole ulwazi olungeziwe"</string>
     <string name="usb_accessory_confirm_prompt">Vula i-%1$s ukuze uphath i-%2$s?</string>
     <string name="usb_accessory_permission_prompt">Vumela i-%1$s ukufinyelela i-%2$s?</string>
     <string name="usb_accessory_uri_prompt">Azikho izinhlelo zokusebenza ezisebenze ngezinto ze-USB. Funda okwengeziwe ngale into kwi %1$s</string>
+    <string name="usb_audio_device_confirm_prompt_title">Vula i-%1$s ukuze ibambe i-%2$s?</string>
+    <string name="usb_audio_device_permission_prompt_title">Vumela i-%1$s ukuze ufinyelele i-%2$s?</string>
+    <string name="usb_audio_device_prompt">Ukusebenzisa i-%1$s ngale divayisi kungase kuvimbele ukuzwa amakholi, izaziso nama-alamu.</string>
+    <string name="usb_audio_device_prompt_warn">Le app ayinikezwanga imvume yokurekhoda kodwa ingathwebula umsindo ngale divayisi ye-USB. Ukusebenzisa i-%1$s ngale divayisi kungase kuvimbele ukuzwa amakholi, izaziso nama-alamu.</string>
     <string name="usb_audio_disable_routing">Khubaza umzila womsindo we-USB</string>
     <string name="usb_audio_disable_routing_summary">Khubaza ukwenza umzila ngokuzenzakalelayo kuma-pheripherals womsindo we-USB</string>
     <string name="usb_contaminant_message">"Ukuze kuvikelwe idivayisi yakho kusukela kuketshezi noma ama-debris, imbobo ye-USB iyakhutshazwa futhi ngeke ize ithole noma iziphi izisetshenziswa.

@@ -237,6 +237,9 @@
     <string name="accessor_no_description_text">অ্যাপ কোনও বিবরণ প্রদান করেনি।</string>
     <string name="active_input_method_subtypes">সক্রিয় ইনপুট পদ্ধতিগুলি</string>
     <string name="activity_launch_on_secondary_display_failed_text">সেকেন্ডারি ডিসপ্লেতে অ্যাপ লঞ্চ করা যাবে না।</string>
+    <string name="adaptive_charging_notify_des">%1$s-এর মধ্যে ব্যাটারি পুরোপুরি চার্জ হয়ে যাবে। ব্যাটারি ভাল রাখতে ধীরে ধীরে চার্জ হচ্ছে।</string>
+    <string name="adaptive_charging_notify_title">"'অ্যাডাপ্টিভ চার্জিং' ফিচারটি চালু আছে"</string>
+    <string name="adaptive_charging_notify_turn_off_once">একবার বন্ধ করুন</string>
     <string name="adaptive_charging_time_estimate">%1$s • অ্যাডাপ্টিভ চার্জিং (%2$s-এর মধ্যে ফুল চার্জ হবে)</string>
     <string name="adb_device_fingerprint_title_format">ডিভাইসে আঙ্গুলের ছাপ: %1$s</string>
     <string name="adb_device_forget">ভুলে যান</string>
@@ -301,6 +304,7 @@
     <string name="basic_status">খোলা কথোপকথন</string>
     <string name="battery">ব্যাটারি</string>
     <string name="battery_detail_switch_title">ব্যাটারি সেভার</string>
+    <string name="battery_health_notify_learn_more">আরও জানুন</string>
     <string name="battery_info_status_charging">চার্জ হচ্ছে</string>
     <string name="battery_info_status_charging_fast">দ্রুত চার্জ হচ্ছে</string>
     <string name="battery_info_status_charging_slow">ধীরে চার্জ হচ্ছে</string>
@@ -616,7 +620,6 @@
     <string name="debug_networking_category">নেটওয়ার্কিং</string>
     <string name="debug_view_attributes">অ্যাট্রিবিউট ইন্সপেকশন দেখা চালু করুন</string>
     <string name="defender_notify_des">ব্যাটারির স্বাস্থ্য বজায় রাখার ব্যাপারে সাহায্য করতে, আপনার ফোনে চার্জ করা বন্ধ রাখা হচ্ছে</string>
-    <string name="defender_notify_learn_more">আরও জানুন</string>
     <string name="defender_notify_resume_charge">চার্জ করা আবার চালু করুন</string>
     <string name="defender_notify_title">চার্জ করা সাময়িকভাবে বন্ধ রাখা হয়েছে</string>
     <string name="defender_post_notify_des">ব্যাটারি ভাল রাখতে %2$s থেকে %3$s পর্যন্ত চার্জ %1$s-এ সীমাবদ্ধ করা হয়েছে</string>
@@ -1690,7 +1693,7 @@
     <string name="tuner_toast">অভিনন্দন! সেটিংস -এ সিস্টেম UI টিউনার যোগ করা হয়েছে</string>
     <string name="tuner_warning">এই পরীক্ষামূলক বৈশিষ্ট্যগুলি ভবিষ্যতের সংস্করণগুলির মধ্যে পরিবর্তিত, বিভাজিত এবং অদৃশ্য হয়ে যেতে পারে৷ সাবধানতার সাথে এগিয়ে যান৷ সিস্টেম UI টিউনার আপনাকে Android ব্যবহারকারী ইন্টারফেসের সূক্ষ্ম সমন্বয় এবং কাস্টমাইজ করার অতিরিক্ত উপায়গুলি প্রদান করে৷</string>
     <string name="tuner_warning_title">কিছু ব্যক্তির জন্য মজাদার কিন্তু সকলের জন্য নয়</string>
-    <string name="turn_off_airplane_mode">"'বিমান' মোড বন্ধ করুন"</string>
+    <string name="turn_off_airplane_mode">"'বিমান মোড' বন্ধ করুন"</string>
     <string name="turn_on_wifi">ওয়াই-ফাই</string>
     <string name="tv_notification_panel_no_notifications">কোনও বিজ্ঞপ্তি নেই</string>
     <string name="tv_notification_panel_title">বিজ্ঞপ্তি</string>
@@ -1704,6 +1707,10 @@
     <string name="usb_accessory_confirm_prompt">%2$s ব্যবহার করার জন্য %1$s চালু করবেন?</string>
     <string name="usb_accessory_permission_prompt">%1$s কে %2$s অ্যাক্সেস করতে দেবেন?</string>
     <string name="usb_accessory_uri_prompt">ইনস্টল থাকা কোনো অ্যাপ্লিকেশান এই USB যন্ত্রাংশের সাথে কাজ করে না৷ %1$s এ এই যন্ত্রাংশের সম্পর্কে আরও জানুন৷</string>
+    <string name="usb_audio_device_confirm_prompt_title">%2$s ব্যবহার করার জন্য %1$s চালু করতে চান?</string>
+    <string name="usb_audio_device_permission_prompt_title">%2$s অ্যাক্সেস করতে %1$s অ্যাপকে অনুমতি দিতে চান?</string>
+    <string name="usb_audio_device_prompt">%1$s অ্যাপের ব্যবহার এই ডিভাইসের সাথে করার ফলে হতে পারে কল, বিজ্ঞপ্তি এবং অ্যালার্মের আওয়াজ শোনা যাবে না।</string>
+    <string name="usb_audio_device_prompt_warn">এই অ্যাপকে রেকর্ড করার অনুমতি দেওয়া হয়নি কিন্তু USB ডিভাইসের সাহায্যে সেটি অডিও রেকর্ড করতে পারে। %1$s অ্যাপের ব্যবহার এই ডিভাইসের সাথে করার ফলে হতে পারে কল, বিজ্ঞপ্তি এবং অ্যালার্মের আওয়াজ শোনা যাবে না।</string>
     <string name="usb_audio_disable_routing">USB অডিও রাউটিং বন্ধ করুন</string>
     <string name="usb_audio_disable_routing_summary">USB অডিও যন্ত্রানুষঙ্গে অটোমেটিক রাউটিং অক্ষম করুন</string>
     <string name="usb_contaminant_message">"কোনও তরল পদার্থ ও ধুলো থেকে আপনার ডিভাইসকে সুরক্ষিত রাখতে, ইউএসবি পোর্ট বন্ধ করা আছে, তাই কোনও অ্যাক্সেসরির শনাক্ত করা যাবে না।

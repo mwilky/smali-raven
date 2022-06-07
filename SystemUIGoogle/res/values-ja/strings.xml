@@ -237,6 +237,9 @@
     <string name="accessor_no_description_text">アプリで説明は提供されていません。</string>
     <string name="active_input_method_subtypes">有効な入力方法</string>
     <string name="activity_launch_on_secondary_display_failed_text">アプリはセカンダリ ディスプレイでの起動に対応していません。</string>
+    <string name="adaptive_charging_notify_des">%1$sまでに充電が完了します。バッテリーの状態を正常に保つために、ゆっくりと充電します。</string>
+    <string name="adaptive_charging_notify_title">アダプティブ充電は ON です</string>
+    <string name="adaptive_charging_notify_turn_off_once">一度だけ OFF にする</string>
     <string name="adaptive_charging_time_estimate">%1$s • アダプティブ充電中（%2$s までにフル充電）</string>
     <string name="adb_device_fingerprint_title_format">デバイスのフィンガープリント: %1$s</string>
     <string name="adb_device_forget">削除</string>
@@ -281,8 +284,8 @@
     <string name="all_network_unavailable">ネットワークを利用できません</string>
     <string name="allow_mock_location">擬似ロケーションを許可</string>
     <string name="allow_mock_location_summary">擬似ロケーションを許可する</string>
-    <string name="always_use_accessory">%2$s を接続したら常に %1$s を起動する</string>
-    <string name="always_use_device">%2$s を接続したら常に %1$s を起動する</string>
+    <string name="always_use_accessory">%2$s を接続している場合は常に %1$s を起動する</string>
+    <string name="always_use_device">%2$s を接続している場合は常に %1$s を起動する</string>
     <string name="animator_duration_scale_title">Animator再生時間スケール</string>
     <string name="anniversary_status">記念日</string>
     <string name="anniversary_status_content_description">今日は %1$s さんの記念日です</string>
@@ -301,6 +304,7 @@
     <string name="basic_status">空の会話</string>
     <string name="battery">バッテリー</string>
     <string name="battery_detail_switch_title">バッテリー セーバー</string>
+    <string name="battery_health_notify_learn_more">詳細</string>
     <string name="battery_info_status_charging">充電中</string>
     <string name="battery_info_status_charging_fast">急速充電中</string>
     <string name="battery_info_status_charging_slow">低速充電中</string>
@@ -616,7 +620,6 @@
     <string name="debug_networking_category">ネットワーク</string>
     <string name="debug_view_attributes">表示属性検査を有効にする</string>
     <string name="defender_notify_des">バッテリーの状態を正常に保つために、スマートフォンの充電を制限しています</string>
-    <string name="defender_notify_learn_more">詳細</string>
     <string name="defender_notify_resume_charge">充電を再開</string>
     <string name="defender_notify_title">充電を一時的に制限しています</string>
     <string name="defender_post_notify_des">バッテリーの状態を正常に保つため、%2$sから%3$sまでは充電が %1$s に制限されました</string>
@@ -666,7 +669,7 @@
     <string name="enable_bluetooth_message">タブレットでキーボードに接続するには、最初にBluetoothをONにする必要があります。</string>
     <string name="enable_bluetooth_title">BluetoothをONにしますか？</string>
     <string name="enable_demo_mode">デモモードを有効にする</string>
-    <string name="enable_freeform_support">フリーフォーム ウィンドウの有効化</string>
+    <string name="enable_freeform_support">フリーフォーム ウィンドウを有効にする</string>
     <string name="enable_freeform_support_summary">試験運用機能のフリーフォーム ウィンドウのサポートを有効にします。</string>
     <string name="enable_gpu_debug_layers">GPU デバッグレイヤの有効化</string>
     <string name="enable_gpu_debug_layers_summary">デバッグアプリに GPU デバッグレイヤの読み込みを許可</string>
@@ -1704,6 +1707,10 @@ IT 管理者が、このデバイスに関連付けられている設定、コ�
     <string name="usb_accessory_confirm_prompt">%1$s を起動して %2$s を処理しますか？</string>
     <string name="usb_accessory_permission_prompt">%1$s に %2$s へのアクセスを許可しますか？</string>
     <string name="usb_accessory_uri_prompt">このUSBアクセサリを扱うアプリはインストールされていません。詳細: %1$s</string>
+    <string name="usb_audio_device_confirm_prompt_title">%1$s を起動して %2$s を処理しますか？</string>
+    <string name="usb_audio_device_permission_prompt_title">%1$s に %2$s へのアクセスを許可しますか？</string>
+    <string name="usb_audio_device_prompt">このデバイスで %1$s を使用すると、着信音、通知音、アラームが鳴らなくなる可能性があります。</string>
+    <string name="usb_audio_device_prompt_warn">このアプリに録音権限は付与されていませんが、この USB デバイスから音声を収集できるようになります。このデバイスで %1$s を使用すると、着信音、通知音、アラームが鳴らなくなる可能性があります。</string>
     <string name="usb_audio_disable_routing">USBオーディオルーティングを無効化</string>
     <string name="usb_audio_disable_routing_summary">USBオーディオ周辺機器への自動ルーティングを無効化</string>
     <string name="usb_contaminant_message">"液体やゴミからデバイスを保護するため、USB ポートは無効になっています。アクセサリの検出は行われません。

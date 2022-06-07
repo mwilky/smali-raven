@@ -656,16 +656,6 @@
     return-void
 .end method
 
-.method public hideSlider()V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/settings/brightness/BrightnessController;->mControl:Lcom/android/systemui/settings/brightness/ToggleSlider;
-
-    invoke-interface {p0}, Lcom/android/systemui/settings/brightness/ToggleSlider;->hideView()V
-
-    return-void
-.end method
-
 .method public onChanged(ZIZ)V
     .locals 3
 
@@ -764,16 +754,6 @@
     iget-object p0, p0, Lcom/android/systemui/settings/brightness/BrightnessController;->mControl:Lcom/android/systemui/settings/brightness/ToggleSlider;
 
     invoke-interface {p0, p1}, Lcom/android/systemui/settings/brightness/ToggleSlider;->setMirrorControllerAndMirror(Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;)V
-
-    return-void
-.end method
-
-.method public showSlider()V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/settings/brightness/BrightnessController;->mControl:Lcom/android/systemui/settings/brightness/ToggleSlider;
-
-    invoke-interface {p0}, Lcom/android/systemui/settings/brightness/ToggleSlider;->showView()V
 
     return-void
 .end method

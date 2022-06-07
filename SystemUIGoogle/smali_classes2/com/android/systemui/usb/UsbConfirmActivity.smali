@@ -20,6 +20,8 @@
 
 .field private mResolveInfo:Landroid/content/pm/ResolveInfo;
 
+.field private mUsbConfirmMessageHandler:Lcom/android/systemui/usb/UsbAudioWarningDialogMessage;
+
 
 # direct methods
 .method public constructor <init>()V
@@ -238,7 +240,7 @@
 .end method
 
 .method public onCreate(Landroid/os/Bundle;)V
-    .locals 8
+    .locals 10
 
     invoke-virtual {p0}, Lcom/android/internal/app/AlertActivity;->getWindow()Landroid/view/Window;
 
@@ -290,6 +292,22 @@
 
     move-result-object v0
 
+    new-instance v1, Lcom/android/systemui/usb/UsbAudioWarningDialogMessage;
+
+    invoke-virtual {p0}, Lcom/android/internal/app/AlertActivity;->getApplicationContext()Landroid/content/Context;
+
+    move-result-object v2
+
+    invoke-virtual {p0}, Lcom/android/internal/app/AlertActivity;->getIntent()Landroid/content/Intent;
+
+    move-result-object v3
+
+    const/4 v4, 0x1
+
+    invoke-direct {v1, v2, v3, v4}, Lcom/android/systemui/usb/UsbAudioWarningDialogMessage;-><init>(Landroid/content/Context;Landroid/content/Intent;I)V
+
+    iput-object v1, p0, Lcom/android/systemui/usb/UsbConfirmActivity;->mUsbConfirmMessageHandler:Lcom/android/systemui/usb/UsbAudioWarningDialogMessage;
+
     invoke-virtual {p0}, Lcom/android/internal/app/AlertActivity;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v1
@@ -310,19 +328,23 @@
 
     iget-object v3, p0, Lcom/android/systemui/usb/UsbConfirmActivity;->mDevice:Landroid/hardware/usb/UsbDevice;
 
-    const/4 v4, 0x2
+    const/4 v5, 0x0
 
-    const/4 v5, 0x1
+    const/4 v6, 0x2
 
-    const/4 v6, 0x0
+    const/4 v7, 0x0
 
     if-nez v3, :cond_0
 
-    sget p1, Lcom/android/systemui/R$string;->usb_accessory_confirm_prompt:I
+    iget-object p1, p0, Lcom/android/systemui/usb/UsbConfirmActivity;->mUsbConfirmMessageHandler:Lcom/android/systemui/usb/UsbAudioWarningDialogMessage;
 
-    new-array v0, v4, [Ljava/lang/Object;
+    invoke-virtual {p1}, Lcom/android/systemui/usb/UsbAudioWarningDialogMessage;->getUsbAccessoryPromptId()I
 
-    aput-object v1, v0, v6
+    move-result p1
+
+    new-array v0, v6, [Ljava/lang/Object;
+
+    aput-object v1, v0, v7
 
     iget-object v3, p0, Lcom/android/systemui/usb/UsbConfirmActivity;->mAccessory:Landroid/hardware/usb/UsbAccessory;
 
@@ -330,7 +352,7 @@
 
     move-result-object v3
 
-    aput-object v3, v0, v5
+    aput-object v3, v0, v4
 
     invoke-virtual {p0, p1, v0}, Lcom/android/internal/app/AlertActivity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -346,33 +368,33 @@
 
     iput-object p1, p0, Lcom/android/systemui/usb/UsbConfirmActivity;->mDisconnectedReceiver:Lcom/android/systemui/usb/UsbDisconnectedReceiver;
 
-    move p1, v6
+    move p1, v7
 
     goto :goto_3
 
     :cond_0
     const-string v3, "android.intent.extra.UID"
 
-    const/4 v7, -0x1
+    const/4 v8, -0x1
 
-    invoke-virtual {p1, v3, v7}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    invoke-virtual {p1, v3, v8}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result p1
 
     const-string v3, "android.permission.RECORD_AUDIO"
 
-    invoke-static {p0, v3, v7, p1, v0}, Landroid/content/PermissionChecker;->checkPermissionForPreflight(Landroid/content/Context;Ljava/lang/String;IILjava/lang/String;)I
+    invoke-static {p0, v3, v8, p1, v0}, Landroid/content/PermissionChecker;->checkPermissionForPreflight(Landroid/content/Context;Ljava/lang/String;IILjava/lang/String;)I
 
     move-result p1
 
     if-nez p1, :cond_1
 
-    move p1, v5
+    move p1, v4
 
     goto :goto_0
 
     :cond_1
-    move p1, v6
+    move p1, v7
 
     :goto_0
     iget-object v0, p0, Lcom/android/systemui/usb/UsbConfirmActivity;->mDevice:Landroid/hardware/usb/UsbDevice;
@@ -385,40 +407,68 @@
 
     if-nez p1, :cond_2
 
-    move p1, v5
+    move p1, v4
 
     goto :goto_1
 
     :cond_2
-    move p1, v6
+    move p1, v7
 
     :goto_1
-    if-eqz p1, :cond_3
+    iget-object v0, p0, Lcom/android/systemui/usb/UsbConfirmActivity;->mUsbConfirmMessageHandler:Lcom/android/systemui/usb/UsbAudioWarningDialogMessage;
 
-    sget v0, Lcom/android/systemui/R$string;->usb_device_confirm_prompt_warn:I
+    invoke-virtual {v0}, Lcom/android/systemui/usb/UsbAudioWarningDialogMessage;->getMessageId()I
 
-    goto :goto_2
+    move-result v0
 
-    :cond_3
-    sget v0, Lcom/android/systemui/R$string;->usb_device_confirm_prompt:I
+    iget-object v3, p0, Lcom/android/systemui/usb/UsbConfirmActivity;->mUsbConfirmMessageHandler:Lcom/android/systemui/usb/UsbAudioWarningDialogMessage;
 
-    :goto_2
-    new-array v3, v4, [Ljava/lang/Object;
+    invoke-virtual {v3}, Lcom/android/systemui/usb/UsbAudioWarningDialogMessage;->getPromptTitleId()I
 
-    aput-object v1, v3, v6
+    move-result v3
 
-    iget-object v7, p0, Lcom/android/systemui/usb/UsbConfirmActivity;->mDevice:Landroid/hardware/usb/UsbDevice;
+    new-array v8, v6, [Ljava/lang/Object;
 
-    invoke-virtual {v7}, Landroid/hardware/usb/UsbDevice;->getProductName()Ljava/lang/String;
+    aput-object v1, v8, v7
 
-    move-result-object v7
+    iget-object v9, p0, Lcom/android/systemui/usb/UsbConfirmActivity;->mDevice:Landroid/hardware/usb/UsbDevice;
 
-    aput-object v7, v3, v5
+    invoke-virtual {v9}, Landroid/hardware/usb/UsbDevice;->getProductName()Ljava/lang/String;
+
+    move-result-object v9
+
+    aput-object v9, v8, v4
+
+    invoke-virtual {p0, v3, v8}, Lcom/android/internal/app/AlertActivity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v3
+
+    iput-object v3, v2, Lcom/android/internal/app/AlertController$AlertParams;->mTitle:Ljava/lang/CharSequence;
+
+    if-eqz v0, :cond_3
+
+    new-array v3, v6, [Ljava/lang/Object;
+
+    aput-object v1, v3, v7
+
+    iget-object v8, p0, Lcom/android/systemui/usb/UsbConfirmActivity;->mDevice:Landroid/hardware/usb/UsbDevice;
+
+    invoke-virtual {v8}, Landroid/hardware/usb/UsbDevice;->getProductName()Ljava/lang/String;
+
+    move-result-object v8
+
+    aput-object v8, v3, v4
 
     invoke-virtual {p0, v0, v3}, Lcom/android/internal/app/AlertActivity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
+    goto :goto_2
+
+    :cond_3
+    move-object v0, v5
+
+    :goto_2
     iput-object v0, v2, Lcom/android/internal/app/AlertController$AlertParams;->mMessage:Ljava/lang/CharSequence;
 
     new-instance v0, Lcom/android/systemui/usb/UsbDisconnectedReceiver;
@@ -462,9 +512,7 @@
 
     const v0, 0x1090035
 
-    const/4 v3, 0x0
-
-    invoke-virtual {p1, v0, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+    invoke-virtual {p1, v0, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object p1
 
@@ -486,9 +534,9 @@
 
     sget v0, Lcom/android/systemui/R$string;->always_use_accessory:I
 
-    new-array v3, v4, [Ljava/lang/Object;
+    new-array v3, v6, [Ljava/lang/Object;
 
-    aput-object v1, v3, v6
+    aput-object v1, v3, v7
 
     iget-object v1, p0, Lcom/android/systemui/usb/UsbConfirmActivity;->mAccessory:Landroid/hardware/usb/UsbAccessory;
 
@@ -496,7 +544,7 @@
 
     move-result-object v1
 
-    aput-object v1, v3, v5
+    aput-object v1, v3, v4
 
     invoke-virtual {p0, v0, v3}, Lcom/android/internal/app/AlertActivity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -509,17 +557,17 @@
     :cond_4
     sget v3, Lcom/android/systemui/R$string;->always_use_device:I
 
-    new-array v4, v4, [Ljava/lang/Object;
+    new-array v5, v6, [Ljava/lang/Object;
 
-    aput-object v1, v4, v6
+    aput-object v1, v5, v7
 
     invoke-virtual {v0}, Landroid/hardware/usb/UsbDevice;->getProductName()Ljava/lang/String;
 
     move-result-object v0
 
-    aput-object v0, v4, v5
+    aput-object v0, v5, v4
 
-    invoke-virtual {p0, v3, v4}, Lcom/android/internal/app/AlertActivity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {p0, v3, v5}, Lcom/android/internal/app/AlertActivity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 

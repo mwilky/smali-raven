@@ -237,6 +237,9 @@
     <string name="accessor_no_description_text">Aplikácia neposkytla žiadny popis.</string>
     <string name="active_input_method_subtypes">Aktívne metódy vstupu</string>
     <string name="activity_launch_on_secondary_display_failed_text">Aplikácia nepodporuje spúšťanie na sekundárnych obrazovkách.</string>
+    <string name="adaptive_charging_notify_des">Batéria bude úplne nabitá o %1$s. Nabíjanie je plynulé, aby sa zachovala životnosť batérie.</string>
+    <string name="adaptive_charging_notify_title">Je zapnuté adaptívne nabíjanie</string>
+    <string name="adaptive_charging_notify_turn_off_once">Vypnúť raz</string>
     <string name="adaptive_charging_time_estimate">%1$s • Adaptívne nabíjanie (úplne nabité do %2$s)</string>
     <string name="adb_device_fingerprint_title_format">Digitálny odtlačok zariadenia: %1$s</string>
     <string name="adb_device_forget">Odstrániť</string>
@@ -301,6 +304,7 @@ Ak je toto povolenie vypnuté, súčasné budíky a udalosti s časovým obmed
     <string name="basic_status">Otvorená konverzácia</string>
     <string name="battery">Batéria</string>
     <string name="battery_detail_switch_title">Šetrič batérie</string>
+    <string name="battery_health_notify_learn_more">Ďalšie informácie</string>
     <string name="battery_info_status_charging">Nabíja sa</string>
     <string name="battery_info_status_charging_fast">Rýchle nabíjanie</string>
     <string name="battery_info_status_charging_slow">Pomalé nabíjanie</string>
@@ -312,7 +316,7 @@ Ak je toto povolenie vypnuté, súčasné budíky a udalosti s časovým obmed
     <string name="battery_low_percent_format">Zostáva %s</string>
     <string name="battery_low_title">Batéria sa môže čoskoro minúť</string>
     <string name="battery_saver_confirmation_ok">Zapnúť</string>
-    <string name="battery_saver_confirmation_title">Zapnúť šetrič batérie?</string>
+    <string name="battery_saver_confirmation_title">Chcete zapnúť šetrič batérie?</string>
     <string name="battery_saver_confirmation_title_generic">Šetrič batérie</string>
     <string name="battery_saver_start_action">Zapnúť šetrič batérie</string>
     <string name="battery_state_unknown_notification_text">Klepnutím si zobrazíte ďalšie informácie</string>
@@ -533,7 +537,7 @@ Výber"</string>
     <string name="controls_favorite_rearrange">Polohu každého ovládača môžete zmeniť jeho pridržaním a presunutím</string>
     <string name="controls_favorite_removed">Všetky ovládače boli odstránené</string>
     <string name="controls_favorite_see_other_apps">Zobraziť ďalšie aplikácie</string>
-    <string name="controls_favorite_subtitle">Vyberte ovládanie, ku ktorému chcete mať prístup z rýchlych nastavení</string>
+    <string name="controls_favorite_subtitle">Vyberte ovládače, ku ktorému chcete mať prístup z rýchlych nastavení</string>
     <string name="controls_favorite_toast_no_changes">Zmeny neboli uložené</string>
     <string name="controls_media_active_session">Aktuálna relácia média sa nedá skryť.</string>
     <string name="controls_media_close_session">Chcete skryť túto reláciu média?</string>
@@ -616,7 +620,6 @@ Ak ho znovu zapnete, môžu vám byť účtované poplatky za spotrebu dát."</s
     <string name="debug_networking_category">Siete</string>
     <string name="debug_view_attributes">Kontrolovať atribúty zobrazenia</string>
     <string name="defender_notify_des">Váš telefón obmedzuje nabíjanie, čím šetrí batériu</string>
-    <string name="defender_notify_learn_more">Ďalšie informácie</string>
     <string name="defender_notify_resume_charge">Pokračovať v nabíjaní</string>
     <string name="defender_notify_title">Nabíjanie je dočasne obmedzené</string>
     <string name="defender_post_notify_des">Nabíjanie bolo od %2$s do %3$s obmedzené na %1$s, aby sa zachovala životnosť batérie</string>
@@ -767,7 +770,7 @@ Ak ho znovu zapnete, môžu vám byť účtované poplatky za spotrebu dát."</s
     <string name="hdcp_checking_dialog_title">Nastaviť spôsob kontroly HDCP</string>
     <string name="hdcp_checking_title">Kontrola HDCP</string>
     <string name="headset">Náhlavná súprava</string>
-    <string name="heap_dump_tile_name">V7pis haldy SysUI</string>
+    <string name="heap_dump_tile_name">Výpis haldy SysUI</string>
     <string name="help_feedback_label">Pomocník a spätná väzba</string>
     <string name="help_label">Pomocník a spätná väzba</string>
     <string name="high_temp_alarm_help_care_steps">Zobraziť opatrenia</string>
@@ -1352,7 +1355,7 @@ V prípade otázok kontaktujte organizáciu %2$s."</string>
     <string name="quick_settings_bluetooth_secondary_label_input">Vstup</string>
     <string name="quick_settings_bluetooth_secondary_label_transient">Zapína sa…</string>
     <string name="quick_settings_brightness_dialog_title">Jas</string>
-    <string name="quick_settings_camera_label">Prístup k fotoaparátu</string>
+    <string name="quick_settings_camera_label">Prístup ku kamere</string>
     <string name="quick_settings_camera_mic_available">K dispozícii</string>
     <string name="quick_settings_camera_mic_blocked">Blokované</string>
     <string name="quick_settings_cast_detail_empty_text">Nie sú k dispozícii žiadne zariadenia</string>
@@ -1704,6 +1707,10 @@ Viac sa dozviete po klepnutí."</string>
     <string name="usb_accessory_confirm_prompt">Otvoriť aplikáciu %1$s na použitie zariadenia %2$s?</string>
     <string name="usb_accessory_permission_prompt">Povoliť aplikácii %1$s prístup k zariadeniu %2$s?</string>
     <string name="usb_accessory_uri_prompt">S týmto zariad. USB nefunguje žiadna nainštal. aplikácia. Ďalšie informácie na %1$s</string>
+    <string name="usb_audio_device_confirm_prompt_title">Otvoriť %1$s na spravovanie %2$s?</string>
+    <string name="usb_audio_device_permission_prompt_title">Povoliť apl. %1$s prístup k zar. %2$s?</string>
+    <string name="usb_audio_device_prompt">Ak budete s týmto zariadením používať aplikáciu %1$s, nemusíte počuť hovory, upozornenia ani budíky.</string>
+    <string name="usb_audio_device_prompt_warn">Tejto aplikácii nebolo udelené povolenie na nahrávanie, ale môže nahrávať zvuk cez toto zariadenie USB. Ak budete s týmto zariadením používať aplikáciu %1$s, nemusíte počuť hovory, upozornenia ani budíky.</string>
     <string name="usb_audio_disable_routing">Vyp. smer. zvuku do USB</string>
     <string name="usb_audio_disable_routing_summary">Vypnúť automatické smerovanie do audio periférií USB</string>
     <string name="usb_contaminant_message">"Port USB je deaktivovaný na zaistenie ochrany zariadenia pred tekutinami alebo nečistotami a nerozpoznáva príslušenstvo.

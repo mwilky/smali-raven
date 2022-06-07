@@ -8,18 +8,18 @@
 # instance fields
 .field public final synthetic f$0:Lcom/android/systemui/keyguard/KeyguardViewMediator;
 
-.field public final synthetic f$1:Z
+.field public final synthetic f$1:Lcom/android/internal/policy/IKeyguardDrawnCallback;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/systemui/keyguard/KeyguardViewMediator;Z)V
+.method public synthetic constructor <init>(Lcom/android/systemui/keyguard/KeyguardViewMediator;Lcom/android/internal/policy/IKeyguardDrawnCallback;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda9;->f$0:Lcom/android/systemui/keyguard/KeyguardViewMediator;
 
-    iput-boolean p2, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda9;->f$1:Z
+    iput-object p2, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda9;->f$1:Lcom/android/internal/policy/IKeyguardDrawnCallback;
 
     return-void
 .end method
@@ -31,9 +31,9 @@
 
     iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda9;->f$0:Lcom/android/systemui/keyguard/KeyguardViewMediator;
 
-    iget-boolean p0, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda9;->f$1:Z
+    iget-object p0, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda9;->f$1:Lcom/android/internal/policy/IKeyguardDrawnCallback;
 
-    invoke-static {v0, p0}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->$r8$lambda$Q7K5bOIr2sDkGRLR4bqI44oo7Po(Lcom/android/systemui/keyguard/KeyguardViewMediator;Z)V
+    invoke-static {v0, p0}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->$r8$lambda$-EX3AmJ9KNSa2YnKAaEg1uarfV0(Lcom/android/systemui/keyguard/KeyguardViewMediator;Lcom/android/internal/policy/IKeyguardDrawnCallback;)V
 
     return-void
 .end method

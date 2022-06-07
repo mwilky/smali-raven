@@ -41,6 +41,10 @@
 
 .field private mIsHandleDynamicPrivacyChangeScheduled:Z
 
+.field private final mKeyguardStateController:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
+
+.field private final mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
+
 .field private mListContainer:Lcom/android/systemui/statusbar/notification/stack/NotificationListContainer;
 
 .field protected final mLockscreenUserManager:Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;
@@ -77,7 +81,7 @@
     return-void
 .end method
 
-.method public constructor <init>(Landroid/content/Context;Landroid/os/Handler;Lcom/android/systemui/flags/FeatureFlags;Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Ljava/util/Optional;Lcom/android/systemui/statusbar/notification/DynamicPrivacyController;Lcom/android/systemui/statusbar/notification/stack/ForegroundServiceSectionController;Lcom/android/systemui/statusbar/notification/DynamicChildBindController;Lcom/android/systemui/statusbar/notification/collection/inflation/LowPriorityInflationHelper;Lcom/android/systemui/statusbar/notification/AssistantFeedbackController;)V
+.method public constructor <init>(Landroid/content/Context;Landroid/os/Handler;Lcom/android/systemui/flags/FeatureFlags;Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Ljava/util/Optional;Lcom/android/systemui/statusbar/notification/DynamicPrivacyController;Lcom/android/systemui/statusbar/notification/stack/ForegroundServiceSectionController;Lcom/android/systemui/statusbar/notification/DynamicChildBindController;Lcom/android/systemui/statusbar/notification/collection/inflation/LowPriorityInflationHelper;Lcom/android/systemui/statusbar/notification/AssistantFeedbackController;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/statusbar/policy/KeyguardStateController;)V
     .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -99,6 +103,8 @@
             "Lcom/android/systemui/statusbar/notification/DynamicChildBindController;",
             "Lcom/android/systemui/statusbar/notification/collection/inflation/LowPriorityInflationHelper;",
             "Lcom/android/systemui/statusbar/notification/AssistantFeedbackController;",
+            "Lcom/android/keyguard/KeyguardUpdateMonitor;",
+            "Lcom/android/systemui/statusbar/policy/KeyguardStateController;",
             ")V"
         }
     .end annotation
@@ -186,6 +192,14 @@
     move-object/from16 v1, p15
 
     iput-object v1, v0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mAssistantFeedbackController:Lcom/android/systemui/statusbar/notification/AssistantFeedbackController;
+
+    move-object/from16 v1, p16
+
+    iput-object v1, v0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
+
+    move-object/from16 v1, p17
+
+    iput-object v1, v0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mKeyguardStateController:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
 
     return-void
 .end method
@@ -1082,7 +1096,7 @@
 .end method
 
 .method public updateNotificationViews()V
-    .locals 12
+    .locals 13
 
     invoke-static {}, Lcom/android/systemui/util/Assert;->isMainThread()V
 
@@ -1099,387 +1113,431 @@
     :cond_0
     invoke-direct {p0}, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->beginUpdate()V
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mEntryManager:Lcom/android/systemui/statusbar/notification/NotificationEntryManager;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mDynamicPrivacyController:Lcom/android/systemui/statusbar/notification/DynamicPrivacyController;
 
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->getVisibleNotifications()Ljava/util/List;
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/notification/DynamicPrivacyController;->isDynamicallyUnlocked()Z
 
-    move-result-object v0
+    move-result v0
 
-    new-instance v1, Ljava/util/ArrayList;
+    const/4 v1, 0x1
 
-    invoke-interface {v0}, Ljava/util/List;->size()I
+    const/4 v2, 0x0
 
-    move-result v2
+    if-eqz v0, :cond_2
 
-    invoke-direct {v1, v2}, Ljava/util/ArrayList;-><init>(I)V
+    iget-object v0, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mStatusBarStateController:Lcom/android/systemui/statusbar/SysuiStatusBarStateController;
 
-    invoke-interface {v0}, Ljava/util/List;->size()I
+    invoke-interface {v0}, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;->getState()I
 
-    move-result v2
+    move-result v0
 
-    const/4 v3, 0x0
+    if-ne v0, v1, :cond_1
 
-    move v4, v3
+    iget-object v0, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    :goto_0
-    const/4 v5, 0x1
+    invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getCurrentUser()I
 
-    if-ge v4, v2, :cond_f
+    move-result v3
 
-    invoke-interface {v0, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-virtual {v0, v3}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getUserUnlockedWithBiometricAndIsBypassing(I)Z
 
-    move-result-object v6
+    move-result v0
 
-    check-cast v6, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
-
-    invoke-direct {p0, v6}, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->shouldSuppressActiveNotification(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)Z
-
-    move-result v7
-
-    if-eqz v7, :cond_1
-
-    goto/16 :goto_8
+    if-nez v0, :cond_2
 
     :cond_1
-    invoke-virtual {v6}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getSbn()Landroid/service/notification/StatusBarNotification;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mKeyguardStateController:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
+
+    invoke-interface {v0}, Lcom/android/systemui/statusbar/policy/KeyguardStateController;->isKeyguardGoingAway()Z
+
+    move-result v0
+
+    if-nez v0, :cond_2
+
+    move v0, v1
+
+    goto :goto_0
+
+    :cond_2
+    move v0, v2
+
+    :goto_0
+    iget-object v3, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mEntryManager:Lcom/android/systemui/statusbar/notification/NotificationEntryManager;
+
+    invoke-virtual {v3}, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->getVisibleNotifications()Ljava/util/List;
+
+    move-result-object v3
+
+    new-instance v4, Ljava/util/ArrayList;
+
+    invoke-interface {v3}, Ljava/util/List;->size()I
+
+    move-result v5
+
+    invoke-direct {v4, v5}, Ljava/util/ArrayList;-><init>(I)V
+
+    invoke-interface {v3}, Ljava/util/List;->size()I
+
+    move-result v5
+
+    move v6, v2
+
+    :goto_1
+    if-ge v6, v5, :cond_11
+
+    invoke-interface {v3, v6}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v7
 
-    invoke-virtual {v7}, Landroid/service/notification/StatusBarNotification;->getUserId()I
+    check-cast v7, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
 
-    move-result v7
+    invoke-direct {p0, v7}, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->shouldSuppressActiveNotification(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)Z
 
-    iget-object v8, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mLockscreenUserManager:Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;
+    move-result v8
 
-    invoke-interface {v8}, Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;->getCurrentUserId()I
+    if-eqz v8, :cond_3
+
+    goto/16 :goto_a
+
+    :cond_3
+    invoke-virtual {v7}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getSbn()Landroid/service/notification/StatusBarNotification;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Landroid/service/notification/StatusBarNotification;->getUserId()I
 
     move-result v8
 
     iget-object v9, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mLockscreenUserManager:Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;
 
-    invoke-interface {v9, v8}, Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;->isLockscreenPublicMode(I)Z
+    invoke-interface {v9}, Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;->getCurrentUserId()I
 
     move-result v9
 
-    if-nez v9, :cond_3
-
     iget-object v10, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mLockscreenUserManager:Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;
 
-    invoke-interface {v10, v7}, Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;->isLockscreenPublicMode(I)Z
+    invoke-interface {v10, v9}, Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;->isLockscreenPublicMode(I)Z
 
     move-result v10
 
-    if-eqz v10, :cond_2
-
-    goto :goto_1
-
-    :cond_2
-    move v10, v3
-
-    goto :goto_2
-
-    :cond_3
-    :goto_1
-    move v10, v5
-
-    :goto_2
-    if-eqz v10, :cond_5
-
-    iget-object v11, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mDynamicPrivacyController:Lcom/android/systemui/statusbar/notification/DynamicPrivacyController;
-
-    invoke-virtual {v11}, Lcom/android/systemui/statusbar/notification/DynamicPrivacyController;->isDynamicallyUnlocked()Z
-
-    move-result v11
-
-    if-eqz v11, :cond_5
-
-    if-eq v7, v8, :cond_4
-
-    const/4 v11, -0x1
-
-    if-eq v7, v11, :cond_4
+    if-nez v10, :cond_5
 
     iget-object v11, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mLockscreenUserManager:Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;
 
-    invoke-interface {v11, v7}, Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;->needsSeparateWorkChallenge(I)Z
+    invoke-interface {v11, v8}, Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;->isLockscreenPublicMode(I)Z
 
-    move-result v7
+    move-result v11
 
-    if-nez v7, :cond_5
+    if-eqz v11, :cond_4
+
+    goto :goto_2
 
     :cond_4
-    move v10, v3
-
-    :cond_5
-    iget-object v7, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mLockscreenUserManager:Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;
-
-    invoke-interface {v7, v6}, Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;->needsRedaction(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)Z
-
-    move-result v7
-
-    if-eqz v10, :cond_6
-
-    if-eqz v7, :cond_6
-
-    move v10, v5
+    move v11, v2
 
     goto :goto_3
 
-    :cond_6
-    move v10, v3
+    :cond_5
+    :goto_2
+    move v11, v1
 
     :goto_3
-    if-eqz v9, :cond_7
+    if-eqz v11, :cond_7
 
-    iget-object v9, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mLockscreenUserManager:Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;
+    if-eqz v0, :cond_7
 
-    invoke-interface {v9, v8}, Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;->userAllowsPrivateNotificationsInPublic(I)Z
+    if-eq v8, v9, :cond_6
+
+    const/4 v12, -0x1
+
+    if-eq v8, v12, :cond_6
+
+    iget-object v12, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mLockscreenUserManager:Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;
+
+    invoke-interface {v12, v8}, Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;->needsSeparateWorkChallenge(I)Z
 
     move-result v8
 
     if-nez v8, :cond_7
 
-    move v8, v5
+    :cond_6
+    move v11, v2
+
+    :cond_7
+    iget-object v8, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mLockscreenUserManager:Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;
+
+    invoke-interface {v8, v7}, Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;->needsRedaction(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)Z
+
+    move-result v8
+
+    if-eqz v11, :cond_8
+
+    if-eqz v8, :cond_8
+
+    move v11, v1
 
     goto :goto_4
 
-    :cond_7
-    move v8, v3
+    :cond_8
+    move v11, v2
 
     :goto_4
-    invoke-virtual {v6, v10, v8}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->setSensitive(ZZ)V
+    if-eqz v10, :cond_9
 
-    invoke-virtual {v6}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getRow()Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
+    iget-object v10, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mLockscreenUserManager:Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;
 
-    move-result-object v8
-
-    invoke-virtual {v8, v7}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->setNeedsRedaction(Z)V
-
-    iget-object v7, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mLowPriorityInflationHelper:Lcom/android/systemui/statusbar/notification/collection/inflation/LowPriorityInflationHelper;
-
-    invoke-virtual {v6}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getRow()Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
-
-    move-result-object v8
-
-    invoke-virtual {v7, v6, v8}, Lcom/android/systemui/statusbar/notification/collection/inflation/LowPriorityInflationHelper;->recheckLowPriorityViewAndInflate(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;)V
-
-    iget-object v7, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mGroupManager:Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;
-
-    invoke-virtual {v7, v6}, Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;->isChildInGroup(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)Z
-
-    move-result v7
-
-    iget-object v8, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mVisualStabilityManager:Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;
-
-    invoke-virtual {v8}, Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;->areGroupChangesAllowed()Z
-
-    move-result v8
-
-    if-nez v8, :cond_9
-
-    invoke-virtual {v6}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->hasFinishedInitialization()Z
-
-    move-result v8
-
-    if-nez v8, :cond_8
-
-    goto :goto_5
-
-    :cond_8
-    move v5, v3
-
-    :cond_9
-    :goto_5
-    iget-object v8, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mGroupManager:Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;
-
-    invoke-virtual {v8, v6}, Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;->getGroupSummary(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
-
-    move-result-object v8
-
-    if-nez v5, :cond_b
-
-    invoke-virtual {v6}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->isChildInGroup()Z
-
-    move-result v5
-
-    if-eqz v7, :cond_a
-
-    if-nez v5, :cond_a
-
-    iget-object v7, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mVisualStabilityManager:Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;
-
-    iget-object v9, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mEntryManager:Lcom/android/systemui/statusbar/notification/NotificationEntryManager;
-
-    invoke-virtual {v7, v9, v3}, Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;->addGroupChangesAllowedCallback(Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager$Callback;Z)V
-
-    :goto_6
-    move v7, v5
-
-    goto :goto_7
-
-    :cond_a
-    if-nez v7, :cond_b
-
-    if-eqz v5, :cond_b
-
-    iget-object v9, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mGroupManager:Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;
-
-    invoke-virtual {v6}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getSbn()Landroid/service/notification/StatusBarNotification;
-
-    move-result-object v10
-
-    invoke-virtual {v9, v10}, Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;->isLogicalGroupExpanded(Landroid/service/notification/StatusBarNotification;)Z
+    invoke-interface {v10, v9}, Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;->userAllowsPrivateNotificationsInPublic(I)Z
 
     move-result v9
 
-    if-eqz v9, :cond_b
+    if-nez v9, :cond_9
 
-    invoke-virtual {v6}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getRow()Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
+    move v9, v1
 
-    move-result-object v7
+    goto :goto_5
 
-    invoke-virtual {v7}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->getNotificationParent()Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
+    :cond_9
+    move v9, v2
 
-    move-result-object v7
+    :goto_5
+    invoke-virtual {v7, v11, v9}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->setSensitive(ZZ)V
 
-    invoke-virtual {v7}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->getEntry()Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
+    invoke-virtual {v7}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getRow()Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
 
-    move-result-object v8
+    move-result-object v9
 
-    iget-object v7, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mVisualStabilityManager:Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;
+    invoke-virtual {v9, v8}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->setNeedsRedaction(Z)V
 
-    iget-object v9, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mEntryManager:Lcom/android/systemui/statusbar/notification/NotificationEntryManager;
+    iget-object v8, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mLowPriorityInflationHelper:Lcom/android/systemui/statusbar/notification/collection/inflation/LowPriorityInflationHelper;
 
-    invoke-virtual {v7, v9, v3}, Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;->addGroupChangesAllowedCallback(Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager$Callback;Z)V
+    invoke-virtual {v7}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getRow()Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
+
+    move-result-object v9
+
+    invoke-virtual {v8, v7, v9}, Lcom/android/systemui/statusbar/notification/collection/inflation/LowPriorityInflationHelper;->recheckLowPriorityViewAndInflate(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;)V
+
+    iget-object v8, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mGroupManager:Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;
+
+    invoke-virtual {v8, v7}, Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;->isChildInGroup(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)Z
+
+    move-result v8
+
+    iget-object v9, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mVisualStabilityManager:Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;
+
+    invoke-virtual {v9}, Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;->areGroupChangesAllowed()Z
+
+    move-result v9
+
+    if-nez v9, :cond_b
+
+    invoke-virtual {v7}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->hasFinishedInitialization()Z
+
+    move-result v9
+
+    if-nez v9, :cond_a
 
     goto :goto_6
 
+    :cond_a
+    move v9, v2
+
+    goto :goto_7
+
     :cond_b
+    :goto_6
+    move v9, v1
+
     :goto_7
-    if-eqz v7, :cond_d
+    iget-object v10, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mGroupManager:Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mTmpChildOrderMap:Ljava/util/HashMap;
+    invoke-virtual {v10, v7}, Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;->getGroupSummary(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
 
-    invoke-virtual {v5, v8}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    move-result-object v10
 
-    move-result-object v5
+    if-nez v9, :cond_d
 
-    check-cast v5, Ljava/util/List;
+    invoke-virtual {v7}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->isChildInGroup()Z
 
-    if-nez v5, :cond_c
+    move-result v9
 
-    new-instance v5, Ljava/util/ArrayList;
+    if-eqz v8, :cond_c
 
-    invoke-direct {v5}, Ljava/util/ArrayList;-><init>()V
+    if-nez v9, :cond_c
 
-    iget-object v7, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mTmpChildOrderMap:Ljava/util/HashMap;
+    iget-object v8, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mVisualStabilityManager:Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;
 
-    invoke-virtual {v7, v8, v5}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    iget-object v11, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mEntryManager:Lcom/android/systemui/statusbar/notification/NotificationEntryManager;
+
+    invoke-virtual {v8, v11, v2}, Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;->addGroupChangesAllowedCallback(Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager$Callback;Z)V
+
+    :goto_8
+    move v8, v9
+
+    goto :goto_9
 
     :cond_c
-    invoke-interface {v5, v6}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    if-nez v8, :cond_d
+
+    if-eqz v9, :cond_d
+
+    iget-object v11, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mGroupManager:Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;
+
+    invoke-virtual {v7}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getSbn()Landroid/service/notification/StatusBarNotification;
+
+    move-result-object v12
+
+    invoke-virtual {v11, v12}, Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;->isLogicalGroupExpanded(Landroid/service/notification/StatusBarNotification;)Z
+
+    move-result v11
+
+    if-eqz v11, :cond_d
+
+    invoke-virtual {v7}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getRow()Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->getNotificationParent()Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->getEntry()Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
+
+    move-result-object v10
+
+    iget-object v8, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mVisualStabilityManager:Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;
+
+    iget-object v11, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mEntryManager:Lcom/android/systemui/statusbar/notification/NotificationEntryManager;
+
+    invoke-virtual {v8, v11, v2}, Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;->addGroupChangesAllowedCallback(Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager$Callback;Z)V
 
     goto :goto_8
 
     :cond_d
-    iget-object v5, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mTmpChildOrderMap:Ljava/util/HashMap;
+    :goto_9
+    if-eqz v8, :cond_f
 
-    invoke-virtual {v5, v6}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
+    iget-object v8, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mTmpChildOrderMap:Ljava/util/HashMap;
 
-    move-result v5
+    invoke-virtual {v8, v10}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    if-nez v5, :cond_e
+    move-result-object v8
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mTmpChildOrderMap:Ljava/util/HashMap;
+    check-cast v8, Ljava/util/List;
 
-    const/4 v7, 0x0
+    if-nez v8, :cond_e
 
-    invoke-virtual {v5, v6, v7}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    new-instance v8, Ljava/util/ArrayList;
+
+    invoke-direct {v8}, Ljava/util/ArrayList;-><init>()V
+
+    iget-object v9, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mTmpChildOrderMap:Ljava/util/HashMap;
+
+    invoke-virtual {v9, v10, v8}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     :cond_e
-    invoke-virtual {v6}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getRow()Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
+    invoke-interface {v8, v7}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    move-result-object v5
-
-    invoke-virtual {v1, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    :goto_8
-    add-int/lit8 v4, v4, 0x1
-
-    goto/16 :goto_0
+    goto :goto_a
 
     :cond_f
+    iget-object v8, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mTmpChildOrderMap:Ljava/util/HashMap;
+
+    invoke-virtual {v8, v7}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
+
+    move-result v8
+
+    if-nez v8, :cond_10
+
+    iget-object v8, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mTmpChildOrderMap:Ljava/util/HashMap;
+
+    const/4 v9, 0x0
+
+    invoke-virtual {v8, v7, v9}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    :cond_10
+    invoke-virtual {v7}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getRow()Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
+
+    move-result-object v7
+
+    invoke-virtual {v4, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    :goto_a
+    add-int/lit8 v6, v6, 0x1
+
+    goto/16 :goto_1
+
+    :cond_11
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    move v2, v3
+    move v3, v2
 
-    :goto_9
-    iget-object v4, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mListContainer:Lcom/android/systemui/statusbar/notification/stack/NotificationListContainer;
+    :goto_b
+    iget-object v5, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mListContainer:Lcom/android/systemui/statusbar/notification/stack/NotificationListContainer;
 
-    invoke-interface {v4}, Lcom/android/systemui/statusbar/notification/stack/NotificationListContainer;->getContainerChildCount()I
+    invoke-interface {v5}, Lcom/android/systemui/statusbar/notification/stack/NotificationListContainer;->getContainerChildCount()I
 
-    move-result v4
+    move-result v5
 
-    if-ge v2, v4, :cond_11
+    if-ge v3, v5, :cond_13
 
-    iget-object v4, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mListContainer:Lcom/android/systemui/statusbar/notification/stack/NotificationListContainer;
+    iget-object v5, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mListContainer:Lcom/android/systemui/statusbar/notification/stack/NotificationListContainer;
 
-    invoke-interface {v4, v2}, Lcom/android/systemui/statusbar/notification/stack/NotificationListContainer;->getContainerChildAt(I)Landroid/view/View;
+    invoke-interface {v5, v3}, Lcom/android/systemui/statusbar/notification/stack/NotificationListContainer;->getContainerChildAt(I)Landroid/view/View;
 
-    move-result-object v4
+    move-result-object v5
 
-    invoke-virtual {v1, v4}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
-
-    move-result v6
-
-    if-nez v6, :cond_10
-
-    instance-of v6, v4, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
-
-    if-eqz v6, :cond_10
-
-    check-cast v4, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
-
-    invoke-virtual {v4}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->isBlockingHelperShowing()Z
+    invoke-virtual {v4, v5}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
 
     move-result v6
 
-    if-nez v6, :cond_10
+    if-nez v6, :cond_12
 
-    invoke-virtual {v0, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    instance-of v6, v5, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
 
-    :cond_10
-    add-int/lit8 v2, v2, 0x1
+    if-eqz v6, :cond_12
 
-    goto :goto_9
+    check-cast v5, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
 
-    :cond_11
+    invoke-virtual {v5}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->isBlockingHelperShowing()Z
+
+    move-result v6
+
+    if-nez v6, :cond_12
+
+    invoke-virtual {v0, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    :cond_12
+    add-int/lit8 v3, v3, 0x1
+
+    goto :goto_b
+
+    :cond_13
     invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
 
-    :goto_a
+    :goto_c
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v2
+    move-result v3
 
-    if-eqz v2, :cond_14
+    if-eqz v3, :cond_16
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v3
 
-    check-cast v2, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
+    check-cast v3, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
 
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->getEntry()Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
+    invoke-virtual {v3}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->getEntry()Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
 
-    move-result-object v4
+    move-result-object v5
 
     iget-object v6, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mEntryManager:Lcom/android/systemui/statusbar/notification/NotificationEntryManager;
 
-    invoke-virtual {v4}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getKey()Ljava/lang/String;
+    invoke-virtual {v5}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getKey()Ljava/lang/String;
 
     move-result-object v7
 
@@ -1487,121 +1545,121 @@
 
     move-result-object v6
 
-    if-eqz v6, :cond_12
+    if-eqz v6, :cond_14
 
-    invoke-direct {p0, v4}, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->shouldSuppressActiveNotification(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)Z
+    invoke-direct {p0, v5}, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->shouldSuppressActiveNotification(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)Z
 
-    move-result v4
+    move-result v5
 
-    if-nez v4, :cond_12
+    if-nez v5, :cond_14
 
-    iget-object v4, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mListContainer:Lcom/android/systemui/statusbar/notification/stack/NotificationListContainer;
+    iget-object v5, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mListContainer:Lcom/android/systemui/statusbar/notification/stack/NotificationListContainer;
 
-    invoke-interface {v4, v5}, Lcom/android/systemui/statusbar/notification/stack/NotificationListContainer;->setChildTransferInProgress(Z)V
-
-    :cond_12
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->isSummaryWithChildren()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_13
-
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->removeAllChildren()V
-
-    :cond_13
-    iget-object v4, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mListContainer:Lcom/android/systemui/statusbar/notification/stack/NotificationListContainer;
-
-    invoke-interface {v4, v2}, Lcom/android/systemui/statusbar/notification/stack/NotificationListContainer;->removeContainerView(Landroid/view/View;)V
-
-    iget-object v2, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mListContainer:Lcom/android/systemui/statusbar/notification/stack/NotificationListContainer;
-
-    invoke-interface {v2, v3}, Lcom/android/systemui/statusbar/notification/stack/NotificationListContainer;->setChildTransferInProgress(Z)V
-
-    goto :goto_a
+    invoke-interface {v5, v1}, Lcom/android/systemui/statusbar/notification/stack/NotificationListContainer;->setChildTransferInProgress(Z)V
 
     :cond_14
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->removeNotificationChildren()V
+    invoke-virtual {v3}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->isSummaryWithChildren()Z
 
-    move v0, v3
+    move-result v5
 
-    :goto_b
-    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
+    if-eqz v5, :cond_15
 
-    move-result v2
+    invoke-virtual {v3}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->removeAllChildren()V
 
-    if-ge v0, v2, :cond_17
+    :cond_15
+    iget-object v5, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mListContainer:Lcom/android/systemui/statusbar/notification/stack/NotificationListContainer;
 
-    invoke-virtual {v1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-interface {v5, v3}, Lcom/android/systemui/statusbar/notification/stack/NotificationListContainer;->removeContainerView(Landroid/view/View;)V
 
-    move-result-object v2
+    iget-object v3, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mListContainer:Lcom/android/systemui/statusbar/notification/stack/NotificationListContainer;
 
-    check-cast v2, Landroid/view/View;
-
-    invoke-virtual {v2}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
-
-    move-result-object v4
-
-    if-nez v4, :cond_15
-
-    iget-object v4, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mVisualStabilityManager:Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;
-
-    invoke-virtual {v4, v2}, Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;->notifyViewAddition(Landroid/view/View;)V
-
-    iget-object v4, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mListContainer:Lcom/android/systemui/statusbar/notification/stack/NotificationListContainer;
-
-    invoke-interface {v4, v2}, Lcom/android/systemui/statusbar/notification/stack/NotificationListContainer;->addContainerView(Landroid/view/View;)V
+    invoke-interface {v3, v2}, Lcom/android/systemui/statusbar/notification/stack/NotificationListContainer;->setChildTransferInProgress(Z)V
 
     goto :goto_c
 
-    :cond_15
-    iget-object v4, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mListContainer:Lcom/android/systemui/statusbar/notification/stack/NotificationListContainer;
-
-    invoke-interface {v4, v2}, Lcom/android/systemui/statusbar/notification/stack/NotificationListContainer;->containsView(Landroid/view/View;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_16
-
-    invoke-virtual {v1, v2}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
-
-    add-int/lit8 v0, v0, -0x1
-
     :cond_16
-    :goto_c
-    add-int/2addr v0, v5
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->removeNotificationChildren()V
 
-    goto :goto_b
-
-    :cond_17
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->addNotificationChildrenAndSort()V
-
-    move v0, v3
-
-    move v2, v0
+    move v0, v2
 
     :goto_d
-    iget-object v4, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mListContainer:Lcom/android/systemui/statusbar/notification/stack/NotificationListContainer;
+    invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
 
-    invoke-interface {v4}, Lcom/android/systemui/statusbar/notification/stack/NotificationListContainer;->getContainerChildCount()I
+    move-result v3
 
-    move-result v4
+    if-ge v0, v3, :cond_19
 
-    if-ge v0, v4, :cond_1c
+    invoke-virtual {v4, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    iget-object v4, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mListContainer:Lcom/android/systemui/statusbar/notification/stack/NotificationListContainer;
+    move-result-object v3
 
-    invoke-interface {v4, v0}, Lcom/android/systemui/statusbar/notification/stack/NotificationListContainer;->getContainerChildAt(I)Landroid/view/View;
+    check-cast v3, Landroid/view/View;
 
-    move-result-object v4
+    invoke-virtual {v3}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
-    instance-of v5, v4, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
+    move-result-object v5
+
+    if-nez v5, :cond_17
+
+    iget-object v5, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mVisualStabilityManager:Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;
+
+    invoke-virtual {v5, v3}, Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;->notifyViewAddition(Landroid/view/View;)V
+
+    iget-object v5, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mListContainer:Lcom/android/systemui/statusbar/notification/stack/NotificationListContainer;
+
+    invoke-interface {v5, v3}, Lcom/android/systemui/statusbar/notification/stack/NotificationListContainer;->addContainerView(Landroid/view/View;)V
+
+    goto :goto_e
+
+    :cond_17
+    iget-object v5, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mListContainer:Lcom/android/systemui/statusbar/notification/stack/NotificationListContainer;
+
+    invoke-interface {v5, v3}, Lcom/android/systemui/statusbar/notification/stack/NotificationListContainer;->containsView(Landroid/view/View;)Z
+
+    move-result v5
 
     if-nez v5, :cond_18
 
-    goto :goto_f
+    invoke-virtual {v4, v3}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
+
+    add-int/lit8 v0, v0, -0x1
 
     :cond_18
-    move-object v5, v4
+    :goto_e
+    add-int/2addr v0, v1
+
+    goto :goto_d
+
+    :cond_19
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->addNotificationChildrenAndSort()V
+
+    move v0, v2
+
+    move v1, v0
+
+    :goto_f
+    iget-object v3, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mListContainer:Lcom/android/systemui/statusbar/notification/stack/NotificationListContainer;
+
+    invoke-interface {v3}, Lcom/android/systemui/statusbar/notification/stack/NotificationListContainer;->getContainerChildCount()I
+
+    move-result v3
+
+    if-ge v0, v3, :cond_1e
+
+    iget-object v3, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mListContainer:Lcom/android/systemui/statusbar/notification/stack/NotificationListContainer;
+
+    invoke-interface {v3, v0}, Lcom/android/systemui/statusbar/notification/stack/NotificationListContainer;->getContainerChildAt(I)Landroid/view/View;
+
+    move-result-object v3
+
+    instance-of v5, v3, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
+
+    if-nez v5, :cond_1a
+
+    goto :goto_11
+
+    :cond_1a
+    move-object v5, v3
 
     check-cast v5, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
 
@@ -1609,50 +1667,50 @@
 
     move-result v5
 
-    if-eqz v5, :cond_19
+    if-eqz v5, :cond_1b
 
-    goto :goto_f
+    goto :goto_11
 
-    :cond_19
-    invoke-virtual {v1, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    :cond_1b
+    invoke-virtual {v4, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v5
 
     check-cast v5, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
 
-    if-eq v4, v5, :cond_1b
+    if-eq v3, v5, :cond_1d
 
-    iget-object v4, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mVisualStabilityManager:Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;
+    iget-object v3, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mVisualStabilityManager:Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;
 
-    invoke-virtual {v4, v5}, Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;->canReorderNotification(Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;)Z
+    invoke-virtual {v3, v5}, Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;->canReorderNotification(Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;)Z
 
-    move-result v4
+    move-result v3
 
-    if-eqz v4, :cond_1a
+    if-eqz v3, :cond_1c
 
-    iget-object v4, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mListContainer:Lcom/android/systemui/statusbar/notification/stack/NotificationListContainer;
+    iget-object v3, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mListContainer:Lcom/android/systemui/statusbar/notification/stack/NotificationListContainer;
 
-    invoke-interface {v4, v5, v0}, Lcom/android/systemui/statusbar/notification/stack/NotificationListContainer;->changeViewPosition(Lcom/android/systemui/statusbar/notification/row/ExpandableView;I)V
+    invoke-interface {v3, v5, v0}, Lcom/android/systemui/statusbar/notification/stack/NotificationListContainer;->changeViewPosition(Lcom/android/systemui/statusbar/notification/row/ExpandableView;I)V
 
-    goto :goto_e
+    goto :goto_10
 
-    :cond_1a
-    iget-object v4, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mVisualStabilityManager:Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;
+    :cond_1c
+    iget-object v3, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mVisualStabilityManager:Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;
 
     iget-object v5, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mEntryManager:Lcom/android/systemui/statusbar/notification/NotificationEntryManager;
 
-    invoke-virtual {v4, v5, v3}, Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;->addReorderingAllowedCallback(Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager$Callback;Z)V
+    invoke-virtual {v3, v5, v2}, Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;->addReorderingAllowedCallback(Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager$Callback;Z)V
 
-    :cond_1b
-    :goto_e
-    add-int/lit8 v2, v2, 0x1
+    :cond_1d
+    :goto_10
+    add-int/lit8 v1, v1, 0x1
 
-    :goto_f
+    :goto_11
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_d
+    goto :goto_f
 
-    :cond_1c
+    :cond_1e
     iget-object v0, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mDynamicChildBindController:Lcom/android/systemui/statusbar/notification/DynamicChildBindController;
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;->mTmpChildOrderMap:Ljava/util/HashMap;

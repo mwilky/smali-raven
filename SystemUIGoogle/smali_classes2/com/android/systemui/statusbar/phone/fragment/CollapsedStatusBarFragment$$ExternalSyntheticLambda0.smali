@@ -47,7 +47,7 @@
 
     move/from16 v9, p9
 
-    invoke-static/range {v0 .. v9}, Lcom/android/systemui/statusbar/phone/fragment/CollapsedStatusBarFragment;->$r8$lambda$bV1kqt-lD-WKWynn7jNUug3zvV0(Lcom/android/systemui/statusbar/phone/fragment/CollapsedStatusBarFragment;Landroid/view/View;IIIIIIII)V
+    invoke-static/range {v0 .. v9}, Lcom/android/systemui/statusbar/phone/fragment/CollapsedStatusBarFragment;->$r8$lambda$sY22wKQ_FaBFQ0NlRsi_2YxEXQs(Lcom/android/systemui/statusbar/phone/fragment/CollapsedStatusBarFragment;Landroid/view/View;IIIIIIII)V
 
     return-void
 .end method

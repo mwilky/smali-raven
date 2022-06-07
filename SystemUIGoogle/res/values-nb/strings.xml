@@ -237,6 +237,9 @@
     <string name="accessor_no_description_text">Appen gir ingen beskrivelse.</string>
     <string name="active_input_method_subtypes">Aktive inndatametoder</string>
     <string name="activity_launch_on_secondary_display_failed_text">Appen kan ikke kjøres på sekundære skjermer.</string>
+    <string name="adaptive_charging_notify_des">Batteriet er fullt om %1$s. Lader gradvis for å bevare batteritilstanden.</string>
+    <string name="adaptive_charging_notify_title">Tilpasset lading er på</string>
+    <string name="adaptive_charging_notify_turn_off_once">Slå av én gang</string>
     <string name="adaptive_charging_time_estimate">%1$s • Tilpasset lading (fullt etter %2$s)</string>
     <string name="adb_device_fingerprint_title_format">Enhetens fingeravtrykk: %1$s</string>
     <string name="adb_device_forget">Glem</string>
@@ -301,6 +304,7 @@ Hvis denne tillatelsen er av, fungerer ikke eksisterende alarmer og tidsbaserte 
     <string name="basic_status">Åpen samtale</string>
     <string name="battery">Batteri</string>
     <string name="battery_detail_switch_title">Batterisparing</string>
+    <string name="battery_health_notify_learn_more">Finn ut mer</string>
     <string name="battery_info_status_charging">Lader</string>
     <string name="battery_info_status_charging_fast">Lader raskt</string>
     <string name="battery_info_status_charging_slow">Lader sakte</string>
@@ -616,7 +620,6 @@ Hvis du fortsetter, kan avgifter for databruk påløpe."</string>
     <string name="debug_networking_category">Nettverk</string>
     <string name="debug_view_attributes">Slå på inspeksjon av visningsattributt</string>
     <string name="defender_notify_des">Telefonen begrenser lading for å bevare batteriet</string>
-    <string name="defender_notify_learn_more">Finn ut mer</string>
     <string name="defender_notify_resume_charge">Gjenoppta ladingen</string>
     <string name="defender_notify_title">Lading er midlertidig begrenset</string>
     <string name="defender_post_notify_des">Ladingen ble begrenset til %1$s fra %2$s til %3$s for å bevare batteriet</string>
@@ -1704,6 +1707,10 @@ Trykk for å se mer informasjon"</string>
     <string name="usb_accessory_confirm_prompt">Vil du åpne %1$s for å behandle %2$s?</string>
     <string name="usb_accessory_permission_prompt">Vil du gi %1$s tilgang til %2$s?</string>
     <string name="usb_accessory_uri_prompt">Ingen installerte apper støtter dette USB-tilbehøret. Les mer om tilbehøret på %1$s</string>
+    <string name="usb_audio_device_confirm_prompt_title">Vil du åpne %1$s for å behandle %2$s?</string>
+    <string name="usb_audio_device_permission_prompt_title">Vil du gi %1$s tilgang til %2$s?</string>
+    <string name="usb_audio_device_prompt">Hvis du bruker %1$s med denne enheten, kan det føre til at du ikke hører anrop, varsler og alarmer.</string>
+    <string name="usb_audio_device_prompt_warn">Denne appen har ikke fått tillatelse til å spille inn, men kan ta opp lyd med denne USB-enheten. Hvis du bruker %1$s med denne enheten, kan det føre til at du ikke hører anrop, varsler og alarmer.</string>
     <string name="usb_audio_disable_routing">Slå av lydomkobling via USB</string>
     <string name="usb_audio_disable_routing_summary">Slå av automatisk lydomkobling til USB-enheter</string>
     <string name="usb_contaminant_message">"For å beskytte enheten din mot væsker eller rusk er USB-porten deaktivert og kan ikke oppdage tilbehør.

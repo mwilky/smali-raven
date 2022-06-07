@@ -237,6 +237,9 @@
     <string name="accessor_no_description_text">ບໍ່ມີຄຳອະທິບາຍທີ່ສະໜອງໃຫ້ໂດຍແອັບ.</string>
     <string name="active_input_method_subtypes">ວິທີປ້ອນຂໍ້ມູນທີ່ເຮັດວຽກຢູ່</string>
     <string name="activity_launch_on_secondary_display_failed_text">ແອັບບໍ່ຮອງຮັບການເປີດໃນໜ້າຈໍທີສອງ.</string>
+    <string name="adaptive_charging_notify_des">ແບັດເຕີຣີຈະເຕັມພາຍໃນ %1$s. ກຳລັງສາກໄຟຢ່າງຕໍ່ເນື່ອງເພື່ອຖະໜອມອາຍຸແບັດເຕີຣີ.</string>
+    <string name="adaptive_charging_notify_title">ເປີດໃຊ້ການສາກໄຟແບບປັບອັດຕະໂນມັດແລ້ວ</string>
+    <string name="adaptive_charging_notify_turn_off_once">ປິດເທື່ອດຽວ</string>
     <string name="adaptive_charging_time_estimate">%1$s • ກຳລັງສາກໄຟແບບປັບອັດຕະໂນມັດ (ຈະເຕັມເວລາ %2$s)</string>
     <string name="adb_device_fingerprint_title_format">ລາຍນິ້ວມືອຸປະກອນ: %1$s</string>
     <string name="adb_device_forget">ລືມ</string>
@@ -301,6 +304,7 @@
     <string name="basic_status">ເປີດການສົນທະນາ</string>
     <string name="battery">ແບັດເຕີຣີ</string>
     <string name="battery_detail_switch_title">ຕົວປະຢັດ​ແບັດເຕີຣີ</string>
+    <string name="battery_health_notify_learn_more">ສຶກສາເພີ່ມເຕີມ</string>
     <string name="battery_info_status_charging">ກຳລັງສາກໄຟ</string>
     <string name="battery_info_status_charging_fast">ກຳລັງສາກໄຟດ່ວນ</string>
     <string name="battery_info_status_charging_slow">ກຳລັງສາກໄຟຊ້າໆ</string>
@@ -616,7 +620,6 @@
     <string name="debug_networking_category">ການ​ສ້າງເຄືອຂ່າຍ</string>
     <string name="debug_view_attributes">ເປີດ​ນຳ​ໃຊ້​ການກວດ​ສອບ​ຄຸນ​ສົມ​ບັດ​ມຸມມອງ</string>
     <string name="defender_notify_des">ໂທລະສັບຂອງທ່ານກຳລັງຈຳກັດການສາກໄຟເພື່ອຊ່ວຍຖະໜອມສຸຂະພາບບັດເຕີຣີ</string>
-    <string name="defender_notify_learn_more">ສຶກສາເພີ່ມເຕີມ</string>
     <string name="defender_notify_resume_charge">ສືບຕໍ່ການສາກໄຟ</string>
     <string name="defender_notify_title">ຈຳກັດການສາກໄຟຊົ່ວຄາວແລ້ວ</string>
     <string name="defender_post_notify_des">ການສາກໄຟຖືກຈຳກັດໄວ້ເປັນ %1$s ຈາກ %2$s ຫາ %3$s ເພື່ອຖະໜອມອາຍຸແບັດເຕີຣີ</string>
@@ -1704,6 +1707,10 @@
     <string name="usb_accessory_confirm_prompt">ເປີດ %1$s ເພື່ອໃຊ້ກັບ %2$s ບໍ?</string>
     <string name="usb_accessory_permission_prompt">ອະນຸຍາດໃຫ້ %1$s ເຂົ້າເຖິງ %2$s ໄດ້ບໍ?</string>
     <string name="usb_accessory_uri_prompt">ບໍ່ມີແອັບຯໃດທີ່ຕິດຕັ້ງໄປແລ້ວ ສາມາດເຮັດວຽກຮ່ວມກັບອຸປະກອນເສີມ USB ນີ້ໄດ້. ສຶກສາເພີ່ມເຕີມກ່ຽວກັບອຸປະກອນເສີມນີ້ທີ່ %1$s</string>
+    <string name="usb_audio_device_confirm_prompt_title">ເປີດ %1$s ເພື່ອຈັດການ %2$s ບໍ?</string>
+    <string name="usb_audio_device_permission_prompt_title">ອະນຸຍາດໃຫ້ %1$s ເຂົ້າເຖິງ %2$s ໄດ້ບໍ?</string>
+    <string name="usb_audio_device_prompt">ການໃຊ້ %1$s ກັບອຸປະກອນນີ້ອາດປ້ອງກັນບໍ່ໃຫ້ໄດ້ຍິນສຽງໂທລະສັບ, ການແຈ້ງເຕືອນ ແລະ ໂມງປຸກ.</string>
+    <string name="usb_audio_device_prompt_warn">ແອັບນີ້ບໍ່ໄດ້ຮັບການອະນຸຍາດໃນການບັນທຶກ ແຕ່ສາມາດບັນທຶກສຽງໄດ້ຜ່ານອຸປະກອນ USB ນີ້ໄດ້. ການໃຊ້ %1$s ກັບອຸປະກອນນີ້ອາດປ້ອງກັນບໍ່ໃຫ້ໄດ້ຍິນສຽງໂທລະສັບ, ການແຈ້ງເຕືອນ ແລະ ໂມງປຸກ.</string>
     <string name="usb_audio_disable_routing">ປິດ​ການ​ນຳ​ໃຊ້​ເສັ້ນ​ທາງ​ສຽງ USB</string>
     <string name="usb_audio_disable_routing_summary">ປິດ​​ການ​ນຳ​ໃຊ້​ເສັ້ນ​ທາງ​​ອັດ​ຕະ​ໂນ​ມັດ​ໄປ​ຫາອຸ​ປະ​ກອ​ນ​ຕໍ່​ພ່ວງ​ສຽງ​ USB</string>
     <string name="usb_contaminant_message">"ເພື່ອປົກປ້ອງອຸປະກອນຂອງທ່ານຈາກຂອງແຫລວ ຫຼື ເສດດິນຕ່າງໆ, ຜອດ USB ຈຶ່ງຖືກປິດການນຳໃຊ້ ແລະ ຈະບໍ່ກວດຫາອຸປະກອນເສີມໃດໆ.

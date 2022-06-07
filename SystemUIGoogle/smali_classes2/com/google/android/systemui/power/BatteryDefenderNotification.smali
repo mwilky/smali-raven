@@ -411,106 +411,75 @@
 
     if-ne v3, v4, :cond_1
 
-    move v3, v2
-
-    goto :goto_1
+    move v1, v2
 
     :cond_1
-    move v3, v1
-
-    :goto_1
-    const-string v4, "status"
-
-    invoke-virtual {p1, v4, v2}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    invoke-static {p1}, Lcom/google/android/systemui/power/PowerUtils;->isFullyCharged(Landroid/content/Intent;)Z
 
     move-result p1
 
-    const/4 v4, 0x5
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    if-ne p1, v4, :cond_2
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    move p1, v2
+    const-string v3, "isPlugged: "
 
-    goto :goto_2
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_2
-    move p1, v1
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    :goto_2
-    if-nez p1, :cond_3
+    const-string v3, " | isOverheated: "
 
-    iget p1, p0, Lcom/google/android/systemui/power/BatteryDefenderNotification;->mBatteryLevel:I
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const/16 v4, 0x64
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    if-lt p1, v4, :cond_4
+    const-string v3, " | defenderEnabled: "
 
-    :cond_3
-    move v1, v2
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_4
-    new-instance p1, Ljava/lang/StringBuilder;
+    iget-boolean v3, p0, Lcom/google/android/systemui/power/BatteryDefenderNotification;->mDefenderEnabled:Z
 
-    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    const-string v2, "isPlugged: "
+    const-string v3, " | isCharged: "
 
-    invoke-virtual {p1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    const-string v2, " | isOverheated: "
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {p1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v2
 
-    invoke-virtual {p1, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    const-string v3, "BatteryDefenderNotification"
 
-    const-string v2, " | defenderEnabled: "
+    invoke-static {v3, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {p1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-boolean v2, p0, Lcom/google/android/systemui/power/BatteryDefenderNotification;->mDefenderEnabled:Z
-
-    invoke-virtual {p1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    const-string v2, " | isCharged: "
-
-    invoke-virtual {p1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    const-string v2, "BatteryDefenderNotification"
-
-    invoke-static {v2, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    if-eqz v1, :cond_5
+    if-eqz p1, :cond_2
 
     iget-boolean p1, p0, Lcom/google/android/systemui/power/BatteryDefenderNotification;->mPostNotificationVisible:Z
 
-    if-eqz p1, :cond_5
+    if-eqz p1, :cond_2
 
     invoke-direct {p0}, Lcom/google/android/systemui/power/BatteryDefenderNotification;->cancelPostNotification()V
 
-    :cond_5
-    if-eqz v3, :cond_6
+    :cond_2
+    if-eqz v1, :cond_3
 
     invoke-direct {p0, v0}, Lcom/google/android/systemui/power/BatteryDefenderNotification;->sendNotification(Z)V
 
-    goto :goto_3
+    goto :goto_1
 
-    :cond_6
+    :cond_3
     iget-boolean p1, p0, Lcom/google/android/systemui/power/BatteryDefenderNotification;->mDefenderEnabled:Z
 
-    if-eqz p1, :cond_7
+    if-eqz p1, :cond_4
 
     invoke-direct {p0}, Lcom/google/android/systemui/power/BatteryDefenderNotification;->cancelNotificationAndSendPostNotification()V
 
-    :cond_7
-    :goto_3
+    :cond_4
+    :goto_1
     return-void
 .end method
 
@@ -669,7 +638,7 @@
 
     iget-object v1, p0, Lcom/google/android/systemui/power/BatteryDefenderNotification;->mContext:Landroid/content/Context;
 
-    sget v2, Lcom/android/systemui/R$string;->defender_notify_learn_more:I
+    sget v2, Lcom/android/systemui/R$string;->battery_health_notify_learn_more:I
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -677,7 +646,9 @@
 
     iget-object v2, p0, Lcom/google/android/systemui/power/BatteryDefenderNotification;->mContext:Landroid/content/Context;
 
-    invoke-static {v2}, Lcom/google/android/systemui/power/PowerUtils;->createHelpArticlePendingIntent(Landroid/content/Context;)Landroid/app/PendingIntent;
+    sget v3, Lcom/android/systemui/R$string;->defender_notify_help_url:I
+
+    invoke-static {v2, v3}, Lcom/google/android/systemui/power/PowerUtils;->createHelpArticlePendingIntent(Landroid/content/Context;I)Landroid/app/PendingIntent;
 
     move-result-object v2
 
@@ -699,7 +670,9 @@
 
     iget-object v1, p0, Lcom/google/android/systemui/power/BatteryDefenderNotification;->mContext:Landroid/content/Context;
 
-    invoke-static {v1}, Lcom/google/android/systemui/power/PowerUtils;->createResumeChargingPendingIntent(Landroid/content/Context;)Landroid/app/PendingIntent;
+    const-string v2, "PNW.defenderResumeCharging"
+
+    invoke-static {v1, v2}, Lcom/google/android/systemui/power/PowerUtils;->createNormalChargingIntent(Landroid/content/Context;Ljava/lang/String;)Landroid/app/PendingIntent;
 
     move-result-object v1
 
@@ -708,7 +681,9 @@
     :cond_0
     iget-object p1, p0, Lcom/google/android/systemui/power/BatteryDefenderNotification;->mContext:Landroid/content/Context;
 
-    invoke-static {p1, v0}, Lcom/google/android/systemui/power/PowerUtils;->overrideNotificationAppName(Landroid/content/Context;Landroidx/core/app/NotificationCompat$Builder;)V
+    const v1, 0x104058f
+
+    invoke-static {p1, v0, v1}, Lcom/google/android/systemui/power/PowerUtils;->overrideNotificationAppName(Landroid/content/Context;Landroidx/core/app/NotificationCompat$Builder;I)V
 
     iget-object p1, p0, Lcom/google/android/systemui/power/BatteryDefenderNotification;->mNotificationManager:Landroid/app/NotificationManager;
 
@@ -865,7 +840,7 @@
 
     iget-object v2, p0, Lcom/google/android/systemui/power/BatteryDefenderNotification;->mContext:Landroid/content/Context;
 
-    sget v3, Lcom/android/systemui/R$string;->defender_notify_learn_more:I
+    sget v3, Lcom/android/systemui/R$string;->battery_health_notify_learn_more:I
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -873,7 +848,9 @@
 
     iget-object v3, p0, Lcom/google/android/systemui/power/BatteryDefenderNotification;->mContext:Landroid/content/Context;
 
-    invoke-static {v3}, Lcom/google/android/systemui/power/PowerUtils;->createHelpArticlePendingIntent(Landroid/content/Context;)Landroid/app/PendingIntent;
+    sget v4, Lcom/android/systemui/R$string;->defender_notify_help_url:I
+
+    invoke-static {v3, v4}, Lcom/google/android/systemui/power/PowerUtils;->createHelpArticlePendingIntent(Landroid/content/Context;I)Landroid/app/PendingIntent;
 
     move-result-object v3
 
@@ -883,7 +860,9 @@
 
     iget-object v2, p0, Lcom/google/android/systemui/power/BatteryDefenderNotification;->mContext:Landroid/content/Context;
 
-    invoke-static {v2, v0}, Lcom/google/android/systemui/power/PowerUtils;->overrideNotificationAppName(Landroid/content/Context;Landroidx/core/app/NotificationCompat$Builder;)V
+    const v3, 0x104058f
+
+    invoke-static {v2, v0, v3}, Lcom/google/android/systemui/power/PowerUtils;->overrideNotificationAppName(Landroid/content/Context;Landroidx/core/app/NotificationCompat$Builder;I)V
 
     iget-object v2, p0, Lcom/google/android/systemui/power/BatteryDefenderNotification;->mNotificationManager:Landroid/app/NotificationManager;
 

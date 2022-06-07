@@ -237,6 +237,9 @@
     <string name="accessor_no_description_text">Aplikace neposkytuje žádný popis.</string>
     <string name="active_input_method_subtypes">Aktivní metody zadávání</string>
     <string name="activity_launch_on_secondary_display_failed_text">Aplikace nepodporuje spuštění na sekundárních displejích.</string>
+    <string name="adaptive_charging_notify_des">Baterie bude plně nabitá v %1$s. Nabíjí se plynule, aby byla zachována její životnost.</string>
+    <string name="adaptive_charging_notify_title">Je zapnuté adaptivní nabíjení</string>
+    <string name="adaptive_charging_notify_turn_off_once">Tentokrát vypnout</string>
     <string name="adaptive_charging_time_estimate">%1$s • Adaptivní nabíjení (plně nabito za %2$s)</string>
     <string name="adb_device_fingerprint_title_format">Otisk zařízení: %1$s</string>
     <string name="adb_device_forget">Zapomenout</string>
@@ -301,6 +304,7 @@ Pokud je toto oprávnění vypnuté, stávající budíky a události závislé
     <string name="basic_status">Otevřít konverzaci</string>
     <string name="battery">Baterie</string>
     <string name="battery_detail_switch_title">Spořič baterie</string>
+    <string name="battery_health_notify_learn_more">Další informace</string>
     <string name="battery_info_status_charging">Nabíjí se</string>
     <string name="battery_info_status_charging_fast">Rychlé nabíjení</string>
     <string name="battery_info_status_charging_slow">Pomalé nabíjení</string>
@@ -616,7 +620,6 @@ Pokud jej obnovíte, mohou vám být účtovány poplatky za využití dat."</st
     <string name="debug_networking_category">Sítě</string>
     <string name="debug_view_attributes">Povolit kontrolu atributu zobrazení</string>
     <string name="defender_notify_des">Telefon omezuje nabíjení, aby byla zachována životnost baterie</string>
-    <string name="defender_notify_learn_more">Další informace</string>
     <string name="defender_notify_resume_charge">Obnovit nabíjení</string>
     <string name="defender_notify_title">Nabíjení je dočasně omezeno</string>
     <string name="defender_post_notify_des">Nabíjení bylo od %2$s do %3$s omezeno na %1$s, aby byla zachována životnost baterie</string>
@@ -1408,8 +1411,8 @@ Pokud máte nějaké otázky, obraťte se na organizaci %2$s."</string>
     <string name="quick_settings_mic_label">Přístup k mikrofonu</string>
     <string name="quick_settings_more_settings">Další nastavení</string>
     <string name="quick_settings_more_user_settings">Uživatelské nastavení</string>
-    <string name="quick_settings_networks_available">Dostupné sítě</string>
-    <string name="quick_settings_networks_unavailable">Nedostupné sítě</string>
+    <string name="quick_settings_networks_available">Sítě jsou k dispozici</string>
+    <string name="quick_settings_networks_unavailable">Sítě nejsou k dispozici</string>
     <string name="quick_settings_nfc_label">NFC</string>
     <string name="quick_settings_nfc_off">NFC je vypnuto</string>
     <string name="quick_settings_nfc_on">NFC je zapnuto</string>
@@ -1482,7 +1485,7 @@ Pokud máte nějaké otázky, obraťte se na organizaci %2$s."</string>
     <string name="screenrecord_channel_description">Trvalé oznámení o relaci nahrávání</string>
     <string name="screenrecord_delete_error">Při mazání záznamu obrazovky došlo k chybě</string>
     <string name="screenrecord_description">Při nahrávání může systém Android zaznamenávat citlivé údaje, které jsou viditelné na obrazovce nebo které jsou přehrávány na zařízení. Týká se to hesel, údajů o platbě, fotek, zpráv a zvuků.</string>
-    <string name="screenrecord_device_audio_and_mic_label">Zvuk a mikrofon zařízení</string>
+    <string name="screenrecord_device_audio_and_mic_label">Zvuk zařízení a mikrofon</string>
     <string name="screenrecord_device_audio_description">Zvuk ze zařízení, například hudba, hovory a vyzvánění</string>
     <string name="screenrecord_device_audio_label">Zvuk zařízení</string>
     <string name="screenrecord_mic_label">Mikrofon</string>
@@ -1704,6 +1707,10 @@ Klepnutím zobrazíte další informace"</string>
     <string name="usb_accessory_confirm_prompt">Otevřít aplikaci %1$s ke správě zařízení %2$s?</string>
     <string name="usb_accessory_permission_prompt">Povolit aplikaci %1$s přístup k zařízení %2$s?</string>
     <string name="usb_accessory_uri_prompt">Žádná nainstalovaná aplikace s tímto zařízením USB nepracuje. Info. najdete na %1$s</string>
+    <string name="usb_audio_device_confirm_prompt_title">Otevřít aplikaci %1$s ke správě zařízení %2$s?</string>
+    <string name="usb_audio_device_permission_prompt_title">Povolit aplikaci %1$s přístup k zařízení %2$s?</string>
+    <string name="usb_audio_device_prompt">Při používání aplikace %1$s s tímto zařízením nemusíte slyšet volání, oznámení a budíky.</string>
+    <string name="usb_audio_device_prompt_warn">Tato aplikace nemá oprávnění k nahrávání, ale může zaznamenávat zvuk prostřednictvím tohoto zařízení USB. Při používání aplikace %1$s s tímto zařízením nemusíte slyšet volání, oznámení a budíky.</string>
     <string name="usb_audio_disable_routing">Směrování zvuku do USB</string>
     <string name="usb_audio_disable_routing_summary">Vypnout automatické směrování zvuku do zvukových periferií USB</string>
     <string name="usb_contaminant_message">"Kvůli ochraně vašeho zařízení před tekutinami a nečistotami je port USB zakázán a nerozpozná žádné příslušenství.

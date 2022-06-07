@@ -15,9 +15,6 @@
 .method public abstract getValue()I
 .end method
 
-.method public abstract hideView()V
-.end method
-
 .method public abstract isVisible()Z
 .end method
 
@@ -37,7 +34,4 @@
 .end method
 
 .method public abstract setValue(I)V
-.end method
-
-.method public abstract showView()V
 .end method

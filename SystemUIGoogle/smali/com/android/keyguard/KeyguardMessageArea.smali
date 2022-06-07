@@ -22,15 +22,17 @@
 
 .field private mContainer:Landroid/view/ViewGroup;
 
+.field private mContainerTopMargin:I
+
 .field private mDefaultColorState:Landroid/content/res/ColorStateList;
 
 .field private final mHandler:Landroid/os/Handler;
 
+.field private mLastOrientation:I
+
 .field private mMessage:Ljava/lang/CharSequence;
 
 .field private mNextMessageColorState:Landroid/content/res/ColorStateList;
-
-.field private mTopMargin:I
 
 
 # direct methods
@@ -55,9 +57,11 @@
 
     invoke-static {p1}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
 
-    move-result-object p1
+    move-result-object p2
 
-    iput-object p1, p0, Lcom/android/keyguard/KeyguardMessageArea;->mNextMessageColorState:Landroid/content/res/ColorStateList;
+    iput-object p2, p0, Lcom/android/keyguard/KeyguardMessageArea;->mNextMessageColorState:Landroid/content/res/ColorStateList;
+
+    iput p1, p0, Lcom/android/keyguard/KeyguardMessageArea;->mLastOrientation:I
 
     const/4 p1, 0x2
 
@@ -208,9 +212,16 @@
     return-void
 .end method
 
-.method onConfigChanged()V
+.method onConfigChanged(Landroid/content/res/Configuration;)V
     .locals 2
 
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardMessageArea;->mContainer:Landroid/view/ViewGroup;
+
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
     invoke-virtual {p0}, Landroid/widget/TextView;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -219,14 +230,11 @@
 
     move-result v0
 
-    iget v1, p0, Lcom/android/keyguard/KeyguardMessageArea;->mTopMargin:I
+    iget v1, p0, Lcom/android/keyguard/KeyguardMessageArea;->mContainerTopMargin:I
 
-    if-ne v1, v0, :cond_0
+    if-eq v1, v0, :cond_1
 
-    return-void
-
-    :cond_0
-    iput v0, p0, Lcom/android/keyguard/KeyguardMessageArea;->mTopMargin:I
+    iput v0, p0, Lcom/android/keyguard/KeyguardMessageArea;->mContainerTopMargin:I
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardMessageArea;->mContainer:Landroid/view/ViewGroup;
 
@@ -236,14 +244,53 @@
 
     check-cast v0, Landroid/view/ViewGroup$MarginLayoutParams;
 
-    iget v1, p0, Lcom/android/keyguard/KeyguardMessageArea;->mTopMargin:I
+    iget v1, p0, Lcom/android/keyguard/KeyguardMessageArea;->mContainerTopMargin:I
 
     iput v1, v0, Landroid/view/ViewGroup$MarginLayoutParams;->topMargin:I
 
-    iget-object p0, p0, Lcom/android/keyguard/KeyguardMessageArea;->mContainer:Landroid/view/ViewGroup;
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardMessageArea;->mContainer:Landroid/view/ViewGroup;
 
-    invoke-virtual {p0, v0}, Landroid/view/ViewGroup;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+    invoke-virtual {v1, v0}, Landroid/view/ViewGroup;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
+    :cond_1
+    iget v0, p0, Lcom/android/keyguard/KeyguardMessageArea;->mLastOrientation:I
+
+    iget p1, p1, Landroid/content/res/Configuration;->orientation:I
+
+    if-eq v0, p1, :cond_3
+
+    iput p1, p0, Lcom/android/keyguard/KeyguardMessageArea;->mLastOrientation:I
+
+    const/4 v0, 0x0
+
+    const/4 v1, 0x1
+
+    if-ne p1, v1, :cond_2
+
+    iget-object p1, p0, Landroid/widget/TextView;->mContext:Landroid/content/Context;
+
+    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object p1
+
+    sget v0, Lcom/android/systemui/R$dimen;->keyguard_lock_padding:I
+
+    invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v0
+
+    :cond_2
+    invoke-virtual {p0}, Landroid/widget/TextView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object p1
+
+    check-cast p1, Landroid/view/ViewGroup$MarginLayoutParams;
+
+    iput v0, p1, Landroid/view/ViewGroup$MarginLayoutParams;->topMargin:I
+
+    invoke-virtual {p0, p1}, Landroid/widget/TextView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    :cond_3
     return-void
 .end method
 

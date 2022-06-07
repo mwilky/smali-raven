@@ -58,6 +58,16 @@
     .end annotation
 .end field
 
+.field private final keyguardViewControllerProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/keyguard/KeyguardViewController;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private final mediaCarouselControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -73,16 +83,6 @@
         value = {
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field private final statusBarKeyguardViewManagerProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;",
             ">;"
         }
     .end annotation
@@ -140,7 +140,7 @@
             "Lcom/android/systemui/keyguard/WakefulnessLifecycle;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;",
+            "Lcom/android/keyguard/KeyguardViewController;",
             ">;)V"
         }
     .end annotation
@@ -163,7 +163,7 @@
 
     iput-object p8, p0, Lcom/android/systemui/media/MediaHierarchyManager_Factory;->wakefulnessLifecycleProvider:Ljavax/inject/Provider;
 
-    iput-object p9, p0, Lcom/android/systemui/media/MediaHierarchyManager_Factory;->statusBarKeyguardViewManagerProvider:Ljavax/inject/Provider;
+    iput-object p9, p0, Lcom/android/systemui/media/MediaHierarchyManager_Factory;->keyguardViewControllerProvider:Ljavax/inject/Provider;
 
     return-void
 .end method
@@ -198,7 +198,7 @@
             "Lcom/android/systemui/keyguard/WakefulnessLifecycle;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;",
+            "Lcom/android/keyguard/KeyguardViewController;",
             ">;)",
             "Lcom/android/systemui/media/MediaHierarchyManager_Factory;"
         }
@@ -231,7 +231,7 @@
     return-object v10
 .end method
 
-.method public static newInstance(Landroid/content/Context;Lcom/android/systemui/statusbar/SysuiStatusBarStateController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/media/MediaCarouselController;Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/keyguard/WakefulnessLifecycle;Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;)Lcom/android/systemui/media/MediaHierarchyManager;
+.method public static newInstance(Landroid/content/Context;Lcom/android/systemui/statusbar/SysuiStatusBarStateController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/media/MediaCarouselController;Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/keyguard/WakefulnessLifecycle;Lcom/android/keyguard/KeyguardViewController;)Lcom/android/systemui/media/MediaHierarchyManager;
     .locals 11
 
     new-instance v10, Lcom/android/systemui/media/MediaHierarchyManager;
@@ -256,7 +256,7 @@
 
     move-object/from16 v9, p8
 
-    invoke-direct/range {v0 .. v9}, Lcom/android/systemui/media/MediaHierarchyManager;-><init>(Landroid/content/Context;Lcom/android/systemui/statusbar/SysuiStatusBarStateController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/media/MediaCarouselController;Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/keyguard/WakefulnessLifecycle;Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;)V
+    invoke-direct/range {v0 .. v9}, Lcom/android/systemui/media/MediaHierarchyManager;-><init>(Landroid/content/Context;Lcom/android/systemui/statusbar/SysuiStatusBarStateController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/media/MediaCarouselController;Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/keyguard/WakefulnessLifecycle;Lcom/android/keyguard/KeyguardViewController;)V
 
     return-object v10
 .end method
@@ -346,7 +346,7 @@
 
     check-cast v8, Lcom/android/systemui/keyguard/WakefulnessLifecycle;
 
-    iget-object p0, p0, Lcom/android/systemui/media/MediaHierarchyManager_Factory;->statusBarKeyguardViewManagerProvider:Ljavax/inject/Provider;
+    iget-object p0, p0, Lcom/android/systemui/media/MediaHierarchyManager_Factory;->keyguardViewControllerProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -354,9 +354,9 @@
 
     move-object v9, p0
 
-    check-cast v9, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;
+    check-cast v9, Lcom/android/keyguard/KeyguardViewController;
 
-    invoke-static/range {v1 .. v9}, Lcom/android/systemui/media/MediaHierarchyManager_Factory;->newInstance(Landroid/content/Context;Lcom/android/systemui/statusbar/SysuiStatusBarStateController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/media/MediaCarouselController;Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/keyguard/WakefulnessLifecycle;Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;)Lcom/android/systemui/media/MediaHierarchyManager;
+    invoke-static/range {v1 .. v9}, Lcom/android/systemui/media/MediaHierarchyManager_Factory;->newInstance(Landroid/content/Context;Lcom/android/systemui/statusbar/SysuiStatusBarStateController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/media/MediaCarouselController;Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/keyguard/WakefulnessLifecycle;Lcom/android/keyguard/KeyguardViewController;)Lcom/android/systemui/media/MediaHierarchyManager;
 
     move-result-object p0
 

@@ -90,7 +90,7 @@
     <string name="accessibility_data_three_bars">ಡೇಟಾ ಮೂರು ಪಟ್ಟಿಗಳು.</string>
     <string name="accessibility_data_two_bars">ಡೇಟಾ ಎರಡು ಪಟ್ಟಿಗಳು.</string>
     <string name="accessibility_desc_close">ಮುಚ್ಚು</string>
-    <string name="accessibility_desc_lock_screen">ಲಾಕ್‌ ಪರದೆ.</string>
+    <string name="accessibility_desc_lock_screen">ಲಾಕ್‌ ಸ್ಕ್ರೀನ್.</string>
     <string name="accessibility_desc_notification_icon">%1$s ಅಧಿಸೂಚನೆ: %2$s</string>
     <string name="accessibility_desc_notification_shade">ಅಧಿಸೂಚನೆಯ ಛಾಯೆ.</string>
     <string name="accessibility_desc_quick_settings">ತ್ವರಿತ ಸೆಟ್ಟಿಂಗ್‍ಗಳು.</string>
@@ -237,6 +237,9 @@
     <string name="accessor_no_description_text">ಆ್ಯಪ್‌ನಿಂದ ಯಾವುದೇ ವಿವರಣೆಯನ್ನು ಒದಗಿಸಲಾಗಿಲ್ಲ.</string>
     <string name="active_input_method_subtypes">ಸಕ್ರಿಯ ಇನ್‌ಪುಟ್ ವಿಧಾನಗಳು</string>
     <string name="activity_launch_on_secondary_display_failed_text">ಸೆಕೆಂಡರಿ ಡಿಸ್‌ಪ್ಲೇಗಳಲ್ಲಿ ಪ್ರಾರಂಭಿಸುವಿಕೆಯನ್ನು ಅಪ್ಲಿಕೇಶನ್ ಬೆಂಬಲಿಸುವುದಿಲ್ಲ.</string>
+    <string name="adaptive_charging_notify_des">%1$s ವೇಳೆಗೆ ಬ್ಯಾಟರಿ ಪೂರ್ಣ ಚಾರ್ಜ್ ಆಗುತ್ತದೆ. ಬ್ಯಾಟರಿಯ ಆರೋಗ್ಯವನ್ನು ಸಂರಕ್ಷಿಸಲು ಸ್ಥಿರವಾಗಿ ಚಾರ್ಜ್ ಆಗುತ್ತಿದೆ.</string>
+    <string name="adaptive_charging_notify_title">ಅಡಾಪ್ಟಿವ್ ಚಾರ್ಜಿಂಗ್ ಆನ್ ಆಗಿದೆ</string>
+    <string name="adaptive_charging_notify_turn_off_once">ಒಮ್ಮೆ ಆಫ್ ಮಾಡಿ</string>
     <string name="adaptive_charging_time_estimate">%1$s • ಅಡಾಪ್ಟಿವ್ ಚಾರ್ಜಿಂಗ್ (%2$s ಗೆ ಪೂರ್ಣಗೊಳ್ಳುತ್ತದೆ)</string>
     <string name="adb_device_fingerprint_title_format">ಸಾಧನದ ಫಿಂಗರ್‌ ಪ್ರಿಂಟ್: %1$s</string>
     <string name="adb_device_forget">ಮರೆತುಬಿಡಿ</string>
@@ -301,6 +304,7 @@
     <string name="basic_status">ಸಂಭಾಷಣೆಯನ್ನು ತೆರೆಯಿರಿ</string>
     <string name="battery">ಬ್ಯಾಟರಿ</string>
     <string name="battery_detail_switch_title">ಬ್ಯಾಟರಿ ಸೇವರ್‌‌</string>
+    <string name="battery_health_notify_learn_more">ಇನ್ನಷ್ಟು ತಿಳಿಯಿರಿ</string>
     <string name="battery_info_status_charging">ಚಾರ್ಜ್ ಆಗುತ್ತಿದೆ</string>
     <string name="battery_info_status_charging_fast">ವೇಗದ ಚಾರ್ಜಿಂಗ್</string>
     <string name="battery_info_status_charging_slow">ನಿಧಾನ ಗತಿಯ ಚಾರ್ಜಿಂಗ್</string>
@@ -616,7 +620,6 @@
     <string name="debug_networking_category">ನೆಟ್‌ವರ್ಕಿಂಗ್</string>
     <string name="debug_view_attributes">ವೀಕ್ಷಣೆ ಆಟ್ರಿಬ್ಯೂಟ್ ಪರಿಶೀಲನೆ</string>
     <string name="defender_notify_des">ಬ್ಯಾಟರಿಯ ಆರೋಗ್ಯವನ್ನು ಸಂರಕ್ಷಿಸಲು ನೆರವಾಗಲು ನಿಮ್ಮ ಫೋನ್ ಚಾರ್ಜಿಂಗ್ ಅನ್ನು ಮಿತಿಗೊಳಿಸುತ್ತಿದೆ</string>
-    <string name="defender_notify_learn_more">ಇನ್ನಷ್ಟು ತಿಳಿಯಿರಿ</string>
     <string name="defender_notify_resume_charge">ಚಾರ್ಜಿಂಗ್ ಪುನರಾರಂಭಿಸಿ</string>
     <string name="defender_notify_title">ಚಾರ್ಜಿಂಗ್ ಅನ್ನು ತಾತ್ಕಾಲಿಕವಾಗಿ ಸೀಮಿತಗೊಳಿಸಲಾಗಿದೆ</string>
     <string name="defender_post_notify_des">ಬ್ಯಾಟರಿ ಆರೋಗ್ಯವನ್ನು ಸಂರಕ್ಷಿಸಲು ಚಾರ್ಜಿಂಗ್ ಅನ್ನು %2$s ಇಂದ %3$s ವರೆಗೆ %1$s ಗೆ ಸೀಮಿತಗೊಳಿಸಲಾಗಿದೆ</string>
@@ -658,7 +661,7 @@
     <string name="empty_shade_text">ಯಾವುದೇ ಅಧಿಸೂಚನೆಗಳಿಲ್ಲ</string>
     <string name="empty_status">ರಾತ್ರಿ ಚಾಟ್ ಮಾಡೋಣ!</string>
     <string name="empty_user_name">ಸ್ನೇಹಿತರು</string>
-    <string name="enable_adb">USB ಡೀಬಗ್ ಮಾಡುವಿಕೆ</string>
+    <string name="enable_adb">USB ಡೀಬಗಿಂಗ್‌</string>
     <string name="enable_adb_summary">USB ಸಂಪರ್ಕಗೊಂಡಾಗ ಡೀಬಗ್ ಮೋಡ್</string>
     <string name="enable_adb_wireless">ವೈರ್‌ಲೆಸ್ ಡೀಬಗಿಂಗ್</string>
     <string name="enable_adb_wireless_summary">ವೈ-ಫೈ ಕನೆಕ್ಟ್ ಆದಾಗ ಡೀಬಗ್ ಮೋಡ್</string>
@@ -1704,6 +1707,10 @@
     <string name="usb_accessory_confirm_prompt">%2$s ಅನ್ನು ನಿರ್ವಹಿಸಲು %1$s ಅನ್ನು ತೆರೆಯುವುದೇ?</string>
     <string name="usb_accessory_permission_prompt">%2$s ಗೆ ಪ್ರವೇಶಿಸಲು %1$s ಅನ್ನು ಅನುಮತಿಸುವುದೇ?</string>
     <string name="usb_accessory_uri_prompt">ಆಪ್‌ಗಳು USB ಪರಿಕರದಲ್ಲಿ ಕಾರ್ಯನಿರ್ವಹಿಸುವುದಿಲ್ಲ. ಆ ಬಗ್ಗೆ %1$s ನಲ್ಲಿ ಇನ್ನಷ್ಟು ತಿಳಿಯಿರಿ</string>
+    <string name="usb_audio_device_confirm_prompt_title">%2$s ಅನ್ನು ನಿರ್ವಹಿಸಲು %1$s ಅನ್ನು ತೆರೆಯುವುದೇ?</string>
+    <string name="usb_audio_device_permission_prompt_title">%2$s ಗೆ ಆ್ಯಕ್ಸೆಸ್ ಮಾಡಲು %1$s ಅನ್ನು ಅನುಮತಿಸುವುದೇ?</string>
+    <string name="usb_audio_device_prompt">ಈ ಸಾಧನದ ಮೂಲಕ %1$s ಅನ್ನು ಬಳಸುವುದರಿಂದ ಕರೆಗಳು, ಅಧಿಸೂಚನೆಗಳು ಮತ್ತು ಅಲಾರಾಂಗಳನ್ನು ಕೇಳುವುದನ್ನು ತಡೆಯಬಹುದು.</string>
+    <string name="usb_audio_device_prompt_warn">ಈ ಆ್ಯಪ್‌ಗೆ ರೆಕಾರ್ಡ್ ಅನುಮತಿಯನ್ನು ನೀಡಲಾಗಿಲ್ಲ, ಆದರೆ ಈ USB ಸಾಧನದ ಮೂಲಕ ಆಡಿಯೊವನ್ನು ಸೆರೆಹಿಡಿಯಬಲ್ಲದು. ಈ ಸಾಧನದ ಮೂಲಕ %1$s ಅನ್ನು ಬಳಸುವುದರಿಂದ ಕರೆಗಳು, ಅಧಿಸೂಚನೆಗಳು ಮತ್ತು ಅಲಾರಾಂಗಳನ್ನು ಕೇಳುವುದನ್ನು ತಡೆಯಬಹುದು.</string>
     <string name="usb_audio_disable_routing">USB ಆಡಿಯೋ ರೂಟಿಂಗ್ ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಿ</string>
     <string name="usb_audio_disable_routing_summary">USB ಆಡಿಯೊ ಸಲಕರಣೆಗಳಿಗೆ ಸ್ವಯಂ ರೂಟಿಂಗ್ ನಿಷ್ಕ್ರಿಯ.</string>
     <string name="usb_contaminant_message">"ದ್ರವ ಅಥವಾ ಧೂಳಿನ ಕಣಗಳಿಂದ ನಿಮ್ಮ ಸಾಧನವನ್ನು ರಕ್ಷಿಸಲು, USB ಪೋರ್ಟ್ ಅನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಲಾಗಿದೆ ಹಾಗಾಗಿ ಅದು ಯಾವುದೇ ಪರಿಕರಗಳನ್ನು ಪತ್ತೆ ಮಾಡುವುದಿಲ್ಲ. 

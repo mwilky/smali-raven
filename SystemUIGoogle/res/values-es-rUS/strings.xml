@@ -237,6 +237,9 @@
     <string name="accessor_no_description_text">La app no proporcionó una descripción.</string>
     <string name="active_input_method_subtypes">Métodos de entrada activos</string>
     <string name="activity_launch_on_secondary_display_failed_text">La app no puede iniciarse en pantallas secundarias.</string>
+    <string name="adaptive_charging_notify_des">Hora en que se completará la carga: %1$s. Se cargará de manera constante para preservar el estado de la batería.</string>
+    <string name="adaptive_charging_notify_title">La carga adaptable está activada</string>
+    <string name="adaptive_charging_notify_turn_off_once">Desactivar una vez</string>
     <string name="adaptive_charging_time_estimate">%1$s • Carga adaptable (se completará a las %2$s)</string>
     <string name="adb_device_fingerprint_title_format">Huellas dactilares del dispositivo: %1$s</string>
     <string name="adb_device_forget">Olvidar</string>
@@ -301,6 +304,7 @@ Si se desactiva este permiso, no funcionarán las alarmas ni los eventos basados
     <string name="basic_status">Conversación abierta</string>
     <string name="battery">Batería</string>
     <string name="battery_detail_switch_title">Ahorro de batería</string>
+    <string name="battery_health_notify_learn_more">Más información</string>
     <string name="battery_info_status_charging">Cargando</string>
     <string name="battery_info_status_charging_fast">Cargando rápidamente</string>
     <string name="battery_info_status_charging_slow">Carga lenta</string>
@@ -312,7 +316,7 @@ Si se desactiva este permiso, no funcionarán las alarmas ni los eventos basados
     <string name="battery_low_percent_format">Queda un %s de batería.</string>
     <string name="battery_low_title">Es posible que pronto se agote la batería</string>
     <string name="battery_saver_confirmation_ok">Activar</string>
-    <string name="battery_saver_confirmation_title">¿Deseas activar Ahorro de batería?</string>
+    <string name="battery_saver_confirmation_title">¿Quieres activar el Ahorro de batería?</string>
     <string name="battery_saver_confirmation_title_generic">Acerca del Ahorro de batería</string>
     <string name="battery_saver_start_action">Activar el Ahorro de batería</string>
     <string name="battery_state_unknown_notification_text">Presiona para obtener más información</string>
@@ -614,7 +618,6 @@ Si reanudas el servicio, es posible que se apliquen cargos."</string>
     <string name="debug_networking_category">Redes</string>
     <string name="debug_view_attributes">Habilitar inspección de atributos de vista</string>
     <string name="defender_notify_des">El teléfono está limitando la carga para ayudar a preservar el estado de la batería</string>
-    <string name="defender_notify_learn_more">Más información</string>
     <string name="defender_notify_resume_charge">Reanudar la carga</string>
     <string name="defender_notify_title">Carga limitada temporalmente</string>
     <string name="defender_post_notify_des">La carga se limitó al %1$s de la(s) %2$s a la(s) %3$s para preservar el estado de la batería</string>
@@ -1477,8 +1480,8 @@ Si tienes preguntas, comunícate con %2$s."</string>
     <string name="screenrecord_background_processing_label">Procesando grabación pantalla</string>
     <string name="screenrecord_channel_description">Notificación constante para una sesión de grabación de pantalla</string>
     <string name="screenrecord_delete_error">No se pudo borrar la grabación de pantalla</string>
-    <string name="screenrecord_description">Durante la grabación, el sistema Android puede capturar la información sensible que aparezca en la pantalla o que se reproduzca en el dispositivo. Se incluyen contraseñas, información de pago, fotos, mensajes y audio.</string>
-    <string name="screenrecord_device_audio_and_mic_label">Micrófono y audio del dispositivo</string>
+    <string name="screenrecord_description">Durante la grabación, el sistema Android puede capturar cualquier información sensible que aparezca en la pantalla o que se reproduzca en el dispositivo. Se incluyen contraseñas, información de pago, fotos, mensajes y audio.</string>
+    <string name="screenrecord_device_audio_and_mic_label">Audio del dispositivo y micrófono</string>
     <string name="screenrecord_device_audio_description">Sonidos del dispositivo, como música, llamadas y tonos</string>
     <string name="screenrecord_device_audio_label">Audio del dispositivo</string>
     <string name="screenrecord_mic_label">Micrófono</string>
@@ -1697,6 +1700,10 @@ Presiona para obtener más información"</string>
     <string name="usb_accessory_confirm_prompt">¿Deseas abrir %1$s para usar %2$s?</string>
     <string name="usb_accessory_permission_prompt">¿Deseas permitir que %1$s acceda a %2$s?</string>
     <string name="usb_accessory_uri_prompt">Ninguna aplic. funciona con este accesorio USB. Más info. acerca de este en %1$s</string>
+    <string name="usb_audio_device_confirm_prompt_title">¿Deseas abrir %1$s para usar %2$s?</string>
+    <string name="usb_audio_device_permission_prompt_title">¿Deseas permitir que %1$s acceda a %2$s?</string>
+    <string name="usb_audio_device_prompt">Es posible que el uso de %1$s en este dispositivo impida escuchar llamadas, notificaciones y alarmas.</string>
+    <string name="usb_audio_device_prompt_warn">Aunque no se le otorgó permiso de grabación a esta app, puede capturar audio con este dispositivo USB. Es posible que el uso de %1$s en este dispositivo impida escuchar llamadas, notificaciones y alarmas.</string>
     <string name="usb_audio_disable_routing">Inhab. enrutam. audio USB</string>
     <string name="usb_audio_disable_routing_summary">Inhab. enrutam. automático a periféricos audio USB</string>
     <string name="usb_contaminant_message">"Para proteger tu dispositivo de líquidos o suciedad, el puerto USB está inhabilitado y no detectará ningún accesorio.

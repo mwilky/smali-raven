@@ -237,6 +237,9 @@
     <string name="accessor_no_description_text">Geen beschrijving geleverd door de app.</string>
     <string name="active_input_method_subtypes">Actieve invoermethoden</string>
     <string name="activity_launch_on_secondary_display_failed_text">App kan niet op secundaire displays worden gestart.</string>
+    <string name="adaptive_charging_notify_des">Batterij vol om %1$s. Je apparaat wordt geleidelijk opgeladen omdat dit beter is voor de batterij.</string>
+    <string name="adaptive_charging_notify_title">Aangepast opladen staat aan</string>
+    <string name="adaptive_charging_notify_turn_off_once">Eén keer uitzetten</string>
     <string name="adaptive_charging_time_estimate">%1$s • Aanpasbaar opladen (vol om %2$s)</string>
     <string name="adb_device_fingerprint_title_format">Vingerafdruk van apparaat: %1$s</string>
     <string name="adb_device_forget">Vergeten</string>
@@ -281,8 +284,8 @@ Als dit recht uitstaat, werken door deze app geplande bestaande wekkers en tijdg
     <string name="all_network_unavailable">Geen netwerken beschikbaar</string>
     <string name="allow_mock_location">Neplocaties toestaan</string>
     <string name="allow_mock_location_summary">Neplocaties toestaan</string>
-    <string name="always_use_accessory">%1$s altijd openen wanneer %2$s is verbonden</string>
-    <string name="always_use_device">%1$s altijd openen wanneer %2$s is verbonden</string>
+    <string name="always_use_accessory">%1$s altijd openen wanneer %2$s verbonden is</string>
+    <string name="always_use_device">%1$s altijd openen wanneer %2$s verbonden is</string>
     <string name="animator_duration_scale_title">Duur van animatieschaal</string>
     <string name="anniversary_status">Jubileum</string>
     <string name="anniversary_status_content_description">Het is het jubileum van %1$s</string>
@@ -301,6 +304,7 @@ Als dit recht uitstaat, werken door deze app geplande bestaande wekkers en tijdg
     <string name="basic_status">Gesprek openen</string>
     <string name="battery">Batterij</string>
     <string name="battery_detail_switch_title">Batterijbesparing</string>
+    <string name="battery_health_notify_learn_more">Meer informatie</string>
     <string name="battery_info_status_charging">Opladen</string>
     <string name="battery_info_status_charging_fast">Snel opladen</string>
     <string name="battery_info_status_charging_slow">Langzaam opladen</string>
@@ -473,8 +477,8 @@ Selectie"</string>
     <string name="bubbles_user_education_title">Chatten met bubbels</string>
     <string name="bugreport_in_power">Snelle link naar bugrapport</string>
     <string name="bugreport_in_power_summary">Toon een knop in het aan/uit-menu om een bugrapport te maken</string>
-    <string name="build_number_clip_data_label">Build-nummer</string>
-    <string name="build_number_copy_toast">Build-nummer naar klembord gekopieerd.</string>
+    <string name="build_number_clip_data_label">Buildnummer</string>
+    <string name="build_number_copy_toast">Buildnummer naar klembord gekopieerd.</string>
     <string name="button_convert_fbe">Wissen en converteren…</string>
     <string name="cached_apps_freezer_device_default">Apparaatstandaard</string>
     <string name="cached_apps_freezer_disabled">Uitgezet</string>
@@ -533,7 +537,7 @@ Selectie"</string>
     <string name="controls_favorite_rearrange">Houd vast en sleep om de bedieningselementen opnieuw in te delen</string>
     <string name="controls_favorite_removed">Alle bedieningselementen verwijderd</string>
     <string name="controls_favorite_see_other_apps">Andere apps bekijken</string>
-    <string name="controls_favorite_subtitle">Kies welke bedieningselementen je in Snelle instellingen wilt zien</string>
+    <string name="controls_favorite_subtitle">Kies welke bedieningselementen je wilt zien in Snelle instellingen</string>
     <string name="controls_favorite_toast_no_changes">Wijzigingen zijn niet opgeslagen</string>
     <string name="controls_media_active_session">De huidige mediasessie kan niet worden verborgen.</string>
     <string name="controls_media_close_session">Deze mediasessie verbergen?</string>
@@ -616,7 +620,6 @@ Als je hervat, kunnen er kosten voor datagebruik in rekening worden gebracht."</
     <string name="debug_networking_category">Netwerken</string>
     <string name="debug_view_attributes">Inspectie van weergavekenmerk aanzetten</string>
     <string name="defender_notify_des">Je telefoon beperkt het opladen omdat dit beter is voor de batterij.</string>
-    <string name="defender_notify_learn_more">Meer informatie</string>
     <string name="defender_notify_resume_charge">Opladen hervatten</string>
     <string name="defender_notify_title">Opladen tijdelijk beperkt</string>
     <string name="defender_post_notify_des">Opladen is beperkt tot %1$s van %2$s tot %3$s omdat dit beter is voor de batterij</string>
@@ -1036,7 +1039,7 @@ Probeer het over %2$d seconden opnieuw."</string>
     <string name="media_output_dialog_pairing_new">Nieuw apparaat koppelen</string>
     <string name="media_output_dialog_single_device">Eén apparaat geselecteerd</string>
     <string name="media_projection_action_text">Nu starten</string>
-    <string name="media_projection_dialog_service_text">"De service die deze functie levert, krijgt toegang tot alle informatie die zichtbaar is op je scherm of die wordt afgespeeld vanaf je apparaat tijdens het opnemen of casten. Dit omvat informatie zoals wachtwoorden, betalingsgegevens, foto's, berichten en audio die je afspeelt."</string>
+    <string name="media_projection_dialog_service_text">"De service die deze functie levert, krijgt tijdens het opnemen of casten toegang tot alle informatie die op je scherm te zien is of op je apparaat wordt afgespeeld. Dit omvat informatie zoals wachtwoorden, betalingsgegevens, foto's, berichten en audio die je afspeelt."</string>
     <string name="media_projection_dialog_service_title">Beginnen met opnemen of casten?</string>
     <string name="media_projection_dialog_text">"%s krijgt toegang tot alle informatie die zichtbaar is op je scherm of die wordt afgespeeld vanaf je apparaat tijdens het opnemen of casten. Dit omvat informatie zoals wachtwoorden, betalingsgegevens, foto's, berichten en audio die je afspeelt."</string>
     <string name="media_projection_dialog_title">Beginnen met opnemen of casten met %s?</string>
@@ -1165,7 +1168,7 @@ Als je vragen hebt, kun je contact opnemen met %2$s."</string>
     <string name="new_story_status">Nieuw verhaal</string>
     <string name="new_story_status_content_description">%1$s heeft een nieuwe story gedeeld</string>
     <string name="no_application">Niets</string>
-    <string name="no_auto_saver_action">Nee</string>
+    <string name="no_auto_saver_action">Nee, bedankt</string>
     <string name="no_content_in_select_mode">Geen tekst of afbeelding om te selecteren</string>
     <string name="no_conversations_text">Je ziet je recente gesprekken hier</string>
     <string name="no_shortcut">%1$s ondersteunt geen gespreksfuncties</string>
@@ -1375,7 +1378,7 @@ Als je vragen hebt, kun je contact opnemen met %2$s."</string>
     <string name="quick_settings_dark_mode_secondary_label_on_at">Aan om %s</string>
     <string name="quick_settings_dark_mode_secondary_label_on_at_sunset">Aan bij zonsondergang</string>
     <string name="quick_settings_dark_mode_secondary_label_until">Tot %s</string>
-    <string name="quick_settings_dark_mode_secondary_label_until_sunrise">Tot zonsopgang</string>
+    <string name="quick_settings_dark_mode_secondary_label_until_sunrise">Tot zonsopkomst</string>
     <string name="quick_settings_disclosure_managed_profile_monitoring">Je organisatie kan het netwerkverkeer in je werkprofiel bijhouden</string>
     <string name="quick_settings_disclosure_managed_profile_named_vpn">Je werkprofiel is verbonden met %1$s</string>
     <string name="quick_settings_disclosure_managed_profile_network_activity">De netwerkactiviteit van je werkprofiel is zichtbaar voor je IT-beheerder</string>
@@ -1416,7 +1419,7 @@ Als je vragen hebt, kun je contact opnemen met %2$s."</string>
     <string name="quick_settings_night_display_label">Nachtverlichting</string>
     <string name="quick_settings_night_secondary_label_on_at">Aan om %s</string>
     <string name="quick_settings_night_secondary_label_on_at_sunset">Aan bij zonsondergang</string>
-    <string name="quick_settings_night_secondary_label_until_sunrise">Tot zonsopgang</string>
+    <string name="quick_settings_night_secondary_label_until_sunrise">Tot zonsopkomst</string>
     <string name="quick_settings_rotation_posture_folded">gevouwen</string>
     <string name="quick_settings_rotation_posture_unfolded">niet gevouwen</string>
     <string name="quick_settings_rotation_unlocked_label">Automatisch draaien</string>
@@ -1629,7 +1632,7 @@ Je telefoon kan warm worden als je:
     <string name="thermal_shutdown_message">"Je telefoon functioneert nu weer zoals gebruikelijk.
 Tik voor meer informatie"</string>
     <string name="thermal_shutdown_title">Telefoon uitgezet wegens hitte</string>
-    <string name="tile_disabled">Uit</string>
+    <string name="tile_disabled">Uitgezet</string>
     <string name="tile_unavailable">Niet beschikbaar</string>
     <string name="time_unit_just_now">Zojuist</string>
     <string name="title_convert_fbe">Converteren naar versleuteling op basis van bestanden</string>
@@ -1704,6 +1707,10 @@ Tik voor meer informatie"</string>
     <string name="usb_accessory_confirm_prompt">%1$s openen om %2$s te verwerken?</string>
     <string name="usb_accessory_permission_prompt">%1$s toegang geven tot %2$s?</string>
     <string name="usb_accessory_uri_prompt">Er werken geen geïnstalleerde apps met dit USB-accessoire. Meer informatie op: %1$s</string>
+    <string name="usb_audio_device_confirm_prompt_title">%1$s openen om %2$s te verwerken?</string>
+    <string name="usb_audio_device_permission_prompt_title">%1$s toegang geven tot %2$s?</string>
+    <string name="usb_audio_device_prompt">Als je %1$s gebruikt met dit apparaat, hoor je misschien geen gesprekken, meldingen en wekkers.</string>
+    <string name="usb_audio_device_prompt_warn">Deze app heeft geen opnamerechten gekregen, maar zou audio kunnen vastleggen via dit USB-apparaat. Als je %1$s gebruikt met dit apparaat, hoor je misschien geen gesprekken, meldingen en wekkers.</string>
     <string name="usb_audio_disable_routing">USB-audiorouting uitzetten</string>
     <string name="usb_audio_disable_routing_summary">Zet autom. routing naar USB-randapparatuur uit</string>
     <string name="usb_contaminant_message">"De USB-poort staat uit en detecteert geen accessoires, zodat je apparaat wordt beschermd tegen vloeistof en vuil.

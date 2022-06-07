@@ -159,130 +159,152 @@
 .end method
 
 .method private createBaseCard(Landroid/view/ViewGroup;I)Lcom/google/android/systemui/smartspace/BcSmartspaceCard;
-    .locals 3
+    .locals 5
 
-    const/4 p0, -0x2
+    const/16 p0, 0x1e
 
-    if-eq p2, p0, :cond_1
+    const/16 v0, 0x14
 
-    const/4 v0, 0x1
+    const/4 v1, -0x2
 
-    if-eq p2, v0, :cond_0
+    if-eq p2, v1, :cond_3
 
-    sget v0, Lcom/android/systemui/bcsmartspace/R$layout;->smartspace_card:I
+    const/4 v2, 0x1
+
+    if-eq p2, v2, :cond_2
+
+    if-eq p2, v0, :cond_1
+
+    if-eq p2, p0, :cond_0
+
+    sget v2, Lcom/android/systemui/bcsmartspace/R$layout;->smartspace_card:I
 
     goto :goto_0
 
     :cond_0
-    sget v0, Lcom/android/systemui/bcsmartspace/R$layout;->smartspace_card_date:I
+    sget v2, Lcom/android/systemui/bcsmartspace/R$layout;->smartspace_base_card_doorbell:I
 
     goto :goto_0
 
     :cond_1
-    sget v0, Lcom/android/systemui/bcsmartspace/R$layout;->smartspace_card_at_store:I
+    sget v2, Lcom/android/systemui/bcsmartspace/R$layout;->smartspace_base_card_package_delivery:I
+
+    goto :goto_0
+
+    :cond_2
+    sget v2, Lcom/android/systemui/bcsmartspace/R$layout;->smartspace_card_date:I
+
+    goto :goto_0
+
+    :cond_3
+    sget v2, Lcom/android/systemui/bcsmartspace/R$layout;->smartspace_card_at_store:I
 
     :goto_0
     invoke-virtual {p1}, Landroid/view/ViewGroup;->getContext()Landroid/content/Context;
 
-    move-result-object v1
+    move-result-object v3
 
-    invoke-static {v1}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
+    invoke-static {v3}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
-    move-result-object v1
+    move-result-object v3
 
-    const/4 v2, 0x0
+    const/4 v4, 0x0
 
-    invoke-virtual {v1, v0, p1, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+    invoke-virtual {v3, v2, p1, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
     move-result-object p1
 
     check-cast p1, Lcom/google/android/systemui/smartspace/BcSmartspaceCard;
 
-    if-eq p2, p0, :cond_a
+    if-eq p2, v1, :cond_c
 
-    const/4 p0, -0x1
+    const/4 v1, -0x1
 
-    if-eq p2, p0, :cond_9
+    if-eq p2, v1, :cond_b
 
-    const/4 p0, 0x3
+    const/4 v1, 0x3
 
-    if-eq p2, p0, :cond_8
+    if-eq p2, v1, :cond_a
 
-    const/4 p0, 0x4
+    const/4 v1, 0x4
 
-    if-eq p2, p0, :cond_7
+    if-eq p2, v1, :cond_9
 
-    const/16 p0, 0x9
+    const/16 v1, 0x9
 
-    if-eq p2, p0, :cond_6
+    if-eq p2, v1, :cond_8
 
-    const/16 p0, 0xa
+    const/16 v1, 0xa
 
-    if-eq p2, p0, :cond_5
+    if-eq p2, v1, :cond_7
 
-    const/16 p0, 0xd
+    const/16 v1, 0xd
+
+    if-eq p2, v1, :cond_6
+
+    const/16 v1, 0xe
+
+    if-eq p2, v1, :cond_5
+
+    const/16 v1, 0x12
+
+    if-eq p2, v1, :cond_a
+
+    if-eq p2, v0, :cond_4
 
     if-eq p2, p0, :cond_4
 
-    const/16 p0, 0xe
-
-    if-eq p2, p0, :cond_3
-
-    const/16 p0, 0x1e
-
-    if-eq p2, p0, :cond_2
-
-    move p0, v2
-
-    goto :goto_1
-
-    :cond_2
-    sget p0, Lcom/android/systemui/bcsmartspace/R$layout;->smartspace_card_doorbell:I
-
-    goto :goto_1
-
-    :cond_3
-    sget p0, Lcom/android/systemui/bcsmartspace/R$layout;->smartspace_card_loyalty:I
+    move p0, v4
 
     goto :goto_1
 
     :cond_4
-    sget p0, Lcom/android/systemui/bcsmartspace/R$layout;->smartspace_card_shopping_list:I
+    sget p0, Lcom/android/systemui/bcsmartspace/R$layout;->smartspace_card_doorbell:I
 
     goto :goto_1
 
     :cond_5
-    sget p0, Lcom/android/systemui/bcsmartspace/R$layout;->smartspace_card_weather_forecast:I
+    sget p0, Lcom/android/systemui/bcsmartspace/R$layout;->smartspace_card_loyalty:I
 
     goto :goto_1
 
     :cond_6
-    sget p0, Lcom/android/systemui/bcsmartspace/R$layout;->smartspace_card_sports:I
+    sget p0, Lcom/android/systemui/bcsmartspace/R$layout;->smartspace_card_shopping_list:I
 
     goto :goto_1
 
     :cond_7
-    sget p0, Lcom/android/systemui/bcsmartspace/R$layout;->smartspace_card_flight:I
+    sget p0, Lcom/android/systemui/bcsmartspace/R$layout;->smartspace_card_weather_forecast:I
 
     goto :goto_1
 
     :cond_8
-    sget p0, Lcom/android/systemui/bcsmartspace/R$layout;->smartspace_card_generic_landscape_image:I
+    sget p0, Lcom/android/systemui/bcsmartspace/R$layout;->smartspace_card_sports:I
 
     goto :goto_1
 
     :cond_9
-    sget p0, Lcom/android/systemui/bcsmartspace/R$layout;->smartspace_card_combination:I
+    sget p0, Lcom/android/systemui/bcsmartspace/R$layout;->smartspace_card_flight:I
 
     goto :goto_1
 
     :cond_a
+    sget p0, Lcom/android/systemui/bcsmartspace/R$layout;->smartspace_card_generic_landscape_image:I
+
+    goto :goto_1
+
+    :cond_b
+    sget p0, Lcom/android/systemui/bcsmartspace/R$layout;->smartspace_card_combination:I
+
+    goto :goto_1
+
+    :cond_c
     sget p0, Lcom/android/systemui/bcsmartspace/R$layout;->smartspace_card_combination_at_store:I
 
     :goto_1
-    if-eqz p0, :cond_b
+    if-eqz p0, :cond_d
 
-    invoke-virtual {v1, p0, p1, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+    invoke-virtual {v3, p0, p1, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
     move-result-object p0
 
@@ -290,7 +312,7 @@
 
     invoke-virtual {p1, p0}, Lcom/google/android/systemui/smartspace/BcSmartspaceCard;->setSecondaryCard(Lcom/google/android/systemui/smartspace/BcSmartspaceCardSecondary;)V
 
-    :cond_b
+    :cond_d
     return-object p1
 .end method
 
@@ -389,47 +411,8 @@
     return-void
 .end method
 
-.method private maybeAppendHolidayInfoToNextAlarm()Ljava/lang/String;
-    .locals 2
-
-    invoke-virtual {p0}, Lcom/google/android/systemui/smartspace/CardPagerAdapter;->getHolidayAlarmsText()Ljava/lang/CharSequence;
-
-    move-result-object v0
-
-    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    iget-object p0, p0, Lcom/google/android/systemui/smartspace/CardPagerAdapter;->mNextAlarmDescription:Ljava/lang/String;
-
-    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string p0, " \u00b7 "
-
-    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p0
-
-    return-object p0
-
-    :cond_0
-    iget-object p0, p0, Lcom/google/android/systemui/smartspace/CardPagerAdapter;->mNextAlarmDescription:Ljava/lang/String;
-
-    return-object p0
-.end method
-
 .method private onBindViewHolder(Lcom/google/android/systemui/smartspace/CardPagerAdapter$ViewHolder;)V
-    .locals 5
+    .locals 6
 
     iget-object v0, p0, Lcom/google/android/systemui/smartspace/CardPagerAdapter;->mSmartspaceTargets:Ljava/util/List;
 
@@ -443,67 +426,71 @@
 
     iget-object v1, p1, Lcom/google/android/systemui/smartspace/CardPagerAdapter$ViewHolder;->card:Lcom/google/android/systemui/smartspace/BcSmartspaceCard;
 
-    new-instance v2, Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo$Builder;
-
-    invoke-direct {v2}, Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo$Builder;-><init>()V
-
-    invoke-static {v0}, Lcom/google/android/systemui/smartspace/InstanceId;->create(Landroid/app/smartspace/SmartspaceTarget;)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/Integer;->intValue()I
-
-    move-result v3
-
-    invoke-virtual {v2, v3}, Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo$Builder;->setInstanceId(I)Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo$Builder;
+    invoke-static {v0}, Lcom/google/android/systemui/smartspace/logging/BcSmartspaceCardLoggerUtil;->createSubcardLoggingInfo(Landroid/app/smartspace/SmartspaceTarget;)Lcom/google/android/systemui/smartspace/logging/BcSmartspaceSubcardLoggingInfo;
 
     move-result-object v2
+
+    new-instance v3, Lcom/google/android/systemui/smartspace/logging/BcSmartspaceCardLoggingInfo$Builder;
+
+    invoke-direct {v3}, Lcom/google/android/systemui/smartspace/logging/BcSmartspaceCardLoggingInfo$Builder;-><init>()V
+
+    invoke-static {v0}, Lcom/google/android/systemui/smartspace/InstanceId;->create(Landroid/app/smartspace/SmartspaceTarget;)I
+
+    move-result v4
+
+    invoke-virtual {v3, v4}, Lcom/google/android/systemui/smartspace/logging/BcSmartspaceCardLoggingInfo$Builder;->setInstanceId(I)Lcom/google/android/systemui/smartspace/logging/BcSmartspaceCardLoggingInfo$Builder;
+
+    move-result-object v3
 
     invoke-virtual {v0}, Landroid/app/smartspace/SmartspaceTarget;->getFeatureType()I
 
-    move-result v3
+    move-result v4
 
-    invoke-virtual {v2, v3}, Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo$Builder;->setFeatureType(I)Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo$Builder;
-
-    move-result-object v2
-
-    iget-object v3, p0, Lcom/google/android/systemui/smartspace/CardPagerAdapter;->mRoot:Landroid/view/View;
-
-    invoke-virtual {v3}, Landroid/view/View;->getContext()Landroid/content/Context;
+    invoke-virtual {v3, v4}, Lcom/google/android/systemui/smartspace/logging/BcSmartspaceCardLoggingInfo$Builder;->setFeatureType(I)Lcom/google/android/systemui/smartspace/logging/BcSmartspaceCardLoggingInfo$Builder;
 
     move-result-object v3
 
-    invoke-virtual {v3}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+    iget-object v4, p0, Lcom/google/android/systemui/smartspace/CardPagerAdapter;->mRoot:Landroid/view/View;
+
+    invoke-virtual {v4}, Landroid/view/View;->getContext()Landroid/content/Context;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object v4
+
+    iget v5, p0, Lcom/google/android/systemui/smartspace/CardPagerAdapter;->mDozeAmount:F
+
+    invoke-static {v4, v5}, Lcom/google/android/systemui/smartspace/BcSmartSpaceUtil;->getLoggingDisplaySurface(Ljava/lang/String;F)I
+
+    move-result v4
+
+    invoke-virtual {v3, v4}, Lcom/google/android/systemui/smartspace/logging/BcSmartspaceCardLoggingInfo$Builder;->setDisplaySurface(I)Lcom/google/android/systemui/smartspace/logging/BcSmartspaceCardLoggingInfo$Builder;
 
     move-result-object v3
-
-    iget v4, p0, Lcom/google/android/systemui/smartspace/CardPagerAdapter;->mDozeAmount:F
-
-    invoke-static {v3, v4}, Lcom/google/android/systemui/smartspace/BcSmartSpaceUtil;->getLoggingDisplaySurface(Ljava/lang/String;F)I
-
-    move-result v3
-
-    invoke-virtual {v2, v3}, Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo$Builder;->setDisplaySurface(I)Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo$Builder;
-
-    move-result-object v2
 
     iget p1, p1, Lcom/google/android/systemui/smartspace/CardPagerAdapter$ViewHolder;->position:I
 
-    invoke-virtual {v2, p1}, Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo$Builder;->setRank(I)Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo$Builder;
+    invoke-virtual {v3, p1}, Lcom/google/android/systemui/smartspace/logging/BcSmartspaceCardLoggingInfo$Builder;->setRank(I)Lcom/google/android/systemui/smartspace/logging/BcSmartspaceCardLoggingInfo$Builder;
 
     move-result-object p1
 
-    iget-object v2, p0, Lcom/google/android/systemui/smartspace/CardPagerAdapter;->mSmartspaceTargets:Ljava/util/List;
+    iget-object v3, p0, Lcom/google/android/systemui/smartspace/CardPagerAdapter;->mSmartspaceTargets:Ljava/util/List;
 
-    invoke-interface {v2}, Ljava/util/List;->size()I
+    invoke-interface {v3}, Ljava/util/List;->size()I
 
-    move-result v2
+    move-result v3
 
-    invoke-virtual {p1, v2}, Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo$Builder;->setCardinality(I)Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo$Builder;
+    invoke-virtual {p1, v3}, Lcom/google/android/systemui/smartspace/logging/BcSmartspaceCardLoggingInfo$Builder;->setCardinality(I)Lcom/google/android/systemui/smartspace/logging/BcSmartspaceCardLoggingInfo$Builder;
 
     move-result-object p1
 
-    invoke-virtual {p1}, Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo$Builder;->build()Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo;
+    invoke-virtual {p1, v2}, Lcom/google/android/systemui/smartspace/logging/BcSmartspaceCardLoggingInfo$Builder;->setSubcardInfo(Lcom/google/android/systemui/smartspace/logging/BcSmartspaceSubcardLoggingInfo;)Lcom/google/android/systemui/smartspace/logging/BcSmartspaceCardLoggingInfo$Builder;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Lcom/google/android/systemui/smartspace/logging/BcSmartspaceCardLoggingInfo$Builder;->build()Lcom/google/android/systemui/smartspace/logging/BcSmartspaceCardLoggingInfo;
 
     move-result-object p1
 
@@ -525,23 +512,29 @@
     move-object v2, v3
 
     :goto_0
-    iget-object v3, p0, Lcom/google/android/systemui/smartspace/CardPagerAdapter;->mSmartspaceTargets:Ljava/util/List;
+    invoke-virtual {v1, v2}, Lcom/google/android/systemui/smartspace/BcSmartspaceCard;->setEventNotifier(Lcom/android/systemui/plugins/BcSmartspaceDataPlugin$SmartspaceEventNotifier;)V
 
-    invoke-interface {v3}, Ljava/util/List;->size()I
+    const/16 v2, 0x27
 
-    move-result v3
+    invoke-static {p1, v0, v2}, Lcom/google/android/systemui/smartspace/logging/BcSmartspaceCardLoggerUtil;->forcePrimaryFeatureTypeAndInjectWeatherSubcard(Lcom/google/android/systemui/smartspace/logging/BcSmartspaceCardLoggingInfo;Landroid/app/smartspace/SmartspaceTarget;I)V
 
-    const/4 v4, 0x1
+    iget-object v2, p0, Lcom/google/android/systemui/smartspace/CardPagerAdapter;->mSmartspaceTargets:Ljava/util/List;
 
-    if-le v3, v4, :cond_1
+    invoke-interface {v2}, Ljava/util/List;->size()I
+
+    move-result v2
+
+    const/4 v3, 0x1
+
+    if-le v2, v3, :cond_1
 
     goto :goto_1
 
     :cond_1
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
     :goto_1
-    invoke-virtual {v1, v0, v2, p1, v4}, Lcom/google/android/systemui/smartspace/BcSmartspaceCard;->setSmartspaceTarget(Landroid/app/smartspace/SmartspaceTarget;Lcom/android/systemui/plugins/BcSmartspaceDataPlugin$SmartspaceEventNotifier;Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo;Z)V
+    invoke-virtual {v1, v0, p1, v3}, Lcom/google/android/systemui/smartspace/BcSmartspaceCard;->setSmartspaceTarget(Landroid/app/smartspace/SmartspaceTarget;Lcom/google/android/systemui/smartspace/logging/BcSmartspaceCardLoggingInfo;Z)V
 
     iget p1, p0, Lcom/google/android/systemui/smartspace/CardPagerAdapter;->mCurrentTextColor:I
 
@@ -559,11 +552,11 @@
 
     iget-object p1, p0, Lcom/google/android/systemui/smartspace/CardPagerAdapter;->mNextAlarmImage:Landroid/graphics/drawable/Drawable;
 
-    invoke-direct {p0}, Lcom/google/android/systemui/smartspace/CardPagerAdapter;->maybeAppendHolidayInfoToNextAlarm()Ljava/lang/String;
+    iget-object v0, p0, Lcom/google/android/systemui/smartspace/CardPagerAdapter;->mNextAlarmDescription:Ljava/lang/String;
 
-    move-result-object p0
+    iget-object p0, p0, Lcom/google/android/systemui/smartspace/CardPagerAdapter;->mHolidayAlarmsTarget:Landroid/app/smartspace/SmartspaceTarget;
 
-    invoke-virtual {v1, p1, p0}, Lcom/google/android/systemui/smartspace/BcSmartspaceCard;->setNextAlarm(Landroid/graphics/drawable/Drawable;Ljava/lang/String;)V
+    invoke-virtual {v1, p1, v0, p0}, Lcom/google/android/systemui/smartspace/BcSmartspaceCard;->setNextAlarm(Landroid/graphics/drawable/Drawable;Ljava/lang/String;Landroid/app/smartspace/SmartspaceTarget;)V
 
     return-void
 .end method
@@ -789,34 +782,6 @@
     .locals 0
 
     iget-object p0, p0, Lcom/google/android/systemui/smartspace/CardPagerAdapter;->mHolidayAlarmsTarget:Landroid/app/smartspace/SmartspaceTarget;
-
-    return-object p0
-.end method
-
-.method getHolidayAlarmsText()Ljava/lang/CharSequence;
-    .locals 1
-
-    iget-object p0, p0, Lcom/google/android/systemui/smartspace/CardPagerAdapter;->mHolidayAlarmsTarget:Landroid/app/smartspace/SmartspaceTarget;
-
-    const/4 v0, 0x0
-
-    if-nez p0, :cond_0
-
-    return-object v0
-
-    :cond_0
-    invoke-virtual {p0}, Landroid/app/smartspace/SmartspaceTarget;->getHeaderAction()Landroid/app/smartspace/SmartspaceAction;
-
-    move-result-object p0
-
-    if-nez p0, :cond_1
-
-    return-object v0
-
-    :cond_1
-    invoke-virtual {p0}, Landroid/app/smartspace/SmartspaceAction;->getTitle()Ljava/lang/CharSequence;
-
-    move-result-object p0
 
     return-object p0
 .end method

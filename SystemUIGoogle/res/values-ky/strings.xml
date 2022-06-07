@@ -237,6 +237,9 @@
     <string name="accessor_no_description_text">Колдонмодо эч кандай сүрөттөмө берилген жок.</string>
     <string name="active_input_method_subtypes">Жигердүү киргизүү ыкмалары</string>
     <string name="activity_launch_on_secondary_display_failed_text">Колдонмону кошумча экрандарда иштетүүгө болбойт.</string>
+    <string name="adaptive_charging_notify_des">Батарея cаат %1$s толук кубатталат. Батарея көбүрөөк убакытка жетиши үчүн, туруктуу кубатталууда.</string>
+    <string name="adaptive_charging_notify_title">Ыңгайлаштырылган кубаттоо күйүк</string>
+    <string name="adaptive_charging_notify_turn_off_once">Бир жолу өчүрүү</string>
     <string name="adaptive_charging_time_estimate">%1$s • Ыңгайлаштырылуучу кубаттоо (саат %2$s кубатталат)</string>
     <string name="adb_device_fingerprint_title_format">Түзмөктөгү манжа изи: %1$s</string>
     <string name="adb_device_forget">Унутулсун</string>
@@ -282,7 +285,7 @@
     <string name="allow_mock_location">Жасалма жайгашкан жерди көрсөтүүгө уруксат берилсин</string>
     <string name="allow_mock_location_summary">Жасалма жайгашкан жерди көрсөтүүгө уруксат берилсин</string>
     <string name="always_use_accessory">%2$s туташып турганда, %1$s ар дайым ачык болсун</string>
-    <string name="always_use_device">%2$s туташып турганда, %1$s ар дайым ачык болун</string>
+    <string name="always_use_device">%2$s туташып турганда, %1$s ар дайым ачык болсун</string>
     <string name="animator_duration_scale_title">Анимациянын узактыгы</string>
     <string name="anniversary_status">Маараке</string>
     <string name="anniversary_status_content_description">%1$s бүгүн мааракесин белгилеп жатат</string>
@@ -301,6 +304,7 @@
     <string name="basic_status">Ачык сүйлөшүү</string>
     <string name="battery">Батарея</string>
     <string name="battery_detail_switch_title">Батареяны үнөмдөгүч</string>
+    <string name="battery_health_notify_learn_more">Кененирээк</string>
     <string name="battery_info_status_charging">Кубатталууда</string>
     <string name="battery_info_status_charging_fast">Ыкчам кубатталууда</string>
     <string name="battery_info_status_charging_slow">Жай кубатталууда</string>
@@ -616,7 +620,6 @@
     <string name="debug_networking_category">Тармактар</string>
     <string name="debug_view_attributes">Аттрибуттарды текшерүүнү иштетүү</string>
     <string name="defender_notify_des">Батареяны көбүрөөк убакытка жеткирүү үчүн телефонуңуз кубатты чектеп жатат</string>
-    <string name="defender_notify_learn_more">Кененирээк</string>
     <string name="defender_notify_resume_charge">Кубаттоону улантуу</string>
     <string name="defender_notify_title">Кубаттоо убактылуу чектелген</string>
     <string name="defender_post_notify_des">Батареяны көбүрөөк убакытка жеткирүү үчүн саат %2$s баштап, %3$s чейин кубаттоо %1$s менен чектелди</string>
@@ -652,7 +655,7 @@
     <string name="dock_photo_preview_text">Фото алкак ишке киргизилүүдө...</string>
     <string name="dock_promo_text">Фото алкакты көрүү үчүн экранды солго сүрүңүз</string>
     <string name="drag_to_add_tiles">Керектүү элементтерди сүйрөп келиңиз</string>
-    <string name="drag_to_rearrange_tiles">Элементтердин иретин өзгөртүү үчүн кармап туруп, сүйрөңүз</string>
+    <string name="drag_to_rearrange_tiles">Иретин өзгөртүү үчүн кармап туруп, сүйрөңүз</string>
     <string name="drag_to_remove_disabled">Сизге жок дегенде %1$d мозаика керек</string>
     <string name="drag_to_remove_tiles">Өчүрүү үчүн бул жерге сүйрөңүз</string>
     <string name="empty_shade_text">Билдирме жок</string>
@@ -1033,7 +1036,7 @@
     <string name="media_output_dialog_disconnected">(ажыратылды)</string>
     <string name="media_output_dialog_group">Топ</string>
     <string name="media_output_dialog_multiple_devices">%1$d түзмөк тандалды</string>
-    <string name="media_output_dialog_pairing_new">Жаңы түзмөктү жупташтыруу</string>
+    <string name="media_output_dialog_pairing_new">Жаңы түзмөк кошуу</string>
     <string name="media_output_dialog_single_device">1 түзмөк тандалды</string>
     <string name="media_projection_action_text">Азыр баштоо</string>
     <string name="media_projection_dialog_service_text">Жаздырып же тышкы экранга чыгарып жатканда, бул колдонмо экраныңыздагы бардык маалыматты же түзмөктө ойнолуп жаткан бардык нерселерди (сырсөздөрдү, төлөмдүн чоо-жайын, сүрөттөрдү, билдирүүлөрдү жана угуп жаткан аудиофайлдарды) көрө алат.</string>
@@ -1481,7 +1484,7 @@
     <string name="screenrecord_background_processing_label">Экрандан жаздырылып алынган видео иштетилүүдө</string>
     <string name="screenrecord_channel_description">Экранды жаздыруу сеансы боюнча учурдагы билдирме</string>
     <string name="screenrecord_delete_error">Экранды жаздырууну өчүрүүдө ката кетти</string>
-    <string name="screenrecord_description">Жаздыруу учурунда Android системасы экраныңызда көрүнүп турган жана түзмөктө ойноп жаткан бардык купуя маалыматты жаздырып алат. Буга сырсөздөр, төлөм маалыматы, сүрөттөр, билдирүүлөр жана аудио файлдар кирет.</string>
+    <string name="screenrecord_description">Сырсөздөр, төлөм маалыматы, сүрөттөр, билдирүүлөр жана аудиофайлдар сыяктуу экраныңызда көрүнүп турган жана түзмөктө ойноп жаткан бардык купуя маалымат жазылып калат.</string>
     <string name="screenrecord_device_audio_and_mic_label">Түзмөктөгү аудиолор жана микрофон</string>
     <string name="screenrecord_device_audio_description">Музыка, чалуулар жана шыңгырлар сыяктуу түзмөгүңүздөгү добуштар</string>
     <string name="screenrecord_device_audio_label">Түзмөктөгү аудиолор</string>
@@ -1701,9 +1704,13 @@
     <string name="upcoming_birthday_status_content_description">Жакында %1$s туулган күнүн белгилейт</string>
     <string name="url_menu_copy">Көчүрүү</string>
     <string name="url_menu_share">Бөлүшүү</string>
-    <string name="usb_accessory_confirm_prompt">%2$s кабелине туташуу үчүн %1$s колдонмосу ачылсынбы?</string>
+    <string name="usb_accessory_confirm_prompt">%2$s колдонуу үчүн %1$s колдонмосун ачасызбы?</string>
     <string name="usb_accessory_permission_prompt">%1$s колдонмосу %2$s кабелин колдоно берсинби?</string>
     <string name="usb_accessory_uri_prompt">Эч бир орнотулган колдонмо USB аксессуар м-н иштебейт. Кенен маалыматтар: %1$s</string>
+    <string name="usb_audio_device_confirm_prompt_title">%2$s түзмөгүн колдонуу үчүн %1$s колдонмосун ачасызбы?</string>
+    <string name="usb_audio_device_permission_prompt_title">%1$s колдонмосу %2$s кабелин колдоно берсинби?</string>
+    <string name="usb_audio_device_prompt">%1$s колдонмосун бул түзмөктө иштетсеңиз, чалууларды, билдирмелерди жана ойготкучтарды уга албай калышыңыз мүмкүн.</string>
+    <string name="usb_audio_device_prompt_warn">Бул колдонмонун жаздырууга уруксаты жок, бирок бул USB түзмөгү аркылуу аудиону жаздыра алат. %1$s колдонмосун бул түзмөктө иштетсеңиз, чалууларды, билдирмелерди жана ойготкучтарды уга албай калышыңыз мүмкүн.</string>
     <string name="usb_audio_disable_routing">Аудиону өткөрүүнү өчүрүү (USB)</string>
     <string name="usb_audio_disable_routing_summary">Тышкы USB аудио жабдыктарына авто өткөрүү өчрлт</string>
     <string name="usb_contaminant_message">"Түзмөгүңүздүн ичине суюктук же булганч нерселер кирип кетпеши үчүн USB порту өчүрүлдү. Азырынча ал аркылуу башка түзмөктөргө туташууга болбойт.

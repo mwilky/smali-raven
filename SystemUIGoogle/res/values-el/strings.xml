@@ -237,6 +237,9 @@
     <string name="accessor_no_description_text">Δεν παρέχεται περιγραφή από την εφαρμογή.</string>
     <string name="active_input_method_subtypes">Ενεργές μέθοδοι εισαγωγής</string>
     <string name="activity_launch_on_secondary_display_failed_text">Η εφαρμογή δεν υποστηρίζει την εκκίνηση σε δευτερεύουσες οθόνες.</string>
+    <string name="adaptive_charging_notify_des">Η μπαταρία θα φορτιστεί πλήρως σε %1$s. Χρησιμοποιείται σταθερή φόρτιση για τη διατήρηση της καλής κατάστασης της μπαταρίας.</string>
+    <string name="adaptive_charging_notify_title">Η προσαρμοστική φόρτιση είναι ενεργή</string>
+    <string name="adaptive_charging_notify_turn_off_once">Απενεργοποίηση μία φορά</string>
     <string name="adaptive_charging_time_estimate">%1$s • Προσαρμοστική φόρτιση (πλήρης φόρτιση στις %2$s)</string>
     <string name="adb_device_fingerprint_title_format">Μοναδικό χαρακτηριστικό συσκευής: %1$s</string>
     <string name="adb_device_forget">Διαγραφή</string>
@@ -301,6 +304,7 @@
     <string name="basic_status">Άνοιγμα συνομιλίας</string>
     <string name="battery">Μπαταρία</string>
     <string name="battery_detail_switch_title">Εξοικονόμηση μπαταρίας</string>
+    <string name="battery_health_notify_learn_more">Μάθετε περισσότερα</string>
     <string name="battery_info_status_charging">Φόρτιση</string>
     <string name="battery_info_status_charging_fast">Ταχεία φόρτιση</string>
     <string name="battery_info_status_charging_slow">Αργή φόρτιση</string>
@@ -616,7 +620,6 @@
     <string name="debug_networking_category">Δικτύωση</string>
     <string name="debug_view_attributes">Ενεργοποίηση του ελέγχου χαρακτηριστικών προβολής</string>
     <string name="defender_notify_des">Το τηλέφωνο περιορίζει τη φόρτιση, προκειμένου να διατηρηθεί η εύρυθμη λειτουργία της μπαταρίας.</string>
-    <string name="defender_notify_learn_more">Μάθετε περισσότερα</string>
     <string name="defender_notify_resume_charge">Συνέχιση φόρτισης</string>
     <string name="defender_notify_title">Προσωρινός περιορισμός φόρτισης</string>
     <string name="defender_post_notify_des">Η φόρτιση περιορίστηκε στο %1$s από τις %2$s έως τις %3$s για τη διατήρηση της καλής κατάστασης της μπαταρίας.</string>
@@ -896,7 +899,7 @@
     <string name="keyguard_unlock">Σύρετε προς τα επάνω για άνοιγμα</string>
     <string name="keyguard_unlock_press">Πατήστε για άνοιγμα</string>
     <string name="keywords_adb_wireless">adb, εντοπισμός σφαλμάτων, προγραμματιστής</string>
-    <string name="keywords_alarms_and_reminders">χρονοδιάγραμμα, ξυπνητήρι, υπενθύμιση, ρολόι</string>
+    <string name="keywords_alarms_and_reminders">πρόγραμμα, ξυπνητήρι, υπενθύμιση, ρολόι</string>
     <string name="kg_enter_confirm_pin_hint">Επιβεβαιώστε τον απαιτούμενο κωδικό PIN</string>
     <string name="kg_face_not_recognized">Δεν αναγνωρίστηκε</string>
     <string name="kg_face_sensor_privacy_enabled">Για να χρησιμοποιήσετε τη λειτουργία Ξεκλείδωμα με το πρόσωπο, ενεργοποιήστε την επιλογή <b>Πρόσβαση στην κάμερα</b> από το μενού Ρυθμίσεις > Απόρρητο</string>
@@ -1704,6 +1707,10 @@
     <string name="usb_accessory_confirm_prompt">Να ανοίγει η εφαρμογή %1$s για τη διαχείριση του αξεσουάρ %2$s;</string>
     <string name="usb_accessory_permission_prompt">Να επιτρέπεται η πρόσβαση της εφαρμογής %1$s στο αξεσουάρ %2$s;</string>
     <string name="usb_accessory_uri_prompt">Δεν έχετε εφαρμογή που να συνεργάζεται με το αξεσουάρ USB. Για περισσότερα: %1$s</string>
+    <string name="usb_audio_device_confirm_prompt_title">Άνοιγμα %1$s για διαχείριση συσκευής %2$s;</string>
+    <string name="usb_audio_device_permission_prompt_title">Να επιτρέπεται στην εφαρμογή %1$s η πρόσβαση στη συσκευή %2$s;</string>
+    <string name="usb_audio_device_prompt">Η χρήση της εφαρμογής %1$s με αυτήν τη συσκευή μπορεί να σας εμποδίσει να ακούσετε κλήσεις, ειδοποιήσεις και ξυπνητήρια.</string>
+    <string name="usb_audio_device_prompt_warn">Δεν έχει εκχωρηθεί άδεια εγγραφής σε αυτήν την εφαρμογή, αλλά μέσω αυτής της συσκευής USB θα μπορεί να εγγράφει ήχο. Η χρήση της εφαρμογής %1$s με αυτήν τη συσκευή μπορεί να σας εμποδίσει να ακούσετε κλήσεις, ειδοποιήσεις και ξυπνητήρια.</string>
     <string name="usb_audio_disable_routing">Απεν. δρομολ. ήχου USB</string>
     <string name="usb_audio_disable_routing_summary">Απενερ.αυτόμ. δρομολ. σε περιφερειακά ήχου USB</string>
     <string name="usb_contaminant_message">"Για την προστασία της συσκευής σας από υγρασία ή ακαθαρσίες, η θύρα USB έχει απενεργοποιηθεί και δεν θα εντοπίζει τυχόν αξεσουάρ.

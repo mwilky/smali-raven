@@ -85,6 +85,9 @@
 .method public abstract addIconGroup(Lcom/android/systemui/statusbar/phone/StatusBarIconController$IconManager;)V
 .end method
 
+.method public abstract refreshIconGroup(Lcom/android/systemui/statusbar/phone/StatusBarIconController$IconManager;)V
+.end method
+
 .method public abstract removeAllIconsForSlot(Ljava/lang/String;)V
 .end method
 

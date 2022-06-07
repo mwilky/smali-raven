@@ -237,6 +237,9 @@
     <string name="accessor_no_description_text">No description provided by the app.</string>
     <string name="active_input_method_subtypes">Active input methods</string>
     <string name="activity_launch_on_secondary_display_failed_text">App does not support launch on secondary displays.</string>
+    <string name="adaptive_charging_notify_des">Battery full by %1$s. Charging steadily to preserve battery health.</string>
+    <string name="adaptive_charging_notify_title">Adaptive charging is on</string>
+    <string name="adaptive_charging_notify_turn_off_once">Turn off once</string>
     <string name="adaptive_charging_time_estimate">%1$s • Adaptive charging (full by %2$s)</string>
     <string name="adb_device_fingerprint_title_format">Device fingerprint: %1$s</string>
     <string name="adb_device_forget">Forget</string>
@@ -301,6 +304,7 @@ If this permission is off, existing alarms and time-based events scheduled by th
     <string name="basic_status">Open conversation</string>
     <string name="battery">Battery</string>
     <string name="battery_detail_switch_title">Battery Saver</string>
+    <string name="battery_health_notify_learn_more">Learn more</string>
     <string name="battery_info_status_charging">Charging</string>
     <string name="battery_info_status_charging_fast">Charging rapidly</string>
     <string name="battery_info_status_charging_slow">Charging slowly</string>
@@ -610,7 +614,6 @@ If you resume, charges may apply for data usage."</string>
     <string name="debug_networking_category">Networking</string>
     <string name="debug_view_attributes">Enable view attribute inspection</string>
     <string name="defender_notify_des">Your phone is limiting charging to help preserve battery health</string>
-    <string name="defender_notify_learn_more">Learn more</string>
     <string name="defender_notify_resume_charge">Resume charging</string>
     <string name="defender_notify_title">Charging temporarily limited</string>
     <string name="defender_post_notify_des">Charging was limited to %1$s from %2$s to %3$s to preserve battery health</string>
@@ -1631,7 +1634,7 @@ Tap for more info"</string>
     <string name="tuner_toast">Congrats! System UI Tuner has been added to Settings</string>
     <string name="tuner_warning">System UI Tuner gives you extra ways to tweak and customise the Android user interface. These experimental features may change, break or disappear in future releases. Proceed with caution.</string>
     <string name="tuner_warning_title">Fun for some but not for all</string>
-    <string name="turn_off_airplane_mode">Turn off aeroplane mode</string>
+    <string name="turn_off_airplane_mode">Turn off Airplane mode</string>
     <string name="turn_on_wifi">Wi‑Fi</string>
     <string name="tv_notification_panel_no_notifications">No notifications</string>
     <string name="tv_notification_panel_title">Notifications</string>
@@ -1643,6 +1646,10 @@ Tap for more info"</string>
     <string name="usb_accessory_confirm_prompt">Open %1$s to handle %2$s?</string>
     <string name="usb_accessory_permission_prompt">Allow %1$s to access %2$s?</string>
     <string name="usb_accessory_uri_prompt">No installed apps work with this USB accessory. Learn more about this accessory at %1$s</string>
+    <string name="usb_audio_device_confirm_prompt_title">Open %1$s to handle %2$s?</string>
+    <string name="usb_audio_device_permission_prompt_title">Allow %1$s to access %2$s?</string>
+    <string name="usb_audio_device_prompt">Using %1$s with this device might prevent hearing calls, notifications and alarms.</string>
+    <string name="usb_audio_device_prompt_warn">This app has not been granted record permission but could capture audio through this USB device. Using %1$s with this device might prevent hearing calls, notifications and alarms.</string>
     <string name="usb_audio_disable_routing">Disable USB audio routing</string>
     <string name="usb_audio_disable_routing_summary">Disable automatic routing to USB audio peripherals</string>
     <string name="usb_contaminant_message">"To protect your device from liquid or debris, the USB port is disabled and won’t detect any accessories.

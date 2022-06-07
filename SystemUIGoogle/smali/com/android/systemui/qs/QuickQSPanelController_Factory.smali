@@ -88,16 +88,6 @@
     .end annotation
 .end field
 
-.field private final quickQSBrightnessControllerProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/qs/QuickQSBrightnessController;",
-            ">;"
-        }
-    .end annotation
-.end field
-
 .field private final uiEventLoggerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -130,7 +120,7 @@
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -163,9 +153,6 @@
             "Lcom/android/systemui/dump/DumpManager;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/qs/QuickQSBrightnessController;",
-            ">;",
-            "Ljavax/inject/Provider<",
             "Lcom/android/systemui/qs/FooterActionsController;",
             ">;)V"
         }
@@ -191,15 +178,13 @@
 
     iput-object p9, p0, Lcom/android/systemui/qs/QuickQSPanelController_Factory;->dumpManagerProvider:Ljavax/inject/Provider;
 
-    iput-object p10, p0, Lcom/android/systemui/qs/QuickQSPanelController_Factory;->quickQSBrightnessControllerProvider:Ljavax/inject/Provider;
-
-    iput-object p11, p0, Lcom/android/systemui/qs/QuickQSPanelController_Factory;->footerActionsControllerProvider:Ljavax/inject/Provider;
+    iput-object p10, p0, Lcom/android/systemui/qs/QuickQSPanelController_Factory;->footerActionsControllerProvider:Ljavax/inject/Provider;
 
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/qs/QuickQSPanelController_Factory;
-    .locals 13
+.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/qs/QuickQSPanelController_Factory;
+    .locals 12
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -231,18 +216,15 @@
             "Lcom/android/systemui/dump/DumpManager;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/qs/QuickQSBrightnessController;",
-            ">;",
-            "Ljavax/inject/Provider<",
             "Lcom/android/systemui/qs/FooterActionsController;",
             ">;)",
             "Lcom/android/systemui/qs/QuickQSPanelController_Factory;"
         }
     .end annotation
 
-    new-instance v12, Lcom/android/systemui/qs/QuickQSPanelController_Factory;
+    new-instance v11, Lcom/android/systemui/qs/QuickQSPanelController_Factory;
 
-    move-object v0, v12
+    move-object v0, v11
 
     move-object v1, p0
 
@@ -250,7 +232,7 @@
 
     move-object v3, p2
 
-    move-object/from16 v4, p3
+    move-object v4, p3
 
     move-object/from16 v5, p4
 
@@ -264,19 +246,17 @@
 
     move-object/from16 v10, p9
 
-    move-object/from16 v11, p10
+    invoke-direct/range {v0 .. v10}, Lcom/android/systemui/qs/QuickQSPanelController_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
 
-    invoke-direct/range {v0 .. v11}, Lcom/android/systemui/qs/QuickQSPanelController_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
-
-    return-object v12
+    return-object v11
 .end method
 
-.method public static newInstance(Lcom/android/systemui/qs/QuickQSPanel;Lcom/android/systemui/qs/QSTileHost;Lcom/android/systemui/qs/customize/QSCustomizerController;ZLcom/android/systemui/media/MediaHost;Lcom/android/internal/logging/MetricsLogger;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/systemui/dump/DumpManager;Lcom/android/systemui/qs/QuickQSBrightnessController;Lcom/android/systemui/qs/FooterActionsController;)Lcom/android/systemui/qs/QuickQSPanelController;
-    .locals 13
+.method public static newInstance(Lcom/android/systemui/qs/QuickQSPanel;Lcom/android/systemui/qs/QSTileHost;Lcom/android/systemui/qs/customize/QSCustomizerController;ZLcom/android/systemui/media/MediaHost;Lcom/android/internal/logging/MetricsLogger;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/systemui/dump/DumpManager;Lcom/android/systemui/qs/FooterActionsController;)Lcom/android/systemui/qs/QuickQSPanelController;
+    .locals 12
 
-    new-instance v12, Lcom/android/systemui/qs/QuickQSPanelController;
+    new-instance v11, Lcom/android/systemui/qs/QuickQSPanelController;
 
-    move-object v0, v12
+    move-object v0, v11
 
     move-object v1, p0
 
@@ -284,7 +264,7 @@
 
     move-object v3, p2
 
-    move/from16 v4, p3
+    move v4, p3
 
     move-object/from16 v5, p4
 
@@ -298,17 +278,15 @@
 
     move-object/from16 v10, p9
 
-    move-object/from16 v11, p10
+    invoke-direct/range {v0 .. v10}, Lcom/android/systemui/qs/QuickQSPanelController;-><init>(Lcom/android/systemui/qs/QuickQSPanel;Lcom/android/systemui/qs/QSTileHost;Lcom/android/systemui/qs/customize/QSCustomizerController;ZLcom/android/systemui/media/MediaHost;Lcom/android/internal/logging/MetricsLogger;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/systemui/dump/DumpManager;Lcom/android/systemui/qs/FooterActionsController;)V
 
-    invoke-direct/range {v0 .. v11}, Lcom/android/systemui/qs/QuickQSPanelController;-><init>(Lcom/android/systemui/qs/QuickQSPanel;Lcom/android/systemui/qs/QSTileHost;Lcom/android/systemui/qs/customize/QSCustomizerController;ZLcom/android/systemui/media/MediaHost;Lcom/android/internal/logging/MetricsLogger;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/systemui/dump/DumpManager;Lcom/android/systemui/qs/QuickQSBrightnessController;Lcom/android/systemui/qs/FooterActionsController;)V
-
-    return-object v12
+    return-object v11
 .end method
 
 
 # virtual methods
 .method public get()Lcom/android/systemui/qs/QuickQSPanelController;
-    .locals 12
+    .locals 11
 
     iget-object v0, p0, Lcom/android/systemui/qs/QuickQSPanelController_Factory;->viewProvider:Ljavax/inject/Provider;
 
@@ -402,27 +380,17 @@
 
     check-cast v9, Lcom/android/systemui/dump/DumpManager;
 
-    iget-object v0, p0, Lcom/android/systemui/qs/QuickQSPanelController_Factory;->quickQSBrightnessControllerProvider:Ljavax/inject/Provider;
-
-    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
-
-    move-result-object v0
-
-    move-object v10, v0
-
-    check-cast v10, Lcom/android/systemui/qs/QuickQSBrightnessController;
-
     iget-object p0, p0, Lcom/android/systemui/qs/QuickQSPanelController_Factory;->footerActionsControllerProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object p0
 
-    move-object v11, p0
+    move-object v10, p0
 
-    check-cast v11, Lcom/android/systemui/qs/FooterActionsController;
+    check-cast v10, Lcom/android/systemui/qs/FooterActionsController;
 
-    invoke-static/range {v1 .. v11}, Lcom/android/systemui/qs/QuickQSPanelController_Factory;->newInstance(Lcom/android/systemui/qs/QuickQSPanel;Lcom/android/systemui/qs/QSTileHost;Lcom/android/systemui/qs/customize/QSCustomizerController;ZLcom/android/systemui/media/MediaHost;Lcom/android/internal/logging/MetricsLogger;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/systemui/dump/DumpManager;Lcom/android/systemui/qs/QuickQSBrightnessController;Lcom/android/systemui/qs/FooterActionsController;)Lcom/android/systemui/qs/QuickQSPanelController;
+    invoke-static/range {v1 .. v10}, Lcom/android/systemui/qs/QuickQSPanelController_Factory;->newInstance(Lcom/android/systemui/qs/QuickQSPanel;Lcom/android/systemui/qs/QSTileHost;Lcom/android/systemui/qs/customize/QSCustomizerController;ZLcom/android/systemui/media/MediaHost;Lcom/android/internal/logging/MetricsLogger;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/systemui/dump/DumpManager;Lcom/android/systemui/qs/FooterActionsController;)Lcom/android/systemui/qs/QuickQSPanelController;
 
     move-result-object p0
 

@@ -100,6 +100,8 @@
 
 .field private mNextCollapseSpeedUpFactor:F
 
+.field private final mNotificationShadeWindowController:Lcom/android/systemui/statusbar/NotificationShadeWindowController;
+
 .field private mNotificationsDragEnabled:Z
 
 .field protected mOverExpansion:F
@@ -162,14 +164,6 @@
 
 
 # direct methods
-.method public static synthetic $r8$lambda$-vZdmFW1u30J5Q0zaevJSfSrjjI(Lcom/android/systemui/statusbar/phone/PanelViewController;FFFLandroid/animation/ValueAnimator;Landroid/animation/ValueAnimator;)V
-    .locals 0
-
-    invoke-direct/range {p0 .. p5}, Lcom/android/systemui/statusbar/phone/PanelViewController;->lambda$createHeightAnimator$4(FFFLandroid/animation/ValueAnimator;Landroid/animation/ValueAnimator;)V
-
-    return-void
-.end method
-
 .method public static synthetic $r8$lambda$Jrtj9F5YwAeTjd4kWpBdylI2PAI(Lcom/android/systemui/statusbar/phone/PanelViewController;)V
     .locals 0
 
@@ -186,18 +180,34 @@
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$eSEmw4TX0_Q9GLYNGrJsgpxez7c(Lcom/android/systemui/statusbar/phone/PanelViewController;Landroid/view/View;)V
+.method public static synthetic $r8$lambda$dPdDxVb9NYs0IBQSWEwnx20Y1XQ(Lcom/android/systemui/statusbar/phone/PanelViewController;)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/phone/PanelViewController;->lambda$startUnlockHintAnimationPhase1$3(Landroid/view/View;)V
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/PanelViewController;->lambda$startUnlockHintAnimation$3()V
 
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$yshDweK71RGc6jsp16uB86ZasnI(Lcom/android/systemui/statusbar/phone/PanelViewController;)V
+.method public static synthetic $r8$lambda$q5xr1FmgIPoTKpQOjAsqEHGzuno(Lcom/android/systemui/statusbar/phone/PanelViewController;Landroid/view/View;)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/PanelViewController;->lambda$startUnlockHintAnimation$2()V
+    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/phone/PanelViewController;->lambda$startUnlockHintAnimationPhase1$4(Landroid/view/View;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$wje_BUgRPe9L3pk-4QVqmk3dGhg(Lcom/android/systemui/statusbar/phone/PanelViewController;F)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/phone/PanelViewController;->lambda$setExpandedHeightInternal$2(F)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$yZWHr2JFDjEOr7PXVOl6ZKrg4uo(Lcom/android/systemui/statusbar/phone/PanelViewController;FFFLandroid/animation/ValueAnimator;Landroid/animation/ValueAnimator;)V
+    .locals 0
+
+    invoke-direct/range {p0 .. p5}, Lcom/android/systemui/statusbar/phone/PanelViewController;->lambda$createHeightAnimator$5(FFFLandroid/animation/ValueAnimator;Landroid/animation/ValueAnimator;)V
 
     return-void
 .end method
@@ -216,7 +226,7 @@
     return-void
 .end method
 
-.method public constructor <init>(Lcom/android/systemui/statusbar/phone/PanelView;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/doze/DozeLog;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/statusbar/SysuiStatusBarStateController;Lcom/android/systemui/statusbar/VibratorHelper;Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;Lcom/android/internal/util/LatencyTracker;Lcom/android/wm/shell/animation/FlingAnimationUtils$Builder;Lcom/android/systemui/statusbar/phone/StatusBarTouchableRegionManager;Lcom/android/systemui/statusbar/phone/LockscreenGestureLogger;Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionStateManager;Lcom/android/systemui/statusbar/notification/stack/AmbientState;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/phone/PanelView;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/doze/DozeLog;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/statusbar/SysuiStatusBarStateController;Lcom/android/systemui/statusbar/NotificationShadeWindowController;Lcom/android/systemui/statusbar/VibratorHelper;Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;Lcom/android/internal/util/LatencyTracker;Lcom/android/wm/shell/animation/FlingAnimationUtils$Builder;Lcom/android/systemui/statusbar/phone/StatusBarTouchableRegionManager;Lcom/android/systemui/statusbar/phone/LockscreenGestureLogger;Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionStateManager;Lcom/android/systemui/statusbar/notification/stack/AmbientState;)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -251,41 +261,41 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/phone/PanelViewController;->mFlingCollapseRunnable:Ljava/lang/Runnable;
 
-    iput-object p13, p0, Lcom/android/systemui/statusbar/phone/PanelViewController;->mAmbientState:Lcom/android/systemui/statusbar/notification/stack/AmbientState;
+    iput-object p14, p0, Lcom/android/systemui/statusbar/phone/PanelViewController;->mAmbientState:Lcom/android/systemui/statusbar/notification/stack/AmbientState;
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/phone/PanelViewController;->mView:Lcom/android/systemui/statusbar/phone/PanelView;
 
-    iput-object p7, p0, Lcom/android/systemui/statusbar/phone/PanelViewController;->mStatusBarKeyguardViewManager:Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;
+    iput-object p8, p0, Lcom/android/systemui/statusbar/phone/PanelViewController;->mStatusBarKeyguardViewManager:Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;
 
-    iput-object p11, p0, Lcom/android/systemui/statusbar/phone/PanelViewController;->mLockscreenGestureLogger:Lcom/android/systemui/statusbar/phone/LockscreenGestureLogger;
+    iput-object p12, p0, Lcom/android/systemui/statusbar/phone/PanelViewController;->mLockscreenGestureLogger:Lcom/android/systemui/statusbar/phone/LockscreenGestureLogger;
 
-    iput-object p12, p0, Lcom/android/systemui/statusbar/phone/PanelViewController;->mPanelExpansionStateManager:Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionStateManager;
+    iput-object p13, p0, Lcom/android/systemui/statusbar/phone/PanelViewController;->mPanelExpansionStateManager:Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionStateManager;
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PanelViewController;->createTouchHandler()Lcom/android/systemui/statusbar/phone/PanelViewController$TouchHandler;
 
-    move-result-object p7
+    move-result-object p8
 
-    iput-object p7, p0, Lcom/android/systemui/statusbar/phone/PanelViewController;->mTouchHandler:Lcom/android/systemui/statusbar/phone/PanelViewController$TouchHandler;
+    iput-object p8, p0, Lcom/android/systemui/statusbar/phone/PanelViewController;->mTouchHandler:Lcom/android/systemui/statusbar/phone/PanelViewController$TouchHandler;
 
-    new-instance p11, Lcom/android/systemui/statusbar/phone/PanelViewController$1;
+    new-instance p12, Lcom/android/systemui/statusbar/phone/PanelViewController$1;
 
-    invoke-direct {p11, p0}, Lcom/android/systemui/statusbar/phone/PanelViewController$1;-><init>(Lcom/android/systemui/statusbar/phone/PanelViewController;)V
+    invoke-direct {p12, p0}, Lcom/android/systemui/statusbar/phone/PanelViewController$1;-><init>(Lcom/android/systemui/statusbar/phone/PanelViewController;)V
 
-    invoke-virtual {p1, p11}, Landroid/widget/FrameLayout;->addOnAttachStateChangeListener(Landroid/view/View$OnAttachStateChangeListener;)V
+    invoke-virtual {p1, p12}, Landroid/widget/FrameLayout;->addOnAttachStateChangeListener(Landroid/view/View$OnAttachStateChangeListener;)V
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PanelViewController;->createLayoutChangeListener()Lcom/android/systemui/statusbar/phone/PanelViewController$OnLayoutChangeListener;
 
-    move-result-object p11
+    move-result-object p12
 
-    invoke-virtual {p1, p11}, Landroid/widget/FrameLayout;->addOnLayoutChangeListener(Landroid/view/View$OnLayoutChangeListener;)V
+    invoke-virtual {p1, p12}, Landroid/widget/FrameLayout;->addOnLayoutChangeListener(Landroid/view/View$OnLayoutChangeListener;)V
 
-    invoke-virtual {p1, p7}, Lcom/android/systemui/statusbar/phone/PanelView;->setOnTouchListener(Lcom/android/systemui/statusbar/phone/PanelViewController$TouchHandler;)V
+    invoke-virtual {p1, p8}, Lcom/android/systemui/statusbar/phone/PanelView;->setOnTouchListener(Lcom/android/systemui/statusbar/phone/PanelViewController$TouchHandler;)V
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PanelViewController;->createOnConfigurationChangedListener()Lcom/android/systemui/statusbar/phone/PanelViewController$OnConfigurationChangedListener;
 
-    move-result-object p7
+    move-result-object p8
 
-    invoke-virtual {p1, p7}, Lcom/android/systemui/statusbar/phone/PanelView;->setOnConfigurationChangedListener(Lcom/android/systemui/statusbar/phone/PanelView$OnConfigurationChangedListener;)V
+    invoke-virtual {p1, p8}, Lcom/android/systemui/statusbar/phone/PanelView;->setOnConfigurationChangedListener(Lcom/android/systemui/statusbar/phone/PanelView$OnConfigurationChangedListener;)V
 
     invoke-virtual {p1}, Landroid/widget/FrameLayout;->getResources()Landroid/content/res/Resources;
 
@@ -297,7 +307,9 @@
 
     iput-object p5, p0, Lcom/android/systemui/statusbar/phone/PanelViewController;->mStatusBarStateController:Lcom/android/systemui/statusbar/SysuiStatusBarStateController;
 
-    invoke-virtual {p9}, Lcom/android/wm/shell/animation/FlingAnimationUtils$Builder;->reset()Lcom/android/wm/shell/animation/FlingAnimationUtils$Builder;
+    iput-object p6, p0, Lcom/android/systemui/statusbar/phone/PanelViewController;->mNotificationShadeWindowController:Lcom/android/systemui/statusbar/NotificationShadeWindowController;
+
+    invoke-virtual {p10}, Lcom/android/wm/shell/animation/FlingAnimationUtils$Builder;->reset()Lcom/android/wm/shell/animation/FlingAnimationUtils$Builder;
 
     move-result-object p4
 
@@ -317,13 +329,13 @@
 
     iput-object p4, p0, Lcom/android/systemui/statusbar/phone/PanelViewController;->mFlingAnimationUtils:Lcom/android/wm/shell/animation/FlingAnimationUtils;
 
-    invoke-virtual {p9}, Lcom/android/wm/shell/animation/FlingAnimationUtils$Builder;->reset()Lcom/android/wm/shell/animation/FlingAnimationUtils$Builder;
+    invoke-virtual {p10}, Lcom/android/wm/shell/animation/FlingAnimationUtils$Builder;->reset()Lcom/android/wm/shell/animation/FlingAnimationUtils$Builder;
 
     move-result-object p4
 
-    const/high16 p7, 0x3f000000    # 0.5f
+    const/high16 p6, 0x3f000000    # 0.5f
 
-    invoke-virtual {p4, p7}, Lcom/android/wm/shell/animation/FlingAnimationUtils$Builder;->setMaxLengthSeconds(F)Lcom/android/wm/shell/animation/FlingAnimationUtils$Builder;
+    invoke-virtual {p4, p6}, Lcom/android/wm/shell/animation/FlingAnimationUtils$Builder;->setMaxLengthSeconds(F)Lcom/android/wm/shell/animation/FlingAnimationUtils$Builder;
 
     move-result-object p4
 
@@ -337,11 +349,11 @@
 
     iput-object p4, p0, Lcom/android/systemui/statusbar/phone/PanelViewController;->mFlingAnimationUtilsClosing:Lcom/android/wm/shell/animation/FlingAnimationUtils;
 
-    invoke-virtual {p9}, Lcom/android/wm/shell/animation/FlingAnimationUtils$Builder;->reset()Lcom/android/wm/shell/animation/FlingAnimationUtils$Builder;
+    invoke-virtual {p10}, Lcom/android/wm/shell/animation/FlingAnimationUtils$Builder;->reset()Lcom/android/wm/shell/animation/FlingAnimationUtils$Builder;
 
     move-result-object p4
 
-    invoke-virtual {p4, p7}, Lcom/android/wm/shell/animation/FlingAnimationUtils$Builder;->setMaxLengthSeconds(F)Lcom/android/wm/shell/animation/FlingAnimationUtils$Builder;
+    invoke-virtual {p4, p6}, Lcom/android/wm/shell/animation/FlingAnimationUtils$Builder;->setMaxLengthSeconds(F)Lcom/android/wm/shell/animation/FlingAnimationUtils$Builder;
 
     move-result-object p4
 
@@ -365,7 +377,7 @@
 
     iput-object p4, p0, Lcom/android/systemui/statusbar/phone/PanelViewController;->mFlingAnimationUtilsDismissing:Lcom/android/wm/shell/animation/FlingAnimationUtils;
 
-    iput-object p8, p0, Lcom/android/systemui/statusbar/phone/PanelViewController;->mLatencyTracker:Lcom/android/internal/util/LatencyTracker;
+    iput-object p9, p0, Lcom/android/systemui/statusbar/phone/PanelViewController;->mLatencyTracker:Lcom/android/internal/util/LatencyTracker;
 
     new-instance p4, Lcom/android/systemui/statusbar/phone/BounceInterpolator;
 
@@ -385,7 +397,7 @@
 
     iput-boolean p2, p0, Lcom/android/systemui/statusbar/phone/PanelViewController;->mNotificationsDragEnabled:Z
 
-    iput-object p6, p0, Lcom/android/systemui/statusbar/phone/PanelViewController;->mVibratorHelper:Lcom/android/systemui/statusbar/VibratorHelper;
+    iput-object p7, p0, Lcom/android/systemui/statusbar/phone/PanelViewController;->mVibratorHelper:Lcom/android/systemui/statusbar/VibratorHelper;
 
     sget p2, Lcom/android/systemui/R$bool;->config_vibrateOnIconAnimation:I
 
@@ -395,7 +407,7 @@
 
     iput-boolean p1, p0, Lcom/android/systemui/statusbar/phone/PanelViewController;->mVibrateOnOpening:Z
 
-    iput-object p10, p0, Lcom/android/systemui/statusbar/phone/PanelViewController;->mStatusBarTouchableRegionManager:Lcom/android/systemui/statusbar/phone/StatusBarTouchableRegionManager;
+    iput-object p11, p0, Lcom/android/systemui/statusbar/phone/PanelViewController;->mStatusBarTouchableRegionManager:Lcom/android/systemui/statusbar/phone/StatusBarTouchableRegionManager;
 
     return-void
 .end method
@@ -1501,7 +1513,7 @@
     return p0
 .end method
 
-.method private synthetic lambda$createHeightAnimator$4(FFFLandroid/animation/ValueAnimator;Landroid/animation/ValueAnimator;)V
+.method private synthetic lambda$createHeightAnimator$5(FFFLandroid/animation/ValueAnimator;Landroid/animation/ValueAnimator;)V
     .locals 2
 
     const/4 v0, 0x0
@@ -1569,6 +1581,119 @@
     return-void
 .end method
 
+.method private synthetic lambda$setExpandedHeightInternal$2(F)V
+    .locals 4
+
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/PanelViewController;->mExpandLatencyTracking:Z
+
+    const/4 v1, 0x0
+
+    if-eqz v0, :cond_0
+
+    cmpl-float v0, p1, v1
+
+    if-eqz v0, :cond_0
+
+    new-instance v0, Lcom/android/systemui/statusbar/phone/PanelViewController$$ExternalSyntheticLambda2;
+
+    invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/phone/PanelViewController$$ExternalSyntheticLambda2;-><init>(Lcom/android/systemui/statusbar/phone/PanelViewController;)V
+
+    invoke-static {v0}, Lcom/android/systemui/DejankUtils;->postAfterTraversal(Ljava/lang/Runnable;)V
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/systemui/statusbar/phone/PanelViewController;->mExpandLatencyTracking:Z
+
+    :cond_0
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PanelViewController;->getMaxPanelHeight()I
+
+    move-result v0
+
+    int-to-float v0, v0
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/PanelViewController;->mHeightAnimator:Landroid/animation/ValueAnimator;
+
+    if-nez v2, :cond_2
+
+    iget-boolean v2, p0, Lcom/android/systemui/statusbar/phone/PanelViewController;->mTracking:Z
+
+    if-eqz v2, :cond_1
+
+    sub-float v2, p1, v0
+
+    invoke-static {v1, v2}, Ljava/lang/Math;->max(FF)F
+
+    move-result v2
+
+    const/4 v3, 0x1
+
+    invoke-direct {p0, v2, v3}, Lcom/android/systemui/statusbar/phone/PanelViewController;->setOverExpansionInternal(FZ)V
+
+    :cond_1
+    invoke-static {p1, v0}, Ljava/lang/Math;->min(FF)F
+
+    move-result p1
+
+    iput p1, p0, Lcom/android/systemui/statusbar/phone/PanelViewController;->mExpandedHeight:F
+
+    goto :goto_0
+
+    :cond_2
+    iput p1, p0, Lcom/android/systemui/statusbar/phone/PanelViewController;->mExpandedHeight:F
+
+    :goto_0
+    iget p1, p0, Lcom/android/systemui/statusbar/phone/PanelViewController;->mExpandedHeight:F
+
+    const/high16 v2, 0x3f800000    # 1.0f
+
+    cmpg-float v3, p1, v2
+
+    if-gez v3, :cond_3
+
+    cmpl-float p1, p1, v1
+
+    if-eqz p1, :cond_3
+
+    iget-boolean p1, p0, Lcom/android/systemui/statusbar/phone/PanelViewController;->mClosing:Z
+
+    if-eqz p1, :cond_3
+
+    iput v1, p0, Lcom/android/systemui/statusbar/phone/PanelViewController;->mExpandedHeight:F
+
+    iget-object p1, p0, Lcom/android/systemui/statusbar/phone/PanelViewController;->mHeightAnimator:Landroid/animation/ValueAnimator;
+
+    if-eqz p1, :cond_3
+
+    invoke-virtual {p1}, Landroid/animation/ValueAnimator;->end()V
+
+    :cond_3
+    cmpl-float p1, v0, v1
+
+    if-nez p1, :cond_4
+
+    goto :goto_1
+
+    :cond_4
+    iget p1, p0, Lcom/android/systemui/statusbar/phone/PanelViewController;->mExpandedHeight:F
+
+    div-float v1, p1, v0
+
+    :goto_1
+    invoke-static {v2, v1}, Ljava/lang/Math;->min(FF)F
+
+    move-result p1
+
+    iput p1, p0, Lcom/android/systemui/statusbar/phone/PanelViewController;->mExpandedFraction:F
+
+    iget p1, p0, Lcom/android/systemui/statusbar/phone/PanelViewController;->mExpandedHeight:F
+
+    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/phone/PanelViewController;->onHeightUpdated(F)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PanelViewController;->updatePanelExpansionAndVisibility()V
+
+    return-void
+.end method
+
 .method private synthetic lambda$springBack$0(Landroid/animation/ValueAnimator;)V
     .locals 1
 
@@ -1589,7 +1714,7 @@
     return-void
 .end method
 
-.method private synthetic lambda$startUnlockHintAnimation$2()V
+.method private synthetic lambda$startUnlockHintAnimation$3()V
     .locals 1
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PanelViewController;->notifyExpandingFinished()V
@@ -1603,7 +1728,7 @@
     return-void
 .end method
 
-.method private synthetic lambda$startUnlockHintAnimationPhase1$3(Landroid/view/View;)V
+.method private synthetic lambda$startUnlockHintAnimationPhase1$4(Landroid/view/View;)V
     .locals 2
 
     invoke-virtual {p1}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
@@ -1969,9 +2094,9 @@
 
     move-result-object v5
 
-    new-instance v6, Lcom/android/systemui/statusbar/phone/PanelViewController$$ExternalSyntheticLambda4;
+    new-instance v6, Lcom/android/systemui/statusbar/phone/PanelViewController$$ExternalSyntheticLambda5;
 
-    invoke-direct {v6, p0, v3}, Lcom/android/systemui/statusbar/phone/PanelViewController$$ExternalSyntheticLambda4;-><init>(Lcom/android/systemui/statusbar/phone/PanelViewController;Landroid/view/View;)V
+    invoke-direct {v6, p0, v3}, Lcom/android/systemui/statusbar/phone/PanelViewController$$ExternalSyntheticLambda5;-><init>(Lcom/android/systemui/statusbar/phone/PanelViewController;Landroid/view/View;)V
 
     invoke-virtual {v5, v6}, Landroid/view/ViewPropertyAnimator;->withEndAction(Ljava/lang/Runnable;)Landroid/view/ViewPropertyAnimator;
 
@@ -3347,7 +3472,7 @@
 .end method
 
 .method public setExpandedHeightInternal(F)V
-    .locals 4
+    .locals 2
 
     invoke-static {p1}, Ljava/lang/Float;->isNaN(F)Z
 
@@ -3362,112 +3487,13 @@
     invoke-static {v0, v1}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/PanelViewController;->mExpandLatencyTracking:Z
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/PanelViewController;->mNotificationShadeWindowController:Lcom/android/systemui/statusbar/NotificationShadeWindowController;
 
-    const/4 v1, 0x0
+    new-instance v1, Lcom/android/systemui/statusbar/phone/PanelViewController$$ExternalSyntheticLambda4;
 
-    if-eqz v0, :cond_1
+    invoke-direct {v1, p0, p1}, Lcom/android/systemui/statusbar/phone/PanelViewController$$ExternalSyntheticLambda4;-><init>(Lcom/android/systemui/statusbar/phone/PanelViewController;F)V
 
-    cmpl-float v0, p1, v1
-
-    if-eqz v0, :cond_1
-
-    new-instance v0, Lcom/android/systemui/statusbar/phone/PanelViewController$$ExternalSyntheticLambda2;
-
-    invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/phone/PanelViewController$$ExternalSyntheticLambda2;-><init>(Lcom/android/systemui/statusbar/phone/PanelViewController;)V
-
-    invoke-static {v0}, Lcom/android/systemui/DejankUtils;->postAfterTraversal(Ljava/lang/Runnable;)V
-
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/android/systemui/statusbar/phone/PanelViewController;->mExpandLatencyTracking:Z
-
-    :cond_1
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PanelViewController;->getMaxPanelHeight()I
-
-    move-result v0
-
-    int-to-float v0, v0
-
-    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/PanelViewController;->mHeightAnimator:Landroid/animation/ValueAnimator;
-
-    if-nez v2, :cond_3
-
-    iget-boolean v2, p0, Lcom/android/systemui/statusbar/phone/PanelViewController;->mTracking:Z
-
-    if-eqz v2, :cond_2
-
-    sub-float v2, p1, v0
-
-    invoke-static {v1, v2}, Ljava/lang/Math;->max(FF)F
-
-    move-result v2
-
-    const/4 v3, 0x1
-
-    invoke-direct {p0, v2, v3}, Lcom/android/systemui/statusbar/phone/PanelViewController;->setOverExpansionInternal(FZ)V
-
-    :cond_2
-    invoke-static {p1, v0}, Ljava/lang/Math;->min(FF)F
-
-    move-result p1
-
-    iput p1, p0, Lcom/android/systemui/statusbar/phone/PanelViewController;->mExpandedHeight:F
-
-    goto :goto_0
-
-    :cond_3
-    iput p1, p0, Lcom/android/systemui/statusbar/phone/PanelViewController;->mExpandedHeight:F
-
-    :goto_0
-    iget p1, p0, Lcom/android/systemui/statusbar/phone/PanelViewController;->mExpandedHeight:F
-
-    const/high16 v2, 0x3f800000    # 1.0f
-
-    cmpg-float v3, p1, v2
-
-    if-gez v3, :cond_4
-
-    cmpl-float p1, p1, v1
-
-    if-eqz p1, :cond_4
-
-    iget-boolean p1, p0, Lcom/android/systemui/statusbar/phone/PanelViewController;->mClosing:Z
-
-    if-eqz p1, :cond_4
-
-    iput v1, p0, Lcom/android/systemui/statusbar/phone/PanelViewController;->mExpandedHeight:F
-
-    iget-object p1, p0, Lcom/android/systemui/statusbar/phone/PanelViewController;->mHeightAnimator:Landroid/animation/ValueAnimator;
-
-    if-eqz p1, :cond_4
-
-    invoke-virtual {p1}, Landroid/animation/ValueAnimator;->end()V
-
-    :cond_4
-    cmpl-float p1, v0, v1
-
-    if-nez p1, :cond_5
-
-    goto :goto_1
-
-    :cond_5
-    iget p1, p0, Lcom/android/systemui/statusbar/phone/PanelViewController;->mExpandedHeight:F
-
-    div-float v1, p1, v0
-
-    :goto_1
-    invoke-static {v2, v1}, Ljava/lang/Math;->min(FF)F
-
-    move-result p1
-
-    iput p1, p0, Lcom/android/systemui/statusbar/phone/PanelViewController;->mExpandedFraction:F
-
-    iget p1, p0, Lcom/android/systemui/statusbar/phone/PanelViewController;->mExpandedHeight:F
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/phone/PanelViewController;->onHeightUpdated(F)V
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PanelViewController;->updatePanelExpansionAndVisibility()V
+    invoke-interface {v0, v1}, Lcom/android/systemui/statusbar/NotificationShadeWindowController;->batchApplyWindowLayoutParams(Ljava/lang/Runnable;)V
 
     return-void
 .end method

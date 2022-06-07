@@ -237,6 +237,9 @@
     <string name="accessor_no_description_text">Walang paglalarawang ibinigay ang app.</string>
     <string name="active_input_method_subtypes">Mga aktibong paraan ng pag-input</string>
     <string name="activity_launch_on_secondary_display_failed_text">Hindi sinusuportahan ng app ang paglulunsad sa mga pangalawang display.</string>
+    <string name="adaptive_charging_notify_des">Mapupuno ang baterya sa loob ng %1$s. Nagcha-charge nang mabagal para mapanatili ang kaayusan ng baterya.</string>
+    <string name="adaptive_charging_notify_title">Naka-on ang Adaptive na Pag-charge</string>
+    <string name="adaptive_charging_notify_turn_off_once">I-off nang isang beses</string>
     <string name="adaptive_charging_time_estimate">%1$s • Adaptive na pag-charge (mapupuno sa loob ng %2$s)</string>
     <string name="adb_device_fingerprint_title_format">Fingerprint ng device: %1$s</string>
     <string name="adb_device_forget">Kalimutan</string>
@@ -301,6 +304,7 @@ Kung naka-off ang pahintulot na ito, hindi gagana ang mga kasalukuyang alarm at 
     <string name="basic_status">Buksan ang pag-uusap</string>
     <string name="battery">Baterya</string>
     <string name="battery_detail_switch_title">Pantipid ng Baterya</string>
+    <string name="battery_health_notify_learn_more">Matuto pa</string>
     <string name="battery_info_status_charging">Nagcha-charge</string>
     <string name="battery_info_status_charging_fast">Mabilis na charge</string>
     <string name="battery_info_status_charging_slow">Mabagal na charge</string>
@@ -616,7 +620,6 @@ Kung magpapatuloy ka, maaaring may mga singil sa paggamit ng data."</string>
     <string name="debug_networking_category">Networking</string>
     <string name="debug_view_attributes">I-enable ang pagsisiyasat sa attribute na view</string>
     <string name="defender_notify_des">Nililimitahan ng iyong telepono ang pag-charge para makatulong na mapanatili ang tagal ng baterya</string>
-    <string name="defender_notify_learn_more">Matuto pa</string>
     <string name="defender_notify_resume_charge">Ituloy ang pag-charge</string>
     <string name="defender_notify_title">Pansamantalang limitado ang pag-charge</string>
     <string name="defender_post_notify_des">Nilimitahan sa %1$s ang pag-charge mula %2$s hanggang %3$s para mapanatili ang tagal ng baterya</string>
@@ -1704,6 +1707,10 @@ Mag-tap para sa higit pang impormasyon"</string>
     <string name="usb_accessory_confirm_prompt">Buksan ang %1$s upang pamahalaan ang %2$s?</string>
     <string name="usb_accessory_permission_prompt">Payagan ang %1$s na ma-access ang %2$s?</string>
     <string name="usb_accessory_uri_prompt">Wala sa mga na-install na app ang gumagana sa USB accessory na ito. Matuto pa tungkol sa accessory na ito sa %1$s</string>
+    <string name="usb_audio_device_confirm_prompt_title">Buksan ang %1$s para pangasiwaan ang %2$s?</string>
+    <string name="usb_audio_device_permission_prompt_title">Payagan ang %1$s na i-access ang %2$s?</string>
+    <string name="usb_audio_device_prompt">Kapag ginamit ang %1$s sa device na ito, posibleng hindi marinig ang mga tawag, notification, at alarm.</string>
+    <string name="usb_audio_device_prompt_warn">Hindi nabigyan ng pahintulot ang app na ito na mag-record pero puwede itong mag-capture ng audio sa pamamagitan ng USB device na ito. Kapag ginamit ang %1$s sa device na ito, posibleng hindi marinig ang mga tawag, notification, at alarm.</string>
     <string name="usb_audio_disable_routing">I-disable USB audio routing</string>
     <string name="usb_audio_disable_routing_summary">I-disable automatic routing sa USB audio peripheral</string>
     <string name="usb_contaminant_message">"Para protektahan ang iyong device sa likido o dumi, na-disable ang USB port at hindi ito makaka-detect ng anumang accessory.

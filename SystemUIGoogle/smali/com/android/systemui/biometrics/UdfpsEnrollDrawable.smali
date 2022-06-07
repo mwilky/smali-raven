@@ -48,6 +48,8 @@
 
 .field private mShouldShowTipHint:Z
 
+.field private mShowingNewUdfpsEnroll:Z
+
 .field private final mTargetAnimListener:Landroid/animation/Animator$AnimatorListener;
 
 .field mTargetAnimatorSet:Landroid/animation/AnimatorSet;
@@ -148,6 +150,8 @@
     iput-boolean v0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;->mShouldShowTipHint:Z
 
     iput-boolean v0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;->mShouldShowEdgeHint:Z
+
+    iput-boolean v0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;->mShowingNewUdfpsEnroll:Z
 
     new-instance v1, Landroid/graphics/Paint;
 
@@ -253,93 +257,105 @@
 
     invoke-static {p1, v3}, Lcom/android/systemui/biometrics/Utils;->dpToPixels(Landroid/content/Context;F)F
 
-    move-result p1
+    move-result v3
 
-    iput p1, p0, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;->mHintPaddingPx:F
+    iput v3, p0, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;->mHintPaddingPx:F
 
-    new-instance p1, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable$1;
+    new-instance v3, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable$1;
 
-    invoke-direct {p1, p0}, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable$1;-><init>(Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;)V
+    invoke-direct {v3, p0}, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable$1;-><init>(Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;)V
 
-    iput-object p1, p0, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;->mTargetAnimListener:Landroid/animation/Animator$AnimatorListener;
+    iput-object v3, p0, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;->mTargetAnimListener:Landroid/animation/Animator$AnimatorListener;
 
-    new-instance p1, Landroid/graphics/Paint;
+    new-instance v3, Landroid/graphics/Paint;
 
-    invoke-direct {p1, v0}, Landroid/graphics/Paint;-><init>(I)V
+    invoke-direct {v3, v0}, Landroid/graphics/Paint;-><init>(I)V
 
-    iput-object p1, p0, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;->mTipHintPaint:Landroid/graphics/Paint;
+    iput-object v3, p0, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;->mTipHintPaint:Landroid/graphics/Paint;
 
-    invoke-virtual {p1, v2}, Landroid/graphics/Paint;->setAntiAlias(Z)V
+    invoke-virtual {v3, v2}, Landroid/graphics/Paint;->setAntiAlias(Z)V
 
-    invoke-virtual {p1, v1}, Landroid/graphics/Paint;->setColor(I)V
+    invoke-virtual {v3, v1}, Landroid/graphics/Paint;->setColor(I)V
 
-    sget-object v3, Landroid/graphics/Paint$Style;->STROKE:Landroid/graphics/Paint$Style;
+    sget-object v4, Landroid/graphics/Paint$Style;->STROKE:Landroid/graphics/Paint$Style;
 
-    invoke-virtual {p1, v3}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
+    invoke-virtual {v3, v4}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
 
-    sget-object v3, Landroid/graphics/Paint$Cap;->ROUND:Landroid/graphics/Paint$Cap;
+    sget-object v4, Landroid/graphics/Paint$Cap;->ROUND:Landroid/graphics/Paint$Cap;
 
-    invoke-virtual {p1, v3}, Landroid/graphics/Paint;->setStrokeCap(Landroid/graphics/Paint$Cap;)V
+    invoke-virtual {v3, v4}, Landroid/graphics/Paint;->setStrokeCap(Landroid/graphics/Paint$Cap;)V
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
-    invoke-virtual {p1, v3}, Landroid/graphics/Paint;->setStrokeWidth(F)V
+    invoke-virtual {v3, v4}, Landroid/graphics/Paint;->setStrokeWidth(F)V
 
-    new-instance p1, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable$$ExternalSyntheticLambda2;
+    new-instance v3, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable$$ExternalSyntheticLambda2;
 
-    invoke-direct {p1, p0}, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable$$ExternalSyntheticLambda2;-><init>(Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;)V
+    invoke-direct {v3, p0}, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable$$ExternalSyntheticLambda2;-><init>(Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;)V
 
-    iput-object p1, p0, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;->mTipHintColorUpdateListener:Landroid/animation/ValueAnimator$AnimatorUpdateListener;
+    iput-object v3, p0, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;->mTipHintColorUpdateListener:Landroid/animation/ValueAnimator$AnimatorUpdateListener;
 
-    new-instance p1, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable$$ExternalSyntheticLambda3;
+    new-instance v3, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable$$ExternalSyntheticLambda3;
 
-    invoke-direct {p1, p0}, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable$$ExternalSyntheticLambda3;-><init>(Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;)V
+    invoke-direct {v3, p0}, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable$$ExternalSyntheticLambda3;-><init>(Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;)V
 
-    iput-object p1, p0, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;->mTipHintWidthUpdateListener:Landroid/animation/ValueAnimator$AnimatorUpdateListener;
+    iput-object v3, p0, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;->mTipHintWidthUpdateListener:Landroid/animation/ValueAnimator$AnimatorUpdateListener;
 
-    new-instance p1, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable$2;
+    new-instance v3, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable$2;
 
-    invoke-direct {p1, p0}, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable$2;-><init>(Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;)V
+    invoke-direct {v3, p0}, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable$2;-><init>(Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;)V
 
-    iput-object p1, p0, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;->mTipHintPulseListener:Landroid/animation/Animator$AnimatorListener;
+    iput-object v3, p0, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;->mTipHintPulseListener:Landroid/animation/Animator$AnimatorListener;
 
-    new-instance p1, Landroid/graphics/Paint;
+    new-instance v3, Landroid/graphics/Paint;
 
-    invoke-direct {p1, v0}, Landroid/graphics/Paint;-><init>(I)V
+    invoke-direct {v3, v0}, Landroid/graphics/Paint;-><init>(I)V
 
-    iput-object p1, p0, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;->mEdgeHintPaint:Landroid/graphics/Paint;
+    iput-object v3, p0, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;->mEdgeHintPaint:Landroid/graphics/Paint;
 
-    invoke-virtual {p1, v2}, Landroid/graphics/Paint;->setAntiAlias(Z)V
+    invoke-virtual {v3, v2}, Landroid/graphics/Paint;->setAntiAlias(Z)V
 
-    invoke-virtual {p1, v1}, Landroid/graphics/Paint;->setColor(I)V
+    invoke-virtual {v3, v1}, Landroid/graphics/Paint;->setColor(I)V
 
     sget-object v0, Landroid/graphics/Paint$Style;->STROKE:Landroid/graphics/Paint$Style;
 
-    invoke-virtual {p1, v0}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
+    invoke-virtual {v3, v0}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
 
     sget-object v0, Landroid/graphics/Paint$Cap;->ROUND:Landroid/graphics/Paint$Cap;
 
-    invoke-virtual {p1, v0}, Landroid/graphics/Paint;->setStrokeCap(Landroid/graphics/Paint$Cap;)V
+    invoke-virtual {v3, v0}, Landroid/graphics/Paint;->setStrokeCap(Landroid/graphics/Paint$Cap;)V
 
-    invoke-virtual {p1, v3}, Landroid/graphics/Paint;->setStrokeWidth(F)V
+    invoke-virtual {v3, v4}, Landroid/graphics/Paint;->setStrokeWidth(F)V
 
-    new-instance p1, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable$$ExternalSyntheticLambda0;
+    new-instance v0, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable$$ExternalSyntheticLambda0;
 
-    invoke-direct {p1, p0}, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;)V
+    invoke-direct {v0, p0}, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;)V
 
-    iput-object p1, p0, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;->mEdgeHintColorUpdateListener:Landroid/animation/ValueAnimator$AnimatorUpdateListener;
+    iput-object v0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;->mEdgeHintColorUpdateListener:Landroid/animation/ValueAnimator$AnimatorUpdateListener;
 
-    new-instance p1, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable$$ExternalSyntheticLambda1;
+    new-instance v0, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable$$ExternalSyntheticLambda1;
 
-    invoke-direct {p1, p0}, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable$$ExternalSyntheticLambda1;-><init>(Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;)V
+    invoke-direct {v0, p0}, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable$$ExternalSyntheticLambda1;-><init>(Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;)V
 
-    iput-object p1, p0, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;->mEdgeHintWidthUpdateListener:Landroid/animation/ValueAnimator$AnimatorUpdateListener;
+    iput-object v0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;->mEdgeHintWidthUpdateListener:Landroid/animation/ValueAnimator$AnimatorUpdateListener;
 
-    new-instance p1, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable$3;
+    new-instance v0, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable$3;
 
-    invoke-direct {p1, p0}, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable$3;-><init>(Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;)V
+    invoke-direct {v0, p0}, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable$3;-><init>(Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;)V
 
-    iput-object p1, p0, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;->mEdgeHintPulseListener:Landroid/animation/Animator$AnimatorListener;
+    iput-object v0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;->mEdgeHintPulseListener:Landroid/animation/Animator$AnimatorListener;
+
+    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object p1
+
+    const v0, 0x1110161
+
+    invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
+
+    move-result p1
+
+    iput-boolean p1, p0, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;->mShowingNewUdfpsEnroll:Z
 
     return-void
 .end method
@@ -651,6 +667,13 @@
 .method private startEdgeHintPulseAnimation()V
     .locals 7
 
+    iget-boolean v0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;->mShowingNewUdfpsEnroll:Z
+
+    if-eqz v0, :cond_0
+
+    return-void
+
+    :cond_0
     iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;->mHandler:Landroid/os/Handler;
 
     const/4 v1, 0x0
@@ -659,34 +682,34 @@
 
     iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;->mEdgeHintAnimatorSet:Landroid/animation/AnimatorSet;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     invoke-virtual {v0}, Landroid/animation/AnimatorSet;->isRunning()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;->mEdgeHintAnimatorSet:Landroid/animation/AnimatorSet;
 
     invoke-virtual {v0}, Landroid/animation/AnimatorSet;->cancel()V
 
-    :cond_0
+    :cond_1
     iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;->mEdgeHintColorAnimator:Landroid/animation/ValueAnimator;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
     invoke-virtual {v0}, Landroid/animation/ValueAnimator;->isRunning()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
     iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;->mEdgeHintColorAnimator:Landroid/animation/ValueAnimator;
 
     invoke-virtual {v0}, Landroid/animation/ValueAnimator;->cancel()V
 
-    :cond_1
+    :cond_2
     const/4 v0, 0x2
 
     new-array v1, v0, [I
@@ -765,6 +788,13 @@
 .method private startTipHintPulseAnimation()V
     .locals 7
 
+    iget-boolean v0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;->mShowingNewUdfpsEnroll:Z
+
+    if-eqz v0, :cond_0
+
+    return-void
+
+    :cond_0
     iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;->mHandler:Landroid/os/Handler;
 
     const/4 v1, 0x0
@@ -773,34 +803,34 @@
 
     iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;->mTipHintAnimatorSet:Landroid/animation/AnimatorSet;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     invoke-virtual {v0}, Landroid/animation/AnimatorSet;->isRunning()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;->mTipHintAnimatorSet:Landroid/animation/AnimatorSet;
 
     invoke-virtual {v0}, Landroid/animation/AnimatorSet;->cancel()V
 
-    :cond_0
+    :cond_1
     iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;->mTipHintColorAnimator:Landroid/animation/ValueAnimator;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
     invoke-virtual {v0}, Landroid/animation/ValueAnimator;->isRunning()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
     iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;->mTipHintColorAnimator:Landroid/animation/ValueAnimator;
 
     invoke-virtual {v0}, Landroid/animation/ValueAnimator;->cancel()V
 
-    :cond_1
+    :cond_2
     const/4 v0, 0x2
 
     new-array v1, v0, [I
@@ -910,28 +940,35 @@
     :cond_1
     iput-boolean v0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;->mShouldShowEdgeHint:Z
 
-    iget-object v3, p0, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;->mEdgeHintWidthAnimator:Landroid/animation/ValueAnimator;
+    iget-boolean v3, p0, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;->mShowingNewUdfpsEnroll:Z
 
     if-eqz v3, :cond_2
+
+    return-void
+
+    :cond_2
+    iget-object v3, p0, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;->mEdgeHintWidthAnimator:Landroid/animation/ValueAnimator;
+
+    if-eqz v3, :cond_3
 
     invoke-virtual {v3}, Landroid/animation/ValueAnimator;->isRunning()Z
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_3
 
     iget-object v3, p0, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;->mEdgeHintWidthAnimator:Landroid/animation/ValueAnimator;
 
     invoke-virtual {v3}, Landroid/animation/ValueAnimator;->cancel()V
 
-    :cond_2
-    if-eqz v0, :cond_3
+    :cond_3
+    if-eqz v0, :cond_4
 
     iget v3, p0, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;->mHintMaxWidthPx:F
 
     goto :goto_1
 
-    :cond_3
+    :cond_4
     const/4 v3, 0x0
 
     :goto_1
@@ -965,13 +1002,13 @@
 
     invoke-virtual {v1, v2}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_5
 
     invoke-direct {p0}, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;->startEdgeHintPulseAnimation()V
 
     goto :goto_2
 
-    :cond_4
+    :cond_5
     iget-object p0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;->mEdgeHintWidthAnimator:Landroid/animation/ValueAnimator;
 
     invoke-virtual {p0}, Landroid/animation/ValueAnimator;->start()V
@@ -1014,28 +1051,35 @@
     :cond_1
     iput-boolean v0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;->mShouldShowTipHint:Z
 
-    iget-object v3, p0, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;->mTipHintWidthAnimator:Landroid/animation/ValueAnimator;
+    iget-boolean v3, p0, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;->mShowingNewUdfpsEnroll:Z
 
     if-eqz v3, :cond_2
+
+    return-void
+
+    :cond_2
+    iget-object v3, p0, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;->mTipHintWidthAnimator:Landroid/animation/ValueAnimator;
+
+    if-eqz v3, :cond_3
 
     invoke-virtual {v3}, Landroid/animation/ValueAnimator;->isRunning()Z
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_3
 
     iget-object v3, p0, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;->mTipHintWidthAnimator:Landroid/animation/ValueAnimator;
 
     invoke-virtual {v3}, Landroid/animation/ValueAnimator;->cancel()V
 
-    :cond_2
-    if-eqz v0, :cond_3
+    :cond_3
+    if-eqz v0, :cond_4
 
     iget v3, p0, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;->mHintMaxWidthPx:F
 
     goto :goto_1
 
-    :cond_3
+    :cond_4
     const/4 v3, 0x0
 
     :goto_1
@@ -1069,13 +1113,13 @@
 
     invoke-virtual {v1, v2}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_5
 
     invoke-direct {p0}, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;->startTipHintPulseAnimation()V
 
     goto :goto_2
 
-    :cond_4
+    :cond_5
     iget-object p0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;->mTipHintWidthAnimator:Landroid/animation/ValueAnimator;
 
     invoke-virtual {p0}, Landroid/animation/ValueAnimator;->start()V
@@ -1176,19 +1220,26 @@
     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setAlpha(I)V
 
     :goto_0
+    iget-boolean v0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;->mShowingNewUdfpsEnroll:Z
+
+    if-eqz v0, :cond_4
+
+    return-void
+
+    :cond_4
     invoke-direct {p0}, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;->isTipHintVisible()Z
 
     move-result v0
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_5
 
     invoke-direct {p0}, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;->isEdgeHintVisible()Z
 
     move-result v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_8
 
-    :cond_4
+    :cond_5
     invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
 
     iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;->mSensorRect:Landroid/graphics/RectF;
@@ -1247,7 +1298,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_6
 
     iget-object v1, p0, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;->mSensorRect:Landroid/graphics/RectF;
 
@@ -1293,12 +1344,12 @@
 
     invoke-virtual/range {v4 .. v12}, Landroid/graphics/Canvas;->drawArc(FFFFFFZLandroid/graphics/Paint;)V
 
-    :cond_5
+    :cond_6
     invoke-direct {p0}, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;->isEdgeHintVisible()Z
 
     move-result v1
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_7
 
     iget-object v1, p0, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;->mSensorRect:Landroid/graphics/RectF;
 
@@ -1412,10 +1463,10 @@
 
     invoke-virtual/range {v4 .. v12}, Landroid/graphics/Canvas;->drawArc(FFFFFFZLandroid/graphics/Paint;)V
 
-    :cond_6
+    :cond_7
     invoke-virtual {p1}, Landroid/graphics/Canvas;->restore()V
 
-    :cond_7
+    :cond_8
     return-void
 .end method
 

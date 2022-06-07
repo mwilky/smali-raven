@@ -55,7 +55,7 @@
 
 # virtual methods
 .method public final run()V
-    .locals 12
+    .locals 13
 
     iget-object v0, p0, Lcom/android/systemui/media/MediaSessionBasedFilter$dispatchMediaDataLoaded$1;->this$0:Lcom/android/systemui/media/MediaSessionBasedFilter;
 
@@ -67,11 +67,11 @@
 
     move-result-object v0
 
-    iget-object v9, p0, Lcom/android/systemui/media/MediaSessionBasedFilter$dispatchMediaDataLoaded$1;->$key:Ljava/lang/String;
+    iget-object v10, p0, Lcom/android/systemui/media/MediaSessionBasedFilter$dispatchMediaDataLoaded$1;->$key:Ljava/lang/String;
 
-    iget-object v10, p0, Lcom/android/systemui/media/MediaSessionBasedFilter$dispatchMediaDataLoaded$1;->$oldKey:Ljava/lang/String;
+    iget-object v11, p0, Lcom/android/systemui/media/MediaSessionBasedFilter$dispatchMediaDataLoaded$1;->$oldKey:Ljava/lang/String;
 
-    iget-object v11, p0, Lcom/android/systemui/media/MediaSessionBasedFilter$dispatchMediaDataLoaded$1;->$info:Lcom/android/systemui/media/MediaData;
+    iget-object v12, p0, Lcom/android/systemui/media/MediaSessionBasedFilter$dispatchMediaDataLoaded$1;->$info:Lcom/android/systemui/media/MediaData;
 
     iget-boolean p0, p0, Lcom/android/systemui/media/MediaSessionBasedFilter$dispatchMediaDataLoaded$1;->$immediately:Z
 
@@ -94,19 +94,21 @@
 
     const/4 v6, 0x0
 
-    const/16 v7, 0x10
+    const/4 v7, 0x0
 
-    const/4 v8, 0x0
+    const/16 v8, 0x30
 
-    move-object v2, v9
+    const/4 v9, 0x0
 
-    move-object v3, v10
+    move-object v2, v10
 
-    move-object v4, v11
+    move-object v3, v11
+
+    move-object v4, v12
 
     move v5, p0
 
-    invoke-static/range {v1 .. v8}, Lcom/android/systemui/media/MediaDataManager$Listener$DefaultImpls;->onMediaDataLoaded$default(Lcom/android/systemui/media/MediaDataManager$Listener;Ljava/lang/String;Ljava/lang/String;Lcom/android/systemui/media/MediaData;ZIILjava/lang/Object;)V
+    invoke-static/range {v1 .. v9}, Lcom/android/systemui/media/MediaDataManager$Listener$DefaultImpls;->onMediaDataLoaded$default(Lcom/android/systemui/media/MediaDataManager$Listener;Ljava/lang/String;Ljava/lang/String;Lcom/android/systemui/media/MediaData;ZIZILjava/lang/Object;)V
 
     goto :goto_0
 

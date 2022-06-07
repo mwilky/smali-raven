@@ -206,20 +206,6 @@
     return p0
 .end method
 
-.method public hideView()V
-    .locals 1
-
-    iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
-
-    check-cast p0, Lcom/android/systemui/settings/brightness/BrightnessSliderView;
-
-    const/16 v0, 0x8
-
-    invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->setVisibility(I)V
-
-    return-void
-.end method
-
 .method public isVisible()Z
     .locals 0
 
@@ -376,19 +362,5 @@
     invoke-interface {p0, p1}, Lcom/android/systemui/settings/brightness/ToggleSlider;->setValue(I)V
 
     :cond_0
-    return-void
-.end method
-
-.method public showView()V
-    .locals 1
-
-    iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
-
-    check-cast p0, Lcom/android/systemui/settings/brightness/BrightnessSliderView;
-
-    const/4 v0, 0x0
-
-    invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->setVisibility(I)V
-
     return-void
 .end method

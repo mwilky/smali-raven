@@ -259,6 +259,59 @@
     return p0
 .end method
 
+.method public setChargingDeadline(I)B
+    .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    const-string v1, "vendor.google.google_battery@1.0::IGoogleBattery"
+
+    invoke-virtual {v0, v1}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v0, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance p1, Landroid/os/HwParcel;
+
+    invoke-direct {p1}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object p0, p0, Lvendor/google/google_battery/V1_1/IGoogleBattery$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
+
+    invoke-interface {p0, v1, v0, p1, v2}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {p1}, Landroid/os/HwParcel;->verifySuccess()V
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+
+    invoke-virtual {p1}, Landroid/os/HwParcel;->readInt8()B
+
+    move-result p0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {p1}, Landroid/os/HwParcel;->release()V
+
+    return p0
+
+    :catchall_0
+    move-exception p0
+
+    invoke-virtual {p1}, Landroid/os/HwParcel;->release()V
+
+    throw p0
+.end method
+
 .method public setProperty(III)B
     .locals 2
     .annotation system Ldalvik/annotation/Throws;

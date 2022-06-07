@@ -237,6 +237,9 @@
     <string name="accessor_no_description_text">Няма описание, предоставено от приложението.</string>
     <string name="active_input_method_subtypes">Активни методи за въвеждане</string>
     <string name="activity_launch_on_secondary_display_failed_text">Приложението не поддържа използването на алтернативни дисплеи.</string>
+    <string name="adaptive_charging_notify_des">Батерията ще се зареди напълно до %1$s. Зарежда се постоянно с цел запазване на състоянието на батерията.</string>
+    <string name="adaptive_charging_notify_title">Функцията за адаптивно зареждане е включена</string>
+    <string name="adaptive_charging_notify_turn_off_once">Изключване веднъж</string>
     <string name="adaptive_charging_time_estimate">%1$s • Адаптивно зареждане (ще се зареди напълно до %2$s)</string>
     <string name="adb_device_fingerprint_title_format">Сензор за отпечатъци на устройството: %1$s</string>
     <string name="adb_device_forget">Забравяне</string>
@@ -281,8 +284,8 @@
     <string name="all_network_unavailable">Няма налични мрежи</string>
     <string name="allow_mock_location">Разрешаване на измислени местоположения</string>
     <string name="allow_mock_location_summary">Разрешаване на измислени местоположения</string>
-    <string name="always_use_accessory">%1$s да се отваря винаги при връзка с/ъс %2$s</string>
-    <string name="always_use_device">%1$s да се отваря винаги при връзка с/ъс %2$s</string>
+    <string name="always_use_accessory">%1$s да се отваря винаги при връзка с(ъс) %2$s</string>
+    <string name="always_use_device">%1$s да се отваря винаги при връзка с(ъс) %2$s</string>
     <string name="animator_duration_scale_title">Скала за Animator</string>
     <string name="anniversary_status">Годишнина</string>
     <string name="anniversary_status_content_description">Днес е годишнината на %1$s</string>
@@ -301,6 +304,7 @@
     <string name="basic_status">Отворен разговор</string>
     <string name="battery">Батерия</string>
     <string name="battery_detail_switch_title">Режим за запазване на батерията</string>
+    <string name="battery_health_notify_learn_more">Научете повече</string>
     <string name="battery_info_status_charging">Зарежда се</string>
     <string name="battery_info_status_charging_fast">Зарежда се бързо</string>
     <string name="battery_info_status_charging_slow">Зарежда се бавно</string>
@@ -616,7 +620,6 @@
     <string name="debug_networking_category">Мрежи</string>
     <string name="debug_view_attributes">Актив. на инспектирането на атрибутите за преглед</string>
     <string name="defender_notify_des">Телефонът ограничава зареждането, за да запази състоянието на батерията</string>
-    <string name="defender_notify_learn_more">Научете повече</string>
     <string name="defender_notify_resume_charge">Възобновяване на зареждането</string>
     <string name="defender_notify_title">Зареждането временно е ограничено</string>
     <string name="defender_post_notify_des">Зареждането бе ограничено до %1$s от %2$s до %3$s с цел запазване на състоянието на батерията</string>
@@ -1704,6 +1707,10 @@
     <string name="usb_accessory_confirm_prompt">Да се използва ли %1$s за работата с/ъс %2$s?</string>
     <string name="usb_accessory_permission_prompt">Да се разреши ли на %1$s достъп до %2$s?</string>
     <string name="usb_accessory_uri_prompt">Инстал. приложения не работят с този аксесоар за USB. Научете повече на адрес %1$s</string>
+    <string name="usb_audio_device_confirm_prompt_title">Да се използва ли %1$s за %2$s?</string>
+    <string name="usb_audio_device_permission_prompt_title">Да се разреши ли на %1$s достъп до %2$s?</string>
+    <string name="usb_audio_device_prompt">Ако използвате %1$s с това устройство, е възможно да не чувате обажданията, известията и будилниците.</string>
+    <string name="usb_audio_device_prompt_warn">Приложението няма разрешение за записване, но може да записва звук чрез това USB устройство. Ако използвате %1$s с това устройство, е възможно да не чувате обажданията, известията и будилниците.</string>
     <string name="usb_audio_disable_routing">Деактивиране на маршрутизирането на аудио чрез USB</string>
     <string name="usb_audio_disable_routing_summary">Деактивиране на автоматичното маршрутизиране към периферните USB устройства за аудио</string>
     <string name="usb_contaminant_message">"С цел защита на устройството ви от течности и замърсяване USB портът е деактивиран и няма да открива аксесоари.

@@ -237,6 +237,9 @@
     <string name="accessor_no_description_text">應用程式未提供任何說明。</string>
     <string name="active_input_method_subtypes">啟用的輸入法</string>
     <string name="activity_launch_on_secondary_display_failed_text">應用程式無法在次要顯示器上啟動。</string>
+    <string name="adaptive_charging_notify_des">電池將於%1$s 充飽。為延長電池壽命，系統會穩定充電。</string>
+    <string name="adaptive_charging_notify_title">「自動調節充電」功能已開啟</string>
+    <string name="adaptive_charging_notify_turn_off_once">關閉一次</string>
     <string name="adaptive_charging_time_estimate">%1$s • 正在自動調節充電 (將於%2$s 充飽)</string>
     <string name="adb_device_fingerprint_title_format">裝置指紋：%1$s</string>
     <string name="adb_device_forget">移除裝置</string>
@@ -301,6 +304,7 @@
     <string name="basic_status">開放式對話</string>
     <string name="battery">電池</string>
     <string name="battery_detail_switch_title">省電模式</string>
+    <string name="battery_health_notify_learn_more">瞭解詳情</string>
     <string name="battery_info_status_charging">充電中</string>
     <string name="battery_info_status_charging_fast">快速充電中</string>
     <string name="battery_info_status_charging_slow">慢速充電中</string>
@@ -616,7 +620,6 @@
     <string name="debug_networking_category">網路連線</string>
     <string name="debug_view_attributes">啟用檢視屬性檢查</string>
     <string name="defender_notify_des">為延長電池壽命，手機目前已限制充電</string>
-    <string name="defender_notify_learn_more">瞭解詳情</string>
     <string name="defender_notify_resume_charge">繼續充電</string>
     <string name="defender_notify_title">已暫時限制充電</string>
     <string name="defender_post_notify_des">為延長電池壽命，%2$s 到%3$s 這段時間的最大充電量已限制在 %1$s</string>
@@ -1704,6 +1707,10 @@
     <string name="usb_accessory_confirm_prompt">要開啟「%1$s」處理「%2$s」嗎？</string>
     <string name="usb_accessory_permission_prompt">要允許「%1$s」存取「%2$s」嗎？</string>
     <string name="usb_accessory_uri_prompt">已安裝的應用程式均無法存取這個 USB 配件，如要進一步瞭解這個配件，請造訪 %1$s</string>
+    <string name="usb_audio_device_confirm_prompt_title">要開啟「%1$s」以控制「%2$s」嗎？</string>
+    <string name="usb_audio_device_permission_prompt_title">要允許「%1$s」存取「%2$s」嗎？</string>
+    <string name="usb_audio_device_prompt">如果將「%1$s」應用程式與這部裝置搭配使用，可能不會聽見來電、通知和鬧鐘的音效。</string>
+    <string name="usb_audio_device_prompt_warn">這個應用程式未取得錄音的權限，但可以透過這部 USB 裝置錄製音訊。如果將「%1$s」應用程式與這部裝置搭配使用，可能不會聽見來電、通知和鬧鐘的音效。</string>
     <string name="usb_audio_disable_routing">停用 USB 音訊路由</string>
     <string name="usb_audio_disable_routing_summary">停用 USB 音訊周邊設備的自動路由功能</string>
     <string name="usb_contaminant_message">"為了避免液體或灰塵導致你的裝置受損，系統已停用 USB 連接埠，因此目前無法偵測任何配件。

@@ -237,6 +237,9 @@
     <string name="accessor_no_description_text">এপ্‌টোৱে কোনো বিৱৰণ দিয়া নাই।</string>
     <string name="active_input_method_subtypes">সক্ৰিয়হৈ থকা ইনপুট পদ্ধতিসমূহ</string>
     <string name="activity_launch_on_secondary_display_failed_text">গৌণ ডিছপ্লেত এপ্ লঞ্চ কৰিব নোৱাৰি।</string>
+    <string name="adaptive_charging_notify_des">%1$sৰ ভিতৰত বেটাৰি সম্পূৰ্ণ। বেটাৰিৰ স্বাস্থ্য সংৰক্ষণ কৰিবলৈ স্থিৰভাৱে চাৰ্জ কৰি থকা হৈছে।</string>
+    <string name="adaptive_charging_notify_title">অভিযোজিত চাৰ্জিং অন হৈ আছে</string>
+    <string name="adaptive_charging_notify_turn_off_once">এবাৰ অফ কৰক</string>
     <string name="adaptive_charging_time_estimate">%1$s • অভিযোজিত চাৰ্জিং (%2$sৰ ভিতৰত সম্পূৰ্ণ হ’ব)</string>
     <string name="adb_device_fingerprint_title_format">ডিভাইচৰ ফিংগাৰপ্ৰিণ্ট: %1$s</string>
     <string name="adb_device_forget">পাহৰক</string>
@@ -301,6 +304,7 @@
     <string name="basic_status">বাৰ্তালাপ খোলক</string>
     <string name="battery">বেটাৰী</string>
     <string name="battery_detail_switch_title">বেটাৰী সঞ্চয়কাৰী</string>
+    <string name="battery_health_notify_learn_more">অধিক জানক</string>
     <string name="battery_info_status_charging">চাৰ্জ কৰি থকা হৈছে</string>
     <string name="battery_info_status_charging_fast">দ্ৰুততাৰে চাৰ্জ হৈছে</string>
     <string name="battery_info_status_charging_slow">লাহে লাহে চাৰ্জ হৈছে</string>
@@ -616,7 +620,6 @@
     <string name="debug_networking_category">নেটৱৰ্কিং</string>
     <string name="debug_view_attributes">দৃশ্যৰ গুণাগুণ নিৰীক্ষণ সক্ষম কৰক</string>
     <string name="defender_notify_des">বেটাৰীৰ অৱস্থা ভালে ৰখাত সহায় কৰিবলৈ আপোনাৰ ফ’নটোৱে চাৰ্জ কৰাটো সীমিত কৰিছে</string>
-    <string name="defender_notify_learn_more">অধিক জানক</string>
     <string name="defender_notify_resume_charge">চাৰ্জ কৰা পুনৰ আৰম্ভ কৰক</string>
     <string name="defender_notify_title">চাৰ্জ কৰাটো সাময়িকভাৱে সীমিত কৰা হৈছে</string>
     <string name="defender_post_notify_des">বেটাৰীৰ স্বাস্থ্য ভালে ৰাখিবলৈ %2$sৰ পৰা %3$sলৈ চাৰ্জিং %1$sলৈ সীমিত কৰা হৈছে</string>
@@ -1704,6 +1707,10 @@
     <string name="usb_accessory_confirm_prompt">%2$sক ব্যৱহাৰ কৰিবলৈ %1$sক খোলেনে?</string>
     <string name="usb_accessory_permission_prompt">%1$sক %2$sত প্ৰৱেশ কৰিবলৈ অনুমতি দিবনে?</string>
     <string name="usb_accessory_uri_prompt">ইনষ্টল হৈ থকা কোনো এপে ইউএছবি সহায়ক সামগ্ৰীটো চলাব নোৱাৰে। এই সহায়ক সামগ্ৰীৰ বিষয়ে %1$sৰ জৰিয়তে অধিক জানক৷</string>
+    <string name="usb_audio_device_confirm_prompt_title">%2$sক ব্যৱহাৰ কৰিবলৈ %1$sক খুলিবনে?</string>
+    <string name="usb_audio_device_permission_prompt_title">%1$sক %2$sত প্ৰৱেশ কৰিবলৈ অনুমতি দিবনে?</string>
+    <string name="usb_audio_device_prompt">এইটো ডিভাইচৰ সৈতে %1$s ব্যৱহাৰ কৰিলে কল, জাননী আৰু এলাৰ্ম শুনাটো অৱৰুদ্ধ হ’ব পাৰে।</string>
+    <string name="usb_audio_device_prompt_warn">"এই এপ্‌টোক ৰেকর্ড কৰাৰ অনুমতি দিয়া হোৱা নাই কিন্তু ই এই ইউএছবি ডিভাইচটোৰ জৰিয়তে অডিঅ' ৰেকর্ড কৰিব পাৰে। এইটো ডিভাইচৰ সৈতে %1$s ব্যৱহাৰ কৰিলে কল, জাননী আৰু এলাৰ্ম শুনাটো অৱৰুদ্ধ হ’ব পাৰে।"</string>
     <string name="usb_audio_disable_routing">"ইউএছবি অডিঅ' ৰাউটিং অক্ষম কৰক"</string>
     <string name="usb_audio_disable_routing_summary">স্বয়ংক্ৰিয়ভাৱে ইউএছবি ধ্বনিৰ আনুষংগিক আহিলাবিলাকলৈ ৰাউটিং কৰাটো অক্ষম কৰক</string>
     <string name="usb_contaminant_message">"আপোনাৰ ডিভাইচটো তৰল বা ধূলি-মাকতিৰ পৰা ৰক্ষা কৰিবলৈ ইউএছবি প’ৰ্টটো অক্ষম কৰি ৰখা হৈছে ফলত ই কোনো আনুষংগিক সামগ্ৰী ধৰা পেলাব নোৱাৰে।

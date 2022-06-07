@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nMediaDataFilter.kt\nKotlin\n*S Kotlin\n*F\n+ 1 MediaDataFilter.kt\ncom/android/systemui/media/MediaDataFilter\n+ 2 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n+ 3 Maps.kt\nkotlin/collections/MapsKt__MapsKt\n+ 4 _Maps.kt\nkotlin/collections/MapsKt___MapsKt\n*L\n1#1,302:1\n1819#2,2:303\n1819#2,2:312\n1819#2,2:314\n1819#2,2:316\n1819#2,2:318\n1819#2,2:320\n1819#2:322\n1819#2,2:323\n1820#2:325\n1819#2,2:327\n1819#2,2:330\n509#3:305\n494#3,6:306\n181#4:326\n182#4:329\n153#4,3:332\n*E\n*S KotlinDebug\n*F\n+ 1 MediaDataFilter.kt\ncom/android/systemui/media/MediaDataFilter\n*L\n107#1,2:303\n153#1,2:312\n169#1,2:314\n177#1,2:316\n191#1,2:318\n202#1,2:320\n213#1:322\n215#1,2:323\n213#1:325\n224#1,2:327\n237#1,2:330\n141#1:305\n141#1,6:306\n220#1:326\n220#1:329\n263#1,3:332\n*E\n"
+    value = "SMAP\nMediaDataFilter.kt\nKotlin\n*S Kotlin\n*F\n+ 1 MediaDataFilter.kt\ncom/android/systemui/media/MediaDataFilter\n+ 2 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n+ 3 _Maps.kt\nkotlin/collections/MapsKt___MapsKt\n*L\n1#1,313:1\n1819#2,2:314\n1819#2,2:316\n1819#2,2:318\n1819#2,2:320\n1819#2,2:322\n1819#2,2:324\n1819#2:326\n1819#2,2:327\n1820#2:329\n1819#2,2:331\n1819#2,2:334\n181#3:330\n182#3:333\n153#3,3:336\n153#3,3:339\n*E\n*S KotlinDebug\n*F\n+ 1 MediaDataFilter.kt\ncom/android/systemui/media/MediaDataFilter\n*L\n108#1,2:314\n152#1,2:316\n168#1,2:318\n175#1,2:320\n189#1,2:322\n200#1,2:324\n211#1:326\n213#1,2:327\n211#1:329\n222#1,2:331\n235#1,2:334\n218#1:330\n218#1:333\n262#1,3:336\n274#1,3:339\n*E\n"
 .end annotation
 
 
@@ -265,198 +265,202 @@
 .end method
 
 .method public final handleUserSwitched$frameworks__base__packages__SystemUI__android_common__SystemUI_core(I)V
-    .locals 14
+    .locals 17
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
 
-    invoke-virtual {p0}, Lcom/android/systemui/media/MediaDataFilter;->getListeners$frameworks__base__packages__SystemUI__android_common__SystemUI_core()Ljava/util/Set;
+    move-object/from16 v0, p0
 
-    move-result-object p1
-
-    iget-object v0, p0, Lcom/android/systemui/media/MediaDataFilter;->userEntries:Ljava/util/LinkedHashMap;
-
-    invoke-virtual {v0}, Ljava/util/LinkedHashMap;->keySet()Ljava/util/Set;
-
-    move-result-object v0
-
-    const-string/jumbo v1, "userEntries.keys"
-
-    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
-    invoke-static {v0}, Lkotlin/collections/CollectionsKt;->toMutableList(Ljava/util/Collection;)Ljava/util/List;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/systemui/media/MediaDataFilter;->userEntries:Ljava/util/LinkedHashMap;
-
-    invoke-virtual {v1}, Ljava/util/LinkedHashMap;->clear()V
-
-    invoke-interface {v0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v0
-
-    :cond_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v1
-
-    const-string v2, " after user change"
-
-    const-string v3, "MediaDataFilter"
-
-    if-eqz v1, :cond_1
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/media/MediaDataFilter;->getListeners$frameworks__base__packages__SystemUI__android_common__SystemUI_core()Ljava/util/Set;
 
     move-result-object v1
 
-    check-cast v1, Ljava/lang/String;
+    iget-object v2, v0, Lcom/android/systemui/media/MediaDataFilter;->userEntries:Ljava/util/LinkedHashMap;
 
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v5, "Removing "
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/util/LinkedHashMap;->keySet()Ljava/util/Set;
 
     move-result-object v2
 
-    invoke-static {v3, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    const-string/jumbo v3, "userEntries.keys"
 
-    invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-static {v2, v3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+
+    invoke-static {v2}, Lkotlin/collections/CollectionsKt;->toMutableList(Ljava/util/Collection;)Ljava/util/List;
 
     move-result-object v2
 
-    :goto_0
+    iget-object v3, v0, Lcom/android/systemui/media/MediaDataFilter;->userEntries:Ljava/util/LinkedHashMap;
+
+    invoke-virtual {v3}, Ljava/util/LinkedHashMap;->clear()V
+
+    invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v2
+
+    :cond_0
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    const-string v4, " after user change"
+
+    const-string v5, "MediaDataFilter"
+
+    if-eqz v3, :cond_1
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v3
 
-    check-cast v3, Lcom/android/systemui/media/MediaDataManager$Listener;
+    check-cast v3, Ljava/lang/String;
 
-    const-string v4, "it"
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    invoke-static {v1, v4}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-interface {v3, v1}, Lcom/android/systemui/media/MediaDataManager$Listener;->onMediaDataRemoved(Ljava/lang/String;)V
+    const-string v7, "Removing "
 
-    goto :goto_0
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_1
-    iget-object v0, p0, Lcom/android/systemui/media/MediaDataFilter;->allEntries:Ljava/util/LinkedHashMap;
+    invoke-virtual {v6, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-interface {v0}, Ljava/util/Map;->entrySet()Ljava/util/Set;
+    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v0
-
-    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
-
-    move-result-object v0
-
-    :cond_2
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_3
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Ljava/util/Map$Entry;
-
-    invoke-interface {v1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v4
 
-    check-cast v4, Ljava/lang/String;
+    invoke-static {v5, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-interface {v1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+    invoke-interface {v1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    move-result-object v1
+    move-result-object v4
 
-    check-cast v1, Lcom/android/systemui/media/MediaData;
-
-    iget-object v5, p0, Lcom/android/systemui/media/MediaDataFilter;->lockscreenUserManager:Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;
-
-    invoke-virtual {v1}, Lcom/android/systemui/media/MediaData;->getUserId()I
-
-    move-result v6
-
-    invoke-interface {v5, v6}, Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;->isCurrentProfile(I)Z
+    :goto_0
+    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_0
 
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v6, "Re-adding "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v5, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v3, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v5, p0, Lcom/android/systemui/media/MediaDataFilter;->userEntries:Ljava/util/LinkedHashMap;
-
-    invoke-virtual {v5, v4, v1}, Ljava/util/LinkedHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v13
-
-    :goto_1
-    invoke-interface {v13}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v5
-
-    if-eqz v5, :cond_2
-
-    invoke-interface {v13}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v5
 
     check-cast v5, Lcom/android/systemui/media/MediaDataManager$Listener;
 
-    const/4 v7, 0x0
+    const-string v6, "it"
+
+    invoke-static {v3, v6}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+
+    invoke-interface {v5, v3}, Lcom/android/systemui/media/MediaDataManager$Listener;->onMediaDataRemoved(Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :cond_1
+    iget-object v2, v0, Lcom/android/systemui/media/MediaDataFilter;->allEntries:Ljava/util/LinkedHashMap;
+
+    invoke-interface {v2}, Ljava/util/Map;->entrySet()Ljava/util/Set;
+
+    move-result-object v2
+
+    invoke-interface {v2}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+
+    move-result-object v2
+
+    :cond_2
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_3
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Ljava/util/Map$Entry;
+
+    invoke-interface {v3}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+
+    move-result-object v6
+
+    check-cast v6, Ljava/lang/String;
+
+    invoke-interface {v3}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Lcom/android/systemui/media/MediaData;
+
+    iget-object v7, v0, Lcom/android/systemui/media/MediaDataFilter;->lockscreenUserManager:Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;
+
+    invoke-virtual {v3}, Lcom/android/systemui/media/MediaData;->getUserId()I
+
+    move-result v8
+
+    invoke-interface {v7, v8}, Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;->isCurrentProfile(I)Z
+
+    move-result v7
+
+    if-eqz v7, :cond_2
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v8, "Re-adding "
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v7, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v7, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v5, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v7, v0, Lcom/android/systemui/media/MediaDataFilter;->userEntries:Ljava/util/LinkedHashMap;
+
+    invoke-virtual {v7, v6, v3}, Ljava/util/LinkedHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    invoke-interface {v1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v16
+
+    :goto_1
+    invoke-interface/range {v16 .. v16}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v7
+
+    if-eqz v7, :cond_2
+
+    invoke-interface/range {v16 .. v16}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v7
+
+    check-cast v7, Lcom/android/systemui/media/MediaDataManager$Listener;
 
     const/4 v9, 0x0
 
-    const/4 v10, 0x0
-
-    const/16 v11, 0x18
+    const/4 v11, 0x0
 
     const/4 v12, 0x0
 
-    move-object v6, v4
+    const/4 v13, 0x0
 
-    move-object v8, v1
+    const/16 v14, 0x38
 
-    invoke-static/range {v5 .. v12}, Lcom/android/systemui/media/MediaDataManager$Listener$DefaultImpls;->onMediaDataLoaded$default(Lcom/android/systemui/media/MediaDataManager$Listener;Ljava/lang/String;Ljava/lang/String;Lcom/android/systemui/media/MediaData;ZIILjava/lang/Object;)V
+    const/4 v15, 0x0
+
+    move-object v8, v6
+
+    move-object v10, v3
+
+    invoke-static/range {v7 .. v15}, Lcom/android/systemui/media/MediaDataManager$Listener$DefaultImpls;->onMediaDataLoaded$default(Lcom/android/systemui/media/MediaDataManager$Listener;Ljava/lang/String;Ljava/lang/String;Lcom/android/systemui/media/MediaData;ZIZILjava/lang/Object;)V
 
     goto :goto_1
 
@@ -465,6 +469,62 @@
 .end method
 
 .method public final hasActiveMedia()Z
+    .locals 2
+
+    iget-object p0, p0, Lcom/android/systemui/media/MediaDataFilter;->userEntries:Ljava/util/LinkedHashMap;
+
+    invoke-interface {p0}, Ljava/util/Map;->isEmpty()Z
+
+    move-result v0
+
+    const/4 v1, 0x0
+
+    if-eqz v0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    invoke-interface {p0}, Ljava/util/Map;->entrySet()Ljava/util/Set;
+
+    move-result-object p0
+
+    invoke-interface {p0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+
+    move-result-object p0
+
+    :cond_1
+    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/util/Map$Entry;
+
+    invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/media/MediaData;
+
+    invoke-virtual {v0}, Lcom/android/systemui/media/MediaData;->getActive()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    const/4 v1, 0x1
+
+    :cond_2
+    :goto_0
+    return v1
+.end method
+
+.method public final hasActiveMediaOrRecommendation()Z
     .locals 4
 
     iget-object v0, p0, Lcom/android/systemui/media/MediaDataFilter;->userEntries:Ljava/util/LinkedHashMap;
@@ -523,9 +583,17 @@
     :goto_0
     if-nez v0, :cond_4
 
+    iget-object v0, p0, Lcom/android/systemui/media/MediaDataFilter;->smartspaceMediaData:Lcom/android/systemui/media/SmartspaceMediaData;
+
+    invoke-virtual {v0}, Lcom/android/systemui/media/SmartspaceMediaData;->isActive()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
     iget-object p0, p0, Lcom/android/systemui/media/MediaDataFilter;->smartspaceMediaData:Lcom/android/systemui/media/SmartspaceMediaData;
 
-    invoke-virtual {p0}, Lcom/android/systemui/media/SmartspaceMediaData;->isActive()Z
+    invoke-virtual {p0}, Lcom/android/systemui/media/SmartspaceMediaData;->isValid()Z
 
     move-result p0
 
@@ -542,6 +610,20 @@
 .end method
 
 .method public final hasAnyMedia()Z
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/media/MediaDataFilter;->userEntries:Ljava/util/LinkedHashMap;
+
+    invoke-interface {p0}, Ljava/util/Map;->isEmpty()Z
+
+    move-result p0
+
+    xor-int/lit8 p0, p0, 0x1
+
+    return p0
+.end method
+
+.method public final hasAnyMediaOrRecommendation()Z
     .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/media/MediaDataFilter;->userEntries:Ljava/util/LinkedHashMap;
@@ -556,9 +638,17 @@
 
     if-nez v0, :cond_1
 
+    iget-object v0, p0, Lcom/android/systemui/media/MediaDataFilter;->smartspaceMediaData:Lcom/android/systemui/media/SmartspaceMediaData;
+
+    invoke-virtual {v0}, Lcom/android/systemui/media/SmartspaceMediaData;->isActive()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
     iget-object p0, p0, Lcom/android/systemui/media/MediaDataFilter;->smartspaceMediaData:Lcom/android/systemui/media/SmartspaceMediaData;
 
-    invoke-virtual {p0}, Lcom/android/systemui/media/SmartspaceMediaData;->isActive()Z
+    invoke-virtual {p0}, Lcom/android/systemui/media/SmartspaceMediaData;->isValid()Z
 
     move-result p0
 
@@ -574,8 +664,8 @@
     return v1
 .end method
 
-.method public onMediaDataLoaded(Ljava/lang/String;Ljava/lang/String;Lcom/android/systemui/media/MediaData;ZI)V
-    .locals 8
+.method public onMediaDataLoaded(Ljava/lang/String;Ljava/lang/String;Lcom/android/systemui/media/MediaData;ZIZ)V
+    .locals 9
 
     const-string p4, "key"
 
@@ -661,9 +751,11 @@
 
     const/4 v5, 0x0
 
-    const/16 v6, 0x18
+    const/4 v6, 0x0
 
-    const/4 v7, 0x0
+    const/16 v7, 0x38
+
+    const/4 v8, 0x0
 
     move-object v1, p1
 
@@ -671,7 +763,7 @@
 
     move-object v3, p3
 
-    invoke-static/range {v0 .. v7}, Lcom/android/systemui/media/MediaDataManager$Listener$DefaultImpls;->onMediaDataLoaded$default(Lcom/android/systemui/media/MediaDataManager$Listener;Ljava/lang/String;Ljava/lang/String;Lcom/android/systemui/media/MediaData;ZIILjava/lang/Object;)V
+    invoke-static/range {v0 .. v8}, Lcom/android/systemui/media/MediaDataManager$Listener$DefaultImpls;->onMediaDataLoaded$default(Lcom/android/systemui/media/MediaDataManager$Listener;Ljava/lang/String;Ljava/lang/String;Lcom/android/systemui/media/MediaData;ZIZILjava/lang/Object;)V
 
     goto :goto_0
 
@@ -733,8 +825,8 @@
     return-void
 .end method
 
-.method public onSmartspaceMediaDataLoaded(Ljava/lang/String;Lcom/android/systemui/media/SmartspaceMediaData;ZZ)V
-    .locals 38
+.method public onSmartspaceMediaDataLoaded(Ljava/lang/String;Lcom/android/systemui/media/SmartspaceMediaData;Z)V
+    .locals 39
 
     move-object/from16 v0, p0
 
@@ -818,98 +910,35 @@
 
     :cond_2
     :goto_0
-    iget-object v9, v0, Lcom/android/systemui/media/MediaDataFilter;->userEntries:Ljava/util/LinkedHashMap;
+    invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/media/MediaDataFilter;->hasActiveMedia()Z
 
-    new-instance v10, Ljava/util/LinkedHashMap;
+    move-result v9
 
-    invoke-direct {v10}, Ljava/util/LinkedHashMap;-><init>()V
+    const/4 v10, 0x1
 
-    invoke-interface {v9}, Ljava/util/Map;->entrySet()Ljava/util/Set;
+    const/4 v11, 0x0
 
-    move-result-object v9
+    if-nez v9, :cond_3
 
-    invoke-interface {v9}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/media/MediaDataFilter;->hasAnyMedia()Z
 
-    move-result-object v9
+    move-result v9
 
-    :cond_3
-    :goto_1
-    invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
+    if-eqz v9, :cond_3
 
-    move-result v11
-
-    if-eqz v11, :cond_4
-
-    invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v11
-
-    check-cast v11, Ljava/util/Map$Entry;
-
-    invoke-interface {v11}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
-
-    move-result-object v12
-
-    check-cast v12, Ljava/lang/String;
-
-    invoke-interface {v11}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
-
-    move-result-object v12
-
-    check-cast v12, Lcom/android/systemui/media/MediaData;
-
-    invoke-virtual {v12}, Lcom/android/systemui/media/MediaData;->getActive()Z
-
-    move-result v12
-
-    if-eqz v12, :cond_3
-
-    invoke-interface {v11}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
-
-    move-result-object v12
-
-    invoke-interface {v11}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
-
-    move-result-object v11
-
-    invoke-interface {v10, v12, v11}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    move v9, v10
 
     goto :goto_1
 
-    :cond_4
-    invoke-interface {v10}, Ljava/util/Map;->isEmpty()Z
-
-    move-result v9
-
-    const/4 v10, 0x0
-
-    const/4 v11, 0x1
-
-    if-eqz v9, :cond_5
-
-    iget-object v9, v0, Lcom/android/systemui/media/MediaDataFilter;->userEntries:Ljava/util/LinkedHashMap;
-
-    invoke-interface {v9}, Ljava/util/Map;->isEmpty()Z
-
-    move-result v9
-
-    xor-int/2addr v9, v11
-
-    if-eqz v9, :cond_5
-
+    :cond_3
     move v9, v11
 
-    goto :goto_2
-
-    :cond_5
-    move v9, v10
-
-    :goto_2
+    :goto_1
     cmp-long v5, v5, v7
 
-    if-gez v5, :cond_6
+    if-gez v5, :cond_5
 
-    if-eqz v9, :cond_7
+    if-eqz v9, :cond_4
 
     invoke-interface {v3}, Ljava/util/SortedMap;->lastKey()Ljava/lang/Object;
 
@@ -945,11 +974,9 @@
 
     check-cast v3, Lcom/android/systemui/media/MediaData;
 
-    move-object v11, v3
+    move-object v12, v3
 
     invoke-static {v3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
-
-    const/4 v12, 0x0
 
     const/4 v13, 0x0
 
@@ -977,9 +1004,9 @@
 
     const/16 v25, 0x0
 
-    const/16 v26, 0x1
+    const/16 v26, 0x0
 
-    const/16 v27, 0x0
+    const/16 v27, 0x1
 
     const/16 v28, 0x0
 
@@ -993,13 +1020,15 @@
 
     const/16 v33, 0x0
 
-    const-wide/16 v34, 0x0
+    const/16 v34, 0x0
 
-    const v36, 0x7fbfff
+    const-wide/16 v35, 0x0
 
-    const/16 v37, 0x0
+    const v37, 0x7fbfff
 
-    invoke-static/range {v11 .. v37}, Lcom/android/systemui/media/MediaData;->copy$default(Lcom/android/systemui/media/MediaData;IZILjava/lang/String;Landroid/graphics/drawable/Icon;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/graphics/drawable/Icon;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Landroid/media/session/MediaSession$Token;Landroid/app/PendingIntent;Lcom/android/systemui/media/MediaDeviceData;ZLjava/lang/Runnable;IZLjava/lang/String;ZLjava/lang/Boolean;ZJILjava/lang/Object;)Lcom/android/systemui/media/MediaData;
+    const/16 v38, 0x0
+
+    invoke-static/range {v12 .. v38}, Lcom/android/systemui/media/MediaData;->copy$default(Lcom/android/systemui/media/MediaData;IZILjava/lang/String;Landroid/graphics/drawable/Icon;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/graphics/drawable/Icon;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Landroid/media/session/MediaSession$Token;Landroid/app/PendingIntent;Lcom/android/systemui/media/MediaDeviceData;ZLjava/lang/Runnable;IZLjava/lang/String;ZLjava/lang/Boolean;ZJILjava/lang/Object;)Lcom/android/systemui/media/MediaData;
 
     move-result-object v3
 
@@ -1011,26 +1040,26 @@
 
     move-result-object v6
 
-    :goto_3
+    :goto_2
     invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v7
 
-    if-eqz v7, :cond_7
+    if-eqz v7, :cond_4
 
     invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v7
 
-    move-object v11, v7
+    move-object v12, v7
 
-    check-cast v11, Lcom/android/systemui/media/MediaDataManager$Listener;
+    check-cast v12, Lcom/android/systemui/media/MediaDataManager$Listener;
 
     const-string v7, "lastActiveKey"
 
     invoke-static {v5, v7}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    const/4 v15, 0x0
+    const/16 v16, 0x0
 
     iget-object v7, v0, Lcom/android/systemui/media/MediaDataFilter;->systemClock:Lcom/android/systemui/util/time/SystemClock;
 
@@ -1040,37 +1069,39 @@
 
     invoke-virtual/range {p2 .. p2}, Lcom/android/systemui/media/SmartspaceMediaData;->getHeadphoneConnectionTimeMillis()J
 
-    move-result-wide v12
+    move-result-wide v9
 
-    sub-long/2addr v7, v12
+    sub-long/2addr v7, v9
 
     long-to-int v7, v7
 
-    const/16 v17, 0x8
+    const/16 v18, 0x1
 
-    const/16 v18, 0x0
+    const/16 v19, 0x8
 
-    move-object v12, v5
+    const/16 v20, 0x0
 
     move-object v13, v5
 
-    move-object v14, v3
+    move-object v14, v5
 
-    move/from16 v16, v7
+    move-object v15, v3
 
-    invoke-static/range {v11 .. v18}, Lcom/android/systemui/media/MediaDataManager$Listener$DefaultImpls;->onMediaDataLoaded$default(Lcom/android/systemui/media/MediaDataManager$Listener;Ljava/lang/String;Ljava/lang/String;Lcom/android/systemui/media/MediaData;ZIILjava/lang/Object;)V
+    move/from16 v17, v7
 
-    goto :goto_3
+    invoke-static/range {v12 .. v20}, Lcom/android/systemui/media/MediaDataManager$Listener$DefaultImpls;->onMediaDataLoaded$default(Lcom/android/systemui/media/MediaDataManager$Listener;Ljava/lang/String;Ljava/lang/String;Lcom/android/systemui/media/MediaData;ZIZILjava/lang/Object;)V
 
-    :cond_6
+    goto :goto_2
+
+    :cond_4
     move v10, v11
 
-    :cond_7
+    :cond_5
     invoke-virtual/range {p2 .. p2}, Lcom/android/systemui/media/SmartspaceMediaData;->isValid()Z
 
     move-result v3
 
-    if-nez v3, :cond_8
+    if-nez v3, :cond_6
 
     const-string v0, "Invalid recommendation data. Skip showing the rec card"
 
@@ -1078,7 +1109,7 @@
 
     return-void
 
-    :cond_8
+    :cond_6
     invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/media/MediaDataFilter;->getListeners$frameworks__base__packages__SystemUI__android_common__SystemUI_core()Ljava/util/Set;
 
     move-result-object v0
@@ -1087,12 +1118,12 @@
 
     move-result-object v0
 
-    :goto_4
+    :goto_3
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_9
+    if-eqz v3, :cond_7
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1100,11 +1131,11 @@
 
     check-cast v3, Lcom/android/systemui/media/MediaDataManager$Listener;
 
-    invoke-interface {v3, v1, v2, v10, v9}, Lcom/android/systemui/media/MediaDataManager$Listener;->onSmartspaceMediaDataLoaded(Ljava/lang/String;Lcom/android/systemui/media/SmartspaceMediaData;ZZ)V
+    invoke-interface {v3, v1, v2, v10}, Lcom/android/systemui/media/MediaDataManager$Listener;->onSmartspaceMediaDataLoaded(Ljava/lang/String;Lcom/android/systemui/media/SmartspaceMediaData;Z)V
 
-    goto :goto_4
+    goto :goto_3
 
-    :cond_9
+    :cond_7
     return-void
 .end method
 
@@ -1146,11 +1177,11 @@
 
     move-result-object v3
 
-    move-object v11, v3
+    move-object v12, v3
 
-    check-cast v11, Lcom/android/systemui/media/MediaData;
+    check-cast v12, Lcom/android/systemui/media/MediaData;
 
-    if-nez v11, :cond_1
+    if-nez v12, :cond_1
 
     goto :goto_1
 
@@ -1161,16 +1192,16 @@
 
     invoke-interface {v3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    move-result-object v12
+    move-result-object v13
 
     :goto_0
-    invoke-interface {v12}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v13}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
     if-eqz v3, :cond_2
 
-    invoke-interface {v12}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v13}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v3
 
@@ -1178,19 +1209,21 @@
 
     const/4 v8, 0x0
 
-    const/16 v9, 0x10
+    const/4 v9, 0x0
 
-    const/4 v10, 0x0
+    const/16 v10, 0x30
+
+    const/4 v11, 0x0
 
     move-object v4, v2
 
     move-object v5, v2
 
-    move-object v6, v11
+    move-object v6, v12
 
     move/from16 v7, p2
 
-    invoke-static/range {v3 .. v10}, Lcom/android/systemui/media/MediaDataManager$Listener$DefaultImpls;->onMediaDataLoaded$default(Lcom/android/systemui/media/MediaDataManager$Listener;Ljava/lang/String;Ljava/lang/String;Lcom/android/systemui/media/MediaData;ZIILjava/lang/Object;)V
+    invoke-static/range {v3 .. v11}, Lcom/android/systemui/media/MediaDataManager$Listener$DefaultImpls;->onMediaDataLoaded$default(Lcom/android/systemui/media/MediaDataManager$Listener;Ljava/lang/String;Ljava/lang/String;Lcom/android/systemui/media/MediaData;ZIZILjava/lang/Object;)V
 
     goto :goto_0
 

@@ -9,7 +9,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nMediaResumeListener.kt\nKotlin\n*S Kotlin\n*F\n+ 1 MediaResumeListener.kt\ncom/android/systemui/media/MediaResumeListener\n+ 2 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n+ 3 fake.kt\nkotlin/jvm/internal/FakeKt\n*L\n1#1,300:1\n699#2,9:301\n1819#2,2:310\n1819#2,2:312\n734#2:314\n825#2,2:315\n1819#2,2:318\n1#3:317\n*E\n*S KotlinDebug\n*F\n+ 1 MediaResumeListener.kt\ncom/android/systemui/media/MediaResumeListener\n*L\n136#1,9:301\n138#1,2:310\n174#1,2:312\n203#1:314\n203#1,2:315\n275#1,2:318\n*E\n"
+    value = "SMAP\nMediaResumeListener.kt\nKotlin\n*S Kotlin\n*F\n+ 1 MediaResumeListener.kt\ncom/android/systemui/media/MediaResumeListener\n+ 2 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n+ 3 fake.kt\nkotlin/jvm/internal/FakeKt\n*L\n1#1,301:1\n699#2,9:302\n1819#2,2:311\n1819#2,2:313\n734#2:315\n825#2,2:316\n1819#2,2:319\n1#3:318\n*E\n*S KotlinDebug\n*F\n+ 1 MediaResumeListener.kt\ncom/android/systemui/media/MediaResumeListener\n*L\n136#1,9:302\n138#1,2:311\n174#1,2:313\n204#1:315\n204#1,2:316\n276#1,2:319\n*E\n"
 .end annotation
 
 
@@ -915,8 +915,8 @@
     return-void
 .end method
 
-.method public onMediaDataLoaded(Ljava/lang/String;Ljava/lang/String;Lcom/android/systemui/media/MediaData;ZI)V
-    .locals 3
+.method public onMediaDataLoaded(Ljava/lang/String;Ljava/lang/String;Lcom/android/systemui/media/MediaData;ZIZ)V
+    .locals 2
 
     const-string p4, "key"
 
@@ -991,13 +991,13 @@
 
     new-instance p5, Landroid/content/Intent;
 
-    const-string v0, "android.media.browse.MediaBrowserService"
+    const-string p6, "android.media.browse.MediaBrowserService"
 
-    invoke-direct {p5, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    invoke-direct {p5, p6}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    const/4 v0, 0x0
+    const/4 p6, 0x0
 
-    invoke-virtual {p2, p5, v0}, Landroid/content/pm/PackageManager;->queryIntentServices(Landroid/content/Intent;I)Ljava/util/List;
+    invoke-virtual {p2, p5, p6}, Landroid/content/pm/PackageManager;->queryIntentServices(Landroid/content/Intent;I)Ljava/util/List;
 
     move-result-object p2
 
@@ -1020,33 +1020,33 @@
     :goto_1
     invoke-interface {p2}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v0
+    move-result p6
 
-    if-eqz v0, :cond_4
+    if-eqz p6, :cond_4
 
     invoke-interface {p2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p6
 
-    move-object v1, v0
+    move-object v0, p6
 
-    check-cast v1, Landroid/content/pm/ResolveInfo;
+    check-cast v0, Landroid/content/pm/ResolveInfo;
 
-    iget-object v1, v1, Landroid/content/pm/ResolveInfo;->serviceInfo:Landroid/content/pm/ServiceInfo;
+    iget-object v0, v0, Landroid/content/pm/ResolveInfo;->serviceInfo:Landroid/content/pm/ServiceInfo;
 
-    iget-object v1, v1, Landroid/content/pm/ServiceInfo;->packageName:Ljava/lang/String;
+    iget-object v0, v0, Landroid/content/pm/ServiceInfo;->packageName:Ljava/lang/String;
 
     invoke-virtual {p3}, Lcom/android/systemui/media/MediaData;->getPackageName()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_3
+    if-eqz v0, :cond_3
 
-    invoke-interface {p5, v0}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
+    invoke-interface {p5, p6}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
     goto :goto_1
 
@@ -1099,10 +1099,10 @@
     return-void
 .end method
 
-.method public onSmartspaceMediaDataLoaded(Ljava/lang/String;Lcom/android/systemui/media/SmartspaceMediaData;ZZ)V
+.method public onSmartspaceMediaDataLoaded(Ljava/lang/String;Lcom/android/systemui/media/SmartspaceMediaData;Z)V
     .locals 0
 
-    invoke-static {p0, p1, p2, p3, p4}, Lcom/android/systemui/media/MediaDataManager$Listener$DefaultImpls;->onSmartspaceMediaDataLoaded(Lcom/android/systemui/media/MediaDataManager$Listener;Ljava/lang/String;Lcom/android/systemui/media/SmartspaceMediaData;ZZ)V
+    invoke-static {p0, p1, p2, p3}, Lcom/android/systemui/media/MediaDataManager$Listener$DefaultImpls;->onSmartspaceMediaDataLoaded(Lcom/android/systemui/media/MediaDataManager$Listener;Ljava/lang/String;Lcom/android/systemui/media/SmartspaceMediaData;Z)V
 
     return-void
 .end method

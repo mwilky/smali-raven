@@ -237,6 +237,9 @@
     <string name="accessor_no_description_text">此应用未提供任何说明。</string>
     <string name="active_input_method_subtypes">有效的输入法</string>
     <string name="activity_launch_on_secondary_display_failed_text">应用不支持在辅显示屏上启动。</string>
+    <string name="adaptive_charging_notify_des">电池将于%1$s充满。为了使电池保持良好状况，系统会稳定地充电。</string>
+    <string name="adaptive_charging_notify_title">已启用自适应充电功能</string>
+    <string name="adaptive_charging_notify_turn_off_once">关闭一次</string>
     <string name="adaptive_charging_time_estimate">%1$s • 正在自适应充电（%2$s前充满）</string>
     <string name="adb_device_fingerprint_title_format">设备指纹：%1$s</string>
     <string name="adb_device_forget">取消保存</string>
@@ -301,6 +304,7 @@
     <string name="basic_status">开放式对话</string>
     <string name="battery">电池</string>
     <string name="battery_detail_switch_title">省电模式</string>
+    <string name="battery_health_notify_learn_more">了解详情</string>
     <string name="battery_info_status_charging">正在充电</string>
     <string name="battery_info_status_charging_fast">正在快速充电</string>
     <string name="battery_info_status_charging_slow">正在慢速充电</string>
@@ -616,7 +620,6 @@
     <string name="debug_networking_category">网络</string>
     <string name="debug_view_attributes">启用视图属性检查功能</string>
     <string name="defender_notify_des">为了使电池保持良好状况，您的手机目前限制充电</string>
-    <string name="defender_notify_learn_more">了解详情</string>
     <string name="defender_notify_resume_charge">继续充电</string>
     <string name="defender_notify_title">充电暂时受限</string>
     <string name="defender_post_notify_des">为了使电池保持良好状况，%2$s 到%3$s 期间的最大充电量已限制在 %1$s</string>
@@ -1704,6 +1707,10 @@
     <string name="usb_accessory_confirm_prompt">要打开%1$s来处理%2$s吗？</string>
     <string name="usb_accessory_permission_prompt">要允许%1$s访问%2$s吗？</string>
     <string name="usb_accessory_uri_prompt">未安装此USB配件适用的应用。要了解此配件的详情，请访问：%1$s</string>
+    <string name="usb_audio_device_confirm_prompt_title">打开“%1$s”来处理%2$s吗？</string>
+    <string name="usb_audio_device_permission_prompt_title">允许“%1$s”访问%2$s吗？</string>
+    <string name="usb_audio_device_prompt">在此设备上使用“%1$s”可能会将来电、通知和闹钟静音。</string>
+    <string name="usb_audio_device_prompt_warn">此应用未获得录音权限，但能通过此 USB 设备录制音频。在此设备上使用“%1$s”可能会将来电、通知和闹钟静音。</string>
     <string name="usb_audio_disable_routing">关闭 USB 音频转接</string>
     <string name="usb_audio_disable_routing_summary">关闭自动转接至 USB 音频外围设备的功能</string>
     <string name="usb_contaminant_message">"为避免液体或碎屑导致您的设备受损，系统已停用 USB 端口，因此目前无法检测任何配件。

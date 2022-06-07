@@ -237,6 +237,9 @@
     <string name="accessor_no_description_text">У апликацији није наведен ниједан опис.</string>
     <string name="active_input_method_subtypes">Методе активног уноса</string>
     <string name="activity_launch_on_secondary_display_failed_text">Апликација не подржава покретање на секундарним екранима.</string>
+    <string name="adaptive_charging_notify_des">Батерија ће бити пуна за %1$s. Пуни се константно ради бољег стања батерије.</string>
+    <string name="adaptive_charging_notify_title">Адаптивно пуњење је укључено</string>
+    <string name="adaptive_charging_notify_turn_off_once">Искључи једном</string>
     <string name="adaptive_charging_time_estimate">%1$s • Адаптивно пуњење (пуна до %2$s)</string>
     <string name="adb_device_fingerprint_title_format">Отисак прста на уређају: %1$s</string>
     <string name="adb_device_forget">Заборави</string>
@@ -301,6 +304,7 @@
     <string name="basic_status">Отворите конверзацију</string>
     <string name="battery">Батерија</string>
     <string name="battery_detail_switch_title">Уштеда батерије</string>
+    <string name="battery_health_notify_learn_more">Сазнајте више</string>
     <string name="battery_info_status_charging">Пуни се</string>
     <string name="battery_info_status_charging_fast">Брзо се пуни</string>
     <string name="battery_info_status_charging_slow">Споро се пуни</string>
@@ -616,7 +620,6 @@
     <string name="debug_networking_category">Умрежавање</string>
     <string name="debug_view_attributes">Омогући проверу атрибута за преглед</string>
     <string name="defender_notify_des">Телефон ограничава пуњење ради бољег стања батерије</string>
-    <string name="defender_notify_learn_more">Сазнајте више</string>
     <string name="defender_notify_resume_charge">Настави са пуњењем</string>
     <string name="defender_notify_title">Пуњење је привремено ограничено</string>
     <string name="defender_post_notify_des">Пуњење је ограничено на %1$s од %2$s до %3$s ради бољег стања батерије</string>
@@ -1702,8 +1705,12 @@
     <string name="url_menu_copy">Копирај</string>
     <string name="url_menu_share">Дели</string>
     <string name="usb_accessory_confirm_prompt">Желите ли да отворите апликацију %1$s да бисте користили уређај %2$s?</string>
-    <string name="usb_accessory_permission_prompt">Желите ли да дозволите да %1$s приступа уређају %2$s?</string>
+    <string name="usb_accessory_permission_prompt">Дозвољавате да %1$s приступа уређају %2$s?</string>
     <string name="usb_accessory_uri_prompt">Инсталиране апликације не функционишу са овим USB помоћним уређајем. Сазнајте више о њему на адреси %1$s</string>
+    <string name="usb_audio_device_confirm_prompt_title">Желите ли да отворите апликацију %1$s да бисте користили уређај %2$s?</string>
+    <string name="usb_audio_device_permission_prompt_title">Дозвољавате да %1$s приступа уређају %2$s?</string>
+    <string name="usb_audio_device_prompt">Ако користите апликацију %1$s са овим уређајем, можда нећете чути позиве, обавештења и аларме.</string>
+    <string name="usb_audio_device_prompt_warn">Ова апликација нема дозволу за снимање, али би могла да снима звук помоћу овог USB уређаја. Ако користите апликацију %1$s са овим уређајем, можда нећете чути позиве, обавештења и аларме.</string>
     <string name="usb_audio_disable_routing">Онемогући USB преусм. звука</string>
     <string name="usb_audio_disable_routing_summary">Онемогућава аутоматско преусмеравање на USB аудио периферне уређаје</string>
     <string name="usb_contaminant_message">"Да би се уређај заштитио од течности или нечистоће, USB порт је онемогућен и неће откривати додатну опрему.
@@ -1717,10 +1724,10 @@
     <string name="usb_debugging_secondary_user_message">Корисник који је тренутно пријављен на овај уређај не може да укључи отклањање грешака на USB-у. Да бисте користили ову функцију, пребаците на примарног корисника.</string>
     <string name="usb_debugging_secondary_user_title">Отклањање грешака на USB-у није дозвољено</string>
     <string name="usb_debugging_title">Желите ли да дозволите отклањање USB грешака?</string>
-    <string name="usb_device_confirm_prompt">Желите ли да отворите апликацију %1$s да бисте користили уређај %2$s?</string>
+    <string name="usb_device_confirm_prompt">Желите да отворите %1$s да бисте користили %2$s?</string>
     <string name="usb_device_confirm_prompt_warn">"Желите ли да отворите апликацију %1$s ради руковања уређајем %2$s?
 Ова апликација нема дозволу за снимање, али би могла да снима звук помоћу овог USB уређаја."</string>
-    <string name="usb_device_permission_prompt">Желите ли да дозволите да %1$s приступа уређају %2$s?</string>
+    <string name="usb_device_permission_prompt">Дозвољавате да %1$s приступа уређају %2$s?</string>
     <string name="usb_device_permission_prompt_warn">"Желите ли да дозволите да %1$s приступа уређају %2$s?
 Ова апликација нема дозволу за снимање, али би могла да снима звук помоћу овог USB уређаја."</string>
     <string name="usb_disable_contaminant_detection">Омогући USB</string>

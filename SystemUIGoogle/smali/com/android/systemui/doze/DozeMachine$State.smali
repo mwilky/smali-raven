@@ -367,29 +367,41 @@
     move v0, v1
 
     :goto_0
-    :pswitch_1
     return v0
 
+    :pswitch_1
+    invoke-virtual {p1}, Lcom/android/systemui/statusbar/phone/DozeParameters;->getDisplayNeedsBlanking()Z
+
+    move-result p0
+
+    if-eqz p0, :cond_1
+
+    move v0, v1
+
+    :cond_1
     :pswitch_2
+    return v0
+
+    :pswitch_3
     const/4 p0, 0x4
 
     return p0
 
-    :pswitch_3
+    :pswitch_4
     return v1
 
     nop
 
     :pswitch_data_0
     .packed-switch 0x1
+        :pswitch_4
+        :pswitch_3
+        :pswitch_4
         :pswitch_3
         :pswitch_2
-        :pswitch_3
+        :pswitch_1
         :pswitch_2
-        :pswitch_1
-        :pswitch_0
-        :pswitch_1
-        :pswitch_1
+        :pswitch_2
         :pswitch_0
         :pswitch_0
     .end packed-switch

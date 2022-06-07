@@ -237,6 +237,9 @@
     <string name="accessor_no_description_text">La aplicación no ofrece ninguna descripción.</string>
     <string name="active_input_method_subtypes">Métodos de introducción de texto activos</string>
     <string name="activity_launch_on_secondary_display_failed_text">La aplicación no se puede abrir en pantallas secundarias.</string>
+    <string name="adaptive_charging_notify_des">Batería cargada a las %1$s. Cargando de forma gradual para conservar el buen estado de la batería.</string>
+    <string name="adaptive_charging_notify_title">Carga inteligente está activada</string>
+    <string name="adaptive_charging_notify_turn_off_once">Desactivar una vez</string>
     <string name="adaptive_charging_time_estimate">%1$s • Carga inteligente (se completará a las %2$s)</string>
     <string name="adb_device_fingerprint_title_format">Huella digital del dispositivo: %1$s</string>
     <string name="adb_device_forget">Olvidar</string>
@@ -245,7 +248,7 @@
     <string name="adb_pair_method_code_title">Emparejar dispositivo con código de sincronización</string>
     <string name="adb_pair_method_qrcode_summary">Empareja nuevos dispositivos con el escáner de códigos QR</string>
     <string name="adb_pair_method_qrcode_title">Emparejar dispositivo con código QR</string>
-    <string name="adb_paired_devices_title">Dispositivos vinculados</string>
+    <string name="adb_paired_devices_title">Dispositivos emparejados</string>
     <string name="adb_pairing_device_dialog_failed_msg">Asegúrate de que el dispositivo esté conectado a la misma red.</string>
     <string name="adb_pairing_device_dialog_failed_title">No se ha podido emparejar</string>
     <string name="adb_pairing_device_dialog_pairing_code_label">Código de vinculación de Wi‑Fi</string>
@@ -301,6 +304,7 @@ Si este permiso está desactivado, no funcionarán las alarmas ni los eventos qu
     <string name="basic_status">Conversación abierta</string>
     <string name="battery">Batería</string>
     <string name="battery_detail_switch_title">Ahorro de batería</string>
+    <string name="battery_health_notify_learn_more">Más información</string>
     <string name="battery_info_status_charging">Cargando</string>
     <string name="battery_info_status_charging_fast">Carga rápida</string>
     <string name="battery_info_status_charging_slow">Carga lenta</string>
@@ -616,7 +620,6 @@ Si vuelves a activar el uso de datos, es posible que se apliquen cargos."</strin
     <string name="debug_networking_category">Redes</string>
     <string name="debug_view_attributes">Inspección de atributos de vista</string>
     <string name="defender_notify_des">Tu teléfono ha limitado la carga para conservar la salud de la batería</string>
-    <string name="defender_notify_learn_more">Más información</string>
     <string name="defender_notify_resume_charge">Seguir cargando</string>
     <string name="defender_notify_title">Carga limitada temporalmente</string>
     <string name="defender_post_notify_des">La carga está limitada al %1$s desde las %2$s a las %3$s para preservar la batería.</string>
@@ -1704,6 +1707,10 @@ Toca para ver más información"</string>
     <string name="usb_accessory_confirm_prompt">¿Quieres abrir %1$s para utilizar %2$s?</string>
     <string name="usb_accessory_permission_prompt">¿Permitir que %1$s acceda a %2$s?</string>
     <string name="usb_accessory_uri_prompt">Ninguna aplicación instalada funciona con este accesorio USB. Más información: %1$s</string>
+    <string name="usb_audio_device_confirm_prompt_title">¿Abrir %1$s para gestionar %2$s?</string>
+    <string name="usb_audio_device_permission_prompt_title">¿Permitir que %1$s acceda a %2$s?</string>
+    <string name="usb_audio_device_prompt">Si usas %1$s en este dispositivo, puede que no oigas llamadas, notificaciones ni alarmas.</string>
+    <string name="usb_audio_device_prompt_warn">Esta aplicación no tiene permiso para grabar, pero podría registrar audio con este dispositivo USB. Si usas %1$s en este dispositivo, puede que no oigas llamadas, notificaciones ni alarmas.</string>
     <string name="usb_audio_disable_routing">Inhabilitar enrutamiento de audio por USB</string>
     <string name="usb_audio_disable_routing_summary">Inhabilita el enrutamiento automático a periféricos de audio USB</string>
     <string name="usb_contaminant_message">"Para proteger tu dispositivo de los líquidos y la suciedad, el puerto USB se ha inhabilitado y no detectará ningún accesorio.

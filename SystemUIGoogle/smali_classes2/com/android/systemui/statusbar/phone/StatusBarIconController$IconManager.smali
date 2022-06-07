@@ -30,6 +30,8 @@
 
 .field protected final mContext:Landroid/content/Context;
 
+.field private mController:Lcom/android/systemui/statusbar/phone/StatusBarIconController;
+
 .field protected mDemoStatusIcons:Lcom/android/systemui/statusbar/phone/DemoStatusIcons;
 
 .field protected mDemoable:Z
@@ -79,7 +81,7 @@
 
     move-result-object p1
 
-    const p2, 0x1050285
+    const p2, 0x1050286
 
     invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -622,27 +624,31 @@
         }
     .end annotation
 
+    invoke-static {}, Lcom/android/systemui/util/Assert;->isMainThread()V
+
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController$IconManager;->mBlockList:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
 
-    if-eqz p1, :cond_1
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController$IconManager;->mBlockList:Ljava/util/ArrayList;
 
-    invoke-interface {p1}, Ljava/util/List;->isEmpty()Z
+    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
 
-    move-result v0
+    iget-object p1, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController$IconManager;->mController:Lcom/android/systemui/statusbar/phone/StatusBarIconController;
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
-    goto :goto_0
+    invoke-interface {p1, p0}, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->refreshIconGroup(Lcom/android/systemui/statusbar/phone/StatusBarIconController$IconManager;)V
 
     :cond_0
-    iget-object p0, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController$IconManager;->mBlockList:Ljava/util/ArrayList;
+    return-void
+.end method
 
-    invoke-virtual {p0, p1}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
+.method setController(Lcom/android/systemui/statusbar/phone/StatusBarIconController;)V
+    .locals 0
 
-    :cond_1
-    :goto_0
+    iput-object p1, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController$IconManager;->mController:Lcom/android/systemui/statusbar/phone/StatusBarIconController;
+
     return-void
 .end method
 
