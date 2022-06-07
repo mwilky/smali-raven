@@ -249,7 +249,7 @@
     return-object v1
 
     :sswitch_3
-    const-string v1, "isNull"
+    const-string/jumbo v1, "isNull"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -313,8 +313,6 @@
     invoke-direct {v1, p0, v2}, Lcom/android/server/firewall/StringFilter$ContainsFilter;-><init>(Lcom/android/server/firewall/StringFilter$ValueProvider;Ljava/lang/String;)V
 
     return-object v1
-
-    nop
 
     :sswitch_data_0
     .sparse-switch

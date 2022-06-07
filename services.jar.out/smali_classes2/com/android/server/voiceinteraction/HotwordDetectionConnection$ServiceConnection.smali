@@ -31,6 +31,8 @@
 
 .field private mIsBound:Z
 
+.field private mIsLoggedFirstConnect:Z
+
 .field private final mLock:Ljava/lang/Object;
 
 .field private mRespectServiceConnectionStatusChanged:Z
@@ -84,6 +86,8 @@
 
     iput-boolean p1, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnection;->mIsBound:Z
 
+    iput-boolean p1, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnection;->mIsLoggedFirstConnect:Z
+
     iput-object p3, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnection;->mIntent:Landroid/content/Intent;
 
     iput p4, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnection;->mBindingFlags:I
@@ -96,59 +100,102 @@
 
 # virtual methods
 .method protected bindService(Landroid/content/ServiceConnection;)Z
-    .locals 6
+    .locals 10
+
+    const/4 v0, 0x3
 
     :try_start_0
-    iget-object v0, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnection;->mContext:Landroid/content/Context;
+    iget-object v1, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnection;->this$0:Lcom/android/server/voiceinteraction/HotwordDetectionConnection;
 
-    iget-object v1, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnection;->mIntent:Landroid/content/Intent;
+    invoke-static {v1}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->access$600(Lcom/android/server/voiceinteraction/HotwordDetectionConnection;)I
 
-    const v2, 0x4000001
+    move-result v1
 
-    iget v3, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnection;->mBindingFlags:I
+    const/4 v2, 0x1
 
-    or-int/2addr v2, v3
+    iget-object v3, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnection;->this$0:Lcom/android/server/voiceinteraction/HotwordDetectionConnection;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    iget v3, v3, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->mVoiceInteractionServiceUid:I
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v1, v2, v3}, Lcom/android/server/voiceinteraction/HotwordMetricsLogger;->writeDetectorEvent(III)V
 
-    const-string v4, "hotword_detector_"
+    iget-object v4, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnection;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object v5, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnection;->mIntent:Landroid/content/Intent;
 
-    iget v4, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnection;->mInstanceNumber:I
+    const v1, 0x4000001
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    iget v2, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnection;->mBindingFlags:I
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    or-int v6, v2, v1
 
-    move-result-object v3
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    iget-object v4, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnection;->mExecutor:Ljava/util/concurrent/Executor;
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-object v5, p1
+    const-string v2, "hotword_detector_"
 
-    invoke-virtual/range {v0 .. v5}, Landroid/content/Context;->bindIsolatedService(Landroid/content/Intent;ILjava/lang/String;Ljava/util/concurrent/Executor;Landroid/content/ServiceConnection;)Z
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result v0
+    iget v2, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnection;->mInstanceNumber:I
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    iget-object v8, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnection;->mExecutor:Ljava/util/concurrent/Executor;
+
+    move-object v9, p1
+
+    invoke-virtual/range {v4 .. v9}, Landroid/content/Context;->bindIsolatedService(Landroid/content/Intent;ILjava/lang/String;Ljava/util/concurrent/Executor;Landroid/content/ServiceConnection;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    iget-object v2, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnection;->this$0:Lcom/android/server/voiceinteraction/HotwordDetectionConnection;
+
+    invoke-static {v2}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->access$600(Lcom/android/server/voiceinteraction/HotwordDetectionConnection;)I
+
+    move-result v2
+
+    iget-object v3, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnection;->this$0:Lcom/android/server/voiceinteraction/HotwordDetectionConnection;
+
+    iget v3, v3, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->mVoiceInteractionServiceUid:I
+
+    invoke-static {v2, v0, v3}, Lcom/android/server/voiceinteraction/HotwordMetricsLogger;->writeDetectorEvent(III)V
     :try_end_0
     .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return v0
+    :cond_0
+    return v1
 
     :catch_0
-    move-exception v0
+    move-exception v1
 
-    const-string v1, "HotwordDetectionConnection"
+    iget-object v2, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnection;->this$0:Lcom/android/server/voiceinteraction/HotwordDetectionConnection;
+
+    invoke-static {v2}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->access$600(Lcom/android/server/voiceinteraction/HotwordDetectionConnection;)I
+
+    move-result v2
+
+    iget-object v3, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnection;->this$0:Lcom/android/server/voiceinteraction/HotwordDetectionConnection;
+
+    iget v3, v3, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->mVoiceInteractionServiceUid:I
+
+    invoke-static {v2, v0, v3}, Lcom/android/server/voiceinteraction/HotwordMetricsLogger;->writeDetectorEvent(III)V
+
+    const-string v0, "HotwordDetectionConnection"
 
     const-string v2, "Can\'t bind to the hotword detection service!"
 
-    invoke-static {v1, v2, v0}, Landroid/util/Slog;->wtf(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v0, v2, v1}, Landroid/util/Slog;->wtf(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    return v1
+    return v0
 .end method
 
 .method public binderDied()V
@@ -187,7 +234,7 @@
     :try_start_1
     iget-object v1, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnection;->this$0:Lcom/android/server/voiceinteraction/HotwordDetectionConnection;
 
-    invoke-static {v1}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->access$1100(Lcom/android/server/voiceinteraction/HotwordDetectionConnection;)Lcom/android/internal/app/IHotwordRecognitionStatusCallback;
+    invoke-static {v1}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->access$1300(Lcom/android/server/voiceinteraction/HotwordDetectionConnection;)Lcom/android/internal/app/IHotwordRecognitionStatusCallback;
 
     move-result-object v1
 
@@ -306,7 +353,7 @@
 .end method
 
 .method protected onServiceConnectionStatusChanged(Landroid/service/voice/IHotwordDetectionService;Z)V
-    .locals 3
+    .locals 4
 
     iget-object v0, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnection;->mLock:Ljava/lang/Object;
 
@@ -330,6 +377,31 @@
     :cond_0
     iput-boolean p2, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnection;->mIsBound:Z
 
+    if-eqz p2, :cond_1
+
+    iget-boolean v1, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnection;->mIsLoggedFirstConnect:Z
+
+    if-nez v1, :cond_1
+
+    const/4 v1, 0x1
+
+    iput-boolean v1, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnection;->mIsLoggedFirstConnect:Z
+
+    iget-object v1, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnection;->this$0:Lcom/android/server/voiceinteraction/HotwordDetectionConnection;
+
+    invoke-static {v1}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->access$600(Lcom/android/server/voiceinteraction/HotwordDetectionConnection;)I
+
+    move-result v1
+
+    const/4 v2, 0x2
+
+    iget-object v3, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnection;->this$0:Lcom/android/server/voiceinteraction/HotwordDetectionConnection;
+
+    iget v3, v3, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->mVoiceInteractionServiceUid:I
+
+    invoke-static {v1, v2, v3}, Lcom/android/server/voiceinteraction/HotwordMetricsLogger;->writeDetectorEvent(III)V
+
+    :cond_1
     monitor-exit v0
 
     return-void

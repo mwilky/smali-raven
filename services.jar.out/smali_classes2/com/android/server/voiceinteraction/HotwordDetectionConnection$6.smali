@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->lambda$updateServiceIdentity$12$HotwordDetectionConnection(Landroid/service/voice/IHotwordDetectionService;)V
+    value = Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->lambda$updateServiceIdentity$13$HotwordDetectionConnection(Landroid/service/voice/IHotwordDetectionService;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -77,7 +77,7 @@
 
     iget-object v1, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$6;->this$0:Lcom/android/server/voiceinteraction/HotwordDetectionConnection;
 
-    invoke-static {v1, v0}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->access$1200(Lcom/android/server/voiceinteraction/HotwordDetectionConnection;I)V
+    invoke-static {v1, v0}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->access$1400(Lcom/android/server/voiceinteraction/HotwordDetectionConnection;I)V
 
     return-void
 .end method

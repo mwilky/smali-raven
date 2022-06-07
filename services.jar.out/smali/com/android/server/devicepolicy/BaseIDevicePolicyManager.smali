@@ -68,6 +68,12 @@
     return-object v0
 .end method
 
+.method public finalizeWorkProfileProvisioning(Landroid/os/UserHandle;Landroid/accounts/Account;)V
+    .locals 0
+
+    return-void
+.end method
+
 .method public getDeviceOwnerType(Landroid/content/ComponentName;)I
     .locals 1
 

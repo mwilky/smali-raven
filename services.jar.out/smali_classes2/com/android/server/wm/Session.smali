@@ -1051,14 +1051,14 @@
     throw v2
 .end method
 
-.method public grantInputChannel(ILandroid/view/SurfaceControl;Landroid/view/IWindow;Landroid/os/IBinder;IIILandroid/view/InputChannel;)V
-    .locals 16
+.method public grantInputChannel(ILandroid/view/SurfaceControl;Landroid/view/IWindow;Landroid/os/IBinder;IIILandroid/os/IBinder;Landroid/view/InputChannel;)V
+    .locals 17
 
-    move-object/from16 v13, p0
+    move-object/from16 v14, p0
 
     if-nez p4, :cond_1
 
-    iget-boolean v0, v13, Lcom/android/server/wm/Session;->mCanAddInternalSystemWindow:Z
+    iget-boolean v0, v14, Lcom/android/server/wm/Session;->mCanAddInternalSystemWindow:Z
 
     if-eqz v0, :cond_0
 
@@ -1075,7 +1075,7 @@
 
     :cond_1
     :goto_0
-    iget-boolean v0, v13, Lcom/android/server/wm/Session;->mCanAddInternalSystemWindow:Z
+    iget-boolean v0, v14, Lcom/android/server/wm/Session;->mCanAddInternalSystemWindow:Z
 
     if-nez v0, :cond_2
 
@@ -1090,16 +1090,16 @@
     :cond_2
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
-    move-result-wide v14
+    move-result-wide v15
 
     :try_start_0
-    iget-object v1, v13, Lcom/android/server/wm/Session;->mService:Lcom/android/server/wm/WindowManagerService;
+    iget-object v1, v14, Lcom/android/server/wm/Session;->mService:Lcom/android/server/wm/WindowManagerService;
 
-    iget v3, v13, Lcom/android/server/wm/Session;->mUid:I
+    iget v3, v14, Lcom/android/server/wm/Session;->mUid:I
 
-    iget v4, v13, Lcom/android/server/wm/Session;->mPid:I
+    iget v4, v14, Lcom/android/server/wm/Session;->mPid:I
 
-    iget-boolean v0, v13, Lcom/android/server/wm/Session;->mCanAddInternalSystemWindow:Z
+    iget-boolean v0, v14, Lcom/android/server/wm/Session;->mCanAddInternalSystemWindow:Z
 
     const/4 v2, 0x0
 
@@ -1137,11 +1137,13 @@
 
     move-object/from16 v12, p8
 
-    invoke-virtual/range {v1 .. v12}, Lcom/android/server/wm/WindowManagerService;->grantInputChannel(Lcom/android/server/wm/Session;IIILandroid/view/SurfaceControl;Landroid/view/IWindow;Landroid/os/IBinder;IIILandroid/view/InputChannel;)V
+    move-object/from16 v13, p9
+
+    invoke-virtual/range {v1 .. v13}, Lcom/android/server/wm/WindowManagerService;->grantInputChannel(Lcom/android/server/wm/Session;IIILandroid/view/SurfaceControl;Landroid/view/IWindow;Landroid/os/IBinder;IIILandroid/os/IBinder;Landroid/view/InputChannel;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    invoke-static {v14, v15}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static/range {v15 .. v16}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     nop
 
@@ -1150,7 +1152,7 @@
     :catchall_0
     move-exception v0
 
-    invoke-static {v14, v15}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static/range {v15 .. v16}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     throw v0
 .end method

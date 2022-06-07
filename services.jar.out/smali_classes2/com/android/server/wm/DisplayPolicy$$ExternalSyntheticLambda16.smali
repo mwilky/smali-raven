@@ -41,7 +41,7 @@
 
     check-cast p1, Lcom/android/server/statusbar/StatusBarManagerInternal;
 
-    invoke-static {v0, v1, v2, p1}, Lcom/android/server/wm/DisplayPolicy;->lambda$updateSystemBarAttributes$18(IILjava/lang/String;Lcom/android/server/statusbar/StatusBarManagerInternal;)V
+    invoke-static {v0, v1, v2, p1}, Lcom/android/server/wm/DisplayPolicy;->lambda$updateSystemBarAttributes$20(IILjava/lang/String;Lcom/android/server/statusbar/StatusBarManagerInternal;)V
 
     return-void
 .end method

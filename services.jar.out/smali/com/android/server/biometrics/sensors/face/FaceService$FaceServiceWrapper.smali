@@ -187,7 +187,7 @@
 .end method
 
 .method private addHidlProviders(Ljava/util/List;)V
-    .locals 6
+    .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -220,21 +220,21 @@
 
     move-result-object v2
 
-    new-instance v3, Lcom/android/server/biometrics/sensors/face/hidl/Face10;
+    iget-object v3, p0, Lcom/android/server/biometrics/sensors/face/FaceService$FaceServiceWrapper;->this$0:Lcom/android/server/biometrics/sensors/face/FaceService;
+
+    invoke-virtual {v3}, Lcom/android/server/biometrics/sensors/face/FaceService;->getContext()Landroid/content/Context;
+
+    move-result-object v3
 
     iget-object v4, p0, Lcom/android/server/biometrics/sensors/face/FaceService$FaceServiceWrapper;->this$0:Lcom/android/server/biometrics/sensors/face/FaceService;
 
-    invoke-virtual {v4}, Lcom/android/server/biometrics/sensors/face/FaceService;->getContext()Landroid/content/Context;
+    invoke-static {v4}, Lcom/android/server/biometrics/sensors/face/FaceService;->access$500(Lcom/android/server/biometrics/sensors/face/FaceService;)Lcom/android/server/biometrics/sensors/LockoutResetDispatcher;
 
     move-result-object v4
 
-    iget-object v5, p0, Lcom/android/server/biometrics/sensors/face/FaceService$FaceServiceWrapper;->this$0:Lcom/android/server/biometrics/sensors/face/FaceService;
+    invoke-static {v3, v1, v4}, Lcom/android/server/biometrics/sensors/face/hidl/Face10;->newInstance(Landroid/content/Context;Landroid/hardware/face/FaceSensorPropertiesInternal;Lcom/android/server/biometrics/sensors/LockoutResetDispatcher;)Lcom/android/server/biometrics/sensors/face/hidl/Face10;
 
-    invoke-static {v5}, Lcom/android/server/biometrics/sensors/face/FaceService;->access$500(Lcom/android/server/biometrics/sensors/face/FaceService;)Lcom/android/server/biometrics/sensors/LockoutResetDispatcher;
-
-    move-result-object v5
-
-    invoke-direct {v3, v4, v1, v5}, Lcom/android/server/biometrics/sensors/face/hidl/Face10;-><init>(Landroid/content/Context;Landroid/hardware/face/FaceSensorPropertiesInternal;Lcom/android/server/biometrics/sensors/LockoutResetDispatcher;)V
+    move-result-object v3
 
     invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
@@ -469,7 +469,7 @@
     return-void
 .end method
 
-.method public cancelEnrollment(Landroid/os/IBinder;)V
+.method public cancelEnrollment(Landroid/os/IBinder;J)V
     .locals 3
 
     iget-object v0, p0, Lcom/android/server/biometrics/sensors/face/FaceService$FaceServiceWrapper;->this$0:Lcom/android/server/biometrics/sensors/face/FaceService;
@@ -511,7 +511,7 @@
 
     move-result v2
 
-    invoke-interface {v1, v2, p1}, Lcom/android/server/biometrics/sensors/face/ServiceProvider;->cancelEnrollment(ILandroid/os/IBinder;)V
+    invoke-interface {v1, v2, p1, p2, p3}, Lcom/android/server/biometrics/sensors/face/ServiceProvider;->cancelEnrollment(ILandroid/os/IBinder;J)V
 
     return-void
 .end method
@@ -1173,7 +1173,7 @@
     return-object v2
 .end method
 
-.method public enroll(ILandroid/os/IBinder;[BLandroid/hardware/face/IFaceServiceReceiver;Ljava/lang/String;[ILandroid/view/Surface;Z)V
+.method public enroll(ILandroid/os/IBinder;[BLandroid/hardware/face/IFaceServiceReceiver;Ljava/lang/String;[ILandroid/view/Surface;Z)J
     .locals 13
 
     move-object v0, p0
@@ -1202,7 +1202,9 @@
 
     invoke-static {v2, v3}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    return-void
+    const-wide/16 v2, -0x1
+
+    return-wide v2
 
     :cond_0
     iget-object v2, v1, Landroid/util/Pair;->second:Ljava/lang/Object;
@@ -1235,12 +1237,14 @@
 
     move/from16 v12, p8
 
-    invoke-interface/range {v3 .. v12}, Lcom/android/server/biometrics/sensors/face/ServiceProvider;->scheduleEnroll(ILandroid/os/IBinder;[BILandroid/hardware/face/IFaceServiceReceiver;Ljava/lang/String;[ILandroid/view/Surface;Z)V
+    invoke-interface/range {v3 .. v12}, Lcom/android/server/biometrics/sensors/face/ServiceProvider;->scheduleEnroll(ILandroid/os/IBinder;[BILandroid/hardware/face/IFaceServiceReceiver;Ljava/lang/String;[ILandroid/view/Surface;Z)J
 
-    return-void
+    move-result-wide v2
+
+    return-wide v2
 .end method
 
-.method public enrollRemotely(ILandroid/os/IBinder;[BLandroid/hardware/face/IFaceServiceReceiver;Ljava/lang/String;[I)V
+.method public enrollRemotely(ILandroid/os/IBinder;[BLandroid/hardware/face/IFaceServiceReceiver;Ljava/lang/String;[I)J
     .locals 2
 
     iget-object v0, p0, Lcom/android/server/biometrics/sensors/face/FaceService$FaceServiceWrapper;->this$0:Lcom/android/server/biometrics/sensors/face/FaceService;
@@ -1253,7 +1257,9 @@
 
     invoke-static {v0, v1}, Lcom/android/server/biometrics/Utils;->checkPermission(Landroid/content/Context;Ljava/lang/String;)V
 
-    return-void
+    const-wide/16 v0, -0x1
+
+    return-wide v0
 .end method
 
 .method public generateChallenge(Landroid/os/IBinder;IILandroid/hardware/face/IFaceServiceReceiver;Ljava/lang/String;)V

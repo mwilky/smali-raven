@@ -67,7 +67,7 @@
 
     const/4 v2, 0x0
 
-    invoke-static {v0, v1, v2}, Lcom/android/server/vcn/VcnGatewayConnection;->access$4000(Lcom/android/server/vcn/VcnGatewayConnection;ILjava/lang/Exception;)V
+    invoke-static {v0, v1, v2}, Lcom/android/server/vcn/VcnGatewayConnection;->access$3900(Lcom/android/server/vcn/VcnGatewayConnection;ILjava/lang/Exception;)V
 
     return-void
 .end method
@@ -93,13 +93,13 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1, p1}, Lcom/android/server/vcn/VcnGatewayConnection;->access$3300(Lcom/android/server/vcn/VcnGatewayConnection;Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-static {v0, v1, p1}, Lcom/android/server/vcn/VcnGatewayConnection;->access$3200(Lcom/android/server/vcn/VcnGatewayConnection;Ljava/lang/String;Ljava/lang/Throwable;)V
 
     iget-object v0, p0, Lcom/android/server/vcn/VcnGatewayConnection$IkeSessionCallbackImpl;->this$0:Lcom/android/server/vcn/VcnGatewayConnection;
 
     iget v1, p0, Lcom/android/server/vcn/VcnGatewayConnection$IkeSessionCallbackImpl;->mToken:I
 
-    invoke-static {v0, v1, p1}, Lcom/android/server/vcn/VcnGatewayConnection;->access$4000(Lcom/android/server/vcn/VcnGatewayConnection;ILjava/lang/Exception;)V
+    invoke-static {v0, v1, p1}, Lcom/android/server/vcn/VcnGatewayConnection;->access$3900(Lcom/android/server/vcn/VcnGatewayConnection;ILjava/lang/Exception;)V
 
     return-void
 .end method
@@ -125,7 +125,7 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1, p1}, Lcom/android/server/vcn/VcnGatewayConnection;->access$3300(Lcom/android/server/vcn/VcnGatewayConnection;Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-static {v0, v1, p1}, Lcom/android/server/vcn/VcnGatewayConnection;->access$3200(Lcom/android/server/vcn/VcnGatewayConnection;Ljava/lang/String;Ljava/lang/Throwable;)V
 
     return-void
 .end method

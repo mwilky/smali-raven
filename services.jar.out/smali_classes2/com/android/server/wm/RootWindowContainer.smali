@@ -229,7 +229,7 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    sget-object v0, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda39;->INSTANCE:Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda39;
+    sget-object v0, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda38;->INSTANCE:Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda38;
 
     sput-object v0, Lcom/android/server/wm/RootWindowContainer;->sRemoveReplacedWindowsConsumer:Ljava/util/function/Consumer;
 
@@ -1507,28 +1507,48 @@
     return v0
 .end method
 
-.method static synthetic lambda$getDumpActivities$39(ZLjava/util/ArrayList;Ljava/lang/String;Lcom/android/server/wm/Task;)V
-    .locals 1
+.method static synthetic lambda$getDumpActivities$39(IZLjava/util/ArrayList;Ljava/lang/String;Lcom/android/server/wm/Task;)Ljava/lang/Boolean;
+    .locals 3
 
-    if-eqz p0, :cond_0
+    iget v0, p4, Lcom/android/server/wm/Task;->effectiveUid:I
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    invoke-virtual {p3, v0}, Lcom/android/server/wm/Task;->shouldBeVisible(Lcom/android/server/wm/ActivityRecord;)Z
+    if-ne v0, p0, :cond_0
 
-    move-result v0
+    const/4 v0, 0x1
 
-    if-eqz v0, :cond_1
+    goto :goto_0
 
     :cond_0
-    invoke-virtual {p3, p2}, Lcom/android/server/wm/Task;->getDumpActivitiesLocked(Ljava/lang/String;)Ljava/util/ArrayList;
+    move v0, v1
 
-    move-result-object v0
+    :goto_0
+    if-eqz p1, :cond_1
 
-    invoke-virtual {p1, v0}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
+    const/4 v2, 0x0
+
+    invoke-virtual {p4, v2}, Lcom/android/server/wm/Task;->shouldBeVisible(Lcom/android/server/wm/ActivityRecord;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_1
+
+    if-eqz v0, :cond_2
 
     :cond_1
-    return-void
+    invoke-virtual {p4, p3}, Lcom/android/server/wm/Task;->getDumpActivitiesLocked(Ljava/lang/String;)Ljava/util/ArrayList;
+
+    move-result-object v2
+
+    invoke-virtual {p2, v2}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
+
+    :cond_2
+    invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v1
+
+    return-object v1
 .end method
 
 .method static synthetic lambda$getRootTaskInfo$22(Lcom/android/server/wm/Task;[Z[ILcom/android/server/wm/Task;)Ljava/lang/Boolean;
@@ -3306,7 +3326,7 @@
 
     invoke-virtual {v13, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    new-instance v11, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda34;
+    new-instance v11, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda33;
 
     move-object v1, v11
 
@@ -3324,15 +3344,15 @@
 
     move-object v8, v15
 
-    invoke-direct/range {v1 .. v8}, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda34;-><init>([ZLjava/io/PrintWriter;Ljava/io/FileDescriptor;ZZLjava/lang/String;[Z)V
+    invoke-direct/range {v1 .. v8}, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda33;-><init>([ZLjava/io/PrintWriter;Ljava/io/FileDescriptor;ZZLjava/lang/String;[Z)V
 
     invoke-virtual {v10, v11}, Lcom/android/server/wm/DisplayContent;->forAllRootTasks(Ljava/util/function/Consumer;)V
 
-    new-instance v1, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda35;
+    new-instance v1, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda34;
 
     move-object/from16 v11, p5
 
-    invoke-direct {v1, v15, v13, v11, v12}, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda35;-><init>([ZLjava/io/PrintWriter;Ljava/lang/String;[Z)V
+    invoke-direct {v1, v15, v13, v11, v12}, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda34;-><init>([ZLjava/io/PrintWriter;Ljava/lang/String;[Z)V
 
     invoke-virtual {v10, v1}, Lcom/android/server/wm/DisplayContent;->forAllTaskDisplayAreas(Ljava/util/function/Consumer;)V
 
@@ -4792,7 +4812,7 @@
 .end method
 
 .method getDumpActivities(Ljava/lang/String;ZZ)Ljava/util/ArrayList;
-    .locals 2
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -4826,17 +4846,39 @@
     return-object v1
 
     :cond_1
-    new-instance v0, Ljava/util/ArrayList;
+    iget-object v0, p0, Lcom/android/server/wm/RootWindowContainer;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    iget-object v0, v0, Lcom/android/server/wm/WindowManagerService;->mAtmService:Lcom/android/server/wm/ActivityTaskManagerService;
 
-    new-instance v1, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda32;
+    invoke-virtual {v0}, Lcom/android/server/wm/ActivityTaskManagerService;->getRecentTasks()Lcom/android/server/wm/RecentTasks;
 
-    invoke-direct {v1, p2, v0, p1}, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda32;-><init>(ZLjava/util/ArrayList;Ljava/lang/String;)V
+    move-result-object v0
 
-    invoke-virtual {p0, v1}, Lcom/android/server/wm/RootWindowContainer;->forAllRootTasks(Ljava/util/function/Consumer;)V
+    if-eqz v0, :cond_2
 
-    return-object v0
+    invoke-virtual {v0}, Lcom/android/server/wm/RecentTasks;->getRecentsComponentUid()I
+
+    move-result v1
+
+    goto :goto_0
+
+    :cond_2
+    const/4 v1, -0x1
+
+    :goto_0
+    nop
+
+    new-instance v2, Ljava/util/ArrayList;
+
+    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
+
+    new-instance v3, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda40;
+
+    invoke-direct {v3, v1, p2, v2, p1}, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda40;-><init>(IZLjava/util/ArrayList;Ljava/lang/String;)V
+
+    invoke-virtual {p0, v3}, Lcom/android/server/wm/RootWindowContainer;->forAllLeafTasks(Ljava/util/function/Function;)Z
+
+    return-object v2
 .end method
 
 .method getLaunchRootTask(Lcom/android/server/wm/ActivityRecord;Landroid/app/ActivityOptions;Lcom/android/server/wm/Task;Lcom/android/server/wm/Task;ZLcom/android/server/wm/LaunchParamsController$LaunchParams;III)Lcom/android/server/wm/Task;
@@ -6611,7 +6653,7 @@
     goto :goto_0
 
     :cond_0
-    sget-object v1, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda38;->INSTANCE:Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda38;
+    sget-object v1, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda37;->INSTANCE:Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda37;
 
     const/4 v2, 0x1
 
@@ -8532,7 +8574,7 @@
     goto :goto_9
 
     :cond_1d
-    sget-object v3, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda37;->INSTANCE:Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda37;
+    sget-object v3, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda36;->INSTANCE:Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda36;
 
     invoke-virtual {p0, v3}, Lcom/android/server/wm/RootWindowContainer;->forAllDisplays(Ljava/util/function/Consumer;)V
 
@@ -8601,9 +8643,9 @@
 
     move-object v0, v1
 
-    new-instance v1, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda33;
+    new-instance v1, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda32;
 
-    invoke-direct {v1, p1, v0, p2}, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda33;-><init>(Z[ZZ)V
+    invoke-direct {v1, p1, v0, p2}, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda32;-><init>(Z[ZZ)V
 
     invoke-virtual {p0, v1}, Lcom/android/server/wm/RootWindowContainer;->forAllRootTasks(Ljava/util/function/Consumer;)V
 
@@ -10722,9 +10764,9 @@
 
     move-object v0, v3
 
-    new-instance v3, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda36;
+    new-instance v3, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda35;
 
-    invoke-direct {v3, v1, v0, p2}, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda36;-><init>([Z[ZLcom/android/server/wm/ActivityRecord;)V
+    invoke-direct {v3, v1, v0, p2}, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda35;-><init>([Z[ZLcom/android/server/wm/ActivityRecord;)V
 
     invoke-virtual {p0, v3}, Lcom/android/server/wm/RootWindowContainer;->forAllTaskDisplayAreas(Ljava/util/function/Consumer;)V
 
@@ -10986,7 +11028,7 @@
 .method updateAppOpsState()V
     .locals 2
 
-    sget-object v0, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda40;->INSTANCE:Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda40;
+    sget-object v0, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda39;->INSTANCE:Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda39;
 
     const/4 v1, 0x0
 

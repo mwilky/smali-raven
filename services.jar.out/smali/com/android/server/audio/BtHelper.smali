@@ -633,6 +633,11 @@
     goto/16 :goto_0
 
     :pswitch_4
+    invoke-direct {p0, v1}, Lcom/android/server/audio/BtHelper;->broadcastScoConnectionState(I)V
+
+    goto/16 :goto_0
+
+    :pswitch_5
     iput p2, p0, Lcom/android/server/audio/BtHelper;->mScoAudioMode:I
 
     const/4 v0, -0x1
@@ -806,7 +811,7 @@
 
     packed-switch v4, :pswitch_data_1
 
-    :pswitch_5
+    :pswitch_6
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -833,7 +838,7 @@
 
     return v3
 
-    :pswitch_6
+    :pswitch_7
     iget-object v0, p0, Lcom/android/server/audio/BtHelper;->mBluetoothHeadset:Landroid/bluetooth/BluetoothHeadset;
 
     if-nez v0, :cond_8
@@ -908,7 +913,7 @@
 
     goto :goto_0
 
-    :pswitch_7
+    :pswitch_8
     iput v3, p0, Lcom/android/server/audio/BtHelper;->mScoAudioState:I
 
     invoke-direct {p0, v3}, Lcom/android/server/audio/BtHelper;->broadcastScoConnectionState(I)V
@@ -917,13 +922,11 @@
     :goto_0
     return v1
 
-    nop
-
     :pswitch_data_0
     .packed-switch 0x0
+        :pswitch_5
+        :pswitch_0
         :pswitch_4
-        :pswitch_0
-        :pswitch_0
         :pswitch_3
         :pswitch_2
         :pswitch_1
@@ -931,9 +934,9 @@
 
     :pswitch_data_1
     .packed-switch 0x1
-        :pswitch_7
-        :pswitch_5
+        :pswitch_8
         :pswitch_6
+        :pswitch_7
     .end packed-switch
 .end method
 
@@ -2014,6 +2017,150 @@
     throw p1
 .end method
 
+.method onScoAudioStateChanged(I)V
+    .locals 8
+
+    const/4 v0, 0x0
+
+    const/4 v1, -0x1
+
+    const/4 v2, 0x4
+
+    const/4 v3, 0x1
+
+    const-string v4, "BtHelper.receiveBtEvent"
+
+    const/4 v5, 0x2
+
+    const/4 v6, 0x3
+
+    packed-switch p1, :pswitch_data_0
+
+    goto :goto_1
+
+    :pswitch_0
+    const/4 v1, 0x1
+
+    iget v7, p0, Lcom/android/server/audio/BtHelper;->mScoAudioState:I
+
+    if-eq v7, v6, :cond_0
+
+    if-eq v7, v2, :cond_0
+
+    iput v5, p0, Lcom/android/server/audio/BtHelper;->mScoAudioState:I
+
+    goto :goto_0
+
+    :cond_0
+    iget-object v2, p0, Lcom/android/server/audio/BtHelper;->mDeviceBroker:Lcom/android/server/audio/AudioDeviceBroker;
+
+    invoke-virtual {v2}, Lcom/android/server/audio/AudioDeviceBroker;->isBluetoothScoRequested()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    const/4 v0, 0x1
+
+    :cond_1
+    :goto_0
+    iget-object v2, p0, Lcom/android/server/audio/BtHelper;->mDeviceBroker:Lcom/android/server/audio/AudioDeviceBroker;
+
+    invoke-virtual {v2, v3, v4}, Lcom/android/server/audio/AudioDeviceBroker;->setBluetoothScoOn(ZLjava/lang/String;)V
+
+    goto :goto_1
+
+    :pswitch_1
+    iget v3, p0, Lcom/android/server/audio/BtHelper;->mScoAudioState:I
+
+    if-eq v3, v6, :cond_4
+
+    if-eq v3, v2, :cond_4
+
+    iput v5, p0, Lcom/android/server/audio/BtHelper;->mScoAudioState:I
+
+    goto :goto_1
+
+    :pswitch_2
+    iget-object v2, p0, Lcom/android/server/audio/BtHelper;->mDeviceBroker:Lcom/android/server/audio/AudioDeviceBroker;
+
+    const/4 v7, 0x0
+
+    invoke-virtual {v2, v7, v4}, Lcom/android/server/audio/AudioDeviceBroker;->setBluetoothScoOn(ZLjava/lang/String;)V
+
+    const/4 v1, 0x0
+
+    iget v2, p0, Lcom/android/server/audio/BtHelper;->mScoAudioState:I
+
+    if-ne v2, v3, :cond_2
+
+    iget-object v2, p0, Lcom/android/server/audio/BtHelper;->mBluetoothHeadset:Landroid/bluetooth/BluetoothHeadset;
+
+    if-eqz v2, :cond_2
+
+    iget-object v3, p0, Lcom/android/server/audio/BtHelper;->mBluetoothHeadsetDevice:Landroid/bluetooth/BluetoothDevice;
+
+    if-eqz v3, :cond_2
+
+    iget v4, p0, Lcom/android/server/audio/BtHelper;->mScoAudioMode:I
+
+    invoke-static {v2, v3, v4}, Lcom/android/server/audio/BtHelper;->connectBluetoothScoAudioHelper(Landroid/bluetooth/BluetoothHeadset;Landroid/bluetooth/BluetoothDevice;I)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    iput v6, p0, Lcom/android/server/audio/BtHelper;->mScoAudioState:I
+
+    const/4 v1, 0x2
+
+    const/4 v0, 0x1
+
+    goto :goto_1
+
+    :cond_2
+    iget v2, p0, Lcom/android/server/audio/BtHelper;->mScoAudioState:I
+
+    if-eq v2, v5, :cond_3
+
+    const/4 v0, 0x1
+
+    :cond_3
+    iput v7, p0, Lcom/android/server/audio/BtHelper;->mScoAudioState:I
+
+    nop
+
+    :cond_4
+    :goto_1
+    if-eqz v0, :cond_5
+
+    invoke-direct {p0, v1}, Lcom/android/server/audio/BtHelper;->broadcastScoConnectionState(I)V
+
+    new-instance v2, Landroid/content/Intent;
+
+    const-string v3, "android.media.SCO_AUDIO_STATE_CHANGED"
+
+    invoke-direct {v2, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    const-string v3, "android.media.extra.SCO_AUDIO_STATE"
+
+    invoke-virtual {v2, v3, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+
+    invoke-direct {p0, v2}, Lcom/android/server/audio/BtHelper;->sendStickyBroadcastToAll(Landroid/content/Intent;)V
+
+    :cond_5
+    return-void
+
+    nop
+
+    :pswitch_data_0
+    .packed-switch 0xa
+        :pswitch_2
+        :pswitch_1
+        :pswitch_0
+    .end packed-switch
+.end method
+
 .method declared-synchronized onSystemReady()V
     .locals 5
 
@@ -2088,7 +2235,7 @@
 .end method
 
 .method declared-synchronized receiveBtEvent(Landroid/content/Intent;)V
-    .locals 10
+    .locals 5
 
     monitor-enter p0
 
@@ -2141,7 +2288,7 @@
 
     invoke-direct {p0, v1}, Lcom/android/server/audio/BtHelper;->setBtScoActiveDevice(Landroid/bluetooth/BluetoothDevice;)V
 
-    goto/16 :goto_2
+    goto :goto_0
 
     :cond_0
     const-string v1, "android.bluetooth.headset.profile.action.AUDIO_STATE_CHANGED"
@@ -2150,179 +2297,42 @@
 
     move-result v1
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_1
 
-    const/4 v1, 0x0
+    const-string v1, "android.bluetooth.profile.extra.STATE"
 
     const/4 v2, -0x1
 
-    const-string v3, "android.bluetooth.profile.extra.STATE"
+    invoke-virtual {p1, v1, v2}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
-    const/4 v4, -0x1
+    move-result v1
 
-    invoke-virtual {p1, v3, v4}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    const-string v2, "AS.BtHelper"
 
-    move-result v3
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    const-string v4, "AS.BtHelper"
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    const-string/jumbo v4, "receiveBtEvent ACTION_AUDIO_STATE_CHANGED: "
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v6, "receiveBtEvent ACTION_AUDIO_STATE_CHANGED: "
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v3
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result-object v5
+    iget-object v2, p0, Lcom/android/server/audio/BtHelper;->mDeviceBroker:Lcom/android/server/audio/AudioDeviceBroker;
 
-    invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v4, 0x1
-
-    const/4 v5, 0x4
-
-    const/4 v6, 0x3
-
-    const/4 v7, 0x2
-
-    packed-switch v3, :pswitch_data_0
-
-    goto :goto_1
-
-    :pswitch_0
-    const/4 v2, 0x1
-
-    iget v8, p0, Lcom/android/server/audio/BtHelper;->mScoAudioState:I
-
-    if-eq v8, v6, :cond_1
-
-    if-eq v8, v5, :cond_1
-
-    iput v7, p0, Lcom/android/server/audio/BtHelper;->mScoAudioState:I
-
-    goto :goto_0
-
-    :cond_1
-    iget-object v5, p0, Lcom/android/server/audio/BtHelper;->mDeviceBroker:Lcom/android/server/audio/AudioDeviceBroker;
-
-    invoke-virtual {v5}, Lcom/android/server/audio/AudioDeviceBroker;->isBluetoothScoRequested()Z
-
-    move-result v5
-
-    if-eqz v5, :cond_2
-
-    const/4 v1, 0x1
-
-    :cond_2
-    :goto_0
-    iget-object v5, p0, Lcom/android/server/audio/BtHelper;->mDeviceBroker:Lcom/android/server/audio/AudioDeviceBroker;
-
-    const-string v6, "BtHelper.receiveBtEvent"
-
-    invoke-virtual {v5, v4, v6}, Lcom/android/server/audio/AudioDeviceBroker;->setBluetoothScoOn(ZLjava/lang/String;)V
-
-    goto :goto_1
-
-    :pswitch_1
-    iget v4, p0, Lcom/android/server/audio/BtHelper;->mScoAudioState:I
-
-    if-eq v4, v6, :cond_6
-
-    if-eq v4, v5, :cond_6
-
-    iput v7, p0, Lcom/android/server/audio/BtHelper;->mScoAudioState:I
-
-    goto :goto_1
-
-    :pswitch_2
-    iget-object v5, p0, Lcom/android/server/audio/BtHelper;->mDeviceBroker:Lcom/android/server/audio/AudioDeviceBroker;
-
-    const-string v8, "BtHelper.receiveBtEvent"
-
-    const/4 v9, 0x0
-
-    invoke-virtual {v5, v9, v8}, Lcom/android/server/audio/AudioDeviceBroker;->setBluetoothScoOn(ZLjava/lang/String;)V
-
-    const/4 v2, 0x0
-
-    iget v5, p0, Lcom/android/server/audio/BtHelper;->mScoAudioState:I
-
-    if-eq v5, v4, :cond_3
-
-    if-ne v5, v7, :cond_4
-
-    iget-object v4, p0, Lcom/android/server/audio/BtHelper;->mDeviceBroker:Lcom/android/server/audio/AudioDeviceBroker;
-
-    invoke-virtual {v4}, Lcom/android/server/audio/AudioDeviceBroker;->isBluetoothScoRequested()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_4
-
-    :cond_3
-    iget-object v4, p0, Lcom/android/server/audio/BtHelper;->mBluetoothHeadset:Landroid/bluetooth/BluetoothHeadset;
-
-    if-eqz v4, :cond_4
-
-    iget-object v5, p0, Lcom/android/server/audio/BtHelper;->mBluetoothHeadsetDevice:Landroid/bluetooth/BluetoothDevice;
-
-    if-eqz v5, :cond_4
-
-    iget v8, p0, Lcom/android/server/audio/BtHelper;->mScoAudioMode:I
-
-    invoke-static {v4, v5, v8}, Lcom/android/server/audio/BtHelper;->connectBluetoothScoAudioHelper(Landroid/bluetooth/BluetoothHeadset;Landroid/bluetooth/BluetoothDevice;I)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_4
-
-    iput v6, p0, Lcom/android/server/audio/BtHelper;->mScoAudioState:I
-
-    const/4 v2, 0x2
-
-    const/4 v1, 0x1
-
-    goto :goto_1
-
-    :cond_4
-    iget v4, p0, Lcom/android/server/audio/BtHelper;->mScoAudioState:I
-
-    if-eq v4, v7, :cond_5
-
-    const/4 v1, 0x1
-
-    :cond_5
-    iput v9, p0, Lcom/android/server/audio/BtHelper;->mScoAudioState:I
-
-    nop
-
-    :cond_6
-    :goto_1
-    if-eqz v1, :cond_7
-
-    invoke-direct {p0, v2}, Lcom/android/server/audio/BtHelper;->broadcastScoConnectionState(I)V
-
-    new-instance v4, Landroid/content/Intent;
-
-    const-string v5, "android.media.SCO_AUDIO_STATE_CHANGED"
-
-    invoke-direct {v4, v5}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    const-string v5, "android.media.extra.SCO_AUDIO_STATE"
-
-    invoke-virtual {v4, v5, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
-
-    invoke-direct {p0, v4}, Lcom/android/server/audio/BtHelper;->sendStickyBroadcastToAll(Landroid/content/Intent;)V
+    invoke-virtual {v2, v1}, Lcom/android/server/audio/AudioDeviceBroker;->postScoAudioStateChanged(I)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :cond_7
-    :goto_2
+    :cond_1
+    :goto_0
     monitor-exit p0
 
     return-void
@@ -2333,13 +2343,6 @@
     monitor-exit p0
 
     throw p1
-
-    :pswitch_data_0
-    .packed-switch 0xa
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
-    .end packed-switch
 .end method
 
 .method declared-synchronized resetBluetoothSco()V

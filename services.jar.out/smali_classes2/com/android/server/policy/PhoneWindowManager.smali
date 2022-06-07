@@ -8778,7 +8778,7 @@
 
     nop
 
-    const v1, 0x111017f
+    const v1, 0x1110180
 
     invoke-virtual {v11, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -8788,7 +8788,7 @@
 
     nop
 
-    const v1, 0x111017d
+    const v1, 0x111017e
 
     invoke-virtual {v11, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -8798,7 +8798,7 @@
 
     nop
 
-    const v1, 0x111017e
+    const v1, 0x111017f
 
     invoke-virtual {v11, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -14232,7 +14232,7 @@
 
     move-result-object v3
 
-    const v7, 0x111017c
+    const v7, 0x111017d
 
     invoke-virtual {v3, v7}, Landroid/content/res/Resources;->getBoolean(I)Z
 

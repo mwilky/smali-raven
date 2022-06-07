@@ -40,11 +40,11 @@
 
 .field public static final FACTORY_RESET_FLAG_WIPE_FACTORY_RESET_PROTECTION:I = 0x8
 
+.field static final NEW_USER_DISCLAIMER_ACKNOWLEDGED:Ljava/lang/String; = "acked"
+
 .field static final NEW_USER_DISCLAIMER_NEEDED:Ljava/lang/String; = "needed"
 
 .field static final NEW_USER_DISCLAIMER_NOT_NEEDED:Ljava/lang/String; = "not_needed"
-
-.field static final NEW_USER_DISCLAIMER_SHOWN:Ljava/lang/String; = "shown"
 
 .field private static final TAG:Ljava/lang/String; = "DevicePolicyManager"
 
@@ -2863,6 +2863,137 @@
     invoke-virtual {p1}, Landroid/util/IndentingPrintWriter;->decreaseIndent()Landroid/util/IndentingPrintWriter;
 
     return-void
+.end method
+
+.method isNewUserDisclaimerAcknowledged()Z
+    .locals 7
+
+    iget-object v0, p0, Lcom/android/server/devicepolicy/DevicePolicyData;->mNewUserDisclaimer:Ljava/lang/String;
+
+    const-string v1, "DevicePolicyManager"
+
+    const/4 v2, 0x1
+
+    const/4 v3, 0x0
+
+    if-nez v0, :cond_1
+
+    iget v0, p0, Lcom/android/server/devicepolicy/DevicePolicyData;->mUserId:I
+
+    if-nez v0, :cond_0
+
+    return v2
+
+    :cond_0
+    new-array v2, v2, [Ljava/lang/Object;
+
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v0
+
+    aput-object v0, v2, v3
+
+    const-string/jumbo v0, "isNewUserDisclaimerAcknowledged(%d): mNewUserDisclaimer is null"
+
+    invoke-static {v1, v0, v2}, Lcom/android/server/utils/Slogf;->w(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V
+
+    return v3
+
+    :cond_1
+    const/4 v4, -0x1
+
+    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
+
+    move-result v5
+
+    const/4 v6, 0x2
+
+    sparse-switch v5, :sswitch_data_0
+
+    :cond_2
+    goto :goto_0
+
+    :sswitch_0
+    const-string v5, "acked"
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    move v4, v3
+
+    goto :goto_0
+
+    :sswitch_1
+    const-string/jumbo v5, "needed"
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    move v4, v6
+
+    goto :goto_0
+
+    :sswitch_2
+    const-string/jumbo v5, "not_needed"
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    move v4, v2
+
+    :goto_0
+    packed-switch v4, :pswitch_data_0
+
+    new-array v0, v6, [Ljava/lang/Object;
+
+    iget v4, p0, Lcom/android/server/devicepolicy/DevicePolicyData;->mUserId:I
+
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    aput-object v4, v0, v3
+
+    iget-object v4, p0, Lcom/android/server/devicepolicy/DevicePolicyData;->mNewUserDisclaimer:Ljava/lang/String;
+
+    aput-object v4, v0, v2
+
+    const-string/jumbo v2, "isNewUserDisclaimerAcknowledged(%d): invalid value %d"
+
+    invoke-static {v1, v2, v0}, Lcom/android/server/utils/Slogf;->w(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V
+
+    return v3
+
+    :pswitch_0
+    return v3
+
+    :pswitch_1
+    return v2
+
+    nop
+
+    :sswitch_data_0
+    .sparse-switch
+        -0x49d9295f -> :sswitch_2
+        -0x3e8c384b -> :sswitch_1
+        0x58586e8 -> :sswitch_0
+    .end sparse-switch
+
+    :pswitch_data_0
+    .packed-switch 0x0
+        :pswitch_1
+        :pswitch_1
+        :pswitch_0
+    .end packed-switch
 .end method
 
 .method setDelayedFactoryReset(Ljava/lang/String;ZZZ)V

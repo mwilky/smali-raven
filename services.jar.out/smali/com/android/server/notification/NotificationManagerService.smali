@@ -15790,7 +15790,7 @@
 
     iput v0, v1, Lcom/android/server/notification/NotificationManagerService;->mInCallNotificationVolume:F
 
-    const v0, 0x1110168
+    const v0, 0x1110169
 
     invoke-virtual {v5, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -20924,7 +20924,7 @@
 .end method
 
 .method showNextToastLocked(Z)V
-    .locals 9
+    .locals 12
 
     iget-boolean v0, p0, Lcom/android/server/notification/NotificationManagerService;->mIsCurrentToastShown:Z
 
@@ -21030,42 +21030,54 @@
     return-void
 
     :cond_4
-    iget-object v4, p0, Lcom/android/server/notification/NotificationManagerService;->mToastQueue:Ljava/util/ArrayList;
-
-    invoke-virtual {v4, v0}, Ljava/util/ArrayList;->indexOf(Ljava/lang/Object;)I
-
-    move-result v4
-
-    if-ltz v4, :cond_5
-
     iget-object v7, p0, Lcom/android/server/notification/NotificationManagerService;->mToastQueue:Ljava/util/ArrayList;
 
-    invoke-virtual {v7, v4}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
-
-    :cond_5
-    iget-object v7, p0, Lcom/android/server/notification/NotificationManagerService;->mToastQueue:Ljava/util/ArrayList;
-
-    invoke-virtual {v7}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v7, v0}, Ljava/util/ArrayList;->indexOf(Ljava/lang/Object;)I
 
     move-result v7
 
-    if-lez v7, :cond_6
+    if-ltz v7, :cond_5
 
-    iget-object v7, p0, Lcom/android/server/notification/NotificationManagerService;->mToastQueue:Ljava/util/ArrayList;
+    iget-object v8, p0, Lcom/android/server/notification/NotificationManagerService;->mToastQueue:Ljava/util/ArrayList;
 
-    invoke-virtual {v7, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v8, v7}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
 
-    move-result-object v7
+    move-result-object v8
 
-    check-cast v7, Lcom/android/server/notification/toast/ToastRecord;
+    check-cast v8, Lcom/android/server/notification/toast/ToastRecord;
+
+    iget-object v9, p0, Lcom/android/server/notification/NotificationManagerService;->mWindowManagerInternal:Lcom/android/server/wm/WindowManagerInternal;
+
+    iget-object v10, v8, Lcom/android/server/notification/toast/ToastRecord;->windowToken:Landroid/os/Binder;
+
+    iget v11, v8, Lcom/android/server/notification/toast/ToastRecord;->displayId:I
+
+    invoke-virtual {v9, v10, v4, v11}, Lcom/android/server/wm/WindowManagerInternal;->removeWindowToken(Landroid/os/IBinder;ZI)V
+
+    :cond_5
+    iget-object v4, p0, Lcom/android/server/notification/NotificationManagerService;->mToastQueue:Ljava/util/ArrayList;
+
+    invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
+
+    move-result v4
+
+    if-lez v4, :cond_6
+
+    iget-object v4, p0, Lcom/android/server/notification/NotificationManagerService;->mToastQueue:Ljava/util/ArrayList;
+
+    invoke-virtual {v4, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Lcom/android/server/notification/toast/ToastRecord;
 
     goto :goto_3
 
     :cond_6
-    const/4 v7, 0x0
+    const/4 v4, 0x0
 
     :goto_3
-    move-object v0, v7
+    move-object v0, v4
 
     goto :goto_0
 

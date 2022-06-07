@@ -44,8 +44,17 @@
 
     const/4 v1, 0x1
 
-    if-ne v1, v0, :cond_0
+    if-eq v1, v0, :cond_0
 
+    const/4 v0, 0x3
+
+    invoke-virtual {p1}, Landroid/telephony/PreciseCallState;->getForegroundCallState()I
+
+    move-result v1
+
+    if-ne v0, v1, :cond_1
+
+    :cond_0
     iget-object v0, p0, Lcom/android/server/location/gnss/GnssNetworkConnectivityHandler$SubIdPhoneStateListener;->this$0:Lcom/android/server/location/gnss/GnssNetworkConnectivityHandler;
 
     iget-object v1, p0, Lcom/android/server/location/gnss/GnssNetworkConnectivityHandler$SubIdPhoneStateListener;->mSubId:Ljava/lang/Integer;
@@ -60,7 +69,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -86,6 +95,6 @@
 
     invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_0
+    :cond_1
     return-void
 .end method

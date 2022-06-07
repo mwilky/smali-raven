@@ -198,7 +198,7 @@
     return-void
 .end method
 
-.method destroy()V
+.method public destroy()V
     .locals 4
 
     const/4 v0, 0x1

@@ -10,6 +10,9 @@
     }
 .end annotation
 
+.annotation runtime Ljava/lang/Deprecated;
+.end annotation
+
 
 # static fields
 .field private static final TAG:Ljava/lang/String;
@@ -362,6 +365,10 @@
 
     :goto_0
     invoke-static {v0}, Lcom/android/internal/util/Preconditions;->checkCallAuthorization(Z)V
+
+    iget-object v0, p0, Lcom/android/server/devicepolicy/FactoryResetter;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/server/FactoryResetter;->setFactoryResetting(Landroid/content/Context;)V
 
     iget-object v0, p0, Lcom/android/server/devicepolicy/FactoryResetter;->mSafetyChecker:Landroid/app/admin/DevicePolicySafetyChecker;
 

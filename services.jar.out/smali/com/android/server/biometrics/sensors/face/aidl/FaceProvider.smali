@@ -609,6 +609,30 @@
 
     iget-object v0, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider;->mHandler:Landroid/os/Handler;
 
+    new-instance v7, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda10;
+
+    move-object v1, v7
+
+    move-object v2, p0
+
+    move v3, p1
+
+    move-object v4, p2
+
+    move-wide v5, p3
+
+    invoke-direct/range {v1 .. v6}, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda10;-><init>(Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider;ILandroid/os/IBinder;J)V
+
+    invoke-virtual {v0, v7}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+
+    return-void
+.end method
+
+.method public cancelEnrollment(ILandroid/os/IBinder;J)V
+    .locals 8
+
+    iget-object v0, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider;->mHandler:Landroid/os/Handler;
+
     new-instance v7, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda11;
 
     move-object v1, v7
@@ -624,20 +648,6 @@
     invoke-direct/range {v1 .. v6}, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda11;-><init>(Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider;ILandroid/os/IBinder;J)V
 
     invoke-virtual {v0, v7}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
-
-    return-void
-.end method
-
-.method public cancelEnrollment(ILandroid/os/IBinder;)V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider;->mHandler:Landroid/os/Handler;
-
-    new-instance v1, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda9;
-
-    invoke-direct {v1, p0, p1, p2}, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda9;-><init>(Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider;ILandroid/os/IBinder;)V
-
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     return-void
 .end method
@@ -1399,7 +1409,7 @@
     return-void
 .end method
 
-.method public synthetic lambda$cancelEnrollment$6$FaceProvider(ILandroid/os/IBinder;)V
+.method public synthetic lambda$cancelEnrollment$6$FaceProvider(ILandroid/os/IBinder;J)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider;->mSensors:Landroid/util/SparseArray;
@@ -1414,7 +1424,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, p2}, Lcom/android/server/biometrics/sensors/BiometricScheduler;->cancelEnrollment(Landroid/os/IBinder;)V
+    invoke-virtual {v0, p2, p3, p4}, Lcom/android/server/biometrics/sensors/BiometricScheduler;->cancelEnrollment(Landroid/os/IBinder;J)V
 
     return-void
 .end method
@@ -1533,56 +1543,14 @@
     return-void
 .end method
 
-.method public synthetic lambda$scheduleEnroll$5$FaceProvider(ILandroid/os/IBinder;Landroid/hardware/face/IFaceServiceReceiver;I[BLjava/lang/String;[ILandroid/view/Surface;Z)V
-    .locals 18
+.method public synthetic lambda$scheduleEnroll$5$FaceProvider(ILandroid/os/IBinder;Landroid/hardware/face/IFaceServiceReceiver;I[BLjava/lang/String;J[ILandroid/view/Surface;Z)V
+    .locals 22
 
     move-object/from16 v0, p0
 
+    move/from16 v13, p1
+
     move/from16 v15, p1
-
-    iget-object v1, v0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider;->mSensors:Landroid/util/SparseArray;
-
-    invoke-virtual {v1, v15}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/android/server/biometrics/sensors/face/aidl/Sensor;
-
-    invoke-virtual {v1}, Lcom/android/server/biometrics/sensors/face/aidl/Sensor;->getSensorProperties()Landroid/hardware/face/FaceSensorPropertiesInternal;
-
-    move-result-object v1
-
-    iget v14, v1, Landroid/hardware/face/FaceSensorPropertiesInternal;->maxEnrollmentsPerUser:I
-
-    new-instance v16, Lcom/android/server/biometrics/sensors/face/aidl/FaceEnrollClient;
-
-    iget-object v2, v0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider;->mContext:Landroid/content/Context;
-
-    iget-object v1, v0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider;->mSensors:Landroid/util/SparseArray;
-
-    invoke-virtual {v1, v15}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/android/server/biometrics/sensors/face/aidl/Sensor;
-
-    invoke-virtual {v1}, Lcom/android/server/biometrics/sensors/face/aidl/Sensor;->getLazySession()Lcom/android/server/biometrics/sensors/HalClientMonitor$LazyDaemon;
-
-    move-result-object v3
-
-    new-instance v5, Lcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;
-
-    move-object/from16 v13, p3
-
-    invoke-direct {v5, v13}, Lcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;-><init>(Landroid/hardware/face/IFaceServiceReceiver;)V
-
-    invoke-static/range {p1 .. p1}, Lcom/android/server/biometrics/sensors/face/FaceUtils;->getInstance(I)Lcom/android/server/biometrics/sensors/face/FaceUtils;
-
-    move-result-object v9
-
-    const/16 v11, 0x4b
-
-    move-object/from16 v1, v16
 
     move-object/from16 v4, p2
 
@@ -1592,19 +1560,73 @@
 
     move-object/from16 v8, p6
 
-    move-object/from16 v10, p7
+    move-wide/from16 v9, p7
 
-    move-object/from16 v12, p8
+    move-object/from16 v12, p9
 
-    move/from16 v13, p1
+    move-object/from16 v14, p10
 
-    move/from16 v17, v14
+    move/from16 v17, p11
 
-    move v0, v15
+    iget-object v1, v0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider;->mSensors:Landroid/util/SparseArray;
 
-    move/from16 v15, p9
+    invoke-virtual {v1, v13}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
-    invoke-direct/range {v1 .. v15}, Lcom/android/server/biometrics/sensors/face/aidl/FaceEnrollClient;-><init>(Landroid/content/Context;Lcom/android/server/biometrics/sensors/HalClientMonitor$LazyDaemon;Landroid/os/IBinder;Lcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;I[BLjava/lang/String;Lcom/android/server/biometrics/sensors/BiometricUtils;[IILandroid/view/Surface;IIZ)V
+    move-result-object v1
+
+    check-cast v1, Lcom/android/server/biometrics/sensors/face/aidl/Sensor;
+
+    invoke-virtual {v1}, Lcom/android/server/biometrics/sensors/face/aidl/Sensor;->getSensorProperties()Landroid/hardware/face/FaceSensorPropertiesInternal;
+
+    move-result-object v1
+
+    iget v11, v1, Landroid/hardware/face/FaceSensorPropertiesInternal;->maxEnrollmentsPerUser:I
+
+    move/from16 v16, v11
+
+    new-instance v18, Lcom/android/server/biometrics/sensors/face/aidl/FaceEnrollClient;
+
+    move-object/from16 v1, v18
+
+    iget-object v2, v0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider;->mContext:Landroid/content/Context;
+
+    iget-object v3, v0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider;->mSensors:Landroid/util/SparseArray;
+
+    invoke-virtual {v3, v13}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Lcom/android/server/biometrics/sensors/face/aidl/Sensor;
+
+    invoke-virtual {v3}, Lcom/android/server/biometrics/sensors/face/aidl/Sensor;->getLazySession()Lcom/android/server/biometrics/sensors/HalClientMonitor$LazyDaemon;
+
+    move-result-object v3
+
+    new-instance v5, Lcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;
+
+    move-object/from16 v19, v5
+
+    move-object/from16 v13, p3
+
+    move-object/from16 v21, v19
+
+    move/from16 v19, v11
+
+    move-object/from16 v11, v21
+
+    invoke-direct {v11, v13}, Lcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;-><init>(Landroid/hardware/face/IFaceServiceReceiver;)V
+
+    invoke-static/range {p1 .. p1}, Lcom/android/server/biometrics/sensors/face/FaceUtils;->getInstance(I)Lcom/android/server/biometrics/sensors/face/FaceUtils;
+
+    move-result-object v11
+
+    const/16 v20, 0x4b
+
+    move/from16 v0, p1
+
+    move/from16 v13, v20
+
+    invoke-direct/range {v1 .. v17}, Lcom/android/server/biometrics/sensors/face/aidl/FaceEnrollClient;-><init>(Landroid/content/Context;Lcom/android/server/biometrics/sensors/HalClientMonitor$LazyDaemon;Landroid/os/IBinder;Lcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;I[BLjava/lang/String;JLcom/android/server/biometrics/sensors/BiometricUtils;[IILandroid/view/Surface;IIZ)V
 
     new-instance v2, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$1;
 
@@ -2339,20 +2361,26 @@
     return-void
 .end method
 
-.method public scheduleEnroll(ILandroid/os/IBinder;[BILandroid/hardware/face/IFaceServiceReceiver;Ljava/lang/String;[ILandroid/view/Surface;Z)V
-    .locals 14
+.method public scheduleEnroll(ILandroid/os/IBinder;[BILandroid/hardware/face/IFaceServiceReceiver;Ljava/lang/String;[ILandroid/view/Surface;Z)J
+    .locals 18
 
-    move-object v11, p0
+    move-object/from16 v13, p0
 
-    iget-object v12, v11, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider;->mHandler:Landroid/os/Handler;
+    iget-object v0, v13, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider;->mRequestCounter:Ljava/util/concurrent/atomic/AtomicLong;
 
-    new-instance v13, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda16;
+    invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicLong;->incrementAndGet()J
 
-    move-object v0, v13
+    move-result-wide v14
 
-    move-object v1, p0
+    iget-object v12, v13, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider;->mHandler:Landroid/os/Handler;
 
-    move v2, p1
+    new-instance v11, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda16;
+
+    move-object v0, v11
+
+    move-object/from16 v1, p0
+
+    move/from16 v2, p1
 
     move-object/from16 v3, p2
 
@@ -2364,17 +2392,25 @@
 
     move-object/from16 v7, p6
 
-    move-object/from16 v8, p7
+    move-wide v8, v14
 
-    move-object/from16 v9, p8
+    move-object/from16 v10, p7
 
-    move/from16 v10, p9
+    move-object v13, v11
 
-    invoke-direct/range {v0 .. v10}, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda16;-><init>(Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider;ILandroid/os/IBinder;Landroid/hardware/face/IFaceServiceReceiver;I[BLjava/lang/String;[ILandroid/view/Surface;Z)V
+    move-object/from16 v11, p8
 
-    invoke-virtual {v12, v13}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+    move-wide/from16 v16, v14
 
-    return-void
+    move-object v14, v12
+
+    move/from16 v12, p9
+
+    invoke-direct/range {v0 .. v12}, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda16;-><init>(Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider;ILandroid/os/IBinder;Landroid/hardware/face/IFaceServiceReceiver;I[BLjava/lang/String;J[ILandroid/view/Surface;Z)V
+
+    invoke-virtual {v14, v13}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+
+    return-wide v16
 .end method
 
 .method public scheduleFaceDetect(ILandroid/os/IBinder;ILcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;Ljava/lang/String;I)J
@@ -2626,7 +2662,7 @@
 
     iget-object v9, v8, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider;->mHandler:Landroid/os/Handler;
 
-    new-instance v10, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda10;
+    new-instance v10, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda9;
 
     move-object v0, v10
 
@@ -2642,7 +2678,7 @@
 
     move-wide/from16 v6, p5
 
-    invoke-direct/range {v0 .. v7}, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda10;-><init>(Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider;ILandroid/os/IBinder;ILjava/lang/String;J)V
+    invoke-direct/range {v0 .. v7}, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda9;-><init>(Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider;ILandroid/os/IBinder;ILjava/lang/String;J)V
 
     invoke-virtual {v9, v10}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 

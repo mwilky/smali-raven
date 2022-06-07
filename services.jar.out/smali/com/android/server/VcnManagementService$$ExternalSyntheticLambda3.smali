@@ -8,18 +8,22 @@
 # instance fields
 .field public final synthetic f$0:Lcom/android/server/VcnManagementService;
 
-.field public final synthetic f$1:Landroid/net/vcn/IVcnUnderlyingNetworkPolicyListener;
+.field public final synthetic f$1:Landroid/os/ParcelUuid;
+
+.field public final synthetic f$2:Landroid/net/vcn/VcnConfig;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/VcnManagementService;Landroid/net/vcn/IVcnUnderlyingNetworkPolicyListener;)V
+.method public synthetic constructor <init>(Lcom/android/server/VcnManagementService;Landroid/os/ParcelUuid;Landroid/net/vcn/VcnConfig;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/server/VcnManagementService$$ExternalSyntheticLambda3;->f$0:Lcom/android/server/VcnManagementService;
 
-    iput-object p2, p0, Lcom/android/server/VcnManagementService$$ExternalSyntheticLambda3;->f$1:Landroid/net/vcn/IVcnUnderlyingNetworkPolicyListener;
+    iput-object p2, p0, Lcom/android/server/VcnManagementService$$ExternalSyntheticLambda3;->f$1:Landroid/os/ParcelUuid;
+
+    iput-object p3, p0, Lcom/android/server/VcnManagementService$$ExternalSyntheticLambda3;->f$2:Landroid/net/vcn/VcnConfig;
 
     return-void
 .end method
@@ -27,13 +31,15 @@
 
 # virtual methods
 .method public final runOrThrow()V
-    .locals 2
+    .locals 3
 
     iget-object v0, p0, Lcom/android/server/VcnManagementService$$ExternalSyntheticLambda3;->f$0:Lcom/android/server/VcnManagementService;
 
-    iget-object v1, p0, Lcom/android/server/VcnManagementService$$ExternalSyntheticLambda3;->f$1:Landroid/net/vcn/IVcnUnderlyingNetworkPolicyListener;
+    iget-object v1, p0, Lcom/android/server/VcnManagementService$$ExternalSyntheticLambda3;->f$1:Landroid/os/ParcelUuid;
 
-    invoke-virtual {v0, v1}, Lcom/android/server/VcnManagementService;->lambda$removeVcnUnderlyingNetworkPolicyListener$7$VcnManagementService(Landroid/net/vcn/IVcnUnderlyingNetworkPolicyListener;)V
+    iget-object v2, p0, Lcom/android/server/VcnManagementService$$ExternalSyntheticLambda3;->f$2:Landroid/net/vcn/VcnConfig;
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/VcnManagementService;->lambda$setVcnConfig$4$VcnManagementService(Landroid/os/ParcelUuid;Landroid/net/vcn/VcnConfig;)V
 
     return-void
 .end method

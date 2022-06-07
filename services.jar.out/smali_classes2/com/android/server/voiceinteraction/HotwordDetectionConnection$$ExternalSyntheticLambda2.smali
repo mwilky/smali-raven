@@ -35,7 +35,7 @@
 
     check-cast p1, Landroid/service/voice/IHotwordDetectionService;
 
-    invoke-static {v0, v1, p1}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->lambda$detectFromDspSource$6(Landroid/hardware/soundtrigger/SoundTrigger$KeyphraseRecognitionEvent;Landroid/service/voice/IDspHotwordDetectionCallback;Landroid/service/voice/IHotwordDetectionService;)V
+    invoke-static {v0, v1, p1}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->lambda$detectFromDspSourceForTest$5(Landroid/hardware/soundtrigger/SoundTrigger$KeyphraseRecognitionEvent;Landroid/service/voice/IDspHotwordDetectionCallback;Landroid/service/voice/IHotwordDetectionService;)V
 
     return-void
 .end method

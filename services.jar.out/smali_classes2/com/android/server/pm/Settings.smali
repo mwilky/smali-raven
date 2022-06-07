@@ -3442,7 +3442,7 @@
 
     and-int/lit8 v4, p11, 0x1
 
-    if-nez v4, :cond_8
+    if-nez v4, :cond_9
 
     invoke-static/range {p17 .. p17}, Lcom/android/server/pm/Settings;->getAllUsers(Lcom/android/server/pm/UserManagerService;)Ljava/util/List;
 
@@ -3462,9 +3462,11 @@
     move v6, v5
 
     :goto_0
-    if-eqz v4, :cond_7
+    nop
 
-    if-eqz p14, :cond_7
+    if-eqz v4, :cond_8
+
+    if-eqz p14, :cond_8
 
     invoke-interface {v4}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -3475,7 +3477,7 @@
 
     move-result v8
 
-    if-eqz v8, :cond_6
+    if-eqz v8, :cond_7
 
     invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -3483,11 +3485,11 @@
 
     check-cast v8, Landroid/content/pm/UserInfo;
 
-    if-eqz p13, :cond_5
+    if-eqz p13, :cond_6
 
     const/4 v9, -0x1
 
-    if-ne v6, v9, :cond_2
+    if-ne v6, v9, :cond_3
 
     iget v9, v8, Landroid/content/pm/UserInfo;->id:I
 
@@ -3497,27 +3499,32 @@
 
     move-result v9
 
-    if-eqz v9, :cond_3
+    if-nez v9, :cond_2
 
-    goto :goto_2
+    iget-boolean v9, v8, Landroid/content/pm/UserInfo;->preCreated:Z
+
+    if-eqz v9, :cond_4
 
     :cond_2
+    goto :goto_2
+
+    :cond_3
     move-object/from16 v10, p17
 
     :goto_2
     iget v9, v8, Landroid/content/pm/UserInfo;->id:I
 
-    if-ne v6, v9, :cond_4
-
-    :cond_3
-    goto :goto_3
+    if-ne v6, v9, :cond_5
 
     :cond_4
+    goto :goto_3
+
+    :cond_5
     move/from16 v26, v5
 
     goto :goto_4
 
-    :cond_5
+    :cond_6
     move-object/from16 v10, p17
 
     :goto_3
@@ -3570,11 +3577,6 @@
 
     goto :goto_1
 
-    :cond_6
-    move-object/from16 v10, p17
-
-    goto :goto_5
-
     :cond_7
     move-object/from16 v10, p17
 
@@ -3583,8 +3585,13 @@
     :cond_8
     move-object/from16 v10, p17
 
+    goto :goto_5
+
+    :cond_9
+    move-object/from16 v10, p17
+
     :goto_5
-    if-eqz v2, :cond_9
+    if-eqz v2, :cond_a
 
     iget v4, v2, Lcom/android/server/pm/SharedUserSetting;->userId:I
 
@@ -3592,8 +3599,8 @@
 
     goto :goto_7
 
-    :cond_9
-    if-eqz v1, :cond_a
+    :cond_a
+    if-eqz v1, :cond_b
 
     new-instance v4, Lcom/android/server/pm/PackageSignatures;
 
@@ -3621,7 +3628,7 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_a
+    if-eqz v4, :cond_b
 
     invoke-interface {v4}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -3632,7 +3639,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_a
+    if-eqz v6, :cond_b
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -3660,7 +3667,7 @@
 
     goto :goto_6
 
-    :cond_a
+    :cond_b
     :goto_7
     return-object v3
 .end method

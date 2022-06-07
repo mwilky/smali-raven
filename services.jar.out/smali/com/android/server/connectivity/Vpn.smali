@@ -6667,7 +6667,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_a
+    if-nez v0, :cond_b
 
     iget-object v0, v1, Lcom/android/server/connectivity/Vpn;->mUserManager:Landroid/os/UserManager;
 
@@ -6683,7 +6683,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_a
+    if-nez v0, :cond_b
 
     invoke-static/range {p3 .. p3}, Lcom/android/server/connectivity/Vpn;->findIPv4DefaultRoute(Landroid/net/LinkProperties;)Landroid/net/RouteInfo;
 
@@ -6832,11 +6832,11 @@
     :cond_4
     nop
 
-    if-eqz v8, :cond_9
+    if-eqz v8, :cond_a
 
-    if-eqz v9, :cond_9
+    if-eqz v9, :cond_a
 
-    if-eqz v10, :cond_9
+    if-eqz v10, :cond_a
 
     const/4 v0, 0x0
 
@@ -7227,7 +7227,7 @@
 
     move-object v11, v12
 
-    goto :goto_5
+    goto/16 :goto_5
 
     :pswitch_9
     new-array v12, v13, [Ljava/lang/String;
@@ -7336,8 +7336,31 @@
 
     move-object v11, v12
 
-    nop
+    iget-boolean v12, v2, Lcom/android/internal/net/VpnProfile;->mppe:Z
 
+    if-eqz v12, :cond_6
+
+    array-length v12, v11
+
+    add-int/2addr v12, v14
+
+    invoke-static {v11, v12}, Ljava/util/Arrays;->copyOf([Ljava/lang/Object;I)[Ljava/lang/Object;
+
+    move-result-object v12
+
+    move-object v11, v12
+
+    check-cast v11, [Ljava/lang/String;
+
+    array-length v12, v11
+
+    sub-int/2addr v12, v14
+
+    const-string v13, "-pap"
+
+    aput-object v13, v11, v12
+
+    :cond_6
     :goto_5
     new-instance v12, Lcom/android/internal/net/VpnConfig;
 
@@ -7363,7 +7386,7 @@
 
     iput-object v15, v12, Lcom/android/internal/net/VpnConfig;->proxyInfo:Landroid/net/ProxyInfo;
 
-    if-eqz p2, :cond_6
+    if-eqz p2, :cond_7
 
     new-array v14, v14, [Landroid/net/Network;
 
@@ -7371,7 +7394,7 @@
 
     iput-object v14, v12, Lcom/android/internal/net/VpnConfig;->underlyingNetworks:[Landroid/net/Network;
 
-    :cond_6
+    :cond_7
     iget-object v13, v2, Lcom/android/internal/net/VpnProfile;->routes:Ljava/lang/String;
 
     invoke-virtual {v12, v13}, Lcom/android/internal/net/VpnConfig;->addLegacyRoutes(Ljava/lang/String;)V
@@ -7382,7 +7405,7 @@
 
     move-result v13
 
-    if-nez v13, :cond_7
+    if-nez v13, :cond_8
 
     iget-object v13, v2, Lcom/android/internal/net/VpnProfile;->dnsServers:Ljava/lang/String;
 
@@ -7398,14 +7421,14 @@
 
     iput-object v13, v12, Lcom/android/internal/net/VpnConfig;->dnsServers:Ljava/util/List;
 
-    :cond_7
+    :cond_8
     iget-object v13, v2, Lcom/android/internal/net/VpnProfile;->searchDomains:Ljava/lang/String;
 
     invoke-virtual {v13}, Ljava/lang/String;->isEmpty()Z
 
     move-result v13
 
-    if-nez v13, :cond_8
+    if-nez v13, :cond_9
 
     iget-object v13, v2, Lcom/android/internal/net/VpnProfile;->searchDomains:Ljava/lang/String;
 
@@ -7421,12 +7444,12 @@
 
     iput-object v13, v12, Lcom/android/internal/net/VpnConfig;->searchDomains:Ljava/util/List;
 
-    :cond_8
+    :cond_9
     invoke-direct {v1, v12, v0, v11, v2}, Lcom/android/server/connectivity/Vpn;->startLegacyVpn(Lcom/android/internal/net/VpnConfig;[Ljava/lang/String;[Ljava/lang/String;Lcom/android/internal/net/VpnProfile;)V
 
     return-void
 
-    :cond_9
+    :cond_a
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v11, "Cannot load credentials"
@@ -7446,7 +7469,7 @@
 
     throw v11
 
-    :cond_a
+    :cond_b
     new-instance v0, Ljava/lang/SecurityException;
 
     const-string v4, "Restricted users cannot establish VPNs"
@@ -7454,8 +7477,6 @@
     invoke-direct {v0, v4}, Ljava/lang/SecurityException;-><init>(Ljava/lang/String;)V
 
     throw v0
-
-    nop
 
     :pswitch_data_0
     .packed-switch 0x1

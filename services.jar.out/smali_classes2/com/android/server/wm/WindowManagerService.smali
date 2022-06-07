@@ -336,6 +336,8 @@
 
 .field final mMaxUiWidth:I
 
+.field volatile mMaximumObscuringOpacityForTouch:F
+
 .field mMousePositionTracker:Lcom/android/server/wm/WindowManagerService$MousePositionTracker;
 
 .field final mOnlyCore:Z
@@ -923,6 +925,10 @@
     invoke-direct {v1, v2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
     iput-object v1, v0, Lcom/android/server/wm/WindowManagerService;->mAnimationHandler:Landroid/os/Handler;
+
+    const v1, 0x3f4ccccd    # 0.8f
+
+    iput v1, v0, Lcom/android/server/wm/WindowManagerService;->mMaximumObscuringOpacityForTouch:F
 
     new-instance v1, Lcom/android/server/wm/WindowContextListenerController;
 
@@ -13992,6 +13998,11 @@
 .method finishDrawingWindow(Lcom/android/server/wm/Session;Landroid/view/IWindow;Landroid/view/SurfaceControl$Transaction;)V
     .locals 12
 
+    if-eqz p3, :cond_0
+
+    invoke-virtual {p3}, Landroid/view/SurfaceControl$Transaction;->sanitize()V
+
+    :cond_0
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v0
@@ -14014,13 +14025,13 @@
 
     sget-boolean v5, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_ADD_REMOVE_enabled:Z
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_2
 
     invoke-static {v4}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v5
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_1
 
     iget-object v6, v4, Lcom/android/server/wm/WindowState;->mWinAnimator:Lcom/android/server/wm/WindowStateAnimator;
 
@@ -14030,7 +14041,7 @@
 
     goto :goto_0
 
-    :cond_0
+    :cond_1
     const-string v6, "null"
 
     :goto_0
@@ -14056,20 +14067,20 @@
 
     invoke-static {v7, v8, v3, v9, v10}, Lcom/android/internal/protolog/ProtoLogImpl;->d(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
 
-    :cond_1
-    if-eqz v4, :cond_3
+    :cond_2
+    if-eqz v4, :cond_4
 
     invoke-virtual {v4, p3}, Lcom/android/server/wm/WindowState;->finishDrawing(Landroid/view/SurfaceControl$Transaction;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_4
 
     invoke-virtual {v4}, Lcom/android/server/wm/WindowState;->hasWallpaper()Z
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_3
 
     invoke-virtual {v4}, Lcom/android/server/wm/WindowState;->getDisplayContent()Lcom/android/server/wm/DisplayContent;
 
@@ -14081,14 +14092,14 @@
 
     iput v5, v3, Lcom/android/server/wm/DisplayContent;->pendingLayoutChanges:I
 
-    :cond_2
+    :cond_3
     invoke-virtual {v4}, Lcom/android/server/wm/WindowState;->setDisplayLayoutNeeded()V
 
     iget-object v3, p0, Lcom/android/server/wm/WindowManagerService;->mWindowPlacerLocked:Lcom/android/server/wm/WindowSurfacePlacer;
 
     invoke-virtual {v3}, Lcom/android/server/wm/WindowSurfacePlacer;->requestTraversal()V
 
-    :cond_3
+    :cond_4
     monitor-exit v2
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
@@ -16373,284 +16384,311 @@
 .end method
 
 .method grantEmbeddedWindowFocus(Lcom/android/server/wm/Session;Landroid/os/IBinder;Z)V
-    .locals 18
+    .locals 19
 
     move-object/from16 v1, p0
 
     move-object/from16 v2, p1
 
-    move-object/from16 v9, p2
+    iget-object v3, v1, Lcom/android/server/wm/WindowManagerService;->mGlobalLock:Lcom/android/server/wm/WindowManagerGlobalLock;
 
-    iget-object v10, v1, Lcom/android/server/wm/WindowManagerService;->mGlobalLock:Lcom/android/server/wm/WindowManagerGlobalLock;
-
-    monitor-enter v10
+    monitor-enter v3
 
     :try_start_0
     invoke-static {}, Lcom/android/server/wm/WindowManagerService;->boostPriorityForLockedSection()V
 
     iget-object v0, v1, Lcom/android/server/wm/WindowManagerService;->mEmbeddedWindowController:Lcom/android/server/wm/EmbeddedWindowController;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    invoke-virtual {v0, v9}, Lcom/android/server/wm/EmbeddedWindowController;->get(Landroid/os/IBinder;)Lcom/android/server/wm/EmbeddedWindowController$EmbeddedWindow;
+    move-object/from16 v4, p2
+
+    :try_start_1
+    invoke-virtual {v0, v4}, Lcom/android/server/wm/EmbeddedWindowController;->getByFocusToken(Landroid/os/IBinder;)Lcom/android/server/wm/EmbeddedWindowController$EmbeddedWindow;
 
     move-result-object v0
 
     if-nez v0, :cond_0
 
-    const-string v3, "WindowManager"
+    const-string v5, "WindowManager"
 
-    const-string v4, "Embedded window not found"
+    const-string v6, "Embedded window not found"
 
-    invoke-static {v3, v4}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v6}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    monitor-exit v10
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    monitor-exit v3
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
     invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
 
     return-void
 
     :cond_0
-    :try_start_1
-    iget-object v3, v0, Lcom/android/server/wm/EmbeddedWindowController$EmbeddedWindow;->mSession:Lcom/android/server/wm/Session;
+    :try_start_2
+    iget-object v5, v0, Lcom/android/server/wm/EmbeddedWindowController$EmbeddedWindow;->mSession:Lcom/android/server/wm/Session;
 
-    if-eq v3, v2, :cond_1
+    if-eq v5, v2, :cond_1
 
-    const-string v3, "WindowManager"
+    const-string v5, "WindowManager"
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "Window not in session:"
+    const-string v7, "Window not in session:"
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v6
 
-    invoke-static {v3, v4}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v6}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    monitor-exit v10
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    monitor-exit v3
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
     invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
 
     return-void
 
     :cond_1
-    :try_start_2
-    iget-object v3, v1, Lcom/android/server/wm/WindowManagerService;->mTransactionFactory:Ljava/util/function/Supplier;
+    :try_start_3
+    invoke-virtual {v0}, Lcom/android/server/wm/EmbeddedWindowController$EmbeddedWindow;->getInputChannelToken()Landroid/os/IBinder;
 
-    invoke-interface {v3}, Ljava/util/function/Supplier;->get()Ljava/lang/Object;
+    move-result-object v5
 
-    move-result-object v3
+    if-nez v5, :cond_2
 
-    check-cast v3, Landroid/view/SurfaceControl$Transaction;
+    const-string v6, "WindowManager"
 
-    move-object v11, v3
+    const-string v7, "Focus token found but input channel token not found"
 
-    iget v3, v0, Lcom/android/server/wm/EmbeddedWindowController$EmbeddedWindow;->mDisplayId:I
+    invoke-static {v6, v7}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    move v12, v3
-
-    const v13, 0xf231
-
-    const/4 v14, 0x2
-
-    const/4 v15, 0x0
-
-    const/4 v8, 0x1
-
-    const/4 v7, 0x0
-
-    if-eqz p3, :cond_2
-
-    invoke-virtual {v0}, Lcom/android/server/wm/EmbeddedWindowController$EmbeddedWindow;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v11, v9, v3, v12}, Landroid/view/SurfaceControl$Transaction;->setFocusedWindow(Landroid/os/IBinder;Ljava/lang/String;I)Landroid/view/SurfaceControl$Transaction;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Landroid/view/SurfaceControl$Transaction;->apply()V
-
-    new-array v3, v14, [Ljava/lang/Object;
-
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v5, "Focus request "
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    aput-object v4, v3, v7
-
-    const-string v4, "reason=grantEmbeddedWindowFocus(true)"
-
-    aput-object v4, v3, v8
-
-    invoke-static {v13, v3}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
-
-    move v13, v7
-
-    move/from16 v17, v8
-
-    goto :goto_1
-
-    :cond_2
-    iget-object v3, v1, Lcom/android/server/wm/WindowManagerService;->mRoot:Lcom/android/server/wm/RootWindowContainer;
-
-    invoke-virtual {v3, v12}, Lcom/android/server/wm/RootWindowContainer;->getDisplayContent(I)Lcom/android/server/wm/DisplayContent;
-
-    move-result-object v3
-
-    move-object/from16 v16, v3
-
-    if-nez v16, :cond_3
-
-    move-object v3, v15
-
-    goto :goto_0
-
-    :cond_3
-    invoke-virtual/range {v16 .. v16}, Lcom/android/server/wm/DisplayContent;->findFocusedWindow()Lcom/android/server/wm/WindowState;
-
-    move-result-object v3
-
-    :goto_0
-    move-object v6, v3
-
-    if-nez v6, :cond_5
-
-    sget-boolean v3, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_FOCUS_enabled:Z
-
-    if-eqz v3, :cond_4
-
-    invoke-static {v0}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v3
-
-    sget-object v4, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_FOCUS:Lcom/android/internal/protolog/ProtoLogGroup;
-
-    const v5, 0x17ab5a22
-
-    new-array v8, v8, [Ljava/lang/Object;
-
-    aput-object v3, v8, v7
-
-    invoke-static {v4, v5, v7, v15, v8}, Lcom/android/internal/protolog/ProtoLogImpl;->v(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
-
-    :cond_4
-    monitor-exit v10
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    monitor-exit v3
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
     invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
 
     return-void
 
-    :cond_5
-    :try_start_3
-    iget-object v4, v6, Lcom/android/server/wm/WindowState;->mInputChannelToken:Landroid/os/IBinder;
+    :cond_2
+    :try_start_4
+    iget-object v6, v1, Lcom/android/server/wm/WindowManagerService;->mTransactionFactory:Ljava/util/function/Supplier;
 
-    invoke-virtual {v6}, Lcom/android/server/wm/WindowState;->getName()Ljava/lang/String;
+    invoke-interface {v6}, Ljava/util/function/Supplier;->get()Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object v6
+
+    check-cast v6, Landroid/view/SurfaceControl$Transaction;
+
+    move-object v12, v6
+
+    iget v6, v0, Lcom/android/server/wm/EmbeddedWindowController$EmbeddedWindow;->mDisplayId:I
+
+    move v13, v6
+
+    const v14, 0xf231
+
+    const/4 v15, 0x2
+
+    const/4 v11, 0x0
+
+    const/4 v10, 0x1
+
+    const/4 v9, 0x0
+
+    if-eqz p3, :cond_3
 
     invoke-virtual {v0}, Lcom/android/server/wm/EmbeddedWindowController$EmbeddedWindow;->toString()Ljava/lang/String;
 
-    move-result-object v17
+    move-result-object v6
 
-    move-object v3, v11
+    invoke-virtual {v12, v5, v6, v13}, Landroid/view/SurfaceControl$Transaction;->setFocusedWindow(Landroid/os/IBinder;Ljava/lang/String;I)Landroid/view/SurfaceControl$Transaction;
 
-    move-object v15, v6
+    move-result-object v6
 
-    move-object/from16 v6, p2
+    invoke-virtual {v6}, Landroid/view/SurfaceControl$Transaction;->apply()V
 
-    move v13, v7
+    new-array v6, v15, [Ljava/lang/Object;
 
-    move-object/from16 v7, v17
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    move/from16 v17, v8
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    move v8, v12
+    const-string v8, "Focus request "
 
-    invoke-virtual/range {v3 .. v8}, Landroid/view/SurfaceControl$Transaction;->requestFocusTransfer(Landroid/os/IBinder;Ljava/lang/String;Landroid/os/IBinder;Ljava/lang/String;I)Landroid/view/SurfaceControl$Transaction;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    invoke-virtual {v7, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Landroid/view/SurfaceControl$Transaction;->apply()V
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    new-array v3, v14, [Ljava/lang/Object;
+    move-result-object v7
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    aput-object v7, v6, v9
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v7, "reason=grantEmbeddedWindowFocus(true)"
 
-    const-string v5, "Transfer focus request "
+    aput-object v7, v6, v10
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {v14, v6}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
 
-    invoke-virtual {v4, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move v8, v9
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move/from16 v17, v10
 
-    move-result-object v4
+    goto :goto_1
 
-    aput-object v4, v3, v13
+    :cond_3
+    iget-object v6, v1, Lcom/android/server/wm/WindowManagerService;->mRoot:Lcom/android/server/wm/RootWindowContainer;
 
-    const-string v4, "reason=grantEmbeddedWindowFocus(false)"
+    invoke-virtual {v6, v13}, Lcom/android/server/wm/RootWindowContainer;->getDisplayContent(I)Lcom/android/server/wm/DisplayContent;
 
-    aput-object v4, v3, v17
+    move-result-object v6
 
-    const v4, 0xf231
+    move-object/from16 v16, v6
 
-    invoke-static {v4, v3}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
+    if-nez v16, :cond_4
 
-    :goto_1
-    sget-boolean v3, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_FOCUS_enabled:Z
+    move-object v6, v11
 
-    if-eqz v3, :cond_6
+    goto :goto_0
+
+    :cond_4
+    invoke-virtual/range {v16 .. v16}, Lcom/android/server/wm/DisplayContent;->findFocusedWindow()Lcom/android/server/wm/WindowState;
+
+    move-result-object v6
+
+    :goto_0
+    move-object v8, v6
+
+    if-nez v8, :cond_6
+
+    sget-boolean v6, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_FOCUS_enabled:Z
+
+    if-eqz v6, :cond_5
 
     invoke-static {v0}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-static/range {p3 .. p3}, Ljava/lang/String;->valueOf(Z)Ljava/lang/String;
+    sget-object v7, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_FOCUS:Lcom/android/internal/protolog/ProtoLogGroup;
 
-    move-result-object v4
+    const v14, 0x17ab5a22
 
-    sget-object v5, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_FOCUS:Lcom/android/internal/protolog/ProtoLogGroup;
+    new-array v10, v10, [Ljava/lang/Object;
 
-    const v6, -0x7da145da
+    aput-object v6, v10, v9
 
-    new-array v7, v14, [Ljava/lang/Object;
+    invoke-static {v7, v14, v9, v11, v10}, Lcom/android/internal/protolog/ProtoLogImpl;->v(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
 
-    aput-object v3, v7, v13
+    :cond_5
+    monitor-exit v3
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
-    aput-object v4, v7, v17
+    invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
+
+    return-void
+
+    :cond_6
+    :try_start_5
+    iget-object v7, v8, Lcom/android/server/wm/WindowState;->mInputChannelToken:Landroid/os/IBinder;
+
+    invoke-virtual {v8}, Lcom/android/server/wm/WindowState;->getName()Ljava/lang/String;
+
+    move-result-object v17
+
+    invoke-virtual {v0}, Lcom/android/server/wm/EmbeddedWindowController$EmbeddedWindow;->toString()Ljava/lang/String;
+
+    move-result-object v18
+
+    move-object v6, v12
+
+    move-object v14, v8
+
+    move-object/from16 v8, v17
+
+    move-object v9, v5
+
+    move/from16 v17, v10
+
+    move-object/from16 v10, v18
+
+    move v11, v13
+
+    invoke-virtual/range {v6 .. v11}, Landroid/view/SurfaceControl$Transaction;->requestFocusTransfer(Landroid/os/IBinder;Ljava/lang/String;Landroid/os/IBinder;Ljava/lang/String;I)Landroid/view/SurfaceControl$Transaction;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Landroid/view/SurfaceControl$Transaction;->apply()V
+
+    new-array v6, v15, [Ljava/lang/Object;
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v8, "Transfer focus request "
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v7, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
 
     const/4 v8, 0x0
 
-    invoke-static {v5, v6, v13, v8, v7}, Lcom/android/internal/protolog/ProtoLogImpl;->v(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
+    aput-object v7, v6, v8
 
-    :cond_6
-    monitor-exit v10
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    const-string v7, "reason=grantEmbeddedWindowFocus(false)"
+
+    aput-object v7, v6, v17
+
+    const v7, 0xf231
+
+    invoke-static {v7, v6}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
+
+    :goto_1
+    sget-boolean v6, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_FOCUS_enabled:Z
+
+    if-eqz v6, :cond_7
+
+    invoke-static {v0}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static/range {p3 .. p3}, Ljava/lang/String;->valueOf(Z)Ljava/lang/String;
+
+    move-result-object v7
+
+    sget-object v9, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_FOCUS:Lcom/android/internal/protolog/ProtoLogGroup;
+
+    const v10, -0x7da145da
+
+    new-array v11, v15, [Ljava/lang/Object;
+
+    aput-object v6, v11, v8
+
+    aput-object v7, v11, v17
+
+    const/4 v14, 0x0
+
+    invoke-static {v9, v10, v8, v14, v11}, Lcom/android/internal/protolog/ProtoLogImpl;->v(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
+
+    :cond_7
+    monitor-exit v3
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_1
 
     invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
 
@@ -16659,18 +16697,26 @@
     :catchall_0
     move-exception v0
 
-    :try_start_4
-    monitor-exit v10
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+    move-object/from16 v4, p2
+
+    :goto_2
+    :try_start_6
+    monitor-exit v3
+    :try_end_6
+    .catchall {:try_start_6 .. :try_end_6} :catchall_1
 
     invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
 
     throw v0
+
+    :catchall_1
+    move-exception v0
+
+    goto :goto_2
 .end method
 
 .method grantEmbeddedWindowFocus(Lcom/android/server/wm/Session;Landroid/view/IWindow;Landroid/os/IBinder;Z)V
-    .locals 18
+    .locals 23
 
     move-object/from16 v1, p0
 
@@ -16738,10 +16784,10 @@
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    move-object/from16 v14, p3
+    move-object/from16 v7, p3
 
     :try_start_4
-    invoke-virtual {v6, v14}, Lcom/android/server/wm/EmbeddedWindowController;->get(Landroid/os/IBinder;)Lcom/android/server/wm/EmbeddedWindowController$EmbeddedWindow;
+    invoke-virtual {v6, v7}, Lcom/android/server/wm/EmbeddedWindowController;->getByFocusToken(Landroid/os/IBinder;)Lcom/android/server/wm/EmbeddedWindowController$EmbeddedWindow;
 
     move-result-object v6
 
@@ -16749,9 +16795,9 @@
 
     const-string v0, "WindowManager"
 
-    const-string v7, "Embedded window not found"
+    const-string v8, "Embedded window not found"
 
-    invoke-static {v0, v7}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v8}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     monitor-exit v2
     :try_end_4
@@ -16763,15 +16809,15 @@
 
     :cond_2
     :try_start_5
-    iget-object v7, v6, Lcom/android/server/wm/EmbeddedWindowController$EmbeddedWindow;->mHostWindowState:Lcom/android/server/wm/WindowState;
+    iget-object v8, v6, Lcom/android/server/wm/EmbeddedWindowController$EmbeddedWindow;->mHostWindowState:Lcom/android/server/wm/WindowState;
 
-    if-eq v7, v5, :cond_3
+    if-eq v8, v5, :cond_3
 
     const-string v0, "WindowManager"
 
-    const-string v7, "Embedded window does not belong to the host"
+    const-string v8, "Embedded window does not belong to the host"
 
-    invoke-static {v0, v7}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v8}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     monitor-exit v2
     :try_end_5
@@ -16783,161 +16829,167 @@
 
     :cond_3
     :try_start_6
-    iget-object v7, v1, Lcom/android/server/wm/WindowManagerService;->mTransactionFactory:Ljava/util/function/Supplier;
+    iget-object v8, v1, Lcom/android/server/wm/WindowManagerService;->mTransactionFactory:Ljava/util/function/Supplier;
 
-    invoke-interface {v7}, Ljava/util/function/Supplier;->get()Ljava/lang/Object;
-
-    move-result-object v7
-
-    check-cast v7, Landroid/view/SurfaceControl$Transaction;
-
-    const v15, 0xf231
-
-    const/16 v16, 0x1
-
-    const/4 v13, 0x2
-
-    if-eqz p4, :cond_4
-
-    invoke-virtual {v6}, Lcom/android/server/wm/EmbeddedWindowController$EmbeddedWindow;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    iget-object v8, v5, Lcom/android/server/wm/WindowState;->mInputChannel:Landroid/view/InputChannel;
-
-    invoke-virtual {v8}, Landroid/view/InputChannel;->getToken()Landroid/os/IBinder;
-
-    move-result-object v10
-
-    invoke-virtual {v5}, Lcom/android/server/wm/WindowState;->getName()Ljava/lang/String;
-
-    move-result-object v11
-
-    invoke-virtual {v5}, Lcom/android/server/wm/WindowState;->getDisplayId()I
-
-    move-result v12
-
-    move-object/from16 v8, p3
-
-    invoke-virtual/range {v7 .. v12}, Landroid/view/SurfaceControl$Transaction;->requestFocusTransfer(Landroid/os/IBinder;Ljava/lang/String;Landroid/os/IBinder;Ljava/lang/String;I)Landroid/view/SurfaceControl$Transaction;
+    invoke-interface {v8}, Ljava/util/function/Supplier;->get()Ljava/lang/Object;
 
     move-result-object v8
 
-    invoke-virtual {v8}, Landroid/view/SurfaceControl$Transaction;->apply()V
+    move-object v9, v8
 
-    new-array v8, v13, [Ljava/lang/Object;
+    check-cast v9, Landroid/view/SurfaceControl$Transaction;
 
-    new-instance v9, Ljava/lang/StringBuilder;
+    const/4 v15, 0x1
 
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+    const/4 v14, 0x2
 
-    const-string v10, "Transfer focus request "
+    if-eqz p4, :cond_4
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6}, Lcom/android/server/wm/EmbeddedWindowController$EmbeddedWindow;->getInputChannelToken()Landroid/os/IBinder;
 
-    invoke-virtual {v9, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object v10
 
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v6}, Lcom/android/server/wm/EmbeddedWindowController$EmbeddedWindow;->toString()Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v11
 
-    aput-object v9, v8, v0
+    iget-object v12, v5, Lcom/android/server/wm/WindowState;->mInputChannel:Landroid/view/InputChannel;
 
-    const-string v9, "reason=grantEmbeddedWindowFocus(true)"
+    invoke-virtual {v12}, Landroid/view/InputChannel;->getToken()Landroid/os/IBinder;
 
-    aput-object v9, v8, v16
+    move-result-object v12
 
-    invoke-static {v15, v8}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
+    invoke-virtual {v5}, Lcom/android/server/wm/WindowState;->getName()Ljava/lang/String;
 
-    move v15, v13
+    move-result-object v13
+
+    invoke-virtual {v5}, Lcom/android/server/wm/WindowState;->getDisplayId()I
+
+    move-result v16
+
+    move v8, v14
+
+    move/from16 v14, v16
+
+    invoke-virtual/range {v9 .. v14}, Landroid/view/SurfaceControl$Transaction;->requestFocusTransfer(Landroid/os/IBinder;Ljava/lang/String;Landroid/os/IBinder;Ljava/lang/String;I)Landroid/view/SurfaceControl$Transaction;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Landroid/view/SurfaceControl$Transaction;->apply()V
+
+    new-array v10, v8, [Ljava/lang/Object;
+
+    new-instance v11, Ljava/lang/StringBuilder;
+
+    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v12, "Transfer focus request "
+
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v11, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v11
+
+    aput-object v11, v10, v0
+
+    const-string v11, "reason=grantEmbeddedWindowFocus(true)"
+
+    aput-object v11, v10, v15
+
+    const v11, 0xf231
+
+    invoke-static {v11, v10}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
 
     goto :goto_0
 
     :cond_4
-    iget-object v8, v5, Lcom/android/server/wm/WindowState;->mInputChannel:Landroid/view/InputChannel;
+    move v8, v14
 
-    invoke-virtual {v8}, Landroid/view/InputChannel;->getToken()Landroid/os/IBinder;
+    iget-object v10, v5, Lcom/android/server/wm/WindowState;->mInputChannel:Landroid/view/InputChannel;
 
-    move-result-object v9
+    invoke-virtual {v10}, Landroid/view/InputChannel;->getToken()Landroid/os/IBinder;
+
+    move-result-object v18
 
     invoke-virtual {v5}, Lcom/android/server/wm/WindowState;->getName()Ljava/lang/String;
 
-    move-result-object v10
+    move-result-object v19
+
+    invoke-virtual {v6}, Lcom/android/server/wm/EmbeddedWindowController$EmbeddedWindow;->getInputChannelToken()Landroid/os/IBinder;
+
+    move-result-object v20
 
     invoke-virtual {v6}, Lcom/android/server/wm/EmbeddedWindowController$EmbeddedWindow;->toString()Ljava/lang/String;
 
-    move-result-object v12
+    move-result-object v21
 
     invoke-virtual {v5}, Lcom/android/server/wm/WindowState;->getDisplayId()I
 
-    move-result v17
+    move-result v22
 
-    move-object v8, v7
+    move-object/from16 v17, v9
 
-    move-object/from16 v11, p3
+    invoke-virtual/range {v17 .. v22}, Landroid/view/SurfaceControl$Transaction;->requestFocusTransfer(Landroid/os/IBinder;Ljava/lang/String;Landroid/os/IBinder;Ljava/lang/String;I)Landroid/view/SurfaceControl$Transaction;
 
-    move v15, v13
+    move-result-object v10
 
-    move/from16 v13, v17
+    invoke-virtual {v10}, Landroid/view/SurfaceControl$Transaction;->apply()V
 
-    invoke-virtual/range {v8 .. v13}, Landroid/view/SurfaceControl$Transaction;->requestFocusTransfer(Landroid/os/IBinder;Ljava/lang/String;Landroid/os/IBinder;Ljava/lang/String;I)Landroid/view/SurfaceControl$Transaction;
+    new-array v10, v8, [Ljava/lang/Object;
 
-    move-result-object v8
+    new-instance v11, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v8}, Landroid/view/SurfaceControl$Transaction;->apply()V
+    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
 
-    new-array v8, v15, [Ljava/lang/Object;
+    const-string v12, "Transfer focus request "
 
-    new-instance v9, Ljava/lang/StringBuilder;
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v11, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string v10, "Transfer focus request "
+    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v11
 
-    invoke-virtual {v9, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    aput-object v11, v10, v0
 
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const-string v11, "reason=grantEmbeddedWindowFocus(false)"
 
-    move-result-object v9
+    aput-object v11, v10, v15
 
-    aput-object v9, v8, v0
+    const v11, 0xf231
 
-    const-string v9, "reason=grantEmbeddedWindowFocus(false)"
-
-    aput-object v9, v8, v16
-
-    const v9, 0xf231
-
-    invoke-static {v9, v8}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
+    invoke-static {v11, v10}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
 
     :goto_0
-    sget-boolean v8, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_FOCUS_enabled:Z
+    sget-boolean v10, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_FOCUS_enabled:Z
 
-    if-eqz v8, :cond_5
+    if-eqz v10, :cond_5
 
     invoke-static {v6}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v10
 
     invoke-static/range {p4 .. p4}, Ljava/lang/String;->valueOf(Z)Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v11
 
-    sget-object v10, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_FOCUS:Lcom/android/internal/protolog/ProtoLogGroup;
+    sget-object v12, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_FOCUS:Lcom/android/internal/protolog/ProtoLogGroup;
 
-    const v11, -0x7da145da
+    const v13, -0x7da145da
 
-    const/4 v12, 0x0
+    const/4 v14, 0x0
 
-    new-array v13, v15, [Ljava/lang/Object;
+    new-array v8, v8, [Ljava/lang/Object;
 
-    aput-object v8, v13, v0
+    aput-object v10, v8, v0
 
-    aput-object v9, v13, v16
+    aput-object v11, v8, v15
 
-    invoke-static {v10, v11, v0, v12, v13}, Lcom/android/internal/protolog/ProtoLogImpl;->v(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v12, v13, v0, v14, v8}, Lcom/android/internal/protolog/ProtoLogImpl;->v(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
 
     :cond_5
     monitor-exit v2
@@ -16961,7 +17013,7 @@
     move-object/from16 v4, p2
 
     :goto_1
-    move-object/from16 v14, p3
+    move-object/from16 v7, p3
 
     :goto_2
     :try_start_7
@@ -16979,14 +17031,14 @@
     goto :goto_2
 .end method
 
-.method grantInputChannel(Lcom/android/server/wm/Session;IIILandroid/view/SurfaceControl;Landroid/view/IWindow;Landroid/os/IBinder;IIILandroid/view/InputChannel;)V
+.method grantInputChannel(Lcom/android/server/wm/Session;IIILandroid/view/SurfaceControl;Landroid/view/IWindow;Landroid/os/IBinder;IIILandroid/os/IBinder;Landroid/view/InputChannel;)V
     .locals 16
 
     move-object/from16 v14, p0
 
-    iget-object v10, v14, Lcom/android/server/wm/WindowManagerService;->mGlobalLock:Lcom/android/server/wm/WindowManagerGlobalLock;
+    iget-object v11, v14, Lcom/android/server/wm/WindowManagerService;->mGlobalLock:Lcom/android/server/wm/WindowManagerGlobalLock;
 
-    monitor-enter v10
+    monitor-enter v11
 
     :try_start_0
     invoke-static {}, Lcom/android/server/wm/WindowManagerService;->boostPriorityForLockedSection()V
@@ -17024,7 +17076,9 @@
 
     move/from16 v9, p4
 
-    invoke-direct/range {v1 .. v9}, Lcom/android/server/wm/EmbeddedWindowController$EmbeddedWindow;-><init>(Lcom/android/server/wm/Session;Lcom/android/server/wm/WindowManagerService;Landroid/view/IWindow;Lcom/android/server/wm/WindowState;IIII)V
+    move-object/from16 v10, p11
+
+    invoke-direct/range {v1 .. v10}, Lcom/android/server/wm/EmbeddedWindowController$EmbeddedWindow;-><init>(Lcom/android/server/wm/Session;Lcom/android/server/wm/WindowManagerService;Landroid/view/IWindow;Lcom/android/server/wm/WindowState;IIIILandroid/os/IBinder;)V
 
     invoke-virtual {v0}, Lcom/android/server/wm/EmbeddedWindowController$EmbeddedWindow;->openInputChannel()Landroid/view/InputChannel;
 
@@ -17048,7 +17102,7 @@
 
     move-result-object v7
 
-    monitor-exit v10
+    monitor-exit v11
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
@@ -17082,7 +17136,7 @@
 
     invoke-direct/range {v1 .. v13}, Lcom/android/server/wm/WindowManagerService;->updateInputChannel(Landroid/os/IBinder;IIILandroid/view/SurfaceControl;Ljava/lang/String;Landroid/view/InputApplicationHandle;IIILandroid/graphics/Region;Landroid/view/IWindow;)V
 
-    move-object/from16 v1, p11
+    move-object/from16 v1, p12
 
     invoke-virtual {v0, v1}, Landroid/view/InputChannel;->copyTo(Landroid/view/InputChannel;)V
 
@@ -17099,11 +17153,11 @@
     move-object/from16 v15, p7
 
     :goto_0
-    move-object/from16 v1, p11
+    move-object/from16 v1, p12
 
     :goto_1
     :try_start_2
-    monitor-exit v10
+    monitor-exit v11
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_2
 
@@ -27938,7 +27992,7 @@
 
     move-result-object v0
 
-    const v1, 0x1110183
+    const v1, 0x1110184
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 

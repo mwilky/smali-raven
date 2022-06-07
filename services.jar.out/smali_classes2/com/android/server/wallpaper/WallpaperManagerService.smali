@@ -9404,7 +9404,7 @@
 .end method
 
 .method public setDisplayPadding(Landroid/graphics/Rect;Ljava/lang/String;I)V
-    .locals 8
+    .locals 11
 
     const-string v0, "android.permission.SET_WALLPAPER_HINTS"
 
@@ -9428,7 +9428,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_9
 
     invoke-static {}, Landroid/os/UserHandle;->getCallingUserId()I
 
@@ -9442,76 +9442,96 @@
 
     iget v4, p1, Landroid/graphics/Rect;->left:I
 
-    if-ltz v4, :cond_6
+    if-ltz v4, :cond_8
 
     iget v4, p1, Landroid/graphics/Rect;->top:I
 
-    if-ltz v4, :cond_6
+    if-ltz v4, :cond_8
 
     iget v4, p1, Landroid/graphics/Rect;->right:I
 
-    if-ltz v4, :cond_6
+    if-ltz v4, :cond_8
 
     iget v4, p1, Landroid/graphics/Rect;->bottom:I
 
-    if-ltz v4, :cond_6
+    if-ltz v4, :cond_8
+
+    invoke-direct {p0, p3}, Lcom/android/server/wallpaper/WallpaperManagerService;->getMaximumSizeDimension(I)I
+
+    move-result v4
+
+    iget v5, p1, Landroid/graphics/Rect;->left:I
+
+    iget v6, p1, Landroid/graphics/Rect;->right:I
+
+    add-int/2addr v5, v6
+
+    iget v6, p1, Landroid/graphics/Rect;->top:I
+
+    iget v7, p1, Landroid/graphics/Rect;->bottom:I
+
+    add-int/2addr v6, v7
+
+    if-gt v5, v4, :cond_7
+
+    if-gt v6, v4, :cond_6
 
     invoke-direct {p0, p3}, Lcom/android/server/wallpaper/WallpaperManagerService;->getDisplayDataOrCreate(I)Lcom/android/server/wallpaper/WallpaperManagerService$DisplayData;
 
-    move-result-object v4
+    move-result-object v7
 
-    iget-object v5, v4, Lcom/android/server/wallpaper/WallpaperManagerService$DisplayData;->mPadding:Landroid/graphics/Rect;
+    iget-object v8, v7, Lcom/android/server/wallpaper/WallpaperManagerService$DisplayData;->mPadding:Landroid/graphics/Rect;
 
-    invoke-virtual {p1, v5}, Landroid/graphics/Rect;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v8}, Landroid/graphics/Rect;->equals(Ljava/lang/Object;)Z
 
-    move-result v5
+    move-result v8
 
-    if-nez v5, :cond_5
+    if-nez v8, :cond_5
 
-    iget-object v5, v4, Lcom/android/server/wallpaper/WallpaperManagerService$DisplayData;->mPadding:Landroid/graphics/Rect;
+    iget-object v8, v7, Lcom/android/server/wallpaper/WallpaperManagerService$DisplayData;->mPadding:Landroid/graphics/Rect;
 
-    invoke-virtual {v5, p1}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
+    invoke-virtual {v8, p1}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
 
     if-nez p3, :cond_1
 
     invoke-virtual {p0, v1}, Lcom/android/server/wallpaper/WallpaperManagerService;->saveSettingsLocked(I)V
 
     :cond_1
-    iget v5, p0, Lcom/android/server/wallpaper/WallpaperManagerService;->mCurrentUserId:I
+    iget v8, p0, Lcom/android/server/wallpaper/WallpaperManagerService;->mCurrentUserId:I
 
-    if-eq v5, v1, :cond_2
+    if-eq v8, v1, :cond_2
 
     monitor-exit v0
 
     return-void
 
     :cond_2
-    iget-object v5, v3, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;->connection:Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection;
+    iget-object v8, v3, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;->connection:Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection;
 
-    if-eqz v5, :cond_5
+    if-eqz v8, :cond_5
 
-    iget-object v5, v3, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;->connection:Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection;
+    iget-object v8, v3, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;->connection:Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection;
 
-    invoke-virtual {v5, p3}, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection;->getDisplayConnectorOrCreate(I)Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection$DisplayConnector;
+    invoke-virtual {v8, p3}, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection;->getDisplayConnectorOrCreate(I)Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection$DisplayConnector;
 
-    move-result-object v5
+    move-result-object v8
 
-    if-eqz v5, :cond_3
+    if-eqz v8, :cond_3
 
-    iget-object v6, v5, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection$DisplayConnector;->mEngine:Landroid/service/wallpaper/IWallpaperEngine;
+    iget-object v9, v8, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection$DisplayConnector;->mEngine:Landroid/service/wallpaper/IWallpaperEngine;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     goto :goto_0
 
     :cond_3
-    const/4 v6, 0x0
+    const/4 v9, 0x0
 
     :goto_0
-    if-eqz v6, :cond_4
+    if-eqz v9, :cond_4
 
     :try_start_1
-    invoke-interface {v6, p1}, Landroid/service/wallpaper/IWallpaperEngine;->setDisplayPadding(Landroid/graphics/Rect;)V
+    invoke-interface {v9, p1}, Landroid/service/wallpaper/IWallpaperEngine;->setDisplayPadding(Landroid/graphics/Rect;)V
     :try_end_1
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
@@ -9528,15 +9548,15 @@
     goto :goto_2
 
     :cond_4
-    iget-object v7, v3, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;->connection:Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection;
+    iget-object v10, v3, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;->connection:Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection;
 
-    iget-object v7, v7, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection;->mService:Landroid/service/wallpaper/IWallpaperService;
+    iget-object v10, v10, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection;->mService:Landroid/service/wallpaper/IWallpaperService;
 
-    if-eqz v7, :cond_5
+    if-eqz v10, :cond_5
 
-    if-eqz v5, :cond_5
+    if-eqz v8, :cond_5
 
-    iput-boolean v2, v5, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection$DisplayConnector;->mPaddingChanged:Z
+    iput-boolean v2, v8, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection$DisplayConnector;->mPaddingChanged:Z
 
     :cond_5
     :goto_2
@@ -9545,6 +9565,60 @@
     return-void
 
     :cond_6
+    new-instance v2, Ljava/lang/IllegalArgumentException;
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v8, "padding height "
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v7, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v8, " exceeds max height "
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v7, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-direct {v2, v7}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v2
+
+    :cond_7
+    new-instance v2, Ljava/lang/IllegalArgumentException;
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v8, "padding width "
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v7, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v8, " exceeds max width "
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v7, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-direct {v2, v7}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v2
+
+    :cond_8
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -9565,7 +9639,7 @@
 
     throw v2
 
-    :cond_7
+    :cond_9
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     new-instance v2, Ljava/lang/StringBuilder;

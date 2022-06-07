@@ -45,7 +45,7 @@
 
     iget-wide v3, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda11;->f$3:J
 
-    invoke-virtual {v0, v1, v2, v3, v4}, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider;->lambda$cancelAuthentication$10$FaceProvider(ILandroid/os/IBinder;J)V
+    invoke-virtual {v0, v1, v2, v3, v4}, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider;->lambda$cancelEnrollment$6$FaceProvider(ILandroid/os/IBinder;J)V
 
     return-void
 .end method

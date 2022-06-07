@@ -10461,6 +10461,37 @@
     return v3
 
     :cond_3
+    invoke-static {}, Lcom/android/server/FactoryResetter;->isFactoryResetting()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_4
+
+    const-string v2, "ActivityManager"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, "Cannot switch to User #"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v5, ": factory reset in progress"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v2, v4}, Lcom/android/server/utils/Slogf;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v3
+
+    :cond_4
     iget-object v4, p0, Lcom/android/server/am/UserController;->mLock:Ljava/lang/Object;
 
     monitor-enter v4
@@ -10468,7 +10499,7 @@
     :try_start_0
     iget-boolean v5, p0, Lcom/android/server/am/UserController;->mInitialized:Z
 
-    if-nez v5, :cond_4
+    if-nez v5, :cond_5
 
     const-string v2, "ActivityManager"
 
@@ -10496,7 +10527,7 @@
 
     return v3
 
-    :cond_4
+    :cond_5
     iput p1, p0, Lcom/android/server/am/UserController;->mTargetUserId:I
 
     iget-boolean v5, p0, Lcom/android/server/am/UserController;->mUserSwitchUiEnabled:Z
@@ -10505,7 +10536,7 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    if-eqz v5, :cond_5
+    if-eqz v5, :cond_6
 
     invoke-direct {p0, v0}, Lcom/android/server/am/UserController;->getUserInfo(I)Landroid/content/pm/UserInfo;
 
@@ -10531,7 +10562,7 @@
 
     goto :goto_0
 
-    :cond_5
+    :cond_6
     iget-object v4, p0, Lcom/android/server/am/UserController;->mHandler:Landroid/os/Handler;
 
     const/16 v6, 0x78

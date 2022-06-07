@@ -35,6 +35,44 @@
     return-wide v0
 .end method
 
+.method public getUnderlyingIfaceMtu(Ljava/lang/String;)I
+    .locals 4
+
+    const/4 v0, 0x0
+
+    :try_start_0
+    invoke-static {p1}, Ljava/net/NetworkInterface;->getByName(Ljava/lang/String;)Ljava/net/NetworkInterface;
+
+    move-result-object v1
+
+    if-nez v1, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {v1}, Ljava/net/NetworkInterface;->getMTU()I
+
+    move-result v0
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_0
+    return v0
+
+    :catch_0
+    move-exception v1
+
+    invoke-static {}, Lcom/android/server/vcn/VcnGatewayConnection;->access$2900()Ljava/lang/String;
+
+    move-result-object v2
+
+    const-string v3, "Could not get MTU of underlying network"
+
+    invoke-static {v2, v3, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    return v0
+.end method
+
 .method public isAirplaneModeOn(Lcom/android/server/vcn/VcnContext;)Z
     .locals 3
 

@@ -72,6 +72,10 @@
 
 .field private static final MERGED_CAPABILITIES:[I
 
+.field static final NETWORK_INFO_EXTRA_INFO:Ljava/lang/String; = "VCN"
+
+.field static final NETWORK_INFO_NETWORK_TYPE_STRING:Ljava/lang/String; = "MOBILE"
+
 .field static final NETWORK_LOSS_DISCONNECT_TIMEOUT_SECONDS:I = 0x1e
 
 .field static final RETRY_TIMEOUT_ALARM:Ljava/lang/String;
@@ -646,17 +650,7 @@
     return v0
 .end method
 
-.method static synthetic access$2900(Landroid/net/vcn/VcnGatewayConnectionConfig;Landroid/net/IpSecManager$IpSecTunnelInterface;Lcom/android/server/vcn/VcnGatewayConnection$VcnChildSessionConfiguration;Lcom/android/server/vcn/UnderlyingNetworkTracker$UnderlyingNetworkRecord;)Landroid/net/LinkProperties;
-    .locals 1
-
-    invoke-static {p0, p1, p2, p3}, Lcom/android/server/vcn/VcnGatewayConnection;->buildConnectedLinkProperties(Landroid/net/vcn/VcnGatewayConnectionConfig;Landroid/net/IpSecManager$IpSecTunnelInterface;Lcom/android/server/vcn/VcnGatewayConnection$VcnChildSessionConfiguration;Lcom/android/server/vcn/UnderlyingNetworkTracker$UnderlyingNetworkRecord;)Landroid/net/LinkProperties;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method static synthetic access$3000()Ljava/lang/String;
+.method static synthetic access$2900()Ljava/lang/String;
     .locals 1
 
     sget-object v0, Lcom/android/server/vcn/VcnGatewayConnection;->TAG:Ljava/lang/String;
@@ -664,7 +658,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$3100(Lcom/android/server/vcn/VcnGatewayConnection;)I
+.method static synthetic access$3000(Lcom/android/server/vcn/VcnGatewayConnection;)I
     .locals 1
 
     iget v0, p0, Lcom/android/server/vcn/VcnGatewayConnection;->mFailedAttempts:I
@@ -672,7 +666,7 @@
     return v0
 .end method
 
-.method static synthetic access$3102(Lcom/android/server/vcn/VcnGatewayConnection;I)I
+.method static synthetic access$3002(Lcom/android/server/vcn/VcnGatewayConnection;I)I
     .locals 0
 
     iput p1, p0, Lcom/android/server/vcn/VcnGatewayConnection;->mFailedAttempts:I
@@ -680,7 +674,7 @@
     return p1
 .end method
 
-.method static synthetic access$3108(Lcom/android/server/vcn/VcnGatewayConnection;)I
+.method static synthetic access$3008(Lcom/android/server/vcn/VcnGatewayConnection;)I
     .locals 2
 
     iget v0, p0, Lcom/android/server/vcn/VcnGatewayConnection;->mFailedAttempts:I
@@ -692,7 +686,7 @@
     return v0
 .end method
 
-.method static synthetic access$3200(Lcom/android/server/vcn/VcnGatewayConnection;)Landroid/net/IpSecManager;
+.method static synthetic access$3100(Lcom/android/server/vcn/VcnGatewayConnection;)Landroid/net/IpSecManager;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/vcn/VcnGatewayConnection;->mIpSecManager:Landroid/net/IpSecManager;
@@ -700,7 +694,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$3300(Lcom/android/server/vcn/VcnGatewayConnection;Ljava/lang/String;Ljava/lang/Throwable;)V
+.method static synthetic access$3200(Lcom/android/server/vcn/VcnGatewayConnection;Ljava/lang/String;Ljava/lang/Throwable;)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/server/vcn/VcnGatewayConnection;->logDbg(Ljava/lang/String;Ljava/lang/Throwable;)V
@@ -708,7 +702,7 @@
     return-void
 .end method
 
-.method static synthetic access$3400(Lcom/android/server/vcn/VcnGatewayConnection;ILjava/lang/Exception;)V
+.method static synthetic access$3300(Lcom/android/server/vcn/VcnGatewayConnection;ILjava/lang/Exception;)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/server/vcn/VcnGatewayConnection;->sessionLost(ILjava/lang/Exception;)V
@@ -716,7 +710,7 @@
     return-void
 .end method
 
-.method static synthetic access$3600(Lcom/android/server/vcn/VcnGatewayConnection;)Landroid/net/IpSecManager$IpSecTunnelInterface;
+.method static synthetic access$3500(Lcom/android/server/vcn/VcnGatewayConnection;)Landroid/net/IpSecManager$IpSecTunnelInterface;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/vcn/VcnGatewayConnection;->mTunnelIface:Landroid/net/IpSecManager$IpSecTunnelInterface;
@@ -724,7 +718,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$3602(Lcom/android/server/vcn/VcnGatewayConnection;Landroid/net/IpSecManager$IpSecTunnelInterface;)Landroid/net/IpSecManager$IpSecTunnelInterface;
+.method static synthetic access$3502(Lcom/android/server/vcn/VcnGatewayConnection;Landroid/net/IpSecManager$IpSecTunnelInterface;)Landroid/net/IpSecManager$IpSecTunnelInterface;
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/vcn/VcnGatewayConnection;->mTunnelIface:Landroid/net/IpSecManager$IpSecTunnelInterface;
@@ -732,7 +726,7 @@
     return-object p1
 .end method
 
-.method static synthetic access$3700(Lcom/android/server/vcn/VcnGatewayConnection;)Lcom/android/server/vcn/VcnGatewayConnection$VcnChildSessionConfiguration;
+.method static synthetic access$3600(Lcom/android/server/vcn/VcnGatewayConnection;)Lcom/android/server/vcn/VcnGatewayConnection$VcnChildSessionConfiguration;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/vcn/VcnGatewayConnection;->mChildConfig:Lcom/android/server/vcn/VcnGatewayConnection$VcnChildSessionConfiguration;
@@ -740,7 +734,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$3702(Lcom/android/server/vcn/VcnGatewayConnection;Lcom/android/server/vcn/VcnGatewayConnection$VcnChildSessionConfiguration;)Lcom/android/server/vcn/VcnGatewayConnection$VcnChildSessionConfiguration;
+.method static synthetic access$3602(Lcom/android/server/vcn/VcnGatewayConnection;Lcom/android/server/vcn/VcnGatewayConnection$VcnChildSessionConfiguration;)Lcom/android/server/vcn/VcnGatewayConnection$VcnChildSessionConfiguration;
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/vcn/VcnGatewayConnection;->mChildConfig:Lcom/android/server/vcn/VcnGatewayConnection$VcnChildSessionConfiguration;
@@ -748,7 +742,7 @@
     return-object p1
 .end method
 
-.method static synthetic access$3800(Lcom/android/server/vcn/VcnGatewayConnection;J)V
+.method static synthetic access$3700(Lcom/android/server/vcn/VcnGatewayConnection;J)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/server/vcn/VcnGatewayConnection;->setRetryTimeoutAlarm(J)V
@@ -756,10 +750,18 @@
     return-void
 .end method
 
-.method static synthetic access$3900(Lcom/android/server/vcn/VcnGatewayConnection;)V
+.method static synthetic access$3800(Lcom/android/server/vcn/VcnGatewayConnection;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/vcn/VcnGatewayConnection;->cancelRetryTimeoutAlarm()V
+
+    return-void
+.end method
+
+.method static synthetic access$3900(Lcom/android/server/vcn/VcnGatewayConnection;ILjava/lang/Exception;)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/server/vcn/VcnGatewayConnection;->sessionClosed(ILjava/lang/Exception;)V
 
     return-void
 .end method
@@ -772,15 +774,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$4000(Lcom/android/server/vcn/VcnGatewayConnection;ILjava/lang/Exception;)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/server/vcn/VcnGatewayConnection;->sessionClosed(ILjava/lang/Exception;)V
-
-    return-void
-.end method
-
-.method static synthetic access$4100(Lcom/android/server/vcn/VcnGatewayConnection;ILcom/android/server/vcn/VcnGatewayConnection$VcnChildSessionConfiguration;)V
+.method static synthetic access$4000(Lcom/android/server/vcn/VcnGatewayConnection;ILcom/android/server/vcn/VcnGatewayConnection$VcnChildSessionConfiguration;)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/server/vcn/VcnGatewayConnection;->childOpened(ILcom/android/server/vcn/VcnGatewayConnection$VcnChildSessionConfiguration;)V
@@ -788,7 +782,7 @@
     return-void
 .end method
 
-.method static synthetic access$4200(Lcom/android/server/vcn/VcnGatewayConnection;ILandroid/net/IpSecTransform;I)V
+.method static synthetic access$4100(Lcom/android/server/vcn/VcnGatewayConnection;ILandroid/net/IpSecTransform;I)V
     .locals 0
 
     invoke-direct {p0, p1, p2, p3}, Lcom/android/server/vcn/VcnGatewayConnection;->childTransformCreated(ILandroid/net/IpSecTransform;I)V
@@ -796,7 +790,7 @@
     return-void
 .end method
 
-.method static synthetic access$4300(Lcom/android/server/vcn/VcnGatewayConnection;ILandroid/net/IpSecTransform;Landroid/net/IpSecTransform;)V
+.method static synthetic access$4200(Lcom/android/server/vcn/VcnGatewayConnection;ILandroid/net/IpSecTransform;Landroid/net/IpSecTransform;)V
     .locals 0
 
     invoke-direct {p0, p1, p2, p3}, Lcom/android/server/vcn/VcnGatewayConnection;->migrationCompleted(ILandroid/net/IpSecTransform;Landroid/net/IpSecTransform;)V
@@ -899,160 +893,6 @@
     move-result-object v0
 
     return-object v0
-.end method
-
-.method private static buildConnectedLinkProperties(Landroid/net/vcn/VcnGatewayConnectionConfig;Landroid/net/IpSecManager$IpSecTunnelInterface;Lcom/android/server/vcn/VcnGatewayConnection$VcnChildSessionConfiguration;Lcom/android/server/vcn/UnderlyingNetworkTracker$UnderlyingNetworkRecord;)Landroid/net/LinkProperties;
-    .locals 8
-
-    nop
-
-    invoke-virtual {p0}, Landroid/net/vcn/VcnGatewayConnectionConfig;->getTunnelConnectionParams()Landroid/net/ipsec/ike/IkeTunnelConnectionParams;
-
-    move-result-object v0
-
-    new-instance v1, Landroid/net/LinkProperties;
-
-    invoke-direct {v1}, Landroid/net/LinkProperties;-><init>()V
-
-    invoke-virtual {p1}, Landroid/net/IpSecManager$IpSecTunnelInterface;->getInterfaceName()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Landroid/net/LinkProperties;->setInterfaceName(Ljava/lang/String;)V
-
-    invoke-virtual {p2}, Lcom/android/server/vcn/VcnGatewayConnection$VcnChildSessionConfiguration;->getInternalAddresses()Ljava/util/List;
-
-    move-result-object v2
-
-    invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object v2
-
-    :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Landroid/net/LinkAddress;
-
-    invoke-virtual {v1, v3}, Landroid/net/LinkProperties;->addLinkAddress(Landroid/net/LinkAddress;)Z
-
-    goto :goto_0
-
-    :cond_0
-    invoke-virtual {p2}, Lcom/android/server/vcn/VcnGatewayConnection$VcnChildSessionConfiguration;->getInternalDnsServers()Ljava/util/List;
-
-    move-result-object v2
-
-    invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object v2
-
-    :goto_1
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_1
-
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Ljava/net/InetAddress;
-
-    invoke-virtual {v1, v3}, Landroid/net/LinkProperties;->addDnsServer(Ljava/net/InetAddress;)Z
-
-    goto :goto_1
-
-    :cond_1
-    new-instance v2, Landroid/net/RouteInfo;
-
-    new-instance v3, Landroid/net/IpPrefix;
-
-    sget-object v4, Ljava/net/Inet4Address;->ANY:Ljava/net/InetAddress;
-
-    const/4 v5, 0x0
-
-    invoke-direct {v3, v4, v5}, Landroid/net/IpPrefix;-><init>(Ljava/net/InetAddress;I)V
-
-    const/4 v4, 0x0
-
-    const/4 v6, 0x1
-
-    invoke-direct {v2, v3, v4, v4, v6}, Landroid/net/RouteInfo;-><init>(Landroid/net/IpPrefix;Ljava/net/InetAddress;Ljava/lang/String;I)V
-
-    invoke-virtual {v1, v2}, Landroid/net/LinkProperties;->addRoute(Landroid/net/RouteInfo;)Z
-
-    new-instance v2, Landroid/net/RouteInfo;
-
-    new-instance v3, Landroid/net/IpPrefix;
-
-    sget-object v7, Ljava/net/Inet6Address;->ANY:Ljava/net/InetAddress;
-
-    invoke-direct {v3, v7, v5}, Landroid/net/IpPrefix;-><init>(Ljava/net/InetAddress;I)V
-
-    invoke-direct {v2, v3, v4, v4, v6}, Landroid/net/RouteInfo;-><init>(Landroid/net/IpPrefix;Ljava/net/InetAddress;Ljava/lang/String;I)V
-
-    invoke-virtual {v1, v2}, Landroid/net/LinkProperties;->addRoute(Landroid/net/RouteInfo;)Z
-
-    const/4 v2, 0x0
-
-    if-eqz p3, :cond_2
-
-    iget-object v3, p3, Lcom/android/server/vcn/UnderlyingNetworkTracker$UnderlyingNetworkRecord;->linkProperties:Landroid/net/LinkProperties;
-
-    invoke-virtual {v3}, Landroid/net/LinkProperties;->getTcpBufferSizes()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v1, v4}, Landroid/net/LinkProperties;->setTcpBufferSizes(Ljava/lang/String;)V
-
-    invoke-virtual {v3}, Landroid/net/LinkProperties;->getMtu()I
-
-    move-result v2
-
-    goto :goto_2
-
-    :cond_2
-    sget-object v3, Lcom/android/server/vcn/VcnGatewayConnection;->TAG:Ljava/lang/String;
-
-    new-instance v4, Ljava/lang/IllegalStateException;
-
-    invoke-direct {v4}, Ljava/lang/IllegalStateException;-><init>()V
-
-    const-string v5, "No underlying network while building link properties"
-
-    invoke-static {v3, v5, v4}, Landroid/util/Slog;->wtf(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    :goto_2
-    nop
-
-    invoke-virtual {v0}, Landroid/net/ipsec/ike/IkeTunnelConnectionParams;->getTunnelModeChildSessionParams()Landroid/net/ipsec/ike/TunnelModeChildSessionParams;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Landroid/net/ipsec/ike/TunnelModeChildSessionParams;->getSaProposals()Ljava/util/List;
-
-    move-result-object v3
-
-    invoke-virtual {p0}, Landroid/net/vcn/VcnGatewayConnectionConfig;->getMaxMtu()I
-
-    move-result v4
-
-    invoke-static {v3, v4, v2}, Lcom/android/server/vcn/util/MtuUtils;->getMtu(Ljava/util/List;II)I
-
-    move-result v3
-
-    invoke-virtual {v1, v3}, Landroid/net/LinkProperties;->setMtu(I)V
-
-    return-object v1
 .end method
 
 .method private buildIkeParams(Landroid/net/Network;)Landroid/net/ipsec/ike/IkeSessionParams;
@@ -2607,6 +2447,179 @@
 
 
 # virtual methods
+.method buildConnectedLinkProperties(Landroid/net/vcn/VcnGatewayConnectionConfig;Landroid/net/IpSecManager$IpSecTunnelInterface;Lcom/android/server/vcn/VcnGatewayConnection$VcnChildSessionConfiguration;Lcom/android/server/vcn/UnderlyingNetworkTracker$UnderlyingNetworkRecord;)Landroid/net/LinkProperties;
+    .locals 8
+
+    nop
+
+    invoke-virtual {p1}, Landroid/net/vcn/VcnGatewayConnectionConfig;->getTunnelConnectionParams()Landroid/net/ipsec/ike/IkeTunnelConnectionParams;
+
+    move-result-object v0
+
+    new-instance v1, Landroid/net/LinkProperties;
+
+    invoke-direct {v1}, Landroid/net/LinkProperties;-><init>()V
+
+    invoke-virtual {p2}, Landroid/net/IpSecManager$IpSecTunnelInterface;->getInterfaceName()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Landroid/net/LinkProperties;->setInterfaceName(Ljava/lang/String;)V
+
+    invoke-virtual {p3}, Lcom/android/server/vcn/VcnGatewayConnection$VcnChildSessionConfiguration;->getInternalAddresses()Ljava/util/List;
+
+    move-result-object v2
+
+    invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v2
+
+    :goto_0
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/net/LinkAddress;
+
+    invoke-virtual {v1, v3}, Landroid/net/LinkProperties;->addLinkAddress(Landroid/net/LinkAddress;)Z
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {p3}, Lcom/android/server/vcn/VcnGatewayConnection$VcnChildSessionConfiguration;->getInternalDnsServers()Ljava/util/List;
+
+    move-result-object v2
+
+    invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v2
+
+    :goto_1
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Ljava/net/InetAddress;
+
+    invoke-virtual {v1, v3}, Landroid/net/LinkProperties;->addDnsServer(Ljava/net/InetAddress;)Z
+
+    goto :goto_1
+
+    :cond_1
+    new-instance v2, Landroid/net/RouteInfo;
+
+    new-instance v3, Landroid/net/IpPrefix;
+
+    sget-object v4, Ljava/net/Inet4Address;->ANY:Ljava/net/InetAddress;
+
+    const/4 v5, 0x0
+
+    invoke-direct {v3, v4, v5}, Landroid/net/IpPrefix;-><init>(Ljava/net/InetAddress;I)V
+
+    const/4 v4, 0x0
+
+    const/4 v6, 0x1
+
+    invoke-direct {v2, v3, v4, v4, v6}, Landroid/net/RouteInfo;-><init>(Landroid/net/IpPrefix;Ljava/net/InetAddress;Ljava/lang/String;I)V
+
+    invoke-virtual {v1, v2}, Landroid/net/LinkProperties;->addRoute(Landroid/net/RouteInfo;)Z
+
+    new-instance v2, Landroid/net/RouteInfo;
+
+    new-instance v3, Landroid/net/IpPrefix;
+
+    sget-object v7, Ljava/net/Inet6Address;->ANY:Ljava/net/InetAddress;
+
+    invoke-direct {v3, v7, v5}, Landroid/net/IpPrefix;-><init>(Ljava/net/InetAddress;I)V
+
+    invoke-direct {v2, v3, v4, v4, v6}, Landroid/net/RouteInfo;-><init>(Landroid/net/IpPrefix;Ljava/net/InetAddress;Ljava/lang/String;I)V
+
+    invoke-virtual {v1, v2}, Landroid/net/LinkProperties;->addRoute(Landroid/net/RouteInfo;)Z
+
+    const/4 v2, 0x0
+
+    if-eqz p4, :cond_3
+
+    iget-object v3, p4, Lcom/android/server/vcn/UnderlyingNetworkTracker$UnderlyingNetworkRecord;->linkProperties:Landroid/net/LinkProperties;
+
+    invoke-virtual {v3}, Landroid/net/LinkProperties;->getTcpBufferSizes()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v1, v4}, Landroid/net/LinkProperties;->setTcpBufferSizes(Ljava/lang/String;)V
+
+    invoke-virtual {v3}, Landroid/net/LinkProperties;->getMtu()I
+
+    move-result v2
+
+    if-nez v2, :cond_2
+
+    invoke-virtual {v3}, Landroid/net/LinkProperties;->getInterfaceName()Ljava/lang/String;
+
+    move-result-object v4
+
+    if-eqz v4, :cond_2
+
+    iget-object v4, p0, Lcom/android/server/vcn/VcnGatewayConnection;->mDeps:Lcom/android/server/vcn/VcnGatewayConnection$Dependencies;
+
+    invoke-virtual {v3}, Landroid/net/LinkProperties;->getInterfaceName()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Lcom/android/server/vcn/VcnGatewayConnection$Dependencies;->getUnderlyingIfaceMtu(Ljava/lang/String;)I
+
+    move-result v2
+
+    :cond_2
+    goto :goto_2
+
+    :cond_3
+    sget-object v3, Lcom/android/server/vcn/VcnGatewayConnection;->TAG:Ljava/lang/String;
+
+    new-instance v4, Ljava/lang/IllegalStateException;
+
+    invoke-direct {v4}, Ljava/lang/IllegalStateException;-><init>()V
+
+    const-string v5, "No underlying network while building link properties"
+
+    invoke-static {v3, v5, v4}, Landroid/util/Slog;->wtf(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    :goto_2
+    nop
+
+    invoke-virtual {v0}, Landroid/net/ipsec/ike/IkeTunnelConnectionParams;->getTunnelModeChildSessionParams()Landroid/net/ipsec/ike/TunnelModeChildSessionParams;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/net/ipsec/ike/TunnelModeChildSessionParams;->getSaProposals()Ljava/util/List;
+
+    move-result-object v3
+
+    invoke-virtual {p1}, Landroid/net/vcn/VcnGatewayConnectionConfig;->getMaxMtu()I
+
+    move-result v4
+
+    invoke-static {v3, v4, v2}, Lcom/android/server/vcn/util/MtuUtils;->getMtu(Ljava/util/List;II)I
+
+    move-result v3
+
+    invoke-virtual {v1, v3}, Landroid/net/LinkProperties;->setMtu(I)V
+
+    return-object v1
+.end method
+
 .method buildIkeSession(Landroid/net/Network;)Lcom/android/server/vcn/VcnGatewayConnection$VcnIkeSession;
     .locals 7
 

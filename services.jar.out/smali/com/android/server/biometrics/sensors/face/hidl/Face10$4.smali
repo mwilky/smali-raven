@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/biometrics/sensors/face/hidl/Face10;->lambda$scheduleEnroll$5$Face10(ILandroid/os/IBinder;Landroid/hardware/face/IFaceServiceReceiver;[BLjava/lang/String;[ILandroid/view/Surface;)V
+    value = Lcom/android/server/biometrics/sensors/face/hidl/Face10;->lambda$scheduleEnroll$5$Face10(ILandroid/os/IBinder;Landroid/hardware/face/IFaceServiceReceiver;[BLjava/lang/String;J[ILandroid/view/Surface;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;

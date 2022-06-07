@@ -40,7 +40,7 @@
 
 
 # direct methods
-.method constructor <init>(Landroid/content/Context;Lcom/android/server/biometrics/sensors/HalClientMonitor$LazyDaemon;Landroid/os/IBinder;Lcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;I[BLjava/lang/String;Lcom/android/server/biometrics/sensors/BiometricUtils;[IILandroid/view/Surface;IIZ)V
+.method constructor <init>(Landroid/content/Context;Lcom/android/server/biometrics/sensors/HalClientMonitor$LazyDaemon;Landroid/os/IBinder;Lcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;I[BLjava/lang/String;JLcom/android/server/biometrics/sensors/BiometricUtils;[IILandroid/view/Surface;IIZ)V
     .locals 14
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -53,6 +53,7 @@
             "Lcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;",
             "I[B",
             "Ljava/lang/String;",
+            "J",
             "Lcom/android/server/biometrics/sensors/BiometricUtils<",
             "Landroid/hardware/face/Face;",
             ">;[II",
@@ -83,11 +84,11 @@
 
     move-object/from16 v7, p7
 
-    move-object/from16 v8, p8
+    move-object/from16 v8, p10
 
-    move/from16 v9, p10
+    move/from16 v9, p12
 
-    move/from16 v11, p12
+    move/from16 v11, p14
 
     invoke-direct/range {v0 .. v12}, Lcom/android/server/biometrics/sensors/EnrollClient;-><init>(Landroid/content/Context;Lcom/android/server/biometrics/sensors/HalClientMonitor$LazyDaemon;Landroid/os/IBinder;Lcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;I[BLjava/lang/String;Lcom/android/server/biometrics/sensors/BiometricUtils;IIIZ)V
 
@@ -97,53 +98,57 @@
 
     iput-object v0, v13, Lcom/android/server/biometrics/sensors/face/aidl/FaceEnrollClient;->mPreviewHandleDeleterCallback:Lcom/android/server/biometrics/sensors/BaseClientMonitor$Callback;
 
-    invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/face/aidl/FaceEnrollClient;->getContext()Landroid/content/Context;
+    move-wide/from16 v0, p8
 
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    const v1, 0x107004d
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getIntArray(I)[I
-
-    move-result-object v0
-
-    iput-object v0, v13, Lcom/android/server/biometrics/sensors/face/aidl/FaceEnrollClient;->mEnrollIgnoreList:[I
+    invoke-virtual {p0, v0, v1}, Lcom/android/server/biometrics/sensors/face/aidl/FaceEnrollClient;->setRequestId(J)V
 
     invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/face/aidl/FaceEnrollClient;->getContext()Landroid/content/Context;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v0
+    move-result-object v2
 
-    const v1, 0x1070050
+    const v3, 0x107004d
 
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getIntArray(I)[I
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getIntArray(I)[I
 
-    move-result-object v0
+    move-result-object v2
 
-    iput-object v0, v13, Lcom/android/server/biometrics/sensors/face/aidl/FaceEnrollClient;->mEnrollIgnoreListVendor:[I
+    iput-object v2, v13, Lcom/android/server/biometrics/sensors/face/aidl/FaceEnrollClient;->mEnrollIgnoreList:[I
 
-    move/from16 v0, p13
+    invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/face/aidl/FaceEnrollClient;->getContext()Landroid/content/Context;
 
-    iput v0, v13, Lcom/android/server/biometrics/sensors/face/aidl/FaceEnrollClient;->mMaxTemplatesPerUser:I
+    move-result-object v2
 
-    move/from16 v1, p14
+    invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    iput-boolean v1, v13, Lcom/android/server/biometrics/sensors/face/aidl/FaceEnrollClient;->mDebugConsent:Z
+    move-result-object v2
 
-    move-object/from16 v2, p9
+    const v3, 0x1070050
 
-    iput-object v2, v13, Lcom/android/server/biometrics/sensors/face/aidl/FaceEnrollClient;->mDisabledFeatures:[I
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getIntArray(I)[I
 
-    move-object/from16 v3, p11
+    move-result-object v2
 
-    iput-object v3, v13, Lcom/android/server/biometrics/sensors/face/aidl/FaceEnrollClient;->mPreviewSurface:Landroid/view/Surface;
+    iput-object v2, v13, Lcom/android/server/biometrics/sensors/face/aidl/FaceEnrollClient;->mEnrollIgnoreListVendor:[I
+
+    move/from16 v2, p15
+
+    iput v2, v13, Lcom/android/server/biometrics/sensors/face/aidl/FaceEnrollClient;->mMaxTemplatesPerUser:I
+
+    move/from16 v3, p16
+
+    iput-boolean v3, v13, Lcom/android/server/biometrics/sensors/face/aidl/FaceEnrollClient;->mDebugConsent:Z
+
+    move-object/from16 v4, p11
+
+    iput-object v4, v13, Lcom/android/server/biometrics/sensors/face/aidl/FaceEnrollClient;->mDisabledFeatures:[I
+
+    move-object/from16 v5, p13
+
+    iput-object v5, v13, Lcom/android/server/biometrics/sensors/face/aidl/FaceEnrollClient;->mPreviewSurface:Landroid/view/Surface;
 
     return-void
 .end method

@@ -137,7 +137,7 @@
 .end method
 
 .method private setDeviceServer(Landroid/media/midi/IMidiDeviceServer;)V
-    .locals 3
+    .locals 4
 
     const/4 v0, 0x0
 
@@ -199,20 +199,22 @@
 
     invoke-interface {p1}, Landroid/media/midi/IMidiDeviceServer;->asBinder()Landroid/os/IBinder;
 
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/android/server/midi/MidiService$Device;->this$0:Lcom/android/server/midi/MidiService;
-
-    invoke-static {v2}, Lcom/android/server/midi/MidiService;->access$500(Lcom/android/server/midi/MidiService;)Ljava/util/HashMap;
-
     move-result-object v2
 
-    invoke-virtual {v2, v1}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    iget-object v3, p0, Lcom/android/server/midi/MidiService$Device;->this$0:Lcom/android/server/midi/MidiService;
+
+    invoke-static {v3}, Lcom/android/server/midi/MidiService;->access$500(Lcom/android/server/midi/MidiService;)Ljava/util/HashMap;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v2}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+
+    iput-object v1, p0, Lcom/android/server/midi/MidiService$Device;->mDeviceStatus:Landroid/media/midi/MidiDeviceStatus;
 
     :try_start_1
     invoke-interface {p1}, Landroid/media/midi/IMidiDeviceServer;->closeDevice()V
 
-    invoke-interface {v1, p0, v0}, Landroid/os/IBinder;->unlinkToDeath(Landroid/os/IBinder$DeathRecipient;I)Z
+    invoke-interface {v2, p0, v0}, Landroid/os/IBinder;->unlinkToDeath(Landroid/os/IBinder$DeathRecipient;I)Z
     :try_end_1
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_1
 

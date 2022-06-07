@@ -52,25 +52,40 @@
     return-void
 .end method
 
-.method static synthetic lambda$onGatewayConnectionError$0(Lcom/android/server/VcnManagementService$VcnStatusCallbackInfo;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)V
-    .locals 1
+
+# virtual methods
+.method public synthetic lambda$onGatewayConnectionError$0$VcnManagementService$VcnCallbackImpl(Lcom/android/server/VcnManagementService$VcnStatusCallbackInfo;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)V
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/android/server/VcnManagementService$VcnStatusCallbackInfo;->mCallback:Landroid/net/vcn/IVcnStatusCallback;
+    :try_start_0
+    iget-object v0, p1, Lcom/android/server/VcnManagementService$VcnStatusCallbackInfo;->mCallback:Landroid/net/vcn/IVcnStatusCallback;
 
-    invoke-interface {v0, p1, p2, p3, p4}, Landroid/net/vcn/IVcnStatusCallback;->onGatewayConnectionError(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)V
+    invoke-interface {v0, p2, p3, p4, p5}, Landroid/net/vcn/IVcnStatusCallback;->onGatewayConnectionError(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    goto :goto_0
+
+    :catch_0
+    move-exception v0
+
+    iget-object v1, p0, Lcom/android/server/VcnManagementService$VcnCallbackImpl;->this$0:Lcom/android/server/VcnManagementService;
+
+    const-string v2, "VcnStatusCallback threw on VCN status change"
+
+    invoke-static {v1, v2, v0}, Lcom/android/server/VcnManagementService;->access$2000(Lcom/android/server/VcnManagementService;Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    :goto_0
     return-void
 .end method
 
-
-# virtual methods
 .method public onGatewayConnectionError(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)V
-    .locals 10
+    .locals 11
 
     iget-object v0, p0, Lcom/android/server/VcnManagementService$VcnCallbackImpl;->this$0:Lcom/android/server/VcnManagementService;
 
@@ -137,23 +152,25 @@
 
     if-eqz v3, :cond_1
 
-    new-instance v9, Lcom/android/server/VcnManagementService$VcnCallbackImpl$$ExternalSyntheticLambda0;
+    new-instance v10, Lcom/android/server/VcnManagementService$VcnCallbackImpl$$ExternalSyntheticLambda0;
 
-    move-object v3, v9
+    move-object v3, v10
 
-    move-object v4, v2
+    move-object v4, p0
 
-    move-object v5, p1
+    move-object v5, v2
 
-    move v6, p2
+    move-object v6, p1
 
-    move-object v7, p3
+    move v7, p2
 
-    move-object v8, p4
+    move-object v8, p3
 
-    invoke-direct/range {v3 .. v8}, Lcom/android/server/VcnManagementService$VcnCallbackImpl$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/VcnManagementService$VcnStatusCallbackInfo;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)V
+    move-object v9, p4
 
-    invoke-static {v9}, Landroid/os/Binder;->withCleanCallingIdentity(Lcom/android/internal/util/FunctionalUtils$ThrowingRunnable;)V
+    invoke-direct/range {v3 .. v9}, Lcom/android/server/VcnManagementService$VcnCallbackImpl$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/VcnManagementService$VcnCallbackImpl;Lcom/android/server/VcnManagementService$VcnStatusCallbackInfo;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)V
+
+    invoke-static {v10}, Landroid/os/Binder;->withCleanCallingIdentity(Lcom/android/internal/util/FunctionalUtils$ThrowingRunnable;)V
 
     :cond_1
     goto :goto_0

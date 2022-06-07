@@ -17,13 +17,15 @@
 # instance fields
 .field final adapter:Landroid/view/RemoteAnimationAdapter;
 
+.field final launchCookie:Landroid/os/IBinder;
+
 .field final packageName:Ljava/lang/String;
 
 .field final synthetic this$0:Lcom/android/server/wm/PendingRemoteAnimationRegistry;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/wm/PendingRemoteAnimationRegistry;Ljava/lang/String;Landroid/view/RemoteAnimationAdapter;)V
+.method constructor <init>(Lcom/android/server/wm/PendingRemoteAnimationRegistry;Ljava/lang/String;Landroid/view/RemoteAnimationAdapter;Landroid/os/IBinder;)V
     .locals 3
 
     iput-object p1, p0, Lcom/android/server/wm/PendingRemoteAnimationRegistry$Entry;->this$0:Lcom/android/server/wm/PendingRemoteAnimationRegistry;
@@ -33,6 +35,8 @@
     iput-object p2, p0, Lcom/android/server/wm/PendingRemoteAnimationRegistry$Entry;->packageName:Ljava/lang/String;
 
     iput-object p3, p0, Lcom/android/server/wm/PendingRemoteAnimationRegistry$Entry;->adapter:Landroid/view/RemoteAnimationAdapter;
+
+    iput-object p4, p0, Lcom/android/server/wm/PendingRemoteAnimationRegistry$Entry;->launchCookie:Landroid/os/IBinder;
 
     invoke-static {p1}, Lcom/android/server/wm/PendingRemoteAnimationRegistry;->access$000(Lcom/android/server/wm/PendingRemoteAnimationRegistry;)Landroid/os/Handler;
 

@@ -54,7 +54,7 @@
     return-void
 .end method
 
-.method static synthetic access$2000(Lcom/android/server/VcnManagementService$TrackingNetworkCallback;Landroid/net/NetworkCapabilities;)Z
+.method static synthetic access$2100(Lcom/android/server/VcnManagementService$TrackingNetworkCallback;Landroid/net/NetworkCapabilities;)Z
     .locals 1
 
     invoke-direct {p0, p1}, Lcom/android/server/VcnManagementService$TrackingNetworkCallback;->requiresRestartForCarrierWifi(Landroid/net/NetworkCapabilities;)Z

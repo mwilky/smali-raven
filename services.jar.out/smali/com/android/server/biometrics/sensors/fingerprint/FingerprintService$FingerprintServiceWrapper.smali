@@ -205,7 +205,7 @@
 .end method
 
 .method private addHidlProviders(Ljava/util/List;)V
-    .locals 6
+    .locals 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -326,17 +326,25 @@
 
     iget-object v4, p0, Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService$FingerprintServiceWrapper;->this$0:Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService;
 
-    invoke-static {v4}, Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService;->access$600(Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService;)Lcom/android/server/biometrics/sensors/LockoutResetDispatcher;
-
-    move-result-object v4
-
-    iget-object v5, p0, Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService$FingerprintServiceWrapper;->this$0:Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService;
-
-    invoke-static {v5}, Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService;->access$900(Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService;)Lcom/android/server/biometrics/sensors/fingerprint/GestureAvailabilityDispatcher;
+    invoke-static {v4}, Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService;->access$1000(Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService;)Landroid/os/Handler;
 
     move-result-object v5
 
-    invoke-static {v2, v3, v1, v4, v5}, Lcom/android/server/biometrics/sensors/fingerprint/hidl/Fingerprint21;->newInstance(Landroid/content/Context;Lcom/android/server/biometrics/sensors/fingerprint/FingerprintStateCallback;Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;Lcom/android/server/biometrics/sensors/LockoutResetDispatcher;Lcom/android/server/biometrics/sensors/fingerprint/GestureAvailabilityDispatcher;)Lcom/android/server/biometrics/sensors/fingerprint/hidl/Fingerprint21;
+    iget-object v4, p0, Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService$FingerprintServiceWrapper;->this$0:Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService;
+
+    invoke-static {v4}, Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService;->access$600(Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService;)Lcom/android/server/biometrics/sensors/LockoutResetDispatcher;
+
+    move-result-object v6
+
+    iget-object v4, p0, Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService$FingerprintServiceWrapper;->this$0:Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService;
+
+    invoke-static {v4}, Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService;->access$900(Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService;)Lcom/android/server/biometrics/sensors/fingerprint/GestureAvailabilityDispatcher;
+
+    move-result-object v7
+
+    move-object v4, v1
+
+    invoke-static/range {v2 .. v7}, Lcom/android/server/biometrics/sensors/fingerprint/hidl/Fingerprint21;->newInstance(Landroid/content/Context;Lcom/android/server/biometrics/sensors/fingerprint/FingerprintStateCallback;Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;Landroid/os/Handler;Lcom/android/server/biometrics/sensors/LockoutResetDispatcher;Lcom/android/server/biometrics/sensors/fingerprint/GestureAvailabilityDispatcher;)Lcom/android/server/biometrics/sensors/fingerprint/hidl/Fingerprint21;
 
     move-result-object v2
 
@@ -349,7 +357,7 @@
 
     invoke-interface {v3, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto/16 :goto_0
 
     :cond_2
     return-void
@@ -520,7 +528,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService$FingerprintServiceWrapper;->this$0:Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService;
 
-    invoke-static {v0}, Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService;->access$1000(Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService;->access$1100(Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -529,7 +537,7 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService$FingerprintServiceWrapper;->this$0:Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService;
 
-    invoke-static {v1}, Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService;->access$1100(Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService;)Landroid/os/RemoteCallbackList;
+    invoke-static {v1}, Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService;->access$1200(Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService;)Landroid/os/RemoteCallbackList;
 
     move-result-object v1
 
@@ -539,7 +547,7 @@
 
     iget-object v2, p0, Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService$FingerprintServiceWrapper;->this$0:Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService;
 
-    invoke-static {v2}, Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService;->access$1200(Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService;)Ljava/util/List;
+    invoke-static {v2}, Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService;->access$1300(Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService;)Ljava/util/List;
 
     move-result-object v2
 
@@ -567,7 +575,7 @@
 
     iget-object v0, p0, Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService$FingerprintServiceWrapper;->this$0:Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService;
 
-    invoke-static {v0}, Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService;->access$1300(Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService;)V
+    invoke-static {v0}, Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService;->access$1400(Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService;)V
 
     goto :goto_1
 
@@ -1118,7 +1126,7 @@
     return-void
 .end method
 
-.method public cancelEnrollment(Landroid/os/IBinder;)V
+.method public cancelEnrollment(Landroid/os/IBinder;J)V
     .locals 3
 
     iget-object v0, p0, Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService$FingerprintServiceWrapper;->this$0:Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService;
@@ -1160,7 +1168,7 @@
 
     move-result v2
 
-    invoke-interface {v1, v2, p1}, Lcom/android/server/biometrics/sensors/fingerprint/ServiceProvider;->cancelEnrollment(ILandroid/os/IBinder;)V
+    invoke-interface {v1, v2, p1, p2, p3}, Lcom/android/server/biometrics/sensors/fingerprint/ServiceProvider;->cancelEnrollment(ILandroid/os/IBinder;J)V
 
     return-void
 .end method
@@ -1765,7 +1773,7 @@
     return-object v2
 .end method
 
-.method public enroll(Landroid/os/IBinder;[BILandroid/hardware/fingerprint/IFingerprintServiceReceiver;Ljava/lang/String;I)V
+.method public enroll(Landroid/os/IBinder;[BILandroid/hardware/fingerprint/IFingerprintServiceReceiver;Ljava/lang/String;I)J
     .locals 11
 
     move-object v0, p0
@@ -1794,7 +1802,9 @@
 
     invoke-static {v2, v3}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    return-void
+    const-wide/16 v2, -0x1
+
+    return-wide v2
 
     :cond_0
     iget-object v2, v1, Landroid/util/Pair;->second:Ljava/lang/Object;
@@ -1823,9 +1833,11 @@
 
     move/from16 v10, p6
 
-    invoke-interface/range {v3 .. v10}, Lcom/android/server/biometrics/sensors/fingerprint/ServiceProvider;->scheduleEnroll(ILandroid/os/IBinder;[BILandroid/hardware/fingerprint/IFingerprintServiceReceiver;Ljava/lang/String;I)V
+    invoke-interface/range {v3 .. v10}, Lcom/android/server/biometrics/sensors/fingerprint/ServiceProvider;->scheduleEnroll(ILandroid/os/IBinder;[BILandroid/hardware/fingerprint/IFingerprintServiceReceiver;Ljava/lang/String;I)J
 
-    return-void
+    move-result-wide v2
+
+    return-wide v2
 .end method
 
 .method public generateChallenge(Landroid/os/IBinder;IILandroid/hardware/fingerprint/IFingerprintServiceReceiver;Ljava/lang/String;)V
@@ -2553,7 +2565,7 @@
 
     iget-object v9, p0, Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService$FingerprintServiceWrapper;->this$0:Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService;
 
-    invoke-static {v9}, Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService;->access$1400(Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService;)Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService$FingerprintServiceWrapper;
+    invoke-static {v9}, Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService;->access$1500(Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService;)Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService$FingerprintServiceWrapper;
 
     move-result-object v9
 
@@ -2598,7 +2610,7 @@
     :cond_1
     iget-object v1, p0, Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService$FingerprintServiceWrapper;->this$0:Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService;
 
-    invoke-static {v1}, Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService;->access$1000(Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService;)Ljava/lang/Object;
+    invoke-static {v1}, Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService;->access$1100(Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService;)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -2630,7 +2642,7 @@
 
     iget-object v4, p0, Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService$FingerprintServiceWrapper;->this$0:Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService;
 
-    invoke-static {v4}, Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService;->access$1200(Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService;)Ljava/util/List;
+    invoke-static {v4}, Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService;->access$1300(Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService;)Ljava/util/List;
 
     move-result-object v4
 
@@ -2653,11 +2665,11 @@
 
     const/4 v2, 0x0
 
-    invoke-static {v1, v2}, Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService;->access$1500(Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService;Landroid/hardware/fingerprint/IFingerprintStateListener;)V
+    invoke-static {v1, v2}, Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService;->access$1600(Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService;Landroid/hardware/fingerprint/IFingerprintStateListener;)V
 
     iget-object v1, p0, Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService$FingerprintServiceWrapper;->this$0:Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService;
 
-    invoke-static {v1}, Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService;->access$1300(Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService;)V
+    invoke-static {v1}, Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService;->access$1400(Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService;)V
 
     return-void
 

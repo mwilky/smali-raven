@@ -23,9 +23,9 @@
 # instance fields
 .field private mAtmService:Lcom/android/server/wm/ActivityTaskManagerService;
 
-.field private final mCanHostHomeTask:Z
+.field private mBackgroundColor:I
 
-.field private mColorBackgroundLayer:Landroid/view/SurfaceControl;
+.field private final mCanHostHomeTask:Z
 
 .field private mColorLayerCounter:I
 
@@ -181,6 +181,8 @@
     invoke-direct {p0, p2, v0, p3, p4}, Lcom/android/server/wm/DisplayArea;-><init>(Lcom/android/server/wm/WindowManagerService;Lcom/android/server/wm/DisplayArea$Type;Ljava/lang/String;I)V
 
     const/4 v0, 0x0
+
+    iput v0, p0, Lcom/android/server/wm/TaskDisplayArea;->mBackgroundColor:I
 
     iput v0, p0, Lcom/android/server/wm/TaskDisplayArea;->mColorLayerCounter:I
 
@@ -2286,13 +2288,17 @@
 
     if-nez v0, :cond_0
 
+    iget-object v0, p0, Lcom/android/server/wm/TaskDisplayArea;->mSurfaceControl:Landroid/view/SurfaceControl;
+
+    if-eqz v0, :cond_0
+
     invoke-virtual {p0}, Lcom/android/server/wm/TaskDisplayArea;->getPendingTransaction()Landroid/view/SurfaceControl$Transaction;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/android/server/wm/TaskDisplayArea;->mColorBackgroundLayer:Landroid/view/SurfaceControl;
+    iget-object v1, p0, Lcom/android/server/wm/TaskDisplayArea;->mSurfaceControl:Landroid/view/SurfaceControl;
 
-    invoke-virtual {v0, v1}, Landroid/view/SurfaceControl$Transaction;->hide(Landroid/view/SurfaceControl;)Landroid/view/SurfaceControl$Transaction;
+    invoke-virtual {v0, v1}, Landroid/view/SurfaceControl$Transaction;->unsetColor(Landroid/view/SurfaceControl;)Landroid/view/SurfaceControl$Transaction;
 
     invoke-virtual {p0}, Lcom/android/server/wm/TaskDisplayArea;->scheduleAnimation()V
 
@@ -4442,35 +4448,9 @@
 .end method
 
 .method public synthetic lambda$onParentChanged$6$TaskDisplayArea()V
-    .locals 3
+    .locals 2
 
     const/4 v0, 0x0
-
-    invoke-virtual {p0, v0}, Lcom/android/server/wm/TaskDisplayArea;->makeChildSurface(Lcom/android/server/wm/WindowContainer;)Landroid/view/SurfaceControl$Builder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/view/SurfaceControl$Builder;->setColorLayer()Landroid/view/SurfaceControl$Builder;
-
-    move-result-object v1
-
-    const-string v2, "colorBackgroundLayer"
-
-    invoke-virtual {v1, v2}, Landroid/view/SurfaceControl$Builder;->setName(Ljava/lang/String;)Landroid/view/SurfaceControl$Builder;
-
-    move-result-object v1
-
-    const-string v2, "TaskDisplayArea.onParentChanged"
-
-    invoke-virtual {v1, v2}, Landroid/view/SurfaceControl$Builder;->setCallsite(Ljava/lang/String;)Landroid/view/SurfaceControl$Builder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/view/SurfaceControl$Builder;->build()Landroid/view/SurfaceControl;
-
-    move-result-object v1
-
-    iput-object v1, p0, Lcom/android/server/wm/TaskDisplayArea;->mColorBackgroundLayer:Landroid/view/SurfaceControl;
 
     invoke-virtual {p0, v0}, Lcom/android/server/wm/TaskDisplayArea;->makeChildSurface(Lcom/android/server/wm/WindowContainer;)Landroid/view/SurfaceControl$Builder;
 
@@ -4482,7 +4462,9 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v2}, Landroid/view/SurfaceControl$Builder;->setCallsite(Ljava/lang/String;)Landroid/view/SurfaceControl$Builder;
+    const-string v1, "TaskDisplayArea.onParentChanged"
+
+    invoke-virtual {v0, v1}, Landroid/view/SurfaceControl$Builder;->setCallsite(Ljava/lang/String;)Landroid/view/SurfaceControl$Builder;
 
     move-result-object v0
 
@@ -4561,17 +4543,17 @@
 
     invoke-super {p0, p1}, Lcom/android/server/wm/DisplayArea;->migrateToNewSurfaceControl(Landroid/view/SurfaceControl$Transaction;)V
 
-    iget-object v0, p0, Lcom/android/server/wm/TaskDisplayArea;->mColorBackgroundLayer:Landroid/view/SurfaceControl;
+    iget v0, p0, Lcom/android/server/wm/TaskDisplayArea;->mColorLayerCounter:I
 
-    if-nez v0, :cond_0
+    if-lez v0, :cond_0
 
-    return-void
+    iget v0, p0, Lcom/android/server/wm/TaskDisplayArea;->mBackgroundColor:I
+
+    const/4 v1, 0x1
+
+    invoke-virtual {p0, v0, v1}, Lcom/android/server/wm/TaskDisplayArea;->setBackgroundColor(IZ)V
 
     :cond_0
-    iget-object v1, p0, Lcom/android/server/wm/TaskDisplayArea;->mSurfaceControl:Landroid/view/SurfaceControl;
-
-    invoke-virtual {p1, v0, v1}, Landroid/view/SurfaceControl$Transaction;->reparent(Landroid/view/SurfaceControl;Landroid/view/SurfaceControl;)Landroid/view/SurfaceControl$Transaction;
-
     iget-object v0, p0, Lcom/android/server/wm/TaskDisplayArea;->mSplitScreenDividerAnchor:Landroid/view/SurfaceControl;
 
     iget-object v1, p0, Lcom/android/server/wm/TaskDisplayArea;->mSurfaceControl:Landroid/view/SurfaceControl;
@@ -4965,12 +4947,6 @@
 
     check-cast v0, Landroid/view/SurfaceControl$Transaction;
 
-    iget-object v1, p0, Lcom/android/server/wm/TaskDisplayArea;->mColorBackgroundLayer:Landroid/view/SurfaceControl;
-
-    invoke-virtual {v0, v1}, Landroid/view/SurfaceControl$Transaction;->remove(Landroid/view/SurfaceControl;)Landroid/view/SurfaceControl$Transaction;
-
-    move-result-object v0
-
     iget-object v1, p0, Lcom/android/server/wm/TaskDisplayArea;->mSplitScreenDividerAnchor:Landroid/view/SurfaceControl;
 
     invoke-virtual {v0, v1}, Landroid/view/SurfaceControl$Transaction;->remove(Landroid/view/SurfaceControl;)Landroid/view/SurfaceControl$Transaction;
@@ -4980,8 +4956,6 @@
     invoke-virtual {v0}, Landroid/view/SurfaceControl$Transaction;->apply()V
 
     const/4 v0, 0x0
-
-    iput-object v0, p0, Lcom/android/server/wm/TaskDisplayArea;->mColorBackgroundLayer:Landroid/view/SurfaceControl;
 
     iput-object v0, p0, Lcom/android/server/wm/TaskDisplayArea;->mSplitScreenDividerAnchor:Landroid/view/SurfaceControl;
 
@@ -5852,122 +5826,85 @@
 .end method
 
 .method setBackgroundColor(I)V
-    .locals 9
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/server/wm/TaskDisplayArea;->mColorBackgroundLayer:Landroid/view/SurfaceControl;
+    const/4 v0, 0x0
 
-    if-nez v0, :cond_0
+    invoke-virtual {p0, p1, v0}, Lcom/android/server/wm/TaskDisplayArea;->setBackgroundColor(IZ)V
 
     return-void
+.end method
+
+.method setBackgroundColor(IZ)V
+    .locals 7
+
+    iput p1, p0, Lcom/android/server/wm/TaskDisplayArea;->mBackgroundColor:I
+
+    invoke-static {p1}, Landroid/graphics/Color;->valueOf(I)Landroid/graphics/Color;
+
+    move-result-object v0
+
+    const/4 v1, 0x1
+
+    if-nez p2, :cond_0
+
+    iget v2, p0, Lcom/android/server/wm/TaskDisplayArea;->mColorLayerCounter:I
+
+    add-int/2addr v2, v1
+
+    iput v2, p0, Lcom/android/server/wm/TaskDisplayArea;->mColorLayerCounter:I
 
     :cond_0
-    shr-int/lit8 v0, p1, 0x10
+    iget-object v2, p0, Lcom/android/server/wm/TaskDisplayArea;->mSurfaceControl:Landroid/view/SurfaceControl;
 
-    and-int/lit16 v0, v0, 0xff
-
-    int-to-float v0, v0
-
-    const/high16 v1, 0x437f0000    # 255.0f
-
-    div-float/2addr v0, v1
-
-    shr-int/lit8 v2, p1, 0x8
-
-    and-int/lit16 v2, v2, 0xff
-
-    int-to-float v2, v2
-
-    div-float/2addr v2, v1
-
-    shr-int/lit8 v3, p1, 0x0
-
-    and-int/lit16 v3, v3, 0xff
-
-    int-to-float v3, v3
-
-    div-float/2addr v3, v1
-
-    shr-int/lit8 v4, p1, 0x18
-
-    and-int/lit16 v4, v4, 0xff
-
-    int-to-float v4, v4
-
-    div-float/2addr v4, v1
-
-    iget v1, p0, Lcom/android/server/wm/TaskDisplayArea;->mColorLayerCounter:I
-
-    const/4 v5, 0x1
-
-    add-int/2addr v1, v5
-
-    iput v1, p0, Lcom/android/server/wm/TaskDisplayArea;->mColorLayerCounter:I
+    if-eqz v2, :cond_1
 
     invoke-virtual {p0}, Lcom/android/server/wm/TaskDisplayArea;->getPendingTransaction()Landroid/view/SurfaceControl$Transaction;
 
-    move-result-object v1
+    move-result-object v2
 
-    iget-object v6, p0, Lcom/android/server/wm/TaskDisplayArea;->mColorBackgroundLayer:Landroid/view/SurfaceControl;
+    iget-object v3, p0, Lcom/android/server/wm/TaskDisplayArea;->mSurfaceControl:Landroid/view/SurfaceControl;
 
-    const/high16 v7, -0x80000000
+    const/4 v4, 0x3
 
-    invoke-virtual {v1, v6, v7}, Landroid/view/SurfaceControl$Transaction;->setLayer(Landroid/view/SurfaceControl;I)Landroid/view/SurfaceControl$Transaction;
+    new-array v4, v4, [F
 
-    move-result-object v1
+    const/4 v5, 0x0
 
-    iget-object v6, p0, Lcom/android/server/wm/TaskDisplayArea;->mColorBackgroundLayer:Landroid/view/SurfaceControl;
-
-    const/4 v7, 0x3
-
-    new-array v7, v7, [F
-
-    const/4 v8, 0x0
-
-    aput v0, v7, v8
-
-    aput v2, v7, v5
-
-    const/4 v5, 0x2
-
-    aput v3, v7, v5
-
-    invoke-virtual {v1, v6, v7}, Landroid/view/SurfaceControl$Transaction;->setColor(Landroid/view/SurfaceControl;[F)Landroid/view/SurfaceControl$Transaction;
-
-    move-result-object v1
-
-    iget-object v5, p0, Lcom/android/server/wm/TaskDisplayArea;->mColorBackgroundLayer:Landroid/view/SurfaceControl;
-
-    invoke-virtual {v1, v5, v4}, Landroid/view/SurfaceControl$Transaction;->setAlpha(Landroid/view/SurfaceControl;F)Landroid/view/SurfaceControl$Transaction;
-
-    move-result-object v1
-
-    iget-object v5, p0, Lcom/android/server/wm/TaskDisplayArea;->mColorBackgroundLayer:Landroid/view/SurfaceControl;
-
-    invoke-virtual {p0}, Lcom/android/server/wm/TaskDisplayArea;->getSurfaceWidth()I
+    invoke-virtual {v0}, Landroid/graphics/Color;->red()F
 
     move-result v6
 
-    invoke-virtual {p0}, Lcom/android/server/wm/TaskDisplayArea;->getSurfaceHeight()I
+    aput v6, v4, v5
 
-    move-result v7
+    invoke-virtual {v0}, Landroid/graphics/Color;->green()F
 
-    invoke-virtual {v1, v5, v6, v7}, Landroid/view/SurfaceControl$Transaction;->setWindowCrop(Landroid/view/SurfaceControl;II)Landroid/view/SurfaceControl$Transaction;
+    move-result v5
 
-    move-result-object v1
+    aput v5, v4, v1
 
-    iget-object v5, p0, Lcom/android/server/wm/TaskDisplayArea;->mColorBackgroundLayer:Landroid/view/SurfaceControl;
+    const/4 v1, 0x2
 
-    const/4 v6, 0x0
+    invoke-virtual {v0}, Landroid/graphics/Color;->blue()F
 
-    invoke-virtual {v1, v5, v6, v6}, Landroid/view/SurfaceControl$Transaction;->setPosition(Landroid/view/SurfaceControl;FF)Landroid/view/SurfaceControl$Transaction;
+    move-result v5
 
-    move-result-object v1
+    aput v5, v4, v1
 
-    iget-object v5, p0, Lcom/android/server/wm/TaskDisplayArea;->mColorBackgroundLayer:Landroid/view/SurfaceControl;
-
-    invoke-virtual {v1, v5}, Landroid/view/SurfaceControl$Transaction;->show(Landroid/view/SurfaceControl;)Landroid/view/SurfaceControl$Transaction;
+    invoke-virtual {v2, v3, v4}, Landroid/view/SurfaceControl$Transaction;->setColor(Landroid/view/SurfaceControl;[F)Landroid/view/SurfaceControl$Transaction;
 
     invoke-virtual {p0}, Lcom/android/server/wm/TaskDisplayArea;->scheduleAnimation()V
+
+    :cond_1
+    return-void
+.end method
+
+.method setInitialSurfaceControlProperties(Landroid/view/SurfaceControl$Builder;)V
+    .locals 0
+
+    invoke-virtual {p1}, Landroid/view/SurfaceControl$Builder;->setEffectLayer()Landroid/view/SurfaceControl$Builder;
+
+    invoke-super {p0, p1}, Lcom/android/server/wm/DisplayArea;->setInitialSurfaceControlProperties(Landroid/view/SurfaceControl$Builder;)V
 
     return-void
 .end method
