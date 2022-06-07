@@ -1559,7 +1559,7 @@ Kui installite CA-sertifikaadi, pääseb sertifikaadi omanik teie külastatud ve
     <string name="clear_data_dlg_title">Kas kustutada rakenduse andmed?</string>
     <string name="clear_failed_dlg_text">Rakenduse salvestusruumi ei õnnestunud tühjendada.</string>
     <string name="clear_instant_app_confirmation">Kas soovite selle installimata avatava rakenduse eemaldada?</string>
-    <string name="clear_instant_app_data">Tühjenda rakendus</string>
+    <string name="clear_instant_app_data">Kustuta rakendus</string>
     <string name="clear_text_end_icon_content_description">Kustuta tekst</string>
     <string name="clear_uri_btn_text">Tühista juurdepääs</string>
     <string name="clear_user_data_text">Tühjenda salvestusruum</string>
@@ -1569,7 +1569,7 @@ Kui installite CA-sertifikaadi, pääseb sertifikaadi omanik teie külastatud ve
     <string name="color_gray">Hall</string>
     <string name="color_green">Roheline</string>
     <string name="color_magenta">Fuksia</string>
-    <string name="color_mode_option_automatic">Kohanduv</string>
+    <string name="color_mode_option_automatic">Kohanduvad</string>
     <string name="color_mode_option_boosted">Võimendatud</string>
     <string name="color_mode_option_natural">Loomulikud</string>
     <string name="color_mode_option_saturated">Küllastatud</string>
@@ -2522,8 +2522,8 @@ Varundatud andmeid ei loeta teie Drive'i salvestuskvoodi hulka. Suuri faile ja f
     <string name="fullbackup_erase_dialog_message">"Kas soovite peatada seadme andmete (nt WiFi-paroolid ja kõneajalugu) ning rakenduse andmete (nt seaded ja rakenduste salvestatud failid) varundamise ning kustutada kõik Google Drive'is olevad koopiad?"</string>
     <string name="gadget_picker_title">Valige vidin</string>
     <string name="game_controller_settings_category">Mängukontroller</string>
-    <string name="game_dashboard_always_on_summary">Kuva mängudes mängu juhtpaneeli otsetee</string>
-    <string name="game_dashboard_always_on_title">Mängu juhtpaneel</string>
+    <string name="game_dashboard_always_on_summary">Kuva ikoon kõigis mängudes (ilma üles või alla pühkimata)</string>
+    <string name="game_dashboard_always_on_title">Mängu juhtpaneeli hõljuv ikoon</string>
     <string name="game_dashboard_dnd_rule_name">Mängimine</string>
     <string name="game_dashboard_dnd_summary">Mängimise ajal saate märguandeid ainult olulistelt inimestelt ja rakendustelt</string>
     <string name="game_dashboard_dnd_title">Mitte segada mängude puhul</string>
@@ -4571,6 +4571,8 @@ Märkus. Te ei saa sõrmejälge kasutada selle seadme avamiseks. Lisateabe saami
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">Järgige sõrmejälje ikooni</string>
     <string name="security_settings_udfps_enroll_start_message">Hoidke sõrmeotsa anduril, kuni tunnete vibratsiooni.</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">Veel üks kord</string>
+    <string name="security_settings_udfps_side_fingerprint_help">Asetage oma sõrmejälje külg andurile ja hoidke all, seejärel asetage andurile sõrmejälje teine külg</string>
+    <string name="security_settings_udfps_tip_fingerprint_help">Tõstke, seejärel puudutage uuesti</string>
     <string name="security_settings_work_fingerprint_preference_title">Pixel Imprint töö jaoks</string>
     <string name="security_status_title">Turvalisuse olek</string>
     <string name="see_less">Kuva vähem</string>
@@ -5531,6 +5533,7 @@ Iga kasutaja saab värskendada rakendusi kõigi kasutajate jaoks."</string>
     <string name="verify_apps_over_usb_title">Kinnita rakendus USB kaudu</string>
     <string name="version_text">versioon %1$s</string>
     <string name="vibrate_for_calls_settings_not_available_summary">Kõnede puhul vibreerimine pole saadaval, kuna telefon on vaigistatud</string>
+    <string name="vibrate_icon_title">Kuva vibratsioonirežiimis alati ikoon</string>
     <string name="vibrate_in_silent_title">Vibreeri hääletus režiimis</string>
     <string name="vibrate_input_devices">Vibreerimise ümbersuunamine</string>
     <string name="vibrate_input_devices_summary">Saadab vibreerimise mängukontrollerisse, kui see on ühendatud</string>
@@ -6201,7 +6204,7 @@ Kas lubada see kõigi rakenduste jaoks, mis skannida tahavad?"</string>
     <string name="zen_mode_conversations_section_title">Vestlused, mis saavad katkestada</string>
     <string name="zen_mode_conversations_title">Vestlused</string>
     <string name="zen_mode_custom_behavior_category_title">Ajakava „%1$s” jaoks</string>
-    <string name="zen_mode_custom_behavior_summary">Sellele ajakavale kohandatud seadete määramine</string>
+    <string name="zen_mode_custom_behavior_summary">Ajakavale kohandatud seadete määramine</string>
     <string name="zen_mode_custom_behavior_summary_default">Kasuta vaikeseadeid</string>
     <string name="zen_mode_custom_behavior_title">Funktsiooni Mitte segada käitumine</string>
     <string name="zen_mode_custom_calls_footer">Ajakava „%1$s” puhul on sissetulevad kõned blokeeritud. Võite seadeid kohandada, et võimaldada sõpradel, pereliikmetel või muudel kontaktidel teiega ühendust võtta.</string>

@@ -101,7 +101,7 @@
         <item quantity="one">ఫోన్ యాప్</item>
     </plurals>
     <plurals name="deleted_channels">
-        <item quantity="other">%d వర్గాలు తొలగించబడ్డాయి</item>
+        <item quantity="other">%d కేటగిరీలు తొలగించబడ్డాయి</item>
         <item quantity="one">%d వర్గం తొలగించబడింది</item>
     </plurals>
     <plurals name="dlg_remove_locales_title">
@@ -217,7 +217,7 @@
         <item quantity="one">1 పరిమితి</item>
     </plurals>
     <plurals name="notification_group_summary">
-        <item quantity="other">%d వర్గాలు</item>
+        <item quantity="other">%d కేటగిరీలు</item>
         <item quantity="one">%d వర్గం</item>
     </plurals>
     <plurals name="notification_history_count">
@@ -229,7 +229,7 @@
         <item quantity="one">1 యాప్‌లో ఆఫ్ చేయబడింది</item>
     </plurals>
     <plurals name="notifications_categories_off">
-        <item quantity="other">%d వర్గాలు ఆఫ్ చేయబడ్డాయి</item>
+        <item quantity="other">%d కేటగిరీలు ఆఫ్ చేయబడ్డాయి</item>
         <item quantity="one">%d వర్గం ఆఫ్ చేయబడింది</item>
     </plurals>
     <plurals name="notifications_sent_daily">

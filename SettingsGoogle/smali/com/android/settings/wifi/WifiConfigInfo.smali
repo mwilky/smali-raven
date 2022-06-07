@@ -104,7 +104,7 @@
     :cond_1
     iget-object p0, p0, Lcom/android/settings/wifi/WifiConfigInfo;->mConfigList:Landroid/widget/TextView;
 
-    const v0, 0x7f04171f
+    const v0, 0x7f041722
 
     invoke-virtual {p0, v0}, Landroid/widget/TextView;->setText(I)V
 

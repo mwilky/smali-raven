@@ -421,7 +421,7 @@
 
     if-nez v5, :cond_0
 
-    const v5, 0x7f0417a5
+    const v5, 0x7f0417a8
 
     invoke-virtual {v6, v5}, Landroidx/preference/Preference;->setSummary(I)V
 

@@ -288,7 +288,7 @@
 
     iput-object v0, p0, Lcom/android/settings/notification/zen/ZenModeAddBypassingAppsPreferenceController;->mPreferenceCategory:Landroidx/preference/PreferenceCategory;
 
-    const v1, 0x7f0417fe    # 1.7558267E38f
+    const v1, 0x7f041801
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setTitle(I)V
 
@@ -435,7 +435,7 @@
 
     invoke-virtual {p1, v1}, Landroidx/preference/Preference;->setKey(Ljava/lang/String;)V
 
-    const v1, 0x7f041805
+    const v1, 0x7f041808
 
     invoke-virtual {p1, v1}, Landroidx/preference/Preference;->setTitle(I)V
 

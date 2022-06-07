@@ -936,7 +936,7 @@
 
     if-nez v0, :cond_0
 
-    const p0, 0x7f04139d
+    const p0, 0x7f04139f
 
     invoke-virtual {p1, p0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 

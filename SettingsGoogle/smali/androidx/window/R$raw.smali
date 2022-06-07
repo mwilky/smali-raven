@@ -139,9 +139,13 @@
 
 .field public static final system_nav_fully_gestural:I = 0x7f03003d
 
-.field public static final udfps_edu_a11y_lottie:I = 0x7f03003e
+.field public static final udfps_edge_hint_lottie:I = 0x7f03003e
 
-.field public static final udfps_edu_lottie:I = 0x7f03003f
+.field public static final udfps_edu_a11y_lottie:I = 0x7f03003f
+
+.field public static final udfps_edu_lottie:I = 0x7f030040
+
+.field public static final udfps_tip_hint_lottie:I = 0x7f030041
 
 
 # direct methods

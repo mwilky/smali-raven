@@ -101,11 +101,11 @@
     <string name="abc_action_mode_done">Готово</string>
     <string name="vibrate_for_calls_category_title">Обаждания</string>
     <string name="lockscreen_privacy_wallet_setting_toggle">Показване на портфейла</string>
-    <string name="lockscreen_privacy_controls_setting_toggle">Показване на контролите за устройството</string>
+    <string name="lockscreen_privacy_controls_setting_toggle">Показване на контроли за устройства</string>
     <string name="lockscreen_privacy_wallet_summary">Разрешаване на достъп до портфейла от заключения екран и от бързите настройки</string>
     <string name="lockscreen_privacy_controls_summary">Достъп до контролите при заключен екран</string>
-    <string name="lockscreen_double_line_clock_summary">Показване на часовника с двойна линия, когато е налице</string>
-    <string name="lockscreen_double_line_clock_setting_toggle">Часовник с двойна линия</string>
+    <string name="lockscreen_double_line_clock_summary">Показване на часовника на два реда, когато е налице</string>
+    <string name="lockscreen_double_line_clock_setting_toggle">Часовник на два реда</string>
     <string name="abc_activity_chooser_view_see_all">Преглед на всички</string>
     <string name="abc_activitychooserview_choose_application">Изберете приложение</string>
     <string name="abc_capital_off">ИЗКЛ.</string>
@@ -2522,8 +2522,8 @@
     <string name="fullbackup_erase_dialog_message">Искате ли да спрете създаването на резервно копие на данните на устройството (например пароли за Wi-Fi и история на обажданията) и тези на приложенията (например настройки и съхранявани от приложенията файлове), както и да изтриете всички копия в Google Диск?</string>
     <string name="gadget_picker_title">Избор на притурка</string>
     <string name="game_controller_settings_category">Контролер за игри</string>
-    <string name="game_dashboard_always_on_summary">Показване в игрите на прекия път за таблото за управление на играта</string>
-    <string name="game_dashboard_always_on_title">Табло за управление на играта</string>
+    <string name="game_dashboard_always_on_summary">Показване на иконата във всички игри (без прекарване на пръст нагоре или надолу)</string>
+    <string name="game_dashboard_always_on_title">Плаваща икона за таблото за управление на играта</string>
     <string name="game_dashboard_dnd_rule_name">Игри</string>
     <string name="game_dashboard_dnd_summary">Получавайте известия само от важни хора и приложения, докато играете игри</string>
     <string name="game_dashboard_dnd_title">Режим „Не безпокойте“ за игри</string>
@@ -3552,7 +3552,7 @@
     <string name="night_display_suggestion_title">Задаване на график за Нощно осветление</string>
     <string name="night_display_summary_off_auto_mode_custom">Ще се включи автоматично в %1$s</string>
     <string name="night_display_summary_off_auto_mode_never">Няма да се включи автоматично</string>
-    <string name="night_display_summary_off_auto_mode_twilight">Ще се включи автоматично при залез</string>
+    <string name="night_display_summary_off_auto_mode_twilight">Ще се включва автоматично при залез</string>
     <string name="night_display_summary_on_auto_mode_custom">Ще се изключи автоматично в %1$s</string>
     <string name="night_display_summary_on_auto_mode_never">Няма да се изключи автоматично</string>
     <string name="night_display_summary_on_auto_mode_twilight">Ще се изключи автоматично при изгрев</string>
@@ -4238,7 +4238,7 @@
     <string name="safety_and_regulatory_info">Наръчник за безопасността и норм. изисквания</string>
     <string name="save">Запазване</string>
     <string name="saved_network">Запазено от %1$s</string>
-    <string name="scanning_status_text_off">Изключено</string>
+    <string name="scanning_status_text_off">Изкл.</string>
     <string name="scanning_status_text_on">Вкл.</string>
     <string name="scanning_status_text_wifi_off_ble_off">Сканирането за Wi‑Fi и устройства с Bluetooth е изключено</string>
     <string name="scanning_status_text_wifi_off_ble_on">Сканирането за устройства с Bluetooth е включено, сканирането за Wi‑Fi е изключено</string>
@@ -4560,7 +4560,7 @@
     <string name="security_settings_summary">Задаване на Моето местоположение, отключване на екран, заключване на SIM картата и на хранилището за идентификационни данни</string>
     <string name="security_settings_title">Сигурност</string>
     <string name="security_settings_udfps_enroll_a11y">За да откриете сензора, преместете пръста си по дисплея. Докоснете и задръжте сензора за отпечатъци.</string>
-    <string name="security_settings_udfps_enroll_edge_message">Поставете едната страна на отпечатъка си върху сензора и задръжте, след това поставете другата</string>
+    <string name="security_settings_udfps_enroll_edge_message">Поставете едната страна на пръста си върху сензора и задръжте, след това поставете другата</string>
     <string name="security_settings_udfps_enroll_edge_title">Накрая използвайте краищата на пръста си</string>
     <string name="security_settings_udfps_enroll_find_sensor_message">Сензорът за отпечатъци се намира на екрана ви. На следващия екран ще заснемете отпечатъка си.</string>
     <string name="security_settings_udfps_enroll_find_sensor_start_button">Начало</string>
@@ -4569,8 +4569,10 @@
     <string name="security_settings_udfps_enroll_repeat_a11y_message">По този начин се улавя най-голяма част от отпечатъка ви</string>
     <string name="security_settings_udfps_enroll_repeat_message">При всяко преместване на иконата за отпечатъци я докоснете и задръжте. По този начин се улавя най-голяма част от отпечатъка ви.</string>
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">Следвайте иконата за отпечатъци</string>
-    <string name="security_settings_udfps_enroll_start_message">Задръжте отпечатъка си върху сензора, докато усетите вибриране</string>
+    <string name="security_settings_udfps_enroll_start_message">Задръжте пръста си върху сензора, докато усетите вибриране</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">Още веднъж</string>
+    <string name="security_settings_udfps_side_fingerprint_help">Поставете едната страна на пръста си върху сензора и задръжте, след това поставете другата</string>
+    <string name="security_settings_udfps_tip_fingerprint_help">Вдигнете пръст и докоснете отново</string>
     <string name="security_settings_work_fingerprint_preference_title">Pixel Imprint за служебни цели</string>
     <string name="security_status_title">Състояние на сигурността</string>
     <string name="see_less">Преглед на по-малко</string>
@@ -5531,6 +5533,7 @@
     <string name="verify_apps_over_usb_title">Потвържд. на прил. през USB</string>
     <string name="version_text">версия %1$s</string>
     <string name="vibrate_for_calls_settings_not_available_summary">Вибрирането при обаждания не е налице, защото за телефона е зададен тих режим</string>
+    <string name="vibrate_icon_title">Иконата да се показва винаги в режим на вибриране</string>
     <string name="vibrate_in_silent_title">Вибрира при тих режим</string>
     <string name="vibrate_input_devices">Пренасочване на вибрирането</string>
     <string name="vibrate_input_devices_summary">Пренасочване на вибрирането към контролера за игри, когато е свързан</string>

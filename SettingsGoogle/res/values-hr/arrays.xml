@@ -613,14 +613,6 @@
         <item>Plavo nepravokutno područje isječka</item>
         <item>Istakni testirane naredbe zelenom</item>
     </string-array>
-    <string-array name="sim_color_light">
-        <item>\@boja/SIM_boja_cijan</item>
-        <item>\@boja/SIM_boja_plava800</item>
-        <item>\@boja/SIM_boja_zelena800</item>
-        <item>\@boja/SIM_boja_ljubičasta800</item>
-        <item>\@boja/SIM_boja_ružičasta800</item>
-        <item>\@boja/SIM_boja_narančasta</item>
-    </string-array>
     <string-array name="swipe_direction_values">
         <item>1</item>
         <item>0</item>

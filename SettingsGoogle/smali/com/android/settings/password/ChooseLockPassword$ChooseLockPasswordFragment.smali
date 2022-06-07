@@ -1707,7 +1707,7 @@
 
     iget-object v0, p0, Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment;->mPasswordEntry:Landroid/widget/ImeAwareEditText;
 
-    const v3, 0x7f041476
+    const v3, 0x7f041478
 
     invoke-virtual {p0, v3}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -1720,7 +1720,7 @@
     :cond_3
     iget-object v0, p0, Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment;->mPasswordEntry:Landroid/widget/ImeAwareEditText;
 
-    const v3, 0x7f04147a
+    const v3, 0x7f04147c
 
     invoke-virtual {p0, v3}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -1801,7 +1801,7 @@
 
     move-result-object p2
 
-    const v0, 0x7f04146a
+    const v0, 0x7f04146c
 
     invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 

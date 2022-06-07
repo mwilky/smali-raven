@@ -64,79 +64,37 @@
 .end method
 
 .method public onReceiveStatus(Ljava/lang/String;I)V
-    .locals 6
+    .locals 4
 
-    invoke-static {p1}, Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager;->isStageActiveOrEnabled(Ljava/lang/String;)Z
+    invoke-static {p1, p2}, Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager;->isActive(Ljava/lang/String;I)Z
 
     move-result p1
 
-    const/4 v0, 0x0
-
-    const/4 v1, 0x1
-
     if-eqz p1, :cond_0
-
-    if-lez p2, :cond_0
-
-    move p1, v1
-
-    goto :goto_0
-
-    :cond_0
-    move p1, v0
-
-    :goto_0
-    if-eqz p1, :cond_2
 
     add-int/lit8 p2, p2, 0x1d
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v2
+    move-result-wide v0
 
     sget-object p1, Ljava/util/concurrent/TimeUnit;->SECONDS:Ljava/util/concurrent/TimeUnit;
 
-    int-to-long v4, p2
+    int-to-long v2, p2
 
-    invoke-virtual {p1, v4, v5}, Ljava/util/concurrent/TimeUnit;->toMillis(J)J
+    invoke-virtual {p1, v2, v3}, Ljava/util/concurrent/TimeUnit;->toMillis(J)J
 
     move-result-wide p1
 
-    add-long/2addr v2, p1
+    add-long/2addr v0, p1
 
     iget-object p1, p0, Lcom/google/android/settings/fuelgauge/BatteryStatusFeatureProviderGoogleImpl$2;->this$0:Lcom/google/android/settings/fuelgauge/BatteryStatusFeatureProviderGoogleImpl;
 
-    invoke-static {p1}, Lcom/google/android/settings/fuelgauge/BatteryStatusFeatureProviderGoogleImpl;->access$100(Lcom/google/android/settings/fuelgauge/BatteryStatusFeatureProviderGoogleImpl;)Landroid/content/Context;
+    invoke-static {p1}, Lcom/google/android/settings/fuelgauge/BatteryStatusFeatureProviderGoogleImpl;->access$100(Lcom/google/android/settings/fuelgauge/BatteryStatusFeatureProviderGoogleImpl;)Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager;
 
     move-result-object p1
 
-    invoke-static {p1}, Landroid/text/format/DateFormat;->is24HourFormat(Landroid/content/Context;)Z
-
-    move-result p1
-
-    if-eqz p1, :cond_1
-
-    const-string p1, "Hm"
-
-    goto :goto_1
-
-    :cond_1
-    const-string p1, "hma"
-
-    :goto_1
-    invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
-
-    move-result-object p2
-
-    invoke-static {p2, p1}, Landroid/text/format/DateFormat;->getBestDateTimePattern(Ljava/util/Locale;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-static {p1, v2, v3}, Landroid/text/format/DateFormat;->format(Ljava/lang/CharSequence;J)Ljava/lang/CharSequence;
-
-    move-result-object p1
-
-    invoke-interface {p1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+    invoke-virtual {p1, v0, v1}, Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager;->formatTimeToFull(J)Ljava/lang/String;
 
     move-result-object p1
 
@@ -150,13 +108,17 @@
 
     move-result-object p2
 
-    const v2, 0x7f0401a1
+    const v0, 0x7f0401a1
 
-    new-array v3, v1, [Ljava/lang/Object;
+    const/4 v1, 0x1
 
-    aput-object p1, v3, v0
+    new-array v2, v1, [Ljava/lang/Object;
 
-    invoke-virtual {p2, v2, v3}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    const/4 v3, 0x0
+
+    aput-object p1, v2, v3
+
+    invoke-virtual {p2, v0, v2}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object p1
 
@@ -168,6 +130,6 @@
 
     iput-boolean v1, p0, Lcom/google/android/settings/fuelgauge/BatteryStatusFeatureProviderGoogleImpl$2;->mSetStatus:Z
 
-    :cond_2
+    :cond_0
     return-void
 .end method

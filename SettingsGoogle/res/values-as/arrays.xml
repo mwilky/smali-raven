@@ -613,14 +613,6 @@
         <item>আয়তাকাৰ নোহোৱা ক্লিপ অঞ্চল নীলাৰে আঁকক</item>
         <item>পৰীক্ষণ কৰা চিত্ৰাংকণ কমাণ্ডবোৰ সেউজীয়া ৰঙত হাইলাইট কৰক</item>
     </string-array>
-    <string-array name="sim_color_light">
-        <item>\@color/SIM_color_cyan</item>
-        <item>\@color/SIM_color_blue800</item>
-        <item>\@color/SIM_color_green800</item>
-        <item>\@color/SIM_color_purple800</item>
-        <item>\@color/SIM_color_pink800</item>
-        <item>\@color/SIM_color_orange</item>
-    </string-array>
     <string-array name="swipe_direction_values">
         <item>১</item>
         <item>০</item>

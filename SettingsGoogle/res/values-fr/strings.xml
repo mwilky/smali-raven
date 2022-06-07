@@ -451,7 +451,7 @@ Pour changer de fonctionnalité, balayez l'écran vers le haut avec trois doigts
     <string name="adaptive_sleep_contextual_slice_title">"Activer Regard sur l'écran"</string>
     <string name="adaptive_sleep_description">"Empêcher l'écran de s'éteindre pendant que vous le regardez"</string>
     <string name="adaptive_sleep_manage_permission_button">Gérer les autorisations</string>
-    <string name="adaptive_sleep_privacy">"La fonctionnalité Regard sur écran utilise la caméra frontale pour détecter si quelqu'un regarde l'écran. Elle fonctionne seulement sur l'appareil et les images ne sont jamais enregistrées ni envoyées à Google."</string>
+    <string name="adaptive_sleep_privacy">"La fonctionnalité Regard sur écran utilise la caméra frontale pour détecter si quelqu'un regarde l'écran. Elle opère sur l'appareil uniquement, et les images ne sont jamais enregistrées ni envoyées à Google."</string>
     <string name="adaptive_sleep_summary_no_permission">"Vous devez autoriser l'accès à l'appareil photo pour utiliser Regard sur écran. Appuyez ici pour gérer les autorisations liées aux services de personnalisation de l'appareil"</string>
     <string name="adaptive_sleep_summary_off">Désactivé</string>
     <string name="adaptive_sleep_summary_on">"Activé - L'écran ne s'éteint pas pendant que vous le regardez"</string>
@@ -522,7 +522,7 @@ Votre administrateur a la possibilité de surveiller et de gérer les paramètre
     <string name="alarm_ringtone_title">Sonnerie par défaut du réveil</string>
     <string name="alarm_template">à %1$s</string>
     <string name="alarm_template_far">le %1$s</string>
-    <string name="alarm_volume_option_title">Volume du réveil</string>
+    <string name="alarm_volume_option_title">Volume des alarmes</string>
     <string name="alarm_volume_title">Alarme</string>
     <string name="alarms_and_reminders_footer_title">"Autorisez cette appli à définir des alarmes et à programmer des actions à certaines heures. Elle s'exécutera alors en arrière-plan, ce qui peut solliciter davantage la batterie.
 
@@ -1538,7 +1538,7 @@ Si vous installez un certificat CA, son propriétaire peut potentiellement acc�
     <string name="character_counter_content_description">Caractères saisis %1$d sur %2$d</string>
     <string name="character_counter_overflowed_content_description">Nombre maximal de caractères dépassé : %1$d sur %2$d</string>
     <string name="charge_length_format">Il y a %1$s</string>
-    <string name="charging_sounds_title">Sons et vibration de recharge</string>
+    <string name="charging_sounds_title">Sons et vibreur pour la recharge</string>
     <string name="checkbox_notification_same_as_incoming_call">Utiliser le volume des appels entrants pour les notifications</string>
     <string name="checking_decryption">Vérification en cours…</string>
     <string name="choose_network_title">Sélectionner un réseau</string>
@@ -2522,8 +2522,8 @@ Les données de sauvegarde ne sont pas prises en compte dans le quota de stockag
     <string name="fullbackup_erase_dialog_message">"Voulez-vous vraiment arrêter de sauvegarder les données de l'appareil (telles que les mots de passe Wi-Fi et l'historique des appels) et celles des applications (telles que les paramètres et les fichiers enregistrés par ces applications), et en effacer toutes les copies sur Google Drive ?"</string>
     <string name="gadget_picker_title">Choisir un gadget</string>
     <string name="game_controller_settings_category">Manette de jeu</string>
-    <string name="game_dashboard_always_on_summary">Afficher le raccourci Tableau de bord Jeux dans les jeux</string>
-    <string name="game_dashboard_always_on_title">Tableau de bord Jeux</string>
+    <string name="game_dashboard_always_on_summary">"Afficher l'icône dans tous les jeux (sans balayer l'écran vers le haut ni vers le bas)"</string>
+    <string name="game_dashboard_always_on_title">Icône flottante du Tableau de bord Jeux</string>
     <string name="game_dashboard_dnd_rule_name">Jeux vidéo</string>
     <string name="game_dashboard_dnd_summary">Ne recevoir des notifications que des personnes et applis importantes lorsque vous jouez</string>
     <string name="game_dashboard_dnd_title">Ne pas déranger pendant les jeux</string>
@@ -2624,7 +2624,7 @@ Vous pourrez modifier cette option ultérieurement dans Paramètres > Applis et
     <string name="high_power_prompt_title">Toujours autoriser en arrière-plan ?</string>
     <string name="high_power_system">Optimisation de la batterie non disponible</string>
     <string name="history_details_title">Historique</string>
-    <string name="history_toggled_on_summary">"Les notifications récentes et répétées s'afficheront ici"</string>
+    <string name="history_toggled_on_summary">"Les notifications récentes et en attente s'afficheront ici"</string>
     <string name="history_toggled_on_title">Aucune notification récente</string>
     <string name="home">Paramètres</string>
     <string name="home_app">"Application sur la page d'accueil"</string>
@@ -3636,7 +3636,7 @@ Elle a accès au contenu des notifications, y compris aux infos personnelles tel
     <string name="notification_group_title">Groupe de notifications</string>
     <string name="notification_history">Historique des notifications</string>
     <string name="notification_history_dismiss">Récemment ignorées</string>
-    <string name="notification_history_off_summary">"Activez l'historique des notifications pour voir les notifications récentes et répétées"</string>
+    <string name="notification_history_off_summary">"Activez l'historique des notifications pour voir les notifications récentes et en attente"</string>
     <string name="notification_history_off_title_extended">"L'historique des notifications est désactivé"</string>
     <string name="notification_history_open_notification">Ouvrir la notification</string>
     <string name="notification_history_snooze">Notifications répétées</string>
@@ -4239,7 +4239,7 @@ Ce paramètre affecte tous les utilisateurs de ce téléphone."</string>
     <string name="save">Enregistrer</string>
     <string name="saved_network">Enregistré lors de : %1$s</string>
     <string name="scanning_status_text_off">Désactivée</string>
-    <string name="scanning_status_text_on">Activé</string>
+    <string name="scanning_status_text_on">Activée</string>
     <string name="scanning_status_text_wifi_off_ble_off">Les recherches Wi‑Fi et Bluetooth sont désactivées</string>
     <string name="scanning_status_text_wifi_off_ble_on">La recherche Bluetooth est activée, la recherche Wi-Fi est désactivée</string>
     <string name="scanning_status_text_wifi_on_ble_off">La recherche Wi‑Fi est activée, mais pas la recherche Bluetooth</string>
@@ -4561,7 +4561,7 @@ Remarque : vous ne pouvez pas utiliser votre empreinte digitale pour déverrouil
     <string name="security_settings_title">Sécurité</string>
     <string name="security_settings_udfps_enroll_a11y">"Faites glisser le doigt sur l'écran pour trouver le lecteur. Appuyez de manière prolongée sur le lecteur d'empreinte digitale."</string>
     <string name="security_settings_udfps_enroll_edge_message">"Placez le côté de votre empreinte sur le capteur, maintenez-le, puis passez à l'autre côté"</string>
-    <string name="security_settings_udfps_enroll_edge_title">Pour finir, utilisez les bords de votre doigt</string>
+    <string name="security_settings_udfps_enroll_edge_title">Pour finir, faites rouler votre doigt de chaque côté</string>
     <string name="security_settings_udfps_enroll_find_sensor_message">"Le lecteur d'empreinte digitale est affiché. Vous allez capturer votre empreinte sur le prochain écran."</string>
     <string name="security_settings_udfps_enroll_find_sensor_start_button">Démarrer</string>
     <string name="security_settings_udfps_enroll_find_sensor_title">Comment configurer votre empreinte digitale</string>
@@ -4570,8 +4570,10 @@ Remarque : vous ne pouvez pas utiliser votre empreinte digitale pour déverrouil
     <string name="security_settings_udfps_enroll_repeat_a11y_message">Cela permet de mieux capturer votre empreinte</string>
     <string name="security_settings_udfps_enroll_repeat_message">"Appuyez de manière prolongée chaque fois que l'icône de l'empreinte bouge. Cela permet de mieux capturer votre empreinte."</string>
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">"Suivre l'icône de l'empreinte digitale"</string>
-    <string name="security_settings_udfps_enroll_start_message">"Maintenez votre empreinte à plat sur le lecteur jusqu'à ce qu'il vibre"</string>
+    <string name="security_settings_udfps_enroll_start_message">"Maintenez votre doigt à plat sur le lecteur jusqu'à ce que vous sentiez une vibration"</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">Encore une fois</string>
+    <string name="security_settings_udfps_side_fingerprint_help">"Placez le côté de votre empreinte sur le capteur, maintenez-le, puis passez à l'autre côté"</string>
+    <string name="security_settings_udfps_tip_fingerprint_help">Levez le doigt, puis reposez-le</string>
     <string name="security_settings_work_fingerprint_preference_title">Pixel Imprint pour le travail</string>
     <string name="security_status_title">État de la sécurité</string>
     <string name="see_less">Moins de détails</string>
@@ -4827,7 +4829,7 @@ Le code PIN est peut-être incorrect."</string>
     <string name="sound_settings_summary_silent">Sonnerie en mode silencieux</string>
     <string name="sound_settings_summary_vibrate">Sonnerie en mode vibreur</string>
     <string name="sound_work_settings">Sons du profil professionnel</string>
-    <string name="spatial_audio_title">Son spatialisé</string>
+    <string name="spatial_audio_title">Son spatial</string>
     <string name="special_access">Accès spéciaux des applis</string>
     <string name="special_access_more">En savoir plus</string>
     <string name="speed_label_fast">Élevée</string>
@@ -5132,7 +5134,7 @@ Une solution Google pour synchroniser vos données et vous permettre d'accéder 
     <string name="take_call_on_title">"Accepter l'appel sur"</string>
     <string name="talkback_summary">"Le lecteur d'écran est destiné principalement aux personnes atteintes de cécité ou de troubles de la vue"</string>
     <string name="talkback_title">TalkBack</string>
-    <string name="tap_a_network_to_connect">Appuyez sur un réseau pour vous connecter</string>
+    <string name="tap_a_network_to_connect">Appuyez sur un réseau pour vous y connecter</string>
     <string name="tap_to_sign_up">Appuyez ici pour vous connecter</string>
     <string name="terms_title">"Conditions d'utilisation"</string>
     <string name="testing">Test</string>
@@ -5532,6 +5534,7 @@ N'importe quel utilisateur peut mettre à jour les applications pour tous les au
     <string name="verify_apps_over_usb_title">Vérifier les applis via USB</string>
     <string name="version_text">version %1$s</string>
     <string name="vibrate_for_calls_settings_not_available_summary">"Le vibreur n'est pas disponible pour les appels, car le téléphone est en mode silencieux"</string>
+    <string name="vibrate_icon_title">"Toujours afficher l'icône si en mode vibreur"</string>
     <string name="vibrate_in_silent_title">Vibrer en mode silencieux</string>
     <string name="vibrate_input_devices">Vibreur pour la redirection</string>
     <string name="vibrate_input_devices_summary">Rediriger le vibreur vers la manette de jeu lorsque vous êtes connecté</string>
@@ -6315,7 +6318,7 @@ Lorsque vous désactiverez le mode Ne pas déranger, vous pourrez retrouver les 
     <string name="zen_mode_settings_dnd_manual_end_time">"Le mode Ne pas déranger est activé jusqu'à %s"</string>
     <string name="zen_mode_settings_dnd_manual_indefinite">"Le mode Ne pas déranger restera activé jusqu'à ce que vous le désactiviez"</string>
     <string name="zen_mode_settings_schedules_summary">{count,plural, =0{Aucun}=1{1 programme défini}one{# programme défini}other{# programmes définis}}</string>
-    <string name="zen_mode_settings_summary">Recevez uniquement les notifications des personnes et applications importantes</string>
+    <string name="zen_mode_settings_summary">Ne recevoir des notifications que des personnes et applications importantes</string>
     <string name="zen_mode_settings_summary_off">Jamais</string>
     <string name="zen_mode_settings_title">Ne pas déranger</string>
     <string name="zen_mode_settings_turn_on_dialog_title">Activer le mode Ne pas déranger</string>

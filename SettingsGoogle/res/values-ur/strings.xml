@@ -2522,8 +2522,8 @@
     <string name="fullbackup_erase_dialog_message">‏آلہ کے ڈیٹا (جیسے کہ Wi-Fi پاسورڈز اور کال کی سرگزشت) اور ایپ ڈیٹا (جیسے کہ ایپس کی جانب سے اسٹور کردہ ترتیبات اور فائلز) کا بیک اپ لینا بند کریں، نیز Google Drive پر موجود سبھی کاپیاں مٹا دیں؟</string>
     <string name="gadget_picker_title">گیجیٹ منتخب کریں</string>
     <string name="game_controller_settings_category">گیم کنٹرولر</string>
-    <string name="game_dashboard_always_on_summary">گیمز میں گیم ڈیش بورڈ شارٹ کٹ دکھائیں</string>
-    <string name="game_dashboard_always_on_title">گیم ڈیش بورڈ</string>
+    <string name="game_dashboard_always_on_summary">(اوپر یا نیچے سوائپ کیے بغیر) تمام گیمز میں آئیکن دکھائیں</string>
+    <string name="game_dashboard_always_on_title">گیم ڈیش بورڈ فلوٹنگ آئیکن</string>
     <string name="game_dashboard_dnd_rule_name">گیمنگ</string>
     <string name="game_dashboard_dnd_summary">گیم کھیلنے کے دوران صرف اہم لوگوں اور ایپس کی جانب سے اطلاعات حاصل کریں</string>
     <string name="game_dashboard_dnd_title">"گیمز کے لیے 'ڈسٹرب نہ کریں'"</string>
@@ -4572,6 +4572,8 @@ g.co/pixel/faceunlock پر مزید جانیں۔"</string>
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">فنگر پرنٹ آئیکن کی پیروی کریں</string>
     <string name="security_settings_udfps_enroll_start_message">اپنے فنگر پرنٹ کو سینسر پر تب تک سیدھا رکھیں جب تک آپ کو وائبریشن محسوس نہ ہو</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">ایک بار اور چھوئیں</string>
+    <string name="security_settings_udfps_side_fingerprint_help">اپنے فنگر پرنٹ کے حصے کو سینسر پر رکھیں اور دبائے رکھیں پھر، دوسرے حصے پر سوئچ کریں</string>
+    <string name="security_settings_udfps_tip_fingerprint_help">اٹھائیں، پھر دوبارہ ٹچ کریں</string>
     <string name="security_settings_work_fingerprint_preference_title">‏کام کیلئےPixel Imprint</string>
     <string name="security_status_title">سیکیورٹی کی صورتحال</string>
     <string name="see_less">کم دیکھیں</string>
@@ -5532,6 +5534,7 @@ g.co/pixel/faceunlock پر مزید جانیں۔"</string>
     <string name="verify_apps_over_usb_title">‏USB پر ایپس کی توثیق کریں</string>
     <string name="version_text">ورژن %1$s</string>
     <string name="vibrate_for_calls_settings_not_available_summary">کالز کے لیے وائبریٹ دستیاب نہیں ہے کیونکہ فون خاموش پر سیٹ ہے</string>
+    <string name="vibrate_icon_title">وائبریٹ وضع میں ہونے پر ہمیشہ آئیکن دکھائیں</string>
     <string name="vibrate_in_silent_title">خاموش ہونے پر وائبریٹ کریں</string>
     <string name="vibrate_input_devices">وائبریشن کو ری ڈائریکٹ کریں</string>
     <string name="vibrate_input_devices_summary">منسلک ہونے پر گیم کنٹرولر کو وائبریشن بھیجیں</string>
@@ -6314,7 +6317,7 @@ g.co/pixel/faceunlock پر مزید جانیں۔"</string>
     <string name="zen_mode_settings_dnd_custom_settings_footer_link">" "<annotation id="link">حسب ضرورت ترتیبات دیکھیں</annotation></string>
     <string name="zen_mode_settings_dnd_manual_end_time">"'ڈسٹرب نہ کریں' %s تک آن ہے"</string>
     <string name="zen_mode_settings_dnd_manual_indefinite">"جب تک آپ 'ڈسٹرب نہ کریں' بند نہیں کرتے تب تک وہ آن ہی رہے گا"</string>
-    <string name="zen_mode_settings_schedules_summary">{count,plural, =0{کوئی نہیں}=1{1 شیڈول سیٹ کریں}other{# شیڈول سیٹ کریں}}</string>
+    <string name="zen_mode_settings_schedules_summary">{count,plural, =0{کوئی نہیں}=1{1 شیڈول سیٹ ہے}other{# شیڈول سیٹ ہیں}}</string>
     <string name="zen_mode_settings_summary">صرف اہم لوگوں اور ایپس کی جانب سے اطلاعات حاصل کریں</string>
     <string name="zen_mode_settings_summary_off">کبھی نہیں</string>
     <string name="zen_mode_settings_title">ڈسٹرب نہ کریں</string>

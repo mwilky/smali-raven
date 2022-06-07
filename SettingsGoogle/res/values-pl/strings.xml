@@ -482,7 +482,7 @@ Aby przełączać się między funkcjami, przesuń 3 palcami w górę i przyt
     <string name="adb_wireless_list_empty_off">Aby wyświetlić dostępne urządzenia i ich używać, włącz debugowanie bezprzewodowe</string>
     <string name="adb_wireless_no_network_msg">Połącz się z siecią Wi-Fi</string>
     <string name="adb_wireless_qrcode_pairing_description">Sparuj urządzenia przez Wi-Fi, skanując kod QR</string>
-    <string name="adb_wireless_qrcode_pairing_title">Zeskanuj kod QR</string>
+    <string name="adb_wireless_qrcode_pairing_title">Skaner kodów QR</string>
     <string name="adb_wireless_qrcode_summary">Sparuj urządzenia przez Wi-Fi, skanując kod QR</string>
     <string name="adb_wireless_settings">Debugowanie bezprzewodowe</string>
     <string name="adb_wireless_verifying_qrcode_text">Paruję urządzenie…</string>
@@ -782,8 +782,8 @@ Wystarczy zetknąć urządzenia ze sobą i kliknąć ekran. Aplikacja automatycz
     <string name="auto_rotate_camera_lock_title">Aparat jest zablokowany</string>
     <string name="auto_rotate_manage_permission_button">Zarządzaj uprawnieniami</string>
     <string name="auto_rotate_option_face_based">Włączono – na podstawie twarzy</string>
-    <string name="auto_rotate_option_off">Wyłączono</string>
-    <string name="auto_rotate_option_on">Włączono</string>
+    <string name="auto_rotate_option_off">Wyłączone</string>
+    <string name="auto_rotate_option_on">Włączone</string>
     <string name="auto_rotate_settings_primary_switch_title">Używaj autoobracania</string>
     <string name="auto_rotate_summary_no_permission">Wykrywanie twarzy wymaga dostępu do aparatu. Kliknij, aby zarządzać uprawnieniami usług personalizacji urządzenia.</string>
     <string name="auto_rotate_switch_face_based">Włącz wykrywanie twarzy</string>
@@ -2522,8 +2522,8 @@ Kopia zapasowa nie wlicza się do limitu miejsca na Dysku Google. Nie zostanie t
     <string name="fullbackup_erase_dialog_message">Zatrzymać tworzenie kopii zapasowej danych urządzenia (np. haseł Wi-Fi i historii połączeń) i danych aplikacji (np. ustawień i plików zapisanych przez aplikacje) oraz wykasować wszystkie kopie z Dysku Google?</string>
     <string name="gadget_picker_title">Wybierz gadżet</string>
     <string name="game_controller_settings_category">Kontroler gier</string>
-    <string name="game_dashboard_always_on_summary">Pokazuj skrót do panelu gier w grach</string>
-    <string name="game_dashboard_always_on_title">Panel gier</string>
+    <string name="game_dashboard_always_on_summary">Pokaż ikonę we wszystkich grach (bez przesuwania w górę lub w dół)</string>
+    <string name="game_dashboard_always_on_title">Ikona pływająca panelu gier</string>
     <string name="game_dashboard_dnd_rule_name">Gry</string>
     <string name="game_dashboard_dnd_summary">Podczas grania otrzymuj powiadomienia tylko od ważnych osób i z kluczowych aplikacji</string>
     <string name="game_dashboard_dnd_title">Tryb Nie przeszkadzać dla gier</string>
@@ -3662,7 +3662,7 @@ Ulepszone powiadomienia mogą czytać całą zawartość powiadomień, w tym in
     <string name="notification_listener_disable_warning_confirm">Wyłącz</string>
     <string name="notification_listener_disable_warning_summary">Jeśli wyłączysz dostęp do powiadomień dla aplikacji %1$s, możesz również wyłączyć opcję Nie przeszkadzać.</string>
     <string name="notification_listener_not_allowed">Nie mają dostępu</string>
-    <string name="notification_listener_security_warning_summary">"Aplikacja %1$s będzie mogła czytać wszystkie powiadomienia, w tym dane osobowe takie jak nazwy kontaktów i treść otrzymywanych wiadomości. Będzie też mogła odkładać oraz odrzucać powiadomienia i używać umieszczonych w nich przycisków, włączając w to odbieranie połączeń telefonicznych. 
+    <string name="notification_listener_security_warning_summary">"Aplikacja %1$s będzie mogła czytać wszystkie powiadomienia, w tym informacje osobiste takie jak nazwy kontaktów i treść otrzymywanych wiadomości. Będzie też mogła odkładać oraz odrzucać powiadomienia i używać umieszczonych w nich przycisków, włączając w to odbieranie połączeń telefonicznych. 
 
 Dodatkowo aplikacja będzie mogła włączać i wyłączać tryb Nie przeszkadzać oraz zmieniać powiązane ustawienia."</string>
     <string name="notification_listener_security_warning_title">Zezwolić usłudze %1$s na dostęp do powiadomień?</string>
@@ -4572,6 +4572,8 @@ Uwaga: nie możesz odblokowywać tego urządzenia odciskiem palca. Więcej infor
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">Dotknij ikony odcisku cyfrowego</string>
     <string name="security_settings_udfps_enroll_start_message">Trzymaj palec na czytniku linii papilarnych do chwili, aż poczujesz wibracje</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">Jeszcze raz</string>
+    <string name="security_settings_udfps_side_fingerprint_help">Umieść na czytniku palec bokiem i przytrzymaj, a następnie obróć na drugi bok</string>
+    <string name="security_settings_udfps_tip_fingerprint_help">Podnieś i przyłóż ponownie</string>
     <string name="security_settings_work_fingerprint_preference_title">Pixel Imprint w profilu służbowym</string>
     <string name="security_status_title">Stan zabezpieczeń</string>
     <string name="see_less">Pokaż mniej</string>
@@ -5532,6 +5534,7 @@ Każdy użytkownik może aktualizować aplikacje wszystkich innych użytkownikó
     <string name="verify_apps_over_usb_title">Weryfikuj aplikacje przez USB</string>
     <string name="version_text">wersja %1$s</string>
     <string name="vibrate_for_calls_settings_not_available_summary">Sygnalizowanie połączeń wibracjami jest niedostępne, ponieważ telefon został wyciszony</string>
+    <string name="vibrate_icon_title">Zawsze wyświetlaj ikonę w trybie wibracji</string>
     <string name="vibrate_in_silent_title">Wibracje po wyciszeniu</string>
     <string name="vibrate_input_devices">Przekierowuj wibracje</string>
     <string name="vibrate_input_devices_summary">Po podłączeniu kontrolera gier przekieruj do niego wibracje</string>
@@ -5810,7 +5813,7 @@ Więcej informacji znajdziesz w polityce prywatności operatora"</string>
     <string name="wifi_dpp_lockscreen_title">Potwierdź swoją tożsamość</string>
     <string name="wifi_dpp_qr_code_is_not_valid_format">Nieprawidłowy format kodu QR</string>
     <string name="wifi_dpp_scan_open_network_qr_code_with_another_device">Zeskanuj ten kod QR, by połączyć się z siecią „%1$s”</string>
-    <string name="wifi_dpp_scan_qr_code">Zeskanuj kod QR</string>
+    <string name="wifi_dpp_scan_qr_code">Skaner kodów QR</string>
     <string name="wifi_dpp_scan_qr_code_join_network">Wyśrodkuj kod QR poniżej, by połączyć się z siecią „%1$s”</string>
     <string name="wifi_dpp_scan_qr_code_join_unknown_network">Zeskanuj kod QR i połącz się z siecią Wi-Fi</string>
     <string name="wifi_dpp_scan_qr_code_with_another_device">Zeskanuj ten kod QR przy użyciu innego urządzenia, by połączyć się z siecią „%1$s”</string>

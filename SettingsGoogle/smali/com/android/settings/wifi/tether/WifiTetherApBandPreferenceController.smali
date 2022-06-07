@@ -106,7 +106,7 @@
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f0415e2
+    const v0, 0x7f0415e5
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -311,7 +311,7 @@
 
     invoke-virtual {v1, p0}, Landroidx/preference/Preference;->setEnabled(Z)V
 
-    const p0, 0x7f0415df
+    const p0, 0x7f0415e2
 
     invoke-virtual {v1, p0}, Landroidx/preference/Preference;->setSummary(I)V
 

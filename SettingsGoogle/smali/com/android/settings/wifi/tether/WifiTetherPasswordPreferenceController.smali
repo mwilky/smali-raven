@@ -119,7 +119,7 @@
 
     invoke-virtual {p1, p0}, Lcom/android/settings/widget/ValidatedEditTextPreference;->setIsSummaryPassword(Z)V
 
-    const v0, 0x7f04168b
+    const v0, 0x7f04168e
 
     invoke-virtual {p1, v0}, Landroidx/preference/Preference;->setSummary(I)V
 

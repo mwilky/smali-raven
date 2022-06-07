@@ -118,7 +118,7 @@
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f041735
+    const v1, 0x7f041738
 
     const/4 v2, 0x1
 
@@ -186,7 +186,7 @@
 
     iget-object p0, p0, Lcom/android/settings/wifi/tether/WifiTetherPreferenceController;->mPreference:Landroidx/preference/Preference;
 
-    const p1, 0x7f0416d7
+    const p1, 0x7f0416da
 
     invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -206,7 +206,7 @@
     :pswitch_1
     iget-object p0, p0, Lcom/android/settings/wifi/tether/WifiTetherPreferenceController;->mPreference:Landroidx/preference/Preference;
 
-    const p1, 0x7f041737
+    const p1, 0x7f04173a
 
     invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -215,7 +215,7 @@
     :pswitch_2
     iget-object p0, p0, Lcom/android/settings/wifi/tether/WifiTetherPreferenceController;->mPreference:Landroidx/preference/Preference;
 
-    const p1, 0x7f04168c
+    const p1, 0x7f04168f
 
     invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -224,7 +224,7 @@
     :pswitch_3
     iget-object p0, p0, Lcom/android/settings/wifi/tether/WifiTetherPreferenceController;->mPreference:Landroidx/preference/Preference;
 
-    const p1, 0x7f041738
+    const p1, 0x7f04173b
 
     invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -233,7 +233,7 @@
     :cond_0
     iget-object p0, p0, Lcom/android/settings/wifi/tether/WifiTetherPreferenceController;->mPreference:Landroidx/preference/Preference;
 
-    const p1, 0x7f04166d
+    const p1, 0x7f041670
 
     invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setSummary(I)V
 

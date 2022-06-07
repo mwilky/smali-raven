@@ -1009,7 +1009,7 @@ Once it resets, go through the setup process and choose to bring your data from 
     <string name="battery_sugg_bluetooth_basic">"Turn off Bluetooth when you aren't using it"</string>
     <string name="battery_sugg_bluetooth_headset">Try connecting to a different Bluetooth device</string>
     <string name="battery_sugg_display">Reduce the screen brightness and/or screen timeout</string>
-    <string name="battery_sugg_radio">Switch to airplane mode to save power in areas with no cell coverage</string>
+    <string name="battery_sugg_radio">Switch to Airplane mode to save power in areas with no cell coverage</string>
     <string name="battery_sugg_wifi">"Turn off Wi‑Fi when not using it or when it isn't available"</string>
     <string name="battery_suggestion_summary">Turn on Adaptive Battery</string>
     <string name="battery_suggestion_title">"Improve phone's battery life"</string>
@@ -2516,8 +2516,8 @@ Backup data will not count towards your Drive storage quota. Large files or file
     <string name="fullbackup_erase_dialog_message">Stop backing up device data (such as Wi-Fi passwords and call history) and app data (such as settings and files stored by apps), plus erase all copies on Google Drive?</string>
     <string name="gadget_picker_title">Choose gadget</string>
     <string name="game_controller_settings_category">Game Controller</string>
-    <string name="game_dashboard_always_on_summary">Show Game Dashboard shortcut in games</string>
-    <string name="game_dashboard_always_on_title">Game Dashboard</string>
+    <string name="game_dashboard_always_on_summary">Show the icon in all games (without swiping up or down)</string>
+    <string name="game_dashboard_always_on_title">Game Dashboard floating icon</string>
     <string name="game_dashboard_dnd_rule_name">Gaming</string>
     <string name="game_dashboard_dnd_summary">Only get notified by important people and apps when playing a game</string>
     <string name="game_dashboard_dnd_title">Do Not Disturb for games</string>
@@ -3316,7 +3316,7 @@ There are other users present on this device.
     <string name="mobile_data_active">Mobile data active</string>
     <string name="mobile_data_always_on">Mobile data always active</string>
     <string name="mobile_data_always_on_summary">Always keep mobile data active, even when Wi‑Fi is active (for fast network switching).</string>
-    <string name="mobile_data_ap_mode_disabled">Unavailable during airplane mode</string>
+    <string name="mobile_data_ap_mode_disabled">Unavailable in Airplane mode</string>
     <string name="mobile_data_connection_active">Connected</string>
     <string name="mobile_data_disable_message">"You won't have access to data or the Internet through %s. Internet will only be available via Wi‑Fi."</string>
     <string name="mobile_data_disable_message_default_carrier">your operator</string>
@@ -4477,7 +4477,7 @@ Note: You can't use your fingerprint to unlock this device. For more information
     <string name="security_settings_fingerprint_enroll_start_title">Touch the sensor</string>
     <string name="security_settings_fingerprint_enroll_touch_dialog_message">Touch the sensor on the back of your phone. Use your index finger.</string>
     <string name="security_settings_fingerprint_enroll_touch_dialog_title">"Whoops, that's not the sensor"</string>
-    <string name="security_settings_fingerprint_enroll_udfps_title">Touch &amp; hold the fingerprint sensor</string>
+    <string name="security_settings_fingerprint_enroll_udfps_title">Touch and hold the fingerprint sensor</string>
     <string name="security_settings_fingerprint_preference_summary_none">Tap to set up fingerprint</string>
     <string name="security_settings_fingerprint_preference_title">Nexus Imprint</string>
     <string name="security_settings_fingerprint_v2_enroll_acquire_already_enrolled">This fingerprint has already been added</string>
@@ -4518,6 +4518,8 @@ Note: You can't use your fingerprint to unlock this device. For more information
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">Follow the fingerprint icon</string>
     <string name="security_settings_udfps_enroll_start_message">Keep your fingerprint flat on the sensor until you feel a vibration</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">One more time</string>
+    <string name="security_settings_udfps_side_fingerprint_help">Place the side of your fingerprint on the sensor and hold, then switch to the other side</string>
+    <string name="security_settings_udfps_tip_fingerprint_help">Lift, then touch again</string>
     <string name="security_settings_work_fingerprint_preference_title">Pixel Imprint for work</string>
     <string name="security_status_title">Security status</string>
     <string name="see_less">See less</string>
@@ -5470,7 +5472,7 @@ Any user can update apps for all other users."</string>
     <string name="user_you">You (%s)</string>
     <string name="users_summary">Signed in as %1$s</string>
     <string name="uwb_settings_summary">Helps identify the relative position of nearby devices that have UWB</string>
-    <string name="uwb_settings_summary_airplane_mode">Turn off aeroplane mode to use UWB</string>
+    <string name="uwb_settings_summary_airplane_mode">Turn off Airplane mode to use UWB</string>
     <string name="uwb_settings_title">Ultra-Wideband (UWB)</string>
     <string name="v7_preference_off">OFF</string>
     <string name="v7_preference_on">ON</string>
@@ -5478,6 +5480,7 @@ Any user can update apps for all other users."</string>
     <string name="verify_apps_over_usb_title">Verify apps over USB</string>
     <string name="version_text">Version %1$s</string>
     <string name="vibrate_for_calls_settings_not_available_summary">Vibrate for calls is unavailable because phone is set to silent</string>
+    <string name="vibrate_icon_title">Always show icon when in vibrate mode</string>
     <string name="vibrate_in_silent_title">Vibrate when silent</string>
     <string name="vibrate_input_devices">Redirect vibration</string>
     <string name="vibrate_input_devices_summary">Send vibration to game controller when connected</string>
@@ -5613,7 +5616,7 @@ During a voice call, you can’t use the Internet and some apps may not work."</
     <string name="webview_license_title">System WebView Licence</string>
     <string name="webview_uninstalled_for_user">(uninstalled for user %s)</string>
     <string name="wfc_disclaimer_agree_button_text">CONTINUE</string>
-    <string name="wfc_disclaimer_disagree_text">NO THANKS</string>
+    <string name="wfc_disclaimer_disagree_text">NO, THANKS</string>
     <string name="wfc_disclaimer_emergency_limitation_desc_text">"Emergency calls over Wi‑Fi Calling are not supported by your operator.
 The device switches automatically to a mobile network to place an emergency call.
 Emergency calls are only possible in areas with mobile coverage."</string>
@@ -6218,7 +6221,7 @@ Allow this for all apps that want to scan?"</string>
     <string name="zen_mode_restrict_notifications_disable_custom">Remove custom setting</string>
     <string name="zen_mode_restrict_notifications_enable_custom">Enable custom setting</string>
     <string name="zen_mode_restrict_notifications_hide">No visuals or sound from notifications</string>
-    <string name="zen_mode_restrict_notifications_hide_footer">"Your phone won’t show, vibrate or make sound for new or existing notifications. Keep in mind: critical notifications for phone activity and status will still appear.
+    <string name="zen_mode_restrict_notifications_hide_footer">"Your phone won’t show, vibrate or make sound for new or existing notifications. Bear in mind: critical notifications for phone activity and status will still appear.
 
 When you turn off Do Not Disturb, find missed notifications by swiping down from the top of your screen."</string>
     <string name="zen_mode_restrict_notifications_hide_summary">You won’t see or hear notifications</string>

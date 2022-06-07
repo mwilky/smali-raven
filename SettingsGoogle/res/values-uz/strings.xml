@@ -1795,7 +1795,7 @@ Telefondan yana foydalana olish uchun, uni dastlabki sozlamalarga qaytarish lozi
     <string name="crypt_keeper_unplugged_text">Quvvatlagichni ulab yana urinib ko‘ring.</string>
     <string name="crypt_keeper_warn_wipe">Ogohlantirish: Agar yana ^1 marta muvaffaqiyatsiz urinish qilsangiz, qurilmangiz ma’lumotlari o‘chirib tashlanadi!</string>
     <string name="cryptkeeper_emergency_call">Favqulodda chaqiruv</string>
-    <string name="cryptkeeper_return_to_call">Suhbatga qaytish</string>
+    <string name="cryptkeeper_return_to_call">Chaqiruvga qaytish</string>
     <string name="cryptkeeper_wrong_password">Parol noto‘g‘ri</string>
     <string name="cryptkeeper_wrong_pattern">Grafik kalit xato</string>
     <string name="cryptkeeper_wrong_pin">PIN kod xato</string>
@@ -2225,7 +2225,7 @@ Agar bu yana takrorlansa, batareya quvvati unumdorligini oshirish uchun ilovani 
     <string name="emergency_tone_vibrate">Tebranishlar</string>
     <string name="empty_networks_list">Birorta ham tarmoq topilmadi.</string>
     <string name="enable_2g_summary">2G mobil internetidan foydalaning. Favqulodda chaqiruvlar uchun 2G doim yoniq turadi.</string>
-    <string name="enable_2g_title">2G tarmoqqa ruxsat bering</string>
+    <string name="enable_2g_title">2G uchun ruxsat</string>
     <string name="enable_adb">USB orqali nosozliklarni aniqlash</string>
     <string name="enable_adb_summary">USB orqali kompyuterga ulanganda tuzatish rejimi yoqilsin</string>
     <string name="enable_adb_wireless">Wi-Fi orqali debagging</string>
@@ -2522,8 +2522,8 @@ Zaxiralangan ma’lumotlar egallagan joy Google Drive xizmatidagi sizga ajratilg
     <string name="fullbackup_erase_dialog_message">Qurilmadagi ma’lumotlar (m-n, Wi-Fi parollari va qo‘ng‘iroqlar tarixi) va ilova ma’lumotlarining (m-n, sozlamalar va ilovalar tomonidan saqlangan fayllar) zaxira nusxasini saqlash to‘xtatililib, ularning Google Drive xizmatidagi barcha nusxalari o‘chirib tashlansinmi?</string>
     <string name="gadget_picker_title">Gadjet tanlang</string>
     <string name="game_controller_settings_category">O‘yin qurilmasi</string>
-    <string name="game_dashboard_always_on_summary">Oʻyinlar ichida Oʻyinlar boshqaruv paneliga yorliq chiqsin</string>
-    <string name="game_dashboard_always_on_title">Oʻyinlar boshqaruv paneli</string>
+    <string name="game_dashboard_always_on_summary">Belgisini barcha oʻyinlarda chiqarish (tepaga yoki pastga surishlarsiz)</string>
+    <string name="game_dashboard_always_on_title">Oʻyinlar boshqaruv paneli erkin belgisi</string>
     <string name="game_dashboard_dnd_rule_name">Geyming</string>
     <string name="game_dashboard_dnd_summary">Oʻyin ishga tushganda faqat muhim odamlar va ilovalar bezovta qilsin</string>
     <string name="game_dashboard_dnd_title">Oʻyinlar uchun Bezovta qilinmasin rejimi</string>
@@ -4561,7 +4561,7 @@ Eslatma: barmoq izi orqali qurilmani qulfdan chiqara olmaysiz. Batafsil axborot 
     <string name="security_settings_title">Xavfsizlik</string>
     <string name="security_settings_udfps_enroll_a11y">Sensorni topish uchun barmoqni ekran boʻylab suring. Barmoq izi sensorini bosib turing.</string>
     <string name="security_settings_udfps_enroll_edge_message">Barmoq izingizning yonlarini sensorga joylashtiring va tutib turing, keyin boshqa yonga almashtiring</string>
-    <string name="security_settings_udfps_enroll_edge_title">Endi barmoqlaringiz chetlarini skanerlash kerak</string>
+    <string name="security_settings_udfps_enroll_edge_title">Endi barmoq chetlarini skanerlang</string>
     <string name="security_settings_udfps_enroll_find_sensor_message">Barmoq izi sensori ekraningizda joylashgan. Keyingi ekranda barmoq izlaringizni qayd qilasiz.</string>
     <string name="security_settings_udfps_enroll_find_sensor_start_button">Boshlash</string>
     <string name="security_settings_udfps_enroll_find_sensor_title">Barmoq izi qanday sozlanadi</string>
@@ -4569,8 +4569,10 @@ Eslatma: barmoq izi orqali qurilmani qulfdan chiqara olmaysiz. Batafsil axborot 
     <string name="security_settings_udfps_enroll_repeat_a11y_message">Bu barmoq izingizning toʻliq yozib olinishiga yordam beradi</string>
     <string name="security_settings_udfps_enroll_repeat_message">Har safar barmoq izi belgisi harakatlanganda bosib turing. Bu barmoq izingizning toʻliq yozib olinishiga yordam beradi.</string>
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">Barmoq izi belgisini kuzating</string>
-    <string name="security_settings_udfps_enroll_start_message">Tebranish sezilgunga qadar barmoqni sensor ustida tutib turing</string>
+    <string name="security_settings_udfps_enroll_start_message">Barmoqni tebranish sezilguniga qadar sensorga bosib turing</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">Yana bir marta</string>
+    <string name="security_settings_udfps_side_fingerprint_help">Barmoq izingizning yonlarini sensorga joylashtiring va tutib turing, keyin boshqa yonga almashtiring</string>
+    <string name="security_settings_udfps_tip_fingerprint_help">Bir necha marta tekkizing</string>
     <string name="security_settings_work_fingerprint_preference_title">Ish uchun Pixel Imprint</string>
     <string name="security_status_title">Xavfsizlik holati</string>
     <string name="see_less">Kamroq</string>
@@ -5531,6 +5533,7 @@ Qurilmaning istalgan foydalanuvchisi ilovalarni barcha hisoblar uchun yangilashi
     <string name="verify_apps_over_usb_title">USB orqali o‘rnatish</string>
     <string name="version_text">%1$s versiya</string>
     <string name="vibrate_for_calls_settings_not_available_summary">Chaqiruvlar uchun tebranish ishlamaydi, chunki telefon ovozsiz rejimda</string>
+    <string name="vibrate_icon_title">Tebranish rejimida doim belgi chiqib tursin</string>
     <string name="vibrate_in_silent_title">Ovozsizligida tebranish</string>
     <string name="vibrate_input_devices">Tebranishni uzatish</string>
     <string name="vibrate_input_devices_summary">O‘yin qurilmasi ulanganda tebranish yuborish</string>
@@ -5546,7 +5549,7 @@ Qurilmaning istalgan foydalanuvchisi ilovalarni barcha hisoblar uchun yangilashi
     <string name="virtual_keyboards_for_work_title">Ish uchun ekrandagi klaviatura</string>
     <string name="vision_settings_description">Qurilmangizdan qulay foydalanish uchun maxsus imkoniyatlardan foydalaning. Bu parametrlarni keyinroq sozlamalar orqali o‘zgartirish mumkin.</string>
     <string name="vision_settings_suggestion_title">Shrift o‘lchamini o‘zgartiring</string>
-    <string name="vision_settings_title">Maxsus imkoniyatlar</string>
+    <string name="vision_settings_title">Koʻrish sozlamalari</string>
     <string name="voice_input_output_settings">Ovoz kiritish &amp; chiqarish</string>
     <string name="voice_input_output_settings_title">Ovoz kiritish &amp; chiqarish sozlamalari</string>
     <string name="voice_input_settings">Ovoz bilan yozish sozlamalari</string>
@@ -6023,7 +6026,7 @@ Bu ruxsat tarmoqlarni qidirishni istagan barcha ilovalarga berilsinmi?"</string>
     <string name="wifi_wakeup_summary_scoring_disabled">Foydalanish uchun tarmoqlar reytingi muallifini tanlang</string>
     <string name="wifi_wps_available_first_item">WPS mavjud</string>
     <string name="wifi_wps_available_second_item">" (WPS mavjud)"</string>
-    <string name="wifitrackerlib_auto_connect_disable">Avtomatik ulanish yoqilmagan</string>
+    <string name="wifitrackerlib_auto_connect_disable">Avtomatik ulanmaydi</string>
     <string name="wifitrackerlib_available_via_app">%1$s ilovasi orqali mavjud</string>
     <string name="wifitrackerlib_connected_via_app">%1$s orqali ulandi</string>
     <string name="wifitrackerlib_connected_via_network_scorer">%1$s orqali avtomatik ulandi</string>

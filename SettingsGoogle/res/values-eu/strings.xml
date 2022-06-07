@@ -85,16 +85,16 @@
     <string name="accessibility_notification_vibration_title">Jakinarazpenen dardara</string>
     <string name="accessibility_ring_vibration_title">Tonuaren dardara</string>
     <string name="accessibility_touch_vibration_title">Ukipenaren erantzuna</string>
-    <string name="keywords_notification_vibration">ukipena, dardara, sentikortasuna</string>
-    <string name="keywords_ring_vibration">ukipena, dardara, telefonoa, deia, sentikortasuna, tonua</string>
-    <string name="keywords_touch_vibration">ukipena, dardara, pantaila, sentikortasuna</string>
+    <string name="keywords_notification_vibration">haptika, dardara, sentikortasuna</string>
+    <string name="keywords_ring_vibration">haptika, dardara, telefonoa, deia, sentikortasuna, tonua</string>
+    <string name="keywords_touch_vibration">haptika, dardara, pantaila, sentikortasuna</string>
     <string name="vibrate_when_ringing_title">Egin dar-dar deiak jasotzean</string>
     <string name="accessibility_vibration_settings_screen_title">Erabili dardara eta ukipen bidezko interakzioa</string>
     <string name="one_handed_title">Esku bakarreko modua</string>
     <string name="vibration_haptics_settings_not_available_summary">Dardara eta ukipen bidezko interakzioa ez daude erabilgarri telefonoa modu isilean dagoelako</string>
     <string name="vibration_haptics_strength_category_title">Dardararen eta ukipen bidezko interakzioen intentsitatea</string>
     <string name="peak_refresh_rate_title">Smooth Display</string>
-    <string name="peak_refresh_rate_summary">Automatikoki igotzen du freskatze-abiadura 60 Hz-etik 90 Hz-era zenbait edukitarako. Bateria-erabilera luzatzen du.</string>
+    <string name="peak_refresh_rate_summary">Freskatze-abiadura 60 Hz-etik 90 Hz-era igotzen du automatikoki zenbait edukitarako. Bateria-erabilera areagotzen du.</string>
     <string name="accessibility_vibration_settings_title">Dardara eta ukipen bidezko interakzioa</string>
     <string name="columbus_title">Ekintzak gauzatzeko sakatze bizkorrak</string>
     <string name="emergency_gesture_screen_title">SOS larrialdia</string>
@@ -150,17 +150,17 @@
     <string name="accessibility_alarm_vibration_title">Alarmen dardara</string>
     <string name="accessibility_assist_gesture_complete_or_keep_adjusting">Konfiguratu da Active Edge. Joan hurrengo pantailara edo jarraitu aukerak doitzen.</string>
     <string name="accessibility_audio_adjustment_title">Audio-doikuntza</string>
-    <string name="accessibility_autoclick_about_title">Klik automatikoari buruz (itxarote-denbora)</string>
+    <string name="accessibility_autoclick_about_title">Automatikoki klik egiteko eginbideari buruz (itxarote-denbora)</string>
     <string name="accessibility_autoclick_custom_title">Pertsonalizatua</string>
     <string name="accessibility_autoclick_default_title">Desaktibatuta</string>
-    <string name="accessibility_autoclick_description">Klik automatikoak erabiltzeko, sagu bat konektatu behar da. Denbora jakin batean geldirik egon ondoren automatikoki klik egin dezan konfigura dezakezu saguaren kurtsorea.</string>
-    <string name="accessibility_autoclick_footer_learn_more_content_description">Lortu informazio gehiago klik automatikoari buruz (itxarote-denbora)</string>
+    <string name="accessibility_autoclick_description">Automatikoki klik egiteko eginbidea erabiltzeko, sagu bat konektatu behar da. Denbora jakin batean geldirik egon ondoren automatikoki klik egin dezan konfigura dezakezu saguaren kurtsorea.</string>
+    <string name="accessibility_autoclick_footer_learn_more_content_description">Lortu informazio gehiago automatikoki klik egiteko eginbideari buruz (itxarote-denbora)</string>
     <string name="accessibility_autoclick_long_summary">1 segundo</string>
     <string name="accessibility_autoclick_long_title">Luzea</string>
     <string name="accessibility_autoclick_longer_desc">Luzatu</string>
     <string name="accessibility_autoclick_medium_summary">0,6 segundo</string>
     <string name="accessibility_autoclick_medium_title">Ertaina</string>
-    <string name="accessibility_autoclick_preference_title">Klik automatikoa (itxarote-denbora)</string>
+    <string name="accessibility_autoclick_preference_title">Automatikoki klik egiteko eginbidea (itxarote-denbora)</string>
     <string name="accessibility_autoclick_seekbar_desc">Sakatze automatikoaren denbora</string>
     <string name="accessibility_autoclick_short_summary">0,2 segundo</string>
     <string name="accessibility_autoclick_short_title">Laburra</string>
@@ -219,7 +219,7 @@ Aplikazio guztiek ez dute onartzen ezarpen hau."</string>
     <string name="accessibility_disable_animations">Kendu animazioak</string>
     <string name="accessibility_display_daltonizer_preference_subtitle">Doitu nola bistaratzen diren koloreak gailuan. Kasu hauetan izan daiteke lagungarria:&lt;br/>&lt;br/> &lt;ol> &lt;li>&amp;nbsp;Koloreak zehatzago ikusi nahi dituzunean.&lt;/li> &lt;li>&amp;nbsp;Hobeto fokuratzeko, koloreak kendu nahi dituzunean.&lt;/li> &lt;/ol></string>
     <string name="accessibility_display_daltonizer_preference_title">Koloreen zuzenketa</string>
-    <string name="accessibility_display_inversion_preference_subtitle">Koloreen alderantzikatzeak ilun bihurtzen ditu pantaila argiak.&lt;br/>&lt;br/> Oharra: &lt;ol> &lt;li> Koloreen alderantzikatzeak argi bihurtzen ditu pantaila ilunak ere.&lt;/li> &lt;li> Multimedia-edukien eta irudien koloreak aldatu egingo dira.&lt;/li> &lt;li> Gai iluna atzeko plano ilun bat bistaratzeko erabil daiteke. Aplikazio bateragarrietan funtzionatzen du gai ilunak; koloreen alderantzikatzeak, berriz, aplikazio guztietan.&lt;/li> &lt;/ol></string>
+    <string name="accessibility_display_inversion_preference_subtitle">Koloreen alderantzikatzeak ilun bihurtzen ditu pantaila argiak.&lt;br/>&lt;br/> Oharra: &lt;ol> &lt;li> Koloreen alderantzikatzeak, halaber, argi bihurtzen ditu pantaila ilunak.&lt;/li> &lt;li> Multimedia-edukien eta irudien koloreak aldatu egingo dira.&lt;/li> &lt;li> Gai iluna atzeko plano ilun bat bistaratzeko erabil daiteke. Aplikazio bateragarrietan funtzionatzen du gai ilunak; koloreen alderantzikatzeak, berriz, aplikazio guztietan.&lt;/li> &lt;/ol></string>
     <string name="accessibility_display_inversion_preference_title">Koloreen alderantzikatzea</string>
     <string name="accessibility_display_inversion_shortcut_title">Kolorea alderantzikatzeko lasterbidea</string>
     <string name="accessibility_display_inversion_switch_title">Erabili koloreen alderantzikatzea</string>
@@ -502,7 +502,7 @@ Era berean, erabiltzaile-kontu honekin erlazionatutako ezarpenak, sarbidea, apli
     <string name="additional_permissions">Baimen gehigarriak</string>
     <string name="additional_permissions_more">Beste %1$d</string>
     <string name="admin_device_owner_message">Administratzaileak gainbegiratu eta kudeatu egin ditzake gailuarekin erlazionatutako aplikazioak eta datuak, besteak beste, ezarpenak, baimenak, enpresaren sarbide-baimenak, sareko jarduerak eta gailuaren kokapen-informazioa.</string>
-    <string name="admin_disabled_other_options">Gainerako aukerak desgaitu egin ditu administratzaileak</string>
+    <string name="admin_disabled_other_options">Administratzaileak gainerako aukerak desgaitu ditu</string>
     <string name="admin_financed_message">Baliteke gailuaren administratzaileak gailuarekin erlazionatutako datuak atzitu, aplikazioak kudeatu eta gailuaren ezarpenak aldatu ahal izatea.</string>
     <string name="admin_more_details">Lortu informazio gehiago</string>
     <string name="admin_profile_owner_message">Administratzaileak gainbegiratu eta kudeatu egin ditzake laneko profilarekin erlazionatutako aplikazioak eta datuak, besteak beste, ezarpenak, baimenak, enpresaren sarbide-baimenak, sareko jarduerak eta gailuaren kokapen-informazioa.</string>
@@ -861,7 +861,7 @@ Mugatzeko, aktibatu bateriaren optimizazioa."</string>
     <string name="background_check_pref">Atzeko planoko egiaztapena</string>
     <string name="background_check_title">Atzeko planorako sarbide osoa</string>
     <string name="background_data">Atzeko planoko datuak</string>
-    <string name="background_data_dialog_message">Atzeko planoko datuak desgaitzen badituzu, bateriaren iraupena areagotuko da eta datuen erabilera murriztuko da. Hala ere, aplikazio batzuek atzeko planoko datuen konexioa erabil dezakete.</string>
+    <string name="background_data_dialog_message">Atzeko planoko datuak desgaitzen badituzu, bateriaren iraupena areagotuko da eta datu-erabilera murriztuko da. Hala ere, aplikazio batzuek atzeko planoko datuen konexioa erabil dezakete.</string>
     <string name="background_data_dialog_title">Atzeko datuak desgaitu?</string>
     <string name="background_data_summary">Aplikazioek datuak edonoiz sinkroniza, bidal eta jaso ditzakete</string>
     <string name="background_process_stop_description">Aplikazio-prozesu hau zaharra da, baina abian da oraindik ere, badaezpada berriro behar bada. Normalean ez dago hura gelditzeko arrazoirik.</string>
@@ -1519,8 +1519,8 @@ Burbuilak erabiltzeko aukera duten beste aplikazio eta elkarrizketei ere aplikat
     <string name="cell_data_limit">Datuen muga: ^1</string>
     <string name="cell_data_off_content_description">Desaktibatuta dago datu-konexioa</string>
     <string name="cell_data_template">Datu-konexioaren ^1</string>
-    <string name="cell_data_warning">Datuen erabileraren abisua: ^1</string>
-    <string name="cell_data_warning_and_limit">Datuen erabileraren abisua: ^1. Datuen muga: ^2.</string>
+    <string name="cell_data_warning">Datu-erabileraren abisua: ^1</string>
+    <string name="cell_data_warning_and_limit">Datu-erabileraren abisua: ^1. Datuen muga: ^2.</string>
     <string name="cellular_data_summary">Onartu datu-konexioa erabiltzea</string>
     <string name="cellular_data_usage">Datu-konexioaren erabilera</string>
     <string name="cert_not_installed">Ziurtagiria ez dago instalatuta</string>
@@ -1891,9 +1891,9 @@ Horrez gain, baliteke kontu batzuek telefonoan egiten dituzun aldaketak sarean k
     <string name="data_usage_cellular_data">Datu-konexioa</string>
     <string name="data_usage_cellular_data_summary">Pausatu mugara iristean</string>
     <string name="data_usage_change_cycle">Aldatu zikloa…</string>
-    <string name="data_usage_chart_brief_content_description">%1$s eta %2$s arteko datuen erabilera erakusten duen grafikoa.</string>
+    <string name="data_usage_chart_brief_content_description">%1$s eta %2$s arteko datu-erabilera erakusten duen grafikoa.</string>
     <string name="data_usage_chart_no_data_content_description">Ez dago daturik data tarte horretan</string>
-    <string name="data_usage_cycle">Datuen erabilera-zikloa</string>
+    <string name="data_usage_cycle">Datu-erabilera-zikloa</string>
     <string name="data_usage_cycle_editor_positive">Ezarri</string>
     <string name="data_usage_cycle_editor_subtitle">Hilabeteko eguna:</string>
     <string name="data_usage_cycle_editor_title">Erabilera-zikloa berrezartzeko data</string>
@@ -1913,9 +1913,9 @@ Horrez gain, baliteke kontu batzuek telefonoan egiten dituzun aldaketak sarean k
     <string name="data_usage_label_foreground">Aurreko planoa</string>
     <string name="data_usage_limit_dialog_mobile">"Zehaztu duzun mugara iristean, telefonoak desaktibatu egingo du datu-konexioa.
 
-Zentzuzko muga bat ezartzea gomendatzen dizugu, datuen erabilera telefonoak neurtuko duelako eta litekeena delako operadoreak datuak bestela neurtzea."</string>
-    <string name="data_usage_limit_dialog_title">Datuen erabilera mugatzea</string>
-    <string name="data_usage_limit_editor_title">Ezarri datuen erabilera-muga</string>
+Zentzuzko muga bat ezartzea gomendatzen dizugu, datu-erabilera telefonoak neurtuko duelako eta litekeena delako operadoreak datuak bestela neurtzea."</string>
+    <string name="data_usage_limit_dialog_title">Datu-erabilera mugatzea</string>
+    <string name="data_usage_limit_editor_title">Ezarri datu-erabilera-muga</string>
     <string name="data_usage_list_mobile">Datu-konexioa</string>
     <string name="data_usage_list_none">Bat ere ez</string>
     <string name="data_usage_menu_allow_background">Onartu atz. planoko datuak</string>
@@ -1939,7 +1939,7 @@ Zentzuzko muga bat ezartzea gomendatzen dizugu, datuen erabilera telefonoak neur
     <string name="data_usage_metered_yes">Sare neurtua</string>
     <string name="data_usage_ota">Sistemaren eguneratzeak</string>
     <string name="data_usage_other_apps">Erabileran eragina duten beste aplikazio batzuk</string>
-    <string name="data_usage_pick_cycle_day">Datuen erabilera-zikloa berrezarri beharreko hilabeteko eguna:</string>
+    <string name="data_usage_pick_cycle_day">Datu-erabilera-zikloa berrezarri beharreko hilabeteko eguna:</string>
     <string name="data_usage_received_sent">%1$s jasota, %2$s bidalita</string>
     <string name="data_usage_restrict_background">Atzeko planoan datu-konexioa erabiltzeko aukera mugatzen baduzu, aplikazio eta zerbitzu batzuek ez dute funtzionatuko wifi-sare batera konektatu ezean.</string>
     <string name="data_usage_restrict_background_multiuser">"Atzeko planoan datu-konexioa erabiltzeko aukera mugatzen baduzu, aplikazio eta zerbitzu batzuek ez dute funtzionatuko wifi-sare batera konektatu ezean.
@@ -1948,7 +1948,7 @@ Telefonoko erabiltzaile guztiei eragingo die ezarpen honek."</string>
     <string name="data_usage_restrict_background_title">Atzeko planoko datuak mugatu?</string>
     <string name="data_usage_restrict_denied_dialog">Atzeko planoko datuak murrizteko, datu-konexioarekin erabil daitezkeen datuak mugatu behar dituzu.</string>
     <string name="data_usage_summary_format">Datuen %1$s erabili dira</string>
-    <string name="data_usage_summary_title">Datuen erabilera</string>
+    <string name="data_usage_summary_title">Datu-erabilera</string>
     <string name="data_usage_sweep_limit"><font size="18">^1</font> <font size="9">^2</font>"
 "<font size="12">muga</font></string>
     <string name="data_usage_sweep_warning"><font size="18">^1</font> <font size="9">^2</font>"
@@ -1964,14 +1964,14 @@ Telefonoko erabiltzaile guztiei eragingo die ezarpen honek."</string>
     <string name="data_usage_total_during_range_mobile">%2$s: %1$s erabili duzu, telefonoak neurtuta. Baliteke operadoreak desberdin zenbatzea.</string>
     <string name="data_usage_uninstalled_apps">Kendutako aplikazioak</string>
     <string name="data_usage_uninstalled_apps_users">Kendutako aplikazioak eta erabiltzaileak</string>
-    <string name="data_usage_warning_editor_title">Ezarri datuen erabileraren abisua</string>
+    <string name="data_usage_warning_editor_title">Ezarri datu-erabileraren abisua</string>
     <string name="data_usage_wifi_format">^1 erabilita wifi-sareetan</string>
     <string name="data_usage_wifi_title">Wi‑Fi datuak</string>
     <string name="data_used">^1 erabilita</string>
     <string name="data_used_formatted">^1 ^2 erabilita</string>
     <string name="data_used_template">%1$s erabilita</string>
-    <string name="data_warning">Datuen erabileraren abisua</string>
-    <string name="data_warning_footnote">Gailuak neurtzen ditu datuen erabilera eta datuen muga. Baliteke informazio hori bat ez etortzea operadoreak egindako datuen neurketarekin.</string>
+    <string name="data_warning">Datu-erabileraren abisua</string>
+    <string name="data_warning_footnote">Gailuak neurtzen ditu datu-erabilera eta datuen muga. Baliteke informazio hori bat ez etortzea operadoreak egindako datuen neurketarekin.</string>
     <string name="date_and_time_settings_summary">Ezarri data, ordua, ordu-zona eta formatuak</string>
     <string name="date_and_time_settings_title">Data eta ordua</string>
     <string name="date_and_time_settings_title_setup_wizard">Zehaztu data eta ordua</string>
@@ -2374,7 +2374,7 @@ Berrabiarazi gailua eta saiatu berriro."</string>
     <string name="estimated_time_left">Geratzen den denbora, gutxi gorabehera</string>
     <string name="ethernet">Ethernet</string>
     <string name="ethernet_data_template">^1 ethernet-konexioaren bidez</string>
-    <string name="ethernet_data_usage">Ethernet datuen erabilera</string>
+    <string name="ethernet_data_usage">Ethernet datu-erabilera</string>
     <string name="ethernet_tether_checkbox_text">Konexioa partekatzea (Ethernet)</string>
     <string name="ethernet_tethering_subtext">Partekatu telefonoaren Interneteko konexioa Ethernet bidez</string>
     <string name="expand_button_title">Hobespen aurreratuak</string>
@@ -2522,8 +2522,8 @@ Babeskopiek ez dute eraginik Drive-ko biltegiratze-kuotan. Fitxategiak handiak b
     <string name="fullbackup_erase_dialog_message">Babeskopiak, bai gailuetako datuenak (esaterako, Wi-Fi pasahitzak eta deien historia), bai aplikazioetako datuenak (esaterako, ezarpenak eta aplikazioek gordetako fitxategiak), egiteari utzi eta Google Drive-ko kopia guztiak ezabatu nahi dituzu?</string>
     <string name="gadget_picker_title">Aukeratu gadgeta</string>
     <string name="game_controller_settings_category">Bideo-jokoen kontrolagailua</string>
-    <string name="game_dashboard_always_on_summary">Erakutsi joko-paneleko lasterbidea jokoetan</string>
-    <string name="game_dashboard_always_on_title">Joko-panela</string>
+    <string name="game_dashboard_always_on_summary">Erakutsi ikonoa joko guztietan (hatza gora edo behera pasatu gabe)</string>
+    <string name="game_dashboard_always_on_title">Joko-panelaren ikono gainerakorra</string>
     <string name="game_dashboard_dnd_rule_name">Jokoak</string>
     <string name="game_dashboard_dnd_summary">Jokoa erabiltzean, jaso pertsona eta aplikazio garrantzitsuen jakinarazpenak soilik</string>
     <string name="game_dashboard_dnd_title">Jokoetarako ez molestatzeko modua</string>
@@ -2813,7 +2813,7 @@ Aukera hori aldatzeko, sakatu Ezarpenak > Aplikazioak eta jakinarazpenak."</stri
     <string name="keywords_magnification">leihoetarako lupa, zooma, lupa, ikusmen txarra, handitu, handiagotu</string>
     <string name="keywords_media_controls">multimedia-edukia</string>
     <string name="keywords_media_management_apps">multimedia-fitxategia, fitxategia, kudeaketa, kudeatzailea, editatu, editorea, aplikazioa, programa</string>
-    <string name="keywords_model_and_hardware">serie-zenbakia, hardwarearen bertsioa</string>
+    <string name="keywords_model_and_hardware">serie-zenbakia, hardware-bertsioa</string>
     <string name="keywords_more_mobile_networks">sare mugikorrak, operadorea, hari gabeko konexioak, datuak, 4g, 3g, 2g, lte</string>
     <string name="keywords_network_reset">berrezarri, leheneratu, fabrikako ezarpen, jatorrizko</string>
     <string name="keywords_nr_advanced_calling">vo5g, vonr, deitzeko aukera aurreratuak, 5g bidezko deiak</string>
@@ -2821,7 +2821,7 @@ Aukera hori aldatzeko, sakatu Ezarpenak > Aplikazioak eta jakinarazpenak."</stri
     <string name="keywords_payment_settings">ordaindu, ukitu, ordainketak</string>
     <string name="keywords_printing">inprimagailua</string>
     <string name="keywords_profile_challenge">laneko erronka, lana, profila</string>
-    <string name="keywords_reduce_bright_colors">argi-sentikortasuna, fotofobia, gai iluna, migraina, buruko mina, irakurtzeko modua, gau modua, murriztu argitasuna, puntu zuria</string>
+    <string name="keywords_reduce_bright_colors">argi-sentikortasuna, fotofobia, gai iluna, migraina, buruko mina, irakurtzeko modua, gau modua, murriztu distira, puntu zuria</string>
     <string name="keywords_reset_apps">berrezarri, hobespen, lehenetsi</string>
     <string name="keywords_reverse_charging_stop_threshold">Utzi bateria partekatzeari telefonoaren bateria-maila hona iristean:</string>
     <string name="keywords_rtt">entzumen txarra, entzumen-galera, azpitituluak, teletipoa, TTY</string>
@@ -2855,7 +2855,7 @@ Aukera hori aldatzeko, sakatu Ezarpenak > Aplikazioak eta jakinarazpenak."</stri
     <string name="keywords_wallpaper">atzeko planoa, gaia, sareta, pertsonalizatu</string>
     <string name="keywords_wifi">wifi, wi-fi, sareko konexioa, internet, haririk gabekoa, datuak, wi fi</string>
     <string name="keywords_wifi_calling">wifi, wi-fi, dei, deitu</string>
-    <string name="keywords_wifi_data_usage">datuen erabilera</string>
+    <string name="keywords_wifi_data_usage">datu-erabilera</string>
     <string name="keywords_wifi_display_settings">islatzea</string>
     <string name="keywords_wifi_notify_open_networks">Wi‑Fi konexioari buruzko jakinarazpena, wifi konexioari buruzko jakinarazpena</string>
     <string name="keywords_write_settings">idatzi aldatu sistema ezarpenak</string>
@@ -3154,7 +3154,7 @@ PINak babestu egiten du telefonoa, hura galtzen baduzu edo lapurtzen badizute."<
     <string name="lost_internet_access_cancel">Jarraitu Wi‑Fi konexioa erabiltzen</string>
     <string name="lost_internet_access_persist">Ez erakutsi berriro</string>
     <string name="lost_internet_access_switch">Aldatu datu-konexiora</string>
-    <string name="lost_internet_access_text">Sare mugikorra erabil dezakezu Wi-Fi sareak konexio txarra badu. Agian datuen erabilera ordaindu beharko duzu.</string>
+    <string name="lost_internet_access_text">Sare mugikorra erabil dezakezu Wi-Fi sareak konexio txarra badu. Agian datu-erabilera ordaindu beharko duzu.</string>
     <string name="lost_internet_access_title">Wifi-sarea ez dago Internetera konektatuta</string>
     <string name="low_battery_summary">Bateria gutxi</string>
     <string name="low_label">Txikia</string>
@@ -3348,7 +3348,7 @@ Badaude erabiltzaile gehiago gailu honetan.
     <string name="mobile_data_settings_summary_auto_switch">Barrutian dagoenean, automatikoki aldatuko da telefonoa operadore honetara</string>
     <string name="mobile_data_settings_summary_unavailable">Ez dago SIM txartelik erabilgarri</string>
     <string name="mobile_data_settings_title">Datu-konexioa</string>
-    <string name="mobile_data_usage_title">Aplikazioetako datuen erabilera</string>
+    <string name="mobile_data_usage_title">Aplikazioetako datu-erabilera</string>
     <string name="mobile_insert_sim_card">Sartu SIM txartela eta berrabiarazi</string>
     <string name="mobile_network_active_esim">Aktibo / Deskargatutako SIMa</string>
     <string name="mobile_network_active_sim">Aktibo / SIM txartela</string>
@@ -3583,7 +3583,7 @@ Berrabiarazi gailua eta saiatu berriro."</string>
     <string name="no_sim_card">Ez dago SIM txartelik</string>
     <string name="no_trust_agents">Ez dago agente fidagarririk erabilgarri</string>
     <string name="no_vr_listeners">Ez dago errealitate birtualeko laguntza-zerbitzu gisa abiaraztea eskatu duen aplikaziorik instalatuta.</string>
-    <string name="non_carrier_data_usage">Operadorearenak ez diren datuen erabilera</string>
+    <string name="non_carrier_data_usage">Operadorearenak ez diren datu-erabilera</string>
     <string name="non_carrier_data_usage_warning">Ez dira barne hartzen operadorearen sareek erabilitako datuak</string>
     <string name="non_carrier_network_unavailable">Ez dago beste sare erabilgarririk</string>
     <string name="not_allowed">SIM txartelak ez dizu sare honetara konektatzea baimentzen.</string>
@@ -4322,7 +4322,7 @@ Aplikazioak ainguratzeko aukera erabiltzeko: \u0009
     <string name="sd_format_summary">USB bidezko barneko memoriako guztia ezabatzen du; adib., musika eta argazkiak.</string>
     <string name="sd_insert_summary">Sartu muntatu beharreko USB bidezko memoria</string>
     <string name="sd_memory">USB bidezko memoria</string>
-    <string name="sd_mount">Muntatu USB memoria</string>
+    <string name="sd_mount">Instalatu USB memoria</string>
     <string name="sd_mount_summary" />
     <string name="sdcard_changes_instructions">Aldaketek USB kablea berriro konektatzean izango dute eragina.</string>
     <string name="sdcard_format">Ezabatu USB memoria</string>
@@ -4570,8 +4570,10 @@ Oharra: ezin duzu erabili hatz-marka gailua desblokeatzeko. Informazio gehiago l
     <string name="security_settings_udfps_enroll_repeat_a11y_message">Horrela, hatz-markaren eremu zabalagoa hartzen da</string>
     <string name="security_settings_udfps_enroll_repeat_message">Hatz-markaren ikonoa mugitzen den bakoitzean, eduki sakatuta sentsorea. Horrela, hatz-markaren eremu zabalagoa hartzen da.</string>
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">Jarraitu hatz-marken ikonoari</string>
-    <string name="security_settings_udfps_enroll_start_message">Mantendu hatz-marka modu lauan sentsorearen gainean dardara sentitu arte</string>
+    <string name="security_settings_udfps_enroll_start_message">Jarri hatz-marka lau-laua sentsorearen gainean eta manten ezazu dardara sentitu arte</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">Beste behin</string>
+    <string name="security_settings_udfps_side_fingerprint_help">Jarri hatz-markaren albo bat sentsorearen gainean eta eutsi horrela. Ondoren, egin gauza bera beste alboarekin.</string>
+    <string name="security_settings_udfps_tip_fingerprint_help">Jaso hatza eta ukitu berriro</string>
     <string name="security_settings_work_fingerprint_preference_title">Laneko profilerako Pixel Imprint</string>
     <string name="security_status_title">Segurtasunaren egoera</string>
     <string name="see_less">Ikusi gutxiago</string>
@@ -4607,7 +4609,7 @@ Oharra: ezin duzu erabili hatz-marka gailua desblokeatzeko. Informazio gehiago l
     <string name="service_stop_description">Zerbitzua bere aplikazioak hasi du. Gelditzen baduzu, agian aplikazioak huts egingo du.</string>
     <string name="services_subtitle">Zerbitzuak</string>
     <string name="set_data_limit">Ezarri datuen muga</string>
-    <string name="set_data_warning">Ezarri datuen erabileraren abisua</string>
+    <string name="set_data_warning">Ezarri datu-erabileraren abisua</string>
     <string name="settings_backup">Babeskopien ezarpenak</string>
     <string name="settings_backup_summary">Egin nire ezarpenen babeskopia</string>
     <string name="settings_button">Ezarpenak</string>
@@ -4884,7 +4886,7 @@ Gailuan instalatu duzun kredentzial fidagarri batek egiten du hori posible."</st
 ^1 erabiltzeko, lehenik eta behin, konfiguratu egin behar duzu."</string>
     <string name="storage_dialog_unmounted">"Segurtasunez kanporatu da ^1, baina oraindik erabilgarri dago.
 
-^1 erabiltzeko, lehenik eta behin, muntatu egin behar duzu."</string>
+^1 erabiltzeko, lehenik eta behin, instalatu egin behar duzu."</string>
     <string name="storage_documents_and_other">Dokumentuak eta beste</string>
     <string name="storage_external_title">Memoria-unitate eramangarriak</string>
     <string name="storage_files">Fitxategiak</string>
@@ -4929,11 +4931,11 @@ Eraman multimedia-fitxategiak gailu honetako beste memoria batzuetara, edo trans
     <string name="storage_menu_free">Egin tokia</string>
     <string name="storage_menu_manage">Kudeatu memoria</string>
     <string name="storage_menu_migrate">Migratu datuak</string>
-    <string name="storage_menu_mount">Muntatu</string>
+    <string name="storage_menu_mount">Instalatu</string>
     <string name="storage_menu_rename">Aldatu izena</string>
     <string name="storage_menu_set_up">Konfiguratu</string>
     <string name="storage_menu_unmount">Atera</string>
-    <string name="storage_mount_failure">Ezin izan da muntatu %1$s</string>
+    <string name="storage_mount_failure">Ezin izan da instalatu %1$s</string>
     <string name="storage_mount_success">Muntatu da %1$s</string>
     <string name="storage_movies_tv">Zinema- eta telebista-aplikazioak</string>
     <string name="storage_music_audio">Musika eta audioa</string>
@@ -5340,7 +5342,7 @@ Gailuan gordetako hatz-markaren eredua ere ezabatuko da. Ezingo duzu erabili hat
     <string name="unmount_inform_text">USB bidezko memoria desmuntatu egingo da.</string>
     <string name="unrestricted_app_summary">Eman datuak mugarik gabe erabiltzeko baimena datu-aurrezlea aktibatuta dagoenean</string>
     <string name="unrestricted_app_title">Erabili datuak mugarik gabe</string>
-    <string name="unrestricted_data_saver">Datuen erabilera mugagabea</string>
+    <string name="unrestricted_data_saver">Datu-erabilera mugagabea</string>
     <string name="unsupported_setting_summary">Telefono honek ez du ezarpena onartzen</string>
     <string name="unused_apps">Erabiltzen ez diren aplikazioak</string>
     <string name="unused_apps_switch">Kendu baimenak eta egin tokia</string>
@@ -5532,10 +5534,11 @@ Edozein erabiltzailek egunera ditzake beste erabiltzaile guztien aplikazioak."</
     <string name="verify_apps_over_usb_title">Egiaztatu USB bidezko aplik.</string>
     <string name="version_text">%1$s bertsioa</string>
     <string name="vibrate_for_calls_settings_not_available_summary">Deietarako dardara ez dago erabilgarri telefonoa modu isilean dagoelako</string>
+    <string name="vibrate_icon_title">Dardara moduan dagoenean, erakutsi beti ikonoa</string>
     <string name="vibrate_in_silent_title">Dardara modu isilean dagoenean</string>
     <string name="vibrate_input_devices">Birbideratu dardara</string>
     <string name="vibrate_input_devices_summary">Bidali dardara bideo-jokoen kontrolagailura hura konektatzean</string>
-    <string name="vibrate_on_touch_summary">Ukipen bidezko interakzioak pantaila sakatzean, teklatua erabiltzean eta beste</string>
+    <string name="vibrate_on_touch_summary">Interakzio haptikoa pantaila sakatzean, teklatua erabiltzean eta beste</string>
     <string name="vibrate_on_touch_title">Ukipen-dardara</string>
     <string name="vibrate_when_ringing_option_always_vibrate">Egin dar-dar beti</string>
     <string name="vibrate_when_ringing_option_never_vibrate">Ez egin dar-dar inoiz</string>
@@ -5740,7 +5743,7 @@ Irakurri operadorearen pribatutasun-gidalerroak xehetasunak ikusteko."</string>
     <string name="wifi_cant_connect_to_ap">Ezin da konektatu \"%1$s\" sarera</string>
     <string name="wifi_carrier_connect">Operadorearen wifi-sarea</string>
     <string name="wifi_carrier_content">Konektatu %1$s bidez</string>
-    <string name="wifi_cellular_data_fallback_summary">Wi-Fi bidez ezin denean, erabili datu-konexioa Internetera konektatzeko. Agian datuen erabilera ordaindu beharko duzu.</string>
+    <string name="wifi_cellular_data_fallback_summary">Wi-Fi bidez ezin denean, erabili datu-konexioa Internetera konektatzeko. Agian datu-erabilera ordaindu beharko duzu.</string>
     <string name="wifi_cellular_data_fallback_title">Aldatu datu-konexiora automatikoki</string>
     <string name="wifi_certificate">Wifi-ziurtagiria</string>
     <string name="wifi_check_password_try_again">Egiaztatu pasahitza zuzena dela eta saiatu berriro</string>
@@ -5754,7 +5757,7 @@ Irakurri operadorearen pribatutasun-gidalerroak xehetasunak ikusteko."</string>
     <string name="wifi_connecting">Konektatzen…</string>
     <string name="wifi_connecting_to_message">%1$s sarera konektatzen</string>
     <string name="wifi_data_template">^1 Wi-Fi konexioaren bidez</string>
-    <string name="wifi_data_usage">Wifi-sareko datuen erabilera</string>
+    <string name="wifi_data_usage">Wifi-sareko datu-erabilera</string>
     <string name="wifi_details_dns">DNS</string>
     <string name="wifi_details_ipv6_address_header">IPv6 helbideak</string>
     <string name="wifi_details_subnet_mask">Azpisare-maskara</string>
@@ -6090,7 +6093,7 @@ Bilaketa egin nahi duten beste aplikazio guztiei ere baimendu nahi diezu?"</stri
     <string name="work_profile_confirm_remove_message">Aurrera eginez gero, profileko aplikazio eta datu guztiak ezabatuko dira.</string>
     <string name="work_profile_confirm_remove_title">Laneko profila kendu nahi duzu?</string>
     <string name="work_profile_notification_access_blocked_summary">Blokeatuta dago laneko profileko jakinarazpenetarako sarbidea</string>
-    <string name="work_profile_usage_access_warning">Administratzaileari aplikazio hau erabiltzeko gaitasuna kendu arren, administratzaileak aplikazioen datuen erabileraren jarraipena egiten jarraitu ahal izango du zure laneko profilean</string>
+    <string name="work_profile_usage_access_warning">Administratzaileari aplikazio hau erabiltzeko gaitasuna kendu arren, administratzaileak aplikazioen datu-erabileraren jarraipena egiten jarraitu ahal izango du zure laneko profilean</string>
     <string name="work_ringtone_title">Laneko telefonoaren tonua</string>
     <string name="work_sim_title">Laneko SIM txartela</string>
     <string name="work_sound_same_as_personal">Profil pertsonaleko berberak</string>
@@ -6184,7 +6187,7 @@ Bilaketa egin nahi duten beste aplikazio guztiei ere baimendu nahi diezu?"</stri
     <string name="zen_mode_bypassing_apps_header">Eten dezaketen aplikazioak</string>
     <string name="zen_mode_bypassing_apps_none">Ez da hautatu aplikaziorik</string>
     <string name="zen_mode_bypassing_apps_some_summary">Jakinarazpen batzuk</string>
-    <string name="zen_mode_bypassing_apps_subtext">{count,plural,offset:2 =0{Ez dago eten dezakeen aplikaziorik}=1{{app_1} aplikazioak eten dezake}=2{{app_1} eta {app_2} aplikazioek eten dezakete}=3{{app_1}, {app_2} eta {app_3} aplikazioek eten dezakete}other{\"{app_1}\", \"{app_2}\" eta beste # soinuk eten dezakete}}</string>
+    <string name="zen_mode_bypassing_apps_subtext">{count,plural,offset:2 =0{Ez dago eten dezakeen aplikaziorik}=1{{app_1} aplikazioak eten dezake}=2{{app_1} eta {app_2} aplikazioek eten dezakete}=3{{app_1}, {app_2} eta {app_3} aplikazioek eten dezakete}other{\"{app_1}\", \"{app_2}\" eta beste # aplikaziok eten dezakete}}</string>
     <string name="zen_mode_bypassing_apps_subtext_none">Ez dago eten dezakeen aplikaziorik</string>
     <string name="zen_mode_bypassing_apps_summary_all">Jakinarazpen guztiak</string>
     <string name="zen_mode_bypassing_apps_summary_some">Jakinarazpen batzuk</string>
@@ -6220,7 +6223,7 @@ Bilaketa egin nahi duten beste aplikazio guztiei ere baimendu nahi diezu?"</stri
     <string name="zen_mode_enable_dialog_turn_on">Aktibatu</string>
     <string name="zen_mode_end_time">Amaiera-ordua</string>
     <string name="zen_mode_end_time_next_day_summary_format">%s (hurrengo egunean)</string>
-    <string name="zen_mode_event_rule_calendar">Gertaerek dirauten bitartean</string>
+    <string name="zen_mode_event_rule_calendar">Hemengo gertaerek dirauten bitartean</string>
     <string name="zen_mode_event_rule_calendar_any">Edozein egutegi</string>
     <string name="zen_mode_event_rule_reply">Erantzuna hau denean</string>
     <string name="zen_mode_event_rule_reply_any_except_no">Bai, Agian edo Erantzun gabe</string>

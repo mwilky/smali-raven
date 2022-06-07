@@ -85,17 +85,17 @@
     <string name="accessibility_notification_vibration_title">Вибрация при уведомлении</string>
     <string name="accessibility_ring_vibration_title">Вибрация при звонке</string>
     <string name="accessibility_touch_vibration_title">Вибрация при касании</string>
-    <string name="keywords_notification_vibration">осязание, вибрация, чувствительность</string>
-    <string name="keywords_ring_vibration">осязание, вибрация, телефон, звонок, чувствительность, вызов</string>
-    <string name="keywords_touch_vibration">осязание, вибрировать, экран, чувствительность</string>
+    <string name="keywords_notification_vibration">виброотклик, вибрация, чувствительность</string>
+    <string name="keywords_ring_vibration">виброотклик, вибрация, телефон, звонок, чувствительность, вызов</string>
+    <string name="keywords_touch_vibration">виброотклик, вибрировать, экран, чувствительность</string>
     <string name="vibrate_when_ringing_title">Вибрация при звонке</string>
-    <string name="accessibility_vibration_settings_screen_title">Вибрация и тактильный отклик</string>
+    <string name="accessibility_vibration_settings_screen_title">Вибрация и виброотклик</string>
     <string name="one_handed_title">Режим управления одной рукой</string>
-    <string name="vibration_haptics_settings_not_available_summary">Невозможно настроить вибрацию и тактильный отклик, так как на телефоне отключен звук.</string>
-    <string name="vibration_haptics_strength_category_title">Сила вибрации и тактильного отклика</string>
+    <string name="vibration_haptics_settings_not_available_summary">Невозможно настроить вибрацию и виброотклик, так как на телефоне отключен звук.</string>
+    <string name="vibration_haptics_strength_category_title">Интенсивность вибрации и виброотклика</string>
     <string name="peak_refresh_rate_title">Плавный экран</string>
     <string name="peak_refresh_rate_summary">Автоматически увеличивать частоту обновления экрана с 60 до 90 Гц для некоторых типов контента (при этом батарея разряжается быстрее)</string>
-    <string name="accessibility_vibration_settings_title">Вибрация и тактильный отклик</string>
+    <string name="accessibility_vibration_settings_title">Вибрация и виброотклик</string>
     <string name="columbus_title">Короткое касание для выполнения действий</string>
     <string name="emergency_gesture_screen_title">Экстренные вызовы</string>
     <string name="abc_action_mode_done">Готово</string>
@@ -235,7 +235,7 @@
     <string name="accessibility_hearingaid_pair_instructions_message">Чтобы подключить слуховой аппарат, нажмите на его название на следующем экране. Убедитесь, что ваш слуховой аппарат находится в режиме установления соединения.</string>
     <string name="accessibility_hearingaid_title">Слуховые аппараты</string>
     <string name="accessibility_introduction_title">О функции \"%1$s\"</string>
-    <string name="accessibility_keyboard_haptics_title">Тактильный отклик клавиатуры</string>
+    <string name="accessibility_keyboard_haptics_title">Виброотклик клавиатуры</string>
     <string name="accessibility_lock_screen_progress">Использовано %1$d из %2$d символов</string>
     <string name="accessibility_long_press_timeout_preference_title">Задержка при нажатии и удержании</string>
     <string name="accessibility_magnification_area_settings_all_summary">Переключаться между полноэкранным режимом и частью экрана</string>
@@ -748,7 +748,7 @@
     <string name="audio_category_title">Аудио</string>
     <string name="audio_record_proc_title">Подавление шума</string>
     <string name="auto_brightness_default_title">По умолчанию</string>
-    <string name="auto_brightness_description">Яркость экрана будет настраиваться автоматически в зависимости от окружающих условий и ваших действий. Вы сможете регулировать ее и вручную, и тогда ваши предпочтения будут сохраняться.</string>
+    <string name="auto_brightness_description">Яркость экрана будет настраиваться автоматически в зависимости от окружающих условий и ваших действий. Дополнительно ее можно регулировать вручную, чтобы система учитывала ваши предпочтения.</string>
     <string name="auto_brightness_disclaimer">Яркость регулируется с учетом уровня освещенности. При необходимости ее можно временно изменить.</string>
     <string name="auto_brightness_high_title">Высокий</string>
     <string name="auto_brightness_low_title">Низкий</string>
@@ -2522,8 +2522,8 @@
     <string name="fullbackup_erase_dialog_message">Резервное копирование данных устройства (например, паролей сетей Wi-Fi и журнала звонков), а также данных приложения (например, настроек и файлов) будет прекращено. Данные, скопированные на Google Диск, будут удалены. Продолжить?</string>
     <string name="gadget_picker_title">Выбор гаджета</string>
     <string name="game_controller_settings_category">Игровые контроллеры</string>
-    <string name="game_dashboard_always_on_summary">Показывать в играх ярлык игровой панели</string>
-    <string name="game_dashboard_always_on_title">Игровая панель</string>
+    <string name="game_dashboard_always_on_summary">Показывать значок во всех играх (без проведения по экрану)</string>
+    <string name="game_dashboard_always_on_title">Плавающий значок игровой панели</string>
     <string name="game_dashboard_dnd_rule_name">Когда запущена игра</string>
     <string name="game_dashboard_dnd_summary">Во время игры получать уведомления только от важных людей и приложений</string>
     <string name="game_dashboard_dnd_title">Режим \"Не беспокоить\" во время игры</string>
@@ -3557,7 +3557,7 @@
     <string name="night_display_summary_on_auto_mode_never">Не выключится автоматически</string>
     <string name="night_display_summary_on_auto_mode_twilight">Выключится автоматически на рассвете</string>
     <string name="night_display_temperature_title">Интенсивность</string>
-    <string name="night_display_text">С ночной подсветкой экран приобретает желтоватый оттенок. Это снижает напряжение глаз при тусклом свете и может помочь вам быстрее заснуть.</string>
+    <string name="night_display_text">С ночной подсветкой экран приобретает желтоватый оттенок. Это снижает напряжение глаз и может помочь вам быстрее заснуть.</string>
     <string name="night_light_main_switch_title">Использовать ночную подсветку</string>
     <string name="no">Нет</string>
     <string name="no_5g_in_dsds_text">При одновременном использовании двух SIM-карт подключение на этом телефоне будет ограничено сетями 4G. <annotation id="url">Подробнее…</annotation></string>
@@ -3849,9 +3849,9 @@
     <string name="power_menu_long_press_for_assist_sensitivity_summary">Настройте чувствительность, выбрав длительность нажатия и удержания кнопки питания.</string>
     <string name="power_menu_long_press_for_assist_sensitivity_title">Длительность нажатия и удержания</string>
     <string name="power_menu_long_press_for_assist_summary">Нажмите и удерживайте кнопку питания для запуска Ассистента</string>
-    <string name="power_menu_power_prevent_ringing_hint">"Отключение звука звонка
+    <string name="power_menu_power_prevent_ringing_hint">"Отключение звука звонка:
 Быстрый запуск функции доступен в меню регулировки громкости."</string>
-    <string name="power_menu_power_volume_up_hint">"Меню кнопки питания и экстренных вызовов
+    <string name="power_menu_power_volume_up_hint">"Меню кнопки питания и экстренных вызовов:
 Чтобы его открыть, одновременно нажмите кнопки питания и увеличения громкости."</string>
     <string name="power_menu_summary_long_press_for_assist_disabled_no_action">Долгое нажатие отключено</string>
     <string name="power_menu_summary_long_press_for_assist_disabled_with_power_menu">После долгого нажатия открывается меню кнопки питания</string>
@@ -4560,7 +4560,7 @@
     <string name="security_settings_summary">Настройка функции \"Мое местоположение\", разблокировка экрана и блокировка хранилища регистрационных данных</string>
     <string name="security_settings_title">Безопасность</string>
     <string name="security_settings_udfps_enroll_a11y">Чтобы найти сканер, проведите пальцем по экрану. Нажмите на сканер отпечатка пальца и удерживайте.</string>
-    <string name="security_settings_udfps_enroll_edge_message">Наклоните палец вбок, нажмите и удерживайте датчик. Затем поменяйте положение пальца и повторите действия.</string>
+    <string name="security_settings_udfps_enroll_edge_message">Наклоните палец набок, нажмите на датчик и удерживайте. Затем наклоните палец на другой бок и повторите действия.</string>
     <string name="security_settings_udfps_enroll_edge_title">Осталось отсканировать края пальца</string>
     <string name="security_settings_udfps_enroll_find_sensor_message">Сканер отпечатков пальцев расположен на экране. Отпечаток будет отсканирован на следующем экране.</string>
     <string name="security_settings_udfps_enroll_find_sensor_start_button">Начать</string>
@@ -4570,8 +4570,10 @@
     <string name="security_settings_udfps_enroll_repeat_a11y_message">Так отпечаток пальца будет более точным</string>
     <string name="security_settings_udfps_enroll_repeat_message">Нажимайте и удерживайте значок каждый раз, когда он перемещается. Так отпечаток пальца будет более точным.</string>
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">Работа со значком отпечатка пальца</string>
-    <string name="security_settings_udfps_enroll_start_message">Поместите палец на сканер и не убирайте его, пока не ощутите вибрацию.</string>
+    <string name="security_settings_udfps_enroll_start_message">Приложите палец к сканеру и не убирайте его, пока не почувствуете вибрацию.</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">Ещё раз</string>
+    <string name="security_settings_udfps_side_fingerprint_help">Наклоните палец вбок, приложите к датчику и удерживайте. Затем наклоните палец в противоположную сторону и повторите действия.</string>
+    <string name="security_settings_udfps_tip_fingerprint_help">Поднимите палец и снова приложите его к сканеру</string>
     <string name="security_settings_work_fingerprint_preference_title">Pixel Imprint для работы</string>
     <string name="security_status_title">Статус защиты</string>
     <string name="see_less">Скрыть</string>
@@ -4819,7 +4821,7 @@
     <string name="sort_order_recent_notification">Самые новые</string>
     <string name="sort_order_size">Упорядочить по размеру</string>
     <string name="sound_category_call_ringtone_vibrate_title">Вибросигнал и рингтон</string>
-    <string name="sound_dashboard_summary">Громкость, тактильный отклик, режим \"Не беспокоить\"</string>
+    <string name="sound_dashboard_summary">Громкость, виброотклик, режим \"Не беспокоить\"</string>
     <string name="sound_effects_enable_title">Звук нажатия на экран</string>
     <string name="sound_settings">Звук и вибрация</string>
     <string name="sound_settings_example_summary">Громкость сигналов при входящих вызовах и уведомлениях: 80 %.</string>
@@ -4827,7 +4829,7 @@
     <string name="sound_settings_summary_silent">Включен режим без звука</string>
     <string name="sound_settings_summary_vibrate">Включен вибросигнал</string>
     <string name="sound_work_settings">Сигналы в рабочем профиле</string>
-    <string name="spatial_audio_title">Пространственный звук</string>
+    <string name="spatial_audio_title">Пространственное звучание</string>
     <string name="special_access">Специальный доступ</string>
     <string name="special_access_more">Ещё</string>
     <string name="speed_label_fast">Быстрая</string>
@@ -5532,6 +5534,7 @@
     <string name="verify_apps_over_usb_title">Проверять приложения при установке</string>
     <string name="version_text">Версия %1$s</string>
     <string name="vibrate_for_calls_settings_not_available_summary">Невозможно настроить вибрацию для звонков, так как на телефоне отключен звук.</string>
+    <string name="vibrate_icon_title">Всегда показывать значок в режиме вибрации</string>
     <string name="vibrate_in_silent_title">Виброзвонок без звука</string>
     <string name="vibrate_input_devices">Перенаправление виброотклика</string>
     <string name="vibrate_input_devices_summary">Активировать виброотклик на подключенном игровом контроллере</string>

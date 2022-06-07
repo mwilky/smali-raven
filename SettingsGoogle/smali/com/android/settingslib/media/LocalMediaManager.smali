@@ -543,7 +543,11 @@
     :cond_1
     iget-object p1, p0, Lcom/android/settingslib/media/LocalMediaManager;->mCurrentConnectedDevice:Lcom/android/settingslib/media/MediaDevice;
 
-    if-ne v1, p1, :cond_2
+    invoke-virtual {v1, p1}, Lcom/android/settingslib/media/MediaDevice;->equals(Ljava/lang/Object;)Z
+
+    move-result p1
+
+    if-eqz p1, :cond_2
 
     const-string p0, "LocalMediaManager"
 
@@ -551,7 +555,7 @@
 
     invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "connectDevice() this device all ready connected! : "
+    const-string v2, "connectDevice() this device is already connected! : "
 
     invoke-virtual {p1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -570,6 +574,8 @@
     return v0
 
     :cond_2
+    iget-object p1, p0, Lcom/android/settingslib/media/LocalMediaManager;->mCurrentConnectedDevice:Lcom/android/settingslib/media/MediaDevice;
+
     if-eqz p1, :cond_3
 
     invoke-virtual {p1}, Lcom/android/settingslib/media/MediaDevice;->disconnect()V

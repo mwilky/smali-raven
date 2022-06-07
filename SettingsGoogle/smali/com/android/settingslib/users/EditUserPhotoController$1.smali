@@ -217,7 +217,11 @@
 
     iget-object p0, p0, Lcom/android/settingslib/users/EditUserPhotoController$1;->this$0:Lcom/android/settingslib/users/EditUserPhotoController;
 
-    invoke-static {p0}, Lcom/android/settingslib/users/EditUserPhotoController;->access$200(Lcom/android/settingslib/users/EditUserPhotoController;)V
+    invoke-static {p0}, Lcom/android/settingslib/users/EditUserPhotoController;->access$100(Lcom/android/settingslib/users/EditUserPhotoController;)Landroid/net/Uri;
+
+    move-result-object p1
+
+    invoke-static {p0, p1}, Lcom/android/settingslib/users/EditUserPhotoController;->access$200(Lcom/android/settingslib/users/EditUserPhotoController;Landroid/net/Uri;)V
 
     :cond_0
     return-void

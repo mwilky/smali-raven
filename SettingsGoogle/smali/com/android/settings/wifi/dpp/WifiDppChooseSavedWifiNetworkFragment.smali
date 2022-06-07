@@ -160,13 +160,13 @@
 
     new-array p1, p1, [Ljava/lang/Object;
 
-    const p2, 0x7f041646
+    const p2, 0x7f041649
 
     invoke-virtual {p0, p2, p1}, Lcom/android/settings/wifi/dpp/WifiDppQrCodeBaseFragment;->setHeaderTitle(I[Ljava/lang/Object;)V
 
     iget-object p1, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeBaseFragment;->mSummary:Landroid/widget/TextView;
 
-    const p2, 0x7f041647
+    const p2, 0x7f04164a
 
     invoke-virtual {p1, p2}, Landroid/widget/TextView;->setText(I)V
 

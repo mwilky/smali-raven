@@ -9,7 +9,7 @@
     <string name="ambient_display_tap_screen_title">Телефонду текшерүү үчүн басып коюу</string>
     <string name="ambient_display_title">Убакытты жана билдирмелерди текшерүү үчүн эки жолу басуу</string>
     <string name="ambient_display_wake_screen_title">Дисплейди ачуу</string>
-    <string name="auto_brightness_title">Ыңгайлаштырылуучу жарык</string>
+    <string name="auto_brightness_title">Ыңгайлашуучу жарык</string>
     <string name="aware_category_display" />
     <string name="aware_category_gesture" />
     <string name="aware_display_settings_title">Күтүү режиминдеги кулпу экраны</string>
@@ -104,7 +104,7 @@
     <string name="lockscreen_privacy_controls_setting_toggle">Түзмөктү башкаруу элементтерин көрсөтүү</string>
     <string name="lockscreen_privacy_wallet_summary">Капчыкка кулпуланган экрандан жана ыкчам жөндөөлөрдөн өтөсүз</string>
     <string name="lockscreen_privacy_controls_summary">Экран кулпуланып турганда түзмөктү башкарган виджеттерди колдоносуз</string>
-    <string name="lockscreen_double_line_clock_summary">Кош саптуу саат жеткиликтүү болгондо көрсөтүү</string>
+    <string name="lockscreen_double_line_clock_summary">Кош саптуу саат жеткиликтүү болгондо көрүнөт</string>
     <string name="lockscreen_double_line_clock_setting_toggle">Кош саптуу саат</string>
     <string name="abc_activity_chooser_view_see_all">Баарын көрүү</string>
     <string name="abc_activitychooserview_choose_application">Колдонмо тандоо</string>
@@ -438,7 +438,7 @@
     <string name="activity_not_found">Колдонмо сиздин телефонуңузда орнотулган эмес.</string>
     <string name="activity_picker_label">Аракетти тандаңыз</string>
     <string name="adaptive_battery_main_switch_title">Adaptive Battery функциясын колдонуу</string>
-    <string name="adaptive_brightness_main_switch_title">Ыңгайлаштырылуучу жарык функциясын колдонуу</string>
+    <string name="adaptive_brightness_main_switch_title">Ыңгайлашуучу жарык функциясын колдонуу</string>
     <string name="adaptive_charging">Ыңгайлаштырылган кубаттоо</string>
     <string name="adaptive_charging_description">Батареяны көбүрөөк убакытка жеткирүү үчүн түзмөк түнү бою кубатталып, ойготкуч иштей турган мезгилде толук кубатталып бүтөт.</string>
     <string name="adaptive_charging_time_estimate"><b>Ыңгайлаштырылган кубаттоо</b> • Саат %1$s кубатталып бүтөт</string>
@@ -955,7 +955,7 @@
     <string name="battery_level_title">Батарея деңгээли</string>
     <string name="battery_manager_off">Өчүк</string>
     <string name="battery_manager_summary">Батареяны көбүрөөк убакытка жеткирүү жана кубаттоону оптималдаштыруу</string>
-    <string name="battery_manager_summary_unsupported">Батареянын кубатынын мөөнөтүн узартуу</string>
+    <string name="battery_manager_summary_unsupported">Батареяны көпкө жеткирүү</string>
     <string name="battery_missing_link_a11y_message">Бул ката жөнүндө толук маалымат алуу үчүн таптап коюңуз</string>
     <string name="battery_missing_link_message">Кененирээк</string>
     <string name="battery_missing_message">Батареянын кубаты аныкталбай жатат.</string>
@@ -2522,8 +2522,8 @@
     <string name="fullbackup_erase_dialog_message">"Түзмөктөгү нерселердин (мисалы, Wi-Fi тармагынын сырсөздөрү жана чалуулар таржымалы) жана колдонмодогу нерселердин (мисалы жөндөөлөр жана файлдар) камдык көчүрмөлөрү мындан ары сакталбай, Google Drive'дагы бардык көчүрмөлөр өчүрүлөт. Уланта бересизби?"</string>
     <string name="gadget_picker_title">Гаджет тандоо</string>
     <string name="game_controller_settings_category">Оюн контроллери</string>
-    <string name="game_dashboard_always_on_summary">Оюндарда оюн тактасынын ыкчам баскычын көрсөтүү</string>
-    <string name="game_dashboard_always_on_title">Оюн тактасы</string>
+    <string name="game_dashboard_always_on_summary">Сүрөтчөнү бардык оюндарда көрсөтүү (экранды өйдө же ылдый сүрбөстөн)</string>
+    <string name="game_dashboard_always_on_title">Оюн тактасынын калкыма сүрөтчөсү</string>
     <string name="game_dashboard_dnd_rule_name">Оюн-зоок</string>
     <string name="game_dashboard_dnd_summary">Оюн ойноп жатканда маанилүү адамдар жана колдонмолордун билдирмелерин гана аласыз</string>
     <string name="game_dashboard_dnd_title">Оюндар үчүн \"Тынчымды алба\" функциясы</string>
@@ -3245,7 +3245,7 @@ PIN код телефон жоголсо же уурдалса, аны корг�
     <string name="media_controls_hide_player">Ойноткучту жашыруу</string>
     <string name="media_controls_recommendations_description">Аракеттериңиздин негизинде</string>
     <string name="media_controls_recommendations_title">Медиа сунуштарын көрсөтүү</string>
-    <string name="media_controls_resume_description">Ойнотулуп жаткан нерсени ыкчам улантуу үчүн, медиа ойноткучтар Ыкчам жөндөөлөрдө ачык абалда болуп турат</string>
+    <string name="media_controls_resume_description">Угуп жаткан нерсени оңой улантып кетүү үчүн медиа ойноткуч Ыкчам жөндөөлөрдө ачылып турат</string>
     <string name="media_controls_resume_title">Медиа ойноткучту кадап коюу</string>
     <string name="media_controls_show_player">Ойноткучту көрсөтүү</string>
     <string name="media_controls_title">Медиа</string>
@@ -3325,12 +3325,12 @@ PIN код телефон жоголсо же уурдалса, аны корг�
     <string name="menu_stats_total">Жалпы колдонулушу</string>
     <string name="menu_stats_unplugged">Суурулгандан бери %1$s</string>
     <string name="menu_use_uss">Uss колдонуу</string>
-    <string name="mic_toggle_description">Колдонмолор жана кызматтар үчүн. Эгер бул жөндөө өчүрүлсө, кырсыктаганда жардамга келчү кызматтын номерине чалганыңызда микрофондогу нерселер өткөрүлүшү мүмкүн.</string>
+    <string name="mic_toggle_description">Кырсыктаганда жардамга келчү кызматка чалганда микрофондогу нерселер өткөрүлүшү мүмкүн.</string>
     <string name="mic_toggle_title">Микрофонду колдонуу</string>
     <string name="misc_files">Башка файлдар</string>
     <string name="misc_files_selected_count">%2$d ичинен %1$d тандалды</string>
     <string name="misc_files_selected_count_bytes">%2$s ичинен %1$s</string>
-    <string name="mms_message_summary">Мобилдик трафик өчүк кезде жөнөтүү жана кабыл алуу</string>
+    <string name="mms_message_summary">MMS билдирүүлөрдү мобилдик Интернет өчүк кезде жөнөтүп, кабыл аласыз</string>
     <string name="mms_message_title">MMS билдирүүлөр</string>
     <string name="mobile_connect_to_internet">Интернетке кошулуңуз</string>
     <string name="mobile_data_active">Мобилдик Интернет жигердүү</string>
@@ -3544,7 +3544,7 @@ PIN код телефон жоголсо же уурдалса, аны корг�
     <string name="night_display_auto_mode_never">Эч качан</string>
     <string name="night_display_auto_mode_title">Ырааттама</string>
     <string name="night_display_auto_mode_twilight">Күн баткандан чыкканга чейин</string>
-    <string name="night_display_end_time_title">Качан аяктайт</string>
+    <string name="night_display_end_time_title">Качан аяктайт:</string>
     <string name="night_display_not_currently_on">Түнкү режим учурда өчүк</string>
     <string name="night_display_start_time_title">Качан башталат:</string>
     <string name="night_display_status_title">Абалы</string>
@@ -3793,7 +3793,7 @@ PIN код телефон жоголсо же уурдалса, аны корг�
     <string name="permission_bar_chart_empty_text">Уруксаттарды бир да колдонмо колдонгон жок</string>
     <string name="permission_bar_chart_title">Акыркы 24 саатта колдонулган уруксаттар</string>
     <string name="permissions_label">Уруксаттар</string>
-    <string name="permissions_usage_summary">Жакында уруксаттарды колдонгон колдонмолор көрүнөт</string>
+    <string name="permissions_usage_summary">Уруксаттарды жакында кайсы колдонмолор колдонгонун көрө аласыз</string>
     <string name="permissions_usage_title">Купуялык тактасы</string>
     <string name="permit_draw_overlay">Башка терезелердин үстүнөн көрсөтүүгө уруксат</string>
     <string name="permit_manage_external_storage">Бардык файлдарды башкарууга уруксат берүү</string>
@@ -4560,7 +4560,7 @@ PIN код телефон жоголсо же уурдалса, аны корг�
     <string name="security_settings_summary">Жайгашкан жеримди, экрандын кулпусун ачуу ыкмасын, SIM карта кулпусун, аныктоо эстутумунун кулпусун коюу</string>
     <string name="security_settings_title">Коопсуздук</string>
     <string name="security_settings_udfps_enroll_a11y">Сенсорду табуу үчүн манжаңыз менен экранды сүрүңүз. Манжа изинин сенсорун коё бербей басып туруңуз.</string>
-    <string name="security_settings_udfps_enroll_edge_message">Манжаңыздын бир тарабын сенсорго коюп, кармап туруңуз, андан кийин башка тарабына которулуңуз</string>
+    <string name="security_settings_udfps_enroll_edge_message">Манжаңызды сенсорго капталдатып коюп, кармап туруңуз, андан кийин башка капталдарын коюңуз.</string>
     <string name="security_settings_udfps_enroll_edge_title">Эми манжаңыздын четтерин коюңуз</string>
     <string name="security_settings_udfps_enroll_find_sensor_message">Манжа изинин сенсору экранда жайгашкан. Манжаңыздын изин кийинки экранда тартасыз.</string>
     <string name="security_settings_udfps_enroll_find_sensor_start_button">Баштоо</string>
@@ -4572,6 +4572,8 @@ PIN код телефон жоголсо же уурдалса, аны корг�
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">Манжа изинин сүрөтчөсүн басыңыз</string>
     <string name="security_settings_udfps_enroll_start_message">Түзмөк дирилдемейинче сенсордон манжаңызды албай туруңуз</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">Дагы бир жолу</string>
+    <string name="security_settings_udfps_side_fingerprint_help">Манжаңызды сенсорго капталдатып коюп, кармап туруңуз, андан кийин башка капталдарын коюңуз</string>
+    <string name="security_settings_udfps_tip_fingerprint_help">Көтөрүп, кайра тийип коюңуз</string>
     <string name="security_settings_work_fingerprint_preference_title">Жумуш профили үчүн Pixel Imprint</string>
     <string name="security_status_title">Коопсуздук абалы</string>
     <string name="see_less">Азыраак көрүү</string>
@@ -4827,7 +4829,7 @@ PIN туура эмес өңдөнөт."</string>
     <string name="sound_settings_summary_silent">Коңгуроонун үнү өчүрүлгөн</string>
     <string name="sound_settings_summary_vibrate">Коңгуроо дирилдейт</string>
     <string name="sound_work_settings">Жумуш профилиндеги үндөр</string>
-    <string name="spatial_audio_title">Мейкиндиктүү аудио</string>
+    <string name="spatial_audio_title">Мейкиндиктүү үн</string>
     <string name="special_access">Атайын мүмкүнчүлүк</string>
     <string name="special_access_more">Дагы көрүү</string>
     <string name="speed_label_fast">Ылдам</string>
@@ -5532,6 +5534,7 @@ PIN туура эмес өңдөнөт."</string>
     <string name="verify_apps_over_usb_title">Орнотулуучу колдонмону текшерүү</string>
     <string name="version_text">%1$s версиясы</string>
     <string name="vibrate_for_calls_settings_not_available_summary">Телефон үнсүз режимге коюлгандыктан, чалууда дирилдөө угулбайт</string>
+    <string name="vibrate_icon_title">Дирилдөө режиминде сүрөтчө ар дайым көрсөтүлсүн</string>
     <string name="vibrate_in_silent_title">Үнсүз режимде дирилдесин</string>
     <string name="vibrate_input_devices">Дирилдөөнү багыттоо</string>
     <string name="vibrate_input_devices_summary">Туташкан учурларда, дирилдөөнү оюн көзөмөлдөгүчүнө жөнөтүү</string>
@@ -6203,7 +6206,7 @@ PIN туура эмес өңдөнөт."</string>
     <string name="zen_mode_conversations_title">Сүйлөшүүлөр</string>
     <string name="zen_mode_custom_behavior_category_title">\"%1$s\" үчүн</string>
     <string name="zen_mode_custom_behavior_summary">Убакытын коюу</string>
-    <string name="zen_mode_custom_behavior_summary_default">Демейки жөндөөлөрдү колдонуу</string>
+    <string name="zen_mode_custom_behavior_summary_default">Демейки жөндөөлөр колдонулат</string>
     <string name="zen_mode_custom_behavior_title">\"Тынчымды алба\" режиминин тартиби</string>
     <string name="zen_mode_custom_calls_footer">Кирүүчү чалуулар \"%1$s\" эрежеси менен бөгөттөлгөн. Достордун, үй-бүлө мүчөлөрүнүн же башка тааныштарыңыздын чалууларын кабыл алуу үчүн жөндөөлөрдү тууралап алыңыз.</string>
     <string name="zen_mode_custom_messages_footer">\"%1$s\" эрежеси иштетилгенде, билдирүүлөр алынбайт. Достордун, үй-бүлө мүчөлөрүнүн же башка тааныштарыңыздын билдирүүлөрүн алуу үчүн жөндөөлөрдү тууралап алыңыз.</string>
@@ -6315,7 +6318,7 @@ PIN туура эмес өңдөнөт."</string>
     <string name="zen_mode_settings_dnd_manual_end_time">%s чейин \"Тынчымды алба\" режими күйгүзүлгөн</string>
     <string name="zen_mode_settings_dnd_manual_indefinite">Өзүңүз өчүрмөйүнчө, \"Тынчымды алба\" режими күйүп турат</string>
     <string name="zen_mode_settings_schedules_summary">{count,plural, =0{Жок}=1{1 график коюлду}other{# график коюлду}}</string>
-    <string name="zen_mode_settings_summary">Маанилүү байланыштар менен колдонмолордон гана билдирмелерди алуу</string>
+    <string name="zen_mode_settings_summary">Маанилүү байланыштар менен колдонмолордон гана билдирмелерди алып турасыз</string>
     <string name="zen_mode_settings_summary_off">Эч качан</string>
     <string name="zen_mode_settings_title">Тынчымды алба</string>
     <string name="zen_mode_settings_turn_on_dialog_title">\"Тынчымды алба\" режимин күйгүзүү</string>

@@ -925,7 +925,7 @@
     :goto_5
     if-nez v12, :cond_8
 
-    const v3, 0x7f0413a9
+    const v3, 0x7f0413ab
 
     invoke-virtual {v8, v3}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -939,7 +939,7 @@
     :cond_8
     if-eqz v15, :cond_9
 
-    const v3, 0x7f0413ae
+    const v3, 0x7f0413b0
 
     invoke-virtual {v8, v3}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -1086,7 +1086,7 @@
 
     invoke-direct {v1, v2}, Lcom/android/settingslib/widget/FooterPreference$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f0413af
+    const v2, 0x7f0413b1
 
     invoke-virtual {v1, v2}, Lcom/android/settingslib/widget/FooterPreference$Builder;->setTitle(I)Lcom/android/settingslib/widget/FooterPreference$Builder;
 
@@ -1820,7 +1820,7 @@
 .method public onCreateOptionsMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V
     .locals 4
 
-    const v0, 0x7f0413b1
+    const v0, 0x7f0413b3
 
     invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -1834,7 +1834,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f0413b0
+    const v2, 0x7f0413b2
 
     invoke-virtual {p0, v2}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 

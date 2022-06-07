@@ -91,7 +91,7 @@
         <item>Volumen de la voz</item>
         <item>Volumen del tono</item>
         <item>Volumen de multimedia</item>
-        <item>Volumen de alarma</item>
+        <item>Volumen de alarmas</item>
         <item>Volumen de notificaciones</item>
         <item>Volumen de Bluetooth</item>
         <item>Mantener activo</item>
@@ -158,7 +158,7 @@
         <item>volumen de la voz</item>
         <item>volumen del tono</item>
         <item>volumen de multimedia</item>
-        <item>volumen de alarma</item>
+        <item>volumen de alarmas</item>
         <item>volumen de las notificaciones</item>
         <item>volumen de Bluetooth</item>
         <item>mantener activo</item>
@@ -612,14 +612,6 @@
         <item>Desactivado</item>
         <item>Dibujar región de recorte no rectangular en azul</item>
         <item>Resaltar comandos de dibujo probados en verde</item>
-    </string-array>
-    <string-array name="sim_color_light">
-        <item>\@color/SIM_color_cyan</item>
-        <item>\@color/SIM_color_blue800</item>
-        <item>\@color/SIM_color_green800</item>
-        <item>\@color/SIM_color_purple800</item>
-        <item>\@color/SIM_color_pink800</item>
-        <item>\@color/SIM_color_orange</item>
     </string-array>
     <string-array name="swipe_direction_values">
         <item>1</item>

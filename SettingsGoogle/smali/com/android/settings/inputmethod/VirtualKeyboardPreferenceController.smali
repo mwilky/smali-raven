@@ -90,7 +90,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f04138f
+    const v1, 0x7f041391
 
     if-nez v0, :cond_0
 

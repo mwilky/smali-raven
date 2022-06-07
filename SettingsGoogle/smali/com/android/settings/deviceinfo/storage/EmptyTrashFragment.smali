@@ -208,7 +208,7 @@
 
     invoke-direct {p1, v0}, Landroidx/appcompat/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v0, 0x7f04132c
+    const v0, 0x7f04132e
 
     invoke-virtual {p1, v0}, Landroidx/appcompat/app/AlertDialog$Builder;->setTitle(I)Landroidx/appcompat/app/AlertDialog$Builder;
 
@@ -236,7 +236,7 @@
 
     aput-object v2, v1, v3
 
-    const v2, 0x7f041329
+    const v2, 0x7f04132b
 
     invoke-virtual {v0, v2, v1}, Landroid/app/Activity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -250,7 +250,7 @@
 
     invoke-direct {v0, p0}, Lcom/android/settings/deviceinfo/storage/EmptyTrashFragment$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/deviceinfo/storage/EmptyTrashFragment;)V
 
-    const p0, 0x7f04132a
+    const p0, 0x7f04132c
 
     invoke-virtual {p1, p0, v0}, Landroidx/appcompat/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
 

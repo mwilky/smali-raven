@@ -82,7 +82,7 @@
     <string name="touch_sensitivity_title">הגברת הרגישות למגע</string>
     <string name="user_add_on_lockscreen_menu">הוספת משתמשים ממסך הנעילה</string>
     <string name="wallpaper_settings_title">טפט</string>
-    <string name="accessibility_notification_vibration_title">רטט ההתראות</string>
+    <string name="accessibility_notification_vibration_title">רטט של התראה</string>
     <string name="accessibility_ring_vibration_title">רטט הצלצול</string>
     <string name="accessibility_touch_vibration_title">משוב מגע</string>
     <string name="keywords_notification_vibration">מגע, רטט, רגישות</string>
@@ -975,7 +975,7 @@
     <string name="battery_saver_button_turn_off">כיבוי עכשיו</string>
     <string name="battery_saver_button_turn_on">הפעלה עכשיו</string>
     <string name="battery_saver_link_a11y">למידע נוסף על תכונת החיסכון בסוללה</string>
-    <string name="battery_saver_main_switch_title">"שימוש במצב 'חיסכון בסוללה'"</string>
+    <string name="battery_saver_main_switch_title">"מצב 'חיסכון בסוללה'"</string>
     <string name="battery_saver_master_switch_title">שימוש במצב חיסכון בסוללה</string>
     <string name="battery_saver_off_scheduled_summary">יופעל כשהסוללה תגיע ל-%1$s</string>
     <string name="battery_saver_off_summary">כבוי</string>
@@ -2522,8 +2522,8 @@
     <string name="fullbackup_erase_dialog_message">‏האם להפסיק לגבות את נתוני המכשיר (כמו סיסמאות לרשתות Wi-Fi והיסטוריית שיחות) ונתוני אפליקציות (כמו הגדרות וקבצים המאוחסנים על ידי אפליקציות) ולמחוק את כל העותקים השמורים ב-Google Drive?</string>
     <string name="gadget_picker_title">"בחירת גאדג'ט"</string>
     <string name="game_controller_settings_category">בקר משחק</string>
-    <string name="game_dashboard_always_on_summary">להציג במשחקים את הלחצן המהיר למרכז בקרת המשחקים</string>
-    <string name="game_dashboard_always_on_title">מרכז בקרת המשחקים</string>
+    <string name="game_dashboard_always_on_summary">הצגת הסמל בכל המשחקים (בלי להחליק למעלה או למטה)</string>
+    <string name="game_dashboard_always_on_title">הסמל הצף של מרכז בקרת המשחקים</string>
     <string name="game_dashboard_dnd_rule_name">משחקים</string>
     <string name="game_dashboard_dnd_summary">קבלת התראות רק מאפליקציות ומאנשים חשובים במהלך משחק</string>
     <string name="game_dashboard_dnd_title">"מצב 'נא לא להפריע' עבור משחקים"</string>
@@ -4561,7 +4561,7 @@
     <string name="security_settings_title">אבטחה</string>
     <string name="security_settings_udfps_enroll_a11y">מזיזים את האצבע לאורך המסך כדי לאתר את החיישן. לוחצים לחיצה ארוכה על חיישן טביעות האצבע.</string>
     <string name="security_settings_udfps_enroll_edge_message">מניחים צד אחד של האצבע על החיישן ומחזיקים. אחר כך עוברים לצד השני</string>
-    <string name="security_settings_udfps_enroll_edge_title">לבסוף, משתמשים בקצוות האצבע</string>
+    <string name="security_settings_udfps_enroll_edge_title">יש לסובב את קצה האצבע</string>
     <string name="security_settings_udfps_enroll_find_sensor_message">חיישן טביעות האצבע מופיע במסך. נצלם את טביעת האצבע שלך במסך הבא.</string>
     <string name="security_settings_udfps_enroll_find_sensor_start_button">התחלה</string>
     <string name="security_settings_udfps_enroll_find_sensor_title">איך מגדירים טביעת אצבע?</string>
@@ -4569,8 +4569,10 @@
     <string name="security_settings_udfps_enroll_repeat_a11y_message">כך יתועד חלק גדול יותר מהאצבע</string>
     <string name="security_settings_udfps_enroll_repeat_message">לוחצים לחיצה ארוכה בכל פעם שסמל טביעת האצבע זז. כך יתועד חלק גדול יותר מהאצבע.</string>
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">עוקבים אחר הסמל של טביעת האצבע</string>
-    <string name="security_settings_udfps_enroll_start_message">צריך לשמור שטביעת האצבע תהיה שטוחה על החיישן עד שמרגישים רטט</string>
+    <string name="security_settings_udfps_enroll_start_message">צריך להחזיק את האצבע כך שטביעת האצבע תהיה על החיישן, עד שמרגישים רטט</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">ושוב…</string>
+    <string name="security_settings_udfps_side_fingerprint_help">מניחים צד אחד של האצבע על החיישן ומחזיקים. אחר כך עוברים לצד השני</string>
+    <string name="security_settings_udfps_tip_fingerprint_help">מרימים ונוגעים בחיישן שוב</string>
     <string name="security_settings_work_fingerprint_preference_title">‏Pixel Imprint לעבודה</string>
     <string name="security_status_title">סטטוס אבטחה</string>
     <string name="see_less">הצגת פחות</string>
@@ -5531,6 +5533,7 @@
     <string name="verify_apps_over_usb_title">‏אימות אפליקציות באמצעות USB</string>
     <string name="version_text">גרסה %1$s</string>
     <string name="vibrate_for_calls_settings_not_available_summary">"התכונה 'רטט לשיחות' אינה זמינה מפני שהטלפון מוגדר למצב שקט"</string>
+    <string name="vibrate_icon_title">הסמל תמיד מוצג במצב רטט</string>
     <string name="vibrate_in_silent_title">רטט במצב שקט</string>
     <string name="vibrate_input_devices">הפניה אוטומטית של רטט</string>
     <string name="vibrate_input_devices_summary">שליחת רטט אל בקר משחק כשמחובר</string>
@@ -6121,7 +6124,7 @@
     <string name="zen_calls_summary_repeat_only">ממתקשרים חוזרים בלבד</string>
     <string name="zen_calls_summary_starred_repeat">מאנשי קשר שמסומנים בכוכב וממתקשרים חוזרים</string>
     <string name="zen_category_apps">אפליקציות</string>
-    <string name="zen_category_behavior">"מה יכול להפריע לתכונה 'נא לא להפריע'"</string>
+    <string name="zen_category_behavior">"מה יכול להפריע כשהמכשיר במצב 'נא לא להפריע'"</string>
     <string name="zen_category_duration">הגדרת משך זמן להפעלת התכונה מההגדרות המהירות</string>
     <string name="zen_category_exceptions">שעונים מעוררים והפרעות אחרות</string>
     <string name="zen_category_people">אנשים</string>
@@ -6172,7 +6175,7 @@
     <string name="zen_mode_block_effects_screen_on">כאשר המסך פועל</string>
     <string name="zen_mode_blocked_effects_footer">לעולם לא יוסתרו התראות הדרושות לפעולת הטלפון הבסיסית ולסטטוס שלו.</string>
     <string name="zen_mode_button_turn_off">כיבוי עכשיו</string>
-    <string name="zen_mode_button_turn_on">הפעלה עכשיו</string>
+    <string name="zen_mode_button_turn_on">הפעלה</string>
     <string name="zen_mode_bypassing_app_channels_header">התראות שיכולות להפריע</string>
     <string name="zen_mode_bypassing_app_channels_toggle_all">אישור לכל ההתראות</string>
     <string name="zen_mode_bypassing_apps">ניתן לאפשר לאפליקציות לבטל הגדרה זו</string>
@@ -6231,7 +6234,7 @@
     <string name="zen_mode_events">אירועים ביומן</string>
     <string name="zen_mode_events_list">אירועים</string>
     <string name="zen_mode_events_list_first">אירועים</string>
-    <string name="zen_mode_events_summary">מאירועים צפויים ביומן</string>
+    <string name="zen_mode_events_summary">מאירועים קרובים ביומן</string>
     <string name="zen_mode_forever">עד הכיבוי</string>
     <string name="zen_mode_from_all_conversations">כל השיחות</string>
     <string name="zen_mode_from_anyone">כולם</string>

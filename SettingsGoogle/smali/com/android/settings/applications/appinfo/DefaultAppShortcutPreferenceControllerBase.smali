@@ -268,7 +268,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f0417b8
+    const v0, 0x7f0417bb
 
     goto :goto_0
 

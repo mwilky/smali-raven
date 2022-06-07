@@ -2522,8 +2522,8 @@
     <string name="fullbackup_erase_dialog_message">Төхөөрөмжийн өгөгдөл (Wi-Fi-ийн нууц үг, дуудлагын түүх зэрэг) болон апп-н өгөгдлийг (тохиргоо болон апп-н хадгалсан файл зэрэг) нөөцлөхөө зогсоож, Google Драйвт байгаа хуулбарыг устгах уу?</string>
     <string name="gadget_picker_title">Гаджет сонгоно уу</string>
     <string name="game_controller_settings_category">Тоглоом Контроллер</string>
-    <string name="game_dashboard_always_on_summary">Тоглоом дотор Тоглоомын хяналтын самбарын товчлолыг харуулна</string>
-    <string name="game_dashboard_always_on_title">Тоглоомын хяналтын самбар</string>
+    <string name="game_dashboard_always_on_summary">Бүх тоглоомд дүрс тэмдгийг харуул (дээшээ эсвэл доошоо шудрахгүйгээр)</string>
+    <string name="game_dashboard_always_on_title">Тоглоомын хяналтын самбарын хөвж буй дүрс</string>
     <string name="game_dashboard_dnd_rule_name">Тоглоом</string>
     <string name="game_dashboard_dnd_summary">Тоглоом тоглож байх үед зөвхөн чухал хүмүүс болон аппуудаас мэдэгдэл аваарай</string>
     <string name="game_dashboard_dnd_title">Тоглоомын Бүү саад бол горим</string>
@@ -4561,7 +4561,7 @@ Ta хурууны хээгээ ашиглан худалдан авалт бол
     <string name="security_settings_title">Аюулгүй байдал</string>
     <string name="security_settings_udfps_enroll_a11y">Мэдрэгчийг олохын тулд дэлгэц дээр хуруугаа гүйлгэнэ үү. Хурууны хээ мэдрэгчид хүрээд удаан дарна уу.</string>
     <string name="security_settings_udfps_enroll_edge_message">Хурууныхаа хээний хажуу талыг мэдрэгч дээр удаан байрлуулж, дараа нь нөгөө тал руу сэлгэнэ үү</string>
-    <string name="security_settings_udfps_enroll_edge_title">Эцэст нь хурууныхаа үзүүрийг ашиглана уу</string>
+    <string name="security_settings_udfps_enroll_edge_title">Эцэст нь хурууныхаа өндөгний захын хээг ашиглана уу</string>
     <string name="security_settings_udfps_enroll_find_sensor_message">Хурууны хээ мэдрэгч таны дэлгэц дээр байна. Та дараагийн дэлгэц дээр хурууны хээнийхээ зургийг авна.</string>
     <string name="security_settings_udfps_enroll_find_sensor_start_button">Эхлүүлэх</string>
     <string name="security_settings_udfps_enroll_find_sensor_title">Хурууны хээгээ хэрхэн тохируулах вэ?</string>
@@ -4572,6 +4572,8 @@ Ta хурууны хээгээ ашиглан худалдан авалт бол
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">Хурууны хээний дүрс тэмдгийг дагана уу</string>
     <string name="security_settings_udfps_enroll_start_message">Та чичиргээ мэдрэх хүртлээ хурууны хээгээ мэдрэгч дээр тэгш байлгана уу</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">Дахиад нэг удаа</string>
+    <string name="security_settings_udfps_side_fingerprint_help">Хурууныхаа хээний хажуу талыг мэдрэгч дээр удаан байрлуулж, дараа нь нөгөө тал руу сэлгэнэ үү</string>
+    <string name="security_settings_udfps_tip_fingerprint_help">Хөндийрүүлээд, дахин хүрнэ үү</string>
     <string name="security_settings_work_fingerprint_preference_title">Ажлын зориулалттай Pixel Imprint</string>
     <string name="security_status_title">Аюулгүй байдлын төлөв</string>
     <string name="see_less">Цөөнийг харах</string>
@@ -4827,7 +4829,7 @@ Ta хурууны хээгээ ашиглан худалдан авалт бол
     <string name="sound_settings_summary_silent">Хонхыг чимээгүй болгож тохируулсан</string>
     <string name="sound_settings_summary_vibrate">Хонхыг чичиргээтэй болгож тохируулсан</string>
     <string name="sound_work_settings">Ажлын профайлын ая</string>
-    <string name="spatial_audio_title">Орон зайн аудио</string>
+    <string name="spatial_audio_title">Орчны аудио</string>
     <string name="special_access">Тусгай аппын хандалт</string>
     <string name="special_access_more">Дэлгэрэнгүй харах</string>
     <string name="speed_label_fast">Хурдан</string>
@@ -5532,6 +5534,7 @@ Ta хурууны хээгээ ашиглан худалдан авалт бол
     <string name="verify_apps_over_usb_title">Апп-г USB-р баталгаажуулах</string>
     <string name="version_text">хувилбар %1$s</string>
     <string name="vibrate_for_calls_settings_not_available_summary">Утcыг чимээгүй дээр тохируулсан тул дуудлага ирэх үед чичирхийлэх тохиргоо боломжгүй</string>
+    <string name="vibrate_icon_title">Чичрэх горимд байхад дүрс тэмдгийг үргэлж харуул</string>
     <string name="vibrate_in_silent_title">Дуугүй үед чичрэх</string>
     <string name="vibrate_input_devices">Чичиргээг дахин чиглүүлэх</string>
     <string name="vibrate_input_devices_summary">Холбогдсон үедээ тоглоомын хянагчид чичиргээ илгээнэ үү</string>

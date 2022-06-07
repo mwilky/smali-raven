@@ -2011,91 +2011,93 @@
 
 .field public static final two_target_pref_small_icon_size:I = 0x7f0b03e5
 
-.field public static final update_user_photo_popup_min_width:I = 0x7f0b03e6
+.field public static final udfps_lottie_translate_y:I = 0x7f0b03e6
 
-.field public static final usage_graph_area_height:I = 0x7f0b03e7
+.field public static final update_user_photo_popup_min_width:I = 0x7f0b03e7
 
-.field public static final usage_graph_divider_size:I = 0x7f0b03e8
+.field public static final usage_graph_area_height:I = 0x7f0b03e8
 
-.field public static final usage_graph_dot_interval:I = 0x7f0b03e9
+.field public static final usage_graph_divider_size:I = 0x7f0b03e9
 
-.field public static final usage_graph_dot_size:I = 0x7f0b03ea
+.field public static final usage_graph_dot_interval:I = 0x7f0b03ea
 
-.field public static final usage_graph_labels_padding:I = 0x7f0b03eb
+.field public static final usage_graph_dot_size:I = 0x7f0b03eb
 
-.field public static final usage_graph_labels_width:I = 0x7f0b03ec
+.field public static final usage_graph_labels_padding:I = 0x7f0b03ec
 
-.field public static final usage_graph_line_corner_radius:I = 0x7f0b03ed
+.field public static final usage_graph_labels_width:I = 0x7f0b03ed
 
-.field public static final usage_graph_line_width:I = 0x7f0b03ee
+.field public static final usage_graph_line_corner_radius:I = 0x7f0b03ee
 
-.field public static final usage_graph_margin_top_bottom:I = 0x7f0b03ef
+.field public static final usage_graph_line_width:I = 0x7f0b03ef
 
-.field public static final usage_number_text_size:I = 0x7f0b03f0
+.field public static final usage_graph_margin_top_bottom:I = 0x7f0b03f0
 
-.field public static final user_icon_view_height:I = 0x7f0b03f1
+.field public static final usage_number_text_size:I = 0x7f0b03f1
 
-.field public static final user_spinner_height:I = 0x7f0b03f2
+.field public static final user_icon_view_height:I = 0x7f0b03f2
 
-.field public static final user_spinner_item_height:I = 0x7f0b03f3
+.field public static final user_spinner_height:I = 0x7f0b03f3
 
-.field public static final user_spinner_padding:I = 0x7f0b03f4
+.field public static final user_spinner_item_height:I = 0x7f0b03f4
 
-.field public static final user_spinner_padding_sides:I = 0x7f0b03f5
+.field public static final user_spinner_padding:I = 0x7f0b03f5
 
-.field public static final vertical_divider_width:I = 0x7f0b03f6
+.field public static final user_spinner_padding_sides:I = 0x7f0b03f6
 
-.field public static final visible_vertical_space_below_password:I = 0x7f0b03f7
+.field public static final vertical_divider_width:I = 0x7f0b03f7
 
-.field public static final volume_seekbar_side_margin:I = 0x7f0b03f8
+.field public static final visible_vertical_space_below_password:I = 0x7f0b03f8
 
-.field public static final wifi_ap_band_checkbox_padding:I = 0x7f0b03f9
+.field public static final volume_seekbar_side_margin:I = 0x7f0b03f9
 
-.field public static final wifi_assistant_height:I = 0x7f0b03fa
+.field public static final wifi_ap_band_checkbox_padding:I = 0x7f0b03fa
 
-.field public static final wifi_assistant_image_start:I = 0x7f0b03fb
+.field public static final wifi_assistant_height:I = 0x7f0b03fb
 
-.field public static final wifi_assistant_image_top:I = 0x7f0b03fc
+.field public static final wifi_assistant_image_start:I = 0x7f0b03fc
 
-.field public static final wifi_assistant_padding:I = 0x7f0b03fd
+.field public static final wifi_assistant_image_top:I = 0x7f0b03fd
 
-.field public static final wifi_assistant_padding_start_end:I = 0x7f0b03fe
+.field public static final wifi_assistant_padding:I = 0x7f0b03fe
 
-.field public static final wifi_assistant_padding_top_bottom:I = 0x7f0b03ff
+.field public static final wifi_assistant_padding_start_end:I = 0x7f0b03ff
 
-.field public static final wifi_assistant_text_padding:I = 0x7f0b0400
+.field public static final wifi_assistant_padding_top_bottom:I = 0x7f0b0400
 
-.field public static final wifi_detail_page_header_image_size:I = 0x7f0b0401
+.field public static final wifi_assistant_text_padding:I = 0x7f0b0401
 
-.field public static final wifi_divider_height:I = 0x7f0b0402
+.field public static final wifi_detail_page_header_image_size:I = 0x7f0b0402
 
-.field public static final wifi_preference_badge_padding:I = 0x7f0b0403
+.field public static final wifi_divider_height:I = 0x7f0b0403
 
-.field public static final zen_conversations_icon_offset:I = 0x7f0b0404
+.field public static final wifi_preference_badge_padding:I = 0x7f0b0404
 
-.field public static final zen_conversations_icon_size:I = 0x7f0b0405
+.field public static final zen_conversations_icon_offset:I = 0x7f0b0405
 
-.field public static final zen_conversations_image_margin_vertical:I = 0x7f0b0406
+.field public static final zen_conversations_icon_size:I = 0x7f0b0406
 
-.field public static final zen_mode_condition_detail_bottom_padding:I = 0x7f0b0407
+.field public static final zen_conversations_image_margin_vertical:I = 0x7f0b0407
 
-.field public static final zen_mode_condition_detail_button_padding:I = 0x7f0b0408
+.field public static final zen_mode_condition_detail_bottom_padding:I = 0x7f0b0408
 
-.field public static final zen_mode_condition_detail_item_interline_spacing:I = 0x7f0b0409
+.field public static final zen_mode_condition_detail_button_padding:I = 0x7f0b0409
 
-.field public static final zen_mode_condition_detail_item_spacing:I = 0x7f0b040a
+.field public static final zen_mode_condition_detail_item_interline_spacing:I = 0x7f0b040a
 
-.field public static final zen_mode_icon_margin:I = 0x7f0b040b
+.field public static final zen_mode_condition_detail_item_spacing:I = 0x7f0b040b
 
-.field public static final zen_mode_icon_size:I = 0x7f0b040c
+.field public static final zen_mode_icon_margin:I = 0x7f0b040c
 
-.field public static final zen_mode_settings_button_margin_vertical:I = 0x7f0b040d
+.field public static final zen_mode_icon_size:I = 0x7f0b040d
 
-.field public static final zen_schedule_day_margin:I = 0x7f0b040e
+.field public static final zen_mode_settings_button_margin_vertical:I = 0x7f0b040e
 
-.field public static final zen_schedule_rule_checkbox_padding:I = 0x7f0b040f
+.field public static final zen_schedule_day_margin:I = 0x7f0b040f
 
-.field public static final zen_senders_image_margin_vertical:I = 0x7f0b0410
+.field public static final zen_schedule_rule_checkbox_padding:I = 0x7f0b0410
+
+.field public static final zen_senders_image_margin_vertical:I = 0x7f0b0411
 
 
 # direct methods

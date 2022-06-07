@@ -123,7 +123,7 @@
 
     check-cast p3, Landroid/widget/Button;
 
-    const v1, 0x7f041301
+    const v1, 0x7f041303
 
     invoke-virtual {p0, v1}, Landroidx/fragment/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 

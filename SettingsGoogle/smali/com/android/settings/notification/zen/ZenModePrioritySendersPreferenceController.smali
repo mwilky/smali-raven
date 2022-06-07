@@ -329,12 +329,12 @@
 
     if-eqz p0, :cond_2
 
-    const p0, 0x7f0417dd    # 1.75582E38f
+    const p0, 0x7f0417e0
 
     goto :goto_2
 
     :cond_2
-    const p0, 0x7f0417dc
+    const p0, 0x7f0417df
 
     :goto_2
     invoke-virtual {p1, p0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
@@ -721,19 +721,19 @@
 
     if-nez v0, :cond_1
 
-    const v0, 0x7f04183c
+    const v0, 0x7f04183f
 
     const-string v2, "senders_starred_contacts"
 
     invoke-direct {p0, v2, v0}, Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController;->makeRadioPreference(Ljava/lang/String;I)Lcom/android/settingslib/widget/RadioButtonPreference;
 
-    const v0, 0x7f041839
+    const v0, 0x7f04183c
 
     const-string v2, "senders_contacts"
 
     invoke-direct {p0, v2, v0}, Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController;->makeRadioPreference(Ljava/lang/String;I)Lcom/android/settingslib/widget/RadioButtonPreference;
 
-    const v0, 0x7f041838
+    const v0, 0x7f04183b
 
     invoke-direct {p0, v1, v0}, Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController;->makeRadioPreference(Ljava/lang/String;I)Lcom/android/settingslib/widget/RadioButtonPreference;
 
@@ -741,12 +741,12 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f041848
+    const v0, 0x7f04184b
 
     goto :goto_0
 
     :cond_0
-    const v0, 0x7f041847
+    const v0, 0x7f04184a
 
     :goto_0
     const-string v1, "senders_none"

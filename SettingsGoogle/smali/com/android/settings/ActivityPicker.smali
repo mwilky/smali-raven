@@ -200,6 +200,14 @@
 
     invoke-super {p0, p1}, Lcom/android/internal/app/AlertActivity;->onCreate(Landroid/os/Bundle;)V
 
+    invoke-virtual {p0}, Lcom/android/internal/app/AlertActivity;->getWindow()Landroid/view/Window;
+
+    move-result-object p1
+
+    const/high16 v0, 0x80000
+
+    invoke-virtual {p1, v0}, Landroid/view/Window;->addPrivateFlags(I)V
+
     invoke-virtual {p0}, Lcom/android/internal/app/AlertActivity;->getIntent()Landroid/content/Intent;
 
     move-result-object p1

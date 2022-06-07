@@ -381,9 +381,9 @@
         <item quantity="few">%1$d upozorenja</item>
     </plurals>
     <plurals name="see_all_apps_title">
-        <item quantity="other">Prikaz svih aplikacija, ukupno %1$d</item>
-        <item quantity="one">Prikaz svih aplikacija, ukupno %1$d</item>
-        <item quantity="few">Prikaz svih aplikacija, ukupno %1$d</item>
+        <item quantity="other">Prikaz svih aplikacija (njih %1$d)</item>
+        <item quantity="one">Prikaz svih aplikacija (njih %1$d)</item>
+        <item quantity="few">Prikaz svih aplikacija (njih %1$d)</item>
     </plurals>
     <plurals name="settings_suggestion_header_summary_hidden_items">
         <item quantity="other">Prikaži %d skrivenih stavki</item>

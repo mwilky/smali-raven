@@ -748,7 +748,7 @@
     <string name="audio_category_title">音訊</string>
     <string name="audio_record_proc_title">噪音消除</string>
     <string name="auto_brightness_default_title">預設</string>
-    <string name="auto_brightness_description">系統會根據你的所在環境和從事的活動自動調整螢幕亮度。你可以手動移動滑桿協助自動調整亮度功能記憶偏好的亮度。</string>
+    <string name="auto_brightness_description">系統會根據你的所在環境和從事的活動自動調整螢幕亮度。你可以手動移動滑桿，協助自動調整亮度功能記憶你所偏好的亮度。</string>
     <string name="auto_brightness_disclaimer">根據環境光源調整最佳亮度。開啟這項功能之後，你依然可以暫時調整亮度。</string>
     <string name="auto_brightness_high_title">高</string>
     <string name="auto_brightness_low_title">低</string>
@@ -2522,8 +2522,8 @@
     <string name="fullbackup_erase_dialog_message">要停止備份裝置資料 (例如 Wi-Fi 密碼和通話記錄) 以及應用程式資料 (例如應用程式所儲存的設定和檔案)，並清除 Google 雲端硬碟中的所有備份內容嗎？</string>
     <string name="gadget_picker_title">選擇小工具</string>
     <string name="game_controller_settings_category">遊戲控制器</string>
-    <string name="game_dashboard_always_on_summary">在遊戲中顯示遊戲資訊主頁捷徑</string>
-    <string name="game_dashboard_always_on_title">遊戲資訊主頁</string>
+    <string name="game_dashboard_always_on_summary">在所有遊戲中顯示圖示 (不必向上或向下滑動)</string>
+    <string name="game_dashboard_always_on_title">遊戲資訊主頁浮動圖示</string>
     <string name="game_dashboard_dnd_rule_name">遊戲</string>
     <string name="game_dashboard_dnd_summary">玩遊戲時僅接收重要聯絡人和應用程式的通知</string>
     <string name="game_dashboard_dnd_title">遊戲的「零打擾」模式</string>
@@ -3245,7 +3245,7 @@
     <string name="media_controls_hide_player">隱藏播放器</string>
     <string name="media_controls_recommendations_description">根據你的活動</string>
     <string name="media_controls_recommendations_title">顯示媒體推薦內容</string>
-    <string name="media_controls_resume_description">讓快速設定中的媒體播放器保持開啟狀態，以便快速繼續播放</string>
+    <string name="media_controls_resume_description">讓快速設定中的媒體播放器保持開啟狀態，以便快速恢復播放</string>
     <string name="media_controls_resume_title">固定媒體播放器</string>
     <string name="media_controls_show_player">顯示播放器</string>
     <string name="media_controls_title">媒體</string>
@@ -4571,6 +4571,8 @@
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">依照指紋圖示重複按下手指</string>
     <string name="security_settings_udfps_enroll_start_message">請將手指平放在指紋感應器上，感覺到震動時再放開</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">再一次</string>
+    <string name="security_settings_udfps_side_fingerprint_help">將指紋的一側放上感應器並按住，然後再換另一側</string>
+    <string name="security_settings_udfps_tip_fingerprint_help">移開手指，然後再次輕觸感應器</string>
     <string name="security_settings_work_fingerprint_preference_title">使用 Pixel Imprint 解鎖工作資料夾</string>
     <string name="security_status_title">安全性狀態</string>
     <string name="see_less">顯示較少</string>
@@ -4802,7 +4804,7 @@ PIN 碼可能不正確。"</string>
     <string name="smart_forwarding_summary_enabled">智慧轉接功能已啟用</string>
     <string name="smart_forwarding_title">智慧轉接</string>
     <string name="smart_notifications_title">自動調整通知</string>
-    <string name="smart_rotate_text_headline">臉部偵測技術會使用前置鏡頭提高自動旋轉的準確度。系統不會將相關圖像儲存或傳送給 Google。</string>
+    <string name="smart_rotate_text_headline">臉部偵測技術會使用前置鏡頭提高「自動旋轉」功能的準確度。系統不會儲存相關圖像，也不會將這類圖像傳送給 Google。</string>
     <string name="sms_application_title">簡訊應用程式</string>
     <string name="sms_change_default_dialog_text">你要改用「%1$s」而不再使用「%2$s」做為簡訊應用程式嗎？</string>
     <string name="sms_change_default_dialog_title">變更簡訊應用程式？</string>
@@ -4826,7 +4828,7 @@ PIN 碼可能不正確。"</string>
     <string name="sound_settings_summary_silent">鈴聲已設為靜音</string>
     <string name="sound_settings_summary_vibrate">鈴聲已設為震動</string>
     <string name="sound_work_settings">工作資料夾音效</string>
-    <string name="spatial_audio_title">空間音效</string>
+    <string name="spatial_audio_title">空間音訊</string>
     <string name="special_access">特殊應用程式存取權</string>
     <string name="special_access_more">查看更多項目</string>
     <string name="speed_label_fast">快</string>
@@ -5250,7 +5252,7 @@ PIN 碼可能不正確。"</string>
     <string name="turn_off_wifi">關閉 Wi-Fi</string>
     <string name="turn_on_wifi">開啟 Wi-Fi</string>
     <string name="twilight_mode_launch_location">位置資訊設定</string>
-    <string name="twilight_mode_location_off_dialog_message">必須開啟定位模式，裝置才能判斷日落和日出的時間。</string>
+    <string name="twilight_mode_location_off_dialog_message">必須開啟定位功能，裝置才能判斷日落和日出的時間。</string>
     <string name="tx_link_speed">%1$d Mbps</string>
     <string name="tx_wifi_speed">傳送連結速度</string>
     <string name="uninstall_all_users_text">為所有使用者解除安裝</string>
@@ -5531,6 +5533,7 @@ PIN 碼可能不正確。"</string>
     <string name="verify_apps_over_usb_title">透過 USB 驗證應用程式</string>
     <string name="version_text">版本 %1$s</string>
     <string name="vibrate_for_calls_settings_not_available_summary">手機已設為靜音，因此來電時不會震動</string>
+    <string name="vibrate_icon_title">在震動模式下一律顯示「震動」圖示</string>
     <string name="vibrate_in_silent_title">靜音時震動</string>
     <string name="vibrate_input_devices">產生震動</string>
     <string name="vibrate_input_devices_summary">連接時使遊戲控制器產生震動</string>

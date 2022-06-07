@@ -19,9 +19,9 @@
     <string name="camera_gesture_desc">با دو بار چرخاندن مچتان، برنامه دوربین را باز کنید</string>
     <string name="camera_gesture_title">دو بار بچرخانید تا دوربین باز شود</string>
     <string name="color_mode_title">رنگ‌</string>
-    <string name="dark_ui_mode">طرح زمینه تیره</string>
+    <string name="dark_ui_mode">زمینه تیره</string>
     <string name="date_and_time">تاریخ و زمان</string>
-    <string name="device_theme">طرح زمینه دستگاه</string>
+    <string name="device_theme">زمینه دستگاه</string>
     <string name="display_settings">صفحه‌نمایش</string>
     <string name="display_vr_pref_title">‏وقتی دستگاه در حالت VR است</string>
     <string name="display_white_balance_summary" />
@@ -94,7 +94,7 @@
     <string name="vibration_haptics_settings_not_available_summary">به‌دلیل اینکه تلفن روی حالت بی‌صدا تنظیم شده است، لرزش و فناوری لمسی در دسترس نیست</string>
     <string name="vibration_haptics_strength_category_title">لرزش و قدرت لمسی</string>
     <string name="peak_refresh_rate_title">نمایشگر روان</string>
-    <string name="peak_refresh_rate_summary">به‌طور خودکار سرعت بازخوانی را برای بعضی محتواها، از ۶۰ هرتز تا ۹۰ هرتز بالا می‌برد. مصرف باتری را افزایش می‌دهد.</string>
+    <string name="peak_refresh_rate_summary">به‌طور خودکار نرخ بازآوری را برای بعضی محتواها از ۶۰ هرتز تا ۹۰ هرتز بالا می‌برد. مصرف باتری را افزایش می‌دهد.</string>
     <string name="accessibility_vibration_settings_title">لرزش و فناوری لمسی</string>
     <string name="columbus_title">ضربه سریع برای شروع کنش‌ها</string>
     <string name="emergency_gesture_screen_title">کمک اضطراری</string>
@@ -215,11 +215,11 @@
     <string name="accessibility_dialog_button_allow">مجاز بودن</string>
     <string name="accessibility_dialog_button_cancel">لغو</string>
     <string name="accessibility_dialog_button_deny">مجاز نبودن</string>
-    <string name="accessibility_dialog_button_stop">توقف</string>
+    <string name="accessibility_dialog_button_stop">متوقف کردن</string>
     <string name="accessibility_disable_animations">برداشتن پویانمایی‌ها</string>
     <string name="accessibility_display_daltonizer_preference_subtitle">‏نحوه نمایش رنگ‌ها را در دستگاهتان تنظیم می‌کند. این ویژگی می‌تواند در موارد زیر مفید باشد:&lt;br/>&lt;br/> &lt;ol> &lt;li>&amp;nbsp; وقتی می‌خواهید رنگ‌ها را با دقت بیشتری ببینید&lt;/li> &lt;li>&amp;nbsp;وقتی می‌خواهید رنگ‌ها را حذف کنید تا تمرکز بیشتری داشته باشید&lt;/li> &lt;/ol></string>
     <string name="accessibility_display_daltonizer_preference_title">تصحیح رنگ</string>
-    <string name="accessibility_display_inversion_preference_subtitle">‏«وارونگی رنگ» صفحه‌نمایش روشن را تیره می‌کند.&lt;br/>&lt;br/> توجه: &lt;ol> &lt;li> «وارونگی رنگ» صفحه‌نمایش تیره را نیز روشن می‌کند.&lt;/li> &lt;li> رنگ‌ها در رسانه‌ها و تصاویر تغییر می‌کنند.&lt;/li> &lt;li> برای نمایش پس‌زمینه تیره می‌توان از طرح‌زمینه تیره استفاده کرد. «طرح زمینه تیره» با برنامه‌های پشتیبانی‌شده کار می‌کند. وارونگی رنگ در همه برنامه‌ها کار می‌کند.&lt;/li> &lt;/ol></string>
+    <string name="accessibility_display_inversion_preference_subtitle">‏«وارونگی رنگ» صفحه‌نمایش روشن را تیره می‌کند.&lt;br/>&lt;br/> توجه: &lt;ol> &lt;li> «وارونگی رنگ» صفحه‌نمایش تیره را نیز روشن می‌کند.&lt;/li> &lt;li> رنگ‌ها در رسانه‌ها و تصاویر تغییر می‌کنند.&lt;/li> &lt;li> برای نمایش پس‌زمینه تیره می‌توان از زمینه تیره استفاده کرد. «زمینه تیره» با برنامه‌های پشتیبانی‌شده کار می‌کند. وارونگی رنگ در همه برنامه‌ها کار می‌کند.&lt;/li> &lt;/ol></string>
     <string name="accessibility_display_inversion_preference_title">وارونگی رنگ</string>
     <string name="accessibility_display_inversion_shortcut_title">میان‌بر «وارونگی رنگ»</string>
     <string name="accessibility_display_inversion_switch_title">استفاده از وارونگی رنگ</string>
@@ -558,7 +558,7 @@
     <string name="ambient_display_screen_title">نمایشگر محیط</string>
     <string name="ambient_display_summary">برای بررسی زمان، اعلان‌ها و اطلاعات دیگر، روی صفحه‌نمایش دو ضربه سریع بزنید.</string>
     <string name="ambient_display_tap_screen_summary">برای بررسی زمان، اعلان‌ها و اطلاعات دیگر، روی صفحه‌نمایش ضربه بزنید.</string>
-    <string name="ambient_display_wake_screen_footer"><annotation link="link">تنظیمات برگزیده</annotation></string>
+    <string name="ambient_display_wake_screen_footer"><annotation link="link">اولویت‌ها</annotation></string>
     <string name="ambient_display_wake_screen_summary" />
     <string name="ambient_display_wake_screen_summary_on" />
     <string name="android_beam_explained">"‏اگر این ویژگی روشن باشد، می‌توانید با نگه‌داشتن دستگاه‌ها نزدیک به یکدیگر، محتوای برنامه را به دستگاه مجهز به NFC دیگری با پرتو ارسال کنید. مثلاً، می‌توانید صفحات وب، ویدیوهای YouTube، مخاطبین و موارد دیگر را ازطریق پرتو ارسال کنید.
@@ -787,7 +787,7 @@
     <string name="auto_rotate_settings_primary_switch_title">استفاده از چرخش خودکار</string>
     <string name="auto_rotate_summary_no_permission">دسترسی به دوربین برای «تشخیص چهره» الزامی است. برای مدیریت اجازه‌های «خدمات شخصی‌سازی دستگاه» ضربه بزنید</string>
     <string name="auto_rotate_switch_face_based">فعال کردن «تشخیص چهره»</string>
-    <string name="auto_sync_account_summary">اجازه دادن به برنامه‌ها برای بازخوانی خودکار داده‌ها</string>
+    <string name="auto_sync_account_summary">اجازه دادن به برنامه‌ها برای بازآوری خودکار داده‌ها</string>
     <string name="auto_sync_account_title">همگام‌سازی خودکار داده‌های برنامه</string>
     <string name="auto_sync_personal_account_title">همگام‌سازی خودکار داده‌های شخصی</string>
     <string name="auto_sync_work_account_title">همگام‌سازی خودکار داده‌های کاری</string>
@@ -1325,7 +1325,7 @@
     <string name="bluetooth_scanning_on_info_message">"وقتی بلوتوث روشن است، دستگاهتان می‌تواند با دیگر دستگاه‌های بلوتوث اطراف ارتباط برقرار کند.
 
 برای بهبود تجربه دستگاه، برنامه‌ها و سرویس‌ها همچنان می‌توانند در هرزمانی دستگاه‌های اطراف را اسکن کنند؛ حتی وقتی بلوتوث خاموش باشد. برای مثال، از این ویژگی می‌توان برای بهبود ویژگی‌ها و سرویس‌های مکان‌مبنا استفاده کرد. می‌توانید این تنظیم را در "<annotation id="link">تنظیمات اسکن بلوتوث</annotation> تغییر دهید.</string>
-    <string name="bluetooth_search_for_devices">بازخوانی</string>
+    <string name="bluetooth_search_for_devices">بازآوری کردن</string>
     <string name="bluetooth_searching_for_devices">در حال جستجو...</string>
     <string name="bluetooth_select_a2dp_codec_bits_per_sample">بیت‌های بلوتوث صوتی در هر نمونه</string>
     <string name="bluetooth_select_a2dp_codec_bits_per_sample_dialog_title">"راه‌اندازی کدک صوتی بلوتوثی
@@ -1548,7 +1548,7 @@
     <string name="choose_sim_item_summary_unknown">شماره ناشناس</string>
     <string name="choose_sim_text">{count,plural, =1{یک شماره تلفن در این دستگاه دردسترس است}=2{۲ شماره تلفن در این دستگاه دردسترس است، اما هربار فقط یکی از آن‌ها را می‌توان استفاده کرد}one{# شماره تلفن در این دستگاه دردسترس است}other{# شماره تلفن در این دستگاه دردسترس است، اما هربار فقط یکی از آن‌ها را می‌توان استفاده کرد}}</string>
     <string name="choose_sim_title">انتخاب شماره‌ای برای استفاده</string>
-    <string name="choose_spell_checker">انتخاب غلط‌گیر املا</string>
+    <string name="choose_spell_checker">انتخاب غلط‌یاب املا</string>
     <string name="choose_timezone">انتخاب منطقهٔ زمانی</string>
     <string name="choose_voice_input_title">انتخاب ورودی گفتاری</string>
     <string name="clear">پاک کردن</string>
@@ -1816,9 +1816,9 @@
     <string name="daltonizer_mode_tritanomaly_title">آبی‌دشواربینی</string>
     <string name="daltonizer_type">حالت تصحیح</string>
     <string name="daltonizer_type_overridden">توسط %1$s لغو شد</string>
-    <string name="dark_theme_main_switch_title">استفاده از «طرح زمینه تیره»</string>
+    <string name="dark_theme_main_switch_title">استفاده از «زمینه تیره»</string>
     <string name="dark_theme_slice_subtitle">به افزایش عمر باتری کمک می‌کند</string>
-    <string name="dark_theme_slice_title">طرح زمینه تیره را امتحان کنید</string>
+    <string name="dark_theme_slice_title">زمینه تیره را امتحان کنید</string>
     <string name="dark_ui_activation_off_auto">تا غروب آفتاب خاموش باشد</string>
     <string name="dark_ui_activation_off_custom">تا %1$s خاموش شود</string>
     <string name="dark_ui_activation_off_manual">اکنون خاموش شود</string>
@@ -1831,7 +1831,7 @@
     <string name="dark_ui_auto_mode_title">زمان‌بندی</string>
     <string name="dark_ui_mode_disabled_summary_dark_theme_off">به‌دلیل روشن بودن «بهینه‌سازی باتری»، این تنظیم موقتاً فعال شد</string>
     <string name="dark_ui_mode_disabled_summary_dark_theme_on">به‌دلیل روشن بودن «بهینه‌سازی باتری» موقتاً غیرفعال شده است</string>
-    <string name="dark_ui_settings_dark_summary">برنامه‌های پشتبانی‌شده نیز به طرح زمینه تیره تغییر می‌کنند</string>
+    <string name="dark_ui_settings_dark_summary">برنامه‌های پشتبانی‌شده نیز به زمینه تیره تغییر می‌کنند</string>
     <string name="dark_ui_settings_dialog_acknowledge">متوجه شدم</string>
     <string name="dark_ui_status_title">وضعیت</string>
     <string name="dark_ui_summary_off_auto_mode_auto">در غروب به‌طور خودکار روشن می‌شود</string>
@@ -1840,7 +1840,7 @@
     <string name="dark_ui_summary_on_auto_mode_auto">به‌طور خودکار در طلوع خاموش می‌شود</string>
     <string name="dark_ui_summary_on_auto_mode_custom">در ساعت %1$s به‌طور خودکار خاموش می‌شود</string>
     <string name="dark_ui_summary_on_auto_mode_never">هرگز به‌طور خودکار خاموش نمی‌شود</string>
-    <string name="dark_ui_text">«طرح زمینه تیره» از پس‌زمینه‌ای سیاه استفاده می‌کند تا شارژ باتری برای مدت طولانی‌تری حفظ شود. «طرح زمینه تیره» تا زمانی که صفحه خاموش باشد، زمان انتظاری برای روشن شدن تنظیم می‌کند.</string>
+    <string name="dark_ui_text">«زمینه تیره» از پس‌زمینه‌ای سیاه استفاده می‌کند تا شارژ باتری برای مدت طولانی‌تری حفظ شود. «زمینه تیره» تا زمانی که صفحه خاموش باشد، زمان انتظاری برای روشن شدن تنظیم می‌کند.</string>
     <string name="dark_ui_title">حالت تاریک</string>
     <string name="dashboard_title">تنظیمات</string>
     <string name="data_connection_3_5g">H</string>
@@ -2029,7 +2029,7 @@
     <string name="default_print_service_main_switch_title">استفاده از سرویس چاپ</string>
     <string name="default_see_all_apps_title">مشاهده همه برنامه‌ها</string>
     <string name="default_sound">صدای پیش‌فرض</string>
-    <string name="default_spell_checker">غلط‌گیر املای پیش‌فرض</string>
+    <string name="default_spell_checker">غلط‌یاب املای پیش‌فرض</string>
     <string name="default_theme">پیش‌فرض</string>
     <string name="delete">حذف</string>
     <string name="delete_blob_confirmation_text">مطمئن هستید می‌خواهید این داده‌های هم‌رسانی‌شده را حذف کنید؟</string>
@@ -2132,7 +2132,7 @@
     <string name="display_category_title">نمایشگر</string>
     <string name="display_cutout_emulation">برش نمایشگر</string>
     <string name="display_cutout_emulation_keywords">بریدگی حاشیه نمایشگر، حاشیه بالای نمایشگر</string>
-    <string name="display_dashboard_summary">طرح زمینه تیره، اندازه قلم، روشنایی</string>
+    <string name="display_dashboard_summary">زمینه تیره، اندازه قلم، روشنایی</string>
     <string name="display_label">صفحه‌نمایش</string>
     <string name="display_order_text">به‌ترتیب:</string>
     <string name="display_settings_title">صفحه‌نمایش</string>
@@ -2498,8 +2498,8 @@
     <string name="force_bold_text">نوشتار پررنگ</string>
     <string name="force_desktop_mode">اجرای اجباری حالت دسک‌‌تاپ</string>
     <string name="force_desktop_mode_summary">اجرای اجباری حالت دسک‌تاپ آزمایشی در نمایشگرهای ثانوی</string>
-    <string name="force_high_refresh_rate_desc">بالاترین نرخ بازخوانی برای پاسخ‌گویی بهبودیافته لمس و کیفیت پویانمایی. مصرف باتری را افزایش می‌دهد.</string>
-    <string name="force_high_refresh_rate_toggle">اعمال بالاترین نرخ بازخوانی</string>
+    <string name="force_high_refresh_rate_desc">بالاترین نرخ بازآوری برای پاسخ‌گویی بهبودیافته لمس و کیفیت پویانمایی. مصرف باتری را افزایش می‌دهد.</string>
+    <string name="force_high_refresh_rate_toggle">اعمال بالاترین نرخ بازآوری</string>
     <string name="force_msaa">‏اجبار 4x MSAA</string>
     <string name="force_msaa_summary">‏فعال کردن 4X MSAA در برنامه‌های OpenGL ES 2.0</string>
     <string name="force_resizable_activities">اجبار فعالیت‌ها به قابل تغییر اندازه بودن</string>
@@ -2522,8 +2522,8 @@
     <string name="fullbackup_erase_dialog_message">‏پشتیبان‌گیری از داده‌های دستگاه (مانند گذرواژه‌های Wi-Fi و سابقه تماس) و داده‌های برنامه (مثل تنظیمات و فایل‌های ذخیره‌شده توسط برنامه‌ها) متوقف شود و همچنین همه رونوشت‌ها در Google Drive پاک شوند؟</string>
     <string name="gadget_picker_title">انتخاب اسبابک</string>
     <string name="game_controller_settings_category">دسته کنترل بازی</string>
-    <string name="game_dashboard_always_on_summary">نمایش میان‌بر «داشبورد بازی‌ها» در بازی‌ها</string>
-    <string name="game_dashboard_always_on_title">داشبورد بازی‌ها</string>
+    <string name="game_dashboard_always_on_summary">نمایش نماد در همه بازی‌ها (بدون نیاز به تند کشیدن به بالا یا پایین)</string>
+    <string name="game_dashboard_always_on_title">نماد شناور «داشبورد بازی‌ها»</string>
     <string name="game_dashboard_dnd_rule_name">بازی</string>
     <string name="game_dashboard_dnd_summary">هنگام بازی کردن، فقط از افراد و برنامه‌های مهم اعلان دریافت می‌کنید</string>
     <string name="game_dashboard_dnd_title">«مزاحم نشوید» برای بازی‌ها</string>
@@ -2550,7 +2550,7 @@
     <string name="gentle_notifications_title">اعلان‌های ملایم</string>
     <string name="gesture_aware_confirmation_action_button">متوجه شدم</string>
     <string name="gesture_aware_disabled_info_dialog_content" />
-    <string name="gesture_aware_footer"><annotation link="link">تنظیمات برگزیده</annotation></string>
+    <string name="gesture_aware_footer"><annotation link="link">اولویت‌ها</annotation></string>
     <string name="gesture_aware_off_dialog_content" />
     <string name="gesture_aware_off_dialog_title" />
     <string name="gesture_not_supported_dialog_message">برنامه شبکه پیش‌فرض، %s پشتیبانی نمی‌کند</string>
@@ -2561,18 +2561,18 @@
     <string name="gesture_setting_off">خاموش</string>
     <string name="gesture_setting_on">روشن</string>
     <string name="gesture_settings_activity_title">تنظیمات اشاره</string>
-    <string name="gesture_silence_footer"><annotation link="link">تنظیمات برگزیده</annotation></string>
+    <string name="gesture_silence_footer"><annotation link="link">اولویت‌ها</annotation></string>
     <string name="gesture_silence_off_summary" />
     <string name="gesture_silence_on_summary" />
     <string name="gesture_silence_summary" />
     <string name="gesture_skip_direction_ltr">چپ‌به‌راست</string>
     <string name="gesture_skip_direction_rtl">راست‌به‌چپ</string>
     <string name="gesture_skip_direction_title">جهت رد کردن</string>
-    <string name="gesture_skip_footer"><annotation link="link">تنظیمات برگزیده</annotation></string>
+    <string name="gesture_skip_footer"><annotation link="link">اولویت‌ها</annotation></string>
     <string name="gesture_skip_off_summary" />
     <string name="gesture_skip_on_summary" />
     <string name="gesture_skip_summary" />
-    <string name="gesture_tap_footer"><annotation link="link">تنظیمات برگزیده</annotation></string>
+    <string name="gesture_tap_footer"><annotation link="link">اولویت‌ها</annotation></string>
     <string name="gesture_tap_on_summary" />
     <string name="gesture_tap_summary" />
     <string name="global_actions_panel_short_title">کارت‌ها و مجوزها</string>
@@ -2765,7 +2765,7 @@
     <string name="keywords_battery_share_settings">اشتراک باتری، شارژ بی‌سیم معکوس</string>
     <string name="keywords_battery_usage">مشاهده مصرف باتری، مصرف باتری، مصرف انرژی</string>
     <string name="keywords_biometric_settings">چهره، اثر انگشت، افزودن اثر انگشت</string>
-    <string name="keywords_biometric_unlock">قفل‌گشایی با چهره، احراز هویت، ورود به سیستم، اثر انگشت، زیست‌سنجشی</string>
+    <string name="keywords_biometric_unlock">قفل‌گشایی با چهره، اصالت‌سنجی، ورود به سیستم، اثر انگشت، زیست‌سنجشی</string>
     <string name="keywords_bluetooth_settings">متصل، دستگاه، هدفون‌ها، هدست‌ها، بلندگو، بی‌سیم، مرتبط‌سازی، هدفون‌های توگوشی، موسیقی، رسانه</string>
     <string name="keywords_bold_text">کنتراست زیاد، کم‌بینا، قلم پررنگ، ظاهر پررنگ</string>
     <string name="keywords_change_wifi_state">‏wifi،‏ wi-fi، روشن/خاموش کردن، کنترل کردن</string>
@@ -2773,7 +2773,7 @@
     <string name="keywords_color_inversion">تیره کردن صفحه‌نمایش، روشن کردن صفحه‌نمایش</string>
     <string name="keywords_color_temperature">‏رنگ، دما، D65،‏ D73، سفید، زرد، آبی، گرم، سرد</string>
     <string name="keywords_content_capture">ضبط محتوا، محتوای برنامه، داده‌های برنامه</string>
-    <string name="keywords_dark_ui_mode">طرح زمینه، روشن، تاریک، حالت، حساسیت به نور، نورهراسی، تاریک‌تر کردن، تاریک کردن، حالت تاریک، میگرن</string>
+    <string name="keywords_dark_ui_mode">زمینه، روشن، تاریک، حالت، حساسیت به نور، نورهراسی، تاریک‌تر کردن، تاریک کردن، حالت تاریک، میگرن</string>
     <string name="keywords_date_and_time">ساعت، نظامی</string>
     <string name="keywords_default_apps">برنامه‌ها، پیش‌فرض</string>
     <string name="keywords_default_payment_app">پرداخت، پیش‌فرض</string>
@@ -2804,7 +2804,7 @@
     <string name="keywords_imei_info">‏imei، ‏meid،‏ min، نسخه prl، ‏imei sv</string>
     <string name="keywords_install_other_apps">نصب برنامه‌ از منابع ناشناس</string>
     <string name="keywords_internet">‏اتصال شبکه، اینترنت، بی‌سیم، داده، wifi،‏ wi-fi، ‏wi fi، شبکه تلفن همراه، تلفن همراه، شرکت مخابراتی تلفن همراه، 4g،‏ 3g،‏ 2g،‏ lte</string>
-    <string name="keywords_keyboard_and_ime">تصحیح نوشتار، تصحیح، صدا، لرزش، خودکار، زبان، اشاره، پیشنهاد دادن، پیشنهاد، طرح زمینه، توهین‌آمیز، کلمه، نوع، اموجی، بین‌المللی</string>
+    <string name="keywords_keyboard_and_ime">تصحیح نوشتار، تصحیح، صدا، لرزش، خودکار، زبان، اشاره، پیشنهاد دادن، پیشنهاد، زمینه، توهین‌آمیز، کلمه، نوع، اموجی، بین‌المللی</string>
     <string name="keywords_live_caption">‏زیرنویس، زیرنویس ناشنوایان، CC، ترانویسی هم‌زمان، کم‌شنوا، ازدست دادن شنوایی، CART، گفتار به نوشتار، زیرنویس</string>
     <string name="keywords_live_transcribe">‏زیرنویس، زیرنویس ناشنوایان، CC، زیرنویس ناشنوایان زنده، کم‌شنوا، ازدست دادن شنوایی، CART، گفتار به نوشتار، زیرنویس</string>
     <string name="keywords_location">‏اطراف، مکان، سابقه، گزارش، GPS</string>
@@ -2821,7 +2821,7 @@
     <string name="keywords_payment_settings">پرداخت کردن، ضربه زدن، پرداخت‌ها</string>
     <string name="keywords_printing">چاپگر</string>
     <string name="keywords_profile_challenge">چالش کار، کار، نمایه</string>
-    <string name="keywords_reduce_bright_colors">حساسیت به نور، نورهراسی، طرح زمینه تیره، میگرن، سردرد، حالت خواندن، حالت شب، کاهش روشنایی، درجه سفیدی</string>
+    <string name="keywords_reduce_bright_colors">حساسیت به نور، نورهراسی، زمینه تیره، میگرن، سردرد، حالت خواندن، حالت شب، کاهش روشنایی، درجه سفیدی</string>
     <string name="keywords_reset_apps">بازنشانی، اولویت‌ها، پیش‌فرض</string>
     <string name="keywords_reverse_charging_stop_threshold">توقف اشتراک‌گذاری باتری وقتی شارژ باتری تلفن به این میزان می‌رسد:</string>
     <string name="keywords_rtt">‏کم‌شنوا، ازدست دادن شنوایی، زیرنویس ناشنوایان، تایپ راه‌دور، tty</string>
@@ -2831,14 +2831,14 @@
     <string name="keywords_sound_notifications">اعلان‌ها، کم‌شنوا، ازدست دادن شنوایی، اعلان کردن</string>
     <string name="keywords_sounds">بیپ بلندگو، بلندگو، میزان صدا، صامت کردن، سکوت، صدا، موسیقی</string>
     <string name="keywords_sounds_and_notifications_interruptions">مزاحم نشوید، قطع، وقفه، توقف</string>
-    <string name="keywords_spell_checker">املا، واژه‌نامه، غلط‌گیر املا، تصحیح خودکار</string>
+    <string name="keywords_spell_checker">املا واژه‌نامه غلط‌یاب املایی، تصحیح خودکار</string>
     <string name="keywords_storage">فضا، دیسک، دیسک سخت، مصرف دستگاه</string>
     <string name="keywords_storage_files">بارگیری</string>
     <string name="keywords_storage_menu_free">پاک‌سازی، فضای ذخیره‌سازی</string>
     <string name="keywords_storage_settings">حافظه، حافظه پنهان، داده، حذف، پاک کردن، آزاد، فضا</string>
     <string name="keywords_styles">نماد، رنگ تأکیدی، رنگ</string>
     <string name="keywords_switch_access">‏حرکت، کلید، دست، AT، فناوری یاری‌رسان، فلج، ALS، اسکن کردن، اسکن مرحله‌ای</string>
-    <string name="keywords_systemui_theme">طرح زمینه تیره</string>
+    <string name="keywords_systemui_theme">زمینه تیره</string>
     <string name="keywords_talkback">‏صفحه‌خوان، صدا گذاری، صداگذاری، دستیار صوتی، نابینا، کم‌بینا، TTS، نوشتار به گفتار، بازخورد گفتاری</string>
     <string name="keywords_text_to_speech_output">‏رده‌بندی، زبان، پیش‌فرض، بلند صحبت کردن، گفتن، صحبت کردن، صحبت، tts، دسترس‌پذیری، صفحه‌خوان، نابینا</string>
     <string name="keywords_time_format">استفاده از قالب ۲۴ ساعته</string>
@@ -2852,7 +2852,7 @@
     <string name="keywords_voice_input">تشخیص‌دهنده، ورودی، گفتار، بلند صحبت کردن، گفتن، صحبت کردن، زبان، هندزفری، هندز فری، تشخیص، توهین‌آمیز، کلمه، صوتی، سابقه، بلوتوث، هدست</string>
     <string name="keywords_vr_listener">‏vr واقعیت مجازی شنونده استریو یاور خدمات</string>
     <string name="keywords_wallet">کیف پول</string>
-    <string name="keywords_wallpaper">پس‌زمینه، طرح زمینه، جدول، سفارشی ساختن، شخصی کردن</string>
+    <string name="keywords_wallpaper">پس‌زمینه، زمینه، جدول، سفارشی ساختن، شخصی کردن</string>
     <string name="keywords_wifi">‏wifi، ‏Wi-Fi، اتصال شبکه، اینترنت، بی‌سیم، داده، wi fi</string>
     <string name="keywords_wifi_calling">‏wifi،‏ wi-fi،‏ تماس، تماس گرفتن</string>
     <string name="keywords_wifi_data_usage">مصرف داده</string>
@@ -3321,7 +3321,7 @@
     <string name="menu_show_percentage">نمایش درصدها</string>
     <string name="menu_show_system">نمایش سیستم</string>
     <string name="menu_stats_last_unplugged">در حین قطع اتصال آخر برای %1$s</string>
-    <string name="menu_stats_refresh">بازخوانی</string>
+    <string name="menu_stats_refresh">بازآوری کردن</string>
     <string name="menu_stats_total">مقدار کل استفاده</string>
     <string name="menu_stats_unplugged">%1$s از زمان جدا کردن</string>
     <string name="menu_use_uss">‏استفاده از Uss</string>
@@ -4561,7 +4561,7 @@
     <string name="security_settings_title">امنیت</string>
     <string name="security_settings_udfps_enroll_a11y">انگشتتان را روی صفحه‌نمایش حرکت دهید تا حسگر را پیدا کنید. حسگر اثر انگشت را لمس کنید و نگه دارید.</string>
     <string name="security_settings_udfps_enroll_edge_message">یک سمت انگشتتان را روی حسگر اثر انگشت قرار دهید و نگه دارید، سپس این کار را با سمت دیگر تکرار کنید</string>
-    <string name="security_settings_udfps_enroll_edge_title">در آخر، از لبه‌های انگشت استفاده کنید</string>
+    <string name="security_settings_udfps_enroll_edge_title">در آخر، کناره‌های انگشتتان را ثبت کنید</string>
     <string name="security_settings_udfps_enroll_find_sensor_message">حسگر اثر انگشت روی صفحه‌نمایش قرار دارد. اثر انگشتتان را در صفحه بعدی ثبت خواهید کرد.</string>
     <string name="security_settings_udfps_enroll_find_sensor_start_button">شروع</string>
     <string name="security_settings_udfps_enroll_find_sensor_title">نحوه راه‌اندازی اثر انگشت</string>
@@ -4572,6 +4572,8 @@
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">دنبال کردن نماد اثر انگشت</string>
     <string name="security_settings_udfps_enroll_start_message">تا زمانی‌که لرزش را احساس نکرده‌اید، اثر انگشتتان را صاف روی حسگر نگه دارید</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">یک‌بار دیگر</string>
+    <string name="security_settings_udfps_side_fingerprint_help">یک سمت انگشتتان را روی حسگر قرار دهید و نگه دارید، سپس این کار را با سمت دیگر تکرار کنید</string>
+    <string name="security_settings_udfps_tip_fingerprint_help">بردارید و دوباره لمس کنید</string>
     <string name="security_settings_work_fingerprint_preference_title">‏Pixel Imprint برای نمایه کاری</string>
     <string name="security_status_title">وضعیت امنیتی</string>
     <string name="see_less">مشاهده موارد کمتر</string>
@@ -4603,7 +4605,7 @@
     <string name="service_manage_description">%1$s: هم‌اکنون درحال استفاده است. برای کنترل آن روی تنظیمات ضربه بزنید.</string>
     <string name="service_restarting">در حال راه‌اندازی مجدد</string>
     <string name="service_started_by_app">توسط برنامه شروع شد.</string>
-    <string name="service_stop">توقف</string>
+    <string name="service_stop">متوقف کردن</string>
     <string name="service_stop_description">این سرویس توسط برنامهٔ خود سرویس راه‌اندازی شد. توقف آن ممکن است باعث شود برنامه کار نکند.</string>
     <string name="services_subtitle">خدمات</string>
     <string name="set_data_limit">تنظیم حدمجاز داده</string>
@@ -4674,8 +4676,8 @@
     <string name="show_password">نمایش گذرواژه‌ها</string>
     <string name="show_password_summary">همان‌طور که تایپ می‌کنید، نویسه‌ها را برای مدت کوتاهی نشان می‌دهد</string>
     <string name="show_profile_info_on_lockscreen_label">نمایش اطلاعات نمایه در صفحه قفل</string>
-    <string name="show_refresh_rate">نمایش نرخ بازخوانی</string>
-    <string name="show_refresh_rate_summary">نمایش نرخ فعلی بازخوانی نمایشگر</string>
+    <string name="show_refresh_rate">نمایش نرخ بازآوری</string>
+    <string name="show_refresh_rate_summary">نمایش نرخ فعلی بازآوری نمایشگر</string>
     <string name="show_running_services">نمایش سرویس‌های در حال اجرا</string>
     <string name="show_screen_updates">نمایش به‌روزرسانی سطح</string>
     <string name="show_screen_updates_summary">هنگام به‌روزرسانی سطوح پنجره همه فلش شوند</string>
@@ -4827,7 +4829,7 @@
     <string name="sound_settings_summary_silent">زنگ روی سکوت تنظیم شده است</string>
     <string name="sound_settings_summary_vibrate">زنگ روی لرزش تنظیم شده است</string>
     <string name="sound_work_settings">صداهای نمایه کاری</string>
-    <string name="spatial_audio_title">صدای فراگیر</string>
+    <string name="spatial_audio_title">صدای فضایی</string>
     <string name="special_access">دسترسی ویژه برنامه‌ها</string>
     <string name="special_access_more">مشاهده محتوای بیشتر</string>
     <string name="speed_label_fast">سریع</string>
@@ -4837,12 +4839,12 @@
     <string name="speed_label_very_fast">خیلی سریع</string>
     <string name="speed_label_very_slow">بسیار آهسته</string>
     <string name="spell_checker_not_selected">انتخاب نشده</string>
-    <string name="spell_checker_primary_switch_title">استفاده از غلط‌گیر املا</string>
+    <string name="spell_checker_primary_switch_title">استفاده از غلط‌یاب املا</string>
     <string name="spellchecker_language">زبان</string>
     <string name="spellchecker_quick_settings">تنظیمات</string>
-    <string name="spellchecker_security_warning">این غلط‌‌گیر ممکن است بتواند همه متنی را که شما وارد می‌کنید از جمله، داده‌های شخصی مانند گذرواژه‌ها و شماره‌های کارت اعتباری را جمع‌آوری کند. این ویژگی توسط برنامه %1$s ارائه می‌شود. از این غلط‌گیر استفاده شود؟</string>
-    <string name="spellcheckers_settings_for_work_title">غلط‌گیر املا برای کار</string>
-    <string name="spellcheckers_settings_title">غلط‌گیر املا</string>
+    <string name="spellchecker_security_warning">این غلط‌یاب املا ممکن است بتواند همه متنی را که شما وارد می‌کنید از جمله، داده‌های شخصی مانند گذرواژه‌ها و شماره‌های کارت اعتباری را جمع‌آوری کند. این ویژگی توسط برنامه %1$s ارائه می‌شود. از این غلط‌یاب املا استفاده شود؟</string>
+    <string name="spellcheckers_settings_for_work_title">غلط‌یاب املا برای کار</string>
+    <string name="spellcheckers_settings_title">غلط‌یاب املا</string>
     <string name="ssl_ca_cert_warning">ممکن است شبکه پایش شود</string>
     <string name="ssl_ca_cert_warning_message">"شخص ثالتی می‌تواند روی فعالیت‌های شبکه شما ازجمله ایمیل‌ها، برنامه‌ها و وب‌سایت‌های ایمن نظارت داشته باشد.
 
@@ -5060,7 +5062,7 @@
     <string name="storage_wizard_slow_v2_start_over">شروع مجدد</string>
     <string name="storage_wizard_slow_v2_title">^1 آهسته</string>
     <string name="storageuse_settings_summary">مشاهده حافظه مورد استفاده برنامه‌ها</string>
-    <string name="storageuse_settings_title">استفاده از حافظه</string>
+    <string name="storageuse_settings_title">فضای ذخیره‌سازی مصرفی</string>
     <string name="strict_mode">حالت شدید فعال شد</string>
     <string name="strict_mode_summary">چشمک زدن صفحه هنگام انجام عملیات طولانی توسط برنامه‌ها در رشته اصلی</string>
     <string name="style_and_wallpaper_settings_title">تصویرزمینه و سبک</string>
@@ -5476,7 +5478,7 @@
     <string name="user_dict_settings_empty_text">واژه‌ای در واژه‌نامه کاربر ندارید. برای افزودن واژه، روی دکمه افزودن (+) ضربه بزنید.</string>
     <string name="user_dict_settings_for_work_title">واژه‌نامه شخصی برای کار</string>
     <string name="user_dict_settings_more_languages">زبان‌های بیشتر…</string>
-    <string name="user_dict_settings_summary">افزودن واژه برای استفاده در برنامه‌هایی نظیر «غلط‌گیر املا»</string>
+    <string name="user_dict_settings_summary">افزودن واژه برای استفاده در برنامه‌هایی مثل «غلط‌یاب املا»</string>
     <string name="user_dict_settings_title">واژه‌نامه شخصی</string>
     <string name="user_enable_calling">روشن کردن تماس‌های تلفنی</string>
     <string name="user_enable_calling_and_sms_confirm_message">سابقه پیامک و تماس، با این کاربر هم‌رسانی می‌شود.</string>
@@ -5532,6 +5534,7 @@
     <string name="verify_apps_over_usb_title">‏تأیید برنامه‌ها ازطریق USB</string>
     <string name="version_text">نسخه %1$s</string>
     <string name="vibrate_for_calls_settings_not_available_summary">«لرزش» برای تماس‌ها دردسترس نیست زیرا تلفن روی حالت بی‌صدا تنظیم شده است</string>
+    <string name="vibrate_icon_title">نماد همیشه در حالت لرزش نشان داده شود</string>
     <string name="vibrate_in_silent_title">لرزش در حالت بی‌صدا</string>
     <string name="vibrate_input_devices">تغییر مسیر لرزش</string>
     <string name="vibrate_input_devices_summary">وقتی متصل شد، لرزش به دسته کنترل بازی ارسال شود</string>
@@ -5653,7 +5656,7 @@
     <string name="wallpaper_attributions">کاغذدیواری‌ها</string>
     <string name="wallpaper_attributions_values">"‏ارائه‌دهندگان تصویر ماهواره‌ای:
 ©2014 CNES / Astrium, DigitalGlobe, Bluesky"</string>
-    <string name="wallpaper_dashboard_summary">رنگ‌ها، نمادهای دارای طرح زمینه، جدول برنامه</string>
+    <string name="wallpaper_dashboard_summary">رنگ‌ها، نمادهای دارای زمینه، جدول برنامه</string>
     <string name="wallpaper_settings_fragment_title">انتخاب کاغذدیواری از</string>
     <string name="wallpaper_settings_summary_custom">سفارشی</string>
     <string name="wallpaper_settings_summary_default">پیش‌فرض</string>

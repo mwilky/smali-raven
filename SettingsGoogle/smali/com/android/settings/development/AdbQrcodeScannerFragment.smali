@@ -343,7 +343,7 @@
     return p0
 
     :catch_0
-    const p1, 0x7f041656
+    const p1, 0x7f041659
 
     invoke-direct {p0, p1}, Lcom/android/settings/development/AdbQrcodeScannerFragment;->showErrorMessage(I)V
 
@@ -361,7 +361,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f041658
+    const p1, 0x7f04165b
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->setTitle(I)V
 
@@ -601,7 +601,7 @@
 
     new-array p2, p2, [Ljava/lang/Object;
 
-    const v0, 0x7f041658
+    const v0, 0x7f04165b
 
     invoke-virtual {p0, v0, p2}, Lcom/android/settings/wifi/dpp/WifiDppQrCodeBaseFragment;->setHeaderTitle(I[Ljava/lang/Object;)V
 

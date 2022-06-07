@@ -132,12 +132,12 @@
 
     if-eqz p1, :cond_0
 
-    const p1, 0x7f04139e
+    const p1, 0x7f0413a0    # 1.7556E38f
 
     goto :goto_0
 
     :cond_0
-    const p1, 0x7f04139d
+    const p1, 0x7f04139f
 
     :goto_0
     invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setSummary(I)V
@@ -266,7 +266,7 @@
 
     invoke-virtual {p1, p2}, Landroidx/preference/TwoStatePreference;->setChecked(Z)V
 
-    const p1, 0x7f04139e
+    const p1, 0x7f0413a0    # 1.7556E38f
 
     goto :goto_1
 
@@ -280,7 +280,7 @@
 
     if-eqz p1, :cond_4
 
-    const p1, 0x7f04139d
+    const p1, 0x7f04139f
 
     goto :goto_1
 

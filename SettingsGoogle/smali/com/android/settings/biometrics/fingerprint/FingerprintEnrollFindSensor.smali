@@ -676,7 +676,7 @@
 
     if-eqz v0, :cond_6
 
-    const v0, 0x7f03003e
+    const v0, 0x7f03003f
 
     invoke-virtual {p1, v0}, Lcom/airbnb/lottie/LottieAnimationView;->setAnimation(I)V
 

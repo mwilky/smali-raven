@@ -84,9 +84,9 @@
     <string name="wallpaper_settings_title">Պաստառ</string>
     <string name="accessibility_notification_vibration_title">Թրթռոց ծանուցման ժամանակ</string>
     <string name="accessibility_ring_vibration_title">Թրթռազանգ</string>
-    <string name="accessibility_touch_vibration_title">Հպման արձագանք</string>
-    <string name="keywords_notification_vibration">հպման արձագանք, թրթռոց, զգայունություն</string>
-    <string name="keywords_ring_vibration">հպման արձագանք, թրթռոց, հեռախոս, զանգ, զգայունություն, զանգել</string>
+    <string name="accessibility_touch_vibration_title">Հապտիկ արձագանք</string>
+    <string name="keywords_notification_vibration">հապտիկ արձագանք, թրթռոց, զգայունություն</string>
+    <string name="keywords_ring_vibration">հապտիկ արձագանք, թրթռոց, հեռախոս, զանգ, զգայունություն, զանգել</string>
     <string name="keywords_touch_vibration">հանգիստ, թրթռալ, էկրան, զգայունություն</string>
     <string name="vibrate_when_ringing_title">Թրթռալ զանգերի ժամանակ</string>
     <string name="accessibility_vibration_settings_screen_title">Օգտագործել թրթռոցը և հպման արձագանքը</string>
@@ -215,7 +215,7 @@
     <string name="accessibility_dialog_button_allow">Թույլատրել</string>
     <string name="accessibility_dialog_button_cancel">Չեղարկել</string>
     <string name="accessibility_dialog_button_deny">Մերժել</string>
-    <string name="accessibility_dialog_button_stop">Դադարեցնել</string>
+    <string name="accessibility_dialog_button_stop">Կանգնեցնել</string>
     <string name="accessibility_disable_animations">Հեռացնել անիմացիաները</string>
     <string name="accessibility_display_daltonizer_preference_subtitle">Կարգավորեք գույների ցուցադրումը ձեր սարքում։ Դա կարող է օգտակար լինել, երբ դուք ուզում եք՝&lt;br/>&lt;br/> &lt;ol> &lt;li>&amp;nbsp;Ավելի հստակ տեսնել գույները&lt;/li> &lt;li>&amp;nbsp;Հեռացնել գույները՝ կենտրոնանալու համար&lt;/li> &lt;/ol></string>
     <string name="accessibility_display_daltonizer_preference_title">Գունաշտկում</string>
@@ -1004,7 +1004,7 @@
     <string name="battery_stats_wifi_running_label">Wi‑Fi</string>
     <string name="battery_status_title">Մարտկոցի կարգավիճակը</string>
     <string name="battery_sugg_apps_gps">Ընտրեք մարտկոցը խնայող ռեժիմ</string>
-    <string name="battery_sugg_apps_info">Դադարեցնել կամ ապատեղադրել ծրագիրը</string>
+    <string name="battery_sugg_apps_info">Կանգնեցնել կամ ապատեղադրել ծրագիրը</string>
     <string name="battery_sugg_apps_settings">Հավելվածը կարող է առաջարկել կարգավորումներ` մարտկոցի օգտագործումը նվազեցնելու համար</string>
     <string name="battery_sugg_bluetooth_basic">Անջատեք Bluetooth-ը, երբ այն չեք օգտագործում</string>
     <string name="battery_sugg_bluetooth_headset">Փորձեք միանալ մեկ այլ Bluetooth սարքի</string>
@@ -1423,7 +1423,7 @@ CA հավաստագիր տեղադրելու դեպքում հավաստագրի
     <string name="cache_header_label">Քեշ</string>
     <string name="cache_size_label">Քեշ</string>
     <string name="cached">Քեշավորված հետնաշերտային գործընթաց</string>
-    <string name="cached_apps_freezer">Դադարեցնել քեշավորված հավելվածների գործարկումը</string>
+    <string name="cached_apps_freezer">Կանգնեցնել քեշավորված հավելվածների գործարկումը</string>
     <string name="cached_apps_freezer_device_default">Կանխադրված տարբերակ</string>
     <string name="cached_apps_freezer_disabled">Անջատված է</string>
     <string name="cached_apps_freezer_enabled">Միացված է</string>
@@ -2498,7 +2498,7 @@ CA հավաստագիր տեղադրելու դեպքում հավաստագրի
     <string name="force_bold_text">Թավ տառատեսակով տեքստ</string>
     <string name="force_desktop_mode">Աշխատասեղանի ռեժիմի հարկադրված միացում</string>
     <string name="force_desktop_mode_summary">Աշխատասեղանի փորձնական ռեժիմի հարկադրված միացում լրացուցիչ էկրանների վրա</string>
-    <string name="force_high_refresh_rate_desc">Էկրանի թարմացման բարձր հաճախականությունը լավացնում է հպման արձագանքը և շարժանկարների որակը։ Այն նաև երկարացնում է մարտկոցի օգտագործման ժամանակը։</string>
+    <string name="force_high_refresh_rate_desc">Էկրանի թարմացման բարձր հաճախականությունը լավացնում է հապտիկ արձագանքը և շարժանկարների որակը։ Այն նաև երկարացնում է մարտկոցի օգտագործման ժամանակը։</string>
     <string name="force_high_refresh_rate_toggle">Պարտադիր թարմացման առավելագույն հաճախականությունը</string>
     <string name="force_msaa">"Ստիպել  4x MSAA"</string>
     <string name="force_msaa_summary">"Միացնել 4x MSAA-ը  OpenGL ES 2.0 հավելվածներում"</string>
@@ -2522,8 +2522,8 @@ CA հավաստագիր տեղադրելու դեպքում հավաստագրի
     <string name="fullbackup_erase_dialog_message">Դադարեցնե՞լ սարքի տվյալների (օրինակ՝ Wi-Fi-ի գաղտնաբառեր և զանգերի պատմություն) և հավելվածների տվյալների (օրինակ՝ հավելվածների պահած կարգավորումներ և ֆայլեր) պահուստավորումը և ջնջել բոլոր պատճենները Google Drive-ից:</string>
     <string name="gadget_picker_title">Ընտրել հարմարանքը</string>
     <string name="game_controller_settings_category">Խաղերի կարգավորիչ</string>
-    <string name="game_dashboard_always_on_summary">Ցույց տալ խաղային վահանակի դյուրանցումը խաղերում</string>
-    <string name="game_dashboard_always_on_title">Խաղային վահանակ</string>
+    <string name="game_dashboard_always_on_summary">Ցույց տալ պատկերակը բոլոր խաղերում (առանց վերև կամ ներքև սահեցնելու)</string>
+    <string name="game_dashboard_always_on_title">Խաղային վահանակի լողացող պատկերակ</string>
     <string name="game_dashboard_dnd_rule_name">Խաղեր</string>
     <string name="game_dashboard_dnd_summary">Խաղի ժամանակ ստացեք ծանուցումներ միայն կարևոր մարդկանցից և հավելվածներից</string>
     <string name="game_dashboard_dnd_title">«Չանհանգստացնել» ռեժիմը խաղի ժամանակ</string>
@@ -3244,7 +3244,7 @@ PIN կոդի միջոցով դուք կարող եք պաշտպանել հեռա
     <string name="media_category">Մեդիա</string>
     <string name="media_controls_hide_player">Թաքցնել նվագարկիչը</string>
     <string name="media_controls_recommendations_description">Ձեր գործողությունների հիման վրա</string>
-    <string name="media_controls_recommendations_title">Ցույց տալ մեդիա բովանդակության առաջարկները</string>
+    <string name="media_controls_recommendations_title">Ցույց տալ մեդիա բովանդակության առաջարկներ</string>
     <string name="media_controls_resume_description">Մեդիա նվագարկիչը բաց է մնում Արագ կարգավորումներում, որպեսզի դուք կարողանաք անմիջապես վերսկսել նվագարկումը։</string>
     <string name="media_controls_resume_title">Ամրացնել մեդիա նվագարկիչը</string>
     <string name="media_controls_show_player">Ցուցադրել նվագարկիչը</string>
@@ -3260,7 +3260,7 @@ PIN կոդի միջոցով դուք կարող եք պաշտպանել հեռա
     <string name="media_output_group_panel_single_device_summary">Ընտրված է 1 սարք</string>
     <string name="media_output_group_panel_title">Ավելացրեք մուտքագրման սարքեր</string>
     <string name="media_output_label_title">%s – որտեղ նվագարկել</string>
-    <string name="media_output_panel_stop_casting_button">Դադարեցնել հեռարձակումը</string>
+    <string name="media_output_panel_stop_casting_button">Կանգնեցնել հեռարձակումը</string>
     <string name="media_output_panel_summary_of_playing_device">Նվագարկվում է %1$s սարքում</string>
     <string name="media_output_panel_title">Աուդիոելքի սարքի փոխարկում</string>
     <string name="media_output_summary">Հեռախոս</string>
@@ -4572,6 +4572,8 @@ PIN կոդի միջոցով դուք կարող եք պաշտպանել հեռա
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">Հետևեք ձեր մատնահետքի պատկերակին</string>
     <string name="security_settings_udfps_enroll_start_message">Մատը պահեք սկաների վրա այնքան ժամանակ, մինչև թրթռոց զգաք</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">Եվս մեկ անգամ</string>
+    <string name="security_settings_udfps_side_fingerprint_help">Մատի մի կողմը դրեք տվիչի վրա և պահեք, ապա նույնն արեք մյուս կողմով</string>
+    <string name="security_settings_udfps_tip_fingerprint_help">Բարձրացրեք, ապա կրկին հպեք</string>
     <string name="security_settings_work_fingerprint_preference_title">Pixel Imprint աշխատանքի համար</string>
     <string name="security_status_title">Անվտանգության կարգավիճակը</string>
     <string name="see_less">Տեսնել ավելի քիչ</string>
@@ -4603,7 +4605,7 @@ PIN կոդի միջոցով դուք կարող եք պաշտպանել հեռա
     <string name="service_manage_description">%1$s-ը ներկա պահին օգտագործվում է: Հպեք Կարգավորումներ` կառավարելու համար:</string>
     <string name="service_restarting">Վերագործակվում է</string>
     <string name="service_started_by_app">Մեկնարկել է հավելվածի կողմից:</string>
-    <string name="service_stop">Դադարեցնել</string>
+    <string name="service_stop">Կանգնեցնել</string>
     <string name="service_stop_description">Այս ծառայությունը գործարկվել է ծրագրի կոմից: Դրա դադարեցումը կարող է ձախողել ծրագիրը:</string>
     <string name="services_subtitle">Ծառայություններ</string>
     <string name="set_data_limit">Սահմանել թրաֆիկի սահմանաչափը</string>
@@ -4827,7 +4829,7 @@ PIN կոդի միջոցով դուք կարող եք պաշտպանել հեռա
     <string name="sound_settings_summary_silent">Զանգի ձայնն անջատված է</string>
     <string name="sound_settings_summary_vibrate">Զանգի համար ակտիվացված է թրթռումը</string>
     <string name="sound_work_settings">Աշխատանքային պրոֆիլի ձայներ</string>
-    <string name="spatial_audio_title">Տարածական ձայն</string>
+    <string name="spatial_audio_title">Տարածական հնչողություն</string>
     <string name="special_access">Հատուկ հասանելիություն</string>
     <string name="special_access_more">Տեսնել ավելին</string>
     <string name="speed_label_fast">Արագ</string>
@@ -5532,6 +5534,7 @@ Google-ի համաժամացման տեխնոլոգիան թույլ է տալի
     <string name="verify_apps_over_usb_title">Ստուգել հավելվածները USB-ի նկատմամբ</string>
     <string name="version_text">տարբերակ %1$s</string>
     <string name="vibrate_for_calls_settings_not_available_summary">Զանգը չի ուղեկցվի թրթռոցով, քանի որ հեռախոսն անձայն ռեժիմում է</string>
+    <string name="vibrate_icon_title">Թրթռոցի ռեժիմում միշտ ցույց տալ պատկերակը</string>
     <string name="vibrate_in_silent_title">Թրթռալ, երբ անձայն ռեժիմում է</string>
     <string name="vibrate_input_devices">Թրթռոցի վերաուղղորդում</string>
     <string name="vibrate_input_devices_summary">Ուղարկել թրթռոցը խաղի կարգավորիչին, եթե վերջինս միացված է</string>
@@ -6295,7 +6298,7 @@ Google-ի համաժամացման տեխնոլոգիան թույլ է տալի
 %2$s"</string>
     <string name="zen_mode_rule_type_unknown">Անհայտ</string>
     <string name="zen_mode_schedule_alarm_summary">Ժամանակացույցն անջատվում է, երբ միանում է զարթուցիչը</string>
-    <string name="zen_mode_schedule_alarm_title">Զարթուցիչը կարող է հնչել ավելի շուտ, քան կսպառվի ժամանակը</string>
+    <string name="zen_mode_schedule_alarm_title">Անջատել զարթուցիչի հետ</string>
     <string name="zen_mode_schedule_category_title">Ժամանակացույց</string>
     <string name="zen_mode_schedule_delete">Ջնջել</string>
     <string name="zen_mode_schedule_rule_days">Օրեր</string>

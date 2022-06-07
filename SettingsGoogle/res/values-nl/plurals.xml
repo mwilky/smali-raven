@@ -137,12 +137,12 @@
         <item quantity="one">%d app gekoppeld</item>
     </plurals>
     <plurals name="location_app_permission_summary_location_on">
-        <item quantity="other">%1$d van %2$d apps hebben toegang tot de locatie</item>
-        <item quantity="one">%1$d van %2$d apps heeft toegang tot de locatie</item>
+        <item quantity="other">%1$d van %2$d apps hebben locatietoegang</item>
+        <item quantity="one">%1$d van %2$d apps heeft locatietoegang</item>
     </plurals>
     <plurals name="location_settings_summary_location_on">
-        <item quantity="other">Aan: %1$d apps hebben toegang tot de locatie</item>
-        <item quantity="one">Aan: %1$d app heeft toegang tot de locatie</item>
+        <item quantity="other">Aan: %1$d apps hebben locatietoegang</item>
+        <item quantity="one">Aan: %1$d app heeft locatietoegang</item>
     </plurals>
     <plurals name="lockpassword_password_requires_letters">
         <item quantity="other">Moet ten minste %d letters bevatten</item>

@@ -1270,7 +1270,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f04159b
+    const v1, 0x7f04159e
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -1294,7 +1294,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f041589
+    const v1, 0x7f04158c
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 

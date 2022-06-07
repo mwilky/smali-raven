@@ -94,7 +94,7 @@
     <string name="vibration_haptics_settings_not_available_summary">La vibrazione e il feedback aptico non sono disponibili perché il telefono è in modalità silenziosa</string>
     <string name="vibration_haptics_strength_category_title">Intensità vibrazione e feedback aptico</string>
     <string name="peak_refresh_rate_title">Display fluido</string>
-    <string name="peak_refresh_rate_summary">"Aumenta automaticamente la frequenza di aggiornamento da 60 a 90 Hz per alcuni contenuti. Aumenta l'utilizzo della batteria."</string>
+    <string name="peak_refresh_rate_summary">Aumenta automaticamente la frequenza di aggiornamento da 60 a 90 Hz per alcuni contenuti; aumenta il consumo della batteria</string>
     <string name="accessibility_vibration_settings_title">Vibrazione e feedback aptico</string>
     <string name="columbus_title">"Tocco rapido per iniziare un'azione"</string>
     <string name="emergency_gesture_screen_title">SOS emergenze</string>
@@ -554,7 +554,7 @@ Widget: %2$s
     <string name="amber_alerts_title">Allerte AMBER</string>
     <string name="ambient_camera_battery_saver_off">Disattiva il risparmio energetico</string>
     <string name="ambient_camera_summary_battery_saver_on">Opzione disattivata temporaneamente per risparmio energetico</string>
-    <string name="ambient_display_pickup_summary">"Per controllare l'ora, le notifiche e altre informazioni, solleva il telefono"</string>
+    <string name="ambient_display_pickup_summary">"Per controllare l'ora, le notifiche e altre informazioni, solleva il telefono."</string>
     <string name="ambient_display_screen_title">Display ambient</string>
     <string name="ambient_display_summary">"Per controllare l'ora, le notifiche e altre informazioni, tocca due volte lo schermo."</string>
     <string name="ambient_display_tap_screen_summary">"Per controllare l'ora, le notifiche e altre informazioni, tocca lo schermo."</string>
@@ -1027,7 +1027,7 @@ Se la batteria è in esaurimento, puoi attivare il risparmio energetico in quals
     <string name="battery_tip_early_heads_up_done_summary">Alcune funzioni potrebbero essere limitate</string>
     <string name="battery_tip_early_heads_up_done_title">Risparmio energetico on</string>
     <string name="battery_tip_early_heads_up_summary">La batteria potrebbe esaurirsi prima del solito</string>
-    <string name="battery_tip_early_heads_up_title">Attiva Risparmio energetico</string>
+    <string name="battery_tip_early_heads_up_title">Attiva il risparmio energetico</string>
     <string name="battery_tip_high_usage_summary">Scopri le app con il massimo utilizzo</string>
     <string name="battery_tip_high_usage_title">Maggiore utilizzo della batteria</string>
     <string name="battery_tip_limited_temporarily_dialog_msg">"In alcune condizioni, ad esempio in caso di temperature elevate e lunghi periodi di ricarica, è possibile che la ricarica venga momentaneamente interrotta al raggiungimento di una percentuale pari a %1$s per preservare meglio l'integrità della batteria.
@@ -1546,7 +1546,7 @@ Se installi un certificato CA, il proprietario del certificato potrebbe accedere
     <string name="choose_sim_activating">Attivazione in corso…</string>
     <string name="choose_sim_could_not_activate">Al momento non è possibile attivarlo</string>
     <string name="choose_sim_item_summary_unknown">Numero sconosciuto</string>
-    <string name="choose_sim_text">{count,plural, =1{È disponibile 1 numero su questo dispositivo, ma è possibile usarne solo uno alla volta}=2{Sono disponibili 2 numeri su questo dispositivo, ma è possibile usarne solo uno alla volta}one{È disponibile # numero su questo dispositivo, ma è possibile usarne solo uno alla volta}other{Sono disponibili # numeri su questo dispositivo, ma è possibile usarne solo uno alla volta}}</string>
+    <string name="choose_sim_text">{count,plural, =1{È disponibile 1 numero su questo dispositivo, ma è possibile usarne solo uno alla volta}=2{Sono disponibili 2 numeri su questo dispositivo, ma è possibile usarne solo uno alla volta}other{Sono disponibili # numeri su questo dispositivo, ma è possibile usarne solo uno alla volta}}</string>
     <string name="choose_sim_title">Scegli un numero da utilizzare</string>
     <string name="choose_spell_checker">Scegli controllo ortografico</string>
     <string name="choose_timezone">Scegli il fuso orario</string>
@@ -2522,8 +2522,8 @@ I dati di backup non vengono considerati per la quota di spazio di archiviazione
     <string name="fullbackup_erase_dialog_message">Interrompere il backup dei dati del dispositivo (come password Wi‑Fi e cronologia chiamate) e dei dati delle app (quali impostazioni e file memorizzati nelle app), oltre a cancellare tutte le copie su Google Drive?</string>
     <string name="gadget_picker_title">Scegli gadget</string>
     <string name="game_controller_settings_category">Controller di gioco</string>
-    <string name="game_dashboard_always_on_summary">Mostra la scorciatoia del Pannello di gioco nei giochi</string>
-    <string name="game_dashboard_always_on_title">Pannello di gioco</string>
+    <string name="game_dashboard_always_on_summary">"Mostra l'icona in tutti i giochi (senza dover scorrere verso l'alto o verso il basso)"</string>
+    <string name="game_dashboard_always_on_title">Icona mobile del Pannello di gioco</string>
     <string name="game_dashboard_dnd_rule_name">Giochi</string>
     <string name="game_dashboard_dnd_summary">Ricevi soltanto le notifiche di app e persone importanti mentre giochi</string>
     <string name="game_dashboard_dnd_title">Modalità Non disturbare per i giochi</string>
@@ -2805,8 +2805,8 @@ Puoi cambiare la tua scelta in qualsiasi momento in Impostazioni > App e notific
     <string name="keywords_install_other_apps">installa app origini sconosciute</string>
     <string name="keywords_internet">connessione rete, internet, wireless, dati, wifi, wi-fi, wi fi, cellulare, dispositivo mobile, operatore cellulare, 4g, 3g, 2g, lte</string>
     <string name="keywords_keyboard_and_ime">correzione del testo, correggere, suono, vibrazione, auto, lingua, gesto, suggerire, suggerimento, tema, offensivo, parola, digitazione, emoji, internazionale</string>
-    <string name="keywords_live_caption">"sottotitoli, sottotitolaggio, CC, Trascrizione istantanea, problemi di udito, perdita dell'udito, CART, conversione della voce in testo, sottotitolo"</string>
-    <string name="keywords_live_transcribe">"sottotitoli, sottotitolaggio, CC, Sottotitoli in tempo reale, problemi di udito, perdita dell'udito, CART, conversione della voce in testo, sottotitolo"</string>
+    <string name="keywords_live_caption">"sottotitoli codificati, sottotitolaggio codificato, CC, Trascrizione istantanea, problemi di udito, perdita dell'udito, CART, conversione della voce in testo, sottotitolo"</string>
+    <string name="keywords_live_transcribe">"sottotitoli codificati, sottotitolaggio codificato, CC, Sottotitoli in tempo reale, problemi di udito, perdita dell'udito, CART, conversione della voce in testo, sottotitolo"</string>
     <string name="keywords_location">nelle vicinanze, posizione, cronologia, segnalazione, GPS</string>
     <string name="keywords_lockscreen">scorrimento per sbloccare, password, sequenza, PIN</string>
     <string name="keywords_lockscreen_bypass">Schermata di blocco, Schermata blocco, Salta, Ignora</string>
@@ -2839,8 +2839,8 @@ Puoi cambiare la tua scelta in qualsiasi momento in Impostazioni > App e notific
     <string name="keywords_styles">icona, contrasto, colore</string>
     <string name="keywords_switch_access">motore, passaggio, manuale, AT, tecnologie per la disabilità, paralisi, ALS, scansione, scansione dei passaggi</string>
     <string name="keywords_systemui_theme">tema scuro</string>
-    <string name="keywords_talkback">screen reader, voce fuori campo, VoiceOver, assistenza vocale, non vedente, ipovedente, TTS, sintesi vocale, funzione di lettura vocale</string>
-    <string name="keywords_text_to_speech_output">velocità, lingua, predefinita, voce, parlare, sintesi vocale, accessibilità, screen reader, non vedenti</string>
+    <string name="keywords_talkback">screen reader, voce fuori campo, VoiceOver, assistenza vocale, persona cieca, ipovedente, TTS, sintesi vocale, funzione di lettura vocale</string>
+    <string name="keywords_text_to_speech_output">velocità, lingua, predefinita, voce, parlare, sintesi vocale, accessibilità, screen reader, persona cieca</string>
     <string name="keywords_time_format">Usa formato 24 ore</string>
     <string name="keywords_time_zone">fuso orario</string>
     <string name="keywords_unification">profilo di lavoro, profilo gestito, unificare, unificazione, lavoro, profilo</string>
@@ -4124,7 +4124,7 @@ Riavvia il dispositivo e riprova."</string>
 "<li>Wi‑Fi</li>"
 "<li>Dati mobili</li>"
 "<li>Bluetooth</li></string>
-    <string name="reset_network_final_button_text">Reimposta impostazioni</string>
+    <string name="reset_network_final_button_text">Ripristina impostazioni</string>
     <string name="reset_network_final_desc">Ripristinare tutte le impostazioni della rete? Questa azione non può essere annullata.</string>
     <string name="reset_network_final_desc_esim">Reimpostare tutte le impostazioni di rete e resettare tutte le SIM scaricate? Questa azione non può essere annullata.</string>
     <string name="reset_network_title">Reimposta Wi-Fi, dati mobili e Bluetooth</string>
@@ -4572,6 +4572,8 @@ Nota. Non puoi utilizzare la tua impronta per sbloccare il dispositivo. Per ulte
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">"Segui l'icona dell'impronta"</string>
     <string name="security_settings_udfps_enroll_start_message">Tieni il dito ben appoggiato sul sensore finché non senti una vibrazione</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">Ancora una volta</string>
+    <string name="security_settings_udfps_side_fingerprint_help">Appoggia un lato del dito sul sensore e tieni premuto, quindi cambia lato</string>
+    <string name="security_settings_udfps_tip_fingerprint_help">Solleva, quindi tocca di nuovo</string>
     <string name="security_settings_work_fingerprint_preference_title">Pixel Imprint per il profilo di lavoro</string>
     <string name="security_status_title">Stato sicurezza</string>
     <string name="see_less">Comprimi</string>
@@ -5130,7 +5132,7 @@ L'approccio di Google alla sincronizzazione di dati per consentirti l'accesso ai
     <string name="system_ui_settings">Mostra SystemUI Tuner</string>
     <string name="system_update_settings_list_item_summary" />
     <string name="take_call_on_title">Rispondi alle chiamate su</string>
-    <string name="talkback_summary">Lo screen reader è rivolto principalmente a utenti non vedenti o con problemi di vista</string>
+    <string name="talkback_summary">Lo screen reader è rivolto principalmente a utenti ciechi o con problemi di vista</string>
     <string name="talkback_title">TalkBack</string>
     <string name="tap_a_network_to_connect">Tocca una rete per connetterti</string>
     <string name="tap_to_sign_up">Tocca per registrarti</string>
@@ -5532,6 +5534,7 @@ Qualsiasi utente può aggiornare le app per tutti gli altri."</string>
     <string name="verify_apps_over_usb_title">Verifica app tramite USB</string>
     <string name="version_text">versione %1$s</string>
     <string name="vibrate_for_calls_settings_not_available_summary">"L'opzione Vibrazione per le chiamate non è disponibile perché il telefono è in modalità silenziosa"</string>
+    <string name="vibrate_icon_title">"Mostra sempre l'icona in modalità vibrazione"</string>
     <string name="vibrate_in_silent_title">Vibra in modalità silenziosa</string>
     <string name="vibrate_input_devices">Reindirizza vibrazione</string>
     <string name="vibrate_input_devices_summary">Invia la vibrazione al controller di gioco quando è collegato</string>
@@ -6139,7 +6142,7 @@ Consetirlo a tutte le app che vogliono eseguire la ricerca?"</string>
     <string name="zen_mode_add_event_rule">Aggiungi pianificazione per evento</string>
     <string name="zen_mode_add_rule">Aggiungi altre</string>
     <string name="zen_mode_add_time_rule">Aggiungi pianificazione per orario</string>
-    <string name="zen_mode_alarms">Sveglie e allarmi</string>
+    <string name="zen_mode_alarms">Sveglie</string>
     <string name="zen_mode_alarms_list">sveglie</string>
     <string name="zen_mode_alarms_list_first">Sveglie</string>
     <string name="zen_mode_alarms_summary">Di timer, sveglie, sistemi di sicurezza e altre app</string>
@@ -6184,7 +6187,7 @@ Consetirlo a tutte le app che vogliono eseguire la ricerca?"</string>
     <string name="zen_mode_bypassing_apps_header">App che possono interrompere</string>
     <string name="zen_mode_bypassing_apps_none">Nessuna app selezionata</string>
     <string name="zen_mode_bypassing_apps_some_summary">Alcune notifiche</string>
-    <string name="zen_mode_bypassing_apps_subtext">{count,plural,offset:2 =0{Nessuna app può interrompere}=1{{app_1} può interrompere}=2{{app_1} e {app_2} possono interrompere}=3{{app_1}, {app_2} e {app_3} possono interrompere}one{{app_1}, {app_2} e # altra app possono interrompere}other{{app_1}, {app_2} e altre # app possono interrompere}}</string>
+    <string name="zen_mode_bypassing_apps_subtext">{count,plural,offset:2 =0{Nessuna app può interrompere}=1{{app_1} può interrompere}=2{{app_1} e {app_2} possono interrompere}=3{{app_1}, {app_2} e {app_3} possono interrompere}other{{app_1}, {app_2} e altre # app possono interrompere}}</string>
     <string name="zen_mode_bypassing_apps_subtext_none">Nessuna app può interrompere</string>
     <string name="zen_mode_bypassing_apps_summary_all">Tutte le notifiche</string>
     <string name="zen_mode_bypassing_apps_summary_some">Alcune notifiche</string>
@@ -6197,8 +6200,8 @@ Consetirlo a tutte le app che vogliono eseguire la ricerca?"</string>
     <string name="zen_mode_calls_title">Chiamate</string>
     <string name="zen_mode_choose_rule_type">Seleziona il tipo di pianificazione</string>
     <string name="zen_mode_contacts_callers">contatti</string>
-    <string name="zen_mode_contacts_count">{count,plural, =0{Nessuno}=1{1 contatto}one{# contatti}other{# contatti}}</string>
-    <string name="zen_mode_conversations_count">{count,plural, =0{Nessuna}=1{1 conversazione}one{# conversazioni}other{# conversazioni}}</string>
+    <string name="zen_mode_contacts_count">{count,plural, =0{Nessuno}=1{1 contatto}other{# contatti}}</string>
+    <string name="zen_mode_conversations_count">{count,plural, =0{Nessuna}=1{1 conversazione}other{# conversazioni}}</string>
     <string name="zen_mode_conversations_section_title">Conversazioni che possono interrompere</string>
     <string name="zen_mode_conversations_title">Conversazioni</string>
     <string name="zen_mode_custom_behavior_category_title">Per \"%1$s\"</string>
@@ -6215,8 +6218,8 @@ Consetirlo a tutte le app che vogliono eseguire la ricerca?"</string>
     <string name="zen_mode_duration_settings_title">Durata</string>
     <string name="zen_mode_duration_summary_always_prompt">Chiedi ogni volta</string>
     <string name="zen_mode_duration_summary_forever">Fino alla disattivazione</string>
-    <string name="zen_mode_duration_summary_time_hours">{count,plural, =1{1 ora}one{# ore}other{# ore}}</string>
-    <string name="zen_mode_duration_summary_time_minutes">{count,plural, =1{1 minuto}one{# minuti}other{# minuti}}</string>
+    <string name="zen_mode_duration_summary_time_hours">{count,plural, =1{1 ora}other{# ore}}</string>
+    <string name="zen_mode_duration_summary_time_minutes">{count,plural, =1{1 minuto}other{# minuti}}</string>
     <string name="zen_mode_enable_dialog_turn_on">Attiva</string>
     <string name="zen_mode_end_time">Ora di fine</string>
     <string name="zen_mode_end_time_next_day_summary_format">%s del giorno successivo</string>
@@ -6253,7 +6256,7 @@ Consetirlo a tutte le app che vogliono eseguire la ricerca?"</string>
     <string name="zen_mode_none_calls">Nessuno</string>
     <string name="zen_mode_none_messages">Nessuno</string>
     <string name="zen_mode_other_options">Altre opzioni</string>
-    <string name="zen_mode_other_sounds_summary">{count,plural,offset:2 =0{Niente può interrompere}=1{{sound_category_1} può interrompere}=2{{sound_category_1} e {sound_category_2} possono interrompere}=3{{sound_category_1}, {sound_category_2} e {sound_category_3} possono interrompere}one{{sound_category_1}, {sound_category_2} e # altro suono possono interrompere}other{{sound_category_1}, {sound_category_2} e altri # suoni possono interrompere}}</string>
+    <string name="zen_mode_other_sounds_summary">{count,plural,offset:2 =0{Niente può interrompere}=1{{sound_category_1} può interrompere}=2{{sound_category_1} e {sound_category_2} possono interrompere}=3{{sound_category_1}, {sound_category_2} e {sound_category_3} possono interrompere}other{{sound_category_1}, {sound_category_2} e altri # suoni possono interrompere}}</string>
     <string name="zen_mode_people_all">Tutte le persone possono interrompere</string>
     <string name="zen_mode_people_calls_messages_section_title">Chi può interrompere</string>
     <string name="zen_mode_people_none">Nessuno può interrompere</string>
@@ -6277,7 +6280,7 @@ Consetirlo a tutte le app che vogliono eseguire la ricerca?"</string>
 Quando disattivi la modalità Non disturbare, puoi trovare le notifiche perse scorrendo verso il basso dalla parte superiore dello schermo."</string>
     <string name="zen_mode_restrict_notifications_hide_summary">Non vedrai né sentirai le notifiche</string>
     <string name="zen_mode_restrict_notifications_mute">Notifiche senza audio</string>
-    <string name="zen_mode_restrict_notifications_mute_footer">"All'arrivo delle notifiche, il telefono non emetterà suoni o vibrazioni."</string>
+    <string name="zen_mode_restrict_notifications_mute_footer">Il telefono non emetterà suoni né vibrazioni per le notifiche in arrivo.</string>
     <string name="zen_mode_restrict_notifications_mute_summary">Vedrai le notifiche sullo schermo</string>
     <string name="zen_mode_restrict_notifications_summary_custom">Parzialmente nascoste</string>
     <string name="zen_mode_restrict_notifications_summary_hidden">Notifiche senza audio né elementi visivi</string>
@@ -6314,19 +6317,19 @@ Quando disattivi la modalità Non disturbare, puoi trovare le notifiche perse sc
     <string name="zen_mode_settings_dnd_custom_settings_footer_link">" "<annotation id="link">Visualizza impostazioni personalizzate</annotation></string>
     <string name="zen_mode_settings_dnd_manual_end_time">La funzione Non disturbare è attiva fino alle ore %s</string>
     <string name="zen_mode_settings_dnd_manual_indefinite">Non disturbare rimarrà attiva fino a quando non la disattivi</string>
-    <string name="zen_mode_settings_schedules_summary">{count,plural, =0{Nessuna}=1{1 pianificazione impostata}one{# pianificazione impostata}other{# pianificazioni impostate}}</string>
+    <string name="zen_mode_settings_schedules_summary">{count,plural, =0{Nessuna}=1{1 pianificazione impostata}other{# pianificazioni impostate}}</string>
     <string name="zen_mode_settings_summary">Ricevi soltanto le notifiche di app e persone importanti</string>
     <string name="zen_mode_settings_summary_off">Mai</string>
     <string name="zen_mode_settings_title">Non disturbare</string>
     <string name="zen_mode_settings_turn_on_dialog_title">Attiva Non disturbare</string>
     <string name="zen_mode_slice_subtitle">Limitare le interruzioni</string>
-    <string name="zen_mode_sound_summary_off">{count,plural, =0{Off}=1{Off/1 pianificazione può attivarsi automaticamente}one{Off/# pianificazione può attivarsi automaticamente}other{Off/# pianificazioni possono attivarsi automaticamente}}</string>
+    <string name="zen_mode_sound_summary_off">{count,plural, =0{Off}=1{Off/1 pianificazione può attivarsi automaticamente}other{Off/# pianificazioni possono attivarsi automaticamente}}</string>
     <string name="zen_mode_sound_summary_on">On</string>
     <string name="zen_mode_sound_summary_on_with_info">On/%1$s</string>
     <string name="zen_mode_sounds_none">Niente può interrompere</string>
     <string name="zen_mode_starred_callers">contatti speciali</string>
     <string name="zen_mode_starred_contacts_empty_name">(Nessun nome)</string>
-    <string name="zen_mode_starred_contacts_summary_contacts">{count,plural,offset:2 =0{Nessuno}=1{{contact_1}}=2{{contact_1} e {contact_2}}=3{{contact_1}, {contact_2} e {contact_3}}one{{contact_1}, {contact_2} e # altro contatto}other{{contact_1}, {contact_2} e altri # contatti}}</string>
+    <string name="zen_mode_starred_contacts_summary_contacts">{count,plural,offset:2 =0{Nessuno}=1{{contact_1}}=2{{contact_1} e {contact_2}}=3{{contact_1}, {contact_2} e {contact_3}}other{{contact_1}, {contact_2} e altri # contatti}}</string>
     <string name="zen_mode_starred_contacts_title">Contatti speciali</string>
     <string name="zen_mode_start_time">Ora di inizio</string>
     <string name="zen_mode_summary_alarms_only_by_time">Cambia su Solo sveglie fino alle %1$s</string>

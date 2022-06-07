@@ -551,7 +551,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f04165c
+    const p1, 0x7f04165f
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->setTitle(I)V
 
@@ -562,7 +562,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f04165d
+    const p1, 0x7f041660
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->setTitle(I)V
 
@@ -633,7 +633,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f04165c
+    const v0, 0x7f04165f
 
     new-array v2, v1, [Ljava/lang/Object;
 
@@ -642,7 +642,7 @@
     goto :goto_0
 
     :cond_0
-    const v0, 0x7f04165d
+    const v0, 0x7f041660
 
     new-array v2, v1, [Ljava/lang/Object;
 
@@ -671,7 +671,7 @@
 
     iget-object v0, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeBaseFragment;->mSummary:Landroid/widget/TextView;
 
-    const v3, 0x7f041657
+    const v3, 0x7f04165a
 
     new-array v4, v4, [Ljava/lang/Object;
 
@@ -696,7 +696,7 @@
     :cond_1
     iget-object v3, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeBaseFragment;->mSummary:Landroid/widget/TextView;
 
-    const v5, 0x7f04165b
+    const v5, 0x7f04165e
 
     new-array v6, v4, [Ljava/lang/Object;
 
@@ -718,7 +718,7 @@
 
     if-eqz v3, :cond_2
 
-    const v3, 0x7f041654
+    const v3, 0x7f041657
 
     new-array v4, v4, [Ljava/lang/Object;
 
@@ -733,7 +733,7 @@
     goto :goto_1
 
     :cond_2
-    const v3, 0x7f04165f
+    const v3, 0x7f041662
 
     new-array v4, v4, [Ljava/lang/Object;
 

@@ -44,7 +44,7 @@
 
     check-cast v0, Landroid/widget/Button;
 
-    const v1, 0x7f041630
+    const v1, 0x7f041633
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setText(I)V
 
@@ -62,7 +62,7 @@
 
     check-cast p1, Landroid/widget/Button;
 
-    const v0, 0x7f041631
+    const v0, 0x7f041634
 
     invoke-virtual {p1, v0}, Landroid/widget/Button;->setText(I)V
 

@@ -2522,8 +2522,8 @@ Yedəkləmə datası Disk yaddaşının kvotasını azaltmayacaq. Xidmətdən ç
     <string name="fullbackup_erase_dialog_message">Cihaz datası (Wi-Fi parolları və zəng tarixçəsi) və tətbiq datasının (tətbiqlər tərəfindən saxlanılan ayar və fayllar) yedəklənməsi və Google Diskdə bütün nüsxələr silinsin?</string>
     <string name="gadget_picker_title">Qadcet seçin</string>
     <string name="game_controller_settings_category">Oyun Kontrolleri</string>
-    <string name="game_dashboard_always_on_summary">Oyunlarda Oyun Paneli qısayolunu göstərin</string>
-    <string name="game_dashboard_always_on_title">Oyun Paneli</string>
+    <string name="game_dashboard_always_on_summary">Bütün oyunlarda ikonanı göstərin (yuxarı və ya aşağı sürüşdürmədən)</string>
+    <string name="game_dashboard_always_on_title">Oyun Panelinin üzən ikonası</string>
     <string name="game_dashboard_dnd_rule_name">Oyun</string>
     <string name="game_dashboard_dnd_summary">Oyun zamanı yalnız vacib şəxs və tətbiqlərdən bildiriş alın</string>
     <string name="game_dashboard_dnd_title">Oyunlar üçün Narahat Etməyin</string>
@@ -3752,7 +3752,7 @@ Bu, tətbiqə \"Narahat Etməyin\" rejimini aktiv və ya deaktiv etmək, həmçi
     <string name="one_handed_action_show_notification_title">Bildirişləri göstərin</string>
     <string name="one_handed_mode_enabled">Birəlli rejimi istifadə edin</string>
     <string name="one_handed_mode_intro_text">Bir əlli rejimi istifadə etmək üçün ekranın aşağı kənarından aşağı çəkin. Bu funksiyanı istifadə etmək üçün sistem naviqasiya ayarlarında jest naviqasiyasının aktiv olduğuna əmin olun.</string>
-    <string name="one_handed_mode_shortcut_title">Bir əlli rejim qısayolu</string>
+    <string name="one_handed_mode_shortcut_title">Birəlli rejim qısayolu</string>
     <string name="one_handed_mode_swipe_down_category">Buraya çəkin:</string>
     <string name="one_handed_mode_use_shortcut_category">Bunun üçün qısayoldan istifadə edin:</string>
     <string name="one_usercrt">istifadəçi sertifikatı</string>
@@ -4572,6 +4572,8 @@ Qeyd: barmaq izinizi bu cihazın kildiini açmaq üçün istifadə edə bilməzs
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">Barmaq izi ikonasını izləyin</string>
     <string name="security_settings_udfps_enroll_start_message">Vibrasiyanı hiss edənə qədər barmağınızı sensorun üzərində düz saxlayın</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">Bir daha</string>
+    <string name="security_settings_udfps_side_fingerprint_help">Barmaq izinizin yan tərəfini sensora yerləşdirib saxlayın, sonra digər tərəfə keçin</string>
+    <string name="security_settings_udfps_tip_fingerprint_help">Qaldırın və təkrar toxunun</string>
     <string name="security_settings_work_fingerprint_preference_title">İş üçün Pixel Imprint</string>
     <string name="security_status_title">Güvənlik statusu</string>
     <string name="see_less">Baxışı kiçildin</string>
@@ -4827,7 +4829,7 @@ Bəlkə PIN yanlışdır"</string>
     <string name="sound_settings_summary_silent">Zəng səsi səssiz rejimdədir</string>
     <string name="sound_settings_summary_vibrate">Zəng səsi vibrasiya rejimindədir</string>
     <string name="sound_work_settings">İş profili səsləri</string>
-    <string name="spatial_audio_title">3D audio effekti</string>
+    <string name="spatial_audio_title">Sinema səs effekti</string>
     <string name="special_access">Xüsusi tətbiq girişi</string>
     <string name="special_access_more">Ətraflı məlumat</string>
     <string name="speed_label_fast">Sürətli</string>
@@ -5532,6 +5534,7 @@ Yeni istifadəçi əlavə etdiyiniz zaman həmin istifadəçi öz məkanını ay
     <string name="verify_apps_over_usb_title">Tətbiqlər quraşdırılanda yoxlanılsın</string>
     <string name="version_text">versiya %1$s</string>
     <string name="vibrate_for_calls_settings_not_available_summary">Telefon susdurulduğu üçün zəng çalınanda vibrasiya olmur</string>
+    <string name="vibrate_icon_title">Vibrasiya rejimində həmişə ikonanı göstərin</string>
     <string name="vibrate_in_silent_title">Səssiz rejimdə vibrasiya etsin</string>
     <string name="vibrate_input_devices">Vibrasiyanı yenidən yönləndirin</string>
     <string name="vibrate_input_devices_summary">Qoşulduqda oyun nəzarətinə vibrasiya göndərin</string>

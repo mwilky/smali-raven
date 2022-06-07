@@ -62,7 +62,7 @@
     <string name="lockscreen_settings_what_to_show_category">ပြသမည့်အရာ</string>
     <string name="night_display_title">ညအလင်းရောင်</string>
     <string name="owner_info_settings_summary">မရှိ</string>
-    <string name="owner_info_settings_title">လော့ခ်စကရင်တွင် စာသားထည့်ခြင်း</string>
+    <string name="owner_info_settings_title">လော့ခ်စကရင်တွင် စာသားထည့်ရန်</string>
     <string name="power_menu_setting_name">ဖွင့်ပိတ်ခလုတ် နှိပ်ထားခြင်း</string>
     <string name="profile_section_header">အလုပ်သတိပေးချက်များ</string>
     <string name="reset_dashboard_summary">ကွန်ရက်၊ အက်ပ် (သို့) ကိရိယာများကို ပြင်ဆင်သတ်မှတ်နိုင်ပါသည်</string>
@@ -93,7 +93,7 @@
     <string name="one_handed_title">လက်တစ်ဖက်သုံးမုဒ်</string>
     <string name="vibration_haptics_settings_not_available_summary">ဖုန်းကို အသံတိတ်မုဒ်သို့ သတ်မှတ်ထားသည့်အတွက် တုန်ခါမှုနှင့် တုန်ခါ၍တုံ့ပြန်မှုများ မရနိုင်ပါ</string>
     <string name="vibration_haptics_strength_category_title">တုန်ခါမှုနှင့် တုန်ခါ၍တုံ့ပြန်မှုအား</string>
-    <string name="peak_refresh_rate_title">Smooth Display</string>
+    <string name="peak_refresh_rate_title">ချောမွေ့သော ဖန်သားပြင်ပြသမှု</string>
     <string name="peak_refresh_rate_summary">အကြောင်းအရာအချို့အတွက် ပြန်လည်စတင်နှုန်းကို ၆၀ မှ ၉၀ Hz သို့ အလိုအလျောက် တိုးပေးသည်။ ဘက်ထရီ အသုံးပြုမှု တိုးလာပါမည်။</string>
     <string name="accessibility_vibration_settings_title">တုန်ခါမှုနှင့် တုန်ခါ၍တုံ့ပြန်မှုများ</string>
     <string name="columbus_title">လုပ်ဆောင်ချက်များ စတင်ရန် ‘အမြန်တို့’ လက်ဟန်</string>
@@ -104,8 +104,8 @@
     <string name="lockscreen_privacy_controls_setting_toggle">စက်ထိန်းစနစ် ပြရန်</string>
     <string name="lockscreen_privacy_wallet_summary">လော့ခ်မျက်နှာပြင်နှင့် အမြန် ဆက်တင်များမှ Wallet သို့ ဝင်သုံးခွင့်ပြုသည်</string>
     <string name="lockscreen_privacy_controls_summary">လော့ခ်ချထားသည့်အခါ ထိန်းချုပ်မှုများကို ဝင်သုံးသည်</string>
-    <string name="lockscreen_double_line_clock_summary">နှစ်တန်းပြေး နာရီကို ရနိုင်ပါက ပြပါ</string>
-    <string name="lockscreen_double_line_clock_setting_toggle">နှစ်တန်းပြေး နာရီ</string>
+    <string name="lockscreen_double_line_clock_summary">နှစ်လိုင်းပြနာရီကို ရနိုင်ပါက ပြပါ</string>
+    <string name="lockscreen_double_line_clock_setting_toggle">နှစ်လိုင်းပြနာရီ</string>
     <string name="abc_activity_chooser_view_see_all">အားလုံး ကြည့်ရန်</string>
     <string name="abc_activitychooserview_choose_application">အက်ပ်တစ်ခုကို ရွေးရန်</string>
     <string name="abc_capital_off">ပိတ်ရန်</string>
@@ -457,7 +457,7 @@
     <string name="adaptive_sleep_summary_on">ဖွင့်ထားသည် / ၎င်းကို သင်ကြည့်နေလျှင် မျက်နှာပြင် ပိတ်မည်မဟုတ်ပါ</string>
     <string name="adaptive_sleep_title_no_permission">ကင်မရာသုံးခွင့် လိုအပ်သည်</string>
     <string name="adb_authorization_timeout_summary">မူလ (၇ ရက်) သို့မဟုတ် အသုံးပြုသူ စီစဉ်သတ်မှတ်ထားသော (အနည်းဆုံး ၁ ရက်) အချိန်အတွင်း ချိတ်ဆက်မထားသော စနစ်များအတွက် adb ခွင့်ပြုချက်များ အလိုအလျောက်ရုပ်သိမ်းခြင်းကို ပိတ်သည်။</string>
-    <string name="adb_authorization_timeout_title">Adb ခွင့်ပြုချက် အချိန်ကုန်သွားခြင်းကို ပိတ်ခြင်း</string>
+    <string name="adb_authorization_timeout_title">Adb ခွင့်ပြုချက် အချိန်ကုန်သွားခြင်းကို ပိတ်ရန်</string>
     <string name="adb_device_fingerprint_title_format">စက်ပစ္စည်း လက်ဗွေ- %1$s</string>
     <string name="adb_device_forget">မေ့ပစ်ရန်</string>
     <string name="adb_keys_warning_message">သင် ယခင်က ခွင့်ပြုခဲ့သော ကွန်ပျူတာအားလုံးမှ ယူအက်စ်ဘီ အမှားစစ်ခွင့်ကို ရုတ်သိမ်းမည်လား ?</string>
@@ -798,7 +798,7 @@
     <string name="autofill_max_partitions">စက်ရှင်တစ်ခုအတွင်း အများဆုံးတောင်းဆိုချက်</string>
     <string name="autofill_max_visible_datasets">အများဆုံးမြင်နိုင်သည့် ဒေတာအတွဲ အရေအတွက်</string>
     <string name="autofill_passwords">စကားဝှက်များ</string>
-    <string name="autofill_reset_developer_options">မူရင်းတန်ဖိုးများသို့ ပြင်ဆင်သတ်မှတ်ထားသည်</string>
+    <string name="autofill_reset_developer_options">မူရင်းတန်ဖိုးများသို့ ပြင်ဆင်သတ်မှတ်ရန်</string>
     <string name="autofill_reset_developer_options_complete">ဆော့ဖ်ဝဲရေးသူအတွက် ရွေးစရာများ အလိုအလျောက်ဖြည့်ခြင်းကို ပြင်ဆင်သတ်မှတ်ထားသည်</string>
     <string name="automatic_brightness">အလိုအလျောက်အလင်းချိန်ခြင်း။</string>
     <string name="automatic_storage_manager_activation_warning">ချိတ်ဆက်ထားလျှင် မိတ္တူပွားခြင်းအတွက် သင်ရွေးချယ်ထားသော အရည်အသွေးဖြင့် ဓာတ်ပုံများနှင့် ဗီဒီယိုများကို ကြည့်ရှုနိုင်ပါသေးသည်</string>
@@ -1480,7 +1480,7 @@ CA လက်မှတ်ကို ထည့်သွင်းပါက သင်
     <string name="captioning_window_color">စာတန်းနောက်ခံဘောင်အရောင်</string>
     <string name="captioning_window_opacity">စာတန်းနောက်ခံဘောင်ခတ်မှု အလင်းအား</string>
     <string name="captions_category_title">စာတန်းများ</string>
-    <string name="capture_system_heap_dump_title">စနစ်၏ လျှပ်တစ်ပြက် မှတ်ဉာဏ်ကို ဖမ်းယူရန်</string>
+    <string name="capture_system_heap_dump_title">စနစ်၏ Heap dump ပုံ ဖမ်းယူရန်</string>
     <string name="capturing_system_heap_dump_message">စနစ်၏ လျှပ်တစ်ပြက် မှတ်ဉာဏ်ကို ဖမ်းယူနေသည်</string>
     <string name="cards_passes_lower">ကတ်များနှင့် ဖြတ်သန်းခွင့်များ</string>
     <string name="cards_passes_sentence">ကတ်နှင့်လက်မှတ်များ</string>
@@ -1997,7 +1997,7 @@ CA လက်မှတ်ကို ထည့်သွင်းပါက သင်
     <string name="debug_hw_drawing_category">ဟာ့ဒ်ဝဲ အရှိန်မြှင့် ပုံဖော်ခြင်း</string>
     <string name="debug_hw_overdraw">GPU ပိုသုံးစွဲမှု ပြင်ဆင်ခြင်း</string>
     <string name="debug_input_category">ထည့်သွင်းရန်</string>
-    <string name="debug_layout">ဖွဲ့စည်းပုံဘောင်များ ပြခြင်း</string>
+    <string name="debug_layout">ပြကွက်၏ဘောင်များ ပြခြင်း</string>
     <string name="debug_layout_summary">ဖြတ်ပိုင်းအနားသတ်များ၊ အနားများ စသဖြင့် ပြပါ။</string>
     <string name="debug_monitoring_category">စောင့်ကြည့်စစ်ဆေးခြင်း</string>
     <string name="debug_networking_category">ချိတ်ဆက်ဆောင်ရွက်ခြင်း</string>
@@ -2047,12 +2047,12 @@ CA လက်မှတ်ကို ထည့်သွင်းပါက သင်
     <string name="dev_settings_disabled_warning">ဆော့ဖ်ဝဲရေးသူအတွက် ရွေးစရာများကို ဦးစွာဖွင့်ပါ။</string>
     <string name="dev_settings_warning_message">ဤဆက်တင်းများကို တည်ဆောက်ပြုပြင်ရာတွင် သုံးရန်အတွက်သာ ရည်ရွယ်သည်။ ၎င်းတို့သည် သင်၏စက်နှင့် အပလီကေးရှင်းများကို ရပ်စေခြင်း သို့ လုပ်ဆောင်ချက်မမှန်ကန်ခြင်းများ ဖြစ်ပေါ်စေနိုင်သည်။</string>
     <string name="dev_settings_warning_title">တည်ဆောက်ပြုပြင်ရန်ဆက်တင်များကို အသုံးပြုခွင့်ပေးမည်လား?</string>
-    <string name="developer_options_main_switch_title">ဆော့ဖ်ဝဲရေးသူအတွက် ရွေးစရာများကို သုံးခြင်း</string>
-    <string name="developer_smallest_width">အသေးဆုံး အကျယ်</string>
+    <string name="developer_options_main_switch_title">ဆော့ဖ်ဝဲရေးသူ ရွေးစရာများကို သုံးခြင်း</string>
+    <string name="developer_smallest_width">အကျဉ်းဆုံး</string>
     <string name="development_settings_enable">ဆော့ဖ်ဝဲရေးသူအတွက် ရွေးစရာများကို ဖွင့်ပါ</string>
     <string name="development_settings_not_available">ဤအသုံးပြုသူအတွက် ဆော့ဖ်ဝဲရေးသူ ရွေးစရာများ မရနိုင်ပါ</string>
     <string name="development_settings_summary">အပလီကေးရှင်းတိုးတက်မှုအတွက် ရွေးချယ်မှုကိုသတ်မှတ်သည်</string>
-    <string name="development_settings_title">ဆော့ဖ်ဝဲရေးသူအတွက် ရွေးစရာများ</string>
+    <string name="development_settings_title">ဆော့ဝဲလ်ရေးသူ ရွေးစရာများ</string>
     <string name="device_admin_add_title">စက်ပစ္စည်း စီမံခန့်ခွဲသူ</string>
     <string name="device_admin_settings_title">စက်ပစ္စည်းကို စီမံခန့်ခွဲရန်အက်ပ် ဆက်တင်များ</string>
     <string name="device_admin_status">ဤစီမံအက်ပ်သည် ပွင့်နေပြီး %1$s အက်ပ်အား အောက်ပါတို့ကို ဆောင်ရွက်ခွင့် ပြုသည်−</string>
@@ -2099,7 +2099,7 @@ CA လက်မှတ်ကို ထည့်သွင်းပါက သင်
     <string name="disable_overlays">HW ထပ်ဆင့်ခြင်းများပိတ်ခြင်း</string>
     <string name="disable_overlays_summary">GPU ကိုမျက်နှာပြင်ခင်းကျင်းရာတွင် အမြဲသုံးပါ။</string>
     <string name="disable_service_message">%1$s ကို တို့ခြင်းဖြင့် %2$s ရပ်သွားပါမည်။</string>
-    <string name="disable_service_title">%1$s ကိုရပ်မည်လား?</string>
+    <string name="disable_service_title">%1$s ကို ရပ်မလား။</string>
     <string name="disable_text">ပိတ်ထားရန်</string>
     <string name="disable_wifi_hotspot_title">Wi‑Fi ဟော့စပေါ့ မသုံးပါနှင့်</string>
     <string name="disable_wifi_hotspot_when_bluetooth_and_ethernet_on">အင်တာနက်ကို ဘလူးတုသ်နှင့် အီတာနက်ဖြင့်သာ မျှဝေရန်</string>
@@ -2231,7 +2231,7 @@ CA လက်မှတ်ကို ထည့်သွင်းပါက သင်
     <string name="enable_adb_wireless">ကြိုးမဲ့ အမှားရှာပြင်ခြင်း</string>
     <string name="enable_adb_wireless_summary">Wi-Fi ချိတ်ဆက်ထားစဉ် အမှားရှာပြင်မုဒ်</string>
     <string name="enable_compatibility">စကေးအပလီကေးရှင်း</string>
-    <string name="enable_freeform_support">အခမဲ့ပုံစံ ဝင်းဒိုးကို ဖွင့်ပါ</string>
+    <string name="enable_freeform_support">ရွှေ့နိုင်ပြင်နိုင်သော ဝင်းဒိုးများ ဖွင့်ရန်</string>
     <string name="enable_freeform_support_summary">ပုံစံမျိုးစုံဝင်းဒိုးများ စမ်းသပ်မှုအတွက် အထောက်အပံ့ကို ဖွင့်ပါ</string>
     <string name="enable_gnss_raw_meas_full_tracking">GNSS အတိုင်းအတာအပြည့် သက်ရောက်ရန်</string>
     <string name="enable_gnss_raw_meas_full_tracking_summary">လည်ပတ်ချိန်မပါဘဲ GNSS စက်ဝိုင်းပုံမြင်ကွင်းကျယ်ပုံများနှင့် ကြိမ်နှုန်းအားလုံးကို ခြေရာခံပါ</string>
@@ -2239,8 +2239,8 @@ CA လက်မှတ်ကို ထည့်သွင်းပါက သင်
     <string name="enable_gpu_debug_layers_summary">အမှားရှာအက်ပ်များအတွက် GPU အမှားရှာအလွှာများ ထည့်သွင်းခွင့်ပြုပါ</string>
     <string name="enable_mms_notification_channel_title">MMS မက်ဆေ့ဂျ်</string>
     <string name="enable_mms_notification_summary">မိုဘိုင်းဒေတာ ပိတ်ထားချိန် %1$s တွင် MMS မက်ဆေ့ဂျ်ပို့ခွင့်ပြုရန် တို့ပါ</string>
-    <string name="enable_non_resizable_multi_window">အရွယ်အစားပြန်မပြုပြင်နိုင်သည်များကို ဝင်းဒိုးများစွာတွင် ဖွင့်ရန်</string>
-    <string name="enable_non_resizable_multi_window_summary">အရွယ်အစားပြန်မပြုပြင်နိုင်သည့် အက်ပ်များကို ဝင်းဒိုးများစွာတွင် ဖွင့်ရန်ခွင့်ပြုသည်</string>
+    <string name="enable_non_resizable_multi_window">အရွယ်မပြင်နိုင်သည်များကို ဝင်းဒိုးများစွာတွင် ဖွင့်ရန်</string>
+    <string name="enable_non_resizable_multi_window_summary">အရွယ်မပြင်နိုင်သည့် အက်ပ်များကို ဝင်းဒိုးများစွာတွင် ဖွင့်ခွင့်ပြုသည်</string>
     <string name="enable_opengl_traces_title">OpenGL ခြေရာခံခြင်းဖွင့်ပါ။</string>
     <string name="enable_quick_setting">အမြန်ဆက်တင်များတွင်ပြပါ</string>
     <string name="enable_receiving_mms_notification_title">MMS မက်ဆေ့ဂျ် အဝင်</string>
@@ -2522,8 +2522,8 @@ CA လက်မှတ်ကို ထည့်သွင်းပါက သင်
     <string name="fullbackup_erase_dialog_message">စက်ပစ္စည်းဒေတာများ (Wi-Fi စကားဝှက်များနှင့် ခေါ်ဆိုမှုမှတ်တမ်း) နှင့် အက်ပ်ဒေတာများ (အက်ပ်များမှ သိမ်းဆည်းလိုက်သည့် ဆက်တင်များနှင့် ဖိုင်များ) ကိုအရန်ကူးယူထားခြင်းမှ ရပ်တန့်ပြီး Google Drive ပေါ်ရှိ မိတ္တူများအားလုံးကို ဖျက်မလား။</string>
     <string name="gadget_picker_title">ဂါဂျစ်အား ရွေးချယ်မည်</string>
     <string name="game_controller_settings_category">ဂိမ်းထိန်းချုပ်ခြင်း</string>
-    <string name="game_dashboard_always_on_summary">ဂိမ်းများတွင် ဂိမ်းဒက်ရှ်ဘုတ် ဖြတ်လမ်းလင့်ခ်ကို ပြပါ</string>
-    <string name="game_dashboard_always_on_title">ဂိမ်း ဒက်ရှ်ဘုတ်</string>
+    <string name="game_dashboard_always_on_summary">ဂိမ်းအားလုံးတွင် (အပေါ်သို့ (သို့) အောက်သို့ ပွတ်ဆွဲစရာမလိုဘဲ) သင်္ကေတကိုပြရန်</string>
+    <string name="game_dashboard_always_on_title">ဂိမ်းဒက်ရှ်ဘုတ် မျောနေသောသင်္ကေတ</string>
     <string name="game_dashboard_dnd_rule_name">ဂိမ်းကစားခြင်း</string>
     <string name="game_dashboard_dnd_summary">ဂိမ်းကစားနေသောအခါ အရေးကြီးပုဂ္ဂိုလ်နှင့် အက်ပ်များထံမှသာ အကြောင်းကြားချက် ရယူပါ</string>
     <string name="game_dashboard_dnd_title">ဂိမ်းများအတွက် မနှောင့်ယှက်ရ</string>
@@ -2717,7 +2717,7 @@ CA လက်မှတ်ကို ထည့်သွင်းပါက သင်
     <string name="item_view_role_description">တဘ်</string>
     <string name="join_two_items">%1$s နှင့် %2$s</string>
     <string name="join_two_unrelated_items">%1$s၊ %2$s</string>
-    <string name="keep_screen_on">ဖွင့်လျက်သား</string>
+    <string name="keep_screen_on">ဖွင့်ထားခြင်း</string>
     <string name="keep_screen_on_summary">အားသွင်းနေချိန် ဖန်သားပြင် ပိတ်သွားမည် မဟုတ်ပါ</string>
     <string name="kernel_version">Kernel ဗားရှင်း</string>
     <string name="keyboard_and_input_methods_category">လက်ကွက်များ</string>
@@ -2973,7 +2973,7 @@ CA လက်မှတ်ကို ထည့်သွင်းပါက သင်
     <string name="lock_screen_notifications_summary_disable">အကြောင်းကြားချက်များ လုံးဝမပြပါနှင့်</string>
     <string name="lock_screen_notifications_summary_hide">လော့ခ်ဖွင့်မှသာ သတိထားရသော အကြောင်းအရာကို ပြပါ</string>
     <string name="lock_screen_notifications_summary_hide_profile">အလွန်အရေးကြီးသော အလုပ် အကြောင်းအရာကို ဝှက်ထားရန်</string>
-    <string name="lock_screen_notifications_summary_show">အကြောင်းကြားချက်ပါ အရာအားလုံး ပြသည်</string>
+    <string name="lock_screen_notifications_summary_show">အကြောင်းကြားချက်ပါ အရာအားလုံး ပြပါ</string>
     <string name="lock_screen_notifications_summary_show_profile">အလုပ်အကြောင်းကြားချက် အကြောင်းအရာများအားလုံးကို ပြပါ</string>
     <string name="lock_screen_notifs_redact">အရေးကြီးသည့် အကြောင်းကြားချက်များ</string>
     <string name="lock_screen_notifs_redact_summary">လော့ခ်ချထားစဉ် အရေးကြီးသည့် အကြောင်းအရာကို ပြရန်</string>
@@ -3298,7 +3298,7 @@ CA လက်မှတ်ကို ထည့်သွင်းပါက သင်
     <string name="memory_performance">ဖျော်ဖြေတင်ဆက်မှု</string>
     <string name="memory_settings_title">မှတ်ဉာဏ်</string>
     <string name="memory_size">စုစုပေါင်း မမ်မိုရီနေရာ</string>
-    <string name="memory_summary">ယာယီမှတ်ဉာဏ် %2$s မှ ပျှမ်းမျှ %1$s ကိုအသုံးပြုထားသည်</string>
+    <string name="memory_summary">မှတ်ဉာဏ် %2$s မှ ပျှမ်းမျှ %1$s ကိုသုံးထားသည်</string>
     <string name="memory_usage">မှတ်ဉာဏ် သုံးစွဲမှု</string>
     <string name="memory_usage_apps">အက်ပ်များမှ အသုံးပြုသော မှတ်ဉာဏ်</string>
     <string name="memory_use_running_format">%1$s / %2$s</string>
@@ -3777,7 +3777,7 @@ CA လက်မှတ်ကို ထည့်သွင်းပါက သင်
     <string name="overlay_option_device_default">စက်ပစ္စည်းမူရင်း</string>
     <string name="overlay_settings">အခြားအက်ပ်များပေါ်မှ ပြသခြင်း</string>
     <string name="overlay_settings_summary">"အခြားအက်ပ်များအပေါ်တွင် ပြသနိုင်သည့် အက်ပ်များအား 'ဆက်တင်များ' မျက်နှာပြင်ကို ထပ်ဆင့်ပြခွင့်ပြုပါ"</string>
-    <string name="overlay_settings_title">ဆက်တင်များပေါ် ဖန်သားပြင်ထပ်ဆင့်ပြခွင့်ပြုခြင်း</string>
+    <string name="overlay_settings_title">ဆက်တင်များတွင် ဖန်သားပြင်ထပ်ဆင့်ပြခွင့်ပြုခြင်း</string>
     <string name="overlay_toast_failed_to_apply">ထပ်ပိုးလွှာထည့်၍ မရပါ</string>
     <string name="owner_info_settings_edit_text_hint">ဥပမာ- Joe ၏ Pixel</string>
     <string name="owner_info_settings_status">%1$d / %2$d</string>
@@ -3794,7 +3794,7 @@ CA လက်မှတ်ကို ထည့်သွင်းပါက သင်
     <string name="permission_bar_chart_title">ပြီးခဲ့သော ၂၄ နာရီအတွင်း ခွင့်ပြုချက် အသုံးပြုမှု</string>
     <string name="permissions_label">ခွင့်ပြုချက်များ</string>
     <string name="permissions_usage_summary">မည်သည့်အက်ပ်များသည် မကြာသေးမီက ခွင့်ပြုချက်များ သုံးထားသည်ကို ပြသည်</string>
-    <string name="permissions_usage_title">ပုဂ္ဂိုလ်ရေးလုံခြုံမှု ဒက်ရှ်ဘုတ်</string>
+    <string name="permissions_usage_title">ကိုယ်ရေးအချက်အလက်လုံခြုံမှု ဒက်ရှ်ဘုတ်</string>
     <string name="permit_draw_overlay">အခြားအက်ပ်များ အပေါ်တွင် ပြသခြင်း</string>
     <string name="permit_manage_external_storage">ဖိုင်အားလုံးကို စီမံရန် အသုံးပြုခွင့်ပေးပါ</string>
     <string name="permit_usage_access">သုံးစွဲမှု ကြည့်ခွင့်ပြုရန်</string>
@@ -3972,7 +3972,7 @@ CA လက်မှတ်ကို ထည့်သွင်းပါက သင်
     <string name="printer_info_desc">ဤပရင်တာ အကြောင်း ပိုမိုလေ့လာပါ</string>
     <string name="priority_conversation_count_zero">ဦးစားပေး စကားဝိုင်း မရှိပါ</string>
     <string name="privacy_dashboard_summary">ခွင့်ပြုချက်များ၊ အကောင့်လုပ်ဆောင်ချက်၊ ကိုယ်ရေးကိုယ်တာ ဒေတာ</string>
-    <string name="privacy_dashboard_title">ကန့်သတ်ဆက်တင်</string>
+    <string name="privacy_dashboard_title">ကိုယ်ရေးအချက်အလက်လုံခြုံမှု</string>
     <string name="privacy_settings_title">အရန်သိမ်းရန်</string>
     <string name="private_dns_broken">သီးသန့် ဒီအန်အက်စ် (DNS) ဆာဗာကို သုံး၍မရပါ။</string>
     <string name="private_dns_help_message">သီးသန့် DNS ဝန်ဆောင်မှုများအကြောင်း <annotation id="url">ပိုမိုလေ့လာရန်</annotation></string>
@@ -4350,7 +4350,7 @@ CA လက်မှတ်ကို ထည့်သွင်းပါက သင်
     <string name="security_dismiss_dialog_title">ဤသတိပေးချက်ကို ပယ်မလား။</string>
     <string name="security_enable_widgets_disabled_summary">စီမံခန့်ခွဲသူက ပိတ်ထားသည်</string>
     <string name="security_enable_widgets_title">ဝဒ်ဂျက်များဖွင့်ရန်</string>
-    <string name="security_passwords_title">ကန့်သတ်ရန် ဆက်တင်</string>
+    <string name="security_passwords_title">ကိုယ်ရေးအချက်အလက်လုံခြုံမှု</string>
     <string name="security_patch">Android လုံခြုံရေးအပ်ဒိတ်</string>
     <string name="security_settings_biometric_preference_summary_both_fp_multiple">မျက်နှာနှင့် လက်ဗွေများ ထည့်ပြီးပါပြီ</string>
     <string name="security_settings_biometric_preference_summary_both_fp_single">မျက်နှာနှင့် လက်ဗွေ ထည့်ပြီးပါပြီ</string>
@@ -4570,8 +4570,10 @@ g.co/pixel/faceunlock တွင် ပိုမိုလေ့လာပါ။"</
     <string name="security_settings_udfps_enroll_repeat_a11y_message">၎င်းက သင့်လက်ဗွေကို ပိုမိုဖမ်းယူပေးသည်</string>
     <string name="security_settings_udfps_enroll_repeat_message">လက်ဗွေသင်္ကေတ ရွေ့သွားတိုင်း တို့ထိ၍ ဖိထားပါ။ ၎င်းက သင့်လက်ဗွေကို ပိုမိုဖမ်းယူပေးသည်။</string>
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">လက်ဗွေသင်္ကေတကို ထပ်တို့ပါ</string>
-    <string name="security_settings_udfps_enroll_start_message">တုန်ခါမှုကို ခံစားရချိန်အထိ အာရုံခံကိရိယာပေါ်တွင် သင့်လက်ဗွေထည့်သွင်းပါ</string>
+    <string name="security_settings_udfps_enroll_start_message">တုန်ခါမှုကို ခံစားရချိန်အထိ အာရုံခံကိရိယာပေါ်တွင် သင့်လက်ဗွေအပြားလိုက် တင်ထားပါ</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">နောက်တစ်ကြိမ်</string>
+    <string name="security_settings_udfps_side_fingerprint_help">အာရုံခံကိရိယာပေါ်တွင် သင့်လက်ဗွေ၏ဘေးခြမ်းကို တင်ပြီးဖိထားပါ။ ထို့နောက် အခြားတစ်ဘက်သို့ ပြောင်းပါ</string>
+    <string name="security_settings_udfps_tip_fingerprint_help">ဖယ်ပြီး ပြန်ထိပါ</string>
     <string name="security_settings_work_fingerprint_preference_title">အလုပ်အတွက် Pixel Imprint</string>
     <string name="security_status_title">လုံခြုံရေး အခြေအနေ</string>
     <string name="see_less">လျှော့ ကြည့်ရန်</string>
@@ -4827,7 +4829,7 @@ g.co/pixel/faceunlock တွင် ပိုမိုလေ့လာပါ။"</
     <string name="sound_settings_summary_silent">ဖုန်းမြည်သံကို အသံပိတ်ထားပါသည်</string>
     <string name="sound_settings_summary_vibrate">ဖုန်းမြည်သံကို တုန်ခါမှုအဖြစ် သတ်မှတ်ထားပါသည်</string>
     <string name="sound_work_settings">အလုပ်ပရိုဖိုင်ဆိုင်ရာ အသံများ</string>
-    <string name="spatial_audio_title">စပေရှယ် အသံ</string>
+    <string name="spatial_audio_title">ထောင့်စုံအော်ဒီယို</string>
     <string name="special_access">အထူးသုံးခွင့်ရ အက်ပ်</string>
     <string name="special_access_more">နောက်ထပ်ကြည့်ပါ</string>
     <string name="speed_label_fast">မြန်</string>
@@ -5532,6 +5534,7 @@ g.co/pixel/faceunlock တွင် ပိုမိုလေ့လာပါ။"</
     <string name="verify_apps_over_usb_title">USB ဖြင့် အက်ပ်များစိစစ်ရန်</string>
     <string name="version_text">%1$sဗားရှင်း</string>
     <string name="vibrate_for_calls_settings_not_available_summary">ဖုန်းကို အသံတိတ်စနစ်သို့ သတ်မှတ်ထားသောကြောင့် ခေါ်ဆိုမှုများအတွက် တုန်ခါမှုကို မရနိုင်ပါ</string>
+    <string name="vibrate_icon_title">တုန်ခါမုဒ်တွင် သင်္ကေတအမြဲပြခြင်း</string>
     <string name="vibrate_in_silent_title">မြည်သံကိုပိတ်ထားလျှင် တုန်ခါမည်</string>
     <string name="vibrate_input_devices">တစ်ဆင့်ပြန်ညွှန်ပြခြင်း တုန်ခါမှု</string>
     <string name="vibrate_input_devices_summary">ချိတ်ဆက်ထားသည့်အခါ တုန်ခါမှုကို ဂိမ်းခလုတ်ဆီသို့ ပို့ရန်</string>
@@ -5956,7 +5959,7 @@ g.co/pixel/faceunlock တွင် ပိုမိုလေ့လာပါ။"</
     <string name="wifi_scan_notify_text">တည်နေရာ ပိုမိုတိကျမှု ရှိစေရန်အတွက် Wi‑Fi ကို ပိတ်ထားသည့်အခါတွင်ပင် အက်ပ်နှင့် ဝန်ဆောင်မှုများသည် Wi-Fi ကွန်ရက်များကို အချိန်မရွေး ရှာဖွေနိုင်ပါသည်။ ဥပမာအားဖြင့် တည်နေရာကိုအခြေခံသည့် လုပ်ဆောင်ချက်နှင့် ဝန်ဆောင်မှုများ ပိုမိုကောင်းမွန်လာစေရန် ၎င်းကို အသုံးပြုနိုင်သည်။ ၎င်းကို LINK_BEGINWi-Fi ရှာဖွေခြင်း ဆက်တင်များLINK_END တွင် ပြောင်းနိုင်သည်။</string>
     <string name="wifi_scan_notify_text_scanning_off">တည်နေရာ ပိုမိုတိကျမှု ရှိစေရန်အတွက် LINK_BEGINWi-Fi ရှာဖွေခြင်း ဆက်တင်များLINK_END တွင် Wi-Fi ရှာဖွေခြင်းကို ဖွင့်ပါ။</string>
     <string name="wifi_scan_throttling">Wi‑Fi ရှာဖွေခြင်း ထိန်းချုပ်မှု</string>
-    <string name="wifi_scan_throttling_summary">ဘက်ထရီ အသုံးပြုမှုကို လျှော့ကျစေပြီး ကွန်ရက်စွမ်းဆောင်ရည်ကို ပိုမိုကောင်းမွန်စေသည်</string>
+    <string name="wifi_scan_throttling_summary">ဘက်ထရီအသုံးပြုမှု လျှော့ချပြီး ကွန်ရက်စွမ်းဆောင်ရည် ပိုမိုကောင်းမွန်သည်</string>
     <string name="wifi_security">လုံခြုံရေး</string>
     <string name="wifi_security_none">မရှိ</string>
     <string name="wifi_select_network">ကြိုးမဲ့ကို ရွေးချယ်ရန်</string>
@@ -6142,7 +6145,7 @@ g.co/pixel/faceunlock တွင် ပိုမိုလေ့လာပါ။"</
     <string name="zen_mode_alarms">နှိုးစက်များ</string>
     <string name="zen_mode_alarms_list">နှိုးစက်များ</string>
     <string name="zen_mode_alarms_list_first">နှိုးစက်များ</string>
-    <string name="zen_mode_alarms_summary">အချိန်မှတ်စက်၊ နှိုးစက်၊ လုံခြုံရေးစနစ်နှင့် အခြားအက်ပ်များမှ</string>
+    <string name="zen_mode_alarms_summary">တိုင်မာ၊ နှိုးစက်၊ လုံခြုံရေးစနစ်နှင့် အခြားအက်ပ်များမှ</string>
     <string name="zen_mode_all_callers">မည်သူမဆို</string>
     <string name="zen_mode_all_calls_summary">လူတိုင်းက ခေါ်ဆိုနိုင်သည်</string>
     <string name="zen_mode_all_messages_summary">လူတိုင်းက မက်ဆေ့ဂျ်ပို့နိုင်သည်</string>

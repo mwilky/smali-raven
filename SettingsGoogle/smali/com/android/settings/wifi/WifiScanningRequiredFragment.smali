@@ -172,7 +172,7 @@
 
     invoke-virtual {p2, v1}, Landroid/net/wifi/WifiManager;->setScanAlwaysAvailable(Z)V
 
-    const p2, 0x7f04170c
+    const p2, 0x7f04170f
 
     invoke-virtual {p1, p2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -218,7 +218,7 @@
 
     invoke-direct {p1, v0}, Landroidx/appcompat/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v0, 0x7f04170f
+    const v0, 0x7f041712
 
     invoke-virtual {p1, v0}, Landroidx/appcompat/app/AlertDialog$Builder;->setTitle(I)Landroidx/appcompat/app/AlertDialog$Builder;
 
@@ -230,7 +230,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f041710
+    const v0, 0x7f041713
 
     invoke-virtual {p1, v0, p0}, Landroidx/appcompat/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
 

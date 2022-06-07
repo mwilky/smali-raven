@@ -69,7 +69,7 @@
 
     iget-object p2, p0, Lcom/android/settings/connecteddevice/usb/UsbDetailsController;->mContext:Landroid/content/Context;
 
-    const p3, 0x7f0414ab
+    const p3, 0x7f0414ad
 
     invoke-virtual {p2, p3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

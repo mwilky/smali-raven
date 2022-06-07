@@ -261,8 +261,8 @@
         <item quantity="one">"%1$s s'està comportant de manera anòmala"</item>
     </plurals>
     <plurals name="power_high_usage_title">
-        <item quantity="other">Hi ha aplicacions que consumeixen molta bateria</item>
-        <item quantity="one">%1$s consumeix molta bateria</item>
+        <item quantity="other">Hi ha aplicacions que estan exhaurint la bateria</item>
+        <item quantity="one">%1$s està exhaurint la bateria</item>
     </plurals>
     <plurals name="print_jobs_summary">
         <item quantity="other">"%1$d tasques d'impressió"</item>

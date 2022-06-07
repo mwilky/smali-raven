@@ -613,14 +613,6 @@
         <item>നീലനിറത്തിൽ ചതുരമല്ലാത്ത ക്ലിപ്പ് ഭാഗം വരയ്‌ക്കുക</item>
         <item>പരിശോധിച്ച ഡ്രോയിംഗ് കമാൻഡുകൾ പച്ചനിറത്തിൽ ഹൈലൈറ്റുചെയ്യുക</item>
     </string-array>
-    <string-array name="sim_color_light">
-        <item>\@color/SIM_color_cyan</item>
-        <item>\@color/SIM_color_blue800</item>
-        <item>\@color/SIM_color_green800</item>
-        <item>\@color/SIM_color_purple800</item>
-        <item>\@color/SIM_color_pink800</item>
-        <item>\@color/SIM_color_orange</item>
-    </string-array>
     <string-array name="swipe_direction_values">
         <item>1</item>
         <item>0</item>

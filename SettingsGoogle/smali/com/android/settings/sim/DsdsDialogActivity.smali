@@ -25,25 +25,25 @@
 
     const-class v1, Lcom/android/settings/network/telephony/ConfirmDialogFragment$OnConfirmListener;
 
-    const v0, 0x7f041234
+    const v0, 0x7f041236
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
-    const v0, 0x7f041233
+    const v0, 0x7f041235
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
     move-result-object v4
 
-    const v0, 0x7f041245
+    const v0, 0x7f041247
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
     move-result-object v5
 
-    const v0, 0x7f04123a
+    const v0, 0x7f04123c
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -63,19 +63,19 @@
 
     const-class v1, Lcom/android/settings/network/telephony/ConfirmDialogFragment$OnConfirmListener;
 
-    const v0, 0x7f04123d
+    const v0, 0x7f04123f
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
-    const v0, 0x7f041233
+    const v0, 0x7f041235
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
     move-result-object v4
 
-    const v0, 0x7f04123b
+    const v0, 0x7f04123d
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -199,7 +199,7 @@
 
     invoke-static {v0, p1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    const p1, 0x7f041239
+    const p1, 0x7f04123b
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 

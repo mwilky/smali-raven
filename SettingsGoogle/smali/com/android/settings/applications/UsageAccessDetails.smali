@@ -260,7 +260,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f041484
+    const v0, 0x7f041486
 
     invoke-virtual {p1, v0}, Landroidx/preference/Preference;->setTitle(I)V
 
@@ -272,7 +272,7 @@
 
     iget-object p1, p0, Lcom/android/settings/applications/UsageAccessDetails;->mUsageDesc:Landroidx/preference/Preference;
 
-    const v0, 0x7f041485
+    const v0, 0x7f041487
 
     invoke-virtual {p1, v0}, Landroidx/preference/Preference;->setTitle(I)V
 
@@ -368,7 +368,7 @@
 
     move-result-object p1
 
-    const p2, 0x7f0417a6
+    const p2, 0x7f0417a9
 
     invoke-virtual {p1, p2}, Landroidx/appcompat/app/AlertDialog$Builder;->setMessage(I)Landroidx/appcompat/app/AlertDialog$Builder;
 

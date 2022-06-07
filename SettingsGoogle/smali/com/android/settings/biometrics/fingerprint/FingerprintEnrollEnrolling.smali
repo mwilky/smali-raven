@@ -34,6 +34,10 @@
 
 .field private mFingerprintManager:Landroid/hardware/fingerprint/FingerprintManager;
 
+.field private mHaveShownUdfpsSideLottie:Z
+
+.field private mHaveShownUdfpsTipLottie:Z
+
 .field private final mIconAnimationCallback:Landroid/graphics/drawable/Animatable2$AnimationCallback;
 
 .field private mIconAnimationDrawable:Landroid/graphics/drawable/AnimatedVectorDrawable;
@@ -41,6 +45,8 @@
 .field private mIconBackgroundBlinksDrawable:Landroid/graphics/drawable/AnimatedVectorDrawable;
 
 .field private mIconTouchCount:I
+
+.field private mIllustrationLottie:Lcom/airbnb/lottie/LottieAnimationView;
 
 .field private mIsAccessibilityEnabled:Z
 
@@ -60,7 +66,11 @@
 
 .field private mRestoring:Z
 
+.field private mShouldShowLottie:Z
+
 .field private final mShowDialogRunnable:Ljava/lang/Runnable;
+
+.field private mShowingNewUdfpsEnroll:Z
 
 .field private final mTouchAgainRunnable:Ljava/lang/Runnable;
 
@@ -152,6 +162,8 @@
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollEnrolling;->mPreviousRotation:I
+
+    iput-boolean v0, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollEnrolling;->mShowingNewUdfpsEnroll:Z
 
     new-instance v0, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollEnrolling$2;
 
@@ -984,6 +996,52 @@
     return-void
 .end method
 
+.method private updateOrientation(I)V
+    .locals 1
+
+    const/4 v0, 0x1
+
+    if-eq p1, v0, :cond_1
+
+    const/4 v0, 0x2
+
+    if-eq p1, v0, :cond_0
+
+    const-string p0, "FingerprintEnrollEnrolling"
+
+    const-string p1, "Error unhandled configuration change"
+
+    invoke-static {p0, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p1, 0x0
+
+    iput-object p1, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollEnrolling;->mIllustrationLottie:Lcom/airbnb/lottie/LottieAnimationView;
+
+    goto :goto_0
+
+    :cond_1
+    iget-boolean p1, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollEnrolling;->mShouldShowLottie:Z
+
+    if-eqz p1, :cond_2
+
+    const p1, 0x7f0d02ca
+
+    invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
+
+    move-result-object p1
+
+    check-cast p1, Lcom/airbnb/lottie/LottieAnimationView;
+
+    iput-object p1, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollEnrolling;->mIllustrationLottie:Lcom/airbnb/lottie/LottieAnimationView;
+
+    :cond_2
+    :goto_0
+    return-void
+.end method
+
 .method private updateProgress(Z)V
     .locals 2
 
@@ -1097,7 +1155,7 @@
 .end method
 
 .method private updateTitleAndDescriptionForUdfps()V
-    .locals 4
+    .locals 7
 
     invoke-direct {p0}, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollEnrolling;->getCurrentStage()I
 
@@ -1107,15 +1165,19 @@
 
     const v2, 0x7f041190
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_a
 
     const/4 v3, 0x1
 
-    if-eq v0, v3, :cond_4
+    if-eq v0, v3, :cond_8
 
-    const/4 v3, 0x2
+    const/4 v4, 0x2
 
-    if-eq v0, v3, :cond_2
+    const/4 v5, 0x0
+
+    const-string v6, ""
+
+    if-eq v0, v4, :cond_5
 
     const/4 v2, 0x3
 
@@ -1149,60 +1211,164 @@
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->setTitle(Ljava/lang/CharSequence;)V
 
-    goto :goto_0
+    goto/16 :goto_0
 
     :cond_0
     const v0, 0x7f0411b2
 
     invoke-virtual {p0, v0}, Lcom/android/settings/biometrics/BiometricEnrollBase;->setHeaderText(I)V
 
+    iget-boolean v0, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollEnrolling;->mShowingNewUdfpsEnroll:Z
+
+    const v1, 0x7f04118f
+
+    const v2, 0x7f0411b1
+
+    if-eqz v0, :cond_3
+
+    iget-boolean v0, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollEnrolling;->mHaveShownUdfpsSideLottie:Z
+
+    if-nez v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollEnrolling;->mIllustrationLottie:Lcom/airbnb/lottie/LottieAnimationView;
+
+    if-eqz v0, :cond_1
+
+    iput-boolean v3, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollEnrolling;->mHaveShownUdfpsSideLottie:Z
+
+    invoke-virtual {p0, v6}, Lcom/android/settings/biometrics/BiometricEnrollBase;->setDescriptionText(Ljava/lang/CharSequence;)V
+
+    iget-object v0, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollEnrolling;->mIllustrationLottie:Lcom/airbnb/lottie/LottieAnimationView;
+
+    const v1, 0x7f03003e
+
+    invoke-virtual {v0, v1}, Lcom/airbnb/lottie/LottieAnimationView;->setAnimation(I)V
+
+    iget-object v0, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollEnrolling;->mIllustrationLottie:Lcom/airbnb/lottie/LottieAnimationView;
+
+    invoke-virtual {v0, v5}, Landroid/widget/ImageView;->setVisibility(I)V
+
+    iget-object v0, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollEnrolling;->mIllustrationLottie:Lcom/airbnb/lottie/LottieAnimationView;
+
+    invoke-virtual {v0}, Lcom/airbnb/lottie/LottieAnimationView;->playAnimation()V
+
+    iget-object v0, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollEnrolling;->mIllustrationLottie:Lcom/airbnb/lottie/LottieAnimationView;
+
+    const v1, 0x7f0411bd
+
+    invoke-virtual {p0, v1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-virtual {v0, p0}, Landroid/widget/ImageView;->setContentDescription(Ljava/lang/CharSequence;)V
+
+    goto/16 :goto_0
+
+    :cond_1
+    iget-object v0, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollEnrolling;->mIllustrationLottie:Lcom/airbnb/lottie/LottieAnimationView;
+
+    if-nez v0, :cond_b
+
     invoke-direct {p0}, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollEnrolling;->isStageHalfCompleted()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
-    const v0, 0x7f04118f
+    invoke-virtual {p0, v1}, Lcom/android/settings/biometrics/BiometricEnrollBase;->setDescriptionText(I)V
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/biometrics/BiometricEnrollBase;->setDescriptionText(I)V
-
-    goto :goto_0
-
-    :cond_1
-    const v0, 0x7f0411b1
-
-    invoke-virtual {p0, v0}, Lcom/android/settings/biometrics/BiometricEnrollBase;->setDescriptionText(I)V
-
-    goto :goto_0
+    goto/16 :goto_0
 
     :cond_2
+    invoke-virtual {p0, v2}, Lcom/android/settings/biometrics/BiometricEnrollBase;->setDescriptionText(I)V
+
+    goto/16 :goto_0
+
+    :cond_3
+    invoke-direct {p0}, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollEnrolling;->isStageHalfCompleted()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_4
+
+    invoke-virtual {p0, v1}, Lcom/android/settings/biometrics/BiometricEnrollBase;->setDescriptionText(I)V
+
+    goto :goto_0
+
+    :cond_4
+    invoke-virtual {p0, v2}, Lcom/android/settings/biometrics/BiometricEnrollBase;->setDescriptionText(I)V
+
+    goto :goto_0
+
+    :cond_5
     const v0, 0x7f0411b6
 
     invoke-virtual {p0, v0}, Lcom/android/settings/biometrics/BiometricEnrollBase;->setHeaderText(I)V
 
+    iget-boolean v0, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollEnrolling;->mShowingNewUdfpsEnroll:Z
+
+    if-eqz v0, :cond_6
+
+    iget-boolean v0, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollEnrolling;->mHaveShownUdfpsTipLottie:Z
+
+    if-nez v0, :cond_b
+
+    iget-object v0, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollEnrolling;->mIllustrationLottie:Lcom/airbnb/lottie/LottieAnimationView;
+
+    if-eqz v0, :cond_b
+
+    iput-boolean v3, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollEnrolling;->mHaveShownUdfpsTipLottie:Z
+
+    invoke-virtual {p0, v6}, Lcom/android/settings/biometrics/BiometricEnrollBase;->setDescriptionText(Ljava/lang/CharSequence;)V
+
+    iget-object v0, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollEnrolling;->mIllustrationLottie:Lcom/airbnb/lottie/LottieAnimationView;
+
+    const v1, 0x7f030041
+
+    invoke-virtual {v0, v1}, Lcom/airbnb/lottie/LottieAnimationView;->setAnimation(I)V
+
+    iget-object v0, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollEnrolling;->mIllustrationLottie:Lcom/airbnb/lottie/LottieAnimationView;
+
+    invoke-virtual {v0, v5}, Landroid/widget/ImageView;->setVisibility(I)V
+
+    iget-object v0, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollEnrolling;->mIllustrationLottie:Lcom/airbnb/lottie/LottieAnimationView;
+
+    invoke-virtual {v0}, Lcom/airbnb/lottie/LottieAnimationView;->playAnimation()V
+
+    iget-object v0, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollEnrolling;->mIllustrationLottie:Lcom/airbnb/lottie/LottieAnimationView;
+
+    const v1, 0x7f0411be
+
+    invoke-virtual {p0, v1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-virtual {v0, p0}, Landroid/widget/ImageView;->setContentDescription(Ljava/lang/CharSequence;)V
+
+    goto :goto_0
+
+    :cond_6
     invoke-direct {p0}, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollEnrolling;->isStageHalfCompleted()Z
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_7
 
     invoke-virtual {p0, v2}, Lcom/android/settings/biometrics/BiometricEnrollBase;->setDescriptionText(I)V
 
     goto :goto_0
 
-    :cond_3
-    const-string v0, ""
-
-    invoke-virtual {p0, v0}, Lcom/android/settings/biometrics/BiometricEnrollBase;->setDescriptionText(Ljava/lang/CharSequence;)V
+    :cond_7
+    invoke-virtual {p0, v6}, Lcom/android/settings/biometrics/BiometricEnrollBase;->setDescriptionText(Ljava/lang/CharSequence;)V
 
     goto :goto_0
 
-    :cond_4
+    :cond_8
     invoke-virtual {p0, v2}, Lcom/android/settings/biometrics/BiometricEnrollBase;->setHeaderText(I)V
 
     iget-boolean v0, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollEnrolling;->mIsAccessibilityEnabled:Z
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_9
 
     const v0, 0x7f0411b8
 
@@ -1210,18 +1376,19 @@
 
     goto :goto_0
 
-    :cond_5
+    :cond_9
     const v0, 0x7f0411b9
 
     invoke-virtual {p0, v0}, Lcom/android/settings/biometrics/BiometricEnrollBase;->setDescriptionText(I)V
 
     goto :goto_0
 
-    :cond_6
+    :cond_a
     invoke-virtual {p0, v2}, Lcom/android/settings/biometrics/BiometricEnrollBase;->setHeaderText(I)V
 
     invoke-virtual {p0, v1}, Lcom/android/settings/biometrics/BiometricEnrollBase;->setDescriptionText(I)V
 
+    :cond_b
     :goto_0
     return-void
 .end method
@@ -1260,6 +1427,46 @@
     invoke-virtual {p0, v0}, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollSidecar;->setEnrollReason(I)V
 
     return-object p0
+.end method
+
+.method public onConfigurationChanged(Landroid/content/res/Configuration;)V
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollEnrolling;->mShowingNewUdfpsEnroll:Z
+
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
+    iget p1, p1, Landroid/content/res/Configuration;->orientation:I
+
+    const/4 v0, 0x1
+
+    if-eq p1, v0, :cond_2
+
+    const/4 v0, 0x2
+
+    if-eq p1, v0, :cond_1
+
+    const-string p0, "FingerprintEnrollEnrolling"
+
+    const-string p1, "Error unhandled configuration change"
+
+    invoke-static {p0, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    :cond_1
+    invoke-direct {p0, v0}, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollEnrolling;->updateOrientation(I)V
+
+    goto :goto_0
+
+    :cond_2
+    invoke-direct {p0, v0}, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollEnrolling;->updateOrientation(I)V
+
+    :goto_0
+    return-void
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
@@ -1397,6 +1604,105 @@
     invoke-virtual {p0, v0}, Lcom/android/settings/biometrics/BiometricEnrollBase;->setHeaderText(I)V
 
     :goto_3
+    new-instance v0, Lcom/android/settingslib/display/DisplayDensityUtils;
+
+    invoke-virtual {p0}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Lcom/android/settingslib/display/DisplayDensityUtils;-><init>(Landroid/content/Context;)V
+
+    invoke-virtual {v0}, Lcom/android/settingslib/display/DisplayDensityUtils;->getCurrentIndex()I
+
+    move-result v1
+
+    invoke-virtual {v0}, Lcom/android/settingslib/display/DisplayDensityUtils;->getValues()[I
+
+    move-result-object v4
+
+    aget v1, v4, v1
+
+    invoke-virtual {v0}, Lcom/android/settingslib/display/DisplayDensityUtils;->getDefaultDensity()I
+
+    move-result v0
+
+    if-ne v0, v1, :cond_4
+
+    move v0, v3
+
+    goto :goto_4
+
+    :cond_4
+    move v0, v2
+
+    :goto_4
+    iput-boolean v0, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollEnrolling;->mShouldShowLottie:Z
+
+    invoke-virtual {p0}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const v1, 0x1110161
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
+
+    move-result v0
+
+    iput-boolean v0, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollEnrolling;->mShowingNewUdfpsEnroll:Z
+
+    invoke-virtual {p0}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/android/settings/biometrics/BiometricUtils;->isReverseLandscape(Landroid/content/Context;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_6
+
+    invoke-virtual {p0}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/android/settings/biometrics/BiometricUtils;->isLandscape(Landroid/content/Context;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_5
+
+    goto :goto_5
+
+    :cond_5
+    move v0, v2
+
+    goto :goto_6
+
+    :cond_6
+    :goto_5
+    move v0, v3
+
+    :goto_6
+    iget-boolean v1, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollEnrolling;->mShowingNewUdfpsEnroll:Z
+
+    if-eqz v1, :cond_8
+
+    if-eqz v0, :cond_7
+
+    const/4 v0, 0x2
+
+    goto :goto_7
+
+    :cond_7
+    move v0, v3
+
+    :goto_7
+    invoke-direct {p0, v0}, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollEnrolling;->updateOrientation(I)V
+
+    :cond_8
     const v0, 0x7f0d0213
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
@@ -1479,7 +1785,7 @@
 
     iget-object v0, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollEnrolling;->mProgressBar:Landroid/widget/ProgressBar;
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_9
 
     invoke-virtual {v0}, Landroid/widget/ProgressBar;->getBackground()Landroid/graphics/drawable/Drawable;
 
@@ -1487,13 +1793,13 @@
 
     check-cast v0, Landroid/graphics/drawable/LayerDrawable;
 
-    goto :goto_4
+    goto :goto_8
 
-    :cond_4
+    :cond_9
     const/4 v0, 0x0
 
-    :goto_4
-    if-eqz v0, :cond_5
+    :goto_8
+    if-eqz v0, :cond_a
 
     const v1, 0x7f0d0230
 
@@ -1521,7 +1827,7 @@
 
     invoke-virtual {v0, v1}, Landroid/graphics/drawable/AnimatedVectorDrawable;->registerAnimationCallback(Landroid/graphics/drawable/Animatable2$AnimationCallback;)V
 
-    :cond_5
+    :cond_a
     const v0, 0x10c000d
 
     invoke-static {p0, v0}, Landroid/view/animation/AnimationUtils;->loadInterpolator(Landroid/content/Context;I)Landroid/view/animation/Interpolator;
@@ -1548,7 +1854,7 @@
 
     iget-object v0, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollEnrolling;->mProgressBar:Landroid/widget/ProgressBar;
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_b
 
     new-instance v1, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollEnrolling$$ExternalSyntheticLambda1;
 
@@ -1556,12 +1862,12 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ProgressBar;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
 
-    :cond_6
-    if-eqz p1, :cond_7
+    :cond_b
+    if-eqz p1, :cond_c
 
     move v2, v3
 
-    :cond_7
+    :cond_c
     iput-boolean v2, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollEnrolling;->mRestoring:Z
 
     return-void

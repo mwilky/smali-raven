@@ -711,7 +711,7 @@
 
     iget-object p0, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeBaseFragment;->mSummary:Landroid/widget/TextView;
 
-    const v0, 0x7f041649
+    const v0, 0x7f04164c
 
     invoke-virtual {p0, v0}, Landroid/widget/TextView;->setText(I)V
 
@@ -730,7 +730,7 @@
 
     if-eqz v0, :cond_1
 
-    const v0, 0x7f04165a
+    const v0, 0x7f04165d
 
     new-array v2, v2, [Ljava/lang/Object;
 
@@ -745,7 +745,7 @@
     goto :goto_0
 
     :cond_1
-    const v0, 0x7f041659
+    const v0, 0x7f04165c
 
     new-array v2, v2, [Ljava/lang/Object;
 
@@ -913,7 +913,7 @@
 
     const/4 v0, 0x0
 
-    const v1, 0x7f041656
+    const v1, 0x7f041659
 
     :try_start_0
     new-instance v2, Lcom/android/settings/wifi/dpp/WifiQrCode;
@@ -1052,7 +1052,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f041641
+    const p1, 0x7f041644
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->setTitle(I)V
 
@@ -1063,7 +1063,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f041658
+    const p1, 0x7f04165b
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->setTitle(I)V
 
@@ -1223,7 +1223,7 @@
 
     invoke-static {v0, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const p1, 0x7f041644
+    const p1, 0x7f041647
 
     invoke-direct {p0, p1}, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->showErrorMessageAndRestartCamera(I)V
 
@@ -1393,7 +1393,7 @@
 
     if-eqz p2, :cond_1
 
-    const p2, 0x7f041641
+    const p2, 0x7f041644
 
     new-array v1, v0, [Ljava/lang/Object;
 
@@ -1417,7 +1417,7 @@
 
     iget-object v1, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeBaseFragment;->mSummary:Landroid/widget/TextView;
 
-    const v2, 0x7f041643
+    const v2, 0x7f041646
 
     const/4 v3, 0x1
 
@@ -1447,7 +1447,7 @@
     throw p0
 
     :cond_1
-    const p2, 0x7f041658
+    const p2, 0x7f04165b
 
     new-array v0, v0, [Ljava/lang/Object;
 

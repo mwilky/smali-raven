@@ -85,7 +85,7 @@
         <item>ஆடியோவை இயக்கு</item>
         <item>கிளிப்போர்டைப் படி</item>
         <item>கிளிப்போர்ட்டை மாற்று</item>
-        <item>மீடியா பொத்தான்கள்</item>
+        <item>மீடியா பட்டன்கள்</item>
         <item>ஆடியோவை மையப்படுத்து</item>
         <item>முதன்மை ஒலியளவு</item>
         <item>குரல் ஒலியளவு</item>
@@ -152,7 +152,7 @@
         <item>ஆடியோவை இயக்கு</item>
         <item>கிளிப்போர்டைப் படி</item>
         <item>கிளிப்போர்ட்டை மாற்று</item>
-        <item>மீடியா பொத்தான்கள்</item>
+        <item>மீடியா பட்டன்கள்</item>
         <item>ஆடியோவை மையப்படுத்து</item>
         <item>முதன்மை ஒலியளவு</item>
         <item>குரல் ஒலியளவு</item>
@@ -612,14 +612,6 @@
         <item>ஆஃப்</item>
         <item>செவ்வகம் அல்லாத கிளிப் பகுதியை நீல நிறத்தில் வரையவும்</item>
         <item>சோதிக்கப்பட்ட வரைதல் கட்டளைகளைப் பச்சை நிறத்தில் தனிப்படுத்தவும்</item>
-    </string-array>
-    <string-array name="sim_color_light">
-        <item>\@color/SIM_color_cyan</item>
-        <item>\@color/SIM_color_blue800</item>
-        <item>\@color/SIM_color_green800</item>
-        <item>\@color/SIM_color_purple800</item>
-        <item>\@color/SIM_color_pink800</item>
-        <item>\@color/SIM_color_orange</item>
     </string-array>
     <string-array name="swipe_direction_values">
         <item>1</item>

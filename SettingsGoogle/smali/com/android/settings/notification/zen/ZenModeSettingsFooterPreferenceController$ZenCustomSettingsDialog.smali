@@ -66,12 +66,12 @@
 
     if-eqz p1, :cond_0
 
-    const p0, 0x7f04188b
+    const p0, 0x7f04188e
 
     goto :goto_0
 
     :cond_0
-    const p0, 0x7f04139d
+    const p0, 0x7f04139f
 
     :goto_0
     return p0
@@ -119,13 +119,13 @@
 
     invoke-direct {p1, v0}, Landroidx/appcompat/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f0417cd
+    const v1, 0x7f0417d0
 
     invoke-virtual {p1, v1}, Landroidx/appcompat/app/AlertDialog$Builder;->setTitle(I)Landroidx/appcompat/app/AlertDialog$Builder;
 
     move-result-object p1
 
-    const v1, 0x7f0417cc
+    const v1, 0x7f0417cf
 
     new-instance v2, Lcom/android/settings/notification/zen/ZenModeSettingsFooterPreferenceController$ZenCustomSettingsDialog$1;
 
@@ -135,7 +135,7 @@
 
     move-result-object p1
 
-    const v1, 0x7f0417cb
+    const v1, 0x7f0417ce
 
     const/4 v2, 0x0
 

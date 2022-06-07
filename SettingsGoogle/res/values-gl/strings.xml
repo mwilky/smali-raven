@@ -30,7 +30,7 @@
     <string name="double_twist_for_camera_mode_title">Xirar para cambiar á cámara dianteira</string>
     <string name="doze_always_on_summary">Maior uso da batería</string>
     <string name="doze_always_on_title">Mostrar sempre a hora e datos</string>
-    <string name="doze_summary">Cando a pantalla está escura, actívase para notificacións novas</string>
+    <string name="doze_summary">Cando a pantalla está escura, actívase se chegan notificacións novas</string>
     <string name="doze_title">Reactivar coas notificacións</string>
     <string name="fingerprint_swipe_for_notifications_title">Pasar o dedo polo sensor de impresións dixitais para ver as notificacións</string>
     <string name="gesture_preference_title">Xestos</string>
@@ -62,7 +62,7 @@
     <string name="lockscreen_settings_what_to_show_category">Que se debe mostrar</string>
     <string name="night_display_title">Luz nocturna</string>
     <string name="owner_info_settings_summary">Ningún</string>
-    <string name="owner_info_settings_title">Engadir texto na p. de bloqueo</string>
+    <string name="owner_info_settings_title">Engadir texto na pantalla de bloqueo</string>
     <string name="power_menu_setting_name">Manter premido botón de acendido</string>
     <string name="profile_section_header">Notificacións do traballo</string>
     <string name="reset_dashboard_summary">Pódense restablecer a rede, as aplicacións ou o dispositivo</string>
@@ -85,17 +85,17 @@
     <string name="accessibility_notification_vibration_title">Vibración das notificacións</string>
     <string name="accessibility_ring_vibration_title">Vibración do ton</string>
     <string name="accessibility_touch_vibration_title">Reacción aos toques</string>
-    <string name="keywords_notification_vibration">tecnoloxía táctil, vibración, sensibilidade</string>
-    <string name="keywords_ring_vibration">tecnoloxía táctil, vibración, teléfono, chamada, sensibilidade, ton</string>
-    <string name="keywords_touch_vibration">tecnoloxía táctil, vibrar, pantalla, sensibilidade</string>
+    <string name="keywords_notification_vibration">tecnoloxía háptica, vibración, sensibilidade</string>
+    <string name="keywords_ring_vibration">tecnoloxía háptica, vibración, teléfono, chamada, sensibilidade, ton</string>
+    <string name="keywords_touch_vibration">tecnoloxía háptica, vibrar, pantalla, sensibilidade</string>
     <string name="vibrate_when_ringing_title">Vibrar coas chamadas</string>
-    <string name="accessibility_vibration_settings_screen_title">Usar a vibración e a tecnoloxía táctil</string>
+    <string name="accessibility_vibration_settings_screen_title">Usar a vibración e a tecnoloxía háptica</string>
     <string name="one_handed_title">Modo dunha soa man</string>
-    <string name="vibration_haptics_settings_not_available_summary">A vibración e a tecnoloxía táctil non están dispoñibles porque o teléfono está silenciado.</string>
-    <string name="vibration_haptics_strength_category_title">Intensidade da vibración e da tecnoloxía táctil</string>
+    <string name="vibration_haptics_settings_not_available_summary">A vibración e a tecnoloxía háptica non están dispoñibles porque o teléfono está silenciado.</string>
+    <string name="vibration_haptics_strength_category_title">Intensidade da vibración e da resposta háptica</string>
     <string name="peak_refresh_rate_title">Pantalla fluída</string>
     <string name="peak_refresh_rate_summary">Incrementa automaticamente a frecuencia de actualización de 60 a 90 Hz en determinados tipos de contido. Aumenta o uso da batería.</string>
-    <string name="accessibility_vibration_settings_title">Vibración e tecnoloxía táctil</string>
+    <string name="accessibility_vibration_settings_title">Vibración e tecnoloxía háptica</string>
     <string name="columbus_title">Usa Toque rápido para iniciar accións</string>
     <string name="emergency_gesture_screen_title">Emerxencia SOS</string>
     <string name="abc_action_mode_done">Feito</string>
@@ -235,7 +235,7 @@ Non todas as aplicacións son compatibles con esta opción de configuración."</
     <string name="accessibility_hearingaid_pair_instructions_message">Para vincular os audiófonos, busca e toca o teu dispositivo na seguinte pantalla. Asegúrate de que os audiófonos estean no modo de vinculación.</string>
     <string name="accessibility_hearingaid_title">Audiófonos</string>
     <string name="accessibility_introduction_title">Acerca de: %1$s</string>
-    <string name="accessibility_keyboard_haptics_title">Tecnoloxía táctil do teclado</string>
+    <string name="accessibility_keyboard_haptics_title">Tecnoloxía háptica do teclado</string>
     <string name="accessibility_lock_screen_progress">Uso de %1$d de %2$d caracteres</string>
     <string name="accessibility_long_press_timeout_preference_title">Retardo de pulsación prolongada</string>
     <string name="accessibility_magnification_area_settings_all_summary">Alterna entre a pantalla completa e a parcial</string>
@@ -633,7 +633,7 @@ Simplemente achega os dispositivos entre si (normalmente as súas partes posteri
     <string name="app_link_open_ask">Pregunta sempre</string>
     <string name="app_link_open_never">Non permite que a aplicación abra ligazóns</string>
     <string name="app_list_memory_use">Uso da aplicación</string>
-    <string name="app_list_preference_none">Ningún</string>
+    <string name="app_list_preference_none">Ningunha</string>
     <string name="app_memory_use">Uso da memoria</string>
     <string name="app_name_label">Aplicación</string>
     <string name="app_names_concatenation_template_2">%1$s, %2$s</string>
@@ -1092,7 +1092,7 @@ entre ^2"</string>
     <string name="biometric_settings_category_ways_to_unlock">Maneiras de desbloquear o dispositivo</string>
     <string name="biometric_settings_hand_back_to_guardian">Devólvelle o teléfono a teu pai ou túa nai</string>
     <string name="biometric_settings_hand_back_to_guardian_ok">Aceptar</string>
-    <string name="biometric_settings_intro">Se configuras o desbloqueo facial e mediante impresión dixital, o teléfono pedirache a impresión dixital no caso de que leves máscara ou esteas nun espazo escuro</string>
+    <string name="biometric_settings_intro">Se configuras o desbloqueo facial e dactilar, o teléfono pedirache a impresión dixital no caso de que leves máscara ou esteas nun espazo escuro</string>
     <string name="biometric_settings_use_biometric_for_apps">Verificar identidade nas aplicacións</string>
     <string name="biometric_settings_use_biometric_unlock_phone">Desbloquear teléfono</string>
     <string name="biometric_settings_use_face_or_fingerprint_preference_summary">Coa cara ou coa impresión dixital</string>
@@ -1434,7 +1434,7 @@ Se instalas un certificado de CA, o seu propietario podería acceder aos teus da
     <string name="call_manager_title">Xestor de chamadas</string>
     <string name="call_settings_summary">Configura o correo de voz, o desvío de chamadas, a chamada en espera e o identificador de chamada</string>
     <string name="call_settings_title">Configuración de chamada</string>
-    <string name="call_volume_option_title">Volume de chamada</string>
+    <string name="call_volume_option_title">Volume das chamadas</string>
     <string name="calls_and_sms">Chamadas e SMS</string>
     <string name="calls_and_sms_ask_every_time">Preguntar sempre</string>
     <string name="calls_and_sms_category">Chamadas por wifi</string>
@@ -2522,8 +2522,8 @@ Os datos da copia de seguranza non contarán na cota de almacenamento de Drive. 
     <string name="fullbackup_erase_dialog_message">Queres deixar de crear copias de seguranza dos datos do dispositivo (como os contrasinais das redes wifi e o historial de chamadas) e dos datos das aplicacións (como a configuración e os ficheiros almacenados polas aplicacións), e borrar todas as copias presentes en Google Drive?</string>
     <string name="gadget_picker_title">Escoller gadget</string>
     <string name="game_controller_settings_category">Mando do xogo</string>
-    <string name="game_dashboard_always_on_summary">Mostra nos xogos o atallo ao panel de xogo</string>
-    <string name="game_dashboard_always_on_title">Panel de xogo</string>
+    <string name="game_dashboard_always_on_summary">Mostrar a icona en todos os xogos (sen ter que pasar o dedo cara arriba ou abaixo)</string>
+    <string name="game_dashboard_always_on_title">Icona flotante do panel de xogo</string>
     <string name="game_dashboard_dnd_rule_name">Xogos</string>
     <string name="game_dashboard_dnd_summary">Mentres xogues, recibe notificacións só de persoas e de aplicacións importantes</string>
     <string name="game_dashboard_dnd_title">Modo Non molestar para xogos</string>
@@ -2598,7 +2598,7 @@ Os datos da copia de seguranza non contarán na cota de almacenamento de Drive. 
     <string name="guest_resetting">Restablecendo sesión de convidado…</string>
     <string name="hardkeyboard_category">Configuración do teclado físico</string>
     <string name="hardware_info">Modelo e hardware</string>
-    <string name="hardware_revision">Versión de hardware</string>
+    <string name="hardware_revision">Versión do hardware</string>
     <string name="hdcp_checking_dialog_title">Definir comprobación HDCP</string>
     <string name="hdcp_checking_title">Comprobación HDCP</string>
     <string name="header_account_settings">Configuración da conta</string>
@@ -2983,7 +2983,7 @@ Podes cambiar esta opción máis tarde en Configuración > Aplicacións e notifi
     <string name="lock_screen_notifs_show_all">Mostrar conversas predeterminadas e silenciadas</string>
     <string name="lock_screen_notifs_show_none">Non mostrar ningunha notificación</string>
     <string name="lock_screen_notifs_title">Notificacións na pantalla de bloqueo</string>
-    <string name="lock_screen_password_skip_biometrics_message">"Para configurar o desbloqueo facial e mediante impresión dixital, necesítase un contrasinal.
+    <string name="lock_screen_password_skip_biometrics_message">"Para configurar o desbloqueo facial e dactilar, necesítase un contrasinal.
 
 O teléfono estará protexido por un contrasinal en caso de perda ou roubo."</string>
     <string name="lock_screen_password_skip_biometrics_title">Omitir axuste (contrasinal, cara e impresión)?</string>
@@ -2991,13 +2991,13 @@ O teléfono estará protexido por un contrasinal en caso de perda ou roubo."</st
 
 O teléfono estará protexido por un contrasinal en caso de perda ou roubo."</string>
     <string name="lock_screen_password_skip_face_title">Omitir configuración (contrasinal e cara)?</string>
-    <string name="lock_screen_password_skip_fingerprint_message">"Para configurar o desbloqueo mediante impresión dixital, necesítase un contrasinal.
+    <string name="lock_screen_password_skip_fingerprint_message">"Para configurar o desbloqueo dactilar, necesítase un contrasinal.
 
 O teléfono estará protexido por un contrasinal en caso de perda ou roubo."</string>
     <string name="lock_screen_password_skip_fingerprint_title">Omitir configuración (contrasinal e impresión)?</string>
     <string name="lock_screen_password_skip_message">O teléfono estará protexido por un contrasinal en caso de perda ou roubo</string>
     <string name="lock_screen_password_skip_title">Queres omitir a configuración do contrasinal?</string>
-    <string name="lock_screen_pattern_skip_biometrics_message">"Para configurar o desbloqueo facial e mediante impresión dixital, necesítase un padrón.
+    <string name="lock_screen_pattern_skip_biometrics_message">"Para configurar o desbloqueo facial e dactilar, necesítase un padrón.
 
 O teléfono estará protexido por un padrón en caso de perda ou roubo."</string>
     <string name="lock_screen_pattern_skip_biometrics_title">Omitir configuración (padrón, cara e impresión)?</string>
@@ -3005,13 +3005,13 @@ O teléfono estará protexido por un padrón en caso de perda ou roubo."</string
 
 O teléfono estará protexido por un padrón en caso de perda ou roubo."</string>
     <string name="lock_screen_pattern_skip_face_title">Omitir configuración (padrón e cara)?</string>
-    <string name="lock_screen_pattern_skip_fingerprint_message">"Para configurar o desbloqueo mediante impresión dixital, necesítase un padrón.
+    <string name="lock_screen_pattern_skip_fingerprint_message">"Para configurar o desbloqueo dactilar, necesítase un padrón.
 
 O teléfono estará protexido por un padrón en caso de perda ou roubo."</string>
     <string name="lock_screen_pattern_skip_fingerprint_title">Omitir configuración (padrón e impresión)?</string>
     <string name="lock_screen_pattern_skip_message">O teléfono estará protexido por un padrón en caso de perda ou roubo</string>
     <string name="lock_screen_pattern_skip_title">Queres omitir a configuración do padrón?</string>
-    <string name="lock_screen_pin_skip_biometrics_message">"Para configurar o desbloqueo facial e mediante impresión dixital, necesítase un PIN.
+    <string name="lock_screen_pin_skip_biometrics_message">"Para configurar o desbloqueo facial e dactilar, necesítase un PIN.
 
 O teléfono estará protexido por un PIN en caso de perda ou roubo."</string>
     <string name="lock_screen_pin_skip_biometrics_title">Queres omitir a configuración do PIN, da cara e da impresión dixital?</string>
@@ -3019,7 +3019,7 @@ O teléfono estará protexido por un PIN en caso de perda ou roubo."</string>
 
 O teléfono estará protexido por un PIN en caso de perda ou roubo."</string>
     <string name="lock_screen_pin_skip_face_title">Queres omitir a configuración do PIN e da cara?</string>
-    <string name="lock_screen_pin_skip_fingerprint_message">"Para configurar o desbloqueo mediante impresión dixital, necesítase un PIN.
+    <string name="lock_screen_pin_skip_fingerprint_message">"Para configurar o desbloqueo dactilar, necesítase un PIN.
 
 O teléfono estará protexido por un PIN en caso de perda ou roubo."</string>
     <string name="lock_screen_pin_skip_fingerprint_title">Queres omitir a configuración do PIN e da impresión dixital?</string>
@@ -3552,7 +3552,7 @@ Ao cambiar a %1$s non se cancelará o teu servizo de %2$s."</string>
     <string name="night_display_suggestion_title">Define a planificación da Luz nocturna</string>
     <string name="night_display_summary_off_auto_mode_custom">Activarase automaticamente á seguinte hora: %1$s</string>
     <string name="night_display_summary_off_auto_mode_never">Nunca se activará automaticamente</string>
-    <string name="night_display_summary_off_auto_mode_twilight">Activarase automaticamente ao anoitecer</string>
+    <string name="night_display_summary_off_auto_mode_twilight">Activarase automaticamente ao solpor</string>
     <string name="night_display_summary_on_auto_mode_custom">Desactivarase automaticamente á seguinte hora: %1$s</string>
     <string name="night_display_summary_on_auto_mode_never">Nunca se desactivará automaticamente</string>
     <string name="night_display_summary_on_auto_mode_twilight">Desactivarase automaticamente ao amencer</string>
@@ -4186,7 +4186,7 @@ Voltea o teléfono para probar a función."</string>
     <string name="reverse_charging_warning_summary">Non está dispoñible porque o nivel de batería é inferior ao %1$s</string>
     <string name="reverse_charging_warning_title">A función de compartir batería non está dispoñible porque o nivel de batería é inferior ao %1$s</string>
     <string name="right_edge">Bordo dereito</string>
-    <string name="ring_volume_option_title">Volume de notificacións e son</string>
+    <string name="ring_volume_option_title">Volume das notificacións e o son</string>
     <string name="ring_volume_title">Volume de notificacións e son</string>
     <string name="ringtone_title">Ton de chamada do teléfono</string>
     <string name="ringtones_category_preference_title">Tons de chamada</string>
@@ -4355,7 +4355,7 @@ Para fixar unha aplicación, sigue estes pasos: \u0009
     <string name="security_settings_biometric_preference_summary_both_fp_multiple">Engadíronse a cara e as impresións dixitais</string>
     <string name="security_settings_biometric_preference_summary_both_fp_single">Engadíronse a cara e a impresión dixital</string>
     <string name="security_settings_biometric_preference_summary_none_enrolled">Toca para configurar</string>
-    <string name="security_settings_biometric_preference_title">Desbloqueo facial e mediante impresión dixital</string>
+    <string name="security_settings_biometric_preference_title">Desbloqueo facial e dactilar</string>
     <string name="security_settings_face_enroll_consent_introduction_title">Permitir desbloqueo facial</string>
     <string name="security_settings_face_enroll_dialog_ok">Aceptar</string>
     <string name="security_settings_face_enroll_done">Feito</string>
@@ -4485,7 +4485,7 @@ Unha vez eliminado, terás que usar o PIN, o padrón ou o contrasinal para desbl
     <string name="security_settings_face_settings_require_confirmation_details">Ao utilizar o desbloqueo facial en aplicacións, pedir confirmación</string>
     <string name="security_settings_face_settings_use_face_category">Desbloq. facial para</string>
     <string name="security_settings_fingerprint_bad_calibration">Non se puido usar o sensor de impresión dixital. Visita un provedor de reparacións</string>
-    <string name="security_settings_fingerprint_enroll_consent_introduction_title">Permitir desbloqueo impresión</string>
+    <string name="security_settings_fingerprint_enroll_consent_introduction_title">Permitir desbloqueo dactilar</string>
     <string name="security_settings_fingerprint_enroll_dialog_delete">Eliminar</string>
     <string name="security_settings_fingerprint_enroll_dialog_name_label">Nome</string>
     <string name="security_settings_fingerprint_enroll_dialog_ok">Aceptar</string>
@@ -4572,6 +4572,8 @@ Nota: Non podes usar a túa impresión dixital para desbloquear este dispositivo
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">Sigue a icona da impresión dixital</string>
     <string name="security_settings_udfps_enroll_start_message">Mantén a impresión dixital en horizontal sobre o sensor ata que notes unha vibración</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">Unha vez máis</string>
+    <string name="security_settings_udfps_side_fingerprint_help">Mantén a parte lateral da túa impresión dixital no sensor e, despois, cambia ao outro lado</string>
+    <string name="security_settings_udfps_tip_fingerprint_help">Levanta o dedo e volve tocar</string>
     <string name="security_settings_work_fingerprint_preference_title">Pixel Imprint para o traballo</string>
     <string name="security_status_title">Estado de seguranza</string>
     <string name="see_less">Ver menos</string>
@@ -4819,7 +4821,7 @@ Ao cambiar, non se cancelará o teu servizo de %1$s."</string>
     <string name="sort_order_recent_notification">Máis recentes</string>
     <string name="sort_order_size">Ordenar por tamaño</string>
     <string name="sound_category_call_ringtone_vibrate_title">Ton de chamada e vibración das chamadas</string>
-    <string name="sound_dashboard_summary">Volume, tecnoloxía táctil, modo Non molestar</string>
+    <string name="sound_dashboard_summary">Volume, tecnoloxía háptica, modo Non molestar</string>
     <string name="sound_effects_enable_title">Sons ao tocar</string>
     <string name="sound_settings">Son e vibración</string>
     <string name="sound_settings_example_summary">Volume de notificacións e son ao 80 %</string>
@@ -5532,10 +5534,11 @@ Calquera usuario pode actualizar as aplicacións para todos os demais usuarios."
     <string name="verify_apps_over_usb_title">Verificar aplicacións por USB</string>
     <string name="version_text">versión %1$s</string>
     <string name="vibrate_for_calls_settings_not_available_summary">A función de vibrar cando se reciban chamadas non está dispoñible porque o teléfono está silenciado.</string>
+    <string name="vibrate_icon_title">Mostrar sempre a icona no modo de vibración</string>
     <string name="vibrate_in_silent_title">Vibrar cando está en silencio</string>
     <string name="vibrate_input_devices">Redirixir vibración</string>
     <string name="vibrate_input_devices_summary">Envía vibración ao mando de xogos se está conectado</string>
-    <string name="vibrate_on_touch_summary">Reacción táctil ao tocar, usar o teclado e moito máis</string>
+    <string name="vibrate_on_touch_summary">Resposta háptica ao tocar, usar o teclado e moito máis</string>
     <string name="vibrate_on_touch_title">Vibración ao tocar</string>
     <string name="vibrate_when_ringing_option_always_vibrate">Vibrar sempre</string>
     <string name="vibrate_when_ringing_option_never_vibrate">Non vibrar nunca</string>

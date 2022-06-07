@@ -19,7 +19,7 @@
     <string name="camera_gesture_desc">Білекті екі рет бұру арқылы камера қолданбасын ашу</string>
     <string name="camera_gesture_title">Камераны білекті айналдырып қосу</string>
     <string name="color_mode_title">Түстер</string>
-    <string name="dark_ui_mode">Қараңғы тақырып</string>
+    <string name="dark_ui_mode">Қараңғы режим</string>
     <string name="date_and_time">Күн және уақыт</string>
     <string name="device_theme">Құрылғы тақырыбы</string>
     <string name="display_settings">Дисплей</string>
@@ -85,9 +85,9 @@
     <string name="accessibility_notification_vibration_title">Хабарландыру дірілі</string>
     <string name="accessibility_ring_vibration_title">Қоңырау дірілі</string>
     <string name="accessibility_touch_vibration_title">Түрту кезіндегі діріл</string>
-    <string name="keywords_notification_vibration">сенсорлар, діріл, сезгіштік</string>
-    <string name="keywords_ring_vibration">сенсорлар, діріл, телефон, қоңырау, сезгіштік</string>
-    <string name="keywords_touch_vibration">жанасу сезімталдығы, діріл, экран, сезімталдық</string>
+    <string name="keywords_notification_vibration">хептика, діріл, сезгіштік</string>
+    <string name="keywords_ring_vibration">хептика, діріл, телефон, қоңырау, сезгіштік</string>
+    <string name="keywords_touch_vibration">хептика, діріл, экран, сезгіштік</string>
     <string name="vibrate_when_ringing_title">Қоңырау кезіндегі діріл</string>
     <string name="accessibility_vibration_settings_screen_title">Діріл мен хептиканы пайдалану</string>
     <string name="one_handed_title">Бір қолмен басқару режимі</string>
@@ -219,7 +219,7 @@
     <string name="accessibility_disable_animations">Анимацияны өшіру</string>
     <string name="accessibility_display_daltonizer_preference_subtitle">Құрылғыңызда түстердің қалай көрсетілетінін реттеңіз. Бұл мыналар үшін пайдалы болуы мүмкін:&lt;br/>&lt;br/> &lt;ol> &lt;li>&amp;nbsp;түстерді анығырақ көру&lt;/li> &lt;li>&amp;nbsp;зейініңізді жақсарту үшін түстерді өшіру.&lt;/li> &lt;/ol></string>
     <string name="accessibility_display_daltonizer_preference_title">Түсті түзету</string>
-    <string name="accessibility_display_inversion_preference_subtitle">Түс инверсиясы жарық экранды қараңғыға ауыстырады.&lt;br/>&lt;br/> Ескертпе: &lt;ol> &lt;li> Қараңғы экранды жарыққа ауыстыру мүмкіндігі де бар.&lt;/li> &lt;li> Мультимедиа мен суреттердегі түстер өзгереді.&lt;/li> &lt;li> Қараңғы фонды көрсету үшін қараңғы тақырыпты қолдануға болады. Бірақ қараңғы тақырып қолдау көрсетілетін қолданбаларда ғана қосылады. Ал түстер инверсиясы кез келген қолданбада бар.&lt;/li> &lt;/ol></string>
+    <string name="accessibility_display_inversion_preference_subtitle">Түс инверсиясы жарық экранды қараңғыға ауыстырады.&lt;br/>&lt;br/> Ескертпе: &lt;ol> &lt;li> Қараңғы экранды жарыққа ауыстыру мүмкіндігі де бар.&lt;/li> &lt;li> Мультимедиа мен суреттердегі түстер өзгереді.&lt;/li> &lt;li> Қараңғы фонды көрсету үшін қараңғы режимты қолдануға болады. Бірақ қараңғы режим қолдау көрсетілетін қолданбаларда ғана қосылады. Ал түстер инверсиясы кез келген қолданбада бар.&lt;/li> &lt;/ol></string>
     <string name="accessibility_display_inversion_preference_title">Түс инверсиясы</string>
     <string name="accessibility_display_inversion_shortcut_title">Түс инверсиясы таңбашасы</string>
     <string name="accessibility_display_inversion_switch_title">Түстер инверсиясын пайдалану</string>
@@ -449,9 +449,9 @@
     <string name="adaptive_sleep_camera_lock_summary">Зейінді экран функциясы үшін камераның құлпын ашу керек.</string>
     <string name="adaptive_sleep_contextual_slice_summary">Экранға қарап тұрғанда, ол өшпейді</string>
     <string name="adaptive_sleep_contextual_slice_title">\"Зейінді экран\" функциясын қосу</string>
-    <string name="adaptive_sleep_description">Экранға қарап тұрған кезде, оның өшуіне жол бермейді.</string>
+    <string name="adaptive_sleep_description">Қарап тұрған кезде, экран өшпейді.</string>
     <string name="adaptive_sleep_manage_permission_button">Рұқсаттарды басқару</string>
-    <string name="adaptive_sleep_privacy">\"Зейінді экран\" функциясы алдыңғы камера арқылы адамның экранға қарап тұрғанын тани алады. Ол құрылғыда ғана жұмыс істейді. Суреттер Google жүйесінде сақталмайды және оған жіберілмейді.</string>
+    <string name="adaptive_sleep_privacy">\"Зейінді экран\" функциясы алдыңғы камера арқылы адамның экранға қарап тұрғанын тани алады. Ол құрылғыда ғана жұмыс істейді. Суреттер еш уақытта Google-ға жіберілмейді.</string>
     <string name="adaptive_sleep_summary_no_permission">Зейінді экран функциясы үшін камераны пайдалану қажет. Құрылғыны жекелендіру қызметтеріне арналған рұқсаттарды басқару үшін түртіңіз.</string>
     <string name="adaptive_sleep_summary_off">Өшірулі</string>
     <string name="adaptive_sleep_summary_on">Қосулы кезде экранға қарап тұрсаңыз, ол өшпейді.</string>
@@ -783,7 +783,7 @@
     <string name="auto_rotate_manage_permission_button">Рұқсаттарды басқару</string>
     <string name="auto_rotate_option_face_based">Қосулы – Бет негізінде</string>
     <string name="auto_rotate_option_off">Өшіру</string>
-    <string name="auto_rotate_option_on">Қосу</string>
+    <string name="auto_rotate_option_on">Қосулы</string>
     <string name="auto_rotate_settings_primary_switch_title">Автоматты бұруды пайдалану</string>
     <string name="auto_rotate_summary_no_permission">Бетті анықтау үшін камера қажет. Device Personalization Services-ке арналған рұқсаттарды басқару үшін түртіңіз.</string>
     <string name="auto_rotate_switch_face_based">Бетті анықтауды қосу</string>
@@ -1446,7 +1446,7 @@
     <string name="calls_sms_preferred">таңдалған</string>
     <string name="calls_sms_sms_preferred">SMS хабарлары үшін басым провайдер</string>
     <string name="calls_sms_temp_unavailable">Уақытша қолжетімді емес</string>
-    <string name="calls_sms_unavailable">қолжетімді емес</string>
+    <string name="calls_sms_unavailable">қолжетімсіз</string>
     <string name="calls_sms_wfc_summary">Wi‑Fi арқылы қоңырау шалу және қабылдау</string>
     <string name="cam_toggle_description">Қолданбалар мен қызметтерге арналған.</string>
     <string name="camera_double_tap_power_gesture_desc">Экран құлпын ашпастан камераны жылдам ашу</string>
@@ -1816,9 +1816,9 @@
     <string name="daltonizer_mode_tritanomaly_title">Тританомалия</string>
     <string name="daltonizer_type">Түзету режимі</string>
     <string name="daltonizer_type_overridden">%1$s үстінен басқан</string>
-    <string name="dark_theme_main_switch_title">Қараңғы тақырыпты пайдалану</string>
+    <string name="dark_theme_main_switch_title">Қараңғы режимді пайдалану</string>
     <string name="dark_theme_slice_subtitle">Батарея жұмысын ұзартуға көмектеседі.</string>
-    <string name="dark_theme_slice_title">Қараңғы тақырыпты пайдаланып көру</string>
+    <string name="dark_theme_slice_title">Қараңғы режимді пайдаланып көру</string>
     <string name="dark_ui_activation_off_auto">Күн батқанға дейін өшіру</string>
     <string name="dark_ui_activation_off_custom">%1$s дейін өшіру</string>
     <string name="dark_ui_activation_off_manual">Қазір өшіру</string>
@@ -1831,7 +1831,7 @@
     <string name="dark_ui_auto_mode_title">Кесте</string>
     <string name="dark_ui_mode_disabled_summary_dark_theme_off">Батареяны үнемдеу режиміне байланысты уақытша қосулы</string>
     <string name="dark_ui_mode_disabled_summary_dark_theme_on">Батареяны үнемдеу режиміне байланысты уақытша өшірілген.</string>
-    <string name="dark_ui_settings_dark_summary">Қолдауға ие қолданбалар да қараңғы тақырыпқа ауысады.</string>
+    <string name="dark_ui_settings_dark_summary">Қолдауға ие қолданбалар да қараңғы режимге ауысады.</string>
     <string name="dark_ui_settings_dialog_acknowledge">Түсінікті</string>
     <string name="dark_ui_status_title">Күйі</string>
     <string name="dark_ui_summary_off_auto_mode_auto">Күн батқанда, автоматты түрде қосылады</string>
@@ -1840,7 +1840,7 @@
     <string name="dark_ui_summary_on_auto_mode_auto">Күн шыққанда, автоматты өшеді</string>
     <string name="dark_ui_summary_on_auto_mode_custom">Автоматты түрде өшеді: %1$s</string>
     <string name="dark_ui_summary_on_auto_mode_never">Автоматты өшпейді</string>
-    <string name="dark_ui_text">Қараңғы тақырыпта қара фон тұратындықтан, батарея заряды үнемделеді. Кесте бойынша уақыты келіп тұрса да, экран өшпейінше, қараңғы тақырып қойылмайды.</string>
+    <string name="dark_ui_text">Қараңғы режимта қара фон тұратындықтан, батарея заряды үнемделеді. Кесте бойынша уақыты келіп тұрса да, экран өшпейінше, қараңғы режим қойылмайды.</string>
     <string name="dark_ui_title">Қараңғы режим</string>
     <string name="dashboard_title">Параметрлер</string>
     <string name="data_connection_3_5g">H</string>
@@ -2132,7 +2132,7 @@
     <string name="display_category_title">Дисплей</string>
     <string name="display_cutout_emulation">Экран ойығы</string>
     <string name="display_cutout_emulation_keywords">экран кесіндісі, кесік</string>
-    <string name="display_dashboard_summary">Қараңғы тақырып, қаріп өлшемі, жарықтық</string>
+    <string name="display_dashboard_summary">Қараңғы режим, қаріп өлшемі, жарықтық</string>
     <string name="display_label">Экран</string>
     <string name="display_order_text">Келесі бойынша сұрыптау:</string>
     <string name="display_settings_title">Дисплей</string>
@@ -2522,8 +2522,8 @@
     <string name="fullbackup_erase_dialog_message">Құрылғы деректерінің (мысалы, Wi-Fi құпия сөзі және қоңыраулар журналы) және қолданба деректерінің (мысалы, қолданбалар сақтаған параметрлер мен файлдар) сақтық көшірмесін жасауды тоқтату және Google Drive ішіндегі барлық көшірмелерді өшіру керек пе?</string>
     <string name="gadget_picker_title">Гаджетті таңдау</string>
     <string name="game_controller_settings_category">Ойын бақылаушы</string>
-    <string name="game_dashboard_always_on_summary">Ойын тақтасының таңбашасы ойындарда көрсетіледі.</string>
-    <string name="game_dashboard_always_on_title">Ойын тақтасы</string>
+    <string name="game_dashboard_always_on_summary">Барлық ойында белгішені көрсету (жоғары немесе төмен сырғытпастан)</string>
+    <string name="game_dashboard_always_on_title">Ойын тақтасының қалқымалы белгішесі</string>
     <string name="game_dashboard_dnd_rule_name">Ойын режимі</string>
     <string name="game_dashboard_dnd_summary">Ойын ойнап жатқан кезде, маңызды адамдар мен қолданбалардан ғана хабарландыру аласыз.</string>
     <string name="game_dashboard_dnd_title">Ойындар үшін Мазаламау режимін қосу</string>
@@ -2632,7 +2632,7 @@
     <string name="homepage_all_settings">Барлық параметрлер</string>
     <string name="homepage_condition_footer_content_description">Жию</string>
     <string name="homepage_personal_settings">Ұсыныстар</string>
-    <string name="hwui_force_dark_summary">Қараңғы тақырыпты мәжбүрлеп қойғанда, \"Әрдайым қосулы\" мәніне өзгертеді.</string>
+    <string name="hwui_force_dark_summary">Қараңғы режимді мәжбүрлеп қойғанда, \"Әрдайым қосулы\" мәніне өзгертеді.</string>
     <string name="hwui_force_dark_title">Қараңғылауға жол бермеу</string>
     <string name="icon_content_description">Диалог белгішесі</string>
     <string name="ignore_optimizations_off">Оңтайландыру</string>
@@ -2821,7 +2821,7 @@
     <string name="keywords_payment_settings">төлеу, түрту, төлемдер</string>
     <string name="keywords_printing">принтер</string>
     <string name="keywords_profile_challenge">жұмыс профилін қорғау, жұмыс, профиль</string>
-    <string name="keywords_reduce_bright_colors">жарықсезгіштік, фотофобия, қараңғы тақырып, бас сақинасы ауруы, бас ауруы, оқу режимі, түнгі режим, жарықтықты азайту, ақ нүкте</string>
+    <string name="keywords_reduce_bright_colors">жарықсезгіштік, фотофобия, қараңғы режим, бас сақинасы ауруы, бас ауруы, оқу режимі, түнгі режим, жарықтықты азайту, ақ нүкте</string>
     <string name="keywords_reset_apps">ысыру, параметрлер, әдепкі</string>
     <string name="keywords_reverse_charging_stop_threshold">Телефон заряды мына деңгейге жеткенде, батареяны бөлісу тоқтатылсын:</string>
     <string name="keywords_rtt">нашар есту қабілеті, есту қабілетінен айырылу, жазулар, телетайп</string>
@@ -2838,7 +2838,7 @@
     <string name="keywords_storage_settings">жад, кэш, дерек, жою, тазалау, бос, орын</string>
     <string name="keywords_styles">белгіше, екпін, түс</string>
     <string name="keywords_switch_access">моторика, ауыстырғыш, қол, арнайы мүмкіндіктер, көмекші технология, сал, амиотрофты бүйірлік склероз, сканерлеу, сатылы сканерлеу</string>
-    <string name="keywords_systemui_theme">күңгірт тақырып</string>
+    <string name="keywords_systemui_theme">қараңғы режим</string>
     <string name="keywords_talkback">Экранды оқу құралы, дыбыстау, VoiceOver, дауыстық көмек, зағип, нашар көру қабілеті, мәтінді дыбыстау, дауыстық ақпарат</string>
     <string name="keywords_text_to_speech_output">баға, тіл, әдепкі, сөйлеу, tts, арнайы мүмкіндіктер, экранды оқу құралы, соқыр</string>
     <string name="keywords_time_format">24 сағаттық формат</string>
@@ -3264,7 +3264,7 @@
     <string name="media_output_panel_summary_of_playing_device">%1$s деген құрылғыда ойнап жатыр.</string>
     <string name="media_output_panel_title">Шығатын панельді ауыстыру</string>
     <string name="media_output_summary">Телефон</string>
-    <string name="media_output_summary_unavailable">Қолжетімді емес</string>
+    <string name="media_output_summary_unavailable">Қолжетімсіз</string>
     <string name="media_output_switch_error_text">Ауысу мүмкін емес. Қайталау үшін түртіңіз.</string>
     <string name="media_output_switching">Ауыстырылуда…</string>
     <string name="media_output_title">Мультимедианы келесіден ойнату:</string>
@@ -3542,7 +3542,7 @@
     <string name="night_display_activation_on_twilight">Күн шыққанға дейін қосу</string>
     <string name="night_display_auto_mode_custom">Белгілі бір уақытта қосылады</string>
     <string name="night_display_auto_mode_never">Ешқашан</string>
-    <string name="night_display_auto_mode_title">Уақыт кестесі</string>
+    <string name="night_display_auto_mode_title">Кесте</string>
     <string name="night_display_auto_mode_twilight">Күн батқаннан күн шыққанға дейін қосулы</string>
     <string name="night_display_end_time_title">Аяқталу уақыты</string>
     <string name="night_display_not_currently_on">Түнгі жарық өшіп тұр</string>
@@ -4186,8 +4186,8 @@
     <string name="reverse_charging_warning_summary">Батарея заряды %1$s деңгейінен аз болғандықтан, ол мүмкін емес.</string>
     <string name="reverse_charging_warning_title">Батарея заряды %1$s деңгейінен аз болғандықтан, Батареяны бөлісу функциясы істемейді.</string>
     <string name="right_edge">Оң жақ жиегі</string>
-    <string name="ring_volume_option_title">Қоңыраулар мен хабарландырулардың дыбыс деңгейі</string>
-    <string name="ring_volume_title">Қоңыраулар мен хабарландырулардың дыбыс деңгейі</string>
+    <string name="ring_volume_option_title">Қоңырау мен хабарландыру дыбысы</string>
+    <string name="ring_volume_title">Қоңырау мен хабарландырудың дыбыс деңгейі</string>
     <string name="ringtone_title">Телефон рингтоны</string>
     <string name="ringtones_category_preference_title">Рингтондар</string>
     <string name="ringtones_install_custom_sound_content">Осы файл %s қалтасына көшіріледі</string>
@@ -4572,6 +4572,8 @@
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">Саусақ ізі белгішесімен жұмыс істеу</string>
     <string name="security_settings_udfps_enroll_start_message">Саусағыңызды сканерде ұстап тұрып, діріл сезілгенде жіберіңіз.</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">Тағы бір рет</string>
+    <string name="security_settings_udfps_side_fingerprint_help">Саусақ ізінің бір жағын датчикке қойыңыз, сосын екінші жағына ауысыңыз.</string>
+    <string name="security_settings_udfps_tip_fingerprint_help">Саусағыңызды алып, қайта түртіңіз.</string>
     <string name="security_settings_work_fingerprint_preference_title">Жұмысқа арналған Pixel Imprint</string>
     <string name="security_status_title">Қауіпсіздік күйі</string>
     <string name="see_less">Азырақ көру</string>
@@ -4803,7 +4805,7 @@ PIN коды қате болуы мүмкін."</string>
     <string name="smart_forwarding_summary_enabled">Қоңырауды басқа нөмірге бағыттау қосылды.</string>
     <string name="smart_forwarding_title">Қоңырауды басқа нөмірге бағыттау</string>
     <string name="smart_notifications_title">Бейімделетін хабарландырулар</string>
-    <string name="smart_rotate_text_headline">Автоматты бұру дәлдігін арттыру үшін бетті анықтау функциясында алдыңғы камера пайдаланылады. Суреттер Google-ға жіберілмейді немесе сақталмайды.</string>
+    <string name="smart_rotate_text_headline">Автоматты бұру дәлдігін арттыру үшін бетті анықтау функциясында алдыңғы камера пайдаланылады. Суреттер еш уақытта сақталмайды және Google-ға жіберілмейді.</string>
     <string name="sms_application_title">SMS қолданбасы</string>
     <string name="sms_change_default_dialog_text">%1$s қолданбасы %2$s орнына SMS қолданбасы ретінде қолданылсын ба?</string>
     <string name="sms_change_default_dialog_title">SMS қолданбасы өзгертілсін бе?</string>
@@ -4822,12 +4824,12 @@ PIN коды қате болуы мүмкін."</string>
     <string name="sound_dashboard_summary">Дыбыс деңгейі, хептика, Мазаламау режимі</string>
     <string name="sound_effects_enable_title">Түрту дыбыстары</string>
     <string name="sound_settings">Дыбыс және діріл</string>
-    <string name="sound_settings_example_summary">Қоңыраулар мен хабарландырулардың дыбыс деңгейі: 80%</string>
-    <string name="sound_settings_summary">Қоңыраулар мен хабарландырулардың дыбыс деңгейі: %1$s</string>
+    <string name="sound_settings_example_summary">Қоңырау мен хабарландырудың дыбыс деңгейі: 80%</string>
+    <string name="sound_settings_summary">Қоңырау мен хабарландырудың дыбыс деңгейі: %1$s</string>
     <string name="sound_settings_summary_silent">Қоңырау үнсіз режимге қойылған</string>
     <string name="sound_settings_summary_vibrate">Қоңырау дірілдеу режиміне қойылған</string>
     <string name="sound_work_settings">Жұмыс профилінің дыбыстары</string>
-    <string name="spatial_audio_title">Көлемді дыбыс</string>
+    <string name="spatial_audio_title">Кеңістіктік дыбыс</string>
     <string name="special_access">Арнайы рұқсат</string>
     <string name="special_access_more">Толығырақ</string>
     <string name="speed_label_fast">Жылдам</string>
@@ -5532,6 +5534,7 @@ Google дерекқор синхрондау әдісі  қай жерде бо�
     <string name="verify_apps_over_usb_title">USB арқылы орнатылған қолданбаларды растау</string>
     <string name="version_text">%1$s нұсқасы</string>
     <string name="vibrate_for_calls_settings_not_available_summary">Үнсіз режимге қойылғандықтан, қоңырау түскенде, телефон дірілдемейді.</string>
+    <string name="vibrate_icon_title">Діріл режимінде белгішені әрдайым көрсету</string>
     <string name="vibrate_in_silent_title">Үнсіз кезінде тербеу</string>
     <string name="vibrate_input_devices">Дірілді бағыттау</string>
     <string name="vibrate_input_devices_summary">Жалғанған кезде дірілді ойын контроллеріне бағыттау</string>
@@ -6184,7 +6187,7 @@ Google дерекқор синхрондау әдісі  қай жерде бо�
     <string name="zen_mode_bypassing_apps_header">Тоқтата алатын қолданбалар</string>
     <string name="zen_mode_bypassing_apps_none">Ешқандай қолданба таңдалмады</string>
     <string name="zen_mode_bypassing_apps_some_summary">Кейбір хабарландырулар</string>
-    <string name="zen_mode_bypassing_apps_subtext">{count,plural,offset:2 =0{Ешқандай қолданба тоқтата алмайды}=1{{app_1} тоқтата алады}=2{{app_1} және {app_2} тоқтата алады}=3{{app_1}, {app_2} және {app_3} тоқтата алады}other{{app_1}, {app_2} және тағы # қолданба тоқтата алады}}</string>
+    <string name="zen_mode_bypassing_apps_subtext">{count,plural,offset:2 =0{Ешқандай қолданба тоқтата алмайды.}=1{{app_1} тоқтата алады.}=2{{app_1} және {app_2} тоқтата алады}=3{{app_1}, {app_2} және {app_3} тоқтата алады.}other{{app_1}, {app_2} және тағы # қолданба тоқтата алады.}}</string>
     <string name="zen_mode_bypassing_apps_subtext_none">Ешқандай қолданба тоқтата алмайды.</string>
     <string name="zen_mode_bypassing_apps_summary_all">Барлық хабарландыру</string>
     <string name="zen_mode_bypassing_apps_summary_some">Кейбір хабарландырулар</string>
@@ -6251,9 +6254,9 @@ Google дерекқор синхрондау әдісі  қай жерде бо�
     <string name="zen_mode_messages_title">Хабарлар</string>
     <string name="zen_mode_no_exceptions">Жоқ</string>
     <string name="zen_mode_none_calls">Ешқандай қоңырауға рұқсат жоқ</string>
-    <string name="zen_mode_none_messages">Ешқандай хабарға рұқсат жоқ</string>
+    <string name="zen_mode_none_messages">Жоқ</string>
     <string name="zen_mode_other_options">басқа опциялар</string>
-    <string name="zen_mode_other_sounds_summary">{count,plural,offset:2 =0{Ештеңе тоқтата алмайды}=1{{sound_category_1} тоқтата алады}=2{{sound_category_1} және {sound_category_2} тоқтата алады}=3{{sound_category_1}, {sound_category_2} және {sound_category_3} тоқтата алады}other{{sound_category_1}, {sound_category_2} және тағы # дыбыс тоқтата алады}}</string>
+    <string name="zen_mode_other_sounds_summary">{count,plural,offset:2 =0{Ештеңе тоқтата алмайды.}=1{{sound_category_1} тоқтата алады.}=2{{sound_category_1} және {sound_category_2} тоқтата алады.}=3{{sound_category_1}, {sound_category_2} және {sound_category_3} тоқтата алады.}other{{sound_category_1}, {sound_category_2} және тағы # дыбыс тоқтата алады.}}</string>
     <string name="zen_mode_people_all">Барлығы тоқтата алады.</string>
     <string name="zen_mode_people_calls_messages_section_title">Тоқтата алатындар</string>
     <string name="zen_mode_people_none">Ешкім тоқтата алмайды</string>
@@ -6277,7 +6280,7 @@ Google дерекқор синхрондау әдісі  қай жерде бо�
 Мазаламау режимін өшірген соң, ашылмаған хабарландыруларды көру үшін экранды жоғарыдан төмен қарай сырғытыңыз."</string>
     <string name="zen_mode_restrict_notifications_hide_summary">Хабарландырулар көрсетілмейді не естілмейді</string>
     <string name="zen_mode_restrict_notifications_mute">Хабарландырулар дыбыссыз беріледі</string>
-    <string name="zen_mode_restrict_notifications_mute_footer">Хабарландырулар келіп түскенде, телефон дыбыс шығармайды не дірілдемейді.</string>
+    <string name="zen_mode_restrict_notifications_mute_footer">Хабарландырулар келіп түскенде, телефон дыбыс шығармайды және дірілдемейді.</string>
     <string name="zen_mode_restrict_notifications_mute_summary">Хабарландырулар экранға шығады</string>
     <string name="zen_mode_restrict_notifications_summary_custom">Бір бөлігі жасырулы</string>
     <string name="zen_mode_restrict_notifications_summary_hidden">Хабарландырулар визуалды не дыбыстық сигналсыз беріледі</string>
@@ -6314,7 +6317,7 @@ Google дерекқор синхрондау әдісі  қай жерде бо�
     <string name="zen_mode_settings_dnd_custom_settings_footer_link">" "<annotation id="link">Арнаулы параметрлерді көру</annotation></string>
     <string name="zen_mode_settings_dnd_manual_end_time">Мазаламау режимі %s дейін қосулы болады</string>
     <string name="zen_mode_settings_dnd_manual_indefinite">Мазаламау режимі өшірілгенше қосулы болады</string>
-    <string name="zen_mode_settings_schedules_summary">{count,plural, =0{Жоқ}=1{1 кесте қойылған.}other{# кесте қойылған.}}</string>
+    <string name="zen_mode_settings_schedules_summary">{count,plural, =0{Жоқ}=1{1 кесте қойылған}other{# кесте қойылған}}</string>
     <string name="zen_mode_settings_summary">Хабарландыруды маңызды адамдардан және қолданбалардан ғана алу</string>
     <string name="zen_mode_settings_summary_off">Ешқашан</string>
     <string name="zen_mode_settings_title">Мазаламау</string>

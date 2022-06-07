@@ -966,7 +966,7 @@ Pixel이 초기화되면 설정 과정을 진행한 다음 이전 휴대전화�
     <string name="battery_percentage">배터리 잔량 비율</string>
     <string name="battery_percentage_description">상태 표시줄에 배터리 잔량 비율 표시</string>
     <string name="battery_saver">절전 모드</string>
-    <string name="battery_saver_auto_no_schedule">일정 없음</string>
+    <string name="battery_saver_auto_no_schedule">없음</string>
     <string name="battery_saver_auto_percentage">백분율 기준</string>
     <string name="battery_saver_auto_percentage_summary">%1$s 도달 시 사용 설정</string>
     <string name="battery_saver_auto_routine">사용 습관 기준</string>
@@ -981,7 +981,7 @@ Pixel이 초기화되면 설정 과정을 진행한 다음 이전 휴대전화�
     <string name="battery_saver_off_summary">사용 안함</string>
     <string name="battery_saver_on_summary">사용</string>
     <string name="battery_saver_pref_auto_routine_summary">사용 습관 기준에 따라 사용 설정</string>
-    <string name="battery_saver_schedule_settings_title">일정 설정</string>
+    <string name="battery_saver_schedule_settings_title">절전 모드 예약</string>
     <string name="battery_saver_seekbar_title_placeholder">사용 설정</string>
     <string name="battery_saver_sticky_description_new">휴대전화가 ^1% 이상 충전되면 절전 기능을 사용 중지합니다.</string>
     <string name="battery_saver_sticky_title_new">충전 완료 시 사용 중지</string>
@@ -2522,8 +2522,8 @@ CA 인증서를 설치하면 인증서 소유자가 내가 이용하는 웹사�
     <string name="fullbackup_erase_dialog_message">기기 데이터(예: Wi-Fi 비밀번호, 통화 기록)와 앱 데이터(예: 앱에서 저장한 설정 및 파일) 백업을 중단하고 Google Drive에 있는 모든 사본을 삭제하시겠습니까?</string>
     <string name="gadget_picker_title">가젯 선택</string>
     <string name="game_controller_settings_category">게임 컨트롤러</string>
-    <string name="game_dashboard_always_on_summary">게임에서 게임 대시보드 바로가기 표시</string>
-    <string name="game_dashboard_always_on_title">게임 대시보드</string>
+    <string name="game_dashboard_always_on_summary">모든 게임에서 아이콘 표시(위로 또는 아래로 스와이프 없이)</string>
+    <string name="game_dashboard_always_on_title">게임 대시보드 플로팅 아이콘</string>
     <string name="game_dashboard_dnd_rule_name">게임</string>
     <string name="game_dashboard_dnd_summary">게임 플레이 중에는 중요한 사람과 앱의 알림만 받습니다.</string>
     <string name="game_dashboard_dnd_title">게임 방해 금지 모드</string>
@@ -4561,7 +4561,7 @@ g.co/pixel/faceunlock에서 자세히 알아보세요."</string>
     <string name="security_settings_title">보안</string>
     <string name="security_settings_udfps_enroll_a11y">센서를 찾으려면 화면에서 손가락을 움직이세요. 지문 센서를 길게 터치하세요.</string>
     <string name="security_settings_udfps_enroll_edge_message">센서에 손가락 한쪽을 올리고 잠시 기다린 후에 다른 쪽을 올리세요</string>
-    <string name="security_settings_udfps_enroll_edge_title">마지막으로 손가락 가장자리를 사용하세요.</string>
+    <string name="security_settings_udfps_enroll_edge_title">마지막으로 손가락 가장자리를 사용하세요</string>
     <string name="security_settings_udfps_enroll_find_sensor_message">지문 센서는 화면에 있습니다. 다음 화면에서 지문을 등록합니다.</string>
     <string name="security_settings_udfps_enroll_find_sensor_start_button">시작</string>
     <string name="security_settings_udfps_enroll_find_sensor_title">지문 인식 설정 방법</string>
@@ -4569,8 +4569,10 @@ g.co/pixel/faceunlock에서 자세히 알아보세요."</string>
     <string name="security_settings_udfps_enroll_repeat_a11y_message">이렇게 하면 지문을 더 많이 캡처할 수 있습니다</string>
     <string name="security_settings_udfps_enroll_repeat_message">지문 아이콘이 움직일 때마다 길게 터치합니다. 이렇게 하면 지문을 더 많이 캡처할 수 있습니다</string>
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">지문 인식 아이콘을 따라가세요</string>
-    <string name="security_settings_udfps_enroll_start_message">지문이 센서에 완전히 닿게 손가락을 대고 진동이 느껴질 때까지 기다리세요.</string>
+    <string name="security_settings_udfps_enroll_start_message">지문이 센서에 완전히 닿도록 손가락을 대고 진동이 느껴질 때까지 기다리세요.</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">한 번 더 하세요</string>
+    <string name="security_settings_udfps_side_fingerprint_help">지문의 한쪽을 센서에 올리고 잠시 기다린 후 다른 쪽으로 돌리세요</string>
+    <string name="security_settings_udfps_tip_fingerprint_help">손가락을 뗀 후 다시 터치하세요</string>
     <string name="security_settings_work_fingerprint_preference_title">직장용 Pixel Imprint</string>
     <string name="security_status_title">보안 상태</string>
     <string name="see_less">간략히 보기</string>
@@ -4826,7 +4828,7 @@ PIN이 잘못된 것 같습니다."</string>
     <string name="sound_settings_summary_silent">벨소리 장치가 무음으로 설정됨</string>
     <string name="sound_settings_summary_vibrate">벨소리 장치가 진동으로 설정됨</string>
     <string name="sound_work_settings">직장 프로필 소리</string>
-    <string name="spatial_audio_title">서라운드 오디오</string>
+    <string name="spatial_audio_title">공간 음향</string>
     <string name="special_access">특수 앱 액세스</string>
     <string name="special_access_more">더보기</string>
     <string name="speed_label_fast">빠름</string>
@@ -5531,6 +5533,7 @@ Google 동기화는 사용자가 어디에서든지 연락처, 일정 등에 액
     <string name="verify_apps_over_usb_title">USB를 통해 설치된 앱 확인</string>
     <string name="version_text">버전 %1$s</string>
     <string name="vibrate_for_calls_settings_not_available_summary">휴대전화가 무음으로 설정되어 있으므로 전화 수신 시 진동 기능을 사용할 수 없습니다.</string>
+    <string name="vibrate_icon_title">진동 모드일 경우 항상 아이콘 표시</string>
     <string name="vibrate_in_silent_title">무음 시 진동</string>
     <string name="vibrate_input_devices">진동 리디렉션</string>
     <string name="vibrate_input_devices_summary">게임 컨트롤러가 연결되어 있으면 진동을 컨트롤러로 전송합니다.</string>

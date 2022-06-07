@@ -33,7 +33,7 @@
 
     invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setIcon(I)V
 
-    const p1, 0x7f0415d0
+    const p1, 0x7f0415d3
 
     invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setTitle(I)V
 
@@ -134,7 +134,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f041658
+    const v1, 0x7f04165b
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

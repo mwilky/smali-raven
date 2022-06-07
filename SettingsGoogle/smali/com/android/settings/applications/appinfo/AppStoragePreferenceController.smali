@@ -122,12 +122,12 @@
 
     if-eqz p2, :cond_1
 
-    const p2, 0x7f04132d
+    const p2, 0x7f04132f
 
     goto :goto_0
 
     :cond_1
-    const p2, 0x7f04132e
+    const p2, 0x7f041330
 
     :goto_0
     invoke-virtual {v0, p2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
@@ -136,7 +136,7 @@
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f041323
+    const v0, 0x7f041325
 
     const/4 v1, 0x2
 

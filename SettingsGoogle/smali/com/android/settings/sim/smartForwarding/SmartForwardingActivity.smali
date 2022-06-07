@@ -101,7 +101,7 @@
 
     invoke-direct {v0, p0}, Landroid/app/ProgressDialog;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f04129e
+    const v1, 0x7f0412a0
 
     invoke-virtual {v0, v1}, Landroid/app/ProgressDialog;->setTitle(I)V
 
@@ -109,7 +109,7 @@
 
     invoke-virtual {v0, v1}, Landroid/app/ProgressDialog;->setIndeterminate(Z)V
 
-    const v1, 0x7f04129d
+    const v1, 0x7f04129f
 
     invoke-virtual {p0, v1}, Landroid/app/Activity;->getText(I)Ljava/lang/CharSequence;
 
@@ -218,19 +218,19 @@
 
     if-ne p1, v0, :cond_0
 
-    const p1, 0x7f041296
+    const p1, 0x7f041298
 
     goto :goto_0
 
     :cond_0
-    const p1, 0x7f041297
+    const p1, 0x7f041299    # 1.7555466E38f
 
     :goto_0
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
     invoke-direct {v0, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const p0, 0x7f041298
+    const p0, 0x7f04129a
 
     invoke-virtual {v0, p0}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -240,7 +240,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f04129b
+    const p1, 0x7f04129d
 
     sget-object v0, Lcom/android/settings/sim/smartForwarding/SmartForwardingActivity$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/settings/sim/smartForwarding/SmartForwardingActivity$$ExternalSyntheticLambda0;
 

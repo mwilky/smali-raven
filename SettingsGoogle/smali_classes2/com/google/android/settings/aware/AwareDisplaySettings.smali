@@ -180,7 +180,7 @@
     :cond_1
     new-instance p0, Lcom/android/settings/utils/CandidateInfoExtra;
 
-    const v3, 0x7f04139d
+    const v3, 0x7f04139f
 
     invoke-virtual {v0, v3}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 

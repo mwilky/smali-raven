@@ -975,7 +975,7 @@ Nakon vraćanja na zadano pokrenite postupak postavljanja i odaberite prijenos p
     <string name="battery_saver_button_turn_off">Odmah isključi</string>
     <string name="battery_saver_button_turn_on">Odmah uključi</string>
     <string name="battery_saver_link_a11y">Saznajte više o štednji baterije</string>
-    <string name="battery_saver_main_switch_title">Upotrijebi Štednju baterije</string>
+    <string name="battery_saver_main_switch_title">Uključi štednju baterije</string>
     <string name="battery_saver_master_switch_title">Upotrijebi Štednju baterije</string>
     <string name="battery_saver_off_scheduled_summary">Uključit će se na %1$s</string>
     <string name="battery_saver_off_summary">Isključeno</string>
@@ -1834,7 +1834,7 @@ Da biste nastavili upotrebljavati ​​telefon, morate ga vratiti na tvorničke
     <string name="dark_ui_settings_dark_summary">Podržane aplikacije također će prijeći na tamnu temu</string>
     <string name="dark_ui_settings_dialog_acknowledge">Shvaćam</string>
     <string name="dark_ui_status_title">Status</string>
-    <string name="dark_ui_summary_off_auto_mode_auto">Uključuje se automatski kad sunce zađe</string>
+    <string name="dark_ui_summary_off_auto_mode_auto">Uključuje se automatski kad zađe sunce</string>
     <string name="dark_ui_summary_off_auto_mode_custom">Uključuje se automatski u %1$s</string>
     <string name="dark_ui_summary_off_auto_mode_never">Nikad se ne uključuje automatski</string>
     <string name="dark_ui_summary_on_auto_mode_auto">Isključuje se automatski kad sunce izađe</string>
@@ -2522,8 +2522,8 @@ Podaci sigurnosnih kopija ne uračunavaju se u kvotu pohrane na Disku. Velike da
     <string name="fullbackup_erase_dialog_message">Želite li zaustaviti sigurnosno kopiranje podatka s uređaja (kao što su zaporke za Wi-Fi i povijest poziva) i podataka aplikacija (kao što su postavke i datoteke koje aplikacije spremaju) te izbrisati sve kopije na Google disku?</string>
     <string name="gadget_picker_title">Odaberi gadget</string>
     <string name="game_controller_settings_category">Upravljač igrama</string>
-    <string name="game_dashboard_always_on_summary">Prikaži prečac za nadzornu ploču igre u igrama</string>
-    <string name="game_dashboard_always_on_title">Nadzorna ploča igre</string>
+    <string name="game_dashboard_always_on_summary">Prikazivanje ikone u svim igrama (bez prelaska prstom prema gore ili dolje)</string>
+    <string name="game_dashboard_always_on_title">Plutajuća ikona nadzorne ploče igre</string>
     <string name="game_dashboard_dnd_rule_name">Igre</string>
     <string name="game_dashboard_dnd_summary">Primajte obavijesti samo od važnih osoba i aplikacija kad igrate igru</string>
     <string name="game_dashboard_dnd_title">Ne uznemiravaj za igre</string>
@@ -3552,7 +3552,7 @@ To znači da %2$s više neće biti vaša zadana aplikacija za plaćanje."</strin
     <string name="night_display_suggestion_title">Postavite raspored Noćnog svjetla</string>
     <string name="night_display_summary_off_auto_mode_custom">Uključuje se automatski u %1$s</string>
     <string name="night_display_summary_off_auto_mode_never">Nikad se ne uključuje automatski</string>
-    <string name="night_display_summary_off_auto_mode_twilight">Uključuje se automatski kad sunce zađe</string>
+    <string name="night_display_summary_off_auto_mode_twilight">Uključuje se automatski kad zađe sunce</string>
     <string name="night_display_summary_on_auto_mode_custom">Isključuje se automatski u %1$s</string>
     <string name="night_display_summary_on_auto_mode_never">Nikad se ne isključuje automatski</string>
     <string name="night_display_summary_on_auto_mode_twilight">Isključuje se automatski kad sunce izađe</string>
@@ -4277,7 +4277,7 @@ Kako upotrebljavati prikvačivanje aplikacije: \u0009
     <string name="screen_pinning_unlock_pin">Traži PIN radi otkvačivanja</string>
     <string name="screen_reader_category_title">Čitač zaslona</string>
     <string name="screen_time_summary_usage_today">%1$s danas</string>
-    <string name="screen_timeout_summary">Kada prođe %1$s neaktivnosti</string>
+    <string name="screen_timeout_summary">Nakon %1$s neaktivnosti</string>
     <string name="screen_timeout_title">Zaslon se isključuje</string>
     <string name="screen_usage_summary">Količina vremena dok je zaslon bio uključen od posljednjeg punjenja</string>
     <string name="screen_zoom_conversation_icon_alex">A</string>
@@ -4571,6 +4571,8 @@ Napomena: ovaj uređaj ne možete otključati otiskom prsta. Više informacija m
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">Slijedite ikonu otiska prsta</string>
     <string name="security_settings_udfps_enroll_start_message">Zadržite jagodicu prsta na senzoru dok ne osjetite vibraciju</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">Još jednom</string>
+    <string name="security_settings_udfps_side_fingerprint_help">Postavite rub prsta na senzor i zadržite ga, a zatim prijeđite na drugu stranu</string>
+    <string name="security_settings_udfps_tip_fingerprint_help">Podignite i ponovo dodirnite</string>
     <string name="security_settings_work_fingerprint_preference_title">Pixel Imprint za posao</string>
     <string name="security_status_title">Sigurnosni status</string>
     <string name="see_less">Prikaži manje</string>
@@ -5250,7 +5252,7 @@ Googleov pristup sinkronizaciji podataka za mogućnost pristupa kontaktima, sast
     <string name="turn_off_wifi">Isključite Wi-Fi</string>
     <string name="turn_on_wifi">Uključite Wi-Fi</string>
     <string name="twilight_mode_launch_location">Postavke lokacije</string>
-    <string name="twilight_mode_location_off_dialog_message">Lokacija uređaja potrebna je da bi se odredilo vrijeme zalaska i izlaska sunca kod vas.</string>
+    <string name="twilight_mode_location_off_dialog_message">Lokacija uređaja potrebna je da bi se odredilo vrijeme zalaska i izlaska sunca.</string>
     <string name="tx_link_speed">%1$d Mbps</string>
     <string name="tx_wifi_speed">Brzina prijenosa</string>
     <string name="uninstall_all_users_text">Deinstaliraj za sve korisnike</string>
@@ -5531,6 +5533,7 @@ Bilo koji korisnik može ažurirati aplikacije za sve ostale korisnike."</string
     <string name="verify_apps_over_usb_title">Potvrdi aplikacije putem USB-a</string>
     <string name="version_text">verzija %1$s</string>
     <string name="vibrate_for_calls_settings_not_available_summary">Postavka Vibriraj za pozive nije dostupna jer je na telefonu isključen zvuk</string>
+    <string name="vibrate_icon_title">Uvijek prikazuj ikonu u načinu vibracije</string>
     <string name="vibrate_in_silent_title">Vibracija ako je bešumno</string>
     <string name="vibrate_input_devices">Preusmjeri vibraciju</string>
     <string name="vibrate_input_devices_summary">Pošalji vibraciju igraćem kontroleru kada su povezani</string>

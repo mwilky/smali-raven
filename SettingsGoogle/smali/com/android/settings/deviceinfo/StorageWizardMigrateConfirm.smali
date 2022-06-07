@@ -94,7 +94,7 @@
 
     invoke-virtual {p0, p1}, Lcom/android/settings/deviceinfo/StorageWizardBase;->setIcon(I)V
 
-    const p1, 0x7f041360
+    const p1, 0x7f041362
 
     new-array v0, v0, [Ljava/lang/CharSequence;
 
@@ -134,13 +134,13 @@
 
     invoke-virtual {p1, v0}, Landroid/os/AsyncTask;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
 
-    const p1, 0x7f04135e
+    const p1, 0x7f041360
 
     new-array v0, v2, [Ljava/lang/CharSequence;
 
     invoke-virtual {p0, p1, v0}, Lcom/android/settings/deviceinfo/StorageWizardBase;->setBackButtonText(I[Ljava/lang/CharSequence;)V
 
-    const p1, 0x7f04135f
+    const p1, 0x7f041361
 
     new-array v0, v2, [Ljava/lang/CharSequence;
 
@@ -281,7 +281,7 @@
 
     invoke-static {v3, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const p1, 0x7f041366
+    const p1, 0x7f041368
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->getText(I)Ljava/lang/CharSequence;
 

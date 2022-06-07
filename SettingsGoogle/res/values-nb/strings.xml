@@ -2522,8 +2522,8 @@ Sikkerhetskopierte data teller ikke mot lagringsgrensen i Disk. Store filer elle
     <string name="fullbackup_erase_dialog_message">Vil du stoppe automatisk sikkerhetskopiering av enhetsdata (for eksempel Wi-Fi-passord og anropslogg) og appdata (for eksempel innstillinger og filer lagret av apper), og i tillegg slette alle kopier på Google Disk?</string>
     <string name="gadget_picker_title">Velg gadget</string>
     <string name="game_controller_settings_category">Spillkontroller</string>
-    <string name="game_dashboard_always_on_summary">Vis Spilloversikt-snarveien i spill</string>
-    <string name="game_dashboard_always_on_title">Spilloversikt</string>
+    <string name="game_dashboard_always_on_summary">Vis ikonet i alle spill (uten å sveipe opp eller ned)</string>
+    <string name="game_dashboard_always_on_title">Flytende ikon for Spilloversikt</string>
     <string name="game_dashboard_dnd_rule_name">Gaming</string>
     <string name="game_dashboard_dnd_summary">Bli bare varslet av viktige personer og apper når du spiller spill</string>
     <string name="game_dashboard_dnd_title">Ikke forstyrr for spill</string>
@@ -4572,6 +4572,8 @@ Merk: Du kan ikke bruke fingeravtrykket ditt til å låse opp dette enheten. For
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">Følg fingeravtrykkikonet</string>
     <string name="security_settings_udfps_enroll_start_message">Hold fingeravtrykket flatt på sensoren til du føler en vibrering</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">En gang til</string>
+    <string name="security_settings_udfps_side_fingerprint_help">Plasser siden av fingeravtrykket på sensoren og hold. Bytt deretter til den andre siden.</string>
+    <string name="security_settings_udfps_tip_fingerprint_help">Løft fingeren og trykk igjen</string>
     <string name="security_settings_work_fingerprint_preference_title">Pixel Imprint for jobb</string>
     <string name="security_status_title">Sikkerhetsstatus</string>
     <string name="see_less">Se mindre</string>
@@ -5532,6 +5534,7 @@ Alle brukere kan oppdatere apper for alle andre brukere."</string>
     <string name="verify_apps_over_usb_title">Bekreft apper via USB</string>
     <string name="version_text">versjon %1$s</string>
     <string name="vibrate_for_calls_settings_not_available_summary">Vibrering for anrop er ikke tilgjengelig fordi telefonen er satt til lydløs</string>
+    <string name="vibrate_icon_title">Vis alltid ikonet når enheten er i vibreringsmodus</string>
     <string name="vibrate_in_silent_title">Vibrer ved stille modus</string>
     <string name="vibrate_input_devices">Viderekoble vibrering</string>
     <string name="vibrate_input_devices_summary">Send vibrering til spillkontrolleren hvis den er koblet til</string>
@@ -5539,7 +5542,7 @@ Alle brukere kan oppdatere apper for alle andre brukere."</string>
     <string name="vibrate_on_touch_title">Berøringsvibrering</string>
     <string name="vibrate_when_ringing_option_always_vibrate">Vibrer alltid</string>
     <string name="vibrate_when_ringing_option_never_vibrate">Vibrer aldri</string>
-    <string name="vibrate_when_ringing_option_ramping_ringer">Vibrer først, ring så gradvis høyere</string>
+    <string name="vibrate_when_ringing_option_ramping_ringer">Vibrer og ring så gradvis høyere</string>
     <string name="vibration_haptics_settings_not_available_title">Ikke tilgjengelig</string>
     <string name="video_calling_settings_title">Videoanrop via mobiloperatør</string>
     <string name="view_saved_network">For å se, velg lagret nettverk</string>
@@ -6190,7 +6193,7 @@ Vil du tillate dette for alle apper som prøver å skanne?"</string>
     <string name="zen_mode_bypassing_apps_summary_some">Noen varsler</string>
     <string name="zen_mode_bypassing_apps_title">Apper</string>
     <string name="zen_mode_calls">Anrop</string>
-    <string name="zen_mode_calls_footer">For å forsikre deg om at tillatte anrop lager lyd, sjekk at enheten er satt til ringing</string>
+    <string name="zen_mode_calls_footer">For å forsikre deg om at tillatte anrop lager lyd, sjekk at ringelyd er på for enheten</string>
     <string name="zen_mode_calls_header">Anrop som kan forstyrre</string>
     <string name="zen_mode_calls_list">anrop</string>
     <string name="zen_mode_calls_summary_two">%1$s og %2$s</string>
@@ -6204,7 +6207,7 @@ Vil du tillate dette for alle apper som prøver å skanne?"</string>
     <string name="zen_mode_custom_behavior_category_title">For «%1$s»</string>
     <string name="zen_mode_custom_behavior_summary">Lag egne innstillinger for denne tidsplanen</string>
     <string name="zen_mode_custom_behavior_summary_default">Bruk standardinnstillinger</string>
-    <string name="zen_mode_custom_behavior_title">Atferd for «Ikke forstyrr»</string>
+    <string name="zen_mode_custom_behavior_title">Funksjonalitet for «Ikke forstyrr»</string>
     <string name="zen_mode_custom_calls_footer">Innkommende anrop er blokkert for «%1$s». Du kan justere innstillingene for å la venner, familie eller andre kontakter nå deg.</string>
     <string name="zen_mode_custom_messages_footer">Innkommende meldinger er blokkert for «%1$s». Du kan justere innstillingene for å la venner, familie eller andre kontakter nå deg.</string>
     <string name="zen_mode_delete_automatic_rules">Slett tidsplaner</string>
@@ -6245,7 +6248,7 @@ Vil du tillate dette for alle apper som prøver å skanne?"</string>
     <string name="zen_mode_media_list_first">Medier</string>
     <string name="zen_mode_media_summary">Lyder fra videoer, spill og andre medier</string>
     <string name="zen_mode_messages">Meldinger</string>
-    <string name="zen_mode_messages_footer">For å kontrollere at tillatte meldinger lager lyd, sjekk at enheten er satt til ringing</string>
+    <string name="zen_mode_messages_footer">For å forsikre deg om at tillatte meldinger lager lyd, sjekk at ringelyd er på for enheten</string>
     <string name="zen_mode_messages_header">Meldinger som kan forstyrre</string>
     <string name="zen_mode_messages_list">meldinger</string>
     <string name="zen_mode_messages_title">Meldinger</string>
@@ -6265,7 +6268,7 @@ Vil du tillate dette for alle apper som prøver å skanne?"</string>
     <string name="zen_mode_reminders_summary">Fra oppgaver og påminnelser</string>
     <string name="zen_mode_repeat_callers">Gjentatte anrop</string>
     <string name="zen_mode_repeat_callers_list">gjentatte oppringere</string>
-    <string name="zen_mode_repeat_callers_summary">Hvis samme person ringer om igjen innen %d minutter</string>
+    <string name="zen_mode_repeat_callers_summary">Hvis den samme personen ringer om igjen innen %d minutter</string>
     <string name="zen_mode_repeat_callers_title">Tillat gjentatte anrop</string>
     <string name="zen_mode_restrict_notifications_category">Når «Ikke forstyrr» er på</string>
     <string name="zen_mode_restrict_notifications_custom">Tilpasset</string>
@@ -6274,7 +6277,7 @@ Vil du tillate dette for alle apper som prøver å skanne?"</string>
     <string name="zen_mode_restrict_notifications_hide">Ingen lyd- eller visuell varsling</string>
     <string name="zen_mode_restrict_notifications_hide_footer">"Telefonen verken viser, vibrerer for eller lager lyd for nye eller eksisterende varsler. Husk at viktige varsler om telefonaktivitet og status fremdeles vises.
 
-Når du slår av «Ikke forstyrr», kan du finne varsler du gikk glipp av, ved å sveipe ned fra toppen av skjermen."</string>
+Når du slår av «Ikke forstyrr», kan du finne varsler du har gått  glipp av, ved å sveipe ned fra toppen av skjermen."</string>
     <string name="zen_mode_restrict_notifications_hide_summary">Du verken ser eller hører varsler</string>
     <string name="zen_mode_restrict_notifications_mute">Ingen lydvarsling</string>
     <string name="zen_mode_restrict_notifications_mute_footer">Når du mottar varsler, kommer ikke telefonen til å lage lyd eller vibrere.</string>

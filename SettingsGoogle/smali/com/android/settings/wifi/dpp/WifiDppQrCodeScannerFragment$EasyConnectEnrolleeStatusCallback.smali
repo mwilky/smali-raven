@@ -134,7 +134,7 @@
 
     iget-object p0, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment$EasyConnectEnrolleeStatusCallback;->this$0:Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;
 
-    const p1, 0x7f041644
+    const p1, 0x7f041647
 
     invoke-static {p0, p1}, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->access$1000(Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;I)V
 
@@ -162,7 +162,7 @@
 
     invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v0, 0x7f04164c
+    const v0, 0x7f04164f
 
     packed-switch p1, :pswitch_data_0
 
@@ -175,12 +175,12 @@
     throw p0
 
     :pswitch_0
-    const v0, 0x7f041656
+    const v0, 0x7f041659
 
     goto :goto_0
 
     :pswitch_1
-    const v0, 0x7f041651
+    const v0, 0x7f041654
 
     goto :goto_0
 
@@ -233,12 +233,12 @@
     throw p0
 
     :pswitch_3
-    const v0, 0x7f041653
+    const v0, 0x7f041656
 
     goto :goto_0
 
     :pswitch_4
-    const v0, 0x7f041650
+    const v0, 0x7f041653
 
     :goto_0
     :pswitch_5

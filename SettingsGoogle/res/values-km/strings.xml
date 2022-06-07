@@ -1174,7 +1174,7 @@
     <string name="bluetooth_device_details">ការ​កំណត់​ឧបករណ៍</string>
     <string name="bluetooth_device_mac_address">អាសយដ្ឋាន​ប៊្លូធូស​របស់ឧបករណ៍៖ %1$s</string>
     <string name="bluetooth_device_name">ឈ្មោះ​ឧបករណ៍</string>
-    <string name="bluetooth_device_name_summary">អាច​មើលឃើញជា ^1 ចំពោះ​ឧបករណ៍ផ្សេងទៀត</string>
+    <string name="bluetooth_device_name_summary">បង្ហាញឈ្មោះថា ^1 ដល់ឧបករណ៍ផ្សេងទៀត</string>
     <string name="bluetooth_devices">ឧបករណ៍​ប៊្លូធូស</string>
     <string name="bluetooth_devices_card_off_summary">ចុចដើម្បី​បើកប៊្លូធូស</string>
     <string name="bluetooth_devices_card_off_title">ប៊្លូធូស​ត្រូវបានបិទ</string>
@@ -2522,8 +2522,8 @@
     <string name="fullbackup_erase_dialog_message">បញ្ឈប់ការបម្រុងទុកទិន្នន័យឧបករណ៍ (ដូចជាពាក្យសម្ងាត់ Wi-Fi និងប្រវត្តិហៅទូរស័ព្ទ) និងទិន្នន័យកម្មវិធី (ដូចជាការកំណត់ និងឯកសារដែលបានផ្ទុកដោយកម្មវិធី) ព្រមទាំងលុបច្បាប់ចម្លងទាំងអស់នៅលើ Google ថាសដែរឬទេ?</string>
     <string name="gadget_picker_title">ជ្រើស​ធាតុក្រាហ្វិក</string>
     <string name="game_controller_settings_category">កម្មវិធី​ពិនិត្យ​ល្បែង</string>
-    <string name="game_dashboard_always_on_summary">បង្ហាញ​ផ្លូវកាត់​ផ្ទាំងគ្រប់គ្រង​ហ្គេមនៅក្នុង​ហ្គេម</string>
-    <string name="game_dashboard_always_on_title">ផ្ទាំងគ្រប់គ្រងហ្គេម</string>
+    <string name="game_dashboard_always_on_summary">បង្ហាញរូបតំណាងក្នុងកម្មវិធីទាំងអស់ (ដោយមិនអូសឡើងលើ ឬចុះក្រោម)</string>
+    <string name="game_dashboard_always_on_title">រូបអណ្ដែតនៃផ្ទាំងគ្រប់គ្រងហ្គេម</string>
     <string name="game_dashboard_dnd_rule_name">កំពុងលេងហ្គេម</string>
     <string name="game_dashboard_dnd_summary">ទទួល​ការជូនដំណឹងពី​កម្មវិធី និងមនុស្សសំខាន់ៗ​តែប៉ុណ្ណោះ នៅពេល​លេងហ្គេម</string>
     <string name="game_dashboard_dnd_title">មុខងារកុំរំខាន​សម្រាប់ហ្គេម</string>
@@ -4572,6 +4572,8 @@
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">ដាក់ម្រាមដៃលើ​រូបស្នាមម្រាមដៃ</string>
     <string name="security_settings_udfps_enroll_start_message">ដាក់ស្នាមម្រាមដៃរបស់អ្នកឱ្យពេញនៅលើឧបករណ៍ចាប់ស្នាមម្រាមដៃ រហូតដល់មានការញ័រ</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">ម្ដងទៀត</string>
+    <string name="security_settings_udfps_side_fingerprint_help">ដាក់​ផ្នែកចំហៀង​នៃស្នាមម្រាមដៃ​របស់អ្នក​នៅលើ​ឧបករណ៍​ចាប់ស្នាមម្រាមដៃ​ឱ្យជាប់ រួចប្ដូរទៅ​ផ្នែកម្ខាងទៀត</string>
+    <string name="security_settings_udfps_tip_fingerprint_help">ដកចេញ រួចចុច​ម្តងទៀត</string>
     <string name="security_settings_work_fingerprint_preference_title">Pixel Imprint សម្រាប់ការងារ</string>
     <string name="security_status_title">ស្ថានភាព​សុវត្ថិភាព</string>
     <string name="see_less">​មើល​តិច​ជាង</string>
@@ -4827,7 +4829,7 @@
     <string name="sound_settings_summary_silent">បានកំណត់សំឡេងរោទិ៍ឲ្យស្ងាត់</string>
     <string name="sound_settings_summary_vibrate">បានកំណត់សំឡេងរោទិ៍ឲ្យញ័រ</string>
     <string name="sound_work_settings">សំឡេងកម្រងព័ត៌មានការងារ</string>
-    <string name="spatial_audio_title">សំឡេង​ខ្ទររណ្ដំ</string>
+    <string name="spatial_audio_title">សំឡេងលំហ</string>
     <string name="special_access">ការចូលប្រើប្រាស់កម្មវិធីពិសេស</string>
     <string name="special_access_more">មើលច្រើនទៀត</string>
     <string name="speed_label_fast">លឿន</string>
@@ -5471,7 +5473,7 @@
     <string name="user_dict_settings_add_word_option_name">ពាក្យ</string>
     <string name="user_dict_settings_all_languages">សម្រាប់​ភាសា​ទាំងអស់</string>
     <string name="user_dict_settings_context_menu_delete_title">លុប</string>
-    <string name="user_dict_settings_context_menu_edit_title">កែសម្រួល​</string>
+    <string name="user_dict_settings_context_menu_edit_title">កែ</string>
     <string name="user_dict_settings_edit_dialog_title">កែ​ពាក្យ</string>
     <string name="user_dict_settings_empty_text">អ្នកមិនមានពាក្យក្នុងវចនានុក្រមអ្នកប្រើប្រាស់ទេ។ ដើម្បីបញ្ចូលពាក្យ សូមចុចប៊ូតុងបញ្ចូល (+)។</string>
     <string name="user_dict_settings_for_work_title">វចនានុក្រម​ផ្ទាល់ខ្លួន​សម្រាប់​ការងារ</string>
@@ -5532,6 +5534,7 @@
     <string name="verify_apps_over_usb_title">ផ្ទៀងផ្ទាត់​កម្មវិធី​តាម USB</string>
     <string name="version_text">កំណែ %1$s</string>
     <string name="vibrate_for_calls_settings_not_available_summary">មិនអាចប្រើ​ការញ័រ​សម្រាប់​ការហៅទូរសព្ទ​បានទេ ដោយសារ​ទូរសព្ទត្រូវបានកំណត់ឱ្យស្ងាត់</string>
+    <string name="vibrate_icon_title">បង្ហាញរូបតំណាងជានិច្ច ពេលប្រើមុខងារ​ញ័រ</string>
     <string name="vibrate_in_silent_title">ញ័រ​ពេល​ស្ងាត់</string>
     <string name="vibrate_input_devices">ការ​ញ័រ​ពេល​បញ្ជូន​បន្ត</string>
     <string name="vibrate_input_devices_summary">បញ្ជូន​រំញ័រ​ទៅ​ឧបករណ៍​បញ្ជា​ហ្គេម​នៅ​ពេល​ភ្ជាប់</string>
@@ -6285,7 +6288,7 @@
     <string name="zen_mode_restrict_notifications_title">ជម្រើស​បង្ហាញ​សម្រាប់​ការជូនដំណឹង​ដែលបានលាក់</string>
     <string name="zen_mode_rule_delete_button">លុប</string>
     <string name="zen_mode_rule_name">ឈ្មោះ​កាលវិភាគ</string>
-    <string name="zen_mode_rule_name_edit">កែសម្រួល</string>
+    <string name="zen_mode_rule_name_edit">កែ</string>
     <string name="zen_mode_rule_name_hint">បញ្ចូល​ឈ្មោះ​កាលវិភាគ</string>
     <string name="zen_mode_rule_name_warning">ឈ្មោះ​កាលវិភាគ​ត្រូវបាន​ប្រើរួចហើយ</string>
     <string name="zen_mode_rule_not_found_text">រកមិនឃើញច្បាប់ទេ។</string>

@@ -633,7 +633,7 @@ Solo tienes que juntar los dispositivos (normalmente, por la parte posterior) y,
     <string name="app_link_open_ask">Preguntar siempre</string>
     <string name="app_link_open_never">No permitir que la app abra vínculos compatible</string>
     <string name="app_list_memory_use">Uso de aplicaciones</string>
-    <string name="app_list_preference_none">Ninguno</string>
+    <string name="app_list_preference_none">Ninguna</string>
     <string name="app_memory_use">Uso de memoria</string>
     <string name="app_name_label">Aplicación</string>
     <string name="app_names_concatenation_template_2">%1$s, %2$s</string>
@@ -976,14 +976,14 @@ Después de restablecerla, sigue el proceso de configuración y elige la opción
     <string name="battery_saver_button_turn_on">Activar ahora</string>
     <string name="battery_saver_link_a11y">Más información sobre el Ahorro de batería</string>
     <string name="battery_saver_main_switch_title">Usar Ahorro de batería</string>
-    <string name="battery_saver_master_switch_title">Usar la función Ahorro de batería</string>
+    <string name="battery_saver_master_switch_title">Usar el Ahorro de batería</string>
     <string name="battery_saver_off_scheduled_summary">Se activará cuando quede %1$s</string>
     <string name="battery_saver_off_summary">Desactivado</string>
     <string name="battery_saver_on_summary">Activado</string>
     <string name="battery_saver_pref_auto_routine_summary">Se encenderá en función de tu rutina</string>
     <string name="battery_saver_schedule_settings_title">Establecer un programa</string>
     <string name="battery_saver_seekbar_title_placeholder">Activar</string>
-    <string name="battery_saver_sticky_description_new">El Ahorro de batería se desactiva cuando el teléfono tiene más del ^1 % de carga</string>
+    <string name="battery_saver_sticky_description_new">El Ahorro de batería se desactiva cuando el teléfono tiene más del ^1% de carga</string>
     <string name="battery_saver_sticky_title_new">Desactivar después de la carga</string>
     <string name="battery_saver_turn_on_automatically_never">Nunca</string>
     <string name="battery_saver_turn_on_automatically_pct">con %1$s de batería</string>
@@ -2522,8 +2522,8 @@ La copia de seguridad de los datos no incide en la cuota de almacenamiento de Dr
     <string name="fullbackup_erase_dialog_message">¿Deseas dejar de crear copias de seguridad de los datos del dispositivo (como las contraseñas de Wi-Fi y el historial de llamadas) y de los datos de las apps (como las opciones de configuración y los archivos que estas almacenan), y borrar todas las copias en Google Drive?</string>
     <string name="gadget_picker_title">Elegir gadget</string>
     <string name="game_controller_settings_category">Controlador de juegos</string>
-    <string name="game_dashboard_always_on_summary">Mostrar acceso directo al Panel de juego en juegos</string>
-    <string name="game_dashboard_always_on_title">Panel de juego</string>
+    <string name="game_dashboard_always_on_summary">Mostrar el ícono en todos los juegos (sin tener que desplazar el dedo hacia arriba ni hacia abajo)</string>
+    <string name="game_dashboard_always_on_title">Ícono flotante del panel de juego</string>
     <string name="game_dashboard_dnd_rule_name">Videojuegos</string>
     <string name="game_dashboard_dnd_summary">Recibe únicamente notificaciones de personas y apps importantes cuando estés jugando</string>
     <string name="game_dashboard_dnd_title">No interrumpir para juegos</string>
@@ -4036,7 +4036,7 @@ Presiona los botones de encendido y de subir volumen al mismo tiempo."</string>
     <string name="proxy_url_title">"URL config. autom. proxy: "</string>
     <string name="proxy_warning_limited_support">El navegador usa el proxy HTTP, pero tal vez las demás aplicaciones no lo usen.</string>
     <string name="quick_controls_lower">controles de dispositivos</string>
-    <string name="quick_settings_developer_tiles">Mosaicos de configuración rápida para programadores</string>
+    <string name="quick_settings_developer_tiles">Azulejos de configuración rápida para desarrolladores</string>
     <string name="radioInfo_data_connected">Conectado</string>
     <string name="radioInfo_data_connecting">Conectando</string>
     <string name="radioInfo_data_disconnected">Desconectado</string>
@@ -4386,7 +4386,7 @@ Se borrará tu modelo de rostro de manera permanente y segura.
 
 Luego, deberás ingresar tu huella dactilar, PIN, patrón o contraseña para desbloquear el teléfono o autenticarte en apps."</string>
     <string name="security_settings_face_enroll_improve_face_alert_title">Configura Desbloqueo facial</string>
-    <string name="security_settings_face_enroll_introduction_accessibility">Configurar con visión o movilidad limitados</string>
+    <string name="security_settings_face_enroll_introduction_accessibility">Configurar con visión o movilidad limitadas</string>
     <string name="security_settings_face_enroll_introduction_accessibility_diversity" />
     <string name="security_settings_face_enroll_introduction_accessibility_expanded">Si utilizas la función Desbloqueo facial, es posible que debas colocar la cabeza enfrente del teléfono de forma más directa.</string>
     <string name="security_settings_face_enroll_introduction_accessibility_vision">Es necesario mantener los ojos abiertos</string>
@@ -4401,12 +4401,12 @@ Obtén más información en g.co/pixel/faceunlock."</string>
 
 Obtén más información en g.co/pixel/faceunlock."</string>
     <string name="security_settings_face_enroll_introduction_control_title">Tú tienes el control</string>
-    <string name="security_settings_face_enroll_introduction_how_consent_message">"La función Desbloqueo Facial crea un modelo único del rostro de tu hijo para verificar su identidad. A fin de crear el modelo durante la configuración, tu hijo deberá tomar fotos de su rostro desde distintos ángulos.
+    <string name="security_settings_face_enroll_introduction_how_consent_message">"La función de Desbloqueo facial crea un modelo único del rostro de tu hijo para verificar su identidad. A fin de crear el modelo durante la configuración, tu hijo deberá tomar fotos de su rostro desde distintos ángulos.
 
-Cuando usa la función Desbloqueo Facial, se utilizan imágenes para actualizar el modelo de su rostro. Las imágenes que se usan para crear el modelo no se almacenan, a diferencia del modelo en sí, que lo hace de manera segura en el teléfono y nunca sale de él. Todo el proceso se lleva a cabo en el teléfono de forma segura."</string>
-    <string name="security_settings_face_enroll_introduction_how_message">"La función Desbloqueo Facial crea un modelo único de tu rostro para verificar tu identidad. A fin de crear el modelo de rostro durante la configuración, deberás tomar fotos de tu rostro desde diferentes ángulos.
+Cuando usa la función de Desbloqueo facial, se utilizan imágenes para actualizar el modelo de su rostro. Las imágenes que se usan para crear el modelo no se almacenan, a diferencia del modelo en sí, que lo hace de manera segura en el teléfono y nunca sale de él. Todo el proceso se lleva a cabo en el teléfono de forma segura."</string>
+    <string name="security_settings_face_enroll_introduction_how_message">"La función de Desbloqueo facial crea un modelo único de tu rostro para verificar tu identidad. A fin de crear el modelo de rostro durante la configuración, deberás tomar fotos de tu rostro desde diferentes ángulos.
 
-Cuando usas Desbloqueo Facial, se utilizan imágenes para actualizar el modelo de tu rostro. Las imágenes que se usan para crear tu modelo facial no se almacenan, a diferencia del modelo en sí, que lo hace de manera segura en el teléfono, sin salir nunca de él. Todo el proceso se lleva a cabo en el teléfono de manera segura."</string>
+Cuando usas el Desbloqueo facial, se utilizan imágenes para actualizar el modelo de tu rostro. Las imágenes que se usan para crear tu modelo facial no se almacenan, a diferencia del modelo en sí, que lo hace de manera segura en el teléfono, sin salir nunca de él. Todo el proceso se lleva a cabo en el teléfono de manera segura."</string>
     <string name="security_settings_face_enroll_introduction_how_title">Cómo funciona</string>
     <string name="security_settings_face_enroll_introduction_info_consent_gaze">El Desbloqueo facial podría requerir que tu hijo tenga los ojos abiertos para desbloquear el teléfono o verificar su identidad. Tú y tu hijo pueden activar esta opción en cualquier momento, en Configuración.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_glasses">Si tu hijo suele usar gafas, puede dejárselas durante la configuración.</string>
@@ -4569,8 +4569,10 @@ Nota: No puedes utilizar tu huella dactilar para desbloquear este dispositivo. P
     <string name="security_settings_udfps_enroll_repeat_a11y_message">Esto permite capturar más superficie de tu huella dactilar</string>
     <string name="security_settings_udfps_enroll_repeat_message">Mantén presionado cada vez que ícono de huella dactilar se mueva. Esto permite capturar más superficie de tu huella dactilar.</string>
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">Sigue el ícono de huella dactilar</string>
-    <string name="security_settings_udfps_enroll_start_message">Apoya la huella dactilar completamente en el sensor hasta que sientas una vibración</string>
+    <string name="security_settings_udfps_enroll_start_message">Mantén toda la huella dactilar en el sensor hasta que notes una vibración</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">Una vez más</string>
+    <string name="security_settings_udfps_side_fingerprint_help">Apoya un lado de tu huella dactilar en el sensor y mantén presionado. Luego, cambia de lado.</string>
+    <string name="security_settings_udfps_tip_fingerprint_help">Levanta el dedo y vuelve a tocar</string>
     <string name="security_settings_work_fingerprint_preference_title">Pixel Imprint para el trabajo</string>
     <string name="security_status_title">Estado de seguridad</string>
     <string name="see_less">Ver menos</string>
@@ -5531,6 +5533,7 @@ Cualquier usuario puede actualizar las aplicaciones del resto de los usuarios."<
     <string name="verify_apps_over_usb_title">Verificar aplicaciones por USB</string>
     <string name="version_text">versión %1$s</string>
     <string name="vibrate_for_calls_settings_not_available_summary">La vibración no está disponible para llamadas porque el teléfono está en silencio</string>
+    <string name="vibrate_icon_title">Mostrar siempre el ícono en el modo de vibración</string>
     <string name="vibrate_in_silent_title">Vibrar en modo silencioso</string>
     <string name="vibrate_input_devices">Redireccionar vibración</string>
     <string name="vibrate_input_devices_summary">Enviar la vibración al controlador de juegos cuando esté conectado</string>

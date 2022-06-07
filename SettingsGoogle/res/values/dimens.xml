@@ -982,6 +982,7 @@
     <dimen name="two_target_min_width">72.0dip</dimen>
     <dimen name="two_target_pref_medium_icon_size">32.0dip</dimen>
     <dimen name="two_target_pref_small_icon_size">24.0dip</dimen>
+    <dimen name="udfps_lottie_translate_y">0.0dip</dimen>
     <dimen name="update_user_photo_popup_min_width">300.0dip</dimen>
     <dimen name="usage_graph_area_height">122.0dip</dimen>
     <dimen name="usage_graph_divider_size">1.0dip</dimen>

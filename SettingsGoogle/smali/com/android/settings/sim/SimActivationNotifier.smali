@@ -39,7 +39,7 @@
 
     new-instance p0, Landroid/app/NotificationChannel;
 
-    const v1, 0x7f041286
+    const v1, 0x7f041288
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -55,7 +55,7 @@
 
     new-instance p0, Landroid/app/NotificationChannel;
 
-    const v1, 0x7f04128c
+    const v1, 0x7f04128e
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -374,7 +374,7 @@
 
     iget-object v0, p0, Lcom/android/settings/sim/SimActivationNotifier;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f04124b
+    const v1, 0x7f04124d
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -520,7 +520,7 @@
 
     iget-object v0, p0, Lcom/android/settings/sim/SimActivationNotifier;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0413a4
+    const v2, 0x7f0413a6
 
     invoke-virtual {v0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -531,7 +531,7 @@
     :cond_0
     iget-object v3, p0, Lcom/android/settings/sim/SimActivationNotifier;->mContext:Landroid/content/Context;
 
-    const v5, 0x7f0413a3
+    const v5, 0x7f0413a5
 
     new-array v6, v4, [Ljava/lang/Object;
 

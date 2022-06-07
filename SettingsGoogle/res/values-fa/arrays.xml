@@ -613,14 +613,6 @@
         <item>کشیدن کلیپ قسمت غیر مربعی آبی</item>
         <item>هایلایت کردن دستورات کشیدن تست‌شده به رنگ سبز</item>
     </string-array>
-    <string-array name="sim_color_light">
-        <item>‎@color/SIM_color_cyan</item>
-        <item>‎@color/SIM_color_blue800</item>
-        <item>‎@color/SIM_color_green800</item>
-        <item>‎@color/SIM_color_purple800</item>
-        <item>‎@color/SIM_color_pink800</item>
-        <item>‎@color/SIM_color_orange</item>
-    </string-array>
     <string-array name="swipe_direction_values">
         <item>۱</item>
         <item>۰</item>

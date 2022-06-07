@@ -107,7 +107,7 @@
 
     check-cast p1, Lcom/android/settingslib/widget/BannerMessagePreference;
 
-    const v0, 0x7f04143c
+    const v0, 0x7f04143e
 
     invoke-virtual {p1, v0}, Lcom/android/settingslib/widget/BannerMessagePreference;->setPositiveButtonText(I)Lcom/android/settingslib/widget/BannerMessagePreference;
 

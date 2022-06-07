@@ -68,7 +68,7 @@
     :goto_0
     iput-boolean p1, p0, Lcom/android/settings/deviceinfo/StorageWizardInit;->mIsPermittedToAdopt:Z
 
-    const p1, 0x7f04134e
+    const p1, 0x7f041350
 
     new-array v0, v0, [Ljava/lang/CharSequence;
 
@@ -90,7 +90,7 @@
 
     iput-object p1, p0, Lcom/android/settings/deviceinfo/StorageWizardInit;->mInternal:Landroid/widget/Button;
 
-    const p1, 0x7f04134c
+    const p1, 0x7f04134e
 
     new-array v0, v1, [Ljava/lang/CharSequence;
 

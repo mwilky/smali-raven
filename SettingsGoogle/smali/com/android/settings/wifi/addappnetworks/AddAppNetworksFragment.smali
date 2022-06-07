@@ -448,12 +448,12 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f0415ce
+    const v0, 0x7f0415d1
 
     goto :goto_0
 
     :cond_0
-    const v0, 0x7f0415ca
+    const v0, 0x7f0415cd
 
     :goto_0
     const/4 v1, 0x1
@@ -478,12 +478,12 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f0415cf
+    const v0, 0x7f0415d2
 
     goto :goto_0
 
     :cond_0
-    const v0, 0x7f0415cb
+    const v0, 0x7f0415ce
 
     :goto_0
     invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
@@ -938,6 +938,13 @@
 .method private updateSingleNetworkSignalIcon(I)V
     .locals 2
 
+    const/4 v0, -0x1
+
+    if-ne p1, v0, :cond_0
+
+    return-void
+
+    :cond_0
     iget-object v0, p0, Lcom/android/settings/wifi/addappnetworks/AddAppNetworksFragment;->mActivity:Landroidx/fragment/app/FragmentActivity;
 
     invoke-static {p1}, Lcom/android/settingslib/Utils;->getWifiIconResource(I)I
@@ -1738,7 +1745,7 @@
     :cond_0
     iget-boolean p1, p0, Lcom/android/settings/wifi/addappnetworks/AddAppNetworksFragment;->mIsSingleNetwork:Z
 
-    const v0, 0x7f0415c7
+    const v0, 0x7f0415ca
 
     const v1, 0x1010543
 
@@ -1792,7 +1799,7 @@
 
     iget-object p1, p0, Lcom/android/settings/wifi/addappnetworks/AddAppNetworksFragment;->mSingleNetworkProcessingStatusView:Landroid/widget/TextView;
 
-    const v0, 0x7f0415cc
+    const v0, 0x7f0415cf
 
     invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -1805,7 +1812,7 @@
     :cond_3
     iget-object p1, p0, Lcom/android/settings/wifi/addappnetworks/AddAppNetworksFragment;->mSummaryView:Landroid/widget/TextView;
 
-    const v0, 0x7f0415c8
+    const v0, 0x7f0415cb
 
     invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -1836,7 +1843,7 @@
 
     iget-object p1, p0, Lcom/android/settings/wifi/addappnetworks/AddAppNetworksFragment;->mSingleNetworkProcessingStatusView:Landroid/widget/TextView;
 
-    const v0, 0x7f0415cd
+    const v0, 0x7f0415d0
 
     invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -1863,7 +1870,7 @@
 
     iget-object p1, p0, Lcom/android/settings/wifi/addappnetworks/AddAppNetworksFragment;->mSummaryView:Landroid/widget/TextView;
 
-    const v2, 0x7f0415c9
+    const v2, 0x7f0415cc
 
     new-array v0, v0, [Ljava/lang/Object;
 

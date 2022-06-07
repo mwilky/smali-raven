@@ -1446,7 +1446,7 @@ Si vous installez un certificat CA, son propriétaire pourrait accéder à vos d
     <string name="calls_sms_preferred">préféré</string>
     <string name="calls_sms_sms_preferred">carte SIM préférée pour les messages texte</string>
     <string name="calls_sms_temp_unavailable">Momentanément inaccessible</string>
-    <string name="calls_sms_unavailable">non accessible</string>
+    <string name="calls_sms_unavailable">non disponible</string>
     <string name="calls_sms_wfc_summary">Faire et recevoir des appels sur réseau Wi‑Fi</string>
     <string name="cam_toggle_description">Pour les applications et les services</string>
     <string name="camera_double_tap_power_gesture_desc">"Lancez rapidement l'appareil photo sans déverrouiller l'écran"</string>
@@ -2522,8 +2522,8 @@ Les données de sauvegarde ne sont pas prises en compte dans le quota de stockag
     <string name="fullbackup_erase_dialog_message">"Voulez-vous vraiment arrêter de sauvegarder les données de l'appareil (comme les mots de passe Wi-Fi et l'historique des appels) et celles des applications (telles que les paramètres et les fichiers enregistrés par ces applications), et en effacer toutes les copies sur Google Disque?"</string>
     <string name="gadget_picker_title">Choisir un gadget</string>
     <string name="game_controller_settings_category">Manette de jeu</string>
-    <string name="game_dashboard_always_on_summary">Afficher le raccourci vers le tableau de bord de jeu dans les jeux</string>
-    <string name="game_dashboard_always_on_title">Tableau de bord de jeu</string>
+    <string name="game_dashboard_always_on_summary">"Afficher l'icône dans tous les jeux (sans balayer vers le haut ou vers le bas)"</string>
+    <string name="game_dashboard_always_on_title">Icône flottante du tableau de bord de jeu</string>
     <string name="game_dashboard_dnd_rule_name">Jeux vidéo</string>
     <string name="game_dashboard_dnd_summary">Recevez uniquement les notifications des personnes et des applications importantes lorsque vous jouez à un jeu</string>
     <string name="game_dashboard_dnd_title">Mode Ne pas déranger pour les jeux</string>
@@ -4068,7 +4068,7 @@ Appuyez simultanément sur l'interrupteur et le bouton d'augmentation du volume.
     <string name="reduce_bright_colors_intensity_start_label">Diminuer</string>
     <string name="reduce_bright_colors_persist_preference_title">"Laisser activé après le redémarrage de l'appareil"</string>
     <string name="reduce_bright_colors_preference_subtitle">"Rendez l'écran plus sombre pour qu'il soit plus facile à lire.&lt;br/>&lt;br/> Cela peut être pratique dans certains cas : &lt;ol> &lt;li> La luminosité minimale par défaut de votre téléphone est quand même trop intense&lt;/li> &lt;li> Vous utilisez votre téléphone dans un environnement sombre, comme la nuit ou dans une salle sombre avant d'aller vous coucher&lt;/li> &lt;/ol>"</string>
-    <string name="reduce_bright_colors_preference_summary">"Assombrir l'écran de votre téléphone au-delà de sa luminosité minimale"</string>
+    <string name="reduce_bright_colors_preference_summary">"Assombrissez l'écran de votre téléphone au-delà de sa luminosité minimale"</string>
     <string name="reduce_bright_colors_preference_title">Réduction supplémentaire de la luminosité</string>
     <string name="reduce_bright_colors_shortcut_title">Raccourci de la réduction supplémentaire de la luminosité</string>
     <string name="reduce_bright_colors_switch_title">Activer la réduction suppl. de la luminosité</string>
@@ -4561,7 +4561,7 @@ Remarque : Vous ne pouvez pas utiliser vos empreintes digitales pour déverroui
     <string name="security_settings_title">Sécurité</string>
     <string name="security_settings_udfps_enroll_a11y">"Déplacez votre doigt sur l'écran pour trouver le capteur. Maintenez le doigt sur le capteur d'empreintes digitales."</string>
     <string name="security_settings_udfps_enroll_edge_message">"Placez le côté de votre doigt sur le capteur et maintenez-le en place, puis passez à l'autre côté"</string>
-    <string name="security_settings_udfps_enroll_edge_title">Finalement, utiliser les bords de votre doigt</string>
+    <string name="security_settings_udfps_enroll_edge_title">Pour finir, utilisez les bords de votre doigt</string>
     <string name="security_settings_udfps_enroll_find_sensor_message">"Le capteur d'empreintes digitales se trouve sur votre écran. Vous capturerez votre empreinte digitale au prochain écran."</string>
     <string name="security_settings_udfps_enroll_find_sensor_start_button">Démarrer</string>
     <string name="security_settings_udfps_enroll_find_sensor_title">Voici comment configurer votre empreinte digitale</string>
@@ -4572,6 +4572,8 @@ Remarque : Vous ne pouvez pas utiliser vos empreintes digitales pour déverroui
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">"Suivez l'icône d'empreinte digitale"</string>
     <string name="security_settings_udfps_enroll_start_message">"Maintenez votre empreinte digitale à plat sur le capteur jusqu'à ce que vous sentiez une vibration"</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">Encore une fois.</string>
+    <string name="security_settings_udfps_side_fingerprint_help">"Placez le côté de votre empreinte digitale sur le capteur et maintenez-le en place, puis passez à l'autre côté"</string>
+    <string name="security_settings_udfps_tip_fingerprint_help">Levez le doigt et touchez le capteur de nouveau</string>
     <string name="security_settings_work_fingerprint_preference_title">Pixel Imprint pour le travail</string>
     <string name="security_status_title">État de la sécurité</string>
     <string name="see_less">En voir moins</string>
@@ -4828,7 +4830,7 @@ Le NIP est peut-être incorrect."</string>
     <string name="sound_settings_summary_vibrate">Sonnerie en mode vibration</string>
     <string name="sound_work_settings">Sons du profil professionnel</string>
     <string name="spatial_audio_title">Son spatialisé</string>
-    <string name="special_access">Accès spéciaux aux applis</string>
+    <string name="special_access">Accès spécial des applis</string>
     <string name="special_access_more">En voir plus</string>
     <string name="speed_label_fast">Élevée</string>
     <string name="speed_label_medium">Moyenne</string>
@@ -4870,7 +4872,7 @@ Un certificat de confiance installé sur votre appareil rend cela possible."</st
     <string name="status_serial_number">Numéro de série</string>
     <string name="status_service_state">État du service</string>
     <string name="status_signal_strength">Intensité du signal</string>
-    <string name="status_unavailable">Non accessible</string>
+    <string name="status_unavailable">Non disponible</string>
     <string name="status_up_time">"Durée d'activité"</string>
     <string name="status_voice_network_type">Type de réseau vocal cellulaire</string>
     <string name="status_wifi_mac_address">Adresse MAC Wi-Fi</string>
@@ -5532,6 +5534,7 @@ Tout utilisateur peut mettre à jour les applications pour tous les autres utili
     <string name="verify_apps_over_usb_title">Vérifier les applis par USB</string>
     <string name="version_text">version %1$s</string>
     <string name="vibrate_for_calls_settings_not_available_summary">"La vibration pour les appels n'est pas accessible parce que le téléphone est en mode silencieux"</string>
+    <string name="vibrate_icon_title">"Toujours afficher l'icône en mode vibration"</string>
     <string name="vibrate_in_silent_title">Vibrer en mode silencieux</string>
     <string name="vibrate_input_devices">Rediriger les vibrations</string>
     <string name="vibrate_input_devices_summary">"Rediriger les vibrations vers la manette de jeu lorsqu'elle est connectée"</string>
@@ -5780,7 +5783,7 @@ Consultez la politique de confidentialité de votre fournisseur de services pour
     <string name="wifi_display_status_connected">Connecté</string>
     <string name="wifi_display_status_connecting">Connexion en cours…</string>
     <string name="wifi_display_status_in_use">"En cours d'utilisation"</string>
-    <string name="wifi_display_status_not_available">Non accessible</string>
+    <string name="wifi_display_status_not_available">Non disponible</string>
     <string name="wifi_dns1">DNS 1 (sauf si un DNS privé ignore ce paramètre)</string>
     <string name="wifi_dns2">DNS 2 (sauf si un DNS privé ignore ce paramètre)</string>
     <string name="wifi_do_not_provide_eap_user_cert">Ne pas fournir</string>

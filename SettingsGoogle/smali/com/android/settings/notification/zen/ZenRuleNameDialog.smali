@@ -49,19 +49,19 @@
 
     if-eqz p0, :cond_0
 
-    const p0, 0x7f0417d4
+    const p0, 0x7f0417d7
 
     goto :goto_0
 
     :cond_0
     if-eqz p1, :cond_1
 
-    const p0, 0x7f0417d6
+    const p0, 0x7f0417d9
 
     goto :goto_0
 
     :cond_1
-    const p0, 0x7f041867
+    const p0, 0x7f04186a
 
     :goto_0
     return p0
@@ -239,7 +239,7 @@
 
     if-eqz v3, :cond_2
 
-    const v1, 0x7f0417d3
+    const v1, 0x7f0417d6
 
     goto :goto_1
 

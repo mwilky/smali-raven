@@ -232,7 +232,7 @@
 
     iget-object p0, p0, Lcom/android/settings/wifi/slice/WifiSlice;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0413f6
+    const v1, 0x7f0413f8
 
     invoke-virtual {p0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -300,7 +300,7 @@
 
     invoke-direct {p2}, Landroidx/slice/builders/ListBuilder$RowBuilder;-><init>()V
 
-    const v0, 0x7f041709
+    const v0, 0x7f04170c
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

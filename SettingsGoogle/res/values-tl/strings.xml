@@ -15,7 +15,7 @@
     <string name="aware_display_settings_title">Lock screen kapag idle</string>
     <string name="aware_settings_description" />
     <string name="aware_settings_summary" />
-    <string name="brightness">Antas ng brightness</string>
+    <string name="brightness">Level ng brightness</string>
     <string name="camera_gesture_desc">Buksan ang camera app sa pamamagitan ng pag-twist sa iyong kamay nang dalawang beses</string>
     <string name="camera_gesture_title">Dobleng pag-twist para sa camera</string>
     <string name="color_mode_title">Mga Kulay</string>
@@ -2522,8 +2522,8 @@ Ang data sa pag-backup ay hindi ibibilang sa iyong quota sa storage ng Drive. Hi
     <string name="fullbackup_erase_dialog_message">Gusto mo bang ihinto ang pagba-back up ng data ng device (gaya ng mga password ng Wi-Fi at history ng tawag) at data ng app (gaya ng mga setting at file na naimbak ng mga app), at burahin ang lahat ng kopya sa Google Drive?</string>
     <string name="gadget_picker_title">Pumili ng gadget</string>
     <string name="game_controller_settings_category">Game Controller</string>
-    <string name="game_dashboard_always_on_summary">Ipakita ang shortcut ng Game Dashboard sa mga laro</string>
-    <string name="game_dashboard_always_on_title">Dashboard ng Game</string>
+    <string name="game_dashboard_always_on_summary">Ipakita ang icon sa lahat ng laro (nang hindi nagsa-swipe pataas o pababa)</string>
+    <string name="game_dashboard_always_on_title">Floating icon ng Dashboard ng Game</string>
     <string name="game_dashboard_dnd_rule_name">Naglalaro</string>
     <string name="game_dashboard_dnd_summary">Makakuha lang ng notification mula sa mahahalagang tao at app kapag naglalaro</string>
     <string name="game_dashboard_dnd_title">Huwag Istorbohin para sa mga laro</string>
@@ -4561,7 +4561,7 @@ Tandaan: Hindi mo magagamit ang iyong fingerprint upang ma-unlock ang device na 
     <string name="security_settings_title">Seguridad</string>
     <string name="security_settings_udfps_enroll_a11y">Igalaw ang iyong daliri sa screen para mahanap ang sensor. Pindutin nang matagal ang sensor para sa fingerprint.</string>
     <string name="security_settings_udfps_enroll_edge_message">Ilagay ang gilid ng iyong fingerprint sa sensor nang matagal, pagkatapos ay ang kabilang gilid</string>
-    <string name="security_settings_udfps_enroll_edge_title">Panghuli, gamitin ang mga dulo ng iyong daliri</string>
+    <string name="security_settings_udfps_enroll_edge_title">Panghuli, gamitin ang mga edge ng iyong daliri</string>
     <string name="security_settings_udfps_enroll_find_sensor_message">Nasa screen mo ang sensor para sa fingerprint. Ika-capture mo ang iyong fingerprint sa susunod na screen.</string>
     <string name="security_settings_udfps_enroll_find_sensor_start_button">Magsimula</string>
     <string name="security_settings_udfps_enroll_find_sensor_title">Paano i-set up ang iyong fingerprint</string>
@@ -4572,6 +4572,8 @@ Tandaan: Hindi mo magagamit ang iyong fingerprint upang ma-unlock ang device na 
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">Sundan ang icon ng fingerprint</string>
     <string name="security_settings_udfps_enroll_start_message">Huwag alisin ang iyong fingerprint sa sensor hanggang sa may maramdaman kang pag-vibrate</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">Isa pa</string>
+    <string name="security_settings_udfps_side_fingerprint_help">Ilagay ang gilid ng iyong fingerprint sa sensor nang matagal, pagkatapos ay ang kabilang gilid</string>
+    <string name="security_settings_udfps_tip_fingerprint_help">Iangat, pagkatpaos ay pindutin ulit</string>
     <string name="security_settings_work_fingerprint_preference_title">Pixel Imprint para sa trabaho</string>
     <string name="security_status_title">Status ng seguridad</string>
     <string name="see_less">Tumingin nang kaunti</string>
@@ -5532,6 +5534,7 @@ Ang sinumang user ay maaaring mag-update ng mga app para sa lahat ng iba pang us
     <string name="verify_apps_over_usb_title">I-verify ang mga app sa USB</string>
     <string name="version_text">bersyon %1$s</string>
     <string name="vibrate_for_calls_settings_not_available_summary">Hindi available ang pag-vibrate para sa mga tawag dahil naka-silent ang telepono</string>
+    <string name="vibrate_icon_title">Palaging ipakita ang icon kapag nasa vibrate mode</string>
     <string name="vibrate_in_silent_title">I-vibrate kapag naka-silent</string>
     <string name="vibrate_input_devices">I-redirect ang pag-vibrate</string>
     <string name="vibrate_input_devices_summary">Magpadala ng pag-vibrate sa controller ng laro kapag nakakonekta</string>

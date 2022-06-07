@@ -84,10 +84,10 @@
     <string name="wallpaper_settings_title">Позадина</string>
     <string name="accessibility_notification_vibration_title">Вибрирање обавештења</string>
     <string name="accessibility_ring_vibration_title">Вибрирање звона</string>
-    <string name="accessibility_touch_vibration_title">Додирне повратне информације</string>
-    <string name="keywords_notification_vibration">додирне повратне информације, вибрирање, осетљивост</string>
-    <string name="keywords_ring_vibration">додирне повратне информације, вибрирање, телефон, позив, осетљивост, звоно</string>
-    <string name="keywords_touch_vibration">додирне повратне информације, вибрација, екран, осетљивост</string>
+    <string name="accessibility_touch_vibration_title">Тактилни одзив</string>
+    <string name="keywords_notification_vibration">тактилни одзиви, вибрирање, осетљивост</string>
+    <string name="keywords_ring_vibration">тактилни одзиви, вибрирање, телефон, позив, осетљивост, звоно</string>
+    <string name="keywords_touch_vibration">тактилни одзиви, вибрација, екран, осетљивост</string>
     <string name="vibrate_when_ringing_title">Вибрирање за позиве</string>
     <string name="accessibility_vibration_settings_screen_title">Користи вибрирање и додирне повратне информације</string>
     <string name="one_handed_title">Режим једном руком</string>
@@ -2522,8 +2522,8 @@ Tо омогућава заштиту података на изгубљеним
     <string name="fullbackup_erase_dialog_message">Желите ли да зауставите прављење резервних копија података уређаја (попут WiFi лозинки и историје позива) и података апликација (попут подешавања и датотека сачуваних у апликацијама) и избришете све копије на Google диску?</string>
     <string name="gadget_picker_title">Избор гаџета</string>
     <string name="game_controller_settings_category">Контролер за игре</string>
-    <string name="game_dashboard_always_on_summary">Приказуј пречицу за контролну таблу игре у играма</string>
-    <string name="game_dashboard_always_on_title">Контролна табла игре</string>
+    <string name="game_dashboard_always_on_summary">Приказуј икону у свим играма (без превлачења нагоре или надоле)</string>
+    <string name="game_dashboard_always_on_title">Плутајућа икона контролне табле игре</string>
     <string name="game_dashboard_dnd_rule_name">Видео игре</string>
     <string name="game_dashboard_dnd_summary">Добијајте обавештења само од важних људи и апликација када играте игре</string>
     <string name="game_dashboard_dnd_title">Режим Не узнемиравај за игре</string>
@@ -3473,7 +3473,7 @@ PIN штити телефон ако га изгубите или га неко 
     <string name="network_connection_errorstate_dialog_message">Дошло је до неког проблема. Апликација је отказала захтев за избор уређаја.</string>
     <string name="network_connection_request_dialog_showall">Прикажи све</string>
     <string name="network_connection_request_dialog_summary">Апликација %1$s жели да користи привремену Wi‑Fi мрежу да би се повезала са уређајем</string>
-    <string name="network_connection_request_dialog_title">Повежите се са уређајем</string>
+    <string name="network_connection_request_dialog_title">Повежите са уређајем</string>
     <string name="network_connection_searching_message">Тражи се уређај…</string>
     <string name="network_connection_timeout_dialog_message">Није пронађен ниједан уређај Проверите да ли је уређај укључен и доступан за повезивање.</string>
     <string name="network_connection_timeout_dialog_ok">Пробај поново</string>
@@ -4067,7 +4067,7 @@ PIN штити телефон ако га изгубите или га неко 
     <string name="reduce_bright_colors_intensity_preference_title">Интензитет</string>
     <string name="reduce_bright_colors_intensity_start_label">Тамније</string>
     <string name="reduce_bright_colors_persist_preference_title">Не искључуј после рестартовања уређаја</string>
-    <string name="reduce_bright_colors_preference_subtitle">Затамните екран да би вам читање било пријатније.&lt;br/>&lt;br/> То може да вам буде корисно: &lt;ol> &lt;li> када је подразумевана минимална осветљеност телефона и даље јака&lt;/li> &lt;li> када користите телефон у мраку, на пример, ноћу или у тамној соби пре одласка на спавање&lt;/li> &lt;/ol></string>
+    <string name="reduce_bright_colors_preference_subtitle">"Затамните екран да би вам читање било пријатније.&lt;br/>&lt;br/> То може да вам буде корисно: &lt;ol> &lt;li> Када је подразумевана минимална осветљеност телефона и даље јака&lt;/li> &lt;li> Када користите телефон у мраку, на пример,  ноћу или у тамној соби пре одласка на спавање&lt;/li> &lt;/ol>"</string>
     <string name="reduce_bright_colors_preference_summary">Затамните екран више од минималне осветљености телефона</string>
     <string name="reduce_bright_colors_preference_title">Додатно затамњено</string>
     <string name="reduce_bright_colors_shortcut_title">Пречица за додатно затамњење</string>
@@ -4572,6 +4572,8 @@ PIN штити телефон ако га изгубите или га неко 
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">Пратите икону утиска прста</string>
     <string name="security_settings_udfps_enroll_start_message">Држите прст равно на сензору док не осетите вибрацију</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">Још једном</string>
+    <string name="security_settings_udfps_side_fingerprint_help">Ставите једну страну прста на сензор и задржите, па ставите другу страну</string>
+    <string name="security_settings_udfps_tip_fingerprint_help">Подигните, па опет додирните</string>
     <string name="security_settings_work_fingerprint_preference_title">Pixel Imprint за посао</string>
     <string name="security_status_title">Безбедносни статус</string>
     <string name="see_less">Прикажи мање</string>
@@ -4828,7 +4830,7 @@ PIN штити телефон ако га изгубите или га неко 
     <string name="sound_settings_summary_vibrate">Звоно је подешено на вибрацију</string>
     <string name="sound_work_settings">Звукови за пословни профил</string>
     <string name="spatial_audio_title">Просторни звук</string>
-    <string name="special_access">Посебан приступ апликацији</string>
+    <string name="special_access">Посебан приступ апликација</string>
     <string name="special_access_more">Прикажи још</string>
     <string name="speed_label_fast">Брза</string>
     <string name="speed_label_medium">Средња</string>
@@ -5532,10 +5534,11 @@ Google-ов приступ синхронизовању података как�
     <string name="verify_apps_over_usb_title">Верификуј апликације преко USB-а</string>
     <string name="version_text">верзија %1$s</string>
     <string name="vibrate_for_calls_settings_not_available_summary">Вибрирање за позиве није доступно зато што је звук телефона искључен</string>
+    <string name="vibrate_icon_title">Увек приказуј икону у режиму вибрације</string>
     <string name="vibrate_in_silent_title">Вибрација у нечујном режиму</string>
     <string name="vibrate_input_devices">Преусмери вибрацију</string>
     <string name="vibrate_input_devices_summary">Преусмери вибрацију на контролер за игре када је повезан</string>
-    <string name="vibrate_on_touch_summary">Додирне повратне информације за додир, тастатуру и још тога</string>
+    <string name="vibrate_on_touch_summary">Тактилни одзив за додир, тастатуру и још тога</string>
     <string name="vibrate_on_touch_title">Вибрација при додиру</string>
     <string name="vibrate_when_ringing_option_always_vibrate">Увек вибрирај</string>
     <string name="vibrate_when_ringing_option_never_vibrate">Никад не укључуј вибрацију</string>
@@ -6202,7 +6205,7 @@ Google-ов приступ синхронизовању података как�
     <string name="zen_mode_conversations_section_title">Конверзације које могу да прекидају</string>
     <string name="zen_mode_conversations_title">Конверзације</string>
     <string name="zen_mode_custom_behavior_category_title">За „%1$s“</string>
-    <string name="zen_mode_custom_behavior_summary">Направите прилагођена подешавања за овај распоред</string>
+    <string name="zen_mode_custom_behavior_summary">Направи прилагођена подешавања за овај распоред</string>
     <string name="zen_mode_custom_behavior_summary_default">Користи подразумевана подешавања</string>
     <string name="zen_mode_custom_behavior_title">Понашање режима Не узнемиравај</string>
     <string name="zen_mode_custom_calls_footer">Долазни позиви су блокирани за „%1$s“. Можете да прилагодите подешавања и дозволите пријатељима, члановима породице или другим контактима да допру до вас.</string>
@@ -6271,7 +6274,7 @@ Google-ов приступ синхронизовању података как�
     <string name="zen_mode_restrict_notifications_custom">Прилагођено</string>
     <string name="zen_mode_restrict_notifications_disable_custom">Уклони прилагођено подешавање</string>
     <string name="zen_mode_restrict_notifications_enable_custom">Омогући прилагођено подешавање</string>
-    <string name="zen_mode_restrict_notifications_hide">Без звучног сигнала или визуелног обавештења</string>
+    <string name="zen_mode_restrict_notifications_hide">Без визуелног и звучног сигнала обавештења</string>
     <string name="zen_mode_restrict_notifications_hide_footer">"У случају нових или постојећих обавештења, телефон их неће приказивати, нити ће вибрирати или звонити. Имајте у виду да ће се важна обавештења о активностима и статусу телефона и даље приказивати.
 
 Када искључите режим Не узнемиравај, пропуштена обавештења можете да пронађете ако превучете надоле са врха екрана."</string>
@@ -6280,7 +6283,7 @@ Google-ов приступ синхронизовању података как�
     <string name="zen_mode_restrict_notifications_mute_footer">Телефон неће емитовати звук ни вибрирати када стигну обавештења.</string>
     <string name="zen_mode_restrict_notifications_mute_summary">Видећете обавештења на екрану</string>
     <string name="zen_mode_restrict_notifications_summary_custom">Делимично скривено</string>
-    <string name="zen_mode_restrict_notifications_summary_hidden">Без звучног сигнала или визуелног обавештења</string>
+    <string name="zen_mode_restrict_notifications_summary_hidden">Без визуелног и звучног сигнала обавештења</string>
     <string name="zen_mode_restrict_notifications_summary_muted">Без звучног сигнала за обавештења</string>
     <string name="zen_mode_restrict_notifications_title">Опције приказа за скривена обавештења</string>
     <string name="zen_mode_rule_delete_button">Избриши</string>
@@ -6352,7 +6355,7 @@ Google-ов приступ синхронизовању података как�
     <string name="zen_onboarding_current_setting_title">Без звучног сигнала за обавештења</string>
     <string name="zen_onboarding_dnd_visual_disturbances_header">Желите ли да промените подешавања обавештења за режим Не узнемиравај?</string>
     <string name="zen_onboarding_new_setting_summary">Нећете видети нити чути обавештења. Позиви од контаката са звездицом и поновних позивалаца су дозвољени.</string>
-    <string name="zen_onboarding_new_setting_title">Без звучног сигнала или визуелног обавештења</string>
+    <string name="zen_onboarding_new_setting_title">Без визуелног и звучног сигнала обавештења</string>
     <string name="zen_onboarding_ok">Готово</string>
     <string name="zen_onboarding_settings">Подешавања</string>
     <string name="zen_schedule_rule_enabled_toast">Аутоматско правило је подешено да се подешавање Не узнемиравај укључује током наведених периода</string>

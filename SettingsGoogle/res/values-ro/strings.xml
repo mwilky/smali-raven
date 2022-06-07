@@ -30,8 +30,8 @@
     <string name="double_twist_for_camera_mode_title">Întoarceți camera foto pentru un selfie</string>
     <string name="doze_always_on_summary">Utilizare ridicată a bateriei</string>
     <string name="doze_always_on_title">Afișează mereu ora și informațiile</string>
-    <string name="doze_summary">Când ecranul este întunecat, el se activează pentru notificări noi</string>
-    <string name="doze_title">Activează ecranul pentru notificări</string>
+    <string name="doze_summary">Când este întunecat, ecranul se activează pentru notificări noi</string>
+    <string name="doze_title">Activați ecranul pentru notificări</string>
     <string name="fingerprint_swipe_for_notifications_title">Glisați amprenta pentru notificări</string>
     <string name="gesture_preference_title">Gesturi</string>
     <string name="gesture_prevent_ringing_screen_title">Dezactivați soneria</string>
@@ -2522,8 +2522,8 @@ Backupul datelor nu se ia în considerare la calcularea cotei de stocare Drive. 
     <string name="fullbackup_erase_dialog_message">Doriți să nu li se mai facă backup datelor de pe dispozitiv (de exemplu, parolele Wi-Fi și istoricul apelurilor) și datelor din aplicații (de exemplu, setările și fișierele stocate de aplicații) și să ștergeți toate copiile din Google Drive?</string>
     <string name="gadget_picker_title">Alegeți obiectul gadget</string>
     <string name="game_controller_settings_category">Controler de joc</string>
-    <string name="game_dashboard_always_on_summary">Afișați comanda rapidă din Tabloul de bord al jocului</string>
-    <string name="game_dashboard_always_on_title">Tabloul de bord al jocului</string>
+    <string name="game_dashboard_always_on_summary">Afișați pictograma în toate jocurile (fără să glisați în sus sau în jos</string>
+    <string name="game_dashboard_always_on_title">Pictogramă flotantă pentru Tabloul de bord al jocului</string>
     <string name="game_dashboard_dnd_rule_name">Jocuri</string>
     <string name="game_dashboard_dnd_summary">Primiți notificări numai de la persoane și aplicații importante când jucați un joc</string>
     <string name="game_dashboard_dnd_title">Modul Nu deranja pentru jocuri</string>
@@ -4571,6 +4571,8 @@ Notă: nu vă puteți folosi amprenta ca să deblocați acest dispozitiv. Pentru
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">Atingeți repetat pictograma amprentă</string>
     <string name="security_settings_udfps_enroll_start_message">Țineți amprenta pe senzor până când simțiți o vibrație</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">Încă o dată</string>
+    <string name="security_settings_udfps_side_fingerprint_help">Așezați partea laterală a degetului pe senzor și mențineți, apoi procedați la fel cu cealaltă parte</string>
+    <string name="security_settings_udfps_tip_fingerprint_help">Ridicați, apoi atingeți din nou</string>
     <string name="security_settings_work_fingerprint_preference_title">Pixel Imprint pentru serviciu</string>
     <string name="security_status_title">Starea de securitate</string>
     <string name="see_less">Afișați mai puține</string>
@@ -4826,7 +4828,7 @@ Codul PIN poate fi incorect."</string>
     <string name="sound_settings_summary_silent">Soneria este setată pe silențios</string>
     <string name="sound_settings_summary_vibrate">Soneria este setată pe vibrații</string>
     <string name="sound_work_settings">Sunetele profilului de serviciu</string>
-    <string name="spatial_audio_title">Sunet spațial</string>
+    <string name="spatial_audio_title">Audio spațial</string>
     <string name="special_access">Acces special aplicații</string>
     <string name="special_access_more">Vedeți mai multe</string>
     <string name="speed_label_fast">Rapidă</string>
@@ -5531,6 +5533,7 @@ Orice utilizator poate actualiza aplicațiile pentru toți ceilalți utilizatori
     <string name="verify_apps_over_usb_title">Verificați aplicațiile prin USB</string>
     <string name="version_text">versiunea %1$s</string>
     <string name="vibrate_for_calls_settings_not_available_summary">Opțiunea Vibrații pentru apeluri nu este disponibilă, deoarece telefonul este setat la modul silențios</string>
+    <string name="vibrate_icon_title">Afișați întotdeauna pictograma în modul vibrații</string>
     <string name="vibrate_in_silent_title">Vibrează la profilul Silențios</string>
     <string name="vibrate_input_devices">Redirecționați vibrațiile</string>
     <string name="vibrate_input_devices_summary">Trimiteți vibrații la controlerul de joc când este conectat</string>
@@ -6281,7 +6284,7 @@ Când dezactivați modul Nu deranja, găsiți notificările ratate glisând în 
     <string name="zen_mode_restrict_notifications_summary_custom">Parțial ascunse</string>
     <string name="zen_mode_restrict_notifications_summary_hidden">Fără imagini sau sunet de la notificări</string>
     <string name="zen_mode_restrict_notifications_summary_muted">Fără sunet de la notificări</string>
-    <string name="zen_mode_restrict_notifications_title">Afișați opțiunile pentru notificările ascunse</string>
+    <string name="zen_mode_restrict_notifications_title">Opțiunile de afișare pentru notificările ascunse</string>
     <string name="zen_mode_rule_delete_button">Ștergeți</string>
     <string name="zen_mode_rule_name">Numele programului</string>
     <string name="zen_mode_rule_name_edit">Editați</string>

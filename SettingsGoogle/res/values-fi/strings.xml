@@ -100,7 +100,7 @@
     <string name="emergency_gesture_screen_title">Hätätilanne</string>
     <string name="abc_action_mode_done">Valmis</string>
     <string name="vibrate_for_calls_category_title">Puhelut</string>
-    <string name="lockscreen_privacy_wallet_setting_toggle">Näytä Wallet</string>
+    <string name="lockscreen_privacy_wallet_setting_toggle">Näytä lompakko</string>
     <string name="lockscreen_privacy_controls_setting_toggle">Näytä laitteiden hallinta</string>
     <string name="lockscreen_privacy_wallet_summary">Salli Walletin käyttö lukitusnäytöltä ja pika-asetuksista</string>
     <string name="lockscreen_privacy_controls_summary">Käytä säätimiä laitteen ollessa lukittuna</string>
@@ -305,7 +305,7 @@ Suurennus ei toimi näppäimistöllä tai siirtymispalkissa."</string>
     <string name="accessibility_service_warning">%1$s pyytää laitteen täyttä hallintaoikeutta. Palvelu voi lukea näytön sisällön ja toimia esteettömyyspalvelujen käyttäjien puolesta. Hallintaoikeudet ovat useimmille sovelluksille liian laajat.</string>
     <string name="accessibility_service_warning_description">Täysi käyttöoikeus sopii esteettömyyssovelluksille, mutta ei useimmille sovelluksille.</string>
     <string name="accessibility_setting_item_control_timeout_title">Toiminnon aika (esteettömyyskatkaisu)</string>
-    <string name="accessibility_settings">Esteettömyys</string>
+    <string name="accessibility_settings">Saavutettavuus</string>
     <string name="accessibility_settings_summary">Näyttö, käyttö, audio</string>
     <string name="accessibility_settings_title">Esteettömyysasetukset</string>
     <string name="accessibility_shortcut_description">Salli ominaisuuden päälle laittaminen lukitusnäytön pikakuvakkeella. Paina molempia äänenvoimakkuuspainikkeita muutaman sekunnin ajan.</string>
@@ -1907,7 +1907,7 @@ Jotkut tilit voivat myös automaattisesti kopioida puhelimella tehdyt muutokset 
     <string name="data_usage_empty">Sovellukset eivät käyttäneet tiedonsiirtoa.</string>
     <string name="data_usage_enable_3g">2G-3G-tiedonsiirto</string>
     <string name="data_usage_enable_4g">4G-tiedonsiirto</string>
-    <string name="data_usage_enable_mobile">Mobiilitiedonsiirto</string>
+    <string name="data_usage_enable_mobile">Mobiilidata</string>
     <string name="data_usage_forground_label">Edusta:</string>
     <string name="data_usage_label_background">Taustalla</string>
     <string name="data_usage_label_foreground">Etualalla</string>
@@ -2522,8 +2522,8 @@ Varmuuskopioita ei vähennetä Drive-tallennustilan kiintiöstäsi. Suuria ja ke
     <string name="fullbackup_erase_dialog_message">Lopetetaanko laitteen tietojen (kuten Wi-Fi-salasanojen ja soittohistorian) ja sovellusten tietojen (kuten asetusten ja sovellusten tallentamien tiedostojen) automaattinen varmuuskopiointi? Myös vanhat varmuuskopiot poistetaan Google Drivesta.</string>
     <string name="gadget_picker_title">Valitse gadget</string>
     <string name="game_controller_settings_category">Peliohjaimet</string>
-    <string name="game_dashboard_always_on_summary">Näytä Pelipaneelin pikakuvake peleissä</string>
-    <string name="game_dashboard_always_on_title">Pelipaneeli</string>
+    <string name="game_dashboard_always_on_summary">Näytä kuvake kaikissa peleissä (pyyhkäisemättä ylös tai alas)</string>
+    <string name="game_dashboard_always_on_title">Pelipaneelin kelluva kuvake</string>
     <string name="game_dashboard_dnd_rule_name">Pelit</string>
     <string name="game_dashboard_dnd_summary">Salli ilmoitukset vain tärkeiltä ihmisiltä ja sovelluksilta pelaamisen aikana</string>
     <string name="game_dashboard_dnd_title">Älä häiritse ‑tila peleille</string>
@@ -4345,7 +4345,7 @@ Sovelluksen kiinnittäminen: \u0009
     <string name="search_settings">Haku</string>
     <string name="secure_lock_encryption_warning">Laite ei käytä näytön lukitusta tiedon salauksen parantamiseen, koska otit käytettävyyspalvelun käyttöön.</string>
     <string name="security_advanced_settings">Lisäasetukset</string>
-    <string name="security_dashboard_summary">Näytön lukitus, Paikanna puhelin, sovellusten tietoturva</string>
+    <string name="security_dashboard_summary">Näytön lukitus, Paikanna laite, sovellusten tietoturva</string>
     <string name="security_dismiss_dialog_dismiss_button">Ohita</string>
     <string name="security_dismiss_dialog_title">Ohitetaanko varoitus?</string>
     <string name="security_enable_widgets_disabled_summary">Järjestelmänvalvojan estämä</string>
@@ -4572,6 +4572,8 @@ Huom. Tämän laitteen lukitusta ei voi avata sormenjäljellä. Saat lisätietoj
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">Seuraa sormenjälkikuvaketta</string>
     <string name="security_settings_udfps_enroll_start_message">Pidä sormesi tunnistimella, kunnes tunnet värähdyksen</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">Vielä kerran</string>
+    <string name="security_settings_udfps_side_fingerprint_help">Aseta sormenjäljen reuna tunnistimen päälle ja pidä se siinä, ja tee sitten sama toiselle reunalle</string>
+    <string name="security_settings_udfps_tip_fingerprint_help">Nosta sormi ja kosketa taas</string>
     <string name="security_settings_work_fingerprint_preference_title">Pixel Imprint työkäyttöön</string>
     <string name="security_status_title">Suojaustila</string>
     <string name="see_less">Näytä vähemmän</string>
@@ -4827,7 +4829,7 @@ PIN-koodi on mahdollisesti virheellinen."</string>
     <string name="sound_settings_summary_silent">Soittoääni on mykistetty.</string>
     <string name="sound_settings_summary_vibrate">Soittoääni on mykistetty. Puhelin värisee, kun saat puhelun.</string>
     <string name="sound_work_settings">Työprofiilin äänet</string>
-    <string name="spatial_audio_title">Spatiaalinen audio</string>
+    <string name="spatial_audio_title">Tila-audio</string>
     <string name="special_access">Erityisluvat</string>
     <string name="special_access_more">Katso lisää</string>
     <string name="speed_label_fast">Nopea</string>
@@ -5217,7 +5219,7 @@ Se on Googlen tapa synkronoida tietoja, ja sen avulla voit käyttää yhteystiet
     <string name="tts_default_rate_title">Puheen nopeus</string>
     <string name="tts_default_sample_string">Tämä on esimerkki puhesynteesistä.</string>
     <string name="tts_engine_network_required">Tämä kieli vaatii verkkoyhteyden, jotta tekstistä puheeksi muuntaminen toimii.</string>
-    <string name="tts_engine_preference_section_title">Ensisijainen kone</string>
+    <string name="tts_engine_preference_section_title">Ensisijainen moottori</string>
     <string name="tts_engine_preference_title">Ensisijainen moottori</string>
     <string name="tts_engine_section_title">Moottori</string>
     <string name="tts_engine_security_warning">Tämä puhesynteesimoottori saattaa kerätä kaiken puhutun tekstin, mukaan lukien henkilökohtaiset tiedot kuten salasanat ja luottokorttinumerot. Se on lähtöisin moottorista %s. Haluatko ottaa tämän puhesynteesimoottorin käyttöön?</string>
@@ -5225,7 +5227,7 @@ Se on Googlen tapa synkronoida tietoja, ja sen avulla voit käyttää yhteystiet
     <string name="tts_engine_settings_title">Moottorin asetukset</string>
     <string name="tts_general_section_title">Yleiset</string>
     <string name="tts_install_data_summary">Asenna puhesynteesiin tarvittavat äänitiedot</string>
-    <string name="tts_install_data_title">Asenna äänitiedot</string>
+    <string name="tts_install_data_title">Asenna äänidata</string>
     <string name="tts_install_voice_title">Äänet</string>
     <string name="tts_install_voices_cancel">Peru</string>
     <string name="tts_install_voices_open">Avaa sovellus</string>
@@ -5532,6 +5534,7 @@ Kaikki käyttäjät voivat päivittää sovelluksia muille käyttäjille."</stri
     <string name="verify_apps_over_usb_title">Tarkista USB:n kautta asennetut</string>
     <string name="version_text">versio %1$s</string>
     <string name="vibrate_for_calls_settings_not_available_summary">Puhelujen värinä ei ole käytettävissä, koska puhelin on äänettömällä</string>
+    <string name="vibrate_icon_title">Näytä aina kuvake värinätilassa ollessa</string>
     <string name="vibrate_in_silent_title">Käytä värinää äänettömässä tilassa</string>
     <string name="vibrate_input_devices">Uudelleenohjaa värinä</string>
     <string name="vibrate_input_devices_summary">Ohjaa värinä peliohjaimeen, jos se on kytketty.</string>
@@ -6267,7 +6270,7 @@ Annetaanko tämä lupa kaikille sovelluksille, jotka haluavat etsiä verkkoja?"<
     <string name="zen_mode_repeat_callers_list">toistuvat puhelut</string>
     <string name="zen_mode_repeat_callers_summary">Jos sama henkilö soittaa uudelleen %d minuutin kuluessa</string>
     <string name="zen_mode_repeat_callers_title">Salli usein soittavat</string>
-    <string name="zen_mode_restrict_notifications_category">Kun älä häiritse -tila on käytössä</string>
+    <string name="zen_mode_restrict_notifications_category">Kun Älä häiritse -tila on käytössä</string>
     <string name="zen_mode_restrict_notifications_custom">Oma</string>
     <string name="zen_mode_restrict_notifications_disable_custom">Poista oma asetus</string>
     <string name="zen_mode_restrict_notifications_enable_custom">Ota oma asetus käyttöön</string>

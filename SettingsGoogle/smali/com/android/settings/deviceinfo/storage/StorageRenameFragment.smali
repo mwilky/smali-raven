@@ -149,7 +149,7 @@
 
     invoke-virtual {v3}, Landroid/widget/EditText;->requestFocus()Z
 
-    const v1, 0x7f04131b
+    const v1, 0x7f04131d
 
     invoke-virtual {v2, v1}, Landroidx/appcompat/app/AlertDialog$Builder;->setTitle(I)Landroidx/appcompat/app/AlertDialog$Builder;
 

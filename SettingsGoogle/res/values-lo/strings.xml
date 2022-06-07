@@ -2522,8 +2522,8 @@ There seemed to be no horses nor animals of any kind; the men carried things aro
     <string name="fullbackup_erase_dialog_message">ຢຸດການສຳຮອງຂໍ້ມູນອຸປະກອນ (ເຊັ່ນ: ລະຫັດຜ່ານ Wi-Fi ແລະ ປະຫວັດການໂທ) ແລະ ຂໍ້ມູນແອັບ (ເຊັ່ນ: ການຕັ້ງຄ່າ ແລະ ໄຟລ໌ທີ່ແອັບບັນທຶກໄວ້), ບວກໃສ່ລຶບທຸກສຳເນົາຢູ່ໃນ Google Drive ບໍ?</string>
     <string name="gadget_picker_title">ເລືອກແກດເຈັດ</string>
     <string name="game_controller_settings_category">ມືເກມ</string>
-    <string name="game_dashboard_always_on_summary">ສະແດງທາງລັດແຜງໜ້າປັດເກມໃນເກມຕ່າງໆ</string>
-    <string name="game_dashboard_always_on_title">ແຜງໜ້າປັດເກມ</string>
+    <string name="game_dashboard_always_on_summary">ສະແດງໄອຄອນໃນເກມທັງໝົດ (ໂດຍບໍ່ຕ້ອງປັດຂຶ້ນ ຫຼື ລົງ)</string>
+    <string name="game_dashboard_always_on_title">ໄອຄອນລອຍຂອງແຜງໜ້າປັດເກມ</string>
     <string name="game_dashboard_dnd_rule_name">ການຫຼິ້ນເກມ</string>
     <string name="game_dashboard_dnd_summary">ຮັບການແຈ້ງເຕືອນຈາກຄົນ ແລະ ແອັບສຳຄັນເທົ່ານັ້ນໃນເວລາທີ່ກຳລັງຫຼິ້ນເກມ</string>
     <string name="game_dashboard_dnd_title">ໂໝດຫ້າມລົບກວນສຳລັບເກມ</string>
@@ -4572,6 +4572,8 @@ PIN ຈະປົກປ້ອງໂທລະສັບຫາກມັນເສຍ 
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">ເລື່ອນຕາມໄອຄອນລາຍນິ້ວມື</string>
     <string name="security_settings_udfps_enroll_start_message">ແນບລາຍນິ້ວມືຂອງທ່ານໃຫ້ສະເໝີກັບເຊັນເຊີຈົນກວ່າທ່ານຈະຮູ້ສຶກມີການສັ່ນເຕືອນ</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">ອີກເທື່ອໜຶ່ງ</string>
+    <string name="security_settings_udfps_side_fingerprint_help">ວາງທາງຂ້າງຂອງລາຍນິ້ວມືທ່ານໃສ່ເຊັນເຊີແລ້ວກົດຄ້າງໄວ້, ຈາກນັ້ນສະຫຼັບໄປອີກຂ້າງ</string>
+    <string name="security_settings_udfps_tip_fingerprint_help">ຍົກຂຶ້ນ, ຈາກນັ້ນແຕະໃໝ່</string>
     <string name="security_settings_work_fingerprint_preference_title">Pixel Imprint ສຳລັບວຽກ</string>
     <string name="security_status_title">ສະຖານະຄວາມປອດໄພ</string>
     <string name="see_less">​​ເບິ່ງ​ໜ້ອຍ​ລົງ</string>
@@ -5532,6 +5534,7 @@ PIN ຈະປົກປ້ອງໂທລະສັບຫາກມັນເສຍ 
     <string name="verify_apps_over_usb_title">ຢືນຢັນແອັບຜ່ານທາງ USB</string>
     <string name="version_text">ເວີຊັນ %1$s</string>
     <string name="vibrate_for_calls_settings_not_available_summary">ບໍ່ສາມາດໃຊ້ການສັ່ນເຕືອນສຳລັບສາຍໂທເຂົ້າໄດ້ເນື່ອງຈາກໂທລະສັບຖືກຕັ້ງໃຫ້ປິດສຽງຢູ່</string>
+    <string name="vibrate_icon_title">ສະແດງໄອຄອນຕະຫຼອດເມື່ອຢູ່ໃນໂໝດການສັ່ນເຕືອນ</string>
     <string name="vibrate_in_silent_title">ສັ່ນເຕືອນເມື່ອປິດສຽງ</string>
     <string name="vibrate_input_devices">ປ່ຽນເສັ້ນທາງການສັ່ນເຕືອນ</string>
     <string name="vibrate_input_devices_summary">Send vibration to game controller when connected</string>
@@ -6202,7 +6205,7 @@ PIN ຈະປົກປ້ອງໂທລະສັບຫາກມັນເສຍ 
     <string name="zen_mode_conversations_section_title">ການສົນທະນາທີ່ສາມາດລົບກວນໄດ້</string>
     <string name="zen_mode_conversations_title">ການສົນທະນາ</string>
     <string name="zen_mode_custom_behavior_category_title">ສຳລັບ ‘%1$s’</string>
-    <string name="zen_mode_custom_behavior_summary">ສ້າງການຕັ້ງຄ່າແບບກຳນົດເອງສຳລັບກຳນົດການນີ້</string>
+    <string name="zen_mode_custom_behavior_summary">ສ້າງການຕັ້ງຄ່າແບບກຳນົດເອງສຳລັບກຳນົດເວລານີ້</string>
     <string name="zen_mode_custom_behavior_summary_default">ໃຊ້ການຕັ້ງຄ່າເລີ່ມ​ຕົ້ນ</string>
     <string name="zen_mode_custom_behavior_title">ລັກສະນະການເຮັດວຽກຂອງໂໝດຫ້າມລົບກວນ</string>
     <string name="zen_mode_custom_calls_footer">ສຳລັບ ‘%1$s’, ສາຍໂທເຂົ້າຈະຖືກບລັອກໄວ້. ທ່ານສາມາດປັບແຕ່ງການຕັ້ງຄ່າເພື່ອອະນຸຍາດໃຫ້ໝູ່, ຄອບຄົວ ແລະ ລາຍຊື່ຜູ້ຕິດຕໍ່ອື່ນໆຂອງທ່ານສາມາດຕິດຕໍ່ຫາທ່ານໄດ້.</string>
@@ -6220,14 +6223,14 @@ PIN ຈະປົກປ້ອງໂທລະສັບຫາກມັນເສຍ 
     <string name="zen_mode_enable_dialog_turn_on">ເປີດ</string>
     <string name="zen_mode_end_time">ເວລາສິ້ນສຸດ</string>
     <string name="zen_mode_end_time_next_day_summary_format">%s ມື້ຖັດໄປ</string>
-    <string name="zen_mode_event_rule_calendar">ໃນ​ລະ​ຫວ່າງ​ເຫດ​ການ​ສຳ​ລັບ</string>
+    <string name="zen_mode_event_rule_calendar">ໃນ​ລະ​ຫວ່າງການນັດໝາຍ​ສຳ​ລັບ</string>
     <string name="zen_mode_event_rule_calendar_any">ປະ​ຕິ​ທິນ​ໃດ​ກໍໄດ້</string>
     <string name="zen_mode_event_rule_reply">ເມື່ອຄຳຕອບແມ່ນ</string>
     <string name="zen_mode_event_rule_reply_any_except_no">ຕົກລົງ, ອາດຈະ ຫຼື ຍັງບໍ່ໄດ້ຕອບ</string>
     <string name="zen_mode_event_rule_reply_yes">ຕົກລົງ</string>
     <string name="zen_mode_event_rule_reply_yes_or_maybe">ຕົກລົງ ຫຼື ອາດຈະ</string>
     <string name="zen_mode_event_rule_summary_any_calendar">ປະ​ຕິ​ທິນ​ໃດ​ກໍໄດ້</string>
-    <string name="zen_mode_event_rule_summary_calendar_template">ໃນ​ລະ​ຫວ່າງ​ເຫດ​ການ​ສຳ​ລັບ %1$s</string>
+    <string name="zen_mode_event_rule_summary_calendar_template">ໃນ​ລະ​ຫວ່າງການນັດໝາຍ​​ສຳ​ລັບ %1$s</string>
     <string name="zen_mode_event_rule_summary_reply_template">ເມື່ອຄຳຕອບແມ່ນ %1$s</string>
     <string name="zen_mode_events">ນັດໝາຍປະຕິທິນ</string>
     <string name="zen_mode_events_list">ເຫດການ</string>

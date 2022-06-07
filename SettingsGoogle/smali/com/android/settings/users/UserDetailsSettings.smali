@@ -348,7 +348,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f041520
+    const v0, 0x7f041522
 
     invoke-virtual {p1, v0}, Lcom/android/settings/core/SubSettingLauncher;->setTitleRes(I)Lcom/android/settings/core/SubSettingLauncher;
 
@@ -660,7 +660,7 @@
 
     iget-object v5, p0, Lcom/android/settings/users/UserDetailsSettings;->mSwitchUserPref:Lcom/android/settingslib/RestrictedPreference;
 
-    const v6, 0x7f04152d
+    const v6, 0x7f04152f
 
     const/4 v7, 0x1
 
@@ -771,7 +771,7 @@
 
     iget-object p2, p0, Lcom/android/settings/users/UserDetailsSettings;->mPhonePref:Landroidx/preference/SwitchPreference;
 
-    const v1, 0x7f041503
+    const v1, 0x7f041505
 
     invoke-virtual {p2, v1}, Landroidx/preference/Preference;->setTitle(I)V
 
@@ -804,7 +804,7 @@
     goto :goto_3
 
     :cond_6
-    const v0, 0x7f04150c
+    const v0, 0x7f04150e
 
     :goto_3
     invoke-virtual {p2, v0}, Landroidx/preference/Preference;->setTitle(I)V
@@ -849,7 +849,7 @@
 
     iget-object p2, p0, Lcom/android/settings/users/UserDetailsSettings;->mRemoveUserPref:Landroidx/preference/Preference;
 
-    const v0, 0x7f04151c
+    const v0, 0x7f04151e
 
     invoke-virtual {p2, v0}, Landroidx/preference/Preference;->setTitle(I)V
 

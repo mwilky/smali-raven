@@ -72,7 +72,7 @@
 
     iget-object v0, p0, Lcom/android/settings/homepage/contextualcards/slices/LowStorageSlice;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f041302
+    const v1, 0x7f041304
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -216,7 +216,7 @@
 
     iget-object v3, p0, Lcom/android/settings/homepage/contextualcards/slices/LowStorageSlice;->mContext:Landroid/content/Context;
 
-    const v8, 0x7f04131c
+    const v8, 0x7f04131e
 
     invoke-virtual {v3, v8}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -224,7 +224,7 @@
 
     iget-object v8, p0, Lcom/android/settings/homepage/contextualcards/slices/LowStorageSlice;->mContext:Landroid/content/Context;
 
-    const v9, 0x7f041322
+    const v9, 0x7f041324
 
     new-array v6, v6, [Ljava/lang/Object;
 
@@ -257,7 +257,7 @@
     :cond_0
     iget-object v3, p0, Lcom/android/settings/homepage/contextualcards/slices/LowStorageSlice;->mContext:Landroid/content/Context;
 
-    const v8, 0x7f04130c
+    const v8, 0x7f04130e
 
     invoke-virtual {v3, v8}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 

@@ -395,7 +395,7 @@
 
     iget-object v4, p0, Lcom/android/settings/wifi/calling/WifiCallingSettingsForSub;->mButtonWfcMode:Lcom/android/settings/wifi/calling/ListWithEntrySummaryPreference;
 
-    const v5, 0x7f0415f1
+    const v5, 0x7f0415f4
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -405,7 +405,7 @@
 
     iget-object v4, p0, Lcom/android/settings/wifi/calling/WifiCallingSettingsForSub;->mButtonWfcMode:Lcom/android/settings/wifi/calling/ListWithEntrySummaryPreference;
 
-    const v5, 0x7f0415f0
+    const v5, 0x7f0415f3
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -415,7 +415,7 @@
 
     iget-object v4, p0, Lcom/android/settings/wifi/calling/WifiCallingSettingsForSub;->mButtonWfcRoamingMode:Lcom/android/settings/wifi/calling/ListWithEntrySummaryPreference;
 
-    const v5, 0x7f0415fa
+    const v5, 0x7f0415fd
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -425,7 +425,7 @@
 
     iget-object v4, p0, Lcom/android/settings/wifi/calling/WifiCallingSettingsForSub;->mButtonWfcRoamingMode:Lcom/android/settings/wifi/calling/ListWithEntrySummaryPreference;
 
-    const v5, 0x7f0415f8
+    const v5, 0x7f0415fb
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -779,13 +779,13 @@
 
     move-result-object p0
 
-    const v2, 0x7f0415f5
+    const v2, 0x7f0415f8
 
     new-array v3, v1, [Ljava/lang/Object;
 
     const/4 v4, 0x0
 
-    const v5, 0x7f0415f6
+    const v5, 0x7f0415f9
 
     invoke-virtual {p0, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1636,7 +1636,7 @@
 
     move-result-object p1
 
-    const p2, 0x7f0415fc
+    const p2, 0x7f0415ff
 
     invoke-virtual {p1, p2}, Lcom/android/settings/core/SubSettingLauncher;->setTitleRes(I)Lcom/android/settings/core/SubSettingLauncher;
 

@@ -200,7 +200,7 @@
 
     invoke-virtual {p2, p1}, Landroidx/preference/Preference;->setEnabled(Z)V
 
-    const p1, 0x7f0417ba
+    const p1, 0x7f0417bd
 
     invoke-virtual {p0, p1}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 

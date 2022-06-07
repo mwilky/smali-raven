@@ -748,7 +748,7 @@ Modul: %2$s
     <string name="audio_category_title">Hang</string>
     <string name="audio_record_proc_title">Zajszűrés</string>
     <string name="auto_brightness_default_title">Alapértelmezett</string>
-    <string name="auto_brightness_description">A képernyő fényerőssége automatikusan alkalmazkodik a környezethez és az adott tevékenységhez. A csúszka manuális mozgatásával segít az alkalmazkodó fényerő funkciónak az Ön személyes preferenciáinak megtanulásában.</string>
+    <string name="auto_brightness_description">A képernyő fényerőssége automatikusan alkalmazkodik a környezethez és az adott tevékenységhez. A csúszka mozgatásával segíthet az alkalmazkodó fényerő funkciónak, hogy megtanulja az Ön személyes preferenciáit.</string>
     <string name="auto_brightness_disclaimer">A fényerőt a rendelkezésre álló fényhez optimalizálja. Átmenetileg továbbra is módosíthatja a fényerőt, ha be van kapcsolva a funkció.</string>
     <string name="auto_brightness_high_title">Magas</string>
     <string name="auto_brightness_low_title">Alacsony</string>
@@ -2522,8 +2522,8 @@ A biztonsági mentés adatmennyisége nem számít bele a Drive-tárhelykvótáb
     <string name="fullbackup_erase_dialog_message">Kikapcsolja az eszközadatok (például Wi-Fi-jelszavak és híváslista) és alkalmazásadatok (például az alkalmazások által tárolt beállítások és fájlok) automatikus biztonsági mentését, és törli azok összes példányát a Google Drive-ról?</string>
     <string name="gadget_picker_title">Modul kiválasztása</string>
     <string name="game_controller_settings_category">Játékvezérlő</string>
-    <string name="game_dashboard_always_on_summary">Játékok irányítópultja-gyorsparancs megjelenítése a játékokban</string>
-    <string name="game_dashboard_always_on_title">Játékok irányítópultja</string>
+    <string name="game_dashboard_always_on_summary">Jelenítse meg az ikont az összes játékban (gyorsan felfelé vagy lefelé csúsztatás nélkül)</string>
+    <string name="game_dashboard_always_on_title">Játékok irányítópultjának lebegő ikonja</string>
     <string name="game_dashboard_dnd_rule_name">Játék</string>
     <string name="game_dashboard_dnd_summary">Értesítések fogadása játék közben csak fontos személyektől és alkalmazásoktól</string>
     <string name="game_dashboard_dnd_title">„Ne zavarjanak” mód játékokhoz</string>
@@ -4570,8 +4570,10 @@ Megjegyzés: Az ujjlenyomat az eszköz feloldására nem használható. Ha tová
     <string name="security_settings_udfps_enroll_repeat_a11y_message">Így az ujjlenyomata nagyobb részét tudja rögzíteni a rendszer.</string>
     <string name="security_settings_udfps_enroll_repeat_message">Érintse meg az ikont, és tartsa rajta az ujját. Ismételje meg ezt mindig, amikor az ikon áthelyeződik. Így az ujjlenyomata nagyobb részét rögzítheti a rendszer.</string>
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">Kövesse az ujjlenyomat ikont</string>
-    <string name="security_settings_udfps_enroll_start_message">A rezgésig tartsa ujját egyenesen az érzékelőn</string>
+    <string name="security_settings_udfps_enroll_start_message">A rezgésig tartsa az ujját egyenesen az érzékelőn</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">Még egyszer</string>
+    <string name="security_settings_udfps_side_fingerprint_help">Helyezze az ujja oldalsó részét az érzékelőre, és tartsa lenyomva, majd helyezze az érzékelőre az ujja másik oldalát</string>
+    <string name="security_settings_udfps_tip_fingerprint_help">Emelje fel, majd érintse meg újra</string>
     <string name="security_settings_work_fingerprint_preference_title">Pixel Imprint munkahelyi használatra</string>
     <string name="security_status_title">Biztonsági állapot</string>
     <string name="see_less">Kevesebb megjelenítése</string>
@@ -4827,7 +4829,7 @@ Lehet, hogy hibás a PIN-kód."</string>
     <string name="sound_settings_summary_silent">Csengetés: néma</string>
     <string name="sound_settings_summary_vibrate">Csengetés: rezgő</string>
     <string name="sound_work_settings">Munkaprofil hangebállításai</string>
-    <string name="spatial_audio_title">Térhatású hang</string>
+    <string name="spatial_audio_title">Térbeli hangzás</string>
     <string name="special_access">Különleges alkalmazás-hozzáférés</string>
     <string name="special_access_more">Továbbiak megjelenítése</string>
     <string name="speed_label_fast">Gyors</string>
@@ -5532,6 +5534,7 @@ Bármely felhasználó frissítheti az alkalmazásokat valamennyi felhasználó 
     <string name="verify_apps_over_usb_title">USB-n keresztül telepített alkalmazások ellenőrzése</string>
     <string name="version_text">Verzió: %1$s</string>
     <string name="vibrate_for_calls_settings_not_available_summary">A „Rezgés híváskor” funkció nem áll rendelkezésre, mert a telefon néma módban van</string>
+    <string name="vibrate_icon_title">Mindig jelenjen meg ikon rezgő módban</string>
     <string name="vibrate_in_silent_title">Rezgés néma üzemmódban</string>
     <string name="vibrate_input_devices">Rezgés átirányítása</string>
     <string name="vibrate_input_devices_summary">Rezgés küldése a játékvezérlőre kapcsolódáskor</string>
@@ -6202,7 +6205,7 @@ Engedélyezi ezt az összes olyan alkalmazásnál, amely keresést akar végezni
     <string name="zen_mode_conversations_section_title">Azok a beszélgetések, amelyeknél engedélyezve van a megszakítás</string>
     <string name="zen_mode_conversations_title">Beszélgetések</string>
     <string name="zen_mode_custom_behavior_category_title">A következőnél: „%1$s”</string>
-    <string name="zen_mode_custom_behavior_summary">Egyéni beállítások létrehozása ehhez az ütemezéshez</string>
+    <string name="zen_mode_custom_behavior_summary">Egyéni beállítások az ütemezéshez</string>
     <string name="zen_mode_custom_behavior_summary_default">Alapbeállítások használata</string>
     <string name="zen_mode_custom_behavior_title">A Ne zavarjanak mód viselkedése</string>
     <string name="zen_mode_custom_calls_footer">A(z) „%1$s” ütemezésnél a bejövő hívások le vannak tiltva. A beállítások módosításával lehetővé teheti, hogy ismerősei, családtagjai vagy a névjegyei között megtalálható más személyek elérhessék Önt.</string>

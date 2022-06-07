@@ -137,7 +137,7 @@
 
     check-cast p1, Lcom/android/settingslib/widget/ActionButtonsPreference;
 
-    const v0, 0x7f041442
+    const v0, 0x7f041444
 
     invoke-virtual {p1, v0}, Lcom/android/settingslib/widget/ActionButtonsPreference;->setButton1Text(I)Lcom/android/settingslib/widget/ActionButtonsPreference;
 
