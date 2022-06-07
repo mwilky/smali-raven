@@ -516,7 +516,7 @@
     :cond_0
     iput-boolean v7, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->mHasVibrator:Z
 
-    const v2, 0x111016b
+    const v2, 0x111016c
 
     invoke-virtual {v5, v2}, Landroid/content/res/Resources;->getBoolean(I)Z
 

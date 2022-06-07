@@ -237,6 +237,9 @@
     <string name="accessor_no_description_text">Аппаас ямар ч тайлбар өгөөгүй.</string>
     <string name="active_input_method_subtypes">Оруулах аргуудыг идэвхжүүлэх</string>
     <string name="activity_launch_on_secondary_display_failed_text">Аппыг хоёрдогч дэлгэцэд эхлүүлэх боломжгүй.</string>
+    <string name="adaptive_charging_notify_des">%1$s гэхэд батарей дүүрнэ. Батарей барилтыг хадгалахын тулд тогтвортой цэнэглэж байна.</string>
+    <string name="adaptive_charging_notify_title">Орчинтой тохируулан цэнэглэх онцлог асаалттай байна</string>
+    <string name="adaptive_charging_notify_turn_off_once">Дараахыг болмогц унтраах</string>
     <string name="adaptive_charging_time_estimate">%1$s • Орчинтой тохируулан цэнэглэх (%2$s гэхэд дүүрнэ)</string>
     <string name="adb_device_fingerprint_title_format">Төхөөрөмжийн хурууны хээ: %1$s</string>
     <string name="adb_device_forget">Мартах</string>
@@ -301,6 +304,7 @@
     <string name="basic_status">Харилцан яриаг нээх</string>
     <string name="battery">Батарей</string>
     <string name="battery_detail_switch_title">Батарей хэмнэгч</string>
+    <string name="battery_health_notify_learn_more">Нэмэлт мэдээлэл авах</string>
     <string name="battery_info_status_charging">Цэнэглэж байна</string>
     <string name="battery_info_status_charging_fast">Хурдан цэнэглэж байна</string>
     <string name="battery_info_status_charging_slow">Удаан цэнэглэж байна</string>
@@ -616,7 +620,6 @@
     <string name="debug_networking_category">Сүлжээ</string>
     <string name="debug_view_attributes">Харах тохируулгын шалгалтыг идэвхжүүлэх</string>
     <string name="defender_notify_des">Таны утас батарейн барилтыг хадгалахад туслахын тулд цэнэглэхийг хязгаарлаж байна</string>
-    <string name="defender_notify_learn_more">Нэмэлт мэдээлэл авах</string>
     <string name="defender_notify_resume_charge">Цэнэглэхийг үргэлжлүүлэх</string>
     <string name="defender_notify_title">Цэнэглэхийг түр хязгаарласан</string>
     <string name="defender_post_notify_des">Батарейн барилтыг хадгалахын тулд цэнэглэхийг %2$s-с %3$s хүртэл %1$s хязгаарласан</string>
@@ -1704,6 +1707,10 @@
     <string name="usb_accessory_confirm_prompt">%2$s-г зохицуулахын тулд %1$s-г нээх үү?</string>
     <string name="usb_accessory_permission_prompt">%1$s-г %2$s-д хандахыг зөвшөөрөх үү?</string>
     <string name="usb_accessory_uri_prompt">Энэ USB хэрэгсэл дээр суулгасан апп ажиллаагүй байна. Энэ хэрэгслийн талаар %1$s-с дэлгэрэнгүй үзнэ үү.</string>
+    <string name="usb_audio_device_confirm_prompt_title">%2$s-г зохицуулахын тулд %1$s-г нээх үү?</string>
+    <string name="usb_audio_device_permission_prompt_title">%1$s-д %2$s-д хандахыг зөвшөөрөх үү?</string>
+    <string name="usb_audio_device_prompt">%1$s-г энэ төхөөрөмжтэй ашигласнаар дуудлага, мэдэгдэл болон сэрүүлэг сонсохоос сэргийлж магадгүй.</string>
+    <string name="usb_audio_device_prompt_warn">Энэ аппад бичих зөвшөөрөл олгоогүй хэдий ч энэ USB төхөөрөмжөөр дамжуулан аудио бичиж болно. %1$s-г энэ төхөөрөмжтэй ашигласнаар дуудлага, мэдэгдэл болон сэрүүлэг сонсохоос сэргийлж магадгүй.</string>
     <string name="usb_audio_disable_routing">USB аудио чиглүүлэхийг идэвхгүйжүүлэх</string>
     <string name="usb_audio_disable_routing_summary">USB аудио нэмэлт хэрэгсэл рүү автоматаар чиглүүлэхийг идэвхгүйжүүлэх</string>
     <string name="usb_contaminant_message">"Таны төхөөрөмжийг шингэн зүйл эсвэл бохирдлоос хамгаалахын тулд USB портыг идэвхгүй болгосон бөгөөд энэ нь ямар ч дагалдах хэрэгслийг илрүүлэхгүй.

@@ -237,6 +237,9 @@
     <string name="accessor_no_description_text">Aplikazioak ez du azalpenik eman.</string>
     <string name="active_input_method_subtypes">Idazketa-metodo aktiboak</string>
     <string name="activity_launch_on_secondary_display_failed_text">Aplikazioa ezin da abiarazi bigarren mailako pantailatan.</string>
+    <string name="adaptive_charging_notify_des">Ordu honetan, bateria guztiz kargatuta egongo da: %1$s. Apurka-apurka kargatzen ari da honda ez dadin.</string>
+    <string name="adaptive_charging_notify_title">Karga egokitua aktibatuta dago</string>
+    <string name="adaptive_charging_notify_turn_off_once">Desaktibatu behin</string>
     <string name="adaptive_charging_time_estimate">%1$s • Karga egokitua (%2$s geratzen dira guztiz kargatu arte)</string>
     <string name="adb_device_fingerprint_title_format">Gailuaren aztarna digitala: %1$s</string>
     <string name="adb_device_forget">Ahaztu</string>
@@ -301,6 +304,7 @@ Ez baduzu ematen baimen hori, ez dute funtzionatuko aplikazio honen bidez progra
     <string name="basic_status">Elkarrizketa irekia</string>
     <string name="battery">Bateria</string>
     <string name="battery_detail_switch_title">Bateria-aurrezlea</string>
+    <string name="battery_health_notify_learn_more">Lortu informazio gehiago</string>
     <string name="battery_info_status_charging">Kargatzen</string>
     <string name="battery_info_status_charging_fast">Bizkor kargatzen</string>
     <string name="battery_info_status_charging_slow">Mantso kargatzen</string>
@@ -533,7 +537,7 @@ Hautapena"</string>
     <string name="controls_favorite_rearrange">Kontrolatzeko aukerak antolatzeko, eduki itzazu sakatuta, eta arrastatu</string>
     <string name="controls_favorite_removed">Kendu dira kontrolatzeko aukera guztiak</string>
     <string name="controls_favorite_see_other_apps">Ikusi beste aplikazio batzuk</string>
-    <string name="controls_favorite_subtitle">Aukeratu atzitu nahi dituzunak Ezarpen bizkorrak menutik</string>
+    <string name="controls_favorite_subtitle">Aukeratu Ezarpen bizkorrak menutik atzitu nahi dituzunak</string>
     <string name="controls_favorite_toast_no_changes">Ez dira gorde aldaketak</string>
     <string name="controls_media_active_session">Ezin da ezkutatu multimedia-saioa.</string>
     <string name="controls_media_close_session">Multimedia-saioa ezkutatu nahi duzu?</string>
@@ -596,7 +600,7 @@ Hautapena"</string>
 Datu-konexioa erabiltzeari berrekiten badiozu, baliteke zerbait ordaindu behar izatea datuak erabiltzeagatik."</string>
     <string name="data_usage_disabled_dialog_enable">Jarraitu erabiltzen</string>
     <string name="data_usage_disabled_dialog_mobile_title">Datu-konexioa pausatu egin da</string>
-    <string name="data_usage_disabled_dialog_title">Datuen erabilera pausatu da</string>
+    <string name="data_usage_disabled_dialog_title">Datu-erabilera pausatu da</string>
     <string name="data_usage_ota">Sistemaren eguneratzeak</string>
     <string name="data_usage_uninstalled_apps">Kendutako aplikazioak</string>
     <string name="data_usage_uninstalled_apps_users">Kendutako aplikazioak eta erabiltzaileak</string>
@@ -616,7 +620,6 @@ Datu-konexioa erabiltzeari berrekiten badiozu, baliteke zerbait ordaindu behar i
     <string name="debug_networking_category">Sareak</string>
     <string name="debug_view_attributes">Gaitu ikuspegiaren atributuak ikuskatzeko aukera</string>
     <string name="defender_notify_des">Telefonoak kargatzea eten du bateria honda ez dadin</string>
-    <string name="defender_notify_learn_more">Lortu informazio gehiago</string>
     <string name="defender_notify_resume_charge">Jarraitu kargatzen</string>
     <string name="defender_notify_title">Kargatzeko aukera mugatuta dago aldi baterako</string>
     <string name="defender_post_notify_des">Gehienez %1$s arte kargatu ahal izan da telefonoa %2$s eta %3$s bitartean, bateria ez kaltetzeko</string>
@@ -1361,7 +1364,7 @@ Galderarik baduzu, jarri harremanetan %2$s erakundearekin."</string>
     <string name="quick_settings_cast_title">Pantaila igortzeko aukera</string>
     <string name="quick_settings_casting">Igortzen</string>
     <string name="quick_settings_cellular_detail_data_limit">Muga: %s</string>
-    <string name="quick_settings_cellular_detail_data_usage">Datuen erabilera</string>
+    <string name="quick_settings_cellular_detail_data_usage">Datu-erabilera</string>
     <string name="quick_settings_cellular_detail_data_used">%s erabilita</string>
     <string name="quick_settings_cellular_detail_data_warning">Abisua: %s</string>
     <string name="quick_settings_cellular_detail_over_limit">Mugaren gainetik</string>
@@ -1449,7 +1452,7 @@ Galderarik baduzu, jarri harremanetan %2$s erakundearekin."</string>
     <string name="right_icon">Eskuineko ikonoa</string>
     <string name="right_keycode">Eskuineko teklaren kodea</string>
     <string name="right_nav_bar_button_type">Eskuineko botoi gehigarriaren mota</string>
-    <string name="running_foreground_services_msg">Sakatu bateria eta datuen erabilerari buruzko xehetasunak ikusteko</string>
+    <string name="running_foreground_services_msg">Sakatu bateria eta datu-erabilerari buruzko xehetasunak ikusteko</string>
     <string name="running_foreground_services_title">Aplikazioak abian dira atzeko planoan</string>
     <string name="running_process_item_user_label">Erabiltzailea: %1$s</string>
     <string name="runningservices_settings_summary">Ikusi eta kontrolatu une honetan abian diren zerbitzuak</string>
@@ -1481,7 +1484,7 @@ Galderarik baduzu, jarri harremanetan %2$s erakundearekin."</string>
     <string name="screenrecord_background_processing_label">Pantaila-grabaketa prozesatzen</string>
     <string name="screenrecord_channel_description">Pantailaren grabaketa-saioaren jakinarazpen jarraitua</string>
     <string name="screenrecord_delete_error">Errore bat gertatu da pantailaren grabaketa ezabatzean</string>
-    <string name="screenrecord_description">Pantaila grabatzen duzun bitartean, Android sistemak detektatu egin dezake pantailan agertzen den edo gailuak erreproduzitzen duen kontuzko informazioa; besteak beste, pasahitzak, ordainketa-informazioa, argazkiak, mezuak eta audioa.</string>
+    <string name="screenrecord_description">Pantaila grabatzen duzun bitartean, baliteke Android sistemak pantailan agertzen den edo gailuak erreproduzitzen duen kontuzko informazioa detektatzea; besteak beste, pasahitzak, ordainketa-informazioa, argazkiak, mezuak eta audioa.</string>
     <string name="screenrecord_device_audio_and_mic_label">Gailuaren audioa eta mikrofonoa</string>
     <string name="screenrecord_device_audio_description">Gailuko soinuak; adibidez, musika, deiak eta tonuak</string>
     <string name="screenrecord_device_audio_label">Gailuaren audioa</string>
@@ -1704,6 +1707,10 @@ Informazio gehiago lortzeko, sakatu hau."</string>
     <string name="usb_accessory_confirm_prompt">%1$s ireki nahi duzu %2$s kudeatzeko?</string>
     <string name="usb_accessory_permission_prompt">%2$s atzitzeko baimena eman nahi diozu %1$s aplikazioari?</string>
     <string name="usb_accessory_uri_prompt">Instalatutako aplikazioek ez dute USB osagarri honekin funtzionatzen. Lortu informazio gehiago osagarriari buruz hemen: %1$s</string>
+    <string name="usb_audio_device_confirm_prompt_title">%1$s ireki nahi duzu %2$s kudeatzeko?</string>
+    <string name="usb_audio_device_permission_prompt_title">%2$s atzitzeko baimena eman nahi diozu %1$s aplikazioari?</string>
+    <string name="usb_audio_device_prompt">%1$s gailu honekin erabiliz gero, baliteke deiak, jakinarazpenak eta alarmak ez entzutea.</string>
+    <string name="usb_audio_device_prompt_warn">Aplikazioak ez du grabatzeko baimenik, baina baliteke USB bidezko gailu honen bidez audioa grabatzea. %1$s gailu honekin erabiliz gero, baliteke deiak, jakinarazpenak eta alarmak ez entzutea.</string>
     <string name="usb_audio_disable_routing">Desgaitu USB bidez audioa bideratzeko aukera</string>
     <string name="usb_audio_disable_routing_summary">Desgaitu USB bidezko audio-gailuetara automatikoki bideratzeko aukera</string>
     <string name="usb_contaminant_message">"USB ataka desgaitu egin da gailua likido edo zikinkeriengandik babesteko, eta ez du hautemango osagarririk.
@@ -1832,7 +1839,7 @@ Wifi-helbidea (BSSID)
     <string name="wifi_failed_connect_message">Ezin izan da konektatu sarera</string>
     <string name="wifi_hotspot_switch_off_text">Desaktibatu</string>
     <string name="wifi_hotspot_switch_on_text">Aktibatu</string>
-    <string name="wifi_is_off">Wi-Fi konexioa desaktibatuta dago</string>
+    <string name="wifi_is_off">Wifi-konexioa desaktibatuta dago</string>
     <string name="wifi_limited_connection">Konexio mugatua</string>
     <string name="wifi_metered_label">Sare neurtua</string>
     <string name="wifi_no_internet">Ezin da konektatu Internetera</string>

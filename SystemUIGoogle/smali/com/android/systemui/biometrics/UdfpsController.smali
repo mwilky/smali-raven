@@ -1593,458 +1593,521 @@
 .end method
 
 .method private onTouch(Landroid/view/View;Landroid/view/MotionEvent;Z)Z
-    .locals 11
+    .locals 16
 
-    check-cast p1, Lcom/android/systemui/biometrics/UdfpsView;
+    move-object/from16 v0, p0
 
-    invoke-virtual {p1}, Lcom/android/systemui/biometrics/UdfpsView;->isIlluminationRequested()Z
+    move-object/from16 v1, p2
 
-    move-result v0
+    move/from16 v2, p3
 
-    invoke-virtual {p2}, Landroid/view/MotionEvent;->getActionMasked()I
+    move-object/from16 v3, p1
 
-    move-result v1
+    check-cast v3, Lcom/android/systemui/biometrics/UdfpsView;
 
-    const-string v2, "UdfpsController"
+    invoke-virtual {v3}, Lcom/android/systemui/biometrics/UdfpsView;->isIlluminationRequested()Z
 
-    const/4 v3, 0x1
+    move-result v4
 
-    const/4 v4, 0x0
+    invoke-virtual/range {p2 .. p2}, Landroid/view/MotionEvent;->getActionMasked()I
 
-    if-eqz v1, :cond_d
+    move-result v5
 
-    const/4 v5, -0x1
+    const-string v6, "UdfpsController"
 
-    if-eq v1, v3, :cond_b
+    const/4 v7, 0x1
 
-    const/4 v6, 0x4
+    const/4 v8, 0x0
 
-    const/4 v7, 0x3
+    if-eqz v5, :cond_f
 
-    const/4 v8, 0x2
+    const/4 v9, -0x1
 
-    if-eq v1, v8, :cond_1
+    if-eq v5, v7, :cond_d
 
-    if-eq v1, v7, :cond_b
+    const/4 v10, 0x4
 
-    if-eq v1, v6, :cond_0
+    const/4 v11, 0x3
 
-    const/4 v9, 0x7
+    const/4 v12, 0x2
 
-    if-eq v1, v9, :cond_1
+    if-eq v5, v12, :cond_1
 
-    const/16 v0, 0x9
+    if-eq v5, v11, :cond_d
 
-    if-eq v1, v0, :cond_d
+    if-eq v5, v10, :cond_0
 
-    const/16 p1, 0xa
+    const/4 v13, 0x7
 
-    if-eq v1, p1, :cond_b
+    if-eq v5, v13, :cond_1
 
-    goto/16 :goto_5
+    const/16 v4, 0x9
+
+    if-eq v5, v4, :cond_f
+
+    const/16 v1, 0xa
+
+    if-eq v5, v1, :cond_d
+
+    goto/16 :goto_6
 
     :cond_0
-    invoke-virtual {p1}, Lcom/android/systemui/biometrics/UdfpsView;->onTouchOutsideView()V
+    invoke-virtual {v3}, Lcom/android/systemui/biometrics/UdfpsView;->onTouchOutsideView()V
 
-    return v3
+    return v7
 
     :cond_1
-    const-string v1, "UdfpsController.onTouch.ACTION_MOVE"
+    const-string v5, "UdfpsController.onTouch.ACTION_MOVE"
 
-    invoke-static {v1}, Landroid/os/Trace;->beginSection(Ljava/lang/String;)V
+    invoke-static {v5}, Landroid/os/Trace;->beginSection(Ljava/lang/String;)V
 
-    iget v1, p0, Lcom/android/systemui/biometrics/UdfpsController;->mActivePointerId:I
+    iget v5, v0, Lcom/android/systemui/biometrics/UdfpsController;->mActivePointerId:I
 
-    if-ne v1, v5, :cond_2
+    if-ne v5, v9, :cond_2
 
-    invoke-virtual {p2, v4}, Landroid/view/MotionEvent;->getPointerId(I)I
+    invoke-virtual {v1, v8}, Landroid/view/MotionEvent;->getPointerId(I)I
 
-    move-result v1
+    move-result v5
 
     goto :goto_0
 
     :cond_2
-    invoke-virtual {p2, v1}, Landroid/view/MotionEvent;->findPointerIndex(I)I
+    invoke-virtual {v1, v5}, Landroid/view/MotionEvent;->findPointerIndex(I)I
 
-    move-result v1
+    move-result v5
 
     :goto_0
-    invoke-virtual {p2}, Landroid/view/MotionEvent;->getActionIndex()I
-
-    move-result v5
-
-    if-ne v1, v5, :cond_a
-
-    invoke-virtual {p2, v1}, Landroid/view/MotionEvent;->getX(I)F
-
-    move-result v5
-
-    invoke-virtual {p2, v1}, Landroid/view/MotionEvent;->getY(I)F
+    invoke-virtual/range {p2 .. p2}, Landroid/view/MotionEvent;->getActionIndex()I
 
     move-result v9
 
-    invoke-direct {p0, p1, v5, v9, p3}, Lcom/android/systemui/biometrics/UdfpsController;->isWithinSensorArea(Lcom/android/systemui/biometrics/UdfpsView;FFZ)Z
+    if-ne v5, v9, :cond_c
 
-    move-result p1
+    invoke-virtual {v1, v5}, Landroid/view/MotionEvent;->getX(I)F
 
-    if-nez p3, :cond_3
+    move-result v9
 
-    if-eqz p1, :cond_5
+    invoke-virtual {v1, v5}, Landroid/view/MotionEvent;->getY(I)F
+
+    move-result v13
+
+    invoke-direct {v0, v3, v9, v13, v2}, Lcom/android/systemui/biometrics/UdfpsController;->isWithinSensorArea(Lcom/android/systemui/biometrics/UdfpsView;FFZ)Z
+
+    move-result v3
+
+    if-nez v2, :cond_3
+
+    if-eqz v3, :cond_5
 
     :cond_3
-    invoke-direct {p0}, Lcom/android/systemui/biometrics/UdfpsController;->shouldTryToDismissKeyguard()Z
+    invoke-direct/range {p0 .. p0}, Lcom/android/systemui/biometrics/UdfpsController;->shouldTryToDismissKeyguard()Z
 
-    move-result p3
+    move-result v2
 
-    if-eqz p3, :cond_5
+    if-eqz v2, :cond_5
 
-    const-string p1, "onTouch | dismiss keyguard ACTION_MOVE"
+    const-string v1, "onTouch | dismiss keyguard ACTION_MOVE"
 
-    invoke-static {v2, p1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-boolean p1, p0, Lcom/android/systemui/biometrics/UdfpsController;->mOnFingerDown:Z
+    iget-boolean v1, v0, Lcom/android/systemui/biometrics/UdfpsController;->mOnFingerDown:Z
 
-    if-nez p1, :cond_4
+    if-nez v1, :cond_4
 
-    invoke-virtual {p0}, Lcom/android/systemui/biometrics/UdfpsController;->playStartHaptic()V
+    invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/biometrics/UdfpsController;->playStartHaptic()V
 
     :cond_4
-    iget-object p1, p0, Lcom/android/systemui/biometrics/UdfpsController;->mKeyguardViewManager:Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;
+    iget-object v1, v0, Lcom/android/systemui/biometrics/UdfpsController;->mKeyguardViewManager:Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;
 
-    invoke-virtual {p1, v4}, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;->notifyKeyguardAuthenticated(Z)V
+    invoke-virtual {v1, v8}, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;->notifyKeyguardAuthenticated(Z)V
 
-    iput-boolean v3, p0, Lcom/android/systemui/biometrics/UdfpsController;->mAttemptedToDismissKeyguard:Z
+    iput-boolean v7, v0, Lcom/android/systemui/biometrics/UdfpsController;->mAttemptedToDismissKeyguard:Z
 
-    goto/16 :goto_5
+    goto/16 :goto_6
 
     :cond_5
-    if-eqz p1, :cond_9
+    if-eqz v3, :cond_b
 
-    iget-object p1, p0, Lcom/android/systemui/biometrics/UdfpsController;->mVelocityTracker:Landroid/view/VelocityTracker;
+    iget-object v2, v0, Lcom/android/systemui/biometrics/UdfpsController;->mVelocityTracker:Landroid/view/VelocityTracker;
 
-    if-nez p1, :cond_6
+    if-nez v2, :cond_6
 
     invoke-static {}, Landroid/view/VelocityTracker;->obtain()Landroid/view/VelocityTracker;
 
-    move-result-object p1
+    move-result-object v2
 
-    iput-object p1, p0, Lcom/android/systemui/biometrics/UdfpsController;->mVelocityTracker:Landroid/view/VelocityTracker;
+    iput-object v2, v0, Lcom/android/systemui/biometrics/UdfpsController;->mVelocityTracker:Landroid/view/VelocityTracker;
 
     :cond_6
-    iget-object p1, p0, Lcom/android/systemui/biometrics/UdfpsController;->mVelocityTracker:Landroid/view/VelocityTracker;
+    iget-object v2, v0, Lcom/android/systemui/biometrics/UdfpsController;->mVelocityTracker:Landroid/view/VelocityTracker;
 
-    invoke-virtual {p1, p2}, Landroid/view/VelocityTracker;->addMovement(Landroid/view/MotionEvent;)V
+    invoke-virtual {v2, v1}, Landroid/view/VelocityTracker;->addMovement(Landroid/view/MotionEvent;)V
 
-    iget-object p1, p0, Lcom/android/systemui/biometrics/UdfpsController;->mVelocityTracker:Landroid/view/VelocityTracker;
+    iget-object v2, v0, Lcom/android/systemui/biometrics/UdfpsController;->mVelocityTracker:Landroid/view/VelocityTracker;
 
-    const/16 p3, 0x3e8
+    const/16 v3, 0x3e8
 
-    invoke-virtual {p1, p3}, Landroid/view/VelocityTracker;->computeCurrentVelocity(I)V
+    invoke-virtual {v2, v3}, Landroid/view/VelocityTracker;->computeCurrentVelocity(I)V
 
-    iget-object p1, p0, Lcom/android/systemui/biometrics/UdfpsController;->mVelocityTracker:Landroid/view/VelocityTracker;
+    iget-object v2, v0, Lcom/android/systemui/biometrics/UdfpsController;->mVelocityTracker:Landroid/view/VelocityTracker;
 
-    iget p3, p0, Lcom/android/systemui/biometrics/UdfpsController;->mActivePointerId:I
+    iget v3, v0, Lcom/android/systemui/biometrics/UdfpsController;->mActivePointerId:I
 
-    invoke-static {p1, p3}, Lcom/android/systemui/biometrics/UdfpsController;->computePointerSpeed(Landroid/view/VelocityTracker;I)F
+    invoke-static {v2, v3}, Lcom/android/systemui/biometrics/UdfpsController;->computePointerSpeed(Landroid/view/VelocityTracker;I)F
 
-    move-result p1
+    move-result v2
 
-    invoke-virtual {p2, v1}, Landroid/view/MotionEvent;->getTouchMinor(I)F
+    invoke-virtual {v1, v5}, Landroid/view/MotionEvent;->getTouchMinor(I)F
 
-    move-result p3
+    move-result v3
 
-    invoke-virtual {p2, v1}, Landroid/view/MotionEvent;->getTouchMajor(I)F
-
-    move-result v1
-
-    invoke-static {p1}, Lcom/android/systemui/biometrics/UdfpsController;->exceedsVelocityThreshold(F)Z
+    invoke-virtual {v1, v5}, Landroid/view/MotionEvent;->getTouchMajor(I)F
 
     move-result v5
 
-    new-array v6, v6, [Ljava/lang/Object;
+    invoke-static {v2}, Lcom/android/systemui/biometrics/UdfpsController;->exceedsVelocityThreshold(F)Z
 
-    invoke-static {p3}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+    move-result v9
 
-    move-result-object v9
+    new-array v10, v10, [Ljava/lang/Object;
 
-    aput-object v9, v6, v4
+    invoke-static {v3}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
-    invoke-static {v1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+    move-result-object v13
 
-    move-result-object v9
+    aput-object v13, v10, v8
 
-    aput-object v9, v6, v3
+    invoke-static {v5}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
-    invoke-static {p1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+    move-result-object v13
 
-    move-result-object p1
+    aput-object v13, v10, v7
 
-    aput-object p1, v6, v8
+    invoke-static {v2}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
-    invoke-static {v5}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    move-result-object v2
 
-    move-result-object p1
+    aput-object v2, v10, v12
 
-    aput-object p1, v6, v7
+    invoke-static {v9}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    const-string p1, "minor: %.1f, major: %.1f, v: %.1f, exceedsVelocityThreshold: %b"
+    move-result-object v2
 
-    invoke-static {p1, v6}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    aput-object v2, v10, v11
 
-    move-result-object p1
+    const-string v2, "minor: %.1f, major: %.1f, v: %.1f, exceedsVelocityThreshold: %b"
 
-    iget-object v6, p0, Lcom/android/systemui/biometrics/UdfpsController;->mSystemClock:Lcom/android/systemui/util/time/SystemClock;
+    invoke-static {v2, v10}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    invoke-interface {v6}, Lcom/android/systemui/util/time/SystemClock;->elapsedRealtime()J
+    move-result-object v2
 
-    move-result-wide v6
+    iget-object v10, v0, Lcom/android/systemui/biometrics/UdfpsController;->mSystemClock:Lcom/android/systemui/util/time/SystemClock;
 
-    iget-wide v9, p0, Lcom/android/systemui/biometrics/UdfpsController;->mTouchLogTime:J
+    invoke-interface {v10}, Lcom/android/systemui/util/time/SystemClock;->elapsedRealtime()J
 
-    sub-long/2addr v6, v9
+    move-result-wide v13
 
-    if-nez v0, :cond_7
+    iget-wide v11, v0, Lcom/android/systemui/biometrics/UdfpsController;->mTouchLogTime:J
 
-    iget-boolean v0, p0, Lcom/android/systemui/biometrics/UdfpsController;->mGoodCaptureReceived:Z
+    sub-long/2addr v13, v11
 
-    if-nez v0, :cond_7
+    if-nez v4, :cond_9
 
-    if-nez v5, :cond_7
+    iget-boolean v4, v0, Lcom/android/systemui/biometrics/UdfpsController;->mGoodCaptureReceived:Z
 
-    invoke-virtual {p2}, Landroid/view/MotionEvent;->getRawX()F
+    if-nez v4, :cond_9
 
-    move-result v0
+    if-nez v9, :cond_9
 
-    float-to-int v0, v0
+    invoke-virtual/range {p2 .. p2}, Landroid/view/MotionEvent;->getRawX()F
 
-    invoke-virtual {p2}, Landroid/view/MotionEvent;->getRawY()F
+    move-result v4
 
-    move-result p2
+    float-to-int v4, v4
 
-    float-to-int p2, p2
+    invoke-virtual/range {p2 .. p2}, Landroid/view/MotionEvent;->getRawY()F
 
-    invoke-direct {p0, v0, p2, p3, v1}, Lcom/android/systemui/biometrics/UdfpsController;->onFingerDown(IIFF)V
+    move-result v1
 
-    new-instance p2, Ljava/lang/StringBuilder;
+    float-to-int v1, v1
 
-    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
+    new-instance v9, Landroid/graphics/Point;
 
-    const-string p3, "onTouch | finger down: "
+    invoke-direct {v9}, Landroid/graphics/Point;-><init>()V
 
-    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object v11, v0, Lcom/android/systemui/biometrics/UdfpsController;->mContext:Landroid/content/Context;
 
-    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v11}, Landroid/content/Context;->getDisplay()Landroid/view/Display;
 
-    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v11
 
-    move-result-object p1
+    invoke-virtual {v11, v9}, Landroid/view/Display;->getRealSize(Landroid/graphics/Point;)V
 
-    invoke-static {v2, p1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+    iget-object v11, v0, Lcom/android/systemui/biometrics/UdfpsController;->mContext:Landroid/content/Context;
 
-    iget-object p1, p0, Lcom/android/systemui/biometrics/UdfpsController;->mSystemClock:Lcom/android/systemui/util/time/SystemClock;
+    invoke-virtual {v11}, Landroid/content/Context;->getDisplay()Landroid/view/Display;
 
-    invoke-interface {p1}, Lcom/android/systemui/util/time/SystemClock;->elapsedRealtime()J
+    move-result-object v11
 
-    move-result-wide p1
+    invoke-virtual {v11}, Landroid/view/Display;->getRotation()I
 
-    iput-wide p1, p0, Lcom/android/systemui/biometrics/UdfpsController;->mTouchLogTime:J
+    move-result v11
 
-    iget-object p1, p0, Lcom/android/systemui/biometrics/UdfpsController;->mPowerManager:Landroid/os/PowerManager;
+    if-eq v11, v7, :cond_8
 
-    iget-object p0, p0, Lcom/android/systemui/biometrics/UdfpsController;->mSystemClock:Lcom/android/systemui/util/time/SystemClock;
+    const/4 v12, 0x3
 
-    invoke-interface {p0}, Lcom/android/systemui/util/time/SystemClock;->uptimeMillis()J
-
-    move-result-wide p2
-
-    invoke-virtual {p1, p2, p3, v8, v4}, Landroid/os/PowerManager;->userActivity(JII)V
+    if-eq v11, v12, :cond_7
 
     goto :goto_1
 
     :cond_7
-    const-wide/16 p2, 0x32
+    iget v9, v9, Landroid/graphics/Point;->x:I
 
-    cmp-long p2, v6, p2
+    sub-int v4, v9, v4
 
-    if-ltz p2, :cond_8
+    move v15, v4
 
-    new-instance p2, Ljava/lang/StringBuilder;
+    move v4, v1
 
-    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
+    move v1, v15
 
-    const-string p3, "onTouch | finger move: "
-
-    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-static {v2, p1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object p1, p0, Lcom/android/systemui/biometrics/UdfpsController;->mSystemClock:Lcom/android/systemui/util/time/SystemClock;
-
-    invoke-interface {p1}, Lcom/android/systemui/util/time/SystemClock;->elapsedRealtime()J
-
-    move-result-wide p1
-
-    iput-wide p1, p0, Lcom/android/systemui/biometrics/UdfpsController;->mTouchLogTime:J
+    goto :goto_1
 
     :cond_8
-    move v3, v4
+    iget v9, v9, Landroid/graphics/Point;->y:I
+
+    sub-int/2addr v9, v1
+
+    move v1, v4
+
+    move v4, v9
 
     :goto_1
-    move v4, v3
+    invoke-direct {v0, v4, v1, v3, v5}, Lcom/android/systemui/biometrics/UdfpsController;->onFingerDown(IIFF)V
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "onTouch | finger down: "
+
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v6, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v1, v0, Lcom/android/systemui/biometrics/UdfpsController;->mSystemClock:Lcom/android/systemui/util/time/SystemClock;
+
+    invoke-interface {v1}, Lcom/android/systemui/util/time/SystemClock;->elapsedRealtime()J
+
+    move-result-wide v1
+
+    iput-wide v1, v0, Lcom/android/systemui/biometrics/UdfpsController;->mTouchLogTime:J
+
+    iget-object v1, v0, Lcom/android/systemui/biometrics/UdfpsController;->mPowerManager:Landroid/os/PowerManager;
+
+    iget-object v0, v0, Lcom/android/systemui/biometrics/UdfpsController;->mSystemClock:Lcom/android/systemui/util/time/SystemClock;
+
+    invoke-interface {v0}, Lcom/android/systemui/util/time/SystemClock;->uptimeMillis()J
+
+    move-result-wide v2
+
+    const/4 v0, 0x2
+
+    invoke-virtual {v1, v2, v3, v0, v8}, Landroid/os/PowerManager;->userActivity(JII)V
 
     goto :goto_2
 
     :cond_9
-    const-string p1, "onTouch | finger outside"
+    const-wide/16 v3, 0x32
 
-    invoke-static {v2, p1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+    cmp-long v1, v13, v3
 
-    invoke-direct {p0}, Lcom/android/systemui/biometrics/UdfpsController;->onFingerUp()V
+    if-ltz v1, :cond_a
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "onTouch | finger move: "
+
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v6, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v1, v0, Lcom/android/systemui/biometrics/UdfpsController;->mSystemClock:Lcom/android/systemui/util/time/SystemClock;
+
+    invoke-interface {v1}, Lcom/android/systemui/util/time/SystemClock;->elapsedRealtime()J
+
+    move-result-wide v1
+
+    iput-wide v1, v0, Lcom/android/systemui/biometrics/UdfpsController;->mTouchLogTime:J
 
     :cond_a
+    move v7, v8
+
     :goto_2
-    invoke-static {}, Landroid/os/Trace;->endSection()V
-
-    goto/16 :goto_5
-
-    :cond_b
-    const-string p1, "UdfpsController.onTouch.ACTION_UP"
-
-    invoke-static {p1}, Landroid/os/Trace;->beginSection(Ljava/lang/String;)V
-
-    iput v5, p0, Lcom/android/systemui/biometrics/UdfpsController;->mActivePointerId:I
-
-    iget-object p1, p0, Lcom/android/systemui/biometrics/UdfpsController;->mVelocityTracker:Landroid/view/VelocityTracker;
-
-    if-eqz p1, :cond_c
-
-    invoke-virtual {p1}, Landroid/view/VelocityTracker;->recycle()V
-
-    const/4 p1, 0x0
-
-    iput-object p1, p0, Lcom/android/systemui/biometrics/UdfpsController;->mVelocityTracker:Landroid/view/VelocityTracker;
-
-    :cond_c
-    const-string p1, "onTouch | finger up"
-
-    invoke-static {v2, p1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
-
-    iput-boolean v4, p0, Lcom/android/systemui/biometrics/UdfpsController;->mAttemptedToDismissKeyguard:Z
-
-    invoke-direct {p0}, Lcom/android/systemui/biometrics/UdfpsController;->onFingerUp()V
-
-    iget-object p0, p0, Lcom/android/systemui/biometrics/UdfpsController;->mFalsingManager:Lcom/android/systemui/plugins/FalsingManager;
-
-    const/16 p1, 0xd
-
-    invoke-interface {p0, p1}, Lcom/android/systemui/plugins/FalsingManager;->isFalseTouch(I)Z
-
-    invoke-static {}, Landroid/os/Trace;->endSection()V
-
-    goto :goto_5
-
-    :cond_d
-    const-string v0, "UdfpsController.onTouch.ACTION_DOWN"
-
-    invoke-static {v0}, Landroid/os/Trace;->beginSection(Ljava/lang/String;)V
-
-    iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsController;->mVelocityTracker:Landroid/view/VelocityTracker;
-
-    if-nez v0, :cond_e
-
-    invoke-static {}, Landroid/view/VelocityTracker;->obtain()Landroid/view/VelocityTracker;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/systemui/biometrics/UdfpsController;->mVelocityTracker:Landroid/view/VelocityTracker;
+    move v8, v7
 
     goto :goto_3
 
-    :cond_e
-    invoke-virtual {v0}, Landroid/view/VelocityTracker;->clear()V
+    :cond_b
+    const-string v1, "onTouch | finger outside"
 
+    invoke-static {v6, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-direct/range {p0 .. p0}, Lcom/android/systemui/biometrics/UdfpsController;->onFingerUp()V
+
+    :cond_c
     :goto_3
-    invoke-virtual {p2}, Landroid/view/MotionEvent;->getX()F
+    invoke-static {}, Landroid/os/Trace;->endSection()V
 
-    move-result v0
+    goto/16 :goto_6
 
-    invoke-virtual {p2}, Landroid/view/MotionEvent;->getY()F
+    :cond_d
+    const-string v1, "UdfpsController.onTouch.ACTION_UP"
 
-    move-result v1
+    invoke-static {v1}, Landroid/os/Trace;->beginSection(Ljava/lang/String;)V
 
-    invoke-direct {p0, p1, v0, v1, p3}, Lcom/android/systemui/biometrics/UdfpsController;->isWithinSensorArea(Lcom/android/systemui/biometrics/UdfpsView;FFZ)Z
+    iput v9, v0, Lcom/android/systemui/biometrics/UdfpsController;->mActivePointerId:I
 
-    move-result p1
+    iget-object v1, v0, Lcom/android/systemui/biometrics/UdfpsController;->mVelocityTracker:Landroid/view/VelocityTracker;
 
-    if-eqz p1, :cond_f
+    if-eqz v1, :cond_e
 
-    const-string v0, "UdfpsController.e2e.onPointerDown"
+    invoke-virtual {v1}, Landroid/view/VelocityTracker;->recycle()V
 
-    invoke-static {v0, v4}, Landroid/os/Trace;->beginAsyncSection(Ljava/lang/String;I)V
+    const/4 v1, 0x0
 
-    const-string v0, "onTouch | action down"
+    iput-object v1, v0, Lcom/android/systemui/biometrics/UdfpsController;->mVelocityTracker:Landroid/view/VelocityTracker;
 
-    invoke-static {v2, v0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+    :cond_e
+    const-string v1, "onTouch | finger up"
 
-    invoke-virtual {p2, v4}, Landroid/view/MotionEvent;->getPointerId(I)I
+    invoke-static {v6, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result v0
+    iput-boolean v8, v0, Lcom/android/systemui/biometrics/UdfpsController;->mAttemptedToDismissKeyguard:Z
 
-    iput v0, p0, Lcom/android/systemui/biometrics/UdfpsController;->mActivePointerId:I
+    invoke-direct/range {p0 .. p0}, Lcom/android/systemui/biometrics/UdfpsController;->onFingerUp()V
 
-    iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsController;->mVelocityTracker:Landroid/view/VelocityTracker;
+    iget-object v0, v0, Lcom/android/systemui/biometrics/UdfpsController;->mFalsingManager:Lcom/android/systemui/plugins/FalsingManager;
 
-    invoke-virtual {v0, p2}, Landroid/view/VelocityTracker;->addMovement(Landroid/view/MotionEvent;)V
+    const/16 v1, 0xd
 
-    move p2, v3
+    invoke-interface {v0, v1}, Lcom/android/systemui/plugins/FalsingManager;->isFalseTouch(I)Z
+
+    invoke-static {}, Landroid/os/Trace;->endSection()V
+
+    goto :goto_6
+
+    :cond_f
+    const-string v4, "UdfpsController.onTouch.ACTION_DOWN"
+
+    invoke-static {v4}, Landroid/os/Trace;->beginSection(Ljava/lang/String;)V
+
+    iget-object v4, v0, Lcom/android/systemui/biometrics/UdfpsController;->mVelocityTracker:Landroid/view/VelocityTracker;
+
+    if-nez v4, :cond_10
+
+    invoke-static {}, Landroid/view/VelocityTracker;->obtain()Landroid/view/VelocityTracker;
+
+    move-result-object v4
+
+    iput-object v4, v0, Lcom/android/systemui/biometrics/UdfpsController;->mVelocityTracker:Landroid/view/VelocityTracker;
 
     goto :goto_4
 
-    :cond_f
-    move p2, v4
+    :cond_10
+    invoke-virtual {v4}, Landroid/view/VelocityTracker;->clear()V
 
     :goto_4
-    if-nez p1, :cond_10
+    invoke-virtual/range {p2 .. p2}, Landroid/view/MotionEvent;->getX()F
 
-    if-eqz p3, :cond_12
+    move-result v4
 
-    :cond_10
-    invoke-direct {p0}, Lcom/android/systemui/biometrics/UdfpsController;->shouldTryToDismissKeyguard()Z
+    invoke-virtual/range {p2 .. p2}, Landroid/view/MotionEvent;->getY()F
 
-    move-result p1
+    move-result v5
 
-    if-eqz p1, :cond_12
+    invoke-direct {v0, v3, v4, v5, v2}, Lcom/android/systemui/biometrics/UdfpsController;->isWithinSensorArea(Lcom/android/systemui/biometrics/UdfpsView;FFZ)Z
 
-    const-string p1, "onTouch | dismiss keyguard ACTION_DOWN"
+    move-result v3
 
-    invoke-static {v2, p1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+    if-eqz v3, :cond_11
 
-    iget-boolean p1, p0, Lcom/android/systemui/biometrics/UdfpsController;->mOnFingerDown:Z
+    const-string v4, "UdfpsController.e2e.onPointerDown"
 
-    if-nez p1, :cond_11
+    invoke-static {v4, v8}, Landroid/os/Trace;->beginAsyncSection(Ljava/lang/String;I)V
 
-    invoke-virtual {p0}, Lcom/android/systemui/biometrics/UdfpsController;->playStartHaptic()V
+    const-string v4, "onTouch | action down"
+
+    invoke-static {v6, v4}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {v1, v8}, Landroid/view/MotionEvent;->getPointerId(I)I
+
+    move-result v4
+
+    iput v4, v0, Lcom/android/systemui/biometrics/UdfpsController;->mActivePointerId:I
+
+    iget-object v4, v0, Lcom/android/systemui/biometrics/UdfpsController;->mVelocityTracker:Landroid/view/VelocityTracker;
+
+    invoke-virtual {v4, v1}, Landroid/view/VelocityTracker;->addMovement(Landroid/view/MotionEvent;)V
+
+    move v1, v7
+
+    goto :goto_5
 
     :cond_11
-    iget-object p1, p0, Lcom/android/systemui/biometrics/UdfpsController;->mKeyguardViewManager:Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;
-
-    invoke-virtual {p1, v4}, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;->notifyKeyguardAuthenticated(Z)V
-
-    iput-boolean v3, p0, Lcom/android/systemui/biometrics/UdfpsController;->mAttemptedToDismissKeyguard:Z
-
-    :cond_12
-    invoke-static {}, Landroid/os/Trace;->endSection()V
-
-    move v4, p2
+    move v1, v8
 
     :goto_5
-    return v4
+    if-nez v3, :cond_12
+
+    if-eqz v2, :cond_14
+
+    :cond_12
+    invoke-direct/range {p0 .. p0}, Lcom/android/systemui/biometrics/UdfpsController;->shouldTryToDismissKeyguard()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_14
+
+    const-string v2, "onTouch | dismiss keyguard ACTION_DOWN"
+
+    invoke-static {v6, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-boolean v2, v0, Lcom/android/systemui/biometrics/UdfpsController;->mOnFingerDown:Z
+
+    if-nez v2, :cond_13
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/biometrics/UdfpsController;->playStartHaptic()V
+
+    :cond_13
+    iget-object v2, v0, Lcom/android/systemui/biometrics/UdfpsController;->mKeyguardViewManager:Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;
+
+    invoke-virtual {v2, v8}, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;->notifyKeyguardAuthenticated(Z)V
+
+    iput-boolean v7, v0, Lcom/android/systemui/biometrics/UdfpsController;->mAttemptedToDismissKeyguard:Z
+
+    :cond_14
+    invoke-static {}, Landroid/os/Trace;->endSection()V
+
+    move v8, v1
+
+    :goto_6
+    return v8
 .end method
 
 .method private shouldRotate(Lcom/android/systemui/biometrics/UdfpsAnimationViewController;)Z

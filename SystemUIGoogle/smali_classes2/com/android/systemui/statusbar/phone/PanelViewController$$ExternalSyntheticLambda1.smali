@@ -53,7 +53,7 @@
 
     move-object v5, p1
 
-    invoke-static/range {v0 .. v5}, Lcom/android/systemui/statusbar/phone/PanelViewController;->$r8$lambda$-vZdmFW1u30J5Q0zaevJSfSrjjI(Lcom/android/systemui/statusbar/phone/PanelViewController;FFFLandroid/animation/ValueAnimator;Landroid/animation/ValueAnimator;)V
+    invoke-static/range {v0 .. v5}, Lcom/android/systemui/statusbar/phone/PanelViewController;->$r8$lambda$yZWHr2JFDjEOr7PXVOl6ZKrg4uo(Lcom/android/systemui/statusbar/phone/PanelViewController;FFFLandroid/animation/ValueAnimator;Landroid/animation/ValueAnimator;)V
 
     return-void
 .end method

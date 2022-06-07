@@ -1,11 +1,11 @@
-.class synthetic Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo$1;
+.class synthetic Lcom/google/android/systemui/smartspace/logging/BcSmartspaceCardLoggingInfo$1;
 .super Ljava/lang/Object;
 .source "BcSmartspaceCardLoggingInfo.java"
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo;
+    value = Lcom/google/android/systemui/smartspace/logging/BcSmartspaceCardLoggingInfo;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;

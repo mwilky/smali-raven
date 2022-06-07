@@ -238,6 +238,9 @@
     <string name="accessor_no_description_text">[Ñö ðéšçŕîþţîöñ þŕöVîðéð ɓý ţĥé åþþ. one two three four]</string>
     <string name="active_input_method_subtypes">[ÅçţîVé îñþûţ ḿéţĥöðš one two three]</string>
     <string name="activity_launch_on_secondary_display_failed_text">[Åþþ ðöéš ñöţ šûþþöŕţ ļåûñçĥ öñ šéçöñðåŕý ðîšþļåýš. one two three four five six]</string>
+    <string name="adaptive_charging_notify_des">[βåţţéŕý ƒûļļ ɓý %1$s. Çĥåŕĝîñĝ šţéåðîļý ţö þŕéšéŕVé ɓåţţéŕý ĥéåļţĥ. one two three four five six seven]</string>
+    <string name="adaptive_charging_notify_title">[ÅðåþţîVé Çĥåŕĝîñĝ îš öñ one two three]</string>
+    <string name="adaptive_charging_notify_turn_off_once">[Ţûŕñ öƒƒ öñçé one two]</string>
     <string name="adaptive_charging_time_estimate">[%1$s • ÅðåþţîVé çĥåŕĝîñĝ (ƒûļļ ɓý %2$s) one two three four]</string>
     <string name="adb_device_fingerprint_title_format">[ÐéVîçé ƒîñĝéŕþŕîñţ: %1$s one two three]</string>
     <string name="adb_device_forget">[Föŕĝéţ one two]</string>
@@ -302,6 +305,7 @@
     <string name="basic_status">[Öþéñ çöñVéŕšåţîöñ one two three]</string>
     <string name="battery">[βåţţéŕý one two]</string>
     <string name="battery_detail_switch_title">[βåţţéŕý ŠåVéŕ one two]</string>
+    <string name="battery_health_notify_learn_more">[Ļéåŕñ ḿöŕé one two]</string>
     <string name="battery_info_status_charging">[Çĥåŕĝîñĝ one two]</string>
     <string name="battery_info_status_charging_fast">[Çĥåŕĝîñĝ ŕåþîðļý one two three]</string>
     <string name="battery_info_status_charging_slow">[Çĥåŕĝîñĝ šļöŵļý one two three]</string>
@@ -620,7 +624,6 @@
     <string name="debug_networking_category">[Ñéţŵöŕķîñĝ one two]</string>
     <string name="debug_view_attributes">[Éñåɓļé Vîéŵ åţţŕîɓûţé îñšþéçţîöñ one two three four]</string>
     <string name="defender_notify_des">[Ýöûŕ þĥöñé îš ļîḿîţîñĝ çĥåŕĝîñĝ ţö ĥéļþ þŕéšéŕVé ɓåţţéŕý ĥéåļţĥ one two three four five six seven]</string>
-    <string name="defender_notify_learn_more">[Ļéåŕñ ḿöŕé one two]</string>
     <string name="defender_notify_resume_charge">[Ŕéšûḿé çĥåŕĝîñĝ one two three]</string>
     <string name="defender_notify_title">[Çĥåŕĝîñĝ ţéḿþöŕåŕîļý ļîḿîţéð one two three four]</string>
     <string name="defender_post_notify_des">[Çĥåŕĝîñĝ ŵåš ļîḿîţéð ţö %1$s ƒŕöḿ %2$s ţö %3$s ţö þŕéšéŕVé ɓåţţéŕý ĥéåļţĥ one two three four five six seven]</string>
@@ -1713,6 +1716,10 @@ Föŕ ḿöŕé îñƒöŕḿåţîöñ, çöñţåçţ ýöûŕ ÎŢ åðḿî�
     <string name="usb_accessory_confirm_prompt">[Öþéñ %1$s ţö ĥåñðļé %2$s¿ one two three]</string>
     <string name="usb_accessory_permission_prompt">[Åļļöŵ %1$s ţö åççéšš %2$s¿ one two three]</string>
     <string name="usb_accessory_uri_prompt">[Ñö îñšţåļļéð åþþš ŵöŕķ ŵîţĥ ţĥîš ÛŠβ åççéššöŕý. Ļéåŕñ ḿöŕé åɓöûţ ţĥîš åççéššöŕý åţ %1$s one two three four five six seven eight nine]</string>
+    <string name="usb_audio_device_confirm_prompt_title">[Öþéñ %1$s ţö ĥåñðļé %2$s¿ one two three]</string>
+    <string name="usb_audio_device_permission_prompt_title">[Åļļöŵ %1$s ţö åççéšš %2$s¿ one two three]</string>
+    <string name="usb_audio_device_prompt">[Ûšîñĝ %1$s ŵîţĥ ţĥîš ðéVîçé ḿîĝĥţ þŕéVéñţ ĥéåŕîñĝ çåļļš, ñöţîƒîçåţîöñš åñð åļåŕḿš. one two three four five six seven eight nine]</string>
+    <string name="usb_audio_device_prompt_warn">[Ţĥîš åþþ ĥåš ñöţ ɓééñ ĝŕåñţéð ŕéçöŕð þéŕḿîššîöñ ɓûţ çöûļð çåþţûŕé åûðîö ţĥŕöûĝĥ ţĥîš ÛŠβ ðéVîçé. Ûšîñĝ %1$s ŵîţĥ ţĥîš ðéVîçé ḿîĝĥţ þŕéVéñţ ĥéåŕîñĝ çåļļš, ñöţîƒîçåţîöñš åñð åļåŕḿš. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fiveteen]</string>
     <string name="usb_audio_disable_routing">[Ðîšåɓļé ÛŠβ åûðîö ŕöûţîñĝ one two three]</string>
     <string name="usb_audio_disable_routing_summary">[Ðîšåɓļé åûţöḿåţîç ŕöûţîñĝ ţö ÛŠβ åûðîö þéŕîþĥéŕåļš one two three four five six]</string>
     <string name="usb_contaminant_message">"[Ţö þŕöţéçţ ýöûŕ ðéVîçé ƒŕöḿ ļîQûîð öŕ ðéɓŕîš, ţĥé ÛŠβ þöŕţ îš ðîšåɓļéð åñð ŵöñ’ţ ðéţéçţ åñý åççéššöŕîéš.

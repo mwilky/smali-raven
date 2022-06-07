@@ -237,6 +237,9 @@
     <string name="accessor_no_description_text">Nenhuma descrição fornecida pela app.</string>
     <string name="active_input_method_subtypes">Métodos de introdução activos</string>
     <string name="activity_launch_on_secondary_display_failed_text">A app não é compatível com o início em ecrãs secundários.</string>
+    <string name="adaptive_charging_notify_des">Bateria totalmente carregada até à(s) %1$s. A carregar de forma consistente para preservar o estado da bateria</string>
+    <string name="adaptive_charging_notify_title">O carregamento adaptável está ativado</string>
+    <string name="adaptive_charging_notify_turn_off_once">Desativar uma vez</string>
     <string name="adaptive_charging_time_estimate">%1$s • Carregamento adaptável (completo até à(s) %2$s)</string>
     <string name="adb_device_fingerprint_title_format">Impressão digital do dispositivo: %1$s</string>
     <string name="adb_device_forget">Esquecer</string>
@@ -301,6 +304,7 @@ Se esta autorização estiver desativada, os alarmes existentes e os eventos com
     <string name="basic_status">Abrir conversa</string>
     <string name="battery">Bateria</string>
     <string name="battery_detail_switch_title">Poupança de bateria</string>
+    <string name="battery_health_notify_learn_more">Saber mais</string>
     <string name="battery_info_status_charging">A carregar</string>
     <string name="battery_info_status_charging_fast">Carregamento rápido</string>
     <string name="battery_info_status_charging_slow">Carregamento lento</string>
@@ -312,7 +316,7 @@ Se esta autorização estiver desativada, os alarmes existentes e os eventos com
     <string name="battery_low_percent_format">%s restante</string>
     <string name="battery_low_title">Pode ficar sem bateria em breve</string>
     <string name="battery_saver_confirmation_ok">Ativar</string>
-    <string name="battery_saver_confirmation_title">Pretende ativar a Poupança de bateria?</string>
+    <string name="battery_saver_confirmation_title">Ativar a Poupança de bateria?</string>
     <string name="battery_saver_confirmation_title_generic">Acerca da Poupança de bateria</string>
     <string name="battery_saver_start_action">Ativar a Poupança de bateria</string>
     <string name="battery_state_unknown_notification_text">Toque para obter mais informações</string>
@@ -616,7 +620,6 @@ Se retomar, podem aplicar-se custos relativos à utilização de dados."</string
     <string name="debug_networking_category">Redes</string>
     <string name="debug_view_attributes">Ativar a inspeção do atributo de visualização</string>
     <string name="defender_notify_des">O telemóvel está a limitar o carregamento para ajudar a preservar o estado da bateria</string>
-    <string name="defender_notify_learn_more">Saber mais</string>
     <string name="defender_notify_resume_charge">Retomar carregamento</string>
     <string name="defender_notify_title">Carregamento limitado temporariamente</string>
     <string name="defender_post_notify_des">O carregamento esteve limitado a %1$s da(s) %2$s à(s) %3$s para preservar o estado da bateria</string>
@@ -1037,9 +1040,9 @@ Tente novamente dentro de %2$d segundos."</string>
     <string name="media_output_dialog_single_device">1 dispositivo selecionado</string>
     <string name="media_projection_action_text">Começar agora</string>
     <string name="media_projection_dialog_service_text">O serviço que fornece esta função terá acesso a todas as informações que estiverem visíveis no ecrã ou que forem reproduzidas a partir do dispositivo durante a gravação ou transmissão. Isto inclui informações como palavras-passe, detalhes de pagamentos, fotos, mensagens e áudio reproduzido.</string>
-    <string name="media_projection_dialog_service_title">Pretende começar a gravar ou a transmitir?</string>
+    <string name="media_projection_dialog_service_title">Começar a gravar ou a transmitir?</string>
     <string name="media_projection_dialog_text">A app %s terá acesso a todas as informações que estiverem visíveis no ecrã ou que forem reproduzidas a partir do dispositivo durante a gravação ou transmissão. Isto inclui informações como palavras-passe, detalhes de pagamentos, fotos, mensagens e áudio reproduzido.</string>
-    <string name="media_projection_dialog_title">Pretende começar a gravar ou a transmitir com a app %s?</string>
+    <string name="media_projection_dialog_title">Começar a gravar ou a transmitir com a app %s?</string>
     <string name="media_seamless_other_device">Outro dispositivo</string>
     <string name="media_transfer_this_device_name">Altifalante do telemóvel</string>
     <string name="media_transfer_this_phone">Este telemóvel</string>
@@ -1165,7 +1168,7 @@ Se tiver perguntas, contacte a %2$s."</string>
     <string name="new_story_status">Nova notícia</string>
     <string name="new_story_status_content_description">%1$s publicou uma nova história</string>
     <string name="no_application">Nenhuma</string>
-    <string name="no_auto_saver_action">Não, obrigado</string>
+    <string name="no_auto_saver_action">Não</string>
     <string name="no_content_in_select_mode">Nenhum texto ou imagem para selecionar</string>
     <string name="no_conversations_text">As suas conversas recentes aparecem aqui</string>
     <string name="no_shortcut">A app %1$s não suporta funcionalidades de conversa.</string>
@@ -1330,7 +1333,7 @@ Se tiver perguntas, contacte a %2$s."</string>
     <string name="private_dns_broken">Não é possível aceder ao servidor DNS.</string>
     <string name="private_dns_mode_off">Desativado</string>
     <string name="private_dns_mode_opportunistic">Automático</string>
-    <string name="private_dns_mode_provider">Nome de anfitrião do fornecedor DNS privado</string>
+    <string name="private_dns_mode_provider">Nome do anfitrião do fornecedor DNS privado</string>
     <string name="private_dns_mode_provider_failure">Não foi possível estabelecer ligação</string>
     <string name="private_dns_mode_provider_hostname_hint">Introduza nome - anfitrião do fornecedor DNS</string>
     <string name="process_kernel_label">SO Android</string>
@@ -1445,7 +1448,7 @@ Se tiver perguntas, contacte a %2$s."</string>
     <string name="reverse_charging_device_name_text">Outro Pixel</string>
     <string name="reverse_charging_device_providing_charge_text">%1$s a fornecer carga (%2$s)</string>
     <string name="reverse_charging_on_notification_title">A Partilha de bateria está ativada</string>
-    <string name="reverse_charging_title">Part. bateria</string>
+    <string name="reverse_charging_title">Partilhar bateria</string>
     <string name="right_icon">Ícone direito</string>
     <string name="right_keycode">Código de tecla direito</string>
     <string name="right_nav_bar_button_type">Tipo de botão direito adicional</string>
@@ -1494,7 +1497,7 @@ Se tiver perguntas, contacte a %2$s."</string>
     <string name="screenrecord_share_label">Partilhar</string>
     <string name="screenrecord_start">Iniciar</string>
     <string name="screenrecord_start_error">Ocorreu um erro ao iniciar a gravação do ecrã.</string>
-    <string name="screenrecord_start_label">Pretende iniciar a gravação?</string>
+    <string name="screenrecord_start_label">Iniciar a gravação?</string>
     <string name="screenrecord_stop_label">Parar</string>
     <string name="screenrecord_taps_label">Mostrar toques no ecrã</string>
     <string name="screenshot_bottom_boundary_pct">Limite inferior de %1$d por cento</string>
@@ -1704,6 +1707,10 @@ Toque para obter mais informações."</string>
     <string name="usb_accessory_confirm_prompt">Pretende abrir a app %1$s para controlar o acessório %2$s?</string>
     <string name="usb_accessory_permission_prompt">Permitir que a app %1$s aceda ao acessório %2$s?</string>
     <string name="usb_accessory_uri_prompt">Nenhuma das aplicações instaladas funciona com o acessório USB. Saiba mais acerca do acessório em %1$s</string>
+    <string name="usb_audio_device_confirm_prompt_title">Abrir a app %1$s para controlar %2$s?</string>
+    <string name="usb_audio_device_permission_prompt_title">Permitir que a app %1$s aceda a %2$s?</string>
+    <string name="usb_audio_device_prompt">A utilização da app %1$s neste dispositivo pode impedir a audição de chamadas, notificações e alarmes.</string>
+    <string name="usb_audio_device_prompt_warn">Esta app não recebeu autorização de gravação, mas pode capturar áudio através deste dispositivo USB. A utilização da app %1$s neste dispositivo pode impedir a audição de chamadas, notificações e alarmes.</string>
     <string name="usb_audio_disable_routing">Desativar encaminhamento áudio USB</string>
     <string name="usb_audio_disable_routing_summary">Desativar encam. auto. para periféricos áudio USB</string>
     <string name="usb_contaminant_message">"Para proteger o dispositivo contra líquidos ou resíduos, a porta USB está desativada e não irá detetar quaisquer acessórios.
@@ -1768,7 +1775,7 @@ Qualquer utilizador pode atualizar apps para todos os outros utilizadores."</str
     <string name="video_status">A ver</string>
     <string name="voice_assist_label">abrir assistente de voz</string>
     <string name="voice_hint">Deslize rapid. a partir do ícone para aceder ao assist. voz</string>
-    <string name="voice_reply_cta_text">\"Ok Google, responde\"</string>
+    <string name="voice_reply_cta_text">\"OK Google, responde\"</string>
     <string name="voice_reply_quick_phrase_cta_text">Diga \"Responde\"</string>
     <string name="volume_and_do_not_disturb">Não incomodar</string>
     <string name="volume_dialog_ringer_guidance_ring">As chamadas e as notificações tocam (%1$s)</string>

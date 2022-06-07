@@ -280,7 +280,7 @@
 .end method
 
 .method private updateMargins()V
-    .locals 9
+    .locals 7
 
     iget-object v0, p0, Landroid/widget/LinearLayout;->mContext:Landroid/content/Context;
 
@@ -292,124 +292,123 @@
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
-    move-result v0
-
-    iget-object v1, p0, Landroid/widget/LinearLayout;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v1
+    move-result v1
 
     sget v2, Lcom/android/systemui/R$dimen;->num_pad_key_margin_end:I
 
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
-    move-result v1
-
-    iget-object v2, p0, Landroid/widget/LinearLayout;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v2
+    move-result v2
 
     sget v3, Lcom/android/systemui/R$string;->num_pad_key_ratio:I
 
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    move-result-object v2
+    iget-object v3, p0, Lcom/android/keyguard/KeyguardPINView;->mContainer:Landroidx/constraintlayout/widget/ConstraintLayout;
 
-    const/4 v3, 0x1
+    sget v4, Lcom/android/systemui/R$id;->flow1:I
 
-    :goto_0
-    const/4 v4, 0x5
+    invoke-virtual {v3, v4}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
-    const/4 v5, 0x2
+    move-result-object v3
 
-    if-ge v3, v4, :cond_3
+    check-cast v3, Landroidx/constraintlayout/helper/widget/Flow;
 
-    const/4 v4, 0x0
+    invoke-virtual {v3, v2}, Landroidx/constraintlayout/helper/widget/Flow;->setHorizontalGap(I)V
 
-    :goto_1
-    const/4 v6, 0x3
+    invoke-virtual {v3, v1}, Landroidx/constraintlayout/helper/widget/Flow;->setVerticalGap(I)V
 
-    if-ge v4, v6, :cond_2
+    sget v2, Lcom/android/systemui/R$dimen;->half_opened_bouncer_height_ratio:I
 
-    iget-object v6, p0, Lcom/android/keyguard/KeyguardPINView;->mViews:[[Landroid/view/View;
+    invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getFloat(I)F
 
-    aget-object v6, v6, v3
+    move-result v2
 
-    aget-object v6, v6, v4
+    new-instance v3, Landroidx/constraintlayout/widget/ConstraintSet;
 
-    invoke-virtual {v6}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+    invoke-direct {v3}, Landroidx/constraintlayout/widget/ConstraintSet;-><init>()V
 
-    move-result-object v7
+    iget-object v4, p0, Lcom/android/keyguard/KeyguardPINView;->mContainer:Landroidx/constraintlayout/widget/ConstraintLayout;
 
-    check-cast v7, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
+    invoke-virtual {v3, v4}, Landroidx/constraintlayout/widget/ConstraintSet;->clone(Landroidx/constraintlayout/widget/ConstraintLayout;)V
 
-    iput-object v2, v7, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->dimensionRatio:Ljava/lang/String;
+    sget v4, Lcom/android/systemui/R$id;->pin_pad_top_guideline:I
 
-    const/4 v8, 0x4
+    iget v5, p0, Lcom/android/keyguard/KeyguardPINView;->mLastDevicePosture:I
 
-    if-eq v3, v8, :cond_0
+    const/4 v6, 0x2
 
-    iput v0, v7, Landroid/view/ViewGroup$MarginLayoutParams;->bottomMargin:I
-
-    :cond_0
-    if-eq v4, v5, :cond_1
-
-    iput v1, v7, Landroid/view/ViewGroup$MarginLayoutParams;->rightMargin:I
-
-    :cond_1
-    invoke-virtual {v6, v7}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
-
-    add-int/lit8 v4, v4, 0x1
-
-    goto :goto_1
-
-    :cond_2
-    add-int/lit8 v3, v3, 0x1
+    if-ne v5, v6, :cond_0
 
     goto :goto_0
 
-    :cond_3
-    iget-object v0, p0, Landroid/widget/LinearLayout;->mContext:Landroid/content/Context;
+    :cond_0
+    const/4 v2, 0x0
 
-    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    sget v1, Lcom/android/systemui/R$dimen;->half_opened_bouncer_height_ratio:I
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getFloat(I)F
-
-    move-result v0
-
-    new-instance v1, Landroidx/constraintlayout/widget/ConstraintSet;
-
-    invoke-direct {v1}, Landroidx/constraintlayout/widget/ConstraintSet;-><init>()V
+    :goto_0
+    invoke-virtual {v3, v4, v2}, Landroidx/constraintlayout/widget/ConstraintSet;->setGuidelinePercent(IF)V
 
     iget-object v2, p0, Lcom/android/keyguard/KeyguardPINView;->mContainer:Landroidx/constraintlayout/widget/ConstraintLayout;
 
-    invoke-virtual {v1, v2}, Landroidx/constraintlayout/widget/ConstraintSet;->clone(Landroidx/constraintlayout/widget/ConstraintLayout;)V
+    invoke-virtual {v3, v2}, Landroidx/constraintlayout/widget/ConstraintSet;->applyTo(Landroidx/constraintlayout/widget/ConstraintLayout;)V
 
-    sget v2, Lcom/android/systemui/R$id;->pin_pad_top_guideline:I
+    sget v2, Lcom/android/systemui/R$dimen;->keyguard_password_height:I
 
-    iget v3, p0, Lcom/android/keyguard/KeyguardPINView;->mLastDevicePosture:I
+    invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
-    if-ne v3, v5, :cond_4
+    move-result v2
 
-    goto :goto_2
+    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardPINView;->getPasswordTextViewId()I
 
-    :cond_4
-    const/4 v0, 0x0
+    move-result v3
 
-    :goto_2
-    invoke-virtual {v1, v2, v0}, Landroidx/constraintlayout/widget/ConstraintSet;->setGuidelinePercent(IF)V
+    invoke-virtual {p0, v3}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
-    iget-object p0, p0, Lcom/android/keyguard/KeyguardPINView;->mContainer:Landroidx/constraintlayout/widget/ConstraintLayout;
+    move-result-object v3
 
-    invoke-virtual {v1, p0}, Landroidx/constraintlayout/widget/ConstraintSet;->applyTo(Landroidx/constraintlayout/widget/ConstraintLayout;)V
+    invoke-virtual {v3}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
+    move-result-object v4
+
+    iput v2, v4, Landroid/view/ViewGroup$LayoutParams;->height:I
+
+    invoke-virtual {v3, v4}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    sget v2, Lcom/android/systemui/R$id;->row0:I
+
+    invoke-virtual {p0, v2}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
+
+    move-result-object v2
+
+    const/4 v3, 0x0
+
+    invoke-virtual {v2, v3, v3, v3, v1}, Landroid/view/View;->setPadding(IIII)V
+
+    sget v1, Lcom/android/systemui/R$dimen;->keyguard_eca_top_margin:I
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v0
+
+    sget v1, Lcom/android/systemui/R$id;->keyguard_selector_fade_container:I
+
+    invoke-virtual {p0, v1}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
+
+    move-result-object p0
+
+    if-eqz p0, :cond_1
+
+    invoke-virtual {p0}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/view/ViewGroup$MarginLayoutParams;
+
+    iput v0, v1, Landroid/view/ViewGroup$MarginLayoutParams;->topMargin:I
+
+    invoke-virtual {p0, v1}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    :cond_1
     return-void
 .end method
 

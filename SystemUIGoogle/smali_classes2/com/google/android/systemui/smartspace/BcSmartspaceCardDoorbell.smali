@@ -15,6 +15,12 @@
 # instance fields
 .field private mGifFrameDurationInMs:I
 
+.field private mLoadingIcon:Landroid/widget/ImageView;
+
+.field private mLoadingScreenView:Landroidx/cardview/widget/CardView;
+
+.field private mProgressBar:Landroid/widget/ProgressBar;
+
 .field private final mUriToDrawable:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -303,6 +309,47 @@
     return p0
 .end method
 
+.method private hideLoadingState(Landroid/os/Bundle;)V
+    .locals 2
+
+    const/16 v0, 0x8
+
+    if-eqz p1, :cond_0
+
+    const-string v1, "hideLoadingScreen"
+
+    invoke-virtual {p1, v1}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
+
+    move-result p1
+
+    if-eqz p1, :cond_1
+
+    :cond_0
+    iget-object p1, p0, Lcom/google/android/systemui/smartspace/BcSmartspaceCardDoorbell;->mLoadingScreenView:Landroidx/cardview/widget/CardView;
+
+    invoke-virtual {p1, v0}, Landroid/widget/FrameLayout;->setVisibility(I)V
+
+    :cond_1
+    iget-object p1, p0, Lcom/google/android/systemui/smartspace/BcSmartspaceCardDoorbell;->mLoadingScreenView:Landroidx/cardview/widget/CardView;
+
+    invoke-virtual {p1}, Landroid/widget/FrameLayout;->getVisibility()I
+
+    move-result p1
+
+    if-nez p1, :cond_2
+
+    iget-object p1, p0, Lcom/google/android/systemui/smartspace/BcSmartspaceCardDoorbell;->mProgressBar:Landroid/widget/ProgressBar;
+
+    invoke-virtual {p1, v0}, Landroid/widget/ProgressBar;->setVisibility(I)V
+
+    iget-object p0, p0, Lcom/google/android/systemui/smartspace/BcSmartspaceCardDoorbell;->mLoadingIcon:Landroid/widget/ImageView;
+
+    invoke-virtual {p0, v0}, Landroid/widget/ImageView;->setVisibility(I)V
+
+    :cond_2
+    return-void
+.end method
+
 .method private isSysUiContext()Z
     .locals 1
 
@@ -572,17 +619,152 @@
     return-void
 .end method
 
+.method private showLoadingScreen(Ljava/lang/String;I)V
+    .locals 1
 
-# virtual methods
-.method protected onFinishInflate()V
-    .locals 0
+    iget-object v0, p0, Lcom/google/android/systemui/smartspace/BcSmartspaceCardDoorbell;->mLoadingScreenView:Landroidx/cardview/widget/CardView;
 
-    invoke-super {p0}, Lcom/google/android/systemui/smartspace/BcSmartspaceCardGenericImage;->onFinishInflate()V
+    invoke-virtual {v0}, Landroid/widget/FrameLayout;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v0
+
+    check-cast v0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
+
+    iput-object p1, v0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->dimensionRatio:Ljava/lang/String;
+
+    iget-object p1, p0, Lcom/google/android/systemui/smartspace/BcSmartspaceCardDoorbell;->mLoadingScreenView:Landroidx/cardview/widget/CardView;
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p1, v0}, Landroid/widget/FrameLayout;->setVisibility(I)V
+
+    invoke-direct {p0, p2}, Lcom/google/android/systemui/smartspace/BcSmartspaceCardDoorbell;->toggleProgressBarAndLoadingIcon(I)V
 
     return-void
 .end method
 
-.method setSmartspaceActions(Landroid/app/smartspace/SmartspaceTarget;Lcom/android/systemui/plugins/BcSmartspaceDataPlugin$SmartspaceEventNotifier;Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo;)Z
+.method private toggleProgressBarAndLoadingIcon(I)V
+    .locals 4
+
+    const/4 v0, 0x2
+
+    if-ne p1, v0, :cond_0
+
+    iget-object v0, p0, Lcom/google/android/systemui/smartspace/BcSmartspaceCardDoorbell;->mLoadingIcon:Landroid/widget/ImageView;
+
+    invoke-virtual {p0}, Landroid/view/ViewGroup;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    sget v2, Lcom/android/systemui/bcsmartspace/R$drawable;->videocam:I
+
+    invoke-static {v1, v2}, Landroidx/core/content/ContextCompat;->getDrawable(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+
+    :cond_0
+    const/4 v0, 0x3
+
+    if-ne p1, v0, :cond_1
+
+    iget-object v0, p0, Lcom/google/android/systemui/smartspace/BcSmartspaceCardDoorbell;->mLoadingIcon:Landroid/widget/ImageView;
+
+    invoke-virtual {p0}, Landroid/view/ViewGroup;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    sget v2, Lcom/android/systemui/bcsmartspace/R$drawable;->videocam_off:I
+
+    invoke-static {v1, v2}, Landroidx/core/content/ContextCompat;->getDrawable(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+
+    :cond_1
+    const/4 v0, 0x1
+
+    const/4 v1, 0x0
+
+    if-ne p1, v0, :cond_2
+
+    goto :goto_0
+
+    :cond_2
+    move v0, v1
+
+    :goto_0
+    iget-object p1, p0, Lcom/google/android/systemui/smartspace/BcSmartspaceCardDoorbell;->mProgressBar:Landroid/widget/ProgressBar;
+
+    const/16 v2, 0x8
+
+    if-eqz v0, :cond_3
+
+    move v3, v1
+
+    goto :goto_1
+
+    :cond_3
+    move v3, v2
+
+    :goto_1
+    invoke-virtual {p1, v3}, Landroid/widget/ProgressBar;->setVisibility(I)V
+
+    iget-object p0, p0, Lcom/google/android/systemui/smartspace/BcSmartspaceCardDoorbell;->mLoadingIcon:Landroid/widget/ImageView;
+
+    if-eqz v0, :cond_4
+
+    move v1, v2
+
+    :cond_4
+    invoke-virtual {p0, v1}, Landroid/widget/ImageView;->setVisibility(I)V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method protected onFinishInflate()V
+    .locals 1
+
+    invoke-super {p0}, Lcom/google/android/systemui/smartspace/BcSmartspaceCardGenericImage;->onFinishInflate()V
+
+    sget v0, Lcom/android/systemui/bcsmartspace/R$id;->loading_screen:I
+
+    invoke-virtual {p0, v0}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroidx/cardview/widget/CardView;
+
+    iput-object v0, p0, Lcom/google/android/systemui/smartspace/BcSmartspaceCardDoorbell;->mLoadingScreenView:Landroidx/cardview/widget/CardView;
+
+    sget v0, Lcom/android/systemui/bcsmartspace/R$id;->indeterminateBar:I
+
+    invoke-virtual {p0, v0}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/ProgressBar;
+
+    iput-object v0, p0, Lcom/google/android/systemui/smartspace/BcSmartspaceCardDoorbell;->mProgressBar:Landroid/widget/ProgressBar;
+
+    sget v0, Lcom/android/systemui/bcsmartspace/R$id;->loading_screen_icon:I
+
+    invoke-virtual {p0, v0}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/ImageView;
+
+    iput-object v0, p0, Lcom/google/android/systemui/smartspace/BcSmartspaceCardDoorbell;->mLoadingIcon:Landroid/widget/ImageView;
+
+    return-void
+.end method
+
+.method setSmartspaceActions(Landroid/app/smartspace/SmartspaceTarget;Lcom/android/systemui/plugins/BcSmartspaceDataPlugin$SmartspaceEventNotifier;Lcom/google/android/systemui/smartspace/logging/BcSmartspaceCardLoggingInfo;)Z
     .locals 3
 
     invoke-direct {p0}, Lcom/google/android/systemui/smartspace/BcSmartspaceCardDoorbell;->isSysUiContext()Z
@@ -620,9 +802,9 @@
 
     move-result v0
 
-    const/4 v1, 0x1
+    const-string v1, "BcSmartspaceCardBell"
 
-    const-string v2, "BcSmartspaceCardBell"
+    const/4 v2, 0x1
 
     if-nez v0, :cond_3
 
@@ -638,18 +820,20 @@
 
     invoke-virtual {p2, p3}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
-    move-result p2
+    move-result p3
 
-    iput p2, p0, Lcom/google/android/systemui/smartspace/BcSmartspaceCardDoorbell;->mGifFrameDurationInMs:I
+    iput p3, p0, Lcom/google/android/systemui/smartspace/BcSmartspaceCardDoorbell;->mGifFrameDurationInMs:I
 
     :cond_2
     invoke-direct {p0, p1}, Lcom/google/android/systemui/smartspace/BcSmartspaceCardDoorbell;->loadImageUris(Ljava/util/List;)V
 
+    invoke-direct {p0, p2}, Lcom/google/android/systemui/smartspace/BcSmartspaceCardDoorbell;->hideLoadingState(Landroid/os/Bundle;)V
+
     const-string p0, "imageUri is set"
 
-    invoke-static {v2, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    return v1
+    return v2
 
     :cond_3
     if-eqz p2, :cond_4
@@ -670,12 +854,42 @@
 
     invoke-direct {p0, p1}, Lcom/google/android/systemui/smartspace/BcSmartspaceCardDoorbell;->setRoundedBitmapDrawable(Landroid/graphics/Bitmap;)V
 
+    invoke-direct {p0, p2}, Lcom/google/android/systemui/smartspace/BcSmartspaceCardDoorbell;->hideLoadingState(Landroid/os/Bundle;)V
+
     const-string p0, "imageBitmap is set"
 
-    invoke-static {v2, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    return v1
+    return v2
 
     :cond_4
+    if-eqz p2, :cond_6
+
+    const-string p1, "loadingScreenState"
+
+    invoke-virtual {p2, p1}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_6
+
+    invoke-virtual {p2, p1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
+
+    move-result p1
+
+    invoke-static {p2}, Lcom/google/android/systemui/smartspace/BcSmartSpaceUtil;->getDimensionRatio(Landroid/os/Bundle;)Ljava/lang/String;
+
+    move-result-object p2
+
+    if-nez p2, :cond_5
+
+    return p3
+
+    :cond_5
+    invoke-direct {p0, p2, p1}, Lcom/google/android/systemui/smartspace/BcSmartspaceCardDoorbell;->showLoadingScreen(Ljava/lang/String;I)V
+
+    return v2
+
+    :cond_6
     return p3
 .end method

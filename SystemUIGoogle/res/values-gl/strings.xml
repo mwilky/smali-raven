@@ -237,6 +237,9 @@
     <string name="accessor_no_description_text">A aplicación non forneceu ningunha descrición.</string>
     <string name="active_input_method_subtypes">Métodos de entrada activos</string>
     <string name="activity_launch_on_secondary_display_failed_text">A aplicación non se pode iniciar en pantallas secundarias.</string>
+    <string name="adaptive_charging_notify_des">A batería acabará de cargarse a esta hora: %1$s. A carga estase levando a cabo dun xeito lento e constante para protexer a batería.</string>
+    <string name="adaptive_charging_notify_title">A función Carga intelixente está activada</string>
+    <string name="adaptive_charging_notify_turn_off_once">Desactivar unha vez</string>
     <string name="adaptive_charging_time_estimate">%1$s • Carga intelixente (completarase ás %2$s)</string>
     <string name="adb_device_fingerprint_title_format">Impresión dixital do dispositivo: %1$s</string>
     <string name="adb_device_forget">Esquecer</string>
@@ -301,6 +304,7 @@ Se este permiso está desactivado, non funcionarán as alarmas que xa se definis
     <string name="basic_status">Conversa aberta</string>
     <string name="battery">Batería</string>
     <string name="battery_detail_switch_title">Aforro de batería</string>
+    <string name="battery_health_notify_learn_more">Máis información</string>
     <string name="battery_info_status_charging">Cargando</string>
     <string name="battery_info_status_charging_fast">Cargando rapidamente</string>
     <string name="battery_info_status_charging_slow">Cargando lentamente</string>
@@ -616,7 +620,6 @@ Se os reactivas, pódense aplicar cargos polo seu uso."</string>
     <string name="debug_networking_category">Redes</string>
     <string name="debug_view_attributes">Activar a inspección de atributos de visualización</string>
     <string name="defender_notify_des">O teléfono está limitando a carga para axudar a manter a batería en bo estado</string>
-    <string name="defender_notify_learn_more">Máis información</string>
     <string name="defender_notify_resume_charge">Retomar carga</string>
     <string name="defender_notify_title">Carga limitada temporalmente</string>
     <string name="defender_post_notify_des">Para manter a batería en bo estado, a carga limitouse ao %1$s neste horario: %2$s-%3$s</string>
@@ -1481,9 +1484,9 @@ Se tes preguntas, ponte en contacto con %2$s."</string>
     <string name="screenrecord_background_processing_label">Procesando gravación pantalla</string>
     <string name="screenrecord_channel_description">Notificación en curso sobre unha sesión de gravación de pantalla</string>
     <string name="screenrecord_delete_error">Produciuse un erro ao eliminar a gravación de pantalla</string>
-    <string name="screenrecord_description">Durante a gravación, o sistema Android pode captar información confidencial visible na pantalla ou reproducila no dispositivo. Isto inclúe contrasinais, información de pago, fotos, mensaxes e audio.</string>
+    <string name="screenrecord_description">Durante a gravación, o sistema Android pode captar información confidencial que apareza na pantalla ou se reproduza no dispositivo, como contrasinais, información de pago, fotos, mensaxes e audio.</string>
     <string name="screenrecord_device_audio_and_mic_label">Audio e micrófono do dispositivo</string>
-    <string name="screenrecord_device_audio_description">Son do dispositivo, por exemplo, música, chamadas e tons de chamada</string>
+    <string name="screenrecord_device_audio_description">Son do dispositivo (por exemplo, música, chamadas e tons de chamada)</string>
     <string name="screenrecord_device_audio_label">Audio do dispositivo</string>
     <string name="screenrecord_mic_label">Micrófono</string>
     <string name="screenrecord_name">Gravadora da pantalla</string>
@@ -1704,6 +1707,10 @@ Toca para obter máis información"</string>
     <string name="usb_accessory_confirm_prompt">Queres abrir %1$s para utilizar %2$s?</string>
     <string name="usb_accessory_permission_prompt">Queres permitir que %1$s acceda a %2$s?</string>
     <string name="usb_accessory_uri_prompt">Ningunha aplicación instalada funciona co accesorio USB. Máis información: %1$s</string>
+    <string name="usb_audio_device_confirm_prompt_title">Queres abrir a aplicación %1$s para utilizar %2$s?</string>
+    <string name="usb_audio_device_permission_prompt_title">Queres permitir que a aplicación %1$s acceda a %2$s?</string>
+    <string name="usb_audio_device_prompt">Ao usar a aplicación %1$s con este dispositivo, é posible que non se escoiten chamadas, notificacións nin alarmas.</string>
+    <string name="usb_audio_device_prompt_warn">Esta aplicación non está autorizada a realizar gravacións, pero pode capturar audio a través deste dispositivo USB. Ao usar a aplicación %1$s con este dispositivo, é posible que non se escoiten chamadas, notificacións nin alarmas.</string>
     <string name="usb_audio_disable_routing">Desactivar encamiñamento audio USB</string>
     <string name="usb_audio_disable_routing_summary">Desactiva o encamiñamento automático a periféricos de audio USB</string>
     <string name="usb_contaminant_message">"Para protexer o dispositivo de líquidos ou residuos, desactivouse o porto USB e non detectará ningún accesorio.

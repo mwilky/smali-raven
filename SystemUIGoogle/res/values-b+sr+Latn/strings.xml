@@ -237,6 +237,9 @@
     <string name="accessor_no_description_text">U aplikaciji nije naveden nijedan opis.</string>
     <string name="active_input_method_subtypes">Metode aktivnog unosa</string>
     <string name="activity_launch_on_secondary_display_failed_text">Aplikacija ne podržava pokretanje na sekundarnim ekranima.</string>
+    <string name="adaptive_charging_notify_des">Baterija će biti puna za %1$s. Puni se konstantno radi boljeg stanja baterije.</string>
+    <string name="adaptive_charging_notify_title">Adaptivno punjenje je uključeno</string>
+    <string name="adaptive_charging_notify_turn_off_once">Isključi jednom</string>
     <string name="adaptive_charging_time_estimate">%1$s • Adaptivno punjenje (puna do %2$s)</string>
     <string name="adb_device_fingerprint_title_format">Otisak prsta na uređaju: %1$s</string>
     <string name="adb_device_forget">Zaboravi</string>
@@ -301,6 +304,7 @@ Ako je ova dozvola isključena, postojeći alarmi i događaji zasnovani na vreme
     <string name="basic_status">Otvorite konverzaciju</string>
     <string name="battery">Baterija</string>
     <string name="battery_detail_switch_title">Ušteda baterije</string>
+    <string name="battery_health_notify_learn_more">Saznajte više</string>
     <string name="battery_info_status_charging">Puni se</string>
     <string name="battery_info_status_charging_fast">Brzo se puni</string>
     <string name="battery_info_status_charging_slow">Sporo se puni</string>
@@ -616,7 +620,6 @@ Ako nastavite, možda će važiti tarife za potrošnju podataka."</string>
     <string name="debug_networking_category">Umrežavanje</string>
     <string name="debug_view_attributes">Omogući proveru atributa za pregled</string>
     <string name="defender_notify_des">Telefon ograničava punjenje radi boljeg stanja baterije</string>
-    <string name="defender_notify_learn_more">Saznajte više</string>
     <string name="defender_notify_resume_charge">Nastavi sa punjenjem</string>
     <string name="defender_notify_title">Punjenje je privremeno ograničeno</string>
     <string name="defender_post_notify_des">Punjenje je ograničeno na %1$s od %2$s do %3$s radi boljeg stanja baterije</string>
@@ -1702,8 +1705,12 @@ Dodirnite za više informacija"</string>
     <string name="url_menu_copy">Kopiraj</string>
     <string name="url_menu_share">Deli</string>
     <string name="usb_accessory_confirm_prompt">Želite li da otvorite aplikaciju %1$s da biste koristili uređaj %2$s?</string>
-    <string name="usb_accessory_permission_prompt">Želite li da dozvolite da %1$s pristupa uređaju %2$s?</string>
+    <string name="usb_accessory_permission_prompt">Dozvoljavate da %1$s pristupa uređaju %2$s?</string>
     <string name="usb_accessory_uri_prompt">Instalirane aplikacije ne funkcionišu sa ovim USB pomoćnim uređajem. Saznajte više o njemu na adresi %1$s</string>
+    <string name="usb_audio_device_confirm_prompt_title">Želite li da otvorite aplikaciju %1$s da biste koristili uređaj %2$s?</string>
+    <string name="usb_audio_device_permission_prompt_title">Dozvoljavate da %1$s pristupa uređaju %2$s?</string>
+    <string name="usb_audio_device_prompt">Ako koristite aplikaciju %1$s sa ovim uređajem, možda nećete čuti pozive, obaveštenja i alarme.</string>
+    <string name="usb_audio_device_prompt_warn">Ova aplikacija nema dozvolu za snimanje, ali bi mogla da snima zvuk pomoću ovog USB uređaja. Ako koristite aplikaciju %1$s sa ovim uređajem, možda nećete čuti pozive, obaveštenja i alarme.</string>
     <string name="usb_audio_disable_routing">Onemogući USB preusm. zvuka</string>
     <string name="usb_audio_disable_routing_summary">Onemogućava automatsko preusmeravanje na USB audio periferne uređaje</string>
     <string name="usb_contaminant_message">"Da bi se uređaj zaštitio od tečnosti ili nečistoće, USB port je onemogućen i neće otkrivati dodatnu opremu.
@@ -1717,10 +1724,10 @@ Obavestićemo vas kada ponovo budete mogli da koristite USB port."</string>
     <string name="usb_debugging_secondary_user_message">Korisnik koji je trenutno prijavljen na ovaj uređaj ne može da uključi otklanjanje grešaka na USB-u. Da biste koristili ovu funkciju, prebacite na primarnog korisnika.</string>
     <string name="usb_debugging_secondary_user_title">Otklanjanje grešaka na USB-u nije dozvoljeno</string>
     <string name="usb_debugging_title">Želite li da dozvolite otklanjanje USB grešaka?</string>
-    <string name="usb_device_confirm_prompt">Želite li da otvorite aplikaciju %1$s da biste koristili uređaj %2$s?</string>
+    <string name="usb_device_confirm_prompt">Želite da otvorite %1$s da biste koristili %2$s?</string>
     <string name="usb_device_confirm_prompt_warn">"Želite li da otvorite aplikaciju %1$s radi rukovanja uređajem %2$s?
 Ova aplikacija nema dozvolu za snimanje, ali bi mogla da snima zvuk pomoću ovog USB uređaja."</string>
-    <string name="usb_device_permission_prompt">Želite li da dozvolite da %1$s pristupa uređaju %2$s?</string>
+    <string name="usb_device_permission_prompt">Dozvoljavate da %1$s pristupa uređaju %2$s?</string>
     <string name="usb_device_permission_prompt_warn">"Želite li da dozvolite da %1$s pristupa uređaju %2$s?
 Ova aplikacija nema dozvolu za snimanje, ali bi mogla da snima zvuk pomoću ovog USB uređaja."</string>
     <string name="usb_disable_contaminant_detection">Omogući USB</string>

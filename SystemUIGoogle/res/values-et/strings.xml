@@ -237,6 +237,9 @@
     <string name="accessor_no_description_text">Rakendus ei esita kirjeldust.</string>
     <string name="active_input_method_subtypes">Aktiivsed sisestusmeetodid</string>
     <string name="activity_launch_on_secondary_display_failed_text">Rakendus ei toeta teisestel ekraanidel käivitamist.</string>
+    <string name="adaptive_charging_notify_des">Aku saab täielikult laetud kell %1$s. Aku seisukorra säilitamiseks laetakse pidevalt.</string>
+    <string name="adaptive_charging_notify_title">Kohanduv laadimine on sisse lülitatud</string>
+    <string name="adaptive_charging_notify_turn_off_once">Lülita üheks korraks välja</string>
     <string name="adaptive_charging_time_estimate">%1$s • Kohanduv laadimine (saab täis %2$s)</string>
     <string name="adb_device_fingerprint_title_format">Seadme sõrmejälg: %1$s</string>
     <string name="adb_device_forget">Unusta</string>
@@ -301,6 +304,7 @@ Kui see luba on välja lülitatud, siis olemasolevad alarmid ja selle rakenduse 
     <string name="basic_status">Avage vestlus</string>
     <string name="battery">Aku</string>
     <string name="battery_detail_switch_title">Akusäästja</string>
+    <string name="battery_health_notify_learn_more">Lisateave</string>
     <string name="battery_info_status_charging">Laadimine</string>
     <string name="battery_info_status_charging_fast">Kiirlaadimine</string>
     <string name="battery_info_status_charging_slow">Aeglaselt laadimine</string>
@@ -616,7 +620,6 @@ Jätkamisel võib andmekasutus olla tasuline."</string>
     <string name="debug_networking_category">Võrgundus</string>
     <string name="debug_view_attributes">Luba kuva atribuudi hindamine</string>
     <string name="defender_notify_des">Teie telefon piirab laadimist, et kaitsta aku seisukorda</string>
-    <string name="defender_notify_learn_more">Lisateave</string>
     <string name="defender_notify_resume_charge">Jätka laadimist</string>
     <string name="defender_notify_title">Laadimine on ajutiselt piiratud</string>
     <string name="defender_post_notify_des">Laadimine piirati vahemikus %2$s kuni %3$s %1$s-ni, et säästa aku seisukorda</string>
@@ -1701,9 +1704,13 @@ Puudutage lisateabe saamiseks."</string>
     <string name="upcoming_birthday_status_content_description">Varsti on kasutaja %1$s sünnipäev</string>
     <string name="url_menu_copy">Kopeeri</string>
     <string name="url_menu_share">Jaga</string>
-    <string name="usb_accessory_confirm_prompt">Kas avada rakendus %1$s seadme %2$s kasutamiseks?</string>
+    <string name="usb_accessory_confirm_prompt">Kas avada %1$s seadme %2$s kasutamiseks?</string>
     <string name="usb_accessory_permission_prompt">Kas lubada rakendusele %1$s juurdepääs seadmele %2$s?</string>
     <string name="usb_accessory_uri_prompt">Inst. rak. ei tööta selle USB-seadmega. Lisateavet lisaseadme kohta vt siit: %1$s</string>
+    <string name="usb_audio_device_confirm_prompt_title">Kas avada %1$s seadme %2$s kasutamiseks?</string>
+    <string name="usb_audio_device_permission_prompt_title">Kas lubada rakendusele %1$s juurdepääs seadmele %2$s?</string>
+    <string name="usb_audio_device_prompt">Rakenduse %1$s kasutamine selle seadmega võib takistada kõnede, märguannete ja äratuste kuulmist.</string>
+    <string name="usb_audio_device_prompt_warn">Sellele rakendusele pole antud salvestamise luba, kuid see saab heli jäädvustada selle USB-seadme kaudu. Rakenduse %1$s kasutamine selle seadmega võib takistada kõnede, märguannete ja äratuste kuulmist.</string>
     <string name="usb_audio_disable_routing">Keela USB-heli marsruutimine</string>
     <string name="usb_audio_disable_routing_summary">Automaatse marsruutimise keelamine USB-heliseadmetesse</string>
     <string name="usb_contaminant_message">"Selleks et kaitsta teie seadet vedeliku või mustuse eest, on USB-port keelatud ja see ei tuvasta lisatarvikuid.
@@ -1717,7 +1724,7 @@ Kui USB-porti tohib taas kasutada, saate selle kohta märguande."</string>
     <string name="usb_debugging_secondary_user_message">Sellesse seadmesse praegu sisse logitud kasutaja ei saa USB-silumist sisse lülitada. Selle funktsiooni kasutamiseks vahetage peamisele kasutajale.</string>
     <string name="usb_debugging_secondary_user_title">USB-silumine pole lubatud</string>
     <string name="usb_debugging_title">Kas luban USB silumise?</string>
-    <string name="usb_device_confirm_prompt">Kas avada rakendus %1$s seadme %2$s kasutamiseks?</string>
+    <string name="usb_device_confirm_prompt">Kas avada %1$s seadme %2$s kasutamiseks?</string>
     <string name="usb_device_confirm_prompt_warn">"Kas avada %1$s, et käsitseda seadet %2$s?
 Sellele rakendusele pole antud salvestamise luba, kuid see saab heli jäädvustada selle USB-seadme kaudu."</string>
     <string name="usb_device_permission_prompt">Kas lubada rakendusele %1$s juurdepääs seadmele %2$s?</string>

@@ -57,6 +57,8 @@
 
 .field private final mRootTDAOrganizer:Lcom/android/wm/shell/RootTaskDisplayAreaOrganizer;
 
+.field private mSplitTasksContainerLayer:Landroid/view/SurfaceControl;
+
 .field private mStageCoordinator:Lcom/android/wm/shell/splitscreen/StageCoordinator;
 
 .field private final mSyncQueue:Lcom/android/wm/shell/common/SyncTransactionQueue;
@@ -604,7 +606,7 @@
 .end method
 
 .method onGoingToRecentsLegacy(Z[Landroid/view/RemoteAnimationTarget;)[Landroid/view/RemoteAnimationTarget;
-    .locals 10
+    .locals 9
 
     array-length p1, p2
 
@@ -617,101 +619,112 @@
     return-object p0
 
     :cond_0
-    new-instance p1, Landroid/view/SurfaceControl$Builder;
+    new-instance p1, Landroid/view/SurfaceControl$Transaction;
 
-    new-instance v0, Landroid/view/SurfaceSession;
+    invoke-direct {p1}, Landroid/view/SurfaceControl$Transaction;-><init>()V
 
-    invoke-direct {v0}, Landroid/view/SurfaceSession;-><init>()V
+    iget-object v0, p0, Lcom/android/wm/shell/splitscreen/SplitScreenController;->mSplitTasksContainerLayer:Landroid/view/SurfaceControl;
 
-    invoke-direct {p1, v0}, Landroid/view/SurfaceControl$Builder;-><init>(Landroid/view/SurfaceSession;)V
+    if-eqz v0, :cond_1
 
-    invoke-virtual {p1}, Landroid/view/SurfaceControl$Builder;->setContainerLayer()Landroid/view/SurfaceControl$Builder;
+    invoke-virtual {p1, v0}, Landroid/view/SurfaceControl$Transaction;->remove(Landroid/view/SurfaceControl;)Landroid/view/SurfaceControl$Transaction;
 
-    move-result-object p1
+    :cond_1
+    new-instance v0, Landroid/view/SurfaceControl$Builder;
 
-    const-string v0, "RecentsAnimationSplitTasks"
+    new-instance v1, Landroid/view/SurfaceSession;
 
-    invoke-virtual {p1, v0}, Landroid/view/SurfaceControl$Builder;->setName(Ljava/lang/String;)Landroid/view/SurfaceControl$Builder;
+    invoke-direct {v1}, Landroid/view/SurfaceSession;-><init>()V
 
-    move-result-object p1
+    invoke-direct {v0, v1}, Landroid/view/SurfaceControl$Builder;-><init>(Landroid/view/SurfaceSession;)V
 
-    const/4 v0, 0x0
+    invoke-virtual {v0}, Landroid/view/SurfaceControl$Builder;->setContainerLayer()Landroid/view/SurfaceControl$Builder;
 
-    invoke-virtual {p1, v0}, Landroid/view/SurfaceControl$Builder;->setHidden(Z)Landroid/view/SurfaceControl$Builder;
+    move-result-object v0
 
-    move-result-object p1
+    const-string v1, "RecentsAnimationSplitTasks"
 
-    const-string v1, "SplitScreenController#onGoingtoRecentsLegacy"
+    invoke-virtual {v0, v1}, Landroid/view/SurfaceControl$Builder;->setName(Ljava/lang/String;)Landroid/view/SurfaceControl$Builder;
 
-    invoke-virtual {p1, v1}, Landroid/view/SurfaceControl$Builder;->setCallsite(Ljava/lang/String;)Landroid/view/SurfaceControl$Builder;
+    move-result-object v0
 
-    move-result-object p1
+    const/4 v1, 0x0
 
-    iget-object v1, p0, Lcom/android/wm/shell/splitscreen/SplitScreenController;->mRootTDAOrganizer:Lcom/android/wm/shell/RootTaskDisplayAreaOrganizer;
+    invoke-virtual {v0, v1}, Landroid/view/SurfaceControl$Builder;->setHidden(Z)Landroid/view/SurfaceControl$Builder;
 
-    invoke-virtual {v1, v0, p1}, Lcom/android/wm/shell/RootTaskDisplayAreaOrganizer;->attachToDisplayArea(ILandroid/view/SurfaceControl$Builder;)V
+    move-result-object v0
 
-    invoke-virtual {p1}, Landroid/view/SurfaceControl$Builder;->build()Landroid/view/SurfaceControl;
+    const-string v2, "SplitScreenController#onGoingtoRecentsLegacy"
 
-    move-result-object p1
+    invoke-virtual {v0, v2}, Landroid/view/SurfaceControl$Builder;->setCallsite(Ljava/lang/String;)Landroid/view/SurfaceControl$Builder;
 
-    new-instance v1, Landroid/view/SurfaceControl$Transaction;
+    move-result-object v0
 
-    invoke-direct {v1}, Landroid/view/SurfaceControl$Transaction;-><init>()V
+    iget-object v2, p0, Lcom/android/wm/shell/splitscreen/SplitScreenController;->mRootTDAOrganizer:Lcom/android/wm/shell/RootTaskDisplayAreaOrganizer;
 
-    sget-object v2, Lcom/android/wm/shell/splitscreen/SplitScreenController$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/wm/shell/splitscreen/SplitScreenController$$ExternalSyntheticLambda0;
+    invoke-virtual {v2, v1, v0}, Lcom/android/wm/shell/RootTaskDisplayAreaOrganizer;->attachToDisplayArea(ILandroid/view/SurfaceControl$Builder;)V
 
-    invoke-static {p2, v2}, Ljava/util/Arrays;->sort([Ljava/lang/Object;Ljava/util/Comparator;)V
+    invoke-virtual {v0}, Landroid/view/SurfaceControl$Builder;->build()Landroid/view/SurfaceControl;
 
-    array-length v2, p2
+    move-result-object v0
 
-    const/4 v3, 0x1
+    iput-object v0, p0, Lcom/android/wm/shell/splitscreen/SplitScreenController;->mSplitTasksContainerLayer:Landroid/view/SurfaceControl;
 
-    move v4, v0
+    sget-object v0, Lcom/android/wm/shell/splitscreen/SplitScreenController$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/wm/shell/splitscreen/SplitScreenController$$ExternalSyntheticLambda0;
 
-    move v5, v3
+    invoke-static {p2, v0}, Ljava/util/Arrays;->sort([Ljava/lang/Object;Ljava/util/Comparator;)V
+
+    array-length v0, p2
+
+    const/4 v2, 0x1
+
+    move v3, v1
+
+    move v4, v2
 
     :goto_0
-    if-ge v4, v2, :cond_1
+    if-ge v3, v0, :cond_2
 
-    aget-object v6, p2, v4
+    aget-object v5, p2, v3
 
-    iget-object v7, v6, Landroid/view/RemoteAnimationTarget;->leash:Landroid/view/SurfaceControl;
+    iget-object v6, v5, Landroid/view/RemoteAnimationTarget;->leash:Landroid/view/SurfaceControl;
 
-    invoke-virtual {v1, v7, p1}, Landroid/view/SurfaceControl$Transaction;->reparent(Landroid/view/SurfaceControl;Landroid/view/SurfaceControl;)Landroid/view/SurfaceControl$Transaction;
+    iget-object v7, p0, Lcom/android/wm/shell/splitscreen/SplitScreenController;->mSplitTasksContainerLayer:Landroid/view/SurfaceControl;
 
-    iget-object v7, v6, Landroid/view/RemoteAnimationTarget;->leash:Landroid/view/SurfaceControl;
+    invoke-virtual {p1, v6, v7}, Landroid/view/SurfaceControl$Transaction;->reparent(Landroid/view/SurfaceControl;Landroid/view/SurfaceControl;)Landroid/view/SurfaceControl$Transaction;
 
-    iget-object v8, v6, Landroid/view/RemoteAnimationTarget;->screenSpaceBounds:Landroid/graphics/Rect;
+    iget-object v6, v5, Landroid/view/RemoteAnimationTarget;->leash:Landroid/view/SurfaceControl;
 
-    iget v9, v8, Landroid/graphics/Rect;->left:I
+    iget-object v7, v5, Landroid/view/RemoteAnimationTarget;->screenSpaceBounds:Landroid/graphics/Rect;
 
-    int-to-float v9, v9
-
-    iget v8, v8, Landroid/graphics/Rect;->top:I
+    iget v8, v7, Landroid/graphics/Rect;->left:I
 
     int-to-float v8, v8
 
-    invoke-virtual {v1, v7, v9, v8}, Landroid/view/SurfaceControl$Transaction;->setPosition(Landroid/view/SurfaceControl;FF)Landroid/view/SurfaceControl$Transaction;
+    iget v7, v7, Landroid/graphics/Rect;->top:I
 
-    iget-object v6, v6, Landroid/view/RemoteAnimationTarget;->leash:Landroid/view/SurfaceControl;
+    int-to-float v7, v7
 
-    add-int/lit8 v7, v5, 0x1
+    invoke-virtual {p1, v6, v8, v7}, Landroid/view/SurfaceControl$Transaction;->setPosition(Landroid/view/SurfaceControl;FF)Landroid/view/SurfaceControl$Transaction;
 
-    invoke-virtual {v1, v6, v5}, Landroid/view/SurfaceControl$Transaction;->setLayer(Landroid/view/SurfaceControl;I)Landroid/view/SurfaceControl$Transaction;
+    iget-object v5, v5, Landroid/view/RemoteAnimationTarget;->leash:Landroid/view/SurfaceControl;
 
-    add-int/lit8 v4, v4, 0x1
+    add-int/lit8 v6, v4, 0x1
 
-    move v5, v7
+    invoke-virtual {p1, v5, v4}, Landroid/view/SurfaceControl$Transaction;->setLayer(Landroid/view/SurfaceControl;I)Landroid/view/SurfaceControl$Transaction;
+
+    add-int/lit8 v3, v3, 0x1
+
+    move v4, v6
 
     goto :goto_0
 
-    :cond_1
-    invoke-virtual {v1}, Landroid/view/SurfaceControl$Transaction;->apply()V
+    :cond_2
+    invoke-virtual {p1}, Landroid/view/SurfaceControl$Transaction;->apply()V
 
-    invoke-virtual {v1}, Landroid/view/SurfaceControl$Transaction;->close()V
+    invoke-virtual {p1}, Landroid/view/SurfaceControl$Transaction;->close()V
 
-    new-array p1, v3, [Landroid/view/RemoteAnimationTarget;
+    new-array p1, v2, [Landroid/view/RemoteAnimationTarget;
 
     iget-object p0, p0, Lcom/android/wm/shell/splitscreen/SplitScreenController;->mStageCoordinator:Lcom/android/wm/shell/splitscreen/StageCoordinator;
 
@@ -719,7 +732,7 @@
 
     move-result-object p0
 
-    aput-object p0, p1, v0
+    aput-object p0, p1, v1
 
     return-object p1
 .end method

@@ -398,6 +398,22 @@
     return-object p0
 .end method
 
+.method public setShowWhen(Z)Landroidx/core/app/NotificationCompat$Builder;
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "show"
+        }
+    .end annotation
+
+    iput-boolean p1, p0, Landroidx/core/app/NotificationCompat$Builder;->mShowWhen:Z
+
+    return-object p0
+.end method
+
 .method public setSmallIcon(I)Landroidx/core/app/NotificationCompat$Builder;
     .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;

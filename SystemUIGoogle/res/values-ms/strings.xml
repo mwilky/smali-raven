@@ -237,6 +237,9 @@
     <string name="accessor_no_description_text">Tiada perihalan yang diberikan oleh apl.</string>
     <string name="active_input_method_subtypes">Kaedah input aktif</string>
     <string name="activity_launch_on_secondary_display_failed_text">Apl tidak menyokong pelancaran pada paparan kedua.</string>
+    <string name="adaptive_charging_notify_des">Bateri penuh dalam %1$s. Pengecasan secara tetap untuk memelihara kesihatan bateri.</string>
+    <string name="adaptive_charging_notify_title">Pengecasan Mudah Suai dihidupkan</string>
+    <string name="adaptive_charging_notify_turn_off_once">Matikan sekali</string>
     <string name="adaptive_charging_time_estimate">%1$s • Pengecasan mudah suai (penuh sebelum %2$s)</string>
     <string name="adb_device_fingerprint_title_format">Cap jari peranti: %1$s</string>
     <string name="adb_device_forget">Lupakan</string>
@@ -301,6 +304,7 @@ Jika kebenaran ini dimatikan, penggera sedia ada dan acara berdasarkan masa yang
     <string name="basic_status">Buka perbualan</string>
     <string name="battery">Bateri</string>
     <string name="battery_detail_switch_title">Penjimat Bateri</string>
+    <string name="battery_health_notify_learn_more">Ketahui lebih lanjut</string>
     <string name="battery_info_status_charging">Mengecas</string>
     <string name="battery_info_status_charging_fast">Mengecas dgn cepat</string>
     <string name="battery_info_status_charging_slow">Mengecas perlahan</string>
@@ -616,7 +620,6 @@ Jika anda menyambung semula, caj mungkin digunakan untuk penggunaan data."</stri
     <string name="debug_networking_category">Perangkaian</string>
     <string name="debug_view_attributes">Dayakan pemeriksaan atribut paparan</string>
     <string name="defender_notify_des">Telefon anda mengehadkan pengecasan untuk membantu anda mengekalkan kesihatan bateri</string>
-    <string name="defender_notify_learn_more">Ketahui lebih lanjut</string>
     <string name="defender_notify_resume_charge">Sambung semula pengecasan</string>
     <string name="defender_notify_title">Pengecasan terhad sementara</string>
     <string name="defender_post_notify_des">Pengecasan terhad pada %1$s dari %2$s hingga %3$s untuk mengekalkan kesihatan bateri</string>
@@ -1704,6 +1707,10 @@ Ketik untuk mendapatkan maklumat lanjut"</string>
     <string name="usb_accessory_confirm_prompt">Buka %1$s untuk mengendalikan %2$s?</string>
     <string name="usb_accessory_permission_prompt">Benarkan %1$s mengakses %2$s?</string>
     <string name="usb_accessory_uri_prompt">Tiada apl yg dipsg bfungsi dgn aksesori USB ini. Ketahui lg ttg aksesori ini di %1$s</string>
+    <string name="usb_audio_device_confirm_prompt_title">Buka %1$s untuk mengendalikan %2$s?</string>
+    <string name="usb_audio_device_permission_prompt_title">Benarkan %1$s mengakses %2$s?</string>
+    <string name="usb_audio_device_prompt">Tindakan menggunakan %1$s dengan peranti ini mungkin menghalang anda daripada mendengar panggilan, pemberitahuan dan penggera.</string>
+    <string name="usb_audio_device_prompt_warn">Apl ini belum diberikan kebenaran merakam tetapi dapat merakam audio melalui peranti USB ini. Tindakan menggunakan %1$s dengan peranti ini mungkin menghalang anda daripada mendengar panggilan, pemberitahuan dan penggera.</string>
     <string name="usb_audio_disable_routing">Lumpuhkan penghalaan audio USB</string>
     <string name="usb_audio_disable_routing_summary">Lumpuhkan penghalaan automatik ke persisian audio USB</string>
     <string name="usb_contaminant_message">"Untuk melindungi peranti anda daripada cecair atau serpihan, port USB dilumpuhkan dan tidak akan mengesan sebarang aksesori.

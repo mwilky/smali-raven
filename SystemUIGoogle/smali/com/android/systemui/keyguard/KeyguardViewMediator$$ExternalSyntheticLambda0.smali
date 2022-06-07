@@ -33,7 +33,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda0;->f$1:Landroid/view/SyncRtSurfaceTransactionApplier;
 
-    invoke-static {v0, p0, p1}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->$r8$lambda$J89F0gCaS9j1Hd4XK_A97waFiGo(Landroid/view/RemoteAnimationTarget;Landroid/view/SyncRtSurfaceTransactionApplier;Landroid/animation/ValueAnimator;)V
+    invoke-static {v0, p0, p1}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->$r8$lambda$mXjzSMio80Ds1E5BlSc9YaIUmSg(Landroid/view/RemoteAnimationTarget;Landroid/view/SyncRtSurfaceTransactionApplier;Landroid/animation/ValueAnimator;)V
 
     return-void
 .end method

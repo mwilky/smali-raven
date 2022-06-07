@@ -16,7 +16,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nMediaDataManager.kt\nKotlin\n*S Kotlin\n*F\n+ 1 MediaDataManager.kt\ncom/android/systemui/media/MediaDataManager\n+ 2 fake.kt\nkotlin/jvm/internal/FakeKt\n+ 3 Maps.kt\nkotlin/collections/MapsKt__MapsKt\n+ 4 _Maps.kt\nkotlin/collections/MapsKt___MapsKt\n+ 5 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n*L\n1#1,952:1\n1#2:953\n509#3:954\n494#3,6:955\n509#3:982\n494#3,6:983\n181#4,2:961\n181#4,2:989\n1819#5,2:963\n1819#5,2:965\n1819#5,2:967\n1819#5,2:969\n768#5,11:971\n*E\n*S KotlinDebug\n*F\n+ 1 MediaDataManager.kt\ncom/android/systemui/media/MediaDataManager\n*L\n299#1:954\n299#1,6:955\n817#1:982\n817#1,6:983\n300#1,2:961\n818#1,2:989\n388#1,2:963\n398#1,2:965\n408#1,2:967\n422#1,2:969\n742#1,11:971\n*E\n"
+    value = "SMAP\nMediaDataManager.kt\nKotlin\n*S Kotlin\n*F\n+ 1 MediaDataManager.kt\ncom/android/systemui/media/MediaDataManager\n+ 2 fake.kt\nkotlin/jvm/internal/FakeKt\n+ 3 Maps.kt\nkotlin/collections/MapsKt__MapsKt\n+ 4 _Maps.kt\nkotlin/collections/MapsKt___MapsKt\n+ 5 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n*L\n1#1,964:1\n1#2:965\n509#3:966\n494#3,6:967\n509#3:994\n494#3,6:995\n181#4,2:973\n181#4,2:1001\n1819#5,2:975\n1819#5,2:977\n1819#5,2:979\n1819#5,2:981\n768#5,11:983\n*E\n*S KotlinDebug\n*F\n+ 1 MediaDataManager.kt\ncom/android/systemui/media/MediaDataManager\n*L\n299#1:966\n299#1,6:967\n817#1:994\n817#1,6:995\n300#1,2:973\n818#1,2:1001\n388#1,2:975\n398#1,2:977\n408#1,2:979\n422#1,2:981\n742#1,11:983\n*E\n"
 .end annotation
 
 
@@ -1782,7 +1782,7 @@
 .end method
 
 .method private final notifyMediaDataLoaded(Ljava/lang/String;Ljava/lang/String;Lcom/android/systemui/media/MediaData;)V
-    .locals 9
+    .locals 10
 
     iget-object p0, p0, Lcom/android/systemui/media/MediaDataManager;->internalListeners:Ljava/util/Set;
 
@@ -1809,9 +1809,11 @@
 
     const/4 v6, 0x0
 
-    const/16 v7, 0x18
+    const/4 v7, 0x0
 
-    const/4 v8, 0x0
+    const/16 v8, 0x38
+
+    const/4 v9, 0x0
 
     move-object v2, p1
 
@@ -1819,7 +1821,7 @@
 
     move-object v4, p3
 
-    invoke-static/range {v1 .. v8}, Lcom/android/systemui/media/MediaDataManager$Listener$DefaultImpls;->onMediaDataLoaded$default(Lcom/android/systemui/media/MediaDataManager$Listener;Ljava/lang/String;Ljava/lang/String;Lcom/android/systemui/media/MediaData;ZIILjava/lang/Object;)V
+    invoke-static/range {v1 .. v9}, Lcom/android/systemui/media/MediaDataManager$Listener$DefaultImpls;->onMediaDataLoaded$default(Lcom/android/systemui/media/MediaDataManager$Listener;Ljava/lang/String;Ljava/lang/String;Lcom/android/systemui/media/MediaData;ZIZILjava/lang/Object;)V
 
     goto :goto_0
 
@@ -1858,7 +1860,7 @@
 .end method
 
 .method private final notifySmartspaceMediaDataLoaded(Ljava/lang/String;Lcom/android/systemui/media/SmartspaceMediaData;)V
-    .locals 8
+    .locals 7
 
     iget-object p0, p0, Lcom/android/systemui/media/MediaDataManager;->internalListeners:Ljava/util/Set;
 
@@ -1883,17 +1885,15 @@
 
     const/4 v4, 0x0
 
-    const/4 v5, 0x0
+    const/4 v5, 0x4
 
-    const/16 v6, 0xc
-
-    const/4 v7, 0x0
+    const/4 v6, 0x0
 
     move-object v2, p1
 
     move-object v3, p2
 
-    invoke-static/range {v1 .. v7}, Lcom/android/systemui/media/MediaDataManager$Listener$DefaultImpls;->onSmartspaceMediaDataLoaded$default(Lcom/android/systemui/media/MediaDataManager$Listener;Ljava/lang/String;Lcom/android/systemui/media/SmartspaceMediaData;ZZILjava/lang/Object;)V
+    invoke-static/range {v1 .. v6}, Lcom/android/systemui/media/MediaDataManager$Listener$DefaultImpls;->onSmartspaceMediaDataLoaded$default(Lcom/android/systemui/media/MediaDataManager$Listener;Ljava/lang/String;Lcom/android/systemui/media/SmartspaceMediaData;ZILjava/lang/Object;)V
 
     goto :goto_0
 
@@ -2663,12 +2663,36 @@
     return p0
 .end method
 
+.method public final hasActiveMediaOrRecommendation()Z
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/media/MediaDataManager;->mediaDataFilter:Lcom/android/systemui/media/MediaDataFilter;
+
+    invoke-virtual {p0}, Lcom/android/systemui/media/MediaDataFilter;->hasActiveMediaOrRecommendation()Z
+
+    move-result p0
+
+    return p0
+.end method
+
 .method public final hasAnyMedia()Z
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/media/MediaDataManager;->mediaDataFilter:Lcom/android/systemui/media/MediaDataFilter;
 
     invoke-virtual {p0}, Lcom/android/systemui/media/MediaDataFilter;->hasAnyMedia()Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public final hasAnyMediaOrRecommendation()Z
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/media/MediaDataManager;->mediaDataFilter:Lcom/android/systemui/media/MediaDataFilter;
+
+    invoke-virtual {p0}, Lcom/android/systemui/media/MediaDataFilter;->hasAnyMediaOrRecommendation()Z
 
     move-result p0
 

@@ -56,8 +56,6 @@
 
 .field private mDozing:Z
 
-.field private mDrawnCallback:Lcom/android/internal/policy/IKeyguardDrawnCallback;
-
 .field private mExitSecureCallback:Lcom/android/internal/policy/IKeyguardExitCallback;
 
 .field private mExternallyEnabled:Z
@@ -148,6 +146,16 @@
     .end annotation
 .end field
 
+.field private final mNotificationShadeWindowControllerLazy:Ldagger/Lazy;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ldagger/Lazy<",
+            "Lcom/android/systemui/statusbar/NotificationShadeWindowController;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private mOccluded:Z
 
 .field private final mOnPropertiesChangedListener:Landroid/provider/DeviceConfig$OnPropertiesChangedListener;
@@ -230,10 +238,18 @@
 
 
 # direct methods
-.method public static synthetic $r8$lambda$8rbPocBXr1kDKdp39FBeeFeFtwA(Lcom/android/systemui/keyguard/KeyguardViewMediator;)V
+.method public static synthetic $r8$lambda$-EX3AmJ9KNSa2YnKAaEg1uarfV0(Lcom/android/systemui/keyguard/KeyguardViewMediator;Lcom/android/internal/policy/IKeyguardDrawnCallback;)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->lambda$notifyDefaultDisplayCallbacks$11()V
+    invoke-direct {p0, p1}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->lambda$handleNotifyScreenTurningOn$10(Lcom/android/internal/policy/IKeyguardDrawnCallback;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$2allSGLmc7ckEAHMx1AWFiEOl90(Lcom/android/systemui/keyguard/KeyguardViewMediator;Landroid/view/IRemoteAnimationFinishedCallback;[Landroid/view/RemoteAnimationTarget;)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->lambda$handleStartKeyguardExitAnimation$9(Landroid/view/IRemoteAnimationFinishedCallback;[Landroid/view/RemoteAnimationTarget;)V
 
     return-void
 .end method
@@ -242,22 +258,6 @@
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->lambda$playSound$4(I)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$Gum5Nk10mw3bohg7j38n2wL1aNs(Lcom/android/systemui/keyguard/KeyguardViewMediator;Landroid/view/IRemoteAnimationFinishedCallback;[Landroid/view/RemoteAnimationTarget;)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->lambda$handleStartKeyguardExitAnimation$8(Landroid/view/IRemoteAnimationFinishedCallback;[Landroid/view/RemoteAnimationTarget;)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$J89F0gCaS9j1Hd4XK_A97waFiGo(Landroid/view/RemoteAnimationTarget;Landroid/view/SyncRtSurfaceTransactionApplier;Landroid/animation/ValueAnimator;)V
-    .locals 0
-
-    invoke-static {p0, p1, p2}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->lambda$handleStartKeyguardExitAnimation$7(Landroid/view/RemoteAnimationTarget;Landroid/view/SyncRtSurfaceTransactionApplier;Landroid/animation/ValueAnimator;)V
 
     return-void
 .end method
@@ -280,18 +280,18 @@
     return-object p0
 .end method
 
-.method public static synthetic $r8$lambda$Q7K5bOIr2sDkGRLR4bqI44oo7Po(Lcom/android/systemui/keyguard/KeyguardViewMediator;Z)V
+.method public static synthetic $r8$lambda$Ljz8C_a_mEO1E2O9qnoaOGFHitY(Lcom/android/systemui/keyguard/KeyguardViewMediator;Z)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->lambda$notifyDefaultDisplayCallbacks$10(Z)V
+    invoke-direct {p0, p1}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->lambda$notifyDefaultDisplayCallbacks$11(Z)V
 
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$QdbPPB0WvOMyYCTksFkGRykIQYA(Lcom/android/systemui/keyguard/KeyguardViewMediator;Lcom/android/internal/policy/IKeyguardDrawnCallback;)V
+.method public static synthetic $r8$lambda$Qmbr5PiTt3takddnIdXPwE1awOU(Lcom/android/systemui/keyguard/KeyguardViewMediator;)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->lambda$handleNotifyScreenTurningOn$9(Lcom/android/internal/policy/IKeyguardDrawnCallback;)V
+    invoke-direct {p0}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->lambda$handleHide$7()V
 
     return-void
 .end method
@@ -308,6 +308,22 @@
     .locals 0
 
     invoke-direct {p0, p1, p2, p3}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->lambda$sendUserPresentBroadcast$3(Landroid/os/UserManager;Landroid/os/UserHandle;I)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$YDIhksCKlwDymgDmKUdbdNhpRk0(Lcom/android/systemui/keyguard/KeyguardViewMediator;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->lambda$notifyDefaultDisplayCallbacks$12()V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$mXjzSMio80Ds1E5BlSc9YaIUmSg(Landroid/view/RemoteAnimationTarget;Landroid/view/SyncRtSurfaceTransactionApplier;Landroid/animation/ValueAnimator;)V
+    .locals 0
+
+    invoke-static {p0, p1, p2}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->lambda$handleStartKeyguardExitAnimation$8(Landroid/view/RemoteAnimationTarget;Landroid/view/SyncRtSurfaceTransactionApplier;Landroid/animation/ValueAnimator;)V
 
     return-void
 .end method
@@ -352,7 +368,7 @@
     return-void
 .end method
 
-.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/classifier/FalsingCollector;Lcom/android/internal/widget/LockPatternUtils;Lcom/android/systemui/broadcast/BroadcastDispatcher;Ldagger/Lazy;Lcom/android/systemui/keyguard/DismissCallbackRegistry;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/dump/DumpManager;Ljava/util/concurrent/Executor;Landroid/os/PowerManager;Landroid/app/trust/TrustManager;Lcom/android/systemui/statusbar/policy/UserSwitcherController;Lcom/android/systemui/util/DeviceConfigProxy;Lcom/android/systemui/navigationbar/NavigationModeController;Lcom/android/keyguard/KeyguardDisplayManager;Lcom/android/systemui/statusbar/phone/DozeParameters;Ljava/util/Optional;Lcom/android/systemui/statusbar/SysuiStatusBarStateController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Ldagger/Lazy;Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;Ldagger/Lazy;)V
+.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/classifier/FalsingCollector;Lcom/android/internal/widget/LockPatternUtils;Lcom/android/systemui/broadcast/BroadcastDispatcher;Ldagger/Lazy;Lcom/android/systemui/keyguard/DismissCallbackRegistry;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/dump/DumpManager;Ljava/util/concurrent/Executor;Landroid/os/PowerManager;Landroid/app/trust/TrustManager;Lcom/android/systemui/statusbar/policy/UserSwitcherController;Lcom/android/systemui/util/DeviceConfigProxy;Lcom/android/systemui/navigationbar/NavigationModeController;Lcom/android/keyguard/KeyguardDisplayManager;Lcom/android/systemui/statusbar/phone/DozeParameters;Ljava/util/Optional;Lcom/android/systemui/statusbar/SysuiStatusBarStateController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Ldagger/Lazy;Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;Ldagger/Lazy;Ldagger/Lazy;)V
     .locals 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -386,6 +402,9 @@
             "Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;",
             "Ldagger/Lazy<",
             "Lcom/android/systemui/statusbar/NotificationShadeDepthController;",
+            ">;",
+            "Ldagger/Lazy<",
+            "Lcom/android/systemui/statusbar/NotificationShadeWindowController;",
             ">;)V"
         }
     .end annotation
@@ -498,9 +517,9 @@
 
     iput-object v5, v0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mKeyguardGoingAwayRunnable:Ljava/lang/Runnable;
 
-    new-instance v5, Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda3;
+    new-instance v5, Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda2;
 
-    invoke-direct {v5, p0}, Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda3;-><init>(Lcom/android/systemui/keyguard/KeyguardViewMediator;)V
+    invoke-direct {v5, p0}, Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda2;-><init>(Lcom/android/systemui/keyguard/KeyguardViewMediator;)V
 
     iput-object v5, v0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mHideAnimationFinishedRunnable:Ljava/lang/Runnable;
 
@@ -566,6 +585,10 @@
 
     iput-object v1, v0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mDeviceConfig:Lcom/android/systemui/util/DeviceConfigProxy;
 
+    move-object/from16 v5, p23
+
+    iput-object v5, v0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mNotificationShadeWindowControllerLazy:Ldagger/Lazy;
+
     const-string v5, "systemui"
 
     const-string v6, "nav_bar_handle_show_over_lockscreen"
@@ -608,7 +631,7 @@
 
     iput-object v1, v0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mDozeParameters:Lcom/android/systemui/statusbar/phone/DozeParameters;
 
-    sget-object v1, Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda11;->INSTANCE:Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda11;
+    sget-object v1, Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda12;->INSTANCE:Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda12;
 
     move-object/from16 v3, p17
 
@@ -954,7 +977,7 @@
 .method static synthetic access$4100(Lcom/android/systemui/keyguard/KeyguardViewMediator;)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->handleNotifyScreenTurnedOff()V
+    invoke-direct {p0}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->handleNotifyStartedWakingUp()V
 
     return-void
 .end method
@@ -962,7 +985,7 @@
 .method static synthetic access$4200(Lcom/android/systemui/keyguard/KeyguardViewMediator;)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->handleNotifyStartedWakingUp()V
+    invoke-direct {p0}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->handleKeyguardDone()V
 
     return-void
 .end method
@@ -970,20 +993,12 @@
 .method static synthetic access$4300(Lcom/android/systemui/keyguard/KeyguardViewMediator;)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->handleKeyguardDone()V
-
-    return-void
-.end method
-
-.method static synthetic access$4400(Lcom/android/systemui/keyguard/KeyguardViewMediator;)V
-    .locals 0
-
     invoke-direct {p0}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->handleKeyguardDoneDrawing()V
 
     return-void
 .end method
 
-.method static synthetic access$4500(Lcom/android/systemui/keyguard/KeyguardViewMediator;ZZ)V
+.method static synthetic access$4400(Lcom/android/systemui/keyguard/KeyguardViewMediator;ZZ)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->handleSetOccluded(ZZ)V
@@ -991,7 +1006,7 @@
     return-void
 .end method
 
-.method static synthetic access$4600(Lcom/android/systemui/keyguard/KeyguardViewMediator;Z)V
+.method static synthetic access$4500(Lcom/android/systemui/keyguard/KeyguardViewMediator;Z)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->notifyDefaultDisplayCallbacks(Z)V
@@ -999,7 +1014,7 @@
     return-void
 .end method
 
-.method static synthetic access$4700(Lcom/android/systemui/keyguard/KeyguardViewMediator;Lcom/android/internal/policy/IKeyguardDismissCallback;Ljava/lang/CharSequence;)V
+.method static synthetic access$4600(Lcom/android/systemui/keyguard/KeyguardViewMediator;Lcom/android/internal/policy/IKeyguardDismissCallback;Ljava/lang/CharSequence;)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->handleDismiss(Lcom/android/internal/policy/IKeyguardDismissCallback;Ljava/lang/CharSequence;)V
@@ -1007,20 +1022,28 @@
     return-void
 .end method
 
-.method static synthetic access$4800(Lcom/android/systemui/keyguard/KeyguardViewMediator;JJ[Landroid/view/RemoteAnimationTarget;[Landroid/view/RemoteAnimationTarget;[Landroid/view/RemoteAnimationTarget;Landroid/view/IRemoteAnimationFinishedCallback;)V
+.method static synthetic access$4700(Lcom/android/systemui/keyguard/KeyguardViewMediator;)Ldagger/Lazy;
     .locals 0
 
-    invoke-direct/range {p0 .. p8}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->handleStartKeyguardExitAnimation(JJ[Landroid/view/RemoteAnimationTarget;[Landroid/view/RemoteAnimationTarget;[Landroid/view/RemoteAnimationTarget;Landroid/view/IRemoteAnimationFinishedCallback;)V
+    iget-object p0, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mNotificationShadeWindowControllerLazy:Ldagger/Lazy;
+
+    return-object p0
+.end method
+
+.method static synthetic access$4800(Lcom/android/systemui/keyguard/KeyguardViewMediator;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->handleCancelKeyguardExitAnimation()V
 
     return-void
 .end method
 
-.method static synthetic access$4900(Lcom/android/systemui/keyguard/KeyguardViewMediator;)Lcom/android/systemui/classifier/FalsingCollector;
+.method static synthetic access$4900(Lcom/android/systemui/keyguard/KeyguardViewMediator;)V
     .locals 0
 
-    iget-object p0, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mFalsingCollector:Lcom/android/systemui/classifier/FalsingCollector;
+    invoke-direct {p0}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->handleSystemReady()V
 
-    return-object p0
+    return-void
 .end method
 
 .method static synthetic access$500(Lcom/android/systemui/keyguard/KeyguardViewMediator;)Lcom/android/internal/widget/LockPatternUtils;
@@ -1031,20 +1054,20 @@
     return-object p0
 .end method
 
-.method static synthetic access$5000(Lcom/android/systemui/keyguard/KeyguardViewMediator;)V
+.method static synthetic access$5000(Lcom/android/systemui/keyguard/KeyguardViewMediator;JJ[Landroid/view/RemoteAnimationTarget;[Landroid/view/RemoteAnimationTarget;[Landroid/view/RemoteAnimationTarget;Landroid/view/IRemoteAnimationFinishedCallback;)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->handleCancelKeyguardExitAnimation()V
+    invoke-direct/range {p0 .. p8}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->handleStartKeyguardExitAnimation(JJ[Landroid/view/RemoteAnimationTarget;[Landroid/view/RemoteAnimationTarget;[Landroid/view/RemoteAnimationTarget;Landroid/view/IRemoteAnimationFinishedCallback;)V
 
     return-void
 .end method
 
-.method static synthetic access$5100(Lcom/android/systemui/keyguard/KeyguardViewMediator;)V
+.method static synthetic access$5100(Lcom/android/systemui/keyguard/KeyguardViewMediator;)Lcom/android/systemui/classifier/FalsingCollector;
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->handleSystemReady()V
+    iget-object p0, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mFalsingCollector:Lcom/android/systemui/classifier/FalsingCollector;
 
-    return-void
+    return-object p0
 .end method
 
 .method static synthetic access$5200(Lcom/android/systemui/keyguard/KeyguardViewMediator;)Z
@@ -1931,7 +1954,7 @@
 .end method
 
 .method private handleHide()V
-    .locals 13
+    .locals 5
 
     const-string v0, "KeyguardViewMediator#handleHide"
 
@@ -2019,35 +2042,19 @@
     goto :goto_0
 
     :cond_4
-    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
+    iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mNotificationShadeWindowControllerLazy:Ldagger/Lazy;
 
-    move-result-wide v0
+    invoke-interface {v0}, Ldagger/Lazy;->get()Ljava/lang/Object;
 
-    iget-object v2, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mHideAnimation:Landroid/view/animation/Animation;
+    move-result-object v0
 
-    invoke-virtual {v2}, Landroid/view/animation/Animation;->getStartOffset()J
+    check-cast v0, Lcom/android/systemui/statusbar/NotificationShadeWindowController;
 
-    move-result-wide v2
+    new-instance v1, Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda3;
 
-    add-long v5, v0, v2
+    invoke-direct {v1, p0}, Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda3;-><init>(Lcom/android/systemui/keyguard/KeyguardViewMediator;)V
 
-    iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mHideAnimation:Landroid/view/animation/Animation;
-
-    invoke-virtual {v0}, Landroid/view/animation/Animation;->getDuration()J
-
-    move-result-wide v7
-
-    const/4 v9, 0x0
-
-    const/4 v10, 0x0
-
-    const/4 v11, 0x0
-
-    const/4 v12, 0x0
-
-    move-object v4, p0
-
-    invoke-direct/range {v4 .. v12}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->handleStartKeyguardExitAnimation(JJ[Landroid/view/RemoteAnimationTarget;[Landroid/view/RemoteAnimationTarget;[Landroid/view/RemoteAnimationTarget;Landroid/view/IRemoteAnimationFinishedCallback;)V
+    invoke-interface {v0, v1}, Lcom/android/systemui/statusbar/NotificationShadeWindowController;->batchApplyWindowLayoutParams(Ljava/lang/Runnable;)V
 
     :goto_0
     monitor-exit p0
@@ -2082,9 +2089,9 @@
 
     iget-object v1, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mUiBgExecutor:Ljava/util/concurrent/Executor;
 
-    new-instance v2, Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda5;
+    new-instance v2, Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda6;
 
-    invoke-direct {v2, p0, v0}, Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda5;-><init>(Lcom/android/systemui/keyguard/KeyguardViewMediator;I)V
+    invoke-direct {v2, p0, v0}, Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda6;-><init>(Lcom/android/systemui/keyguard/KeyguardViewMediator;I)V
 
     invoke-interface {v1, v2}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
@@ -2289,41 +2296,6 @@
     throw v0
 .end method
 
-.method private handleNotifyScreenTurnedOff()V
-    .locals 2
-
-    monitor-enter p0
-
-    :try_start_0
-    sget-boolean v0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->DEBUG:Z
-
-    if-eqz v0, :cond_0
-
-    const-string v0, "KeyguardViewMediator"
-
-    const-string v1, "handleNotifyScreenTurnedOff"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_0
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mDrawnCallback:Lcom/android/internal/policy/IKeyguardDrawnCallback;
-
-    monitor-exit p0
-
-    return-void
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit p0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v0
-.end method
-
 .method private handleNotifyScreenTurnedOn()V
     .locals 2
 
@@ -2417,9 +2389,9 @@
 
     check-cast v0, Lcom/android/systemui/unfold/UnfoldLightRevealOverlayAnimation;
 
-    new-instance v1, Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda8;
+    new-instance v1, Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda9;
 
-    invoke-direct {v1, p0, p1}, Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda8;-><init>(Lcom/android/systemui/keyguard/KeyguardViewMediator;Lcom/android/internal/policy/IKeyguardDrawnCallback;)V
+    invoke-direct {v1, p0, p1}, Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda9;-><init>(Lcom/android/systemui/keyguard/KeyguardViewMediator;Lcom/android/internal/policy/IKeyguardDrawnCallback;)V
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/unfold/UnfoldLightRevealOverlayAnimation;->onScreenTurningOn(Ljava/lang/Runnable;)V
 
@@ -2443,21 +2415,11 @@
 
     invoke-interface {v0}, Lcom/android/keyguard/KeyguardViewController;->onScreenTurningOn()V
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_2
 
-    iget-boolean v0, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mWakeAndUnlocking:Z
-
-    if-eqz v0, :cond_2
-
-    iput-object p1, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mDrawnCallback:Lcom/android/internal/policy/IKeyguardDrawnCallback;
-
-    goto :goto_1
-
-    :cond_2
     invoke-direct {p0, p1}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->notifyDrawn(Lcom/android/internal/policy/IKeyguardDrawnCallback;)V
 
-    :cond_3
-    :goto_1
+    :cond_2
     monitor-exit p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -2945,35 +2907,6 @@
 
     iput-object v10, v1, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mKeyguardExitAnimationRunner:Landroid/view/IRemoteAnimationRunner;
 
-    iget-boolean v11, v1, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mWakeAndUnlocking:Z
-
-    if-eqz v11, :cond_3
-
-    iget-object v11, v1, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mDrawnCallback:Lcom/android/internal/policy/IKeyguardDrawnCallback;
-
-    if-eqz v11, :cond_3
-
-    iget-object v11, v1, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mKeyguardViewControllerLazy:Ldagger/Lazy;
-
-    invoke-interface {v11}, Ldagger/Lazy;->get()Ljava/lang/Object;
-
-    move-result-object v11
-
-    check-cast v11, Lcom/android/keyguard/KeyguardViewController;
-
-    invoke-interface {v11}, Lcom/android/keyguard/KeyguardViewController;->getViewRootImpl()Landroid/view/ViewRootImpl;
-
-    move-result-object v11
-
-    invoke-virtual {v11}, Landroid/view/ViewRootImpl;->setReportNextDraw()V
-
-    iget-object v11, v1, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mDrawnCallback:Lcom/android/internal/policy/IKeyguardDrawnCallback;
-
-    invoke-direct {p0, v11}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->notifyDrawn(Lcom/android/internal/policy/IKeyguardDrawnCallback;)V
-
-    iput-object v10, v1, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mDrawnCallback:Lcom/android/internal/policy/IKeyguardDrawnCallback;
-
-    :cond_3
     iget-object v10, v1, Lcom/android/systemui/SystemUI;->mContext:Landroid/content/Context;
 
     invoke-static {v10}, Lcom/android/internal/util/LatencyTracker;->getInstance(Landroid/content/Context;)Lcom/android/internal/util/LatencyTracker;
@@ -2986,11 +2919,11 @@
 
     sget-boolean v10, Lcom/android/systemui/keyguard/KeyguardService;->sEnableRemoteKeyguardGoingAwayAnimation:Z
 
-    if-eqz v10, :cond_4
+    if-eqz v10, :cond_3
 
-    if-eqz v9, :cond_4
+    if-eqz v9, :cond_3
 
-    if-eqz v6, :cond_4
+    if-eqz v6, :cond_3
 
     new-instance v7, Lcom/android/systemui/keyguard/KeyguardViewMediator$8;
 
@@ -3040,8 +2973,8 @@
 
     goto :goto_1
 
-    :cond_4
-    if-eqz v10, :cond_5
+    :cond_3
+    if-eqz v10, :cond_4
 
     iget-object v9, v1, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mStatusBarStateController:Lcom/android/systemui/statusbar/SysuiStatusBarStateController;
 
@@ -3049,13 +2982,13 @@
 
     move-result v9
 
-    if-nez v9, :cond_5
+    if-nez v9, :cond_4
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_4
 
     array-length v9, v0
 
-    if-lez v9, :cond_5
+    if-lez v9, :cond_4
 
     iput-object v6, v1, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mSurfaceBehindRemoteAnimationFinishedCallback:Landroid/view/IRemoteAnimationFinishedCallback;
 
@@ -3089,7 +3022,7 @@
 
     goto :goto_1
 
-    :cond_5
+    :cond_4
     invoke-static {}, Lcom/android/internal/jank/InteractionJankMonitor;->getInstance()Lcom/android/internal/jank/InteractionJankMonitor;
 
     move-result-object v7
@@ -3118,9 +3051,9 @@
 
     move-result-object v2
 
-    new-instance v3, Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda7;
+    new-instance v3, Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda8;
 
-    invoke-direct {v3, p0, v6, v0}, Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda7;-><init>(Lcom/android/systemui/keyguard/KeyguardViewMediator;Landroid/view/IRemoteAnimationFinishedCallback;[Landroid/view/RemoteAnimationTarget;)V
+    invoke-direct {v3, p0, v6, v0}, Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda8;-><init>(Lcom/android/systemui/keyguard/KeyguardViewMediator;Landroid/view/IRemoteAnimationFinishedCallback;[Landroid/view/RemoteAnimationTarget;)V
 
     invoke-interface {v2, v3}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
@@ -3323,6 +3256,42 @@
     return p0
 .end method
 
+.method private synthetic lambda$handleHide$7()V
+    .locals 13
+
+    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
+
+    move-result-wide v0
+
+    iget-object v2, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mHideAnimation:Landroid/view/animation/Animation;
+
+    invoke-virtual {v2}, Landroid/view/animation/Animation;->getStartOffset()J
+
+    move-result-wide v2
+
+    add-long v5, v0, v2
+
+    iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mHideAnimation:Landroid/view/animation/Animation;
+
+    invoke-virtual {v0}, Landroid/view/animation/Animation;->getDuration()J
+
+    move-result-wide v7
+
+    const/4 v9, 0x0
+
+    const/4 v10, 0x0
+
+    const/4 v11, 0x0
+
+    const/4 v12, 0x0
+
+    move-object v4, p0
+
+    invoke-direct/range {v4 .. v12}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->handleStartKeyguardExitAnimation(JJ[Landroid/view/RemoteAnimationTarget;[Landroid/view/RemoteAnimationTarget;[Landroid/view/RemoteAnimationTarget;Landroid/view/IRemoteAnimationFinishedCallback;)V
+
+    return-void
+.end method
+
 .method private synthetic lambda$handleKeyguardDone$2(I)V
     .locals 1
 
@@ -3346,7 +3315,7 @@
     return-void
 .end method
 
-.method private synthetic lambda$handleNotifyScreenTurningOn$9(Lcom/android/internal/policy/IKeyguardDrawnCallback;)V
+.method private synthetic lambda$handleNotifyScreenTurningOn$10(Lcom/android/internal/policy/IKeyguardDrawnCallback;)V
     .locals 1
 
     iget-object p0, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mPendingDrawnTasks:Ljava/util/concurrent/atomic/AtomicInteger;
@@ -3378,7 +3347,7 @@
     return-void
 .end method
 
-.method private static synthetic lambda$handleStartKeyguardExitAnimation$7(Landroid/view/RemoteAnimationTarget;Landroid/view/SyncRtSurfaceTransactionApplier;Landroid/animation/ValueAnimator;)V
+.method private static synthetic lambda$handleStartKeyguardExitAnimation$8(Landroid/view/RemoteAnimationTarget;Landroid/view/SyncRtSurfaceTransactionApplier;Landroid/animation/ValueAnimator;)V
     .locals 1
 
     new-instance v0, Landroid/view/SyncRtSurfaceTransactionApplier$SurfaceParams$Builder;
@@ -3412,7 +3381,7 @@
     return-void
 .end method
 
-.method private synthetic lambda$handleStartKeyguardExitAnimation$8(Landroid/view/IRemoteAnimationFinishedCallback;[Landroid/view/RemoteAnimationTarget;)V
+.method private synthetic lambda$handleStartKeyguardExitAnimation$9(Landroid/view/IRemoteAnimationFinishedCallback;[Landroid/view/RemoteAnimationTarget;)V
     .locals 4
 
     if-nez p1, :cond_0
@@ -3533,7 +3502,7 @@
     return-void
 .end method
 
-.method private synthetic lambda$notifyDefaultDisplayCallbacks$10(Z)V
+.method private synthetic lambda$notifyDefaultDisplayCallbacks$11(Z)V
     .locals 5
 
     iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mKeyguardStateCallbacks:Ljava/util/ArrayList;
@@ -3593,7 +3562,7 @@
     return-void
 .end method
 
-.method private synthetic lambda$notifyDefaultDisplayCallbacks$11()V
+.method private synthetic lambda$notifyDefaultDisplayCallbacks$12()V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mTrustManager:Landroid/app/trust/TrustManager;
@@ -3813,9 +3782,9 @@
 .method private notifyDefaultDisplayCallbacks(Z)V
     .locals 1
 
-    new-instance v0, Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda9;
+    new-instance v0, Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda10;
 
-    invoke-direct {v0, p0, p1}, Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda9;-><init>(Lcom/android/systemui/keyguard/KeyguardViewMediator;Z)V
+    invoke-direct {v0, p0, p1}, Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda10;-><init>(Lcom/android/systemui/keyguard/KeyguardViewMediator;Z)V
 
     invoke-static {v0}, Lcom/android/systemui/DejankUtils;->whitelistIpcs(Ljava/lang/Runnable;)V
 
@@ -3823,9 +3792,9 @@
 
     iget-object p1, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mUiBgExecutor:Ljava/util/concurrent/Executor;
 
-    new-instance v0, Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda2;
+    new-instance v0, Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda4;
 
-    invoke-direct {v0, p0}, Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda2;-><init>(Lcom/android/systemui/keyguard/KeyguardViewMediator;)V
+    invoke-direct {v0, p0}, Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda4;-><init>(Lcom/android/systemui/keyguard/KeyguardViewMediator;)V
 
     invoke-interface {p1, v0}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
@@ -3918,35 +3887,6 @@
     iget-object p0, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {p0, p1}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
-
-    return-void
-.end method
-
-.method private notifyScreenTurnedOff()V
-    .locals 2
-
-    sget-boolean v0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->DEBUG:Z
-
-    if-eqz v0, :cond_0
-
-    const-string v0, "KeyguardViewMediator"
-
-    const-string v1, "notifyScreenTurnedOff"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mHandler:Landroid/os/Handler;
-
-    const/16 v1, 0x10
-
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
-
-    move-result-object v0
-
-    iget-object p0, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mHandler:Landroid/os/Handler;
-
-    invoke-virtual {p0, v0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
     return-void
 .end method
@@ -4179,9 +4119,9 @@
     :cond_2
     iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mUiBgExecutor:Ljava/util/concurrent/Executor;
 
-    new-instance v1, Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda4;
+    new-instance v1, Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda5;
 
-    invoke-direct {v1, p0, p1}, Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda4;-><init>(Lcom/android/systemui/keyguard/KeyguardViewMediator;I)V
+    invoke-direct {v1, p0, p1}, Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda5;-><init>(Lcom/android/systemui/keyguard/KeyguardViewMediator;I)V
 
     invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
@@ -4292,9 +4232,9 @@
 
     iget-object v3, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mUiBgExecutor:Ljava/util/concurrent/Executor;
 
-    new-instance v4, Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda6;
+    new-instance v4, Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda7;
 
-    invoke-direct {v4, p0, v2, v1, v0}, Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda6;-><init>(Lcom/android/systemui/keyguard/KeyguardViewMediator;Landroid/os/UserManager;Landroid/os/UserHandle;I)V
+    invoke-direct {v4, p0, v2, v1, v0}, Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda7;-><init>(Lcom/android/systemui/keyguard/KeyguardViewMediator;Landroid/os/UserManager;Landroid/os/UserHandle;I)V
 
     invoke-interface {v3, v4}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
@@ -4925,9 +4865,9 @@
 
     iget-object p0, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mUiBgExecutor:Ljava/util/concurrent/Executor;
 
-    new-instance v0, Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda10;
+    new-instance v0, Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda11;
 
-    invoke-direct {v0, p1, p2}, Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda10;-><init>(ZZ)V
+    invoke-direct {v0, p1, p2}, Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda11;-><init>(ZZ)V
 
     invoke-interface {p0, v0}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
@@ -5352,17 +5292,9 @@
 
     invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    iget-boolean p1, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mWakeAndUnlocking:Z
+    iget-boolean p0, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mWakeAndUnlocking:Z
 
-    invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->println(Z)V
-
-    const-string p1, "  mDrawnCallback: "
-
-    invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    iget-object p0, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mDrawnCallback:Lcom/android/internal/policy/IKeyguardDrawnCallback;
-
-    invoke-virtual {p2, p0}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V
+    invoke-virtual {p2, p0}, Ljava/io/PrintWriter;->println(Z)V
 
     return-void
 .end method
@@ -6091,8 +6023,6 @@
 
 .method public onScreenTurnedOff()V
     .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->notifyScreenTurnedOff()V
 
     iget-object p0, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
 

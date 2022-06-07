@@ -237,6 +237,9 @@
     <string name="accessor_no_description_text">Keine von der App bereitgestellte Beschreibung verfügbar.</string>
     <string name="active_input_method_subtypes">Aktive Eingabemethoden</string>
     <string name="activity_launch_on_secondary_display_failed_text">Die App unterstützt den Start auf sekundären Displays nicht.</string>
+    <string name="adaptive_charging_notify_des">Akku um %1$s vollständig geladen. Langsames Laden schont den Akku.</string>
+    <string name="adaptive_charging_notify_title">Adaptives Laden ist aktiviert</string>
+    <string name="adaptive_charging_notify_turn_off_once">Dieses Mal deaktivieren</string>
     <string name="adaptive_charging_time_estimate">%1$s • Adaptives Laden (vollständig aufgeladen bis %2$s)</string>
     <string name="adb_device_fingerprint_title_format">Fingerabdruck des Geräts: %1$s</string>
     <string name="adb_device_forget">Entfernen</string>
@@ -301,6 +304,7 @@ Wenn diese Berechtigung deaktiviert ist, funktionieren bereits gestellte Wecker 
     <string name="basic_status">Offene Unterhaltung</string>
     <string name="battery">Akku</string>
     <string name="battery_detail_switch_title">Energiesparmodus</string>
+    <string name="battery_health_notify_learn_more">Weitere Informationen</string>
     <string name="battery_info_status_charging">Wird aufgeladen</string>
     <string name="battery_info_status_charging_fast">Schnelles Aufladen</string>
     <string name="battery_info_status_charging_slow">Langsames Aufladen</string>
@@ -391,7 +395,7 @@ Bitte probiere es in %d Sekunden noch einmal."</string>
     <string name="bluetooth_opp_profile_summary_connected">Mit Dateiübertragungsserver verbunden</string>
     <string name="bluetooth_opp_profile_summary_not_connected">Nicht mit Dateiübertragungsserver verbunden</string>
     <string name="bluetooth_opp_profile_summary_use_for">Für Dateiübertragung verwenden</string>
-    <string name="bluetooth_pairing">Verbindung wird hergestellt…</string>
+    <string name="bluetooth_pairing">Wird gekoppelt…</string>
     <string name="bluetooth_pairing_accept">Koppeln</string>
     <string name="bluetooth_pairing_accept_all_caps">KOPPELN</string>
     <string name="bluetooth_pairing_decline">Abbrechen</string>
@@ -616,7 +620,6 @@ Wenn du weiterhin mobile Daten nutzt, können Gebühren anfallen."</string>
     <string name="debug_networking_category">Netzwerke</string>
     <string name="debug_view_attributes">Inspektion der Anzeigeattribute aktivieren</string>
     <string name="defender_notify_des">Dein Smartphone schränkt das Laden ein, um deinen Akku zu schonen</string>
-    <string name="defender_notify_learn_more">Weitere Informationen</string>
     <string name="defender_notify_resume_charge">Ladevorgang fortsetzen</string>
     <string name="defender_notify_title">Laden vorübergehend eingeschränkt</string>
     <string name="defender_post_notify_des">Das Aufladen wurde von %2$s bis %3$s auf %1$s eingeschränkt, um den Akku zu schützen</string>
@@ -798,7 +801,7 @@ Für mehr Informationen tippen."</string>
     <string name="inline_ok_button">Anwenden</string>
     <string name="inline_turn_off_notifications">Benachrichtigungen deaktivieren</string>
     <string name="install_other_apps">Installieren unbekannter Apps</string>
-    <string name="instant_apps">Instant-Apps</string>
+    <string name="instant_apps">Instant Apps</string>
     <string name="instant_apps_message">App wurde geöffnet, ohne vorher installiert zu werden.</string>
     <string name="instant_apps_message_with_help">App wurde geöffnet, ohne vorher installiert zu werden. Tippe, um weitere Informationen zu erhalten.</string>
     <string name="instant_apps_title">%1$s wird ausgeführt</string>
@@ -1704,6 +1707,10 @@ Für mehr Informationen tippen."</string>
     <string name="usb_accessory_confirm_prompt">Für %2$s %1$s öffnen?</string>
     <string name="usb_accessory_permission_prompt">%1$s den Zugriff auf %2$s gewähren?</string>
     <string name="usb_accessory_uri_prompt">Keine installierten Apps für dieses USB-Zubehör. Weitere Informationen unter %1$s</string>
+    <string name="usb_audio_device_confirm_prompt_title">%1$s für %2$s öffnen?</string>
+    <string name="usb_audio_device_permission_prompt_title">%1$s den Zugriff auf %2$s gewähren?</string>
+    <string name="usb_audio_device_prompt">Wenn du %1$s mit diesem Gerät verwendest, hörst du möglicherweise keine Anrufe, Benachrichtigungen und Wecker mehr.</string>
+    <string name="usb_audio_device_prompt_warn">Diese App hat noch keine Berechtigung zum Aufnehmen erhalten, könnte aber Audioaufnahmen über dieses USB-Gerät machen. Wenn du %1$s mit diesem Gerät verwendest, hörst du möglicherweise keine Anrufe, Benachrichtigungen und Wecker mehr.</string>
     <string name="usb_audio_disable_routing">USB-Audiorouting deaktivieren</string>
     <string name="usb_audio_disable_routing_summary">Autom. Routing an externe USB-Audiogeräte deaktivieren</string>
     <string name="usb_contaminant_message">"Zum Schutz deines Geräts vor Flüssigkeiten oder Fremdkörpern ist der USB-Port zurzeit deaktiviert und erkennt kein Zubehör.

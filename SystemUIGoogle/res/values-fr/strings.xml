@@ -237,6 +237,9 @@
     <string name="accessor_no_description_text">"Aucune description fournie par l'application."</string>
     <string name="active_input_method_subtypes">Modes de saisie actifs</string>
     <string name="activity_launch_on_secondary_display_failed_text">"L'application ne peut pas être lancée sur des écrans secondaires."</string>
+    <string name="adaptive_charging_notify_des">"Batterie chargée dans %1$s. Chargement continu pour préserver l'état de la batterie."</string>
+    <string name="adaptive_charging_notify_title">La recharge adaptative est activée</string>
+    <string name="adaptive_charging_notify_turn_off_once">Désactiver une fois</string>
     <string name="adaptive_charging_time_estimate">"%1$s • Recharge adaptative (batterie chargée d'ici %2$s)"</string>
     <string name="adb_device_fingerprint_title_format">"Empreinte de l'appareil : %1$s"</string>
     <string name="adb_device_forget">Retirer</string>
@@ -301,6 +304,7 @@ Si l'autorisation est désactivée, les alarmes existantes et les événements p
     <string name="basic_status">Conversation ouverte</string>
     <string name="battery">Batterie</string>
     <string name="battery_detail_switch_title">Économiseur de batterie</string>
+    <string name="battery_health_notify_learn_more">En savoir plus</string>
     <string name="battery_info_status_charging">Batterie en charge</string>
     <string name="battery_info_status_charging_fast">Charge rapide</string>
     <string name="battery_info_status_charging_slow">Charge lente</string>
@@ -616,7 +620,6 @@ Si vous réactivez les données, des frais peuvent s'appliquer."</string>
     <string name="debug_networking_category">Mise en réseau</string>
     <string name="debug_view_attributes">"Inspection des attributs d'affichage"</string>
     <string name="defender_notify_des">Votre téléphone limite la recharge pour contribuer à préserver la batterie</string>
-    <string name="defender_notify_learn_more">En savoir plus</string>
     <string name="defender_notify_resume_charge">Reprendre la recharge</string>
     <string name="defender_notify_title">Recharge momentanément limitée</string>
     <string name="defender_post_notify_des">La recharge a été limitée à %1$s de %2$s à %3$s pour préserver la batterie</string>
@@ -868,7 +871,7 @@ uniquement"</string>
     <string name="keyguard_enter_your_password">Saisissez votre mot de passe</string>
     <string name="keyguard_enter_your_pattern">Tracez le schéma</string>
     <string name="keyguard_enter_your_pin">"Saisissez le code d'accès"</string>
-    <string name="keyguard_indication_charging_time">%2$s • Recharge • Chargé dans %1$s</string>
+    <string name="keyguard_indication_charging_time">%2$s • En charge • Chargé dans %1$s</string>
     <string name="keyguard_indication_charging_time_fast">%2$s • Recharge rapide • Chargé dans %1$s</string>
     <string name="keyguard_indication_charging_time_slowly">%2$s • Recharge lente • Chargé dans %1$s</string>
     <string name="keyguard_indication_charging_time_wireless">%2$s • Recharge sans fil • Chargé dans %1$s</string>
@@ -1482,9 +1485,9 @@ Si vous avez des questions, contactez %2$s."</string>
     <string name="screenrecord_channel_description">"Notification en cours pour une session d'enregistrement de l'écran"</string>
     <string name="screenrecord_delete_error">"Erreur lors de la suppression de l'enregistrement de l'écran"</string>
     <string name="screenrecord_description">"Durant l'enregistrement, le système Android peut capturer les infos sensibles affichées à l'écran ou lues sur votre appareil. Cela inclut les mots de passe, les infos de paiement, les photos, les messages et l'audio."</string>
-    <string name="screenrecord_device_audio_and_mic_label">Appareil et micro</string>
+    <string name="screenrecord_device_audio_and_mic_label">"Audio de l'appareil et micro"</string>
     <string name="screenrecord_device_audio_description">"Son provenant de l'appareil (musique, appels et sonneries, etc.)"</string>
-    <string name="screenrecord_device_audio_label">Appareil</string>
+    <string name="screenrecord_device_audio_label">"Audio de l'appareil"</string>
     <string name="screenrecord_mic_label">Micro</string>
     <string name="screenrecord_name">"Enregistreur d'écran"</string>
     <string name="screenrecord_ongoing_screen_and_audio">"Enregistrement de l'écran et de l'audio…"</string>
@@ -1608,7 +1611,7 @@ Si vous avez des questions, contactez %2$s."</string>
     <string name="switch_bar_off">Désactivé</string>
     <string name="switch_bar_on">Activé</string>
     <string name="system_ui_tuner">System UI Tuner</string>
-    <string name="tap_a_network_to_connect">Appuyez sur un réseau pour vous connecter</string>
+    <string name="tap_a_network_to_connect">Appuyez sur un réseau pour vous y connecter</string>
     <string name="tap_again">Appuyer à nouveau</string>
     <string name="tap_to_sign_up">Appuyez ici pour vous connecter</string>
     <string name="tether_settings_title_all">Partage de connexion</string>
@@ -1704,6 +1707,10 @@ Appuyer pour en savoir plus"</string>
     <string name="usb_accessory_confirm_prompt">Ouvrir %1$s pour utiliser %2$s ?</string>
     <string name="usb_accessory_permission_prompt">Autoriser %1$s à accéder à %2$s ?</string>
     <string name="usb_accessory_uri_prompt">Aucune application installée compatible avec accessoire USB. En savoir plus sur %1$s</string>
+    <string name="usb_audio_device_confirm_prompt_title">"Ouvrir l'application %1$s pour gérer %2$s ?"</string>
+    <string name="usb_audio_device_permission_prompt_title">"Autoriser l'application %1$s à accéder à %2$s ?"</string>
+    <string name="usb_audio_device_prompt">Vous risquez de ne pas entendre les appels, notifications et alarmes si vous utilisez %1$s avec ce périphérique.</string>
+    <string name="usb_audio_device_prompt_warn">"Cette appli n'a pas été autorisée à enregistrer de contenus audio, mais elle peut le faire via ce périphérique USB. En utilisant %1$s avec ce périphérique, vous risquez de ne pas entendre les appels, notifications et alarmes."</string>
     <string name="usb_audio_disable_routing">Désactiver le routage audio USB</string>
     <string name="usb_audio_disable_routing_summary">Désactiver le routage automatique vers les périphériques audio USB</string>
     <string name="usb_contaminant_message">"Pour protéger votre appareil des liquides et des saletés, le port USB est désactivé et ne détecte plus les accessoires.

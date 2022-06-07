@@ -1833,23 +1833,7 @@
     return-object p0
 .end method
 
-.method static synthetic access$2500(Lcom/android/systemui/statusbar/phone/StatusBar;)Lcom/android/systemui/statusbar/phone/HeadsUpManagerPhone;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mHeadsUpManager:Lcom/android/systemui/statusbar/phone/HeadsUpManagerPhone;
-
-    return-object p0
-.end method
-
-.method static synthetic access$2600(Lcom/android/systemui/statusbar/phone/StatusBar;)Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mUnlockedScreenOffAnimationController:Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;
-
-    return-object p0
-.end method
-
-.method static synthetic access$2700(Lcom/android/systemui/statusbar/phone/StatusBar;)I
+.method static synthetic access$2500(Lcom/android/systemui/statusbar/phone/StatusBar;)I
     .locals 0
 
     iget p0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mLastCameraLaunchSource:I
@@ -1857,7 +1841,7 @@
     return p0
 .end method
 
-.method static synthetic access$2800(Lcom/android/systemui/statusbar/phone/StatusBar;)Z
+.method static synthetic access$2600(Lcom/android/systemui/statusbar/phone/StatusBar;)Z
     .locals 0
 
     iget-boolean p0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mLaunchEmergencyActionWhenFinishedWaking:Z
@@ -1865,7 +1849,7 @@
     return p0
 .end method
 
-.method static synthetic access$2802(Lcom/android/systemui/statusbar/phone/StatusBar;Z)Z
+.method static synthetic access$2602(Lcom/android/systemui/statusbar/phone/StatusBar;Z)Z
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mLaunchEmergencyActionWhenFinishedWaking:Z
@@ -1873,10 +1857,26 @@
     return p1
 .end method
 
-.method static synthetic access$2900(Lcom/android/systemui/statusbar/phone/StatusBar;)Landroid/content/Context;
+.method static synthetic access$2700(Lcom/android/systemui/statusbar/phone/StatusBar;)Landroid/content/Context;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/SystemUI;->mContext:Landroid/content/Context;
+
+    return-object p0
+.end method
+
+.method static synthetic access$2800(Lcom/android/systemui/statusbar/phone/StatusBar;)Lcom/android/systemui/statusbar/phone/HeadsUpManagerPhone;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mHeadsUpManager:Lcom/android/systemui/statusbar/phone/HeadsUpManagerPhone;
+
+    return-object p0
+.end method
+
+.method static synthetic access$2900(Lcom/android/systemui/statusbar/phone/StatusBar;)Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mUnlockedScreenOffAnimationController:Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;
 
     return-object p0
 .end method
@@ -2280,6 +2280,10 @@
     move-result v0
 
     if-eqz v0, :cond_2
+
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mIsOccluded:Z
+
+    if-nez v0, :cond_2
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mKeyguardStateController:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
 
@@ -9570,6 +9574,10 @@
 .method public showKeyguardImpl()V
     .locals 3
 
+    const-string v0, "StatusBar#showKeyguard"
+
+    invoke-static {v0}, Landroid/os/Trace;->beginSection(Ljava/lang/String;)V
+
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mIsKeyguard:Z
@@ -9629,6 +9637,8 @@
     :cond_2
     :goto_0
     invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updatePanelExpansionForKeyguard()V
+
+    invoke-static {}, Landroid/os/Trace;->endSection()V
 
     return-void
 .end method

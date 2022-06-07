@@ -8,18 +8,22 @@
 # instance fields
 .field public final synthetic f$0:Lcom/android/systemui/keyguard/KeyguardViewMediator;
 
-.field public final synthetic f$1:Lcom/android/internal/policy/IKeyguardDrawnCallback;
+.field public final synthetic f$1:Landroid/view/IRemoteAnimationFinishedCallback;
+
+.field public final synthetic f$2:[Landroid/view/RemoteAnimationTarget;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/systemui/keyguard/KeyguardViewMediator;Lcom/android/internal/policy/IKeyguardDrawnCallback;)V
+.method public synthetic constructor <init>(Lcom/android/systemui/keyguard/KeyguardViewMediator;Landroid/view/IRemoteAnimationFinishedCallback;[Landroid/view/RemoteAnimationTarget;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda8;->f$0:Lcom/android/systemui/keyguard/KeyguardViewMediator;
 
-    iput-object p2, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda8;->f$1:Lcom/android/internal/policy/IKeyguardDrawnCallback;
+    iput-object p2, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda8;->f$1:Landroid/view/IRemoteAnimationFinishedCallback;
+
+    iput-object p3, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda8;->f$2:[Landroid/view/RemoteAnimationTarget;
 
     return-void
 .end method
@@ -27,13 +31,15 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda8;->f$0:Lcom/android/systemui/keyguard/KeyguardViewMediator;
 
-    iget-object p0, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda8;->f$1:Lcom/android/internal/policy/IKeyguardDrawnCallback;
+    iget-object v1, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda8;->f$1:Landroid/view/IRemoteAnimationFinishedCallback;
 
-    invoke-static {v0, p0}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->$r8$lambda$QdbPPB0WvOMyYCTksFkGRykIQYA(Lcom/android/systemui/keyguard/KeyguardViewMediator;Lcom/android/internal/policy/IKeyguardDrawnCallback;)V
+    iget-object p0, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda8;->f$2:[Landroid/view/RemoteAnimationTarget;
+
+    invoke-static {v0, v1, p0}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->$r8$lambda$2allSGLmc7ckEAHMx1AWFiEOl90(Lcom/android/systemui/keyguard/KeyguardViewMediator;Landroid/view/IRemoteAnimationFinishedCallback;[Landroid/view/RemoteAnimationTarget;)V
 
     return-void
 .end method

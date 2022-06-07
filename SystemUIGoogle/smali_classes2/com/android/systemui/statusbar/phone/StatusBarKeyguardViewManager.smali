@@ -1486,6 +1486,10 @@
 
     move-object/from16 v0, p0
 
+    const-string v1, "StatusBarKeyguardViewManager#hide"
+
+    invoke-static {v1}, Landroid/os/Trace;->beginSection(Ljava/lang/String;)V
+
     const/4 v1, 0x0
 
     iput-boolean v1, v0, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;->mShowing:Z
@@ -1742,6 +1746,8 @@
     const/16 v0, 0x3e
 
     invoke-static {v0, v4}, Lcom/android/systemui/shared/system/SysUiStatsLog;->write(II)V
+
+    invoke-static {}, Landroid/os/Trace;->endSection()V
 
     return-void
 .end method
@@ -3016,6 +3022,10 @@
 .method public show(Landroid/os/Bundle;)V
     .locals 3
 
+    const-string p1, "StatusBarKeyguardViewManager#show"
+
+    invoke-static {p1}, Landroid/os/Trace;->beginSection(Ljava/lang/String;)V
+
     const/4 p1, 0x1
 
     iput-boolean p1, p0, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;->mShowing:Z
@@ -3041,6 +3051,8 @@
     const/4 p1, 0x2
 
     invoke-static {p0, p1}, Lcom/android/systemui/shared/system/SysUiStatsLog;->write(II)V
+
+    invoke-static {}, Landroid/os/Trace;->endSection()V
 
     return-void
 .end method

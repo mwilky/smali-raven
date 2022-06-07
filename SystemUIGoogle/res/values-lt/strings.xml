@@ -237,6 +237,9 @@
     <string name="accessor_no_description_text">Programa nepateikė jokio aprašo.</string>
     <string name="active_input_method_subtypes">Aktyvūs įvesties metodai</string>
     <string name="activity_launch_on_secondary_display_failed_text">Programa nepalaiko paleisties antriniuose ekranuose.</string>
+    <string name="adaptive_charging_notify_des">Akumuliatorius bus visiškai įkrautas %1$s. Įkraunama stabiliai, apsaugant akumuliatorių.</string>
+    <string name="adaptive_charging_notify_title">Prisitaikantis įkrovimas įjungtas</string>
+    <string name="adaptive_charging_notify_turn_off_once">Išjungti kartą</string>
     <string name="adaptive_charging_time_estimate">%1$s • Prisitaik. įkrovimas (visiškai įkrauta bus %2$s)</string>
     <string name="adb_device_fingerprint_title_format">Įrenginio kontrolinis kodas: %1$s</string>
     <string name="adb_device_forget">Pamiršti</string>
@@ -301,6 +304,7 @@ Jei šis leidimas išjungtas, šios programos suplanuoti esami signalai ir laiku
     <string name="basic_status">Atidaryti pokalbį</string>
     <string name="battery">Akumuliatorius</string>
     <string name="battery_detail_switch_title">Akum. taus. pr.</string>
+    <string name="battery_health_notify_learn_more">Sužinokite daugiau</string>
     <string name="battery_info_status_charging">Kraunasi...</string>
     <string name="battery_info_status_charging_fast">Greitai įkraunama</string>
     <string name="battery_info_status_charging_slow">Lėtai įkraunama</string>
@@ -616,7 +620,6 @@ Jei tęsite, gali būti taikomi duomenų naudojimo mokesčiai."</string>
     <string name="debug_networking_category">Tinklai</string>
     <string name="debug_view_attributes">Įgalinti peržiūros atributų tikrinimą</string>
     <string name="defender_notify_des">Telefonas riboja įkrovimą, kad apsaugotų akumuliatorių</string>
-    <string name="defender_notify_learn_more">Sužinokite daugiau</string>
     <string name="defender_notify_resume_charge">Tęsti įkrovimą</string>
     <string name="defender_notify_title">Įkrovimas laikinai apribotas</string>
     <string name="defender_post_notify_des">Įkrovimas buvo apribotas iki %1$s %2$s–%3$s, siekiant apsaugoti akumuliatorių</string>
@@ -1704,6 +1707,10 @@ Palietę gausite daugiau informacijos"</string>
     <string name="usb_accessory_confirm_prompt">Atidaryti „%1$s“, kad būtų galima tvarkyti įrenginį (%2$s)?</string>
     <string name="usb_accessory_permission_prompt">Leisti „%1$s“ pasiekti įrenginį (%2$s)?</string>
     <string name="usb_accessory_uri_prompt">Su šiuo USB priedu neveiks jokios įdieg. pr. Suž. daugiau apie šį priedą adresu %1$s</string>
+    <string name="usb_audio_device_confirm_prompt_title">Atidaryti „%1$s“, kad būtų galima tvarkyti įrenginį (%2$s)?</string>
+    <string name="usb_audio_device_permission_prompt_title">Leisti „%1$s“ pasiekti įrenginį (%2$s)?</string>
+    <string name="usb_audio_device_prompt">Naudodami „%1$s“ šiuo įrenginiu galite negirdėti skambučių, pranešimų ir signalų.</string>
+    <string name="usb_audio_device_prompt_warn">Šiai programai nebuvo suteiktas leidimas įrašyti, bet ji gali užfiksuoti garsą per šį USB įrenginį. Naudodami „%1$s“ šiuo įrenginiu galite negirdėti skambučių, pranešimų ir signalų.</string>
     <string name="usb_audio_disable_routing">Išj. USB garso marš. par.</string>
     <string name="usb_audio_disable_routing_summary">Išj. aut. maršr. parink. į USB garso išor. įtaisus</string>
     <string name="usb_contaminant_message">"Siekiant apsaugoti įrenginį nuo skysčių ar smulkių dalelių, USB prievadas buvo išjungtas ir neaptiks jokių priedų.

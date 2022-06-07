@@ -4,6 +4,8 @@
 
 
 # static fields
+.field public static final AC_NOTIFICATION_ID:I
+
 .field public static final NOTIFICATION_ID:I
 
 .field public static final POST_NOTIFICATION_ID:I
@@ -21,69 +23,69 @@
 
     sput v0, Lcom/google/android/systemui/power/PowerUtils;->POST_NOTIFICATION_ID:I
 
+    sget v0, Lcom/android/systemui/R$string;->adaptive_charging_notify_title:I
+
+    sput v0, Lcom/google/android/systemui/power/PowerUtils;->AC_NOTIFICATION_ID:I
+
     return-void
 .end method
 
-.method static createHelpArticlePendingIntent(Landroid/content/Context;)Landroid/app/PendingIntent;
-    .locals 3
+.method static createHelpArticlePendingIntent(Landroid/content/Context;I)Landroid/app/PendingIntent;
+    .locals 2
 
     new-instance v0, Landroid/content/Intent;
 
-    sget v1, Lcom/android/systemui/R$string;->defender_notify_help_url:I
+    invoke-virtual {p0, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
-    invoke-virtual {p0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v1
+    invoke-static {p1}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
-    invoke-static {v1}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+    move-result-object p1
 
-    move-result-object v1
+    const-string v1, "android.intent.action.VIEW"
 
-    const-string v2, "android.intent.action.VIEW"
+    invoke-direct {v0, v1, p1}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
 
-    invoke-direct {v0, v2, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
+    const/4 p1, 0x0
 
-    const/4 v1, 0x0
+    const/high16 v1, 0x4000000
 
-    const/high16 v2, 0x4000000
-
-    invoke-static {p0, v1, v0, v2}, Landroid/app/PendingIntent;->getActivity(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
+    invoke-static {p0, p1, v0, v1}, Landroid/app/PendingIntent;->getActivity(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
 
     move-result-object p0
 
     return-object p0
 .end method
 
-.method static createResumeChargingPendingIntent(Landroid/content/Context;)Landroid/app/PendingIntent;
-    .locals 4
+.method static createNormalChargingIntent(Landroid/content/Context;Ljava/lang/String;)Landroid/app/PendingIntent;
+    .locals 3
 
     new-instance v0, Landroid/content/Intent;
 
-    const-string v1, "PNW.defenderResumeCharging"
-
-    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
+    invoke-virtual {v0, p1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
 
-    move-result-object v0
+    move-result-object p1
 
-    const/high16 v1, 0x50000000
+    const/high16 v0, 0x50000000
 
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
+    invoke-virtual {p1, v0}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
 
-    move-result-object v0
+    move-result-object p1
 
-    sget-object v1, Landroid/os/UserHandle;->CURRENT:Landroid/os/UserHandle;
+    sget-object v0, Landroid/os/UserHandle;->CURRENT:Landroid/os/UserHandle;
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    const/high16 v3, 0x4000000
+    const/high16 v2, 0x4000000
 
-    invoke-static {p0, v2, v0, v3, v1}, Landroid/app/PendingIntent;->getBroadcastAsUser(Landroid/content/Context;ILandroid/content/Intent;ILandroid/os/UserHandle;)Landroid/app/PendingIntent;
+    invoke-static {p0, v1, p1, v2, v0}, Landroid/app/PendingIntent;->getBroadcastAsUser(Landroid/content/Context;ILandroid/content/Intent;ILandroid/os/UserHandle;)Landroid/app/PendingIntent;
 
     move-result-object p0
 
@@ -214,22 +216,65 @@
     return-object p0
 .end method
 
-.method static overrideNotificationAppName(Landroid/content/Context;Landroidx/core/app/NotificationCompat$Builder;)V
-    .locals 2
+.method static isFullyCharged(Landroid/content/Intent;)Z
+    .locals 4
+
+    const-string v0, "status"
+
+    const/4 v1, 0x1
+
+    invoke-virtual {p0, v0, v1}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+
+    move-result v0
+
+    const/4 v2, 0x0
+
+    const/4 v3, 0x5
+
+    if-ne v0, v3, :cond_0
+
+    move v0, v1
+
+    goto :goto_0
+
+    :cond_0
+    move v0, v2
+
+    :goto_0
+    invoke-static {p0}, Lcom/google/android/systemui/power/PowerUtils;->getBatteryLevel(Landroid/content/Intent;)I
+
+    move-result p0
+
+    if-nez v0, :cond_2
+
+    const/16 v0, 0x64
+
+    if-lt p0, v0, :cond_1
+
+    goto :goto_1
+
+    :cond_1
+    move v1, v2
+
+    :cond_2
+    :goto_1
+    return v1
+.end method
+
+.method static overrideNotificationAppName(Landroid/content/Context;Landroidx/core/app/NotificationCompat$Builder;I)V
+    .locals 1
 
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
-    const v1, 0x104058f
-
-    invoke-virtual {p0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, p2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object p0
 
-    const-string v1, "android.substName"
+    const-string p2, "android.substName"
 
-    invoke-virtual {v0, v1, p0}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v0, p2, p0}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
     invoke-virtual {p1, v0}, Landroidx/core/app/NotificationCompat$Builder;->addExtras(Landroid/os/Bundle;)Landroidx/core/app/NotificationCompat$Builder;
 

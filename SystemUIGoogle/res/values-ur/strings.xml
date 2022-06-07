@@ -237,6 +237,9 @@
     <string name="accessor_no_description_text">ایپ کے ذریعے کوئی بھی تفصیل فراہم نہیں کی گئی۔</string>
     <string name="active_input_method_subtypes">فعال اندراج کے طریقے</string>
     <string name="activity_launch_on_secondary_display_failed_text">ایپ ثانوی ڈسپلیز پر شروعات کا تعاون نہیں کرتی۔</string>
+    <string name="adaptive_charging_notify_des">%1$s تک بیٹری مکمل چارج ہو جاتی ہے۔ بیٹری کی صحت کی حفاظت کے لیے مستقل مزاجی سے چارج کرنا۔</string>
+    <string name="adaptive_charging_notify_title">اڈاپٹیو چارجنگ آن ہے</string>
+    <string name="adaptive_charging_notify_turn_off_once">ایک مرتبہ آف کریں</string>
     <string name="adaptive_charging_time_estimate">‫%1$s • اڈاپٹیو چارجنگ (%2$s تک مکمل)</string>
     <string name="adb_device_fingerprint_title_format">آلہ کا فنگر پرنٹ: %1$s</string>
     <string name="adb_device_forget">بھول جائیں</string>
@@ -301,6 +304,7 @@
     <string name="basic_status">گفتگو کھولیں</string>
     <string name="battery">بیٹری</string>
     <string name="battery_detail_switch_title">بیٹری سیور</string>
+    <string name="battery_health_notify_learn_more">مزید جانیں</string>
     <string name="battery_info_status_charging">چارج ہو رہا ہے</string>
     <string name="battery_info_status_charging_fast">تیزی سے چارج ہو رہا ہے</string>
     <string name="battery_info_status_charging_slow">آہستہ چارج ہو رہی ہے</string>
@@ -616,7 +620,6 @@
     <string name="debug_networking_category">نیٹ ورکنگ</string>
     <string name="debug_view_attributes">منظر انتساب کے معائنہ کو فعال کریں</string>
     <string name="defender_notify_des">آپ کا فون بیٹری کی صحت محفوظ رکھنے میں مدد کرنے کیلئے چارج کرنے کو محدود کر رہا ہے</string>
-    <string name="defender_notify_learn_more">مزید جانیں</string>
     <string name="defender_notify_resume_charge">چارج کرنا دوبارہ شروع کریں</string>
     <string name="defender_notify_title">چارجنگ عارضی طور پر محدود ہے</string>
     <string name="defender_post_notify_des">بیٹری کی صحت کو محفوظ رکھنے کے لیے چارجنگ %2$s تا %3$s %1$s تک محدود تھی</string>
@@ -1701,9 +1704,13 @@
     <string name="upcoming_birthday_status_content_description">جلدی ہی %1$s کی یوم پیدائش ہے</string>
     <string name="url_menu_copy">کاپی کریں</string>
     <string name="url_menu_share">اشتراک کریں</string>
-    <string name="usb_accessory_confirm_prompt">%2$s ہینڈل کرنے کیلئے %1$s کھولیں؟</string>
+    <string name="usb_accessory_confirm_prompt">‫%2$s ہینڈل کرنے کیلئے %1$s کھولیں؟</string>
     <string name="usb_accessory_permission_prompt">%1$s کو %2$s تک رسائی حاصل کرنے کی اجازت دیں؟</string>
     <string name="usb_accessory_uri_prompt">‏اس USB لوازم کے ساتھ کوئی انسٹال کردہ ایپس کام نہیں کرتی ہیں۔ %1$s پر مزید جانیں</string>
+    <string name="usb_audio_device_confirm_prompt_title">‫%2$s ہینڈل کرنے کیلئے %1$s کھولیں؟</string>
+    <string name="usb_audio_device_permission_prompt_title">%1$s کو %2$s تک رسائی حاصل کرنے کی اجازت دیں؟</string>
+    <string name="usb_audio_device_prompt">اس آلہ پر %1$s کا استعمال آپ کو کالز، اطلاعات اور الارمز سننے سے روک سکتا ہے۔</string>
+    <string name="usb_audio_device_prompt_warn">‏اس ایپ کو ریکارڈ کرنے کی اجازت عطا نہیں کی گئی ہے مگر اس USB آلہ کے ذریعے آڈیو کیپچر کر سکتی ہے۔ اس آلہ پر %1$s کا استعمال آپ کو کالز، اطلاعات اور الارمز سننے سے روک سکتا ہے۔</string>
     <string name="usb_audio_disable_routing">‏USB آڈیو روٹنگ غیر فعال کریں</string>
     <string name="usb_audio_disable_routing_summary">‏USB آڈیو پیریفیرلز کیلئے خودکار روٹنگ غیرفعال کریں</string>
     <string name="usb_contaminant_message">"‏آپ کے آلے کی سیال یا دھول سے حفاظت کرنے کے لیے، USB پورٹ کو غیر فعال کر دیا گیا ہے اور یہ کسی لوازم کا پتہ نہیں لگا پائے گا۔

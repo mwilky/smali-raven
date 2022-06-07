@@ -237,6 +237,9 @@
     <string name="accessor_no_description_text">ऐप्लिकेशन से कोई जानकारी नहीं मिली.</string>
     <string name="active_input_method_subtypes">टाइप करने की सक्रीय पद्धतियां</string>
     <string name="activity_launch_on_secondary_display_failed_text">प्राइमरी (मुख्य) डिस्प्ले के अलावा बाकी दूसरे डिस्प्ले पर ऐप लॉन्च नहीं किया जा सकता.</string>
+    <string name="adaptive_charging_notify_des">%1$s में बैटरी पूरी चार्ज हो जाएगी. बैटरी की लाइफ़ को बढ़ाने के लिए, धीरे-धीरे चार्ज हो रहा है.</string>
+    <string name="adaptive_charging_notify_title">अडैप्टिव चार्जिंग की सुविधा चालू है</string>
+    <string name="adaptive_charging_notify_turn_off_once">एक बार बंद करें</string>
     <string name="adaptive_charging_time_estimate">%1$s • अडैप्टिव चार्जिंग (%2$s तक पूरी चार्ज हो जाएगी)</string>
     <string name="adb_device_fingerprint_title_format">डिवाइस फ़िंगरप्रिंट: %1$s</string>
     <string name="adb_device_forget">जानकारी हटाएं</string>
@@ -301,6 +304,7 @@
     <string name="basic_status">ऐसी बातचीत जिसमें इंटरैक्शन डेटा मौजूद नहीं है</string>
     <string name="battery">बैटरी</string>
     <string name="battery_detail_switch_title">बैटरी सेवर</string>
+    <string name="battery_health_notify_learn_more">ज़्यादा जानें</string>
     <string name="battery_info_status_charging">चार्ज हो रही है</string>
     <string name="battery_info_status_charging_fast">तेज़ चार्ज हो रही है</string>
     <string name="battery_info_status_charging_slow">धीरे चार्ज हो रही है</string>
@@ -312,7 +316,7 @@
     <string name="battery_low_percent_format">%s शेष</string>
     <string name="battery_low_title">बैटरी जल्दी ही खत्म हो जाएगी</string>
     <string name="battery_saver_confirmation_ok">चालू करें</string>
-    <string name="battery_saver_confirmation_title">क्या आप बैटरी सेवर चालू करना चाहते हैं?</string>
+    <string name="battery_saver_confirmation_title">क्या आपको बैटरी सेवर चालू करना है?</string>
     <string name="battery_saver_confirmation_title_generic">बैटरी सेवर के बारे में</string>
     <string name="battery_saver_start_action">बैटरी सेवर चालू करें</string>
     <string name="battery_state_unknown_notification_text">ज़्यादा जानकारी के लिए टैप करें</string>
@@ -533,7 +537,7 @@
     <string name="controls_favorite_rearrange">कंट्रोल का क्रम बदलने के लिए उन्हें दबाकर रखें और खींचें</string>
     <string name="controls_favorite_removed">सभी कंट्रोल हटा दिए गए</string>
     <string name="controls_favorite_see_other_apps">दूसरे ऐप्लिकेशन देखें</string>
-    <string name="controls_favorite_subtitle">उन कंट्रोल को चुनें जिन्हें फटाफट सेटिंग से ऐक्सेस करना चाहते हैं</string>
+    <string name="controls_favorite_subtitle">उन कंट्रोल को चुनें जिन्हें फटाफट सेटिंग से ऐक्सेस करना है</string>
     <string name="controls_favorite_toast_no_changes">बदलाव सेव नहीं किए गए</string>
     <string name="controls_media_active_session">मौजूदा मीडिया सेशन को छिपाया नहीं जा सकता.</string>
     <string name="controls_media_close_session">क्या आप इस मीडिया सेशन को छिपाना चाहते हैं?</string>
@@ -616,7 +620,6 @@
     <string name="debug_networking_category">नेटवर्किंग</string>
     <string name="debug_view_attributes">व्यू एट्रिब्यूट देखने की सुविधा चालू करें</string>
     <string name="defender_notify_des">बैटरी की परफ़ॉर्मेंस को बेहतर बनाने के लिए, आपका फ़ोन कुछ समय के लिए चार्ज नहीं हो रहा है</string>
-    <string name="defender_notify_learn_more">ज़्यादा जानें</string>
     <string name="defender_notify_resume_charge">चार्जिंग फिर से शुरू करें</string>
     <string name="defender_notify_title">कुछ समय के लिए चार्जिंग रोक दी गई</string>
     <string name="defender_post_notify_des">बैटरी की परफ़ॉर्मेंस को बेहतर बनाने के लिए %2$s से %3$s तक, चार्जिंग को %1$s पर रोका गया था</string>
@@ -1036,7 +1039,7 @@
     <string name="media_output_dialog_pairing_new">नया डिवाइस जोड़ें</string>
     <string name="media_output_dialog_single_device">एक डिवाइस चुना गया</string>
     <string name="media_projection_action_text">अभी शुरू करें</string>
-    <string name="media_projection_dialog_service_text">रिकॉर्ड या कास्ट करते समय, वह सेवा जो यह फ़ंक्शन उपलब्ध कराती है, आपके डिवाइस पर चलाई जा रही या स्क्रीन पर दिख रही जानकारी को ऐक्सेस कर सकती है. इसमें पासवर्ड, पैसे चुकाने का ब्यौरा, फ़ोटो, मैसेज, और चलाए गए ऑडियो जैसी जानकारी शामिल है.</string>
+    <string name="media_projection_dialog_service_text">इस फ़ंक्शन को उपलब्ध कराने वाली सेवा, रिकॉर्ड या कास्ट करते समय, आपकी स्क्रीन पर दिखने वाली या चलाई जाने वाली जानकारी को ऐक्सेस कर सकती है. इसमें पासवर्ड, पैसे चुकाने से जुड़ी जानकारी, फ़ोटो, मैसेज, और चलाए जाने वाले ऑडियो शामिल हैं.</string>
     <string name="media_projection_dialog_service_title">रिकॉर्डिंग या कास्ट करना शुरू करें?</string>
     <string name="media_projection_dialog_text">रिकॉर्ड या कास्ट करते समय, %s आपकी स्क्रीन पर दिख रही या आपके डिवाइस पर चलाई जा रही जानकारी ऐक्सेस कर सकता है. इसमें पासवर्ड, पैसे चुकाने का ब्यौरा, फ़ोटो, मैसेज, और चलाए गए ऑडियो जैसी जानकारी शामिल है.</string>
     <string name="media_projection_dialog_title">%s का इस्तेमाल करके रिकॉर्ड और कास्ट करना शुरू करें?</string>
@@ -1323,7 +1326,7 @@
     <string name="power_suggestion_battery_run_out">बैटरी %1$s तक खत्म हो जाएगी</string>
     <string name="preference_copied">\"%1$s\" क्लिपबोर्ड पर कॉपी किया गया.</string>
     <string name="preference_summary_default_combination">%1$s / %2$s</string>
-    <string name="priority_conversations">प्राथमिकता वाली बातचीत</string>
+    <string name="priority_conversations">अहम बातचीत</string>
     <string name="privacy_type_camera">कैमरा</string>
     <string name="privacy_type_location">जगह</string>
     <string name="privacy_type_microphone">माइक्रोफ़ोन</string>
@@ -1358,7 +1361,7 @@
     <string name="quick_settings_cast_detail_empty_text">कोई डिवाइस उपलब्ध नहीं</string>
     <string name="quick_settings_cast_device_default_name">अनाम डिवाइस</string>
     <string name="quick_settings_cast_no_wifi">वाई-फ़ाई कनेक्ट नहीं है</string>
-    <string name="quick_settings_cast_title">स्क्रीन कास्ट करना</string>
+    <string name="quick_settings_cast_title">स्क्रीन कास्ट</string>
     <string name="quick_settings_casting">कास्टिंग</string>
     <string name="quick_settings_cellular_detail_data_limit">%s सीमा</string>
     <string name="quick_settings_cellular_detail_data_usage">डेटा खर्च</string>
@@ -1419,7 +1422,7 @@
     <string name="quick_settings_night_secondary_label_until_sunrise">सुबह तक चालू रहेगी</string>
     <string name="quick_settings_rotation_posture_folded">फ़ोल्ड किया जा सकने वाला डिवाइस</string>
     <string name="quick_settings_rotation_posture_unfolded">फ़ोल्ड नहीं किया जा सकने वाला डिवाइस</string>
-    <string name="quick_settings_rotation_unlocked_label">स्क्रीन का अपने-आप दिशा बदलना</string>
+    <string name="quick_settings_rotation_unlocked_label">ऑटो-रोटेट</string>
     <string name="quick_settings_screen_record_label">स्क्रीन रिकॉर्डर</string>
     <string name="quick_settings_screen_record_start">शुरू करें</string>
     <string name="quick_settings_screen_record_stop">रोकें</string>
@@ -1494,7 +1497,7 @@
     <string name="screenrecord_share_label">शेयर करें</string>
     <string name="screenrecord_start">शुरू करें</string>
     <string name="screenrecord_start_error">स्क्रीन को रिकॉर्ड करने में गड़बड़ी आ रही है</string>
-    <string name="screenrecord_start_label">रिकॉर्डिंग शुरू करना चाहते हैं?</string>
+    <string name="screenrecord_start_label">क्या आपको रिकॉर्डिंग शुरू करनी है?</string>
     <string name="screenrecord_stop_label">रोकें</string>
     <string name="screenrecord_taps_label">स्क्रीन को कहां छुआ गया, ये दिखाएं</string>
     <string name="screenshot_bottom_boundary_pct">निचले किनारे से %1$d प्रतिशत</string>
@@ -1704,6 +1707,10 @@
     <string name="usb_accessory_confirm_prompt">%2$s के लिए %1$s खोलें?</string>
     <string name="usb_accessory_permission_prompt">%1$s को %2$s के ऐक्सेस की अनुमति दें?</string>
     <string name="usb_accessory_uri_prompt">"इस USB सहायक डिवाइस के साथ कोई भी इंस्टॉल ऐप्स  काम नहीं करता. इस सहायक डिवाइस के बारे में यहां ज़्यादा जानें: %1$s"</string>
+    <string name="usb_audio_device_confirm_prompt_title">क्या %2$s का इस्तेमाल करने के लिए %1$s को खोलना है?</string>
+    <string name="usb_audio_device_permission_prompt_title">क्या %1$s को %2$s का ऐक्सेस देना है?</string>
+    <string name="usb_audio_device_prompt">%1$s का इस्तेमाल इस डिवाइस के साथ करने पर, हो सकता है कि कॉल, सूचनाएं, और अलार्म की आवाज़ सुनाई न दे.</string>
+    <string name="usb_audio_device_prompt_warn">इस ऐप्लिकेशन को रिकॉर्ड करने की अनुमति नहीं दी गई है. हालांकि, ऐप्लिकेशन इस यूएसबी डिवाइस से ऑडियो रिकॉर्ड कर सकता है. %1$s का इस्तेमाल इस डिवाइस के साथ करने पर, हो सकता है कि कॉल, सूचनाएं, और अलार्म की आवाज़ सुनाई न दे.</string>
     <string name="usb_audio_disable_routing">यूएसबी ऑडियो रूटिंग बंद करें</string>
     <string name="usb_audio_disable_routing_summary">यूएसबी ऑडियो पेरिफ़ेरल पर अपने-आप रूटिंग बंद करें</string>
     <string name="usb_contaminant_message">"तरल चीज़ या कचरे से आपके डिवाइस की सुरक्षा करने के लिए, यूएसबी पोर्ट को बंद कर दिया गया है. साथ ही, इससे किसी भी एक्सेसरी की पहचान नहीं की जा सकेगी.

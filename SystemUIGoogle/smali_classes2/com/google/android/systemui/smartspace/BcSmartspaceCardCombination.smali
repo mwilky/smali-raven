@@ -28,7 +28,7 @@
 
 
 # virtual methods
-.method protected fillSubCard(Landroidx/constraintlayout/widget/ConstraintLayout;Landroid/app/smartspace/SmartspaceTarget;Landroid/app/smartspace/SmartspaceAction;Lcom/android/systemui/plugins/BcSmartspaceDataPlugin$SmartspaceEventNotifier;Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo;)Z
+.method protected fillSubCard(Landroidx/constraintlayout/widget/ConstraintLayout;Landroid/app/smartspace/SmartspaceTarget;Landroid/app/smartspace/SmartspaceAction;Lcom/android/systemui/plugins/BcSmartspaceDataPlugin$SmartspaceEventNotifier;Lcom/google/android/systemui/smartspace/logging/BcSmartspaceCardLoggingInfo;)Z
     .locals 10
 
     sget v0, Lcom/android/systemui/bcsmartspace/R$id;->sub_card_text:I
@@ -81,7 +81,7 @@
 
     move-object v9, p5
 
-    invoke-static/range {v4 .. v9}, Lcom/google/android/systemui/smartspace/BcSmartSpaceUtil;->setOnClickListener(Landroid/view/View;Landroid/app/smartspace/SmartspaceTarget;Landroid/app/smartspace/SmartspaceAction;Ljava/lang/String;Lcom/android/systemui/plugins/BcSmartspaceDataPlugin$SmartspaceEventNotifier;Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo;)V
+    invoke-static/range {v4 .. v9}, Lcom/google/android/systemui/smartspace/BcSmartSpaceUtil;->setOnClickListener(Landroid/view/View;Landroid/app/smartspace/SmartspaceTarget;Landroid/app/smartspace/SmartspaceAction;Ljava/lang/String;Lcom/android/systemui/plugins/BcSmartspaceDataPlugin$SmartspaceEventNotifier;Lcom/google/android/systemui/smartspace/logging/BcSmartspaceCardLoggingInfo;)V
 
     invoke-virtual {p3}, Landroid/app/smartspace/SmartspaceAction;->getIcon()Landroid/graphics/drawable/Icon;
 
@@ -95,13 +95,13 @@
 
     move-result-object p0
 
-    const/16 p2, 0x8
+    const/4 p2, 0x1
 
-    const/4 p4, 0x1
+    const/16 p4, 0x8
 
     if-nez p0, :cond_2
 
-    invoke-virtual {v1, p2}, Landroid/widget/ImageView;->setVisibility(I)V
+    invoke-virtual {v1, p4}, Landroid/widget/ImageView;->setVisibility(I)V
 
     move p0, v3
 
@@ -112,7 +112,7 @@
 
     invoke-virtual {v1, v3}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    move p0, p4
+    move p0, p2
 
     :goto_0
     invoke-virtual {p3}, Landroid/app/smartspace/SmartspaceAction;->getTitle()Ljava/lang/CharSequence;
@@ -125,9 +125,9 @@
 
     if-eqz v1, :cond_3
 
-    invoke-virtual {v0, p2}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v0, p4}, Landroid/widget/TextView;->setVisibility(I)V
 
-    move p4, p0
+    move p2, p0
 
     goto :goto_1
 
@@ -137,7 +137,7 @@
     invoke-virtual {v0, v3}, Landroid/widget/TextView;->setVisibility(I)V
 
     :goto_1
-    if-eqz p4, :cond_4
+    if-eqz p2, :cond_4
 
     invoke-virtual {p3}, Landroid/app/smartspace/SmartspaceAction;->getContentDescription()Ljava/lang/CharSequence;
 
@@ -151,7 +151,17 @@
     :goto_2
     invoke-virtual {p1, p0}, Landroid/view/ViewGroup;->setContentDescription(Ljava/lang/CharSequence;)V
 
-    return p4
+    if-eqz p2, :cond_5
+
+    invoke-virtual {p1, v3}, Landroid/view/ViewGroup;->setVisibility(I)V
+
+    goto :goto_3
+
+    :cond_5
+    invoke-virtual {p1, p4}, Landroid/view/ViewGroup;->setVisibility(I)V
+
+    :goto_3
+    return p2
 .end method
 
 .method protected onFinishInflate()V
@@ -182,39 +192,90 @@
     return-void
 .end method
 
-.method setSmartspaceActions(Landroid/app/smartspace/SmartspaceTarget;Lcom/android/systemui/plugins/BcSmartspaceDataPlugin$SmartspaceEventNotifier;Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo;)Z
-    .locals 10
+.method setSmartspaceActions(Landroid/app/smartspace/SmartspaceTarget;Lcom/android/systemui/plugins/BcSmartspaceDataPlugin$SmartspaceEventNotifier;Lcom/google/android/systemui/smartspace/logging/BcSmartspaceCardLoggingInfo;)Z
+    .locals 11
 
     invoke-virtual {p1}, Landroid/app/smartspace/SmartspaceTarget;->getActionChips()Ljava/util/List;
 
     move-result-object v0
 
-    const/4 v6, 0x0
+    const/4 v1, 0x0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_7
 
     invoke-interface {v0}, Ljava/util/List;->size()I
 
-    move-result v1
+    move-result v2
 
-    const/4 v2, 0x2
+    const/4 v3, 0x1
 
-    if-ge v1, v2, :cond_0
+    if-ge v2, v3, :cond_0
 
-    goto :goto_2
+    goto/16 :goto_4
 
     :cond_0
-    invoke-interface {v0, v6}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v2
 
-    move-object v3, v1
+    move-object v7, v2
 
-    check-cast v3, Landroid/app/smartspace/SmartspaceAction;
+    check-cast v7, Landroid/app/smartspace/SmartspaceAction;
 
-    const/4 v7, 0x1
+    if-nez v7, :cond_1
 
-    invoke-interface {v0, v7}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    return v1
+
+    :cond_1
+    iget-object v5, p0, Lcom/google/android/systemui/smartspace/BcSmartspaceCardCombination;->mFirstSubCard:Landroidx/constraintlayout/widget/ConstraintLayout;
+
+    if-eqz v5, :cond_2
+
+    move-object v4, p0
+
+    move-object v6, p1
+
+    move-object v8, p2
+
+    move-object v9, p3
+
+    invoke-virtual/range {v4 .. v9}, Lcom/google/android/systemui/smartspace/BcSmartspaceCardCombination;->fillSubCard(Landroidx/constraintlayout/widget/ConstraintLayout;Landroid/app/smartspace/SmartspaceTarget;Landroid/app/smartspace/SmartspaceAction;Lcom/android/systemui/plugins/BcSmartspaceDataPlugin$SmartspaceEventNotifier;Lcom/google/android/systemui/smartspace/logging/BcSmartspaceCardLoggingInfo;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    move v2, v3
+
+    goto :goto_0
+
+    :cond_2
+    move v2, v1
+
+    :goto_0
+    invoke-interface {v0}, Ljava/util/List;->size()I
+
+    move-result v4
+
+    if-le v4, v3, :cond_3
+
+    invoke-interface {v0, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v4
+
+    if-eqz v4, :cond_3
+
+    move v4, v3
+
+    goto :goto_1
+
+    :cond_3
+    move v4, v1
+
+    :goto_1
+    if-eqz v4, :cond_4
+
+    invoke-interface {v0, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -222,74 +283,66 @@
 
     check-cast v8, Landroid/app/smartspace/SmartspaceAction;
 
-    if-eqz v3, :cond_4
+    iget-object v6, p0, Lcom/google/android/systemui/smartspace/BcSmartspaceCardCombination;->mSecondSubCard:Landroidx/constraintlayout/widget/ConstraintLayout;
 
-    if-nez v8, :cond_1
+    move-object v5, p0
+
+    move-object v7, p1
+
+    move-object v9, p2
+
+    move-object v10, p3
+
+    invoke-virtual/range {v5 .. v10}, Lcom/google/android/systemui/smartspace/BcSmartspaceCardCombination;->fillSubCard(Landroidx/constraintlayout/widget/ConstraintLayout;Landroid/app/smartspace/SmartspaceTarget;Landroid/app/smartspace/SmartspaceAction;Lcom/android/systemui/plugins/BcSmartspaceDataPlugin$SmartspaceEventNotifier;Lcom/google/android/systemui/smartspace/logging/BcSmartspaceCardLoggingInfo;)Z
+
+    move-result p1
 
     goto :goto_2
 
-    :cond_1
-    iget-object v1, p0, Lcom/google/android/systemui/smartspace/BcSmartspaceCardCombination;->mFirstSubCard:Landroidx/constraintlayout/widget/ConstraintLayout;
-
-    if-eqz v1, :cond_2
-
-    move-object v0, p0
-
-    move-object v2, p1
-
-    move-object v4, p2
-
-    move-object v5, p3
-
-    invoke-virtual/range {v0 .. v5}, Lcom/google/android/systemui/smartspace/BcSmartspaceCardCombination;->fillSubCard(Landroidx/constraintlayout/widget/ConstraintLayout;Landroid/app/smartspace/SmartspaceTarget;Landroid/app/smartspace/SmartspaceAction;Lcom/android/systemui/plugins/BcSmartspaceDataPlugin$SmartspaceEventNotifier;Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_2
-
-    move v9, v7
-
-    goto :goto_0
-
-    :cond_2
-    move v9, v6
-
-    :goto_0
-    iget-object v1, p0, Lcom/google/android/systemui/smartspace/BcSmartspaceCardCombination;->mSecondSubCard:Landroidx/constraintlayout/widget/ConstraintLayout;
-
-    if-eqz v1, :cond_3
-
-    move-object v0, p0
-
-    move-object v2, p1
-
-    move-object v3, v8
-
-    move-object v4, p2
-
-    move-object v5, p3
-
-    invoke-virtual/range {v0 .. v5}, Lcom/google/android/systemui/smartspace/BcSmartspaceCardCombination;->fillSubCard(Landroidx/constraintlayout/widget/ConstraintLayout;Landroid/app/smartspace/SmartspaceTarget;Landroid/app/smartspace/SmartspaceAction;Lcom/android/systemui/plugins/BcSmartspaceDataPlugin$SmartspaceEventNotifier;Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_3
-
-    move v0, v7
-
-    goto :goto_1
-
-    :cond_3
-    move v0, v6
-
-    :goto_1
-    if-eqz v9, :cond_4
-
-    if-eqz v0, :cond_4
-
-    move v6, v7
-
     :cond_4
+    move p1, v3
+
     :goto_2
-    return v6
+    invoke-virtual {p0}, Landroid/view/ViewGroup;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object p2
+
+    instance-of p2, p2, Landroid/widget/LinearLayout$LayoutParams;
+
+    if-eqz p2, :cond_6
+
+    invoke-virtual {p0}, Landroid/view/ViewGroup;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object p2
+
+    check-cast p2, Landroid/widget/LinearLayout$LayoutParams;
+
+    if-eqz v4, :cond_5
+
+    if-eqz p1, :cond_5
+
+    const/high16 p3, 0x40400000    # 3.0f
+
+    iput p3, p2, Landroid/widget/LinearLayout$LayoutParams;->weight:F
+
+    goto :goto_3
+
+    :cond_5
+    const/high16 p3, 0x3f800000    # 1.0f
+
+    iput p3, p2, Landroid/widget/LinearLayout$LayoutParams;->weight:F
+
+    :goto_3
+    invoke-virtual {p0, p2}, Landroid/view/ViewGroup;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    :cond_6
+    if-eqz v2, :cond_7
+
+    if-eqz p1, :cond_7
+
+    move v1, v3
+
+    :cond_7
+    :goto_4
+    return v1
 .end method

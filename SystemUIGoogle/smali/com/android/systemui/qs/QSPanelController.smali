@@ -607,15 +607,20 @@
 .method public setListening(ZZ)V
     .locals 0
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1
 
-    if-eqz p2, :cond_0
+    if-nez p2, :cond_0
 
+    iget-boolean p2, p0, Lcom/android/systemui/qs/QSPanelControllerBase;->mShouldUseSplitNotificationShade:Z
+
+    if-eqz p2, :cond_1
+
+    :cond_0
     const/4 p2, 0x1
 
     goto :goto_0
 
-    :cond_0
+    :cond_1
     const/4 p2, 0x0
 
     :goto_0
@@ -629,16 +634,16 @@
 
     move-result p2
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_2
 
     invoke-virtual {p0}, Lcom/android/systemui/qs/QSPanelController;->refreshAllTiles()V
 
-    :cond_1
+    :cond_2
     iget-object p2, p0, Lcom/android/systemui/qs/QSPanelController;->mQsSecurityFooter:Lcom/android/systemui/qs/QSSecurityFooter;
 
     invoke-virtual {p2, p1}, Lcom/android/systemui/qs/QSSecurityFooter;->setListening(Z)V
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_3
 
     iget-object p0, p0, Lcom/android/systemui/qs/QSPanelController;->mBrightnessController:Lcom/android/systemui/settings/brightness/BrightnessController;
 
@@ -646,7 +651,7 @@
 
     goto :goto_1
 
-    :cond_2
+    :cond_3
     iget-object p0, p0, Lcom/android/systemui/qs/QSPanelController;->mBrightnessController:Lcom/android/systemui/settings/brightness/BrightnessController;
 
     invoke-virtual {p0}, Lcom/android/systemui/settings/brightness/BrightnessController;->unregisterCallbacks()V

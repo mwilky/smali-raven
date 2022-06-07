@@ -18,6 +18,9 @@
 .method public abstract dismissDialog()V
 .end method
 
+.method public abstract onDeviceListChanged()V
+.end method
+
 .method public abstract onMediaChanged()V
 .end method
 

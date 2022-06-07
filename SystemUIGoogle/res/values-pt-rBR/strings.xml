@@ -237,6 +237,9 @@
     <string name="accessor_no_description_text">Nenhuma descrição fornecida pelo app.</string>
     <string name="active_input_method_subtypes">Métodos ativos de entrada</string>
     <string name="activity_launch_on_secondary_display_failed_text">O app não é compatível com a inicialização em telas secundárias.</string>
+    <string name="adaptive_charging_notify_des">Bateria cheia até %1$s. Carregando de forma estável para conservar a integridade da bateria.</string>
+    <string name="adaptive_charging_notify_title">O carregamento adaptável está ativado</string>
+    <string name="adaptive_charging_notify_turn_off_once">Desativar uma vez</string>
     <string name="adaptive_charging_time_estimate">%1$s • Carregamento adaptável (conclusão às %2$s)</string>
     <string name="adb_device_fingerprint_title_format">Impressão digital do dispositivo: %1$s</string>
     <string name="adb_device_forget">Esquecer</string>
@@ -301,6 +304,7 @@ Se a permissão for desativada, os alarmes e eventos programados pelo app não f
     <string name="basic_status">Conversa aberta</string>
     <string name="battery">Bateria</string>
     <string name="battery_detail_switch_title">Economia de bateria</string>
+    <string name="battery_health_notify_learn_more">Saiba mais</string>
     <string name="battery_info_status_charging">Carregando</string>
     <string name="battery_info_status_charging_fast">Carregando rápido</string>
     <string name="battery_info_status_charging_slow">Carregando devagar</string>
@@ -312,7 +316,7 @@ Se a permissão for desativada, os alarmes e eventos programados pelo app não f
     <string name="battery_low_percent_format">%s restantes</string>
     <string name="battery_low_title">A bateria pode acabar em breve</string>
     <string name="battery_saver_confirmation_ok">Ativar</string>
-    <string name="battery_saver_confirmation_title">Ativar \"Economia de bateria\"?</string>
+    <string name="battery_saver_confirmation_title">Ativar a Economia de bateria?</string>
     <string name="battery_saver_confirmation_title_generic">Sobre a Economia de bateria</string>
     <string name="battery_saver_start_action">Ativar a Economia de bateria</string>
     <string name="battery_state_unknown_notification_text">Toque para mais informações</string>
@@ -616,7 +620,6 @@ Se retomar o uso de dados, o serviço poderá ser cobrado."</string>
     <string name="debug_networking_category">Redes</string>
     <string name="debug_view_attributes">Ativar visualização de inspeção de atributo</string>
     <string name="defender_notify_des">O smartphone está limitando o carregamento para preservar a integridade da bateria</string>
-    <string name="defender_notify_learn_more">Saiba mais</string>
     <string name="defender_notify_resume_charge">Retomar o carregamento</string>
     <string name="defender_notify_title">Carregamento temporariamente limitado</string>
     <string name="defender_post_notify_des">O carregamento foi limitado a %1$s no período de %2$s a %3$s para preservar a integridade da bateria.</string>
@@ -652,7 +655,7 @@ Se retomar o uso de dados, o serviço poderá ser cobrado."</string>
     <string name="dock_photo_preview_text">Iniciando \"Porta-retratos\"…</string>
     <string name="dock_promo_text">Deslize para a esquerda para ver o porta-retratos</string>
     <string name="drag_to_add_tiles">Mantenha pressionado e arraste para adicionar blocos</string>
-    <string name="drag_to_rearrange_tiles">Mantenha pressionado e arraste para reorganizar os blocos</string>
+    <string name="drag_to_rearrange_tiles">Mantenha o bloco pressionado e arraste para reorganizar</string>
     <string name="drag_to_remove_disabled">É preciso haver pelo menos %1$d blocos</string>
     <string name="drag_to_remove_tiles">Arraste aqui para remover</string>
     <string name="empty_shade_text">Sem notificações</string>
@@ -944,7 +947,7 @@ Tente novamente em %2$d segundos."</string>
     <string name="kg_wrong_password">Senha incorreta</string>
     <string name="kg_wrong_pattern">Padrão incorreto</string>
     <string name="kg_wrong_pin">PIN incorreto</string>
-    <string name="label_view">Visualizar</string>
+    <string name="label_view">Ver</string>
     <string name="launch_defaults_none">Nenhum padrão definido</string>
     <string name="launch_defaults_some">Alguns padrões definidos</string>
     <string name="lb_control_display_fast_forward_multiplier">%1$dX</string>
@@ -1452,7 +1455,7 @@ Em caso de dúvidas, entre em contato com %2$s."</string>
     <string name="running_foreground_services_msg">Tocar para ver detalhes sobre a bateria e o uso de dados</string>
     <string name="running_foreground_services_title">Apps sendo executados em segundo plano</string>
     <string name="running_process_item_user_label">Usuário: %1$s</string>
-    <string name="runningservices_settings_summary">Visualizar e controlar os serviços em execução no momento</string>
+    <string name="runningservices_settings_summary">Ver e controlar os serviços em execução no momento</string>
     <string name="runningservices_settings_title">Serviços em execução</string>
     <string name="save">Salvar</string>
     <string name="saved_network">Salva por %1$s</string>
@@ -1704,6 +1707,10 @@ Toque para saber mais"</string>
     <string name="usb_accessory_confirm_prompt">Abrir o app %1$s para lidar com o %2$s?</string>
     <string name="usb_accessory_permission_prompt">Permitir que o app %1$s acesse %2$s?</string>
     <string name="usb_accessory_uri_prompt">Nenhum apl. instalado funciona com o USB. Saiba mais sobre o acessório em %1$s</string>
+    <string name="usb_audio_device_confirm_prompt_title">Abrir o app %1$s para lidar com este dispositivo: %2$s?</string>
+    <string name="usb_audio_device_permission_prompt_title">Permitir que o app %1$s acesse este dispositivo: %2$s?</string>
+    <string name="usb_audio_device_prompt">O uso do app %1$s com esse dispositivo pode impedir que você ouça chamadas, notificações e alarmes.</string>
+    <string name="usb_audio_device_prompt_warn">Esse app não tem permissão de gravação, mas pode capturar áudio pelo dispositivo USB. O uso do app %1$s com esse dispositivo pode impedir que você ouça chamadas, notificações e alarmes.</string>
     <string name="usb_audio_disable_routing">Desativar roteamento de áudio USB</string>
     <string name="usb_audio_disable_routing_summary">Desativar roteamento automático p/ periféricos de áudio USB</string>
     <string name="usb_contaminant_message">"Para proteger seu dispositivo de líquidos e detritos, a porta USB está desativada e não detectará nenhum acessório.

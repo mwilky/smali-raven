@@ -237,6 +237,9 @@
     <string name="accessor_no_description_text">Der er ikke angivet nogen beskrivelse af appen.</string>
     <string name="active_input_method_subtypes">Aktive inputmetoder</string>
     <string name="activity_launch_on_secondary_display_failed_text">Appen kan ikke åbnes på sekundære skærme.</string>
+    <string name="adaptive_charging_notify_des">Batteriet er fuldt opladet klokken %1$s. Oplad langsomt, men gradvist for at skåne batteriet.</string>
+    <string name="adaptive_charging_notify_title">Adaptiv opladning er aktiveret</string>
+    <string name="adaptive_charging_notify_turn_off_once">Deaktiver én gang</string>
     <string name="adaptive_charging_time_estimate">%1$s • Adaptiv opladning (fuldt opladet kl. %2$s)</string>
     <string name="adb_device_fingerprint_title_format">Fingeraftryk for enhed: %1$s</string>
     <string name="adb_device_forget">Glem</string>
@@ -301,6 +304,7 @@ Hvis denne tilladelse er deaktiveret, vil eksisterende alarmer og tidsbestemte h
     <string name="basic_status">Åben samtale</string>
     <string name="battery">Batteri</string>
     <string name="battery_detail_switch_title">Batterisparefunktion</string>
+    <string name="battery_health_notify_learn_more">Få flere oplysninger</string>
     <string name="battery_info_status_charging">Oplader</string>
     <string name="battery_info_status_charging_fast">Oplader hurtigt</string>
     <string name="battery_info_status_charging_slow">Oplader langsomt</string>
@@ -616,7 +620,6 @@ Hvis du fortsætter, bliver du muligvis opkrævet betaling for dit dataforbrug."
     <string name="debug_networking_category">Netværk</string>
     <string name="debug_view_attributes">Aktivér visning af attributinspektion</string>
     <string name="defender_notify_des">Din telefon begrænser opladningen for at passe på batteriet</string>
-    <string name="defender_notify_learn_more">Få flere oplysninger</string>
     <string name="defender_notify_resume_charge">Genoptag opladning</string>
     <string name="defender_notify_title">Opladningen er midlertidigt begrænset</string>
     <string name="defender_post_notify_des">Opladningen blev begrænset til %1$s fra kl. %2$s til %3$s for at passe på batteriet</string>
@@ -1704,6 +1707,10 @@ Tryk for at få flere oplysninger"</string>
     <string name="usb_accessory_confirm_prompt">Vil du åbne %1$s til håndtering af %2$s?</string>
     <string name="usb_accessory_permission_prompt">Vil du give %1$s adgang til %2$s?</string>
     <string name="usb_accessory_uri_prompt">Ingen installerede apps fungerer sammen med USB-enheden. Få oplysninger om enheden på %1$s</string>
+    <string name="usb_audio_device_confirm_prompt_title">Vil du åbne %1$s til håndtering af %2$s?</string>
+    <string name="usb_audio_device_permission_prompt_title">Vil du give %1$s adgang til %2$s?</string>
+    <string name="usb_audio_device_prompt">Hvis du bruger %1$s med denne enhed, kan du muligvis ikke høre opkald, notifikationer og alarmer.</string>
+    <string name="usb_audio_device_prompt_warn">Denne app har ikke fået tilladelse til at optage, men optager muligvis lyd via denne USB-enhed. Hvis du bruger %1$s med denne enhed, kan du muligvis ikke høre opkald, notifikationer og alarmer.</string>
     <string name="usb_audio_disable_routing">Slå USB-lydhåndtering fra</string>
     <string name="usb_audio_disable_routing_summary">Slå automatisk lydhåndtering fra for USB-lydenheder</string>
     <string name="usb_contaminant_message">"USB-porten er blevet deaktiveret for at beskytte din enhed mod væske og snavs. Den kan derfor ikke registrere noget tilbehør.

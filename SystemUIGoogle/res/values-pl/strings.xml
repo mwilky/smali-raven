@@ -237,6 +237,9 @@
     <string name="accessor_no_description_text">Aplikacja nie zapewnia opisu.</string>
     <string name="active_input_method_subtypes">Aktywne metody wprowadzania</string>
     <string name="activity_launch_on_secondary_display_failed_text">Aplikacja nie obsługuje uruchamiania na dodatkowych ekranach.</string>
+    <string name="adaptive_charging_notify_des">Pełne naładowanie baterii do %1$s. Ładowanie przebiega stopniowo, co pomaga wydłużyć żywotność baterii.</string>
+    <string name="adaptive_charging_notify_title">Włączono ładowanie adaptacyjne</string>
+    <string name="adaptive_charging_notify_turn_off_once">Wyłącz raz</string>
     <string name="adaptive_charging_time_estimate">%1$s • Ładowanie adaptacyjne (pełne naładowanie do %2$s)</string>
     <string name="adb_device_fingerprint_title_format">Odcisk cyfrowy urządzenia: %1$s</string>
     <string name="adb_device_forget">Zapomnij</string>
@@ -262,7 +265,7 @@
     <string name="adb_wireless_list_empty_off">Aby wyświetlić dostępne urządzenia i ich używać, włącz debugowanie bezprzewodowe</string>
     <string name="adb_wireless_no_network_msg">Połącz się z siecią Wi-Fi</string>
     <string name="adb_wireless_qrcode_pairing_description">Sparuj urządzenia przez Wi-Fi, skanując kod QR</string>
-    <string name="adb_wireless_qrcode_pairing_title">Zeskanuj kod QR</string>
+    <string name="adb_wireless_qrcode_pairing_title">Skaner kodów QR</string>
     <string name="adb_wireless_qrcode_summary">Sparuj urządzenia przez Wi-Fi, skanując kod QR</string>
     <string name="adb_wireless_settings">Debugowanie bezprzewodowe</string>
     <string name="adb_wireless_verifying_qrcode_text">Paruję urządzenie…</string>
@@ -301,6 +304,7 @@ Jeśli nie włączysz tych uprawnień, istniejące alarmy i zaplanowane wydarze
     <string name="basic_status">Otwarta rozmowa</string>
     <string name="battery">Bateria</string>
     <string name="battery_detail_switch_title">Oszczędzanie baterii</string>
+    <string name="battery_health_notify_learn_more">Więcej informacji</string>
     <string name="battery_info_status_charging">Ładowanie</string>
     <string name="battery_info_status_charging_fast">Szybkie ładowanie</string>
     <string name="battery_info_status_charging_slow">Wolne ładowanie</string>
@@ -616,7 +620,6 @@ Jeśli włączysz ją ponownie, może zostać naliczona opłata za użycie danyc
     <string name="debug_networking_category">Sieci</string>
     <string name="debug_view_attributes">Inspekcja atrybutu wyświetlania</string>
     <string name="defender_notify_des">Telefon ogranicza ładowanie, aby pomóc wydłużyć żywotność baterii</string>
-    <string name="defender_notify_learn_more">Więcej informacji</string>
     <string name="defender_notify_resume_charge">Wznów ładowanie</string>
     <string name="defender_notify_title">Ładowanie tymczasowo ograniczone</string>
     <string name="defender_post_notify_des">Ładowanie było ograniczone do %1$s od %2$s do %3$s, aby wydłużyć żywotność baterii</string>
@@ -1702,8 +1705,12 @@ Kliknij, by dowiedzieć się więcej"</string>
     <string name="url_menu_copy">Kopiuj</string>
     <string name="url_menu_share">Udostępnij</string>
     <string name="usb_accessory_confirm_prompt">Otworzyć aplikację %1$s do obsługi urządzenia %2$s?</string>
-    <string name="usb_accessory_permission_prompt">Zezwolić aplikacji %1$s na dostęp do urządzenia %2$s?</string>
+    <string name="usb_accessory_permission_prompt">Zezwolić aplikacji %1$s na dostęp do: %2$s?</string>
     <string name="usb_accessory_uri_prompt">Zainstalowane aplikacje nie działają z tym akcesorium USB. Więcej informacji: %1$s</string>
+    <string name="usb_audio_device_confirm_prompt_title">Otworzyć %1$s dla urządzenia %2$s?</string>
+    <string name="usb_audio_device_permission_prompt_title">Zezwolić aplikacji %1$s na dostęp do: %2$s?</string>
+    <string name="usb_audio_device_prompt">Używanie aplikacji %1$s na tym urządzeniu może zakłócać słyszenie połączeń, powiadomień i alertów.</string>
+    <string name="usb_audio_device_prompt_warn">Ta aplikacja nie ma uprawnień do nagrywania, ale może rejestrować dźwięk za pomocą tego urządzenia USB. Używanie aplikacji %1$s na tym urządzeniu może zakłócać słyszenie połączeń, powiadomień i alertów.</string>
     <string name="usb_audio_disable_routing">Wyłącz kierowanie dźwiękowe USB</string>
     <string name="usb_audio_disable_routing_summary">Wyłącz autokierowanie do urządzeń peryferyjnych audio USB</string>
     <string name="usb_contaminant_message">"Aby chronić urządzenie przed wilgocią i zanieczyszczeniami, port USB został wyłączony i nie wykryje żadnych akcesoriów.
@@ -1720,7 +1727,7 @@ Otrzymasz powiadomienie, gdy będzie można znów używać portu."</string>
     <string name="usb_device_confirm_prompt">Otworzyć aplikację %1$s do obsługi urządzenia %2$s?</string>
     <string name="usb_device_confirm_prompt_warn">"Zezwolić aplikacji %1$s na obsługę urządzenia %2$s?
 Ta aplikacja nie ma uprawnień do nagrywania, ale może rejestrować dźwięk za pomocą tego urządzenia USB."</string>
-    <string name="usb_device_permission_prompt">Zezwolić aplikacji %1$s na dostęp do urządzenia %2$s?</string>
+    <string name="usb_device_permission_prompt">Zezwolić aplikacji %1$s na dostęp do: %2$s?</string>
     <string name="usb_device_permission_prompt_warn">"Zezwolić aplikacji %1$s na dostęp do urządzenia %2$s?
 Ta aplikacja nie ma uprawnień do nagrywania, ale może rejestrować dźwięk za pomocą tego urządzenia USB."</string>
     <string name="usb_disable_contaminant_detection">Włącz USB</string>

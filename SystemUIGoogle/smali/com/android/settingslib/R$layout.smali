@@ -18,10 +18,10 @@
 
 .field public static final restricted_switch_widget:I = 0x7f0e01e9
 
-.field public static final user_creation_progress_dialog:I = 0x7f0e025e
+.field public static final user_creation_progress_dialog:I = 0x7f0e0260
 
-.field public static final zen_mode_condition:I = 0x7f0e026c
+.field public static final zen_mode_condition:I = 0x7f0e026e
 
-.field public static final zen_mode_radio_button:I = 0x7f0e026f
+.field public static final zen_mode_radio_button:I = 0x7f0e0271
 
-.field public static final zen_mode_turn_on_dialog_container:I = 0x7f0e0270
+.field public static final zen_mode_turn_on_dialog_container:I = 0x7f0e0272

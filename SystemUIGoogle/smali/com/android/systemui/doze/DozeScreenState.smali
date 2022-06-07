@@ -15,6 +15,8 @@
 
 .field private final mAuthController:Lcom/android/systemui/biometrics/AuthController;
 
+.field private final mAuthControllerCallback:Lcom/android/systemui/biometrics/AuthController$Callback;
+
 .field private final mDozeHost:Lcom/android/systemui/doze/DozeHost;
 
 .field private final mDozeLog:Lcom/android/systemui/doze/DozeLog;
@@ -103,6 +105,12 @@
 
     iput v0, p0, Lcom/android/systemui/doze/DozeScreenState;->mPendingScreenState:I
 
+    new-instance v0, Lcom/android/systemui/doze/DozeScreenState$1;
+
+    invoke-direct {v0, p0}, Lcom/android/systemui/doze/DozeScreenState$1;-><init>(Lcom/android/systemui/doze/DozeScreenState;)V
+
+    iput-object v0, p0, Lcom/android/systemui/doze/DozeScreenState;->mAuthControllerCallback:Lcom/android/systemui/biometrics/AuthController$Callback;
+
     iput-object p1, p0, Lcom/android/systemui/doze/DozeScreenState;->mDozeService:Lcom/android/systemui/doze/DozeMachine$Service;
 
     iput-object p2, p0, Lcom/android/systemui/doze/DozeScreenState;->mHandler:Landroid/os/Handler;
@@ -129,15 +137,11 @@
 
     invoke-direct {p0}, Lcom/android/systemui/doze/DozeScreenState;->updateUdfpsController()V
 
-    iget-object p1, p0, Lcom/android/systemui/doze/DozeScreenState;->mUdfpsController:Lcom/android/systemui/biometrics/UdfpsController;
+    iget-object p0, p0, Lcom/android/systemui/doze/DozeScreenState;->mUdfpsController:Lcom/android/systemui/biometrics/UdfpsController;
 
-    if-nez p1, :cond_0
+    if-nez p0, :cond_0
 
-    new-instance p1, Lcom/android/systemui/doze/DozeScreenState$1;
-
-    invoke-direct {p1, p0}, Lcom/android/systemui/doze/DozeScreenState$1;-><init>(Lcom/android/systemui/doze/DozeScreenState;)V
-
-    invoke-virtual {p6, p1}, Lcom/android/systemui/biometrics/AuthController;->addCallback(Lcom/android/systemui/biometrics/AuthController$Callback;)V
+    invoke-virtual {p6, v0}, Lcom/android/systemui/biometrics/AuthController;->addCallback(Lcom/android/systemui/biometrics/AuthController$Callback;)V
 
     :cond_0
     return-void
@@ -295,6 +299,18 @@
 
 
 # virtual methods
+.method public destroy()V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/doze/DozeScreenState;->mAuthController:Lcom/android/systemui/biometrics/AuthController;
+
+    iget-object p0, p0, Lcom/android/systemui/doze/DozeScreenState;->mAuthControllerCallback:Lcom/android/systemui/biometrics/AuthController$Callback;
+
+    invoke-virtual {v0, p0}, Lcom/android/systemui/biometrics/AuthController;->removeCallback(Lcom/android/systemui/biometrics/AuthController$Callback;)V
+
+    return-void
+.end method
+
 .method public transitionTo(Lcom/android/systemui/doze/DozeMachine$State;Lcom/android/systemui/doze/DozeMachine$State;)V
     .locals 8
 

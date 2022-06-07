@@ -237,6 +237,9 @@
     <string name="accessor_no_description_text">"L'aplicació no ha proporcionat cap descripció."</string>
     <string name="active_input_method_subtypes">"Mètodes d'introducció actius"</string>
     <string name="activity_launch_on_secondary_display_failed_text">"L'aplicació no es pot obrir en pantalles secundàries."</string>
+    <string name="adaptive_charging_notify_des">La bateria estarà completament carregada a les %1$s. La bateria es carrega de manera estable per mantenir-ne el bon estat.</string>
+    <string name="adaptive_charging_notify_title">La càrrega adaptativa està activada</string>
+    <string name="adaptive_charging_notify_turn_off_once">Desactiva una vegada</string>
     <string name="adaptive_charging_time_estimate">"%1$s • Càrrega adaptativa (s'haurà carregat a les %2$s)"</string>
     <string name="adb_device_fingerprint_title_format">Empremta digital del dispositiu: %1$s</string>
     <string name="adb_device_forget">Oblida</string>
@@ -301,6 +304,7 @@ Si aquest permís està desactivat, les alarmes i els esdeveniments que ja hagi 
     <string name="basic_status">Conversa oberta</string>
     <string name="battery">Bateria</string>
     <string name="battery_detail_switch_title">Estalvi de bateria</string>
+    <string name="battery_health_notify_learn_more">Més informació</string>
     <string name="battery_info_status_charging">"S'està carregant"</string>
     <string name="battery_info_status_charging_fast">Carregant ràpidament</string>
     <string name="battery_info_status_charging_slow">Carregant lentament</string>
@@ -616,7 +620,6 @@ Si reprens l'ús de les dades, es poden aplicar càrrecs."</string>
     <string name="debug_networking_category">Xarxes</string>
     <string name="debug_view_attributes">"Activa la inspecció d'atributs de visualització"</string>
     <string name="defender_notify_des">El telèfon ha limitat la càrrega per ajudar a mantenir el bon estat de la bateria</string>
-    <string name="defender_notify_learn_more">Més informació</string>
     <string name="defender_notify_resume_charge">Reprèn la càrrega</string>
     <string name="defender_notify_title">Càrrega limitada temporalment</string>
     <string name="defender_post_notify_des">"Per mantenir el bon estat de la bateria, la càrrega s'ha limitat al %1$s durant aquest interval: %2$s-%3$s"</string>
@@ -1268,7 +1271,7 @@ Si tens cap pregunta, contacta amb %2$s."</string>
     <string name="pip_phone_settings">Configuració</string>
     <string name="pip_play">Reprodueix</string>
     <string name="pip_skip_to_next">Ves al següent</string>
-    <string name="pip_skip_to_prev">"Torna a l'anterior"</string>
+    <string name="pip_skip_to_prev">"Ves a l'anterior"</string>
     <string name="pointer_location">Ubicació del punter</string>
     <string name="pointer_location_summary">Superposa les dades dels tocs a la pantalla</string>
     <string name="power_charging">%1$s: %2$s</string>
@@ -1473,7 +1476,7 @@ Si tens cap pregunta, contacta amb %2$s."</string>
     <string name="screen_pinning_toast_recents_invisible">Per deixar de fixar aquesta aplicació, mantén premuts els botons Enrere i Inici</string>
     <string name="screen_zoom_summary_custom">Personalitzat (%d)</string>
     <string name="screen_zoom_summary_default">Predeterminat</string>
-    <string name="screen_zoom_summary_extremely_large">Més grans possible</string>
+    <string name="screen_zoom_summary_extremely_large">El més gran</string>
     <string name="screen_zoom_summary_large">Gran</string>
     <string name="screen_zoom_summary_small">Petit</string>
     <string name="screen_zoom_summary_very_large">Més gran</string>
@@ -1704,6 +1707,10 @@ Toca per obtenir més informació"</string>
     <string name="usb_accessory_confirm_prompt">Vols obrir %1$s per gestionar %2$s?</string>
     <string name="usb_accessory_permission_prompt">Vols permetre que %1$s accedeixi a %2$s?</string>
     <string name="usb_accessory_uri_prompt">"Les aplicacions instal·lades no funcionen amb l'accessori USB. Més informació: %1$s"</string>
+    <string name="usb_audio_device_confirm_prompt_title">Vols obrir %1$s per gestionar %2$s?</string>
+    <string name="usb_audio_device_permission_prompt_title">Vols permetre que %1$s accedeixi a %2$s?</string>
+    <string name="usb_audio_device_prompt">"Si utilitzes %1$s amb aquest dispositiu, és possible que no s'escoltin les trucades, les notificacions ni les alarmes."</string>
+    <string name="usb_audio_device_prompt_warn">"Aquesta aplicació no té permís de gravació, però pot capturar àudio a través d'aquest dispositiu USB. Si utilitzes %1$s amb aquest dispositiu, és possible que no s'escoltin les trucades, les notificacions ni les alarmes."</string>
     <string name="usb_audio_disable_routing">"Desactiva l'encaminament d'àudio per USB"</string>
     <string name="usb_audio_disable_routing_summary">"Desactiva l'encaminament automàtic a perifèrics d'àudio USB"</string>
     <string name="usb_contaminant_message">"Per protegir el teu dispositiu dels líquids o de la pols, el port USB s'ha desactivat i no detectarà cap accessori.
@@ -1842,7 +1849,7 @@ Adreça Wi‑Fi (BSSID)
     <string name="wifi_remembered">Desat</string>
     <string name="wifi_scan_notify_message">"Per millorar l'experiència del dispositiu, les aplicacions i els serveis poden cercar xarxes Wi‑Fi en qualsevol moment, fins i tot quan la Wi‑Fi estigui desactivada. Pots canviar aquesta opció a la configuració de cerca de xarxes Wi‑Fi. "<annotation id="link">Canvia-la</annotation>.</string>
     <string name="wifi_scan_throttling">Limitació de la cerca de xarxes Wi‑Fi</string>
-    <string name="wifi_scan_throttling_summary">Redueix el consum de bateria i millora el rendiment de la xarxa</string>
+    <string name="wifi_scan_throttling_summary">Exhaureix menys la bateria i millora el rendiment de la xarxa</string>
     <string name="wifi_security_none">Cap</string>
     <string name="wifi_status_mac_randomized">"L'adreça MAC és aleatòria"</string>
     <string name="wifi_status_no_internet">Sense connexió a Internet</string>

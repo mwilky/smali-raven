@@ -237,6 +237,9 @@
     <string name="accessor_no_description_text">Nuk jepet asnjë përshkrim nga aplikacioni.</string>
     <string name="active_input_method_subtypes">Metodat aktive të hyrjeve</string>
     <string name="activity_launch_on_secondary_display_failed_text">Aplikacioni nuk mbështet nisjen në ekrane dytësore.</string>
+    <string name="adaptive_charging_notify_des">Bateria do të karikohet plotësisht deri në %1$s. Po karikohet në mënyrë të qëndrueshme për të ruajtur gjendjen e baterisë.</string>
+    <string name="adaptive_charging_notify_title">\"Karikimi me përshtatje\" është aktiv</string>
+    <string name="adaptive_charging_notify_turn_off_once">Çaktivizo një herë</string>
     <string name="adaptive_charging_time_estimate">%1$s • Karikimi me përshtatje (plot deri në %2$s)</string>
     <string name="adb_device_fingerprint_title_format">Gjurma e gishtit e pajisjes: %1$s</string>
     <string name="adb_device_forget">Harro</string>
@@ -301,6 +304,7 @@ Nëse kjo leje është caktuar si joaktive, alarmet ekzistuese dhe ngjarjet në 
     <string name="basic_status">Hap bisedën</string>
     <string name="battery">Bateria</string>
     <string name="battery_detail_switch_title">Kursyesi i baterisë</string>
+    <string name="battery_health_notify_learn_more">Mëso më shumë</string>
     <string name="battery_info_status_charging">Po karikohet</string>
     <string name="battery_info_status_charging_fast">Karikim i shpejtë</string>
     <string name="battery_info_status_charging_slow">Po karikohet ngadalë</string>
@@ -616,7 +620,6 @@ Nëse vazhdon, mund të zbatohen tarifa për përdorimin e të dhënave."</strin
     <string name="debug_networking_category">Rrjetet</string>
     <string name="debug_view_attributes">Aktivizo shikimin e inspektimit të atributeve</string>
     <string name="defender_notify_des">Telefoni yt po e kufizon karikimin për të ndihmuar në ruajtjen e gjendjes së baterisë</string>
-    <string name="defender_notify_learn_more">Mëso më shumë</string>
     <string name="defender_notify_resume_charge">Vazhdo karikimin</string>
     <string name="defender_notify_title">Karikimi përkohësisht i kufizuar</string>
     <string name="defender_post_notify_des">Karikimi u kufizua në %1$s nga %2$s deri në %3$s për të ruajtur gjendjen e baterisë</string>
@@ -1704,6 +1707,10 @@ Trokit për më shumë informacione"</string>
     <string name="usb_accessory_confirm_prompt">Të hapet %1$s për të përdorur %2$s?</string>
     <string name="usb_accessory_permission_prompt">Të lejohet %1$s të ketë qasje te %2$s?</string>
     <string name="usb_accessory_uri_prompt">Asnjë aplikacion i instaluar nuk punon me këtë ndihmës USB-je. Mëso më shumë rreth këtij ndihmësi në %1$s</string>
+    <string name="usb_audio_device_confirm_prompt_title">Të hapet %1$s për të përdorur %2$s?</string>
+    <string name="usb_audio_device_permission_prompt_title">Të lejohet \"%1$s\" të qaset te %2$s?</string>
+    <string name="usb_audio_device_prompt">Përdorimi i %1$s me këtë pajisje mund të ndalojë dëgjimin e telefonatave, njoftimeve dhe alarmeve.</string>
+    <string name="usb_audio_device_prompt_warn">Këtij aplikacioni nuk i është dhënë leje për regjistrim, por mund të regjistrojë audio përmes kësaj pajisjeje USB. Përdorimi i %1$s me këtë pajisje mund të ndalojë dëgjimin e telefonatave, njoftimeve dhe alarmeve.</string>
     <string name="usb_audio_disable_routing">Çaktivizo kalimin e audios përmes USB-së</string>
     <string name="usb_audio_disable_routing_summary">Çaktivizo kalimin automatik për te kufjet ose altoparlantët</string>
     <string name="usb_contaminant_message">"Për të mbrojtur pajisjen tënde nga lëngjet apo papastërtitë, porta e USB-së është çaktivizuar dhe nuk do t'i dallojë aksesorët.

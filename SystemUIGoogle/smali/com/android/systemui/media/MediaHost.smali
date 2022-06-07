@@ -199,7 +199,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/media/MediaHost;->mediaDataManager:Lcom/android/systemui/media/MediaDataManager;
 
-    invoke-virtual {v1}, Lcom/android/systemui/media/MediaDataManager;->hasActiveMedia()Z
+    invoke-virtual {v1}, Lcom/android/systemui/media/MediaDataManager;->hasActiveMediaOrRecommendation()Z
 
     move-result v1
 
@@ -208,7 +208,7 @@
     :cond_0
     iget-object v1, p0, Lcom/android/systemui/media/MediaHost;->mediaDataManager:Lcom/android/systemui/media/MediaDataManager;
 
-    invoke-virtual {v1}, Lcom/android/systemui/media/MediaDataManager;->hasAnyMedia()Z
+    invoke-virtual {v1}, Lcom/android/systemui/media/MediaDataManager;->hasAnyMediaOrRecommendation()Z
 
     move-result v1
 

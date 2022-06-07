@@ -237,6 +237,9 @@
     <string name="accessor_no_description_text">برنامه هیچ توضیحی ارائه نکرده است.</string>
     <string name="active_input_method_subtypes">روش‌های ورودی فعال</string>
     <string name="activity_launch_on_secondary_display_failed_text">برنامه از راه‌اندازی در نمایشگرهای ثانویه پشتیبانی نمی‌کند.</string>
+    <string name="adaptive_charging_notify_des">شارژ باتری در ساعت %1$s کامل می‌شود. برای حفظ سلامت باتری، شارژ پیوسته انجام می‌شود.</string>
+    <string name="adaptive_charging_notify_title">«شارژ تطبیقی» روشن است</string>
+    <string name="adaptive_charging_notify_turn_off_once">یک‌بار خاموش شود</string>
     <string name="adaptive_charging_time_estimate">%1$s • شارژ تطبیقی (تا %2$s کامل می‌شود)</string>
     <string name="adb_device_fingerprint_title_format">اثرانگشت دستگاه: %1$s</string>
     <string name="adb_device_forget">فراموش شود</string>
@@ -301,6 +304,7 @@
     <string name="basic_status">باز کردن مکالمه</string>
     <string name="battery">باتری</string>
     <string name="battery_detail_switch_title">بهینه‌سازی باتری</string>
+    <string name="battery_health_notify_learn_more">بیشتر بدانید</string>
     <string name="battery_info_status_charging">در حال شارژ شدن</string>
     <string name="battery_info_status_charging_fast">درحال شارژ شدن سریع</string>
     <string name="battery_info_status_charging_slow">درحال شارژ شدن آهسته</string>
@@ -616,7 +620,6 @@
     <string name="debug_networking_category">شبکه</string>
     <string name="debug_view_attributes">فعال کردن نمایش بازبینی ویژگی</string>
     <string name="defender_notify_des">تلفنتان شارژ کردن را محدود می‌کند تا به حفظ سلامت باتری کمک شود</string>
-    <string name="defender_notify_learn_more">بیشتر بدانید</string>
     <string name="defender_notify_resume_charge">ازسرگیری شارژ شدن</string>
     <string name="defender_notify_title">شارژ موقتاً محدود شده است</string>
     <string name="defender_post_notify_des">برای حفظ سلامت باتری، از %2$s تا %3$s باتری تا سطح %1$s شارژ شد</string>
@@ -834,7 +837,7 @@
     <string name="keyboard_key_media_play_pause">پخش/مکث</string>
     <string name="keyboard_key_media_previous">قبلی</string>
     <string name="keyboard_key_media_rewind">عقب بردن</string>
-    <string name="keyboard_key_media_stop">توقف</string>
+    <string name="keyboard_key_media_stop">متوقف کردن</string>
     <string name="keyboard_key_move_end">انتها</string>
     <string name="keyboard_key_move_home">ابتدا</string>
     <string name="keyboard_key_num_lock">قفل اعداد</string>
@@ -1422,9 +1425,9 @@
     <string name="quick_settings_rotation_unlocked_label">چرخش خودکار</string>
     <string name="quick_settings_screen_record_label">ضبط صفحه‌نمایش</string>
     <string name="quick_settings_screen_record_start">شروع</string>
-    <string name="quick_settings_screen_record_stop">توقف</string>
+    <string name="quick_settings_screen_record_stop">متوقف کردن</string>
     <string name="quick_settings_secondary_label_until">تا %s</string>
-    <string name="quick_settings_ui_mode_night_label">طرح زمینه تیره</string>
+    <string name="quick_settings_ui_mode_night_label">زمینه تیره</string>
     <string name="quick_settings_user_title">کاربر</string>
     <string name="quick_settings_wifi_detail_empty_text">‏هیچ شبکه Wi-Fi موجود نیست</string>
     <string name="quick_settings_wifi_label">Wi-Fi</string>
@@ -1495,7 +1498,7 @@
     <string name="screenrecord_start">شروع</string>
     <string name="screenrecord_start_error">خطا هنگام شروع ضبط صفحه‌نمایش</string>
     <string name="screenrecord_start_label">ضبط شروع شود؟</string>
-    <string name="screenrecord_stop_label">توقف</string>
+    <string name="screenrecord_stop_label">متوقف کردن</string>
     <string name="screenrecord_taps_label">نمایش قسمت‌های لمس‌شده روی صفحه‌نمایش</string>
     <string name="screenshot_bottom_boundary_pct">مرز پایین %1$d درصد</string>
     <string name="screenshot_dismiss_description">رد کردن نماگرفت</string>
@@ -1704,6 +1707,10 @@
     <string name="usb_accessory_confirm_prompt">برای استفاده از %2$s، %1$s باز شود؟</string>
     <string name="usb_accessory_permission_prompt">به %1$s برای دسترسی به %2$s اجازه داده شود؟</string>
     <string name="usb_accessory_uri_prompt">‏هیچ برنامه نصب شده‌ای با این وسیله جانبی USB کار نمی‌کند. در %1$s دربارهٔ این وسیله جانبی اطلاعات بیشتری کسب کنید</string>
+    <string name="usb_audio_device_confirm_prompt_title">%1$s برای استفاده از %2$s باز شود؟</string>
+    <string name="usb_audio_device_permission_prompt_title">به %1$s اجازه دسترسی به %2$s داده شود؟</string>
+    <string name="usb_audio_device_prompt">استفاده از %1$s با این دستگاه می‌تواند مانع از شنیدن تماس‌ها، اعلان‌ها، و زنگ‌های ساعت شود.</string>
+    <string name="usb_audio_device_prompt_warn">‏اجازه ضبط به این برنامه داده نشده است اما می‌تواند صدا را ازطریق این دستگاه USB ضبط کند. استفاده از %1$s با این دستگاه می‌تواند مانع از شنیدن تماس‌ها، اعلان‌ها، و زنگ‌های ساعت شود.</string>
     <string name="usb_audio_disable_routing">‏غیرفعال کردن مسیریابی صوتی USB</string>
     <string name="usb_audio_disable_routing_summary">‏غیرفعال کردن مسیریابی خودکار به وسایل جانبی صوتی USB</string>
     <string name="usb_contaminant_message">"‏برای محافظت از دستگاهتان دربرابر مایعات یا خاکروبه، درگاه USB غیرفعال شده است و هیچ‌کدام از لوازم جانبی را شناسایی نخواهد کرد.
@@ -1807,7 +1814,7 @@
     <string name="wifi_check_password_try_again">گذرواژه را بررسی و دوباره امتحان کنید</string>
     <string name="wifi_connected_low_quality">کیفیت پایین</string>
     <string name="wifi_connected_no_internet">عدم اتصال به اینترنت</string>
-    <string name="wifi_debugging_allow">مجاز بودن</string>
+    <string name="wifi_debugging_allow">مجاز است</string>
     <string name="wifi_debugging_always">همیشه در این شبکه مجاز شود</string>
     <string name="wifi_debugging_message">"‏نام شبکه (SSID)
 %1$s

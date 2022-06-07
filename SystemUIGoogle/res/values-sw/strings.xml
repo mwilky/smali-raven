@@ -237,6 +237,9 @@
     <string name="accessor_no_description_text">Hakuna maelezo yaliyotolewa na programu.</string>
     <string name="active_input_method_subtypes">Mbinu zinazotumika</string>
     <string name="activity_launch_on_secondary_display_failed_text">Programu hii haiwezi kufunguliwa kwenye madirisha mengine.</string>
+    <string name="adaptive_charging_notify_des">Betri itajaa baada ya %1$s. Inachaji kwa haraka ili kudumisha muda wa matumizi ya betri.</string>
+    <string name="adaptive_charging_notify_title">Hali ya kuchaji inayojirekebisha imewashwa</string>
+    <string name="adaptive_charging_notify_turn_off_once">Zima mara moja</string>
     <string name="adaptive_charging_time_estimate">%1$s • Chaji inayojirekebisha (itajaa kufikia saa %2$s)</string>
     <string name="adb_device_fingerprint_title_format">Alama bainifu ya kifaa: %1$s</string>
     <string name="adb_device_forget">Sahau</string>
@@ -281,8 +284,8 @@ Ikiwa ruhusa hii itazimwa, kengele zilizopo na ratiba za vitendo vinavyotegemea 
     <string name="all_network_unavailable">Hakuna mitandao inayopatikana</string>
     <string name="allow_mock_location">Ruhusu maeneo ya jaribio</string>
     <string name="allow_mock_location_summary">Ruhusu maeneo ya majaribio</string>
-    <string name="always_use_accessory">Fungua %1$s kila wakati %2$s inaunganishwa</string>
-    <string name="always_use_device">Fungua %1$s kila wakati %2$s inaunganishwa</string>
+    <string name="always_use_accessory">Fungua %1$s kila wakati %2$s imeunganishwa</string>
+    <string name="always_use_device">Fungua %1$s kila wakati %2$s imeunganishwa</string>
     <string name="animator_duration_scale_title">Mizani ya muda wa uhuishaji</string>
     <string name="anniversary_status">Maadhimisho</string>
     <string name="anniversary_status_content_description">Ni maadhimisho ya %1$s</string>
@@ -301,6 +304,7 @@ Ikiwa ruhusa hii itazimwa, kengele zilizopo na ratiba za vitendo vinavyotegemea 
     <string name="basic_status">Fungua mazungumzo</string>
     <string name="battery">Betri</string>
     <string name="battery_detail_switch_title">Kiokoa Betri</string>
+    <string name="battery_health_notify_learn_more">Pata maelezo zaidi</string>
     <string name="battery_info_status_charging">Inachaji</string>
     <string name="battery_info_status_charging_fast">Inachaji kwa kasi</string>
     <string name="battery_info_status_charging_slow">Inachaji pole pole</string>
@@ -616,7 +620,6 @@ Ukiendelea, huenda ukatozwa ada ya matumizi ya data."</string>
     <string name="debug_networking_category">Mtandao</string>
     <string name="debug_view_attributes">Washa ukaguzi wa sifa ya onyesho</string>
     <string name="defender_notify_des">Simu yako inadhibiti hali ya kuchaji ili kusaidia kudumisha muda wa kutumia betri</string>
-    <string name="defender_notify_learn_more">Pata maelezo zaidi</string>
     <string name="defender_notify_resume_charge">Endelea kuchaji</string>
     <string name="defender_notify_title">Kuchaji kumedhibitiwa kwa muda</string>
     <string name="defender_post_notify_des">Iliruhusiwa kuchaji %1$s kuanzia %2$s hadi %3$s ili kudumisha muda wa matumizi ya betri</string>
@@ -1704,6 +1707,10 @@ Gusa ili upate maelezo zaidi"</string>
     <string name="usb_accessory_confirm_prompt">Ungependa kufungua %1$s ili itumie %2$s?</string>
     <string name="usb_accessory_permission_prompt">Ungependa kuruhusu %1$s ifikie %2$s?</string>
     <string name="usb_accessory_uri_prompt">Hakuna programu zilizosakinishwa zinazofanya kazi na kifaa hiki cha USB. Pata maelezo zaidi kuhusu kifaa hiki kwenye %1$s</string>
+    <string name="usb_audio_device_confirm_prompt_title">Ungependa kufungua %1$s ishughulikie %2$s?</string>
+    <string name="usb_audio_device_permission_prompt_title">Ungependa kuruhusu %1$s ifikie %2$s?</string>
+    <string name="usb_audio_device_prompt">Ukitumia %1$s kwenye kifaa hiki kunaweza kuzuia kusikia simu, arifa na kengele.</string>
+    <string name="usb_audio_device_prompt_warn">Programu hii haijapewa ruhusa ya kurekodi lakini inaweza kurekodi sauti kupitia kifaa hiki cha USB. Ukitumia %1$s kwenye kifaa hiki kunaweza kuzuia kusikia simu, arifa na kengele.</string>
     <string name="usb_audio_disable_routing">Zima utumaji sauti kwa USB</string>
     <string name="usb_audio_disable_routing_summary">Zima utumaji otomatiki kwenda vifaa vya sauti vya USB</string>
     <string name="usb_contaminant_message">"Ili ulinde kifaa chako dhidi ya vitu vyenye unyevu au uchafu, mlango wa USB umezimwa na hautatambua vifaa vyovyote.

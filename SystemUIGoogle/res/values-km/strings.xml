@@ -237,6 +237,9 @@
     <string name="accessor_no_description_text">គ្មាន​ការពណ៌នា​ដែលផ្ដល់ដោយ​កម្មវិធីទេ។</string>
     <string name="active_input_method_subtypes">វិធីសាស្ត្រ​បញ្ចូល​សកម្ម</string>
     <string name="activity_launch_on_secondary_display_failed_text">កម្មវិធី​នេះមិន​អាច​ចាប់ផ្តើម​នៅលើ​អេក្រង់បន្ទាប់បន្សំបានទេ។</string>
+    <string name="adaptive_charging_notify_des">ថ្មពេញនៅត្រឹមម៉ោង %1$s។ កំពុងសាកថ្មបន្តិចម្ដងៗ ដើម្បីរក្សាគុណភាពថ្ម។</string>
+    <string name="adaptive_charging_notify_title">ការសាកថ្ម​ដែលមាន​ភាពបត់បែន​គឺបើក</string>
+    <string name="adaptive_charging_notify_turn_off_once">បិទម្ដង</string>
     <string name="adaptive_charging_time_estimate">%1$s • ការសាកថ្មដែលមានភាពបត់បែន (ពេញ​នៅត្រឹមម៉ោង %2$s)</string>
     <string name="adb_device_fingerprint_title_format">ស្នាមម្រាមដៃ​ឧបករណ៍៖ %1$s</string>
     <string name="adb_device_forget">បំភ្លេច</string>
@@ -301,6 +304,7 @@
     <string name="basic_status">បើកការសន្ទនា</string>
     <string name="battery">ថ្ម</string>
     <string name="battery_detail_switch_title">មុខងារ​សន្សំ​ថ្ម</string>
+    <string name="battery_health_notify_learn_more">ស្វែងយល់បន្ថែម</string>
     <string name="battery_info_status_charging">កំពុងសាក​ថ្ម</string>
     <string name="battery_info_status_charging_fast">កំពុងសាកថ្មយ៉ាងឆាប់រហ័ស</string>
     <string name="battery_info_status_charging_slow">កំពុង​សាកថ្មយឺត</string>
@@ -616,7 +620,6 @@
     <string name="debug_networking_category">ការភ្ជាប់បណ្ដាញ</string>
     <string name="debug_view_attributes">បើក​ការ​ត្រួតពិនិត្យ​គុណ​លក្ខណៈ​ទិដ្ឋភាព</string>
     <string name="defender_notify_des">ទូរសព្ទរបស់អ្នក​កំពុងដាក់កំហិតលើ​ការសាកថ្ម ដើម្បីជួយរក្សា​គុណភាពថ្ម</string>
-    <string name="defender_notify_learn_more">ស្វែងយល់បន្ថែម</string>
     <string name="defender_notify_resume_charge">បន្តសាកថ្ម</string>
     <string name="defender_notify_title">បានដាក់កំហិតលើ​ការសាកថ្មជា​បណ្ដោះអាសន្ន</string>
     <string name="defender_post_notify_des">ការសាកថ្ម​ត្រូវបាន​កំណត់ត្រឹម %1$s ពីម៉ោង %2$s ដល់ម៉ោង %3$s ដើម្បីរក្សា​គុណភាពថ្ម</string>
@@ -1704,6 +1707,10 @@
     <string name="usb_accessory_confirm_prompt">បើក %1$s ដើម្បីគ្រប់គ្រង %2$s មែនទេ?</string>
     <string name="usb_accessory_permission_prompt">អនុញ្ញាត %1$s ឱ្យចូលប្រើ %2$s មែនទេ?</string>
     <string name="usb_accessory_uri_prompt">គ្មាន​កម្មវិធី​បាន​ដំឡើង​ដំណើរការ​ជា​មួយ​ឧបករណ៍​យូអេសប៊ី។ ស្វែងយល់​បន្ថែម​អំពី​ឧបករណ៍​នេះ​នៅ %1$s</string>
+    <string name="usb_audio_device_confirm_prompt_title">បើក %1$s ដើម្បីគ្រប់គ្រង %2$s ឬ?</string>
+    <string name="usb_audio_device_permission_prompt_title">អនុញ្ញាតឱ្យ %1$s ចូលប្រើ %2$s ឬ?</string>
+    <string name="usb_audio_device_prompt">ការប្រើ %1$s ជាមួយឧបករណ៍នេះអាចនឹងបិទសំឡេងការហៅទូរសព្ទ ការជូនដំណឹង និងម៉ោងរោទ៍។</string>
+    <string name="usb_audio_device_prompt_warn">កម្មវិធីនេះ​មិនទាន់បាន​ទទួលសិទ្ធិ​ថតសំឡេង​នៅឡើយទេ ប៉ុន្តែអាច​ថតសំឡេង​តាមរយៈ​ឧបករណ៍ USB នេះបាន។ ការប្រើ %1$s ជាមួយឧបករណ៍នេះអាចនឹងបិទសំឡេងការហៅទូរសព្ទ ការជូនដំណឹង និងម៉ោងរោទ៍។</string>
     <string name="usb_audio_disable_routing">បិទការនាំផ្លូវសំឡេងតាម USB</string>
     <string name="usb_audio_disable_routing_summary">បិទការនាំផ្លូវស្វ័យប្រវត្តិទៅឧបករណ៍សំឡេងតាម USB</string>
     <string name="usb_contaminant_message">"ដើម្បី​ការពារ​ឧបករណ៍​របស់អ្នកកុំឱ្យ​ចូលទឹក ឬ​កម្ទេចផ្សេងៗ រន្ធ USB ត្រូវបានបិទ ហើយ​នឹង​មិនស្គាល់​គ្រឿង​បរិក្ខារ​នោះទេ។

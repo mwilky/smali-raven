@@ -362,70 +362,70 @@
 
 .field public static final smart_reply_view:I = 0x7f0e020f
 
-.field public static final split_shade_header:I = 0x7f0e0228
+.field public static final split_shade_header:I = 0x7f0e022a
 
-.field public static final status_bar:I = 0x7f0e0229
+.field public static final status_bar:I = 0x7f0e022b
 
-.field public static final status_bar_mobile_signal_group:I = 0x7f0e022c
+.field public static final status_bar_mobile_signal_group:I = 0x7f0e022e
 
-.field public static final status_bar_no_notifications:I = 0x7f0e022d
+.field public static final status_bar_no_notifications:I = 0x7f0e022f
 
-.field public static final status_bar_notification_footer:I = 0x7f0e022e
+.field public static final status_bar_notification_footer:I = 0x7f0e0230
 
-.field public static final status_bar_notification_row:I = 0x7f0e022f
+.field public static final status_bar_notification_row:I = 0x7f0e0231
 
-.field public static final status_bar_notification_section_header:I = 0x7f0e0230
+.field public static final status_bar_notification_section_header:I = 0x7f0e0232
 
-.field public static final status_bar_notification_shelf:I = 0x7f0e0231
+.field public static final status_bar_notification_shelf:I = 0x7f0e0233
 
-.field public static final status_bar_wifi_group:I = 0x7f0e0232
+.field public static final status_bar_wifi_group:I = 0x7f0e0234
 
-.field public static final super_notification_shade:I = 0x7f0e0234
+.field public static final super_notification_shade:I = 0x7f0e0236
 
-.field public static final super_status_bar:I = 0x7f0e0235
+.field public static final super_status_bar:I = 0x7f0e0237
 
-.field public static final system_event_animation_window:I = 0x7f0e0238
+.field public static final system_event_animation_window:I = 0x7f0e023a
 
-.field public static final text_toast:I = 0x7f0e0244
+.field public static final text_toast:I = 0x7f0e0246
 
-.field public static final tuner_activity:I = 0x7f0e024b
+.field public static final tuner_activity:I = 0x7f0e024d
 
-.field public static final tuner_shortcut_item:I = 0x7f0e024c
+.field public static final tuner_shortcut_item:I = 0x7f0e024e
 
-.field public static final tuner_widget_settings_switch:I = 0x7f0e024e
+.field public static final tuner_widget_settings_switch:I = 0x7f0e0250
 
-.field public static final tv_bottom_sheet:I = 0x7f0e0250
+.field public static final tv_bottom_sheet:I = 0x7f0e0252
 
-.field public static final tv_notification_item:I = 0x7f0e0251
+.field public static final tv_notification_item:I = 0x7f0e0253
 
-.field public static final tv_notification_panel:I = 0x7f0e0252
+.field public static final tv_notification_panel:I = 0x7f0e0254
 
-.field public static final tv_ongoing_privacy_chip:I = 0x7f0e0253
+.field public static final tv_ongoing_privacy_chip:I = 0x7f0e0255
 
-.field public static final udfps_bp_view:I = 0x7f0e0258
+.field public static final udfps_bp_view:I = 0x7f0e025a
 
-.field public static final udfps_enroll_view:I = 0x7f0e0259
+.field public static final udfps_enroll_view:I = 0x7f0e025b
 
-.field public static final udfps_fpm_other_view:I = 0x7f0e025a
+.field public static final udfps_fpm_other_view:I = 0x7f0e025c
 
-.field public static final udfps_keyguard_view:I = 0x7f0e025b
+.field public static final udfps_keyguard_view:I = 0x7f0e025d
 
-.field public static final udfps_view:I = 0x7f0e025c
+.field public static final udfps_view:I = 0x7f0e025e
 
-.field public static final volume_dialog:I = 0x7f0e0261
+.field public static final volume_dialog:I = 0x7f0e0263
 
-.field public static final volume_dialog_row:I = 0x7f0e0262
+.field public static final volume_dialog_row:I = 0x7f0e0264
 
-.field public static final wallet_card_view:I = 0x7f0e0266
+.field public static final wallet_card_view:I = 0x7f0e0268
 
-.field public static final wallet_fullscreen:I = 0x7f0e0268
+.field public static final wallet_fullscreen:I = 0x7f0e026a
 
-.field public static final window_magnifier_view:I = 0x7f0e0269
+.field public static final window_magnifier_view:I = 0x7f0e026b
 
-.field public static final wireless_charging_layout:I = 0x7f0e026a
+.field public static final wireless_charging_layout:I = 0x7f0e026c
 
-.field public static final zen_mode_button:I = 0x7f0e026b
+.field public static final zen_mode_button:I = 0x7f0e026d
 
-.field public static final zen_mode_condition:I = 0x7f0e026c
+.field public static final zen_mode_condition:I = 0x7f0e026e
 
-.field public static final zen_mode_panel:I = 0x7f0e026e
+.field public static final zen_mode_panel:I = 0x7f0e0270

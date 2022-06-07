@@ -237,6 +237,9 @@
     <string name="accessor_no_description_text">앱에서 제공한 설명이 없습니다.</string>
     <string name="active_input_method_subtypes">입력 방법</string>
     <string name="activity_launch_on_secondary_display_failed_text">앱이 보조 디스플레이에서의 실행을 지원하지 않습니다.</string>
+    <string name="adaptive_charging_notify_des">%1$s 후 충전이 완료됩니다. 배터리 상태를 정상적으로 유지하기 위해 꾸준히 충전합니다.</string>
+    <string name="adaptive_charging_notify_title">자동 조절 충전이 사용 설정됨</string>
+    <string name="adaptive_charging_notify_turn_off_once">한 번만 사용 중지</string>
     <string name="adaptive_charging_time_estimate">%1$s • 자동 조절 충전(%2$s까지 완충)</string>
     <string name="adb_device_fingerprint_title_format">기기 지문: %1$s</string>
     <string name="adb_device_forget">저장 안함</string>
@@ -301,6 +304,7 @@
     <string name="basic_status">대화 열기</string>
     <string name="battery">배터리</string>
     <string name="battery_detail_switch_title">절전 모드</string>
+    <string name="battery_health_notify_learn_more">자세히 알아보기</string>
     <string name="battery_info_status_charging">충전 중</string>
     <string name="battery_info_status_charging_fast">고속 충전 중</string>
     <string name="battery_info_status_charging_slow">저속 충전 중</string>
@@ -616,7 +620,6 @@
     <string name="debug_networking_category">네트워크</string>
     <string name="debug_view_attributes">보기 속성 검사 사용</string>
     <string name="defender_notify_des">배터리 보호를 위해 휴대전화가 충전을 제한하고 있습니다.</string>
-    <string name="defender_notify_learn_more">자세히 알아보기</string>
     <string name="defender_notify_resume_charge">충전 다시 시작</string>
     <string name="defender_notify_title">충전이 일시적으로 제한됨</string>
     <string name="defender_post_notify_des">배터리 보호를 위해 %2$s부터 %3$s까지 충전이 %1$s로 제한되었습니다.</string>
@@ -1704,6 +1707,10 @@ IT 관리자가 설정, 기업 액세스, 앱, 기기와 연결된 데이터, �
     <string name="usb_accessory_confirm_prompt">%1$s 앱을 열어 %2$s을(를) 처리하시겠습니까?</string>
     <string name="usb_accessory_permission_prompt">%1$s 앱이 %2$s에 액세스하도록 허용하시겠습니까?</string>
     <string name="usb_accessory_uri_prompt">이 USB와 호환되는 설치 앱이 없습니다. %1$s에서 세부정보를 참조하세요.</string>
+    <string name="usb_audio_device_confirm_prompt_title">%1$s 앱을 열어 %2$s을 처리하시겠습니까?</string>
+    <string name="usb_audio_device_permission_prompt_title">%1$s 앱이 %2$s에 액세스하도록 허용하시겠습니까?</string>
+    <string name="usb_audio_device_prompt">이 기기와 함께 %1$s 앱을 사용하면 전화, 알림, 알람 소리가 들리지 않을 수 있습니다.</string>
+    <string name="usb_audio_device_prompt_warn">이 앱에는 녹음 권한이 부여되지 않았지만, 이 USB 기기를 통해 오디오를 녹음할 수 있습니다. 이 기기와 함께 %1$s 앱을 사용하면 전화, 알림, 알람 소리가 들리지 않을 수 있습니다.</string>
     <string name="usb_audio_disable_routing">USB 오디오 연결 사용 중지</string>
     <string name="usb_audio_disable_routing_summary">USB 오디오 주변기기로 자동 연결 사용 중지</string>
     <string name="usb_contaminant_message">"기기를 액체나 이물질로부터 보호하기 위해 USB 포트가 사용 중지되었으며 액세서리를 연결할 수 없습니다.

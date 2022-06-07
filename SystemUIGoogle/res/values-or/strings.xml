@@ -186,7 +186,7 @@
     <string name="accessibility_quick_settings_dnd_changed_on">\"ବିରକ୍ତ କରନ୍ତୁ ନାହିଁ\" ଚାଲୁ ଅଛି।</string>
     <string name="accessibility_quick_settings_dnd_none_on">ସମ୍ପୂର୍ଣ୍ଣ ନୀରବତା</string>
     <string name="accessibility_quick_settings_edit">ସେଟିଙ୍ଗର କ୍ରମ ସଂଶୋଧନ କରନ୍ତୁ।</string>
-    <string name="accessibility_quick_settings_expand">ଦ୍ରୁତ ସେଟିଙ୍ଗ ଖୋଲନ୍ତୁ।</string>
+    <string name="accessibility_quick_settings_expand">କ୍ଵିକ ସେଟିଂସ ଖୋଲନ୍ତୁ।</string>
     <string name="accessibility_quick_settings_flashlight_changed_off">ଟର୍ଚ୍ଚ ଲାଇଟ୍ ବନ୍ଦ ଅଛି।</string>
     <string name="accessibility_quick_settings_flashlight_changed_on">ଟର୍ଚ୍ଚ ଲାଇଟ୍ ଚାଲୁ ଅଛି।</string>
     <string name="accessibility_quick_settings_hotspot_changed_off">ମୋବାଇଲ୍ ହଟସ୍ପଟ୍‌ ବନ୍ଦ ଅଛି।</string>
@@ -213,7 +213,7 @@
     <string name="accessibility_scanning_face">ଫେସ୍ ସ୍କାନିଙ୍ଗ କରାଯାଉଛି</string>
     <string name="accessibility_send_smart_reply">ପଠାନ୍ତୁ</string>
     <string name="accessibility_sensors_off_active">"'ସେନ୍‌ସର୍ ବନ୍ଦ' ସକ୍ରିୟ ଅଛି"</string>
-    <string name="accessibility_settings_gear">Pixel Stand ସେଟିଂସ୍‍</string>
+    <string name="accessibility_settings_gear">Pixel Stand ସେଟିଂସ</string>
     <string name="accessibility_smartspace_page">%2$d ମଧ୍ୟରୁ %1$d ପୃଷ୍ଠା</string>
     <string name="accessibility_status_bar_headphones">ହେଡଫୋନ୍‍ ସଂଯୁକ୍ତ</string>
     <string name="accessibility_status_bar_headset">ହେଡସେଟ୍‍ ସଂଯୁକ୍ତ</string>
@@ -237,6 +237,9 @@
     <string name="accessor_no_description_text">ଆପ୍ ଦ୍ୱାରା କୌଣସି ବର୍ଣ୍ଣନା ପ୍ରଦାନ କରାଯାଇନାହିଁ।</string>
     <string name="active_input_method_subtypes">ସକ୍ରିୟ ଇନପୁଟ୍‌-ପଦ୍ଧତିଗୁଡ଼ିକ</string>
     <string name="activity_launch_on_secondary_display_failed_text">ସେକେଣ୍ଡାରୀ ଡିସପ୍ଲେରେ ଆପ୍‍ ଲଞ୍ଚ ସପୋର୍ଟ କରେ ନାହିଁ।</string>
+    <string name="adaptive_charging_notify_des">%1$sରେ ବ୍ୟାଟେରୀ ସମ୍ପୂର୍ଣ୍ଣ ଚାର୍ଜ ହେବ। ବ୍ୟାଟେରୀ ହେଲ୍ଥକୁ ସଂରକ୍ଷିତ ରଖିବା ପାଇଁ ସ୍ଥିର ଭାବେ ଚାର୍ଜ ହେଉଛି।</string>
+    <string name="adaptive_charging_notify_title">ଆଡେପ୍ଟିଭ ଚାର୍ଜିଂ ଚାଲୁ ଅଛି</string>
+    <string name="adaptive_charging_notify_turn_off_once">ଥରେ ବନ୍ଦ କରନ୍ତୁ</string>
     <string name="adaptive_charging_time_estimate">%1$s • ଆଡେପ୍ଟିଭ୍ ଚାର୍ଜିଂ (ସମ୍ପୂର୍ଣ୍ଣ ହେବ %2$s)</string>
     <string name="adb_device_fingerprint_title_format">ଡିଭାଇସ୍ ଫିଙ୍ଗରପ୍ରିଣ୍ଟ: %1$s</string>
     <string name="adb_device_forget">ଭୁଲିଯାଆନ୍ତୁ</string>
@@ -286,7 +289,7 @@
     <string name="animator_duration_scale_title">ଆନିମେଟର୍‌ ଅବଧି ସ୍କେଲ୍‌</string>
     <string name="anniversary_status">ବାର୍ଷିକ ଉତ୍ସବ</string>
     <string name="anniversary_status_content_description">%1$sଙ୍କର ବାର୍ଷିକ ଉତ୍ସବ</string>
-    <string name="apn_settings_not_available">ଆକ୍ସେସ୍‌ ପଏଣ୍ଟ ନାମର ସେଟିଙ୍ଗ ଏହି ଉପଯୋଗକର୍ତ୍ତାଙ୍କ ପାଇଁ ଉପଲବ୍ଧ ନାହିଁ</string>
+    <string name="apn_settings_not_available">ଆକ୍ସେସ ପଏଣ୍ଟ ନାମର ସେଟିଂସ ଏହି ଉପଯୋଗକର୍ତ୍ତାଙ୍କ ପାଇଁ ଉପଲବ୍ଧ ନାହିଁ</string>
     <string name="app_info">ଆପ୍ ସୂଚନା</string>
     <string name="app_label">ସିଷ୍ଟମ୍ UI</string>
     <string name="app_process_limit_title">ବ୍ୟାକ୍‌ଗ୍ରାଉଣ୍ଡ ପ୍ରୋସେସ୍ ସୀମା</string>
@@ -301,6 +304,7 @@
     <string name="basic_status">ବାର୍ତ୍ତାଳାପ ଖୋଲନ୍ତୁ</string>
     <string name="battery">ବ୍ୟାଟେରୀ</string>
     <string name="battery_detail_switch_title">ବ୍ୟାଟେରୀ ସେଭର୍</string>
+    <string name="battery_health_notify_learn_more">ଅଧିକ ଜାଣନ୍ତୁ</string>
     <string name="battery_info_status_charging">ଚାର୍ଜ ହେଉଛି</string>
     <string name="battery_info_status_charging_fast">ଶୀଘ୍ର ଚାର୍ଜ ହେଉଛି</string>
     <string name="battery_info_status_charging_slow">ଧୀରେ ଚାର୍ଜ ହେଉଛି</string>
@@ -616,7 +620,6 @@
     <string name="debug_networking_category">ନେଟ୍‌ୱର୍କିଙ୍ଗ</string>
     <string name="debug_view_attributes">ବିଶେଷତା ଯାଞ୍ଚ ଭ୍ୟୁକୁ ସକ୍ଷମ କରନ୍ତୁ</string>
     <string name="defender_notify_des">ବ୍ୟାଟେରୀ ହେଲ୍ଥକୁ ସଂରକ୍ଷିତ ରଖିବାରେ ସାହାଯ୍ୟ କରିବା ପାଇଁ ଆପଣଙ୍କ ଫୋନ୍ ତା’ର ଚାର୍ଜିଂକୁ ସୀମିତ କରୁଛି</string>
-    <string name="defender_notify_learn_more">ଅଧିକ ଜାଣନ୍ତୁ</string>
     <string name="defender_notify_resume_charge">ଚାର୍ଜିଂ ପୁଣି ଆରମ୍ଭ କରନ୍ତୁ</string>
     <string name="defender_notify_title">ଚାର୍ଜିଂ ଅସ୍ଥାୟୀ ଭାବେ ସୀମିତ କରାଯାଇଛି</string>
     <string name="defender_post_notify_des">ବ୍ୟାଟେରୀ ହେଲ୍ଥକୁ ସଂରକ୍ଷିତ ରଖିବା ପାଇଁ %2$sରୁ %3$s ପର୍ଯ୍ୟନ୍ତ ଚାର୍ଜିଂକୁ %1$sରେ ସୀମିତ ରଖାଯାଇଛି</string>
@@ -627,8 +630,8 @@
     <string name="dessert_case">ଡେଜର୍ଟ କେସ୍‌</string>
     <string name="dev_logpersist_clear_warning_message">ଯଦି ଆମେ ଦୃଢ ଲଗର୍‌ ସହିତ ଆଉ ତଦାରଖ କରୁନଥିବୁ, ତେବେ ଆମକୁ ଆପଣଙ୍କ ଡିଭାଇସ୍‌ରେ ଥିବା ଲଗର୍‌ ଡାଟାକୁ ଲିଭାଇବାକୁ ପଡ଼ିବ।</string>
     <string name="dev_logpersist_clear_warning_title">ଲଗର୍‌ ରୋଧି ଷ୍ଟୋରେଜ୍‌ ଖାଲି କରିବେ?</string>
-    <string name="dev_settings_warning_message">ଏହି ସେଟିଙ୍ଗଗୁଡ଼ିକ କେବଳ ବିକାଶ ବ୍ୟବହାର ପାଇଁ ଉଦ୍ଦିଷ୍ଟ। ସେଗୁଡ଼ିକ କାରଣରୁ ଆପଣଙ୍କ ଡିଭାଇସ୍‌ ଓ ଆପ୍ଲିକେଶନ୍‍‍ଗୁଡ଼ିକ ଠିକ୍‌ ଭାବେ କାମ ନକରିପାରେ।</string>
-    <string name="dev_settings_warning_title">ଡେଭଲପମେଣ୍ଟ ସେଟିଙ୍ଗ ଅନୁମତି ଦେବେ?</string>
+    <string name="dev_settings_warning_message">ଏହି ସେଟିଂସ କେବଳ ବିକାଶର ବ୍ୟବହାର ପାଇଁ ଉଦ୍ଦିଷ୍ଟ। ସେଗୁଡ଼ିକ କାରଣରୁ ଆପଣଙ୍କ ଡିଭାଇସ ଓ ଆପ୍ଲିକେସନଗୁଡ଼ିକ ଖରାପ ହୋଇଯାଇପାରେ କିମ୍ବା ଠିକ୍‌ ଭାବେ କାମ ନକରିପାରେ।</string>
+    <string name="dev_settings_warning_title">ଡେଭଲପମେଣ୍ଟ ସେଟିଂସକୁ ଅନୁମତି ଦେବେ?</string>
     <string name="development_settings_enable">ଡେଭଲପର୍‌ ବିକଳ୍ପଗୁଡ଼ିକ ସକ୍ଷମ କରନ୍ତୁ</string>
     <string name="development_settings_not_available">ଏହି ଉପଯୋଗକର୍ତ୍ତାଙ୍କ ପାଇଁ ଡେଭଲପରଙ୍କ ବିକଳ୍ପସମୂହ ଉପଲବ୍ଧ ନୁହେଁ</string>
     <string name="development_settings_summary">ଆପ୍‌ର ବିକାଶ ପାଇଁ ବିକଳ୍ପମାନ ସେଟ୍‌ କରନ୍ତୁ</string>
@@ -696,7 +699,7 @@
     <string name="face_reenroll_failure_dialog_content">ଫେସ୍ ଅନଲକ୍ ସେଟ୍ ଅପ୍ କରାଯାଇପାରିଲା ନାହିଁ। ପୁଣି ଚେଷ୍ଟା କରିବା ପାଇଁ ସେଟିଂସକୁ ଯାଆନ୍ତୁ।</string>
     <string name="face_reenroll_notification_content">ସୁରକ୍ଷା ଏବଂ କାର୍ଯ୍ୟଦକ୍ଷତା ଉନ୍ନତ କରିବା ପାଇଁ ସେଟ୍‍ଅପ୍ କରିବାର ଆବଶ୍ୟକତା ଅଛି</string>
     <string name="face_reenroll_notification_title">ଫେସ୍ ଅନଲକ୍ ପୁଣି ସେଟ୍ ଅପ୍ କରିବାର ଆବଶ୍ୟକତା ଅଛି</string>
-    <string name="failed_to_open_app_settings_toast">%1$s ପାଇଁ ସେଟିଙ୍ଗ ଖୋଲିବାରେ ବିଫଳ</string>
+    <string name="failed_to_open_app_settings_toast">%1$s ପାଇଁ ସେଟିଂସ ଖୋଲିବାରେ ବିଫଳ</string>
     <string name="feedback_alerted">ସିଷ୍ଟମ୍ ଏହି ବିଜ୍ଞପ୍ତିକୁ ସ୍ୱଚାଳିତ ଭାବେ &lt;b>ଡିଫଲ୍ଟକୁ ପ୍ରମୋଟ୍ କରିଛି&lt;/b>।</string>
     <string name="feedback_demoted">ଆପଣଙ୍କ ସେଡରେ ସ୍ୱଚାଳିତ ଭାବେ ଏହି ବିଜ୍ଞପ୍ତିର &lt;b>ରେଙ୍କ ତଳକୁ&lt;/b> କରାଯାଇଛି।</string>
     <string name="feedback_promoted">ଆପଣଙ୍କ ସେଡରେ ସ୍ୱଚାଳିତ ଭାବେ ଏହି ବିଜ୍ଞପ୍ତିର &lt;b>ରେଙ୍କ ଉପରକୁ&lt;/b> କରାଯାଇଛି।</string>
@@ -780,7 +783,7 @@
     <string name="high_temp_notif_message">"ଫୋନ୍ ଥଣ୍ଡା ହେବା ସମୟରେ କିଛି ଫିଚର୍ ଠିକ ଭାବେ କାମ କରିନଥାଏ।
 ଅଧିକ ସୂଚନା ପାଇଁ ଟାପ୍ କରନ୍ତୁ"</string>
     <string name="high_temp_title">ଫୋନ୍‍ ଗରମ ହୋଇଯାଉଛି</string>
-    <string name="home">ସେଟିଂସ୍ ହୋମ୍‌</string>
+    <string name="home">ସେଟିଂସ ହୋମ</string>
     <string name="icon_content_description">Dialog Icon</string>
     <string name="image_content_description">ଚୟନ କରିହେଉଥିବା ଛବି</string>
     <string name="ime_security_warning">ଏହି ଇନ୍‌ପୁଟ୍‌ ପଦ୍ଧତି, ପାସ୍‌ୱର୍ଡ ଓ କ୍ରେଡିଟ୍‌ କାର୍ଡ ନମ୍ୱର୍‌ ଭଳି ବ୍ୟକ୍ତିଗତ ଡାଟା ସମେତ ଆପଣ ଟାଇପ୍‌ କରିଥିବା ସମସ୍ତ ଅକ୍ଷର ସଂଗହ କରିପାରେ।ଏହା, %1$s ଆପ୍‌ରୁ ଆସିଛି| ଏହି ଇନ୍‌ପୁଟ୍‌ ପଦ୍ଧତି ବ୍ୟବହାର କରିବେ?</string>
@@ -1514,7 +1517,7 @@
     <string name="screenshot_scroll_label">ଅଧିକ କ୍ୟାପଚର୍ କରନ୍ତୁ</string>
     <string name="screenshot_share_description">ସ୍କ୍ରିନସଟ ସେୟାର କରନ୍ତୁ</string>
     <string name="screenshot_top_boundary_pct">ଶୀର୍ଷ ସୀମାରେଖା %1$d ଶତକଡ଼ା</string>
-    <string name="search_menu">ସେଟିଂସ୍ ସନ୍ଧାନ କରନ୍ତୁ</string>
+    <string name="search_menu">ସେଟିଂସରେ ସନ୍ଧାନ କରନ୍ତୁ</string>
     <string name="search_menu_title">Search</string>
     <string name="see_all_networks">ସବୁ ଦେଖନ୍ତୁ</string>
     <string name="see_more_title">ଅଧିକ ଦେଖନ୍ତୁ</string>
@@ -1618,7 +1621,7 @@
     <string name="tether_settings_title_wifi">ପୋର୍ଟବଲ୍‌ ହଟସ୍ପଟ୍‌</string>
     <string name="tethering_hardware_offload">ଟିଥରିଙ୍ଗ ହାର୍ଡୱେର ଆକ୍ସିଲିରେସନ୍</string>
     <string name="tethering_hardware_offload_summary">ଯଦି ଉପଲବ୍ଧ ଥାଏ, ଟିଥରିଙ୍ଗ ହାର୍ଡୱେର୍‌ ଆକ୍ସିଲିରେସନ୍ ବ୍ୟବହାର କରନ୍ତୁ</string>
-    <string name="tethering_settings_not_available">ଏହି ଉପଯୋଗକର୍ତ୍ତାଙ୍କ ପାଇଁ ଟିଥରିଙ୍ଗ ସେଟିଙ୍ଗ ଉପଲବ୍ଧ ନାହିଁ</string>
+    <string name="tethering_settings_not_available">ଏହି ଉପଯୋଗକର୍ତ୍ତାଙ୍କ ପାଇଁ ଟିଥରିଂ ସେଟିଂସ ଉପଲବ୍ଧ ନାହିଁ</string>
     <string name="thermal_shutdown_dialog_help_text">ଯତ୍ନ ନେବା ପାଇଁ ଷ୍ଟେପଗୁଡ଼ିକ ଦେଖନ୍ତୁ</string>
     <string name="thermal_shutdown_dialog_message">"ଆପଣଙ୍କ ଫୋନ୍‍ ବହୁତ ଗରମ ଥିଲା, ତେଣୁ ଏହାକୁ ଥଣ୍ଡା କରାଯିବାକୁ ଅଫ୍‍ କରିଦିଆଗଲା। ଆପଣଙ୍କ ଫୋନ୍‍ ବର୍ତ୍ତମାନ ସାମାନ୍ୟ ଅବସ୍ଥାରେ ଚାଲୁଛି।
 
@@ -1642,7 +1645,7 @@
     <string name="transcode_disable_cache">ଟ୍ରାନ୍ସକୋଡିଂ କ୍ୟାଶକୁ ଅକ୍ଷମ କରନ୍ତୁ</string>
     <string name="transcode_enable_all">ଟ୍ରାନ୍ସକୋଡିଂକୁ ସକ୍ଷମ କରନ୍ତୁ</string>
     <string name="transcode_notification">ଟ୍ରାନ୍ସକୋଡିଂ ବିଜ୍ଞପ୍ତିଗୁଡ଼ିକୁ ଦେଖାନ୍ତୁ</string>
-    <string name="transcode_settings_title">ମିଡିଆ ଟ୍ରାନ୍ସକୋଡିଂ ସେଟିଂସ୍</string>
+    <string name="transcode_settings_title">ମିଡିଆ ଟ୍ରାନ୍ସକୋଡିଂ ସେଟିଂସ</string>
     <string name="transcode_user_control">ଟ୍ରାନ୍ସକୋଡିଂ ଡିଫଲ୍ଟଗୁଡ଼ିକୁ ଓଭରରାଇଡ୍ କରନ୍ତୁ</string>
     <string name="transition_animation_scale_title">ଟ୍ରାଞ୍ଜିସନ୍‌ ଆନିମେସନ୍‌ ସ୍କେଲ୍‌</string>
     <string name="tts_default_lang_summary">ପଢ଼ାଯାଇଥିବା ଲେଖା ପାଇଁ ଭାଷା-ନିର୍ଦ୍ଦିଷ୍ଟ ସ୍ୱର ସେଟ୍‌ କରେ</string>
@@ -1655,8 +1658,8 @@
     <string name="tts_engine_network_required">ଟେକ୍ସଟ୍-ରୁ-କଥା ଆଉଟପୁଟ୍‌ ପାଇଁ ଏହି ଭାଷା ଏକ କାମକରୁଥିବା ନେଟୱାର୍କ ସଂଯୋଗ ଆବଶ୍ୟକ କରେ।</string>
     <string name="tts_engine_preference_section_title">ନିଜ ପସନ୍ଦର ଇଞ୍ଜିନ୍‌</string>
     <string name="tts_engine_security_warning">ପାସ୍‌ୱର୍ଡ ଓ କ୍ରେଡିଟ୍‌ କାର୍ଡ ନମ୍ୱର୍‌ଗୁଡ଼ିକ ଭଳି ବ୍ୟକ୍ତିଗତ ତଥ୍ୟ ସମେତ କୁହାଯିବାକୁ ଥିବା ସମସ୍ତ ଲେଖାକୁ, ସ୍ପୀଚ୍‌ ସିନ୍ଥେସିସ୍‌ ଇଞ୍ଜିନ୍‌ ସଂଗ୍ରହ କରିପାରେ। ଏହା, %s ଇଞ୍ଜିନ୍‌ରୁ ଆସିଛି। ଏହି ସ୍ପୀଚ୍‌ ସିନ୍ଥେସିସ୍‌ ଇଞ୍ଜିନ୍‌ର ବ୍ୟବହାରକୁ ସକ୍ଷମ କରିବେ?</string>
-    <string name="tts_engine_settings_button">ଇଞ୍ଜିନ୍‌ ସେଟିଙ୍ଗ ଆରମ୍ଭ କରନ୍ତୁ</string>
-    <string name="tts_engine_settings_title">%s ପାଇଁ ସେଟିଙ୍ଗ</string>
+    <string name="tts_engine_settings_button">ଇଞ୍ଜିନ୍‌ ସେଟିଂସ ଲଞ୍ଚ କରନ୍ତୁ</string>
+    <string name="tts_engine_settings_title">%s ପାଇଁ ସେଟିଂସ</string>
     <string name="tts_general_section_title">ସାଧାରଣ</string>
     <string name="tts_install_data_summary">ସ୍ପୀଚ୍‌ ସିନ୍ଥେସିସ୍‌ ପାଇଁ ଆବଶ୍ୟକ ଭଏସ୍‌ ଡାଟା ଇନ୍‌ଷ୍ଟଲ୍‌ କରନ୍ତୁ</string>
     <string name="tts_install_data_title">ଭଏସ୍‌ ଡାଟା ଇନ୍‌ଷ୍ଟଲ୍ କରନ୍ତୁ</string>
@@ -1704,6 +1707,10 @@
     <string name="usb_accessory_confirm_prompt">%2$s ନିୟନ୍ତ୍ରଣ କରିବାକୁ %1$s ଖୋଲିବେ?</string>
     <string name="usb_accessory_permission_prompt">%2$s ଆକ୍ସେସ୍‍ କରିବାକୁ %1$sକୁ ଅନୁମତି ଦେବେ?</string>
     <string name="usb_accessory_uri_prompt">ଇନଷ୍ଟଲ୍‍ ହୋଇଥିବା କୌଣସି ଆପ୍‍ ଏହି USB ଆକ୍ସେସୋରୀରେ କାମ କରେନାହିଁ। ଏହି ଆକ୍ସେସୋରୀ ବିଷୟରେ %1$sରେ ଅଧିକ ଜାଣନ୍ତୁ</string>
+    <string name="usb_audio_device_confirm_prompt_title">%2$sକୁ ନିୟନ୍ତ୍ରଣ କରିବା ପାଇଁ %1$sକୁ ଖୋଲିବେ?</string>
+    <string name="usb_audio_device_permission_prompt_title">%2$sକୁ ଆକ୍ସେସ କରିବା ପାଇଁ %1$sକୁ ଅନୁମତି ଦେବେ?</string>
+    <string name="usb_audio_device_prompt">ଏହି ଡିଭାଇସରେ %1$s ବ୍ୟବହାର କରିବା କଲ, ବିଜ୍ଞପ୍ତି ଏବଂ ଆଲାରାମଗୁଡ଼ିକୁ ଶୁଣିବାରୁ ପ୍ରତିରୋଧ କରିପାରେ।</string>
+    <string name="usb_audio_device_prompt_warn">ଏହି ଆପକୁ ରେକର୍ଡ କରିବା ପାଇଁ ଅନୁମତି ଦିଆଯାଇନାହିଁ, କିନ୍ତୁ ଏହି USB ଡିଭାଇସ ମାଧ୍ୟମରେ ଏହା ଅଡିଓକୁ କ୍ୟାପଚର କରିପାରିବ। ଏହି ଡିଭାଇସରେ %1$s ବ୍ୟବହାର କରିବା କଲ, ବିଜ୍ଞପ୍ତି ଏବଂ ଆଲାରାମଗୁଡ଼ିକୁ ଶୁଣିବାରୁ ପ୍ରତିରୋଧ କରିପାରେ।</string>
     <string name="usb_audio_disable_routing">USB ଅଡିଓ ରାଉଟିଙ୍ଗ ଅକ୍ଷମ କରନ୍ତୁ</string>
     <string name="usb_audio_disable_routing_summary">USB ଅଡିଓ ଉପକରଣଗୁଡ଼ିକ ପ୍ରତି ସ୍ୱଚାଳିତ ରାଉଟିଙ୍ଗ ଅକ୍ଷମ କରନ୍ତୁ</string>
     <string name="usb_contaminant_message">"ଆପଣଙ୍କ ଡିଭାଇସ୍‌କୁ ତରଳ ପଦାର୍ଥ ଏବଂ ଧୂଳିରୁ ସୁରକ୍ଷିତ ରଖିବା ପାଇଁ, USB ପୋର୍ଟକୁ ଅକ୍ଷମ କରାଯାଇଛି ଏବଂ ଏହା କୌଣସି ଉପକରଣ ଚିହ୍ନଟ କରିବ ନାହିଁ। 
@@ -1731,11 +1738,11 @@
     <string name="user_add_user">ଉପଯୋଗକର୍ତ୍ତାଙ୍କୁ ଯୋଗ କରନ୍ତୁ</string>
     <string name="user_add_user_item_summary">ଉପଯୋଗକର୍ତ୍ତାମାନଙ୍କ ପାଖରେ ନିଜର ଆପ୍‌ ଓ କଣ୍ଟେଣ୍ଟ ଅଛି</string>
     <string name="user_add_user_item_title">ଉପଯୋଗକର୍ତ୍ତା</string>
-    <string name="user_add_user_message_long">"ଅତିରିକ୍ତ ଉପଯୋଗକର୍ତ୍ତା ତିଆରି କରି ଆପଣ ଏହି ଡିଭାଇସ୍‌କୁ ଅନ୍ୟ ଲୋକମାନଙ୍କ ସହିତ ସେୟାର୍ କରିପାରିବେ। ପ୍ରତ୍ୟେକ ଉପଯୋଗକର୍ତ୍ତାଙ୍କ ନିଜର ସ୍ପେସ୍ ଅଛି ଯାହାକୁ ସେମାନେ ଆପ୍, ୱାଲପେପର୍ ଓ ଏପରି ଅନେକ କିଛି ସହିତ କଷ୍ଟମାଇଜ୍ କରିପାରିବେ। ଉପଯୋଗକର୍ତ୍ତା ୱାଇ-ଫାଇ ଭଳି ଡିଭାଇସ୍ ସେଟିଂସକୁ ମଧ୍ୟ ଆଡଜଷ୍ଟ କରିପାରିବେ ଯାହା ସମସ୍ତଙ୍କୁ ପ୍ରଭାବିତ କରିଥାଏ। 
+    <string name="user_add_user_message_long">"ଅତିରିକ୍ତ ଉପଯୋଗକର୍ତ୍ତା ଯୋଗ କରି ଆପଣ ଏହି ଡିଭାଇସକୁ ଅନ୍ୟ ଲୋକମାନଙ୍କ ସହିତ ସେୟାର କରିପାରିବେ। ପ୍ରତ୍ୟେକ ଉପଯୋଗକର୍ତ୍ତାଙ୍କ ନିଜର ସ୍ପେସ୍ ଅଛି ଯାହାକୁ ସେମାନେ ଆପ, ୱାଲପେପର୍ ଓ ଏପରି ଅନେକ କିଛି ସହିତ କଷ୍ଟମାଇଜ କରିପାରିବେ। ଉପଯୋଗକର୍ତ୍ତା ୱାଇ-ଫାଇ ଭଳି ଡିଭାଇସ ସେଟିଂସକୁ ମଧ୍ୟ ଆଡଜଷ୍ଟ କରିପାରିବେ ଯାହା ସମସ୍ତଙ୍କୁ ପ୍ରଭାବିତ କରିଥାଏ। 
 
-ଯେତେବେଳେ ଆପଣ ଗୋଟିଏ ନୂଆ ଉପଯୋଗକର୍ତ୍ତାଙ୍କୁ ଯୋଗ କରିବେ, ସେତେବେଳେ ସେହି ବ୍ୟକ୍ତିଙ୍କୁ ନିଜର ସ୍ପେସ୍‌କୁ ସେଟ‌ଅପ୍ କରିବାକୁ ପଡ଼ିବ। 
+ଯେତେବେଳେ ଆପଣ ଗୋଟିଏ ନୂଆ ଉପଯୋଗକର୍ତ୍ତାଙ୍କୁ ଯୋଗ କରିବେ, ସେତେବେଳେ ସେହି ବ୍ୟକ୍ତିଙ୍କୁ ନିଜର ସ୍ପେସ୍‌କୁ ସେଟ‌ଅପ କରିବାକୁ ପଡ଼ିବ। 
 
-ଅନ୍ୟ ଉପଯୋଗକର୍ତ୍ତାଙ୍କ ପାଇଁ ଯେ କୌଣସି ଉପଯୋଗକର୍ତ୍ତା ଆପ୍‌କୁ ଅପଡେଟ୍ କରିପାରିବେ। ଆକ୍ସେସିବିଲିଟୀ ସେଟିଂସ୍ ଏବଂ ସେବା ନୂଆ ଉପଯୋଗକର୍ତ୍ତାଙ୍କୁ ସ୍ଥାନାନ୍ତର ହୋ‌ଇନପାରେ।"</string>
+ଅନ୍ୟ ଉପଯୋଗକର୍ତ୍ତାଙ୍କ ପାଇଁ ଯେ କୌଣସି ଉପଯୋଗକର୍ତ୍ତା ଆପକୁ ଅପଡେଟ କରିପାରିବେ। ଆକ୍ସେସିବିଲିଟୀ ସେଟିଂସ ଏବଂ ସେବାଗୁଡ଼ିକ ନୂଆ ଉପଯୋଗକର୍ତ୍ତାଙ୍କୁ ସ୍ଥାନାନ୍ତର ହୋ‌ଇନପାରେ।"</string>
     <string name="user_add_user_message_short">"ଆପଣ ଜଣେ ନୂଆ ଉପଯୋଗକର୍ତ୍ତାଙ୍କୁ ଯୋଗ କଲେ,ତାଙ୍କୁ ସ୍ପେସ୍ ସେଟ୍ ଅପ୍ କରିବାକୁ ପଡ଼ିବ। 
  
  ଅନ୍ୟ ସମସ୍ତ ଉପଯୋଗକର୍ତ୍ତାଙ୍କ ପାଇଁ ଯେ କୌଣସି ଉପଯୋଗକର୍ତ୍ତା ଆପଗୁଡ଼ିକୁ ଅପଡେଟ୍‌ କରିପାରିବେ।"</string>
@@ -1790,7 +1797,7 @@
     <string name="volume_stream_content_description_unmute">%1$s। ଅନମ୍ୟୁଟ୍‍ କରିବା ପାଇଁ ଟାପ୍‍ କରନ୍ତୁ।</string>
     <string name="volume_stream_content_description_vibrate">%1$s। ଭାଇବ୍ରେଟ୍‍ ସେଟ୍‍ କରିବାକୁ ଟାପ୍‍ କରନ୍ତୁ। ଆକ୍ସେସିବିଲିଟୀ ସର୍ଭିସ୍‌ ମ୍ୟୁଟ୍‍ କରାଯାଇପାରେ।</string>
     <string name="volume_stream_content_description_vibrate_a11y">%1$s। ଭାଇବ୍ରେଟରେ ସେଟ୍‍ କରିବାକୁ ଟାପ୍‍ କରନ୍ତୁ।</string>
-    <string name="vpn_settings_not_available">VPN ସେଟିଙ୍ଗ ଏହି ଉପଯୋଗକର୍ତ୍ତାଙ୍କ ପାଇଁ ଉପଲବ୍ଧ ନୁହେଁ</string>
+    <string name="vpn_settings_not_available">VPN ସେଟିଂସ ଏହି ଉପଯୋଗକର୍ତ୍ତାଙ୍କ ପାଇଁ ଉପଲବ୍ଧ ନାହିଁ</string>
     <string name="wait_for_debugger">ଡିବଗର୍‌ ପାଇଁ ଅପେକ୍ଷା କରନ୍ତୁ</string>
     <string name="wait_for_debugger_summary">ଡିବଗ୍‌ ହୋଇଥିବା ଆପ୍ଲିକେସନ୍‍, ନିଷ୍ପାଦନ ପୂର୍ବରୁ ଆଟାଚ୍‌ କରିବା ପାଇଁ ଡିବଗର୍‌କୁ ଅପେକ୍ଷା କରେ</string>
     <string name="wallet_app_button_label">ସବୁ ଦେଖାନ୍ତୁ</string>

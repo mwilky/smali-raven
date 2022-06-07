@@ -237,6 +237,9 @@
     <string name="accessor_no_description_text">Ingen beskrivning har tillhandahållits av appen.</string>
     <string name="active_input_method_subtypes">Aktiva inmatningsmetoder</string>
     <string name="activity_launch_on_secondary_display_failed_text">Appen kan inte köras på en sekundär skärm.</string>
+    <string name="adaptive_charging_notify_des">Batteriet är fulladdat kl. %1$s. Laddas kontinuerligt för att bevara batteriets livslängd.</string>
+    <string name="adaptive_charging_notify_title">Smart laddning har aktiverats</string>
+    <string name="adaptive_charging_notify_turn_off_once">Stäng av en gång</string>
     <string name="adaptive_charging_time_estimate">%1$s • Smart laddning (fullt %2$s)</string>
     <string name="adb_device_fingerprint_title_format">Enhetens signatur: %1$s</string>
     <string name="adb_device_forget">Glöm</string>
@@ -301,6 +304,7 @@ Om behörigheten är inaktiverad fungerar inte befintliga alarm och tidsbaserade
     <string name="basic_status">Öppen konversation</string>
     <string name="battery">Batteri</string>
     <string name="battery_detail_switch_title">Batterisparläge</string>
+    <string name="battery_health_notify_learn_more">Läs mer</string>
     <string name="battery_info_status_charging">Laddar</string>
     <string name="battery_info_status_charging_fast">Laddas snabbt</string>
     <string name="battery_info_status_charging_slow">Laddas långsamt</string>
@@ -616,7 +620,6 @@ Om du fortsätter kan avgifter för dataanvändning tillkomma."</string>
     <string name="debug_networking_category">Nätverk</string>
     <string name="debug_view_attributes">Aktivera inspektion av visningsattribut</string>
     <string name="defender_notify_des">Telefonen begränsar laddningen för att bevara batteriets livslängd</string>
-    <string name="defender_notify_learn_more">Läs mer</string>
     <string name="defender_notify_resume_charge">Återuppta laddning</string>
     <string name="defender_notify_title">Laddning har begränsats tillfälligt</string>
     <string name="defender_post_notify_des">Laddning begränsades till %1$s mellan %2$s och %3$s för att bevara batteriets livslängd</string>
@@ -691,7 +694,7 @@ Om du fortsätter kan avgifter för dataanvändning tillkomma."</string>
     <string name="face_reenroll_dialog_confirm">Konfigurera</string>
     <string name="face_reenroll_dialog_content">"Radera din nuvarande ansiktsdata och konfigurera om ansiktslåset.
 
-Ansiktsdatan som används för ansiktslåset tas bort permanent på ett säkert sätt. Efter borttagningen låser du upp telefonen, loggar in i appar och bekräftar betalningar med hjälp av pinkoden, det grafiska lösenordet eller lösenordet."</string>
+Ansiktsdatan som används för ansiktslåset tas bort permanent på ett säkert sätt. Efter borttagningen låser du upp telefonen, loggar in i appar och bekräftar betalningar med hjälp av pinkoden, mönstret eller lösenordet."</string>
     <string name="face_reenroll_dialog_title">Konfigurera ansiktslås</string>
     <string name="face_reenroll_failure_dialog_content">Det gick inte att konfigurera ansiktslåset. Öppna inställningarna och försök igen.</string>
     <string name="face_reenroll_notification_content">Konfiguration krävs för att förbättra säkerheten och prestandan</string>
@@ -866,7 +869,7 @@ prioriterade"</string>
     <string name="keyguard_accessibility_sim_puk_area">PUK-kodsområde för SIM-kort</string>
     <string name="keyguard_charged">Laddat</string>
     <string name="keyguard_enter_your_password">Ange ditt lösenord</string>
-    <string name="keyguard_enter_your_pattern">Ange det grafiska lösenordet</string>
+    <string name="keyguard_enter_your_pattern">Ange mönstret</string>
     <string name="keyguard_enter_your_pin">Ange pinkoden</string>
     <string name="keyguard_indication_charging_time">%2$s • Laddas • Fulladdat om %1$s</string>
     <string name="keyguard_indication_charging_time_fast">%2$s • Laddas snabbt • Fulladdat om %1$s</string>
@@ -1704,6 +1707,10 @@ Tryck för mer information"</string>
     <string name="usb_accessory_confirm_prompt">Vill du öppna %1$s och hantera %2$s?</string>
     <string name="usb_accessory_permission_prompt">Vill du ge %1$s åtkomst till %2$s?</string>
     <string name="usb_accessory_uri_prompt">Inga appar fungerar med det här USB-tillbehöret. Läs mer om det på %1$s</string>
+    <string name="usb_audio_device_confirm_prompt_title">Vill du öppna %1$s och hantera %2$s?</string>
+    <string name="usb_audio_device_permission_prompt_title">Vill du ge %1$s åtkomst till %2$s?</string>
+    <string name="usb_audio_device_prompt">Om du använder %1$s med enheten kanske du inte hör samtal, aviseringar eller alarm.</string>
+    <string name="usb_audio_device_prompt_warn">Appen har inte fått inspelningsbehörighet men kan spela in ljud via denna USB-enhet. Om du använder %1$s med enheten kanske du inte hör samtal, aviseringar eller alarm.</string>
     <string name="usb_audio_disable_routing">Inaktivera ljud via USB</string>
     <string name="usb_audio_disable_routing_summary">Inaktivera autom. ljudomkoppling till USB-enheter</string>
     <string name="usb_contaminant_message">"USB-porten har inaktiverats för att skydda enheten mot vätska eller smuts. Inga tillbehör kommer att hittas.

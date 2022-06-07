@@ -129,7 +129,7 @@
     <string name="accessibility_game_dashboard_shortcut_bar_fps">Կադրերի հաճախականությունը վայրկյանում</string>
     <string name="accessibility_game_dashboard_shortcut_bar_screenshot">Սքրինշոթ անել</string>
     <string name="accessibility_game_dashboard_shortcut_bar_start_recording">Սկսել տեսագրումը</string>
-    <string name="accessibility_game_dashboard_shortcut_bar_stop_recording">Դադարեցնել տեսագրումը</string>
+    <string name="accessibility_game_dashboard_shortcut_bar_stop_recording">Կանգնեցնել տեսագրումը</string>
     <string name="accessibility_game_dashboard_shortcut_bar_undock">Առանձնացնել</string>
     <string name="accessibility_game_dashboard_shortcut_button_disabled">անջատված է</string>
     <string name="accessibility_game_dashboard_shortcut_button_enabled">միացված է</string>
@@ -237,6 +237,9 @@
     <string name="accessor_no_description_text">Հավելվածի կողմից տրամադրված նկարագրություն չկա։</string>
     <string name="active_input_method_subtypes">Մուտքագրման ակտիվ տարբերակներ</string>
     <string name="activity_launch_on_secondary_display_failed_text">Հավելվածը չի աջակցում գործարկումը լրացուցիչ էկրանների վրա</string>
+    <string name="adaptive_charging_notify_des">Լիցքավորումը կավարտվի %1$s։ Այն դանդաղ է ընթանում՝ մարտկոցի ծառայության ժամկետը երկարացնելու համար։</string>
+    <string name="adaptive_charging_notify_title">Հարմարվող լիցքավորումը միացված է</string>
+    <string name="adaptive_charging_notify_turn_off_once">Անջատել մեկ անգամ</string>
     <string name="adaptive_charging_time_estimate">%1$s • Հարմարվող լիցքավորում (կավարտվի %2$s)</string>
     <string name="adb_device_fingerprint_title_format">Սարքի մատնահետք՝ %1$s</string>
     <string name="adb_device_forget">Հեռացնել</string>
@@ -301,6 +304,7 @@
     <string name="basic_status">Բաց զրույց</string>
     <string name="battery">Մարտկոց</string>
     <string name="battery_detail_switch_title">Մարտկոցի տնտեսում</string>
+    <string name="battery_health_notify_learn_more">Իմանալ ավելին</string>
     <string name="battery_info_status_charging">Լիցքավորում</string>
     <string name="battery_info_status_charging_fast">Արագ լիցքավորում</string>
     <string name="battery_info_status_charging_slow">Դանդաղ լիցքավորում</string>
@@ -616,7 +620,6 @@
     <string name="debug_networking_category">Ցանց</string>
     <string name="debug_view_attributes">Միացնել ցուցադրման հատկանիշների ստուգումը</string>
     <string name="defender_notify_des">Հեռախոսը սահմանափակում է լիցքավորումը՝ մարտկոցի ծառայության ժամկետը երկարացնելու համար։</string>
-    <string name="defender_notify_learn_more">Իմանալ ավելին</string>
     <string name="defender_notify_resume_charge">Վերսկսել լիցքավորումը</string>
     <string name="defender_notify_title">Լիցքավորումը ժամանակավորապես սահմանափակված է</string>
     <string name="defender_post_notify_des">Լիցքավորման մակարդակը %2$s - %3$s ժամանակահատվածի համար սահմանափակված է մինչև %1$s՝ մարտկոցի երկարակեցությունը ապահովելու նպատակով</string>
@@ -834,7 +837,7 @@
     <string name="keyboard_key_media_play_pause">Նվագարկում/դադար</string>
     <string name="keyboard_key_media_previous">Նախորդը</string>
     <string name="keyboard_key_media_rewind">Հետ անցնել</string>
-    <string name="keyboard_key_media_stop">Դադարեցնել</string>
+    <string name="keyboard_key_media_stop">Կանգնեցնել</string>
     <string name="keyboard_key_move_end">Վերջ</string>
     <string name="keyboard_key_move_home">Գլխավոր էջ</string>
     <string name="keyboard_key_num_lock">Num Lock</string>
@@ -1704,6 +1707,10 @@
     <string name="usb_accessory_confirm_prompt">Բացե՞լ %1$s հավելվածը %2$s լրասարքը մշակելու համար։</string>
     <string name="usb_accessory_permission_prompt">Թույլատրե՞լ %1$s հավելվածին օգտագործել %2$s լրասարքը։</string>
     <string name="usb_accessory_uri_prompt">Այս USB լրասարքի հետ ոչ մի հավելված չի աշխատում: Իմացեք ավելին այս լրասարքի մասին %1$s-ում</string>
+    <string name="usb_audio_device_confirm_prompt_title">Բացե՞լ %1$s-ը՝ %2$s-ը կառավարելու համար</string>
+    <string name="usb_audio_device_permission_prompt_title">Հասանելի դարձնե՞լ %1$s հավելվածին %2$s սարքը</string>
+    <string name="usb_audio_device_prompt">%1$s հավելվածն այս սարքի հետ օգտագործելիս հնարավոր է, որ չլսեք զանգերի, ծանուցումների և զարթուցիչների ձայները։</string>
+    <string name="usb_audio_device_prompt_warn">Հավելվածը ձայնագրելու թույլտվություն չունի, սակայն կկարողանա գրանցել ձայնն այս USB սարքի միջոցով։ %1$s հավելվածն այս սարքի հետ օգտագործելիս հնարավոր է, որ չլսեք զանգերի, ծանուցումների և զարթուցիչների ձայները։</string>
     <string name="usb_audio_disable_routing">Անջատել USB աուդիո երթուղումը</string>
     <string name="usb_audio_disable_routing_summary">Անջատել ավտոմատ երթուղումը դեպի USB աուդիո սարքեր</string>
     <string name="usb_contaminant_message">"USB միացքն անջատվել է, որպեսզի ձեր սարքը չթրջվի կամ չաղտոտվի: Այժմ USB միացքի միջոցով հնարավոր չէ միացնել այլ սարքեր:

@@ -141,7 +141,7 @@
 
     iget-object v0, v0, Lcom/android/systemui/tv/DaggerTvGlobalRootComponent$TvSysUIComponentImpl;->this$0:Lcom/android/systemui/tv/DaggerTvGlobalRootComponent;
 
-    invoke-static {v0}, Lcom/android/systemui/tv/DaggerTvGlobalRootComponent;->access$23500(Lcom/android/systemui/tv/DaggerTvGlobalRootComponent;)Landroid/os/Handler;
+    invoke-static {v0}, Lcom/android/systemui/tv/DaggerTvGlobalRootComponent;->access$23600(Lcom/android/systemui/tv/DaggerTvGlobalRootComponent;)Landroid/os/Handler;
 
     move-result-object v5
 

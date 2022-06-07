@@ -237,6 +237,9 @@
     <string name="accessor_no_description_text">ஆப்ஸ் எந்த விளக்கத்தையும் வழங்கவில்லை.</string>
     <string name="active_input_method_subtypes">செயலில் உள்ள உள்ளீட்டு முறைகள்</string>
     <string name="activity_launch_on_secondary_display_failed_text">இரண்டாம்நிலைத் திரைகளில் பயன்பாட்டைத் தொடங்க முடியாது.</string>
+    <string name="adaptive_charging_notify_des">%1$s மணிக்கு பேட்டரி முழுமையாகச் சார்ஜ் ஆகும். பேட்டரி ஆயுளைப் பாதுகாக்க சீராகச் சார்ஜாகுகிறது.</string>
+    <string name="adaptive_charging_notify_title">சூழலுக்கேற்பச் சார்ஜ் செய்தல் அம்சம் இயக்கப்பட்டுள்ளது</string>
+    <string name="adaptive_charging_notify_turn_off_once">ஒருமுறை முடக்கு</string>
     <string name="adaptive_charging_time_estimate">%1$s • அடாப்டிவ் சார்ஜிங் (%2$sக்கு நிறைவடையும்)</string>
     <string name="adb_device_fingerprint_title_format">சாதனக் கைரேகை: %1$s</string>
     <string name="adb_device_forget">அகற்று</string>
@@ -301,6 +304,7 @@
     <string name="basic_status">திறந்தநிலை உரையாடல்</string>
     <string name="battery">பேட்டரி</string>
     <string name="battery_detail_switch_title">பேட்டரி சேமிப்பு</string>
+    <string name="battery_health_notify_learn_more">மேலும் அறிக</string>
     <string name="battery_info_status_charging">சார்ஜ் ஆகிறது</string>
     <string name="battery_info_status_charging_fast">வேகமாக சார்ஜாகிறது</string>
     <string name="battery_info_status_charging_slow">மெதுவாக சார்ஜாகிறது</string>
@@ -616,7 +620,6 @@
     <string name="debug_networking_category">நெட்வொர்க்கிங்</string>
     <string name="debug_view_attributes">காட்சி பண்புக்கூறு சோதனையை இயக்கு</string>
     <string name="defender_notify_des">பேட்டரி ஆயுளைப் பாதுகாக்க உதவுவதற்காகச் சார்ஜாவதை உங்கள் மொபைல் கட்டுப்படுத்துகிறது</string>
-    <string name="defender_notify_learn_more">மேலும் அறிக</string>
     <string name="defender_notify_resume_charge">சார்ஜ் செய்வதை மீண்டும் தொடங்கு</string>
     <string name="defender_notify_title">சார்ஜிங் தற்காலிகமாக வரம்பிடப்பட்டுள்ளது</string>
     <string name="defender_post_notify_des">பேட்டரி ஆயுளைப் பாதுகாக்க, %2$s முதல் %3$s வரை %1$s அளவுக்கு மட்டுமே சார்ஜாகும்</string>
@@ -718,7 +721,7 @@
     <string name="game_dashboard_game_menu_title">கேம் டாஷ்போர்டு</string>
     <string name="game_dashboard_record_shortcut_available">ரெக்கார்டிங் ஷார்ட்கட் உள்ளது</string>
     <string name="game_dashboard_screenshot_shortcut_available">ஸ்கிரீன்ஷாட் ஷார்ட்கட் உள்ளது</string>
-    <string name="game_launch_battery">பேட்டரி நிலைக்காக மேம்படுத்தப்பட்டது</string>
+    <string name="game_launch_battery">பேட்டரி ஆயுளை மேம்படுத்தப்பட்டது</string>
     <string name="game_launch_change">மாற்று</string>
     <string name="game_launch_dnd_on">"கேம்களுக்கான 'தொந்தரவு செய்ய வேண்டாம்' அம்சம் இயக்கப்பட்டுள்ளது"</string>
     <string name="game_launch_performance">செயல்திறனுக்காக மேம்படுத்தப்பட்டுள்ளது</string>
@@ -726,14 +729,14 @@
     <string name="game_menu_game_mode_title">மேம்படுத்துதல்</string>
     <string name="game_menu_youtube_live_stream_widget_description">கேம்பிளேயை ஸ்ட்ரீம் செய்யும்</string>
     <string name="game_menu_youtube_live_stream_widget_title">YouTube நேரலை</string>
-    <string name="game_mode_battery_description">பேட்டரி நிலையை நீட்டிக்கும்</string>
+    <string name="game_mode_battery_description">பேட்டரி ஆயுளை நீட்டிக்கும்</string>
     <string name="game_mode_battery_title">பேட்டரி சேமிப்பு</string>
     <string name="game_mode_dnd_rule_name">கேமிங்</string>
     <string name="game_mode_performance_description">ஃப்ரேம் வீதத்தை அதிகரிக்கும்</string>
     <string name="game_mode_performance_title">உயர் தரம்</string>
     <string name="game_mode_restart_dialog_cancel">ரத்துசெய்</string>
     <string name="game_mode_restart_dialog_confirm">மீண்டும் தொடங்கு</string>
-    <string name="game_mode_restart_dialog_message_battery">கேமை மீண்டும் தொடங்கும்போது பேட்டரி நிலையை மேம்படுத்துவோம்</string>
+    <string name="game_mode_restart_dialog_message_battery">கேமை மீண்டும் தொடங்கும்போது பேட்டரி ஆயுளை மேம்படுத்துவோம்</string>
     <string name="game_mode_restart_dialog_message_performance">கேமை மீண்டும் தொடங்கும்போது அதன் செயல்திறனை மேம்படுத்துவோம்</string>
     <string name="game_mode_restart_dialog_message_standard">கேமை மீண்டும் தொடங்கும்போது அதன் இயல்புநிலையைப் பயன்படுத்துவோம்</string>
     <string name="game_mode_restart_dialog_title">இந்த கேமை மீண்டும் தொடங்கவா?</string>
@@ -1037,7 +1040,7 @@
     <string name="media_output_dialog_single_device">1 சாதனம் தேர்ந்தெடுக்கப்பட்டுள்ளது</string>
     <string name="media_projection_action_text">இப்போது தொடங்கு</string>
     <string name="media_projection_dialog_service_text">இந்தச் செயல்பாட்டை வழங்கும் சேவையானது உங்கள் திரையில் தெரியும் தகவல்கள், ரெக்கார்டு செய்யும்போதோ அனுப்பும்போதோ உங்கள் சாதனத்திலிருந்து பிளே ஆகும் அனைத்துத் தகவல்கள் ஆகியவற்றுக்கான அணுகலைக் கொண்டிருக்கும். கடவுச்சொற்கள், பேமெண்ட் தொடர்பான தகவல்கள், படங்கள், மெசேஜ்கள், நீங்கள் பிளே செய்யும் ஆடியோ போன்ற அனைத்துத் தகவல்களும் இதில் அடங்கும்.</string>
-    <string name="media_projection_dialog_service_title">ரெக்கார்டிங் செய்யவோ அனுப்புவதற்கோ தொடங்கிவிட்டீர்களா?</string>
+    <string name="media_projection_dialog_service_title">ரெக்கார்டிங் செய்யவோ அனுப்புவோ தொடங்கவா?</string>
     <string name="media_projection_dialog_text">%s உங்கள் திரையில் தெரியும் தகவல்கள், ரெக்கார்டு செய்யும்போதோ அனுப்பும்போதோ உங்கள் சாதனத்திலிருந்து பிளே ஆகும் அனைத்து தகவல்கள் ஆகியவற்றுக்கான அணுகலைக் கொண்டிருக்கும். கடவுச்சொற்கள், பேமெண்ட் தொடர்பான தகவல்கள், படங்கள், மெசேஜ்கள், நீங்கள் பிளே செய்யும் ஆடியோ போன்ற அனைத்துத் தகவல்களும் இதில் அடங்கும்.</string>
     <string name="media_projection_dialog_title">%s மூலம் ரெக்கார்டிங் செய்யவோ அனுப்புவதற்கோ தொடங்கிவீட்டீர்களா?</string>
     <string name="media_seamless_other_device">பிற சாதனம்</string>
@@ -1323,7 +1326,7 @@
     <string name="power_suggestion_battery_run_out">%1$sக்கு பேட்டரி காலியாகிவிடக்கூடும்</string>
     <string name="preference_copied">\"%1$s\" கிளிப்போர்டுக்கு நகலெடுக்கப்பட்டது.</string>
     <string name="preference_summary_default_combination">%1$s / %2$s</string>
-    <string name="priority_conversations">முன்னுரிமை அளிக்கப்பட்ட உரையாடல்கள்</string>
+    <string name="priority_conversations">முக்கிய உரையாடல்கள்</string>
     <string name="privacy_type_camera">கேமரா</string>
     <string name="privacy_type_location">இருப்பிடம்</string>
     <string name="privacy_type_microphone">மைக்ரோஃபோன்</string>
@@ -1460,8 +1463,8 @@
     <string name="screen_pinning_description">பொருத்தியதை அகற்றும் வரை இதைக் காட்சியில் வைக்கும். அகற்ற, முந்தையது மற்றும் மேலோட்டப் பார்வையைத் தொட்டுப் பிடிக்கவும்.</string>
     <string name="screen_pinning_description_accessible">பொருத்தியதை அகற்றும் வரை இதைக் காட்சியில் வைக்கும். அகற்ற, மேலோட்டப் பார்வையைத் தொட்டுப் பிடிக்கவும்.</string>
     <string name="screen_pinning_description_gestural">பின் செய்திருப்பதை அகற்றும் வரை இதைச் செயல்பாட்டில் வைத்திருக்கும். அதை அகற்றுவதற்கு மேல்நோக்கி ஸ்வைப் செய்து பிடித்திருக்கவும்.</string>
-    <string name="screen_pinning_description_recents_invisible">இதற்கான பின்னை அகற்றும் வரை, இந்தப் பயன்முறை செயல்பாட்டிலேயே இருக்கும். அகற்றுவதற்கு, முந்தையது மற்றும் முகப்புப் பொத்தான்களைத் தொட்டுப் பிடிக்கவும்.</string>
-    <string name="screen_pinning_description_recents_invisible_accessible">இதற்கான பின்னை அகற்றும் வரை, இந்தப் பயன்முறை செயல்பாட்டிலேயே இருக்கும். அகற்றுவதற்கு, முகப்புப் பொத்தானைத் தொட்டுப் பிடிக்கவும்.</string>
+    <string name="screen_pinning_description_recents_invisible">இதற்கான பின்னை அகற்றும் வரை, இந்தப் பயன்முறை செயல்பாட்டிலேயே இருக்கும். அகற்றுவதற்கு, முந்தையது மற்றும் முகப்பு பட்டன்களைத் தொட்டுப் பிடிக்கவும்.</string>
+    <string name="screen_pinning_description_recents_invisible_accessible">இதற்கான பின்னை அகற்றும் வரை, இந்தப் பயன்முறை செயல்பாட்டிலேயே இருக்கும். அகற்றுவதற்கு, முகப்புப் பட்டனைத் தொட்டுப் பிடிக்கவும்.</string>
     <string name="screen_pinning_exit">ஆப்ஸ் பின்னிலிருந்து அகற்றப்பட்டது</string>
     <string name="screen_pinning_exposes_personal_data">தனிப்பட்ட தரவு அணுகப்படக்கூடும் (தொடர்புகள், மின்னஞ்சலின் உள்ளடக்கம் போன்றவை).</string>
     <string name="screen_pinning_negative">வேண்டாம்</string>
@@ -1481,7 +1484,7 @@
     <string name="screenrecord_background_processing_label">ஸ்க்ரீன் ரெக்கார்டிங் செயலாக்கப்படுகிறது</string>
     <string name="screenrecord_channel_description">திரை ரெக்கார்டிங் அமர்விற்கான தொடர் அறிவிப்பு</string>
     <string name="screenrecord_delete_error">திரை ரெக்கார்டிங்கை நீக்குவதில் பிழை</string>
-    <string name="screenrecord_description">ரெக்கார்டு செய்யும்போது, உங்கள் திரையில் தோன்றக்கூடிய அல்லது சாதனத்தில் பிளே ஆகக்கூடிய ஏதேனும் அதிமுக்கியத் தகவலை Android சிஸ்டம் படமெடுக்க முடியும். கடவுச்சொற்கள், பேமெண்ட் தகவல், படங்கள், மெசேஜ்கள், ஆடியோ ஆகியவை இதில் அடங்கும்.</string>
+    <string name="screenrecord_description">ரெக்கார்டு செய்யும்போது, உங்கள் திரையில் தோன்றக்கூடிய அல்லது சாதனத்தில் பிளே ஆகக்கூடிய பாதுகாக்கப்பட வேண்டிய தகவலை Android சிஸ்டம் படமெடுக்க முடியும். கடவுச்சொற்கள், பேமெண்ட் தகவல், படங்கள், மெசேஜ்கள், ஆடியோ ஆகியவை இதில் அடங்கும்.</string>
     <string name="screenrecord_device_audio_and_mic_label">சாதன ஆடியோ மற்றும் மைக்ரோஃபோன்</string>
     <string name="screenrecord_device_audio_description">இசை, அழைப்புகள், ரிங்டோன்கள் போன்ற உங்கள் சாதனத்திலிருந்து வரும் ஒலி</string>
     <string name="screenrecord_device_audio_label">சாதன ஆடியோ</string>
@@ -1704,6 +1707,10 @@
     <string name="usb_accessory_confirm_prompt">%2$sஐக் கையாள, %1$s பயன்பாட்டைத் திறக்கவா?</string>
     <string name="usb_accessory_permission_prompt">%2$sஐ அணுக, %1$s ஆப்ஸை அனுமதிக்கவா?</string>
     <string name="usb_accessory_uri_prompt">நிறுவிய ஆப்ஸ் எதுவும், USB துணைக்கருவியுடன் இயங்காது. %1$s இல் துணைக்கருவி குறித்து மேலும் அறிக</string>
+    <string name="usb_audio_device_confirm_prompt_title">%2$s சாதனத்தைக் கையாள %1$s ஆப்ஸைத் திறக்கவா?</string>
+    <string name="usb_audio_device_permission_prompt_title">%2$s சாதனத்தை அணுக %1$s ஆப்ஸை அனுமதிக்கவா?</string>
+    <string name="usb_audio_device_prompt">இந்தச் சாதனத்தில் %1$s ஆப்ஸைப் பயன்படுத்தினால் அழைப்புகள், அறிவிப்புகள், அலாரங்கள் ஆகியவற்றின் ஒலி கேட்பது தடுக்கப்படக்கூடும்.</string>
+    <string name="usb_audio_device_prompt_warn">இந்த ஆப்ஸில் ரெக்கார்டு செய்வதற்கு அனுமதி இல்லை, எனினும் இந்த USB சாதனம் மூலம் ஆடியோவைப் பதிவுசெய்யலாம். இந்தச் சாதனத்தில் %1$s ஆப்ஸைப் பயன்படுத்தினால் அழைப்புகள், அறிவிப்புகள், அலாரங்கள் ஆகியவற்றின் ஒலி கேட்பது தடுக்கப்படக்கூடும்.</string>
     <string name="usb_audio_disable_routing">USB ஆடியோ ரூட்டிங்கை முடக்கு</string>
     <string name="usb_audio_disable_routing_summary">USB ஆடியோ உபகரணத்திற்கு தன்னியக்க ரூட்டிங்கை முடக்கு</string>
     <string name="usb_contaminant_message">"தேவையற்றவையில் இருந்து உங்கள் சாதனத்தைப் பாதுகாக்க USB போர்ட் முடக்கப்பட்டுள்ளது. மேலும் எந்தத் துணைக் கருவிகளையும் அது கண்டறியாது.

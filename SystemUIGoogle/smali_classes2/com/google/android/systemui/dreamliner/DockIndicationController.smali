@@ -577,32 +577,34 @@
 
     const/4 v0, 0x0
 
-    if-nez p1, :cond_0
+    if-eqz p1, :cond_1
 
-    return v0
+    iget-object v1, p0, Lcom/google/android/systemui/dreamliner/DockIndicationController;->mDockedTopIcon:Landroid/widget/ImageView;
+
+    if-nez v1, :cond_0
+
+    goto :goto_0
 
     :cond_0
-    const/4 v1, 0x2
+    const/4 v2, 0x2
 
-    new-array v1, v1, [I
+    new-array v2, v2, [I
 
-    iget-object v2, p0, Lcom/google/android/systemui/dreamliner/DockIndicationController;->mDockedTopIcon:Landroid/widget/ImageView;
+    invoke-virtual {v1, v2}, Landroid/widget/ImageView;->getLocationOnScreen([I)V
 
-    invoke-virtual {v2, v1}, Landroid/widget/ImageView;->getLocationOnScreen([I)V
+    new-instance v1, Landroid/graphics/RectF;
 
-    new-instance v2, Landroid/graphics/RectF;
-
-    aget v3, v1, v0
+    aget v3, v2, v0
 
     int-to-float v3, v3
 
     const/4 v4, 0x1
 
-    aget v5, v1, v4
+    aget v5, v2, v4
 
     int-to-float v5, v5
 
-    aget v0, v1, v0
+    aget v0, v2, v0
 
     iget-object v6, p0, Lcom/google/android/systemui/dreamliner/DockIndicationController;->mDockedTopIcon:Landroid/widget/ImageView;
 
@@ -614,7 +616,7 @@
 
     int-to-float v0, v0
 
-    aget v1, v1, v4
+    aget v2, v2, v4
 
     iget-object p0, p0, Lcom/google/android/systemui/dreamliner/DockIndicationController;->mDockedTopIcon:Landroid/widget/ImageView;
 
@@ -622,11 +624,11 @@
 
     move-result p0
 
-    add-int/2addr v1, p0
+    add-int/2addr v2, p0
 
-    int-to-float p0, v1
+    int-to-float p0, v2
 
-    invoke-direct {v2, v3, v5, v0, p0}, Landroid/graphics/RectF;-><init>(FFFF)V
+    invoke-direct {v1, v3, v5, v0, p0}, Landroid/graphics/RectF;-><init>(FFFF)V
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getRawX()F
 
@@ -636,7 +638,7 @@
 
     move-result p1
 
-    invoke-virtual {v2, p0, p1}, Landroid/graphics/RectF;->contains(FF)Z
+    invoke-virtual {v1, p0, p1}, Landroid/graphics/RectF;->contains(FF)Z
 
     move-result p0
 
@@ -659,6 +661,10 @@
     invoke-static {v0, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     return p0
+
+    :cond_1
+    :goto_0
+    return v0
 .end method
 
 .method public isPromoShowing()Z

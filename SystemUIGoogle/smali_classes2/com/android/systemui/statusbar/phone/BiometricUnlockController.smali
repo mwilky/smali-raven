@@ -96,10 +96,10 @@
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$SLF39K-qGQ-2bOLZkvAeLvWVZ2E(Lcom/android/systemui/statusbar/phone/BiometricUnlockController;ZZ)V
+.method public static synthetic $r8$lambda$oMOJ0_uMutQvPr5qmYtDJ9RPjdQ(Lcom/android/systemui/statusbar/phone/BiometricUnlockController;Z)V
     .locals 0
 
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/statusbar/phone/BiometricUnlockController;->lambda$startWakeAndUnlock$0(ZZ)V
+    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/phone/BiometricUnlockController;->lambda$startWakeAndUnlock$0(Z)V
 
     return-void
 .end method
@@ -680,7 +680,7 @@
     return-void
 .end method
 
-.method private synthetic lambda$startWakeAndUnlock$0(ZZ)V
+.method private synthetic lambda$startWakeAndUnlock$0(Z)V
     .locals 4
 
     if-nez p1, :cond_0
@@ -704,13 +704,6 @@
     invoke-virtual {p1, v0, v1, v2, v3}, Landroid/os/PowerManager;->wakeUp(JILjava/lang/String;)V
 
     :cond_0
-    if-eqz p2, :cond_1
-
-    iget-object p1, p0, Lcom/android/systemui/statusbar/phone/BiometricUnlockController;->mKeyguardViewMediator:Lcom/android/systemui/keyguard/KeyguardViewMediator;
-
-    invoke-virtual {p1}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->onWakeAndUnlocking()V
-
-    :cond_1
     const-string p1, "release wake-and-unlock"
 
     invoke-static {p1}, Landroid/os/Trace;->beginSection(Ljava/lang/String;)V
@@ -1579,7 +1572,7 @@
 .end method
 
 .method public startWakeAndUnlock(I)V
-    .locals 6
+    .locals 5
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -1623,56 +1616,36 @@
 
     invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/BiometricUnlockController;->pulsingOrAod()Z
 
-    move-result v4
+    move-result p1
 
-    if-eqz v4, :cond_0
+    if-eqz p1, :cond_0
 
-    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/BiometricUnlockController;->mNotificationShadeWindowController:Lcom/android/systemui/statusbar/NotificationShadeWindowController;
+    iget-object p1, p0, Lcom/android/systemui/statusbar/phone/BiometricUnlockController;->mNotificationShadeWindowController:Lcom/android/systemui/statusbar/NotificationShadeWindowController;
 
-    invoke-interface {v4, v3}, Lcom/android/systemui/statusbar/NotificationShadeWindowController;->setForceDozeBrightness(Z)V
+    invoke-interface {p1, v3}, Lcom/android/systemui/statusbar/NotificationShadeWindowController;->setForceDozeBrightness(Z)V
 
     :cond_0
-    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/BiometricUnlockController;->mDozeParameters:Lcom/android/systemui/statusbar/phone/DozeParameters;
+    iget-object p1, p0, Lcom/android/systemui/statusbar/phone/BiometricUnlockController;->mDozeParameters:Lcom/android/systemui/statusbar/phone/DozeParameters;
 
-    invoke-virtual {v4}, Lcom/android/systemui/statusbar/phone/DozeParameters;->getAlwaysOn()Z
+    invoke-virtual {p1}, Lcom/android/systemui/statusbar/phone/DozeParameters;->getAlwaysOn()Z
 
-    move-result v4
+    new-instance p1, Lcom/android/systemui/statusbar/phone/BiometricUnlockController$$ExternalSyntheticLambda1;
 
-    if-ne p1, v3, :cond_1
+    invoke-direct {p1, p0, v0}, Lcom/android/systemui/statusbar/phone/BiometricUnlockController$$ExternalSyntheticLambda1;-><init>(Lcom/android/systemui/statusbar/phone/BiometricUnlockController;Z)V
+
+    iget v4, p0, Lcom/android/systemui/statusbar/phone/BiometricUnlockController;->mMode:I
 
     if-eqz v4, :cond_1
 
-    iget p1, p0, Lcom/android/systemui/statusbar/phone/BiometricUnlockController;->mWakeUpDelay:I
-
-    if-lez p1, :cond_1
-
-    move p1, v3
-
-    goto :goto_0
+    invoke-interface {p1}, Ljava/lang/Runnable;->run()V
 
     :cond_1
-    move p1, v1
+    iget p1, p0, Lcom/android/systemui/statusbar/phone/BiometricUnlockController;->mMode:I
 
-    :goto_0
-    new-instance v4, Lcom/android/systemui/statusbar/phone/BiometricUnlockController$$ExternalSyntheticLambda1;
-
-    invoke-direct {v4, p0, v0, p1}, Lcom/android/systemui/statusbar/phone/BiometricUnlockController$$ExternalSyntheticLambda1;-><init>(Lcom/android/systemui/statusbar/phone/BiometricUnlockController;ZZ)V
-
-    if-nez p1, :cond_2
-
-    iget v5, p0, Lcom/android/systemui/statusbar/phone/BiometricUnlockController;->mMode:I
-
-    if-eqz v5, :cond_2
-
-    invoke-interface {v4}, Ljava/lang/Runnable;->run()V
-
-    :cond_2
-    iget v5, p0, Lcom/android/systemui/statusbar/phone/BiometricUnlockController;->mMode:I
-
-    packed-switch v5, :pswitch_data_0
+    packed-switch p1, :pswitch_data_0
 
     :pswitch_0
-    goto/16 :goto_5
+    goto :goto_3
 
     :pswitch_1
     const-string p1, "MODE_DISMISS_BOUNCER or MODE_UNLOCK_FADING"
@@ -1685,20 +1658,20 @@
 
     invoke-static {}, Landroid/os/Trace;->endSection()V
 
-    goto :goto_5
+    goto :goto_3
 
     :pswitch_2
     const-string p1, "MODE_UNLOCK_COLLAPSING"
 
     invoke-static {p1}, Landroid/os/Trace;->beginSection(Ljava/lang/String;)V
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_2
 
     iput-boolean v3, p0, Lcom/android/systemui/statusbar/phone/BiometricUnlockController;->mPendingShowBouncer:Z
 
-    goto :goto_1
+    goto :goto_0
 
-    :cond_3
+    :cond_2
     iget-object p1, p0, Lcom/android/systemui/statusbar/phone/BiometricUnlockController;->mShadeController:Lcom/android/systemui/statusbar/phone/ShadeController;
 
     const v0, 0x3f8ccccd    # 1.1f
@@ -1711,98 +1684,84 @@
 
     invoke-interface {p1, v1}, Lcom/android/keyguard/KeyguardViewController;->notifyKeyguardAuthenticated(Z)V
 
-    :goto_1
+    :goto_0
     invoke-static {}, Landroid/os/Trace;->endSection()V
 
-    goto :goto_5
+    goto :goto_3
 
     :pswitch_3
     const-string p1, "MODE_SHOW_BOUNCER"
 
     invoke-static {p1}, Landroid/os/Trace;->beginSection(Ljava/lang/String;)V
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_3
 
     iput-boolean v3, p0, Lcom/android/systemui/statusbar/phone/BiometricUnlockController;->mPendingShowBouncer:Z
+
+    goto :goto_1
+
+    :cond_3
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/BiometricUnlockController;->showBouncer()V
+
+    :goto_1
+    invoke-static {}, Landroid/os/Trace;->endSection()V
+
+    goto :goto_3
+
+    :pswitch_4
+    if-ne p1, v2, :cond_4
+
+    const-string p1, "MODE_WAKE_AND_UNLOCK_PULSING"
+
+    invoke-static {p1}, Landroid/os/Trace;->beginSection(Ljava/lang/String;)V
+
+    iget-object p1, p0, Lcom/android/systemui/statusbar/phone/BiometricUnlockController;->mMediaManager:Lcom/android/systemui/statusbar/NotificationMediaManager;
+
+    invoke-virtual {p1, v1, v3}, Lcom/android/systemui/statusbar/NotificationMediaManager;->updateMediaMetaData(ZZ)V
 
     goto :goto_2
 
     :cond_4
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/BiometricUnlockController;->showBouncer()V
+    if-ne p1, v3, :cond_5
 
-    :goto_2
-    invoke-static {}, Landroid/os/Trace;->endSection()V
+    const-string p1, "MODE_WAKE_AND_UNLOCK"
 
-    goto :goto_5
+    invoke-static {p1}, Landroid/os/Trace;->beginSection(Ljava/lang/String;)V
 
-    :pswitch_4
-    if-ne v5, v2, :cond_5
-
-    const-string v0, "MODE_WAKE_AND_UNLOCK_PULSING"
-
-    invoke-static {v0}, Landroid/os/Trace;->beginSection(Ljava/lang/String;)V
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/BiometricUnlockController;->mMediaManager:Lcom/android/systemui/statusbar/NotificationMediaManager;
-
-    invoke-virtual {v0, v1, v3}, Lcom/android/systemui/statusbar/NotificationMediaManager;->updateMediaMetaData(ZZ)V
-
-    goto :goto_3
+    goto :goto_2
 
     :cond_5
-    if-ne v5, v3, :cond_6
+    const-string p1, "MODE_WAKE_AND_UNLOCK_FROM_DREAM"
 
-    const-string v0, "MODE_WAKE_AND_UNLOCK"
+    invoke-static {p1}, Landroid/os/Trace;->beginSection(Ljava/lang/String;)V
 
-    invoke-static {v0}, Landroid/os/Trace;->beginSection(Ljava/lang/String;)V
+    iget-object p1, p0, Lcom/android/systemui/statusbar/phone/BiometricUnlockController;->mUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    goto :goto_3
+    invoke-virtual {p1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->awakenFromDream()V
 
-    :cond_6
-    const-string v0, "MODE_WAKE_AND_UNLOCK_FROM_DREAM"
+    :goto_2
+    iget-object p1, p0, Lcom/android/systemui/statusbar/phone/BiometricUnlockController;->mNotificationShadeWindowController:Lcom/android/systemui/statusbar/NotificationShadeWindowController;
 
-    invoke-static {v0}, Landroid/os/Trace;->beginSection(Ljava/lang/String;)V
+    invoke-interface {p1, v1}, Lcom/android/systemui/statusbar/NotificationShadeWindowController;->setNotificationShadeFocusable(Z)V
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/BiometricUnlockController;->mUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    invoke-virtual {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->awakenFromDream()V
-
-    :goto_3
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/BiometricUnlockController;->mNotificationShadeWindowController:Lcom/android/systemui/statusbar/NotificationShadeWindowController;
-
-    invoke-interface {v0, v1}, Lcom/android/systemui/statusbar/NotificationShadeWindowController;->setNotificationShadeFocusable(Z)V
-
-    if-eqz p1, :cond_7
-
-    iget-object p1, p0, Lcom/android/systemui/statusbar/phone/BiometricUnlockController;->mHandler:Landroid/os/Handler;
-
-    iget v0, p0, Lcom/android/systemui/statusbar/phone/BiometricUnlockController;->mWakeUpDelay:I
-
-    int-to-long v0, v0
-
-    invoke-virtual {p1, v4, v0, v1}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
-
-    goto :goto_4
-
-    :cond_7
     iget-object p1, p0, Lcom/android/systemui/statusbar/phone/BiometricUnlockController;->mKeyguardViewMediator:Lcom/android/systemui/keyguard/KeyguardViewMediator;
 
     invoke-virtual {p1}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->onWakeAndUnlocking()V
 
-    :goto_4
     invoke-static {}, Landroid/os/Trace;->endSection()V
 
-    :goto_5
+    :goto_3
     iget p1, p0, Lcom/android/systemui/statusbar/phone/BiometricUnlockController;->mMode:I
 
     invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/phone/BiometricUnlockController;->onModeChanged(I)V
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/phone/BiometricUnlockController;->mBiometricModeListener:Lcom/android/systemui/statusbar/phone/BiometricUnlockController$BiometricModeListener;
 
-    if-eqz p0, :cond_8
+    if-eqz p0, :cond_6
 
     invoke-interface {p0}, Lcom/android/systemui/statusbar/phone/BiometricUnlockController$BiometricModeListener;->notifyBiometricAuthModeChanged()V
 
-    :cond_8
+    :cond_6
     invoke-static {}, Landroid/os/Trace;->endSection()V
 
     return-void

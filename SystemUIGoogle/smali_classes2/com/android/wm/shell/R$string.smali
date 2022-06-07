@@ -49,49 +49,49 @@
 
 .field public static final activity_launch_on_secondary_display_failed_text:I = 0x7f1300ee
 
-.field public static final bubble_accessibility_action_add_back:I = 0x7f1301c1
+.field public static final bubble_accessibility_action_add_back:I = 0x7f1301c6
 
-.field public static final bubble_accessibility_action_move_bottom_left:I = 0x7f1301c2
+.field public static final bubble_accessibility_action_move_bottom_left:I = 0x7f1301c7
 
-.field public static final bubble_accessibility_action_move_bottom_right:I = 0x7f1301c3
+.field public static final bubble_accessibility_action_move_bottom_right:I = 0x7f1301c8
 
-.field public static final bubble_accessibility_action_move_top_left:I = 0x7f1301c4
+.field public static final bubble_accessibility_action_move_top_left:I = 0x7f1301c9
 
-.field public static final bubble_accessibility_action_move_top_right:I = 0x7f1301c5
+.field public static final bubble_accessibility_action_move_top_right:I = 0x7f1301ca
 
-.field public static final bubble_content_description_single:I = 0x7f1301c6
+.field public static final bubble_content_description_single:I = 0x7f1301cb
 
-.field public static final bubble_content_description_stack:I = 0x7f1301c7
+.field public static final bubble_content_description_stack:I = 0x7f1301cc
 
-.field public static final bubble_overflow_button_content_description:I = 0x7f1301c9
+.field public static final bubble_overflow_button_content_description:I = 0x7f1301ce
 
-.field public static final bubbles_app_settings:I = 0x7f1301cc
+.field public static final bubbles_app_settings:I = 0x7f1301d1
 
-.field public static final bubbles_settings_button_description:I = 0x7f1301ce
+.field public static final bubbles_settings_button_description:I = 0x7f1301d3
 
-.field public static final dock_forced_resizable:I = 0x7f13029b
+.field public static final dock_forced_resizable:I = 0x7f13029f
 
-.field public static final dock_non_resizeble_failed_to_dock_text:I = 0x7f13029c
+.field public static final dock_non_resizeble_failed_to_dock_text:I = 0x7f1302a0
 
-.field public static final forced_resizable_secondary_display:I = 0x7f1302de
+.field public static final forced_resizable_secondary_display:I = 0x7f1302e2
 
-.field public static final notification_bubble_title:I = 0x7f1304ad
+.field public static final notification_bubble_title:I = 0x7f1304b1
 
-.field public static final pip_menu_bounds:I = 0x7f130507
+.field public static final pip_menu_bounds:I = 0x7f13050b
 
-.field public static final pip_menu_title:I = 0x7f130508
+.field public static final pip_menu_title:I = 0x7f13050c
 
-.field public static final pip_notification_unknown_title:I = 0x7f13050b
+.field public static final pip_notification_unknown_title:I = 0x7f13050f
 
-.field public static final pip_pause:I = 0x7f13050c
+.field public static final pip_pause:I = 0x7f130510
 
-.field public static final pip_play:I = 0x7f130513
+.field public static final pip_play:I = 0x7f130517
 
-.field public static final pip_skip_to_next:I = 0x7f130515
+.field public static final pip_skip_to_next:I = 0x7f130519
 
-.field public static final pip_skip_to_prev:I = 0x7f130516
+.field public static final pip_skip_to_prev:I = 0x7f13051a
 
-.field public static final restart_button_description:I = 0x7f1305b3
+.field public static final restart_button_description:I = 0x7f1305b7
 
 
 # direct methods

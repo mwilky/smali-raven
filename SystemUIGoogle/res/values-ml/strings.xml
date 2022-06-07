@@ -97,7 +97,7 @@
     <string name="accessibility_desc_quick_settings_edit">ദ്രുത ക്രമീകരണ എഡിറ്റർ.</string>
     <string name="accessibility_desc_work_lock">ഔദ്യോഗിക ലോക്ക് സ്ക്രീൻ</string>
     <string name="accessibility_display_daltonizer_preference_subtitle">നിങ്ങളുടെ ഉപകരണത്തിൽ നിറങ്ങൾ എങ്ങനെ പ്രദർശിപ്പിക്കണമെന്ന് ക്രമീകരിക്കുക. ഇനിപ്പറയുന്ന കാര്യങ്ങൾ ചെയ്യാൻ ആഗ്രഹിക്കുമ്പോൾ ഇത് സഹായകരമാകും:&lt;br/>&lt;br/> &lt;ol> &lt;li>&amp;nbsp;നിറങ്ങൾ കൂടുതൽ കൃത്യമായി കാണാൻ&lt;/li> &lt;li>&amp;nbsp;ഫോക്കസ് ചെയ്യാൻ നിങ്ങളെ സഹായിക്കുന്നതിന് നിറങ്ങൾ നീക്കം ചെയ്യാൻ&lt;/li> &lt;/ol></string>
-    <string name="accessibility_display_daltonizer_preference_title">നിറം ക്രമീകരിക്കൽ</string>
+    <string name="accessibility_display_daltonizer_preference_title">നിറം ശരിയാക്കൽ</string>
     <string name="accessibility_divider">സ്പ്ലിറ്റ്-സ്ക്രീൻ ഡിവൈഡർ</string>
     <string name="accessibility_enter_hint">ഉപകരണം നൽകുക</string>
     <string name="accessibility_ethernet_connected">ഇതർനെറ്റ്.</string>
@@ -237,6 +237,9 @@
     <string name="accessor_no_description_text">ആപ്പ് വിവരണമൊന്നും നൽകിയിട്ടില്ല.</string>
     <string name="active_input_method_subtypes">സജീവ ടൈപ്പുചെയ്യൽ രീതികൾ</string>
     <string name="activity_launch_on_secondary_display_failed_text">രണ്ടാം ഡിസ്‌പ്ലേകളിൽ സമാരംഭിക്കുന്നതിനെ ആപ്പ് അനുവദിക്കുന്നില്ല.</string>
+    <string name="adaptive_charging_notify_des">%1$s-ഓടെ ബാറ്ററി പൂർണ്ണമായി ചാർജാകും. ബാറ്ററിയുടെ ആരോഗ്യം സംരക്ഷിക്കുന്നതിന് തുടർച്ചയായി ചാർജ് ചെയ്യുന്നു.</string>
+    <string name="adaptive_charging_notify_title">അഡാപ്റ്റീവ് ചാർജിംഗ് ഓണാണ്</string>
+    <string name="adaptive_charging_notify_turn_off_once">ഒറ്റത്തവണത്തേക്ക് ഓഫാക്കുക</string>
     <string name="adaptive_charging_time_estimate">%1$s • അഡാപ്റ്റീവ് ചാർജിംഗ് (%2$s-ന് പൂർത്തിയാകും)</string>
     <string name="adb_device_fingerprint_title_format">ഉപകരണ ഫിംഗർപ്രിന്റ്: %1$s</string>
     <string name="adb_device_forget">മറക്കുക</string>
@@ -301,6 +304,7 @@
     <string name="basic_status">സംഭാഷണം തുറക്കുക</string>
     <string name="battery">ബാറ്ററി</string>
     <string name="battery_detail_switch_title">ബാറ്ററി ലാഭിക്കൽ</string>
+    <string name="battery_health_notify_learn_more">കൂടുതലറിയുക</string>
     <string name="battery_info_status_charging">ചാർജ് ചെയ്യുന്നു</string>
     <string name="battery_info_status_charging_fast">അതിവേഗ ചാർജിംഗ്</string>
     <string name="battery_info_status_charging_slow">പതുക്കെയുള്ള ചാർജിംഗ്</string>
@@ -616,7 +620,6 @@ Selection ട്രിഗ്ഗര്‍ ചെയ്യുക"</string>
     <string name="debug_networking_category">നെറ്റ്‍വര്‍ക്കിംഗ്</string>
     <string name="debug_view_attributes">ആട്രിബ്യൂട്ട് പരിശോധന കാണൽ പ്രവർത്തനക്ഷമമാക്കുക</string>
     <string name="defender_notify_des">ബാറ്ററിയുടെ ആരോഗ്യം സംരക്ഷിക്കുന്നതിന് നിങ്ങളുടെ ഫോൺ ചാർജ് ചെയ്യൽ പരിമിതപ്പെടുത്തുന്നു</string>
-    <string name="defender_notify_learn_more">കൂടുതലറിയുക</string>
     <string name="defender_notify_resume_charge">ചാർജിംഗ് പുനരാരംഭിക്കുക</string>
     <string name="defender_notify_title">ചാർജിംഗ് താൽക്കാലികമായി പരിമിതപ്പെടുത്തിയിരിക്കുന്നു</string>
     <string name="defender_post_notify_des">ബാറ്ററിയുടെ ആരോഗ്യം സംരക്ഷിക്കാൻ, ചാർജ് ചെയ്യൽ %2$s മുതൽ %3$sവരെ %1$s ആയി പരിമിതപ്പെടുത്തി</string>
@@ -1704,6 +1707,10 @@ Selection ട്രിഗ്ഗര്‍ ചെയ്യുക"</string>
     <string name="usb_accessory_confirm_prompt">%2$s കൈകാര്യം ചെയ്യാൻ %1$s തുറക്കണോ?</string>
     <string name="usb_accessory_permission_prompt">%2$s ആക്‌സസ് ചെയ്യാൻ %1$s-നെ അനുവദിക്കണോ?</string>
     <string name="usb_accessory_uri_prompt">ഈ USB ആക്‌സസ്സറിയിൽ ഇൻസ്‌റ്റാളുചെയ്‌തവയൊന്നും പ്രവർത്തിക്കുന്നില്ല. %1$s-ൽ ഇതേക്കുറിച്ച് കൂടുതലറിയുക</string>
+    <string name="usb_audio_device_confirm_prompt_title">%2$s കൈകാര്യം ചെയ്യാൻ %1$s തുറക്കണോ?</string>
+    <string name="usb_audio_device_permission_prompt_title">%2$s ആക്‌സസ് ചെയ്യാൻ %1$s എന്നതിനെ അനുവദിക്കണോ?</string>
+    <string name="usb_audio_device_prompt">ഈ ഉപകരണത്തിൽ %1$s ഉപയോഗിക്കുന്നത് കോളുകളും അറിയിപ്പുകളും അലാറങ്ങളും കേൾക്കുന്നതിൽ നിന്ന് തടഞ്ഞേക്കാം.</string>
+    <string name="usb_audio_device_prompt_warn">ഈ ആപ്പിന് റെക്കോർഡ് അനുമതി നൽകിയിട്ടില്ല, എന്നാൽ ഈ USB ഉപകരണത്തിലൂടെ ഓഡിയോ ക്യാപ്‌ചർ ചെയ്യാനാവും. ഈ ഉപകരണത്തിൽ %1$s ഉപയോഗിക്കുന്നത് കോളുകളും അറിയിപ്പുകളും അലാറങ്ങളും കേൾക്കുന്നതിൽ നിന്ന് തടഞ്ഞേക്കാം.</string>
     <string name="usb_audio_disable_routing">USB ഓഡിയോ റൂട്ടിംഗ് പ്രവർത്തനരഹിതമാക്കുക</string>
     <string name="usb_audio_disable_routing_summary">USB ഓഡിയോ പെരിഫറലിലേക്ക് സ്വയമേവയുള്ള റൂട്ടിംഗ് പ്രവർത്തനരഹിതമാക്കൂ</string>
     <string name="usb_contaminant_message">"ദ്രാവകത്തിൽ നിന്നോ പൊടിയിൽ നിന്നോ നിങ്ങളുടെ ഉപകരണത്തെ പരിരക്ഷിക്കാനായി USB പോർട്ട് പ്രവർത്തനരഹിതമാക്കിയിരിക്കുന്നതിനാൽ അത് ആക്‌സസറികളൊന്നും തിരിച്ചറിയില്ല.

@@ -237,6 +237,9 @@
     <string name="accessor_no_description_text">Forritið er ekki með neina lýsingu.</string>
     <string name="active_input_method_subtypes">Virkar innsláttaraðferðir</string>
     <string name="activity_launch_on_secondary_display_failed_text">Forrit styður ekki opnun á öðrum skjá.</string>
+    <string name="adaptive_charging_notify_des">Rafhlaða fullhlaðin kl. %1$s. Hleðslan er hæg en stöðug til að lengja rafhlöðuendingu.</string>
+    <string name="adaptive_charging_notify_title">Kveikt er á aðlagaðri hleðslu</string>
+    <string name="adaptive_charging_notify_turn_off_once">Slökkva einu sinni</string>
     <string name="adaptive_charging_time_estimate">%1$s • Breytileg hleðsla (fullhlaðið eftir %2$s)</string>
     <string name="adb_device_fingerprint_title_format">Fingrafar tækis: %1$s</string>
     <string name="adb_device_forget">Gleyma</string>
@@ -301,6 +304,7 @@ Ef slökkt er á þessari heimild munu núverandi vekjarar og tímasettir viðbu
     <string name="basic_status">Opna samtal</string>
     <string name="battery">Rafhlaða</string>
     <string name="battery_detail_switch_title">Rafhlöðusparnaður</string>
+    <string name="battery_health_notify_learn_more">Nánar</string>
     <string name="battery_info_status_charging">Í hleðslu</string>
     <string name="battery_info_status_charging_fast">Hröð hleðsla</string>
     <string name="battery_info_status_charging_slow">Hæg hleðsla</string>
@@ -616,7 +620,6 @@ Ef þú heldur áfram gætu gjöld verið innheimt fyrir gagnanotkun."</string>
     <string name="debug_networking_category">Netkerfi</string>
     <string name="debug_view_attributes">Virkja yfirlit skoðunar eiginda</string>
     <string name="defender_notify_des">Síminn þinn takmarkar hleðslu til að auka endingu rafhlöðunnar</string>
-    <string name="defender_notify_learn_more">Nánar</string>
     <string name="defender_notify_resume_charge">Halda hleðslu áfram</string>
     <string name="defender_notify_title">Hleðsla takmörkuð tímabundið</string>
     <string name="defender_post_notify_des">Hleðsla var takmörkuð við %1$s frá %2$s til %3$s til að lengja rafhlöðuendingu</string>
@@ -1704,6 +1707,10 @@ Síminn getur orðið of heitur ef þú:
     <string name="usb_accessory_confirm_prompt">Viltu opna %1$s til að sjá um %2$s?</string>
     <string name="usb_accessory_permission_prompt">Viltu veita %1$s aðgang að %2$s?</string>
     <string name="usb_accessory_uri_prompt">Engin uppsett forrit virka með þessum USB-aukabúnaði. Frekari upplýsingar eru á %1$s</string>
+    <string name="usb_audio_device_confirm_prompt_title">Viltu opna %1$s til að sjá um %2$s?</string>
+    <string name="usb_audio_device_permission_prompt_title">Viltu veita %1$s aðgang að %2$s?</string>
+    <string name="usb_audio_device_prompt">Notkun %1$s með þessu tæki getur komið í veg fyrir að símtöl, tilkynningar og viðvaranir heyrist.</string>
+    <string name="usb_audio_device_prompt_warn">Þetta forrit hefur ekki fengið heimild fyrir upptöku en gæti tekið upp hljóð í gegnum þetta USB-tæki. Notkun %1$s með þessu tæki getur komið í veg fyrir að símtöl, tilkynningar og viðvaranir heyrist.</string>
     <string name="usb_audio_disable_routing">Slökkva á USB-hljóðbeiningu</string>
     <string name="usb_audio_disable_routing_summary">Slökkva á sjálfvirkri beiningu til USB-hljóðtækja</string>
     <string name="usb_contaminant_message">"Til að vernda tækið fyrir vökva og óhreinindum er USB-tengið óvirkt og mun ekki greina aukabúnað.

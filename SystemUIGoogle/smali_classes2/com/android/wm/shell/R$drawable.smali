@@ -29,19 +29,19 @@
 
 .field public static final floating_dismiss_gradient_transition:I = 0x7f0803b9
 
-.field public static final pip_ic_close_white:I = 0x7f0806cc
+.field public static final pip_ic_close_white:I = 0x7f0806cd
 
-.field public static final pip_ic_pause_white:I = 0x7f0806ce
+.field public static final pip_ic_pause_white:I = 0x7f0806cf
 
-.field public static final pip_ic_play_arrow_white:I = 0x7f0806cf
+.field public static final pip_ic_play_arrow_white:I = 0x7f0806d0
 
-.field public static final pip_ic_skip_next_white:I = 0x7f0806d1
+.field public static final pip_ic_skip_next_white:I = 0x7f0806d2
 
-.field public static final pip_ic_skip_previous_white:I = 0x7f0806d2
+.field public static final pip_ic_skip_previous_white:I = 0x7f0806d3
 
-.field public static final pip_icon:I = 0x7f0806d3
+.field public static final pip_icon:I = 0x7f0806d4
 
-.field public static final pip_menu_background:I = 0x7f0806d4
+.field public static final pip_menu_background:I = 0x7f0806d5
 
 
 # direct methods

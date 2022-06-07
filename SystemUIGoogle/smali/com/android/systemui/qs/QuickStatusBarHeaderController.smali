@@ -480,7 +480,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mQuickQSPanelController:Lcom/android/systemui/qs/QuickQSPanelController;
 
-    invoke-virtual {v0}, Lcom/android/systemui/qs/QuickQSPanelController;->refreshAllTiles()V
+    invoke-virtual {v0}, Lcom/android/systemui/qs/QSPanelControllerBase;->refreshAllTiles()V
 
     :cond_1
     iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mQuickQSPanelController:Lcom/android/systemui/qs/QuickQSPanelController;

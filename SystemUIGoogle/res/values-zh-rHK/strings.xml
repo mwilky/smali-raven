@@ -237,6 +237,9 @@
     <string name="accessor_no_description_text">應用程式未提供描述。</string>
     <string name="active_input_method_subtypes">可用的輸入法</string>
     <string name="activity_launch_on_secondary_display_failed_text">應用程式無法在次要顯示屏上啟動。</string>
+    <string name="adaptive_charging_notify_des">電池將於%1$s 充滿電。為延長電池壽命，系統會穩定充電。</string>
+    <string name="adaptive_charging_notify_title">「自動調節充電速度」功能已開啟</string>
+    <string name="adaptive_charging_notify_turn_off_once">關閉一次</string>
     <string name="adaptive_charging_time_estimate">%1$s • 自動調節充電速度 (%2$s前充滿)</string>
     <string name="adb_device_fingerprint_title_format">裝置指紋：%1$s</string>
     <string name="adb_device_forget">移除裝置</string>
@@ -301,6 +304,7 @@
     <string name="basic_status">開啟對話</string>
     <string name="battery">電池</string>
     <string name="battery_detail_switch_title">省電模式</string>
+    <string name="battery_health_notify_learn_more">瞭解詳情</string>
     <string name="battery_info_status_charging">充電中</string>
     <string name="battery_info_status_charging_fast">快速充電中</string>
     <string name="battery_info_status_charging_slow">慢速充電中</string>
@@ -616,7 +620,6 @@
     <string name="debug_networking_category">網絡</string>
     <string name="debug_view_attributes">啟用檢視屬性檢查</string>
     <string name="defender_notify_des">為延長電池壽命，手機目前已限制充電</string>
-    <string name="defender_notify_learn_more">瞭解詳情</string>
     <string name="defender_notify_resume_charge">恢復充電</string>
     <string name="defender_notify_title">充電暫時受限</string>
     <string name="defender_post_notify_des">為延長電池壽命，系統由%2$s 至%3$s 已限制充電至 %1$s</string>
@@ -1494,7 +1497,7 @@
     <string name="screenrecord_share_label">分享</string>
     <string name="screenrecord_start">開始</string>
     <string name="screenrecord_start_error">開始錄影畫面時發生錯誤</string>
-    <string name="screenrecord_start_label">要開始錄影嗎？</string>
+    <string name="screenrecord_start_label">要開始錄製嗎？</string>
     <string name="screenrecord_stop_label">停止</string>
     <string name="screenrecord_taps_label">顯示輕觸螢幕的位置</string>
     <string name="screenshot_bottom_boundary_pct">下方邊界 %1$d%%</string>
@@ -1704,6 +1707,10 @@
     <string name="usb_accessory_confirm_prompt">要開啟「%1$s」處理「%2$s」嗎？</string>
     <string name="usb_accessory_permission_prompt">要允許「%1$s」存取「%2$s」嗎？</string>
     <string name="usb_accessory_uri_prompt">已安裝的應用程式均無法存取這個 USB 配件，如要進一步瞭解這個配件，請瀏覽 %1$s</string>
+    <string name="usb_audio_device_confirm_prompt_title">要開啟「%1$s」處理「%2$s」嗎？</string>
+    <string name="usb_audio_device_permission_prompt_title">要允許「%1$s」存取「%2$s」嗎？</string>
+    <string name="usb_audio_device_prompt">如將「%1$s」與此裝置配合使用，您可能無法聽見來電、通知及鬧鐘的音效。</string>
+    <string name="usb_audio_device_prompt_warn">此應用程式尚未獲授予錄音權限，但可透過此 USB 裝置記錄音訊。如將「%1$s」與此裝置配合使用，您可能無法聽見來電、通知及鬧鐘的音效。</string>
     <string name="usb_audio_disable_routing">停用 USB 音效檔案路由功能</string>
     <string name="usb_audio_disable_routing_summary">停用 USB 音效檔案周邊設備的自動路由功能</string>
     <string name="usb_contaminant_message">"為了保護您的裝置免受液體或碎片損害，USB 連接埠已停用，因此不會偵測到任何配件。

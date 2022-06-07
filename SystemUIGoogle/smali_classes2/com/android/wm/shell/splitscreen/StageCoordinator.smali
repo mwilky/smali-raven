@@ -614,7 +614,15 @@
     return-object p0
 .end method
 
-.method static synthetic access$1000(Lcom/android/wm/shell/splitscreen/StageCoordinator;Lcom/android/wm/shell/splitscreen/StageCoordinator$StageListenerImpl;IZZ)V
+.method static synthetic access$1000(Lcom/android/wm/shell/splitscreen/StageCoordinator;Lcom/android/wm/shell/splitscreen/StageCoordinator$StageListenerImpl;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/wm/shell/splitscreen/StageCoordinator;->onStageVisibilityChanged(Lcom/android/wm/shell/splitscreen/StageCoordinator$StageListenerImpl;)V
+
+    return-void
+.end method
+
+.method static synthetic access$1100(Lcom/android/wm/shell/splitscreen/StageCoordinator;Lcom/android/wm/shell/splitscreen/StageCoordinator$StageListenerImpl;IZZ)V
     .locals 0
 
     invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/wm/shell/splitscreen/StageCoordinator;->onStageChildTaskStatusChanged(Lcom/android/wm/shell/splitscreen/StageCoordinator$StageListenerImpl;IZZ)V
@@ -622,7 +630,7 @@
     return-void
 .end method
 
-.method static synthetic access$1100(Lcom/android/wm/shell/splitscreen/StageCoordinator;Lcom/android/wm/shell/splitscreen/StageCoordinator$StageListenerImpl;I)V
+.method static synthetic access$1200(Lcom/android/wm/shell/splitscreen/StageCoordinator;Lcom/android/wm/shell/splitscreen/StageCoordinator$StageListenerImpl;I)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/wm/shell/splitscreen/StageCoordinator;->onStageChildTaskEnterPip(Lcom/android/wm/shell/splitscreen/StageCoordinator$StageListenerImpl;I)V
@@ -630,7 +638,7 @@
     return-void
 .end method
 
-.method static synthetic access$1200(Lcom/android/wm/shell/splitscreen/StageCoordinator;Lcom/android/wm/shell/splitscreen/StageCoordinator$StageListenerImpl;)V
+.method static synthetic access$1300(Lcom/android/wm/shell/splitscreen/StageCoordinator;Lcom/android/wm/shell/splitscreen/StageCoordinator$StageListenerImpl;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/wm/shell/splitscreen/StageCoordinator;->onStageRootTaskVanished(Lcom/android/wm/shell/splitscreen/StageCoordinator$StageListenerImpl;)V
@@ -638,7 +646,7 @@
     return-void
 .end method
 
-.method static synthetic access$1300(Lcom/android/wm/shell/splitscreen/StageCoordinator;)Lcom/android/wm/shell/splitscreen/MainStage;
+.method static synthetic access$1400(Lcom/android/wm/shell/splitscreen/StageCoordinator;)Lcom/android/wm/shell/splitscreen/MainStage;
     .locals 0
 
     iget-object p0, p0, Lcom/android/wm/shell/splitscreen/StageCoordinator;->mMainStage:Lcom/android/wm/shell/splitscreen/MainStage;
@@ -646,7 +654,7 @@
     return-object p0
 .end method
 
-.method static synthetic access$1400(Lcom/android/wm/shell/splitscreen/StageCoordinator;Lcom/android/wm/shell/splitscreen/StageTaskListener;I)V
+.method static synthetic access$1500(Lcom/android/wm/shell/splitscreen/StageCoordinator;Lcom/android/wm/shell/splitscreen/StageTaskListener;I)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/wm/shell/splitscreen/StageCoordinator;->exitSplitScreen(Lcom/android/wm/shell/splitscreen/StageTaskListener;I)V
@@ -686,7 +694,15 @@
     return p1
 .end method
 
-.method static synthetic access$600()Ljava/lang/String;
+.method static synthetic access$600(Lcom/android/wm/shell/splitscreen/StageCoordinator;Z)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/wm/shell/splitscreen/StageCoordinator;->setDividerVisibility(Z)V
+
+    return-void
+.end method
+
+.method static synthetic access$700()Ljava/lang/String;
     .locals 1
 
     sget-object v0, Lcom/android/wm/shell/splitscreen/StageCoordinator;->TAG:Ljava/lang/String;
@@ -694,7 +710,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$700(Lcom/android/wm/shell/splitscreen/StageCoordinator;Lcom/android/wm/shell/splitscreen/StageCoordinator$StageListenerImpl;)V
+.method static synthetic access$800(Lcom/android/wm/shell/splitscreen/StageCoordinator;Lcom/android/wm/shell/splitscreen/StageCoordinator$StageListenerImpl;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/wm/shell/splitscreen/StageCoordinator;->onStageRootTaskAppeared(Lcom/android/wm/shell/splitscreen/StageCoordinator$StageListenerImpl;)V
@@ -702,18 +718,10 @@
     return-void
 .end method
 
-.method static synthetic access$800(Lcom/android/wm/shell/splitscreen/StageCoordinator;Lcom/android/wm/shell/splitscreen/StageCoordinator$StageListenerImpl;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/wm/shell/splitscreen/StageCoordinator;->onStageHasChildrenChanged(Lcom/android/wm/shell/splitscreen/StageCoordinator$StageListenerImpl;)V
-
-    return-void
-.end method
-
 .method static synthetic access$900(Lcom/android/wm/shell/splitscreen/StageCoordinator;Lcom/android/wm/shell/splitscreen/StageCoordinator$StageListenerImpl;)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/wm/shell/splitscreen/StageCoordinator;->onStageVisibilityChanged(Lcom/android/wm/shell/splitscreen/StageCoordinator$StageListenerImpl;)V
+    invoke-direct {p0, p1}, Lcom/android/wm/shell/splitscreen/StageCoordinator;->onStageHasChildrenChanged(Lcom/android/wm/shell/splitscreen/StageCoordinator$StageListenerImpl;)V
 
     return-void
 .end method
@@ -4742,33 +4750,37 @@
 
     move-object v0, p0
 
-    const/4 v1, 0x1
+    const/4 v1, 0x0
 
     invoke-direct {p0, v1}, Lcom/android/wm/shell/splitscreen/StageCoordinator;->setDividerVisibility(Z)V
 
-    const/4 v2, 0x0
+    iget-object v2, v0, Lcom/android/wm/shell/splitscreen/StageCoordinator;->mSplitLayout:Lcom/android/wm/shell/common/split/SplitLayout;
 
-    iput-boolean v2, v0, Lcom/android/wm/shell/splitscreen/StageCoordinator;->mShouldUpdateRecents:Z
+    invoke-virtual {v2}, Lcom/android/wm/shell/common/split/SplitLayout;->init()V
+
+    iput-boolean v1, v0, Lcom/android/wm/shell/splitscreen/StageCoordinator;->mShouldUpdateRecents:Z
+
+    new-instance v2, Landroid/window/WindowContainerTransaction;
+
+    invoke-direct {v2}, Landroid/window/WindowContainerTransaction;-><init>()V
 
     new-instance v3, Landroid/window/WindowContainerTransaction;
 
     invoke-direct {v3}, Landroid/window/WindowContainerTransaction;-><init>()V
 
-    new-instance v4, Landroid/window/WindowContainerTransaction;
+    invoke-virtual {p0, v1, v3}, Lcom/android/wm/shell/splitscreen/StageCoordinator;->prepareEvictChildTasks(ILandroid/window/WindowContainerTransaction;)V
 
-    invoke-direct {v4}, Landroid/window/WindowContainerTransaction;-><init>()V
+    const/4 v4, 0x1
 
-    invoke-virtual {p0, v2, v4}, Lcom/android/wm/shell/splitscreen/StageCoordinator;->prepareEvictChildTasks(ILandroid/window/WindowContainerTransaction;)V
-
-    invoke-virtual {p0, v1, v4}, Lcom/android/wm/shell/splitscreen/StageCoordinator;->prepareEvictChildTasks(ILandroid/window/WindowContainerTransaction;)V
+    invoke-virtual {p0, v4, v3}, Lcom/android/wm/shell/splitscreen/StageCoordinator;->prepareEvictChildTasks(ILandroid/window/WindowContainerTransaction;)V
 
     new-instance v6, Lcom/android/wm/shell/splitscreen/StageCoordinator$2;
 
-    move-object/from16 v1, p7
+    move-object/from16 v4, p7
 
-    invoke-direct {v6, p0, v4, v1}, Lcom/android/wm/shell/splitscreen/StageCoordinator$2;-><init>(Lcom/android/wm/shell/splitscreen/StageCoordinator;Landroid/window/WindowContainerTransaction;Landroid/view/RemoteAnimationAdapter;)V
+    invoke-direct {v6, p0, v3, v4}, Lcom/android/wm/shell/splitscreen/StageCoordinator$2;-><init>(Lcom/android/wm/shell/splitscreen/StageCoordinator;Landroid/window/WindowContainerTransaction;Landroid/view/RemoteAnimationAdapter;)V
 
-    new-instance v4, Landroid/view/RemoteAnimationAdapter;
+    new-instance v3, Landroid/view/RemoteAnimationAdapter;
 
     invoke-virtual/range {p7 .. p7}, Landroid/view/RemoteAnimationAdapter;->getDuration()J
 
@@ -4778,36 +4790,36 @@
 
     move-result-wide v9
 
-    move-object v5, v4
+    move-object v5, v3
 
     invoke-direct/range {v5 .. v10}, Landroid/view/RemoteAnimationAdapter;-><init>(Landroid/view/IRemoteAnimationRunner;JJ)V
 
     if-nez p2, :cond_0
 
-    invoke-static {v4}, Landroid/app/ActivityOptions;->makeRemoteAnimation(Landroid/view/RemoteAnimationAdapter;)Landroid/app/ActivityOptions;
+    invoke-static {v3}, Landroid/app/ActivityOptions;->makeRemoteAnimation(Landroid/view/RemoteAnimationAdapter;)Landroid/app/ActivityOptions;
 
-    move-result-object v1
+    move-result-object v3
 
-    invoke-virtual {v1}, Landroid/app/ActivityOptions;->toBundle()Landroid/os/Bundle;
+    invoke-virtual {v3}, Landroid/app/ActivityOptions;->toBundle()Landroid/os/Bundle;
 
-    move-result-object v1
+    move-result-object v3
 
     goto :goto_0
 
     :cond_0
     invoke-static {p2}, Landroid/app/ActivityOptions;->fromBundle(Landroid/os/Bundle;)Landroid/app/ActivityOptions;
 
-    move-result-object v1
-
-    invoke-static {v4}, Landroid/app/ActivityOptions;->makeRemoteAnimation(Landroid/view/RemoteAnimationAdapter;)Landroid/app/ActivityOptions;
-
     move-result-object v4
 
-    invoke-virtual {v1, v4}, Landroid/app/ActivityOptions;->update(Landroid/app/ActivityOptions;)V
+    invoke-static {v3}, Landroid/app/ActivityOptions;->makeRemoteAnimation(Landroid/view/RemoteAnimationAdapter;)Landroid/app/ActivityOptions;
 
-    invoke-virtual {v1}, Landroid/app/ActivityOptions;->toBundle()Landroid/os/Bundle;
+    move-result-object v3
 
-    move-result-object v1
+    invoke-virtual {v4, v3}, Landroid/app/ActivityOptions;->update(Landroid/app/ActivityOptions;)V
+
+    invoke-virtual {v4}, Landroid/app/ActivityOptions;->toBundle()Landroid/os/Bundle;
+
+    move-result-object v3
 
     :goto_0
     if-eqz p4, :cond_1
@@ -4824,7 +4836,7 @@
     :goto_1
     move/from16 v5, p5
 
-    invoke-virtual {p0, v5, v3}, Lcom/android/wm/shell/splitscreen/StageCoordinator;->setSideStagePosition(ILandroid/window/WindowContainerTransaction;)V
+    invoke-virtual {p0, v5, v2}, Lcom/android/wm/shell/splitscreen/StageCoordinator;->setSideStagePosition(ILandroid/window/WindowContainerTransaction;)V
 
     iget-object v5, v0, Lcom/android/wm/shell/splitscreen/StageCoordinator;->mSplitLayout:Lcom/android/wm/shell/common/split/SplitLayout;
 
@@ -4840,13 +4852,13 @@
 
     if-eqz v5, :cond_2
 
-    iget-object v2, v0, Lcom/android/wm/shell/splitscreen/StageCoordinator;->mMainStage:Lcom/android/wm/shell/splitscreen/MainStage;
+    iget-object v1, v0, Lcom/android/wm/shell/splitscreen/StageCoordinator;->mMainStage:Lcom/android/wm/shell/splitscreen/MainStage;
 
     invoke-direct {p0}, Lcom/android/wm/shell/splitscreen/StageCoordinator;->getMainStageBounds()Landroid/graphics/Rect;
 
     move-result-object v5
 
-    invoke-virtual {v2, v5, v3}, Lcom/android/wm/shell/splitscreen/StageTaskListener;->moveToTop(Landroid/graphics/Rect;Landroid/window/WindowContainerTransaction;)V
+    invoke-virtual {v1, v5, v2}, Lcom/android/wm/shell/splitscreen/StageTaskListener;->moveToTop(Landroid/graphics/Rect;Landroid/window/WindowContainerTransaction;)V
 
     goto :goto_2
 
@@ -4857,36 +4869,36 @@
 
     move-result-object v6
 
-    invoke-virtual {v5, v6, v3, v2}, Lcom/android/wm/shell/splitscreen/MainStage;->activate(Landroid/graphics/Rect;Landroid/window/WindowContainerTransaction;Z)V
+    invoke-virtual {v5, v6, v2, v1}, Lcom/android/wm/shell/splitscreen/MainStage;->activate(Landroid/graphics/Rect;Landroid/window/WindowContainerTransaction;Z)V
 
     :goto_2
-    iget-object v2, v0, Lcom/android/wm/shell/splitscreen/StageCoordinator;->mSideStage:Lcom/android/wm/shell/splitscreen/SideStage;
+    iget-object v1, v0, Lcom/android/wm/shell/splitscreen/StageCoordinator;->mSideStage:Lcom/android/wm/shell/splitscreen/SideStage;
 
     invoke-direct {p0}, Lcom/android/wm/shell/splitscreen/StageCoordinator;->getSideStageBounds()Landroid/graphics/Rect;
 
     move-result-object v5
 
-    invoke-virtual {v2, v5, v3}, Lcom/android/wm/shell/splitscreen/StageTaskListener;->moveToTop(Landroid/graphics/Rect;Landroid/window/WindowContainerTransaction;)V
+    invoke-virtual {v1, v5, v2}, Lcom/android/wm/shell/splitscreen/StageTaskListener;->moveToTop(Landroid/graphics/Rect;Landroid/window/WindowContainerTransaction;)V
 
-    iget-object v2, v0, Lcom/android/wm/shell/splitscreen/StageCoordinator;->mMainStage:Lcom/android/wm/shell/splitscreen/MainStage;
+    iget-object v1, v0, Lcom/android/wm/shell/splitscreen/StageCoordinator;->mMainStage:Lcom/android/wm/shell/splitscreen/MainStage;
 
-    invoke-direct {p0, v1, v2}, Lcom/android/wm/shell/splitscreen/StageCoordinator;->addActivityOptions(Landroid/os/Bundle;Lcom/android/wm/shell/splitscreen/StageTaskListener;)V
+    invoke-direct {p0, v3, v1}, Lcom/android/wm/shell/splitscreen/StageCoordinator;->addActivityOptions(Landroid/os/Bundle;Lcom/android/wm/shell/splitscreen/StageTaskListener;)V
 
-    iget-object v2, v0, Lcom/android/wm/shell/splitscreen/StageCoordinator;->mSideStage:Lcom/android/wm/shell/splitscreen/SideStage;
+    iget-object v1, v0, Lcom/android/wm/shell/splitscreen/StageCoordinator;->mSideStage:Lcom/android/wm/shell/splitscreen/SideStage;
 
-    invoke-direct {p0, v4, v2}, Lcom/android/wm/shell/splitscreen/StageCoordinator;->addActivityOptions(Landroid/os/Bundle;Lcom/android/wm/shell/splitscreen/StageTaskListener;)V
+    invoke-direct {p0, v4, v1}, Lcom/android/wm/shell/splitscreen/StageCoordinator;->addActivityOptions(Landroid/os/Bundle;Lcom/android/wm/shell/splitscreen/StageTaskListener;)V
 
-    move v2, p1
+    move v1, p1
 
-    invoke-virtual {v3, p1, v1}, Landroid/window/WindowContainerTransaction;->startTask(ILandroid/os/Bundle;)Landroid/window/WindowContainerTransaction;
+    invoke-virtual {v2, p1, v3}, Landroid/window/WindowContainerTransaction;->startTask(ILandroid/os/Bundle;)Landroid/window/WindowContainerTransaction;
 
     move v1, p3
 
-    invoke-virtual {v3, p3, v4}, Landroid/window/WindowContainerTransaction;->startTask(ILandroid/os/Bundle;)Landroid/window/WindowContainerTransaction;
+    invoke-virtual {v2, p3, v4}, Landroid/window/WindowContainerTransaction;->startTask(ILandroid/os/Bundle;)Landroid/window/WindowContainerTransaction;
 
     iget-object v0, v0, Lcom/android/wm/shell/splitscreen/StageCoordinator;->mTaskOrganizer:Lcom/android/wm/shell/ShellTaskOrganizer;
 
-    invoke-virtual {v0, v3}, Landroid/window/TaskOrganizer;->applyTransaction(Landroid/window/WindowContainerTransaction;)V
+    invoke-virtual {v0, v2}, Landroid/window/TaskOrganizer;->applyTransaction(Landroid/window/WindowContainerTransaction;)V
 
     return-void
 .end method

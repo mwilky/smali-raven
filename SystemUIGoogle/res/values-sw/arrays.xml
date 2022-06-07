@@ -303,7 +303,7 @@
     <string-array name="tile_states_mictoggle">
         <item>Hakipatikani</item>
         <item>Kimezimwa</item>
-        <item>Kimewashwa</item>
+        <item>Imewashwa</item>
     </string-array>
     <string-array name="tile_states_night">
         <item>Hakipatikani</item>

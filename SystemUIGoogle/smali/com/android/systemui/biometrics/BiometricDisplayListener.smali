@@ -84,24 +84,6 @@
 
     iput-object p5, p0, Lcom/android/systemui/biometrics/BiometricDisplayListener;->onChanged:Lkotlin/jvm/functions/Function0;
 
-    invoke-virtual {p1}, Landroid/content/Context;->getDisplay()Landroid/view/Display;
-
-    move-result-object p1
-
-    if-nez p1, :cond_0
-
-    const/4 p1, 0x0
-
-    goto :goto_0
-
-    :cond_0
-    invoke-virtual {p1}, Landroid/view/Display;->getRotation()I
-
-    move-result p1
-
-    :goto_0
-    iput p1, p0, Lcom/android/systemui/biometrics/BiometricDisplayListener;->lastRotation:I
-
     return-void
 .end method
 
@@ -167,6 +149,26 @@
 
 .method public final enable()V
     .locals 2
+
+    iget-object v0, p0, Lcom/android/systemui/biometrics/BiometricDisplayListener;->context:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getDisplay()Landroid/view/Display;
+
+    move-result-object v0
+
+    if-nez v0, :cond_0
+
+    const/4 v0, 0x0
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {v0}, Landroid/view/Display;->getRotation()I
+
+    move-result v0
+
+    :goto_0
+    iput v0, p0, Lcom/android/systemui/biometrics/BiometricDisplayListener;->lastRotation:I
 
     iget-object v0, p0, Lcom/android/systemui/biometrics/BiometricDisplayListener;->displayManager:Landroid/hardware/display/DisplayManager;
 

@@ -33,7 +33,7 @@
 
     iget p0, p0, Lcom/android/systemui/statusbar/phone/fragment/CollapsedStatusBarFragment$$ExternalSyntheticLambda1;->f$1:I
 
-    invoke-static {v0, p0}, Lcom/android/systemui/statusbar/phone/fragment/CollapsedStatusBarFragment;->$r8$lambda$Vd_CHNauS3CnVVhtaIt7IdjzLgs(Landroid/view/View;I)V
+    invoke-static {v0, p0}, Lcom/android/systemui/statusbar/phone/fragment/CollapsedStatusBarFragment;->$r8$lambda$VCp7h4sa1O1t54YK7QZ7C5IG6Lc(Landroid/view/View;I)V
 
     return-void
 .end method

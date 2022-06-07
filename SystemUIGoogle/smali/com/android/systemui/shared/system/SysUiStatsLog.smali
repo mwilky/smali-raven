@@ -118,7 +118,7 @@
     return-void
 .end method
 
-.method public static write(IIIIIIIIIIII)V
+.method public static write(IIIIIIIIIIII[B)V
     .locals 1
 
     invoke-static {}, Landroid/util/StatsEvent;->newBuilder()Landroid/util/StatsEvent$Builder;
@@ -157,6 +157,15 @@
     invoke-virtual {v0, p10}, Landroid/util/StatsEvent$Builder;->writeInt(I)Landroid/util/StatsEvent$Builder;
 
     invoke-virtual {v0, p11}, Landroid/util/StatsEvent$Builder;->writeInt(I)Landroid/util/StatsEvent$Builder;
+
+    if-nez p12, :cond_1
+
+    const/4 p0, 0x0
+
+    new-array p12, p0, [B
+
+    :cond_1
+    invoke-virtual {v0, p12}, Landroid/util/StatsEvent$Builder;->writeByteArray([B)Landroid/util/StatsEvent$Builder;
 
     invoke-virtual {v0}, Landroid/util/StatsEvent$Builder;->usePooledBuffer()Landroid/util/StatsEvent$Builder;
 

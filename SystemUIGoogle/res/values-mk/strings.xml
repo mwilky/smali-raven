@@ -237,6 +237,9 @@
     <string name="accessor_no_description_text">Апликацијата не дала опис.</string>
     <string name="active_input_method_subtypes">Методи за активно внесување</string>
     <string name="activity_launch_on_secondary_display_failed_text">Апликацијата не поддржува стартување на други екрани.</string>
+    <string name="adaptive_charging_notify_des">Батеријата ќе се наполни целосно до %1$s. Се полни полека за да се зачува батеријата.</string>
+    <string name="adaptive_charging_notify_title">„Адаптивното полнење“ е вклучено.</string>
+    <string name="adaptive_charging_notify_turn_off_once">Исклучете еднаш</string>
     <string name="adaptive_charging_time_estimate">%1$s • Адаптивно полнење (целосно наполнето за %2$s)</string>
     <string name="adb_device_fingerprint_title_format">Отпечаток на уредот: %1$s</string>
     <string name="adb_device_forget">Заборави</string>
@@ -301,6 +304,7 @@
     <string name="basic_status">Започни разговор</string>
     <string name="battery">Батерија</string>
     <string name="battery_detail_switch_title">Штедач на батерија</string>
+    <string name="battery_health_notify_learn_more">Дознајте повеќе</string>
     <string name="battery_info_status_charging">Се полни</string>
     <string name="battery_info_status_charging_fast">Брзо полнење</string>
     <string name="battery_info_status_charging_slow">Бавно полнење</string>
@@ -616,7 +620,6 @@
     <string name="debug_networking_category">Вмрежување</string>
     <string name="debug_view_attributes">Овозможете проверка на атрибутот на приказот</string>
     <string name="defender_notify_des">Вашиот телефон го ограничува полнењето за да ја заштеди батеријата</string>
-    <string name="defender_notify_learn_more">Дознајте повеќе</string>
     <string name="defender_notify_resume_charge">Продолжи со полнење</string>
     <string name="defender_notify_title">Полнењето е привремено ограничено</string>
     <string name="defender_post_notify_des">Полнењето беше ограничено на %1$s од %2$s до %3$s за да се зачува батеријата</string>
@@ -1704,6 +1707,10 @@ IT-администраторот може да ги следи и да упра
     <string name="usb_accessory_confirm_prompt">Да се отвори %1$s за да управува со %2$s?</string>
     <string name="usb_accessory_permission_prompt">Ќе дозволите %1$s да пристапува до %2$s?</string>
     <string name="usb_accessory_uri_prompt">Нема инсталирано апликации што работат со овој USB додаток. Дознајте повеќе за овој додаток на %1$s</string>
+    <string name="usb_audio_device_confirm_prompt_title">Да се отвори %1$s за да управува со %2$s?</string>
+    <string name="usb_audio_device_permission_prompt_title">Ќе дозволите %1$s да пристапува до %2$s?</string>
+    <string name="usb_audio_device_prompt">Ако ја користите %1$s со уредов, може да се спречи слушањето повици, известувања и аларми.</string>
+    <string name="usb_audio_device_prompt_warn">На апликацијава не ѝ е доделена дозвола за снимање, но може да снима аудио преку овој USB-уред. Ако ја користите %1$s со уредов, може да се спречи слушањето повици, известувања и аларми.</string>
     <string name="usb_audio_disable_routing">Исклучи USB-пренасочување</string>
     <string name="usb_audio_disable_routing_summary">Исклучи автоматско пренасочување до USB-аудиоуреди</string>
     <string name="usb_contaminant_message">"За да го заштитиме уредот од течност или нечистотија, USB-портата е оневозможена и нема да ги открива додатоците.

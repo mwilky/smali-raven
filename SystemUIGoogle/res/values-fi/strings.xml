@@ -237,6 +237,9 @@
     <string name="accessor_no_description_text">Sovelluksella ei ole kuvausta.</string>
     <string name="active_input_method_subtypes">Aktiiviset syöttötavat</string>
     <string name="activity_launch_on_secondary_display_failed_text">Sovellus ei tue käynnistämistä toissijaisilla näytöillä.</string>
+    <string name="adaptive_charging_notify_des">Akku täynnä klo %1$s mennessä. Akkua ladataan hiljalleen, jotta se pysyy hyvässä kunnossa.</string>
+    <string name="adaptive_charging_notify_title">Mukautuva lataus on päällä</string>
+    <string name="adaptive_charging_notify_turn_off_once">Laita kerran pois päältä</string>
     <string name="adaptive_charging_time_estimate">%1$s • Mukautuva lataus (täynnä klo %2$s mennessä)</string>
     <string name="adb_device_fingerprint_title_format">Laitteen sormenjälki: %1$s</string>
     <string name="adb_device_forget">Unohda</string>
@@ -301,6 +304,7 @@ Ilman tätä lupaa sovelluksen ajoittamat herätykset ja aikaan perustuvat tapah
     <string name="basic_status">Avaa keskustelu</string>
     <string name="battery">Akku</string>
     <string name="battery_detail_switch_title">Virransäästö</string>
+    <string name="battery_health_notify_learn_more">Lue lisää</string>
     <string name="battery_info_status_charging">Ladataan</string>
     <string name="battery_info_status_charging_fast">Nopea lataus</string>
     <string name="battery_info_status_charging_slow">Hidas lataus</string>
@@ -616,7 +620,6 @@ Jos jatkat käyttöä, datan käytöstä saatetaan periä maksuja."</string>
     <string name="debug_networking_category">Yhteysominaisuudet</string>
     <string name="debug_view_attributes">Ota attribuuttinäkymän tarkistus käyttöön</string>
     <string name="defender_notify_des">Puhelimesi rajoittaa latausta, jotta akku pysyy hyvässä kunnossa</string>
-    <string name="defender_notify_learn_more">Lue lisää</string>
     <string name="defender_notify_resume_charge">Jatka lataamista</string>
     <string name="defender_notify_title">Lataamista rajoitettu väliaikaisesti</string>
     <string name="defender_post_notify_des">Lataus on rajoitettu %1$s:iin klo %2$s–%3$s, jotta akku pysyy hyvässä kunnossa</string>
@@ -1052,7 +1055,7 @@ Yritä uudelleen %2$d sekunnin kuluttua."</string>
     <string name="mic_stopped_recording_announcement">Mikrofoni lopetti tallentamisen</string>
     <string name="missed_call">Vastaamaton puhelu</string>
     <string name="mobile_carrier_text_format">%1$s, %2$s</string>
-    <string name="mobile_data">Mobiilitiedonsiirto</string>
+    <string name="mobile_data">Mobiilidata</string>
     <string name="mobile_data_always_on">Mobiilidata aina käytössä</string>
     <string name="mobile_data_always_on_summary">Pidä mobiilidata aina käytössä, vaikka Wi-Fi olisi aktiivinen. Tämä mahdollistaa nopeamman vaihtelun verkkojen välillä</string>
     <string name="mobile_data_connection_active">Yhdistetty</string>
@@ -1653,13 +1656,13 @@ Lue lisää napauttamalla"</string>
     <string name="tts_default_rate_title">Puheen nopeus</string>
     <string name="tts_default_sample_string">Tämä on esimerkki puhesynteesistä.</string>
     <string name="tts_engine_network_required">Tämä kieli vaatii verkkoyhteyden, jotta tekstistä puheeksi muuntaminen toimii.</string>
-    <string name="tts_engine_preference_section_title">Ensisijainen kone</string>
+    <string name="tts_engine_preference_section_title">Ensisijainen moottori</string>
     <string name="tts_engine_security_warning">Tämä puhesynteesimoottori saattaa kerätä kaiken puhutun tekstin, mukaan lukien henkilökohtaiset tiedot kuten salasanat ja luottokorttinumerot. Se on lähtöisin moottorista %s. Haluatko ottaa tämän puhesynteesimoottorin käyttöön?</string>
     <string name="tts_engine_settings_button">Käynnistä moottorin asetukset</string>
     <string name="tts_engine_settings_title">Asetukset: %s</string>
     <string name="tts_general_section_title">Yleiset</string>
     <string name="tts_install_data_summary">Asenna puhesynteesiin tarvittavat äänitiedot</string>
-    <string name="tts_install_data_title">Asenna äänitiedot</string>
+    <string name="tts_install_data_title">Asenna äänidata</string>
     <string name="tts_lang_not_selected">Kieltä ei ole valittu</string>
     <string name="tts_lang_use_system">Käytä järjestelmän kieltä</string>
     <string name="tts_play_example_summary">Toista lyhyt esittely puhesynteesistä</string>
@@ -1701,9 +1704,13 @@ Lue lisää napauttamalla"</string>
     <string name="upcoming_birthday_status_content_description">%1$s viettää pian syntymäpäiväänsä</string>
     <string name="url_menu_copy">Kopioi</string>
     <string name="url_menu_share">Jaa</string>
-    <string name="usb_accessory_confirm_prompt">Avataanko %1$s, jotta %2$s voidaan ottaa käyttöön?</string>
+    <string name="usb_accessory_confirm_prompt">Avaa %1$s, jotta %2$s voidaan ottaa käyttöön?</string>
     <string name="usb_accessory_permission_prompt">Saako %1$s käyttöoikeuden (%2$s)?</string>
     <string name="usb_accessory_uri_prompt">Asennetut sov. eivät toimi tämän USB-laitteen kanssa. Lisätietoja laitteesta: %1$s</string>
+    <string name="usb_audio_device_confirm_prompt_title">Avaa %1$s, jotta %2$s voidaan ottaa käyttöön?</string>
+    <string name="usb_audio_device_permission_prompt_title">Saako %1$s pääsyn (%2$s)?</string>
+    <string name="usb_audio_device_prompt">Jos %1$s on käytössä laitteella, puheluita, ilmoituksia ja herätyksiä ei välttämättä kuulu.</string>
+    <string name="usb_audio_device_prompt_warn">Sovellus ei ole saanut tallennuslupaa mutta voi tallentaa audiota tämän USB-laitteen avulla. Jos %1$s on käytössä laitteella, puheluita, ilmoituksia ja herätyksiä ei välttämättä kuulu.</string>
     <string name="usb_audio_disable_routing">USB-äänireititys pois</string>
     <string name="usb_audio_disable_routing_summary">Automaattireititys USB-äänilaitteisiin pois päältä</string>
     <string name="usb_contaminant_message">"Laitteen suojaamiseksi nesteiltä ja lialta USB-portti on poistettu käytöstä, eikä se havaitse lisävarusteita.
@@ -1717,7 +1724,7 @@ Saat ilmoituksen, kun USB-porttia voi taas käyttää."</string>
     <string name="usb_debugging_secondary_user_message">Laitteelle tällä hetkellä kirjautunut käyttäjä ei voi ottaa USB-vianetsintää käyttöön. Vaihda käyttäjäksi ensisijainen käyttäjä, jotta voit käyttää tätä ominaisuutta.</string>
     <string name="usb_debugging_secondary_user_title">USB-vianetsintää ei sallita</string>
     <string name="usb_debugging_title">Sallitaanko USB-vianetsintä?</string>
-    <string name="usb_device_confirm_prompt">Avataanko %1$s, jotta %2$s voidaan ottaa käyttöön?</string>
+    <string name="usb_device_confirm_prompt">Avaa %1$s, jotta %2$s voidaan ottaa käyttöön?</string>
     <string name="usb_device_confirm_prompt_warn">"Avataanko %1$s, jotta %2$s voidaan ottaa käyttöön?
 Sovellus ei ole saanut tallennuslupaa, mutta voi tallentaa ääntä tämän USB-laitteen avulla."</string>
     <string name="usb_device_permission_prompt">Saako %1$s käyttöoikeuden (%2$s)?</string>

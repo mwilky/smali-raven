@@ -237,6 +237,9 @@
     <string name="accessor_no_description_text">Aplikacija ni posredovala opisa.</string>
     <string name="active_input_method_subtypes">Aktivni načini vnosa</string>
     <string name="activity_launch_on_secondary_display_failed_text">Aplikacija ne podpira zagona na sekundarnih zaslonih.</string>
+    <string name="adaptive_charging_notify_des">Baterija bo napolnjena čez %1$s. Poteka enakomerno polnjenje za ohranjanje ustreznega stanja baterije.</string>
+    <string name="adaptive_charging_notify_title">Prilagodljivo polnjenje je vklopljeno</string>
+    <string name="adaptive_charging_notify_turn_off_once">Izklopi enkrat</string>
     <string name="adaptive_charging_time_estimate">%1$s • Prilagodljivo polnjenje (povsem polna bo do %2$s)</string>
     <string name="adb_device_fingerprint_title_format">Prstni odtis naprave: %1$s</string>
     <string name="adb_device_forget">Pozabi</string>
@@ -282,7 +285,7 @@
     <string name="allow_mock_location">Dovoli lažne lokacije</string>
     <string name="allow_mock_location_summary">Dovoli lažne lokacije</string>
     <string name="always_use_accessory">Ko je dodatek %2$s povezan, vedno odpri aplikacijo %1$s</string>
-    <string name="always_use_device">Ko je dodatek %2$s povezan, vedno odpri aplikacijo %1$s</string>
+    <string name="always_use_device">Ko je naprava %2$s povezana, vedno odpri aplikacijo %1$s</string>
     <string name="animator_duration_scale_title">Merilo trajanja animacije</string>
     <string name="anniversary_status">Obletnica</string>
     <string name="anniversary_status_content_description">%1$s ima obletnico.</string>
@@ -301,6 +304,7 @@
     <string name="basic_status">Odprt pogovor</string>
     <string name="battery">Baterija</string>
     <string name="battery_detail_switch_title">Varčevanje z energijo baterije</string>
+    <string name="battery_health_notify_learn_more">Več o tem</string>
     <string name="battery_info_status_charging">Polnjenje</string>
     <string name="battery_info_status_charging_fast">Hitro polnjenje</string>
     <string name="battery_info_status_charging_slow">Počasno polnjenje</string>
@@ -616,7 +620,6 @@ Izbor"</string>
     <string name="debug_networking_category">Omrežja</string>
     <string name="debug_view_attributes">Omogoči pregled atributa pogleda</string>
     <string name="defender_notify_des">Telefon omejuje polnjenje za ohranjanje ustreznega stanja baterije.</string>
-    <string name="defender_notify_learn_more">Več o tem</string>
     <string name="defender_notify_resume_charge">Nadaljuj polnjenje</string>
     <string name="defender_notify_title">Polnjenje začasno omejeno</string>
     <string name="defender_post_notify_des">Polnjenje je bilo od %2$s do %3$s omejeno na %1$s zaradi ohranjanja baterije.</string>
@@ -1585,7 +1588,7 @@ Za več informacij se obrnite na skrbnika za IT."</string>
     <string name="start_dreams">Ohranjeval. zaslona</string>
     <string name="status_bar">Vrstica stanja</string>
     <string name="status_bar_airplane">Način za letalo</string>
-    <string name="status_bar_alarm">Opozorilo</string>
+    <string name="status_bar_alarm">Alarm</string>
     <string name="status_bar_ethernet">Ethernet</string>
     <string name="status_bar_notification_info_overflow">999+</string>
     <string name="status_bar_settings_auto_rotation">Samodejno zasukaj zaslon</string>
@@ -1701,9 +1704,13 @@ Dotaknite se za več informacij"</string>
     <string name="upcoming_birthday_status_content_description">Oseba %1$s bo kmalu imela rojstni dan.</string>
     <string name="url_menu_copy">Kopiraj</string>
     <string name="url_menu_share">Deli</string>
-    <string name="usb_accessory_confirm_prompt">Želite odpreti aplikacijo %1$s za upravljanje dodatka USB %2$s?</string>
+    <string name="usb_accessory_confirm_prompt">Želite odpreti %1$s za upravljanje dodatka %2$s?</string>
     <string name="usb_accessory_permission_prompt">Ali aplikaciji %1$s dovolite dostop do dodatka USB %2$s?</string>
     <string name="usb_accessory_uri_prompt">Namešč. prog. ne delujejo s tem dodatkom USB. Več o tem dodatku preberite na %1$s</string>
+    <string name="usb_audio_device_confirm_prompt_title">Želite odpreti %1$s za upravljanje naprave %2$s?</string>
+    <string name="usb_audio_device_permission_prompt_title">Dovolite aplikaciji %1$s dostop do naprave %2$s?</string>
+    <string name="usb_audio_device_prompt">Uporaba aplikacije %1$s s to napravo lahko povzroči, da boste preslišali klice, obvestila in alarme.</string>
+    <string name="usb_audio_device_prompt_warn">Ta aplikacija sicer nima dovoljenja za snemanje, vendar bi lahko zajemala zvok prek te naprave USB. Uporaba aplikacije %1$s s to napravo lahko povzroči, da boste preslišali klice, obvestila in alarme.</string>
     <string name="usb_audio_disable_routing">Onem. usmerjanje zvoka prek USB</string>
     <string name="usb_audio_disable_routing_summary">Onem. samod. usmerjanja na zun. zvoč. naprave USB.</string>
     <string name="usb_contaminant_message">"Zaradi zaščite naprave pred tekočino ali umazanijo so vrata USB onemogočena in ne bodo zaznala nobene dodatne opreme.
@@ -1717,7 +1724,7 @@ Ko bo znova varno uporabljati vrata USB, boste obveščeni."</string>
     <string name="usb_debugging_secondary_user_message">Uporabnik, trenutno prijavljen v napravo, ne more vklopiti odpravljanja napak s povezavo USB. Če želite uporabljati to funkcijo, preklopite na primarnega uporabnika.</string>
     <string name="usb_debugging_secondary_user_title">Odpravljanje napak s povezavo USB ni dovoljeno</string>
     <string name="usb_debugging_title">Ali dovolite odpravljanje težav prek USB?</string>
-    <string name="usb_device_confirm_prompt">Želite odpreti aplikacijo %1$s za upravljanje dodatka USB %2$s?</string>
+    <string name="usb_device_confirm_prompt">Želite odpreti %1$s za upravljanje naprave %2$s?</string>
     <string name="usb_device_confirm_prompt_warn">"Želite odpreti aplikacijo %1$s za upravljanje naprave %2$s?
 Ta aplikacija sicer nima dovoljenja za snemanje, vendar bi lahko zajemala zvok prek te naprave USB."</string>
     <string name="usb_device_permission_prompt">Ali aplikaciji %1$s dovolite dostop do dodatka USB %2$s?</string>
@@ -1832,7 +1839,7 @@ Naslov omrežja Wi‑Fi (BSSID)
     <string name="wifi_failed_connect_message">Vzpostavljanje povezave z omrežjem ni uspelo.</string>
     <string name="wifi_hotspot_switch_off_text">Izklop</string>
     <string name="wifi_hotspot_switch_on_text">Vklop</string>
-    <string name="wifi_is_off">Wi-Fi je izklopljen</string>
+    <string name="wifi_is_off">Wi-Fi je izklopljen.</string>
     <string name="wifi_limited_connection">Omejena povezava</string>
     <string name="wifi_metered_label">Omejen prenos podatkov</string>
     <string name="wifi_no_internet">Ni dostopa do interneta</string>

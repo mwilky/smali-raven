@@ -237,6 +237,9 @@
     <string name="accessor_no_description_text">Tətbiq tərəfindən heç bir təsvir təmin edilməyib.</string>
     <string name="active_input_method_subtypes">Aktiv daxiletmə üsulları</string>
     <string name="activity_launch_on_secondary_display_failed_text">Tətbiq ikinci ekranda başlamağı dəstəkləmir.</string>
+    <string name="adaptive_charging_notify_des">Batareya %1$s sonra tam dolacaq. Batareyanı qorumaq üçün sabit şarj edilir.</string>
+    <string name="adaptive_charging_notify_title">Uyğunlaşan Şarj aktivdir</string>
+    <string name="adaptive_charging_notify_turn_off_once">Deaktiv edin</string>
     <string name="adaptive_charging_time_estimate">%1$s • Uyğunlaşan şarj (%2$s radələrində dolacaq)</string>
     <string name="adb_device_fingerprint_title_format">Cihaz barmaq izi: %1$s</string>
     <string name="adb_device_forget">Unudun</string>
@@ -301,6 +304,7 @@ Bu icazə deaktiv olsa, bu tətbiq tərəfindən planlaşdırılan mövcud siqna
     <string name="basic_status">Açıq söhbət</string>
     <string name="battery">Batareya</string>
     <string name="battery_detail_switch_title">Enerjiyə qənaət</string>
+    <string name="battery_health_notify_learn_more">Ətraflı məlumat</string>
     <string name="battery_info_status_charging">Enerji doldurma</string>
     <string name="battery_info_status_charging_fast">Sürətlə doldurulur</string>
     <string name="battery_info_status_charging_slow">Asta doldurulur</string>
@@ -616,7 +620,6 @@ Davam etsəniz, data istifadəsi üçün ödəniş tutulacaq."</string>
     <string name="debug_networking_category">Şəbəkələşmə</string>
     <string name="debug_view_attributes">Atributlar yoxlanılsın</string>
     <string name="defender_notify_des">Batareyanı qorumaq üçün telefonunuz şarjı məhdudlaşdırır</string>
-    <string name="defender_notify_learn_more">Ətraflı məlumat</string>
     <string name="defender_notify_resume_charge">Şarja davam edin</string>
     <string name="defender_notify_title">Şarj müvəqqəti məhdudlaşdırılıb</string>
     <string name="defender_post_notify_des">Batareyanı qorumaq üçün şarj %2$s-%3$s arasında %1$s ilə məhdudlaşdırılıb</string>
@@ -1704,6 +1707,10 @@ Suallarınız varsa, %2$s ilə əlaqə saxlayın."</string>
     <string name="usb_accessory_confirm_prompt">%2$s cihazını idarə etmək üçün %1$s tətbiqi açılsın?</string>
     <string name="usb_accessory_permission_prompt">%1$s tətbiqinə %2$s cihazına giriş icazəsi verilsin?</string>
     <string name="usb_accessory_uri_prompt">Heç bir quraşdırılmış tətbiq bu USB aksesuar ilə işləmir. Bu aksesuar haqqında daha ətraflı məlumatı %1$s adresindən öyrənin</string>
+    <string name="usb_audio_device_confirm_prompt_title">%2$s cihazını idarə etmək üçün %1$s tətbiqi açılsın?</string>
+    <string name="usb_audio_device_permission_prompt_title">%1$s tətbiqinə %2$s cihazına giriş icazəsi verilsin?</string>
+    <string name="usb_audio_device_prompt">%1$s tətbiqindən bu cihazla istifadə etsəniz zənglər, bildirişlər və siqnallar eşidilməyə bilər.</string>
+    <string name="usb_audio_device_prompt_warn">Bu tətbiqə yazmaq icazəsi verilməyib, lakin, bu USB vasitəsilə səs yaza bilər. %1$s tətbiqindən bu cihazla istifadə etsəniz zənglər, bildirişlər və siqnallar eşidilməyə bilər.</string>
     <string name="usb_audio_disable_routing">USB audiomarşrut deaktiv edilsin</string>
     <string name="usb_audio_disable_routing_summary">Xarici USB-yə avto-marşrutizasiya deaktiv edilsin</string>
     <string name="usb_contaminant_message">"USB portu deaktivdir. Cihazı maye və zərbədən qorumaq üçün aksesuar aşkarlanmayacaq.

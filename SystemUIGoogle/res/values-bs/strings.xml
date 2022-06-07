@@ -237,6 +237,9 @@
     <string name="accessor_no_description_text">U aplikaciji nije naveden opis.</string>
     <string name="active_input_method_subtypes">Aktivne metode unosa</string>
     <string name="activity_launch_on_secondary_display_failed_text">Aplikacija ne podržava pokretanje na sekundarnim ekranima.</string>
+    <string name="adaptive_charging_notify_des">Baterija će se potpuno napuniti do %1$s. Puni se umjereno radi očuvanja baterije.</string>
+    <string name="adaptive_charging_notify_title">Prilagodljivo punjenje je uključeno</string>
+    <string name="adaptive_charging_notify_turn_off_once">Isključi jednom</string>
     <string name="adaptive_charging_time_estimate">%1$s • Prilagodljivo punjenje (puno do %2$s)</string>
     <string name="adb_device_fingerprint_title_format">Otisak prsta uređaja: %1$s</string>
     <string name="adb_device_forget">Zaboravi</string>
@@ -301,6 +304,7 @@ Ako je ovo odobrenje isključeno, postojeći alarmi i događaji zasnovani na vre
     <string name="basic_status">Otvoreni razgovor</string>
     <string name="battery">Baterija</string>
     <string name="battery_detail_switch_title">Ušteda baterije</string>
+    <string name="battery_health_notify_learn_more">Saznajte više</string>
     <string name="battery_info_status_charging">Punjenje</string>
     <string name="battery_info_status_charging_fast">Brzo punjenje</string>
     <string name="battery_info_status_charging_slow">Sporo punjenje</string>
@@ -533,7 +537,7 @@ Odabir"</string>
     <string name="controls_favorite_rearrange">Držite i prevucite da preuredite kontrole</string>
     <string name="controls_favorite_removed">Sve kontrole su uklonjene</string>
     <string name="controls_favorite_see_other_apps">Prikaži druge aplikacije</string>
-    <string name="controls_favorite_subtitle">Odaberite kontrole kojim želite pristupati pomoću Brzih postavki</string>
+    <string name="controls_favorite_subtitle">Odaberite kontrole kojim želite pristupati iz Brzih postavki</string>
     <string name="controls_favorite_toast_no_changes">Promjene nisu sačuvane</string>
     <string name="controls_media_active_session">Trenutna sesija medija se ne može sakriti.</string>
     <string name="controls_media_close_session">Sakriti ovu sesiju medija?</string>
@@ -616,7 +620,6 @@ Ukoliko nastavite koristiti prijenos podataka na mobilnoj mreži, mogući su tro
     <string name="debug_networking_category">Umrežavanje</string>
     <string name="debug_view_attributes">Omogući pregled atributa prikaza</string>
     <string name="defender_notify_des">Vaš telefon ograničava punjenje radi očuvanja baterije</string>
-    <string name="defender_notify_learn_more">Saznajte više</string>
     <string name="defender_notify_resume_charge">Nastavi punjenje</string>
     <string name="defender_notify_title">Punjenje je privremeno ograničeno</string>
     <string name="defender_post_notify_des">Punjenje je bilo ograničeno na %1$s od %2$s do %3$s radi očuvanja baterije</string>
@@ -1056,7 +1059,7 @@ Pokušajte ponovo za %2$d s."</string>
     <string name="mobile_data_always_on">Prijenos podataka na mobilnoj mreži uvijek aktivan</string>
     <string name="mobile_data_always_on_summary">Prijenos podataka na mobilnoj mreži ostaje aktivan čak i kada je aktiviran WiFi (za brzo prebacivanje između mreža).</string>
     <string name="mobile_data_connection_active">Povezano</string>
-    <string name="mobile_data_disable_message">Nećete imati pristup podacima ni internetu putem mobilnog operatera %s. Internet će biti dostupan samo putem WiFi mreže.</string>
+    <string name="mobile_data_disable_message">Nećete imati pristup podacima ni internetu putem mobilnog operatera %s. Internet će biti dostupan samo putem WiFi-ja.</string>
     <string name="mobile_data_disable_message_default_carrier">vaš operater</string>
     <string name="mobile_data_disable_title">Isključiti prijenos podataka na mobilnoj mreži?</string>
     <string name="mobile_data_no_connection">Niste povezani s mrežom</string>
@@ -1336,7 +1339,7 @@ Ako imate pitanja, kontaktirajte organizaciju %2$s."</string>
     <string name="process_kernel_label">Android OS</string>
     <string name="profile_connect_timeout_subtext">Došlo je do problema prilikom povezivanja. Isključite, pa ponovo uključite uređaj</string>
     <string name="profile_info_settings_title">Informacije o profilu</string>
-    <string name="qs_alarm_tile_no_alarm">Nije postavljen alarm</string>
+    <string name="qs_alarm_tile_no_alarm">Nema nijednog alarma</string>
     <string name="qs_dnd_prompt_app">Način rada Ne ometaj uključila je aplikacija %s.</string>
     <string name="qs_dnd_prompt_auto_rule">Opciju Ne ometaju uključilo je automatsko pravilo (%s).</string>
     <string name="qs_dnd_prompt_auto_rule_app">Način rada Ne ometaj uključilo je automatsko pravilo ili aplikacija.</string>
@@ -1482,9 +1485,9 @@ Ako imate pitanja, kontaktirajte organizaciju %2$s."</string>
     <string name="screenrecord_channel_description">Obavještenje za sesiju snimanja ekrana je u toku</string>
     <string name="screenrecord_delete_error">Greška prilikom brisanja snimka ekrana</string>
     <string name="screenrecord_description">Prilikom snimanja, Android sistem može snimiti sve osjetljive informacije koje su vidljive na vašem ekranu ili koje reproducirate na uređaju. To uključuje lozinke, informacije za plaćanje, fotografije, poruke i zvuk.</string>
-    <string name="screenrecord_device_audio_and_mic_label">Zvuk i mikrofon uređaja</string>
+    <string name="screenrecord_device_audio_and_mic_label">Zvuk na uređaju i mikrofon</string>
     <string name="screenrecord_device_audio_description">Zvuk s vašeg uređaja, naprimjer muzika, pozivi i melodije zvona</string>
-    <string name="screenrecord_device_audio_label">Zvuk uređaja</string>
+    <string name="screenrecord_device_audio_label">Zvuk na uređaju</string>
     <string name="screenrecord_mic_label">Mikrofon</string>
     <string name="screenrecord_name">Snimač ekrana</string>
     <string name="screenrecord_ongoing_screen_and_audio">Snimanje ekrana i zvuka</string>
@@ -1611,14 +1614,14 @@ Ako imate pitanja, kontaktirajte organizaciju %2$s."</string>
     <string name="tap_a_network_to_connect">Dodirnite mrežu da se povežete</string>
     <string name="tap_again">Ponovo dodirnite</string>
     <string name="tap_to_sign_up">Dodirnite za prijavu</string>
-    <string name="tether_settings_title_all">Povezivanje putem mobitela i prijenosna pristupna tačka</string>
-    <string name="tether_settings_title_bluetooth">Dijeljenje Bluetooth veze</string>
-    <string name="tether_settings_title_usb">Povezivanje mobitela USB-om</string>
-    <string name="tether_settings_title_usb_bluetooth">Povezivanje putem mobitela</string>
+    <string name="tether_settings_title_all">Dijeljenje internetske veze i prijenosna pristupna tačka</string>
+    <string name="tether_settings_title_bluetooth">Dijeljenje internetske veze putem Bluetootha</string>
+    <string name="tether_settings_title_usb">Dijeljenje internetske veze putem USB-a</string>
+    <string name="tether_settings_title_usb_bluetooth">Dijeljenje internetske veze</string>
     <string name="tether_settings_title_wifi">Prijenosna pristupna tačka</string>
-    <string name="tethering_hardware_offload">Hardversko ubrzavanje za povezivanje putem mobitela</string>
-    <string name="tethering_hardware_offload_summary">Korištenje hardverskog ubrzavanja za povezivanje putem mobitela, ako je dostupno</string>
-    <string name="tethering_settings_not_available">Postavke za povezivanje putem mobitela nisu dostupne za ovog korisnika</string>
+    <string name="tethering_hardware_offload">Hardversko ubrzavanje dijeljenja internetske veze</string>
+    <string name="tethering_hardware_offload_summary">Korištenje hardverskog ubrzavanja dijeljenja internetske veze ako je dostupno</string>
+    <string name="tethering_settings_not_available">Postavke dijeljenja internetske veze nisu dostupne za ovog korisnika</string>
     <string name="thermal_shutdown_dialog_help_text">Pogledajte korake za zaštitu</string>
     <string name="thermal_shutdown_dialog_message">"Vaš telefon se pregrijao, pa se isključio da se ohladi. Telefon sada radi normalno.
 
@@ -1701,9 +1704,13 @@ Dodirnite za više informacija"</string>
     <string name="upcoming_birthday_status_content_description">%1$s uskoro slavi rođendan</string>
     <string name="url_menu_copy">Kopiraj</string>
     <string name="url_menu_share">Dijeli</string>
-    <string name="usb_accessory_confirm_prompt">Otvoriti aplikaciju %1$s za upravljanje dodatkom: %2$s?</string>
+    <string name="usb_accessory_confirm_prompt">Otvoriti aplikaciju %1$s za upravljanje uređajem: %2$s?</string>
     <string name="usb_accessory_permission_prompt">Dozvoliti aplikaciji %1$s pristup dodatku: %2$s?</string>
     <string name="usb_accessory_uri_prompt">Nema instaliranih aplikacija za ovaj USB uređaj. Saznajte više o uređaju na %1$s</string>
+    <string name="usb_audio_device_confirm_prompt_title">Otvoriti aplikaciju %1$s za upravljanje uređajem: %2$s?</string>
+    <string name="usb_audio_device_permission_prompt_title">Dozvoliti aplikaciji %1$s pristup dodatku: %2$s?</string>
+    <string name="usb_audio_device_prompt">Korištenje aplikacije %1$s s ovim uređajem može vas spriječiti da čujete pozive, obavještenja i alarme.</string>
+    <string name="usb_audio_device_prompt_warn">Ovoj aplikaciji nije dato odobrenje za snimanje, ali može snimati zvuk putem ovog USB uređaja. Korištenje aplikacije %1$s s ovim uređajem može vas spriječiti da čujete pozive, obavještenja i alarme.</string>
     <string name="usb_audio_disable_routing">Onemogući USB preusmjer. zvuka</string>
     <string name="usb_audio_disable_routing_summary">Onemoguć. autom. preusmj. na USB audio perif. uređ.</string>
     <string name="usb_contaminant_message">"USB priključak je onemogućen kako bi se vaš uređaj zaštitio od tečnosti i nečistoća i neće detektirati priključene uređaje.
@@ -1832,7 +1839,7 @@ Adresa WiFi mreže (BSSID)
     <string name="wifi_failed_connect_message">Povezivanje s mrežom nije uspjelo</string>
     <string name="wifi_hotspot_switch_off_text">Isključi</string>
     <string name="wifi_hotspot_switch_on_text">Uključi</string>
-    <string name="wifi_is_off">WiFi veza je isključena</string>
+    <string name="wifi_is_off">WiFi je isključen</string>
     <string name="wifi_limited_connection">Ograničena veza</string>
     <string name="wifi_metered_label">S naplatom</string>
     <string name="wifi_no_internet">Nema pristupa internetu</string>

@@ -62,6 +62,8 @@
 
 .field private final keyguardStateController:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
 
+.field private final keyguardViewController:Lcom/android/keyguard/KeyguardViewController;
+
 .field private final mediaCarouselController:Lcom/android/systemui/media/MediaCarouselController;
 
 .field private final mediaHosts:[Lcom/android/systemui/media/MediaHost;
@@ -79,8 +81,6 @@
 .field private rootView:Landroid/view/View;
 
 .field private final startAnimation:Ljava/lang/Runnable;
-
-.field private final statusBarKeyguardViewManager:Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;
 
 .field private final statusBarStateController:Lcom/android/systemui/statusbar/SysuiStatusBarStateController;
 
@@ -104,7 +104,7 @@
     return-void
 .end method
 
-.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/statusbar/SysuiStatusBarStateController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/media/MediaCarouselController;Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/keyguard/WakefulnessLifecycle;Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;)V
+.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/statusbar/SysuiStatusBarStateController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/media/MediaCarouselController;Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/keyguard/WakefulnessLifecycle;Lcom/android/keyguard/KeyguardViewController;)V
     .locals 1
 
     const-string v0, "context"
@@ -139,7 +139,7 @@
 
     invoke-static {p8, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    const-string v0, "statusBarKeyguardViewManager"
+    const-string v0, "keyguardViewController"
 
     invoke-static {p9, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -157,7 +157,7 @@
 
     iput-object p6, p0, Lcom/android/systemui/media/MediaHierarchyManager;->notifLockscreenUserManager:Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;
 
-    iput-object p9, p0, Lcom/android/systemui/media/MediaHierarchyManager;->statusBarKeyguardViewManager:Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;
+    iput-object p9, p0, Lcom/android/systemui/media/MediaHierarchyManager;->keyguardViewController:Lcom/android/keyguard/KeyguardViewController;
 
     new-instance p1, Landroid/graphics/Rect;
 
@@ -1469,9 +1469,9 @@
 
     if-nez v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/systemui/media/MediaHierarchyManager;->statusBarKeyguardViewManager:Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;
+    iget-object v0, p0, Lcom/android/systemui/media/MediaHierarchyManager;->keyguardViewController:Lcom/android/keyguard/KeyguardViewController;
 
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;->isBouncerShowing()Z
+    invoke-interface {v0}, Lcom/android/keyguard/KeyguardViewController;->isBouncerShowing()Z
 
     move-result v0
 
@@ -1522,9 +1522,9 @@
 
     if-nez v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/systemui/media/MediaHierarchyManager;->statusBarKeyguardViewManager:Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;
+    iget-object v0, p0, Lcom/android/systemui/media/MediaHierarchyManager;->keyguardViewController:Lcom/android/keyguard/KeyguardViewController;
 
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;->isBouncerShowing()Z
+    invoke-interface {v0}, Lcom/android/keyguard/KeyguardViewController;->isBouncerShowing()Z
 
     move-result v0
 

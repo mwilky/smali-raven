@@ -45,7 +45,7 @@
 
     check-cast p0, Lcom/android/keyguard/KeyguardMessageArea;
 
-    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardMessageArea;->onConfigChanged()V
+    invoke-virtual {p0, p1}, Lcom/android/keyguard/KeyguardMessageArea;->onConfigChanged(Landroid/content/res/Configuration;)V
 
     return-void
 .end method

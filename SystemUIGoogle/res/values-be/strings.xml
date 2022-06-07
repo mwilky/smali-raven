@@ -221,7 +221,7 @@
     <string name="accessibility_tty_enabled">TeleTypewriter уключаны.</string>
     <string name="accessibility_unlock_button">Разблакiраваць</string>
     <string name="accessibility_voice_assist_button">Галасавая дапамога</string>
-    <string name="accessibility_volume_close_odi_captions_tip">Падказка \"Схавайце цітры\"</string>
+    <string name="accessibility_volume_close_odi_captions_tip">Закрыць падказку пра субцітры</string>
     <string name="accessibility_volume_settings">Налады гуку</string>
     <string name="accessibility_vpn_on">VPN уключана.</string>
     <string name="accessibility_wallet_button">Кашалёк</string>
@@ -237,6 +237,9 @@
     <string name="accessor_no_description_text">У праграмы адсутнічае апісанне.</string>
     <string name="active_input_method_subtypes">Актыўныя метады ўводу</string>
     <string name="activity_launch_on_secondary_display_failed_text">Праграма не падтрымлівае запуск на дадатковых экранах.</string>
+    <string name="adaptive_charging_notify_des">Акумулятар поўнасцю зарадзіцца ў %1$s. Каб павялічыць тэрмін службы акумулятара, зарадка адбываецца паступова.</string>
+    <string name="adaptive_charging_notify_title">Адаптыўная зарадка ўключана</string>
+    <string name="adaptive_charging_notify_turn_off_once">Выключыць адзін раз</string>
     <string name="adaptive_charging_time_estimate">%1$s • Адаптыўная зарадка (поўнасцю зарадзіцца ў %2$s)</string>
     <string name="adb_device_fingerprint_title_format">Лічбавы адбітак прылады: %1$s</string>
     <string name="adb_device_forget">Забыць</string>
@@ -301,6 +304,7 @@
     <string name="basic_status">Адкрытая размова</string>
     <string name="battery">Акумулятар</string>
     <string name="battery_detail_switch_title">Рэжым энергазберажэння</string>
+    <string name="battery_health_notify_learn_more">Даведацца больш</string>
     <string name="battery_info_status_charging">Зарадка</string>
     <string name="battery_info_status_charging_fast">Хуткая зарадка</string>
     <string name="battery_info_status_charging_slow">Павольная зарадка</string>
@@ -312,7 +316,7 @@
     <string name="battery_low_percent_format">Засталося %s</string>
     <string name="battery_low_title">Акумулятар хутка разрадзіцца</string>
     <string name="battery_saver_confirmation_ok">Уключыць</string>
-    <string name="battery_saver_confirmation_title">Уключыць рэжым эканоміі зараду?</string>
+    <string name="battery_saver_confirmation_title">Уключыць рэжым энергазберажэння?</string>
     <string name="battery_saver_confirmation_title_generic">Інфармацыя пра рэжым эканоміі зараду</string>
     <string name="battery_saver_start_action">Уключыць рэжым эканоміі зараду</string>
     <string name="battery_state_unknown_notification_text">Націсніце, каб убачыць больш</string>
@@ -616,7 +620,6 @@
     <string name="debug_networking_category">Сеткі</string>
     <string name="debug_view_attributes">Уключыць прагляд атрыбутаў</string>
     <string name="defender_notify_des">Тэлефон абмяжоўвае зарадку, каб павялічыць тэрмін службы акумулятара</string>
-    <string name="defender_notify_learn_more">Даведацца больш</string>
     <string name="defender_notify_resume_charge">Узнавіць зарадку</string>
     <string name="defender_notify_title">Зарадка часова абмежавана</string>
     <string name="defender_post_notify_des">Каб павялічыць тэрмін службы акумулятара, з %2$s да %3$s зарадка абмежавана %1$s</string>
@@ -1704,6 +1707,10 @@
     <string name="usb_accessory_confirm_prompt">Адкрыць праграму %1$s для працы з прыладай %2$s?</string>
     <string name="usb_accessory_permission_prompt">Дазволіць праграме %1$s доступ да прылады %2$s?</string>
     <string name="usb_accessory_uri_prompt">Няма ўсталяв. прыкл. для працы з гэтай прыл. USB. Больш падраб. пра гэтую прыл.: %1$s</string>
+    <string name="usb_audio_device_confirm_prompt_title">Адкрыць праграму \"%1$s\" для працы з прыладай \"%2$s\"?</string>
+    <string name="usb_audio_device_permission_prompt_title">Дазволіць праграме \"%1$s\" доступ да прылады \"%2$s\"?</string>
+    <string name="usb_audio_device_prompt">Выкарыстоўваючы праграму \"%1$s\" з гэтай прыладай, вы можаце не пачуць гукі выклікаў, апавяшчэнняў і будзільнікаў.</string>
+    <string name="usb_audio_device_prompt_warn">У гэтай праграмы няма дазволу на запіс, аднак яна зможа запісваць аўдыя праз гэту USB-прыладу. Выкарыстоўваючы праграму \"%1$s\" з гэтай прыладай, вы можаце не пачуць гукі выклікаў, апавяшчэнняў і будзільнікаў.</string>
     <string name="usb_audio_disable_routing">Адключыць аўдыямаршрутызацыю USB</string>
     <string name="usb_audio_disable_routing_summary">Выкл. аўтаперанакіраванне на USB-аўдыяпрылады</string>
     <string name="usb_contaminant_message">"Порт USB адключаны, каб засцерагчы прыладу ад вадкасці і смецця, таму дадатковае абсталяванне не будзе выяўлена.

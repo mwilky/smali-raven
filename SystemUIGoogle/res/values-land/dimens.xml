@@ -21,7 +21,7 @@
     <dimen name="global_actions_power_dialog_item_bottom_margin">35.0dip</dimen>
     <dimen name="global_actions_power_dialog_item_height">130.0dip</dimen>
     <dimen name="keyguard_eca_bottom_margin">2.0dip</dimen>
-    <dimen name="keyguard_eca_top_margin">0.0dip</dimen>
+    <dimen name="keyguard_eca_top_margin">2.0dip</dimen>
     <dimen name="keyguard_password_height">26.0dip</dimen>
     <dimen name="material_time_picker_minimum_screen_height">450.0dip</dimen>
     <dimen name="material_time_picker_minimum_screen_width">600.0dip</dimen>

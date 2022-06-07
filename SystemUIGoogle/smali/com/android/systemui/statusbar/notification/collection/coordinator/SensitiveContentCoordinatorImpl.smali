@@ -11,11 +11,17 @@
 # instance fields
 .field private final dynamicPrivacyController:Lcom/android/systemui/statusbar/notification/DynamicPrivacyController;
 
+.field private final keyguardStateController:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
+
+.field private final keyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
+
 .field private final lockscreenUserManager:Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;
+
+.field private final statusBarStateController:Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
 
 
 # direct methods
-.method public constructor <init>(Lcom/android/systemui/statusbar/notification/DynamicPrivacyController;Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/notification/DynamicPrivacyController;Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;)V
     .locals 1
 
     const-string v0, "dynamicPrivacyController"
@@ -26,6 +32,18 @@
 
     invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
+    const-string v0, "keyguardUpdateMonitor"
+
+    invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    const-string v0, "statusBarStateController"
+
+    invoke-static {p4, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    const-string v0, "keyguardStateController"
+
+    invoke-static {p5, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
     const-string v0, "SensitiveContentInvalidator"
 
     invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/notification/collection/listbuilder/pluggable/Invalidator;-><init>(Ljava/lang/String;)V
@@ -33,6 +51,12 @@
     iput-object p1, p0, Lcom/android/systemui/statusbar/notification/collection/coordinator/SensitiveContentCoordinatorImpl;->dynamicPrivacyController:Lcom/android/systemui/statusbar/notification/DynamicPrivacyController;
 
     iput-object p2, p0, Lcom/android/systemui/statusbar/notification/collection/coordinator/SensitiveContentCoordinatorImpl;->lockscreenUserManager:Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;
+
+    iput-object p3, p0, Lcom/android/systemui/statusbar/notification/collection/coordinator/SensitiveContentCoordinatorImpl;->keyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
+
+    iput-object p4, p0, Lcom/android/systemui/statusbar/notification/collection/coordinator/SensitiveContentCoordinatorImpl;->statusBarStateController:Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
+
+    iput-object p5, p0, Lcom/android/systemui/statusbar/notification/collection/coordinator/SensitiveContentCoordinatorImpl;->keyguardStateController:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
 
     return-void
 .end method
@@ -73,23 +97,54 @@
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/coordinator/SensitiveContentCoordinatorImpl;->keyguardStateController:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
+
+    invoke-interface {v0}, Lcom/android/systemui/statusbar/policy/KeyguardStateController;->isKeyguardGoingAway()Z
+
+    move-result v0
+
+    if-nez v0, :cond_9
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/coordinator/SensitiveContentCoordinatorImpl;->statusBarStateController:Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
+
+    invoke-interface {v0}, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;->getState()I
+
+    move-result v0
+
+    const/4 v1, 0x1
+
+    if-ne v0, v1, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/coordinator/SensitiveContentCoordinatorImpl;->keyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
+
+    invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getCurrentUser()I
+
+    move-result v2
+
+    invoke-virtual {v0, v2}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getUserUnlockedWithBiometricAndIsBypassing(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    goto/16 :goto_7
+
+    :cond_0
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/coordinator/SensitiveContentCoordinatorImpl;->lockscreenUserManager:Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;
 
     invoke-interface {v0}, Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;->getCurrentUserId()I
 
     move-result v0
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/notification/collection/coordinator/SensitiveContentCoordinatorImpl;->lockscreenUserManager:Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;
+    iget-object v2, p0, Lcom/android/systemui/statusbar/notification/collection/coordinator/SensitiveContentCoordinatorImpl;->lockscreenUserManager:Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;
 
-    invoke-interface {v1, v0}, Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;->isLockscreenPublicMode(I)Z
+    invoke-interface {v2, v0}, Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;->isLockscreenPublicMode(I)Z
 
-    move-result v1
-
-    const/4 v2, 0x1
+    move-result v2
 
     const/4 v3, 0x0
 
-    if-eqz v1, :cond_0
+    if-eqz v2, :cond_1
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/notification/collection/coordinator/SensitiveContentCoordinatorImpl;->lockscreenUserManager:Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;
 
@@ -97,13 +152,13 @@
 
     move-result v4
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_1
 
-    move v4, v2
+    move v4, v1
 
     goto :goto_0
 
-    :cond_0
+    :cond_1
     move v4, v3
 
     :goto_0
@@ -132,7 +187,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_8
+    if-eqz v6, :cond_9
 
     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -152,7 +207,7 @@
 
     move-result v7
 
-    if-nez v1, :cond_2
+    if-nez v2, :cond_3
 
     iget-object v8, p0, Lcom/android/systemui/statusbar/notification/collection/coordinator/SensitiveContentCoordinatorImpl;->lockscreenUserManager:Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;
 
@@ -160,47 +215,47 @@
 
     move-result v8
 
-    if-eqz v8, :cond_1
+    if-eqz v8, :cond_2
 
     goto :goto_2
 
-    :cond_1
+    :cond_2
     move v8, v3
 
     goto :goto_3
 
-    :cond_2
+    :cond_3
     :goto_2
-    move v8, v2
+    move v8, v1
 
     :goto_3
-    if-nez v8, :cond_3
+    if-nez v8, :cond_4
 
     :goto_4
     move v7, v3
 
     goto :goto_5
 
-    :cond_3
-    if-nez v5, :cond_4
+    :cond_4
+    if-nez v5, :cond_5
 
-    move v7, v2
+    move v7, v1
 
     goto :goto_5
 
-    :cond_4
-    if-ne v7, v0, :cond_5
-
-    goto :goto_4
-
     :cond_5
-    const/4 v8, -0x1
-
-    if-ne v7, v8, :cond_6
+    if-ne v7, v0, :cond_6
 
     goto :goto_4
 
     :cond_6
+    const/4 v8, -0x1
+
+    if-ne v7, v8, :cond_7
+
+    goto :goto_4
+
+    :cond_7
     iget-object v8, p0, Lcom/android/systemui/statusbar/notification/collection/coordinator/SensitiveContentCoordinatorImpl;->lockscreenUserManager:Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;
 
     invoke-interface {v8, v7}, Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;->needsSeparateWorkChallenge(I)Z
@@ -214,15 +269,15 @@
 
     move-result v8
 
-    if-eqz v7, :cond_7
+    if-eqz v7, :cond_8
 
-    if-eqz v8, :cond_7
+    if-eqz v8, :cond_8
 
-    move v7, v2
+    move v7, v1
 
     goto :goto_6
 
-    :cond_7
+    :cond_8
     move v7, v3
 
     :goto_6
@@ -230,7 +285,8 @@
 
     goto :goto_1
 
-    :cond_8
+    :cond_9
+    :goto_7
     return-void
 .end method
 

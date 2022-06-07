@@ -584,12 +584,36 @@
     return-void
 .end method
 
+.method public setHorizontalGap(I)V
+    .locals 1
+
+    iget-object v0, p0, Landroidx/constraintlayout/helper/widget/Flow;->mFlow:Landroidx/constraintlayout/solver/widgets/Flow;
+
+    invoke-virtual {v0, p1}, Landroidx/constraintlayout/solver/widgets/Flow;->setHorizontalGap(I)V
+
+    invoke-virtual {p0}, Landroid/view/View;->requestLayout()V
+
+    return-void
+.end method
+
 .method public setMaxElementsWrap(I)V
     .locals 1
 
     iget-object v0, p0, Landroidx/constraintlayout/helper/widget/Flow;->mFlow:Landroidx/constraintlayout/solver/widgets/Flow;
 
     invoke-virtual {v0, p1}, Landroidx/constraintlayout/solver/widgets/Flow;->setMaxElementsWrap(I)V
+
+    invoke-virtual {p0}, Landroid/view/View;->requestLayout()V
+
+    return-void
+.end method
+
+.method public setVerticalGap(I)V
+    .locals 1
+
+    iget-object v0, p0, Landroidx/constraintlayout/helper/widget/Flow;->mFlow:Landroidx/constraintlayout/solver/widgets/Flow;
+
+    invoke-virtual {v0, p1}, Landroidx/constraintlayout/solver/widgets/Flow;->setVerticalGap(I)V
 
     invoke-virtual {p0}, Landroid/view/View;->requestLayout()V
 

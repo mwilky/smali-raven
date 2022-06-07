@@ -306,6 +306,8 @@
 
 .field public static final keyguard_drag_down_min_distance:I = 0x7f070270
 
+.field public static final keyguard_eca_top_margin:I = 0x7f070272
+
 .field public static final keyguard_indication_area_padding:I = 0x7f070273
 
 .field public static final keyguard_indication_bottom_padding:I = 0x7f070274
@@ -316,7 +318,11 @@
 
 .field public static final keyguard_large_clock_top_margin:I = 0x7f070278
 
+.field public static final keyguard_lock_padding:I = 0x7f07027a
+
 .field public static final keyguard_min_swipe_amount:I = 0x7f07027b
+
+.field public static final keyguard_password_height:I = 0x7f07027c
 
 .field public static final keyguard_smartspace_top_offset:I = 0x7f070282
 

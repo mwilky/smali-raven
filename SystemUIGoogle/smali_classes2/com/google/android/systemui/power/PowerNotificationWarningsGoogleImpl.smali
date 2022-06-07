@@ -4,6 +4,8 @@
 
 
 # instance fields
+.field private mAdaptiveChargingNotification:Lcom/google/android/systemui/power/AdaptiveChargingNotification;
+
 .field private mBatteryDefenderNotification:Lcom/google/android/systemui/power/BatteryDefenderNotification;
 
 .field private mBatteryInfoBroadcast:Lcom/google/android/systemui/power/BatteryInfoBroadcast;
@@ -75,6 +77,14 @@
     return-object p0
 .end method
 
+.method static synthetic access$200(Lcom/google/android/systemui/power/PowerNotificationWarningsGoogleImpl;)Lcom/google/android/systemui/power/AdaptiveChargingNotification;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/systemui/power/PowerNotificationWarningsGoogleImpl;->mAdaptiveChargingNotification:Lcom/google/android/systemui/power/AdaptiveChargingNotification;
+
+    return-object p0
+.end method
+
 .method private initialize(Landroid/content/Context;Lcom/android/internal/logging/UiEventLogger;)V
     .locals 6
 
@@ -87,6 +97,12 @@
     invoke-direct {v2, p1, p2}, Lcom/google/android/systemui/power/BatteryDefenderNotification;-><init>(Landroid/content/Context;Lcom/android/internal/logging/UiEventLogger;)V
 
     iput-object v2, p0, Lcom/google/android/systemui/power/PowerNotificationWarningsGoogleImpl;->mBatteryDefenderNotification:Lcom/google/android/systemui/power/BatteryDefenderNotification;
+
+    new-instance p2, Lcom/google/android/systemui/power/AdaptiveChargingNotification;
+
+    invoke-direct {p2, p1}, Lcom/google/android/systemui/power/AdaptiveChargingNotification;-><init>(Landroid/content/Context;)V
+
+    iput-object p2, p0, Lcom/google/android/systemui/power/PowerNotificationWarningsGoogleImpl;->mAdaptiveChargingNotification:Lcom/google/android/systemui/power/AdaptiveChargingNotification;
 
     new-instance p2, Lcom/google/android/systemui/power/BatteryInfoBroadcast;
 
@@ -111,6 +127,14 @@
     invoke-virtual {p2, v3}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
     const-string v3, "android.os.action.POWER_SAVE_MODE_CHANGED"
+
+    invoke-virtual {p2, v3}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    const-string v3, "com.google.android.systemui.adaptivecharging.ADAPTIVE_CHARGING_DEADLINE_SET"
+
+    invoke-virtual {p2, v3}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    const-string v3, "PNW.acChargeNormally"
 
     invoke-virtual {p2, v3}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 

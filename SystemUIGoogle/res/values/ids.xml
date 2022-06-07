@@ -634,6 +634,7 @@
     <item type="id" name="image_icon_tag" />
     <item type="id" name="image_view" />
     <item type="id" name="ime_switcher" />
+    <item type="id" name="indeterminateBar" />
     <item type="id" name="indicator" />
     <item type="id" name="info_field" />
     <item type="id" name="initial" />
@@ -755,6 +756,8 @@
     <item type="id" name="list_item_2" />
     <item type="id" name="list_item_3" />
     <item type="id" name="list_result" />
+    <item type="id" name="loading_screen" />
+    <item type="id" name="loading_screen_icon" />
     <item type="id" name="loading_view" />
     <item type="id" name="lockPassword" />
     <item type="id" name="lockPattern" />

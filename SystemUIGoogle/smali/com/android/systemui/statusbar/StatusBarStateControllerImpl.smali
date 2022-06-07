@@ -407,7 +407,13 @@
 .end method
 
 .method private recordHistoricalState(IIZ)V
-    .locals 1
+    .locals 3
+
+    const-wide/16 v0, 0x1000
+
+    const-string v2, "statusBarState"
+
+    invoke-static {v0, v1, v2, p1}, Landroid/os/Trace;->traceCounter(JLjava/lang/String;I)V
 
     iget v0, p0, Lcom/android/systemui/statusbar/StatusBarStateControllerImpl;->mHistoryIndex:I
 

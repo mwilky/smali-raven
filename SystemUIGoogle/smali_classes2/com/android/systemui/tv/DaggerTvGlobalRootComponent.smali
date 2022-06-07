@@ -982,7 +982,7 @@
     return-object p0
 .end method
 
-.method static synthetic access$23500(Lcom/android/systemui/tv/DaggerTvGlobalRootComponent;)Landroid/os/Handler;
+.method static synthetic access$23600(Lcom/android/systemui/tv/DaggerTvGlobalRootComponent;)Landroid/os/Handler;
     .locals 0
 
     invoke-direct {p0}, Lcom/android/systemui/tv/DaggerTvGlobalRootComponent;->mainHandler()Landroid/os/Handler;

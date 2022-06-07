@@ -74,6 +74,10 @@
 
     iget-object v0, p0, Lcom/android/wm/shell/splitscreen/StageCoordinator$2;->this$0:Lcom/android/wm/shell/splitscreen/StageCoordinator;
 
+    invoke-static {v0, v1}, Lcom/android/wm/shell/splitscreen/StageCoordinator;->access$600(Lcom/android/wm/shell/splitscreen/StageCoordinator;Z)V
+
+    iget-object v0, p0, Lcom/android/wm/shell/splitscreen/StageCoordinator$2;->this$0:Lcom/android/wm/shell/splitscreen/StageCoordinator;
+
     invoke-static {v0}, Lcom/android/wm/shell/splitscreen/StageCoordinator;->access$200(Lcom/android/wm/shell/splitscreen/StageCoordinator;)Lcom/android/wm/shell/common/SyncTransactionQueue;
 
     move-result-object v0
@@ -110,7 +114,7 @@
     :catch_0
     move-exception p0
 
-    invoke-static {}, Lcom/android/wm/shell/splitscreen/StageCoordinator;->access$600()Ljava/lang/String;
+    invoke-static {}, Lcom/android/wm/shell/splitscreen/StageCoordinator;->access$700()Ljava/lang/String;
 
     move-result-object v0
 
@@ -192,7 +196,7 @@
 
     :catch_1
     :try_start_1
-    invoke-static {}, Lcom/android/wm/shell/splitscreen/StageCoordinator;->access$600()Ljava/lang/String;
+    invoke-static {}, Lcom/android/wm/shell/splitscreen/StageCoordinator;->access$700()Ljava/lang/String;
 
     move-result-object p4
 
@@ -220,7 +224,7 @@
     goto :goto_3
 
     :goto_2
-    invoke-static {}, Lcom/android/wm/shell/splitscreen/StageCoordinator;->access$600()Ljava/lang/String;
+    invoke-static {}, Lcom/android/wm/shell/splitscreen/StageCoordinator;->access$700()Ljava/lang/String;
 
     move-result-object p1
 

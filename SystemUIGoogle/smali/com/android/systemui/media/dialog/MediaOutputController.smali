@@ -71,8 +71,6 @@
 
 .field private mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
 
-.field private final mVolumeAdjustmentForRemoteGroupSessions:Z
-
 
 # direct methods
 .method public static synthetic $r8$lambda$BbeRQNa3Pc3kbkfCXSZBGEaXiaI(Lcom/android/settingslib/media/MediaDevice;I)V
@@ -167,18 +165,6 @@
     iput-object p9, p0, Lcom/android/systemui/media/dialog/MediaOutputController;->mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
 
     iput-object p10, p0, Lcom/android/systemui/media/dialog/MediaOutputController;->mDialogLaunchAnimator:Lcom/android/systemui/animation/DialogLaunchAnimator;
-
-    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object p1
-
-    const p2, 0x111017b
-
-    invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getBoolean(I)Z
-
-    move-result p1
-
-    iput-boolean p1, p0, Lcom/android/systemui/media/dialog/MediaOutputController;->mVolumeAdjustmentForRemoteGroupSessions:Z
 
     iput-object p11, p0, Lcom/android/systemui/media/dialog/MediaOutputController;->mDialogManager:Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;
 
@@ -362,6 +348,40 @@
     invoke-interface {p0, v0}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
 
     return-void
+.end method
+
+.method private isPlayBackInfoLocal()Z
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/systemui/media/dialog/MediaOutputController;->mMediaController:Landroid/media/session/MediaController;
+
+    invoke-virtual {v0}, Landroid/media/session/MediaController;->getPlaybackInfo()Landroid/media/session/MediaController$PlaybackInfo;
+
+    move-result-object v0
+
+    const/4 v1, 0x1
+
+    if-eqz v0, :cond_0
+
+    iget-object p0, p0, Lcom/android/systemui/media/dialog/MediaOutputController;->mMediaController:Landroid/media/session/MediaController;
+
+    invoke-virtual {p0}, Landroid/media/session/MediaController;->getPlaybackInfo()Landroid/media/session/MediaController$PlaybackInfo;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Landroid/media/session/MediaController$PlaybackInfo;->getPlaybackType()I
+
+    move-result p0
+
+    if-ne p0, v1, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v1, 0x0
+
+    :goto_0
+    return v1
 .end method
 
 .method private static synthetic lambda$adjustVolume$1(Lcom/android/settingslib/media/MediaDevice;I)V
@@ -1119,13 +1139,17 @@
 .method isVolumeControlEnabled(Lcom/android/settingslib/media/MediaDevice;)Z
     .locals 0
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/media/dialog/MediaOutputController;->isActiveRemoteDevice(Lcom/android/settingslib/media/MediaDevice;)Z
+    invoke-direct {p0}, Lcom/android/systemui/media/dialog/MediaOutputController;->isPlayBackInfoLocal()Z
 
     move-result p1
 
-    if-eqz p1, :cond_1
+    if-nez p1, :cond_1
 
-    iget-boolean p0, p0, Lcom/android/systemui/media/dialog/MediaOutputController;->mVolumeAdjustmentForRemoteGroupSessions:Z
+    iget-object p0, p0, Lcom/android/systemui/media/dialog/MediaOutputController;->mLocalMediaManager:Lcom/android/settingslib/media/LocalMediaManager;
+
+    invoke-virtual {p0}, Lcom/android/settingslib/media/LocalMediaManager;->isMediaSessionAvailableForVolumeControl()Z
+
+    move-result p0
 
     if-eqz p0, :cond_0
 
@@ -1346,7 +1370,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/media/dialog/MediaOutputController;->mCallback:Lcom/android/systemui/media/dialog/MediaOutputController$Callback;
 
-    invoke-interface {p0}, Lcom/android/systemui/media/dialog/MediaOutputController$Callback;->onRouteChanged()V
+    invoke-interface {p0}, Lcom/android/systemui/media/dialog/MediaOutputController$Callback;->onDeviceListChanged()V
 
     return-void
 .end method

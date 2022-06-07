@@ -108,15 +108,15 @@
 .end method
 
 .method private final update(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 38
+    .locals 39
 
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/systemui/media/MediaDataCombineLatest;->entries:Ljava/util/Map;
 
-    move-object/from16 v10, p1
+    move-object/from16 v11, p1
 
-    invoke-interface {v1, v10}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v1, v11}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -135,23 +135,21 @@
 
     move-result-object v2
 
-    move-object v11, v2
+    move-object v12, v2
 
-    check-cast v11, Lcom/android/systemui/media/MediaData;
+    check-cast v12, Lcom/android/systemui/media/MediaData;
 
     invoke-virtual {v1}, Lkotlin/Pair;->component2()Ljava/lang/Object;
 
     move-result-object v1
 
-    move-object/from16 v25, v1
+    move-object/from16 v26, v1
 
-    check-cast v25, Lcom/android/systemui/media/MediaDeviceData;
+    check-cast v26, Lcom/android/systemui/media/MediaDeviceData;
 
-    if-eqz v11, :cond_1
+    if-eqz v12, :cond_1
 
-    if-eqz v25, :cond_1
-
-    const/4 v12, 0x0
+    if-eqz v26, :cond_1
 
     const/4 v13, 0x0
 
@@ -177,7 +175,7 @@
 
     const/16 v24, 0x0
 
-    const/16 v26, 0x0
+    const/16 v25, 0x0
 
     const/16 v27, 0x0
 
@@ -193,13 +191,15 @@
 
     const/16 v33, 0x0
 
-    const-wide/16 v34, 0x0
+    const/16 v34, 0x0
 
-    const v36, 0x7fdfff
+    const-wide/16 v35, 0x0
 
-    const/16 v37, 0x0
+    const v37, 0x7fdfff
 
-    invoke-static/range {v11 .. v37}, Lcom/android/systemui/media/MediaData;->copy$default(Lcom/android/systemui/media/MediaData;IZILjava/lang/String;Landroid/graphics/drawable/Icon;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/graphics/drawable/Icon;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Landroid/media/session/MediaSession$Token;Landroid/app/PendingIntent;Lcom/android/systemui/media/MediaDeviceData;ZLjava/lang/Runnable;IZLjava/lang/String;ZLjava/lang/Boolean;ZJILjava/lang/Object;)Lcom/android/systemui/media/MediaData;
+    const/16 v38, 0x0
+
+    invoke-static/range {v12 .. v38}, Lcom/android/systemui/media/MediaData;->copy$default(Lcom/android/systemui/media/MediaData;IZILjava/lang/String;Landroid/graphics/drawable/Icon;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/graphics/drawable/Icon;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Landroid/media/session/MediaSession$Token;Landroid/app/PendingIntent;Lcom/android/systemui/media/MediaDeviceData;ZLjava/lang/Runnable;IZLjava/lang/String;ZLjava/lang/Boolean;ZJILjava/lang/Object;)Lcom/android/systemui/media/MediaData;
 
     move-result-object v1
 
@@ -230,9 +230,11 @@
 
     const/4 v7, 0x0
 
-    const/16 v8, 0x18
+    const/4 v8, 0x0
 
-    const/4 v9, 0x0
+    const/16 v9, 0x38
+
+    const/4 v10, 0x0
 
     move-object/from16 v3, p1
 
@@ -240,7 +242,7 @@
 
     move-object v5, v1
 
-    invoke-static/range {v2 .. v9}, Lcom/android/systemui/media/MediaDataManager$Listener$DefaultImpls;->onMediaDataLoaded$default(Lcom/android/systemui/media/MediaDataManager$Listener;Ljava/lang/String;Ljava/lang/String;Lcom/android/systemui/media/MediaData;ZIILjava/lang/Object;)V
+    invoke-static/range {v2 .. v10}, Lcom/android/systemui/media/MediaDataManager$Listener$DefaultImpls;->onMediaDataLoaded$default(Lcom/android/systemui/media/MediaDataManager$Listener;Ljava/lang/String;Ljava/lang/String;Lcom/android/systemui/media/MediaData;ZIZILjava/lang/Object;)V
 
     goto :goto_0
 
@@ -278,8 +280,8 @@
     return-void
 .end method
 
-.method public onMediaDataLoaded(Ljava/lang/String;Ljava/lang/String;Lcom/android/systemui/media/MediaData;ZI)V
-    .locals 1
+.method public onMediaDataLoaded(Ljava/lang/String;Ljava/lang/String;Lcom/android/systemui/media/MediaData;ZIZ)V
+    .locals 0
 
     const-string p4, "key"
 
@@ -311,16 +313,16 @@
 
     invoke-interface {p5, p2}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p6
 
-    check-cast v0, Lkotlin/Pair;
+    check-cast p6, Lkotlin/Pair;
 
-    if-nez v0, :cond_0
+    if-nez p6, :cond_0
 
     goto :goto_0
 
     :cond_0
-    invoke-virtual {v0}, Lkotlin/Pair;->getSecond()Ljava/lang/Object;
+    invoke-virtual {p6}, Lkotlin/Pair;->getSecond()Ljava/lang/Object;
 
     move-result-object p4
 
@@ -470,8 +472,8 @@
     return-void
 .end method
 
-.method public onSmartspaceMediaDataLoaded(Ljava/lang/String;Lcom/android/systemui/media/SmartspaceMediaData;ZZ)V
-    .locals 7
+.method public onSmartspaceMediaDataLoaded(Ljava/lang/String;Lcom/android/systemui/media/SmartspaceMediaData;Z)V
+    .locals 6
 
     const-string p3, "key"
 
@@ -508,17 +510,15 @@
 
     const/4 v3, 0x0
 
-    const/4 v4, 0x0
+    const/4 v4, 0x4
 
-    const/16 v5, 0xc
-
-    const/4 v6, 0x0
+    const/4 v5, 0x0
 
     move-object v1, p1
 
     move-object v2, p2
 
-    invoke-static/range {v0 .. v6}, Lcom/android/systemui/media/MediaDataManager$Listener$DefaultImpls;->onSmartspaceMediaDataLoaded$default(Lcom/android/systemui/media/MediaDataManager$Listener;Ljava/lang/String;Lcom/android/systemui/media/SmartspaceMediaData;ZZILjava/lang/Object;)V
+    invoke-static/range {v0 .. v5}, Lcom/android/systemui/media/MediaDataManager$Listener$DefaultImpls;->onSmartspaceMediaDataLoaded$default(Lcom/android/systemui/media/MediaDataManager$Listener;Ljava/lang/String;Lcom/android/systemui/media/SmartspaceMediaData;ZILjava/lang/Object;)V
 
     goto :goto_0
 

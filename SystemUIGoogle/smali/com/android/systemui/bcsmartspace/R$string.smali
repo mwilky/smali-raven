@@ -8,6 +8,6 @@
 
 .field public static final accessibility_smartspace_page:I = 0x7f1300d7
 
-.field public static final generic_smartspace_concatenated_desc:I = 0x7f1302fd
+.field public static final generic_smartspace_concatenated_desc:I = 0x7f130301
 
-.field public static final smartspace_icu_date_pattern:I = 0x7f13063f
+.field public static final smartspace_icu_date_pattern:I = 0x7f130643

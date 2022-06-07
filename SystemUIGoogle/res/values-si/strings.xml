@@ -237,6 +237,9 @@
     <string name="accessor_no_description_text">යෙදුම මගින් විස්තර කිසිවක් ලබා දී නැත.</string>
     <string name="active_input_method_subtypes">සක්‍රීය ආදායක මාර්ග</string>
     <string name="activity_launch_on_secondary_display_failed_text">යෙදුම ද්විතීයික සංදර්ශක මත දියත් කිරීම සඳහා සහාය නොදක්වයි.</string>
+    <string name="adaptive_charging_notify_des">%1$s වන විට බැටරිය පිරෙනු ඇත. බැටරි සෞඛ්‍යය ආරක්ෂා කිරීම සඳහා ස්ථාවර ලෙස ආරෝපණය කිරීම.</string>
+    <string name="adaptive_charging_notify_title">අනුවර්තී ආරෝපණය ක්‍රියාත්මකයි</string>
+    <string name="adaptive_charging_notify_turn_off_once">එක් වරක් ක්‍රියාවිරහිත කරන්න</string>
     <string name="adaptive_charging_time_estimate">%1$s • අනුවර්තී ආරෝපණය (%2$s වන විට සම්පූර්ණයි)</string>
     <string name="adb_device_fingerprint_title_format">උපාංග ඇඟිලි සලකුණ: %1$s</string>
     <string name="adb_device_forget">අමතක කරන්න</string>
@@ -301,6 +304,7 @@
     <string name="basic_status">සංවාදය විවෘත කරන්න</string>
     <string name="battery">බැටරිය</string>
     <string name="battery_detail_switch_title">බැටරි සුරැකුම</string>
+    <string name="battery_health_notify_learn_more">තව දැන ගන්න</string>
     <string name="battery_info_status_charging">ආරෝපණය වෙමින්</string>
     <string name="battery_info_status_charging_fast">ශීඝ්‍ර ආරෝපණය</string>
     <string name="battery_info_status_charging_slow">සෙමින් ආරෝපණය</string>
@@ -616,7 +620,6 @@ Codec තේරීම: පසුධාවන ගුණත්වය"</string>
     <string name="debug_networking_category">ජාලකරණය</string>
     <string name="debug_view_attributes">උපලක්ෂණ පරික්ෂාව බැලීම සබල කරන්න</string>
     <string name="defender_notify_des">ඔබගේ දුරකථනය බැටරි සෞඛ්‍යය ආරක්ෂා කර ගැනීම සඳහා ආරෝපණය සීමා කරයි</string>
-    <string name="defender_notify_learn_more">තව දැන ගන්න</string>
     <string name="defender_notify_resume_charge">ආරෝපණය යළි ආරම්භ කරන්න</string>
     <string name="defender_notify_title">ආරෝපණය කිරීම තාවකාලිකව සීමා කර ඇත</string>
     <string name="defender_post_notify_des">බැටරි සෞඛ්‍යය රැක ගැනීමට %2$s සිට %3$s දක්වා ආරෝපණය කිරීම %1$sට සීමා කරන ලදි</string>
@@ -1704,6 +1707,10 @@ Codec තේරීම: පසුධාවන ගුණත්වය"</string>
     <string name="usb_accessory_confirm_prompt">%2$s හැසිරවීමට %1$s විවෘත කරන්නද?</string>
     <string name="usb_accessory_permission_prompt">%1$s හට %2$s වෙත පිවිසීමට ඉඩ දෙන්නද?</string>
     <string name="usb_accessory_uri_prompt">මෙම USB මෙවලම සමග ක්‍රියා කරන ස්ථාපිත යෙදුම් නොමැත. %1$s වලින් මෙම මෙවලම ගැන තව දැනගන්න</string>
+    <string name="usb_audio_device_confirm_prompt_title">%2$s හැසිරවීමට %1$s විවෘත කරන්නද?</string>
+    <string name="usb_audio_device_permission_prompt_title">%1$s හට %2$s වෙත පිවිසීමට ඉඩ දෙන්නද?</string>
+    <string name="usb_audio_device_prompt">මෙම උපාංගය සමග %1$s භාවිත කිරීම ඇමතුම්, දැනුම්දීම් සහ එලාම ඇසීම වැළැක්විය හැකිය.</string>
+    <string name="usb_audio_device_prompt_warn">මෙම යෙදුමට පටිගත කිරීම් අවසරයක් ලබා දී නොමැති නමුත් මෙම USB උපාංගය හරහා ශ්‍රව්‍ය ග්‍රහණය කර ගත හැකිය. මෙම උපාංගය සමග %1$s භාවිත කිරීම ඇමතුම්, දැනුම්දීම් සහ එලාම ඇසීම වැළැක්විය හැකිය.</string>
     <string name="usb_audio_disable_routing">USB ශ්‍රව්‍ය මාර්ගගත කිරීම කිරීම අබල කරන්න</string>
     <string name="usb_audio_disable_routing_summary">USB ශ්‍රව්‍ය පර්යන්ත වෙත ස්වයංක්‍රිය මාර්ගගත කිරීම කිරීම අබල කරන්න</string>
     <string name="usb_contaminant_message">"ඔබේ උපාංගය ද්‍රවවලින් හෝ කුණුවලින් ආරක්‍ෂා කිරීමට, USB තොට අබල කර තිබෙන අතර, එය කිසිම අමතරාංගයක් අනාවරණ නොකරයි.

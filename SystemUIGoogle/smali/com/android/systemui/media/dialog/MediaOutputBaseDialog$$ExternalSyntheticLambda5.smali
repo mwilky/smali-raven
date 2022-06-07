@@ -27,7 +27,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/media/dialog/MediaOutputBaseDialog$$ExternalSyntheticLambda5;->f$0:Lcom/android/systemui/media/dialog/MediaOutputBaseDialog;
 
-    invoke-static {p0}, Lcom/android/systemui/media/dialog/MediaOutputBaseDialog;->$r8$lambda$pIvwlkMZCANcCqYt6TmbazO3DZE(Lcom/android/systemui/media/dialog/MediaOutputBaseDialog;)V
+    invoke-static {p0}, Lcom/android/systemui/media/dialog/MediaOutputBaseDialog;->$r8$lambda$kWMTWFntNryb3L2ilB6ovvqlfmU(Lcom/android/systemui/media/dialog/MediaOutputBaseDialog;)V
 
     return-void
 .end method

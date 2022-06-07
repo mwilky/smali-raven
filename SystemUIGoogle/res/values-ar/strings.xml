@@ -237,6 +237,9 @@
     <string name="accessor_no_description_text">لم يوفّر التطبيق وصفًا.</string>
     <string name="active_input_method_subtypes">طرق الإدخال النشطة</string>
     <string name="activity_launch_on_secondary_display_failed_text">لا يمكن تشغيل التطبيق على شاشات عرض ثانوية.</string>
+    <string name="adaptive_charging_notify_des">ستمتلئ البطارية بحلول %1$s. يتم شحن البطارية بوتيرة ثابتة للحفاظ على سلامتها.</string>
+    <string name="adaptive_charging_notify_title">ميزة \"الشحن التكيُّفي\" مفعّلة</string>
+    <string name="adaptive_charging_notify_turn_off_once">الإيقاف مرة واحدة</string>
     <string name="adaptive_charging_time_estimate">%1$s • الشحن التكيُّفي (سيكتمل الشحن بحلول الساعة %2$s.)</string>
     <string name="adb_device_fingerprint_title_format">بصمة الإصبع للجهاز: %1$s</string>
     <string name="adb_device_forget">حذف</string>
@@ -281,8 +284,8 @@
     <string name="all_network_unavailable">لا تتوفّر أي شبكات.</string>
     <string name="allow_mock_location">السماح بمواقع وهمية</string>
     <string name="allow_mock_location_summary">السماح بمواقع وهمية</string>
-    <string name="always_use_accessory">فتح تطبيق %1$s دائمًا عند توصيل %2$s</string>
-    <string name="always_use_device">فتح تطبيق %1$s دائمًا عند توصيل %2$s</string>
+    <string name="always_use_accessory">فتح تطبيق \"%1$s\" دائمًا عند توصيل %2$s</string>
+    <string name="always_use_device">فتح تطبيق \"%1$s\" دائمًا عند توصيل %2$s</string>
     <string name="animator_duration_scale_title">طول مدة الرسوم المتحركة</string>
     <string name="anniversary_status">الذكرى السنوية</string>
     <string name="anniversary_status_content_description">إنها الذكرى السنوية لـ %1$s.</string>
@@ -301,6 +304,7 @@
     <string name="basic_status">محادثة مفتوحة</string>
     <string name="battery">البطارية</string>
     <string name="battery_detail_switch_title">توفير شحن البطارية</string>
+    <string name="battery_health_notify_learn_more">مزيد من المعلومات</string>
     <string name="battery_info_status_charging">جارٍ الشحن</string>
     <string name="battery_info_status_charging_fast">جارٍ الشحن سريعًا</string>
     <string name="battery_info_status_charging_slow">جارٍ الشحن ببطء</string>
@@ -616,7 +620,6 @@
     <string name="debug_networking_category">الشبكات</string>
     <string name="debug_view_attributes">تفعيل فحص سمة العرض</string>
     <string name="defender_notify_des">سيتم شحن هاتفك حتّى نسبة معيّنة للمساعدة في الحفاظ على سلامة البطارية.</string>
-    <string name="defender_notify_learn_more">مزيد من المعلومات</string>
     <string name="defender_notify_resume_charge">استئناف الشحن</string>
     <string name="defender_notify_title">الشحن محدود مؤقتًا</string>
     <string name="defender_post_notify_des">تم ضبط نسبة الشحن على %1$s من %2$s إلى %3$s للحفاظ على سلامة البطارية.</string>
@@ -768,8 +771,8 @@
     <string name="hdcp_checking_title">‏التحقق من HDCP</string>
     <string name="headset">سماعة الرأس</string>
     <string name="heap_dump_tile_name">‏تفريغ ذاكرة SysUI</string>
-    <string name="help_feedback_label">المساعدة والملاحظات والآراء</string>
-    <string name="help_label">المساعدة والملاحظات والآراء</string>
+    <string name="help_feedback_label">المساعدة والملاحظات</string>
+    <string name="help_label">المساعدة والملاحظات</string>
     <string name="high_temp_alarm_help_care_steps">الاطّلاع على خطوات العناية</string>
     <string name="high_temp_alarm_notify_message">هناك مشكلة في شحن هذا الجهاز. يُرجى فصل محوِّل الطاقة بحرص لأن الكابل قد يكون ساخنًا.</string>
     <string name="high_temp_alarm_title">فصل الشاحن</string>
@@ -1608,7 +1611,7 @@
     <string name="switch_bar_off">متوقف</string>
     <string name="switch_bar_on">مفعّل</string>
     <string name="system_ui_tuner">أداة ضبط واجهة مستخدم النظام</string>
-    <string name="tap_a_network_to_connect">انقر على إحدى الشبكات للاتصال بالإنترنت</string>
+    <string name="tap_a_network_to_connect">انقر على إحدى الشبكات للاتصال بالإنترنت.</string>
     <string name="tap_again">انقر مرة أخرى</string>
     <string name="tap_to_sign_up">انقر للاشتراك.</string>
     <string name="tether_settings_title_all">الربط ونقطة الاتصال المحمولة</string>
@@ -1701,9 +1704,13 @@
     <string name="upcoming_birthday_status_content_description">يَحين يوم ميلاد %1$s قريبًا.</string>
     <string name="url_menu_copy">نسخ</string>
     <string name="url_menu_share">مشاركة</string>
-    <string name="usb_accessory_confirm_prompt">هل تريد فتح تطبيق %1$s للتعامل مع %2$s؟</string>
+    <string name="usb_accessory_confirm_prompt">هل تريد فتح تطبيق \"%1$s\" لإدارة %2$s؟</string>
     <string name="usb_accessory_permission_prompt">هل تريد السماح لتطبيق %1$s بالدخول إلى %2$s؟</string>
     <string name="usb_accessory_uri_prompt">‏لا يعمل أي تطبيق مثبت مع ملحق UEB هذا. مزيد من المعلومات عن هذا الملحق على %1$s.</string>
+    <string name="usb_audio_device_confirm_prompt_title">هل تريد فتح تطبيق \"%1$s\" لإدارة %2$s؟</string>
+    <string name="usb_audio_device_permission_prompt_title">هل تريد السماح لتطبيق \"%1$s\" بالوصول إلى %2$s؟</string>
+    <string name="usb_audio_device_prompt">قد يحول استخدام التطبيق %1$s على هذا الجهاز دون سماع المكالمات والإشعارات والمنبّهات.</string>
+    <string name="usb_audio_device_prompt_warn">‏لم يتم منح هذا التطبيق إذن تسجيل، ولكن يمكنه تسجيل الصوت من خلال جهاز USB هذا. قد يحول استخدام التطبيق %1$s على هذا الجهاز دون سماع المكالمات والإشعارات والمنبّهات.</string>
     <string name="usb_audio_disable_routing">‏إيقاف توجيه الصوت عبر USB</string>
     <string name="usb_audio_disable_routing_summary">‏إيقاف التوجيه التلقائي إلى أجهزة الصوت الملحقة عبر USB</string>
     <string name="usb_contaminant_message">"‏لحماية جهازك من السوائل أو الشوائب، سيتمّ إيقاف منفذ USB ولن يتم رصد أيّ ملحقات.
@@ -1832,7 +1839,7 @@
     <string name="wifi_failed_connect_message">تعذّر الاتصال بالشبكة.</string>
     <string name="wifi_hotspot_switch_off_text">إيقاف</string>
     <string name="wifi_hotspot_switch_on_text">مفعّلة</string>
-    <string name="wifi_is_off">‏تم إيقاف شبكة Wi-Fi</string>
+    <string name="wifi_is_off">‏شبكة Wi-Fi متوقفة.</string>
     <string name="wifi_limited_connection">اتصال محدود</string>
     <string name="wifi_metered_label">تفرض تكلفة استخدام</string>
     <string name="wifi_no_internet">لا يتوفّر اتصال بالإنترنت</string>

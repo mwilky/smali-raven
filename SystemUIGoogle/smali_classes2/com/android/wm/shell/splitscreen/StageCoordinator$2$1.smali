@@ -83,6 +83,12 @@
 
     iget-object v0, v0, Lcom/android/wm/shell/splitscreen/StageCoordinator$2;->this$0:Lcom/android/wm/shell/splitscreen/StageCoordinator;
 
+    invoke-static {v0, v1}, Lcom/android/wm/shell/splitscreen/StageCoordinator;->access$600(Lcom/android/wm/shell/splitscreen/StageCoordinator;Z)V
+
+    iget-object v0, p0, Lcom/android/wm/shell/splitscreen/StageCoordinator$2$1;->this$1:Lcom/android/wm/shell/splitscreen/StageCoordinator$2;
+
+    iget-object v0, v0, Lcom/android/wm/shell/splitscreen/StageCoordinator$2;->this$0:Lcom/android/wm/shell/splitscreen/StageCoordinator;
+
     invoke-static {v0}, Lcom/android/wm/shell/splitscreen/StageCoordinator;->access$200(Lcom/android/wm/shell/splitscreen/StageCoordinator;)Lcom/android/wm/shell/common/SyncTransactionQueue;
 
     move-result-object v0
