@@ -12119,7 +12119,11 @@
 
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
     
-    const-string v3, "tweaks_qs_tile_outline_accent"
+    const-string v3, "tweaks_qs_tile_outline_accent_active"
+
+    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    
+    const-string v3, "tweaks_qs_tile_outline_accent_inactive"
 
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
     
@@ -13228,7 +13232,7 @@
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->reloadTiles()V
 
     :cond_mwilky65
-    const-string v0, "tweaks_qs_tile_outline_accent"
+    const-string v0, "tweaks_qs_tile_outline_accent_active"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -13241,6 +13245,10 @@
     invoke-static {v0}, Lcom/android/mwilky/Renovate;->setQsTileTweaks(Landroid/content/Context;)V
     
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->reloadTiles()V
+    
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->reloadBrightnessSliderPosition()V
+    
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->runToggleNightMode()V
 
     :cond_mwilky66
     const-string v0, "tweaks_block_power_menu_keyguard"
@@ -13410,6 +13418,25 @@
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->reloadTiles()V
 
     :cond_mwilky77
+    const-string v0, "tweaks_qs_tile_outline_accent_inactive"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_mwilky78
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setQsTileTweaks(Landroid/content/Context;)V
+    
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->reloadTiles()V
+    
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->reloadBrightnessSliderPosition()V
+    
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->runToggleNightMode()V
+
+    :cond_mwilky78
     return-void
 .end method
 
