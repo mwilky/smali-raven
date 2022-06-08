@@ -176,12 +176,12 @@
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "i"    # I
 
-    .line 12
+    .line 27
     const v0, 0x1010036
 
     if-nez p1, :cond_11
 
-    .line 13
+    .line 28
     const v1, 0x3e99999a    # 0.3f
 
     invoke-static {p0, v0}, Lcom/android/settingslib/Utils;->getColorAttrDefaultColor(Landroid/content/Context;I)I
@@ -194,41 +194,39 @@
 
     return v0
 
-    .line 15
+    .line 30
     :cond_11
     const/4 v1, 0x1
 
     if-ne p1, v1, :cond_19
 
-    .line 16
+    .line 31
     invoke-static {p0, v0}, Lcom/android/settingslib/Utils;->getColorAttrDefaultColor(Landroid/content/Context;I)I
 
     move-result v0
 
     return v0
 
-    .line 18
+    .line 33
     :cond_19
     const/4 v0, 0x2
 
-    if-ne p1, v0, :cond_30
+    if-ne p1, v0, :cond_2d
 
-    .line 19
+    .line 34
     sget v1, Lcom/android/mwilky/Renovate;->mQsStyle:I
 
-    if-ne v1, v0, :cond_28
+    if-ne v1, v0, :cond_25
 
-    .line 20
-    const v0, 0x1120024
-
-    invoke-static {p0, v0}, Lcom/android/settingslib/Utils;->getColorAttrDefaultColor(Landroid/content/Context;I)I
+    .line 35
+    invoke-static {p0}, Lcom/android/settingslib/Utils;->getColorAccentDefaultColor(Landroid/content/Context;)I
 
     move-result v0
 
     return v0
 
-    .line 22
-    :cond_28
+    .line 37
+    :cond_25
     const v0, 0x1010039
 
     invoke-static {p0, v0}, Lcom/android/settingslib/Utils;->getColorAttrDefaultColor(Landroid/content/Context;I)I
@@ -237,8 +235,8 @@
 
     return v0
 
-    .line 25
-    :cond_30
+    .line 40
+    :cond_2d
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -261,7 +259,7 @@
 
     invoke-static {v1, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 26
+    .line 41
     const/4 v0, 0x0
 
     return v0
@@ -530,17 +528,28 @@
 .end method
 
 .method protected setIcon(Landroid/widget/ImageView;Lcom/android/systemui/plugins/qs/QSTile$State;Z)V
-    .locals 3
+    .registers 8
+    .param p1, "imageView"    # Landroid/widget/ImageView;
+    .param p2, "state"    # Lcom/android/systemui/plugins/qs/QSTile$State;
+    .param p3, "z"    # Z
 
+    .line 49
     iget-boolean v0, p2, Lcom/android/systemui/plugins/qs/QSTile$State;->disabledByPolicy:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->getContext()Landroid/content/Context;
+    .line 50
+    invoke-static {}, Lcom/android/systemui/SystemUIApplication;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
-    sget v1, Lcom/android/systemui/R$color;->qs_tile_disabled_color:I
+    const-string v1, "qs_tile_disabled_color"
+
+    const-string v2, "color"
+
+    invoke-static {v1, v2}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getColor(I)I
 
@@ -548,81 +557,111 @@
 
     invoke-virtual {p1, v0}, Landroid/widget/ImageView;->setColorFilter(I)V
 
-    goto :goto_0
+    goto :goto_1b
 
-    :cond_0
+    .line 52
+    :cond_18
     invoke-virtual {p1}, Landroid/widget/ImageView;->clearColorFilter()V
 
-    :goto_0
+    .line 54
+    :goto_1b
     iget v0, p2, Lcom/android/systemui/plugins/qs/QSTile$State;->state:I
 
-    iget v1, p0, Lcom/android/systemui/qs/tileimpl/QSIconViewImpl;->mState:I
-
-    if-eq v0, v1, :cond_3
-
+    .line 55
+    .local v0, "i":I
     invoke-virtual {p0, v0}, Lcom/android/systemui/qs/tileimpl/QSIconViewImpl;->getColor(I)I
-
-    move-result v0
-
-    iget v1, p2, Lcom/android/systemui/plugins/qs/QSTile$State;->state:I
-
-    iput v1, p0, Lcom/android/systemui/qs/tileimpl/QSIconViewImpl;->mState:I
-
-    iget v1, p0, Lcom/android/systemui/qs/tileimpl/QSIconViewImpl;->mTint:I
-
-    if-eqz v1, :cond_1
-
-    if-eqz p3, :cond_1
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/qs/tileimpl/QSIconViewImpl;->shouldAnimate(Landroid/widget/ImageView;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    .line 56
+    .local v1, "color":I
+    iget v2, p2, Lcom/android/systemui/plugins/qs/QSTile$State;->state:I
 
-    iget v1, p0, Lcom/android/systemui/qs/tileimpl/QSIconViewImpl;->mTint:I
+    iput v2, p0, Lcom/android/systemui/qs/tileimpl/QSIconViewImpl;->mState:I
 
-    new-instance v2, Lcom/android/systemui/qs/tileimpl/QSIconViewImpl$$ExternalSyntheticLambda1;
+    .line 57
+    iget v2, p0, Lcom/android/systemui/qs/tileimpl/QSIconViewImpl;->mTint:I
 
-    invoke-direct {v2, p0, p1, p2, p3}, Lcom/android/systemui/qs/tileimpl/QSIconViewImpl$$ExternalSyntheticLambda1;-><init>(Lcom/android/systemui/qs/tileimpl/QSIconViewImpl;Landroid/widget/ImageView;Lcom/android/systemui/plugins/qs/QSTile$State;Z)V
+    if-eqz v2, :cond_4e
 
-    invoke-direct {p0, v1, v0, p1, v2}, Lcom/android/systemui/qs/tileimpl/QSIconViewImpl;->animateGrayScale(IILandroid/widget/ImageView;Ljava/lang/Runnable;)V
+    if-eqz p3, :cond_4e
 
-    iput v0, p0, Lcom/android/systemui/qs/tileimpl/QSIconViewImpl;->mTint:I
+    invoke-direct {p0, p1}, Lcom/android/systemui/qs/tileimpl/QSIconViewImpl;->shouldAnimate(Landroid/widget/ImageView;)Z
 
-    goto :goto_2
+    move-result v2
 
-    :cond_1
-    instance-of v1, p1, Lcom/android/systemui/qs/AlphaControlledSignalTileView$AlphaControlledSlashImageView;
+    if-nez v2, :cond_32
 
-    if-eqz v1, :cond_2
+    goto :goto_4e
 
-    move-object v1, p1
+    .line 67
+    :cond_32
+    sget v2, Lcom/android/mwilky/Renovate;->mQsStyle:I
 
-    check-cast v1, Lcom/android/systemui/qs/AlphaControlledSignalTileView$AlphaControlledSlashImageView;
+    const/4 v3, 0x2
 
-    invoke-static {v0}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
+    if-ne v2, v3, :cond_3e
 
-    move-result-object v2
+    .line 68
+    invoke-static {p1, v1}, Lcom/android/systemui/qs/tileimpl/QSIconViewImpl;->setTint(Landroid/widget/ImageView;I)V
 
-    invoke-virtual {v1, v2}, Lcom/android/systemui/qs/AlphaControlledSignalTileView$AlphaControlledSlashImageView;->setFinalImageTintList(Landroid/content/res/ColorStateList;)V
-
-    goto :goto_1
-
-    :cond_2
-    invoke-static {p1, v0}, Lcom/android/systemui/qs/tileimpl/QSIconViewImpl;->setTint(Landroid/widget/ImageView;I)V
-
-    :goto_1
-    iput v0, p0, Lcom/android/systemui/qs/tileimpl/QSIconViewImpl;->mTint:I
-
+    .line 69
     invoke-virtual {p0, p1, p2, p3}, Lcom/android/systemui/qs/tileimpl/QSIconViewImpl;->updateIcon(Landroid/widget/ImageView;Lcom/android/systemui/plugins/qs/QSTile$State;Z)V
 
-    goto :goto_2
+    goto :goto_48
 
-    :cond_3
+    .line 71
+    :cond_3e
+    iget v2, p0, Lcom/android/systemui/qs/tileimpl/QSIconViewImpl;->mTint:I
+
+    new-instance v3, Lcom/android/systemui/qs/tileimpl/QSIconViewImpl$$ExternalSyntheticLambda1;
+
+    invoke-direct {v3, p0, p1, p2, p3}, Lcom/android/systemui/qs/tileimpl/QSIconViewImpl$$ExternalSyntheticLambda1;-><init>(Lcom/android/systemui/qs/tileimpl/QSIconViewImpl;Landroid/widget/ImageView;Lcom/android/systemui/plugins/qs/QSTile$State;Z)V
+
+    invoke-direct {p0, v2, v1, p1, v3}, Lcom/android/systemui/qs/tileimpl/QSIconViewImpl;->animateGrayScale(IILandroid/widget/ImageView;Ljava/lang/Runnable;)V
+
+    .line 78
+    :goto_48
+    iput v1, p0, Lcom/android/systemui/qs/tileimpl/QSIconViewImpl;->mTint:I
+
+    .line 79
     invoke-virtual {p0, p1, p2, p3}, Lcom/android/systemui/qs/tileimpl/QSIconViewImpl;->updateIcon(Landroid/widget/ImageView;Lcom/android/systemui/plugins/qs/QSTile$State;Z)V
 
-    :goto_2
+    .line 80
+    return-void
+
+    .line 58
+    :cond_4e
+    :goto_4e
+    instance-of v2, p1, Lcom/android/systemui/qs/AlphaControlledSignalTileView$AlphaControlledSlashImageView;
+
+    if-eqz v2, :cond_5d
+
+    .line 59
+    move-object v2, p1
+
+    check-cast v2, Lcom/android/systemui/qs/AlphaControlledSignalTileView$AlphaControlledSlashImageView;
+
+    invoke-static {v1}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Lcom/android/systemui/qs/AlphaControlledSignalTileView$AlphaControlledSlashImageView;->setFinalImageTintList(Landroid/content/res/ColorStateList;)V
+
+    goto :goto_60
+
+    .line 61
+    :cond_5d
+    invoke-static {p1, v1}, Lcom/android/systemui/qs/tileimpl/QSIconViewImpl;->setTint(Landroid/widget/ImageView;I)V
+
+    .line 63
+    :goto_60
+    iput v1, p0, Lcom/android/systemui/qs/tileimpl/QSIconViewImpl;->mTint:I
+
+    .line 64
+    invoke-virtual {p0, p1, p2, p3}, Lcom/android/systemui/qs/tileimpl/QSIconViewImpl;->updateIcon(Landroid/widget/ImageView;Lcom/android/systemui/plugins/qs/QSTile$State;Z)V
+
+    .line 65
     return-void
 .end method
 
