@@ -504,28 +504,72 @@
 .end method
 
 .method private enforcePermission(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 1
+    .registers 8
+    .param p1, "permission"    # Ljava/lang/String;
+    .param p2, "message"    # Ljava/lang/String;
 
-    iget-object v0, p0, Lcom/android/server/SensorPrivacyService$SensorPrivacyServiceImpl;->this$0:Lcom/android/server/SensorPrivacyService;
+    .line 20
+    const-class v0, Landroid/content/pm/PackageManagerInternal;
 
-    invoke-static {v0}, Lcom/android/server/SensorPrivacyService;->access$300(Lcom/android/server/SensorPrivacyService;)Landroid/content/Context;
+    invoke-static {v0}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v0
 
-    invoke-virtual {v0, p1}, Landroid/content/Context;->checkCallingOrSelfPermission(Ljava/lang/String;)I
+    check-cast v0, Landroid/content/pm/PackageManagerInternal;
 
-    move-result v0
+    .line 21
+    .local v0, "pm":Landroid/content/pm/PackageManagerInternal;
+    iget-object v1, p0, Lcom/android/server/SensorPrivacyService$SensorPrivacyServiceImpl;->this$0:Lcom/android/server/SensorPrivacyService;
 
-    if-nez v0, :cond_0
+    invoke-static {v1}, Lcom/android/server/SensorPrivacyService;->access$300(Lcom/android/server/SensorPrivacyService;)Landroid/content/Context;
 
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Landroid/content/Context;->checkCallingOrSelfPermission(Ljava/lang/String;)I
+
+    move-result v1
+
+    if-eqz v1, :cond_30
+
+    .line 22
+    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
+
+    move-result v1
+
+    invoke-virtual {v0}, Landroid/content/pm/PackageManagerInternal;->getSystemUiServiceComponent()Landroid/content/ComponentName;
+
+    move-result-object v2
+
+    .line 23
+    invoke-virtual {v2}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+
+    move-result-object v2
+
+    const/high16 v3, 0x100000
+
+    const/4 v4, 0x0
+
+    .line 22
+    invoke-virtual {v0, v2, v3, v4}, Landroid/content/pm/PackageManagerInternal;->getPackageUid(Ljava/lang/String;II)I
+
+    move-result v2
+
+    if-ne v1, v2, :cond_2a
+
+    goto :goto_30
+
+    .line 26
+    :cond_2a
+    new-instance v1, Ljava/lang/SecurityException;
+
+    invoke-direct {v1, p2}, Ljava/lang/SecurityException;-><init>(Ljava/lang/String;)V
+
+    throw v1
+
+    .line 24
+    :cond_30
+    :goto_30
     return-void
-
-    :cond_0
-    new-instance v0, Ljava/lang/SecurityException;
-
-    invoke-direct {v0, p2}, Ljava/lang/SecurityException;-><init>(Ljava/lang/String;)V
-
-    throw v0
 .end method
 
 .method private enqueueSensorUseReminderDialog(ILandroid/os/UserHandle;Ljava/lang/String;I)V
