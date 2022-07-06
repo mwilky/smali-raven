@@ -44,27 +44,36 @@
 .method private assertSafeToStartCustomActivity(Landroid/content/Intent;)V
     .locals 3
 
-    invoke-virtual {p1}, Landroid/content/Intent;->getPackage()Ljava/lang/String;
+    const/4 v0, 0x3
 
-    move-result-object v0
+    new-array v0, v0, [Ljava/lang/Object;
 
-    if-eqz v0, :cond_0
+    const/4 v1, 0x0
 
-    invoke-virtual {p1}, Landroid/content/Intent;->getPackage()Ljava/lang/String;
+    const-string v2, "223578534"
 
-    move-result-object v0
+    aput-object v2, v0, v1
 
-    iget-object v1, p0, Lcom/android/settings/users/AppRestrictionsFragment$RestrictionsResultReceiver;->packageName:Ljava/lang/String;
+    const/4 v1, -0x1
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result v0
+    move-result-object v1
 
-    if-eqz v0, :cond_0
+    const/4 v2, 0x1
 
-    return-void
+    aput-object v1, v0, v2
 
-    :cond_0
+    const/4 v1, 0x2
+
+    const-string v2, ""
+
+    aput-object v2, v0, v1
+
+    const v1, 0x534e4554
+
+    invoke-static {v1, v0}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
+
     iget-object v0, p0, Lcom/android/settings/users/AppRestrictionsFragment$RestrictionsResultReceiver;->this$0:Lcom/android/settings/users/AppRestrictionsFragment;
 
     iget-object v0, v0, Lcom/android/settings/users/AppRestrictionsFragment;->mPackageManager:Landroid/content/pm/PackageManager;
@@ -75,7 +84,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1
 
     iget-object v0, v0, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
@@ -87,11 +96,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
     return-void
 
-    :cond_1
+    :cond_0
     new-instance v0, Ljava/lang/SecurityException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -120,7 +129,7 @@
 
     throw v0
 
-    :cond_2
+    :cond_1
     new-instance p0, Landroid/content/ActivityNotFoundException;
 
     new-instance v0, Ljava/lang/StringBuilder;
