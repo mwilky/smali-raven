@@ -173,7 +173,7 @@
 .end method
 
 .method public broadcastCloseSystemDialogs(Ljava/lang/String;)V
-    .locals 26
+    .locals 27
 
     move-object/from16 v1, p0
 
@@ -225,31 +225,33 @@
 
     const/16 v16, 0x0
 
-    const/16 v17, -0x1
+    const/16 v17, 0x0
 
-    const/16 v18, 0x0
+    const/16 v18, -0x1
 
     const/16 v19, 0x0
 
     const/16 v20, 0x0
 
-    const/16 v21, -0x1
+    const/16 v21, 0x0
 
-    const/16 v22, 0x3e8
+    const/16 v22, -0x1
+
+    const/16 v23, 0x3e8
 
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
-    move-result v23
+    move-result v24
 
     invoke-static {}, Landroid/os/Binder;->getCallingPid()I
 
-    move-result v24
+    move-result v25
 
-    const/16 v25, -0x1
+    const/16 v26, -0x1
 
     move-object v9, v0
 
-    invoke-virtual/range {v5 .. v25}, Lcom/android/server/am/ActivityManagerService;->broadcastIntentLocked(Lcom/android/server/am/ProcessRecord;Ljava/lang/String;Ljava/lang/String;Landroid/content/Intent;Ljava/lang/String;Landroid/content/IIntentReceiver;ILjava/lang/String;Landroid/os/Bundle;[Ljava/lang/String;[Ljava/lang/String;ILandroid/os/Bundle;ZZIIIII)I
+    invoke-virtual/range {v5 .. v26}, Lcom/android/server/am/ActivityManagerService;->broadcastIntentLocked(Lcom/android/server/am/ProcessRecord;Ljava/lang/String;Ljava/lang/String;Landroid/content/Intent;Ljava/lang/String;Landroid/content/IIntentReceiver;ILjava/lang/String;Landroid/os/Bundle;[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;ILandroid/os/Bundle;ZZIIIII)I
 
     nop
 
@@ -275,7 +277,7 @@
 .end method
 
 .method public broadcastGlobalConfigurationChanged(IZ)V
-    .locals 32
+    .locals 33
 
     move-object/from16 v1, p0
 
@@ -318,31 +320,33 @@
 
     const/4 v15, 0x0
 
-    const/16 v16, -0x1
+    const/16 v16, 0x0
 
-    const/16 v17, 0x0
+    const/16 v17, -0x1
 
     const/16 v18, 0x0
 
     const/16 v19, 0x0
 
-    sget v20, Lcom/android/server/am/ActivityManagerService;->MY_PID:I
+    const/16 v20, 0x0
 
-    const/16 v21, 0x3e8
+    sget v21, Lcom/android/server/am/ActivityManagerService;->MY_PID:I
+
+    const/16 v22, 0x3e8
 
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
-    move-result v22
+    move-result v23
 
     invoke-static {}, Landroid/os/Binder;->getCallingPid()I
 
-    move-result v23
+    move-result v24
 
-    const/16 v24, -0x1
+    const/16 v25, -0x1
 
     move-object v8, v0
 
-    invoke-virtual/range {v4 .. v24}, Lcom/android/server/am/ActivityManagerService;->broadcastIntentLocked(Lcom/android/server/am/ProcessRecord;Ljava/lang/String;Ljava/lang/String;Landroid/content/Intent;Ljava/lang/String;Landroid/content/IIntentReceiver;ILjava/lang/String;Landroid/os/Bundle;[Ljava/lang/String;[Ljava/lang/String;ILandroid/os/Bundle;ZZIIIII)I
+    invoke-virtual/range {v4 .. v25}, Lcom/android/server/am/ActivityManagerService;->broadcastIntentLocked(Lcom/android/server/am/ProcessRecord;Ljava/lang/String;Ljava/lang/String;Landroid/content/Intent;Ljava/lang/String;Landroid/content/IIntentReceiver;ILjava/lang/String;Landroid/os/Bundle;[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;ILandroid/os/Bundle;ZZIIIII)I
 
     and-int/lit8 v3, p1, 0x4
 
@@ -376,7 +380,7 @@
     :cond_1
     invoke-static {}, Landroid/app/BroadcastOptions;->makeBasic()Landroid/app/BroadcastOptions;
 
-    move-result-object v26
+    move-result-object v27
 
     iget-object v3, v1, Lcom/android/server/am/ActivityManagerService$LocalService;->this$0:Lcom/android/server/am/ActivityManagerService;
 
@@ -384,15 +388,15 @@
 
     invoke-virtual {v3}, Landroid/app/ActivityManagerInternal;->getBootTimeTempAllowListDuration()J
 
-    move-result-wide v27
+    move-result-wide v28
 
-    const/16 v29, 0x0
+    const/16 v30, 0x0
 
-    const/16 v30, 0xce
+    const/16 v31, 0xce
 
-    const-string v31, ""
+    const-string v32, ""
 
-    invoke-virtual/range {v26 .. v31}, Landroid/app/BroadcastOptions;->setTemporaryAppAllowlist(JIILjava/lang/String;)V
+    invoke-virtual/range {v27 .. v32}, Landroid/app/BroadcastOptions;->setTemporaryAppAllowlist(JIILjava/lang/String;)V
 
     iget-object v5, v1, Lcom/android/server/am/ActivityManagerService$LocalService;->this$0:Lcom/android/server/am/ActivityManagerService;
 
@@ -416,33 +420,35 @@
 
     const/16 v16, 0x0
 
-    const/16 v17, -0x1
+    const/16 v17, 0x0
 
-    invoke-virtual/range {v26 .. v26}, Landroid/app/BroadcastOptions;->toBundle()Landroid/os/Bundle;
+    const/16 v18, -0x1
 
-    move-result-object v18
+    invoke-virtual/range {v27 .. v27}, Landroid/app/BroadcastOptions;->toBundle()Landroid/os/Bundle;
 
-    const/16 v19, 0x0
+    move-result-object v19
 
     const/16 v20, 0x0
 
-    sget v21, Lcom/android/server/am/ActivityManagerService;->MY_PID:I
+    const/16 v21, 0x0
 
-    const/16 v22, 0x3e8
+    sget v22, Lcom/android/server/am/ActivityManagerService;->MY_PID:I
+
+    const/16 v23, 0x3e8
 
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
-    move-result v23
+    move-result v24
 
     invoke-static {}, Landroid/os/Binder;->getCallingPid()I
 
-    move-result v24
+    move-result v25
 
-    const/16 v25, -0x1
+    const/16 v26, -0x1
 
     move-object v9, v0
 
-    invoke-virtual/range {v5 .. v25}, Lcom/android/server/am/ActivityManagerService;->broadcastIntentLocked(Lcom/android/server/am/ProcessRecord;Ljava/lang/String;Ljava/lang/String;Landroid/content/Intent;Ljava/lang/String;Landroid/content/IIntentReceiver;ILjava/lang/String;Landroid/os/Bundle;[Ljava/lang/String;[Ljava/lang/String;ILandroid/os/Bundle;ZZIIIII)I
+    invoke-virtual/range {v5 .. v26}, Lcom/android/server/am/ActivityManagerService;->broadcastIntentLocked(Lcom/android/server/am/ProcessRecord;Ljava/lang/String;Ljava/lang/String;Landroid/content/Intent;Ljava/lang/String;Landroid/content/IIntentReceiver;ILjava/lang/String;Landroid/os/Bundle;[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;ILandroid/os/Bundle;ZZIIIII)I
 
     :cond_2
     if-nez p2, :cond_3
@@ -491,31 +497,33 @@
 
     const/16 v16, 0x0
 
-    const/16 v17, -0x1
+    const/16 v17, 0x0
 
-    const/16 v18, 0x0
+    const/16 v18, -0x1
 
     const/16 v19, 0x0
 
     const/16 v20, 0x0
 
-    sget v21, Lcom/android/server/am/ActivityManagerService;->MY_PID:I
+    const/16 v21, 0x0
 
-    const/16 v22, 0x3e8
+    sget v22, Lcom/android/server/am/ActivityManagerService;->MY_PID:I
+
+    const/16 v23, 0x3e8
 
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
-    move-result v23
+    move-result v24
 
     invoke-static {}, Landroid/os/Binder;->getCallingPid()I
 
-    move-result v24
+    move-result v25
 
-    const/16 v25, -0x1
+    const/16 v26, -0x1
 
     move-object v9, v0
 
-    invoke-virtual/range {v5 .. v25}, Lcom/android/server/am/ActivityManagerService;->broadcastIntentLocked(Lcom/android/server/am/ProcessRecord;Ljava/lang/String;Ljava/lang/String;Landroid/content/Intent;Ljava/lang/String;Landroid/content/IIntentReceiver;ILjava/lang/String;Landroid/os/Bundle;[Ljava/lang/String;[Ljava/lang/String;ILandroid/os/Bundle;ZZIIIII)I
+    invoke-virtual/range {v5 .. v26}, Lcom/android/server/am/ActivityManagerService;->broadcastIntentLocked(Lcom/android/server/am/ProcessRecord;Ljava/lang/String;Ljava/lang/String;Landroid/content/Intent;Ljava/lang/String;Landroid/content/IIntentReceiver;ILjava/lang/String;Landroid/os/Bundle;[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;ILandroid/os/Bundle;ZZIIIII)I
 
     :cond_3
     monitor-exit v2
@@ -540,7 +548,7 @@
 .end method
 
 .method public broadcastIntent(Landroid/content/Intent;Landroid/content/IIntentReceiver;[Ljava/lang/String;ZI[ILandroid/os/Bundle;)I
-    .locals 29
+    .locals 30
 
     move-object/from16 v1, p0
 
@@ -567,11 +575,11 @@
     :try_start_2
     invoke-static {}, Landroid/os/Binder;->getCallingPid()I
 
-    move-result v19
+    move-result v20
 
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
-    move-result v20
+    move-result v21
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
@@ -579,7 +587,7 @@
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_3
 
-    move-wide/from16 v27, v3
+    move-wide/from16 v28, v3
 
     :try_start_3
     iget-object v3, v1, Lcom/android/server/am/ActivityManagerService$LocalService;->this$0:Lcom/android/server/am/ActivityManagerService;
@@ -600,38 +608,40 @@
 
     const/4 v14, 0x0
 
-    const/4 v15, -0x1
+    const/4 v15, 0x0
 
-    const/16 v18, 0x0
+    const/16 v16, -0x1
 
-    const/16 v24, 0x0
+    const/16 v19, 0x0
 
     const/16 v25, 0x0
+
+    const/16 v26, 0x0
 
     move-object/from16 v9, p2
 
     move-object/from16 v13, p3
 
-    move-object/from16 v16, p7
+    move-object/from16 v17, p7
 
-    move/from16 v17, p4
+    move/from16 v18, p4
 
-    move/from16 v21, v20
+    move/from16 v22, v21
 
-    move/from16 v22, v19
+    move/from16 v23, v20
 
-    move/from16 v23, p5
+    move/from16 v24, p5
 
-    move-object/from16 v26, p6
+    move-object/from16 v27, p6
 
-    invoke-virtual/range {v3 .. v26}, Lcom/android/server/am/ActivityManagerService;->broadcastIntentLocked(Lcom/android/server/am/ProcessRecord;Ljava/lang/String;Ljava/lang/String;Landroid/content/Intent;Ljava/lang/String;Landroid/content/IIntentReceiver;ILjava/lang/String;Landroid/os/Bundle;[Ljava/lang/String;[Ljava/lang/String;ILandroid/os/Bundle;ZZIIIIIZLandroid/os/IBinder;[I)I
+    invoke-virtual/range {v3 .. v27}, Lcom/android/server/am/ActivityManagerService;->broadcastIntentLocked(Lcom/android/server/am/ProcessRecord;Ljava/lang/String;Ljava/lang/String;Landroid/content/Intent;Ljava/lang/String;Landroid/content/IIntentReceiver;ILjava/lang/String;Landroid/os/Bundle;[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;ILandroid/os/Bundle;ZZIIIIIZLandroid/os/IBinder;[I)I
 
     move-result v0
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     :try_start_4
-    invoke-static/range {v27 .. v28}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static/range {v28 .. v29}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     monitor-exit v2
     :try_end_4
@@ -645,7 +655,7 @@
     move-exception v0
 
     :try_start_5
-    invoke-static/range {v27 .. v28}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static/range {v28 .. v29}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     nop
 

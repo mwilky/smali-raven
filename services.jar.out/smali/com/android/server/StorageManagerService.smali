@@ -5115,57 +5115,127 @@
 .end method
 
 .method private prepareUserStorageInternal(Ljava/lang/String;III)V
-    .locals 4
+    .locals 6
+
+    const/4 v0, 0x1
 
     :try_start_0
-    iget-object v0, p0, Lcom/android/server/StorageManagerService;->mVold:Landroid/os/IVold;
+    iget-object v1, p0, Lcom/android/server/StorageManagerService;->mVold:Landroid/os/IVold;
 
-    invoke-interface {v0, p1, p2, p3, p4}, Landroid/os/IVold;->prepareUserStorage(Ljava/lang/String;III)V
+    invoke-interface {v1, p1, p2, p3, p4}, Landroid/os/IVold;->prepareUserStorage(Ljava/lang/String;III)V
 
     if-eqz p1, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/StorageManagerService;->mContext:Landroid/content/Context;
+    iget-object v1, p0, Lcom/android/server/StorageManagerService;->mContext:Landroid/content/Context;
 
-    const-class v1, Landroid/os/storage/StorageManager;
+    const-class v2, Landroid/os/storage/StorageManager;
 
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/os/storage/StorageManager;
-
-    invoke-virtual {v0, p1}, Landroid/os/storage/StorageManager;->findVolumeByUuid(Ljava/lang/String;)Landroid/os/storage/VolumeInfo;
+    invoke-virtual {v1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    check-cast v1, Landroid/os/storage/StorageManager;
+
+    invoke-virtual {v1, p1}, Landroid/os/storage/StorageManager;->findVolumeByUuid(Ljava/lang/String;)Landroid/os/storage/VolumeInfo;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_0
 
     if-nez p2, :cond_0
 
-    iget v2, v1, Landroid/os/storage/VolumeInfo;->type:I
+    iget v3, v2, Landroid/os/storage/VolumeInfo;->type:I
 
-    const/4 v3, 0x1
+    if-ne v3, v0, :cond_0
 
-    if-ne v2, v3, :cond_0
+    iget-object v3, p0, Lcom/android/server/StorageManagerService;->mInstaller:Lcom/android/server/pm/Installer;
 
-    iget-object v2, p0, Lcom/android/server/StorageManagerService;->mInstaller:Lcom/android/server/pm/Installer;
-
-    invoke-virtual {v2, p1}, Lcom/android/server/pm/Installer;->tryMountDataMirror(Ljava/lang/String;)V
+    invoke-virtual {v3, p1}, Lcom/android/server/pm/Installer;->tryMountDataMirror(Ljava/lang/String;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     :cond_0
-    goto :goto_0
+    nop
+
+    return-void
 
     :catch_0
-    move-exception v0
+    move-exception v1
 
-    const-string v1, "StorageManagerService"
+    const v2, 0x534e4554
 
-    invoke-static {v1, v0}, Landroid/util/Slog;->wtf(Ljava/lang/String;Ljava/lang/Throwable;)I
+    const/4 v3, 0x3
 
-    :goto_0
+    new-array v3, v3, [Ljava/lang/Object;
+
+    const/4 v4, 0x0
+
+    const-string v5, "224585613"
+
+    aput-object v5, v3, v4
+
+    const/4 v4, -0x1
+
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    aput-object v4, v3, v0
+
+    const/4 v0, 0x2
+
+    const-string v4, ""
+
+    aput-object v4, v3, v0
+
+    invoke-static {v2, v3}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
+
+    const-string v0, "StorageManagerService"
+
+    invoke-static {v0, v1}, Landroid/util/Slog;->wtf(Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    const-class v2, Lcom/android/server/pm/UserManagerInternal;
+
+    invoke-static {v2}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/server/pm/UserManagerInternal;
+
+    invoke-virtual {v2, p2}, Lcom/android/server/pm/UserManagerInternal;->shouldIgnorePrepareStorageErrors(I)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "ignoring error preparing storage for existing user "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v4, "; device may be insecure!"
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v0, v3}, Landroid/util/Slog;->wtf(Ljava/lang/String;Ljava/lang/String;)I
+
     return-void
+
+    :cond_1
+    new-instance v0, Ljava/lang/RuntimeException;
+
+    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
+
+    throw v0
 .end method
 
 .method private readSettingsLocked()V

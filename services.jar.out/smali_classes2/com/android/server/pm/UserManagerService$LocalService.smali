@@ -1584,3 +1584,57 @@
 
     throw v1
 .end method
+
+.method public shouldIgnorePrepareStorageErrors(I)Z
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/server/pm/UserManagerService$LocalService;->this$0:Lcom/android/server/pm/UserManagerService;
+
+    invoke-static {v0}, Lcom/android/server/pm/UserManagerService;->access$500(Lcom/android/server/pm/UserManagerService;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    monitor-enter v0
+
+    :try_start_0
+    iget-object v1, p0, Lcom/android/server/pm/UserManagerService$LocalService;->this$0:Lcom/android/server/pm/UserManagerService;
+
+    invoke-static {v1}, Lcom/android/server/pm/UserManagerService;->access$3500(Lcom/android/server/pm/UserManagerService;)Landroid/util/SparseArray;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/server/pm/UserManagerService$UserData;
+
+    if-eqz v1, :cond_0
+
+    invoke-virtual {v1}, Lcom/android/server/pm/UserManagerService$UserData;->getIgnorePrepareStorageErrors()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    const/4 v2, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v2, 0x0
+
+    :goto_0
+    monitor-exit v0
+
+    return v2
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw v1
+.end method

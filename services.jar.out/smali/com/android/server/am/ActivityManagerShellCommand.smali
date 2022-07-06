@@ -9380,7 +9380,7 @@
 .end method
 
 .method runSendBroadcast(Ljava/io/PrintWriter;)I
-    .locals 20
+    .locals 21
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -9414,7 +9414,7 @@
 
     const/4 v4, 0x0
 
-    const/16 v19, 0x0
+    const/16 v20, 0x0
 
     if-nez v3, :cond_0
 
@@ -9427,7 +9427,7 @@
 
     new-array v5, v5, [Ljava/lang/String;
 
-    aput-object v3, v5, v19
+    aput-object v3, v5, v20
 
     move-object v12, v5
 
@@ -9456,7 +9456,7 @@
 
     if-nez v3, :cond_1
 
-    move-object v15, v4
+    move-object/from16 v16, v4
 
     goto :goto_1
 
@@ -9465,7 +9465,7 @@
 
     move-result-object v3
 
-    move-object v15, v3
+    move-object/from16 v16, v3
 
     :goto_1
     iget-object v3, v1, Lcom/android/server/am/ActivityManagerShellCommand;->mInterface:Landroid/app/IActivityManager;
@@ -9484,19 +9484,21 @@
 
     const/4 v13, 0x0
 
-    const/4 v14, -0x1
+    const/4 v14, 0x0
 
-    const/16 v16, 0x1
+    const/4 v15, -0x1
 
-    const/16 v17, 0x0
+    const/16 v17, 0x1
+
+    const/16 v18, 0x0
 
     iget v6, v1, Lcom/android/server/am/ActivityManagerShellCommand;->mUserId:I
 
-    move/from16 v18, v6
+    move/from16 v19, v6
 
     move-object v6, v0
 
-    invoke-interface/range {v3 .. v18}, Landroid/app/IActivityManager;->broadcastIntentWithFeature(Landroid/app/IApplicationThread;Ljava/lang/String;Landroid/content/Intent;Ljava/lang/String;Landroid/content/IIntentReceiver;ILjava/lang/String;Landroid/os/Bundle;[Ljava/lang/String;[Ljava/lang/String;ILandroid/os/Bundle;ZZI)I
+    invoke-interface/range {v3 .. v19}, Landroid/app/IActivityManager;->broadcastIntentWithFeature(Landroid/app/IApplicationThread;Ljava/lang/String;Landroid/content/Intent;Ljava/lang/String;Landroid/content/IIntentReceiver;ILjava/lang/String;Landroid/os/Bundle;[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;ILandroid/os/Bundle;ZZI)I
 
     iget-boolean v3, v1, Lcom/android/server/am/ActivityManagerShellCommand;->mAsync:Z
 
@@ -9505,7 +9507,7 @@
     invoke-virtual {v8}, Lcom/android/server/am/ActivityManagerShellCommand$IntentReceiver;->waitForFinish()V
 
     :cond_2
-    return v19
+    return v20
 
     :catch_0
     move-exception v0

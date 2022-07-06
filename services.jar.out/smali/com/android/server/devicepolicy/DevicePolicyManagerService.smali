@@ -4857,7 +4857,7 @@
 
     const-string v1, "cross_profile_apps"
 
-    const v2, 0x10700a4
+    const v2, 0x10700a5
 
     invoke-static {p1, v0, v1, v2}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->dumpResources(Landroid/util/IndentingPrintWriter;Landroid/content/Context;Ljava/lang/String;I)V
 
@@ -4865,7 +4865,7 @@
 
     const-string/jumbo v1, "vendor_cross_profile_apps"
 
-    const v2, 0x10700c4
+    const v2, 0x10700c5
 
     invoke-static {p1, v0, v1, v2}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->dumpResources(Landroid/util/IndentingPrintWriter;Landroid/content/Context;Ljava/lang/String;I)V
 
@@ -4881,7 +4881,7 @@
 
     const-string/jumbo v1, "policy_exempt_apps"
 
-    const v2, 0x10700b5
+    const v2, 0x10700b6
 
     invoke-static {p1, v0, v1, v2}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->dumpResources(Landroid/util/IndentingPrintWriter;Landroid/content/Context;Ljava/lang/String;I)V
 
@@ -4889,7 +4889,7 @@
 
     const-string/jumbo v1, "vendor_policy_exempt_apps"
 
-    const v2, 0x10700c8
+    const v2, 0x10700c9
 
     invoke-static {p1, v0, v1, v2}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->dumpResources(Landroid/util/IndentingPrintWriter;Landroid/content/Context;Ljava/lang/String;I)V
 
@@ -12835,7 +12835,7 @@
 
     move-result-object v0
 
-    const v1, 0x10700b5
+    const v1, 0x10700b6
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -12847,7 +12847,7 @@
 
     move-result-object v1
 
-    const v2, 0x10700c8
+    const v2, 0x10700c9
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -30357,7 +30357,7 @@
 
     move-result-object v1
 
-    const v2, 0x10700a4
+    const v2, 0x10700a5
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -30371,7 +30371,7 @@
 
     move-result-object v1
 
-    const v2, 0x10700c4
+    const v2, 0x10700c5
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 

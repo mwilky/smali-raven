@@ -1355,7 +1355,7 @@
 .end method
 
 .method private unhibernatePackageForUser(Ljava/lang/String;I)V
-    .locals 34
+    .locals 35
 
     move-object/from16 v1, p0
 
@@ -1406,17 +1406,19 @@
 
     const/16 v18, 0x0
 
-    const/16 v19, -0x1
+    const/16 v19, 0x0
 
-    const/16 v20, 0x0
+    const/16 v20, -0x1
 
     const/16 v21, 0x0
 
     const/16 v22, 0x0
 
-    move/from16 v23, p2
+    const/16 v23, 0x0
 
-    invoke-interface/range {v8 .. v23}, Landroid/app/IActivityManager;->broadcastIntentWithFeature(Landroid/app/IApplicationThread;Ljava/lang/String;Landroid/content/Intent;Ljava/lang/String;Landroid/content/IIntentReceiver;ILjava/lang/String;Landroid/os/Bundle;[Ljava/lang/String;[Ljava/lang/String;ILandroid/os/Bundle;ZZI)I
+    move/from16 v24, p2
+
+    invoke-interface/range {v8 .. v24}, Landroid/app/IActivityManager;->broadcastIntentWithFeature(Landroid/app/IApplicationThread;Ljava/lang/String;Landroid/content/Intent;Ljava/lang/String;Landroid/content/IIntentReceiver;ILjava/lang/String;Landroid/os/Bundle;[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;ILandroid/os/Bundle;ZZI)I
 
     new-instance v0, Landroid/content/Intent;
 
@@ -1446,21 +1448,23 @@
 
     const/16 v28, 0x0
 
-    const/16 v29, -0x1
+    const/16 v29, 0x0
 
-    const/16 v30, 0x0
+    const/16 v30, -0x1
 
     const/16 v31, 0x0
 
     const/16 v32, 0x0
 
+    const/16 v33, 0x0
+
     move-object/from16 v18, v0
 
     move-object/from16 v27, v17
 
-    move/from16 v33, p2
+    move/from16 v34, p2
 
-    invoke-interface/range {v18 .. v33}, Landroid/app/IActivityManager;->broadcastIntentWithFeature(Landroid/app/IApplicationThread;Ljava/lang/String;Landroid/content/Intent;Ljava/lang/String;Landroid/content/IIntentReceiver;ILjava/lang/String;Landroid/os/Bundle;[Ljava/lang/String;[Ljava/lang/String;ILandroid/os/Bundle;ZZI)I
+    invoke-interface/range {v18 .. v34}, Landroid/app/IActivityManager;->broadcastIntentWithFeature(Landroid/app/IApplicationThread;Ljava/lang/String;Landroid/content/Intent;Ljava/lang/String;Landroid/content/IIntentReceiver;ILjava/lang/String;Landroid/os/Bundle;[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;ILandroid/os/Bundle;ZZI)I
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0

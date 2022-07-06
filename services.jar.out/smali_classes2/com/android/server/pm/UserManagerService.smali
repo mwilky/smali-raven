@@ -114,6 +114,8 @@
 
 .field private static final TAG_GUEST_RESTRICTIONS:Ljava/lang/String; = "guestRestrictions"
 
+.field private static final TAG_IGNORE_PREPARE_STORAGE_ERRORS:Ljava/lang/String; = "ignorePrepareStorageErrors"
+
 .field private static final TAG_LAST_REQUEST_QUIET_MODE_ENABLED_CALL:Ljava/lang/String; = "lastRequestQuietModeEnabledCall"
 
 .field private static final TAG_NAME:Ljava/lang/String; = "name"
@@ -11491,10 +11493,30 @@
     invoke-virtual {v10, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     invoke-virtual/range {p2 .. p2}, Ljava/io/PrintWriter;->println()V
+
+    :cond_a
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "    Ignore errors preparing storage: "
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4}, Lcom/android/server/pm/UserManagerService$UserData;->getIgnorePrepareStorageErrors()Z
+
+    move-result v2
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v10, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
     :try_end_13
     .catchall {:try_start_13 .. :try_end_13} :catchall_10
 
-    :cond_a
     :goto_3
     add-int/lit8 v6, v16, 0x1
 
@@ -16547,7 +16569,7 @@
 .end method
 
 .method readUserLP(ILjava/io/InputStream;)Lcom/android/server/pm/UserManagerService$UserData;
-    .locals 53
+    .locals 54
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -16609,7 +16631,9 @@
 
     const/16 v29, 0x0
 
-    move-wide/from16 v30, v9
+    const/16 v30, 0x1
+
+    move-wide/from16 v31, v9
 
     invoke-static/range {p2 .. p2}, Landroid/util/Xml;->resolvePullParser(Ljava/io/InputStream;)Landroid/util/TypedXmlPullParser;
 
@@ -16620,26 +16644,26 @@
 
     move-result v10
 
-    move/from16 v32, v10
+    move/from16 v33, v10
 
-    move/from16 v33, v0
+    move/from16 v34, v0
 
     const/4 v0, 0x2
 
     if-eq v10, v0, :cond_0
 
-    move/from16 v10, v32
+    move/from16 v10, v33
 
     const/4 v0, 0x1
 
     if-eq v10, v0, :cond_1
 
-    move/from16 v0, v33
+    move/from16 v0, v34
 
     goto :goto_0
 
     :cond_0
-    move/from16 v10, v32
+    move/from16 v10, v33
 
     :cond_1
     const/4 v0, 0x2
@@ -16648,13 +16672,13 @@
 
     const-string v0, "UserManagerService"
 
-    move-object/from16 v35, v2
+    move-object/from16 v36, v2
 
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    move/from16 v36, v3
+    move/from16 v37, v3
 
     const-string v3, "Unable to read user "
 
@@ -16673,15 +16697,15 @@
     return-object v0
 
     :cond_2
-    move-object/from16 v35, v2
+    move-object/from16 v36, v2
 
-    move/from16 v36, v3
+    move/from16 v37, v3
 
     const/4 v0, 0x0
 
     const/4 v2, 0x2
 
-    if-ne v10, v2, :cond_16
+    if-ne v10, v2, :cond_18
 
     invoke-interface {v9}, Landroid/util/TypedXmlPullParser;->getName()Ljava/lang/String;
 
@@ -16693,7 +16717,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_16
+    if-eqz v2, :cond_18
 
     const-string v2, "id"
 
@@ -16722,11 +16746,11 @@
 
     move-result v3
 
-    move/from16 v32, v2
+    move/from16 v33, v2
 
     const-string v2, "flags"
 
-    move/from16 v36, v3
+    move/from16 v37, v3
 
     const/4 v3, 0x0
 
@@ -16754,7 +16778,7 @@
     :goto_1
     const-string v3, "icon"
 
-    move-object/from16 v33, v0
+    move-object/from16 v34, v0
 
     const/4 v0, 0x0
 
@@ -16764,15 +16788,15 @@
 
     const-string v3, "created"
 
-    move-object/from16 v34, v4
+    move-object/from16 v35, v4
 
-    move-object/from16 v38, v5
+    move-object/from16 v39, v5
 
     const-wide/16 v4, 0x0
 
     invoke-interface {v9, v0, v3, v4, v5}, Landroid/util/TypedXmlPullParser;->getAttributeLong(Ljava/lang/String;Ljava/lang/String;J)J
 
-    move-result-wide v30
+    move-result-wide v31
 
     const-string v3, "lastLoggedIn"
 
@@ -16856,9 +16880,9 @@
 
     move-result v0
 
-    move-object/from16 v4, v34
+    move-object/from16 v4, v35
 
-    move-object/from16 v5, v38
+    move-object/from16 v5, v39
 
     :goto_2
     invoke-interface {v9}, Landroid/util/TypedXmlPullParser;->next()I
@@ -16867,11 +16891,11 @@
 
     move v10, v3
 
-    move/from16 v37, v2
+    move/from16 v38, v2
 
     const/4 v2, 0x1
 
-    if-eq v3, v2, :cond_15
+    if-eq v3, v2, :cond_17
 
     const/4 v3, 0x3
 
@@ -16881,10 +16905,10 @@
 
     move-result v2
 
-    if-le v2, v0, :cond_15
+    if-le v2, v0, :cond_17
 
     :cond_7
-    if-eq v10, v3, :cond_14
+    if-eq v10, v3, :cond_16
 
     const/4 v2, 0x4
 
@@ -16954,7 +16978,7 @@
 
     move-result-object v27
 
-    goto :goto_3
+    goto/16 :goto_3
 
     :cond_c
     const-string v2, "device_policy_local_restrictions"
@@ -16971,7 +16995,7 @@
 
     move-result-object v28
 
-    goto :goto_3
+    goto/16 :goto_3
 
     :cond_d
     const-string v2, "device_policy_global_restrictions"
@@ -17067,22 +17091,56 @@
     :cond_12
     move v10, v2
 
-    :cond_13
-    :goto_3
-    move/from16 v2, v37
+    goto :goto_3
 
-    goto/16 :goto_2
+    :cond_13
+    const-string v2, "ignorePrepareStorageErrors"
+
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_15
+
+    invoke-interface {v9}, Landroid/util/TypedXmlPullParser;->next()I
+
+    move-result v2
+
+    const/4 v10, 0x4
+
+    if-ne v2, v10, :cond_14
+
+    invoke-interface {v9}, Landroid/util/TypedXmlPullParser;->getText()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v10}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
+
+    move-result v30
+
+    move v10, v2
+
+    goto :goto_3
 
     :cond_14
-    :goto_4
-    move/from16 v2, v37
+    move v10, v2
+
+    :cond_15
+    :goto_3
+    move/from16 v2, v38
 
     goto/16 :goto_2
 
-    :cond_15
-    move-object/from16 v34, v4
+    :cond_16
+    :goto_4
+    move/from16 v2, v38
 
-    move/from16 v32, v10
+    goto/16 :goto_2
+
+    :cond_17
+    move-object/from16 v35, v4
+
+    move/from16 v33, v10
 
     move v3, v15
 
@@ -17092,27 +17150,27 @@
 
     move/from16 v1, v19
 
-    move/from16 v39, v22
+    move/from16 v40, v22
 
-    move-object/from16 v40, v23
+    move-object/from16 v41, v23
 
-    move-object/from16 v41, v24
+    move-object/from16 v42, v24
 
-    move-object/from16 v42, v25
+    move-object/from16 v43, v25
 
-    move-object/from16 v43, v26
+    move-object/from16 v44, v26
 
-    move-object/from16 v44, v27
+    move-object/from16 v45, v27
 
-    move-object/from16 v45, v28
+    move-object/from16 v46, v28
 
-    move-object/from16 v46, v29
+    move-object/from16 v47, v29
 
-    move-object/from16 v35, v33
+    move-object/from16 v36, v34
 
-    move/from16 v10, v36
+    move/from16 v10, v37
 
-    move/from16 v33, v37
+    move/from16 v34, v38
 
     move-object/from16 v16, v9
 
@@ -17124,26 +17182,26 @@
 
     move-wide v4, v13
 
-    move-wide/from16 v14, v30
+    move-wide/from16 v14, v31
 
     move-object v13, v7
 
-    move-wide/from16 v51, v11
+    move-wide/from16 v52, v11
 
     move-object v12, v6
 
-    move-wide/from16 v6, v51
+    move-wide/from16 v6, v52
 
     move/from16 v11, v20
 
     goto :goto_5
 
-    :cond_16
-    move-object/from16 v34, v4
+    :cond_18
+    move-object/from16 v35, v4
 
-    move-object/from16 v38, v5
+    move-object/from16 v39, v5
 
-    move/from16 v32, v10
+    move/from16 v33, v10
 
     move-wide v4, v13
 
@@ -17155,25 +17213,25 @@
 
     move/from16 v1, v19
 
-    move/from16 v39, v22
+    move/from16 v40, v22
 
-    move-object/from16 v40, v23
+    move-object/from16 v41, v23
 
-    move-object/from16 v41, v24
+    move-object/from16 v42, v24
 
-    move-object/from16 v42, v25
+    move-object/from16 v43, v25
 
-    move-object/from16 v43, v26
+    move-object/from16 v44, v26
 
-    move-object/from16 v44, v27
+    move-object/from16 v45, v27
 
-    move-object/from16 v45, v28
+    move-object/from16 v46, v28
 
-    move-object/from16 v46, v29
+    move-object/from16 v47, v29
 
-    move-wide/from16 v14, v30
+    move-wide/from16 v14, v31
 
-    move/from16 v10, v36
+    move/from16 v10, v37
 
     move-object v13, v7
 
@@ -17183,30 +17241,30 @@
 
     move/from16 v9, v21
 
-    move-object/from16 v17, v38
+    move-object/from16 v17, v39
 
-    move-wide/from16 v51, v11
+    move-wide/from16 v52, v11
 
     move-object v12, v6
 
-    move-wide/from16 v6, v51
+    move-wide/from16 v6, v52
 
     move/from16 v11, v20
 
     :goto_5
     new-instance v0, Landroid/content/pm/UserInfo;
 
-    move/from16 v47, v2
+    move/from16 v48, v2
 
     move-object v2, v0
 
-    move/from16 v48, v3
+    move/from16 v49, v3
 
     move/from16 v3, p1
 
-    move-wide/from16 v49, v4
+    move-wide/from16 v50, v4
 
-    move-object/from16 v4, v34
+    move-object/from16 v4, v35
 
     move-object v5, v12
 
@@ -17216,9 +17274,9 @@
 
     move-wide v11, v6
 
-    move/from16 v6, v33
+    move/from16 v6, v34
 
-    move-object/from16 v7, v35
+    move-object/from16 v7, v36
 
     invoke-direct/range {v2 .. v7}, Landroid/content/pm/UserInfo;-><init>(ILjava/lang/String;Ljava/lang/String;ILjava/lang/String;)V
 
@@ -17240,11 +17298,11 @@
 
     iput-boolean v9, v2, Landroid/content/pm/UserInfo;->guestToRemove:Z
 
-    move/from16 v4, v48
+    move/from16 v4, v49
 
     iput v4, v2, Landroid/content/pm/UserInfo;->profileGroupId:I
 
-    move/from16 v5, v47
+    move/from16 v5, v48
 
     iput v5, v2, Landroid/content/pm/UserInfo;->profileBadge:I
 
@@ -17266,25 +17324,25 @@
 
     iput-object v1, v7, Lcom/android/server/pm/UserManagerService$UserData;->account:Ljava/lang/String;
 
-    move-object/from16 v1, v40
+    move-object/from16 v1, v41
 
     iput-object v1, v7, Lcom/android/server/pm/UserManagerService$UserData;->seedAccountName:Ljava/lang/String;
 
     move-object/from16 v20, v1
 
-    move-object/from16 v1, v41
+    move-object/from16 v1, v42
 
     iput-object v1, v7, Lcom/android/server/pm/UserManagerService$UserData;->seedAccountType:Ljava/lang/String;
 
     move-object/from16 v21, v1
 
-    move/from16 v1, v39
+    move/from16 v1, v40
 
     iput-boolean v1, v7, Lcom/android/server/pm/UserManagerService$UserData;->persistSeedData:Z
 
     move/from16 v22, v1
 
-    move-object/from16 v1, v42
+    move-object/from16 v1, v43
 
     iput-object v1, v7, Lcom/android/server/pm/UserManagerService$UserData;->seedAccountOptions:Landroid/os/PersistableBundle;
 
@@ -17292,9 +17350,16 @@
 
     move-object/from16 v23, v2
 
-    move-wide/from16 v1, v49
+    move-wide/from16 v1, v50
 
     invoke-virtual {v7, v1, v2}, Lcom/android/server/pm/UserManagerService$UserData;->setLastRequestQuietModeEnabledMillis(J)V
+
+    if-eqz v30, :cond_19
+
+    invoke-virtual {v7}, Lcom/android/server/pm/UserManagerService$UserData;->setIgnorePrepareStorageErrors()V
+
+    :cond_19
+    move-wide/from16 v50, v1
 
     move-object/from16 v1, p0
 
@@ -17304,9 +17369,9 @@
 
     move/from16 v25, v3
 
-    move-object/from16 v3, v43
+    move-object/from16 v3, v44
 
-    if-eqz v3, :cond_17
+    if-eqz v3, :cond_1a
 
     :try_start_0
     iget-object v0, v1, Lcom/android/server/pm/UserManagerService;->mBaseUserRestrictions:Lcom/android/server/pm/RestrictionsSet;
@@ -17329,13 +17394,13 @@
 
     move-object/from16 v27, v3
 
-    move/from16 v48, v4
+    move/from16 v49, v4
 
-    move-object/from16 v3, v44
+    move-object/from16 v3, v45
 
-    move-object/from16 v28, v45
+    move-object/from16 v28, v46
 
-    move-object/from16 v4, v46
+    move-object/from16 v4, v47
 
     goto/16 :goto_8
 
@@ -17348,17 +17413,17 @@
 
     move-object/from16 v27, v3
 
-    move/from16 v48, v4
+    move/from16 v49, v4
 
-    move-object/from16 v3, v44
+    move-object/from16 v3, v45
 
-    move-object/from16 v28, v45
+    move-object/from16 v28, v46
 
-    move-object/from16 v4, v46
+    move-object/from16 v4, v47
 
     goto :goto_8
 
-    :cond_17
+    :cond_1a
     move/from16 v26, v8
 
     move/from16 v8, p1
@@ -17366,9 +17431,9 @@
     :goto_6
     move-object/from16 v27, v3
 
-    move-object/from16 v3, v45
+    move-object/from16 v3, v46
 
-    if-eqz v3, :cond_19
+    if-eqz v3, :cond_1c
 
     :try_start_2
     iget-object v0, v1, Lcom/android/server/pm/UserManagerService;->mDevicePolicyLocalUserRestrictions:Landroid/util/SparseArray;
@@ -17379,16 +17444,16 @@
 
     move-object/from16 v28, v3
 
-    move-object/from16 v3, v44
+    move-object/from16 v3, v45
 
-    if-eqz v3, :cond_18
+    if-eqz v3, :cond_1b
 
     :try_start_3
     const-string v0, "UserManagerService"
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_2
 
-    move/from16 v48, v4
+    move/from16 v49, v4
 
     :try_start_4
     const-string v4, "Seeing both legacy and current local restrictions in xml"
@@ -17400,14 +17465,14 @@
     :catchall_2
     move-exception v0
 
-    move/from16 v48, v4
+    move/from16 v49, v4
 
-    move-object/from16 v4, v46
+    move-object/from16 v4, v47
 
     goto :goto_8
 
-    :cond_18
-    move/from16 v48, v4
+    :cond_1b
+    move/from16 v49, v4
 
     goto :goto_7
 
@@ -17416,22 +17481,22 @@
 
     move-object/from16 v28, v3
 
-    move/from16 v48, v4
+    move/from16 v49, v4
 
-    move-object/from16 v3, v44
+    move-object/from16 v3, v45
 
-    move-object/from16 v4, v46
+    move-object/from16 v4, v47
 
     goto :goto_8
 
-    :cond_19
+    :cond_1c
     move-object/from16 v28, v3
 
-    move/from16 v48, v4
+    move/from16 v49, v4
 
-    move-object/from16 v3, v44
+    move-object/from16 v3, v45
 
-    if-eqz v3, :cond_1a
+    if-eqz v3, :cond_1d
 
     iget-object v0, v1, Lcom/android/server/pm/UserManagerService;->mDevicePolicyLocalUserRestrictions:Landroid/util/SparseArray;
 
@@ -17448,22 +17513,22 @@
     :catchall_4
     move-exception v0
 
-    move-object/from16 v4, v46
+    move-object/from16 v4, v47
 
     goto :goto_8
 
-    :cond_1a
+    :cond_1d
     :goto_7
-    move-object/from16 v4, v46
+    move-object/from16 v4, v47
 
-    if-eqz v4, :cond_1b
+    if-eqz v4, :cond_1e
 
     :try_start_5
     iget-object v0, v1, Lcom/android/server/pm/UserManagerService;->mDevicePolicyGlobalUserRestrictions:Lcom/android/server/pm/RestrictionsSet;
 
     invoke-virtual {v0, v8, v4}, Lcom/android/server/pm/RestrictionsSet;->updateRestrictions(ILandroid/os/Bundle;)Z
 
-    :cond_1b
+    :cond_1e
     monitor-exit v2
 
     return-object v7
@@ -20466,6 +20531,24 @@
     invoke-interface {v0, v3, v1}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     :cond_d
+    const-string v1, "ignorePrepareStorageErrors"
+
+    invoke-interface {v0, v3, v1}, Landroid/util/TypedXmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+
+    invoke-virtual {p1}, Lcom/android/server/pm/UserManagerService$UserData;->getIgnorePrepareStorageErrors()Z
+
+    move-result v1
+
+    invoke-static {v1}, Ljava/lang/String;->valueOf(Z)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-interface {v0, v1}, Landroid/util/TypedXmlSerializer;->text(Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+
+    const-string v1, "ignorePrepareStorageErrors"
+
+    invoke-interface {v0, v3, v1}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+
     const-string v1, "user"
 
     invoke-interface {v0, v3, v1}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
