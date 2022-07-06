@@ -172,7 +172,7 @@
 
     iput p4, p0, Lcom/android/server/vibrator/VibrationSettings;->mRampStepDuration:I
 
-    const v0, 0x107009f
+    const v0, 0x10700a0
 
     invoke-direct {p0, v0}, Lcom/android/server/vibrator/VibrationSettings;->createEffectFromResource(I)Landroid/os/VibrationEffect;
 

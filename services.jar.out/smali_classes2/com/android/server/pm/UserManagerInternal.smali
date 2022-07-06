@@ -159,3 +159,6 @@
 
 .method public abstract setUserState(II)V
 .end method
+
+.method public abstract shouldIgnorePrepareStorageErrors(I)Z
+.end method

@@ -479,7 +479,7 @@
 
     move-result-object v1
 
-    const v2, 0x107008d
+    const v2, 0x107008e
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->obtainTypedArray(I)Landroid/content/res/TypedArray;
 

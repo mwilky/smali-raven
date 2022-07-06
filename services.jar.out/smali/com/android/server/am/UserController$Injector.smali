@@ -125,7 +125,7 @@
 .end method
 
 .method protected broadcastIntent(Landroid/content/Intent;Ljava/lang/String;Landroid/content/IIntentReceiver;ILjava/lang/String;Landroid/os/Bundle;[Ljava/lang/String;ILandroid/os/Bundle;ZZIIIII)I
-    .locals 25
+    .locals 26
 
     move-object/from16 v1, p0
 
@@ -133,9 +133,9 @@
 
     const/16 v2, -0x2710
 
-    move-object/from16 v15, p1
+    move-object/from16 v13, p1
 
-    invoke-virtual {v15, v0, v2}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    invoke-virtual {v13, v0, v2}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v0
 
@@ -175,9 +175,9 @@
 
     invoke-static {v0, v3}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
 
-    iget-object v13, v1, Lcom/android/server/am/UserController$Injector;->mService:Lcom/android/server/am/ActivityManagerService;
+    iget-object v12, v1, Lcom/android/server/am/UserController$Injector;->mService:Lcom/android/server/am/ActivityManagerService;
 
-    monitor-enter v13
+    monitor-enter v12
 
     :try_start_0
     invoke-static {}, Lcom/android/server/am/ActivityManagerService;->boostPriorityForLockedSection()V
@@ -194,6 +194,8 @@
 
     const/4 v14, 0x0
 
+    const/4 v15, 0x0
+
     move-object/from16 v7, p1
 
     move-object/from16 v8, p2
@@ -204,36 +206,36 @@
 
     move-object/from16 v11, p5
 
-    move-object/from16 v12, p6
+    move-object/from16 v25, v12
 
-    move-object/from16 v24, v13
+    move-object/from16 v12, p6
 
     move-object/from16 v13, p7
 
-    move/from16 v15, p8
+    move/from16 v16, p8
 
-    move-object/from16 v16, p9
+    move-object/from16 v17, p9
 
-    move/from16 v17, p10
+    move/from16 v18, p10
 
-    move/from16 v18, p11
+    move/from16 v19, p11
 
-    move/from16 v19, p12
+    move/from16 v20, p12
 
-    move/from16 v20, p13
+    move/from16 v21, p13
 
-    move/from16 v21, p14
+    move/from16 v22, p14
 
-    move/from16 v22, p15
+    move/from16 v23, p15
 
-    move/from16 v23, p16
+    move/from16 v24, p16
 
     :try_start_1
-    invoke-virtual/range {v3 .. v23}, Lcom/android/server/am/ActivityManagerService;->broadcastIntentLocked(Lcom/android/server/am/ProcessRecord;Ljava/lang/String;Ljava/lang/String;Landroid/content/Intent;Ljava/lang/String;Landroid/content/IIntentReceiver;ILjava/lang/String;Landroid/os/Bundle;[Ljava/lang/String;[Ljava/lang/String;ILandroid/os/Bundle;ZZIIIII)I
+    invoke-virtual/range {v3 .. v24}, Lcom/android/server/am/ActivityManagerService;->broadcastIntentLocked(Lcom/android/server/am/ProcessRecord;Ljava/lang/String;Ljava/lang/String;Landroid/content/Intent;Ljava/lang/String;Landroid/content/IIntentReceiver;ILjava/lang/String;Landroid/os/Bundle;[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;ILandroid/os/Bundle;ZZIIIII)I
 
     move-result v0
 
-    monitor-exit v24
+    monitor-exit v25
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
@@ -244,11 +246,11 @@
     :catchall_0
     move-exception v0
 
-    move-object/from16 v24, v13
+    move-object/from16 v25, v12
 
     :goto_1
     :try_start_2
-    monitor-exit v24
+    monitor-exit v25
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 

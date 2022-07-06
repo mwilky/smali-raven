@@ -19,6 +19,8 @@
 
 .field info:Landroid/content/pm/UserInfo;
 
+.field private mIgnorePrepareStorageErrors:Z
+
 .field private mLastRequestQuietModeEnabledMillis:J
 
 .field persistSeedData:Z
@@ -63,12 +65,30 @@
     return-void
 .end method
 
+.method getIgnorePrepareStorageErrors()Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/server/pm/UserManagerService$UserData;->mIgnorePrepareStorageErrors:Z
+
+    return v0
+.end method
+
 .method getLastRequestQuietModeEnabledMillis()J
     .locals 2
 
     iget-wide v0, p0, Lcom/android/server/pm/UserManagerService$UserData;->mLastRequestQuietModeEnabledMillis:J
 
     return-wide v0
+.end method
+
+.method setIgnorePrepareStorageErrors()V
+    .locals 1
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/android/server/pm/UserManagerService$UserData;->mIgnorePrepareStorageErrors:Z
+
+    return-void
 .end method
 
 .method setLastRequestQuietModeEnabledMillis(J)V

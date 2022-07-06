@@ -136,7 +136,7 @@
 .end method
 
 .method public sendNext()V
-    .locals 32
+    .locals 33
 
     move-object/from16 v15, p0
 
@@ -354,27 +354,27 @@
 
     move-result-object v2
 
-    move-object/from16 v22, v2
+    move-object/from16 v23, v2
 
-    check-cast v22, Landroid/app/ActivityManagerInternal;
+    check-cast v23, Landroid/app/ActivityManagerInternal;
 
-    if-eqz v22, :cond_4
+    if-eqz v23, :cond_4
 
-    invoke-virtual/range {v22 .. v22}, Landroid/app/ActivityManagerInternal;->getBootTimeTempAllowListDuration()J
+    invoke-virtual/range {v23 .. v23}, Landroid/app/ActivityManagerInternal;->getBootTimeTempAllowListDuration()J
 
     move-result-wide v0
 
-    move-wide/from16 v23, v0
+    move-wide/from16 v24, v0
 
     goto :goto_0
 
     :cond_4
-    move-wide/from16 v23, v0
+    move-wide/from16 v24, v0
 
     :goto_0
     invoke-static {}, Landroid/app/BroadcastOptions;->makeBasic()Landroid/app/BroadcastOptions;
 
-    move-result-object v25
+    move-result-object v26
 
     const/4 v5, 0x0
 
@@ -382,9 +382,9 @@
 
     const-string v7, ""
 
-    move-object/from16 v2, v25
+    move-object/from16 v2, v26
 
-    move-wide/from16 v3, v23
+    move-wide/from16 v3, v24
 
     invoke-virtual/range {v2 .. v7}, Landroid/app/BroadcastOptions;->setTemporaryAppAllowlist(JIILjava/lang/String;)V
 
@@ -417,49 +417,51 @@
 
     const/4 v0, 0x0
 
-    const/16 v16, -0x1
+    const/16 v16, 0x0
 
-    invoke-virtual/range {v25 .. v25}, Landroid/app/BroadcastOptions;->toBundle()Landroid/os/Bundle;
+    const/16 v17, -0x1
 
-    move-result-object v17
+    invoke-virtual/range {v26 .. v26}, Landroid/app/BroadcastOptions;->toBundle()Landroid/os/Bundle;
 
-    const/16 v18, 0x1
+    move-result-object v18
 
-    const/16 v19, 0x0
+    const/16 v19, 0x1
 
-    sget v20, Lcom/android/server/am/ActivityManagerService;->MY_PID:I
+    const/16 v20, 0x0
 
-    const/16 v21, 0x3e8
+    sget v21, Lcom/android/server/am/ActivityManagerService;->MY_PID:I
+
+    const/16 v22, 0x3e8
 
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
-    move-result v26
+    move-result v27
 
     invoke-static {}, Landroid/os/Binder;->getCallingPid()I
 
-    move-result v27
+    move-result v28
 
     iget v7, v15, Lcom/android/server/am/PreBootBroadcaster;->mUserId:I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move/from16 v28, v7
+    move/from16 v29, v7
 
     move-object/from16 v7, p0
 
-    move-object/from16 v29, v12
+    move-object/from16 v30, v12
 
     move-object v12, v0
 
-    move-object/from16 v30, v13
+    move-object/from16 v31, v13
 
-    move/from16 v13, v16
+    move-object/from16 v13, v16
 
-    move-object/from16 v31, v14
+    move-object/from16 v32, v14
 
-    move-object/from16 v14, v17
+    move/from16 v14, v17
 
-    move/from16 v15, v18
+    move-object/from16 v15, v18
 
     move/from16 v16, v19
 
@@ -467,16 +469,18 @@
 
     move/from16 v18, v21
 
-    move/from16 v19, v26
+    move/from16 v19, v22
 
     move/from16 v20, v27
 
     move/from16 v21, v28
 
-    :try_start_1
-    invoke-virtual/range {v1 .. v21}, Lcom/android/server/am/ActivityManagerService;->broadcastIntentLocked(Lcom/android/server/am/ProcessRecord;Ljava/lang/String;Ljava/lang/String;Landroid/content/Intent;Ljava/lang/String;Landroid/content/IIntentReceiver;ILjava/lang/String;Landroid/os/Bundle;[Ljava/lang/String;[Ljava/lang/String;ILandroid/os/Bundle;ZZIIIII)I
+    move/from16 v22, v29
 
-    monitor-exit v29
+    :try_start_1
+    invoke-virtual/range {v1 .. v22}, Lcom/android/server/am/ActivityManagerService;->broadcastIntentLocked(Lcom/android/server/am/ProcessRecord;Ljava/lang/String;Ljava/lang/String;Landroid/content/Intent;Ljava/lang/String;Landroid/content/IIntentReceiver;ILjava/lang/String;Landroid/os/Bundle;[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;ILandroid/os/Bundle;ZZIIIII)I
+
+    monitor-exit v30
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
@@ -487,15 +491,15 @@
     :catchall_0
     move-exception v0
 
-    move-object/from16 v29, v12
+    move-object/from16 v30, v12
 
-    move-object/from16 v30, v13
+    move-object/from16 v31, v13
 
-    move-object/from16 v31, v14
+    move-object/from16 v32, v14
 
     :goto_1
     :try_start_2
-    monitor-exit v29
+    monitor-exit v30
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 

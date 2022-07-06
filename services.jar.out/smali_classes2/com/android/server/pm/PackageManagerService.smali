@@ -33296,13 +33296,13 @@
 .end method
 
 .method static synthetic lambda$postPreferredActivityChangedBroadcast$55(I)V
-    .locals 19
+    .locals 20
 
     invoke-static {}, Landroid/app/ActivityManager;->getService()Landroid/app/IActivityManager;
 
-    move-result-object v17
+    move-result-object v18
 
-    if-nez v17, :cond_0
+    if-nez v18, :cond_0
 
     return-void
 
@@ -33313,17 +33313,17 @@
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    move-object v15, v0
+    move-object v4, v0
 
     const-string v0, "android.intent.extra.user_handle"
 
-    move/from16 v14, p0
+    move/from16 v1, p0
 
-    invoke-virtual {v15, v0, v14}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+    invoke-virtual {v4, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
     const/high16 v0, 0x4000000
 
-    invoke-virtual {v15, v0}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+    invoke-virtual {v4, v0}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
     const/4 v2, 0x0
 
@@ -33343,28 +33343,24 @@
 
     const/4 v11, 0x0
 
-    const/4 v12, -0x1
+    const/4 v12, 0x0
 
-    const/4 v13, 0x0
+    const/4 v13, -0x1
 
-    const/4 v0, 0x0
+    const/4 v14, 0x0
+
+    const/4 v15, 0x0
 
     const/16 v16, 0x0
 
-    move-object/from16 v1, v17
+    move-object/from16 v1, v18
 
-    move-object v4, v15
+    move-object/from16 v19, v4
 
-    move v14, v0
-
-    move-object/from16 v18, v15
-
-    move/from16 v15, v16
-
-    move/from16 v16, p0
+    move/from16 v17, p0
 
     :try_start_0
-    invoke-interface/range {v1 .. v16}, Landroid/app/IActivityManager;->broadcastIntentWithFeature(Landroid/app/IApplicationThread;Ljava/lang/String;Landroid/content/Intent;Ljava/lang/String;Landroid/content/IIntentReceiver;ILjava/lang/String;Landroid/os/Bundle;[Ljava/lang/String;[Ljava/lang/String;ILandroid/os/Bundle;ZZI)I
+    invoke-interface/range {v1 .. v17}, Landroid/app/IActivityManager;->broadcastIntentWithFeature(Landroid/app/IApplicationThread;Ljava/lang/String;Landroid/content/Intent;Ljava/lang/String;Landroid/content/IIntentReceiver;ILjava/lang/String;Landroid/os/Bundle;[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;ILandroid/os/Bundle;ZZI)I
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -52054,7 +52050,7 @@
 .end method
 
 .method private sendBootCompletedBroadcastToSystemApp(Ljava/lang/String;ZI)V
-    .locals 31
+    .locals 32
 
     move-object/from16 v1, p0
 
@@ -52075,7 +52071,7 @@
     :cond_0
     invoke-static {}, Landroid/app/ActivityManager;->getService()Landroid/app/IActivityManager;
 
-    move-result-object v29
+    move-result-object v30
 
     :try_start_0
     new-instance v0, Landroid/content/Intent;
@@ -52107,7 +52103,7 @@
 
     move-result-object v3
 
-    move-object/from16 v30, v3
+    move-object/from16 v31, v3
 
     const/4 v4, 0x0
 
@@ -52125,34 +52121,34 @@
 
     const/4 v13, 0x0
 
-    const/16 v16, -0x1
+    const/16 v16, 0x0
 
-    invoke-virtual/range {v30 .. v30}, Landroid/app/BroadcastOptions;->toBundle()Landroid/os/Bundle;
+    const/16 v19, -0x1
 
-    move-result-object v17
+    invoke-virtual/range {v31 .. v31}, Landroid/app/BroadcastOptions;->toBundle()Landroid/os/Bundle;
+
+    move-result-object v20
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_2
 
+    const/16 v17, 0x0
+
     const/16 v18, 0x0
 
-    const/16 v19, 0x0
-
-    move-object/from16 v3, v29
+    move-object/from16 v3, v30
 
     move-object v6, v0
 
-    move/from16 v14, v16
+    move-object/from16 v14, v16
 
-    move-object/from16 v15, v17
+    move/from16 v15, v19
 
-    move/from16 v16, v18
+    move-object/from16 v16, v20
 
-    move/from16 v17, v19
-
-    move/from16 v18, p3
+    move/from16 v19, p3
 
     :try_start_1
-    invoke-interface/range {v3 .. v18}, Landroid/app/IActivityManager;->broadcastIntentWithFeature(Landroid/app/IApplicationThread;Ljava/lang/String;Landroid/content/Intent;Ljava/lang/String;Landroid/content/IIntentReceiver;ILjava/lang/String;Landroid/os/Bundle;[Ljava/lang/String;[Ljava/lang/String;ILandroid/os/Bundle;ZZI)I
+    invoke-interface/range {v3 .. v19}, Landroid/app/IActivityManager;->broadcastIntentWithFeature(Landroid/app/IApplicationThread;Ljava/lang/String;Landroid/content/Intent;Ljava/lang/String;Landroid/content/IIntentReceiver;ILjava/lang/String;Landroid/os/Bundle;[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;ILandroid/os/Bundle;ZZI)I
 
     iget-object v3, v1, Lcom/android/server/pm/PackageManagerService;->mInjector:Lcom/android/server/pm/PackageManagerService$Injector;
 
@@ -52204,25 +52200,27 @@
 
     const/16 v23, 0x0
 
-    const/16 v24, -0x1
+    const/16 v24, 0x0
 
-    invoke-virtual/range {v30 .. v30}, Landroid/app/BroadcastOptions;->toBundle()Landroid/os/Bundle;
+    const/16 v25, -0x1
 
-    move-result-object v25
+    invoke-virtual/range {v31 .. v31}, Landroid/app/BroadcastOptions;->toBundle()Landroid/os/Bundle;
 
-    const/16 v26, 0x0
+    move-result-object v26
 
     const/16 v27, 0x0
 
-    move-object/from16 v13, v29
+    const/16 v28, 0x0
+
+    move-object/from16 v13, v30
 
     move-object/from16 v16, v5
 
     move-object/from16 v22, v12
 
-    move/from16 v28, p3
+    move/from16 v29, p3
 
-    invoke-interface/range {v13 .. v28}, Landroid/app/IActivityManager;->broadcastIntentWithFeature(Landroid/app/IApplicationThread;Ljava/lang/String;Landroid/content/Intent;Ljava/lang/String;Landroid/content/IIntentReceiver;ILjava/lang/String;Landroid/os/Bundle;[Ljava/lang/String;[Ljava/lang/String;ILandroid/os/Bundle;ZZI)I
+    invoke-interface/range {v13 .. v29}, Landroid/app/IActivityManager;->broadcastIntentWithFeature(Landroid/app/IApplicationThread;Ljava/lang/String;Landroid/content/Intent;Ljava/lang/String;Landroid/content/IIntentReceiver;ILjava/lang/String;Landroid/os/Bundle;[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;ILandroid/os/Bundle;ZZI)I
     :try_end_2
     .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_0
 
@@ -81640,7 +81638,7 @@
 .end method
 
 .method public sendDeviceCustomizationReadyBroadcast()V
-    .locals 21
+    .locals 22
 
     move-object/from16 v1, p0
 
@@ -81697,20 +81695,22 @@
 
     const/4 v15, 0x0
 
-    const/16 v16, -0x1
+    const/16 v16, 0x0
 
-    const/16 v17, 0x0
+    const/16 v17, -0x1
 
     const/16 v18, 0x0
 
     const/16 v19, 0x0
 
-    const/16 v20, -0x1
+    const/16 v20, 0x0
+
+    const/16 v21, -0x1
 
     move-object v8, v4
 
     :try_start_1
-    invoke-interface/range {v5 .. v20}, Landroid/app/IActivityManager;->broadcastIntentWithFeature(Landroid/app/IApplicationThread;Ljava/lang/String;Landroid/content/Intent;Ljava/lang/String;Landroid/content/IIntentReceiver;ILjava/lang/String;Landroid/os/Bundle;[Ljava/lang/String;[Ljava/lang/String;ILandroid/os/Bundle;ZZI)I
+    invoke-interface/range {v5 .. v21}, Landroid/app/IActivityManager;->broadcastIntentWithFeature(Landroid/app/IApplicationThread;Ljava/lang/String;Landroid/content/Intent;Ljava/lang/String;Landroid/content/IIntentReceiver;ILjava/lang/String;Landroid/os/Bundle;[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;ILandroid/os/Bundle;ZZI)I
     :try_end_1
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0

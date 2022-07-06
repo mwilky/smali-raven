@@ -2501,7 +2501,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_5
 
     const/4 v0, 0x1
 
@@ -2529,21 +2529,35 @@
 
     iput v1, v2, Landroid/os/Message;->arg2:I
 
-    if-nez v0, :cond_3
+    nop
 
-    const-wide/16 v3, 0x3e8
+    if-nez v0, :cond_4
+
+    iget-boolean v3, p0, Lcom/android/server/usb/UsbDeviceManager$UsbHandler;->mScreenLocked:Z
+
+    if-eqz v3, :cond_3
+
+    const/16 v3, 0x3e8
 
     goto :goto_1
 
     :cond_3
-    const-wide/16 v3, 0x0
+    const/16 v3, 0xbb8
 
     :goto_1
+    int-to-long v3, v3
+
+    goto :goto_2
+
+    :cond_4
+    const-wide/16 v3, 0x0
+
+    :goto_2
     invoke-virtual {p0, v2, v3, v4}, Lcom/android/server/usb/UsbDeviceManager$UsbHandler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
     return-void
 
-    :cond_4
+    :cond_5
     invoke-static {}, Lcom/android/server/usb/UsbDeviceManager;->access$400()Ljava/lang/String;
 
     move-result-object v0

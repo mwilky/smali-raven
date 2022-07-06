@@ -260,17 +260,17 @@
     throw v0
 
     :pswitch_0
-    const v0, 0x10700a6
-
-    goto :goto_2
-
-    :pswitch_1
     const v0, 0x10700a7
 
     goto :goto_2
 
-    :pswitch_2
+    :pswitch_1
     const v0, 0x10700a8
+
+    goto :goto_2
+
+    :pswitch_2
+    const v0, 0x10700a9
 
     nop
 
@@ -562,17 +562,17 @@
     throw v0
 
     :pswitch_0
-    const v0, 0x10700ba
-
-    goto :goto_2
-
-    :pswitch_1
     const v0, 0x10700bb
 
     goto :goto_2
 
-    :pswitch_2
+    :pswitch_1
     const v0, 0x10700bc
+
+    goto :goto_2
+
+    :pswitch_2
+    const v0, 0x10700bd
 
     nop
 
@@ -767,17 +767,17 @@
     throw v0
 
     :pswitch_0
-    const v0, 0x10700c5
-
-    goto :goto_2
-
-    :pswitch_1
     const v0, 0x10700c6
 
     goto :goto_2
 
-    :pswitch_2
+    :pswitch_1
     const v0, 0x10700c7
+
+    goto :goto_2
+
+    :pswitch_2
+    const v0, 0x10700c8
 
     nop
 
@@ -909,17 +909,17 @@
     throw v0
 
     :pswitch_0
-    const v0, 0x10700c9
-
-    goto :goto_2
-
-    :pswitch_1
     const v0, 0x10700ca
 
     goto :goto_2
 
-    :pswitch_2
+    :pswitch_1
     const v0, 0x10700cb
+
+    goto :goto_2
+
+    :pswitch_2
+    const v0, 0x10700cc
 
     nop
 
@@ -1090,7 +1090,7 @@
 
     const-string/jumbo v1, "required_apps_managed_device"
 
-    const v2, 0x10700ba
+    const v2, 0x10700bb
 
     invoke-static {p1, v0, v1, v2}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->dumpResources(Landroid/util/IndentingPrintWriter;Landroid/content/Context;Ljava/lang/String;I)V
 
@@ -1098,7 +1098,7 @@
 
     const-string/jumbo v1, "required_apps_managed_user"
 
-    const v2, 0x10700bc
+    const v2, 0x10700bd
 
     invoke-static {p1, v0, v1, v2}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->dumpResources(Landroid/util/IndentingPrintWriter;Landroid/content/Context;Ljava/lang/String;I)V
 
@@ -1106,7 +1106,7 @@
 
     const-string/jumbo v1, "required_apps_managed_profile"
 
-    const v2, 0x10700bb
+    const v2, 0x10700bc
 
     invoke-static {p1, v0, v1, v2}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->dumpResources(Landroid/util/IndentingPrintWriter;Landroid/content/Context;Ljava/lang/String;I)V
 
@@ -1114,7 +1114,7 @@
 
     const-string v1, "disallowed_apps_managed_device"
 
-    const v2, 0x10700a6
+    const v2, 0x10700a7
 
     invoke-static {p1, v0, v1, v2}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->dumpResources(Landroid/util/IndentingPrintWriter;Landroid/content/Context;Ljava/lang/String;I)V
 
@@ -1122,7 +1122,7 @@
 
     const-string v3, "disallowed_apps_managed_user"
 
-    const v4, 0x10700a8
+    const v4, 0x10700a9
 
     invoke-static {p1, v0, v3, v4}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->dumpResources(Landroid/util/IndentingPrintWriter;Landroid/content/Context;Ljava/lang/String;I)V
 
@@ -1134,7 +1134,7 @@
 
     const-string/jumbo v1, "vendor_required_apps_managed_device"
 
-    const v2, 0x10700c9
+    const v2, 0x10700ca
 
     invoke-static {p1, v0, v1, v2}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->dumpResources(Landroid/util/IndentingPrintWriter;Landroid/content/Context;Ljava/lang/String;I)V
 
@@ -1142,7 +1142,7 @@
 
     const-string/jumbo v1, "vendor_required_apps_managed_user"
 
-    const v2, 0x10700cb
+    const v2, 0x10700cc
 
     invoke-static {p1, v0, v1, v2}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->dumpResources(Landroid/util/IndentingPrintWriter;Landroid/content/Context;Ljava/lang/String;I)V
 
@@ -1150,7 +1150,7 @@
 
     const-string/jumbo v1, "vendor_required_apps_managed_profile"
 
-    const v2, 0x10700ca
+    const v2, 0x10700cb
 
     invoke-static {p1, v0, v1, v2}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->dumpResources(Landroid/util/IndentingPrintWriter;Landroid/content/Context;Ljava/lang/String;I)V
 
@@ -1158,7 +1158,7 @@
 
     const-string/jumbo v1, "vendor_disallowed_apps_managed_user"
 
-    const v2, 0x10700c7
+    const v2, 0x10700c8
 
     invoke-static {p1, v0, v1, v2}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->dumpResources(Landroid/util/IndentingPrintWriter;Landroid/content/Context;Ljava/lang/String;I)V
 
@@ -1166,7 +1166,7 @@
 
     const-string/jumbo v1, "vendor_disallowed_apps_managed_device"
 
-    const v2, 0x10700c5
+    const v2, 0x10700c6
 
     invoke-static {p1, v0, v1, v2}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->dumpResources(Landroid/util/IndentingPrintWriter;Landroid/content/Context;Ljava/lang/String;I)V
 
@@ -1174,7 +1174,7 @@
 
     const-string/jumbo v1, "vendor_disallowed_apps_managed_profile"
 
-    const v2, 0x10700c6
+    const v2, 0x10700c7
 
     invoke-static {p1, v0, v1, v2}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->dumpResources(Landroid/util/IndentingPrintWriter;Landroid/content/Context;Ljava/lang/String;I)V
 

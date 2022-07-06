@@ -1404,20 +1404,28 @@
 .end method
 
 .method private broadcastServiceStateChanged(Landroid/telephony/ServiceState;II)V
-    .locals 11
+    .locals 16
+
+    move-object/from16 v1, p0
+
+    move-object/from16 v2, p1
+
+    move/from16 v3, p2
+
+    move/from16 v4, p3
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
-    move-result-wide v0
+    move-result-wide v5
 
     :try_start_0
-    iget-object v2, p0, Lcom/android/server/TelephonyRegistry;->mBatteryStats:Lcom/android/internal/app/IBatteryStats;
+    iget-object v0, v1, Lcom/android/server/TelephonyRegistry;->mBatteryStats:Lcom/android/internal/app/IBatteryStats;
 
-    invoke-virtual {p1}, Landroid/telephony/ServiceState;->getState()I
+    invoke-virtual/range {p1 .. p1}, Landroid/telephony/ServiceState;->getState()I
 
-    move-result v3
+    move-result v7
 
-    invoke-interface {v2, v3}, Lcom/android/internal/app/IBatteryStats;->notePhoneState(I)V
+    invoke-interface {v0, v7}, Lcom/android/internal/app/IBatteryStats;->notePhoneState(I)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -1425,146 +1433,234 @@
     goto :goto_0
 
     :catchall_0
-    move-exception v2
+    move-exception v0
 
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static {v5, v6}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    throw v2
+    throw v0
 
     :catch_0
-    move-exception v2
+    move-exception v0
 
     :goto_0
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static {v5, v6}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     nop
 
-    new-instance v2, Landroid/content/Intent;
+    new-instance v0, Lcom/android/server/TelephonyRegistry$$ExternalSyntheticLambda0;
 
-    const-string v3, "android.intent.action.SERVICE_STATE"
+    invoke-direct {v0, v1}, Lcom/android/server/TelephonyRegistry$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/TelephonyRegistry;)V
 
-    invoke-direct {v2, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    invoke-static {v0}, Landroid/os/Binder;->withCleanCallingIdentity(Lcom/android/internal/util/FunctionalUtils$ThrowingSupplier;)Ljava/lang/Object;
 
-    const/high16 v3, 0x1000000
+    move-result-object v0
 
-    invoke-virtual {v2, v3}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+    check-cast v0, Ljava/lang/Boolean;
 
-    new-instance v3, Landroid/os/Bundle;
+    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
 
-    invoke-direct {v3}, Landroid/os/Bundle;-><init>()V
+    move-result v0
 
-    invoke-virtual {p1, v3}, Landroid/telephony/ServiceState;->fillInNotifierBundle(Landroid/os/Bundle;)V
-
-    invoke-virtual {v2, v3}, Landroid/content/Intent;->putExtras(Landroid/os/Bundle;)Landroid/content/Intent;
-
-    const-string/jumbo v4, "subscription"
-
-    invoke-virtual {v2, v4, p3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
-
-    const-string v4, "android.telephony.extra.SUBSCRIPTION_INDEX"
-
-    invoke-virtual {v2, v4, p3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
-
-    const-string/jumbo v4, "slot"
-
-    invoke-virtual {v2, v4, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
-
-    const-string v4, "android.telephony.extra.SLOT_INDEX"
-
-    invoke-virtual {v2, v4, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
-
-    iget-object v4, p0, Lcom/android/server/TelephonyRegistry;->mContext:Landroid/content/Context;
-
-    sget-object v5, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
-
-    const/4 v6, 0x0
-
-    invoke-virtual {v4, v5, v6}, Landroid/content/Context;->createContextAsUser(Landroid/os/UserHandle;I)Landroid/content/Context;
-
-    move-result-object v4
-
-    const-string v5, "android.permission.READ_PHONE_STATE"
-
-    const-string v7, "android.permission.ACCESS_FINE_LOCATION"
-
-    filled-new-array {v5, v7}, [Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-virtual {v4, v2, v8}, Landroid/content/Context;->sendBroadcastMultiplePermissions(Landroid/content/Intent;[Ljava/lang/String;)V
-
-    iget-object v4, p0, Lcom/android/server/TelephonyRegistry;->mContext:Landroid/content/Context;
-
-    sget-object v8, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
-
-    invoke-virtual {v4, v8, v6}, Landroid/content/Context;->createContextAsUser(Landroid/os/UserHandle;I)Landroid/content/Context;
-
-    move-result-object v4
+    const/4 v7, 0x1
 
     const-string v8, "android.permission.READ_PRIVILEGED_PHONE_STATE"
 
-    filled-new-array {v8, v7}, [Ljava/lang/String;
+    const-string v9, "android.permission.READ_PHONE_STATE"
 
-    move-result-object v9
+    const/4 v10, 0x0
 
-    filled-new-array {v5}, [Ljava/lang/String;
+    if-eqz v0, :cond_0
+
+    invoke-direct {v1, v2, v4, v3, v10}, Lcom/android/server/TelephonyRegistry;->createServiceStateIntent(Landroid/telephony/ServiceState;IIZ)Landroid/content/Intent;
+
+    move-result-object v0
+
+    iget-object v11, v1, Lcom/android/server/TelephonyRegistry;->mContext:Landroid/content/Context;
+
+    sget-object v12, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
+
+    invoke-virtual {v11, v12, v10}, Landroid/content/Context;->createContextAsUser(Landroid/os/UserHandle;I)Landroid/content/Context;
+
+    move-result-object v11
+
+    const-string v12, "android.permission.ACCESS_FINE_LOCATION"
+
+    filled-new-array {v9, v12}, [Ljava/lang/String;
+
+    move-result-object v13
+
+    invoke-virtual {v11, v0, v13}, Landroid/content/Context;->sendBroadcastMultiplePermissions(Landroid/content/Intent;[Ljava/lang/String;)V
+
+    iget-object v11, v1, Lcom/android/server/TelephonyRegistry;->mContext:Landroid/content/Context;
+
+    sget-object v13, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
+
+    invoke-virtual {v11, v13, v10}, Landroid/content/Context;->createContextAsUser(Landroid/os/UserHandle;I)Landroid/content/Context;
+
+    move-result-object v11
+
+    filled-new-array {v8, v12}, [Ljava/lang/String;
+
+    move-result-object v13
+
+    filled-new-array {v9}, [Ljava/lang/String;
+
+    move-result-object v14
+
+    invoke-virtual {v11, v0, v13, v14}, Landroid/content/Context;->sendBroadcastMultiplePermissions(Landroid/content/Intent;[Ljava/lang/String;[Ljava/lang/String;)V
+
+    invoke-direct {v1, v2, v4, v3, v7}, Lcom/android/server/TelephonyRegistry;->createServiceStateIntent(Landroid/telephony/ServiceState;IIZ)Landroid/content/Intent;
+
+    move-result-object v7
+
+    iget-object v11, v1, Lcom/android/server/TelephonyRegistry;->mContext:Landroid/content/Context;
+
+    sget-object v13, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
+
+    invoke-virtual {v11, v13, v10}, Landroid/content/Context;->createContextAsUser(Landroid/os/UserHandle;I)Landroid/content/Context;
+
+    move-result-object v11
+
+    filled-new-array {v9}, [Ljava/lang/String;
+
+    move-result-object v13
+
+    filled-new-array {v12}, [Ljava/lang/String;
+
+    move-result-object v14
+
+    invoke-virtual {v11, v7, v13, v14}, Landroid/content/Context;->sendBroadcastMultiplePermissions(Landroid/content/Intent;[Ljava/lang/String;[Ljava/lang/String;)V
+
+    iget-object v11, v1, Lcom/android/server/TelephonyRegistry;->mContext:Landroid/content/Context;
+
+    sget-object v13, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
+
+    invoke-virtual {v11, v13, v10}, Landroid/content/Context;->createContextAsUser(Landroid/os/UserHandle;I)Landroid/content/Context;
 
     move-result-object v10
-
-    invoke-virtual {v4, v2, v9, v10}, Landroid/content/Context;->sendBroadcastMultiplePermissions(Landroid/content/Intent;[Ljava/lang/String;[Ljava/lang/String;)V
-
-    new-instance v4, Landroid/os/Bundle;
-
-    invoke-direct {v4}, Landroid/os/Bundle;-><init>()V
-
-    move-object v3, v4
-
-    const/4 v4, 0x1
-
-    invoke-virtual {p1, v4}, Landroid/telephony/ServiceState;->createLocationInfoSanitizedCopy(Z)Landroid/telephony/ServiceState;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v3}, Landroid/telephony/ServiceState;->fillInNotifierBundle(Landroid/os/Bundle;)V
-
-    invoke-virtual {v2, v3}, Landroid/content/Intent;->putExtras(Landroid/os/Bundle;)Landroid/content/Intent;
-
-    iget-object v4, p0, Lcom/android/server/TelephonyRegistry;->mContext:Landroid/content/Context;
-
-    sget-object v9, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
-
-    invoke-virtual {v4, v9, v6}, Landroid/content/Context;->createContextAsUser(Landroid/os/UserHandle;I)Landroid/content/Context;
-
-    move-result-object v4
-
-    filled-new-array {v5}, [Ljava/lang/String;
-
-    move-result-object v9
-
-    filled-new-array {v7}, [Ljava/lang/String;
-
-    move-result-object v10
-
-    invoke-virtual {v4, v2, v9, v10}, Landroid/content/Context;->sendBroadcastMultiplePermissions(Landroid/content/Intent;[Ljava/lang/String;[Ljava/lang/String;)V
-
-    iget-object v4, p0, Lcom/android/server/TelephonyRegistry;->mContext:Landroid/content/Context;
-
-    sget-object v9, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
-
-    invoke-virtual {v4, v9, v6}, Landroid/content/Context;->createContextAsUser(Landroid/os/UserHandle;I)Landroid/content/Context;
-
-    move-result-object v4
 
     filled-new-array {v8}, [Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v8
 
-    filled-new-array {v5, v7}, [Ljava/lang/String;
+    filled-new-array {v9, v12}, [Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v9
 
-    invoke-virtual {v4, v2, v6, v5}, Landroid/content/Context;->sendBroadcastMultiplePermissions(Landroid/content/Intent;[Ljava/lang/String;[Ljava/lang/String;)V
+    invoke-virtual {v10, v7, v8, v9}, Landroid/content/Context;->sendBroadcastMultiplePermissions(Landroid/content/Intent;[Ljava/lang/String;[Ljava/lang/String;)V
 
+    goto :goto_2
+
+    :cond_0
+    new-instance v0, Lcom/android/server/TelephonyRegistry$$ExternalSyntheticLambda1;
+
+    invoke-direct {v0, v1}, Lcom/android/server/TelephonyRegistry$$ExternalSyntheticLambda1;-><init>(Lcom/android/server/TelephonyRegistry;)V
+
+    invoke-static {v0}, Landroid/os/Binder;->withCleanCallingIdentity(Lcom/android/internal/util/FunctionalUtils$ThrowingSupplier;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, [Ljava/lang/String;
+
+    array-length v11, v0
+
+    move v12, v10
+
+    :goto_1
+    if-ge v12, v11, :cond_1
+
+    aget-object v13, v0, v12
+
+    invoke-direct {v1, v2, v4, v3, v10}, Lcom/android/server/TelephonyRegistry;->createServiceStateIntent(Landroid/telephony/ServiceState;IIZ)Landroid/content/Intent;
+
+    move-result-object v14
+
+    invoke-virtual {v14, v13}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
+
+    iget-object v15, v1, Lcom/android/server/TelephonyRegistry;->mContext:Landroid/content/Context;
+
+    sget-object v7, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
+
+    invoke-virtual {v15, v7, v10}, Landroid/content/Context;->createContextAsUser(Landroid/os/UserHandle;I)Landroid/content/Context;
+
+    move-result-object v7
+
+    filled-new-array {v9}, [Ljava/lang/String;
+
+    move-result-object v15
+
+    invoke-virtual {v7, v14, v15}, Landroid/content/Context;->sendBroadcastMultiplePermissions(Landroid/content/Intent;[Ljava/lang/String;)V
+
+    iget-object v7, v1, Lcom/android/server/TelephonyRegistry;->mContext:Landroid/content/Context;
+
+    sget-object v15, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
+
+    invoke-virtual {v7, v15, v10}, Landroid/content/Context;->createContextAsUser(Landroid/os/UserHandle;I)Landroid/content/Context;
+
+    move-result-object v7
+
+    filled-new-array {v8}, [Ljava/lang/String;
+
+    move-result-object v15
+
+    filled-new-array {v9}, [Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-virtual {v7, v14, v15, v10}, Landroid/content/Context;->sendBroadcastMultiplePermissions(Landroid/content/Intent;[Ljava/lang/String;[Ljava/lang/String;)V
+
+    add-int/lit8 v12, v12, 0x1
+
+    const/4 v7, 0x1
+
+    const/4 v10, 0x0
+
+    goto :goto_1
+
+    :cond_1
+    const/4 v7, 0x1
+
+    invoke-direct {v1, v2, v4, v3, v7}, Lcom/android/server/TelephonyRegistry;->createServiceStateIntent(Landroid/telephony/ServiceState;IIZ)Landroid/content/Intent;
+
+    move-result-object v7
+
+    iget-object v10, v1, Lcom/android/server/TelephonyRegistry;->mContext:Landroid/content/Context;
+
+    sget-object v11, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
+
+    const/4 v12, 0x0
+
+    invoke-virtual {v10, v11, v12}, Landroid/content/Context;->createContextAsUser(Landroid/os/UserHandle;I)Landroid/content/Context;
+
+    move-result-object v10
+
+    filled-new-array {v9}, [Ljava/lang/String;
+
+    move-result-object v11
+
+    new-array v13, v12, [Ljava/lang/String;
+
+    invoke-virtual {v10, v7, v11, v13, v0}, Landroid/content/Context;->sendBroadcastMultiplePermissions(Landroid/content/Intent;[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;)V
+
+    iget-object v10, v1, Lcom/android/server/TelephonyRegistry;->mContext:Landroid/content/Context;
+
+    sget-object v11, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
+
+    invoke-virtual {v10, v11, v12}, Landroid/content/Context;->createContextAsUser(Landroid/os/UserHandle;I)Landroid/content/Context;
+
+    move-result-object v10
+
+    filled-new-array {v8}, [Ljava/lang/String;
+
+    move-result-object v8
+
+    filled-new-array {v9}, [Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-virtual {v10, v7, v8, v9, v0}, Landroid/content/Context;->sendBroadcastMultiplePermissions(Landroid/content/Intent;[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;)V
+
+    :goto_2
     return-void
 .end method
 
@@ -1730,9 +1826,9 @@
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/server/TelephonyRegistry$$ExternalSyntheticLambda0;
+    new-instance v1, Lcom/android/server/TelephonyRegistry$$ExternalSyntheticLambda2;
 
-    invoke-direct {v1, p0, v0}, Lcom/android/server/TelephonyRegistry$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/TelephonyRegistry;Landroid/telephony/LocationAccessPolicy$LocationPermissionQuery;)V
+    invoke-direct {v1, p0, v0}, Lcom/android/server/TelephonyRegistry$$ExternalSyntheticLambda2;-><init>(Lcom/android/server/TelephonyRegistry;Landroid/telephony/LocationAccessPolicy$LocationPermissionQuery;)V
 
     invoke-static {v1}, Landroid/os/Binder;->withCleanCallingIdentity(Lcom/android/internal/util/FunctionalUtils$ThrowingSupplier;)Ljava/lang/Object;
 
@@ -1818,9 +1914,9 @@
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/server/TelephonyRegistry$$ExternalSyntheticLambda1;
+    new-instance v1, Lcom/android/server/TelephonyRegistry$$ExternalSyntheticLambda3;
 
-    invoke-direct {v1, p0, v0}, Lcom/android/server/TelephonyRegistry$$ExternalSyntheticLambda1;-><init>(Lcom/android/server/TelephonyRegistry;Landroid/telephony/LocationAccessPolicy$LocationPermissionQuery;)V
+    invoke-direct {v1, p0, v0}, Lcom/android/server/TelephonyRegistry$$ExternalSyntheticLambda3;-><init>(Lcom/android/server/TelephonyRegistry;Landroid/telephony/LocationAccessPolicy$LocationPermissionQuery;)V
 
     invoke-static {v1}, Landroid/os/Binder;->withCleanCallingIdentity(Lcom/android/internal/util/FunctionalUtils$ThrowingSupplier;)Ljava/lang/Object;
 
@@ -2717,6 +2813,60 @@
     invoke-direct/range {v0 .. v5}, Landroid/telephony/PreciseCallState;-><init>(IIIII)V
 
     return-object v6
+.end method
+
+.method private createServiceStateIntent(Landroid/telephony/ServiceState;IIZ)Landroid/content/Intent;
+    .locals 3
+
+    new-instance v0, Landroid/content/Intent;
+
+    const-string v1, "android.intent.action.SERVICE_STATE"
+
+    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    const/high16 v1, 0x1000000
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+
+    new-instance v1, Landroid/os/Bundle;
+
+    invoke-direct {v1}, Landroid/os/Bundle;-><init>()V
+
+    if-eqz p4, :cond_0
+
+    const/4 v2, 0x1
+
+    invoke-virtual {p1, v2}, Landroid/telephony/ServiceState;->createLocationInfoSanitizedCopy(Z)Landroid/telephony/ServiceState;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v1}, Landroid/telephony/ServiceState;->fillInNotifierBundle(Landroid/os/Bundle;)V
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {p1, v1}, Landroid/telephony/ServiceState;->fillInNotifierBundle(Landroid/os/Bundle;)V
+
+    :goto_0
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->putExtras(Landroid/os/Bundle;)Landroid/content/Intent;
+
+    const-string/jumbo v2, "subscription"
+
+    invoke-virtual {v0, v2, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+
+    const-string v2, "android.telephony.extra.SUBSCRIPTION_INDEX"
+
+    invoke-virtual {v0, v2, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+
+    const-string/jumbo v2, "slot"
+
+    invoke-virtual {v0, v2, p3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+
+    const-string v2, "android.telephony.extra.SLOT_INDEX"
+
+    invoke-virtual {v0, v2, p3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+
+    return-object v0
 .end method
 
 .method private cutListToSize(Ljava/util/List;I)V
@@ -8000,7 +8150,49 @@
     return v0
 .end method
 
-.method public synthetic lambda$checkCoarseLocationAccess$2$TelephonyRegistry(Landroid/telephony/LocationAccessPolicy$LocationPermissionQuery;)Ljava/lang/Boolean;
+.method public synthetic lambda$broadcastServiceStateChanged$1$TelephonyRegistry()Ljava/lang/Boolean;
+    .locals 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/Exception;
+        }
+    .end annotation
+
+    iget-object v0, p0, Lcom/android/server/TelephonyRegistry;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getUserId()I
+
+    move-result v1
+
+    invoke-static {v0, v1}, Landroid/telephony/LocationAccessPolicy;->isLocationModeEnabled(Landroid/content/Context;I)Z
+
+    move-result v0
+
+    invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public synthetic lambda$broadcastServiceStateChanged$2$TelephonyRegistry()[Ljava/lang/String;
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/Exception;
+        }
+    .end annotation
+
+    iget-object v0, p0, Lcom/android/server/TelephonyRegistry;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Landroid/telephony/LocationAccessPolicy;->getLocationBypassPackages(Landroid/content/Context;)[Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public synthetic lambda$checkCoarseLocationAccess$4$TelephonyRegistry(Landroid/telephony/LocationAccessPolicy$LocationPermissionQuery;)Ljava/lang/Boolean;
     .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -8033,7 +8225,7 @@
     return-object v1
 .end method
 
-.method public synthetic lambda$checkFineLocationAccess$1$TelephonyRegistry(Landroid/telephony/LocationAccessPolicy$LocationPermissionQuery;)Ljava/lang/Boolean;
+.method public synthetic lambda$checkFineLocationAccess$3$TelephonyRegistry(Landroid/telephony/LocationAccessPolicy$LocationPermissionQuery;)Ljava/lang/Boolean;
     .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -9053,9 +9245,9 @@
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/server/TelephonyRegistry$$ExternalSyntheticLambda2;
+    new-instance v1, Lcom/android/server/TelephonyRegistry$$ExternalSyntheticLambda4;
 
-    invoke-direct {v1, p0}, Lcom/android/server/TelephonyRegistry$$ExternalSyntheticLambda2;-><init>(Lcom/android/server/TelephonyRegistry;)V
+    invoke-direct {v1, p0}, Lcom/android/server/TelephonyRegistry$$ExternalSyntheticLambda4;-><init>(Lcom/android/server/TelephonyRegistry;)V
 
     invoke-interface {v0, v1}, Ljava/util/stream/IntStream;->filter(Ljava/util/function/IntPredicate;)Ljava/util/stream/IntStream;
 
