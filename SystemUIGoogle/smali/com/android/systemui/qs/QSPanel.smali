@@ -893,37 +893,57 @@
 .end method
 
 .method addTile(Lcom/android/systemui/qs/QSPanelControllerBase$TileRecord;)V
-    .locals 2
+    .registers 6
+    .param p1, "tileRecord"    # Lcom/android/systemui/qs/QSPanelControllerBase$TileRecord;
 
+    .line 71
     new-instance v0, Lcom/android/systemui/qs/QSPanel$1;
 
     invoke-direct {v0, p0, p1}, Lcom/android/systemui/qs/QSPanel$1;-><init>(Lcom/android/systemui/qs/QSPanel;Lcom/android/systemui/qs/QSPanelControllerBase$TileRecord;)V
 
+    .line 109
+    .local v0, "callback":Lcom/android/systemui/plugins/qs/QSTile$Callback;
     iget-object v1, p1, Lcom/android/systemui/qs/QSPanelControllerBase$TileRecord;->tile:Lcom/android/systemui/plugins/qs/QSTile;
 
     invoke-interface {v1, v0}, Lcom/android/systemui/plugins/qs/QSTile;->addCallback(Lcom/android/systemui/plugins/qs/QSTile$Callback;)V
 
+    .line 110
     iput-object v0, p1, Lcom/android/systemui/qs/QSPanelControllerBase$TileRecord;->callback:Lcom/android/systemui/plugins/qs/QSTile$Callback;
 
-    iget-object v0, p1, Lcom/android/systemui/qs/QSPanelControllerBase$TileRecord;->tileView:Lcom/android/systemui/plugins/qs/QSTileView;
+    .line 111
+    iget-object v1, p1, Lcom/android/systemui/qs/QSPanelControllerBase$TileRecord;->tileView:Lcom/android/systemui/plugins/qs/QSTileView;
 
+    iget-object v2, p1, Lcom/android/systemui/qs/QSPanelControllerBase$TileRecord;->tile:Lcom/android/systemui/plugins/qs/QSTile;
+
+    invoke-virtual {v1, v2}, Lcom/android/systemui/plugins/qs/QSTileView;->init(Lcom/android/systemui/plugins/qs/QSTile;)V
+
+    .line 112
     iget-object v1, p1, Lcom/android/systemui/qs/QSPanelControllerBase$TileRecord;->tile:Lcom/android/systemui/plugins/qs/QSTile;
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/plugins/qs/QSTileView;->init(Lcom/android/systemui/plugins/qs/QSTile;)V
+    invoke-interface {v1}, Lcom/android/systemui/plugins/qs/QSTile;->refreshState()V
 
-    iget-object v0, p1, Lcom/android/systemui/qs/QSPanelControllerBase$TileRecord;->tile:Lcom/android/systemui/plugins/qs/QSTile;
+    .line 113
+    iget-object v1, p0, Lcom/android/systemui/qs/QSPanel;->mTileLayout:Lcom/android/systemui/qs/QSPanel$QSTileLayout;
 
-    invoke-interface {v0}, Lcom/android/systemui/plugins/qs/QSTile;->refreshState()V
+    .line 114
+    .local v1, "qSTileLayout":Lcom/android/systemui/qs/QSPanel$QSTileLayout;
+    if-eqz v1, :cond_26
 
-    iget-object p0, p0, Lcom/android/systemui/qs/QSPanel;->mTileLayout:Lcom/android/systemui/qs/QSPanel$QSTileLayout;
+    .line 115
+    invoke-interface {v1, p1}, Lcom/android/systemui/qs/QSPanel$QSTileLayout;->addTile(Lcom/android/systemui/qs/QSPanelControllerBase$TileRecord;)V
 
-    if-eqz p0, :cond_0
+    .line 116
+    iget-object v2, p1, Lcom/android/systemui/qs/QSPanelControllerBase$TileRecord;->tile:Lcom/android/systemui/plugins/qs/QSTile;
 
-    invoke-interface {p0, p1}, Lcom/android/systemui/qs/QSPanel$QSTileLayout;->addTile(Lcom/android/systemui/qs/QSPanelControllerBase$TileRecord;)V
+    iget-object v3, p1, Lcom/android/systemui/qs/QSPanelControllerBase$TileRecord;->tileView:Lcom/android/systemui/plugins/qs/QSTileView;
 
-    :cond_0
+    invoke-direct {p0, v2, v3}, Lcom/android/systemui/qs/QSPanel;->tileClickListener(Lcom/android/systemui/plugins/qs/QSTile;Lcom/android/systemui/plugins/qs/QSTileView;)V
+
+    .line 118
+    :cond_26
     return-void
 .end method
+
 
 .method closeDetail()V
     .locals 2
@@ -2090,5 +2110,434 @@
     invoke-virtual {v0, v2}, Landroid/view/View;->setVisibility(I)V
 
     :cond_exit
+    return-void
+.end method
+
+.method private setAnimationTile(Lcom/android/systemui/plugins/qs/QSTileView;)V
+    .registers 9
+    .param p1, "v"    # Lcom/android/systemui/plugins/qs/QSTileView;
+
+    .line 157
+    const/4 v0, 0x0
+
+    .line 158
+    .local v0, "objectAnimator":Landroid/animation/ObjectAnimator;
+    sget v1, Lcom/android/mwilky/Renovate;->mQsAnimationStyle:I
+
+    .line 159
+    .local v1, "i":I
+    sget v2, Lcom/android/mwilky/Renovate;->mQsAnimationDuration:I
+
+    .line 160
+    .local v2, "i2":I
+    sget v3, Lcom/android/mwilky/Renovate;->mQsAnimationInterpolator:I
+
+    .line 161
+    .local v3, "i3":I
+    nop
+
+    .line 163
+    const/4 v4, 0x1
+
+    const/4 v5, 0x2
+
+    if-ne v1, v4, :cond_17
+
+    .line 164
+    new-array v4, v5, [F
+
+    fill-array-data v4, :array_10c
+
+    const-string v6, "rotationX"
+
+    invoke-static {p1, v6, v4}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
+
+    move-result-object v0
+
+    .line 166
+    :cond_17
+    if-ne v1, v5, :cond_24
+
+    .line 167
+    new-array v4, v5, [F
+
+    fill-array-data v4, :array_114
+
+    const-string v6, "rotationY"
+
+    invoke-static {p1, v6, v4}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
+
+    move-result-object v0
+
+    .line 169
+    :cond_24
+    const/4 v4, 0x3
+
+    const-string v6, "rotation"
+
+    if-ne v1, v4, :cond_32
+
+    .line 170
+    new-array v4, v5, [F
+
+    fill-array-data v4, :array_11c
+
+    invoke-static {p1, v6, v4}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
+
+    move-result-object v0
+
+    .line 172
+    :cond_32
+    const/4 v4, 0x4
+
+    if-ne v1, v4, :cond_3e
+
+    .line 173
+    new-array v4, v5, [F
+
+    fill-array-data v4, :array_124
+
+    invoke-static {p1, v6, v4}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
+
+    move-result-object v0
+
+    .line 175
+    :cond_3e
+    const/4 v4, 0x5
+
+    if-ne v1, v4, :cond_4c
+
+    .line 176
+    new-array v4, v5, [F
+
+    fill-array-data v4, :array_12c
+
+    const-string v6, "scaleX"
+
+    invoke-static {p1, v6, v4}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
+
+    move-result-object v0
+
+    .line 178
+    :cond_4c
+    const/4 v4, 0x6
+
+    if-ne v1, v4, :cond_5a
+
+    .line 179
+    new-array v4, v5, [F
+
+    fill-array-data v4, :array_134
+
+    const-string v6, "scaleY"
+
+    invoke-static {p1, v6, v4}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
+
+    move-result-object v0
+
+    .line 181
+    :cond_5a
+    const/4 v4, 0x7
+
+    const-string/jumbo v6, "translationX"
+
+    if-ne v1, v4, :cond_69
+
+    .line 182
+    new-array v4, v5, [F
+
+    fill-array-data v4, :array_13c
+
+    invoke-static {p1, v6, v4}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
+
+    move-result-object v0
+
+    .line 184
+    :cond_69
+    const/16 v4, 0x8
+
+    if-ne v1, v4, :cond_76
+
+    .line 185
+    new-array v4, v5, [F
+
+    fill-array-data v4, :array_144
+
+    invoke-static {p1, v6, v4}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
+
+    move-result-object v0
+
+    .line 187
+    :cond_76
+    const/16 v4, 0x9
+
+    const-string/jumbo v6, "translationY"
+
+    if-ne v1, v4, :cond_86
+
+    .line 188
+    new-array v4, v5, [F
+
+    fill-array-data v4, :array_14c
+
+    invoke-static {p1, v6, v4}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
+
+    move-result-object v0
+
+    .line 190
+    :cond_86
+    const/16 v4, 0xa
+
+    if-ne v1, v4, :cond_93
+
+    .line 191
+    new-array v4, v5, [F
+
+    fill-array-data v4, :array_154
+
+    invoke-static {p1, v6, v4}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
+
+    move-result-object v0
+
+    .line 193
+    :cond_93
+    const/16 v4, 0xb
+
+    if-ne v1, v4, :cond_a2
+
+    .line 194
+    new-array v4, v5, [F
+
+    fill-array-data v4, :array_15c
+
+    const-string v5, "alpha"
+
+    invoke-static {p1, v5, v4}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
+
+    move-result-object v0
+
+    .line 196
+    :cond_a2
+    if-eqz v0, :cond_f7
+
+    .line 197
+    packed-switch v3, :pswitch_data_f8
+
+    goto :goto_f0
+
+    .line 220
+    :pswitch_a8
+    new-instance v4, Landroid/view/animation/AnticipateOvershootInterpolator;
+
+    invoke-direct {v4}, Landroid/view/animation/AnticipateOvershootInterpolator;-><init>()V
+
+    invoke-virtual {v0, v4}, Landroid/animation/ObjectAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
+
+    goto :goto_f0
+
+    .line 217
+    :pswitch_b1
+    new-instance v4, Landroid/view/animation/AnticipateInterpolator;
+
+    invoke-direct {v4}, Landroid/view/animation/AnticipateInterpolator;-><init>()V
+
+    invoke-virtual {v0, v4}, Landroid/animation/ObjectAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
+
+    .line 218
+    goto :goto_f0
+
+    .line 214
+    :pswitch_ba
+    new-instance v4, Landroid/view/animation/OvershootInterpolator;
+
+    invoke-direct {v4}, Landroid/view/animation/OvershootInterpolator;-><init>()V
+
+    invoke-virtual {v0, v4}, Landroid/animation/ObjectAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
+
+    .line 215
+    goto :goto_f0
+
+    .line 211
+    :pswitch_c3
+    new-instance v4, Landroid/view/animation/BounceInterpolator;
+
+    invoke-direct {v4}, Landroid/view/animation/BounceInterpolator;-><init>()V
+
+    invoke-virtual {v0, v4}, Landroid/animation/ObjectAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
+
+    .line 212
+    goto :goto_f0
+
+    .line 208
+    :pswitch_cc
+    new-instance v4, Landroid/view/animation/AccelerateDecelerateInterpolator;
+
+    invoke-direct {v4}, Landroid/view/animation/AccelerateDecelerateInterpolator;-><init>()V
+
+    invoke-virtual {v0, v4}, Landroid/animation/ObjectAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
+
+    .line 209
+    goto :goto_f0
+
+    .line 205
+    :pswitch_d5
+    new-instance v4, Landroid/view/animation/DecelerateInterpolator;
+
+    invoke-direct {v4}, Landroid/view/animation/DecelerateInterpolator;-><init>()V
+
+    invoke-virtual {v0, v4}, Landroid/animation/ObjectAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
+
+    .line 206
+    goto :goto_f0
+
+    .line 202
+    :pswitch_de
+    new-instance v4, Landroid/view/animation/AccelerateInterpolator;
+
+    invoke-direct {v4}, Landroid/view/animation/AccelerateInterpolator;-><init>()V
+
+    invoke-virtual {v0, v4}, Landroid/animation/ObjectAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
+
+    .line 203
+    goto :goto_f0
+
+    .line 199
+    :pswitch_e7
+    new-instance v4, Landroid/view/animation/LinearInterpolator;
+
+    invoke-direct {v4}, Landroid/view/animation/LinearInterpolator;-><init>()V
+
+    invoke-virtual {v0, v4}, Landroid/animation/ObjectAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
+
+    .line 200
+    nop
+
+    .line 223
+    :goto_f0
+    int-to-long v4, v2
+
+    invoke-virtual {v0, v4, v5}, Landroid/animation/ObjectAnimator;->setDuration(J)Landroid/animation/ObjectAnimator;
+
+    .line 224
+    invoke-virtual {v0}, Landroid/animation/ObjectAnimator;->start()V
+
+    .line 226
+    :cond_f7
+    return-void
+
+    :pswitch_data_f8
+    .packed-switch 0x0
+        :pswitch_e7
+        :pswitch_de
+        :pswitch_d5
+        :pswitch_cc
+        :pswitch_c3
+        :pswitch_ba
+        :pswitch_b1
+        :pswitch_a8
+    .end packed-switch
+
+    :array_10c
+    .array-data 4
+        0x0
+        0x43b40000    # 360.0f
+    .end array-data
+
+    :array_114
+    .array-data 4
+        0x0
+        0x43b40000    # 360.0f
+    .end array-data
+
+    :array_11c
+    .array-data 4
+        0x0
+        0x43b40000    # 360.0f
+    .end array-data
+
+    :array_124
+    .array-data 4
+        0x0
+        -0x3c4c0000    # -360.0f
+    .end array-data
+
+    :array_12c
+    .array-data 4
+        0x0
+        0x3f800000    # 1.0f
+    .end array-data
+
+    :array_134
+    .array-data 4
+        0x0
+        0x3f800000    # 1.0f
+    .end array-data
+
+    :array_13c
+    .array-data 4
+        -0x3db80000    # -50.0f
+        0x0
+    .end array-data
+
+    :array_144
+    .array-data 4
+        0x42480000    # 50.0f
+        0x0
+    .end array-data
+
+    :array_14c
+    .array-data 4
+        -0x3db80000    # -50.0f
+        0x0
+    .end array-data
+
+    :array_154
+    .array-data 4
+        0x42480000    # 50.0f
+        0x0
+    .end array-data
+
+    :array_15c
+    .array-data 4
+        0x0
+        0x3f800000    # 1.0f
+    .end array-data
+.end method
+
+.method private tileClickListener(Lcom/android/systemui/plugins/qs/QSTile;Lcom/android/systemui/plugins/qs/QSTileView;)V
+    .registers 4
+    .param p1, "t"    # Lcom/android/systemui/plugins/qs/QSTile;
+    .param p2, "v"    # Lcom/android/systemui/plugins/qs/QSTileView;
+
+    .line 148
+    iget-object v0, p0, Lcom/android/systemui/qs/QSPanel;->mTileLayout:Lcom/android/systemui/qs/QSPanel$QSTileLayout;
+
+    if-eqz v0, :cond_c
+
+    .line 149
+    new-instance v0, Lcom/android/systemui/qs/QSPanel$TileAnims;
+
+    invoke-direct {v0, p0, p1, p2}, Lcom/android/systemui/qs/QSPanel$TileAnims;-><init>(Lcom/android/systemui/qs/QSPanel;Lcom/android/systemui/plugins/qs/QSTile;Lcom/android/systemui/plugins/qs/QSTileView;)V
+
+    invoke-virtual {p2, v0}, Lcom/android/systemui/plugins/qs/QSTileView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 154
+    :cond_c
+    return-void
+.end method
+
+.method synthetic lambda$tileClickListener$0$com-android-systemui-qs-QSPanel(Lcom/android/systemui/plugins/qs/QSTile;Lcom/android/systemui/plugins/qs/QSTileView;Landroid/view/View;)V
+    .registers 4
+    .param p1, "t"    # Lcom/android/systemui/plugins/qs/QSTile;
+    .param p2, "v"    # Lcom/android/systemui/plugins/qs/QSTileView;
+    .param p3, "view"    # Landroid/view/View;
+
+    .line 150
+    invoke-interface {p1, p3}, Lcom/android/systemui/plugins/qs/QSTile;->click(Landroid/view/View;)V
+
+    .line 151
+    invoke-direct {p0, p2}, Lcom/android/systemui/qs/QSPanel;->setAnimationTile(Lcom/android/systemui/plugins/qs/QSTileView;)V
+
+    .line 152
     return-void
 .end method
