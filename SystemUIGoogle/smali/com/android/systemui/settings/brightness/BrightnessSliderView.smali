@@ -211,6 +211,8 @@
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     :catch_0
+    invoke-virtual {p0}, Lcom/android/systemui/settings/brightness/BrightnessSliderView;->updateQsBrightnessSlider()V
+
     return-void
 .end method
 
@@ -342,5 +344,19 @@
 
     invoke-virtual {p0, p1}, Landroid/widget/SeekBar;->setProgress(I)V
 
+    return-void
+.end method
+
+.method public updateQsBrightnessSlider()V
+    .registers 3
+
+    .line 40
+    iget-object v0, p0, Lcom/android/systemui/settings/brightness/BrightnessSliderView;->mSlider:Lcom/android/systemui/settings/brightness/ToggleSeekBar;
+
+    iget-object v1, p0, Lcom/android/systemui/settings/brightness/BrightnessSliderView;->mProgressDrawable:Landroid/graphics/drawable/Drawable;
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/settings/brightness/ToggleSeekBar;->setSliderHeight(Landroid/graphics/drawable/Drawable;)V
+
+    .line 41
     return-void
 .end method

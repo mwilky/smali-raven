@@ -792,3 +792,15 @@
 
     return-object p0
 .end method
+
+.method public updateQsBrightnessSliderHeight()V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
+
+    check-cast v0, Lcom/android/systemui/qs/QSPanel;
+
+    invoke-virtual {v0}, Lcom/android/systemui/qs/QSPanel;->updateQsBrightnessSliderHeight()V
+
+    return-void
+.end method

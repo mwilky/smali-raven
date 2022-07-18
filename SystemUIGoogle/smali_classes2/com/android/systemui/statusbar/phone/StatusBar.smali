@@ -9758,6 +9758,8 @@
     invoke-static {v0}, Lcom/android/mwilky/Renovate;->setDoubleTapStatusbarSleep(Landroid/content/Context;)V
     
     invoke-static {v0}, Lcom/android/mwilky/Renovate;->setQsAnimationValues(Landroid/content/Context;)V
+    
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setQsBrightnessSliderTweaks(Landroid/content/Context;)V
 
     iget-object v0, v7, Lcom/android/systemui/statusbar/phone/StatusBar;->mScreenLifecycle:Lcom/android/systemui/keyguard/ScreenLifecycle;
 
@@ -12169,7 +12171,23 @@
 
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
     
-    const-string v3, "tweaks_qs_anim_click"
+    const-string v3, "tweaks_qs_brightness_slider_custom"
+
+    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    
+    const-string v3, "tweaks_qs_brightness_progress_corner_radius"
+
+    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    
+    const-string v3, "tweaks_qs_brightness_track_corner_radius"
+
+    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    
+    const-string v3, "tweaks_qs_brightness_slider_progress_height"
+
+    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    
+    const-string v3, "tweaks_qs_brightness_slider_track_height"
 
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
@@ -13486,7 +13504,7 @@
     invoke-static {v0}, Lcom/android/mwilky/Renovate;->setQsAnimationValues(Landroid/content/Context;)V
 
     :cond_mwilky81
-    const-string v0, "tweaks_qs_anim_click"
+    const-string v0, "tweaks_qs_brightness_slider_custom"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -13496,9 +13514,71 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
 
-    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setQsAnimationValues(Landroid/content/Context;)V
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setQsBrightnessSliderTweaks(Landroid/content/Context;)V
+    
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateBrightnessSliderTweaks()V
 
     :cond_mwilky82
+    const-string v0, "tweaks_qs_brightness_progress_corner_radius"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_mwilky83
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setQsBrightnessSliderTweaks(Landroid/content/Context;)V
+    
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateBrightnessSliderTweaks()V
+
+    :cond_mwilky83
+    const-string v0, "tweaks_qs_brightness_slider_progress_height"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_mwilky84
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setQsBrightnessSliderTweaks(Landroid/content/Context;)V
+    
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateBrightnessSliderTweaks()V
+
+    :cond_mwilky84
+    const-string v0, "tweaks_qs_brightness_slider_track_height"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_mwilky85
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setQsBrightnessSliderTweaks(Landroid/content/Context;)V
+    
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateBrightnessSliderTweaks()V
+
+    :cond_mwilky85
+    const-string v0, "tweaks_qs_brightness_track_corner_radius"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_mwilky86
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setQsBrightnessSliderTweaks(Landroid/content/Context;)V
+    
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateBrightnessSliderTweaks()V
+
+    :cond_mwilky86
     return-void
 .end method
 
@@ -14227,6 +14307,20 @@
 
     .line 75
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->onLongPressBrightnessChange()V
+
+    return-void
+.end method
+
+.method updateBrightnessSliderTweaks()V
+	.locals 2
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mQSPanelController:Lcom/android/systemui/qs/QSPanelController;
+
+    invoke-virtual {v0}, Lcom/android/systemui/qs/QSPanelController;->updateQsBrightnessSliderHeight()V
+    
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mQuickQSPanelController:Lcom/android/systemui/qs/QuickQSPanelController;
+
+    invoke-virtual {v0}, Lcom/android/systemui/qs/QuickQSPanelController;->updateQsBrightnessSliderHeight()V
 
     return-void
 .end method

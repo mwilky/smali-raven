@@ -238,176 +238,213 @@
 .end method
 
 .method private animateBrightnessSlider(Lcom/android/systemui/qs/TouchAnimator$Builder;)V
-    .locals 10
+    .registers 15
+    .param p1, "builder"    # Lcom/android/systemui/qs/TouchAnimator$Builder;
 
+    .line 333
     iget-object v0, p0, Lcom/android/systemui/qs/QSAnimator;->mQsPanelController:Lcom/android/systemui/qs/QSPanelController;
 
-    invoke-virtual {v0}, Lcom/android/systemui/qs/QSPanelControllerBase;->getBrightnessView()Landroid/view/View;
+    invoke-virtual {v0}, Lcom/android/systemui/qs/QSPanelController;->getBrightnessView()Landroid/view/View;
 
     move-result-object v0
 
+    .line 334
+    .local v0, "brightnessView":Landroid/view/View;
     iget-object v1, p0, Lcom/android/systemui/qs/QSAnimator;->mQuickQSPanelController:Lcom/android/systemui/qs/QuickQSPanelController;
 
-    invoke-virtual {v1}, Lcom/android/systemui/qs/QSPanelControllerBase;->getBrightnessView()Landroid/view/View;
+    invoke-virtual {v1}, Lcom/android/systemui/qs/QuickQSPanelController;->getBrightnessView()Landroid/view/View;
 
     move-result-object v1
 
-    const-string v2, "sliderScaleY"
+    .line 335
+    .local v1, "brightnessView2":Landroid/view/View;
+    const-string/jumbo v2, "sliderScaleY"
 
     const/4 v3, 0x0
 
-    const/4 v4, 0x1
+    const-string/jumbo v4, "translationY"
 
-    const/4 v5, 0x0
+    const v5, 0x3e99999a    # 0.3f
 
-    const-string v6, "translationY"
+    const/high16 v6, 0x3f800000    # 1.0f
 
-    const/4 v7, 0x2
+    const/4 v7, 0x1
 
-    if-eqz v1, :cond_0
+    const/4 v8, 0x0
+
+    const/4 v9, 0x2
+
+    if-eqz v1, :cond_57
 
     invoke-virtual {v1}, Landroid/view/View;->getVisibility()I
 
-    move-result v8
+    move-result v10
 
-    if-nez v8, :cond_0
+    if-nez v10, :cond_57
 
-    iget-object p1, p0, Lcom/android/systemui/qs/QSAnimator;->mAnimatedQsViews:Ljava/util/ArrayList;
+    .line 336
+    iget-object v10, p0, Lcom/android/systemui/qs/QSAnimator;->mAnimatedQsViews:Ljava/util/ArrayList;
 
-    invoke-virtual {p1, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v10, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    iget-object p1, p0, Lcom/android/systemui/qs/QSAnimator;->mAllViews:Ljava/util/ArrayList;
+    .line 337
+    iget-object v10, p0, Lcom/android/systemui/qs/QSAnimator;->mAllViews:Ljava/util/ArrayList;
 
-    invoke-virtual {p1, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v10, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 338
+    new-instance v10, Lcom/android/systemui/qs/TouchAnimator$Builder;
+
+    invoke-direct {v10}, Lcom/android/systemui/qs/TouchAnimator$Builder;-><init>()V
+
+    new-array v11, v9, [F
+
+    .line 339
+    sget-boolean v12, Lcom/android/mwilky/Renovate;->mQsBrightnessSliderCustom:Z
+
+    if-eqz v12, :cond_39
+
+    move v5, v6
+
+    :cond_39
+    aput v5, v11, v8
+
+    aput v6, v11, v7
+
+    invoke-virtual {v10, v0, v2, v11}, Lcom/android/systemui/qs/TouchAnimator$Builder;->addFloat(Ljava/lang/Object;Ljava/lang/String;[F)Lcom/android/systemui/qs/TouchAnimator$Builder;
+
+    move-result-object v2
+
+    new-array v5, v9, [F
+
+    aput v3, v5, v8
+
+    .line 341
     invoke-direct {p0, v0, v1}, Lcom/android/systemui/qs/QSAnimator;->getRelativeTranslationY(Landroid/view/View;Landroid/view/View;)I
 
-    move-result p1
+    move-result v3
 
-    new-instance v8, Lcom/android/systemui/qs/TouchAnimator$Builder;
+    int-to-float v3, v3
 
-    invoke-direct {v8}, Lcom/android/systemui/qs/TouchAnimator$Builder;-><init>()V
+    aput v3, v5, v7
 
-    new-array v9, v7, [F
+    .line 340
+    invoke-virtual {v2, v1, v4, v5}, Lcom/android/systemui/qs/TouchAnimator$Builder;->addFloat(Ljava/lang/Object;Ljava/lang/String;[F)Lcom/android/systemui/qs/TouchAnimator$Builder;
 
-    fill-array-data v9, :array_0
+    move-result-object v2
 
-    invoke-virtual {v8, v0, v2, v9}, Lcom/android/systemui/qs/TouchAnimator$Builder;->addFloat(Ljava/lang/Object;Ljava/lang/String;[F)Lcom/android/systemui/qs/TouchAnimator$Builder;
+    .line 341
+    invoke-virtual {v2}, Lcom/android/systemui/qs/TouchAnimator$Builder;->build()Lcom/android/systemui/qs/TouchAnimator;
 
-    move-result-object v0
+    move-result-object v2
 
-    new-array v2, v7, [F
+    iput-object v2, p0, Lcom/android/systemui/qs/QSAnimator;->mBrightnessAnimator:Lcom/android/systemui/qs/TouchAnimator;
 
-    aput v3, v2, v5
+    goto :goto_a4
 
-    int-to-float p1, p1
+    .line 342
+    :cond_57
+    if-eqz v0, :cond_a1
 
-    aput p1, v2, v4
+    .line 343
+    new-array v10, v9, [F
 
-    invoke-virtual {v0, v1, v6, v2}, Lcom/android/systemui/qs/TouchAnimator$Builder;->addFloat(Ljava/lang/Object;Ljava/lang/String;[F)Lcom/android/systemui/qs/TouchAnimator$Builder;
-
-    move-result-object p1
-
-    invoke-virtual {p1}, Lcom/android/systemui/qs/TouchAnimator$Builder;->build()Lcom/android/systemui/qs/TouchAnimator;
-
-    move-result-object p1
-
-    iput-object p1, p0, Lcom/android/systemui/qs/QSAnimator;->mBrightnessAnimator:Lcom/android/systemui/qs/TouchAnimator;
-
-    goto :goto_0
-
-    :cond_0
-    if-eqz v0, :cond_1
-
-    new-array v1, v7, [F
-
+    .line 344
     invoke-virtual {v0}, Landroid/view/View;->getMeasuredHeight()I
 
-    move-result v8
+    move-result v11
 
-    int-to-float v8, v8
+    int-to-float v11, v11
 
-    const/high16 v9, 0x3f000000    # 0.5f
+    const/high16 v12, 0x3f000000    # 0.5f
 
-    mul-float/2addr v8, v9
+    mul-float/2addr v11, v12
 
-    aput v8, v1, v5
+    aput v11, v10, v8
 
-    aput v3, v1, v4
+    aput v3, v10, v7
 
-    invoke-virtual {p1, v0, v6, v1}, Lcom/android/systemui/qs/TouchAnimator$Builder;->addFloat(Ljava/lang/Object;Ljava/lang/String;[F)Lcom/android/systemui/qs/TouchAnimator$Builder;
+    .line 343
+    invoke-virtual {p1, v0, v4, v10}, Lcom/android/systemui/qs/TouchAnimator$Builder;->addFloat(Ljava/lang/Object;Ljava/lang/String;[F)Lcom/android/systemui/qs/TouchAnimator$Builder;
 
-    new-instance p1, Lcom/android/systemui/qs/TouchAnimator$Builder;
+    .line 345
+    new-instance v3, Lcom/android/systemui/qs/TouchAnimator$Builder;
 
-    invoke-direct {p1}, Lcom/android/systemui/qs/TouchAnimator$Builder;-><init>()V
+    invoke-direct {v3}, Lcom/android/systemui/qs/TouchAnimator$Builder;-><init>()V
 
-    new-array v1, v7, [F
+    new-array v4, v9, [F
 
-    fill-array-data v1, :array_1
+    fill-array-data v4, :array_a6
 
-    const-string v3, "alpha"
+    .line 346
+    const-string v10, "alpha"
 
-    invoke-virtual {p1, v0, v3, v1}, Lcom/android/systemui/qs/TouchAnimator$Builder;->addFloat(Ljava/lang/Object;Ljava/lang/String;[F)Lcom/android/systemui/qs/TouchAnimator$Builder;
+    invoke-virtual {v3, v0, v10, v4}, Lcom/android/systemui/qs/TouchAnimator$Builder;->addFloat(Ljava/lang/Object;Ljava/lang/String;[F)Lcom/android/systemui/qs/TouchAnimator$Builder;
 
-    move-result-object p1
+    move-result-object v3
 
-    new-array v1, v7, [F
+    new-array v4, v9, [F
 
-    fill-array-data v1, :array_2
+    .line 347
+    sget-boolean v9, Lcom/android/mwilky/Renovate;->mQsBrightnessSliderCustom:Z
 
-    invoke-virtual {p1, v0, v2, v1}, Lcom/android/systemui/qs/TouchAnimator$Builder;->addFloat(Ljava/lang/Object;Ljava/lang/String;[F)Lcom/android/systemui/qs/TouchAnimator$Builder;
+    if-eqz v9, :cond_82
 
-    move-result-object p1
+    move v9, v6
 
-    sget-object v1, Lcom/android/wm/shell/animation/Interpolators;->ALPHA_IN:Landroid/view/animation/Interpolator;
+    goto :goto_83
 
-    invoke-virtual {p1, v1}, Lcom/android/systemui/qs/TouchAnimator$Builder;->setInterpolator(Landroid/view/animation/Interpolator;)Lcom/android/systemui/qs/TouchAnimator$Builder;
+    :cond_82
+    move v9, v5
 
-    move-result-object p1
+    :goto_83
+    aput v9, v4, v8
 
-    const v1, 0x3e99999a    # 0.3f
+    aput v6, v4, v7
 
-    invoke-virtual {p1, v1}, Lcom/android/systemui/qs/TouchAnimator$Builder;->setStartDelay(F)Lcom/android/systemui/qs/TouchAnimator$Builder;
+    invoke-virtual {v3, v0, v2, v4}, Lcom/android/systemui/qs/TouchAnimator$Builder;->addFloat(Ljava/lang/Object;Ljava/lang/String;[F)Lcom/android/systemui/qs/TouchAnimator$Builder;
 
-    move-result-object p1
+    move-result-object v2
 
-    invoke-virtual {p1}, Lcom/android/systemui/qs/TouchAnimator$Builder;->build()Lcom/android/systemui/qs/TouchAnimator;
+    sget-object v3, Lcom/android/systemui/animation/Interpolators;->ALPHA_IN:Landroid/view/animation/Interpolator;
 
-    move-result-object p1
+    .line 348
+    invoke-virtual {v2, v3}, Lcom/android/systemui/qs/TouchAnimator$Builder;->setInterpolator(Landroid/view/animation/Interpolator;)Lcom/android/systemui/qs/TouchAnimator$Builder;
 
-    iput-object p1, p0, Lcom/android/systemui/qs/QSAnimator;->mBrightnessAnimator:Lcom/android/systemui/qs/TouchAnimator;
+    move-result-object v2
 
-    iget-object p0, p0, Lcom/android/systemui/qs/QSAnimator;->mAllViews:Ljava/util/ArrayList;
+    invoke-virtual {v2, v5}, Lcom/android/systemui/qs/TouchAnimator$Builder;->setStartDelay(F)Lcom/android/systemui/qs/TouchAnimator$Builder;
 
-    invoke-virtual {p0, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    move-result-object v2
 
-    goto :goto_0
+    invoke-virtual {v2}, Lcom/android/systemui/qs/TouchAnimator$Builder;->build()Lcom/android/systemui/qs/TouchAnimator;
 
-    :cond_1
-    const/4 p1, 0x0
+    move-result-object v2
 
-    iput-object p1, p0, Lcom/android/systemui/qs/QSAnimator;->mBrightnessAnimator:Lcom/android/systemui/qs/TouchAnimator;
+    iput-object v2, p0, Lcom/android/systemui/qs/QSAnimator;->mBrightnessAnimator:Lcom/android/systemui/qs/TouchAnimator;
 
-    :goto_0
+    .line 349
+    iget-object v2, p0, Lcom/android/systemui/qs/QSAnimator;->mAllViews:Ljava/util/ArrayList;
+
+    invoke-virtual {v2, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto :goto_a4
+
+    .line 351
+    :cond_a1
+    const/4 v2, 0x0
+
+    iput-object v2, p0, Lcom/android/systemui/qs/QSAnimator;->mBrightnessAnimator:Lcom/android/systemui/qs/TouchAnimator;
+
+    .line 353
+    :goto_a4
     return-void
 
     nop
 
-    :array_0
-    .array-data 4
-        0x3e99999a    # 0.3f
-        0x3f800000    # 1.0f
-    .end array-data
-
-    :array_1
+    :array_a6
     .array-data 4
         0x0
-        0x3f800000    # 1.0f
-    .end array-data
-
-    :array_2
-    .array-data 4
-        0x3e99999a    # 0.3f
         0x3f800000    # 1.0f
     .end array-data
 .end method

@@ -382,3 +382,21 @@
     
     return-void
 .end method
+
+.method public updateQsBrightnessSliderHeight()V
+    .registers 2
+
+    .line 53
+    iget-object v0, p0, Lcom/android/systemui/qs/QSPanel;->mBrightnessView:Landroid/view/View;
+    
+    check-cast v0,  Lcom/android/systemui/settings/brightness/BrightnessSliderView;
+
+    if-eqz v0, :cond_7
+
+    .line 54
+    invoke-virtual {v0}, Lcom/android/systemui/settings/brightness/BrightnessSliderView;->updateQsBrightnessSlider()V
+
+    .line 56
+    :cond_7
+    return-void
+.end method
