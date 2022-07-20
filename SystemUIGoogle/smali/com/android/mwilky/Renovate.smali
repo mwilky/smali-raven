@@ -1055,7 +1055,7 @@
     sput v1, Lcom/android/mwilky/Renovate;->mQsBrightnessSliderTrackCornerRadius:I
 
     .line 510
-    const/16 v1, 0x14
+    const/16 v1, 0x3c
 
     const-string/jumbo v2, "tweaks_qs_brightness_slider_progress_height"
 
